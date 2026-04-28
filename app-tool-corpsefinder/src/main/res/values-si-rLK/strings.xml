@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">පරිමිත යෙදුම් සථාපන දත්ත, උදා. සුරක්ෂිත තිසර පක්ෂ යෙදුම්.</string>
     <string name="corpsefinder_filter_appasec_label">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්</string>
     <string name="corpsefinder_filter_appasec_summary">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්, උදා. ගෙම් ඉඛින්.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd mods අරහා බැහිර ආචයනයට හැරී දත්ත.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d යෙදුම් අවශේෂයක් මකා දමන ලදී</item>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">ਸੈਸ਼ਨ ਜਾਰੀ ਰੱਖੋ</string>
     <string name="swiper_sessions_description">3 ਸਧਾਰਨ ਕਦਮਾਂ ਵਿੱਚ ਫਾਈਲਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ:\n\n1. ਸਕੈਨ ਕਰਨ ਲਈ ਫੋਲਡਰ ਚੁਣੋ\n2. ਰੱਖਣ, ਮਿਟਾਉਣ ਜਾਂ ਛੱਡਣ ਲਈ ਫਾਈਲਾਂ ਸਵਾਈਪ ਕਰੋ\n3. ਆਪਣੀਆਂ ਚੋਣਾਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ ਅਤੇ ਪੁਸ਼ਟੀ ਕਰੋ\n\nਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਅੰਤਿਮ ਮਿਟਾਉਣ ਬਟਨ \'ਤੇ ਟੈਪ ਨਹੀਂ ਕਰਦੇ ਕੁਝ ਵੀ ਹਟਾਇਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
     <string name="swiper_select_folders_action">ਫੋਲਡਰ ਚੁਣੋ</string>
-    <string name="swiper_scanning_title">ਸਕੈਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ਆਈਟਮ ਮਿਲੀ</item>
         <item quantity="other">%d ਆਈਟਮਾਂ ਮਿਲੀਆਂ</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">ਸਵਾਈਪਰ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ</string>
     <string name="swiper_help_message">ਫੈਸਲਾ ਲੈਣ ਲਈ ਹਰ ਫਾਈਲ ਸਵਾਈਪ ਕਰੋ:\n\n← ਖੱਬੇ ਸਵਾਈਪ: %1$s\n→ ਸੱਜੇ ਸਵਾਈਪ: %2$s\n↑ ਉੱਪਰ ਸਵਾਈਪ: ਛੱਡੋ\n↓ ਹੇਠਾਂ ਸਵਾਈਪ: ਵਾਪਸ (ਪਹਿਲੇ ਸਵਾਈਪ ਤੋਂ ਬਾਅਦ)\n\nਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ ਵੀ ਵਰਤ ਸਕਦੇ ਹੋ।\n\nਜਦੋਂ ਤੁਸੀਂ ਮੁਕੰਮਲ ਕਰ ਲਵੋ, ਆਪਣੇ ਸਾਰੇ ਫੈਸਲੇ ਦੇਖਣ ਲਈ \"ਸਮੀਖਿਆ\" \'ਤੇ ਟੈਪ ਕਰੋ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਸਮੀਖਿਆ ਸਕ੍ਰੀਨ \'ਤੇ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰਦੇ ਕੁਝ ਵੀ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
     <string name="swiper_gesture_overlay_dismiss_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
-    <string name="swiper_help_action">ਮਦਦ</string>
     <string name="swiper_file_type_filter_title">ਸਿਰਫ਼ ਇਹ ਫ਼ਾਈਲ ਕਿਸਮਾਂ ਦਿਖਾਓ</string>
     <string name="swiper_file_type_filter_hint">ਉਹ ਕਿਸਮਾਂ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਦੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ। ਜੇ ਕੋਈ ਨਹੀਂ ਚੁਣੀ, ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਿਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
     <string name="swiper_file_type_category_images">ਤਸਵੀਰਾਂ</string>

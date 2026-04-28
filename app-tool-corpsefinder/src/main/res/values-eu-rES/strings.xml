@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Mugatutako aplikazio-instalazio datuak, adibidez, babestutako hirugarrenen aplikazioak.</string>
     <string name="corpsefinder_filter_appasec_label">Aplikazioaren baliabide enkriptatuak</string>
     <string name="corpsefinder_filter_appasec_summary">Aplikazioaren baliabide enkriptatuak, adibidez, joko-aktiboak.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd modek kanpoko biltegiratzeara mugitutako datuak.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d aplikazio-hondarra ezabatu da</item>

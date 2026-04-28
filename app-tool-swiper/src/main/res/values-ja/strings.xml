@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">セッションを続行</string>
     <string name="swiper_sessions_description">3つの簡単なステップでファイルを確認:\n\n1. スキャンするフォルダを選択\n2. ファイルをスワイプして保持、削除、スキップ\n3. 選択内容を確認して承認\n\n最終的な削除ボタンをタップするまで何も削除されません。</string>
     <string name="swiper_select_folders_action">フォルダを選択</string>
-    <string name="swiper_scanning_title">スキャン中…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d 個のアイテムが見つかりました</item>
     </plurals>
@@ -122,7 +121,6 @@
     <string name="swiper_help_title">Swiperの使い方</string>
     <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
     <string name="swiper_gesture_overlay_dismiss_action">わかりました。</string>
-    <string name="swiper_help_action">ヘルプ</string>
     <string name="swiper_file_type_filter_title">これらのファイルタイプのみ表示</string>
     <string name="swiper_file_type_filter_hint">表示したいタイプを選択してください。何も選択されていない場合、すべてのファイルが表示されます。</string>
     <string name="swiper_file_type_category_images">画像</string>

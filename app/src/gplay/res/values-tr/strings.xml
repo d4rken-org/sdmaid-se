@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play\'e bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.</string>
     <string name="upgrades_gplay_already_owned_error_title">Zaten satın alındı</string>
     <string name="upgrades_gplay_already_owned_error_description">Satın alma işleminizi geri yüklemek için \"Satın almayı geri yükle\" seçeneğini kullanın. Sorun devam ederse, Google Play önbelleğini temizlemeyi ve cihazınızı yeniden başlatmayı deneyin.</string>
-    <string name="upgrades_no_purchases_found_check_account">Satın alma bulunamadı. Doğru hesabı mı kullanıyorsunuz?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro\'yu edinin</string>
     <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Çalışmalarım sizler tarafından finanse edilmektedir ❤️.</string>
     <string name="upgrade_screen_benefits_title">Avantajlar</string>

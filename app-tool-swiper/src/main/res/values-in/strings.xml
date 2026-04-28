@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Lanjutkan sesi</string>
     <string name="swiper_sessions_description">Tinjau file dalam 3 langkah sederhana:\n\n1. Pilih folder untuk dipindai\n2. Geser file untuk menyimpan, menghapus, atau melewati\n3. Tinjau pilihan Anda dan konfirmasi\n\nTidak ada yang dihapus sampai Anda menekan tombol hapus terakhir.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
-    <string name="swiper_scanning_title">Memindai…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d item ditemukan</item>
     </plurals>
@@ -122,7 +121,6 @@
     <string name="swiper_help_title">Cara kerja Pemilah</string>
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
-    <string name="swiper_help_action">Bantuan</string>
     <string name="swiper_file_type_filter_title">Hanya tampilkan tipe file ini</string>
     <string name="swiper_file_type_filter_hint">Centang tipe yang ingin Anda lihat. Jika tidak ada yang dicentang, semua file ditampilkan.</string>
     <string name="swiper_file_type_category_images">Gambar</string>

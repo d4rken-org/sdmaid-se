@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
     <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
-    <string name="appcleaner_automation_loading">Automatizálás előkészítése akadálymentesítési szolgáltatáson keresztül</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Egyéb felhasználók bevonása</string>
-    <string name="appcleaner_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
 </resources>

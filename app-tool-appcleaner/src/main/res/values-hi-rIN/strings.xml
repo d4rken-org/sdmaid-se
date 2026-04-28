@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">साफ़ करने से पहले बलपूर्वक रोकें</string>
     <string name="appcleaner_forcestop_before_clearing_summary">कैश साफ़ करने से पहले ऐप्स को बलपूर्वक रोकें। यह कुछ ऐप्स का कैश साफ़ करने में मदद कर सकता है, लेकिन ऐप्स में समस्या हो सकती है और मैन्युअल पुनः आरंभ की आवश्यकता हो सकती है।</string>
     <string name="appcleaner_progress_force_stopping">ऐप्स बलपूर्वक रोके जा रहे हैं…</string>
-    <string name="appcleaner_automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
-    <string name="appcleaner_automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
-    <string name="appcleaner_automation_loading">अभिगम्यता सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">पिछली क्रिया की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
-    <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
-    <string name="appcleaner_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>
 </resources>

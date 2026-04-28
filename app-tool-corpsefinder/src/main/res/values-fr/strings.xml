@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Données restreintes d\'installation des applis , p. ex. les applis tierces protégées.</string>
     <string name="corpsefinder_filter_appasec_label">Ressources chiffrées d’applis</string>
     <string name="corpsefinder_filter_appasec_summary">Ressources chiffrées d’applis, p. ex. des éléments de jeu.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Données déplacées vers la mémoire externe par les mods App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d résidu d’appli a été supprimé</item>

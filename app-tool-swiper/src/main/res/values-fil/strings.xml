@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Ipagpatuloy ang session</string>
     <string name="swiper_sessions_description">Suriin ang mga file sa 3 simpleng hakbang:\n\n1. Pumili ng folder na i-scan\n2. Mag-swipe ng mga file para itabi, burahin, o laktawan\n3. Suriin ang mga pagpapasya at kumpirmahin\n\nWalang maaalis hanggang hindi mo na-tap ang huling delete button.</string>
     <string name="swiper_select_folders_action">Pumili ng mga folder</string>
-    <string name="swiper_scanning_title">Nag-i-scan…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d item na nahanap</item>
         <item quantity="other">%d mga item na nahanap</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Paano gumagana ang Swiper</string>
     <string name="swiper_help_message">I-swipe ang bawat file para gumawa ng desisyon:\n\n← I-swipe pakaliwa: %1$s\n→ I-swipe pakanan: %2$s\n↑ I-swipe pataas: Laktawan\n↓ I-swipe pababa: I-undo (pagkatapos ng unang swipe)\n\nMaaari ka ring gumamit ng mga button sa ibaba.\n\nKapag tapos ka na, i-tap ang \"Suriin\" para makita ang lahat ng iyong desisyon. Walang nabubura hanggang hindi mo kinukumpirma sa review screen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Kuha ko</string>
-    <string name="swiper_help_action">Tulong</string>
     <string name="swiper_file_type_filter_title">Ipakita lamang ang mga uri ng file na ito</string>
     <string name="swiper_file_type_filter_hint">Suriin ang mga uri na nais mong makita. Kung wala ang namarkahan, lahat ng mga file ay ipinapakita.</string>
     <string name="swiper_file_type_category_images">Mga Larawan</string>

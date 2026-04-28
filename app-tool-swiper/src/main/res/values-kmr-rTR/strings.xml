@@ -9,7 +9,6 @@
     <string name="swiper_start_action">Dest bi şûrînê bikin</string>
     <string name="swiper_continue_action">Danişînê bidomînin</string>
     <string name="swiper_select_folders_action">Peldankan hilbijêrin</string>
-    <string name="swiper_scanning_title">Dişopîne…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d tişt hat dîtin</item>
         <item quantity="other">%d tişt hatin dîtin</item>

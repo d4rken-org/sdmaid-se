@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Qeydi dayandır</string>
     <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (yəni fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
     <string name="debug_debuglog_screen_title">Sazlama qeydi</string>
-    <string name="debug_debuglog_screen_discard_action">İmtina et</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiya yolu</string>
     <string name="debug_debuglog_screen_log_files_label">Qeyd faylları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Davam et</string>
     <string name="onboarding_privacy_title">Gizlilik</string>
     <string name="onboarding_privacy_body1">SD Maid-də reklamlar yoxdur və istifadəçi məlumatlarını satmır.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Xəta hesabatları xətalar baş verdikdə göndərilir və buraya cihazınızdakı tətbiq və fayllar barədə detallar aid ola bilər.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Avtomatik xəta hesabatlarına icazə ver</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu seçimlər tənzimləmələrdə dəyişdirilə bilər.</string>
-    <string name="onboarding_privacy_continue_action">Davam edin</string>
     <string name="onboarding_setup_title">Quraşdır</string>
     <string name="onboarding_setup_body1">SD Maid bütün əlçatan məlumat sahələrinində axtarış edəcəkdir.</string>
     <string name="onboarding_setup_body2">Nəyə daxil olmaq mümkün olduğu cihazınıza, Android versiyanıza və verilən icazələrə bağlıdır.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Quraşdırma tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha yaxşı nəticələr əldə etmək üçün SD Maid-in quraşdırılmasını tamamlayın.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid, quraşdırma problemlərini həll etməyə çalışır.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ləğv et</string>
     <string name="setup_incomplete_card_continue_action">Quraşdırma davam et</string>
     <string name="setup_forcedshow_summary">Quraşdırma ekranını artıq tamamlanmış elementlərlə birlikdə yenidən göstər.</string>
     <string name="setup_checking_card_body">Funksionallığın və quraşdırmanın tamamlanmasının təsdiqlənməsi.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_mode_label">Araşdırma rejimi</string>
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
-    <string name="debug_bugreporter_label">Avtomatik xəta hesabatı</string>
-    <string name="debug_bugreporter_summary">Problemləri avtomatik bildirir, məsələn, tətbiq çökmələri haqqında təfərrüatları, beləliklə səbəbini anlaya və düzəldə bilərəm.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
     <string name="debug_card_trace_mode_label">İzləmə rejimini aktivləşdir</string>

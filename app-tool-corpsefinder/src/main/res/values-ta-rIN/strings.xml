@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">கட்டுப்படுத்தப்பட்ட பயன்பாட்டு நிறுவல் தரவு, எ.கா. பாதுகாக்கப்பட்ட மூன்றாம் தரப்பு பயன்பாடுகள்.</string>
     <string name="corpsefinder_filter_appasec_label">மறைகுறியிடப்பட்ட பயன்பாட்டு வளங்கள்</string>
     <string name="corpsefinder_filter_appasec_summary">மறைகுறியிடப்பட்ட பயன்பாட்டு வளங்கள், எ.கா. விளையாட்டு சொத்துகள்.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd மாற்றங்களால் வெளி சேமிப்பகத்திற்கு நகர்த்தப்பட்ட தரவு.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d பயன்பாட்டு மிச்சம் நீக்கப்பட்டது</item>

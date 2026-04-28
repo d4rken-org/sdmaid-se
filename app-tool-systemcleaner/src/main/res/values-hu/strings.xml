@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Találatok szűrése fájlkor alapján (utolsó módosítás ideje). Hagyd üresen a bármely korhoz való illeszkedéshez.</string>
     <string name="systemcleaner_customfilter_import_action">Új szűrő importálása</string>
     <string name="systemcleaner_customfilter_export_action">Kiválasztott szűrő exportálása</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Nem mentett változtatásaid vannak!</string>
 </resources>

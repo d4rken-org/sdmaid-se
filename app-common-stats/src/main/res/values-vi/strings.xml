@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">%s mục đã được xử lý kể từ khi bạn cài SD Maid vào thiết bị của mình.</item>
     </plurals>
-    <string name="stats_report_status_success">Thành công</string>
     <string name="stats_report_status_partial_success">Thành công một phần</string>
     <string name="stats_report_status_partial_failure">Thất bại</string>
     <string name="stats_settings_desc">Định cấu hình số liệu thống kê, báo cáo và lưu giữ dữ liệu của SD Maid.</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">Số ngày trước khi xóa báo cáo vận hành SD Maid cơ bản.</string>
     <string name="stats_settings_retention_paths_label">Thông tin đường dẫn chi tiết</string>
     <string name="stats_settings_retention_paths_desc">Số ngày lưu giữ thông tin chi tiết về các đường dẫn bị ảnh hưởng bởi SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d ngày</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Đặt lại tất cả</string>
     <string name="stats_settings_reset_all_desc">Xóa tất cả các báo cáo và đặt tất cả số liệu thống kê về 0.</string>
     <string name="stats_affected_paths_label">Đường dẫn bị ảnh hưởng</string>

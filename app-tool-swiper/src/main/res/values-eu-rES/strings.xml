@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jarraitu saioa</string>
     <string name="swiper_sessions_description">Berrikusi fitxategiak 3 urrats sinpleetan:\n\n1. Hautatu eskaneatzeko karpeta\n2. Irrist egin fitxategiak gorde, ezabatu edo saltatzeko\n3. Berrikusi aukerak eta baieztatu\n\nEzer ez da ezabatzen azken ezabatze-botoia sakatu arte.</string>
     <string name="swiper_select_folders_action">Hautatu karpetak</string>
-    <string name="swiper_scanning_title">Eskanatzen…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elementu aurkitu da</item>
         <item quantity="other">%d elementu aurkitu dira</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper nola funtzionatzen duen</string>
     <string name="swiper_help_message">Irristatu fitxategi bakoitza erabaki bat hartzeko:\n\n← Irristatu ezkerrera: %1$s\n→ Irristatu eskuinera: %2$s\n↑ Irristatu gora: Saltatu\n↓ Irristatu behera: Desegin (lehen irristadaren ondoren)\n\nBeheko botoiak ere erabil ditzakezu.\n\nBukatutakoan, sakatu \"Berrikusi\" zure erabaki guztiak ikusteko. Ezer ez da ezabatuko berrikusketa pantailan baieztatu arte.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ulertuta</string>
-    <string name="swiper_help_action">Laguntza</string>
     <string name="swiper_file_type_filter_title">Erakutsi fitxategi mota hauek soilik</string>
     <string name="swiper_file_type_filter_hint">Hautatu ikusi nahi dituzun motak. Bat ere hautatzen ez bada, fitxategi guztiak erakutsiko dira.</string>
     <string name="swiper_file_type_category_images">Irudiak</string>

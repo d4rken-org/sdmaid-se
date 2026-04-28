@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Pokračovat v relaci</string>
     <string name="swiper_sessions_description">Prohlédněte si soubory ve 3 jednoduchých krocích:\n\n1. Vyberte složku, kterou chcete prohledat\n2. Procházejte soubory a rozhodněte se, které chcete ponechat, smazat nebo přeskočit\n3. Zkontrolujte své volby a potvrďte\n\nNic nebude smazáno, dokud nekliknete na tlačítko pro definitivní smazání.</string>
     <string name="swiper_select_folders_action">Vybrat složku</string>
-    <string name="swiper_scanning_title">Skenování…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d položka nalezena</item>
         <item quantity="few">%d položky nalezeny</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">Jak funguje Swiper</string>
     <string name="swiper_help_message">Přejeďte prstem po každém souboru a rozhodněte se:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zrušit (po prvním přejetí)\n\nMůžete také použít tlačítka v dolní části.\n\nAž budete hotovi, klepněte na \"Posoudit\" a zobrazte všechna svá rozhodnutí. Nic se nesmaže, dokud nepotvrdíte na obrazovce s přehledem.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
-    <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_file_type_filter_title">Zobrazit pouze tyto typy souborů</string>
     <string name="swiper_file_type_filter_hint">Zaškrtněte typy, které chcete zobrazit. Pokud není zaškrtnuto nic, zobrazí se všechny soubory.</string>
     <string name="swiper_file_type_category_images">Obrázky</string>

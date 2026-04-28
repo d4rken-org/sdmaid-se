@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
     <string name="appcontrol_include_multiuser_label">כלול משתמשים אחרים</string>
-    <string name="appcontrol_include_multiuser_summary">כלול אפליקציות מפרופילי משתמש אחרים במכשיר זה.</string>
 </resources>

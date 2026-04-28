@@ -8,7 +8,6 @@
         <item quantity="one">%s élément a été traité depuis que vous avez installé SD Maid sur votre appareil.</item>
         <item quantity="other">%s éléments ont été traités depuis que vous avez installé SD Maid sur votre appareil.</item>
     </plurals>
-    <string name="stats_report_status_success">Réussite</string>
     <string name="stats_report_status_partial_success">Réussite partielle</string>
     <string name="stats_report_status_partial_failure">Échec</string>
     <string name="stats_settings_desc">Configurez les statistiques, les relevés et la conservation des données de SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Nombre de jours avant suppression des relevés d’opération de base de SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Renseignements détaillés sur les chemins d’accès</string>
     <string name="stats_settings_retention_paths_desc">Nombre de jours de conservation des renseignements détaillés sur les chemins affectés par SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d jour</item>
-        <item quantity="other">%d jours</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Tout réinitialiser</string>
     <string name="stats_settings_reset_all_desc">Supprimer tous les relevés et mettre toutes les statistiques à zéro.</string>
     <string name="stats_affected_paths_label">Chemins affectés</string>

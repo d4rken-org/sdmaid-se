@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
     <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Ekki er hægt að hreinsa skyndiminni í gegnum aðgengisþJónustu. Útiloka það til að flyðja fyrir hreinsun skyndiminnis.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
-    <string name="appcleaner_automation_loading">Undirbýr sjálfvirkni í gegnum aðgengisþjónustu</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (leitarorð: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Hafa með aðra notendur</string>
-    <string name="appcleaner_include_multiuser_summary">Hafa með forrit frá öðrum notendaprófílum í þessum tæki.</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">繼續工作階段</string>
     <string name="swiper_sessions_description">3 個簡單步驟檢視檔案：\n\n1. 選擇要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢視你的選擇並確認\n\n在你點擊最終刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_select_folders_action">選擇資料夾</string>
-    <string name="swiper_scanning_title">掃描中…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">找到 %d 個項目</item>
     </plurals>
@@ -122,7 +121,6 @@
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑動每個檔案作出決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（首次滑動後）\n\n你也可以使用底部的按鈕。\n\n完成後，輕觸「檢視」查看所有決定。在確認畫面上確認之前，不會刪除任何內容。</string>
     <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
-    <string name="swiper_help_action">說明</string>
     <string name="swiper_file_type_filter_title">只顯示這些檔案類型</string>
     <string name="swiper_file_type_filter_hint">勾選您想查看的類型。如果未勾選任何類型，則顯示所有檔案。</string>
     <string name="swiper_file_type_category_images">圖片</string>

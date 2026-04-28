@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Dữ liệu cài đặt ứng dụng bị hạn chế, ví dụ: các ứng dụng của bên thứ ba được bảo vệ.</string>
     <string name="corpsefinder_filter_appasec_label">Tài nguyên ứng dụng được mã hóa</string>
     <string name="corpsefinder_filter_appasec_summary">Tài nguyên ứng dụng được mã hóa, ví dụ: tài nguyên trò chơi.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Dữ liệu được chuyển sang bộ nhớ ngoài bằng chế độ App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d phần còn lại của ứng dụng đã bị xóa</item>

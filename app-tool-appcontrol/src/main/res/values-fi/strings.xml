@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
     <string name="appcontrol_include_multiuser_label">Sisällytä muut käyttäjät</string>
-    <string name="appcontrol_include_multiuser_summary">Sisällytä sovellukset muista tämän laitteen käyttäjäprofiileista.</string>
 </resources>

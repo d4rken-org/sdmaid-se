@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">보호된 서드파티 앱과 같은 개인적인 앱 설치 데이터입니다.</string>
     <string name="corpsefinder_filter_appasec_label">암호화된 앱 리소스</string>
     <string name="corpsefinder_filter_appasec_summary">게임 애셋과 같은 앱 리소스 중 암호화된 것들입니다.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd mods에 의해 데이터를 외부 저장 공간으로 옮겼습니다.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d개의 앱 잔해를 삭제했습니다</item>

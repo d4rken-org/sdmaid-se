@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Hadkan padanan berdasarkan umur fail (masa pengubahsuaian terakhir). Biarkan tidak ditetapkan untuk memadankan sebarang umur.</string>
     <string name="systemcleaner_customfilter_import_action">Import penapis tersuai</string>
     <string name="systemcleaner_customfilter_export_action">Eksport penapis tersuai</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Anda mempunyai perubahan yang tidak disimpan!</string>
 </resources>

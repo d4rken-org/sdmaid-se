@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">کۆمەڵە AppControl بەکاربهێنە بۆ دروستکردنی پاڵاوتنی بەرنامە.</string>
     <string name="exclusion_create_path_hint">کۆمەڵە StorageAnalyzer بەکاربهێنە بۆ دروستکردنی پاڵاوتنی ڕێ.</string>
     <string name="exclusion_show_defaults_action">نیشاندان defaults</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">گۆڕانکارییە پاشەکەوت نەکراوەکانت هەن!</string>
 </resources>

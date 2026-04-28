@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Ndalim me forcë para pastrimit</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Ndaloni me forcë aplikacionet para se të pastroni memorien e fshehur. Kjo mund të ndihmojë në pastrimin e memorive të fshehura të disa aplikacioneve, por mund të shkaktojë keqfunksionim të aplikacioneve dhe të kërkojë rinisje manuale.</string>
     <string name="appcleaner_progress_force_stopping">Po ndalohen me forcë aplikacionet…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
-    <string name="appcleaner_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Përfshini përdorues të tjerë</string>
-    <string name="appcleaner_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
 </resources>

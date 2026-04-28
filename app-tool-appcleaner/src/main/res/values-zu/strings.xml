@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Misa ngamandla ngaphambi kokusula</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Misa ngamandla izinhlelo zokusebenza ngaphambi kokusula i-cache yazo. Kungasiza ukusula i-cache yezinye izinhlelo, kodwa kungabangela ukuthi izinhlelo zingasebenzi kahle futhi zidinge ukuqalwa kabusha ngezandla.</string>
     <string name="appcleaner_progress_force_stopping">Kumisa ngamandla izinhlelo zokusebenza…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Le nhlelo yesistimu ayinaso isikrini sezilungiselelo. Ukusula i-cache ngensiza yokufinyelela akukwazeki. Yikhiphe ukuze usheshise ukusula i-cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Isikrini sezilungiselelo asitholakali</string>
-    <string name="appcleaner_automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagatsha angukhiye: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Faka abasebenzisi abanye</string>
-    <string name="appcleaner_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
 </resources>

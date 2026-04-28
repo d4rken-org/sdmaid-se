@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Looge rakenduste erandeid rakenduse kontrolliga.</string>
     <string name="exclusion_create_path_hint">Looge asukoha erandeid hoiustamisruumi analüüsijaga.</string>
     <string name="exclusion_show_defaults_action">Näita tavaseadeid</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
 </resources>

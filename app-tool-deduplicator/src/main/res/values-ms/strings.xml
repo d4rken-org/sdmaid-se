@@ -11,9 +11,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Tunjukkan pilihan yang membolehkan anda memadam semua fail dalam set pendua supaya tiada fail yang tinggal.</string>
     <string name="deduplicator_search_locations_title">Lokasi carian</string>
     <string name="deduplicator_search_locations_all_summary">Semua kawasan yang boleh diakses</string>
-    <string name="deduplicator_keep_prefer_paths_title">Keutamaan penyimpanan dalam</string>
     <string name="deduplicator_keep_prefer_paths_summary">Apabila menentukan pendua mana yang disimpan, utamakan fail di lokasi ini.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Tiada lokasi dikonfigurasi</string>
     <string name="deduplicator_skip_minsize_title">Saiz minimum</string>
     <string name="deduplicator_skip_minsize_description">Langkau fail yang kurang daripada saiz minimum.</string>
     <string name="deduplicator_skip_uncommon_title">Langkau jenis fail yang jarang</string>

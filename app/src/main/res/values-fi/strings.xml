@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Lopeta tallennus</string>
     <string name="debug_debuglog_sensitive_information_message">Luotu tiedosto sisältää arkaluontoista tietoa (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa.</string>
     <string name="debug_debuglog_screen_title">Virheenkorjausloki</string>
-    <string name="debug_debuglog_screen_discard_action">Hylkää</string>
     <string name="debug_debuglog_screen_session_path_label">Istunnon Polku</string>
     <string name="debug_debuglog_screen_log_files_label">Loki Tiedostot</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Jatka</string>
     <string name="onboarding_privacy_title">Yksityisyys</string>
     <string name="onboarding_privacy_body1">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Virheraportit lähetetään kun virheitä ilmenee ja ne voivat sisältää tietoja laitteesi sovelluksista ja tiedostoista. Raportit auttavat minua korjaamaan virheitä ja parantamaan sovellusta.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Salli automaattiset virheraportit</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Nämä asetukset voidaan muuttaa asetuksissa.</string>
-    <string name="onboarding_privacy_continue_action">Jatka</string>
     <string name="onboarding_setup_title">Asennus</string>
     <string name="onboarding_setup_body1">SD Maid etsii kaikkia käytettävissä olevia tietoalueita.</string>
     <string name="onboarding_setup_body2">Se mikä on käytettävissä riippuu laitteestasi, Android-versiosta ja myönnetyistä käyttöoikeuksista.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Asennus on keskeneräinen</string>
     <string name="setup_incomplete_card_body">Viimeistele SD Maidin asennus parempien tulosten saamiseksi.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid yrittää korjata asennusongelmia.</string>
-    <string name="setup_incomplete_card_dismiss_action">Hylkää</string>
     <string name="setup_incomplete_card_continue_action">Jatka asennusta</string>
     <string name="setup_forcedshow_summary">Näytä asennusnäyttö uudelleen, mukaan lukien jo valmistuneet kohteet.</string>
     <string name="setup_checking_card_body">Varmistetaan asennuksen valmistuminen ja toimivuus.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Lataa tietoalueet uudelleen</string>
     <string name="debug_mode_label">Virheenkorjaustila</string>
     <string name="debug_mode_explanation">Ota käyttöön testiasetukset ja yksityiskohtaisempi tuloste. Sovellus toimii hitaammin ja käyttäytyy eri tavalla.</string>
-    <string name="debug_bugreporter_label">Automaattiset virheraportit</string>
-    <string name="debug_bugreporter_summary">Raportoi automaattisesti ongelmista, esim. tiedot sovelluksen kaatumisista, jotta voin selvittää miksi ja korjata sen.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Virheenkorjaustila on käytössä</string>
     <string name="debug_card_trace_mode_label">Ota jäljitystila käyttöön</string>

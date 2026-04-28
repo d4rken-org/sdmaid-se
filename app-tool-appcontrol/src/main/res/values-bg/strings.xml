@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
     <string name="appcontrol_include_multiuser_label">Включи други потребители</string>
-    <string name="appcontrol_include_multiuser_summary">Включи приложенията от другите потребителски профили на това устройство.</string>
 </resources>

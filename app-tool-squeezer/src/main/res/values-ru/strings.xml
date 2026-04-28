@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Подтвердите сжатие</string>
     <string name="squeezer_preview_total_size">Общий размер</string>
     <string name="squeezer_preview_estimated_savings">Предполагаемая экономия</string>
-    <string name="squeezer_compress_confirmation_title">Сжать изображения?</string>
-    <string name="squeezer_compress_confirmation_message">Оригинальные изображения будут заменены сжатыми версиями. Это действие не может быть отменено.</string>
     <string name="squeezer_history_title">История сжатия</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d элем. (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">По крайней мере %d дн.</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Приблизительно ~%d%% экономия для JPEG-файлов</string>
-    <string name="squeezer_onboarding_got_it">Понятно</string>
 </resources>

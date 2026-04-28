@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">轻触查看更多选项</string>
     <string name="general_upgrade_action">升级</string>
     <string name="general_donate_action">捐赠</string>
-    <string name="general_check_action">检查</string>
-    <string name="general_filter_action">过滤器</string>
     <string name="general_internal_not_available_msg">无网络连接</string>
     <string name="general_refresh_action">刷新</string>
     <string name="general_progress_searching">正在搜索</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">按标签排序</string>
     <string name="general_tag_system">系统</string>
     <string name="general_result_success_message">操作成功</string>
-    <string name="general_result_failure_message">操作失败</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已释放 %s 空间。</item>
     </plurals>
@@ -105,7 +102,6 @@
         <item quantity="other">已移除 %d 个项目</item>
     </plurals>
     <string name="general_root_required_label">需要 Root</string>
-    <string name="general_root_required_message">需要设备具有 Root 权限</string>
     <string name="general_search_action">搜索</string>
     <string name="general_scan_device_action">扫描设备</string>
     <string name="general_open_system_settings_action">打开系统设置</string>

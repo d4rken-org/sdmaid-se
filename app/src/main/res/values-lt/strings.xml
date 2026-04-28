@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Sustabdyti įrašymą</string>
     <string name="debug_debuglog_sensitive_information_message">Sukurtame faile yra neskelbtinos informacijos (pvz., failų pavadinimai ir įdiegtos programos). Dalinkitės juo tik su patikimomis šalimis.</string>
     <string name="debug_debuglog_screen_title">Derinimo žurnalas</string>
-    <string name="debug_debuglog_screen_discard_action">Atmesti</string>
     <string name="debug_debuglog_screen_session_path_label">Sesijos kelias</string>
     <string name="debug_debuglog_screen_log_files_label">Žurnalo failai</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -74,10 +73,6 @@
     <string name="onboarding_versus_continue_action">Tęsti</string>
     <string name="onboarding_privacy_title">Privatumas</string>
     <string name="onboarding_privacy_body1">SD Maid neturi reklamų ir neparduoda naudotojų duomenų.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Klaidų ataskaitos siunčiamos įvykus klaidoms, jose gali būti pateikiama išsami informacija apie jūsų prietaise esančias programas ir failus. Pranešimai padeda ištaisyti klaidas ir tobulinti programėlę.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Leisti automatiškai teikti pranešimus apie klaidas</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Šias parinktis galima pakeisti nustatymuose.</string>
-    <string name="onboarding_privacy_continue_action">Tęsti</string>
     <string name="onboarding_setup_title">Nustatymai</string>
     <string name="onboarding_setup_body1">SD Maid atliks paiešką visose prieinamose duomenų srityse.</string>
     <string name="onboarding_setup_body2">Tai, kas pasiekiama, priklauso nuo jūsų prietaiso, Android versijos ir suteiktų leidimų.</string>
@@ -172,7 +167,6 @@
     <string name="setup_incomplete_card_title">Sąranka nebaigta</string>
     <string name="setup_incomplete_card_body">Baigti SD Maid\'s nustatymus, kad pasiektumėte geresnių rezultatų.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid bando išspręsti sąrankos problemas.</string>
-    <string name="setup_incomplete_card_dismiss_action">Atmesti</string>
     <string name="setup_incomplete_card_continue_action">Tęsti sąranką</string>
     <string name="setup_forcedshow_summary">Dar kartą parodykite sąrankos ekraną, įskaitant jau atliktus elementus.</string>
     <string name="setup_checking_card_body">Tikrinamas sąrankos užbaigimas ir funkcionalumas.</string>
@@ -235,8 +229,6 @@
     <string name="dataarea_warningcard_reload_action">Duomenų sričių perkrovimas</string>
     <string name="debug_mode_label">Derinimo režimas</string>
     <string name="debug_mode_explanation">Įgalinkite testavimo parinktis ir daugiau verbalinės išvesties. Programėlė veiks lėčiau ir veiks kitaip.</string>
-    <string name="debug_bugreporter_label">Automatiniai klaidų pranešimai</string>
-    <string name="debug_bugreporter_summary">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos gedimus, kad galėčiau išsiaiškinti priežastis ir jas ištaisyti.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Derinimo režimas įjungtas</string>
     <string name="debug_card_trace_mode_label">Įjungti stebėjimo režimą</string>

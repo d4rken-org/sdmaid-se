@@ -11,9 +11,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ສະແດງຕົວເລືອກທີ່ອະນຸຍາດໃຫ້ທ່ານລຶ້ໄຟລ໌ທັງໜມດໃນຊຸດສຳເນົາທີ່ຊ້າກັນ ເພື່ອໃຫ້ບໍ່ມີໄຟລ໌ເຫລືອ.</string>
     <string name="deduplicator_search_locations_title">ສະຖານທີ່ຄ້ນຫາ</string>
     <string name="deduplicator_search_locations_all_summary">ທຸກພື້ນທີ່ທີ່ເຂ້າຫາໄດ້</string>
-    <string name="deduplicator_keep_prefer_paths_title">ໃຫ້ຄວາມສຳຄັນໃນການເກັບໄວ້ໃນ</string>
     <string name="deduplicator_keep_prefer_paths_summary">ເມື່ອຕັດສິນໃຈວ່າຈະເກັບສຳເນົາທີ່ຊ້າໃດ, ໃຫ້ຄວາມສຳຄັນໃນການເກັບໄຟລ໌ໃນສະຖານທີ່ເຫລ່ານີ້.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ບໍ່ໄດ້ຕັ້ງຄ່າສະຖານທີ່</string>
     <string name="deduplicator_skip_minsize_title">ຂະໜາດຕ່ຳສຸດ</string>
     <string name="deduplicator_skip_minsize_description">ຂ້າມໄຟລ໌ທີ່ຢູ່ຕ່ຳກ່ວາຂະໜາດຕ່ຳສຸດ.</string>
     <string name="deduplicator_skip_uncommon_title">ຂ້າມປະເພດໄຟລ໌ทີ່ບໍ່ທົ່ວໄປ</string>

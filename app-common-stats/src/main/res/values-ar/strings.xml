@@ -16,7 +16,6 @@
         <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
         <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
     </plurals>
-    <string name="stats_report_status_success">تم بنجاح</string>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
     <string name="stats_report_status_partial_failure">فشل</string>
     <string name="stats_settings_desc">تكوين إحصائيات SD Maid والتقارير والاحتفاظ بالبيانات.</string>
@@ -25,14 +24,6 @@
     <string name="stats_settings_retention_reports_desc">عدد الأيام قبل حذف تقارير تشغيل SD Maid الأساسية.</string>
     <string name="stats_settings_retention_paths_label">معلومات المسار التفصيلية</string>
     <string name="stats_settings_retention_paths_desc">عدد الأيام اللازمة للاحتفاظ بتفاصيل حول المسارات المتأثرة بـ SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="zero">%d أيام</item>
-        <item quantity="one">%d يوم</item>
-        <item quantity="two">%d يومان</item>
-        <item quantity="few">%d أيام</item>
-        <item quantity="many">%d أيام</item>
-        <item quantity="other">%d أيام</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">إعادة تعيين الكل</string>
     <string name="stats_settings_reset_all_desc">حذف كافة التقارير وتعيين كافة الإحصائيات وتصفيرها.</string>
     <string name="stats_affected_paths_label">المسارات المتأثرة</string>

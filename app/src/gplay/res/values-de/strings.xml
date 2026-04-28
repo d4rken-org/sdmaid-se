@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Verbindung zu Google Play nicht möglich. Bitte überprüfe Deine Internetverbindung und versuche es erneut.</string>
     <string name="upgrades_gplay_already_owned_error_title">Bereits gekauft</string>
     <string name="upgrades_gplay_already_owned_error_description">Verwende die Option \"Auswahl wiederherstellen\", um Deinen Kauf wiederherzustellen. Falls das Problem weiterhin besteht, versuche den Google Play Cache zu leeren und Dein Gerät neu zu starten.</string>
-    <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwendest du das richtige Konto?</string>
     <string name="upgrade_screen_title">Hol Dir SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid enthält keine Werbung und verkauft keine Benutzerdaten. Meine Arbeit wird von Dir finanziert ❤️.</string>
     <string name="upgrade_screen_benefits_title">Vorteile</string>

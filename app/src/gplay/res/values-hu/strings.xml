@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Nem sikerült csatlakozni a Google Playhez. Kérjük, ellenőrizd az internetkapcsolatod, és próbáld újra.</string>
     <string name="upgrades_gplay_already_owned_error_title">Már megvásárolva</string>
     <string name="upgrades_gplay_already_owned_error_description">Használd a \"Vásárlás visszaállítása\" lehetőséget a vásárlás visszaállításához. Ha a probléma továbbra is fennáll, próbáld meg törölni a Google Play gyorsítótárát és újraindítani a készüléked.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nem található vásárlás. A megfelelő fiókot használja?</string>
     <string name="upgrade_screen_title">Szerezze be az SD Maid SE Pro-t</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
     <string name="upgrade_screen_benefits_title">Előnyök</string>

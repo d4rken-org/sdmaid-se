@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_include_multiuser_label">ለላሎች ተጠቋሚዊውን አክሉፓ</string>
-    <string name="appcontrol_include_multiuser_summary">በዚህ መደከካዊ ያሉት ሽጌ መለዯት ሲስተሙ፥ አፕሮችን አክሉፓ።</string>
 </resources>

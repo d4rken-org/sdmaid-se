@@ -8,7 +8,6 @@
         <item quantity="one">ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସରେ SD Maid କୁ ଆମନ୍ତ୍ରଣ କରିବା ପରଠାରୁ %s ଆଇଟମ୍ ପ୍ରକ୍ରିୟାକରଣ ହୋଇଛି।</item>
         <item quantity="other">ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସରେ SD Maid କୁ ଆମନ୍ତ୍ରଣ କରିବା ପରଠାରୁ %s ଆଇଟମ୍ ପ୍ରକ୍ରିୟାକରଣ ହୋଇଛି।</item>
     </plurals>
-    <string name="stats_report_status_success">ସଫଳତା</string>
     <string name="stats_report_status_partial_success">ଆଂଶିକ ସଫଳତା</string>
     <string name="stats_report_status_partial_failure">ବିଫଳତା</string>
     <string name="stats_settings_desc">SD Maid ର ପରିସଂଖ୍ୟାନ, ରିପୋର୍ଟ ଏବଂ ଡାଟା ସଂରକ୍ଷଣ ସଂରଚନା କରନ୍ତୁ।</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">ମୌଳିକ SD Maid କାର୍ଯ୍ୟ ରିପୋର୍ଟ ଡିଲିଟ୍ କରିବା ପୂର୍ବରୁ ଦିନ ସଂଖ୍ୟା।</string>
     <string name="stats_settings_retention_paths_label">ବିସ୍ତୃତ ପଥ ସୂଚନା</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ଦ୍ୱାରା ପ୍ରଭାବିତ ପଥ ବିଷୟରେ ବିବରଣୀ ରଖିବା ପାଇଁ ଦିନ ସଂଖ୍ୟା।</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ଦିନ</item>
-        <item quantity="other">%d ଦିନ</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">ସବୁ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
     <string name="stats_settings_reset_all_desc">ସମସ୍ତ ରିପୋର୍ଟ ଡିଲିଟ୍ କରନ୍ତୁ ଏବଂ ସମସ୍ତ ପରିସଂଖ୍ୟାନ ଶୂନ୍ୟରେ ସେଟ୍ କରନ୍ତୁ।</string>
     <string name="stats_affected_paths_label">ପ୍ରଭାବିତ ପଥ</string>

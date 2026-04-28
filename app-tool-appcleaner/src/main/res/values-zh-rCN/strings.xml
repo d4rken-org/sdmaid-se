@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">清除前强制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除缓存前先强制停止应用。这有助于清除部分应用的缓存，但可能导致应用异常，需要手动重启。</string>
     <string name="appcleaner_progress_force_stopping">正在强制停止应用…</string>
-    <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
-    <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
-    <string name="appcleaner_automation_loading">通过无障碍服务来配置自动化处理</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作(关键词：%s)</string>
-    <string name="appcleaner_include_multiuser_label">包含其他用户</string>
-    <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
 </resources>

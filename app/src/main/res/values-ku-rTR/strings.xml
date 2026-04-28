@@ -26,9 +26,6 @@
     <string name="onboarding_versus_continue_action">بەردەوام بە</string>
     <string name="onboarding_privacy_title">تایبەتمەندی</string>
     <string name="onboarding_privacy_body1">SD Maid ڕیکلام نییە و داتای بەکارهێنەران نافرۆشێت.</string>
-    <string name="onboarding_privacy_bugreport_toggle">ڕێگە بە ڕاپۆرتەکانی هەڵەی ئۆتۆماتیکی بدە</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ئەم هەڵبژاردانانە دەکرێت لە ڕێکخستنەکاندا بگۆڕدرێن.</string>
-    <string name="onboarding_privacy_continue_action">بەردەوام بە</string>
     <string name="onboarding_setup_title">دامەزراندن</string>
     <string name="onboarding_setup_body1">SD Maid هەموو ناوچە داتای دەستپێگەیشتوو دەگەڕێت.</string>
     <string name="onboarding_setup_continue_action">دەستپێگەیشتن دابنێ</string>
@@ -61,7 +58,6 @@
     <string name="setup_label">دامەزراندن</string>
     <string name="setup_incomplete_card_title">دامەزراندن تەواو نییە</string>
     <string name="setup_incomplete_card_body">دامەزراندنی SD Maid تەواو بکە بۆ ئەنجامی باشتر.</string>
-    <string name="setup_incomplete_card_dismiss_action">پشتگوێ بخە</string>
     <string name="setup_incomplete_card_continue_action">دامەزراندن بەردەوام بکە</string>
     <string name="setup_permission_granted_label">مۆڵەت دراوە</string>
     <string name="setup_permission_error_label">هەڵەی مۆڵەت</string>
@@ -71,7 +67,6 @@
     <string name="setup_acs_card_title">خزمەتگوزاری دەستپێگەیشتن</string>
     <string name="dataarea_warningcard_label">ناوچەکانی داتا</string>
     <string name="debug_mode_label">دۆخی دیباگ</string>
-    <string name="debug_bugreporter_label">ڕاپۆرتەکانی هەڵەی ئۆتۆماتیکی</string>
     <string name="debug_card_title">دۆخی دیباگ چالاکە</string>
     <string name="history_label">مێژوو</string>
     <string name="history_description">لیستێکی کاتیی کردارە نوێکان و داتای کاریگەربوو.</string>

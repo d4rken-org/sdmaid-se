@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">फ़ाइल आयु (अंतिम संशोधित समय) के आधार पर मिलान सीमित करें। किसी भी आयु से मिलान के लिए खाली छोड़ें।</string>
     <string name="systemcleaner_customfilter_import_action">नया फ़िल्टर आयात करें</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फ़िल्टर निर्यात करें</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">आपके पास असेव परिवर्तन हैं!</string>
 </resources>

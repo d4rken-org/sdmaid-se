@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Povezava z Google Play ni mogoča. Preverite internetno povezavo in poskusite znova.</string>
     <string name="upgrades_gplay_already_owned_error_title">Že kupljeno</string>
     <string name="upgrades_gplay_already_owned_error_description">Uporabite možnost \"Obnovi nakup\" za obnovitev nakupa. Če težava ne mine, poskusite počistiti predpomnilnik Google Play in ponovno zagnati napravo.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nakup ni bil najden.  Ali uporabljate pravi račun?</string>
     <string name="upgrade_screen_title">Dobi SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid je brez oglasov in ne prodaja uporabniških podatkov.  Moje delo financirajo uporabniki. ❤️</string>
     <string name="upgrade_screen_benefits_title">Prednosti</string>

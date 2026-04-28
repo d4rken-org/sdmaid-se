@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Takrorlanganlar to\'plamidagi barcha fayllarni o\'chirishga ruxsat beruvchi variantlarni ko\'rsating, shunda hech qanday fayl qolmaydi.</string>
     <string name="deduplicator_search_locations_title">Qidiruv joylari</string>
     <string name="deduplicator_search_locations_all_summary">Barcha kirish mumkin bo\'lgan hududlar</string>
-    <string name="deduplicator_keep_prefer_paths_title">Saqlash uchun afzal joy</string>
     <string name="deduplicator_keep_prefer_paths_summary">Dublikatlardan qaysi birini saqlashni hal qilishda ushbu joylardagi fayllarni saqlashni afzal ko\'ring.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Hech qanday joy sozlanmagan</string>
     <string name="deduplicator_skip_minsize_title">Minimal hajm</string>
     <string name="deduplicator_skip_minsize_description">Minimal hajmdan kichik fayllarni o\'tkazib yuborish.</string>
     <string name="deduplicator_skip_uncommon_title">Noodatiy fayl turlarini o\'tkazib yuborish</string>

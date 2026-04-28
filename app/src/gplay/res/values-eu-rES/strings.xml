@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Ezin da Google Play-ra konektatu. Mesedez, egiaztatu zure Interneteko konexioa eta saiatu berriro.</string>
     <string name="upgrades_gplay_already_owned_error_title">Dagoeneko erosita</string>
     <string name="upgrades_gplay_already_owned_error_description">Erabili \"Berreskuratu erosketa\" aukera zure erosketa berreskuratzeko. Arazoak jarraitzen badu, saiatu Google Play katxea garbitzen eta zure gailua berrabiarazten.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ez dira erosketarik aurkitu. Kontu zuzena erabiltzen ari zara?</string>
     <string name="upgrade_screen_title">SD Maid Pro lortu</string>
     <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
     <string name="upgrade_screen_benefits_title">Abantailak</string>

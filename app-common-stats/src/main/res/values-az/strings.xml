@@ -8,7 +8,6 @@
         <item quantity="one">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
         <item quantity="other">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
     </plurals>
-    <string name="stats_report_status_success">Uğur</string>
     <string name="stats_report_status_partial_success">Qismən uğur</string>
     <string name="stats_report_status_partial_failure">Uğursuzluq</string>
     <string name="stats_settings_desc">SD Maid statistikalarını, hesabatlarını və məlumat saxlanılmasını konfiqurasiya edin.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Əsas SD Maid əməliyyat hesabatlarını silmədən əvvəl günlərin sayı.</string>
     <string name="stats_settings_retention_paths_label">Ətraflı yol məlumatı</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tərəfindən təsirlənən yollar barədə təfərrüatları saxlamaq üçün günlərin sayı.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d gün</item>
-        <item quantity="other">%d gün</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Hamısını sıfırla</string>
     <string name="stats_settings_reset_all_desc">Bütün hesabatları silin və bütün statistikaları sıfıra qoyun.</string>
     <string name="stats_affected_paths_label">Təsirlənən yollar</string>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Käytä Sovellusten hallinta -työkalua sovelluspoikkeusten luomiseen.</string>
     <string name="exclusion_create_path_hint">Käytä Tallennustilan analysaattoria polkupoikkeusten luomiseen.</string>
     <string name="exclusion_show_defaults_action">Näytä oletukset</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sinulla on tallentamattomia muutoksia!</string>
 </resources>

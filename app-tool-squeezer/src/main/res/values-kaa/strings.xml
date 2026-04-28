@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Sıǵıstırıwdı tastıyıqlaw</string>
     <string name="squeezer_preview_total_size">Ulıwma o\'lshem</string>
     <string name="squeezer_preview_estimated_savings">Boljamalı u\'nemlew</string>
-    <string name="squeezer_compress_confirmation_title">Su\'wretlerdi sıǵıstırıw?</string>
-    <string name="squeezer_compress_confirmation_message">Bul original su\'wretlerdi sıǵıstırılǵan versiyalar menen almastyradı. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</string>
     <string name="squeezer_history_title">Sıǵıstırıw tariyxı</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Keminde %d ku\'n eski</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG faylları ushin boljamalı ~%d%% u\'nemlew</string>
-    <string name="squeezer_onboarding_got_it">Túsinikli</string>
 </resources>

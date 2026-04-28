@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">ਕੰਪ੍ਰੈਸ਼ਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
     <string name="squeezer_preview_total_size">ਕੁੱਲ ਆਕਾਰ</string>
     <string name="squeezer_preview_estimated_savings">ਅੰਦਾਜ਼ਨ ਬੱਚਤ</string>
-    <string name="squeezer_compress_confirmation_title">ਤਸਵੀਰਾਂ ਕੰਪ੍ਰੈਸ ਕਰਨੀਆਂ ਹਨ?</string>
-    <string name="squeezer_compress_confirmation_message">ਇਹ ਅਸਲ ਤਸਵੀਰਾਂ ਨੂੰ ਕੰਪ੍ਰੈਸ ਕੀਤੇ ਵਰਜ਼ਨਾਂ ਨਾਲ ਬਦਲ ਦੇਵੇਗਾ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
     <string name="squeezer_history_title">ਕੰਪ੍ਰੈਸ਼ਨ ਇਤਿਹਾਸ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ਆਈਟਮ (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">ਘੱਟੋ-ਘੱਟ %d ਦਿਨ ਪੁਰਾਣੀ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ਫਾਈਲਾਂ ਲਈ ਅੰਦਾਜ਼ਨ ~%d%% ਬੱਚਤ</string>
-    <string name="squeezer_onboarding_got_it">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
 </resources>

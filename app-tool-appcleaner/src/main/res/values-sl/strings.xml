@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno ustavi pred čiščenjem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno ustavi programe pred čiščenjem predpomnilnika. Lahko pomaga pri čiščenju nekaterih predpomnilnikov, vendar lahko povzroči nepravilno delovanje programov in zahteva ročni ponovni zagon.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno ustavljanje programov …</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
-    <string name="appcleaner_automation_loading">Pripravljanje samodejnih dejanj preko storitve dostopnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Vključi druge uporabnike</string>
-    <string name="appcleaner_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
 </resources>

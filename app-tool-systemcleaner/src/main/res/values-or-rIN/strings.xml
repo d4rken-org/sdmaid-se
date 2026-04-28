@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ଫାଇଲ୍ ବୟସ (ଶେଷ ସଂଶୋଧିତ ସମୟ) ଆଧାରରେ ମ୍ୟାଚ୍ ସୀମିତ କରନ୍ତୁ। ଯେକୌଣସି ବୟସ ସହ ମ୍ୟାଚ୍ କରିବା ପାଇଁ ଅସେଟ୍ ଛାଡନ୍ତୁ।</string>
     <string name="systemcleaner_customfilter_import_action">ନୂତନ ଫିଲ୍ଟର ଆମଦାନି କରନ୍ତୁ</string>
     <string name="systemcleaner_customfilter_export_action">ନିର୍ବାଚିତ ଫିଲ୍ଟର ରପ୍ତାନି କରନ୍ତୁ</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ଆପଣଙ୍କର ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନ ଅଛି!</string>
 </resources>

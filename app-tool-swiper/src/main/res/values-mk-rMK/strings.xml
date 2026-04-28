@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Продолжете сесија</string>
     <string name="swiper_sessions_description">Прегледајте датотеки во 3 едноставни чекори:\n\n1. Изберете папка за скенирање\n2. Лизгајте низ датотеки за задржување, бришење или прескокнување\n3. Прегледајте ги вашите одлуки и потврдете\n\nНиту една датотека не се отстранува додека не го допрете конечното копче за бришење.</string>
     <string name="swiper_select_folders_action">Изберете папки</string>
-    <string name="swiper_scanning_title">Скенирање…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ставка пронајдена</item>
         <item quantity="other">%d ставки пронајдени</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Како работи Swiper</string>
     <string name="swiper_help_message">Лизгајте секоја датотека за да донесете одлука:\n\n← Лизгајте лево: %1$s\n→ Лизгајте десно: %2$s\n↑ Лизгајте горе: Прескокни\n↓ Лизгајте долу: Врати (по првото лизгање)\n\nМожете исто така да ги користите копчињата на дното.\n\nКога ќе завршите, допрете \"Прегледај\" за да ги видите сите ваши одлуки. Ништо не се брише додека не потврдите на екранот за преглед.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Разбрав</string>
-    <string name="swiper_help_action">Помош</string>
     <string name="swiper_file_type_filter_title">Прикажи само овие типови датотеки</string>
     <string name="swiper_file_type_filter_hint">Значете ги типовите што сакате да ги видите. Ако ништо не е значено, се прикажуваат сите датотеки.</string>
     <string name="swiper_file_type_category_images">Слики</string>

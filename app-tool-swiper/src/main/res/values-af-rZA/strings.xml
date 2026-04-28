@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Gaan voort met sessie</string>
     <string name="swiper_sessions_description">Hersien lêers in 3 eenvoudige stappe:\n\n1. Kies \'n vouer om te skandeer\n2. Swiep deur lêers om te hou, verwyder of oor te slaan\n3. Hersien jou keuses en bevestig\n\nNiks word verwyder totdat jy die finale verwyder-knoppie tik nie.</string>
     <string name="swiper_select_folders_action">Kies vouers</string>
-    <string name="swiper_scanning_title">Skandeer…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d item gevind</item>
         <item quantity="other">%d items gevind</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Hoe Swiper werk</string>
     <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
-    <string name="swiper_help_action">Hulp</string>
     <string name="swiper_file_type_filter_title">Wys slegs hierdie lêertipes</string>
     <string name="swiper_file_type_filter_hint">Merk die tipes wat jy wil sien. As geen gemerk is nie, word alle lêers gewys.</string>
     <string name="swiper_file_type_category_images">Beelde</string>

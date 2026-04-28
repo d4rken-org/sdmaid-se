@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Patvirtinti suglaudinimą</string>
     <string name="squeezer_preview_total_size">Bendras dydis</string>
     <string name="squeezer_preview_estimated_savings">Numatomas sutaupymas</string>
-    <string name="squeezer_compress_confirmation_title">Suglaudinti vaizdus?</string>
-    <string name="squeezer_compress_confirmation_message">Tai pakeis originalius vaizdus suglaudintomis versijomis. Šio veiksmo negalima atcofti.</string>
     <string name="squeezer_history_title">Suglaudinimo istorija</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elementas (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Ne mažiau kaip %d dienų</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Numatamai ~%d%% sutaupymas JPEG failams</string>
-    <string name="squeezer_onboarding_got_it">Supratau</string>
 </resources>

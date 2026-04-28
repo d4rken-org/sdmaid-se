@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">ချုံ့ခြင်း အတည်ပြုရန်</string>
     <string name="squeezer_preview_total_size">စုစုပေါင်း အရွယ်အစား</string>
     <string name="squeezer_preview_estimated_savings">ခန့်မှန်းသော သက်သာမှု</string>
-    <string name="squeezer_compress_confirmation_title">ပုံများ ချုံ့မည်လား?</string>
-    <string name="squeezer_compress_confirmation_message">ဤလုပ်ဆောင်ချက်သည် မူရင်းပုံများကို ချုံ့ထားသောဗားရှင်းများဖြင့် အစားထိုးမည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ပြန်ဆွဲ၍မရနိုင်ပါ။</string>
     <string name="squeezer_history_title">ချုံ့ခြင်း မှတ်တမ်း</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ခု (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">အနည်းဆုံး %d ရက် အနည်းဆုံးသား</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ဖိုင်များအတွက် ~%d%% သက်သာမှု ခန့်မှန်းတွက်</string>
-    <string name="squeezer_onboarding_got_it">နား လည်ပါပြီ</string>
 </resources>

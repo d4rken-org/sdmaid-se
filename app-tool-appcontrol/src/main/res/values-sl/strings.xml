@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Pripravljanje samodejni dejanj preko storitve dostopnosti</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="appcontrol_include_multiuser_label">Vključi druge uporabnike</string>
-    <string name="appcontrol_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
 </resources>

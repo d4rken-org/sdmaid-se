@@ -13,7 +13,6 @@
 
 तपाइँले अन्तिम मेटाउनु बटन ट्याप नगरेसम्म केही हटाइँदैन।</string>
     <string name="swiper_select_folders_action">फोल्डर चयन गर्नुहोस्</string>
-    <string name="swiper_scanning_title">स्क्यान गरिँदै…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d वस्तु फेला पर्यो</item>
         <item quantity="other">%d वस्तुहरू फेला परिए</item>
@@ -154,7 +153,6 @@
 
 जब तपाइँ सकिनुहुन्छ, आफ्ना सबै निर्णयहरू हेर्न \"समीक्षा\" ट्याप गर्नुहोस्। समीक्षा स्क्रिनमा तपाइँले पुष्टि नगरेसम्म केही मेटाइँदैन।</string>
     <string name="swiper_gesture_overlay_dismiss_action">बुझे</string>
-    <string name="swiper_help_action">मद्दत</string>
     <string name="swiper_file_type_filter_title">यी फाइल प्रकारहरू मात्र देखाउनुहोस्</string>
     <string name="swiper_file_type_filter_hint">तपाईं हेर्न चाहनुभएका प्रकारहरू जाँच गर्नुहोस्। यदि कुनै पनि जाँच गरिएको छैन भने, सबै फाइलहरू देखाइन्छन्।</string>
     <string name="swiper_file_type_category_images">तस्बिरहरू</string>

@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Nevar izveidot savienojumu ar Google Play. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jau iegādāts</string>
     <string name="upgrades_gplay_already_owned_error_description">Izmantojiet opciju \"Atjaunot pirkumu\", lai atjaunotu pirkumu. Ja problēma saglabājas, mēģiniet notīrīt Google Play kešatmiņu un restartēt ierīci.</string>
-    <string name="upgrades_no_purchases_found_check_account">Pirkumi nav atrasti. Vai izmantojat pareizo kontu?</string>
     <string name="upgrade_screen_title">Iegūstiet SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Mans darbs tiek finansēts no jūsu puses ❤️.</string>
     <string name="upgrade_screen_benefits_title">Priekšrocības</string>

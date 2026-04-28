@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="appcontrol_include_multiuser_label">他のユーザーを含める</string>
-    <string name="appcontrol_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
 </resources>

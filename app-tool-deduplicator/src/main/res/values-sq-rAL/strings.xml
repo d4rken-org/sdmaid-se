@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Trego opsionet që ju lejojnë të fshini të gjithë skedarët në një grup dublikate në mënyrë që të mos mbetet asnjë skedar.</string>
     <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
     <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
-    <string name="deduplicator_keep_prefer_paths_title">Prefero ruajtjen në</string>
     <string name="deduplicator_keep_prefer_paths_summary">Kur vendoset cilin dublikat të ruhet, prefero mbajtjen e skedarëve në këto vendndodhje.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nuk ka vendndodhje të konfiguruara</string>
     <string name="deduplicator_skip_minsize_title">Madhësia minimale</string>
     <string name="deduplicator_skip_minsize_description">Kapërceni skedarët që janë nën madhësinë minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Kapërceni llojet e pazakonta të skedarëve</string>

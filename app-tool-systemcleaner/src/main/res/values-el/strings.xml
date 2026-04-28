@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Περιορισμός αντιστοιχιών βάσει ηλικίας αρχείου (χρόνος τελευταίας τροποποίησης). Αφήστε κενό για αντιστοίχιση οποιασδήποτε ηλικίας.</string>
     <string name="systemcleaner_customfilter_import_action">Εισαγωγή νέου φίλτρου</string>
     <string name="systemcleaner_customfilter_export_action">Εξαγωγή επιλεγμένου φίλτρου</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
 </resources>

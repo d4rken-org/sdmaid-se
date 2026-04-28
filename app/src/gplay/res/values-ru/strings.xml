@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Не удалось подключиться к Google Play. Пожалуйста, проверьте подключение к интернету и повторите попытку.</string>
     <string name="upgrades_gplay_already_owned_error_title">Уже приобретено</string>
     <string name="upgrades_gplay_already_owned_error_description">Используйте опцию \"Восстановить покупку\" для восстановления. Если проблема не устранена, попробуйте очистить кэш Google Play и перезагрузить устройство.</string>
-    <string name="upgrades_no_purchases_found_check_account">Покупки не найдены. Вы используете корректный аккаунт?</string>
     <string name="upgrade_screen_title">Получить SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не содержит рекламы и не продает данные пользователей. Моя работа финансируется Вами ❤️.</string>
     <string name="upgrade_screen_benefits_title">Преимущества</string>

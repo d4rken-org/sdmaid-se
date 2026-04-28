@@ -138,5 +138,4 @@
     <string name="appcontrol_automation_loading">Sagatavojas automātizācijai, izmantojot pieejamības pakalpojumu</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mēģina apstiprināt iepriekšējo darbību (atslēgvārdi: %s)</string>
     <string name="appcontrol_include_multiuser_label">Iekļaut citus lietotājus</string>
-    <string name="appcontrol_include_multiuser_summary">Iekļauties lietotnēs no citām šīs ierīces lietotāju profilēm.</string>
 </resources>

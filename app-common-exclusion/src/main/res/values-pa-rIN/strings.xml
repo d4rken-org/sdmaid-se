@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ਐਪ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ AppControl ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="exclusion_create_path_hint">ਮਾਰਗ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ StorageAnalyzer ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="exclusion_show_defaults_action">ਮੂਲ ਦਿਖਾਓ</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੇਵ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Aufzeichnung beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält sensible Informationen (z.B. Dateinamen und installierte Apps). Teile sie nur mit vertrauenswürdigen Personen.</string>
     <string name="debug_debuglog_screen_title">Debug-Protokoll</string>
-    <string name="debug_debuglog_screen_discard_action">Verwerfen</string>
     <string name="debug_debuglog_screen_session_path_label">Sitzungspfad</string>
     <string name="debug_debuglog_screen_log_files_label">Protokolldateien</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Weiter</string>
     <string name="onboarding_privacy_title">Privatsphäre</string>
     <string name="onboarding_privacy_body1">SD Maid hat keine Werbung und verkauft keine Benutzerdaten.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Fehlerberichte werden gesendet, wenn Fehler auftreten, und können Details zu Apps und Dateien auf Deinem Gerät enthalten. Berichte helfen mir, Fehler zu beheben und die App zu verbessern.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Automatische Fehlerberichte zulassen</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Diese Optionen können in den Einstellungen geändert werden.</string>
-    <string name="onboarding_privacy_continue_action">Weiter</string>
     <string name="onboarding_setup_title">Einrichtung</string>
     <string name="onboarding_setup_body1">SD Maid durchsucht alle zugänglichen Datenbereiche.</string>
     <string name="onboarding_setup_body2">Was zugänglich ist, hängt von Deinem Gerät, der Android-Version und gewährten Berechtigungen ab.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Die Einrichtung ist unvollständig</string>
     <string name="setup_incomplete_card_body">Vervollständige die Einrichtung von SD Maid, um bessere Ergebnisse zu erzielen.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid versucht, Setup-Probleme zu beheben.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ausblenden</string>
     <string name="setup_incomplete_card_continue_action">Einrichtung fortsetzen</string>
     <string name="setup_forcedshow_summary">Einrichtungs-Bildschirm erneut anzeigen, einschließlich bereits abgeschlossener Elemente.</string>
     <string name="setup_checking_card_body">Überprüfe die Fertigstellung des Setups und die Funktionalität.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>
     <string name="debug_mode_label">Debug-Modus</string>
     <string name="debug_mode_explanation">Aktiviert Testoptionen und eine ausführlichere Test-Log-Ausgabe. Die App wird langsamer laufen und kann sich anders verhalten.</string>
-    <string name="debug_bugreporter_label">Automatische Fehlerberichte</string>
-    <string name="debug_bugreporter_summary">Meldet automatisch Probleme - z. B. Details zu den App-Abstürzen - damit ich sie verstehen und beheben kann.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug-Modus ist aktiviert</string>
     <string name="debug_card_trace_mode_label">Trace-Modus aktivieren</string>

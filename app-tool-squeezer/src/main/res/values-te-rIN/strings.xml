@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>
     <string name="squeezer_preview_total_size">మొత్తం పరిమాణం</string>
     <string name="squeezer_preview_estimated_savings">అంచనా ఆదా</string>
-    <string name="squeezer_compress_confirmation_title">చిత్రాలను కుదించాలా?</string>
-    <string name="squeezer_compress_confirmation_message">ఇది అసలు చిత్రాలను కుదించిన వెర్షన్‌లతో భర్తీ చేస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
     <string name="squeezer_history_title">కుదింపు చరిత్ర</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d అంశం (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">కనీసం %d రోజులు పాతవి</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ఫైల్‌లకు అంచనా ~%d%% ఆదా</string>
-    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
 </resources>

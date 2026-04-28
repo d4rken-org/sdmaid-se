@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcontrol_include_multiuser_label">دوسرے صارفین کو شامل کریں</string>
-    <string name="appcontrol_include_multiuser_summary">اس ڈیوائس پر دوسرے صارف پروفائلز سے ایپس کو شامل کریں۔</string>
 </resources>

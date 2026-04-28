@@ -8,7 +8,6 @@
         <item quantity="one">%s elem feldolgozva, mióta meghívtad az SD Maidet a készülékedre.</item>
         <item quantity="other">%s elem feldolgozva, mióta meghívtad az SD Maidet a készülékedre.</item>
     </plurals>
-    <string name="stats_report_status_success">Siker</string>
     <string name="stats_report_status_partial_success">Részleges siker</string>
     <string name="stats_report_status_partial_failure">Hiba</string>
     <string name="stats_settings_desc">Az SD Maid statisztikáinak, jelentéseinek és adatmegőrzésének konfigurálása.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Az alapvető SD Maid műveleti jelentések törlése előtti napok száma.</string>
     <string name="stats_settings_retention_paths_label">Részletes útvonal-információk</string>
     <string name="stats_settings_retention_paths_desc">Az SD Maid által érintett útvonalakra vonatkozó adatok tárolásának napszáma.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d nap</item>
-        <item quantity="other">%d nap</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Összes visszaállítása</string>
     <string name="stats_settings_reset_all_desc">Az összes jelentés törlése és az összes statisztika nullára állítása.</string>
     <string name="stats_affected_paths_label">Érintett útvonalak</string>

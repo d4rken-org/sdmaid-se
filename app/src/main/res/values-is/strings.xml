@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stoppa upptöku</string>
     <string name="debug_debuglog_sensitive_information_message">Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum.</string>
     <string name="debug_debuglog_screen_title">Villuleitarskrá</string>
-    <string name="debug_debuglog_screen_discard_action">Fleygja</string>
     <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
     <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Halda áfram</string>
     <string name="onboarding_privacy_title">Friðhelgi</string>
     <string name="onboarding_privacy_body1">SD Maid hefur engar auglýsingar og selur ekki notendagögn.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Villuskýrslur eru sendar þegar villur koma upp og kunna að innihalda upplýsingar um forrit og skrár á tækinu þínu. Skýrslur hjálpa mér að laga villur og bæta forritið.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Leyfa sjálfvirkar villuskýrslur</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Þessa valkosti er hægt að breyta í stillingunum.</string>
-    <string name="onboarding_privacy_continue_action">Halda áfram</string>
     <string name="onboarding_setup_title">Uppsetning</string>
     <string name="onboarding_setup_body1">SD Maid mun leita í öllum aðgengilegum gagnasvæðum.</string>
     <string name="onboarding_setup_body2">Hvað er aðgengilegt fer eftir tækinu þínu, Android útgáfu og veittu leyfi.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Uppsetning er ófullnægjandi</string>
     <string name="setup_incomplete_card_body">Ljúktu uppsetningu SD Maid til að fá betri niðurstöður.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid er að reyna að laga uppsetningarvandamál.</string>
-    <string name="setup_incomplete_card_dismiss_action">Hafna</string>
     <string name="setup_incomplete_card_continue_action">Halda áfram með uppsetningu</string>
     <string name="setup_forcedshow_summary">Sýna uppsetningarskjá aftur, þar á meðal liði sem þegar er lokið.</string>
     <string name="setup_checking_card_body">Staðfesti frágang uppsetningar og virkni.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Endurhlaða gagnasvæði</string>
     <string name="debug_mode_label">Villuleitarstilling</string>
     <string name="debug_mode_explanation">Virkja prófunarvalkosti og ítarlegri úttak. Forritið mun keyra hægar og virka öðruvísi.</string>
-    <string name="debug_bugreporter_label">Sjálfvirkar villuskýrslur</string>
-    <string name="debug_bugreporter_summary">Tilkynnir sjálfkrafa vandamál, t.d. upplýsingar um hrun forritsins svo ég geti fundið ástæðuna og lagað það.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Villuleitarstilling er virk</string>
     <string name="debug_card_trace_mode_label">Virkja rakningarstillingu</string>

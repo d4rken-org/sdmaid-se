@@ -8,7 +8,6 @@
         <item quantity="one">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
         <item quantity="other">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
     </plurals>
-    <string name="stats_report_status_success">موفقیت</string>
     <string name="stats_report_status_partial_success">موفقیت جزئی</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">پیکربندی آمار، گزارش‌ها و نگهداری داده‌های SD Maid</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">تعداد روزها قبل از حذف گزارش‌های عملیات پایه SD Maid.</string>
     <string name="stats_settings_retention_paths_label">اطلاعات دقیق مسیر</string>
     <string name="stats_settings_retention_paths_desc">تعداد روزهایی که جزئیات مربوط به مسیرهای تحت تأثیر SD Maid را نگه دارید.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d روز</item>
-        <item quantity="other">%d روز</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">بازنشانی همه</string>
     <string name="stats_settings_reset_all_desc">حذف همه گزارش‌ها و تنظیم همه آمارها به صفر.</string>
     <string name="stats_affected_paths_label">مسیرهای تحت تأثیر</string>

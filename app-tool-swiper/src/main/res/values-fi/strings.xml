@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jatka istuntoa</string>
     <string name="swiper_sessions_description">Tarkista tiedostot 3 helpolla askeleella:\n\n1. Valitse kansio skannattavaksi\n2. Pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi\n3. Tarkista valintasi ja vahvista\n\nMitään ei poisteta ennen kuin painat lopullista poista-painiketta.</string>
     <string name="swiper_select_folders_action">Valitse kansiot</string>
-    <string name="swiper_scanning_title">Skannataan…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d kohde löydetty</item>
         <item quantity="other">%d kohdetta löydetty</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
     <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
-    <string name="swiper_help_action">Ohje</string>
     <string name="swiper_file_type_filter_title">Näytä vain nämä tiedostotyypit</string>
     <string name="swiper_file_type_filter_hint">Valitse tyypit, jotka haluat nähdä. Jos mitään ei ole valittu, kaikki tiedostot näytetään.</string>
     <string name="swiper_file_type_category_images">Kuvat</string>

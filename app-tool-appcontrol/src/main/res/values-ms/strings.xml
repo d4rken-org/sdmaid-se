@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">Memuatkan...</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada peranti ini.</string>
 </resources>

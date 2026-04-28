@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
     <string name="debug_debuglog_screen_title">Razhroščevalni dnevnik</string>
-    <string name="debug_debuglog_screen_discard_action">Zavrzi</string>
     <string name="debug_debuglog_screen_session_path_label">Pot seje</string>
     <string name="debug_debuglog_screen_log_files_label">Dnevniške datoteke</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -74,10 +73,6 @@
     <string name="onboarding_versus_continue_action">Nadaljuj</string>
     <string name="onboarding_privacy_title">Zasebnost</string>
     <string name="onboarding_privacy_body1">SD Maid je brez oglasov in ne prodaja uporabniških podatkov.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Poročila o hroščih se pošiljajo, kadar se pojavijo napake in lahko vsebujejo podrobnosti o programih in datotekah na napravi.  Poročila mi pomagajo pri odpravljanju hroščev in izboljšavi programa.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Dovoli samodejna poročila o hroščih</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Te možnosti lahko spremenite v nastavitvah.</string>
-    <string name="onboarding_privacy_continue_action">Nadaljuj</string>
     <string name="onboarding_setup_title">Nastavitve</string>
     <string name="onboarding_setup_body1">SD Maid bo iskal po vseh dostopnih podatkovnih področjih.</string>
     <string name="onboarding_setup_body2">Področja dostopnosti so odvisna od naprave, različice Androida in odobrenih dovoljenj.</string>
@@ -172,7 +167,6 @@
     <string name="setup_incomplete_card_title">Nastavitev ni dokončana.</string>
     <string name="setup_incomplete_card_body">Za boljše rezultate dokončajte nastavitev SD Maida.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid poizkuša popraviti težave z nastavitvijo.</string>
-    <string name="setup_incomplete_card_dismiss_action">Opusti</string>
     <string name="setup_incomplete_card_continue_action">Nadaljuj z nastavitvijo</string>
     <string name="setup_forcedshow_summary">Znova prikaži zaslon za nastavitev, vključno z že dokončanimi predmeti.</string>
     <string name="setup_checking_card_body">Preverjanje dokončanja nastavitve in delovanja.</string>
@@ -235,8 +229,6 @@
     <string name="dataarea_warningcard_reload_action">Ponovno naloži podatkovna področja</string>
     <string name="debug_mode_label">Razhroščevalni način</string>
     <string name="debug_mode_explanation">Omogočite preizkusne možnosti in bolj obširen izpis.  Program bo deloval počasneje in se obnašal drugače.</string>
-    <string name="debug_bugreporter_label">Samodejna poročila o hroščih</string>
-    <string name="debug_bugreporter_summary">Samodejno poročaj o težavah, npr. o podrobnostih sesutja programa, da lahko najdem vzrok in ga popravim.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Razhroščevalni način je omogočen</string>
     <string name="debug_card_trace_mode_label">Omogoči način sledenja</string>

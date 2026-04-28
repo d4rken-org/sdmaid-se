@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcontrol_include_multiuser_label">Andere Benutzer einbeziehen</string>
-    <string name="appcontrol_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
 </resources>

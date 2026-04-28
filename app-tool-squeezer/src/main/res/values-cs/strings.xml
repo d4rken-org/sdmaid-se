@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Potvrdit kompresi</string>
     <string name="squeezer_preview_total_size">Celková velikost</string>
     <string name="squeezer_preview_estimated_savings">Odhadované úspory</string>
-    <string name="squeezer_compress_confirmation_title">Komprimovat obrázky?</string>
-    <string name="squeezer_compress_confirmation_message">Toto nahradí původní obrázky komprimovanými verzemi. Tuto akci nelze vrátit zpět.</string>
     <string name="squeezer_history_title">Historie komprese</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d položka (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Alespoň %d dnů staré</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pro JPEG soubory</string>
-    <string name="squeezer_onboarding_got_it">Rozumím</string>
 </resources>

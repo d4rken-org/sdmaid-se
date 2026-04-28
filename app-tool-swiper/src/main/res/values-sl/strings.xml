@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Nadaljuj sejo</string>
     <string name="swiper_sessions_description">Preglejte datoteke v 3-h preprostih korakih:\n\n1. Izberite mapo za pregled.\n2. Povlecite datoteke, da jih obdržite, izbrišete ali preskočite.\n3. Preglejte svoje odločitve in jih potrdite.\n\nNič ne bo odstranjeno dokler se ne dotaknete zadnjega gumba za izbris.</string>
     <string name="swiper_select_folders_action">Izberite mape</string>
-    <string name="swiper_scanning_title">Pregledovanje …</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">Najden je bil %d predmet.</item>
         <item quantity="two">Najdena sta bila %d predmeta.</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">Kako deluje Drsnik</string>
     <string name="swiper_help_message">Povlecite vsako datoteko, da sprejmete odločitev:\n\n← Povlek levo: %1$s\n→ Povlek desno: %2$s\n↑ Povlek navzgor: Preskoči\n↓ Povlek navzdol: Razveljavi (po prvem povleku)\n\nUporabite lahko tudi gumbe na dnu.\n\nKo končate, se dotaknite \"Pregled\", da pokažete vse odločitve.  Nič ne bo izbrisano, dokler dejanj ne potrdite na zaslonu za pregled.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Razumem!</string>
-    <string name="swiper_help_action">Pomoč</string>
     <string name="swiper_file_type_filter_title">Prikaži samo te vrste datotek</string>
     <string name="swiper_file_type_filter_hint">Označite vrste, ki jih želite videti.  Če ni označena nobena, se bodo prikazale vse datoteke.</string>
     <string name="swiper_file_type_category_images">Slike</string>

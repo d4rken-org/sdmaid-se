@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">ଅଭିଗମ୍ୟତା ସେବା ମାଧ୍ୟମରେ ସ୍ୱୟଂଚାଳନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟକୁ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କୀୱାର୍ଡ: %s)</string>
     <string name="appcontrol_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="appcontrol_include_multiuser_summary">ଏହି ଡିଭାଇସ୍‌ରେ ଥିବା ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲ୍‌ରୁ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
 </resources>

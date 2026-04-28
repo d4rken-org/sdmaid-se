@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
     <string name="appcleaner_progress_force_stopping">Forzando detención de aplicaciones…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Pantalla de configuración no disponible</string>
-    <string name="appcleaner_automation_loading">Preparando automatización a través del servicio de accesibilidad</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Incluir otros usuarios</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario en este dispositivo.</string>
 </resources>

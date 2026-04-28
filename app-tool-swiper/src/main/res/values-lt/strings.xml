@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Tęsti seansą</string>
     <string name="swiper_sessions_description">Peržiūrėkite failus 3 paprastais žingsniais:\n\n1. Pasirinkite aplanką nuskaitymui\n2. Perbraukite failus, kad pasirinktumėte palikti, ištrinti arba praleisti\n3. Peržiūrėkite sprendimus ir patvirtinkite\n\nNieko nepanaikiname, kol nepaspausite galutinio naikinimo mygtuko.</string>
     <string name="swiper_select_folders_action">Pasirinkti aplankus</string>
-    <string name="swiper_scanning_title">Nuskaitoma…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elementas rastas</item>
         <item quantity="few">Rasti %d elementai</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">Kaip veikia Swiper</string>
     <string name="swiper_help_message">Perbraukite kiekvieną failą, kad priimtumėte sprendimą:\n\n← Braukti kairėn: %1$s\n→ Braukti dešinėn: %2$s\n↑ Braukti aukštyn: Praleisti\n↓ Braukti žemyn: Atcofti (po pirmojo braukimo)\n\nTaip pat galite naudoti mygtukus aplačioje.\n\nKai baigsite, palieskite „Peržiūra“, kad pamatytumėte visus sprendimus. Nieko naičinama, kol nepatvirtinsite peržiūros ekrane.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Supratau</string>
-    <string name="swiper_help_action">Pagalba</string>
     <string name="swiper_file_type_filter_title">Rodyti tik šiuos failų tipus</string>
     <string name="swiper_file_type_filter_hint">Pažimėkite tipus, kuriuos norite matyti. Jei nieko nepažimėta, rodomi visi failai.</string>
     <string name="swiper_file_type_category_images">Vaizdai</string>

@@ -63,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">تأكيد الضغط</string>
     <string name="squeezer_preview_total_size">الحجم الإجمالي</string>
     <string name="squeezer_preview_estimated_savings">التوفير المقدر</string>
-    <string name="squeezer_compress_confirmation_title">ضغط الصور؟</string>
-    <string name="squeezer_compress_confirmation_message">سيتم استبدال الصور الأصلية بنسخ مضغوطة. لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="squeezer_history_title">سجل الضغط</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d عناصر (%2$s)</item>
@@ -106,5 +104,4 @@
         <item quantity="other">عمرها %d يوم على الأقل</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
-    <string name="squeezer_onboarding_got_it">عُلم</string>
 </resources>

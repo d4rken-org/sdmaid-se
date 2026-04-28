@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">ແຕະເພື່ອເລືອກເພີ່ມເຕີມ</string>
     <string name="general_upgrade_action">ອັບເກຣດ</string>
     <string name="general_donate_action">ບໍລິຈາກ</string>
-    <string name="general_check_action">ກວດສອບ</string>
-    <string name="general_filter_action">ຕອງ</string>
     <string name="general_internal_not_available_msg">ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ</string>
     <string name="general_refresh_action">ໂຫຼດໃໝ່</string>
     <string name="general_progress_searching">ກຳລັງຄົ້ນຫາ</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">ຕອງຕາມແທັກ</string>
     <string name="general_tag_system">ລະບົບ</string>
     <string name="general_result_success_message">ການດຳເນີນງານສຳເລັດ</string>
-    <string name="general_result_failure_message">ການດຳເນີນງານລົ້ມເຫຼວ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ພື້ນທີ່ %s ໄດ້ຖືກປົດປ່ອຍ.</item>
     </plurals>
@@ -105,7 +102,6 @@
         <item quantity="other">ເອົາອອກ %d ລາຍການແລ້ວ</item>
     </plurals>
     <string name="general_root_required_label">ຕ້ອງການ root</string>
-    <string name="general_root_required_message">ຕ້ອງການອຸປະກອນທີ່ມີ root</string>
     <string name="general_search_action">ຄົ້ນຫາ</string>
     <string name="general_scan_device_action">ສະແກນອຸປະກອນ</string>
     <string name="general_open_system_settings_action">ເປີດການຕັ້ງຄ່າລະບົບ</string>

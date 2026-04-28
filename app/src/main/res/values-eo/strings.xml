@@ -30,10 +30,6 @@
     <string name="onboarding_versus_continue_action">Daŭrigi</string>
     <string name="onboarding_privacy_title">Privateco</string>
     <string name="onboarding_privacy_body1">SD Maid ne havas reklamojn kaj ne vendas uzantajn datumojn.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Cimo-raportoj estas sendataj kiam eraroj okazas kaj povas enhavi detalojn pri aplikaĵoj kaj dosieroj en via aparato. Raportoj helpas min ripari cimojn kaj plibonigi la aplikaĵon.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Permesi aŭtomatajn cimo-raportojn</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Ĉi tiuj opcioj povas esti ŝanĝitaj en la agordoj.</string>
-    <string name="onboarding_privacy_continue_action">Daŭrigi</string>
     <string name="onboarding_setup_title">Agordado</string>
     <string name="onboarding_setup_body1">SD Maid serĉos ĉiujn alireblajn datumareojn.</string>
     <string name="onboarding_setup_body2">Kio estas alirebla dependas de via aparato, Android-versio kaj donitaj permesoj.</string>
@@ -77,7 +73,6 @@
     <string name="setup_incomplete_card_title">Agordado ne estas kompleta</string>
     <string name="setup_incomplete_card_body">Finu la agordon de SD Maid por ricevi pli bonajn rezultojn.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid provas ripari agordajn problemojn.</string>
-    <string name="setup_incomplete_card_dismiss_action">Forigi</string>
     <string name="setup_incomplete_card_continue_action">Daŭrigi agordon</string>
     <string name="setup_forcedshow_summary">Montri agordan ekranon denove, inkluzive jam plenumitajn erojn.</string>
     <string name="setup_checking_card_body">Kontrolante agordan plenumon kaj funkciadon.</string>
@@ -140,8 +135,6 @@
     <string name="dataarea_warningcard_reload_action">Reŝargi datumareojn</string>
     <string name="debug_mode_label">Sencimiga reĝimo</string>
     <string name="debug_mode_explanation">Ebligi testajn opciojn kaj pli detaleman eligon. Aplikaĵo funkcios pli malrapide kaj kondutos malsame.</string>
-    <string name="debug_bugreporter_label">Aŭtomataj cimo-raportoj</string>
-    <string name="debug_bugreporter_summary">Aŭtomate raportas problemojn, ekz. detalojn pri aplikaĵaj kraŝoj por ke mi povu kompreni kial kaj ripari ĝin.</string>
     <string name="data_area_public_app_data_official_label">Defaŭltaj publikaj aplikaĵaj datumoj</string>
     <string name="data_area_public_app_assets_official_label">Defaŭltaj publikaj aplikaĵaj rimedoj</string>
     <string name="data_area_public_storage_label">Publika stokado</string>
@@ -178,7 +171,6 @@
     <string name="dashboard_card_config_desc">Agordu kiujn kartojn montri kaj ilian ordon</string>
     <string name="dashboard_card_config_header_title">Trenu por reordigi, ŝaltu por montri/kaŝi</string>
     <string name="debug_debuglog_screen_title">Sencimiga protokolo</string>
-    <string name="debug_debuglog_screen_discard_action">Forĵeti</string>
     <string name="debug_debuglog_screen_session_path_label">Seanca vojo</string>
     <string name="debug_debuglog_screen_log_files_label">Protokolaj dosieroj</string>
     <plurals name="debug_debuglog_screen_log_files_ready">

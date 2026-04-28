@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
     <string name="debug_debuglog_screen_title">偵錯記錄</string>
-    <string name="debug_debuglog_screen_discard_action">捨棄</string>
     <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
     <string name="debug_debuglog_screen_log_files_label">記錄檔案</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -65,10 +64,6 @@
     <string name="onboarding_versus_continue_action">繼續</string>
     <string name="onboarding_privacy_title">隱私權</string>
     <string name="onboarding_privacy_body1">SD 女僕沒有廣告，也不會出售使用者資料。</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">錯誤報告將在發生錯誤時傳送，可能包含關於您的裝置上的應用程式和檔案的詳細資料。報告可以協助我修正錯誤並改善應用程式。</string>
-    <string name="onboarding_privacy_bugreport_toggle">允許自動回報錯誤</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">這些選項可在設定中變更。</string>
-    <string name="onboarding_privacy_continue_action">繼續</string>
     <string name="onboarding_setup_title">安裝程式</string>
     <string name="onboarding_setup_body1">SD 女僕將會搜尋所有可存取的資料區域。</string>
     <string name="onboarding_setup_body2">可存取的內容依存於您的裝置、Android 版本和授予的權限。</string>
@@ -157,7 +152,6 @@
     <string name="setup_incomplete_card_title">設定未完成</string>
     <string name="setup_incomplete_card_body">完成 SD 女僕的設定以取得更佳的結果。</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD 女僕正在嘗試修正安裝程式問題。</string>
-    <string name="setup_incomplete_card_dismiss_action">關閉</string>
     <string name="setup_incomplete_card_continue_action">繼續設定</string>
     <string name="setup_forcedshow_summary">再次顯示安裝程式畫面，包括已完成的項目。</string>
     <string name="setup_checking_card_body">正在驗證安裝程式完成度與功能性。</string>
@@ -220,8 +214,6 @@
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
     <string name="debug_mode_label">偵錯模式</string>
     <string name="debug_mode_explanation">啟用測試選項和更多詳細資訊輸出，應用程式會降低速度並以不同方式執行。</string>
-    <string name="debug_bugreporter_label">自動錯誤報告</string>
-    <string name="debug_bugreporter_summary">自動回報問題，例如關於應用程式當機的詳細資料，這樣我就可以找出原因並修正錯誤。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">偵錯模式已啟用</string>
     <string name="debug_card_trace_mode_label">啟用追蹤模式</string>

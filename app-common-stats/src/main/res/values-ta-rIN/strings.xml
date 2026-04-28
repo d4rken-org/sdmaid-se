@@ -8,7 +8,6 @@
         <item quantity="one">நீங்கள் உங்கள் சாதனத்தில் SD Maid இன் வருகையிலிருந்து %s உருப்படி செயல்படுத்தப்பட்டுள்ளது.</item>
         <item quantity="other">நீங்கள் உங்கள் சாதனத்தில் SD Maid இன் வருகையிலிருந்து %s உருப்படிகள் செயல்படுத்தப்பட்டுள்ளன.</item>
     </plurals>
-    <string name="stats_report_status_success">வெற்றி</string>
     <string name="stats_report_status_partial_success">பகுதி வெற்றி</string>
     <string name="stats_report_status_partial_failure">தோல்வி</string>
     <string name="stats_settings_desc">SD Maid இன் புள்ளிவிவரங்கள், அறிக்கைகள் மற்றும் தரவு தகவலை அமைக்கவும்.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">அடிப்படை SD Maid செயல்பாடு அறிக்கைகளை நீக்குவதற்கு முன்னடலான நாட்களின் எண்ணிக்கை.</string>
     <string name="stats_settings_retention_paths_label">விஸ்திரத் தான் பாதை தகவல்</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ால் பாதிக்கப்பட்ட பாதைகள் பற்றிய விஸ்தரங்களை வைத்திருக்கும் நாட்களின் எண்ணிக்கை.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d நாள்</item>
-        <item quantity="other">%d நாட்கள்</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">அனைத்தையும் ஞீட் செய்</string>
     <string name="stats_settings_reset_all_desc">அனைத்து அறிக்கைகளையும் நீக்கி அனைத்து புள்ளிவிவரங்களையும் சீரோவுக்கு அமைக்கவும்.</string>
     <string name="stats_affected_paths_label">பாதிக்கப்பட்ட பாதைகள்</string>

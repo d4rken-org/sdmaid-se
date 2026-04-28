@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">บังคับหยุดก่อนล้าง</string>
     <string name="appcleaner_forcestop_before_clearing_summary">บังคับหยุดแอปก่อนล้างแคช อาจช่วยล้างแคชบางแอปได้ แต่อาจทำให้แอปทำงานผิดปกติและต้องรีสตาร์ทด้วยตนเอง</string>
     <string name="appcleaner_progress_force_stopping">กำลังบังคับหยุดแอป…</string>
-    <string name="appcleaner_automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
-    <string name="appcleaner_automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
-    <string name="appcleaner_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการช่วยเหลือการเข้าถึง</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">พยายามยืนยันการกระทำก่อนหน้า (คำสำคัญ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
-    <string name="appcleaner_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
 </resources>

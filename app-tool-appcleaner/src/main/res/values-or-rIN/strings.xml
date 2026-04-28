@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">ସଫା କରିବା ପୂର୍ବରୁ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ସେମାନଙ୍କ କ୍ୟାସ୍ ସଫା କରିବା ପୂର୍ବରୁ ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ। ଏହା କିଛି ଆପ୍ସର କ୍ୟାସ୍ ସଫା କରିବାରେ ସାହାଯ୍ୟ କରିପାରେ, କିନ୍ତୁ ଆପ୍ସ ଖରାପ ଆଚରଣ କରିପାରେ ଏବଂ ହାତରେ ପୁନଃଆରମ୍ଭ ଆବଶ୍ୟକ ହୋଇପାରେ।</string>
     <string name="appcleaner_progress_force_stopping">ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରୁଛି…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ଏହି ସିଷ୍ଟମ ଆପ୍‌ର କୌଣସି ସେଟିଂସ ସ୍କ୍ରିନ ନାହିଁ। ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ କ୍ୟାଶ ସଫା କରିବା ସମ୍ଭବ ନୁହେଁ। କ୍ୟାଶ ସଫା କରିବାର ଗତି ବଢ଼ାଇବା ପାଇଁ ଏହାକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
-    <string name="appcleaner_automation_error_no_settings_title">ସେଟିଂସ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ</string>
-    <string name="appcleaner_automation_loading">ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ ଅଟୋମେସନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କିୱର୍ଡ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="appcleaner_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
 </resources>

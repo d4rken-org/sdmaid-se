@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Sessie voortzetten</string>
     <string name="swiper_sessions_description">Bekijk bestanden in 3 eenvoudige stappen:\n\n1. Kies een map om te scannen\n2. Veeg door de bestanden om ze te bewaren, te verwijderen of over te slaan\n3. Controleer je keuzes en bevestig\n\nNiets wordt verwijderd totdat je op de knop \'Verwijderen\' tikt.</string>
     <string name="swiper_select_folders_action">Mappen selecteren</string>
-    <string name="swiper_scanning_title">Scannen…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d item gevonden</item>
         <item quantity="other">%d items gevonden</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Hoe Swiper werkt</string>
     <string name="swiper_help_message">Veeg over elk bestand om een ​​beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na de eerste veegbeweging)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik je op \'Beoordelen\' om al je beslissingen te bekijken. Niets wordt verwijderd totdat je bevestigt op het beoordelingsscherm.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Begrepen</string>
-    <string name="swiper_help_action">Help</string>
     <string name="swiper_file_type_filter_title">Toon alleen deze bestandstypen</string>
     <string name="swiper_file_type_filter_hint">Vink de typen aan die je wilt zien. Als er geen zijn aangevinkt, worden alle bestanden getoond.</string>
     <string name="swiper_file_type_category_images">Afbeeldingen</string>

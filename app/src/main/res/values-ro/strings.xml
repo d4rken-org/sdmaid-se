@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (ex: numele fișierului și aplicații instalate). Partajează-l doar cu părțile de încredere.</string>
     <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
-    <string name="debug_debuglog_screen_discard_action">Renunțați</string>
     <string name="debug_debuglog_screen_session_path_label">Cale sesiune</string>
     <string name="debug_debuglog_screen_log_files_label">Fișiere jurnal</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -71,10 +70,6 @@
     <string name="onboarding_versus_continue_action">Continuă</string>
     <string name="onboarding_privacy_title">Confidențialitate</string>
     <string name="onboarding_privacy_body1">SD Maid nu are reclame și nu vinde datele utilizatorului.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Rapoartele de erori sunt trimise atunci când apar erori și pot conține detalii despre aplicațiile și fișierele de pe dispozitiv. Rapoartele mă ajută să rezolv erorile și să îmbunătățesc aplicația.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Permite rapoarte automate de erori</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aceste opțiuni pot fi schimbate din setări.</string>
-    <string name="onboarding_privacy_continue_action">Continuă</string>
     <string name="onboarding_setup_title">Partea de configurare</string>
     <string name="onboarding_setup_body1">SD Maid va căuta toate zonele de date accesibile.</string>
     <string name="onboarding_setup_body2">Ce este accesibil depinde de dispozitivul tău, versiunea Android și permisiuni permise.</string>
@@ -167,7 +162,6 @@
     <string name="setup_incomplete_card_title">Partea de configurare este incompletă</string>
     <string name="setup_incomplete_card_body">Termină partea de configurare al SD Maid pentru a obține rezultate mai bune.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid încearcă să rezolve problemele de instalare.</string>
-    <string name="setup_incomplete_card_dismiss_action">Respinge</string>
     <string name="setup_incomplete_card_continue_action">Continuă configurarea</string>
     <string name="setup_forcedshow_summary">Arată ecranul de configurare din nou, inclusiv sarcini deja completate.</string>
     <string name="setup_checking_card_body">Verificarea finalizării configurării și a funcționalității.</string>
@@ -230,8 +224,6 @@
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
     <string name="debug_mode_label">Mod de depanare</string>
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
-    <string name="debug_bugreporter_label">Rapoarte de jurnal automat</string>
-    <string name="debug_bugreporter_summary">Raportează automat probleme, ex: detalii la oprirea neașteptată a aplicației ca să știu de ce și a rezolva.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modul depanare este activat</string>
     <string name="debug_card_trace_mode_label">Activați modul de urmărire</string>

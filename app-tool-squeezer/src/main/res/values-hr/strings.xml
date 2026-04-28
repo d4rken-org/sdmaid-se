@@ -51,8 +51,6 @@
     <string name="squeezer_preview_dialog_title">Potvrdi kompresiju</string>
     <string name="squeezer_preview_total_size">Ukupna veličina</string>
     <string name="squeezer_preview_estimated_savings">Procijenjena ušteda</string>
-    <string name="squeezer_compress_confirmation_title">Komprimirati slike?</string>
-    <string name="squeezer_compress_confirmation_message">Ovo će zamijeniti originalne slike komprimiranim verzijama. Ova radnja se ne može poništiti.</string>
     <string name="squeezer_history_title">Povijest kompresije</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d stavka (%2$s)</item>
@@ -88,5 +86,4 @@
         <item quantity="other">Najmanje %d dana stara</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Procjenjena ušteda od ~%d%% za JPEG datoteke</string>
-    <string name="squeezer_onboarding_got_it">U redu</string>
 </resources>

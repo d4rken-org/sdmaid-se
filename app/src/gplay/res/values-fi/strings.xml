@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Playhin ei voida yhdistää. Tarkista internetyhteytesi ja yritä uudelleen.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jo ostettu</string>
     <string name="upgrades_gplay_already_owned_error_description">Käytä \"Palauta ostos\" -vaihtoehtoa palauttaaksesi ostoksesi. Jos ongelma jatkuu, kokeile tyhjentää Google Play -välimuisti ja käynnistää laitteesi uudelleen.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ostoja ei löytynyt. Käytätkö oikeaa tiliä?</string>
     <string name="upgrade_screen_title">Hanki SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Edut</string>

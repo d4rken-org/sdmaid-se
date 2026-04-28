@@ -45,7 +45,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Omejeni podatki o namestitvah programov, npr. zaščiteni programi tretjih oseb.</string>
     <string name="corpsefinder_filter_appasec_label">Šifrirani programski viri</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrirani programski viri, npr. shranjene datoteke iger.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Podatki, ki so bili premaknjeni v zunanjo shrambo s pomočjo programov App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Izbrisan je bil %d ostanek programa.</item>

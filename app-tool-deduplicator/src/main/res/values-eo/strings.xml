@@ -40,9 +40,7 @@
         <item quantity="one">%s estas okupita de duoblaĵoj</item>
         <item quantity="other">%s estas okupitaj de duoblaĵoj</item>
     </plurals>
-    <string name="deduplicator_keep_prefer_paths_title">Preferi konservi en</string>
     <string name="deduplicator_keep_prefer_paths_summary">Kiam oni decidas kiun duplikaton konservi, preferi konservi dosierojn en ĉi tiuj lokoj.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Neniuj lokoj agorditaj</string>
     <string name="deduplicator_arbiter_title">Forigada strategio</string>
     <string name="deduplicator_arbiter_summary">Agordu kiuj dosieroj estas konservitaj kaj kiuj forigitaj.</string>
     <string name="deduplicator_arbiter_explanation">Kiam oni forigas duplikatojn, SD Maid decidas kiun dosieron konservi kontrolante ĉiun kriterion laŭorde. La unua kriterio kiu produktas klaran gajnanton determinas la rezulton. Trenu por reordigi, tuŝu por ŝanĝi reĝimon.</string>

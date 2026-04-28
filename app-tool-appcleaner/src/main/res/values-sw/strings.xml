@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Simamisha kwa nguvu kabla ya kusafisha</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Simamisha programu kwa nguvu kabla ya kusafisha hifadhi yao. Inaweza kusaidia kusafisha hifadhi ya programu fulani, lakini inaweza kusababisha programu kutofanya kazi vizuri na kuhitaji kuanzishwa upya kwa mikono.</string>
     <string name="appcleaner_progress_force_stopping">Kusimamisha programu kwa nguvu…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
-    <string name="appcleaner_automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Jumuisha watumiaji wengine</string>
-    <string name="appcleaner_include_multiuser_summary">Jumuisha programu kutoka wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
 </resources>

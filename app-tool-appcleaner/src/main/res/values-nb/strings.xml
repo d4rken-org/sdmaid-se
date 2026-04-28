@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tving avslutning før tømming</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tving avslutning av apper før tømming av hurtigbufferen. Det kan hjelpe med å tømme noen appers hurtigbuffere, men kan forårsake at apper oppfører seg feil og krever manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvinger avslutning av apper…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
-    <string name="appcleaner_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inkluder andre brukere</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
 </resources>

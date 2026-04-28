@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play सँग जडान गर्न सकिएन। कृपया आफ्नो इन्टरनेट जडान जाँच गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
     <string name="upgrades_gplay_already_owned_error_title">पहिले नै खरिद गरिसकिएको</string>
     <string name="upgrades_gplay_already_owned_error_description">आफ्नो खरिद पुनर्स्थापना गर्न \"खरिद पुनर्स्थापना गर्नुहोस्\" विकल्प प्रयोग गर्नुहोस्। समस्या जारी रहेमा, Google Play क्यास खाली गरेर उपकरण पुनः सुरु गर्ने प्रयास गर्नुहोस्।</string>
-    <string name="upgrades_no_purchases_found_check_account">कुनै खरिदहरू फेला परेनन्। के तपाईं सही खाता प्रयोग गर्दै हुनुहुन्छ?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro प्राप्त गर्नुहोस्</string>
     <string name="upgrade_screen_preamble">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन। मेरो काम तपाईं द्वारा वित्त पोषित छ ❤️।</string>
     <string name="upgrade_screen_benefits_title">फाइदाहरू</string>

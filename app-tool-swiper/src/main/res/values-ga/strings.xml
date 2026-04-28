@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Lean ar aghaidh leis an seisiún</string>
     <string name="swiper_sessions_description">Teastaíonn cinneadh daonna ó roinnt comhad. Svaidhpeáil trí mhíreanna agus roghnaigh cad a choinnítear nó a scriostar. Scipeáil aon rud nach bhfuil tú cinnte faoi. Ligeann an uirlis seo duit fillteáin shonracha a athbhreithniú de láimh, agus ní bhaintear aon rud go dtí go ndearbhaíonn tú.</string>
     <string name="swiper_select_folders_action">Roghnaigh fillteáin</string>
-    <string name="swiper_scanning_title">Ag scanadh…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d mhír aimsíodh</item>
         <item quantity="two">%d mhír aimsíodh</item>

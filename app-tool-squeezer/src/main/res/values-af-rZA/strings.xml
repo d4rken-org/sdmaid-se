@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Bevestig kompressie</string>
     <string name="squeezer_preview_total_size">Totale grootte</string>
     <string name="squeezer_preview_estimated_savings">Beraamde besparing</string>
-    <string name="squeezer_compress_confirmation_title">Beelde komprimeer?</string>
-    <string name="squeezer_compress_confirmation_message">Dit sal oorspronklike beelde met gekomprimeerde weergawes vervang. Hierdie aksie kan nie ongedaan gemaak word nie.</string>
     <string name="squeezer_history_title">Kompressiegeskiedenis</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Ten minste %d dae oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Beraamde ~%d%% besparing vir JPEG-lêers</string>
-    <string name="squeezer_onboarding_got_it">Verstaan</string>
 </resources>

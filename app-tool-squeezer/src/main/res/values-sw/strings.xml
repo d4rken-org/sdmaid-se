@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Thibitisha kubana</string>
     <string name="squeezer_preview_total_size">Ukubwa wa jumla</string>
     <string name="squeezer_preview_estimated_savings">Akiba iliyokadiriwa</string>
-    <string name="squeezer_compress_confirmation_title">Bana picha?</string>
-    <string name="squeezer_compress_confirmation_message">Hii itabadilisha picha asili na matoleo yaliyobaniwa. Kitendo hiki hakiwezi kutenduliwa.</string>
     <string name="squeezer_history_title">Historia ya kubana</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">kipengele %1$d (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Angalau siku %d</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Takriban ~%d%% akiba kwa mafaili ya JPEG</string>
-    <string name="squeezer_onboarding_got_it">Nimeelewa</string>
 </resources>

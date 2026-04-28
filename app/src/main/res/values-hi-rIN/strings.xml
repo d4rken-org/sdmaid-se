@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">रिकॉर्डिंग रोकें</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न की गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें।</string>
     <string name="debug_debuglog_screen_title">डिबग लॉग</string>
-    <string name="debug_debuglog_screen_discard_action">हटाएं</string>
     <string name="debug_debuglog_screen_session_path_label">सत्र पथ</string>
     <string name="debug_debuglog_screen_log_files_label">लॉग फ़ाइलें</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">जारी रखें</string>
     <string name="onboarding_privacy_title">निजता</string>
     <string name="onboarding_privacy_body1">SD मेड कोई विज्ञापन नहीं दिखाती है और यह उपयोगकर्ता के डेटा को नहीं बेचती है।</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">त्रुटि होने पर बग रिपोर्ट भेजी जाती है और इसमें आपके डिवाइस पर ऐप्स और फ़ाइलों के बारे में विवरण हो सकते हैं। रिपोर्ट से मुझे बग ठीक करने और ऐप को बेहतर बनाने में मदद मिलती है।</string>
-    <string name="onboarding_privacy_bugreport_toggle">स्वचालित त्रुटी रिपोर्ट की अनुमति दें</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">इन विकल्पों को सेटिंग में बदला जा सकता है।</string>
-    <string name="onboarding_privacy_continue_action">जारी रखें</string>
     <string name="onboarding_setup_title">व्यवस्थित करें</string>
     <string name="onboarding_setup_body1">SD मेड सभी सुलभ डेटा क्षेत्रों की खोज करेगी।</string>
     <string name="onboarding_setup_body2">आपके फोन में एंड्रॉयड संस्करण और दी गई अनुमतियों पर निर्भर करता है कि क्या इसकी पहुंच योग्य है।</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">व्यवस्था अधूरी है</string>
     <string name="setup_incomplete_card_body">बेहतर परिणाम पाने के लिए SD मेड व्यवस्था पूरी करें।</string>
     <string name="setup_incomplete_card_healing_in_progress_body">सेटअप समस्याओं का स्वतः समाधान हो रहा है।</string>
-    <string name="setup_incomplete_card_dismiss_action">खारिज करें</string>
     <string name="setup_incomplete_card_continue_action">व्यवस्था चालू रखें</string>
     <string name="setup_forcedshow_summary">व्यवस्था स्क्रीन फिर से दिखाएं, जिसमें पहले से ही पूर्ण वस्तुएं शामिल हैं।</string>
     <string name="setup_checking_card_body">सेटअप पूर्णता और कार्यक्षमता की जांच की जा रही है।</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">भंडारण क्षेत्रों को पुनः लोड करें</string>
     <string name="debug_mode_label">डीबग लॉग</string>
     <string name="debug_mode_explanation">परीक्षण विकल्प और अधिक वर्बोज़ आउटपुट सक्षम करें। ऐप धीमी गति से चलेगा और अलग तरह से प्रदर्शन करेगा।</string>
-    <string name="debug_bugreporter_label">स्वचालित त्रुटी रिपोर्ट</string>
-    <string name="debug_bugreporter_summary">स्वचालित रूप से मुद्दों की रिपोर्ट करता है, जैसे ऐप पर विवरण क्रैश हो जाता है, इसलिए मैं इसका पता लगा सकता हूं और इसे ठीक कर सकता हूं।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">डिबग मोड सक्षम है</string>
     <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>

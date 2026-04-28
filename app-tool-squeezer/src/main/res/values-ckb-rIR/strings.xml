@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">پشتڕاستکردنەوەی پەکاندن</string>
     <string name="squeezer_preview_total_size">قەبارەی سەرجەم</string>
     <string name="squeezer_preview_estimated_savings">خەزنکردنی خەمڵاندراو</string>
-    <string name="squeezer_compress_confirmation_title">وێنەکان بپەکێنیت؟</string>
-    <string name="squeezer_compress_confirmation_message">ئەمە وێنەی ڕەسەنەکان بە گۆڕینی وێنەکانی پەکاندراو جێگگوژمێر دەکات. ئەم کردارە نابێتەوە.</string>
     <string name="squeezer_history_title">مێژووی پەکاندن</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d بابەت (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">لانی کەم %d ڕۆژ کۆنن</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">خەمڵاندراوی ~%d%% خەزنکردن بۆ فایلەکانی JPEG</string>
-    <string name="squeezer_onboarding_got_it">تێگەیشتم</string>
 </resources>

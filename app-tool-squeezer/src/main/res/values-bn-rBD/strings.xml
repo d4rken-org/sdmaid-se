@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>
     <string name="squeezer_preview_total_size">মোট আকার</string>
     <string name="squeezer_preview_estimated_savings">আনুমানিক সাশ্রয়</string>
-    <string name="squeezer_compress_confirmation_title">ছবি সংকুচিত করবেন?</string>
-    <string name="squeezer_compress_confirmation_message">এটি মূল ছবিগুলিকে সংকুচিত সংস্করণ দিয়ে প্রতিস্থাপন করবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</string>
     <string name="squeezer_history_title">সংকোচন ইতিহাস</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d আইটেম (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">অন্তত %d দিন পুরনো</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ফাইলের জন্য আনুমানিক ~%d%% সাশ্রয়</string>
-    <string name="squeezer_onboarding_got_it">বুঝেছি</string>
 </resources>

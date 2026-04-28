@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Potrdi stiskanje</string>
     <string name="squeezer_preview_total_size">Skupna velikost</string>
     <string name="squeezer_preview_estimated_savings">Predviden prihranek</string>
-    <string name="squeezer_compress_confirmation_title">Stisni slike?</string>
-    <string name="squeezer_compress_confirmation_message">S tem boste zamenjali izvirne slike s stisnjeno različico.  Tega dejanja ni mogoče razveljaviti.</string>
     <string name="squeezer_history_title">Zgodovina stiskanja</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d predmet (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Vsaj %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Predviden prihranek za datoteke JPEG: ~%d%%.</string>
-    <string name="squeezer_onboarding_got_it">Razumem!</string>
 </resources>

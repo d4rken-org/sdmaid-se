@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continuar sesión</string>
     <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar cartafoles</string>
-    <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elemento atopado</item>
         <item quantity="other">%d elementos atopados</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Como funciona Swiper</string>
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
-    <string name="swiper_help_action">Axuda</string>
     <string name="swiper_file_type_filter_title">Mostrar só estes tipos de ficheiro</string>
     <string name="swiper_file_type_filter_hint">Marca os tipos que queres ver. Se non se marca ningún, móstranse todos os ficheiros.</string>
     <string name="swiper_file_type_category_images">Imaxes</string>

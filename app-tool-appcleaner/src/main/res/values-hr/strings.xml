@@ -92,10 +92,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno zaustavi prije čišćenja</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno zaustavi aplikacije prije čišćenja njihove predmemorije. Može pomoći očistiti predmemoriju nekih aplikacija, ali može uzrokovati neispravno ponašanje aplikacija i zahtijevati ručno ponovno pokretanje.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno zaustavljanje aplikacija…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Zaslon postavki nedostupan</string>
-    <string name="appcleaner_automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Uključi druge korisnike</string>
-    <string name="appcleaner_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
 </resources>

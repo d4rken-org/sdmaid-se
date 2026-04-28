@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Playకి కనెక్ట్ చేయడం సాధ్యం కాలేదు. దయచేసి మీ ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేసి మళ్ళీ ప్రయత్నించండి.</string>
     <string name="upgrades_gplay_already_owned_error_title">ఇప్పటికే కొనుగోలు చేయబడింది</string>
     <string name="upgrades_gplay_already_owned_error_description">మీ కొనుగోలును పునరుద్ధరించడానికి \"కొనుగోలును పునరుద్ధరించండి\" ఎంపికను ఉపయోగించండి. సమస్య కొనసాగితే, Google Play కాష్‌ను క్లియర్ చేసి మీ పరికరాన్ని రీస్టార్ట్ చేయడానికి ప్రయత్నించండి.</string>
-    <string name="upgrades_no_purchases_found_check_account">కొనుగోళ్లు కనుగొనబడలేదు. మీరు సరైన ఖాతాను ఉపయోగిస్తున్నారా?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro పొందండి</string>
     <string name="upgrade_screen_preamble">SD Maidకి ప్రకటనలు లేవు మరియు వినియోగదారు డేటాను విక్రయించదు. నా పని మీరు ఆర్థిక సహాయం చేస్తున్నారు ❤️.</string>
     <string name="upgrade_screen_benefits_title">ప్రయోజనాలు</string>

@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Potwierdź kompresję</string>
     <string name="squeezer_preview_total_size">Całkowity rozmiar</string>
     <string name="squeezer_preview_estimated_savings">Szacowane oszczędności</string>
-    <string name="squeezer_compress_confirmation_title">Kompresować obrazy?</string>
-    <string name="squeezer_compress_confirmation_message">To zastąpi oryginalne obrazy skompresowanymi wersjami. Tej czynności nie można cofnąć.</string>
     <string name="squeezer_history_title">Historia kompresji</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Co najmniej %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Szacowane oszczędności ~%d%% dla plików JPEG</string>
-    <string name="squeezer_onboarding_got_it">Rozumiem</string>
 </resources>

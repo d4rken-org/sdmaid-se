@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Haiwezi kuunganisha na Google Play. Tafadhali angalia muunganisho wako wa intaneti na ujaribu tena.</string>
     <string name="upgrades_gplay_already_owned_error_title">Tayari umenunua</string>
     <string name="upgrades_gplay_already_owned_error_description">Tumia chaguo la \"Rejesha ununuzi\" kurejesha ununuzi wako. Ikiwa tatizo linaendelea, jaribu kusafisha akiba ya Google Play na kuanzisha upya kifaa chako.</string>
-    <string name="upgrades_no_purchases_found_check_account">Hakuna ununuzi uliopatikana. Je, unatumia akaunti sahihi?</string>
     <string name="upgrade_screen_title">Pata SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za watumiaji. Kazi yangu inafadhiliwa na wewe ❤️.</string>
     <string name="upgrade_screen_benefits_title">Faida</string>

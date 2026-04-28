@@ -51,8 +51,6 @@
     <string name="squeezer_preview_dialog_title">Confirmați compresia</string>
     <string name="squeezer_preview_total_size">Dimensiune totală</string>
     <string name="squeezer_preview_estimated_savings">Economii estimate</string>
-    <string name="squeezer_compress_confirmation_title">Comprimați imaginile?</string>
-    <string name="squeezer_compress_confirmation_message">Acest lucru va înlocui imaginile originale cu versiuni comprimate. Această acțiune nu poate fi anulată.</string>
     <string name="squeezer_history_title">Istoric compresie</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -88,5 +86,4 @@
         <item quantity="other">Cel puțin %d zile vechime</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Se estimează că ~%d%% economii pentru fișierele JPEG</string>
-    <string name="squeezer_onboarding_got_it">Am înțeles</string>
 </resources>

@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Rengiamas automatizavimas per prieigamumo tarnybą</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veiksmą (raktažoždiai: %s)</string>
     <string name="appcontrol_include_multiuser_label">Įtraukti kitus vartotojus</string>
-    <string name="appcontrol_include_multiuser_summary">Įtraukti programas iš kitų vartotojų profilių šiame įrenginyje.</string>
 </resources>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ගොනු වයස (අවසන් වෙනස් කළ වේලාව) මත පදනම්ව ගැළපීම් සීමා කරන්න. ඕනෑම වයසකට ගැළපීමට සැකසීමෙන් තොරව තබන්න.</string>
     <string name="systemcleaner_customfilter_import_action">නව පෙරණ අරමුණු කරන්න</string>
     <string name="systemcleaner_customfilter_export_action">සිරැසූ පෙරණ නිර්යාත කරන්න</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ඔබ ඇද සකැසූම් නොකැරී වෙනස්කිරීම් ඇද!</string>
 </resources>

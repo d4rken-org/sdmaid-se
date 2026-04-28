@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Потврди компресија</string>
     <string name="squeezer_preview_total_size">Вкупна големина</string>
     <string name="squeezer_preview_estimated_savings">Проценета заштеда</string>
-    <string name="squeezer_compress_confirmation_title">Компресирај слики?</string>
-    <string name="squeezer_compress_confirmation_message">Ова ќе ги замени оригиналните слики со компресирани верзии. Оваа акција не може да се поврати.</string>
     <string name="squeezer_history_title">Историја на компресија</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ставка (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Најмалку %d дена стара</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Проценета ~%d%% заштеда за JPEG датотеки</string>
-    <string name="squeezer_onboarding_got_it">Разбрав</string>
 </resources>

@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Εμφάνιση επιλογών που σας επιτρέπουν να διαγράψετε όλα τα αρχεία σε ένα σύνολο διπλότυπων έτσι ώστε να μην μείνει κανένα αρχείο.</string>
     <string name="deduplicator_search_locations_title">Τοποθεσίες αναζήτησης</string>
     <string name="deduplicator_search_locations_all_summary">Όλες οι προσβάσιμες περιοχές</string>
-    <string name="deduplicator_keep_prefer_paths_title">Προτίμηση διατήρησης σε</string>
     <string name="deduplicator_keep_prefer_paths_summary">Κατά τη λήψη απόφασης για το ποιο αντίγραφο θα διατηρηθεί, προτιμήστε τη διατήρηση αρχείων σε αυτές τις τοποθεσίες.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Δεν έχουν ρυθμιστεί τοποθεσίες</string>
     <string name="deduplicator_skip_minsize_title">Ελάχιστο μέγεθος</string>
     <string name="deduplicator_skip_minsize_description">Παράλειψη αρχείων που είναι μικρότερα από το ελάχιστο μέγεθος.</string>
     <string name="deduplicator_skip_uncommon_title">Παράλειψη ασυνήθιστων τύπων αρχείων</string>

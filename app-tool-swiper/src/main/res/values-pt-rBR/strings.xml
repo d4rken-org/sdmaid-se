@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continuar sessão</string>
     <string name="swiper_sessions_description">Analise arquivos em 3 passos simples:\n\n1. Selecione uma pasta para analisar\n2. Deslize pelos arquivos para manter, excluir ou ignorar\n3. Revise suas escolhas e confirme\n\nNada será removido até que você toque no botão de exclusão final.</string>
     <string name="swiper_select_folders_action">Selecionar pastas</string>
-    <string name="swiper_scanning_title">Verificando…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d item encontrado</item>
         <item quantity="other">%d itens encontrados</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Como o deslizar funciona</string>
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
-    <string name="swiper_help_action">Ajuda</string>
     <string name="swiper_file_type_filter_title">Mostrar apenas estes tipos de arquivo</string>
     <string name="swiper_file_type_filter_hint">Marque os tipos que você deseja ver. Se nenhum estiver marcado, todos os arquivos serão mostrados.</string>
     <string name="swiper_file_type_category_images">Imagens</string>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Oturumu sürdür</string>
     <string name="swiper_sessions_description">Dosyaları 3 basit adımda gözden geçirin:\n\n1. Taranacak bir klasör seçin\n2. Dosyaları saklamak, silmek veya atlamak için kaydırın\n3. Seçimlerinizi gözden geçirin ve onaylayın\n\nSon silme düğmesine dokunana kadar hiçbir şey silinmez.</string>
     <string name="swiper_select_folders_action">Klasörleri seçin</string>
-    <string name="swiper_scanning_title">Taranıyor…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d öğe bulundu</item>
         <item quantity="other">%d öğe bulundu</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper nasıl çalışır</string>
     <string name="swiper_help_message">Her dosyayı kaydırarak bir karar verin:\n\n← Sola kaydırma: %1$s\n→ Sağa kaydırma: %2$s\n↑ Yukarı kaydırma: Atla\n↓ Aşağı kaydırma: Geri al (ilk kaydırmadan sonra)\n\nAlttaki düğmeleri de kullanabilirsiniz.\n\nİşiniz bittiğinde, tüm kararlarınızı görmek için \"İncele\"ye dokunun. İnceleme ekranında onaylayana kadar hiçbir şey silinmez.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
-    <string name="swiper_help_action">Yardım</string>
     <string name="swiper_file_type_filter_title">Yalnızca bu dosya türlerini göster</string>
     <string name="swiper_file_type_filter_hint">Görmek istediğiniz türleri işaretleyin. Hiçbiri işaretlenmemişse tüm dosyalar gösterilir.</string>
     <string name="swiper_file_type_category_images">Görseller</string>

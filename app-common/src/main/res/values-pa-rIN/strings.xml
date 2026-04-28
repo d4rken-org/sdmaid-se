@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">ਹੋਰ ਵਿਕਲਪਾਂ ਲਈ ਠੁੰਗ ਮਾਰੋ</string>
     <string name="general_upgrade_action">ਅੱਪਗਰੇਡ</string>
     <string name="general_donate_action">ਦਾਨ ਕਰੋ</string>
-    <string name="general_check_action">ਜਾਂਚ ਕਰੋ</string>
-    <string name="general_filter_action">ਪੁਣ-ਛਾਣ ਕਰੋ</string>
     <string name="general_internal_not_available_msg">ਇੰਟਰਨੈਟ ਕਨੈਕਸ਼ਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
     <string name="general_refresh_action">ਤਾਜ਼ਾ ਕਰੋ</string>
     <string name="general_progress_searching">ਲੱਭ ਰਿਹਾ ਹੈ</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">ਟੈਗਾਂ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ</string>
     <string name="general_tag_system">ਸਿਸਟਮ</string>
     <string name="general_result_success_message">ਕਾਰਵਾਈ ਸਫਲ ਹੋਈ</string>
-    <string name="general_result_failure_message">ਕਾਰਵਾਈ ਅਸਫਲ ਹੋਈ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
         <item quantity="other">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d ਆਈਟਮ ਹਟਾਏ ਗਏ</item>
     </plurals>
     <string name="general_root_required_label">ਰੂਟ ਦੀ ਲੋੜ ਹੈ</string>
-    <string name="general_root_required_message">ਰੂਟ ਕੀਤੇ ਗਏ ਯੰਤਰ ਦੀ ਲੋੜ ਹੈ</string>
     <string name="general_search_action">ਖੋਜੋ</string>
     <string name="general_scan_device_action">ਯੰਤਰ ਸਕੈਨ ਕਰੋ</string>
     <string name="general_open_system_settings_action">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>

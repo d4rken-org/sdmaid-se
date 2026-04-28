@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Grabaketa geldiarazi</string>
     <string name="debug_debuglog_sensitive_information_message">Sortutako fitxategiak informazio sentikorra du (adibidez, fitxategi-izenak eta instalatutako aplikazioak). Konfiantzazko alderdiekin bakarrik partekatu.</string>
     <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
-    <string name="debug_debuglog_screen_discard_action">Baztertu</string>
     <string name="debug_debuglog_screen_session_path_label">Saioa Bidearen bidea</string>
     <string name="debug_debuglog_screen_log_files_label">Erregistro fitxategiak</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Jarraitu</string>
     <string name="onboarding_privacy_title">Pribatutasuna</string>
     <string name="onboarding_privacy_body1">SD Maid-ek ez du iragarkiririk eta ez du erabiltzaile-datuak saltzen.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Erroreen txostenak bidaltzen dira erroreak gertatzen direnean eta zure gailuko aplikazioen eta fitxategien xehetasunak izan ditzakete. Txostenek erroreak konpontzen eta aplikazioa hobetzen laguntzen didate.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Baimendu errore-txosten automatikoak</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aukera hauek ezarpenetan alda daitezke.</string>
-    <string name="onboarding_privacy_continue_action">Jarraitu</string>
     <string name="onboarding_setup_title">Konfigurazioa</string>
     <string name="onboarding_setup_body1">SD Maid-ek atzitu daitezkeen datu-eremu guztiak bilatuko ditu.</string>
     <string name="onboarding_setup_body2">Zer den atzitgarria zure gailua, Android bertsioa eta emandako baimenen araberakoa da.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Konfigurazioa ez da osatu</string>
     <string name="setup_incomplete_card_body">Amaitu SD Maid-en konfigurazioa emaitza hobeak lortzeko.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid konfigurazio-arazoak konpontzen saiatzen ari da.</string>
-    <string name="setup_incomplete_card_dismiss_action">Baztertu</string>
     <string name="setup_incomplete_card_continue_action">Jarraitu konfigurazioarekin</string>
     <string name="setup_forcedshow_summary">Erakutsi konfigurazio-pantaila berriro, osatutako elementuak barne.</string>
     <string name="setup_checking_card_body">Konfigurazio-osotasuna eta funtzionalitatea egiaztatzen.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Birkargatu datu-areoak</string>
     <string name="debug_mode_label">Arazketa modua</string>
     <string name="debug_mode_explanation">Gaitu proba-aukerak eta irteera xeheagoa. Aplikazioa motelago ibiliko da eta modu ezberdinean funtzionatuko du.</string>
-    <string name="debug_bugreporter_label">Akats-txosten automatikoa</string>
-    <string name="debug_bugreporter_summary">Automatikoki jakinarazten ditu arazoak, adib. aplikazioaren kraskaduren xehetasunak, zergatia aurkitu eta konpon dezadan.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Arazketa modua gaituta dago</string>
     <string name="debug_card_trace_mode_label">Gaitu traza modua</string>

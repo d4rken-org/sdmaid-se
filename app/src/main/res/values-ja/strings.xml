@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルにはセンシティブな情報(ファイル名やインストールされているアプリなど)が含まれています。信頼できる相手のみと共有してください。</string>
     <string name="debug_debuglog_screen_title">デバッグログ</string>
-    <string name="debug_debuglog_screen_discard_action">破棄</string>
     <string name="debug_debuglog_screen_session_path_label">セッションパス</string>
     <string name="debug_debuglog_screen_log_files_label">ログファイル</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -65,10 +64,6 @@
     <string name="onboarding_versus_continue_action">次へ</string>
     <string name="onboarding_privacy_title">プライバシー</string>
     <string name="onboarding_privacy_body1">SD Maidは広告がなく、第三者にユーザー情報を販売することもありません。</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">バグ報告はエラーの発生時に送信され、使用しているデバイスやアプリやファイルに関する詳細情報が含まれている場合があります。報告はバグの修正や改善に役立てられます。</string>
-    <string name="onboarding_privacy_bugreport_toggle">自動的にバグ報告を行うことを許可する</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">これらのオプションは設定で変更できます。</string>
-    <string name="onboarding_privacy_continue_action">次へ</string>
     <string name="onboarding_setup_title">セットアップ</string>
     <string name="onboarding_setup_body1">SD Maidはアクセス可能なすべてのデータ領域を検索します。</string>
     <string name="onboarding_setup_body2">アクセスできる機能はご利用の機種、Androidのバージョン、および許可された権限によって異なります。</string>
@@ -157,7 +152,6 @@
     <string name="setup_incomplete_card_title">セットアップが完了していません</string>
     <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させると、利用できる機能が増えます。</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid はセットアップの問題の修復をしています。</string>
-    <string name="setup_incomplete_card_dismiss_action">破棄</string>
     <string name="setup_incomplete_card_continue_action">セットアップを続行</string>
     <string name="setup_forcedshow_summary">既に完了した項目を含めて、再度セットアップ画面を表示します。</string>
     <string name="setup_checking_card_body">セットアップ完了と機能の確認。</string>
@@ -220,8 +214,6 @@
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>
     <string name="debug_mode_label">デバッグモード</string>
     <string name="debug_mode_explanation">テストオプションを有効にし、より詳細に出力します。アプリの動作が遅くなり、異なる動作をします。</string>
-    <string name="debug_bugreporter_label">自動バグ報告</string>
-    <string name="debug_bugreporter_summary">問題を自動的に報告します。例えば、アプリのクラッシュの詳細を把握し、原因を調査し修正することができます。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">デバッグモードが有効です</string>
     <string name="debug_card_trace_mode_label">トレースモードを有効にする</string>

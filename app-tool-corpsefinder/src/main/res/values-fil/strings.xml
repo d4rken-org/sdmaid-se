@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Limitadong app installation data, hal. mga protected third party app.</string>
     <string name="corpsefinder_filter_appasec_label">Mga naka-encrypt na app resource</string>
     <string name="corpsefinder_filter_appasec_summary">Mga naka-encrypt na app resource, hal. mga game asset.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data na nilipat sa external storage ng mga App2Sd mod.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d labi ng app na nabura</item>

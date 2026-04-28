@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">بەهێزبوونی وەستانی پێش سڕینەوە</string>
     <string name="appcleaner_forcestop_before_clearing_summary">بەهێز ئەپەکان بوەستێنە پێش سڕینەوەی کاشەیان. دەتوانێت هاری سڕینەوەی کاشەکانی هەندێ ئەپ بکات، بەڵام لەوانەیە ئەپەکان خراپ بخاتە کارەوە و پێویستی بە دەستی دووبارەکردنەوە هەبێت.</string>
     <string name="appcleaner_progress_force_stopping">بەهێزبوونی وەستانی ئەپەکان…</string>
-    <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. کاش clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
-    <string name="appcleaner_automation_error_no_settings_title">ڕێکخستنەکان screen unavailable</string>
-    <string name="appcleaner_automation_loading">ئامادەکردنی ئۆتۆماتیزاسیون لە ڕێگەی خزمەتگوزاری دەستپێگەیشتنەوە</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">هەوڵدەدرێت کردارەکەی پێشوو پشتڕاست بکرێتەوە (کلیلەکان: %s)</string>
-    <string name="appcleaner_include_multiuser_label">بەکارهێنەرانی دیکەش تێبگرە</string>
-    <string name="appcleaner_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
 </resources>

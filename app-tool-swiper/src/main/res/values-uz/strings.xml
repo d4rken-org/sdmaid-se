@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Sessiyani davom ettirish</string>
     <string name="swiper_sessions_description">Fayllarni 3 oddiy qadamda ko\'rib chiqing:\n\n1. Skanerlash uchun papkani tanlang\n2. Fayllarni saqlash, o\'chirish yoki o\'tkazish uchun suring\n3. Tanlovlaringizni ko\'rib chiqing va tasdiqlang\n\nYakuniy o\'chirish tugmasini bosguningizcha hech narsa o\'chirilmaydi.</string>
     <string name="swiper_select_folders_action">Papkalarni tanlash</string>
-    <string name="swiper_scanning_title">Skanerlanmoqda…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d element topildi</item>
         <item quantity="other">%d element topildi</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper qanday ishlaydi</string>
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Tushundim</string>
-    <string name="swiper_help_action">Yordam</string>
     <string name="swiper_file_type_filter_title">Faqat shu fayl turlarini ko\'rsatish</string>
     <string name="swiper_file_type_filter_hint">Ko\'rmoqchi bo\'lgan turlarni belgilang. Hech biri belgilanmagan bo\'lsa, barcha fayllar ko\'rsatiladi.</string>
     <string name="swiper_file_type_category_images">Rasmlar</string>

@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
     <string name="appcontrol_include_multiuser_label">Jumuisha watumiaji wengine</string>
-    <string name="appcontrol_include_multiuser_summary">Jumuisha programu kutoka kwa wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
 </resources>

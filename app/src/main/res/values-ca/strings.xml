@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Atura la gravació</string>
     <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació confidencial (p. ex. noms de fitxers i aplicacions instal·lades). Compartiu-ho només amb persones de confiança.</string>
     <string name="debug_debuglog_screen_title">Registre de depuració</string>
-    <string name="debug_debuglog_screen_discard_action">Descarta</string>
     <string name="debug_debuglog_screen_session_path_label">Ruta de la sessió</string>
     <string name="debug_debuglog_screen_log_files_label">Fitxers de registre</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Continua</string>
     <string name="onboarding_privacy_title">Privadesa</string>
     <string name="onboarding_privacy_body1">L\'SD Maid no té anuncis i no ven les dades d\'usuari.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Els informes d\'errors s\'envien quan es produeixen errors i poden contenir detalls sobre aplicacions i fitxers del dispositiu. Els informes m\'ajuden a corregir errors i millorar l\'aplicació.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Permet informes automàtics d\'errors</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aquestes opcions es poden canviar a la configuració.</string>
-    <string name="onboarding_privacy_continue_action">Continua</string>
     <string name="onboarding_setup_title">Configuració</string>
     <string name="onboarding_setup_body1">L\'SD Maid cercarà totes les àrees de dades accessibles.</string>
     <string name="onboarding_setup_body2">El que és accessible depèn del vostre dispositiu, la versió d\'Android i els permisos concedits.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">La configuració no s\'ha completat</string>
     <string name="setup_incomplete_card_body">Acabeu la configuració de l\'SD Maid per obtenir millors resultats.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">L\'SD Maid està intentant solucionar problemes de configuració.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ignora</string>
     <string name="setup_incomplete_card_continue_action">Continua la configuració</string>
     <string name="setup_forcedshow_summary">Torna a mostrar la pantalla de configuració, inclosos els elements ja completats.</string>
     <string name="setup_checking_card_body">Verificació de la finalització de la configuració i la funcionalitat.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>
     <string name="debug_mode_label">Mode de depuració</string>
     <string name="debug_mode_explanation">Activa les opcions de prova i una sortida més detallada. L\'aplicació funcionarà més lentament i funcionarà de manera diferent.</string>
-    <string name="debug_bugreporter_label">Informes d\'errors automàtics</string>
-    <string name="debug_bugreporter_summary">Informa automàticament de problemes, p. ex. detalls sobre els bloquejos de l\'aplicació perquè puguem esbrinar el motiu i solucionar-ho.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">El mode de depuració està habilitat</string>
     <string name="debug_card_trace_mode_label">Habilita el mode de seguiment</string>

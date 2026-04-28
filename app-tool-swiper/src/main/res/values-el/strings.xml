@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Συνέχεια συνεδρίας</string>
     <string name="swiper_sessions_description">Ελέγξτε αρχεία σε 3 απλά βήματα:\n\n1. Επιλέξτε φάκελο για σάρωση\n2. Σαρώστε αρχεία για διατήρηση, διαγραφή ή παράλειψη\n3. Ελέγξτε τις επιλογές σας και επιβεβαιώστε\n\nΤίποτα δεν αφαιρείται μέχρι να πατήσετε το τελικό κουμπί διαγραφής.</string>
     <string name="swiper_select_folders_action">Επιλογή φακέλων</string>
-    <string name="swiper_scanning_title">Σάρωση…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">Βρέθηκε %d αντικείμενο</item>
         <item quantity="other">Βρέθηκαν %d αντικείμενα</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Το κατάλαβα</string>
-    <string name="swiper_help_action">Βοήθεια</string>
     <string name="swiper_file_type_filter_title">Εμφάνιση μόνο αυτών των τύπων αρχείων</string>
     <string name="swiper_file_type_filter_hint">Επιλέξτε τους τύπους που θέλετε να δείτε. Αν δεν επιλεγεί κανένας, εμφανίζονται όλα τα αρχεία.</string>
     <string name="swiper_file_type_category_images">Εικόνες</string>

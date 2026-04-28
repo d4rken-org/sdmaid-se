@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforseerd stop voor uitvee</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Stop toepassings geforseerd voor die uitvee van hul kas. Dit kan help om sommige toepassings se kas uit te vee, maar kan veroorsaak dat toepassings wanfunksioneer en handmatige herbegin vereis.</string>
     <string name="appcleaner_progress_force_stopping">Stop toepassings geforseerd…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
-    <string name="appcleaner_automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sluit ander gebruikers in</string>
-    <string name="appcleaner_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
 </resources>

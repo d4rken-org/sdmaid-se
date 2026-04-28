@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">使用應用控制工具建立應用程式排除。</string>
     <string name="exclusion_create_path_hint">使用儲存分析器工具建立路徑排除。</string>
     <string name="exclusion_show_defaults_action">顯示預設</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
 </resources>

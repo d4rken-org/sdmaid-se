@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Piiratud rakenduse paigalduandmed, nt kaitstud muu osapoole rakendused.</string>
     <string name="corpsefinder_filter_appasec_label">Krüpteeritud rakenduse allikad</string>
     <string name="corpsefinder_filter_appasec_summary">Nt mängu vara.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd lisade poolt välisele andmekandjale liigutatud andmed.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d rakenduse jääk kustutatud</item>

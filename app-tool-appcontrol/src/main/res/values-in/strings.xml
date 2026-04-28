@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada perangkat ini.</string>
 </resources>

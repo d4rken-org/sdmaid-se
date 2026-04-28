@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничаване на съвпаденията по възраст на файла (последна модификация). Оставете незададено за съвпадение с всякаква възраст.</string>
     <string name="systemcleaner_customfilter_import_action">Импортиране на нов филтър</string>
     <string name="systemcleaner_customfilter_export_action">Експортиране на избрания филтър</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате незапазени промени!</string>
 </resources>

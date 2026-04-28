@@ -30,10 +30,6 @@
     <string name="onboarding_versus_continue_action">Lean ar aghaidh</string>
     <string name="onboarding_privacy_title">Príobháideachas</string>
     <string name="onboarding_privacy_body1">Níl fograithe ag SD Maid agus ní díolann sé sonraí úsaídeora.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Seoltar tuairisci fabht nuair a tharlaíonn earráidí agus féadfaidh sonraí faoi aipeanna agus comhaid ar do ghuthán a bheith iontu. Cuidaíonn tuairisci liom fabhtanna a shocrui agus an aip a fheabhasú.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Ceadaigh tuairisci fabht uathoibríoch</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Is féidir na roghanna seo a athrú sna socruithe.</string>
-    <string name="onboarding_privacy_continue_action">Lean ar aghaidh</string>
     <string name="onboarding_setup_title">Socrui</string>
     <string name="onboarding_setup_body1">Cuardoidh SD Maid gach ceantair sonraí so-rochtana.</string>
     <string name="onboarding_setup_body2">Braitheann céard atá so-rochtana ar do ghuthán, leagan Android agus ceadanna deonta.</string>
@@ -76,7 +72,6 @@
     <string name="setup_incomplete_card_title">Tá socrú neamhiomlán</string>
     <string name="setup_incomplete_card_body">Críochnaigh socrú SD Maid chun torthaí níos fearr a fháil.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Tá SD Maid ag iarraidh saincheisteanna socraithe a réiteach.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ruaig</string>
     <string name="setup_incomplete_card_continue_action">Lean ar aghaidh le socrú</string>
     <string name="setup_forcedshow_summary">Taispeáin scailéan socrú arís, míreanna críochnaithe san áireamh.</string>
     <string name="setup_checking_card_body">Ag firúnú críochnú socrú agus feidhmireacht.</string>
@@ -125,7 +120,6 @@
     <string name="dataarea_warningcard_label">Limistéir sonraí</string>
     <string name="dataarea_warningcard_reload_action">Athluchtaigh limistéir sonraí</string>
     <string name="debug_mode_label">Mód dífhabhtaithe</string>
-    <string name="debug_bugreporter_label">Tuairisci fabht uathoibríocha</string>
     <string name="setup_label">Socrú</string>
     <string name="setup_acs_card_body2">Ní úsáidfidh SD Maid an tseirbhís inrochtaineachta gan do thoiliú, taispeánfaidh sé táscaire feiceálach (inchealaithte) i gcónaí fad atá sé gníomhach agus ní úsáidfidh sé é chun faisnéis a bhailiú.</string>
     <string name="setup_acs_state_stopped">Tá an tseirbhís inrochtaineachta stoptha</string>
@@ -141,7 +135,6 @@
     <string name="setup_inventory_invalid_message">Sholáthair an córas liosta neamhbhailí d\'aipeanna suiteáilte (m.sh. an-bheagán nó bhí cuid ar iarraidh). Téigh go socruithe an chórais agus ceadaigh rochtain SD Maid ar \"Liosta aipeanna\".</string>
     <string name="dataarea_warningcard_empty_message">Níor aimsigh SD Maid aon cheantair sonraí is féidir a scanadh. Ar chríochnaigh tú an tsocrú?</string>
     <string name="debug_mode_explanation">Cumasaigh roghanna tástála agus aschur níos beohiúla. Rithfidh an aip níos moille agus feidhmeoidh sí go difriúil.</string>
-    <string name="debug_bugreporter_summary">Tuairiscíonn saincheisteanna go huathoibríoch, m.sh. sonraí faoi thuairtí na haipe ionas gur féidir liom a fháil amach cén fáth agus é a dheisiú.</string>
     <string name="data_area_public_app_data_official_label">Sonraí aipe poiblí réamhshocraithe</string>
     <string name="data_area_public_app_assets_official_label">Sócmhainní aipe poiblí réamhshocraithe</string>
     <string name="data_area_public_storage_label">Stór poiblí</string>
@@ -201,7 +194,6 @@
     <string name="dashboard_card_config_desc">Cumraigh cé na cártaí a thaispeántar agus a n-ord</string>
     <string name="dashboard_card_config_header_title">Tarraing chun athordú, scoránaigh chun taispeáint/folú</string>
     <string name="debug_debuglog_screen_title">Loga dífhabhtaithe</string>
-    <string name="debug_debuglog_screen_discard_action">Diúscair</string>
     <string name="debug_debuglog_screen_session_path_label">Cosán seisiúin</string>
     <string name="debug_debuglog_screen_log_files_label">Comhaid loga</string>
     <plurals name="debug_debuglog_screen_log_files_ready">

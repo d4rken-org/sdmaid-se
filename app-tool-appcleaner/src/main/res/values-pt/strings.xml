@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forçar paragem antes da limpeza</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force a paragem das apps antes de limpar a cache. Isso pode ajudar a limpar algumas caches de apps, mas pode fazer com que as apps se comportem mal e exijam reinicialização manual.</string>
     <string name="appcleaner_progress_force_stopping">Forçar paragem de apps…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Esta app do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Crie uma exclusão para esta app.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Tela de configurações indisponível</string>
-    <string name="appcleaner_automation_loading">A preparar automação através do serviço de acessibilidade</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Incluir outros utilizadores</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
 </resources>

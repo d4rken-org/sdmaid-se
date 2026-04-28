@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Begränsad appinstallationsdata, t.ex. skyddade tredjepartsappar.</string>
     <string name="corpsefinder_filter_appasec_label">Krypterade appresurser</string>
     <string name="corpsefinder_filter_appasec_summary">Krypterade appresurser, t.ex. speltillgångar.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data flyttad till extern lagring av App2Sd-modifikationer.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d appkvarleva borttagen</item>

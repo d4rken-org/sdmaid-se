@@ -8,7 +8,6 @@
         <item quantity="one">%s artikull u përpunua që kur ftuat SD Maid në pajisjen tuaj.</item>
         <item quantity="other">%s artikuj u përpunuan që kur ftuat SD Maid në pajisjen tuaj.</item>
     </plurals>
-    <string name="stats_report_status_success">Sukses</string>
     <string name="stats_report_status_partial_success">Sukses i pjesshëm</string>
     <string name="stats_report_status_partial_failure">Dështim i pjesshëm</string>
     <string name="stats_settings_desc">Konfiguro statistikat, raportet dhe ruajtjen e të dhënave të SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Numri i ditëve për të mbajtur raportet e detyrave individuale.</string>
     <string name="stats_settings_retention_paths_label">Informacioni i detajuar i shtegut</string>
     <string name="stats_settings_retention_paths_desc">Numri i ditëve për të mbajtur detajet për shtegjet e prekura nga SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ditë</item>
-        <item quantity="other">%d ditë</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Rivendos të gjitha</string>
     <string name="stats_settings_reset_all_desc">Hiq të gjitha raportet dhe vendos të gjitha statistikat në zero.</string>
     <string name="stats_affected_paths_label">Shtegjet e prekura</string>

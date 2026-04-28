@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Настави сесију</string>
     <string name="swiper_sessions_description">Прегледајте фајлове у 3 једноставна корака:\n\n1. Изаберите фасциклу за скенирање\n2. Превуците фајлове да задржите, обришете или прескочите\n3. Прегледајте своје одлуке и потврдите\n\nНишта се не уклања док не додирнете коначно дугме за брисање.</string>
     <string name="swiper_select_folders_action">Изаберите фасцикле</string>
-    <string name="swiper_scanning_title">Скенирање…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ставка пронађена</item>
         <item quantity="few">%d ставке пронађене</item>
@@ -156,7 +155,6 @@
     <string name="swiper_help_title">Како ради Swiper</string>
     <string name="swiper_help_message">Превуците сваки фајл да донесете одлуку:\n\n← Превуците лево: %1$s\n→ Превуците десно: %2$s\n↑ Превуците горе: Прескочи\n↓ Превуците доле: Поништи (после првог превлачења)\n\nМожете користити и дугмад на дну.\n\nКада завршите, додирните \"Преглед\" да видите све своје одлуке. Ништа се не брише док не потврдите на екрану за преглед.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Разумем</string>
-    <string name="swiper_help_action">Помоћ</string>
     <string name="swiper_file_type_filter_title">Прикажи само ове типове датотека</string>
     <string name="swiper_file_type_filter_hint">Означите типове које желите да видите. Ако ниједан није означен, приказују се све датотеке.</string>
     <string name="swiper_file_type_category_images">Слике</string>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">በፋይል ዕድሜ (የመጨረሻ ማሻሻያ ጊዜ) ላይ ተመስርተው ግጥሚያዎችን ይገድቡ። ማንኛውንም ዕድሜ ለማዛመድ ሳያዘጋጁ ይተዉ።</string>
     <string name="systemcleaner_customfilter_import_action">አዲስ ማጣሪያ አስመጣ</string>
     <string name="systemcleaner_customfilter_export_action">የተመረጠ ማጣሪያ ላክ</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Munkamenet folytatása</string>
     <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>
     <string name="swiper_select_folders_action">Mappák kiválasztása</string>
-    <string name="swiper_scanning_title">Keresés…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elem található</item>
         <item quantity="other">%d elem található</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Hogyan működik a Swiper</string>
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Megvan</string>
-    <string name="swiper_help_action">Segítség</string>
     <string name="swiper_file_type_filter_title">Csak ezeket a fájltípusokat mutassa</string>
     <string name="swiper_file_type_filter_hint">Jelöld be a megtekinteni kívánt típusokat. Ha egyik sincs bejelölve, az összes fájl megjelenik.</string>
     <string name="swiper_file_type_category_images">Képek</string>

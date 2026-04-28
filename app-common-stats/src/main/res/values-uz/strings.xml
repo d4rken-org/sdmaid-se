@@ -8,7 +8,6 @@
         <item quantity="one">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
         <item quantity="other">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
     </plurals>
-    <string name="stats_report_status_success">Muvaffaqiyat</string>
     <string name="stats_report_status_partial_success">Qisman muvaffaqiyat</string>
     <string name="stats_report_status_partial_failure">Muvaffaqiyatsizlik</string>
     <string name="stats_settings_desc">SD Maid ning statistikalar, hisobotlar va ma\'lumotlarni saqlashni sozlash.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Asosiy SD Maid operatsiya hisobotlarini o\'chirishdan oldin kunlar soni.</string>
     <string name="stats_settings_retention_paths_label">Batafsil yo\'l ma\'lumotlari</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tomonidan ta\'sirlangan yo\'llar haqida tafsilotlarni saqlash uchun kunlar soni.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d kun</item>
-        <item quantity="other">%d kun</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Hammasini qayta o\'rnatish</string>
     <string name="stats_settings_reset_all_desc">Barcha hisobotlarni o\'chirish va barcha statistikalarni nolga o\'rnatish.</string>
     <string name="stats_affected_paths_label">Ta\'sirlangan yo\'llar</string>

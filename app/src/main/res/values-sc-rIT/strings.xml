@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Firmmare sa registratzione</string>
     <string name="debug_debuglog_sensitive_information_message">Su documentu generadu cuntenet informatziones sensìbiles (es. nòmenes de documentos e aplicatziones installadas). Cumpartie·ddu petzi cun partes de fidùtzia.</string>
     <string name="debug_debuglog_screen_title">Registru de debug</string>
-    <string name="debug_debuglog_screen_discard_action">Iscarta</string>
     <string name="debug_debuglog_screen_session_path_label">Caminu de sa sessione</string>
     <string name="debug_debuglog_screen_log_files_label">Archìvios de registru</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Continuare</string>
     <string name="onboarding_privacy_title">Riservadesa</string>
     <string name="onboarding_privacy_body1">SD Maid no tenet pubblicidades e no bendet datos de s\'usuàriu.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Is rapòrtos de errores benit imbiados cando si presentant errores e podent cuntenner detàllios a subra de aplicatziones e documentos in su dispositivu tuo. Is rapòrtos m\'agiudant a currigere is errores e megiorare s\'aplicatzione.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Permitere rapòrtos de errores automàticos</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Custas optziones podent èssere cambiadas in is impostatziones.</string>
-    <string name="onboarding_privacy_continue_action">Sighi</string>
     <string name="onboarding_setup_title">Cunfiguratzione</string>
     <string name="onboarding_setup_body1">SD Maid at a chircare in totu sas àreas de datos accessìbiles.</string>
     <string name="onboarding_setup_body2">Su chi est accessìbile dipendet dae su dispositivu tuo, sa versione de Android e sos permissos concedidos.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Cunfiguratzione incumpleta</string>
     <string name="setup_incomplete_card_body">Cumpletare sa cunfiguratzione de SD Maid pro ottenner mègius risultados.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid istat proende de currigere is problemas de cunfiguratzione.</string>
-    <string name="setup_incomplete_card_dismiss_action">Cantzellare</string>
     <string name="setup_incomplete_card_continue_action">Continuare sa cunfiguratzione</string>
     <string name="setup_forcedshow_summary">Mustrare sa ischermada de cunfiguratzione torra, incluende is elementos ja cumpletados.</string>
     <string name="setup_checking_card_body">Verifichende sa cumplettudine e sa funtzionalidade de sa cunfiguratzione.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Torrare a carrighere is àreas de datos</string>
     <string name="debug_mode_label">Modalidade debug</string>
     <string name="debug_mode_explanation">Abilitare optziones de test e produtzione prus verbosa. S\'aplicatzione at a funtzionare prus a su largu e si at a comportare in manera diferente.</string>
-    <string name="debug_bugreporter_label">Rapòrtos de errores automàticos</string>
-    <string name="debug_bugreporter_summary">Raportat automàticamente is problemas, pro es. detallios subra de is colassos de s\'aplicatzione pro chi mì potza ischire ca dda·nde benit e dd\'aggiudare.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Su modu de debug est ativadu</string>
     <string name="debug_card_trace_mode_label">Ativa su modu de trassa</string>

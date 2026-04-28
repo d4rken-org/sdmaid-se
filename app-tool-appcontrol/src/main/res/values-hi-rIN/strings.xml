@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
     <string name="appcontrol_include_multiuser_label">अन्य उपयोगकर्ता शामिल करें</string>
-    <string name="appcontrol_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफाइल के एप्स शामिल करें।</string>
 </resources>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">השתמש בכלי בקרת אפליקציה כדי ליצור אי הכללות של אפליקציות.</string>
     <string name="exclusion_create_path_hint">השתמש בכלי מנתח אחסון כדי ליצור החרגות של נתיבים.</string>
     <string name="exclusion_show_defaults_action">הצג ברירות מחדל</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
 </resources>

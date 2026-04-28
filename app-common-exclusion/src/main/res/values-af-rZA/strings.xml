@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Gebruik die AppControl gereedskap om toepassing uitsluitings te skep.</string>
     <string name="exclusion_create_path_hint">Gebruik die StorageAnalyzer gereedskap om pad uitsluitings te skep.</string>
     <string name="exclusion_show_defaults_action">Wys versteks</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
 </resources>

@@ -171,5 +171,4 @@
     <string name="appcontrol_automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_include_multiuser_label">ضم مستعملين آخرين</string>
-    <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
 </resources>

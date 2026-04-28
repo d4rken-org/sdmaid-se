@@ -15,9 +15,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Прикажи опције које вам омогућавају да обришете све датотеке у скупу дупликата тако да ниједна датотека не остане.</string>
     <string name="deduplicator_search_locations_title">Локације претраге</string>
     <string name="deduplicator_search_locations_all_summary">Све приступачне области</string>
-    <string name="deduplicator_keep_prefer_paths_title">Префериши чување у</string>
     <string name="deduplicator_keep_prefer_paths_summary">Приликом одлучивања који дупликат задржати, пожељно је задржати фајлове на овим локацијама.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Нема конфигурисаних локација</string>
     <string name="deduplicator_skip_minsize_title">Минимална величина</string>
     <string name="deduplicator_skip_minsize_description">Прескочи датотеке које су испод минималне величине.</string>
     <string name="deduplicator_skip_uncommon_title">Прескочи неуобичајене типове датотека</string>

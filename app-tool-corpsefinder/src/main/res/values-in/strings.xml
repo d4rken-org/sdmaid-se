@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Data instalasi aplikasi terbatas, misalnya aplikasi pihak ketiga yang dilindungi.</string>
     <string name="corpsefinder_filter_appasec_label">Sumber aplikasi terenkripsi</string>
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi terenkripsi, cth. aset permainan.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data dipindah ke penyimpanan eksternal oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d sisa aplikasi dihapus</item>

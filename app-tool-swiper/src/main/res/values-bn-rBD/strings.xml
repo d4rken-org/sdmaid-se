@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
     <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
-    <string name="swiper_scanning_title">স্ক্যান করা হচ্ছে…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d আইটেম পাওয়া গেছে</item>
         <item quantity="other">%d আইটেম পাওয়া গেছে</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
     <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
     <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
-    <string name="swiper_help_action">সহায়তা</string>
     <string name="swiper_file_type_filter_title">শুধুমাত্র এই ফাইল ধরনগুলো দেখান</string>
     <string name="swiper_file_type_filter_hint">আপনি যে ধরনগুলো দেখতে চান তা চেক করুন। যদি কোনোটি চেক না করা থাকে, সমস্ত ফাইল দেখানো হবে।</string>
     <string name="swiper_file_type_category_images">ছবি</string>

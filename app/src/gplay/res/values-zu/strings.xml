@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Ayikwazi ukuxhuma ku-Google Play. Sicela uhlole ukuxhumeka kwe-inthanethi yakho bese uzama futhi.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sekuthengwe kakade</string>
     <string name="upgrades_gplay_already_owned_error_description">Sebenzisa inketho ethi \"Buyisela ukuthenga\" ukuze ubuyisele ukuthenga kwakho. Uma inkinga iqhubeka, zama ukusula i-cache ye-Google Play uphinde uqalise idivayisi yakho.</string>
-    <string name="upgrades_no_purchases_found_check_account">Akukho ukuthenga okutholiwe. Ingabe usebenzisa i-akhawunti efanele?</string>
     <string name="upgrade_screen_title">Thola SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi. Umsebenzi wami uxhaswa nguwe ❤️.</string>
     <string name="upgrade_screen_benefits_title">Izinzuzo</string>

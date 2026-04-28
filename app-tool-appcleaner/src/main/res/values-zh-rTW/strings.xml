@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除快取前先強制停止應用程式。這有助於清除部分應用程式的快取，但可能導致應用程式異常，需要手動重新啟動。</string>
     <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
-    <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
-    <string name="appcleaner_automation_error_no_settings_title">設定畫面不可用</string>
-    <string name="appcleaner_automation_loading">正在透過無障礙服務準備自動化工作</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
-    <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
-    <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
 </resources>

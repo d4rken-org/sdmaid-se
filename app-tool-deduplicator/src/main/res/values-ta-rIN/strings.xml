@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">நகல் தொகுப்பில் உள்ள அனைத்து கோப்புகளையும் நீக்க அனுமதிக்கும் விருப்பங்களைக் காட்டு, எந்த கோப்பும் மீதம் இருக்காதபடி.</string>
     <string name="deduplicator_search_locations_title">தேடல் இடங்கள்</string>
     <string name="deduplicator_search_locations_all_summary">அனைத்து அணுகக்கூடிய பகுதிகள்</string>
-    <string name="deduplicator_keep_prefer_paths_title">இதில் வைத்திருக்க விரும்பு</string>
     <string name="deduplicator_keep_prefer_paths_summary">எந்த நகலை வைத்திருப்பது என்று முடிவு செய்யும் போது, இந்த இடங்களில் உள்ள கோப்புகளை வைத்திருக்க விரும்பு.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">இடங்கள் எதுவும் அமைக்கப்படவில்லை</string>
     <string name="deduplicator_skip_minsize_title">குறைந்த அளவு</string>
     <string name="deduplicator_skip_minsize_description">குறைந்த அளவில் கீழ் உள்ள கோப்புகளை தவிர்க்கவும்.</string>
     <string name="deduplicator_skip_uncommon_title">பொதுவான கோப்பு வகைகளை தவிர்</string>

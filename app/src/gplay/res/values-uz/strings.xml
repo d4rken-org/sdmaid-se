@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play-ga ulanib bo\'lmadi. Internet aloqangizni tekshiring va qayta urinib ko\'ring.</string>
     <string name="upgrades_gplay_already_owned_error_title">Allaqachon xarid qilingan</string>
     <string name="upgrades_gplay_already_owned_error_description">Xaridni tiklash uchun \"Xaridni tiklash\" variantidan foydalaning. Muammo davom etsa, Google Play keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
-    <string name="upgrades_no_purchases_found_check_account">Hech qanday xarid topilmadi. To\'g\'ri hisobdan foydalanyapsizmi?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ni oling</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Afzalliklar</string>

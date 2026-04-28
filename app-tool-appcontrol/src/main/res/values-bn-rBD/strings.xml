@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_include_multiuser_label">অন্যান্য ব্যবহারকারীদের অন্তর্ভুক্ত করুন</string>
-    <string name="appcontrol_include_multiuser_summary">এই ডিভাইসে অন্যান্য ব্যবহারকারীর প্রোফাইল থেকে অ্যাপ অন্তর্ভুক্ত করুন।</string>
 </resources>

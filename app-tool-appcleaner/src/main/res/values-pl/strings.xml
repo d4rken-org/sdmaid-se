@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Wymuś zatrzymanie przed wyczyszczeniem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie aplikacji i wymagać ręcznego restartu.</string>
     <string name="appcleaner_progress_force_stopping">Wymuszanie zatrzymania…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niemożliwe. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ekran ustawień niedostępny</string>
-    <string name="appcleaner_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
-    <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
 </resources>

@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">確認壓縮</string>
     <string name="squeezer_preview_total_size">總大小</string>
     <string name="squeezer_preview_estimated_savings">預計節省</string>
-    <string name="squeezer_compress_confirmation_title">壓縮圖片？</string>
-    <string name="squeezer_compress_confirmation_message">這將以壓縮版本取代原始圖片。此操作無法撤銷。</string>
     <string name="squeezer_history_title">壓縮歷史記錄</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d 個項目（%2$s）</item>
@@ -76,5 +74,4 @@
         <item quantity="other">至少 %d 天</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 檔案預計可節省約 %d%%</string>
-    <string name="squeezer_onboarding_got_it">瞭解了</string>
 </resources>

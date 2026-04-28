@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Fortsätt session</string>
     <string name="swiper_sessions_description">Granska filer i 3 enkla steg:\n\n1. Välj en mapp att skanna\n2. Svep genom filer för att behålla, ta bort eller hoppa över\n3. Granska dina val och bekräfta\n\nInget tas bort förrän du trycker på den slutliga raderingsknappen.</string>
     <string name="swiper_select_folders_action">Välj mappar</string>
-    <string name="swiper_scanning_title">Skannar…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d objekt hittat</item>
         <item quantity="other">%d objekt hittade</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Hur Swiper fungerar</string>
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Jag fattar</string>
-    <string name="swiper_help_action">Hjälp</string>
     <string name="swiper_file_type_filter_title">Visa bara dessa filtyper</string>
     <string name="swiper_file_type_filter_hint">Markera de typer du vill se. Om inga är markerade visas alla filer.</string>
     <string name="swiper_file_type_category_images">Bilder</string>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jätka seanssi</string>
     <string name="swiper_sessions_description">Vaata failid üle 3 lihtsa sammuga:\n\n1. Vali kaust skanneerimiseks\n2. Pühi faile säilitamiseks, kustutamiseks või vahelejätmiseks\n3. Vaata oma valikud üle ja kinnita\n\nMidagi ei kustutata enne, kui vajutate lõplikku kustutamisnuppu.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
-    <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d leiti</item>
         <item quantity="other">%d leiti</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Kuidas Pühkija töötab</string>
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selge!</string>
-    <string name="swiper_help_action">Abi</string>
     <string name="swiper_file_type_filter_title">Kuva ainult neid failitüüpe</string>
     <string name="swiper_file_type_filter_hint">Märgi tüübid, mida soovid näha. Kui ühtegi pole märgitud, kuvatakse kõik failid.</string>
     <string name="swiper_file_type_category_images">Pildid</string>

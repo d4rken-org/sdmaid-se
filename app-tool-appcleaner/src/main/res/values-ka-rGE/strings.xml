@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">გასუფთავებამდე იძულებითი გაჩერება</string>
     <string name="appcleaner_forcestop_before_clearing_summary">აპების იძულებითი გაჩერება მათი ქეშის გასუფთავებამდე. ეს დაგეხმარებათ ზოგიერთი აპის ქეშის გასუფთავებაში, მაგრამ აპებმა შეიძლება არასწორად იმუშაონ და ხელით გადატვირთვა დაგჭირდეთ.</string>
     <string name="appcleaner_progress_force_stopping">აპების იძულებითი გაჩერება…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ამ სისტემურ აპს არ აქვს პარამეტრების ეკრანი. ქეშის გასუფთავება ხელმისაწვდომობის სერვისის საშუალებით შეუძლებელია. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
-    <string name="appcleaner_automation_error_no_settings_title">პარამეტრების ეკრანი მიუწვდომელია</string>
-    <string name="appcleaner_automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
-    <string name="appcleaner_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
 </resources>

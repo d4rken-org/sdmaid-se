@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>
     <string name="squeezer_preview_total_size">மொத்த அளவு</string>
     <string name="squeezer_preview_estimated_savings">மதிப்பிடப்பட்ட மிச்சம்</string>
-    <string name="squeezer_compress_confirmation_title">படங்களை சுருக்கவா?</string>
-    <string name="squeezer_compress_confirmation_message">இது அசல் படங்களை சுருக்கப்பட்ட பதிப்புகளால் மாற்றும். இந்தச் செயலை மீட்க இயலாது.</string>
     <string name="squeezer_history_title">சுருக்க வரலாறு</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d உருப்படி (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% மிச்சம்</string>
-    <string name="squeezer_onboarding_got_it">புரிந்தது</string>
 </resources>

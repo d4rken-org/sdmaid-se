@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Endelea na kipindi</string>
     <string name="swiper_sessions_description">Kagua faili katika hatua 3 rahisi:\n\n1. Chagua folda ya kuchanganua\n2. Piga swaipu faili ili kuweka, kufuta, au kuruka\n3. Kagua uchaguzi wako na uthibitishe\n\nHakuna kinachondolewa hadi uguse kitufe cha mwisho cha kufuta.</string>
     <string name="swiper_select_folders_action">Chagua folda</string>
-    <string name="swiper_scanning_title">Inatafuta…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">kipengele %d kimepatikana</item>
         <item quantity="other">vipengele %d vimepatikana</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Jinsi Swiper inavyofanya kazi</string>
     <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Nimeelewa</string>
-    <string name="swiper_help_action">Msaada</string>
     <string name="swiper_file_type_filter_title">Onyesha aina hizi za faili peke yake</string>
     <string name="swiper_file_type_filter_hint">Angalia aina unazotaka kuona. Ikiwa hakuna iliyochaguliwa, faili zote zinaonyeshwa.</string>
     <string name="swiper_file_type_category_images">Picha</string>

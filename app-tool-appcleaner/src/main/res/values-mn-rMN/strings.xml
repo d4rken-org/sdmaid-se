@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Цэвхлэхийн өмнө хүчээр зогсоох</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Кэш цэвхлэхийн өмнө аппуудыг хүчээр зогсоох. Деэр зарим аппуудын кэшийг цэвхлэхд туслах боловч аппууд буруу ажиллах болон гар дахин эхлүүлэх шаардлагатай.</string>
     <string name="appcleaner_progress_force_stopping">Аппуудыг хүчээр зогсоож байна…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
-    <string name="appcleaner_automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Өмнөх үйлдлийг баталгаажуулахыг оролдож байна (үг үеүд: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Бусад хэрэглэгчдийг оруулах</string>
-    <string name="appcleaner_include_multiuser_summary">Энэ төхөөрөмж дээрх бусад хэрэглэгчийн профайлаас аппуудыг оруулах.</string>
 </resources>

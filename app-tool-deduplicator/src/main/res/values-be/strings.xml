@@ -17,9 +17,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Паказаць опцыю, якая дазваляе выдаліць усе элементы ў пары дублікатаў, каб не засталося ніводнага з іх.</string>
     <string name="deduplicator_search_locations_title">Пошук размяшчэння</string>
     <string name="deduplicator_search_locations_all_summary">Усе даступныя месцы</string>
-    <string name="deduplicator_keep_prefer_paths_title">Пакінуць выбраныя ў</string>
     <string name="deduplicator_keep_prefer_paths_summary">Падчас выдалення дублікатаў, наладзьце захоўванне файлаў у наступных месцах.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Месцы не наладжаны</string>
     <string name="deduplicator_skip_minsize_title">Мінімальны памер</string>
     <string name="deduplicator_skip_minsize_description">Прапускаць файлы, памер якіх меншы за мінімальны.</string>
     <string name="deduplicator_skip_uncommon_title">Прапускаць невядомыя тыпы файлаў</string>

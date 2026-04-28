@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
     <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
     <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>
-    <string name="appcleaner_automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
-    <string name="appcleaner_automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
-    <string name="appcleaner_automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">מנסה לאשר פעולה קודמת (מילות מפתח: %s)</string>
-    <string name="appcleaner_include_multiuser_label">כלול משתמשים אחרים</string>
-    <string name="appcleaner_include_multiuser_summary">כלול אפליקציות מפרופילי משתמשים אחרים במכשיר זה.</string>
 </resources>

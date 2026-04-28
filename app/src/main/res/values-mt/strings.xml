@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Ieqaf mill-irrekordjar</string>
     <string name="debug_debuglog_sensitive_information_message">Il-fajl iġġenerat fih informazzjoni sensittiva (eż. ismijiet ta\' fajls u apps installati). Aqsamha biss ma\' partijiet ta\' fiduċja.</string>
     <string name="debug_debuglog_screen_title">Log tad-Debugging</string>
-    <string name="debug_debuglog_screen_discard_action">Armi</string>
     <string name="debug_debuglog_screen_session_path_label">Triq tas-Sessjoni</string>
     <string name="debug_debuglog_screen_log_files_label">Fajls tal-Log</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -49,10 +48,6 @@
     <string name="onboarding_versus_continue_action">Kompli</string>
     <string name="onboarding_privacy_title">Privatezza</string>
     <string name="onboarding_privacy_body1">SD Maid m\'għandux reklami u ma jbigħx data tal-utenti.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Rapporti ta\' bugs jintbagħtu meta jseħħu żbalji u jistgħu jkunu fihom dettalji dwar apps u fajls fuq l-apparat tiegħek. Ir-rapporti jgħinuni nsewwi bugs u ntejjeb l-app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Ippermetti rapporti awtomatiċi ta\' bugs</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Dawn l-għażliet jistgħu jinbidlu fis-settings.</string>
-    <string name="onboarding_privacy_continue_action">Kompli</string>
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid se jfittex iż-żoni kollha ta\' data aċċessibbli.</string>
     <string name="onboarding_setup_body2">Dak li hu aċċessibbli jiddependi mill-apparat tiegħek, il-verżjoni ta\' Android u l-permessi mogħtija.</string>
@@ -102,7 +97,6 @@
     <string name="setup_incomplete_card_title">Is-setup mhux komplut</string>
     <string name="setup_incomplete_card_body">Lesti s-setup ta\' SD Maid għal riżultati aħjar.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid qed jipprova jsewwi problemi tas-setup.</string>
-    <string name="setup_incomplete_card_dismiss_action">Warrab</string>
     <string name="setup_incomplete_card_continue_action">Kompli s-setup</string>
     <string name="setup_forcedshow_summary">Uri l-iskrin tas-setup mill-ġdid, inkluż oġġetti li diġà tlestew.</string>
     <string name="setup_checking_card_body">Qed jivverifika t-tlestija u l-funzjonalità tas-setup.</string>
@@ -136,7 +130,6 @@
     <string name="dataarea_warningcard_label">Żoni tad-data</string>
     <string name="dataarea_warningcard_reload_action">Erġa\' agħbija ż-żoni tad-data</string>
     <string name="debug_mode_label">Modalità tad-debugging</string>
-    <string name="debug_bugreporter_label">Rapporti awtomatiċi ta\' bugs</string>
     <string name="debug_card_title">Il-modalità tad-debugging hija attivata</string>
     <string name="history_label">Storja</string>
     <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>

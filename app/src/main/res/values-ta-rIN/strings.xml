@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">பதிவு செய்வதை நிறுத்து</string>
     <string name="debug_debuglog_sensitive_information_message">உருவாக்கப்பட்ட கோப்பில் முக்கியமான தகவல்கள் உள்ளன (எ.கா. கோப்பு பெயர்கள் மற்றும் நிறுவப்பட்ட பயன்பாடுகள்). நம்பகமானவர்களுடன் மட்டுமே பகிரவும்.</string>
     <string name="debug_debuglog_screen_title">பிழைத்திருத்த பதிவு</string>
-    <string name="debug_debuglog_screen_discard_action">நிராகரி</string>
     <string name="debug_debuglog_screen_session_path_label">அமர்வு பாதை</string>
     <string name="debug_debuglog_screen_log_files_label">பதிவு கோப்புகள்</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">தொடரவும்</string>
     <string name="onboarding_privacy_title">தனியுரிமை</string>
     <string name="onboarding_privacy_body1">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்கவில்லை.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">பிழைகள் ஏற்படும்போது bug reports அனுப்பப்படும் மற்றும் உங்கள் சாதனத்தில் உள்ள பயன்பாடுகள் மற்றும் கோப்புகளைப் பற்றிய விவரங்கள் இருக்கலாம். இந்த அறிக்கைகள் பிழைகளை சரிசெய்ய மற்றும் பயன்பாட்டை மேம்படுத்த எனக்கு உதவுகின்றன.</string>
-    <string name="onboarding_privacy_bugreport_toggle">தானியங்கி bug reports ஐ அனுமதிக்கவும்</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">இந்த விருப்பங்களை அமைப்புகளில் மாற்றலாம்.</string>
-    <string name="onboarding_privacy_continue_action">தொடரவும்</string>
     <string name="onboarding_setup_title">அமைப்பு</string>
     <string name="onboarding_setup_body1">SD Maid எல்லா அணுக முடிந்த தகவல் பகுதிகளையும் தேடும்.</string>
     <string name="onboarding_setup_body2">எது அணுக முடியும் என்பது உங்கள் சாதனம், Android பதிப்பு மற்றும் வழங்கப்பட்ட அனுமதிகளைப் பொறுத்தது.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">அமைப்பு முடிக்கவில்லை</string>
     <string name="setup_incomplete_card_body">சிறந்த முடிவுகளைப் பெற SD Maid\'இன் அமைப்பை முடிக்கவும்.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid அமைப்பு சிக்கல்களை சரிசெய்ய முயற்சிக்கிறது.</string>
-    <string name="setup_incomplete_card_dismiss_action">நிராகரி</string>
     <string name="setup_incomplete_card_continue_action">அமைப்பை தொடரவும்</string>
     <string name="setup_forcedshow_summary">ஏற்கனவே முடிந்த உருப்படிகளுடன் அமைப்பு திரையை மீண்டும் காட்டவும்.</string>
     <string name="setup_checking_card_body">அமைப்பு முடிவு மற்றும் செயல்பாடு சரிபார்க்கப்படுகிறது.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">தரவு பகுதிகளை மீண்டும் ஏற்று</string>
     <string name="debug_mode_label">பிழைதிருத்த நிலை</string>
     <string name="debug_mode_explanation">சோதனை விருப்பங்களை இயக்கி மேலும் விரிவான வெளியீட்டைப் பெறுங்கள். அப்ஸ் மெதுவாகவும் வேறுவிதமாகவும் இயங்கும்.</string>
-    <string name="debug_bugreporter_label">தானியங்கி பிழை அறிக்கைகள்</string>
-    <string name="debug_bugreporter_summary">சிக்கல்களை தானியங்கியாக அறிக்கையிடுகிறது, எ.கா. பயன்பாடு செயலிழப்பு விவரங்கள், இதனால் நான் காரணத்தை கண்டுபிடித்து சரிசெய்ய முடியும்.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">பிழைத்திருத்த பயன்முறை இயக்கப்பட்டுள்ளது</string>
     <string name="debug_card_trace_mode_label">தடமறிதல் பயன்முறையை இயக்கு</string>

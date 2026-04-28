@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
     <string name="appcontrol_include_multiuser_label">Isama ang ibang mga gumagamit</string>
-    <string name="appcontrol_include_multiuser_summary">Isama ang mga app mula sa ibang mga profile ng gumagamit sa device na ito.</string>
 </resources>

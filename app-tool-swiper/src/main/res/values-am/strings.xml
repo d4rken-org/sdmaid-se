@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">ክፍለ ጊዜ ቀጥል</string>
     <string name="swiper_sessions_description">ፋይሎችን በ3 ቀላል ደረጃዎች ይገምግሙ:\n\n1. ለመፈለግ ማህደር ይምረጡ\n2. ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ\n3. ምርጫዎችዎን ይገምግሙና ያረጋግጡ\n\nየመጨረሻውን ሰርዝ ቁልፍ እስኪጫኑ ድረስ ምንም አይወገድም።</string>
     <string name="swiper_select_folders_action">ማህደሮች ይምረጡ</string>
-    <string name="swiper_scanning_title">በመፈለግ ላይ…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ንጥል ተገኝቷል</item>
         <item quantity="other">%d ንጥሎች ተገኝተዋል</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">ማንሸራተቻ እንዴት እንደሚሰራ</string>
     <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
     <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
-    <string name="swiper_help_action">እርዳታ</string>
     <string name="swiper_file_type_filter_title">እነዚህን የፋይል ዓይነቶች ብቻ አሳይ</string>
     <string name="swiper_file_type_filter_hint">ማየት የሚፈልጓቸውን ዓይነቶች ምልክት ያድርጉ። ምንም ምልክት ካልተደረገ ሁሉም ፋይሎች ይታያሉ።</string>
     <string name="swiper_file_type_category_images">ምስሎች</string>

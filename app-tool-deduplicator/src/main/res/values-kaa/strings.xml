@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikatlar toplamındaǵı barlıq fayllarıdı öshiriwge múmkinshilik beretuǵın optsiyalırdı kórsetiw, sonlıqtan hesh fayl qalmaydi.</string>
     <string name="deduplicator_search_locations_title">Izlew orınları</string>
     <string name="deduplicator_search_locations_all_summary">Barlıq jetimli tarawlar</string>
-    <string name="deduplicator_keep_prefer_paths_title">Saqlaw ushin artıqsha ko\'riw</string>
     <string name="deduplicator_keep_prefer_paths_summary">Qaysy dublikattı saqlawdı sheshkende, usı orınlardaǵı faylların saqlawdı artıqsha ko\'rin\'.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Hesh qanday orın sazlanbaǵan</string>
     <string name="deduplicator_skip_minsize_title">Minimal kólem</string>
     <string name="deduplicator_skip_minsize_description">Minimal kólemnen kishi bolǵan fayllarıdı ótkerip jiberiw.</string>
     <string name="deduplicator_skip_uncommon_title">Ádettegi emes fayl túrlerin ótkerip jiberiw</string>

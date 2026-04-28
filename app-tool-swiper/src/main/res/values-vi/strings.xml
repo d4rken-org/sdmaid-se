@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Tiếp tục phiên</string>
     <string name="swiper_sessions_description">Xem lại tệp trong 3 bước đơn giản:\n\n1. Chọn thư mục để quét\n2. Vuốt tệp để giữ, xóa hoặc bỏ qua\n3. Xem lại lựa chọn của bạn và xác nhận\n\nKhông có gì bị xóa cho đến khi bạn nhấn nút xóa cuối cùng.</string>
     <string name="swiper_select_folders_action">Chọn thư mục</string>
-    <string name="swiper_scanning_title">Đang quét…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d mục được tìm thấy</item>
     </plurals>
@@ -122,7 +121,6 @@
     <string name="swiper_help_title">Cách Swiper hoạt động</string>
     <string name="swiper_help_message">Vuốt từng tệp để đưa ra quyết định:\n\n← Vuốt sang trái: %1$s\n→ Vuốt sang phải: %2$s\n↑ Vuốt lên: Bỏ qua\n↓ Vuốt xuống: Hoàn tác (sau lần vuốt đầu tiên)\n\nBạn cũng có thể sử dụng các nút ở phía dưới.\n\nKhi hoàn tất, nhấn \"Xem lại\" để xem tất cả quyết định của bạn. Không có gì bị xóa cho đến khi bạn xác nhận trên màn hình xem lại.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Đã hiểu</string>
-    <string name="swiper_help_action">Trợ giúp</string>
     <string name="swiper_file_type_filter_title">Chỉ hiển thị các loại tệp này</string>
     <string name="swiper_file_type_filter_hint">Chọn các loại bạn muốn xem. Nếu không có loại nào được chọn, tất cả các tệp sẽ được hiển thị.</string>
     <string name="swiper_file_type_category_images">Hình ảnh</string>

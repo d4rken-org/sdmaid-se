@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">ادامه جلسه</string>
     <string name="swiper_sessions_description">فایل‌ها را در ۳ مرحله ساده مرور کنید:\n\n۱. یک پوشه برای اسکن انتخاب کنید\n۲. فایل‌ها را بکشید تا نگه دارید، حذف کنید یا رد شوید\n۳. انتخاب‌های خود را بررسی و تأیید کنید\n\nهیچ چیز حذف نمی‌شود تا دکمه نهایی حذف را بزنید.</string>
     <string name="swiper_select_folders_action">انتخاب پوشه‌ها</string>
-    <string name="swiper_scanning_title">در حال اسکن…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d مورد یافت شد</item>
         <item quantity="other">%d مورد یافت شد</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">نحوه کار Swiper</string>
     <string name="swiper_help_message">هر فایل را بکشید تا تصمیم بگیرید:\n\n← کشیدن به چپ: %1$s\n→ کشیدن به راست: %2$s\n↑ کشیدن به بالا: رد شدن\n↓ کشیدن به پایین: بازگشت (پس از اولین کشیدن)\n\nهمچنین می‌توانید از دکمه‌های پایین استفاده کنید.\n\nوقتی کارتان تمام شد، روی \"بررسی\" ضربه بزنید تا همه تصمیم‌هایتان را ببینید. تا زمانی که در صفحه بررسی تأیید نکنید، هیچ چیز حذف نمی‌شود.</string>
     <string name="swiper_gesture_overlay_dismiss_action">فهمیدم</string>
-    <string name="swiper_help_action">کمک</string>
     <string name="swiper_file_type_filter_title">فقط این نوع‌های فایل را نشان بده</string>
     <string name="swiper_file_type_filter_hint">نوع‌هایی که می‌خواهید ببینید را علامت بزنید. اگر هیچ‌کدام علامت‌زده نشده باشد، همه فایل‌ها نشان داده می‌شوند.</string>
     <string name="swiper_file_type_category_images">تصاویر</string>

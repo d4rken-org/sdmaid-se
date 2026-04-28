@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Αναγκαστική διακοπή πριν από την εκκαθάριση</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Αναγκαστική διακοπή εφαρμογών πριν από την εκκαθάριση της μνήμης cache τους. Μπορεί να βοηθήσει στην εκκαθάριση ορισμένων κρυφών μνημών εφαρμογών, αλλά μπορεί να προκαλέσει δυσλειτουργία εφαρμογών και να απαιτηθεί χειροκίνητη επανεκκίνηση.</string>
     <string name="appcleaner_progress_force_stopping">Αναγκαστική διακοπή εφαρμογών…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Η εκκαθάριση της μνήμης cache μέσω της υπηρεσίας προσβασιμότητας δεν είναι δυνατή. Εξαιρέστε την για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Μη διαθέσιμη οθόνη ρυθμίσεων</string>
-    <string name="appcleaner_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
-    <string name="appcleaner_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
 </resources>

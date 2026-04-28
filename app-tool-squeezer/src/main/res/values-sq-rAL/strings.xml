@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Konfirmo kompresimin</string>
     <string name="squeezer_preview_total_size">Madhësia totale</string>
     <string name="squeezer_preview_estimated_savings">Kursime të vlerësuara</string>
-    <string name="squeezer_compress_confirmation_title">Kompreso imazhet?</string>
-    <string name="squeezer_compress_confirmation_message">Kjo do të zëvendësojë imazhet origjinale me versione të kompresuara. Ky veprim nuk mund të zhbëhet.</string>
     <string name="squeezer_history_title">Historia e kompresimit</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d artikull (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Të paktën %d ditë të vjetra</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Kursime të vlerësuara ~%d%% për skedarët JPEG</string>
-    <string name="squeezer_onboarding_got_it">E kuptova</string>
 </resources>

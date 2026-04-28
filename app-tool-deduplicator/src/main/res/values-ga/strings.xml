@@ -49,9 +49,7 @@
         <item quantity="many">Tá %s tógtha ag dúblaigh</item>
         <item quantity="other">Tá %s tógtha ag dúblaigh</item>
     </plurals>
-    <string name="deduplicator_keep_prefer_paths_title">Is fearr coinneáil i</string>
     <string name="deduplicator_keep_prefer_paths_summary">Agus cinneadh á dhéanamh maidir le cé acu dúblach a choinneáil, is fearr comhaid a choinneáil sna háiteanna seo.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Níl aon áiteanna cumraithe</string>
     <string name="deduplicator_arbiter_title">Straitéis scriosaidh</string>
     <string name="deduplicator_arbiter_summary">Cumraigh cé na comhaid a choinnítear agus cé na cinn a scriostar.</string>
     <string name="deduplicator_arbiter_explanation">Agus dúblaigh á scriosadh, socraíonn SD Maid cé acu comhad a choinneáil trí gach critéar a sheiceáil in ord. Cinneann an chéad chritéar a thugann buaiteoir soiléir an toradh. Tarraing chun athordú, tapáil chun modh a athrú.</string>

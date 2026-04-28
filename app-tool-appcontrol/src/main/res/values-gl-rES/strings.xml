@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Preparando automatización mediante o servizo de accesibilidade</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar a acción anterior (palabras clave: %s)</string>
     <string name="appcontrol_include_multiuser_label">Incluír outros usuarios</string>
-    <string name="appcontrol_include_multiuser_summary">Incluír aplicacións doutros perfís de usuario neste dispositivo.</string>
 </resources>

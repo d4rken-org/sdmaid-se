@@ -8,7 +8,6 @@
         <item quantity="one">%s елемент е обработен откакто поканихте SD Maid на устройството си.</item>
         <item quantity="other">%s елемента са обработени откакто поканихте SD Maid на устройството си.</item>
     </plurals>
-    <string name="stats_report_status_success">Успех</string>
     <string name="stats_report_status_partial_success">Частичен успех</string>
     <string name="stats_report_status_partial_failure">Неуспех</string>
     <string name="stats_settings_desc">Конфигуриране на статистики, отчети и задържане на данни на SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Брой дни преди изтриване на основни отчети за операции на SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Подробна информация за пътища</string>
     <string name="stats_settings_retention_paths_desc">Броят дни за запазване на подробности за пътища, засегнати от SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ден</item>
-        <item quantity="other">%d дни</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Нулиране на всички</string>
     <string name="stats_settings_reset_all_desc">Изтриване на всички отчети и задаване на всички статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати пътища</string>

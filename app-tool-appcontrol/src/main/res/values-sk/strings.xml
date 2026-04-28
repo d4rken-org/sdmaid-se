@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="appcontrol_include_multiuser_label">Zahrnúť ďalších používateľov</string>
-    <string name="appcontrol_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
 </resources>

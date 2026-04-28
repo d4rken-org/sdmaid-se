@@ -27,9 +27,6 @@
     <string name="onboarding_versus_continue_action">Bidomîne</string>
     <string name="onboarding_privacy_title">Nepenîtî</string>
     <string name="onboarding_privacy_body1">SD Maid reklam tune ye û daneyên bikarhêner nafroşe.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Raporên xeletiyên otomatîk destûr bide</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Ev vebijark dikarin di mîhengan de bên guhertin.</string>
-    <string name="onboarding_privacy_continue_action">Bidomîne</string>
     <string name="onboarding_setup_title">Sazkirîn</string>
     <string name="onboarding_setup_body1">SD Maid dê hemû deverên daneyên gihîştî bigere.</string>
     <string name="onboarding_setup_continue_action">Gihîştinê saz bike</string>
@@ -67,7 +64,6 @@
     <string name="setup_label">Sazkirîn</string>
     <string name="setup_incomplete_card_title">Sazkirîn netemam e</string>
     <string name="setup_incomplete_card_body">Ji bo encamên çêtir sazkirina SD Maid\'ê temam bikin.</string>
-    <string name="setup_incomplete_card_dismiss_action">Paşguh bike</string>
     <string name="setup_incomplete_card_continue_action">Sazkirinê bidomîne</string>
     <string name="setup_permission_granted_label">Destûr hat dayîn</string>
     <string name="setup_permission_error_label">Xeletiya destûrê</string>
@@ -89,7 +85,6 @@
     <string name="setup_acs_state_stopped">Servîsa gihîştinê rawestiyaye</string>
     <string name="dataarea_warningcard_label">Deverên daneyan</string>
     <string name="debug_mode_label">Moda debug</string>
-    <string name="debug_bugreporter_label">Raporên xeletiyên otomatîk</string>
     <string name="debug_card_title">Moda debug çalak e</string>
     <string name="history_label">Dîrok</string>
     <string name="history_description">Lîsteya kronolojîk a çalakiyên dawî û daneyên bandorkirî.</string>

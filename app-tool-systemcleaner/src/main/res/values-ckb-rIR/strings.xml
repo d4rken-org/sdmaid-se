@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">لێکدانەوەکان سنووردار بکە بەپێی تەمەنی فایل (کاتی دوایین گۆڕان). بەتاڵ بهێڵەوە بۆ گونجاندن لەگەڵ هەر تەمەنێک.</string>
     <string name="systemcleaner_customfilter_import_action">هاوردن new filter</string>
     <string name="systemcleaner_customfilter_export_action">هەناردن selected filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">گۆڕانکارییە پاشەکەوت نەکراوەکانت هەن!</string>
 </resources>

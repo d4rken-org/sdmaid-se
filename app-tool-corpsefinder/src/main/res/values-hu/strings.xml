@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Korlátozott alkalmazástelepítési adatok, pl. védett harmadik féltől származó alkalmazások.</string>
     <string name="corpsefinder_filter_appasec_label">Titkosított alkalmazásforrások</string>
     <string name="corpsefinder_filter_appasec_summary">Titkosított alkalmazásforrások, pl. játékeszközök.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Az adatokat az App2Sd modok külső tárolóra helyezték át.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d alkalmazás maradványa törölve</item>

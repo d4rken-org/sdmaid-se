@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Temizlemeden önce zorla durdur</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Önbelleklerini temizlemeden önce uygulamaları zorla durdurun. Bazı uygulamaların önbelleğini temizlemeye yardımcı olabilir, ancak uygulamaların hatalı çalışmasına ve manuel yeniden başlatma gerektirmesine neden olabilir.</string>
     <string name="appcleaner_progress_force_stopping">Uygulamalar zorla durduruluyor…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
-    <string name="appcleaner_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
-    <string name="appcleaner_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
 </resources>

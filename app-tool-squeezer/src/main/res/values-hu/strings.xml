@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Tömörítés megerősítése</string>
     <string name="squeezer_preview_total_size">Teljes méret</string>
     <string name="squeezer_preview_estimated_savings">Becsült megtakarítás</string>
-    <string name="squeezer_compress_confirmation_title">Képek tömörítése?</string>
-    <string name="squeezer_compress_confirmation_message">Ez az eredeti képeket tömörített verziókkal cseréli le. Ez a művelet nem vonható vissza.</string>
     <string name="squeezer_history_title">Tömörítési előzmények</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elem (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Legalább %d napos</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
-    <string name="squeezer_onboarding_got_it">Megvan</string>
 </resources>

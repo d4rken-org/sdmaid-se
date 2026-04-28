@@ -12,7 +12,6 @@
         <item quantity="many">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
         <item quantity="other">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
     </plurals>
-    <string name="stats_report_status_success">הצליח</string>
     <string name="stats_report_status_partial_success">הצלחה חלקית</string>
     <string name="stats_report_status_partial_failure">כישלון</string>
     <string name="stats_settings_desc">הגדר את הנתונים הסטטיסטיים, הדוחות ושמירת הנתונים של SD Maid.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">מספר הימים לפני מחיקת דוחות תפעול בסיסיים של SD Maid.</string>
     <string name="stats_settings_retention_paths_label">מידע מפורט על נתיב</string>
     <string name="stats_settings_retention_paths_desc">מספר הימים לשמירת פרטים לגבי נתיבים שהושפעו על ידי SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d יום</item>
-        <item quantity="two">%d ימים</item>
-        <item quantity="many">%d ימים</item>
-        <item quantity="other">%d ימים</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">איפוס הכל</string>
     <string name="stats_settings_reset_all_desc">מחק את כל הדוחות והגדר את כל הנתונים הסטטיסטיים לאפס.</string>
     <string name="stats_affected_paths_label">נתיבים מושפעים</string>

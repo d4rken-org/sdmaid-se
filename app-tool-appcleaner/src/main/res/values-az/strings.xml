@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Təmizləmədən öncə məcburi dayandır</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keşi təmizləmədən əvvəl tətbiqləri məcburi dayandırın. Bu bəzi tətbiqlərin keşini təmizləməyə kömək edə bilər, lakin tətbiqlərin düzgün işləməməsinə səbəb ola bilər və əl ilə yenidən başlatma tələb edə bilər.</string>
     <string name="appcleaner_progress_force_stopping">Tətbiqlər məcburi dayandırılır…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Bu sistem tətbiqinin heç bir parametrlər ekranı yoxdur. Əlçatanlıq xidməti vasitəsilə keş təmizləmə mümkün deyil. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Parametrlər ekranı əlçatan deyil</string>
-    <string name="appcleaner_automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Digər istifadəçiləri daxil et</string>
-    <string name="appcleaner_include_multiuser_summary">Bu cihazda digər istifadəçi profillərindən tətbiqləri daxil et.</string>
 </resources>

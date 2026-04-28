@@ -8,7 +8,6 @@
         <item quantity="one">ඔබ ඔබේ උපකරණයට SD Maid ආරාධනා කරමින් %s ංගය මෙහෙයුම් කර ඇත.</item>
         <item quantity="other">ඔබ ඔබේ උපකරණයට SD Maid ආරාධනා කරමින් %s ංග මෙහෙයුම් කර ඇත.</item>
     </plurals>
-    <string name="stats_report_status_success">සාර්ථකත්වය</string>
     <string name="stats_report_status_partial_success">අර්ධ සාර්ථකත්වය</string>
     <string name="stats_report_status_partial_failure">අසාර්ථකත්වය</string>
     <string name="stats_settings_desc">SD Maid හි සංඛ්‍යාලේඛන, වාර්තා සහ දත්ත රඳවා ගැනීම සකසන්න.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">මූලික SD Maid මෙහෙයුම් වාර්තා මකා දැමීමට පෙර දින සංඛ්‍යාව.</string>
     <string name="stats_settings_retention_paths_label">විස්තරාත්මක මාර්ග තොරතුරු</string>
     <string name="stats_settings_retention_paths_desc">SD Maid විසින් බලපෑමට ලක් වූ මාර්ග පිළිබඳ විස්තර රඳවා ගත යුතු දින සංඛ්‍යාව.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d දිනය</item>
-        <item quantity="other">%d දින</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">සියල්ල පුනරාරම්භ කරන්න</string>
     <string name="stats_settings_reset_all_desc">සියල්ල වාර්තා මකා සියලු සංඛ්‍යාලේඛන ශූන්යමට සවය කරන්න.</string>
     <string name="stats_affected_paths_label">බලපෑමට ලක්වූ මාර්ග</string>

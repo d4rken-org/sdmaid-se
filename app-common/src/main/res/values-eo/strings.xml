@@ -37,8 +37,6 @@
     <string name="general_tap_hint_msg">Tuŝu por pli da opcioj</string>
     <string name="general_upgrade_action">Promocii</string>
     <string name="general_donate_action">Donaci</string>
-    <string name="general_check_action">Kontroli</string>
-    <string name="general_filter_action">Filtri</string>
     <string name="general_internal_not_available_msg">Interreta konekto ne disponebla</string>
     <string name="general_refresh_action">Aktualigi</string>
     <string name="general_progress_searching">Serĉas</string>
@@ -73,7 +71,6 @@
     <string name="general_tag_filter_label">Filtri laŭ etikedoj</string>
     <string name="general_tag_system">Sistemo</string>
     <string name="general_result_success_message">Operacio sukcesis</string>
-    <string name="general_result_failure_message">Operacio malsukcesis</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s spaco liberiĝis.</item>
         <item quantity="other">%s spaco liberiĝis.</item>
@@ -102,7 +99,6 @@
         <item quantity="other">%d eroj forpreniĝis</item>
     </plurals>
     <string name="general_root_required_label">Radika aliro necesa</string>
-    <string name="general_root_required_message">Radikigita aparato necesa</string>
     <string name="general_search_action">Serĉi</string>
     <string name="general_scan_device_action">Skani aparaton</string>
     <string name="general_open_system_settings_action">Malfermi sistem-agordojn</string>

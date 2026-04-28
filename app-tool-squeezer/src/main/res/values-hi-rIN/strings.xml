@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">संपीड़न की पुष्टि करें</string>
     <string name="squeezer_preview_total_size">कुल आकार</string>
     <string name="squeezer_preview_estimated_savings">अनुमानित बचत</string>
-    <string name="squeezer_compress_confirmation_title">छवियाँ संपीड़ित करें?</string>
-    <string name="squeezer_compress_confirmation_message">यह मूल छवियों को संपीड़ित संस्करणों से बदल देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
     <string name="squeezer_history_title">संपीड़न इतिहास</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d आइटम (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">कम से कम %d दिन पुरानी</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
-    <string name="squeezer_onboarding_got_it">समझ गया</string>
 </resources>

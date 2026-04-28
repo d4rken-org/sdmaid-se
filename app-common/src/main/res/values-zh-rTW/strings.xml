@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">輕觸以取得其他選項</string>
     <string name="general_upgrade_action">升級</string>
     <string name="general_donate_action">捐贈</string>
-    <string name="general_check_action">檢查</string>
-    <string name="general_filter_action">過濾器</string>
     <string name="general_internal_not_available_msg">網際網路連線無法使用</string>
     <string name="general_refresh_action">重新整理</string>
     <string name="general_progress_searching">正在搜尋</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">依標籤過濾</string>
     <string name="general_tag_system">系統</string>
     <string name="general_result_success_message">作業成功</string>
-    <string name="general_result_failure_message">作業失敗</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已釋放 %s 空間。</item>
     </plurals>
@@ -105,7 +102,6 @@
         <item quantity="other">%d 個項目已移除</item>
     </plurals>
     <string name="general_root_required_label">需要 Root</string>
-    <string name="general_root_required_message">需要 Root 存取權</string>
     <string name="general_search_action">搜尋</string>
     <string name="general_scan_device_action">掃描裝置</string>
     <string name="general_open_system_settings_action">開啟系統設定</string>

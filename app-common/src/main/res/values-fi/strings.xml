@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">Napauta lisävalintoja varten</string>
     <string name="general_upgrade_action">Päivitä</string>
     <string name="general_donate_action">Lahjoita</string>
-    <string name="general_check_action">Tarkista</string>
-    <string name="general_filter_action">Suodata</string>
     <string name="general_internal_not_available_msg">Internet-yhteys ei ole saatavilla</string>
     <string name="general_refresh_action">Virkistä</string>
     <string name="general_progress_searching">Etsitään</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">Suodata tunnisteiden mukaan</string>
     <string name="general_tag_system">Järjestelmä</string>
     <string name="general_result_success_message">Toiminto onnistui</string>
-    <string name="general_result_failure_message">Toiminto epäonnistui</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vapautettiin %s tilaa.</item>
         <item quantity="other">Vapautettiin %s tilaa.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d kohdetta poistettiin</item>
     </plurals>
     <string name="general_root_required_label">Vaatii root-oikeudet</string>
-    <string name="general_root_required_message">Vaatii rootatun laitteen</string>
     <string name="general_search_action">Etsi</string>
     <string name="general_scan_device_action">Skannaa laite</string>
     <string name="general_open_system_settings_action">Avaa järjestelmäasetukset</string>

@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforceerd stoppen voor wissen</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sluit apps geforceerd af voordat je hun cache wist. Dit kan helpen om de cache van sommige apps te wissen, maar het kan er ook toe leiden dat apps niet goed meer werken en handmatig opnieuw moeten worden opgestart.</string>
     <string name="appcleaner_progress_force_stopping">Apps geforceerd stoppen…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Instellingenscherm niet beschikbaar</string>
-    <string name="appcleaner_automation_loading">Automatisering voorbereiden via toegankelijkheidsservice</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inclusief andere gebruikers</string>
-    <string name="appcleaner_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">មិនអាចភ្ជាប់ទៅ Google Play បានទេ។ សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក ហើយសាកល្បងម្តងទៀត។</string>
     <string name="upgrades_gplay_already_owned_error_title">បានទិញរួចហើយ</string>
     <string name="upgrades_gplay_already_owned_error_description">ប្រើជម្រើស \"ស្តារការជាវមកវិញ\" ដើម្បីស្តារការទិញរបស់អ្នក។ ប្រសិនបើបញ្ហានៅបន្ត សាកល្បងសម្អាតឃ្លាំងសម្ងាត់ Google Play និងចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។</string>
-    <string name="upgrades_no_purchases_found_check_account">រកមិនឃើញការទិញ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
     <string name="upgrade_screen_title">ទទួលបាន SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid មិនមានការផ្សាយពាណិជ្ជកម្ម និងមិនលក់ទិន្នន័យអ្នកប្រើប្រាស់ទេ។ ការងាររបស់ខ្ញុំត្រូវបានផ្តល់មូលនិធិដោយអ្នក ❤️។</string>
     <string name="upgrade_screen_benefits_title">អត្ថប្រយោជន៍</string>

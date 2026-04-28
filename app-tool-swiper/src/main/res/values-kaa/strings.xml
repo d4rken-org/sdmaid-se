@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Sessiyanı dawam ettiw</string>
     <string name="swiper_sessions_description">Faylları 3 qádem menen tekserip shıǵıń:\n\n1. Skanerlew ushın papka tańlań\n2. Faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań\n3. Tańlawlarıńızdı tekserip, tastıyıqlań\n\nSońǵı o\'shiriw túymesin baspaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_select_folders_action">Papkalardı tańlaw</string>
-    <string name="swiper_scanning_title">Skanerlenip atır…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d element tabıldı</item>
         <item quantity="other">%d element tabıldı</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper qalay islaydi</string>
     <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Túsinikli</string>
-    <string name="swiper_help_action">Járdem</string>
     <string name="swiper_file_type_filter_title">Tek usı fayl tiplerin kórset</string>
     <string name="swiper_file_type_filter_hint">Kórgіńіz kelgen tiplerdi belgilеń. Heshqaysısı belgilenбесе, барлыq fayllar kórsеtіledі.</string>
     <string name="swiper_file_type_category_images">Súwretler</string>

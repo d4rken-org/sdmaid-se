@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Tidak dapat terhubung ke Google Play. Silakan periksa koneksi internet Anda dan coba lagi.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sudah dibeli</string>
     <string name="upgrades_gplay_already_owned_error_description">Gunakan opsi \"Pulihkan pembelian\" untuk memulihkan pembelian Anda. Jika masalah berlanjut, coba hapus cache Google Play dan mulai ulang perangkat Anda.</string>
-    <string name="upgrades_no_purchases_found_check_account">Pembelian tidak ditemukan. Apakah Anda menggunakan akun yang benar?</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Kelebihan</string>

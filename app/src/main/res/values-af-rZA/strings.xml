@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop opname</string>
     <string name="debug_debuglog_sensitive_information_message">Die gegenereerde lêer bevat sensitiewe inligting (bv. lêername en geïnstalleerde toepassings). Deel dit slegs met vertroude partye.</string>
     <string name="debug_debuglog_screen_title">Ontfoutingslog</string>
-    <string name="debug_debuglog_screen_discard_action">Verwerp</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
     <string name="debug_debuglog_screen_log_files_label">Loglêers</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Gaan voort</string>
     <string name="onboarding_privacy_title">Privaatheid</string>
     <string name="onboarding_privacy_body1">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Fout verslae word gestuur wanneer foute voorkom en kan besonderhede bevat oor toepassings en lêers op jou toestel. Verslae help my om foute reg te maak en die toepassing te verbeter.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Laat outomatiese fout verslae toe</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Hierdie opsies kan verander word in die instellings.</string>
-    <string name="onboarding_privacy_continue_action">Gaan voort</string>
     <string name="onboarding_setup_title">Opstelling</string>
     <string name="onboarding_setup_body1">SD Maid sal alle toeganklike data areas soek.</string>
     <string name="onboarding_setup_body2">Wat toeganklik is hang af van jou toestel, Android weergawe en toegekende toestemmings.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Opstelling is onvolledig</string>
     <string name="setup_incomplete_card_body">Voltooi SD Maid se opstelling om beter resultate te kry.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid probeer om opstelling probleme reg te maak.</string>
-    <string name="setup_incomplete_card_dismiss_action">Verwyder</string>
     <string name="setup_incomplete_card_continue_action">Gaan voort met opstelling</string>
     <string name="setup_forcedshow_summary">Wys opstelling skerm weer, insluitend reeds voltooide items.</string>
     <string name="setup_checking_card_body">Verifieer opstelling voltooiing en funksionaliteit.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Herlaai data areas</string>
     <string name="debug_mode_label">Ontfout modus</string>
     <string name="debug_mode_explanation">Aktiveer toets opsies en meer uitvoerige uitset. Toepassing sal stadiger loop en anders presteer.</string>
-    <string name="debug_bugreporter_label">Outomatiese fout verslae</string>
-    <string name="debug_bugreporter_summary">Rapporteer outomaties probleme, bv. besonderhede oor toepassing ongelukke sodat ek kan uitvind hoekom en dit kan regmaak.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Ontfoutingsmodus is geaktiveer</string>
     <string name="debug_card_trace_mode_label">Aktiveer speurmodus</string>

@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tvangsstop før rydning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvangsstop apps før rydning af deres cache. Det kan hjælpe med at rydde nogle apps\' caches, men kan medføre at apps opfører sig forkert og kræver manuel genstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvangsstopper apps…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Indstillingsskærm utilgængelig</string>
-    <string name="appcleaner_automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inkluder andre brugere</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
 </resources>

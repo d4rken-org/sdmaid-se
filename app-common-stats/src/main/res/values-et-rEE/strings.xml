@@ -8,7 +8,6 @@
         <item quantity="one">%s fail töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
         <item quantity="other">%s faili töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
     </plurals>
-    <string name="stats_report_status_success">Õnnestus</string>
     <string name="stats_report_status_partial_success">Õnnestus enam-vähem</string>
     <string name="stats_report_status_partial_failure">Tõrge</string>
     <string name="stats_settings_desc">Seadista SD Maidi statistikat, aruandeid ja andmete hoiustamist.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Mitme päeva pärast kustuvad SD Maidi tavatoimingute aruanded.</string>
     <string name="stats_settings_retention_paths_label">Põhjalik asukoha teave</string>
     <string name="stats_settings_retention_paths_desc">Mitu päeva säilitada SD Maidi puhastatud asukohtade andmeid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d päev</item>
-        <item quantity="other">%d päeva</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Taasta kõik</string>
     <string name="stats_settings_reset_all_desc">Kustuta kõik aruanded ja nulli kogu statistika.</string>
     <string name="stats_affected_paths_label">Mõjutatud asukohad</string>

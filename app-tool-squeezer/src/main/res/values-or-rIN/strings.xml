@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="squeezer_preview_total_size">ମୋଟ ଆକାର</string>
     <string name="squeezer_preview_estimated_savings">ଆନୁମାନିକ ସଞ୍ଚୟ</string>
-    <string name="squeezer_compress_confirmation_title">ଚିତ୍ର ସଙ୍କୋଚନ କରିବେ?</string>
-    <string name="squeezer_compress_confirmation_message">ଏହା ମୂଳ ଚିତ୍ରଗୁଡିକୁ ସଙ୍କୋଚିତ ସଂସ୍କରଣ ସହ ବଦଳାଇବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</string>
     <string name="squeezer_history_title">ସଙ୍କୋଚନ ଇତିହାସ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ଆଇଟମ୍ (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲ୍ ପାଇଁ ଆନୁମାନିକ ~%d%% ସଞ୍ଚୟ</string>
-    <string name="squeezer_onboarding_got_it">ବୁଝିଗଲି</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Dados de instalação de aplicativos restritos, por exemplo, aplicativos de terceiros protegidos.</string>
     <string name="corpsefinder_filter_appasec_label">Recursos de aplicativos criptografados</string>
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicativos criptografados, por exemplo, recursos de jogo.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Dados movidos para armazenamento externo pelos mods App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d resíduos de aplicativo deletado encontrado</item>

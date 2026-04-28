@@ -8,7 +8,6 @@
         <item quantity="one">%s στοιχείο έχει επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
         <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
     </plurals>
-    <string name="stats_report_status_success">Επιτυχία</string>
     <string name="stats_report_status_partial_success">Μερική επιτυχία</string>
     <string name="stats_report_status_partial_failure">Αποτυχία</string>
     <string name="stats_settings_desc">Διαμορφώστε τα στατιστικά στοιχεία, τις αναφορές και τη διατήρηση δεδομένων του SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Αριθμός ημερών πριν από τη διαγραφή βασικών αναφορών λειτουργίας του SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Λεπτομερείς πληροφορίες διαδρομής</string>
     <string name="stats_settings_retention_paths_desc">Ο αριθμός των ημερών για τη διατήρηση λεπτομερειών σχετικά με τις διαδρομές που επηρεάζονται από το SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ημέρα</item>
-        <item quantity="other">%d ημέρες</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Επαναφορά όλων</string>
     <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
     <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>

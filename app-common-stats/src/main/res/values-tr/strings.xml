@@ -8,7 +8,6 @@
         <item quantity="one">SD Maid\'i cihazınıza davet ettiğinizden beri %s öğe işledi.</item>
         <item quantity="other">SD Maid\'i cihazınıza davet ettiğinizden beri %s öğe işledi.</item>
     </plurals>
-    <string name="stats_report_status_success">Başarılı</string>
     <string name="stats_report_status_partial_success">Kısmen başarılı</string>
     <string name="stats_report_status_partial_failure">Başarısız</string>
     <string name="stats_settings_desc">SD Maid\'in istatistiklerini, raporlarını ve veri saklama ayarlarını yapılandırın.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">SD Maid\'in temel işlem raporlarının saklanma süresi.</string>
     <string name="stats_settings_retention_paths_label">Detaylı dizin bilgisi</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tarafından etkilenen dizinlerle ilgili detayların saklanma süresi.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d gün</item>
-        <item quantity="other">%d gün</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Tümünü sıfırla</string>
     <string name="stats_settings_reset_all_desc">Tüm raporları sil ve tüm istatistikleri sıfırla.</string>
     <string name="stats_affected_paths_label">Etkilenen dizinler</string>

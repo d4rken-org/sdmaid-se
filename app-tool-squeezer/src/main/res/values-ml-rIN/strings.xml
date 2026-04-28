@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">കമ്പ്രഷൻ സ്ഥിരീകരിക്കുക</string>
     <string name="squeezer_preview_total_size">മൊത്തം വലുപ്പം</string>
     <string name="squeezer_preview_estimated_savings">കണക്കാക്കിയ ലാഭം</string>
-    <string name="squeezer_compress_confirmation_title">ചിത്രങ്ങൾ കമ്പ്രസ് ചെയ്യണോ?</string>
-    <string name="squeezer_compress_confirmation_message">ഇത് യഥാർത്ഥ ചിത്രങ്ങൾ കമ്പ്രസ് ചെയ്ത പതിപ്പുകൾകൊണ്ട് പകർത്തും. ഈ പ്രവർത്തി തിരിച്ചെടുക്കാൻ കഴിയില്ല.</string>
     <string name="squeezer_history_title">കമ്പ്രഷൻ ചരിത്രം</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ഇനം (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">കുറഞ്ഞത് %d ദിവസം പഴക്കമുള്ളത്</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ഫയലുകൾക്കായി ~%d%% ലാഭം കണക്കാക്കിയിട്ടുണ്ട്</string>
-    <string name="squeezer_onboarding_got_it">മനസ്സിലായി</string>
 </resources>

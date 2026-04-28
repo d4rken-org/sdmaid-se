@@ -17,9 +17,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobraziť možnosti, ktoré vám umožnia odstrániť všetky súbory v sade duplikátov, takže nezostane žiadny súbor.</string>
     <string name="deduplicator_search_locations_title">Miesta vyhľadávania</string>
     <string name="deduplicator_search_locations_all_summary">Všetky prístupné oblasti</string>
-    <string name="deduplicator_keep_prefer_paths_title">Uprednostniť uchovanie v</string>
     <string name="deduplicator_keep_prefer_paths_summary">Pri rozhodovaní, ktorý duplikát ponechať, uprednostniť súbory v týchto umiestneniach.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Žiadne umiestnenia nie sú nakonfigurované</string>
     <string name="deduplicator_skip_minsize_title">Minimálna veľkosť</string>
     <string name="deduplicator_skip_minsize_description">Preskočte súbory, ktoré sú menšie ako minimálna veľkosť.</string>
     <string name="deduplicator_skip_uncommon_title">Preskočte nezvyčajné typy súborov</string>

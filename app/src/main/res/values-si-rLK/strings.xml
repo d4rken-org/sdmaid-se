@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">රේඛගත කිරීම නවත්වන්න</string>
     <string name="debug_debuglog_sensitive_information_message">ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා. ගොනු නම් සහ ස්ථාපිත යෙදුම්) අඩංගු වේ. විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදාගන්න.</string>
     <string name="debug_debuglog_screen_title">නිදොස්කරණ ලොගය</string>
-    <string name="debug_debuglog_screen_discard_action">ඉවත ලන්න</string>
     <string name="debug_debuglog_screen_session_path_label">සැසි මාර්ගය</string>
     <string name="debug_debuglog_screen_log_files_label">ලොග ගොනු</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">ඉදිරියට</string>
     <string name="onboarding_privacy_title">පෞද්ගලිකත්වය</string>
     <string name="onboarding_privacy_body1">SD Maid හි වෙළඳ දැන්වීම් නොමැති අතර පරිශීලක දත්ත විකුණන්නේ නැත.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">දෝෂ ඇති වූ විට දෝෂ වාර්තා යවනු ලබන අතර ඔබේ උපකරණයේ යෙදුම් සහ ගොනු පිළිබඳ විස්තර අඩංගු විය හැක. වාර්තා මට දෝෂ නිවැරදි කිරීමට සහ යෙදුම වැඩිදියුණු කිරීමට උපකාරී වේ.</string>
-    <string name="onboarding_privacy_bugreport_toggle">ස්වයංක්‍රීය දෝෂ වාර්තාවලට ඉඩ දෙන්න</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">මෙම විකල්ප සැකසීම්වලින් වෙනස් කළ හැක.</string>
-    <string name="onboarding_privacy_continue_action">ඉදිරියට</string>
     <string name="onboarding_setup_title">පිහිටුවීම</string>
     <string name="onboarding_setup_body1">SD Maid සියලුම ප්‍රවේශ විය හැකි දත්ත ප්‍රදේශ සොයනු ඇත.</string>
     <string name="onboarding_setup_body2">ප්‍රවේශ විය හැකි දේ ඔබේ උපකරණය, Android අනුවාදය සහ ලබා දී ඇති අවසර මත රඳා පවතී.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">පිහිටුවීම අසම්පූර්ණයි</string>
     <string name="setup_incomplete_card_body">වඩා හොඳ ප්‍රතිඵල ලබාගැනීම සඳහා SD Maid හි පිහිටුවීම සම්පූර්ණ කරන්න.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid පිහිටුවීම් ගැටලු නිවැරදි කිරීමට උත්සාහ කරයි.</string>
-    <string name="setup_incomplete_card_dismiss_action">ඉවතලන්න</string>
     <string name="setup_incomplete_card_continue_action">පිහිටුවීම ඉදිරියට</string>
     <string name="setup_forcedshow_summary">දැනටමත් සම්පූර්ණ කළ අයිතම ඇතුළුව පිහිටුවීම් තිරය නැවත පෙන්වන්න.</string>
     <string name="setup_checking_card_body">පිහිටුවීම සම්පූර්ණ වීම සහ ක්‍රියාකාරිත්වය සත්‍යාපනය කරමින්.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">දත්ත ප්‍රදේශ නැවත ලොඩ් කරන්න</string>
     <string name="debug_mode_label">දොෂ නිරාකරණ මොඩය</string>
     <string name="debug_mode_explanation">පරීක්ෂණ විකල්ප සහ වැඩි විස්තරාත්මක පිටපත් සක්‍රිය කරන්න. යෙදුම අහිමියින් න්රියාත්මක වෛ අතර වෙනසාකාරයක් ක්‍රියා කළ ඉම.</string>
-    <string name="debug_bugreporter_label">ස්වයංක්‍රිය දොෂ වාර්තා</string>
-    <string name="debug_bugreporter_summary">ස්වයංක්‍රියව ගැටලු වාර්තා කරයි, උදා. යෙදුම කොළින් පිළිබිම ගැන විශේෂ සෙහෙන් එය එකක සහ නිවැරදි කිරීමට අමක රිථිදැන්නේ පසේ.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">නිදොස්කරණ ප්‍රකාරය සක්‍රියයි</string>
     <string name="debug_card_trace_mode_label">ලුහුබැඳීමේ ප්‍රකාරය සක්‍රිය කරන්න</string>

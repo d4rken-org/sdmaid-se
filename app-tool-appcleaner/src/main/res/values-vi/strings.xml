@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Buộc dừng trước khi xóa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Buộc dừng ứng dụng trước khi xóa bộ nhớ đệm của chúng. Thao tác này có thể giúp xóa bộ nhớ đệm của một số ứng dụng, nhưng có thể khiến ứng dụng hoạt động không đúng cách và cần phải khởi động lại thủ công.</string>
     <string name="appcleaner_progress_force_stopping">Đang buộc dừng ứng dụng…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
-    <string name="appcleaner_automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
-    <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
 </resources>

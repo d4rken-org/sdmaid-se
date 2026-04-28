@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">הפסקת הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים.</string>
     <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
-    <string name="debug_debuglog_screen_discard_action">מחק</string>
     <string name="debug_debuglog_screen_session_path_label">נתיב הפעלה</string>
     <string name="debug_debuglog_screen_log_files_label">קבצי יומן</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -74,10 +73,6 @@
     <string name="onboarding_versus_continue_action">המשך</string>
     <string name="onboarding_privacy_title">פרטיות</string>
     <string name="onboarding_privacy_body1">SD Maid לא מכילה פירסומות ואיננה מוכרת מידע על המשתמשים.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">דוחות באגים נשלחים כאשר מתרחשות שגיאות ועשויות להכיל פרטים על אפליקציות וקבצים במכשיר שלך. דוחות עוזרים לי לתקן באגים ולשפר את האפליקציה.</string>
-    <string name="onboarding_privacy_bugreport_toggle">אפשר דוחות קריסה אוטומטים</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">האופציות הללו ניתנות לשינוי בהגדרות.</string>
-    <string name="onboarding_privacy_continue_action">המשך</string>
     <string name="onboarding_setup_title">התקנה</string>
     <string name="onboarding_setup_body1">SD Maid תחפש בכל אזורי הנתונים הנגישים.</string>
     <string name="onboarding_setup_body2">מה נגיש תלוי במכשיר שלך, בגרסת האנדרואיד וההרשאות המוענקות.</string>
@@ -172,7 +167,6 @@
     <string name="setup_incomplete_card_title">ההגדרה לא הסתיימה</string>
     <string name="setup_incomplete_card_body">סיימו את הגדרת SD Maid על מנת לקבל תוצאות טובות יותר.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid מנסה לתקן בעיות הגדרה.</string>
-    <string name="setup_incomplete_card_dismiss_action">התעלם</string>
     <string name="setup_incomplete_card_continue_action">המשך תהליך הגדרה</string>
     <string name="setup_forcedshow_summary">הצג את מסך ההגדרה שוב, כולל פריטים שכבר הושלמו.</string>
     <string name="setup_checking_card_body">אימות השלמת ההתקנה והפונקציונליות.</string>
@@ -236,8 +230,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>
     <string name="debug_mode_label">מצב דיבאג</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
-    <string name="debug_bugreporter_label">דוחות קריסה אוטומטים</string>
-    <string name="debug_bugreporter_summary">דיווח אוטומטית על בעיות, למשל. פרטים על קריסת האפליקציה כדי שאוכל להבין מה צריך לתקן.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
     <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>

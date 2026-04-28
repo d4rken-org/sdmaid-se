@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудительная остановка перед очисткой</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудительная остановка приложений перед очисткой их кэша. Это поможет очистить кэш некоторых приложений, но может привести к неправильному их функционированию и потребовать ручного перезапуска.</string>
     <string name="appcleaner_progress_force_stopping">Остановка приложений…</string>
-    <string name="appcleaner_automation_error_no_settings_body">У этого системного приложения нет экрана настроек. Очистка кэша через службу специальных возможностей невозможна. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Экран настроек недоступен</string>
-    <string name="appcleaner_automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Включать других пользователей</string>
-    <string name="appcleaner_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
 </resources>

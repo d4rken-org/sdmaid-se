@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Kontynuuj sesję</string>
     <string name="swiper_sessions_description">Przejrzyj pliki w 3 prostych krokach:\n\n1. Wybierz folder do przeskanowania.\n2. Przesuń palcem po plikach, aby zachować, usunąć lub pominąć.\n3. Przejrzyj swoje wybory i potwierdź.\n\nNic nie zostanie usunięte, dopóki nie klikniesz przycisku usuwania.</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
-    <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">Znaleziono %d element</item>
         <item quantity="few">Znaleziono %d elementy</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">Jak działa Przesuwacz</string>
     <string name="swiper_help_message">Przesuń każdy plik, aby podjąć decyzję:\n\n← Przesuń w lewo: %1$s\n→ Przesuń w prawo: %2$s\n↑ Przesuń w górę: Pomiń\n↓ Przesuń w dół: Cofnij (po pierwszym przesunięciu)\n\nMożesz również użyć przycisków na dole.\n\nPo zakończeniu dotknij „Przejrzyj”, aby zobaczyć wszystkie swoje decyzje. Nic nie zostanie usunięte, dopóki nie potwierdzisz na ekranie przeglądu.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
-    <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_file_type_filter_title">Pokaż tylko te typy plików</string>
     <string name="swiper_file_type_filter_hint">Zaznacz typy, które chcesz zobaczyć. Jeśli żaden nie jest zaznaczony, wyświetlone zostaną wszystkie pliki.</string>
     <string name="swiper_file_type_category_images">Obrazy</string>

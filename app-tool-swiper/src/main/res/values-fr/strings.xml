@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Poursuivre la session</string>
     <string name="swiper_sessions_description">Examinez les fichiers en trois étapes simples :\n\n1. Choisissez un dossier à analyser\n2. Balayez les fichiers à conserver, supprimer ou ignorer\n3. Révisez vos choix et confirmez-les\n\nRien n’est supprimé tant que vous n’appuyez pas sur le bouton de suppression final.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
-    <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d élément a été trouvé</item>
         <item quantity="other">%d éléments ont été trouvés</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Fonctionnement du Balayeur</string>
     <string name="swiper_help_message">Balayez chaque fichier pour prendre une décision :\n\n← Balayer vers la gauche : %1$s\n→ Balayer vers la droite : %2$s\n↑ Balayer vers le haut : Ignorer\n↓ Balayer vers le bas : Annuler (après le premier balayage)\n\nVous pouvez aussi utiliser les boutons situés en bas.\n\nQuand vous avez terminé, touchez « Examiner » pour afficher vos décisions. Rien n’est supprimé tant que vous ne confirmez pas sur l’écran de révision.</string>
     <string name="swiper_gesture_overlay_dismiss_action">J’ai compris</string>
-    <string name="swiper_help_action">Aide</string>
     <string name="swiper_file_type_filter_title">N’afficher que ces types de fichiers</string>
     <string name="swiper_file_type_filter_hint">Cochez les types que vous voulez voir. Si aucun n’est coché, tous les fichiers sont affichés.</string>
     <string name="swiper_file_type_category_images">Images</string>

@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">صاف کرنے سے پہلے زبردستی بند کریں</string>
     <string name="appcleaner_forcestop_before_clearing_summary">کیش صاف کرنے سے پہلے ایپس کو زبردستی بند کریں۔ یہ بعض ایپس کا کیش صاف کرنے میں مدد کر سکتا ہے، لیکن ایپس غلط برتاؤ کر سکتی ہیں اور دستی ری سٹارٹ کی ضرورت ہو سکتی ہے۔</string>
     <string name="appcleaner_progress_force_stopping">ایپس زبردستی بند ہو رہی ہیں…</string>
-    <string name="appcleaner_automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
-    <string name="appcleaner_automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
-    <string name="appcleaner_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">دوسرے صارفین شامل کریں</string>
-    <string name="appcleaner_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
 </resources>

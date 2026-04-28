@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
     <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
-    <string name="debug_debuglog_screen_discard_action">Buang</string>
     <string name="debug_debuglog_screen_session_path_label">Laluan Sesi</string>
     <string name="debug_debuglog_screen_log_files_label">Fail Log</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -65,10 +64,6 @@
     <string name="onboarding_versus_continue_action">Teruskan</string>
     <string name="onboarding_privacy_title">Privasi</string>
     <string name="onboarding_privacy_body1">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Laporan pepijat dihantar apabila ralat berlaku dan mungkin mengandungi butiran tentang aplikasi dan fail pada peranti anda. Laporan membantu saya membetulkan pepijat dan menambah baik aplikasi.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Benarkan laporan pepijat automatik</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Pilihan ini boleh diubah dalam tetapan.</string>
-    <string name="onboarding_privacy_continue_action">Teruskan</string>
     <string name="onboarding_setup_title">Persediaan</string>
     <string name="onboarding_setup_body1">SD Maid akan mencari semua kawasan data yang boleh diakses.</string>
     <string name="onboarding_setup_body2">Perkara yang boleh diakses bergantung pada peranti anda, versi Android dan kebenaran yang diberikan.</string>
@@ -157,7 +152,6 @@
     <string name="setup_incomplete_card_title">Persediaan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan persediaan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid cuba menyelesaikan isu persediaan.</string>
-    <string name="setup_incomplete_card_dismiss_action">Bubar</string>
     <string name="setup_incomplete_card_continue_action">Teruskan persediaan</string>
     <string name="setup_forcedshow_summary">Tunjukkan skrin persediaan sekali lagi, termasuk item yang telah siap.</string>
     <string name="setup_checking_card_body">Mengesahkan penyiapan lengkap dan kefungsian.</string>
@@ -220,8 +214,6 @@
     <string name="dataarea_warningcard_reload_action">Muat semula kawasan data</string>
     <string name="debug_mode_label">Mod nyahpepijat</string>
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
-    <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
-    <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
     <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>

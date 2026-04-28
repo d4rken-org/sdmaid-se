@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Apturēt ierakstīšanu</string>
     <string name="debug_debuglog_sensitive_information_message">Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm.</string>
     <string name="debug_debuglog_screen_title">Atkļūdošanas žurnāls</string>
-    <string name="debug_debuglog_screen_discard_action">Atmest</string>
     <string name="debug_debuglog_screen_session_path_label">Sesijas ceļš</string>
     <string name="debug_debuglog_screen_log_files_label">Žurnāla faili</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -71,10 +70,6 @@
     <string name="onboarding_versus_continue_action">Turpināt</string>
     <string name="onboarding_privacy_title">Privātums</string>
     <string name="onboarding_privacy_body1">SD Maid nav reklāmu un nepārdod lietotāju datus.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Kļūdu ziņojumi tiek nosūtīti, kad rodas kļūdas, un var saturēt informāciju par lietotnēm un failiem jūsu ierīcē. Ziņojumi palīdz man labot kļūdas un uzlabot lietotni.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Atļaut automātiskos kļūdu ziņojumus</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Šīs opcijas var mainīt iestatījumos.</string>
-    <string name="onboarding_privacy_continue_action">Turpināt</string>
     <string name="onboarding_setup_title">Iestatīšana</string>
     <string name="onboarding_setup_body1">SD Maid meklēs visās pieejamajās datu zonās.</string>
     <string name="onboarding_setup_body2">Tas, kas ir pieejams, atkarīgs no jūsu ierīces, Android versijas un piešķirtajām atļaujām.</string>
@@ -167,7 +162,6 @@
     <string name="setup_incomplete_card_title">Iestatīšana nav pabeigta</string>
     <string name="setup_incomplete_card_body">Pabeidziet SD Maid iestatīšanu, lai iegūtu labākus rezultātus.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid mēģina novērst iestatīšanas problēmas.</string>
-    <string name="setup_incomplete_card_dismiss_action">Noraidīt</string>
     <string name="setup_incomplete_card_continue_action">Turpināt iestatīšanu</string>
     <string name="setup_forcedshow_summary">Rādīt iestatīšanas ekrānu vēlreiz, ieskaitot jau pabeigtās pozīcijas.</string>
     <string name="setup_checking_card_body">Pārbauda iestatīšanas pabeigšanu un funkcionalitāti.</string>
@@ -230,8 +224,6 @@
     <string name="dataarea_warningcard_reload_action">Pārlādēt datu zonas</string>
     <string name="debug_mode_label">Atkļūdošanas režīms</string>
     <string name="debug_mode_explanation">Ieslēgt testa opcijas un detalizētāku izvadi. Lietotne strādās lēnāk un darbosies atšķirīgi.</string>
-    <string name="debug_bugreporter_label">Automātiskie kļūdu ziņojumi</string>
-    <string name="debug_bugreporter_summary">Automātiski ziņo par problēmām, piem. lietotnes avārijas detaļas, lai es varētu noskaidrot iemeslu un to novērst.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Atkļūdošanas režīms ir ieslēgts</string>
     <string name="debug_card_trace_mode_label">Ieslēgt izsekošanas režīmu</string>

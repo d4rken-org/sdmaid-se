@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">بەردەوامبوونی سێشن</string>
     <string name="swiper_sessions_description">فایلەکان لە 3 قەدەمی سادەدا بپشکنەوە:\n\n1. فۆڵدەرێک هەڵبژێرە بۆ سکانکردن\n2. بە فایلەکان سوایپ بکە بۆ نگەداشتن، سڕینەوە، یان تێپەڕاندن\n3. هەڵبژاردنەکانت بپشکنەوە و پشتڕاست بکەرەوە\n\nهیچ شتێک لابردنی نابێت تاوەکو دوگمەی سڕینەوەی دوایین دەیتەپێنی.</string>
     <string name="swiper_select_folders_action">فۆڵدەرەکان هەڵبژێرە</string>
-    <string name="swiper_scanning_title">سکانکردن…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d بابەت دۆزرایەوە</item>
         <item quantity="other">%d بابەت دۆزرایەوە</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">چۆن Swiper کاردەکات</string>
     <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
     <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
-    <string name="swiper_help_action">یارمەتی</string>
     <string name="swiper_file_type_filter_title">تەنها ئەم جۆرە فایلانە نیشان بدە</string>
     <string name="swiper_file_type_filter_hint">جۆرەکانی کە دەتەوێت ببینیت هەڵبژێرە. ئەگەر هیچیان هەڵنەبژێردرا، هەموو فایلەکان نیشان دەدرێن.</string>
     <string name="swiper_file_type_category_images">وێنەکان</string>

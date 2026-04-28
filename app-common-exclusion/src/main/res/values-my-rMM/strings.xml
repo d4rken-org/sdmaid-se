@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">အကြေး ဖယ်ထုတ်ခြင်းများ ဖျစ်ချရန်လျှော့ AppControl ကြေးဆိုင်ကို အသုံးချသည်။</string>
     <string name="exclusion_create_path_hint">ပောထ် ဖယ်ထုတ်ခြင်းများ ဖျစ်ချရန်လျှော့ StorageAnalyzer ကြေးဆိုင်ကို အသုံးချသည်။</string>
     <string name="exclusion_show_defaults_action">မူရင်းဖွစ်ချသောများကို ပြသောသောရန်</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">သိုထားသွားမရှိသော ပြင်န်ဆွဲမရှိသော ပြစ်တွက်များ သိုရှိပါ!</string>
 </resources>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Файлын насаар (сүүлийн өөрчлөгдсөн цаг) үндэслэн хязаалала. Аль насаар таархын тулд тохируулахгүй орхи хоосон.</string>
     <string name="systemcleaner_customfilter_import_action">Шинэ шүүгээгч импортлох</string>
     <string name="systemcleaner_customfilter_export_action">Сонгосон шүүгээгчийг экспортлох</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Тань хадаагдаагүй өөрчлөлтүүд бий!</string>
 </resources>

@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Afficher les options de suppression de tous les fichiers d\'un jeu de doublons afin qu’aucun fichier ne reste.</string>
     <string name="deduplicator_search_locations_title">Chercher dans les emplacements</string>
     <string name="deduplicator_search_locations_all_summary">Toutes les zones accessibles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Préférer ces fichiers</string>
     <string name="deduplicator_keep_prefer_paths_summary">En cas de doublon, conserver en priorité les fichiers de ces emplacements.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Aucun emplacement n’est défini</string>
     <string name="deduplicator_skip_minsize_title">Taille minimale</string>
     <string name="deduplicator_skip_minsize_description">Ignorer les fichiers inférieurs à taille minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorer les types de fichier inhabituels</string>

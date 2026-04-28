@@ -63,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Cadarnhau cywasgu</string>
     <string name="squeezer_preview_total_size">Cyfanswm maint</string>
     <string name="squeezer_preview_estimated_savings">Arbedion amcangyfrifedig</string>
-    <string name="squeezer_compress_confirmation_title">Cywasgu delweddau?</string>
-    <string name="squeezer_compress_confirmation_message">Bydd hyn yn disodli delweddau gwreiddiol â fersiynau wedi\'u cywasgu. Ni ellir dadwneud y weithred hon.</string>
     <string name="squeezer_history_title">Hanes cywasgu</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d eitem (%2$s)</item>

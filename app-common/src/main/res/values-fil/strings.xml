@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">Pindutin para sa higit pang opsyon</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
     <string name="general_donate_action">Mag-donate</string>
-    <string name="general_check_action">Suriin</string>
-    <string name="general_filter_action">Salain</string>
     <string name="general_internal_not_available_msg">Walang koneksyon sa internet</string>
     <string name="general_refresh_action">I-refresh</string>
     <string name="general_progress_searching">Naghahanap</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">Salain ayon sa tag</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Matagumpay ang operasyon</string>
-    <string name="general_result_failure_message">Palpak ang operasyon</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Na-free na ang %s na espasyo.</item>
         <item quantity="other">Na-free na ang %s na espasyo.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">Natanggal ang %d na item</item>
     </plurals>
     <string name="general_root_required_label">Nangangailangan ng root</string>
-    <string name="general_root_required_message">Kailangang naka-root ang device</string>
     <string name="general_search_action">Maghanap</string>
     <string name="general_scan_device_action">I-scan ang device</string>
     <string name="general_open_system_settings_action">Buksan ang mga setting ng sistema</string>

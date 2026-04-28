@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">క్లియర్ చేయడానికి ముందు ఫోర్స్-స్టాప్ చేయి</string>
     <string name="appcleaner_forcestop_before_clearing_summary">వాటి కాష్‌ను క్లియర్ చేయడానికి ముందు యాప్‌లను ఫోర్స్-స్టాప్ చేయండి. ఇది కొన్ని యాప్‌ల కాష్‌లను క్లియర్ చేయడానికి సహాయపడవచ్చు, కానీ యాప్‌లు తప్పుగా ప్రవర్తించడానికి మరియు మాన్యువల్ రీస్టార్ట్ అవసరపడటానికి కారణం కావచ్చు.</string>
     <string name="appcleaner_progress_force_stopping">యాప్‌లను ఫోర్స్-స్టాప్ చేస్తోంది…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ఈ సిస్టం యాప్ కి సెట్టింగ్స్ స్క్రీన్ లేదు. ప్రాప్యతా సేవ ద్వారా క్యాషే క్లీర్ చేయడం సాధ్యం కాదు. క్యాషే క్లీర్ చేయడానికి వేగాని నేర్పడానికి దీనిని బహిష్కరించండి.</string>
-    <string name="appcleaner_automation_error_no_settings_title">సెట్టింగ్స్ స్క్రీన్ అనుపలబ్ధం</string>
-    <string name="appcleaner_automation_loading">ప్రాప్యతా సేవ ద్వారా ఆటొమేషన్ కోసం సిద్ధం చేస్తోంది</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ముందు క్రియను నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్‌లు: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ఇతర వాడుకరులను చేర్చండి</string>
-    <string name="appcleaner_include_multiuser_summary">ఈ పరికరంలో ఇతర వాడుకరు ప్రొఫైల్ల నుండి యాప్‌లను చేర్చండి.</string>
 </resources>

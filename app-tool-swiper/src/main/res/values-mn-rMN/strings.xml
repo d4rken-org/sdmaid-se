@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Сессийг үргэлжлүүлэх</string>
     <string name="swiper_sessions_description">Файлуудыг 3 энгийн алхмаар хянах:\n\n1. Сканнердах фолдер сонгох\n2. Файлуудыг гүйлгэж хадгалах, устгах, эсвэл алгасах\n3. Сонголтоо хянаж баталгаажуулах\n\nУстгах товчийг дарах хүртэл юу ч устгагдахгүй.</string>
     <string name="swiper_select_folders_action">Фолдерууд сонгох</string>
-    <string name="swiper_scanning_title">Сканнердаж байна…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d зүйл олдсон</item>
         <item quantity="other">%d зүйл олдсон</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper хэрхэн ажилладаг</string>
     <string name="swiper_help_message">Файл бүрийг гүйлгэж шийдвэр гарга:\n\n← Зүүн тийш гүйлгэх: %1$s\n→ Баруун тийш гүйлгэх: %2$s\n↑ Дээш гүйлгэх: Алгасах\n↓ Доош гүйлгэх: Буцаах (анхны гүйлгэлтийн дараа)\n\nДоод талын товчлууруудыг бас ашиглаж болно.\n\nДууссаны дараа \"Хянах\" дээр дарж бүх шийдвэрээ харна уу. Хяналтын дэлгэц дээр баталгаажуулах хүртэл юу ч устгагдахгүй.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ойлголоо</string>
-    <string name="swiper_help_action">Тусламж</string>
     <string name="swiper_file_type_filter_title">Зөвхөн эдгээр файлын төрлийг харуулах</string>
     <string name="swiper_file_type_filter_hint">Харахыг хүсэж буй төрлүүдийг тэмдэглэнэ үү. Хэрэв жагсаалт хоосон бол бүх файл харагдана.</string>
     <string name="swiper_file_type_category_images">Зургууд</string>

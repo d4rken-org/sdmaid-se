@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">ប៉ះសម្រាប់ជម្រើសផ្សេងទៀត</string>
     <string name="general_upgrade_action">វិសិដ្ឋកម្ម</string>
     <string name="general_donate_action">បរិច្ចាគ</string>
-    <string name="general_check_action">ពិនិត្យ</string>
-    <string name="general_filter_action">តម្រង</string>
     <string name="general_internal_not_available_msg">ការតភ្ជាប់អ៊ីនធឺណិតមិនអាចប្រើបានទេ</string>
     <string name="general_refresh_action">រីហ្វ្រេស</string>
     <string name="general_progress_searching">កំពុងស្វែងរក</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
     <string name="general_tag_system">ប្រព័ន្ធ</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
-    <string name="general_result_failure_message">ប្រតិបត្តិការបរាជ័យ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ទំហំនៅទំនេរ %s។</item>
     </plurals>
@@ -105,7 +102,6 @@
         <item quantity="other">ធាតុចំនួន %d ត្រូវបានលុបចេញ</item>
     </plurals>
     <string name="general_root_required_label">ត្រូវ​ការ​ឬស</string>
-    <string name="general_root_required_message">ត្រូវការឧបករណ៍បានឬស</string>
     <string name="general_search_action">ស្វែងរក</string>
     <string name="general_scan_device_action">ស្គែនឧបករណ៍</string>
     <string name="general_open_system_settings_action">បើកការកំណត់ប្រព័ន្ធ</string>

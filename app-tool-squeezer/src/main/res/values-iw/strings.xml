@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>
     <string name="squeezer_preview_total_size">גודל כולל</string>
     <string name="squeezer_preview_estimated_savings">חיסכון משוער</string>
-    <string name="squeezer_compress_confirmation_title">לדחוס תמונות?</string>
-    <string name="squeezer_compress_confirmation_message">פעולה זו תחליף תמונות מקוריות בגרסאות דחוסות. לא ניתן לבטל פעולה זו.</string>
     <string name="squeezer_history_title">היסטוריית דחיסה</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">פריט %1$d (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
-    <string name="squeezer_onboarding_got_it">הבנתי</string>
 </resources>

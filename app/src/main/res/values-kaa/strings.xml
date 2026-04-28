@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Jazıwdı toxtatıń</string>
     <string name="debug_debuglog_sensitive_information_message">Jaratılgan fayl mahrem maǵlıwmatlardı qamtıydı (mısalı fayl atlari hám ornatlgan programmalar). Buni tek ishenshli adamlarmenen bólis.</string>
     <string name="debug_debuglog_screen_title">Debaglash jurnaly</string>
-    <string name="debug_debuglog_screen_discard_action">Tashlan\'</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiya joly</string>
     <string name="debug_debuglog_screen_log_files_label">Jurnal fayllar</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Dawam etiw</string>
     <string name="onboarding_privacy_title">Qupiyalıq</string>
     <string name="onboarding_privacy_body1">SD Maid da jarnama joq hám paydalaniwshı maǵlıwmatlarin sata bilmeydi.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Qate haqqında bayanamalar qatelik orın alganshaw jiberiledi hám sizin qıraǵda programma hám fayllar haqqında maǵlıwmat qamatıw mümkin. Bayanamalar manga qateliklerdi tüzew hám programmani jaqsartiwda kömeklesedi.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Avtomatik qate haqqında bayanamalar berilsin</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bul tanlaniwlardı sázlemelerden özgertiw boladi.</string>
-    <string name="onboarding_privacy_continue_action">Dawam etiw</string>
     <string name="onboarding_setup_title">Sazlaw</string>
     <string name="onboarding_setup_body1">SD Maid barlıq qôl jetkilgen maǵlıwmat aymaqlarınan ızdenedi.</string>
     <string name="onboarding_setup_body2">Nege qôl jetkiziwge bolatını sizin qıraǵınız, Android versiyası hám berilgen ruqsátlerge baylanıslı.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Ornatıw juwmaqlanbadı</string>
     <string name="setup_incomplete_card_body">Eń jaqsı nátiyjelerge erisiw ushın SD Maid ornatıwın juwmaqlań.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ornatlash problemaların tüzewge tırısadı.</string>
-    <string name="setup_incomplete_card_dismiss_action">Biykarlaw</string>
     <string name="setup_incomplete_card_continue_action">Ornatıwdı dawam etiw</string>
     <string name="setup_forcedshow_summary">Ornatlash ekranın qayta körset, aldin tamamlangan nerselerdi de kose algında.</string>
     <string name="setup_checking_card_body">Ornatlash tamamlanıwı hám funkcional ıslewın tekseredi.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Maǵlıwmatlar maydanların qayta júklew</string>
     <string name="debug_mode_label">Nasazlıqtı sazlaw rejimi</string>
     <string name="debug_mode_explanation">Сынау опцияларын һәм толық шығарысты қосу. Қолданба баяу ишлейді һәм басқаша таң этеді.</string>
-    <string name="debug_bugreporter_label">Avtomatikalıq qátelik esabatları</string>
-    <string name="debug_bugreporter_summary">Қателерді автоматик хабарлайды, мысалы, мен неліктен һәм қалай түзетуге болатынын білу үшин қолданба құлашы туралы баталсыл мәліметтер.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debaglash rejimi qosylǵan</string>
     <string name="debug_card_trace_mode_label">Iz rejimin qosıw</string>

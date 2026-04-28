@@ -8,7 +8,6 @@
         <item quantity="one">%s kohde käsitelty siitä lähtien, kun kutsuit SD Maidin laitteeseesi.</item>
         <item quantity="other">%s kohdetta käsitelty siitä lähtien, kun kutsuit SD Maidin laitteeseesi.</item>
     </plurals>
-    <string name="stats_report_status_success">Onnistuminen</string>
     <string name="stats_report_status_partial_success">Osittainen onnistuminen</string>
     <string name="stats_report_status_partial_failure">Epäonnistuminen</string>
     <string name="stats_settings_desc">Määritä SD Maidin tilastot, raportit ja tietojen säilyttäminen.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Päivien määrä ennen perus SD Maid -toimintoraporttien poistamista.</string>
     <string name="stats_settings_retention_paths_label">Yksityiskohtaiset polkutiedot</string>
     <string name="stats_settings_retention_paths_desc">Päivien määrä, jolloin pidetään yksityiskohdat SD Maidin vaikuttamista poluista.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d päivä</item>
-        <item quantity="other">%d päivää</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Nollaa kaikki</string>
     <string name="stats_settings_reset_all_desc">Poista kaikki raportit ja aseta kaikki tilastot nollaan.</string>
     <string name="stats_affected_paths_label">Vaikutetut polut</string>

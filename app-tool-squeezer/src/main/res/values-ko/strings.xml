@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">압축 확인</string>
     <string name="squeezer_preview_total_size">총 크기</string>
     <string name="squeezer_preview_estimated_savings">예상 절약량</string>
-    <string name="squeezer_compress_confirmation_title">이미지를 압축하시겠습니까?</string>
-    <string name="squeezer_compress_confirmation_message">원본 이미지가 압축된 버전으로 대체됩니다. 이 작업은 되돌릴 수 없습니다.</string>
     <string name="squeezer_history_title">압축 기록</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d개 항목 (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">최소 %d일 경과</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 파일에 대해 ~%d%% 절약 예상</string>
-    <string name="squeezer_onboarding_got_it">확인</string>
 </resources>

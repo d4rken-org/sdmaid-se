@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">متابعة الجلسة</string>
     <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_select_folders_action">اختر المجلدات</string>
-    <string name="swiper_scanning_title">جارٍ الفحص…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="zero">تم العثور على %d عناصر</item>
         <item quantity="one">تم العثور على %d عنصر</item>
@@ -207,7 +206,6 @@
     <string name="swiper_help_title">كيف يعمل Swiper</string>
     <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
     <string name="swiper_gesture_overlay_dismiss_action">عُلم</string>
-    <string name="swiper_help_action">مساعدة</string>
     <string name="swiper_file_type_filter_title">إظهار أنواع الملفات هذه فقط</string>
     <string name="swiper_file_type_filter_hint">حدد الأنواع التي تريد رؤيتها. إذا لم يتم تحديد أي نوع، سيتم عرض جميع الملفات.</string>
     <string name="swiper_file_type_category_images">الصور</string>

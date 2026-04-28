@@ -8,7 +8,6 @@
         <item quantity="one">మీరు మీ పరికరంలోకి SD Maid ను ఆమంత్రించినప్పటినుంచి %s అంశం ప్రక్రియ చేయబడింది.</item>
         <item quantity="other">మీరు మీ పరికరంలోకి SD Maid ను ఆమంత్రించినప్పటినుంచి %s అంశాలు ప్రక్రియ చేయబడినాయి.</item>
     </plurals>
-    <string name="stats_report_status_success">విజయం</string>
     <string name="stats_report_status_partial_success">ఆంశిక విజయం</string>
     <string name="stats_report_status_partial_failure">విఫలం</string>
     <string name="stats_settings_desc">SD Maid గణాంకాలు, రిపోర్ట్‌లు మరియు డేటా రిటెన్షన్‌ను కాన్ఫిగర్ చేయండి.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">ప్రాథమిక SD Maid కార్యాచరణ రిపోర్ట్‌లను తొలగించడానికి ముందునని రోజుల సంఖ్య.</string>
     <string name="stats_settings_retention_paths_label">విస్తృత పాథ్ సమాచారం</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ద్వారా ప్రభావితమైన పాథ్‌ల గురించి వివరాలను ఉంచడానికి రోజుల సంఖ్య.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d రోజు</item>
-        <item quantity="other">%d రోజులు</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">అన్నిన్నీ రీసెట్ చేయండి</string>
     <string name="stats_settings_reset_all_desc">అన్ని రిపోర్ట్‌లను తొలగించి అన్ని గణాంకాలను శూన్యానికి సెట్ చేయండి.</string>
     <string name="stats_affected_paths_label">ప్రభావితమైన పాథ్‌లు</string>

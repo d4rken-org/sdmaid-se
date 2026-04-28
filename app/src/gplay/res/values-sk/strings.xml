@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Nepodarilo sa pripojiť ku Google Play. Skontrolujte svoje internetové pripojenie a skúste to znova.</string>
     <string name="upgrades_gplay_already_owned_error_title">Už zakúpené</string>
     <string name="upgrades_gplay_already_owned_error_description">Použite možnosť \"Obnoviť nákup\" na obnovenie vášho nákupu. Ak problém pretrváva, skúste vymazať vyrovnávaciu pamäť Google Play a reštartovať zariadenie.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nenašli sa žiadne nákupy. Používate správny účet?</string>
     <string name="upgrade_screen_title">Získajte SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje. Moja práca je financovaná vami ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody</string>

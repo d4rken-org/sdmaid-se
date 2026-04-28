@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">अधिक विकल्प के लिए टैप करें</string>
     <string name="general_upgrade_action">उन्नत करें</string>
     <string name="general_donate_action">दान करें</string>
-    <string name="general_check_action">जांचे</string>
-    <string name="general_filter_action">फ़िल्टर</string>
     <string name="general_internal_not_available_msg">इंटरनेट कनेक्शन अनुपलब्ध है</string>
     <string name="general_refresh_action">रिफ्रेश करें</string>
     <string name="general_progress_searching">खोज रहा है</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">टैग द्वारा फ़िल्टर करें</string>
     <string name="general_tag_system">सिस्टम</string>
     <string name="general_result_success_message">ऑपरेशन सफल रहा</string>
-    <string name="general_result_failure_message">ऑपरेशन विफल रहा</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s स्थान मुक्त किया।</item>
         <item quantity="other">%s स्थान मुक्त किया।</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d आइटम हटाए गए</item>
     </plurals>
     <string name="general_root_required_label">रूट की आवश्यकता है</string>
-    <string name="general_root_required_message">रूटेड डिवाइस की आवश्यकता है</string>
     <string name="general_search_action">खेजें</string>
     <string name="general_scan_device_action">डिवाइस स्कैन करें</string>
     <string name="general_open_system_settings_action">सिस्टम की सेटिंग्स खोलें</string>

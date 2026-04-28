@@ -11,9 +11,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">重複のセット内のすべてのファイルを削除できるオプションを表示し、ファイルが残されないようにします。</string>
     <string name="deduplicator_search_locations_title">検索場所</string>
     <string name="deduplicator_search_locations_all_summary">すべてのアクセス可能な領域</string>
-    <string name="deduplicator_keep_prefer_paths_title">優先保持場所</string>
     <string name="deduplicator_keep_prefer_paths_summary">どの重複を保持するか決定する際、これらの場所にあるファイルを優先します。</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">場所が設定されていません</string>
     <string name="deduplicator_skip_minsize_title">最小サイズ</string>
     <string name="deduplicator_skip_minsize_description">最小サイズ以下のファイルをスキップします。</string>
     <string name="deduplicator_skip_uncommon_title">一般的でないファイルタイプをスキップ</string>

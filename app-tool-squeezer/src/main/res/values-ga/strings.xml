@@ -59,8 +59,6 @@
     <string name="squeezer_preview_dialog_title">Dearbhaigh comhbhrú</string>
     <string name="squeezer_preview_total_size">Méid iomlán</string>
     <string name="squeezer_preview_estimated_savings">Coigilteas measta</string>
-    <string name="squeezer_compress_confirmation_title">Comhbhrúigh íomhánna?</string>
-    <string name="squeezer_compress_confirmation_message">Cuirfidh sé seo leaganacha comhbhrúite in ionad na n-íomhánna bunaidh. Ní féidir an gníomh seo a chealú.</string>
     <string name="squeezer_history_title">Stair chomhbhrúite</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d mír (%2$s)</item>

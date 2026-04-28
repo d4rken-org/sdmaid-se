@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Aurreko ekintza baieztatzen saiatzen (gako-hitzak: %s)</string>
     <string name="appcontrol_include_multiuser_label">Sartu beste erabiltzaileak</string>
-    <string name="appcontrol_include_multiuser_summary">Sartu gailuko beste erabiltzaile-profiletako aplikazioak.</string>
 </resources>

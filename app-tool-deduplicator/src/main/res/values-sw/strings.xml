@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Onyesha chaguo zinazokruhusu kufuta faili zote katika seti ya nakala ili hakuna faili inayobaki.</string>
     <string name="deduplicator_search_locations_title">Maeneo ya kutafutia</string>
     <string name="deduplicator_search_locations_all_summary">Maeneo yote yanayoweza kufikiwa</string>
-    <string name="deduplicator_keep_prefer_paths_title">Pendelea kuhifadhi katika</string>
     <string name="deduplicator_keep_prefer_paths_summary">Wakati wa kuamua nakala ipi ya kuhifadhi, pendelea kuhifadhi faili katika maeneo haya.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Hakuna maeneo yaliyosanidiwa</string>
     <string name="deduplicator_skip_minsize_title">Ukubwa wa chini</string>
     <string name="deduplicator_skip_minsize_description">Ruka faili zilizo chini ya ukubwa wa chini.</string>
     <string name="deduplicator_skip_uncommon_title">Ruka aina za faili zisizo za kawaida</string>

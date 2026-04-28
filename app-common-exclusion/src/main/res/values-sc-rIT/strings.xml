@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Impreare s\'aina AppControl pro creare esclussiones de aplicatzione.</string>
     <string name="exclusion_create_path_hint">Impreare s\'aina Analizadore de Archìviu pro creare esclussiones de caminu.</string>
     <string name="exclusion_show_defaults_action">Ammustrare predefinidos</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Tenes modìficas non sarvadas!</string>
 </resources>

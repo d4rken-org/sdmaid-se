@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Прымусовае спыненне перад ачысткай</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Прымусовае спыненне праграм перад ачысткай іх кэша. Гэта можа дапамагчы ачысціць кэш некаторых праграм, але можа прывесці да іх няправільнай працы і патрабавання ручнога перазапуску.</string>
     <string name="appcleaner_progress_force_stopping">Прымусовае спыненне праграм…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Гэта сістэмная праграма не мае экрана налад. Ачыстка кэшу праз службу спецыяльных магчымасцей немагчымая. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Экран налад недаступны</string>
-    <string name="appcleaner_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
-    <string name="appcleaner_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
 </resources>

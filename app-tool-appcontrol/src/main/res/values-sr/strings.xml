@@ -138,5 +138,4 @@
     <string name="appcontrol_automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
     <string name="appcontrol_include_multiuser_label">Укључи остале кориснике</string>
-    <string name="appcontrol_include_multiuser_summary">Укључи апликације са осталих корисничких профила на овом уређају.</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continuar sesión</string>
     <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus decisiones y confirma\n\nNada se elimina hasta que pulses el botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
-    <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elemento encontrado</item>
         <item quantity="other">%d elementos encontrados</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Cómo funciona el Limpiador</string>
     <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Omitir\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entiendo</string>
-    <string name="swiper_help_action">Ayuda</string>
     <string name="swiper_file_type_filter_title">Mostrar solo estos tipos de archivo</string>
     <string name="swiper_file_type_filter_hint">Selecciona los tipos que quieres ver. Si ninguno está seleccionado, se muestran todos los archivos.</string>
     <string name="swiper_file_type_category_images">Imágenes</string>

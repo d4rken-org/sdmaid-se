@@ -9,7 +9,6 @@
     <string name="swiper_start_action">دەست بکە بە هەڵسوڕاندن</string>
     <string name="swiper_continue_action">دانیشتن بەردەوام بکە</string>
     <string name="swiper_select_folders_action">بوخچەکان هەڵبژێرە</string>
-    <string name="swiper_scanning_title">سکان دەکرێت…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d شت دۆزرایەوە</item>
         <item quantity="other">%d شت دۆزرانەوە</item>

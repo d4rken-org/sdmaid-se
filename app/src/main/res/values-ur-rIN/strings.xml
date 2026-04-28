@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">ریکارڈنگ بند کریں</string>
     <string name="debug_debuglog_sensitive_information_message">بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں۔</string>
     <string name="debug_debuglog_screen_title">ڈیبگ لاگ</string>
-    <string name="debug_debuglog_screen_discard_action">رد کریں</string>
     <string name="debug_debuglog_screen_session_path_label">سیشن کا پاتھ</string>
     <string name="debug_debuglog_screen_log_files_label">لاگ فائلز</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">جاری رکھیں</string>
     <string name="onboarding_privacy_title">پرائیویسی</string>
     <string name="onboarding_privacy_body1">SD Maid میں کوئی اشتہارات نہیں ہیں اور یہ صارف کا ڈیٹا فروخت نہیں کرتا۔</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">جب خرابیاں پیش آتی ہیں تو بگ رپورٹس بھیجی جاتی ہیں اور ان میں آپ کے ڈیوائس پر موجود ایپس اور فائلوں کی تفصیلات ہو سکتی ہیں۔ یہ رپورٹس مجھے بگز ٹھیک کرنے اور ایپ بہتر بنانے میں مدد کرتی ہیں۔</string>
-    <string name="onboarding_privacy_bugreport_toggle">خودکار بگ رپورٹس کی اجازت دیں</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">یہ اختیارات سیٹنگز میں تبدیل کیے جا سکتے ہیں۔</string>
-    <string name="onboarding_privacy_continue_action">جاری رکھیں</string>
     <string name="onboarding_setup_title">سیٹ اپ</string>
     <string name="onboarding_setup_body1">SD Maid تمام قابل رسائی ڈیٹا علاقوں کو تلاش کرے گا۔</string>
     <string name="onboarding_setup_body2">کیا قابل رسائی ہے یہ آپ کے ڈیوائس، Android ورژن اور دی گئی اجازات پر منحصر ہے۔</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">سیٹ اپ نامکمل ہے</string>
     <string name="setup_incomplete_card_body">بہتر نتائج حاصل کرنے کے لیے SD Maid کا سیٹ اپ مکمل کریں۔</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid سیٹ اپ کے مسائل ٹھیک کرنے کی کوشش کر رہا ہے۔</string>
-    <string name="setup_incomplete_card_dismiss_action">برخاست کریں</string>
     <string name="setup_incomplete_card_continue_action">سیٹ اپ جاری رکھیں</string>
     <string name="setup_forcedshow_summary">پہلے سے مکمل ازافہ مدوں سمیت سیٹ اپ سکرین دوبارہ دکھائیں۔</string>
     <string name="setup_checking_card_body">سیٹ اپ کی تکمیل اور فعالیت کی تصدیق کر رہے ہیں۔</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">ڈیٹا ایریا دوبارہ لوڈ کریں</string>
     <string name="debug_mode_label">ڈیبگ موڈ</string>
     <string name="debug_mode_explanation">ٹیسٹ آپشنز اور زیادہ تفصیلی آؤٹ پٹ فعال کریں۔ ایپ سست چلے گا اور مختلف عمل کرے گا۔</string>
-    <string name="debug_bugreporter_label">خود کار بگ رپورٹس</string>
-    <string name="debug_bugreporter_summary">خود کار طور پر مسائل کی رپورٹ کرتا ہے، جیسے ایپ کریش کی تفصیلات تاکہ میں اس کی وجہ معلوم کر سکوں اور اسے ٹھیک کر سکوں۔</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ڈیبگ موڈ فعال ہے</string>
     <string name="debug_card_trace_mode_label">ٹریس موڈ فعال کریں</string>

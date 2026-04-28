@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler (dosya isimleri ve yüklü uygulamalar gibi) içermektedir. Sadece güvenilir taraflarla paylaşın.</string>
     <string name="debug_debuglog_screen_title">Hata Ayıklama Günlüğü</string>
-    <string name="debug_debuglog_screen_discard_action">Yoksay</string>
     <string name="debug_debuglog_screen_session_path_label">Oturum Yolu</string>
     <string name="debug_debuglog_screen_log_files_label">Günlük Dosyaları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Devam et</string>
     <string name="onboarding_privacy_title">Gizlilik</string>
     <string name="onboarding_privacy_body1">SD Maid reklam içermez ve kullanıcı verilerini satmaz.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Hata raporları, hatalar meydana geldiğinde yollanır. Cihazınızdaki uygulamalar ve dosyalar ile ilgili detaylar içerebilir. Bu raporlar hataları düzeltmem ve uygulamayı geliştirmem için bana yardımcı olmaktadır.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Otomatik hata raporlarına izin ver</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu seçenekler ayarlardan değiştirilebilir.</string>
-    <string name="onboarding_privacy_continue_action">Devam et</string>
     <string name="onboarding_setup_title">Kur</string>
     <string name="onboarding_setup_body1">SD Maid ulaşılabilir tüm veri alanlarını tarayacak.</string>
     <string name="onboarding_setup_body2">Neyin ulaşılabilir olduğu telefonunuza, Android sürümüne ve verilen izinlere bağlıdır.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Kurulum tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha iyi sonuçlar almak için SD Maid kurulumunu tamamlayın.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid kurulum sorunlarını çözmeye çalışıyor.</string>
-    <string name="setup_incomplete_card_dismiss_action">Yoksay</string>
     <string name="setup_incomplete_card_continue_action">Kuruluma devam et</string>
     <string name="setup_forcedshow_summary">Tamamlanmış adımları da içeren kurulum ekranını tekrar göster.</string>
     <string name="setup_checking_card_body">Kurulum ve işlevsellik doğrulanıyor.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Veri alanlarını tekrar yükle</string>
     <string name="debug_mode_label">Hata ayıklama modu</string>
     <string name="debug_mode_explanation">Test seçeneklerini ve daha ayrıntılı çıktı almayı etkinleştir. Uygulama daha yavaş ve farklı bir şekilde çalışacak.</string>
-    <string name="debug_bugreporter_label">Otomatik hata raporları</string>
-    <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Hata ayıklama modu etkin</string>
     <string name="debug_card_trace_mode_label">İzleme modunu etkinleştir</string>

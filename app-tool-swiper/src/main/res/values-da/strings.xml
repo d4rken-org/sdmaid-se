@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Fortsæt session</string>
     <string name="swiper_sessions_description">Gennemgå filer i 3 enkle trin:\n\n1. Vælg en mappe at scanne\n2. Stryg gennem filer for at beholde, slette eller springe over\n3. Gennemgå dine valg og bekræft\n\nIntet fjernes, før du trykker på den endelige sletteknap.</string>
     <string name="swiper_select_folders_action">Vælg mapper</string>
-    <string name="swiper_scanning_title">Scanner…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d element fundet</item>
         <item quantity="other">%d elementer fundet</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Sådan fungerer Swiper</string>
     <string name="swiper_help_message">Stryg hver fil for at tage en beslutning:\n\n← Stryg til venstre: %1$s\n→ Stryg til højre: %2$s\n↑ Stryg op: Spring over\n↓ Stryg ned: Fortryd (efter første stryg)\n\nDu kan også bruge knapperne i bunden.\n\nNår du er færdig, tryk \"Gennemgå\" for at se alle dine beslutninger. Intet slettes, før du bekræfter på gennemgangsskærmen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Forstået</string>
-    <string name="swiper_help_action">Hjælp</string>
     <string name="swiper_file_type_filter_title">Vis kun disse filtyper</string>
     <string name="swiper_file_type_filter_hint">Markér de typer du vil se. Hvis ingen er markeret, vises alle filer.</string>
     <string name="swiper_file_type_category_images">Billeder</string>

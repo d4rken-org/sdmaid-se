@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersih</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cachenya. Ia boleh membantu membersihkan cache sesetengah aplikasi, tetapi mungkin menyebabkan aplikasi tidak berfungsi dengan betul dan memerlukan mula semula secara manual.</string>
     <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Aplikasi sistem ini tidak mempunyai skrin tetapan. Pembersihan cache melalui perkhidmatan kebolehcapaian tidak mungkin. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Skrin tetapan tidak tersedia</string>
-    <string name="appcleaner_automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
-    <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
 </resources>

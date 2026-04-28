@@ -9,7 +9,6 @@
     <string name="swiper_start_action">Ibda swajpja</string>
     <string name="swiper_continue_action">Kompli sessjoni</string>
     <string name="swiper_select_folders_action">Agħżel folders</string>
-    <string name="swiper_scanning_title">Qed tiskennja…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d oġġett misjub</item>
         <item quantity="other">%d oġġetti misjuba</item>

@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Takmarkaðar uppsetningargögn, t.d. vernduð forrit þriðja aðila.</string>
     <string name="corpsefinder_filter_appasec_label">Dulkóðuð auðlindir forrita</string>
     <string name="corpsefinder_filter_appasec_summary">Dulkóðaðar auðlindir forrita, t.d. eignir leikja.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Gögn flutt á ytri geymslu með App2Sd breytingum.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d forritaleif eytt</item>

@@ -90,10 +90,4 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcleaner_forcestop_before_clearing_label">Arresto forzato prima della pulizia</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Arresta forzatamente le app prima di cancellare la cache. Può aiutare a cancellare la cache di alcune app, ma potrebbe causare malfunzionamenti e richiedere il riavvio manuale.</string>
     <string name="appcleaner_progress_force_stopping">Arresto forzato delle app…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Questa app di sistema non ha una schermata delle impostazioni. La cancellazione della cache tramite servizio di accessibilità non è possibile. Escludila per velocizzare la cancellazione della cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Schermata impostazioni non disponibile</string>
-    <string name="appcleaner_automation_loading">Il servizio di accessibilità sta preparando l\'automazione</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentativo di confermare l\'azione precedente (parole chiave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Includi gli altri utenti</string>
-    <string name="appcleaner_include_multiuser_summary">Includi app da altri profili utente su questo dispositivo.</string>
 </resources>

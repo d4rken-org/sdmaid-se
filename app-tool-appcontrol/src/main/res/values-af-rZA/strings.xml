@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
     <string name="appcontrol_include_multiuser_label">Sluit ander gebruikers in</string>
-    <string name="appcontrol_include_multiuser_summary">Sluit programme van ander gebruikersprofile op hierdie toestel in.</string>
 </resources>

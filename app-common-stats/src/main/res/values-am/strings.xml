@@ -8,7 +8,6 @@
         <item quantity="one">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥል ተሠርቷል።</item>
         <item quantity="other">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥሎች ተሠርተዋል።</item>
     </plurals>
-    <string name="stats_report_status_success">ተሳክቷል</string>
     <string name="stats_report_status_partial_success">ከፊል ተሳክቷል</string>
     <string name="stats_report_status_partial_failure">አልተሳካም</string>
     <string name="stats_settings_desc">የSD Maid ስታቲስቲክ፣ ሪፖርቶችና የውሂብ ማቆያ ያዋቅሩ።</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">መሠረታዊ SD Maid ተግባር ሪፖርቶችን ከመሰረዝ በፊት የቀኖች ቁጥር።</string>
     <string name="stats_settings_retention_paths_label">ዝርዝር የመንገድ መረጃ</string>
     <string name="stats_settings_retention_paths_desc">በSD Maid የተጎዱ መንገዶች ዝርዝሮችን የማቆየት የቀኖች ቁጥር።</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ቀን</item>
-        <item quantity="other">%d ቀኖች</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">ሁሉንም ዳግም አስጀምር</string>
     <string name="stats_settings_reset_all_desc">ሁሉንም ሪፖርቶች ስረዝና ሁሉንም ስታቲስቲክ ወደ ዜሮ አስቀምጥ።</string>
     <string name="stats_affected_paths_label">የተጎዱ መንገዶች</string>

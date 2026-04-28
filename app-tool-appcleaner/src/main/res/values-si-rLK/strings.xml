@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">මැකීමට පෙර බලහත්කාරයෙන් නවතන්න</string>
     <string name="appcleaner_forcestop_before_clearing_summary">හැඹිලිය මැකීමට පෙර යෙදුම් බලහත්කාරයෙන් නවතන්න. සමහර යෙදුම්වල හැඹිලිය මැකීමට උපකාර විය හැකි නමුත්, යෙදුම් අක්‍රමණික ලෙස ක්‍රියා කළ හැකි අතර අතින් නැවත ආරම්භ කිරීම අවශ්‍ය විය හැක.</string>
     <string name="appcleaner_progress_force_stopping">යෙදුම් බලහත්කාරයෙන් නවතමින්…</string>
-    <string name="appcleaner_automation_error_no_settings_body">මෙම පද්ධති යෙදුමේ සැකසීම් තිරයක් නොමැත. ප්‍රවේශ්‍යතා සේවාව හරහා කැශ් ඉවත් කිරීම නොහැකි ය. කැශ් ඉවත් කිරීම වේගවත් කිරීම සඳහා එය බැහැර කරන්න.</string>
-    <string name="appcleaner_automation_error_no_settings_title">සැකසීම් තිරය නොමැත</string>
-    <string name="appcleaner_automation_loading">ප්‍රවේශ්‍යතා සේවාව හරහා ස්වයංක්‍රියකරණය සූදානම් කරමින්</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">පෙර ක්‍රියාව තහවුරු කිරීමට උත්සාහ කරමින් (මූල පද: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ඉතර පරිශිලකයන් ඇතුල් කරන්න</string>
-    <string name="appcleaner_include_multiuser_summary">මෙම උපකරණයො ඉතර පරිශිලක වින් යෙදුම් ඇතුල් කරන්න.</string>
 </resources>

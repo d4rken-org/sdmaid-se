@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">បញ្ជាក់ការចុច</string>
     <string name="squeezer_preview_total_size">ទំហំសរុប</string>
     <string name="squeezer_preview_estimated_savings">ការសញ្ញដែលប័តិម្ឡួត់</string>
-    <string name="squeezer_compress_confirmation_title">ចុចរូបក្រើ?</string>
-    <string name="squeezer_compress_confirmation_message">នេឣនឹងជួលជាករូបដើម្បីនៅវៀរសន់សម្រាប់ចុច។ ការប័ក័វត់នេឣមិនអាចលែត្រលប់វិញបាន។</string>
     <string name="squeezer_history_title">ប្រវត្តការចុច</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ឯកថន្ទ់ (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">អាយុយឹងតិ %d ថ្ង័ឡក្នៅមក</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ប័តិម្ឡើត ~%d%% សញ្ញសម្រាប់ឯកសារ JPEG</string>
-    <string name="squeezer_onboarding_got_it">យល់ហើយ</string>
 </resources>

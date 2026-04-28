@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Пацвердзіць сцісканне</string>
     <string name="squeezer_preview_total_size">Агульны памер</string>
     <string name="squeezer_preview_estimated_savings">Меркаваная эканомія</string>
-    <string name="squeezer_compress_confirmation_title">Сціснуць выявы?</string>
-    <string name="squeezer_compress_confirmation_message">Гэта заменіць арыгінальныя выявы сціснутымі версіямі. Гэта дзеянне нельга скасаваць.</string>
     <string name="squeezer_history_title">Гісторыя сцісканняў</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d элемент (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Не менш за %d дзён</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Прыблізная эканомія для файлаў JPEG складае ~%d%%</string>
-    <string name="squeezer_onboarding_got_it">Зразумела</string>
 </resources>

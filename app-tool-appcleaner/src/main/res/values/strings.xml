@@ -91,10 +91,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. It can help clear some apps\' caches, but may cause apps to misbehave and require manual restart.</string>
     <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
-    <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. Cache clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Settings screen unavailable</string>
-    <string name="appcleaner_automation_loading">Preparing automation via accessibility service</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Include other users</string>
-    <string name="appcleaner_include_multiuser_summary">Include apps from other user profiles on this device.</string>
 </resources>

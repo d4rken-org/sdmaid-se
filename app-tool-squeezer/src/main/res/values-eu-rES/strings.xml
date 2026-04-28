@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Berretsi konpresioa</string>
     <string name="squeezer_preview_total_size">Tamaina osoa</string>
     <string name="squeezer_preview_estimated_savings">Aurreikusitako aurrezpena</string>
-    <string name="squeezer_compress_confirmation_title">Konprimatu irudiak?</string>
-    <string name="squeezer_compress_confirmation_message">Honek jatorrizko irudiak konprimatutako bertsioez ordezkatuko ditu. Ekintza hau ezin da desegin.</string>
     <string name="squeezer_history_title">Konpresio-historia</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elementu (%2$s)</item>
@@ -84,5 +82,4 @@ Hona hemen zure irudiak nola ikusiko diren aurrebista:</string>
         <item quantity="other">Gutxienez %d egun zaharrak</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG fitxategientzako ~%d%% aurrezpen estimatua</string>
-    <string name="squeezer_onboarding_got_it">Ulertuta</string>
 </resources>

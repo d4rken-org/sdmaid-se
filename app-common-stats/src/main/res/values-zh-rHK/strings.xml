@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">自您邀請 SD 女僕到您的裝置以來，已處理 %s 個項目。</item>
     </plurals>
-    <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">部分失敗</string>
     <string name="stats_settings_desc">配置 SD 女僕的統計、報告和數據保留。</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">保留個別任務報告的天數。</string>
     <string name="stats_settings_retention_paths_label">詳細路徑資訊</string>
     <string name="stats_settings_retention_paths_desc">保留 SD 女僕影響路徑詳細資訊的天數。</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d 天</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">重設全部</string>
     <string name="stats_settings_reset_all_desc">刪除所有報告並將所有統計資料設為零。</string>
     <string name="stats_affected_paths_label">受影響的路徑</string>

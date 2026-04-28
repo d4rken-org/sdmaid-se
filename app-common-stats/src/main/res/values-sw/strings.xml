@@ -8,7 +8,6 @@
         <item quantity="one">%s kipengee kimechakatwa tangu ulipoalika SD Maid kwenye kifaa chako.</item>
         <item quantity="other">%s vipengee vimechakatwa tangu ulipoalika SD Maid kwenye kifaa chako.</item>
     </plurals>
-    <string name="stats_report_status_success">Mafanikio</string>
     <string name="stats_report_status_partial_success">Mafanikio ya kigeni</string>
     <string name="stats_report_status_partial_failure">Kushindwa</string>
     <string name="stats_settings_desc">Sanidi takwimu za SD Maid, ripoti na uhifadhi wa data.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Idadi ya siku kabla ya kufuta ripoti za msingi za shughuli za SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Maelezo ya kina ya njia</string>
     <string name="stats_settings_retention_paths_desc">Idadi ya siku za kuhifadhi maelezo kuhusu njia zilizoathiriwa na SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d siku</item>
-        <item quantity="other">%d siku</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Rudisha zote</string>
     <string name="stats_settings_reset_all_desc">Futa ripoti zote na weka takwimu zote kuwa sifuri.</string>
     <string name="stats_affected_paths_label">Njia zilizoathiriwa</string>

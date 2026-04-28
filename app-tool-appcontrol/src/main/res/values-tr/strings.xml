@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
-    <string name="appcontrol_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
 </resources>

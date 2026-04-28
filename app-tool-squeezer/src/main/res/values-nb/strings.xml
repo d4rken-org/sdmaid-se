@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Bekreft komprimering</string>
     <string name="squeezer_preview_total_size">Total størrelse</string>
     <string name="squeezer_preview_estimated_savings">Estimert besparelse</string>
-    <string name="squeezer_compress_confirmation_title">Komprimere bilder?</string>
-    <string name="squeezer_compress_confirmation_message">Dette vil erstatte originale bilder med komprimerte versjoner. Denne handlingen kan ikke angres.</string>
     <string name="squeezer_history_title">Komprimeringshistorikk</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Minst %d dager gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimert ~%d%% besparelse for JPEG-filer</string>
-    <string name="squeezer_onboarding_got_it">Forstått</string>
 </resources>

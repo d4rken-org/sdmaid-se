@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">அமர்வைத் தொடர்</string>
     <string name="swiper_sessions_description">3 எளிய படிகளில் கோப்புகளை மதிப்பாய்வு செய்யவும்:\n\n1. ஸ்கேன் செய்ய ஒரு கோப்புறையைத் தேர்ந்தெடுக்கவும்\n2. கோப்புகளை வைக்க, நீக்க அல்லது தவிர்க்க ஸ்வைப் செய்யவும்\n3. உங்கள் தேர்வுகளை மதிப்பாய்வு செய்து உறுதிப்படுத்தவும்\n\nஇறுதி நீக்கு பொத்தானைத் தட்டும் வரை எதுவும் நீக்கப்படாது.</string>
     <string name="swiper_select_folders_action">கோப்புறைகளைத் தேர்ந்தெடு</string>
-    <string name="swiper_scanning_title">ஸ்கேன் செய்கிறது…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d உருப்படி கண்டுபிடிக்கப்பட்டது</item>
         <item quantity="other">%d உருப்படிகள் கண்டுபிடிக்கப்பட்டன</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper எவ்வாறு செயல்படுகிறது</string>
     <string name="swiper_help_message">முடிவெடுக்க ஒவ்வொரு கோப்பையும் ஸ்வைப் செய்யவும்:\n\n← இடதுபக்கம் ஸ்வைப்: %1$s\n→ வலதுபக்கம் ஸ்வைப்: %2$s\n↑ மேலே ஸ்வைப்: தவிர்\n↓ கீழே ஸ்வைப்: மீட்டமை (முதல் ஸ்வைப்பிற்குப் பிறகு)\n\nகீழே உள்ள பொத்தான்களையும் பயன்படுத்தலாம்.\n\nமுடிந்ததும், உங்கள் அனைத்து முடிவுகளையும் காண \"மதிப்பாய்வு\" என்பதைத் தட்டவும். மதிப்பாய்வுத் திரையில் உறுதிப்படுத்தும் வரை எதுவும் நீக்கப்படாது.</string>
     <string name="swiper_gesture_overlay_dismiss_action">புரிந்தது</string>
-    <string name="swiper_help_action">உதவி</string>
     <string name="swiper_file_type_filter_title">இந்த கோப்பு வகைகளை மட்டும் காட்டு</string>
     <string name="swiper_file_type_filter_hint">நீங்கள் பார்க்க விரும்பும் வகைகளை தேர்வு செய்யுங்கள். எதுவும் தேர்வு செய்யப்படவில்லை என்றால், அனைத்து கோப்புகளும் காட்டப்படும்.</string>
     <string name="swiper_file_type_category_images">படங்கள்</string>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Peata salvestamine</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isiklikku teavet (nt failinimesid ja paigaldatud rakendusi). Jagage seda vaid usaldusväärsete osapooltega.</string>
     <string name="debug_debuglog_screen_title">Silumislogi</string>
-    <string name="debug_debuglog_screen_discard_action">Kustuta</string>
     <string name="debug_debuglog_screen_session_path_label">Seansi asukoht</string>
     <string name="debug_debuglog_screen_log_files_label">Logifailid</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Jätka</string>
     <string name="onboarding_privacy_title">Privaatsus</string>
     <string name="onboarding_privacy_body1">SD Maidis pole reklaame ja see ei müü kasutaja andmeid.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Veateated saadetakse probleemide ilmnemisel ja võivad sisaldada seadme rakenduste ning failide teavet. Aruanded aitavad mul parandada vigu ja täiustada rakendust.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Luba automaatsed veateated</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Neid valikuid saab muuta seadetes.</string>
-    <string name="onboarding_privacy_continue_action">Jätka</string>
     <string name="onboarding_setup_title">Seadistamine</string>
     <string name="onboarding_setup_body1">SD Maid otsib kogu juurdepääsetavate andmete seast.</string>
     <string name="onboarding_setup_body2">Juurdepääsetav sisu sõltub seadmest, Androidi versioonist ja antud lubadest.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Seadistatud</string>
     <string name="setup_incomplete_card_body">Tulemuste täiustamiseks seadistage SD Maid.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid üritab parandada seadistuse vigu.</string>
-    <string name="setup_incomplete_card_dismiss_action">Sulge</string>
     <string name="setup_incomplete_card_continue_action">Jätka seadistamist</string>
     <string name="setup_forcedshow_summary">Näita seadistamisekraani uuesti, sh juba lõpetatud valikuid.</string>
     <string name="setup_checking_card_body">Seadistuse lõpetamise ja toimivuse kontrollimine.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>
     <string name="debug_mode_label">Silumisreziim</string>
     <string name="debug_mode_explanation">Lubage katsetatavad valikud ja täpsem ülevaade toimuvast. Rakendus toimetab aeglasemalt ja teisiti.</string>
-    <string name="debug_bugreporter_label">Automaatsed veateated</string>
-    <string name="debug_bugreporter_summary">Automaatselt teavitage vigadest, nt rakenduse kokkujooksmise andmetest, et saaksin uurida, mis juhtus ja miks ning parandada seda.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Silumisrežiim on kasutusel</string>
     <string name="debug_card_trace_mode_label">Luba jälitamisrežiim</string>

@@ -92,10 +92,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Oprire forțată înainte de curățare</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Aplicații de oprire forțată înainte de a șterge memoria cache. Aceasta poate ajuta la ștergerea cache-urilor unor aplicații, dar poate determina aplicații să se comporte greșit și să necesite repornirea manuală a acestora.</string>
     <string name="appcleaner_progress_force_stopping">Aplicații oprite forțat…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Setări ecran indisponibil</string>
-    <string name="appcleaner_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
-    <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
 </resources>

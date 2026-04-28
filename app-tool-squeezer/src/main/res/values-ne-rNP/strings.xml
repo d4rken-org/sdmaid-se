@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">संकुचन पुष्टि गर्नुहोस्</string>
     <string name="squeezer_preview_total_size">कुल आकार</string>
     <string name="squeezer_preview_estimated_savings">अनुमानित बचत</string>
-    <string name="squeezer_compress_confirmation_title">छविहरू संकुचित गर्नुहोस्?</string>
-    <string name="squeezer_compress_confirmation_message">यसले मूल छविहरूलाई संकुचित संस्करणहरूसँग प्रतिस्थापन गर्नेछ। यो कार्य पूर्ववत गर्न सकिँदैन।</string>
     <string name="squeezer_history_title">संकुचन इतिहास</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">1 वस्तु (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">कम्तिमा %d दिन पुरानो</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG फाइलहरूको लागि अनुमानित ~%d%% बचत</string>
-    <string name="squeezer_onboarding_got_it">ठिक छ</string>
 </resources>

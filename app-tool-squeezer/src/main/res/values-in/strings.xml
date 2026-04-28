@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">Konfirmasi kompresi</string>
     <string name="squeezer_preview_total_size">Ukuran total</string>
     <string name="squeezer_preview_estimated_savings">Perkiraan penghematan</string>
-    <string name="squeezer_compress_confirmation_title">Kompres gambar?</string>
-    <string name="squeezer_compress_confirmation_message">Ini akan mengganti gambar asli dengan versi yang dikompresi. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="squeezer_history_title">Riwayat kompresi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d item (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">Minimal %d hari</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Perkiraan ~%d%% penghematan untuk file JPEG</string>
-    <string name="squeezer_onboarding_got_it">Mengerti</string>
 </resources>

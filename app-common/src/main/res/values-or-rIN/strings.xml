@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
     <string name="general_upgrade_action">ଅପଗ୍ରେଡ୍ କରିବା</string>
     <string name="general_donate_action">ଦାନ କରନ୍ତୁ</string>
-    <string name="general_check_action">ଯାଞ୍ଚ କରିବା</string>
-    <string name="general_filter_action">ଶୋଧନ କରାଇବା</string>
     <string name="general_internal_not_available_msg">ଇଣ୍ଟର୍‌ନେଟ୍ ସଂଯୋଜନା ଅନୁପଲବ୍ଧ</string>
     <string name="general_refresh_action">ସତେଜ କର</string>
     <string name="general_progress_searching">ସନ୍ଧାନ ଚାଲିଛି</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">ଟ୍ୟାଗ ଦ୍ୱାରା ଫିଲ୍ଟର୍ କରିବା</string>
     <string name="general_tag_system">ସିଷ୍ଟମ୍</string>
     <string name="general_result_success_message">ପ୍ରକ୍ରିୟା ସଫଳ ହୋଇଛି</string>
-    <string name="general_result_failure_message">ପ୍ରକ୍ରିୟା ବିଫଳ ହୋଇଛି</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
         <item quantity="other">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>
     </plurals>
     <string name="general_root_required_label">ରୁଟ୍ ଆବଶ୍ୟକ</string>
-    <string name="general_root_required_message">ରୁଟ୍ ହୋଇଥିବା ଡିଭାଇସ୍ ଆବଶ୍ୟକ</string>
     <string name="general_search_action">ସନ୍ଧାନ</string>
     <string name="general_scan_device_action">ଡିଵାଇସ୍ ସ୍କେନ୍ କରିବା</string>
     <string name="general_open_system_settings_action">ସିସ୍ଟମ୍ ସେଟିଂ ଖୋଲିବା</string>

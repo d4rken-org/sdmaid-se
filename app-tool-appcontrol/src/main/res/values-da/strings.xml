@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
     <string name="appcontrol_include_multiuser_label">Inkluder andre brugere</string>
-    <string name="appcontrol_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
 </resources>

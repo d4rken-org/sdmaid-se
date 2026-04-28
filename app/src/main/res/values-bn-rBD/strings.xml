@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">রেকর্ডিং বন্ধ করুন</string>
     <string name="debug_debuglog_sensitive_information_message">তৈরি করা ফাইলটিতে সংবেদনশীল তথ্য রয়েছে (যেমন ফাইলের নাম এবং ইনস্টল করা অ্যাপ)। শুধুমাত্র বিশ্বস্ত করো সাথে শেয়ার করুন।</string>
     <string name="debug_debuglog_screen_title">ডিবাগ লগ</string>
-    <string name="debug_debuglog_screen_discard_action">বাতিল করুন</string>
     <string name="debug_debuglog_screen_session_path_label">সেশন পাথ</string>
     <string name="debug_debuglog_screen_log_files_label">লগ ফাইল</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">চালিয়ে যান</string>
     <string name="onboarding_privacy_title">গোপনীয়তা</string>
     <string name="onboarding_privacy_body1">এসডি মেইডে কোনো বিজ্ঞাপন নেই এবং এটি ইউজারদের তথ্য বিক্রি করেনা।</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">বাগ রিপোর্ট তখনই পাঠানো হয় যখন কোনো একটি ত্রুটি ঘটে এবং এটিতে আপনার ডিভাইস এর অ্যাপস এবং ফাইল সম্পর্কিত ডাটা থাকতে পারে। রিপোর্টগুলো আমাকে বাগফিক্স করতে এবং অ্যাপটির উন্নয়ন ঘটাতে সাহায্য করে।</string>
-    <string name="onboarding_privacy_bugreport_toggle">স্বয়ংক্রিয় বাগ রিপোর্টের অনুমতি দিন</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">এই অপশনটি সেটিং থেকে পরিবর্তন করতে পারবেন।</string>
-    <string name="onboarding_privacy_continue_action">চালিয়ে যান</string>
     <string name="onboarding_setup_title">সেটআপ</string>
     <string name="onboarding_setup_body1">SD Maid সকল অ্যাক্সেসযোগ্য ডেটা অনুসন্ধান করবে।</string>
     <string name="onboarding_setup_body2">কী অ্যাক্সেসযোগ্য তা নির্ভর করে আপনার ডিভাইস, অ্যান্ড্রয়েড সংস্করণ এবং আপনার প্রদত্ত অনুমতির উপর।</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">সেটাপ অসম্পূর্ণ</string>
     <string name="setup_incomplete_card_body">আরও ভালো ফলাফল পেতে SD Maid-এর সেটআপ শেষ করুন।</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid সেটআপ সমস্যা সমাধান করার চেষ্টা করছে।</string>
-    <string name="setup_incomplete_card_dismiss_action">খারিজ করুন</string>
     <string name="setup_incomplete_card_continue_action">সেটআপ চালিয়ে যান</string>
     <string name="setup_forcedshow_summary">ইতোমধ্যে সমাপ্ত আইটেম-সহ আবার সেটআপ স্ক্রীন দেখান।</string>
     <string name="setup_checking_card_body">সেটআপ সম্পূর্ণতা এবং কার্যকারিতা যাচাই করা হচ্ছে।</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
     <string name="debug_mode_label">ডিবাগ মোড</string>
     <string name="debug_mode_explanation">পরীক্ষার বিকল্প এবং আরও verbose আউটপুট চালু করুন। অ্যাপ ধীর গতিতে চলবে এবং ভিন্নভাবে কাজ করবে।</string>
-    <string name="debug_bugreporter_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
-    <string name="debug_bugreporter_summary">স্বয়ংক্রিয়ভাবে bug রিপোর্ট করুন, যেমন অ্যাপের বিশদ বিবরণ, কেনো ক্র্যাশ হয়েছে যাতে আমি কেন খুঁজে বের করতে পারি এবং এটি ঠিক করতে পারি।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ডিবাগ মোড সক্রিয় করা আছে</string>
     <string name="debug_card_trace_mode_label">ট্রেস মোড সক্ষম করুন</string>

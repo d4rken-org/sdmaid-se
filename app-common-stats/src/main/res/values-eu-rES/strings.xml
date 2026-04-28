@@ -8,7 +8,6 @@
         <item quantity="one">%s elementu prozesatu da SD Maid zure gailura gonbidatu zinuenetik.</item>
         <item quantity="other">%s elementu prozesatu dira SD Maid zure gailura gonbidatu zinuenetik.</item>
     </plurals>
-    <string name="stats_report_status_success">Arrakasta</string>
     <string name="stats_report_status_partial_success">Arrakasta partziala</string>
     <string name="stats_report_status_partial_failure">Hutsegitea</string>
     <string name="stats_settings_desc">Konfiguratu SD Maid-en estatistikak, txostenak eta datuen atxikipena.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Egun kopurua SD Maid oinarrizko eragiketen txostenak ezabatu aurretik.</string>
     <string name="stats_settings_retention_paths_label">Bide-informazio zehatza</string>
     <string name="stats_settings_retention_paths_desc">SD Maid-ek kaltetutako bideei buruzko xehetasunak zenbat egunetan gorde.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d egun</item>
-        <item quantity="other">%d egun</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Berrezarri guztiak</string>
     <string name="stats_settings_reset_all_desc">Ezabatu txosten guztiak eta ezarri estatistika guztiak zerora.</string>
     <string name="stats_affected_paths_label">Kaltetutako bideak</string>

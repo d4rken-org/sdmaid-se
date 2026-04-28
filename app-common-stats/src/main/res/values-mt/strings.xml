@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="stats_report_status_success">Suċċess</string>
     <string name="stats_report_status_partial_success">Suċċess parzjali</string>
     <string name="stats_report_status_partial_failure">Falliment</string>
     <string name="stats_affected_paths_label">Paths affettwati</string>

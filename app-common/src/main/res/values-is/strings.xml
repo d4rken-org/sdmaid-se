@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">Smelltu fyrir fleiri valkosti</string>
     <string name="general_upgrade_action">Uppfæra</string>
     <string name="general_donate_action">Gefa</string>
-    <string name="general_check_action">Athuga</string>
-    <string name="general_filter_action">Sía</string>
     <string name="general_internal_not_available_msg">Nettenging ekki tiltæk</string>
     <string name="general_refresh_action">Endurnýja</string>
     <string name="general_progress_searching">Leitar</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">Sía eftir merkjum</string>
     <string name="general_tag_system">Kerfi</string>
     <string name="general_result_success_message">Aðgerð tókst</string>
-    <string name="general_result_failure_message">Aðgerð mistókst</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s pláss losað.</item>
         <item quantity="other">%s pláss losað.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d hlutum fjarlægt</item>
     </plurals>
     <string name="general_root_required_label">Krefst root</string>
-    <string name="general_root_required_message">Krefst root-aðgangs tækis</string>
     <string name="general_search_action">Leita</string>
     <string name="general_scan_device_action">Skanna tæki</string>
     <string name="general_open_system_settings_action">Opna kerfisstillingar</string>

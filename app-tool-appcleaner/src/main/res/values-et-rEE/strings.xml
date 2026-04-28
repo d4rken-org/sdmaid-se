@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Sundpeata enne tühjendamist</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sundpeatage rakendused enne nende vahemälu tühjendamist. Nii võib osade rakenduste vahemälu hõlpsamini tühjeneda, ent rakendused võivad toimida veidralt ja vajada taaskäivitamist.</string>
     <string name="appcleaner_progress_force_stopping">Rakenduste sundpeatamine…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
-    <string name="appcleaner_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sh teised kasutajad</string>
-    <string name="appcleaner_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>
 </resources>

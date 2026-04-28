@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Διακοπή καταγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύεστε.</string>
     <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
-    <string name="debug_debuglog_screen_discard_action">Απόρριψη</string>
     <string name="debug_debuglog_screen_session_path_label">Διαδρομή Συνεδρίας</string>
     <string name="debug_debuglog_screen_log_files_label">Αρχεία καταγραφής</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Συνέχεια</string>
     <string name="onboarding_privacy_title">Απόρρητο</string>
     <string name="onboarding_privacy_body1">Το SD Maid δεν έχει διαφημίσεις και δεν πωλεί δεδομένα χρηστών.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Οι αναφορές σφαλμάτων αποστέλλονται όταν εμφανιστούν σφάλματα και μπορεί να περιέχουν λεπτομέρειες σχετικά με εφαρμογές και αρχεία στη συσκευή σας. Οι αναφορές με βοηθούν να διορθώσω σφάλματα και να βελτιώσω την εφαρμογή.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Να επιτρέπονται αυτόματες αναφορές σφαλμάτων</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Αυτές οι επιλογές μπορούν να αλλάξουν στις ρυθμίσεις.</string>
-    <string name="onboarding_privacy_continue_action">Συνέχεια</string>
     <string name="onboarding_setup_title">Ρύθμιση</string>
     <string name="onboarding_setup_body1">Το SD Maid θα αναζητήσει όλες τις προσβάσιμες περιοχές δεδομένων.</string>
     <string name="onboarding_setup_body2">Αυτά που είναι προσβάσιμα εξαρτώνται από τη συσκευή σας, την έκδοση Android και τα παραχωρημένα δικαιώματα.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Η εγκατάσταση δεν είναι ολοκληρωμένη</string>
     <string name="setup_incomplete_card_body">Τελειώστε τη ρύθμιση του SD Maid για να έχετε καλύτερα αποτελέσματα.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Το SD Maid προσπαθεί να διορθώσει προβλήματα εγκατάστασης.</string>
-    <string name="setup_incomplete_card_dismiss_action">Παράλειψη</string>
     <string name="setup_incomplete_card_continue_action">Συνέχεια εγκατάστασης</string>
     <string name="setup_forcedshow_summary">Εμφάνιση οθόνης ρύθμισης ξανά, συμπεριλαμβανομένων των ήδη ολοκληρωμένων στοιχείων.</string>
     <string name="setup_checking_card_body">Επαλήθευση ολοκλήρωσης και λειτουργικότητας της εγκατάστασης.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
     <string name="debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
     <string name="debug_mode_explanation">Ενεργοποιήστε τις επιλογές δοκιμής και πιο λεπτομερές output. Η εφαρμογή θα λειτουργεί πιο αργά και θα έχει διαφορετική απόδοση.</string>
-    <string name="debug_bugreporter_label">Αυτόματες αναφορές σφαλμάτων</string>
-    <string name="debug_bugreporter_summary">Αναφέρει αυτόματα ζητήματα, π.χ. λεπτομέρειες σχετικά με τα σφάλματα της εφαρμογής, ώστε να μπορώ να καταλάβω γιατί και να το διορθώσω.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Η λειτουργία εντοπισμού σφαλμάτων είναι ενεργοποιημένη</string>
     <string name="debug_card_trace_mode_label">Ενεργοποίηση λειτουργίας ανίχνευσης</string>

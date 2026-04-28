@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ਵਿਕਲਪ ਦਿਖਾਓ ਜੋ ਤੁਹਾਨੂੰ ਡੁਪਲੀਕੇਟਾਂ ਦੇ ਸੈੱਟ ਵਿੱਚ ਸਾਰੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦੇ ਹਨ ਤਾਂ ਜੋ ਕੋਈ ਫਾਈਲ ਬਾਕੀ ਨਾ ਰਹੇ।</string>
     <string name="deduplicator_search_locations_title">ਖੋਜ ਸਥਾਨ</string>
     <string name="deduplicator_search_locations_all_summary">ਸਾਰੇ ਪਹੁੰਚਯੋਗ ਖੇਤਰ</string>
-    <string name="deduplicator_keep_prefer_paths_title">ਰੱਖਣ ਨੂੰ ਤਰਜੀਹ ਦਿਓ</string>
     <string name="deduplicator_keep_prefer_paths_summary">ਇਹ ਫੈਸਲਾ ਕਰਦੇ ਸਮੇਂ ਕਿ ਕਿਹੜੀ ਡੁਪਲੀਕੇਟ ਰੱਖਣੀ ਹੈ, ਇਹਨਾਂ ਟਿਕਾਣਿਆਂ ਵਿੱਚ ਫ਼ਾਈਲਾਂ ਰੱਖਣ ਨੂੰ ਤਰਜੀਹ ਦਿਓ।</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ਕੋਈ ਟਿਕਾਣੇ ਸੰਰਚਿਤ ਨਹੀਂ</string>
     <string name="deduplicator_skip_minsize_title">ਘੱਟੋ-ਘੱਟ ਆਕਾਰ</string>
     <string name="deduplicator_skip_minsize_description">ਉਹ ਫਾਈਲਾਂ ਛੱਡੋ ਜੋ ਘੱਟੋ-ਘੱਟ ਆਕਾਰ ਤੋਂ ਛੋਟੀਆਂ ਹਨ।</string>
     <string name="deduplicator_skip_uncommon_title">ਅਸਧਾਰਨ ਫਾਈਲ ਕਿਸਮਾਂ ਛੱਡੋ</string>

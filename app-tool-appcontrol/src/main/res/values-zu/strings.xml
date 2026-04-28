@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
     <string name="appcontrol_include_multiuser_label">Faka abasebenzisi abanye</string>
-    <string name="appcontrol_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kwamanye amaphrofayela abasebenzisi kulo lidivayisi.</string>
 </resources>

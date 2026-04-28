@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">სესიის გაგრძელება</string>
     <string name="swiper_sessions_description">გადახედეთ ფაილებს 3 მარტივ ნაბიჯში:\n\n1. აირჩიეთ საქაღალდე სკანირებისთვის\n2. გადაფურცლეთ ფაილები შესანახად, წასაშლელად ან გამოსატოვებლად\n3. გადახედეთ თქვენს არჩევანს და დაადასტურეთ\n\nარაფერი წაიშლება, სანამ საბოლოო წაშლის ღილაკს არ დააჭერთ.</string>
     <string name="swiper_select_folders_action">საქაღალდეების არჩევა</string>
-    <string name="swiper_scanning_title">სკანირდება…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ელემენტი ნაპოვნია</item>
         <item quantity="other">%d ელემენტი ნაპოვნია</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">როგორ მუშაობს Swiper</string>
     <string name="swiper_help_message">გადაფურცლეთ თითოეული ფაილი გადაწყვეტილების მისაღებად:\n\n← გადაფურცლეთ მარცხნივ: %1$s\n→ გადაფურცლეთ მარჯვნივ: %2$s\n↑ გადაფურცლეთ ზემოთ: გამოტოვება\n↓ გადაფურცლეთ ქვემოთ: გაუქმება (პირველი გადაფურცვლის შემდეგ)\n\nასევე შეგიძლიათ გამოიყენოთ ღილაკები ბოლოში.\n\nდასრულების შემდეგ, შეეხეთ \"მიმოხილვას\" ყველა გადაწყვეტილების სანახავად. არაფერი წაიშლება, სანამ მიმოხილვის ეკრანზე არ დაადასტურებთ.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Გავიგე</string>
-    <string name="swiper_help_action">დახმარება</string>
     <string name="swiper_file_type_filter_title">მხოლოდ ამ ტიპის ფაილების ჩვენება</string>
     <string name="swiper_file_type_filter_hint">მონიშნეთ ის ტიპები, რომელთა ნახვა გსურთ. თუ არცერთი არ არის მონიშნული, ყველა ფაილი გამოჩნდება.</string>
     <string name="swiper_file_type_category_images">სურათები</string>

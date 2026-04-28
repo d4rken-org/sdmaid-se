@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Priverstinai sustabdyti prieš valant</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Priverstinai sustabdykite programas prieš valydami jų talpyklą. Tai gali padėti išvalyti kai kurių programų talpyklas, tačiau gali sukelti programų sutrikimų ir reikalautį rankinio paleidimo iš naujo.</string>
     <string name="appcleaner_progress_force_stopping">Priverstinai sustabdomos programos…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ši sistemos programa neturi nustatymų ekrano. Talpyklos valymas per prieinamumo paslaugą negalimas. Pašalinkite ją iš sąrašo, kad paspartintumėte talpyklos valymą.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Nustatymų ekranas nepasiekiamas</string>
-    <string name="appcleaner_automation_loading">Rupošiamas automatizavimas per prieinamumo paslaugą</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veiksmą (raktiniai žodžiai: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Įtraukti kitus naudotojus</string>
-    <string name="appcleaner_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
 </resources>

@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਪਾਂ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ। ਇਹ ਕੁਝ ਐਪਾਂ ਦਾ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ, ਪਰ ਐਪਾਂ ਗਲਤ ਵਿਹਾਰ ਕਰ ਸਕਦੀਆਂ ਹਨ ਅਤੇ ਹੱਥੀਂ ਮੁੜ ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।</string>
     <string name="appcleaner_progress_force_stopping">ਐਪਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
-    <string name="appcleaner_automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
-    <string name="appcleaner_automation_loading">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਸਵੈਚਾਲਨ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
-    <string name="appcleaner_include_multiuser_summary">ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਪ੍ਰੋਫਾਈਲਾਂ ਤੋਂ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
 </resources>

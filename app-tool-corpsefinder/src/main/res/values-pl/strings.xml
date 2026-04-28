@@ -45,7 +45,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Ograniczone dane instalacji aplikacji, np. chronione aplikacje firm trzecich.</string>
     <string name="corpsefinder_filter_appasec_label">Zaszyfrowane zasoby aplikacji</string>
     <string name="corpsefinder_filter_appasec_summary">Zasoby aplikacji szyfrowane, np. zasoby gier.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Usunięto %d pozostałość aplikacji</item>

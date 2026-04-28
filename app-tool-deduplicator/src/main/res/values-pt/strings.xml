@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitam que apague todos os arquivos num conjunto de duplicados.</string>
     <string name="deduplicator_search_locations_title">Pesquisar localizações</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferir manter</string>
     <string name="deduplicator_keep_prefer_paths_summary">Ao decidir qual duplicado para manter, prefira manter os arquivos nesses locais.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nenhuma localização configurada</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Saltar ficheiros que sejam mais pequenos que o tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de ficheiros incomuns</string>

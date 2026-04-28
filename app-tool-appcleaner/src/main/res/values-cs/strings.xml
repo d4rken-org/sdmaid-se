@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynutit ukončení před čištěním</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynutit ukončení aplikací před čištěním jejich mezipaměti. Může pomoci vyčistit některé mezipaměti aplikací, ale i způsobit špatné chování aplikace a vyžadovat její manuální restart.</string>
     <string name="appcleaner_progress_force_stopping">Vynucuji ukončení aplikací…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
-    <string name="appcleaner_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
-    <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
 </resources>

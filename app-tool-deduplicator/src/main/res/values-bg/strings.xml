@@ -13,9 +13,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Покажете опции, които ви позволяват да изтриете всички файлове в комплект дубликати, така че да не остане никакъв файл.</string>
     <string name="deduplicator_search_locations_title">Места за търсене</string>
     <string name="deduplicator_search_locations_all_summary">Всички достъпни области</string>
-    <string name="deduplicator_keep_prefer_paths_title">Предпочитане на запазване в</string>
     <string name="deduplicator_keep_prefer_paths_summary">При решаване кой дубликат да се запази, предпочитане на запазване на файлове в тези местоположения.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Няма конфигурирани местоположения</string>
     <string name="deduplicator_skip_minsize_title">Минимален размер</string>
     <string name="deduplicator_skip_minsize_description">Пропускане на файлове, които са под минималния размер.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускане на необичайни типове файлове</string>

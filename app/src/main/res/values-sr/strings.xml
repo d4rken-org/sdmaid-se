@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама.</string>
     <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
-    <string name="debug_debuglog_screen_discard_action">Одбаци</string>
     <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
     <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -71,10 +70,6 @@
     <string name="onboarding_versus_continue_action">Настави</string>
     <string name="onboarding_privacy_title">Приватност</string>
     <string name="onboarding_privacy_body1">СД Чистач нема рекламе и не продаје корисничке податке.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Извештаји о грешкама се шаљу када се појаве грешке и могу да садрже детаље о апликацијама и датотекама на вашем уређају. Извештаји ми помажу да поправим грешке и побољшам апликацију.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Дозволи аутоматске извештаје о грешкама</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Ове опције се могу променити у подешавањима.</string>
-    <string name="onboarding_privacy_continue_action">Настави</string>
     <string name="onboarding_setup_title">Подешавање</string>
     <string name="onboarding_setup_body1">СД Чистач ће претражити све доступне области података.</string>
     <string name="onboarding_setup_body2">Шта је доступно зависи од Вашег уређаја, Андроид верзије и датих дозвола.</string>
@@ -167,7 +162,6 @@
     <string name="setup_incomplete_card_title">Подешавање није завршено</string>
     <string name="setup_incomplete_card_body">Завршите подешавање СД Чистача да бисте добили боље резултате.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid покушава да поправи проблеме са подешавањем.</string>
-    <string name="setup_incomplete_card_dismiss_action">Одбаци</string>
     <string name="setup_incomplete_card_continue_action">Наставите подешавање</string>
     <string name="setup_forcedshow_summary">Прикажи поново екран за подешавање, укључујући већ завршене ставке.</string>
     <string name="setup_checking_card_body">Провера завршетка подешавања и функционалности.</string>
@@ -231,8 +225,6 @@
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>
     <string name="debug_mode_label">Режим за отклањање грешака</string>
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
-    <string name="debug_bugreporter_label">Аутоматски извештаји о грешкама</string>
-    <string name="debug_bugreporter_summary">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како би могао да схватим зашто и да то поправим.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
     <string name="debug_card_trace_mode_label">Укључи режим праћења</string>

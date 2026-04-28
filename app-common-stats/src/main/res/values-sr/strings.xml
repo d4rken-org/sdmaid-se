@@ -10,7 +10,6 @@
         <item quantity="few">%s ставке обрађене одкада сте позвали СД Чистач на ваш уређај.</item>
         <item quantity="other">%s ставки обрађено одкада сте позвали СД Чистач на ваш уређај.</item>
     </plurals>
-    <string name="stats_report_status_success">Успешно</string>
     <string name="stats_report_status_partial_success">Делимичан успех</string>
     <string name="stats_report_status_partial_failure">Неуспех</string>
     <string name="stats_settings_desc">Подесите статистике, извештаје и чување података СД Чистача.</string>
@@ -19,11 +18,6 @@
     <string name="stats_settings_retention_reports_desc">Број дана пре брисања основних извештаја о раду СД Чистача.</string>
     <string name="stats_settings_retention_paths_label">Детаљне информације о путањама</string>
     <string name="stats_settings_retention_paths_desc">Број дана чувања детаља о путањама на које је утицао СД Чистач.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d дан</item>
-        <item quantity="few">%d дана</item>
-        <item quantity="other">%d дана</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ресетуј све</string>
     <string name="stats_settings_reset_all_desc">Обриши све извештаје и постави све статистике на нулу.</string>
     <string name="stats_affected_paths_label">Погођене путање</string>

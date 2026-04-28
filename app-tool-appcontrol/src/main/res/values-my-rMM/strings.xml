@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">Accessibility service မှတဆိုင် အလုပ်ဆောင်ချမှုကို ပြင်န်ဆွဲပြင်န်းသည်</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ယခင်က လုပ်ဆောင်ချကို အတည်ပြုပြီးသည် (%s ဆုံးလုးများ)</string>
     <string name="appcontrol_include_multiuser_label">အခြအနေရာ အသုံးသပြများကို ထည့်သွင်းရန်</string>
-    <string name="appcontrol_include_multiuser_summary">ဤကရိုးသည်း အခြအနေရာ အသုံးပြိုဉ်ဖိုင်များကို ထည့်သွင်းရန်။</string>
 </resources>

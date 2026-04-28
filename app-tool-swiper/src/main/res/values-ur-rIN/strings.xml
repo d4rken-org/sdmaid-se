@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">سیشن جاری رکھیں</string>
     <string name="swiper_sessions_description">3 آسان مراحل میں فائلوں کا جائزہ لیں:\n\n1. اسکین کرنے کے لیے فولڈر چنیں\n2. فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں\n3. اپنے انتخاب کا جائزہ لیں اور تصدیق کریں\n\nآخری حذف بٹن دبانے تک کچھ بھی نہیں ہٹایا جاتا۔</string>
     <string name="swiper_select_folders_action">فولڈرز منتخب کریں</string>
-    <string name="swiper_scanning_title">اسکین ہو رہا ہے…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d آئٹم ملا</item>
         <item quantity="other">%d آئٹمز ملے</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
     <string name="swiper_gesture_overlay_dismiss_action">سمجھ گیا</string>
-    <string name="swiper_help_action">مدد</string>
     <string name="swiper_file_type_filter_title">صرف یہ فائل کی اقسام دکھائیں</string>
     <string name="swiper_file_type_filter_hint">وہ اقسام چیک کریں جو آپ دیکھنا چاہتے ہیں۔ اگر کوئی چیک نہیں ہے، تمام فائلیں دکھائی جاتی ہیں۔</string>
     <string name="swiper_file_type_category_images">تصاویر</string>

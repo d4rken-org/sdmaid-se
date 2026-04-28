@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
     <string name="debug_debuglog_screen_title">Debug-logboek</string>
-    <string name="debug_debuglog_screen_discard_action">Weggooien</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
     <string name="debug_debuglog_screen_log_files_label">Logbestanden</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Doorgaan</string>
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Foutmeldingen worden verzonden wanneer er fouten optreden en kunnen details bevatten over apps en bestanden op uw apparaat. Rapporten helpen me bugs op te lossen en de app te verbeteren.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Automatische foutrapporten toestaan</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Deze opties kunnen worden gewijzigd in de instellingen.</string>
-    <string name="onboarding_privacy_continue_action">Doorgaan</string>
     <string name="onboarding_setup_title">Instelling</string>
     <string name="onboarding_setup_body1">SD Maid doorzoekt alle toegankelijke gegevens gebieden.</string>
     <string name="onboarding_setup_body2">Wat toegankelijk is, is afhankelijk van je apparaat, Android-versie en verleende machtigingen.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Installatie is onvolledig</string>
     <string name="setup_incomplete_card_body">Voltooi de installatie van SD Maid om betere resultaten te krijgen.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid probeert installatieproblemen op te lossen.</string>
-    <string name="setup_incomplete_card_dismiss_action">Afwijzen</string>
     <string name="setup_incomplete_card_continue_action">Ga door met instellen</string>
     <string name="setup_forcedshow_summary">Toon het configuratiescherm opnieuw, inclusief reeds voltooide items.</string>
     <string name="setup_checking_card_body">De voltooiing en functionaliteit van de installatie verifiëren.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>
     <string name="debug_mode_label">Foutopsporingsmodus</string>
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
-    <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
-    <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
     <string name="debug_card_trace_mode_label">Traceermodus inschakelen</string>

@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">%s item diproses sejak Anda memasang SD Maid di perangkat Anda.</item>
     </plurals>
-    <string name="stats_report_status_success">Berhasil</string>
     <string name="stats_report_status_partial_success">Berhasil sebagian</string>
     <string name="stats_report_status_partial_failure">Kegagalan</string>
     <string name="stats_settings_desc">Konfigurasikan statistik, laporan, dan retensi data SD Maid.</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">Hitungan hari sebelum menghapus laporan operasi dasar SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Informasi jalur perinci</string>
     <string name="stats_settings_retention_paths_desc">Berapa hari menyimpan detail jalur yang terpengaruh oleh SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d hari</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Atur ulang semua</string>
     <string name="stats_settings_reset_all_desc">Hapus semua laporan dan atur ulang semua statistik ke nol.</string>
     <string name="stats_affected_paths_label">Jalur terpengaruh</string>

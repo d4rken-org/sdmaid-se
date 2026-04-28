@@ -8,7 +8,6 @@
         <item quantity="one">%s element har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
         <item quantity="other">%s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
     </plurals>
-    <string name="stats_report_status_success">Vellykket</string>
     <string name="stats_report_status_partial_success">Delvis vellykket</string>
     <string name="stats_report_status_partial_failure">Mislykket</string>
     <string name="stats_settings_desc">Konfigurer SD Maid sin statistikk, rapporter og dataoppbevaring.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Antall dager før sletting av standard driftsrapporter for SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Detaljert bane-informasjon</string>
     <string name="stats_settings_retention_paths_desc">Antall dager detaljer om baner berørt av SD Maid skal beholdes.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dag</item>
-        <item quantity="other">%d dager</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Tilbakestill alt</string>
     <string name="stats_settings_reset_all_desc">Slett alle rapporter og sett all statistikk til null.</string>
     <string name="stats_affected_paths_label">Berørte baner</string>

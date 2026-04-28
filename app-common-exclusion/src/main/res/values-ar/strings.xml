@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
     <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
     <string name="exclusion_show_defaults_action">إظهار الافتراضي</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
 </resources>

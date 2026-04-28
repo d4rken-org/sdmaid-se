@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Avsluta inspelning</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter.</string>
     <string name="debug_debuglog_screen_title">Felsökningslogg</string>
-    <string name="debug_debuglog_screen_discard_action">Förkasta</string>
     <string name="debug_debuglog_screen_session_path_label">Sessionssökväg</string>
     <string name="debug_debuglog_screen_log_files_label">Loggfiler</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Fortsätt</string>
     <string name="onboarding_privacy_title">Integritet</string>
     <string name="onboarding_privacy_body1">SD Maid har inga annonser och säljer inte användardata.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Felrapporter skickas när fel inträffar och kan innehålla information om appar och filer på din enhet. Rapporter hjälper mig att åtgärda fel och förbättra appen.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Tillåt automatiska felrapporter</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Dessa alternativ kan ändras i inställningarna.</string>
-    <string name="onboarding_privacy_continue_action">Fortsätt</string>
     <string name="onboarding_setup_title">Uppstart</string>
     <string name="onboarding_setup_body1">SD Maid kommer att söka i alla tillgängliga datarealer.</string>
     <string name="onboarding_setup_body2">Vad som är tillgängligt beror på din enhet, Android-version och beviljade behörigheter.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Inställningarna är ofullständiga</string>
     <string name="setup_incomplete_card_body">Slutför SD Maids inställningar för bättre resultat.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid försöker åtgärda inställningsproblem.</string>
-    <string name="setup_incomplete_card_dismiss_action">Stäng</string>
     <string name="setup_incomplete_card_continue_action">Fortsätt inställningar</string>
     <string name="setup_forcedshow_summary">Visa inställningsskärmen igen, inklusive redan slutförda objekt.</string>
     <string name="setup_checking_card_body">Verifierar att inställningarna är slutförda och fungerar.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Ladda om dataområden</string>
     <string name="debug_mode_label">Felsökningsläge</string>
     <string name="debug_mode_explanation">Aktivera testalternativ och mer detaljerad utdata. Appen kommer att köra långsammare och fungera annorlunda.</string>
-    <string name="debug_bugreporter_label">Automatiska buggrapporter</string>
-    <string name="debug_bugreporter_summary">Rapporterar automatiskt problem, t.ex. detaljer om appkrascher så att jag kan förstå varför och fixa det.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Felsökningsläge är aktiverat</string>
     <string name="debug_card_trace_mode_label">Aktivera spårningsläge</string>

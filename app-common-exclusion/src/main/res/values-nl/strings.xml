@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Gebruik de AppControl-tool om app uitsluitingen te maken.</string>
     <string name="exclusion_create_path_hint">Gebruik het hulpprogramma StorageAnalyzer om paduitsluitingen te maken.</string>
     <string name="exclusion_show_defaults_action">Toon standaardinstellingen</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
 </resources>

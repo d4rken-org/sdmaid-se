@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Ekki er hægt að tengjast Google Play. Athugaðu nettenginguna þína og reyndu aftur.</string>
     <string name="upgrades_gplay_already_owned_error_title">Þegar keypt</string>
     <string name="upgrades_gplay_already_owned_error_description">Notaðu \"Endurheimta kaup\" valkostinn til að endurheimta kaupin þín. Ef vandamálið er viðvarandi, reyndu að hreinsa Google Play skyndiminni og endurræsa tækið þitt.</string>
-    <string name="upgrades_no_purchases_found_check_account">Engin kaup fundust. Ertu að nota réttan reikning?</string>
     <string name="upgrade_screen_title">Fáðu SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Vinna mín er fjármögnuð af þér ❤️.</string>
     <string name="upgrade_screen_benefits_title">Kostir</string>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
-    <string name="debug_debuglog_screen_discard_action">Discard</string>
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>
     <string name="debug_debuglog_screen_log_files_label">Log Files</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -72,11 +71,6 @@
 
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are sent when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Allow automatic bug reports</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">These options can be changed in the settings.</string>
-    <string name="onboarding_privacy_continue_action">Continue</string>
-
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
     <string name="onboarding_setup_body2">What is accessible depends on your device, Android version and granted permissions.</string>
@@ -182,7 +176,6 @@
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid\'s setup to get better results.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid is trying to fix setup issues.</string>
-    <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
     <string name="setup_incomplete_card_continue_action">Continue setup</string>
     <string name="setup_forcedshow_summary">Show setup screen again, including already completed items.</string>
     <string name="setup_checking_card_body">Verifying setup completion and functionality.</string>
@@ -258,8 +251,6 @@
 
     <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
-    <string name="debug_bugreporter_label">Automatic bug reports</string>
-    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug mode is enabled</string>
     <string name="debug_card_trace_mode_label">Enable trace mode</string>

@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">Sahkan pemampatan</string>
     <string name="squeezer_preview_total_size">Jumlah saiz</string>
     <string name="squeezer_preview_estimated_savings">Anggaran penjimatan</string>
-    <string name="squeezer_compress_confirmation_title">Mampat imej?</string>
-    <string name="squeezer_compress_confirmation_message">Ini akan menggantikan imej asal dengan versi yang dimampatkan. Tindakan ini tidak boleh dibatalkan.</string>
     <string name="squeezer_history_title">Sejarah pemampatan</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d item (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">Sekurang-kurangnya %d hari</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Anggaran ~%d%% penjimatan untuk fail JPEG</string>
-    <string name="squeezer_onboarding_got_it">Faham</string>
 </resources>

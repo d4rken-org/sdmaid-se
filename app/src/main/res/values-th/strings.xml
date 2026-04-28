@@ -15,7 +15,6 @@
     <string name="debug_debuglog_stop_action">หยุดการบันทึก</string>
     <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่เพิ่งสร้างมีข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น</string>
     <string name="debug_debuglog_screen_title">บันทึกดีบัก</string>
-    <string name="debug_debuglog_screen_discard_action">ละทิ้ง</string>
     <string name="debug_debuglog_screen_session_path_label">เส้นทางเซสชัน</string>
     <string name="debug_debuglog_screen_log_files_label">ไฟล์บันทึก</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -64,10 +63,6 @@
     <string name="onboarding_versus_continue_action">ถัดไป</string>
     <string name="onboarding_privacy_title">ความเป็นส่วนตัว</string>
     <string name="onboarding_privacy_body1">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลของผู้ใช้</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">จะมีการส่งรายงานข้อผิดพลาดเมื่อพบปัญหาการใช้งานซึ่งอาจมีข้อมูลเกี่ยวกับแอพและไฟล์ในอุปกรณ์ของคุณ รายงานดังกล่าวช่วยผมแก้ไขปัญหาและพัฒนาแอพต่อไปได้</string>
-    <string name="onboarding_privacy_bugreport_toggle">ส่งรายงานข้อผิดพลาดโดยอัตโนมัติ</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ตัวเลือกนี้สามารถเปลี่ยนได้ในการตั้งค่า</string>
-    <string name="onboarding_privacy_continue_action">ถัดไป</string>
     <string name="onboarding_setup_title">เริ่มต้น</string>
     <string name="onboarding_setup_body1">SD Maid จะค้นหาในพื้นที่ทั้งหมดที่เข้าถึงได้</string>
     <string name="onboarding_setup_body2">สิ่งที่สามารถเข้าถึงได้ขึ้นอยู่กับอุปกรณ์ของคุณ, เวอร์ชัน Android และสิทธิ์ที่ได้รับอนุญาต</string>
@@ -156,7 +151,6 @@
     <string name="setup_incomplete_card_title">การตั้งค่ายังไม่เสร็จ</string>
     <string name="setup_incomplete_card_body">ตั้งค่า SD Maid ให้เสร็จเพื่อให้แอพทำงานได้ดีขึ้น</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid กำลังพยายามแก้ไขปัญหาการตั้งค่า</string>
-    <string name="setup_incomplete_card_dismiss_action">ข้ามไปก่อน</string>
     <string name="setup_incomplete_card_continue_action">ตั้งค่าต่อ</string>
     <string name="setup_forcedshow_summary">แสดงหน้าต่างการตั้งค่าอีกครั้ง รวมถึงสิ่งที่ตั้งค่าเสร็จไปแล้ว</string>
     <string name="setup_checking_card_body">ตรวจสอบความสมบูรณ์และการทำงานของการตั้งค่า</string>
@@ -219,8 +213,6 @@
     <string name="dataarea_warningcard_reload_action">โหลดพื้นที่เก็บข้อมูลใหม่</string>
     <string name="debug_mode_label">โหมดดีบัก</string>
     <string name="debug_mode_explanation">เปิดใช้การทดสอบเพื่อแสดงรายละเอียดมากขึ้นในรายงาน แอพจะทำงานช้าลงและประสิทธิภาพลดลง</string>
-    <string name="debug_bugreporter_label">รายงานข้อผิดพลาดโดยอัตโนมัติ</string>
-    <string name="debug_bugreporter_summary">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับแอปขัดข้อง ดังนั้นฉันจึงสามารถทราบสาเหตุและแก้ไขได้</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">เปิดใช้โหมดดีบักแล้ว</string>
     <string name="debug_card_trace_mode_label">เปิดใช้โหมดติดตาม</string>

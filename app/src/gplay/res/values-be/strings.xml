@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Немагчыма падключыцца да Google Play. Праверце падключэнне да Інтэрнэту і паспрабуйце яшчэ раз.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ужо набыта</string>
     <string name="upgrades_gplay_already_owned_error_description">Каб аднавіць сваю пакупку, выкарыстайце опцыю \"Аднавіць пакупку\". Калі праблема не знікне, паспрабуйце ачысціць кэш Google Play і перазагрузіць прыладу.</string>
-    <string name="upgrades_no_purchases_found_check_account">Пакупак не знойдзена. Вы выкарыстоўваеце правільны ўліковы запіс?</string>
     <string name="upgrade_screen_title">Атрымаць SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не змяшчае рэкламы і не прадае даныя карыстальнікаў. Мая праца фінансуецца вамі ❤️.</string>
     <string name="upgrade_screen_benefits_title">Перавагі</string>

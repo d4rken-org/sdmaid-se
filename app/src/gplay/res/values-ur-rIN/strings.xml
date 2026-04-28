@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play سے منسلک ہونے سے قاصر۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
     <string name="upgrades_gplay_already_owned_error_title">پہلے سے خریدا ہوا</string>
     <string name="upgrades_gplay_already_owned_error_description">اپنی خریداری بحال کرنے کے لیے \"خریداری بحال کریں\" کا اختیار استعمال کریں۔ اگر مسئلہ برقرار رہے تو Google Play کیش صاف کرنے اور اپنا آلہ دوبارہ شروع کرنے کی کوشش کریں۔</string>
-    <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ صحیح اکاؤنٹ استعمال کر رہے ہیں؟</string>
     <string name="upgrade_screen_title">SD Maid SE Pro حاصل کریں</string>
     <string name="upgrade_screen_preamble">SD Maid میں کوئی اشتہارات نہیں ہیں اور صارف کا ڈیٹا نہیں بیچتا۔ میرا کام آپ کی طرف سے مالی اعانت فراہم کیا جاتا ہے ❤️۔</string>
     <string name="upgrade_screen_benefits_title">فوائد</string>

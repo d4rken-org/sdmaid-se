@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Абмежаванне супадзенняў паводле часу стварэння файла (часу апошняга змянення). Не запаўняйце гэта значэнне, калі тэрмін улічваць не трэба.</string>
     <string name="systemcleaner_customfilter_import_action">Імпартаваць новы фільтр</string>
     <string name="systemcleaner_customfilter_export_action">Экспартаваць выбраны фільтр</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
 </resources>

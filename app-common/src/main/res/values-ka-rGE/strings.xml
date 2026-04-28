@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">შეეხეთ მეტი ვარიანტებისთვის</string>
     <string name="general_upgrade_action">გარემონტება</string>
     <string name="general_donate_action">შემოწირულება</string>
-    <string name="general_check_action">შემოწმება</string>
-    <string name="general_filter_action">ფილტრი</string>
     <string name="general_internal_not_available_msg">ინტერნეტი მიუწვდომელია</string>
     <string name="general_refresh_action">განახლება</string>
     <string name="general_progress_searching">ვეძებ</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">ტეგების მიხედვით ფილტრაცია</string>
     <string name="general_tag_system">სისტემა</string>
     <string name="general_result_success_message">ოპერაცია წარმატებული</string>
-    <string name="general_result_failure_message">ოპერაცია ვერ შესრულდა</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ადგილი განთავისუფლდა.</item>
         <item quantity="other">%s ადგილი განთავისუფლდა.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d ელემენტი მოიშორა</item>
     </plurals>
     <string name="general_root_required_label">საჭიროებს root-ს</string>
-    <string name="general_root_required_message">საჭიროებს root მოწყობილობას</string>
     <string name="general_search_action">ძებნა</string>
     <string name="general_scan_device_action">მოწყობილობის სკანირება</string>
     <string name="general_open_system_settings_action">სისტემის პარამეტრების გახსნა</string>

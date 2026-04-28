@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Playに接続できません。インターネット接続を確認してもう一度お試しください。</string>
     <string name="upgrades_gplay_already_owned_error_title">購入済み</string>
     <string name="upgrades_gplay_already_owned_error_description">\"購入を復元\"オプションを使用して購入を復元してください。問題が解決しない場合は、Google Playのキャッシュをクリアしてデバイスを再起動してみてください。</string>
-    <string name="upgrades_no_purchases_found_check_account">購入が確認できませんでした。正しいアカウントを使用していますでしょうか？</string>
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
     <string name="upgrade_screen_preamble">SDメイドは広告がなく、ユーザーデータを販売していません。私の作品はあなたによって賄われています❤️</string>
     <string name="upgrade_screen_benefits_title">メリット</string>

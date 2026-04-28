@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_include_multiuser_label">شامل کردن کاربران دیگر</string>
-    <string name="appcontrol_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
 </resources>

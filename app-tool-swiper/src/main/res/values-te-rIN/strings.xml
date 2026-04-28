@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">సెషన్ కొనసాగించు</string>
     <string name="swiper_sessions_description">3 సులభ దశల్లో ఫైల్‌లను సమీక్షించండి:\n\n1. స్కాన్ చేయడానికి ఫోల్డర్‌ను ఎంచుకోండి\n2. ఉంచడానికి, తొలగించడానికి లేదా దాటవేయడానికి ఫైల్‌లను స్వైప్ చేయండి\n3. మీ ఎంపికలను సమీక్షించి నిర్ధారించండి\n\nతుది తొలగించు బటన్‌ను నొక్కే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_select_folders_action">ఫోల్డర్‌లను ఎంచుకోండి</string>
-    <string name="swiper_scanning_title">స్కాన్ చేస్తోంది…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d అంశం కనుగొనబడింది</item>
         <item quantity="other">%d అంశాలు కనుగొనబడ్డాయి</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Swiper ఎలా పని చేస్తుంది</string>
     <string name="swiper_help_message">నిర్ణయం తీసుకోవడానికి ప్రతి ఫైల్‌ను స్వైప్ చేయండి:\n\n← ఎడమకు స్వైప్: %1$s\n→ కుడికి స్వైప్: %2$s\n↑ పైకి స్వైప్: దాటవేయి\n↓ క్రిందికి స్వైప్: రద్దు (మొదటి స్వైప్ తర్వాత)\n\nమీరు దిగువన ఉన్న బటన్‌లను కూడా ఉపయోగించవచ్చు.\n\nమీరు పూర్తి చేసిన తర్వాత, మీ అన్ని నిర్ణయాలను చూడటానికి \"సమీక్ష\" నొక్కండి. సమీక్ష స్క్రీన్‌లో మీరు నిర్ధారించే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_gesture_overlay_dismiss_action">అర్థమైంది</string>
-    <string name="swiper_help_action">సహాయం</string>
     <string name="swiper_file_type_filter_title">ఈ ఫైల్ రకాలను మాత్రమే చూపించు</string>
     <string name="swiper_file_type_filter_hint">మీరు చూడాలనుకునే రకాలను ఎంచుకోండి. ఏదీ ఎంచుకోకపోతే, అన్ని ఫైల్స్ చూపించబడతాయి.</string>
     <string name="swiper_file_type_category_images">చిత్రాలు</string>

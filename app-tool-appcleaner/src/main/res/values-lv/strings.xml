@@ -92,10 +92,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Pārtraukt piemērotu apturēšanu pirms notīrīšanas</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Piemēroti apturēt lietotnes pirms kešatmiņas notīrīšanas. Tas var palīdzēt iztīrīt dažu lietotnes kešatmiņu, taču var izraisīt neparastu uzvedību un nepieciesamibu lietotni restartot manuāli.</string>
     <string name="appcleaner_progress_force_stopping">Piemērota lietotnes apturēšana…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Šai sistēmas lietotnei nav iestatījumu ekrāna. Kešatmiņas notīrīšana, izmantojot pieejamības pakalpojumu, nav iespējama. Izslēdziet to, lai paātrinātu kešatmiņas notīrīšanu.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Iestatījumu ekrāns nav pieejams</string>
-    <string name="appcleaner_automation_loading">Tiek sagatavota automātizācija, izmantojot pieejamības pakalpojumu</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mēģina apstiprināt iepriekšējo darbību (atslēgvārdi: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Iekļaut citus lietotājus</string>
-    <string name="appcleaner_include_multiuser_summary">Iekļaut lietotnes no citiem šīs ierīces lietotāju profiliem.</string>
 </resources>

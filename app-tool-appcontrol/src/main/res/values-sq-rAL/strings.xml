@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="appcontrol_include_multiuser_label">Përfshini përdorues të tjerë</string>
-    <string name="appcontrol_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
 </resources>

@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop ກ່ອນລ້າງ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop ແອັບກ່ອນລ້າງ cache. ມັນສາມາຖຊ່ວຍລ້າງ cache ຂອງບາງແອັບ, ແຕ່ອາດເຮັດໃຫ້ແອັບເຮັດວຽກຜິດປົກກະຕິ ແລະຕ້ອງການ restart ດ້ວຍຕົນເອງ.</string>
     <string name="appcleaner_progress_force_stopping">ກຳລັງ Force-stop ແອັບ…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ແອັບລະບົມນີ້ບໍ່ມີໜ້າຈອການຕັ້ງຄ່າ. ການລ້າງ cache ຜ່ານບໍລິການການເຂ້າຫາບໍ່ສາມາຖທຳໄດ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">ໜ້າຈອການຕັ້ງຄ່າບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
-    <string name="appcleaner_automation_loading">ກຳລັງກະກຽມການອັດຕະໂນມັດຜ່ານບໍລິການການເຂ້າຫາ</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ພະຍາຍາມຍືນຍັນການດຳເນີນງານກ່ອນໜ້າ (ຄຳສຳຄັນ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ລວມຜູ້ໃຊ້ອື່ນ</string>
-    <string name="appcleaner_include_multiuser_summary">ລວມແອັບຈາກໂປຣໄຟລ໌ຜູ້ໃຊ້ອື່ນໃນອຸປະກອນນີ້.</string>
 </resources>

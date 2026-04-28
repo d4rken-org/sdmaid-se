@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="appcontrol_include_multiuser_label">Включити інших користувачів</string>
-    <string name="appcontrol_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
 </resources>

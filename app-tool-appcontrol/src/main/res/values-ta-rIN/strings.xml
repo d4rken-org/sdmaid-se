@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">அணுகல் சேவை வழியாக தனியாக்கத்தை தயார் செய்கிறது</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">முந்தைய செயலை உறுதிசெய்ய முயற்சிகிறது (சாவி வார்த்தைகள்: %s)</string>
     <string name="appcontrol_include_multiuser_label">மற்ற பயனர்களை சேர்த்துக்கோ</string>
-    <string name="appcontrol_include_multiuser_summary">ஈ சாதனத்தில் மற்ற பயனர் கணக்குகளிலிருந்த பயன்பாடுகளை சேர்த்துக்குங்கள்.</string>
 </resources>

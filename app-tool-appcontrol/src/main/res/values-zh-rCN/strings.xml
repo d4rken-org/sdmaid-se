@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="appcontrol_include_multiuser_label">包括其他用户</string>
-    <string name="appcontrol_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
 </resources>

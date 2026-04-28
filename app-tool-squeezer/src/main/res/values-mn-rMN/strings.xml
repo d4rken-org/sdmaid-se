@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Шахалтыг баталгаажуулах</string>
     <string name="squeezer_preview_total_size">Нийт хэмжээ</string>
     <string name="squeezer_preview_estimated_savings">Төсөөлдсөн хадгалалт</string>
-    <string name="squeezer_compress_confirmation_title">Зурагуудыг шахаах уу?</string>
-    <string name="squeezer_compress_confirmation_message">Энэ эх зурагуудыг шахаагдсан хувилбаруудаар солиуулана. Энэ үйлдлийг буцаах боломжгүй.</string>
     <string name="squeezer_history_title">Шахалтын түүх</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d зүйл (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Дорроо %d өдөөсийн</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG файлуудад ~%d%% хадгалалт төсөөлдөд</string>
-    <string name="squeezer_onboarding_got_it">Ойлголоо</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">സെഷൻ തുടരുക</string>
     <string name="swiper_sessions_description">3 ലളുതായ ഘട്ടങ്ങളിൽ ഫയലുകൾ പരിശോധിക്കുക:\n\n1. സ്കാൻ ചെയ്യാൻ ഒരു ഫോർഡർ തിരഞ്ഞെടുക്കുക\n2. ഫയലുകൾ സൂക്ഷിക്കാൻ, ഡിലീറ്റ് ചെയ്യാൻ, അഥവാ ഒഴിവാക്കാൻ സ്വൈപ്പ് ചെയ്യുക\n3. നിങ്ങളുടെ തിരഞ്ഞെടുപ്പുകൾ പരിശോധിച്ച് സ്ഥിരീകരിക്കുക\n\nഅവസാന ഡിലീറ്റ് ബടൺൺൺൺൺൺൺൺണ് ടാപ് ചെയ്യുന്നതു വരെ ഒന്നും നീക്കപ്പെഡുന്നില്ല.</string>
     <string name="swiper_select_folders_action">ഫോർഡർുകൾ തിരഞ്ഞെടുക്കുക</string>
-    <string name="swiper_scanning_title">സ്കാൻ ചെയ്യുന്നു…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ഇനം കണ്ടെത്തി</item>
         <item quantity="other">%d ഇനങ്ങൾ കണ്ടെത്തി</item>
@@ -148,7 +147,6 @@
 
 തീർന്നാൽ, നിങ്ങളുടെ എല്ലാ തീരുമാനങ്ങളും കാണാൻ \"അവലോകനം\" ടാപ്പ് ചെയ്യുക. അവലോകന സ്ക്രീനിൽ സ്ഥിരീകരിക്കുന്നത് വരെ ഒന്നും ഇല്ലാതാകില്ല.</string>
     <string name="swiper_gesture_overlay_dismiss_action">മനസ്സിലായി</string>
-    <string name="swiper_help_action">ഹെല്പ്</string>
     <string name="swiper_file_type_filter_title">ഈ ഫയൽ തരങ്ങൾ മാത്രം കാണിക്കുക</string>
     <string name="swiper_file_type_filter_hint">നിങ്ങൾ കാണാൻ ആഗ്രഹിക്കുന്ന തരങ്ങൾ തിരഞ്ഞെടുക്കുക. ഒന്നും തിരഞ്ഞെടുത്തില്ലെങ്കിൽ, എല്ലാ ഫയലുകളും കാണിക്കും.</string>
     <string name="swiper_file_type_category_images">ചിത്രങ്ങൾ</string>

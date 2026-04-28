@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcontrol_include_multiuser_label">Uwzględnij innych użytkowników</string>
-    <string name="appcontrol_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
 </resources>

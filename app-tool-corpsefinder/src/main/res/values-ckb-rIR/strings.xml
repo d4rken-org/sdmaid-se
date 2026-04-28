@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">سنووردار app installation data, e.g. protected third party apps.</string>
     <string name="corpsefinder_filter_appasec_label">ڕمزکراو app resources</string>
     <string name="corpsefinder_filter_appasec_summary">ڕمزکراو app resources, e.g. game assets.</string>
-    <string name="corpsefinder_filter_app2sd_summary">داتا moved to external storage by ئەپ2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">ئەپ2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ماوەی ئەپ سڕایەوە</item>

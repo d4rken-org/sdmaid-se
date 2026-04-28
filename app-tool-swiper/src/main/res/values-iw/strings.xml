@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">המשך הפעלה</string>
     <string name="swiper_sessions_description">סקור קבצים ב-3 שלבים פשוטים:\n\n1. בחר תיקייה לסריקה\n2. החלק קבצים כדי לשמור, למחוק או לדלג\n3. סקור את הבחירות שלך ואשר\n\nשום דבר לא נמחק עד שתלחץ על כפתור המחיקה הסופי.</string>
     <string name="swiper_select_folders_action">בחר תיקיות</string>
-    <string name="swiper_scanning_title">סורק…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">נמצא פריט %d</item>
         <item quantity="two">נמצאו %d פריטים</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">איך Swiper עובד</string>
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
     <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
-    <string name="swiper_help_action">עזרה</string>
     <string name="swiper_file_type_filter_title">הצג רק סוגי קבצים אלה</string>
     <string name="swiper_file_type_filter_hint">סמן את הסוגים שברצונך לראות. אם לא סומן אף סוג, כל הקבצים יוצגו.</string>
     <string name="swiper_file_type_category_images">תמונות</string>

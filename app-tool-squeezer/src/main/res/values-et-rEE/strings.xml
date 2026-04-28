@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
     <string name="squeezer_preview_total_size">Kogumaht</string>
     <string name="squeezer_preview_estimated_savings">Hinnanguline sääst</string>
-    <string name="squeezer_compress_confirmation_title">Pildid kokku pakkida?</string>
-    <string name="squeezer_compress_confirmation_message">See asendab algpildid kokkupakitutega. Seda ei saa tühistada.</string>
     <string name="squeezer_history_title">Kokkupakkimise ajalugu</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d kirje (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
-    <string name="squeezer_onboarding_got_it">Selge!</string>
 </resources>

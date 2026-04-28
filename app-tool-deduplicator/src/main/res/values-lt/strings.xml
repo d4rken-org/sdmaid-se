@@ -17,9 +17,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Rodyti parinktis, leidžiančias ištrinti visus failus dublikatų rinkinyje, nepaliekant nė vieno failo.</string>
     <string name="deduplicator_search_locations_title">Ieškos vietos</string>
     <string name="deduplicator_search_locations_all_summary">Visos pasiekiamos sritys</string>
-    <string name="deduplicator_keep_prefer_paths_title">Pirmenybe išlaikyti</string>
     <string name="deduplicator_keep_prefer_paths_summary">Nusprendus, kurį dublikatą palikti, pirmenybe teikti failams šiose vietose.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nėra sukonfigūruotų vietų</string>
     <string name="deduplicator_skip_minsize_title">Minimalus dydis</string>
     <string name="deduplicator_skip_minsize_description">Praleisti failus, mažesnius už minimaliu dydį.</string>
     <string name="deduplicator_skip_uncommon_title">Praleisti nedažnai naudojamus failų tipus</string>

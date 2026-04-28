@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">ئامادەکردنی ئۆتۆماسیۆن لە ڕێگەی خزمەتگوزاری دەستپێگەیشتن</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">هەوڵی دڵنیاکردنەوەی کردارە پێشووەکە دەدات (کلیلە وشەکان: %s)</string>
     <string name="appcontrol_include_multiuser_label">بەکارهێنەرانی تری تێبگرە</string>
-    <string name="appcontrol_include_multiuser_summary">ئەپەکانی پرۆفایلی بەکارهێنەرانی تر لەم ئامێرە تێبگرە.</string>
 </resources>

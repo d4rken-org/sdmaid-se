@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Misa ukurekhoda</string>
     <string name="debug_debuglog_sensitive_information_message">Ifayela elenziwe liqukethe ulwazi olubucayi (isib. amagama amafayela nezinhlelo zokusebenza ezifakiwe). Yabelane nalo kuphela nezinhlangothi ezithembekile.</string>
     <string name="debug_debuglog_screen_title">Umvala Wokulungisa</string>
-    <string name="debug_debuglog_screen_discard_action">Lahla</string>
     <string name="debug_debuglog_screen_session_path_label">Indlela Yeseshini</string>
     <string name="debug_debuglog_screen_log_files_label">Amafayela Omvala</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Qhubeka</string>
     <string name="onboarding_privacy_title">Ubumfihlo</string>
     <string name="onboarding_privacy_body1">I-SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Imibiko yamaphutha ithunyelwa lapho amaphutha enweba futhi ingase ibe nemininingwane mayelana nezinhlelo zokusebenza namafayela ohlelweni lwakho. Imibiko iyangisiza ukuthi ngilungise amaphutha futhi ngithuthukise uhlelo.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Vumela imibiko yamaphutha ezenzekelayo</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Lezi zinketho zingashintshwa ezimweni.</string>
-    <string name="onboarding_privacy_continue_action">Qhubeka</string>
     <string name="onboarding_setup_title">Ukusethwa</string>
     <string name="onboarding_setup_body1">I-SD Maid izosesha zonke izindawo zedatha ezifinyelelekayo.</string>
     <string name="onboarding_setup_body2">Lokho okufinyelelekayo kuncike kudivayisi yakho, inguqulo ye-Android nezimvume ezinikeziwe.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Ukusetshenziswa akukapheleli</string>
     <string name="setup_incomplete_card_body">Qedela ukusetshenziswa kwe-SD Maid ukuze uthole imiphumela engcono.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">I-SD Maid izama ukulungisa izinkinga zokusetshenziswa.</string>
-    <string name="setup_incomplete_card_dismiss_action">Cashisa</string>
     <string name="setup_incomplete_card_continue_action">Qhubeka nokusetshenziswa</string>
     <string name="setup_forcedshow_summary">Bonisa isikrini sokusetshenziswa futhi, kubandakanya nezinto eseziqediwe.</string>
     <string name="setup_checking_card_body">Kuqinisekiswa ukuqedwa kokusetshenziswa nokuphathwa.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Layisha kabusha izindawo zedatha</string>
     <string name="debug_mode_label">Imodi yokulungisa amaphutha</string>
     <string name="debug_mode_explanation">Nika amandla izinketho zokuhlola nokukhipha okuningi. Uhlelo lokusebenza luzosebenza kancane futhi lusebenze ngendlela ehlukile.</string>
-    <string name="debug_bugreporter_label">Imibiko yamaphutha ezenzekelayo</string>
-    <string name="debug_bugreporter_summary">Ibika ngokuzenzekelayo izinkinga, isib. imininingwane mayelana nokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi kungani futhi ngikulungise.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
     <string name="debug_card_trace_mode_label">Vula imodi yokulandelela</string>

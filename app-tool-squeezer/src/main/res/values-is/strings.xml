@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
     <string name="squeezer_preview_total_size">Heildarstærð</string>
     <string name="squeezer_preview_estimated_savings">Áætlaður sparnaður</string>
-    <string name="squeezer_compress_confirmation_title">Þjappa myndum?</string>
-    <string name="squeezer_compress_confirmation_message">Þetta mun skipta upprunalegu myndunum út fyrir þjappaðar útgáfur. Ekki er hægt að afturkalla þessa aðgerð.</string>
     <string name="squeezer_history_title">Þjöppunarsaga</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d hlutur (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
-    <string name="squeezer_onboarding_got_it">Ég skil</string>
 </resources>

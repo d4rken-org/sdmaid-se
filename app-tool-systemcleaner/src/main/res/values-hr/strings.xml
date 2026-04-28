@@ -102,5 +102,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ograničite podudaranja na temelju starosti datoteke (vrijeme zadnje izmjene). Ostavite nepostavljeno za podudaranje s bilo kojom starosti.</string>
     <string name="systemcleaner_customfilter_import_action">Uvezi novi filter</string>
     <string name="systemcleaner_customfilter_export_action">Izvezi odabrani filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Imate nespremljene promjene!</string>
 </resources>

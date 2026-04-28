@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">أنقر للمزيد من المعلومات</string>
     <string name="general_upgrade_action">ترقية</string>
     <string name="general_donate_action">تبرع</string>
-    <string name="general_check_action">تحقق</string>
-    <string name="general_filter_action">الفرز</string>
     <string name="general_internal_not_available_msg">اتصال الإنترنت غير متوفر</string>
     <string name="general_refresh_action">تحديث</string>
     <string name="general_progress_searching">جاري البحث</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>
     <string name="general_tag_system">النظام</string>
     <string name="general_result_success_message">تمت المهمة بنجاح</string>
-    <string name="general_result_failure_message">فشلت المهمة</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="zero">أفرج عن مساحة %s.</item>
         <item quantity="one">أفرج عن مساحة %s.</item>
@@ -125,7 +122,6 @@
         <item quantity="other">تم إزالة %d عناصر</item>
     </plurals>
     <string name="general_root_required_label">يحتاج صلاحية الجذر</string>
-    <string name="general_root_required_message">يحتاج جهاز يمتلك صَلاحِيَة الروت</string>
     <string name="general_search_action">بحث</string>
     <string name="general_scan_device_action">فحص الجهاز</string>
     <string name="general_open_system_settings_action">فتح أعدادات النظام</string>

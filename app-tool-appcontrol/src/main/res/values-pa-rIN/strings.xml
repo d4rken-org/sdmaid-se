@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਰਾਹੀਂ ਆਟੋਮੇਸ਼ਨ ਤਿਆਰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcontrol_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
-    <string name="appcontrol_include_multiuser_summary">ਇਸ ਡਿਵਾਈਸ ਦੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਪ੍ਰੋਫ਼ਾਈਲਾਂ ਦੀਆਂ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
 </resources>

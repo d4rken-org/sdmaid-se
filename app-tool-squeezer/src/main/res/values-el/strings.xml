@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Επιβεβαίωση συμπίεσης</string>
     <string name="squeezer_preview_total_size">Συνολικό μέγεθος</string>
     <string name="squeezer_preview_estimated_savings">Εκτιμώμενη εξοικονόμηση</string>
-    <string name="squeezer_compress_confirmation_title">Συμπίεση εικόνων;</string>
-    <string name="squeezer_compress_confirmation_message">Αυτό θα αντικαταστήσει τις αρχικές εικόνες με συμπιεσμένες εκδόσεις. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="squeezer_history_title">Ιστορικό συμπίεσης</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d στοιχείο (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Τουλάχιστον %d ημέρες παλιό</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Εκτιμώμενη ~%d%% εξοικονόμηση για αρχεία JPEG</string>
-    <string name="squeezer_onboarding_got_it">Το κατάλαβα</string>
 </resources>

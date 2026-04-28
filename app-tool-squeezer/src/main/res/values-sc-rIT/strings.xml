@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Cunfirma sa cumpressione</string>
     <string name="squeezer_preview_total_size">Mannesa totale</string>
     <string name="squeezer_preview_estimated_savings">Isparagnu istimadu</string>
-    <string name="squeezer_compress_confirmation_title">Cumprimi is immàgines?</string>
-    <string name="squeezer_compress_confirmation_message">Custu at a sostituire is immàgines originales cun versiones cumprimidas. Custa atzione non si podet annullare.</string>
     <string name="squeezer_history_title">Istòria de cumpressione</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elementu (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">A su mancu %d dies de edade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Isparagnu istimadu de ~%d%% pro archìvios JPEG</string>
-    <string name="squeezer_onboarding_got_it">Apat cumprèndiu</string>
 </resources>

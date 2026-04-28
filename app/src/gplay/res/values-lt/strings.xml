@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Nepavyksta prisijungti prie Google Play. Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jau įsigyta</string>
     <string name="upgrades_gplay_already_owned_error_description">Naudokite parinktį \"Atkurti pirkimą\", kad atkurtumėte savo pirkimą. Jei problema išlieka, pabandykite išvalyti Google Play talpyklą ir paleisti įrenginį iš naujo.</string>
-    <string name="upgrades_no_purchases_found_check_account">Pirkimų nerasta. Ar naudojate tinkamą paskyrą?</string>
     <string name="upgrade_screen_title">Gaukite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>
     <string name="upgrade_screen_benefits_title">Privalumai</string>

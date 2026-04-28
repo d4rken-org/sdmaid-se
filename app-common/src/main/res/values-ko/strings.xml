@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">옵션을 더 보려면 탭하세요</string>
     <string name="general_upgrade_action">업그레이드</string>
     <string name="general_donate_action">후원하기</string>
-    <string name="general_check_action">검사</string>
-    <string name="general_filter_action">필터</string>
     <string name="general_internal_not_available_msg">인터넷 연결을 사용할 수 없습니다.</string>
     <string name="general_refresh_action">새로고침</string>
     <string name="general_progress_searching">검색 중</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_tag_system">시스템</string>
     <string name="general_result_success_message">작업 성공</string>
-    <string name="general_result_failure_message">작업 실패</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">%s 공간을 확보했습니다.</item>
     </plurals>
@@ -105,7 +102,6 @@
         <item quantity="other">%d개 항목을 제거하였습니다</item>
     </plurals>
     <string name="general_root_required_label">루트 권한 필요</string>
-    <string name="general_root_required_message">루팅된 기기가 필요합니다</string>
     <string name="general_search_action">검색</string>
     <string name="general_scan_device_action">기기 스캔</string>
     <string name="general_open_system_settings_action">시스템 설정 열기</string>

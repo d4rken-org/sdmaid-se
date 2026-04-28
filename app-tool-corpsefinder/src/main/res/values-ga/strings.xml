@@ -31,7 +31,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Sonraí suiteála aipe srianta, m.sh. aipeanna tríú páirtí cosanta.</string>
     <string name="corpsefinder_filter_appasec_label">Acmhainní aipe criptithe</string>
     <string name="corpsefinder_filter_appasec_summary">Acmhainní aipe criptithe, m.sh. sócmhainní cluiche.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Sonraí a aistrigh go stóráil sheachtrach ag modanna App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_delete_all_confirmation_message">Scrios gach iarsma aipe?</string>
     <string name="corpsefinder_owners_label">Úinéirí</string>

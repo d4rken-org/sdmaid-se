@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Idatha yokufaka uhlelo evinjelwe, isibonelo, izinhlelo ezivikiwe zenkampani yesithathu.</string>
     <string name="corpsefinder_filter_appasec_label">Izinsiza zohlelo ezibhalwe ngekhodi</string>
     <string name="corpsefinder_filter_appasec_summary">Izinsiza zohlelo ezibhalwe ngekhodi, isibonelo, amathuluzi emidlalo.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Idatha ehanjiswe ekugcinweni kwangaphandle ama-App2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Insalela yohlelo engu-%d isuliwe</item>

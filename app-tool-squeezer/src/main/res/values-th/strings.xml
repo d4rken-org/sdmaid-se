@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>
     <string name="squeezer_preview_total_size">ขนาดรวม</string>
     <string name="squeezer_preview_estimated_savings">ประหยัดโดยประมาณ</string>
-    <string name="squeezer_compress_confirmation_title">บีบอัดรูปภาพ?</string>
-    <string name="squeezer_compress_confirmation_message">สิ่งนี้จะแทนที่รูปภาพต้นฉบับด้วยเวอร์ชันที่บีบอัด ไม่สามารถเลิกทำได้</string>
     <string name="squeezer_history_title">ประวัติการบีบอัด</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d รายการ (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">อย่างน้อย %d วัน</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ประมาณ ~%d%% สำหรับไฟล์ JPEG</string>
-    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
 </resources>

@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">Xác nhận nén</string>
     <string name="squeezer_preview_total_size">Tổng kích thước</string>
     <string name="squeezer_preview_estimated_savings">Tiết kiệm ước tính</string>
-    <string name="squeezer_compress_confirmation_title">Nén ảnh?</string>
-    <string name="squeezer_compress_confirmation_message">Điều này sẽ thay thế hình ảnh gốc bằng phiên bản nén. Không thể hoàn tác thao tác này.</string>
     <string name="squeezer_history_title">Lịch sử nén</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d mục (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">Ít nhất %d ngày tuổi</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
-    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
 </resources>

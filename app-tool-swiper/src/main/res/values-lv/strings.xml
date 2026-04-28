@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Turpināt sesiju</string>
     <string name="swiper_sessions_description">Pārskatiet failus 3 vienkopas soļos:\n\n1. Izvēlieties mapi skenēšanai\n2. Veiciet velkšanu caur failiem, lai saglabātu, dzēstu vai izlaistu\n3. Pārskatiet savas izveles un apstipriniet\n\nNekas netiek noņemts, līddz pieskaraties galvenajām dzēšanas pogai.</string>
     <string name="swiper_select_folders_action">Atlasīt mapes</string>
-    <string name="swiper_scanning_title">Skenēšana…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="zero">%d vienibas atrastas</item>
         <item quantity="one">%d vienība atrasta</item>
@@ -165,7 +164,6 @@ Varat arī izmantot pogas apakšā.
 
 Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Sapratu</string>
-    <string name="swiper_help_action">Palīdzība</string>
     <string name="swiper_file_type_filter_title">Rādīt tikai šos failu tipus</string>
     <string name="swiper_file_type_filter_hint">Atzīmējiet tipus, kurus vēlaties redzēt. Ja neviens nav atzīmēts, tiek rādīti visi faili.</string>
     <string name="swiper_file_type_category_images">Attēli</string>

@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">सफा गर्नु अगाडि जबर्जस्ती बन्द गर्नुहोस्</string>
     <string name="appcleaner_forcestop_before_clearing_summary">क्यास साफ गर्नु अघि अनुप्रयोगहरू जबरदस्ती बन्द गर्नुहोस्। यसले केही अनुप्रयोगहरूको क्यास साफ गर्न मदत गर्न सक्छ, तर अनुप्रयोगहरू खराब व्यवहार गर्न र म्यानुअल पुनरारम्भ गर्न आवश्यक हुन सक्छ।</string>
     <string name="appcleaner_progress_force_stopping">अनुप्रयोगहरू जबर्जस्ती बन्द गर्दै…</string>
-    <string name="appcleaner_automation_error_no_settings_body">यस सिस्टम app मा कुनै सेटिङ स्क्रिन छैन। Accessibility service मार्फत cache सफा गर्न सम्भव छैन। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
-    <string name="appcleaner_automation_error_no_settings_title">सेटिङ स्क्रिन उपलब्ध छैन</string>
-    <string name="appcleaner_automation_loading">पहुँच सेवा मार्फत स्वचालन तयार गर्दै</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
-    <string name="appcleaner_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
-    <string name="appcleaner_include_multiuser_summary">यस उपकरणका अन्य प्रयोगकर्ता प्रोफाइलहरूका एप्सहरू समावेश गर्नुहोस्।</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play-тай холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
     <string name="upgrades_gplay_already_owned_error_title">Аль хэдийн худалдаж авсан</string>
     <string name="upgrades_gplay_already_owned_error_description">Худалдан авалтаа сэргээхийн тулд \"Худалдан авалтыг сэргээх\" сонголтыг ашиглана уу. Асуудал арилахгүй бол Google Play кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
-    <string name="upgrades_no_purchases_found_check_account">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro авах</string>
     <string name="upgrade_screen_preamble">SD Maid зар сурталчилгаагүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй. Миний ажлыг та санхүүжүүлдэг ❤️.</string>
     <string name="upgrade_screen_benefits_title">Давуу талууд</string>

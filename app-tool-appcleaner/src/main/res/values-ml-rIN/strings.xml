@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">മായ്ക്കുന്നതിന് മുൻപ് ബലമായി നിർത്തുക</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കുന്നതിന് മുൻപ് അവ ബലമായി നിർത്തുക. ചില ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കാൻ ഇത് സഹായിക്കും, എന്നാൽ ആപ്പുകൾ ശരിയായി പ്രവർത്തിക്കാതിരിക്കുകയും മാനുവൽ പുനരാരംഭം ആവശ്യമാകുകയും ചെയ്തേക്കാം.</string>
     <string name="appcleaner_progress_force_stopping">ആപ്പുകൾ ബലമായി നിർത്തുന്നു…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ഈ സിസ്റം ആപ്പിന് ക്രമീകരണ സ്‌ക്രീൻ ഇല്ല. ആക്‍സസിബിലിറ്റി സേവനം വഴി ക്യാഷ് മായ്ക്കൽ സാധ്യമല്ല. ക്യാഷ് മായ്ക്കൽ വേഗത്തിലാക്കാൻ ഇത് ഒഴിവാക്കുക.</string>
-    <string name="appcleaner_automation_error_no_settings_title">ക്രമീകരണ സ്‌ക്രീൻ ലഭ്യമല്ല</string>
-    <string name="appcleaner_automation_loading">ആക്‍സസിബിലിറ്റി സേവനം വഴി ഓട്ടോമേഷൻ തയ്യാറാക്കുന്നു</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">മുൻ പ്രവർത്തനം സ്ഥിരീകരിക്കാൻ ശ്രമിക്കുന്നു (കീവേഡുകൾ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">മറ്റ് ഉപയോക്താക്കളെ ഉൾപ്പെടുത്തുക</string>
-    <string name="appcleaner_include_multiuser_summary">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്തൃ പ്രൊഫൈലുകളിൽ നിന്നുള്ള ആപ്പുകൾ ഉൾപ്പെടുത്തുക.</string>
 </resources>

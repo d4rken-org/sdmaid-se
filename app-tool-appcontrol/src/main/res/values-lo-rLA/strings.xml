@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">ກຳລັງຕາມຕ້ນການທຳງານອັດໂນມັດຜ່ານລະບົບລະບັບພີເສດພາບ</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ກຳລັງພົບສິ່ງຍືນຍັນການກະທຳກ່ອນຫນ້າ (ຄຳສຳຄັຍ: %s)</string>
     <string name="appcontrol_include_multiuser_label">ຮວມຜູ້ໃຊ້ອື່ນ</string>
-    <string name="appcontrol_include_multiuser_summary">ຮວມແອບຈາກຜູ້ໃຊ້ອື່ນໃນອຸປະກອນນີ້.</string>
 </resources>

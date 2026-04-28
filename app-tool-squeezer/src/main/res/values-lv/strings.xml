@@ -51,8 +51,6 @@
     <string name="squeezer_preview_dialog_title">Apstiprināt kompresiju</string>
     <string name="squeezer_preview_total_size">Kopējais izmērs</string>
     <string name="squeezer_preview_estimated_savings">Paredzamais ietaupijums</string>
-    <string name="squeezer_compress_confirmation_title">Saspiest attēlus?</string>
-    <string name="squeezer_compress_confirmation_message">Tas aizvietōs originālos attēlus ar saspiestajām versijām. Šo darbību nav iespējams atcelt.</string>
     <string name="squeezer_history_title">Kompresijas vēsture</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d vienības (%2$s)</item>
@@ -88,5 +86,4 @@
         <item quantity="other">Vismaz %d dienas vecs</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Paredzamie ~%d%% ietaupijumi JPEG failiem</string>
-    <string name="squeezer_onboarding_got_it">Sapratu</string>
 </resources>

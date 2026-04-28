@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Hindi makakonekta sa Google Play. Pakisuri ang iyong koneksyon sa internet at subukan muli.</string>
     <string name="upgrades_gplay_already_owned_error_title">Nabili na</string>
     <string name="upgrades_gplay_already_owned_error_description">Gamitin ang \"I-restore ang pagbili\" na opsyon upang i-restore ang iyong binili. Kung magpapatuloy ang isyu, subukang i-clear ang Google Play cache at i-restart ang iyong aparato.</string>
-    <string name="upgrades_no_purchases_found_check_account">Walang nahanap na mga binili. Ginagamit mo ba ang iyong tamang account?</string>
     <string name="upgrade_screen_title">Kunin ang SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">Ang SD Maid ay walang mga ad at hindi nagbebenta ng data ng user. Ang aking trabaho ay pinopondohan mo ❤️.</string>
     <string name="upgrade_screen_benefits_title">Mga Benepisyo</string>

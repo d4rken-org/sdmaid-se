@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Ограничени податоци за инсталирање на апликации, пр. заштитени апликации од трети лица.</string>
     <string name="corpsefinder_filter_appasec_label">Шифрирани ресурси на апликации</string>
     <string name="corpsefinder_filter_appasec_summary">Шифрирани ресурси на апликации, пр. ресурси за игри.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Податоци преместени на надворешно складирање од App2SD модификации.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d остаток од апликација избришан</item>

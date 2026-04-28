@@ -8,7 +8,6 @@
         <item quantity="one">%s elemento procesado desde que invitaste a SD Maid a tu dispositivo.</item>
         <item quantity="other">%s elementos procesados desde que invitaste a SD Maid a tu dispositivo.</item>
     </plurals>
-    <string name="stats_report_status_success">Éxito</string>
     <string name="stats_report_status_partial_success">Éxito parcial</string>
     <string name="stats_report_status_partial_failure">Fallo parcial</string>
     <string name="stats_settings_desc">Configurá las estadísticas, los informes y la retención de datos de SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">El número de días para mantener reportes de tareas individuales.</string>
     <string name="stats_settings_retention_paths_label">Información detallada de rutas</string>
     <string name="stats_settings_retention_paths_desc">El número de días para mantener detalles sobre rutas afectadas por SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d día</item>
-        <item quantity="other">%d días</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Reiniciar todo</string>
     <string name="stats_settings_reset_all_desc">Eliminar todos los reportes y establecer todas las estadísticas a cero.</string>
     <string name="stats_affected_paths_label">Directorios afectados</string>

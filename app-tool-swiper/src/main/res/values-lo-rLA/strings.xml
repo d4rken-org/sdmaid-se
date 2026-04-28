@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">ຕໍ່ເງາການ</string>
     <string name="swiper_sessions_description">ຕຣວຈສອບໄຟລ໌ດ້ວຍ 3 ຂັ້ນຕອນງ່າຍດາຍ:\n\n1. ເລືອກໂຟນເດີເພື່ອສະແກນ\n2. ສົບໄຟລ໌ເພື່ອເກັບ, ລົບ, ຫຣືອຂ້າມ\n3. ຕຣວຈສອບການເລືອກขອງທ່ານ ແລະຍືນຍັນ\n\nໄມ່ມີສິ່ງໃດຖືກລົບจນກວ່າທ່ານກດປຸ່ມລົບສຸດທ້າຍ.</string>
     <string name="swiper_select_folders_action">ເລືອກໂຟນເດີ</string>
-    <string name="swiper_scanning_title">ກຳລັງສະແກນ…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">ພົບ %d ລາຍການ</item>
     </plurals>
@@ -122,7 +121,6 @@
     <string name="swiper_help_title">Swiper ທຳງານໄດ້ໂດຍວິຘີໃດ</string>
     <string name="swiper_help_message">ສົບແຕ່ລະໄຟລ໌ເພື່ອຕັດສິນໃຈ:\n\n← ສົບຊ້າຍ: %1$s\n→ ສົບຂວາ: %2$s\n↑ ສົບຂຶ້ນ: ຂ້າມ\n↓ ສົບລງ: ຍ້ອນຄືນ (ຫລັງຈາກສົບແລ້ວ)\n\nທ່ານສາມາຖໃຊ້ປຸ່ມດ້ານລ່າງດ້ວຍ.\n\nເມື່ອສຳເລັດແລ້ວ, ກດ \"ຕຣວຈສອບ\" ເພື່ອດູການຕັດສິນໃຈທັງຫມດ. ໄມ່ມີສິ່ງໃດຖືກລົບຈນກວ່າທ່ານຍືນຍັນບນຫນ້າຕຣວຈສອບ.</string>
     <string name="swiper_gesture_overlay_dismiss_action">ເຂົ້າໃຈແລ້ວ</string>
-    <string name="swiper_help_action">ຊ່ວຍເຫຼືອ</string>
     <string name="swiper_file_type_filter_title">ສະແດງສະເພາະປະເພດໄຟລ໌ເຫຼົ່ານີ້</string>
     <string name="swiper_file_type_filter_hint">ໝາຍປະເພດທີ່ທ່ານຕ້ອງການເບິ່ງ. ຖ້າບໍ່ໄດ້ໝາຍໄວ້, ໄຟລ໌ທັງໝົດຈະຖືກສະແດງ.</string>
     <string name="swiper_file_type_category_images">ຮູບພາບ</string>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Запри снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерираната датотека содржи чувствителни информации (пр. имиња на датотеки и инсталирани апликации). Споделувајте ја само со доверливи лица.</string>
     <string name="debug_debuglog_screen_title">Дневник за дебагирање</string>
-    <string name="debug_debuglog_screen_discard_action">Отфрли</string>
     <string name="debug_debuglog_screen_session_path_label">Патека на сесијата</string>
     <string name="debug_debuglog_screen_log_files_label">Дневнички датотеки</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Продолжи</string>
     <string name="onboarding_privacy_title">Приватност</string>
     <string name="onboarding_privacy_body1">SD Maid нема реклами и не продава кориснички податоци.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Извештаите за грешки се испраќаат кога се јавуваат грешки и може да содржат детали за апликациите и датотеките на вашиот уред. Извештаите ми помагаат да ги поправам грешките и да ја подобрам апликацијата.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Дозволи автоматски извештаи за грешки</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Овие опции може да се променат во поставките.</string>
-    <string name="onboarding_privacy_continue_action">Продолжи</string>
     <string name="onboarding_setup_title">Поставување</string>
     <string name="onboarding_setup_body1">SD Maid ќе ги пребарува сите достапни области со податоци.</string>
     <string name="onboarding_setup_body2">Достапноста зависи од вашиот уред, верзијата на Android и дадените дозволи.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Поставувањето е нецелосно</string>
     <string name="setup_incomplete_card_body">Завршете го поставувањето на SD Maid за подобри резултати.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid се обидува да ги поправи проблемите со поставувањето.</string>
-    <string name="setup_incomplete_card_dismiss_action">Отфрли</string>
     <string name="setup_incomplete_card_continue_action">Продолжи со поставување</string>
     <string name="setup_forcedshow_summary">Покажи го екранот за поставување повторно, вклучувајќи ги веќе завршените ставки.</string>
     <string name="setup_checking_card_body">Проверка на завршеност и функционалност на поставувањето.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Повторно вчитај области со податоци</string>
     <string name="debug_mode_label">Режим за дебагирање</string>
     <string name="debug_mode_explanation">Овозможи тест опции и поопширен излез. Апликацијата ќе работи побавно и поинаку.</string>
-    <string name="debug_bugreporter_label">Автоматски извештаи за грешки</string>
-    <string name="debug_bugreporter_summary">Автоматски пријавува проблеми, пр. детали за падовите на апликацијата за да можам да дознаам зошто и да ги поправам.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режимот за дебагирање е овозможен</string>
     <string name="debug_card_trace_mode_label">Овозможи режим за следење</string>

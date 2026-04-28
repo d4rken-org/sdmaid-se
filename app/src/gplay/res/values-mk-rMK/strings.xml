@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">Не може да се поврзе со Google Play. Проверете ја вашата интернет конекција и обидете се повторно.</string>
     <string name="upgrades_gplay_already_owned_error_title">Веќе купено</string>
     <string name="upgrades_gplay_already_owned_error_description">Користете ја опцијата \"Обнови купувачка\" за да ја обновите вашата купувачка. Ако проблемот продолжи, обидете се да ја исчистите кеш меморијата на Google Play и да го рестартирате вашиот уред.</string>
-    <string name="upgrades_no_purchases_found_check_account">Не се пронајдени купувања. Дали користите вистинска сметка?</string>
     <string name="upgrade_screen_title">Земете SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid нема реклами и не продава кориснички податоци. Мојата работа е финансирана од вас ❤️.</string>
     <string name="upgrade_screen_benefits_title">Предности</string>

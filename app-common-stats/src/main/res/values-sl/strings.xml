@@ -12,7 +12,6 @@
         <item quantity="few">Od kar ste SD Maid povabili v svojo napravo, so bili obdelani %s-je predmeti.</item>
         <item quantity="other">Od kar ste SD Maid povabili v svojo napravo, je bilo obdelanih %s predmetov.</item>
     </plurals>
-    <string name="stats_report_status_success">Uspešno</string>
     <string name="stats_report_status_partial_success">Delno uspešno</string>
     <string name="stats_report_status_partial_failure">Spodletelo</string>
     <string name="stats_settings_desc">Nastavite statistiko, poročila in shranjevanje podatkov za SD Maid.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">Št. dni, za kolikor naj se obdržijo osnovna poročila o delovanju SD Maida.</string>
     <string name="stats_settings_retention_paths_label">Podrobni podatki o poteh</string>
     <string name="stats_settings_retention_paths_desc">Št. dni, za kolikor naj obdržijo podobnosti o poteh, na katere je vplival SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dan</item>
-        <item quantity="two">%d dni</item>
-        <item quantity="few">%d dni</item>
-        <item quantity="other">%d dni</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ponastavi vse</string>
     <string name="stats_settings_reset_all_desc">Izbriši vsa poročila in nastavi vso statistiko na nične vrednosti.</string>
     <string name="stats_affected_paths_label">Obravnavane poti</string>

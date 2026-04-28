@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">መቅዳትን አቁም</string>
     <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ስሜታዊ መረጃዎችን ይዟል (ለምሳሌ የፋይል ስሞችና የተጫኑ መተግበሪያዎች)። ከታመኑ ወገኖች ጋር ብቻ ያጋሩ።</string>
     <string name="debug_debuglog_screen_title">የመለያ ምዝግብ ማስታወሻ</string>
-    <string name="debug_debuglog_screen_discard_action">ጣል</string>
     <string name="debug_debuglog_screen_session_path_label">የክፍለ ጊዜ ዱካ</string>
     <string name="debug_debuglog_screen_log_files_label">የምዝግብ ማስታወሻ ፋይሎች</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">ቀጥል</string>
     <string name="onboarding_privacy_title">ግላዊነት</string>
     <string name="onboarding_privacy_body1">SD Maid ማስታወቂያዎች የሉትም እንዲሁም የተጠቃሚ ውሂብ አይሸጥም།</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">ስህተቶች ሲከሰቱ የሳህተት ሪፖርቶች ይላካሉ እንዲሁም ስለመተግበሪያዎችና ስለመሣሪያዎ ላይ ያሉ ፋይሎች ዝርዝሮችን ሊያካትት ይችላል። ሪፖርቶች ሳህተቶችን እንድጠግነና መተግበሪያውን እንድማሻሽል ይረዱኛል።</string>
-    <string name="onboarding_privacy_bugreport_toggle">ራሳዊ የሳህተት ሪፖርቶችን ፍቀድ</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">እነዚህ አማራጮች በቅንብሮች ውስጥ ሊቀየሩ ይችላሉ።</string>
-    <string name="onboarding_privacy_continue_action">ቀጥል</string>
     <string name="onboarding_setup_title">ማዋቀሪያ</string>
     <string name="onboarding_setup_body1">SD Maid ሁሉንም ሊደረስባቸው የሚችሉ የውሂብ አካባቢዎች ይፈልጋል།</string>
     <string name="onboarding_setup_body2">ሊደረስባቸው የሚችሉት በመሣሪያዎ፣ በአንድሮይድ ስሪትና በተሰጡ ፈቃዶች ላይ ይወሰናል།</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">ማዋቀሩ ያልተጠናቀቀ ነው</string>
     <string name="setup_incomplete_card_body">የኤስዲ ሜይድ ማዋቀር በማጠናቀቅ የተሻሉ ውጤቶች ያገኛሉ።</string>
     <string name="setup_incomplete_card_healing_in_progress_body">ኤስዲ ሜይድ የማዋቀሪያ ችግሮችን ለማስተካከል እየሞከረ ነው።</string>
-    <string name="setup_incomplete_card_dismiss_action">አሰናብት</string>
     <string name="setup_incomplete_card_continue_action">ማዋቀሩን ቀጥል</string>
     <string name="setup_forcedshow_summary">ቀደም ሲል የተጠናቀቁትንም ጨምሮ የማዋቀሪያ ስክሪኑን እንደገና አሳይ።</string>
     <string name="setup_checking_card_body">የማዋቀሪያ ጥናቶች እና ተግባር ያረጋግጣል።</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">የውሂብ አካባቢዎችን እንደገና ጫን</string>
     <string name="debug_mode_label">ዲበግ ሁነታ</string>
     <string name="debug_mode_explanation">የሙከራ አማራጮችን እና ተጨማሪ ዝርዝር ውጤት ያነቃል። መተግበሪያው ቀርፎ ይሮጣል እና በተለያየ መንገድ ይሰራል።</string>
-    <string name="debug_bugreporter_label">ራስ-አዮሽ የችግር ሪፖርቶች</string>
-    <string name="debug_bugreporter_summary">ችግሮችን በራስ-አዮሽ ሪፖርት ያደርጋል፤ ለምሳሌ መተግበሪያው በሚወድቅበት ጊዜ ዝርዝሮች እንዲ ምክንያቱን ለመረዳት እና ለማስተካከል።</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">የመለያ ሁነታ ነቅቷል</string>
     <string name="debug_card_trace_mode_label">የመከታተያ ሁነታ አንቃ</string>

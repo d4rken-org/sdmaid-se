@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitar correspondências com base na idade do arquivo (data da última modificação). Deixe em branco para corresponder a qualquer idade.</string>
     <string name="systemcleaner_customfilter_import_action">Importar novo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro selecionado</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Você tem alterações não salvas!</string>
 </resources>

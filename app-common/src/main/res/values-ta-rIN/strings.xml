@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">மேலும் விருப்பங்களுக்கு தட்டவும்</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
     <string name="general_donate_action">நன்கொடை</string>
-    <string name="general_check_action">சரிபார்</string>
-    <string name="general_filter_action">வடிகட்டு</string>
     <string name="general_internal_not_available_msg">இணைய இணைப்பு கிடைக்கவில்லை</string>
     <string name="general_refresh_action">புதுப்பி</string>
     <string name="general_progress_searching">தேடுகிறது</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">குறிகளால் வடிகட்டு</string>
     <string name="general_tag_system">கணினி</string>
     <string name="general_result_success_message">வெற்றிகரமாக முடிக்கப்பட்டது</string>
-    <string name="general_result_failure_message">செயல்பாடு தோல்வியுற்றது</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s இடம் விடுவிக்கப்பட்டது.</item>
         <item quantity="other">%s இடம் விடுவிக்கப்பட்டது.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>
     </plurals>
     <string name="general_root_required_label">Root தேவை</string>
-    <string name="general_root_required_message">Root செய்யப்பட்ட சாதனம் தேவை</string>
     <string name="general_search_action">தேடு</string>
     <string name="general_scan_device_action">சாதனத்தை ஸ்கேன் செய்</string>
     <string name="general_open_system_settings_action">கணினி அமைப்புகளைத் திற</string>

@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
     <string name="appcontrol_include_multiuser_label">Inkludera andra användare</string>
-    <string name="appcontrol_include_multiuser_summary">Inkludera appar från andra användarprofiler på den här enheten.</string>
 </resources>

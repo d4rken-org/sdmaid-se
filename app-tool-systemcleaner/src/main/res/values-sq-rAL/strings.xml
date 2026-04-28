@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Kufizoni rezultatet bazuar në moshën e skedarit (koha e modifikimit të fundit). Lëreni pa vendosur për të përputhur çdo moshë.</string>
     <string name="systemcleaner_customfilter_import_action">Importoni filtër të ri</string>
     <string name="systemcleaner_customfilter_export_action">Eksporto filtrin e zgjedhur</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
 </resources>

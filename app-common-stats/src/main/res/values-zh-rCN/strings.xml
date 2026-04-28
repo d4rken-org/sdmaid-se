@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">自 SD Maid 安装以来，已处理 %s 个项目。</item>
     </plurals>
-    <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">失败</string>
     <string name="stats_settings_desc">配置 SD Maid的统计、报告和数据保留。</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">删除 SD Maid 操作报告之前的天数。</string>
     <string name="stats_settings_retention_paths_label">路径详细信息</string>
     <string name="stats_settings_retention_paths_desc">保留受 SD Maid 影响路径的详细信息的天数。</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d 天</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">全部重置</string>
     <string name="stats_settings_reset_all_desc">删除所有报告并将所有统计数据归零。</string>
     <string name="stats_affected_paths_label">受影响的路径</string>

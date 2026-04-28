@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">Clicca per più opzioni</string>
     <string name="general_upgrade_action">Aggiorna</string>
     <string name="general_donate_action">Donazione</string>
-    <string name="general_check_action">Check</string>
-    <string name="general_filter_action">Filtro</string>
     <string name="general_internal_not_available_msg">Connessione internet non disponibile</string>
     <string name="general_refresh_action">Refresh</string>
     <string name="general_progress_searching">Ricerca</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">Filtra per tags</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operazione riuscita</string>
-    <string name="general_result_failure_message">Operazione non riuscita</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s di spazio liberato.</item>
         <item quantity="other">%s di spazio liberato.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d elementi sono stati rimossi</item>
     </plurals>
     <string name="general_root_required_label">Richiede root</string>
-    <string name="general_root_required_message">Richiede un dispositivo rootato</string>
     <string name="general_search_action">Ricerca</string>
     <string name="general_scan_device_action">Scansiona dispositivo</string>
     <string name="general_open_system_settings_action">Apri impostazioni del sistema</string>

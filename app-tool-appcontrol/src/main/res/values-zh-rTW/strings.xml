@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">透過輔助功能服務準備自動化</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
     <string name="appcontrol_include_multiuser_label">包含其他使用者</string>
-    <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
 </resources>

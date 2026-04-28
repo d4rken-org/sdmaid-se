@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Cheklangan ilova o\'rnatish ma\'lumotlari, masalan, himoyalangan uchinchi tomon ilovalar.</string>
     <string name="corpsefinder_filter_appasec_label">Shifrlangan ilova resurslari</string>
     <string name="corpsefinder_filter_appasec_summary">Shifrlangan ilova resurslari, masalan, o\'yin aktivlari.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Ilova2Sd modifikatsiyalari tomonidan tashqi xotiraga ko\'chirilgan ma\'lumotlar.</string>
     <string name="corpsefinder_filter_app2sd_label">Ilova2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ilova qoldig\'i o\'chirildi</item>

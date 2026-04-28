@@ -149,5 +149,4 @@
     <string name="appcontrol_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
     <string name="appcontrol_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
-    <string name="appcontrol_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
 </resources>

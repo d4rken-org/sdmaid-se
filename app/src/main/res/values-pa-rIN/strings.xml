@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">ਰਿਕਾਰਡਿੰਗ ਰੋਕੋ</string>
     <string name="debug_debuglog_sensitive_information_message">ਤਿਆਰ ਕੀਤੀ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਫ਼ਾਈਲ ਦੇ ਨਾਮ ਅਤੇ ਸਥਾਪਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸ ਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਯੋਗ ਪਾਰਟੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
     <string name="debug_debuglog_screen_title">ਡੀਬੱਗ ਲੌਗ</string>
-    <string name="debug_debuglog_screen_discard_action">ਰੱਦ ਕਰੋ</string>
     <string name="debug_debuglog_screen_session_path_label">ਸੈਸ਼ਨ ਮਾਰਗ</string>
     <string name="debug_debuglog_screen_log_files_label">ਲੌਗ ਫਾਈਲਾਂ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">ਜਾਰੀ ਰੱਖੋ</string>
     <string name="onboarding_privacy_title">ਪਰਦੇਦਾਰੀ</string>
     <string name="onboarding_privacy_body1">SD Maid ਕੋਈ ਮਸ਼ਹੂਰੀ ਨਹੀਂ ਵਿਖਾਉਂਦਾ ਹੈ ਅਤੇ ਵਰਤੋਂਕਾਰ ਦਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ ਹੈ।</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">ਗਲਤੀਆਂ ਹੋਣ \'ਤੇ ਬੱਗ ਰਿਪੋਰਟਾਂ ਘੱਲੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਤੁਹਾਡੇ ਯੰਤਰ \'ਤੇ ਐਪਾਂ ਅਤੇ ਫਾਈਲਾਂ ਬਾਰੇ ਵੇਰਵੇ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ। ਰਿਪੋਰਟਾਂ ਬੱਗ ਠੀਕ ਕਰਨ ਅਤੇ ਐਪ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਮੇਰੀ ਮਦਦ ਕਰਦੀਆਂ ਹਨ।</string>
-    <string name="onboarding_privacy_bugreport_toggle">ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟਾਂ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ਇਹਨਾਂ ਵਿਕਲਪਾਂ ਨੂੰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।</string>
-    <string name="onboarding_privacy_continue_action">ਜਾਰੀ ਰੱਖੋ</string>
     <string name="onboarding_setup_title">ਸਥਾਪਤ ਕਰੋ</string>
     <string name="onboarding_setup_body1">SD Maid ਸਾਰੇ ਪਹੁੰਚਯੋਗ ਡੇਟਾ ਖੇਤਰਾਂ ਦੀ ਭਾਲ ਕਰੇਗੀ।</string>
     <string name="onboarding_setup_body2">ਕੀ ਪਹੁੰਚਯੋਗ ਹੈ ਇਹ ਤੁਹਾਡਾ ਯੰਤਰ, ਐਂਡਰਾਇਡ ਸੰਸਕਰਣ ਅਤੇ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਅਨੁਮਤੀਆਂ \'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ।</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">ਸੈਟਅੱਪ ਅਧੂਰਾ ਹੈ</string>
     <string name="setup_incomplete_card_body">ਬਿਹਤਰ ਨਤੀਜੇ ਲੈਣ ਲਈ SD Maid ਦਾ ਸੈਟਅੱਪ ਮੁਕੰਮਲ ਕਰੋ।</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ਸੈਟਅੱਪ ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਠੀਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ।</string>
-    <string name="setup_incomplete_card_dismiss_action">ਖਾਰਜ ਕਰੋ</string>
     <string name="setup_incomplete_card_continue_action">ਸੈਟਅੱਪ ਜਾਰੀ ਰੱਖੋ</string>
     <string name="setup_forcedshow_summary">ਸੈੱਟਅੱਪ ਸਕ੍ਰੀਨ ਨੂੰ ਦੁਬਾਰਾ ਦਿਖਾਓ, ਪਹਿਲਾਂ ਹੀ ਪੂਰੇ ਹੋਏ ਆਈਟਮਾਂ ਸਮੇਤ।</string>
     <string name="setup_checking_card_body">ਸੈਟਅੱਪ ਸੰਪੂਰਨਤਾ ਅਤੇ ਕਾਰਜਸ਼ੀਲਤਾ ਦੀ ਪੁਸ਼ਟੀ ਕਰ ਰਿਹਾ ਹੈ।</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">ਡੇਟਾ ਖੇਤਰਾਂ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ</string>
     <string name="debug_mode_label">ਡੀਬੱਗ ਮੋਡ</string>
     <string name="debug_mode_explanation">ਟੈਸਟ ਵਿਕਲਪਾਂ ਅਤੇ ਵਧੇਰੇ ਵਿਸਤ੍ਰਿਤ ਆਉਟਪੁੱਟ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਐਪ ਹੌਲੀ ਚੱਲੇਗੀ ਅਤੇ ਵੱਖਰੇ ਢੰਗ ਨਾਲ ਪ੍ਰਦਰਸ਼ਨ ਕਰੇਗੀ।</string>
-    <string name="debug_bugreporter_label">ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟ</string>
-    <string name="debug_bugreporter_summary">ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਆਪਣੇ ਆਪ ਰਿਪੋਰਟ ਕਰਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਐਪ ਕਰੈਸ਼ਾਂ ਦੇ ਵੇਰਵੇ ਤਾਂ ਜੋ ਮੈਂ ਕਾਰਨ ਪਤਾ ਲਗਾ ਸਕਾਂ ਅਤੇ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ਡੀਬੱਗ ਮੋਡ ਚਾਲੂ ਹੈ</string>
     <string name="debug_card_trace_mode_label">ਟ੍ਰੇਸ ਮੋਡ ਚਾਲੂ ਕਰੋ</string>

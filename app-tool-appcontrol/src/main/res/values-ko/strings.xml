@@ -116,5 +116,4 @@
     <string name="appcontrol_automation_loading">자동화 준비 중</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
     <string name="appcontrol_include_multiuser_label">다른 사용자 포함</string>
-    <string name="appcontrol_include_multiuser_summary">이 기기의 다른 사용자 프로필에 있는 앱을 포함합니다.</string>
 </resources>

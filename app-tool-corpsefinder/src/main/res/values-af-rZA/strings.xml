@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Beperkte toepassing installasie data, bv. beskermde derde party toepassings.</string>
     <string name="corpsefinder_filter_appasec_label">Versleutelde toepassing hulpbronne</string>
     <string name="corpsefinder_filter_appasec_summary">Versleutelde toepassing hulpbronne, bv. spel bates.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data geskuif na eksterne berging deur App2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d toepassing oorblyfsel geskrap</item>

@@ -8,17 +8,12 @@
         <item quantity="one">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
         <item quantity="other">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
     </plurals>
-    <string name="stats_report_status_success">سەرکەوتن</string>
     <string name="stats_report_status_partial_success">بەشی سەرکەوتن</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">ئامارەکان، ڕاپۆرتەکان و پاراستنی داتای SD Maid ڕێکبخە.</string>
     <string name="stats_settings_retention_category">پاراستن</string>
     <string name="stats_settings_retention_paths_label">زانیاری وردی ڕێگا</string>
     <string name="stats_settings_retention_paths_desc">ژمارەی ڕۆژەکان بۆ پاراستنی وردەکاری دەربارەی ڕێگاکانی کاریگەری SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ڕۆژ</item>
-        <item quantity="other">%d ڕۆژ</item>
-    </plurals>
     <string name="stats_affected_paths_label">ڕێگاکانی کاریگەرکراو</string>
     <string name="stats_affected_pkgs_label">ئەپەکانی کاریگەرکراو</string>
     <string name="stats_dash_body_snapshots_only">شوێنکەوتنی مێژووی ئەنبارەکەت.</string>

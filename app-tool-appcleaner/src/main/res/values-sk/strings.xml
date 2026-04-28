@@ -95,10 +95,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynútiť zastavenie pred vyčistením</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynútiť zastavenie aplikácií pred vyčistením ich vyrovnávacej pamäte. Môže to pomôcť vyčistiť vyrovnávaciu pamäť niektorých aplikácií, ale môže spôsobiť ich nesprávne správanie a vyžadovať manuálny reštart.</string>
     <string name="appcleaner_progress_force_stopping">Vynútené zastavovanie aplikácií…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
-    <string name="appcleaner_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Zahrnúť ďalších používateľov</string>
-    <string name="appcleaner_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
 </resources>

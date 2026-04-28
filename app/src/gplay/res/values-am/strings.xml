@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">ከGoogle Play ጋር መገናኘት አልተቻለም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
     <string name="upgrades_gplay_already_owned_error_title">አስቀድሞ ተገዝቷል</string>
     <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
-    <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
     <string name="upgrade_screen_benefits_title">ጥቅሞች</string>

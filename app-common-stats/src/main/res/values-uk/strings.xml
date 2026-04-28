@@ -12,7 +12,6 @@
         <item quantity="many">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
         <item quantity="other">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
     </plurals>
-    <string name="stats_report_status_success">Успіх</string>
     <string name="stats_report_status_partial_success">Частковий успіх</string>
     <string name="stats_report_status_partial_failure">Невдача</string>
     <string name="stats_settings_desc">Налаштуйте статистику, звіти та збереження даних у SD Maid.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">Кількість днів до видалення основних звітів про роботу SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Детальна інформація про шлях</string>
     <string name="stats_settings_retention_paths_desc">Кількість днів, протягом яких зберігається інформація про шляхи, на які вплинула SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d день</item>
-        <item quantity="few">%d дні</item>
-        <item quantity="many">%d днів</item>
-        <item quantity="other">%d днів</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Скинути все</string>
     <string name="stats_settings_reset_all_desc">Видалити всі звіти та обнулити всю статистику.</string>
     <string name="stats_affected_paths_label">Задіяні шляхи</string>

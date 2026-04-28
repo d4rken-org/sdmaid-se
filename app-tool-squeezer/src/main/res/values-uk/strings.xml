@@ -55,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Підтвердити стиснення</string>
     <string name="squeezer_preview_total_size">Загальний розмір</string>
     <string name="squeezer_preview_estimated_savings">Орієнтовна економія</string>
-    <string name="squeezer_compress_confirmation_title">Стиснути зображення?</string>
-    <string name="squeezer_compress_confirmation_message">Це замінить оригінальні зображення на стислі версії. Цю дію неможливо скасувати.</string>
     <string name="squeezer_history_title">Історія стиснення</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d елемент (%2$s)</item>
@@ -94,5 +92,4 @@
         <item quantity="other">Не менше %d днів</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Орієнтовна економія ~%d%% для файлів JPEG</string>
-    <string name="squeezer_onboarding_got_it">Зрозуміло</string>
 </resources>

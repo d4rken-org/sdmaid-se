@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Acha kuandika</string>
     <string name="debug_debuglog_sensitive_information_message">Faili lililotengenezwa lina maelezo ya siri (k.m. majina ya mafaili na programu zilizosakiniwa). Shiriki tu na wahusika wanaoweza kuaminika.</string>
     <string name="debug_debuglog_screen_title">Rekodi ya Marekebisho</string>
-    <string name="debug_debuglog_screen_discard_action">Tupa</string>
     <string name="debug_debuglog_screen_session_path_label">Njia ya Kipindi</string>
     <string name="debug_debuglog_screen_log_files_label">Mafaili ya Rekodi</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Endelea</string>
     <string name="onboarding_privacy_title">Faragha</string>
     <string name="onboarding_privacy_body1">SD Maid haina matangazo na haiuzi data ya watumiaji.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Ripoti za makosa zinatumwa makosa yanapotokea na zinaweza kuwa na maelezo kuhusu programu na mafaili kwenye kifaa chako. Ripoti zinanisaidia kurekebisha makosa na kuboresha programu.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Ruhusu ripoti za makosa za kiotomatiki</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Chaguo hizi zinaweza kubadilishwa katika mipangilio.</string>
-    <string name="onboarding_privacy_continue_action">Endelea</string>
     <string name="onboarding_setup_title">Sanidi</string>
     <string name="onboarding_setup_body1">SD Maid itasaka eneo zote za data zilizopatikana.</string>
     <string name="onboarding_setup_body2">Kinachopatikana kinategemea kifaa chako, toleo la Android na ruhusa zilizotolewa.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Usanidi haujakamilika</string>
     <string name="setup_incomplete_card_body">Kamilisha usanidi wa SD Maid ili kupata matokeo bora.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid inajaribu kurekebisha matatizo ya usanidi.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ondoa</string>
     <string name="setup_incomplete_card_continue_action">Endelea na usanidi</string>
     <string name="setup_forcedshow_summary">Onyesha skrini ya usanidi tena, pamoja na vipengele vilivyokamilishwa.</string>
     <string name="setup_checking_card_body">Inathibitisha kukamilika kwa usanidi na utendaji.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Pakia upya maeneo ya data</string>
     <string name="debug_mode_label">Hali ya utatuzi</string>
     <string name="debug_mode_explanation">Wezesha chaguo za majaribio na matokeo zaidi ya kina. Programu itaendesha polepole na kutenda tofauti.</string>
-    <string name="debug_bugreporter_label">Ripoti za kiotomatiki za hitilafu</string>
-    <string name="debug_bugreporter_summary">Inaripoti matatizo kiotomatiki, k.m. maelezo ya programu inapokufa ili niweze kujua kwa nini na kurekebisha.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Hali ya marekebisho imewashwa</string>
     <string name="debug_card_trace_mode_label">Wezesha hali ya ufuatiliaji</string>

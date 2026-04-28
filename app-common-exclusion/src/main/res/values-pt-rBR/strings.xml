@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Use a ferramenta Controle de Aplicativo para criar exceções para aplicativos.</string>
     <string name="exclusion_create_path_hint">Use a ferramenta Analisador de Armazenamento para criar exceções para caminho de pasta.</string>
     <string name="exclusion_show_defaults_action">Mostrar padrões</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Você tem alterações não salvas!</string>
 </resources>

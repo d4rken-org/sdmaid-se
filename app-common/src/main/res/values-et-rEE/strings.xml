@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">Puudutage lisavalikute nägemiseks</string>
     <string name="general_upgrade_action">Täienda</string>
     <string name="general_donate_action">Anneta</string>
-    <string name="general_check_action">Kontrolli</string>
-    <string name="general_filter_action">Filtreeri</string>
     <string name="general_internal_not_available_msg">Internetiühendus puudub</string>
     <string name="general_refresh_action">Värskenda</string>
     <string name="general_progress_searching">Otsin</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">Filtreeri siltide järgi</string>
     <string name="general_tag_system">Süsteem</string>
     <string name="general_result_success_message">Edukas toiming</string>
-    <string name="general_result_failure_message">Toiming ebaõnnestus</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vabastati %s ruumi.</item>
         <item quantity="other">Vabastati %s ruumi.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d eemaldati</item>
     </plurals>
     <string name="general_root_required_label">Nõuab juurpääsu</string>
-    <string name="general_root_required_message">Nõuab juurpääsuga seadet</string>
     <string name="general_search_action">Otsing</string>
     <string name="general_scan_device_action">Skaneeri seade</string>
     <string name="general_open_system_settings_action">Ava süsteemi seaded</string>

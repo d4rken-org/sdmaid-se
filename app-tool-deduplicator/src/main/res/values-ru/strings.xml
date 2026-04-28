@@ -17,9 +17,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Показать опцию, позволяющую удалить все файлы из набора дубликатов так, чтобы не осталось ни одного файла.</string>
     <string name="deduplicator_search_locations_title">Поиск расположений</string>
     <string name="deduplicator_search_locations_all_summary">Все доступные области</string>
-    <string name="deduplicator_keep_prefer_paths_title">Выбор оставить в</string>
     <string name="deduplicator_keep_prefer_paths_summary">При выборе того, какие дубликаты сохраняются, настройте сохранение файлов в этих местах.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Места не настроены</string>
     <string name="deduplicator_skip_minsize_title">Минимальный размер</string>
     <string name="deduplicator_skip_minsize_description">Пропускать файлы меньше заданного размера.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускать неизвестные типы файлов</string>

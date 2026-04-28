@@ -11,9 +11,7 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Hiển thị các tùy chọn cho phép bạn xóa tất cả các tệp trong một tập hợp các bản sao để không còn tệp nào.</string>
     <string name="deduplicator_search_locations_title">Vị trí tìm kiếm</string>
     <string name="deduplicator_search_locations_all_summary">Tất cả các khu vực có thể tiếp cận</string>
-    <string name="deduplicator_keep_prefer_paths_title">Ưu tiên giữ lại</string>
     <string name="deduplicator_keep_prefer_paths_summary">Khi quyết định giữ lại bản sao nào, hãy ưu tiên lưu giữ các tệp ở những vị trí này.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Chưa có vị trí nào được cấu hình</string>
     <string name="deduplicator_skip_minsize_title">Kích thước tối thiểu</string>
     <string name="deduplicator_skip_minsize_description">Bỏ qua các tập tin có kích thước dưới kích thước tối thiểu.</string>
     <string name="deduplicator_skip_uncommon_title">Bỏ qua các loại tệp không phổ biến</string>

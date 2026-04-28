@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Kısıtlı uygulama yükleme verileri, korumalı üçüncü taraf uygulamalar gibi.</string>
     <string name="corpsefinder_filter_appasec_label">Şifrelenmiş uygulama kaynakları</string>
     <string name="corpsefinder_filter_appasec_summary">Şifrelenmiş uygulama kaynakları, oyun dosyaları gibi.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2SD modları tarafından harici depolamaya taşınan veriler.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d uygulama kalıntısı silindi</item>

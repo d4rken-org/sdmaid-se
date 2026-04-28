@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Yozishni to\'xtatish</string>
     <string name="debug_debuglog_sensitive_information_message">Yaratilgan fayl maxfiy ma\'lumotlarni o\'z ichiga oladi (masalan, fayl nomlari va o\'rnatilgan ilovalar). Uni faqat ishonchli tomonlar bilan baham ko\'ring.</string>
     <string name="debug_debuglog_screen_title">Xatoliklarni qayd qilish</string>
-    <string name="debug_debuglog_screen_discard_action">Rad etish</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiya yo\'li</string>
     <string name="debug_debuglog_screen_log_files_label">Log fayllari</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Davom etish</string>
     <string name="onboarding_privacy_title">Maxfiylik</string>
     <string name="onboarding_privacy_body1">SD Maid da reklamalar yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Xatolar yuz berganda xato hisobotlari yuboriladi va qurilmangizdagi ilovalar va fayllar haqida tafsilotlarni o\'z ichiga olishi mumkin. Hisobotlar menga xatolarni tuzatish va ilovani yaxshilashga yordam beradi.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Avtomatik xato hisobotlariga ruxsat berish</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu variantlarni sozlamalarda o\'zgartirish mumkin.</string>
-    <string name="onboarding_privacy_continue_action">Davom etish</string>
     <string name="onboarding_setup_title">O\'rnatish</string>
     <string name="onboarding_setup_body1">SD Maid barcha foydalanish mumkin bo\'lgan ma\'lumotlar hududlarini qidiradi.</string>
     <string name="onboarding_setup_body2">Nimaga kirish mumkinligi qurilmangiz, Android versiyasi va berilgan ruxsatlarga bog\'liq.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Sozlash tugallanmagan</string>
     <string name="setup_incomplete_card_body">Yaxshi natijalar olish uchun SD Maid sozlashini tugallang.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sozlash muammolarini tuzatishga harakat qilmoqda.</string>
-    <string name="setup_incomplete_card_dismiss_action">Yopish</string>
     <string name="setup_incomplete_card_continue_action">Sozlashni davom ettirish</string>
     <string name="setup_forcedshow_summary">Sozlash ekranini, shu jumladan allaqachon tugallangan elementlarni qayta ko\'rsatish.</string>
     <string name="setup_checking_card_body">Sozlash tugallanishi va funksionalligini tekshirish.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Ma\'lumot hududlarini qayta yuklash</string>
     <string name="debug_mode_label">Nosozliklarni tuzatish rejimi</string>
     <string name="debug_mode_explanation">Sinov variantlarini va batafsil natijalarni yoqish. Ilova sekinroq ishlaydi va boshqacha ishlaydi.</string>
-    <string name="debug_bugreporter_label">Avtomatik xato hisobotlari</string>
-    <string name="debug_bugreporter_summary">Muammolarni avtomatik hisobot qiladi, masalan, ilova ishlamay qolishi haqidagi tafsilotlar, shuning uchun men nima sababdan ekanligini aniqlay olaman va uni tuzataman.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Xatoliklarni tuzatish rejimi yoqilgan</string>
     <string name="debug_card_trace_mode_label">Iz rejimini yoqish</string>

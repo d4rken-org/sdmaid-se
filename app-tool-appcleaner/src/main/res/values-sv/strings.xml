@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tvångsstoppa före rensning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvångsstoppa appar innan du rensar deras cache. Det kan hjälpa till att rensa vissa appars cache, men kan göra att appar inte fungerar korrekt och kräver manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvångsstoppar appar…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denna systemapp har ingen inställningsskärm. Cache-rensning via tillgänglighetstjänst är inte möjlig. Uteslut den för att påskynda cache-rensning.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Inställningsskärm otillgänglig</string>
-    <string name="appcleaner_automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inkludera andra användare</string>
-    <string name="appcleaner_include_multiuser_summary">Inkludera appar från andra användarprofiler på denna enhet.</string>
 </resources>

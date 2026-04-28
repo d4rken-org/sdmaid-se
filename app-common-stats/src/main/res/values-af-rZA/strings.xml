@@ -8,7 +8,6 @@
         <item quantity="one">%s item verwerk sedert jy SD Maid na jou toestel genooi het.</item>
         <item quantity="other">%s items verwerk sedert jy SD Maid na jou toestel genooi het.</item>
     </plurals>
-    <string name="stats_report_status_success">Sukses</string>
     <string name="stats_report_status_partial_success">Gedeeltelike sukses</string>
     <string name="stats_report_status_partial_failure">Mislukking</string>
     <string name="stats_settings_desc">Stel SD Maid se statistieke, verslae en data retensie op.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Aantal dae voor skrapping van basiese SD Maid bewerking verslae.</string>
     <string name="stats_settings_retention_paths_label">Gedetailleerde pad inligting</string>
     <string name="stats_settings_retention_paths_desc">Die aantal dae om besonderhede te hou oor paaie geaffekteer deur SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dag</item>
-        <item quantity="other">%d dae</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Stel alles terug</string>
     <string name="stats_settings_reset_all_desc">Skrap alle verslae en stel alle statistieke op nul.</string>
     <string name="stats_affected_paths_label">Geaffekteerde paaie</string>

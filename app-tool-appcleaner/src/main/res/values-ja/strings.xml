@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">クリア前に強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">キャッシュをクリアする前にアプリを強制停止します。一部のアプリのキャッシュクリアに役立ちますが、アプリが正常に動作しなくなり手動再起動が必要になる場合があります。</string>
     <string name="appcleaner_progress_force_stopping">アプリを強制停止中…</string>
-    <string name="appcleaner_automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
-    <string name="appcleaner_automation_error_no_settings_title">設定画面が利用できません</string>
-    <string name="appcleaner_automation_loading">ユーザー補助サービスによる自動化の準備</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
-    <string name="appcleaner_include_multiuser_label">他のユーザーを含める</string>
-    <string name="appcleaner_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
 </resources>

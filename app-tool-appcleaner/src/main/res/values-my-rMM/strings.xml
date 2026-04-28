@@ -86,10 +86,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">ရှင်းလင်းမတိုင်မီး အတင်းရပ်ခြင်း</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Cache ရှင်းလင်းမတိုင်မီး အပ်ပ်များကို အတင်းရပ်ပါ။ အချိစမ်း အပ်ပ်များတာ်အစာ် cache ရှင်းလင်းရာတွင် ကူညီနိုင်သော်လည်း သို့မဟုတ် အပ်ပ်များ ဆိုးသောဆိုးဆောင်ရွက်ပြီး လက်ဖြင့် ပြန်ဖွင့်ကျာနိုင်သည်။</string>
     <string name="appcleaner_progress_force_stopping">အပ်ပ်များကို အတင်းရပ်နေသည်…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ဤစနစ်အပ်ပ်တွင် ဆက်တင်မျက်နှာပြင် မရှိပါ။ accessibility ဝန်ဆောင်မှုမှတဆင့် cache ရှင်းလင်းခြင်း မဖြစ်နိုင်ပါ။ cache ရှင်းလင်းမှု မြန်ဆန်စေရန် ဤအပ်ပ်ကို ဖယ်ထုတ်ပါ။</string>
-    <string name="appcleaner_automation_error_no_settings_title">ဆက်တင်မျက်နှာပြင် ရနိုင်မည်မဟုတ်</string>
-    <string name="appcleaner_automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ယခ်ပင်လုပ်ဆောင်မှုကို အတည်ပြုရန် ကြိုးစားသည် (သော့ချက်စကားများ - %s)</string>
-    <string name="appcleaner_include_multiuser_label">အခြားအသုံးပြုသူများ ထည့်သွင်းပါ</string>
-    <string name="appcleaner_include_multiuser_summary">ဤကိရိယာပေါ်ရှိ အခြားအသုံးပြုသူပရိုဖိုင်များမှ အပ်ပ်များ ထည့်သွင်းပါ။</string>
 </resources>

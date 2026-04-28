@@ -10,7 +10,6 @@
         <item quantity="few">%s stavke obrađene otkako ste pozvali SD Maid na svoj uređaj.</item>
         <item quantity="other">%s stavki obrađeno otkako ste pozvali SD Maid na svoj uređaj.</item>
     </plurals>
-    <string name="stats_report_status_success">Uspjeh</string>
     <string name="stats_report_status_partial_success">Djelomični uspjeh</string>
     <string name="stats_report_status_partial_failure">Neuspjeh</string>
     <string name="stats_settings_desc">Konfigurirajte SD Maidove statistike, izvještaje i zadržavanje podataka.</string>
@@ -19,11 +18,6 @@
     <string name="stats_settings_retention_reports_desc">Broj dana prije brisanja osnovnih izvještaja o radu SD Maida.</string>
     <string name="stats_settings_retention_paths_label">Detaljne informacije o putanjama</string>
     <string name="stats_settings_retention_paths_desc">Broj dana za zadržavanje detalja o putanjama na koje je utjecao SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dan</item>
-        <item quantity="few">%d dana</item>
-        <item quantity="other">%d dana</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ponovno postavi sve</string>
     <string name="stats_settings_reset_all_desc">Izbriši sve izvještaje i postavi sve statistike na nulu.</string>
     <string name="stats_affected_paths_label">Pogođene putanje</string>

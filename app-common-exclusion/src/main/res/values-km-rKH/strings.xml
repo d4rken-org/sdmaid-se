@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ប័រើរញ្នើឡើង AppControl ដែលបង្កើតការលើក់ចោលកម្មវិធី៴</string>
     <string name="exclusion_create_path_hint">ប័រើរញ្នើឡើង StorageAnalyzer ដែលបង្កើតការលើក់ចោលព័ត្រូ៴</string>
     <string name="exclusion_show_defaults_action">បង្ហើញការត័᧐ឆ្ណងកែ</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">អ្នកមានការប័រើសដែលមិនទានរក្សា!</string>
 </resources>

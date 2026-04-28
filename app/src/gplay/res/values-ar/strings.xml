@@ -16,7 +16,6 @@
     <string name="upgrades_gplay_network_error_description">تعذر الاتصال بـ Google Play. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.</string>
     <string name="upgrades_gplay_already_owned_error_title">تم الشراء مسبقًا</string>
     <string name="upgrades_gplay_already_owned_error_description">استخدم خيار \"استعادة المُشتَرَى\" لاستعادة عملية الشراء الخاصة بك. إذا استمرت المشكلة، حاول مسح ذاكرة التخزين المؤقت لـ Google Play وإعادة تشغيل جهازك.</string>
-    <string name="upgrades_no_purchases_found_check_account">لم يتم العثور على عملية الشراء. هل تستخدم حساب Google الصحيح؟</string>
     <string name="upgrade_screen_title">احصل على SD Maid SE الاحترافي</string>
     <string name="upgrade_screen_preamble">لا يعرض SD Maid أية إعلانات ولا يبيع بيانات المستخدم. يتم تمويل عملي من قِبَلكم ❤️.</string>
     <string name="upgrade_screen_benefits_title">المميزات</string>

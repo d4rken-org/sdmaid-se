@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Parhau â\'r sesiwn</string>
     <string name="swiper_sessions_description">Mae rhai ffeiliau angen penderfyniad dynol. Sweipiwch drwy eitemau a dewiswch beth i\'w gadw neu\'i ddileu. Sgipiwch unrhyw beth nad ydych yn sicr amdano. Mae\'r offeryn hwn yn gadael i chi adolygu ffolderi penodol â llaw, a dim byd yn cael ei ddileu hyd nes y byddwch yn cadarnhau.</string>
     <string name="swiper_select_folders_action">Dewis ffolderi</string>
-    <string name="swiper_scanning_title">Sganio…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="zero">%d eitem wedi\'u canfod</item>
         <item quantity="one">%d eitem wedi\'i chanfod</item>

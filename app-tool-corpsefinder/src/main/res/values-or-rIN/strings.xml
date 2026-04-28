@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ପ୍ରତିବନ୍ଧିତ ଆପ୍ ଇନଷ୍ଟଲେସନ୍ ଡାଟା, ଯଥା ସୁରକ୍ଷିତ ତୃତୀୟ ପକ୍ଷ ଆପ୍ସ।</string>
     <string name="corpsefinder_filter_appasec_label">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳଗୁଡ଼ିକ</string>
     <string name="corpsefinder_filter_appasec_summary">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳ, ଯଥା ଗେମ୍ ସମ୍ପତ୍ତି।</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd ମୋଡ୍ ଦ୍ୱାରା ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ କୁ ସ୍ଥାନାନ୍ତରିତ ଡାଟା।</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ ହୋଇଛି</item>

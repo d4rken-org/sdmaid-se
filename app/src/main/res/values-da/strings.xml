@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop optagelse</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med parter, du stoler på.</string>
     <string name="debug_debuglog_screen_title">Fejlfindingslogs</string>
-    <string name="debug_debuglog_screen_discard_action">Kassér</string>
     <string name="debug_debuglog_screen_session_path_label">Session Sti</string>
     <string name="debug_debuglog_screen_log_files_label">Log Filer</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -68,10 +67,6 @@
     <string name="onboarding_versus_continue_action">Fortsæt</string>
     <string name="onboarding_privacy_title">Privatliv</string>
     <string name="onboarding_privacy_body1">SD Maid har ingen annoncer og sælger ikke brugerdata.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Fejlrapporter sendes, når fejl opstår, og kan indeholde detaljer om apps og filer på din enhed. Rapporterne hjælper mig med at rette fejl og forbedre appen.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Tillad automatiske fejlrapporter</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Disse kan ændres i indstillingerne.</string>
-    <string name="onboarding_privacy_continue_action">Fortsæt</string>
     <string name="onboarding_setup_title">Opsætning</string>
     <string name="onboarding_setup_body1">SD Maid søger i alle tilgængelige dataområder.</string>
     <string name="onboarding_setup_body2">Hvad der er tilgængeligt, afhænger af din enhed, Android-version og tildelte tilladelser.</string>
@@ -162,7 +157,6 @@
     <string name="setup_incomplete_card_title">Opsætning er ufærdig</string>
     <string name="setup_incomplete_card_body">Fuldfør SD Maid\'s opsætning for bedre resultater.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid prøver at løse opsætningsproblemer.</string>
-    <string name="setup_incomplete_card_dismiss_action">Afvis</string>
     <string name="setup_incomplete_card_continue_action">Fortsæt opsætning</string>
     <string name="setup_forcedshow_summary">Vis opsætningsskærmen igen, inklusive allerede udførte punkter.</string>
     <string name="setup_checking_card_body">Bekræfter, at opsætningen er fuldført og fungerer.</string>
@@ -225,8 +219,6 @@
     <string name="dataarea_warningcard_reload_action">Genindlæs dataområder</string>
     <string name="debug_mode_label">Fejlfindingstilstand</string>
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
-    <string name="debug_bugreporter_label">Automatiske fejlrapporter</string>
-    <string name="debug_bugreporter_summary">Rapporterer automatisk problemer, f.eks. detaljer om appnedbrud, så jeg kan finde ud af hvorfor og rette det.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
     <string name="debug_card_trace_mode_label">Aktivér sporingstilstand</string>

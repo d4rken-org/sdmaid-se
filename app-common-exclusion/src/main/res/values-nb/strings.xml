@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Bruk Appkontroll-verktøyet for å opprette appekskluderinger.</string>
     <string name="exclusion_create_path_hint">Bruk Lagringsanalysator-verktøyet for å opprette baneekskluderinger.</string>
     <string name="exclusion_show_defaults_action">Vis standarder</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
 </resources>

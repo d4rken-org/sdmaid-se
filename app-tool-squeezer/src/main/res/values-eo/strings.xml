@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Konfirmi kunpremadon</string>
     <string name="squeezer_preview_total_size">Totala grandeco</string>
     <string name="squeezer_preview_estimated_savings">Taksita ŝparo</string>
-    <string name="squeezer_compress_confirmation_title">Ĉu kunpremi bildojn?</string>
-    <string name="squeezer_compress_confirmation_message">Ĉi tio anstataŭigos originalajn bildojn per kunpremitaj versioj. Ĉi tiu ago ne estas malfarebla.</string>
     <string name="squeezer_history_title">Kunprema historio</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ero (%2$s)</item>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Продовжити сесію</string>
     <string name="swiper_sessions_description">Переглядайте файли у 3 простих кроки:\n\n1. Виберіть папку для сканування\n2. Проводьте пальцем по файлах, щоб зберегти, видалити або пропустити\n3. Перегляньте свої рішення та підтвердіть\n\nНічого не видаляється, поки ви не натиснете кнопку остаточного видалення.</string>
     <string name="swiper_select_folders_action">Вибрати папки</string>
-    <string name="swiper_scanning_title">Сканування…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d елемент знайдено</item>
         <item quantity="few">%d елементи знайдено</item>
@@ -173,7 +172,6 @@
     <string name="swiper_help_title">Як працює Swiper</string>
     <string name="swiper_help_message">Проведіть по кожному файлу, щоб прийняти рішення:\n\n← Проведіть вліво: %1$s\n→ Проведіть вправо: %2$s\n↑ Проведіть вгору: Пропустити\n↓ Проведіть вниз: Скасувати (після першого свайпу)\n\nВи також можете використовувати кнопки внизу.\n\nКоли закінчите, натисніть \"Огляд\", щоб переглянути всі рішення. Нічого не видаляється, поки ви не підтвердите на екрані перегляду.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Зрозуміло</string>
-    <string name="swiper_help_action">Допомога</string>
     <string name="swiper_file_type_filter_title">Показувати лише ці типи файлів</string>
     <string name="swiper_file_type_filter_hint">Позначте типи, які хочете бачити. Якщо жодного не позначено, відображаються всі файли.</string>
     <string name="swiper_file_type_category_images">Зображення</string>

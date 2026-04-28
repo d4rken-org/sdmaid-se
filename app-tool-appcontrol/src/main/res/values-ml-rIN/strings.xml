@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">ആക്സസിബിലിറ്റി സർവീസ് വഴി ഓടോമേഷൻ തയാറാക്കുന്നു</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">മുൻപിന്നതെ പ്രവൃത്തി സ്ഥിരീകരിക്കാൻ ശ്രമിക്കുന്നു (കീവർഡുകൾ: %s)</string>
     <string name="appcontrol_include_multiuser_label">മറ്റ് ഉപയോക്താക്കളെ ഉൾപ്പെടുത്തുക</string>
-    <string name="appcontrol_include_multiuser_summary">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്തൃ പ്രൊഫൈലുകളിലെ ആപ്പുകൾ ഉൾപ്പെടുത്തുക.</string>
 </resources>

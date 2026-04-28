@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>
     <string name="squeezer_preview_total_size">Usayizi ophelele</string>
     <string name="squeezer_preview_estimated_savings">Ukonga okulinganisiwe</string>
-    <string name="squeezer_compress_confirmation_title">Cindezela izithombe?</string>
-    <string name="squeezer_compress_confirmation_message">Lokhu kuzoshintsha izithombe zangempela ngezinguqulo ezicindezelwe. Lesi senzo asikwazi ukuhlehliswa.</string>
     <string name="squeezer_history_title">Umlando wokucindezela</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d into (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Okungenani izinsuku ezingu-%d</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Kulinganiswa ~%d%% ukonga kwamafayela e-JPEG</string>
-    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
 </resources>

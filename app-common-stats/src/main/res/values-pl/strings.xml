@@ -12,7 +12,6 @@
         <item quantity="many">%s przetworzonych elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
         <item quantity="other">%s przetworzonych elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
     </plurals>
-    <string name="stats_report_status_success">Zakończono pomyślnie</string>
     <string name="stats_report_status_partial_success">Częściowy sukces</string>
     <string name="stats_report_status_partial_failure">Niepowodzenie</string>
     <string name="stats_settings_desc">Konfiguracja statystyk, raportów i przechowywania danych SD Maid.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">Liczba dni przed usunięciem podstawowych raportów operacji SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Szczegółowe informacje o ścieżce</string>
     <string name="stats_settings_retention_paths_desc">Liczba dni przechowywania szczegółowych informacji o ścieżkach, na które ma wpływ SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dzień</item>
-        <item quantity="few">%d dni</item>
-        <item quantity="many">%d dni</item>
-        <item quantity="other">%d dni</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Resetuj wszystko</string>
     <string name="stats_settings_reset_all_desc">Usuń wszystkie raporty i ustaw wszystkie statystyki na zero.</string>
     <string name="stats_affected_paths_label">Ścieżki, których to dotyczy</string>

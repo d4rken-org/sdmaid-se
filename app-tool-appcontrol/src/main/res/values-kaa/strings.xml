@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Qoljetimlilik xızmetin paydalanıp avtomatlandırıwdı tayarlaw</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Aldıńǵı háreketti tastıyıqlawǵa háreket etilip atır (gilt sózler: %s)</string>
     <string name="appcontrol_include_multiuser_label">Basqa paydalanıwshılardı qosıw</string>
-    <string name="appcontrol_include_multiuser_summary">Usbu qurilmadagi basqa paydalanıwshı profillerindegi ilovaları qosıw.</string>
 </resources>

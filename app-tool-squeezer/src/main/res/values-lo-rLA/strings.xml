@@ -43,8 +43,6 @@
     <string name="squeezer_preview_dialog_title">ຍືນຍັນການບີບອັດ</string>
     <string name="squeezer_preview_total_size">ຂນາດທັງຫມດ</string>
     <string name="squeezer_preview_estimated_savings">ການປະຫຍັດທີ່ຄາດເດົາ</string>
-    <string name="squeezer_compress_confirmation_title">ບີບອັດຣູບພົ່?</string>
-    <string name="squeezer_compress_confirmation_message">ການນີ້ຈະແທນຣູບຕ້ນພົ້ນດ້ວຍວງຈົນທີ່ບີບອັດ. ການກະທຳນີ້ໄມ່ສາມາຖຍ້ອນຄືນໄດ້.</string>
     <string name="squeezer_history_title">ປະຫວັດການບີບອັດ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ລາຍການ (%2$s)</item>
@@ -76,5 +74,4 @@
         <item quantity="other">ອາຍຸອຍ່າງນ້ອຍ %d ວັນ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ປະຫຍັດຄາດว່າ ~%d%% ສຳຫລັບໄຟລ໌ JPEG</string>
-    <string name="squeezer_onboarding_got_it">ເຂົ້າໃຈແລ້ວ</string>
 </resources>

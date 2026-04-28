@@ -40,8 +40,6 @@
     <string name="general_tap_hint_msg">برای گزینه های بیشتر ضربه بزنید</string>
     <string name="general_upgrade_action">ارتقاء</string>
     <string name="general_donate_action">کمک مالی</string>
-    <string name="general_check_action">بررسی</string>
-    <string name="general_filter_action">فیلتر</string>
     <string name="general_internal_not_available_msg">بدون اتصال اینترنت</string>
     <string name="general_refresh_action">نوسازی</string>
     <string name="general_progress_searching">درحال جستجو</string>
@@ -76,7 +74,6 @@
     <string name="general_tag_filter_label">فیلتر بر اساس برچسب</string>
     <string name="general_tag_system">سیستم</string>
     <string name="general_result_success_message">عملیات موفق</string>
-    <string name="general_result_failure_message">عملیات انجام نشد</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s فضا آزاد شد.</item>
         <item quantity="other">%s فضا آزاد شد.</item>
@@ -109,7 +106,6 @@
         <item quantity="other">%d مورد حذف شد</item>
     </plurals>
     <string name="general_root_required_label">نیازمند روت</string>
-    <string name="general_root_required_message">به دستگاه روت شده نیاز دارد</string>
     <string name="general_search_action">جستجو</string>
     <string name="general_scan_device_action">اسکن دستگاه</string>
     <string name="general_open_system_settings_action">باز کردن تنظیمات سیستمی</string>

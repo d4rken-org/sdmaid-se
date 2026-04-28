@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Daŭrigi seancon</string>
     <string name="swiper_sessions_description">Kelkaj dosieroj bezonas homan decidon. Svingu tra eroj kaj elektu kion konservi aŭ forigi. Preterpasu tion pri kio vi ne certas. Ĉi tiu ilo ebligas mane revizii specifajn dosierujojn, kaj nenio estas forigita ĝis vi konfirmas.</string>
     <string name="swiper_select_folders_action">Elekti dosierujojn</string>
-    <string name="swiper_scanning_title">Skanante…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ero trovita</item>
         <item quantity="other">%d eroj trovitaj</item>

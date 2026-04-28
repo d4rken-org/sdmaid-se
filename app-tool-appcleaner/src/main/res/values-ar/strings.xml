@@ -101,10 +101,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">إيقاف إجباري قبل التنظيف</string>
     <string name="appcleaner_forcestop_before_clearing_summary">إيقاف التطبيقات إجباريًا قبل مسح ذاكرة التخزين المؤقت. قد يساعد في مسح بعض ذاكرات التخزين المؤقت، لكنه قد يتسبب في سلوك غير طبيعي للتطبيقات ويتطلب إعادة تشغيل يدوية.</string>
     <string name="appcleaner_progress_force_stopping">جارٍ الإيقاف الإجباري للتطبيقات…</string>
-    <string name="appcleaner_automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
-    <string name="appcleaner_automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
-    <string name="appcleaner_automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
-    <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
-    <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
 </resources>

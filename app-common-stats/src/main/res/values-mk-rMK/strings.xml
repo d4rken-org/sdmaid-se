@@ -8,7 +8,6 @@
         <item quantity="one">%s ставка обработена откако го поканивте SD Maid на вашиот уред.</item>
         <item quantity="other">%s ставки обработени откако го поканивте SD Maid на вашиот уред.</item>
     </plurals>
-    <string name="stats_report_status_success">Успех</string>
     <string name="stats_report_status_partial_success">Делумен успех</string>
     <string name="stats_report_status_partial_failure">Неуспех</string>
     <string name="stats_settings_desc">Конфигурирајте ги статистиките, извештаите и задржувањето на податоци на SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Број на денови пред бришење на основните извештаи за операциите на SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Детални информации за патеки</string>
     <string name="stats_settings_retention_paths_desc">Бројот на денови за задржување детали за патеки засегнати од SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ден</item>
-        <item quantity="other">%d дена</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ресетирај сè</string>
     <string name="stats_settings_reset_all_desc">Избриши ги сите извештаи и постави ги сите статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати патеки</string>

@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">የተገደበ የመተግበሪያ መጫኛ ውሂብ፣ ለምሳሌ የተጠበቁ የሶስተኛ ወገን መተግበሪያዎች።</string>
     <string name="corpsefinder_filter_appasec_label">የተመሰጠሩ የመተግበሪያ ሀብቶች</string>
     <string name="corpsefinder_filter_appasec_summary">የተመሰጠሩ የመተግበሪያ ሀብቶች፣ ለምሳሌ የጨዋታ ንብረቶች።</string>
-    <string name="corpsefinder_filter_app2sd_summary">በApp2Sd ማሻሻያዎች ወደ ውጫዊ ማጠራቀሚያ የተወሰደ ውሂብ።</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d የመተግበሪያ ቀሪ ተሰርዟል</item>

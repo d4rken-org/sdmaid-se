@@ -47,8 +47,6 @@
     <string name="squeezer_preview_dialog_title">Sıxışdırmanı təsdiqləyin</string>
     <string name="squeezer_preview_total_size">Ümumi ölçü</string>
     <string name="squeezer_preview_estimated_savings">Təxmini qənaət</string>
-    <string name="squeezer_compress_confirmation_title">Şəkillər sıxışdırılsın?</string>
-    <string name="squeezer_compress_confirmation_message">Bu orijinal şəkilləri sıxışdırılmış versiyalarla əvəz edəcək. Bu əməliyyat geri qaytarıla bilməz.</string>
     <string name="squeezer_history_title">Sıxışdırma tarixçəsi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -82,5 +80,4 @@
         <item quantity="other">Ən azı %d gün köhnə</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG faylları üçün təxmini ~%d%% qənaət</string>
-    <string name="squeezer_onboarding_got_it">Başa düşdüm</string>
 </resources>

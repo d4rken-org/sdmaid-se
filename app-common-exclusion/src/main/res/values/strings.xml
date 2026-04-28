@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
     <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
     <string name="exclusion_show_defaults_action">Show defaults</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">You have unsaved changes!</string>
 </resources>

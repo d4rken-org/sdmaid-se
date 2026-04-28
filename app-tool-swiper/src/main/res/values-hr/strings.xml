@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Nastavi sesiju</string>
     <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_select_folders_action">Odaberite mape</string>
-    <string name="swiper_scanning_title">Skeniranje…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d stavka pronađena</item>
         <item quantity="few">%d stavke pronađene</item>
@@ -156,7 +155,6 @@
     <string name="swiper_help_title">Kako Swiper radi</string>
     <string name="swiper_help_message">Povucite svaku datoteku za donošenje odluke:\n\n← Povucite ulijevo: %1$s\n→ Povucite udesno: %2$s\n↑ Povucite prema gore: Preskoči\n↓ Povucite prema dolje: Poništi (nakon prvog povlačenja)\n\nMožete koristiti i gumbe na dnu.\n\nKada završite, dodirnite \"Pregled\" za prikaz svih vaših odluka. Ništa se ne briše dok ne potvrdite na zaslonu za pregled.</string>
     <string name="swiper_gesture_overlay_dismiss_action">U redu</string>
-    <string name="swiper_help_action">Pomoć</string>
     <string name="swiper_file_type_filter_title">Prikaži samo ove vrste datoteka</string>
     <string name="swiper_file_type_filter_hint">Označite vrste koje želite vidjeti. Ako ništa nije označeno, prikazuju se sve datoteke.</string>
     <string name="swiper_file_type_category_images">Slike</string>

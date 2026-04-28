@@ -89,10 +89,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудно запирање пред бришење</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно запрете апликации пред бришење на нивниот кеш. Може да помогне за бришење на кешот на некои апликации, но може да предизвика проблеми и да бара рачно рестартирање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно запирање апликации…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Оваа системска апликација нема екран со поставки. Бришењето на кешот преку услугата за пристапност не е можно. Исклучете ја за да го забрзате бришењето на кешот.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Екранот со поставки не е достапен</string>
-    <string name="appcleaner_automation_loading">Подготвување на автоматизацијата преку услугата за пристапност</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Обид за потврдување на претходната акција (клучни зборови: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Вклучи други корисници</string>
-    <string name="appcleaner_include_multiuser_summary">Вклучи апликации од другите кориснички профили на овој уред.</string>
 </resources>

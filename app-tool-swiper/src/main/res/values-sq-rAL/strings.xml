@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Vazhdo sesionin</string>
     <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
     <string name="swiper_select_folders_action">Zgjidhni dosjet</string>
-    <string name="swiper_scanning_title">Duke skanuar…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d artikull u gjet</item>
         <item quantity="other">%d artikuj u gjetën</item>
@@ -139,7 +138,6 @@
     <string name="swiper_help_title">Si funksionon Swiper</string>
     <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
     <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
-    <string name="swiper_help_action">Ndihmë</string>
     <string name="swiper_file_type_filter_title">Shfaq vetëm këto lloje skedarësh</string>
     <string name="swiper_file_type_filter_hint">Kontrolloni llojet që dëshironi të shikoni. Nëse asnjë nuk është zgjedhur, të gjithë skedarët shfaqen.</string>
     <string name="swiper_file_type_category_images">Imazhe</string>

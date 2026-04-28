@@ -127,5 +127,4 @@
     <string name="appcontrol_automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
     <string name="appcontrol_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
-    <string name="appcontrol_include_multiuser_summary">Ushbu qurilmadagi boshqa foydalanuvchi profillaridan ilovalarni qo\'shish.</string>
 </resources>
