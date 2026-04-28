@@ -3,10 +3,10 @@ package eu.darken.sdmse.stats.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.Assessment
-import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.SettingsBackupRestore
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Assessment
+import androidx.compose.material.icons.twotone.BarChart
+import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -157,7 +157,7 @@ internal fun StatsSettingsScreen(
                 title = { Text(stringResource(CommonR.string.stats_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -169,7 +169,7 @@ internal fun StatsSettingsScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.BarChart,
+                    icon = Icons.TwoTone.BarChart,
                     title = stringResource(CommonR.string.stats_label),
                     subtitle = statsSummary,
                     onClick = onViewStatsClick,
@@ -178,7 +178,7 @@ internal fun StatsSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.stats_settings_retention_category)) }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.BarChart,
+                    icon = Icons.TwoTone.BarChart,
                     title = stringResource(R.string.stats_settings_retention_reports_label),
                     subtitle = stringResource(R.string.stats_settings_retention_reports_desc),
                     value = formatAge(context, state.retentionReports),
@@ -187,7 +187,7 @@ internal fun StatsSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Assessment,
+                    icon = Icons.TwoTone.Assessment,
                     title = stringResource(R.string.stats_settings_retention_paths_label),
                     subtitle = stringResource(R.string.stats_settings_retention_paths_desc),
                     value = formatAge(context, state.retentionPaths),
@@ -196,7 +196,7 @@ internal fun StatsSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.SettingsBackupRestore,
+                    icon = Icons.TwoTone.SettingsBackupRestore,
                     title = stringResource(R.string.stats_settings_reset_all_label),
                     subtitle = resetSummary,
                     onClick = { showResetAllDialog = true },

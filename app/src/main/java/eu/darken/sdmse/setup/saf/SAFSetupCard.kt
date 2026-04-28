@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.Lock
-import androidx.compose.material.icons.outlined.LockOpen
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.Lock
+import androidx.compose.material.icons.twotone.LockOpen
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -48,7 +48,7 @@ internal fun SAFSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        icon = Icons.Outlined.FolderOpen,
+        icon = Icons.TwoTone.FolderOpen,
         title = stringResource(R.string.setup_saf_card_title),
         modifier = modifier,
         onHelp = item.onHelp,
@@ -111,7 +111,7 @@ internal fun SafPathRow(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Icon(
-            imageVector = if (granted) Icons.Outlined.LockOpen else Icons.Outlined.Lock,
+            imageVector = if (granted) Icons.TwoTone.LockOpen else Icons.TwoTone.Lock,
             contentDescription = null,
             modifier = Modifier.size(24.dp),
             tint = if (granted) {

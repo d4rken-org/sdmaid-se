@@ -14,14 +14,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.FileDownload
-import androidx.compose.material.icons.filled.FileUpload
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.Check
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.FileDownload
+import androidx.compose.material.icons.twotone.FileUpload
+import androidx.compose.material.icons.twotone.Info
+import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -245,18 +245,18 @@ internal fun ExclusionListScreen(
                     actions = {
                         IconButton(onClick = onShowInfo) {
                             Icon(
-                                imageVector = Icons.Filled.Info,
+                                imageVector = Icons.TwoTone.Info,
                                 contentDescription = stringResource(CommonR.string.general_info_label),
                             )
                         }
                         IconButton(onClick = onImport) {
                             Icon(
-                                imageVector = Icons.Filled.FileDownload,
+                                imageVector = Icons.TwoTone.FileDownload,
                                 contentDescription = stringResource(R.string.exclusion_import_action),
                             )
                         }
                         IconButton(onClick = { overflowExpanded = true }) {
-                            Icon(Icons.Filled.MoreVert, contentDescription = null)
+                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
                         }
                         DropdownMenu(
                             expanded = overflowExpanded,
@@ -278,7 +278,7 @@ internal fun ExclusionListScreen(
                                 trailingIcon = {
                                     if (state.showDefaults) {
                                         Icon(
-                                            imageVector = Icons.Filled.Check,
+                                            imageVector = Icons.TwoTone.Check,
                                             contentDescription = null,
                                         )
                                     }
@@ -295,7 +295,7 @@ internal fun ExclusionListScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
@@ -306,7 +306,7 @@ internal fun ExclusionListScreen(
                             },
                         ) {
                             Icon(
-                                imageVector = Icons.Filled.FileUpload,
+                                imageVector = Icons.TwoTone.FileUpload,
                                 contentDescription = stringResource(R.string.exclusion_export_action),
                             )
                         }
@@ -317,7 +317,7 @@ internal fun ExclusionListScreen(
                             },
                         ) {
                             Icon(
-                                imageVector = Icons.Filled.Delete,
+                                imageVector = Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_remove_action),
                             )
                         }
@@ -328,7 +328,7 @@ internal fun ExclusionListScreen(
         floatingActionButton = {
             if (selection.isEmpty()) {
                 FloatingActionButton(onClick = onAddExclusion) {
-                    Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.exclusion_create_action))
+                    Icon(Icons.TwoTone.Add, contentDescription = stringResource(R.string.exclusion_create_action))
                 }
             }
         },

@@ -17,17 +17,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.PowerSettingsNew
-import androidx.compose.material.icons.outlined.AcUnit
-import androidx.compose.material.icons.outlined.Archive
-import androidx.compose.material.icons.outlined.DoNotDisturb
-import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.SaveAlt
-import androidx.compose.material.icons.outlined.Shield
-import androidx.compose.material.icons.outlined.Shop
-import androidx.compose.material.icons.outlined.Unarchive
+import androidx.compose.material.icons.automirrored.twotone.OpenInNew
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.PowerSettingsNew
+import androidx.compose.material.icons.twotone.AcUnit
+import androidx.compose.material.icons.twotone.Archive
+import androidx.compose.material.icons.twotone.DoNotDisturb
+import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.SaveAlt
+import androidx.compose.material.icons.twotone.Shield
+import androidx.compose.material.icons.twotone.Shop
+import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -304,28 +304,28 @@ private fun ActionItemRow(
         )
 
         is AppActionItem.Action.Launch -> AppActionRow(
-            icon = rememberVectorPainter(Icons.AutoMirrored.Filled.OpenInNew),
+            icon = rememberVectorPainter(Icons.AutoMirrored.TwoTone.OpenInNew),
             title = stringResource(R.string.appcontrol_app_launch_title),
             description = stringResource(R.string.appcontrol_app_launch_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.ForceStop -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Filled.PowerSettingsNew),
+            icon = rememberVectorPainter(Icons.TwoTone.PowerSettingsNew),
             title = stringResource(R.string.appcontrol_app_forcestop_title),
             description = stringResource(R.string.appcontrol_app_forcestop_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.SystemSettings -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Outlined.Settings),
+            icon = rememberVectorPainter(Icons.TwoTone.Settings),
             title = stringResource(CommonR.string.appcontrol_systemsettings_open_title),
             description = stringResource(R.string.appcontrol_systemsettings_open_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.AppStore -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Outlined.Shop),
+            icon = rememberVectorPainter(Icons.TwoTone.Shop),
             title = stringResource(R.string.appcontrol_appstore_open_title),
             description = stringResource(R.string.appcontrol_appstore_open_description),
             onClick = { onActionTapped(item) },
@@ -333,7 +333,7 @@ private fun ActionItemRow(
 
         is AppActionItem.Action.Exclude -> AppActionRow(
             icon = if (item.existingExclusionId == null) {
-                rememberVectorPainter(Icons.Outlined.Shield)
+                rememberVectorPainter(Icons.TwoTone.Shield)
             } else {
                 rememberVectorPainter(SdmIcons.ShieldEdit)
             },
@@ -352,9 +352,9 @@ private fun ActionItemRow(
 
         is AppActionItem.Action.Toggle -> AppActionRow(
             icon = if (item.isEnabled) {
-                rememberVectorPainter(Icons.Outlined.AcUnit)
+                rememberVectorPainter(Icons.TwoTone.AcUnit)
             } else {
-                rememberVectorPainter(Icons.Outlined.DoNotDisturb)
+                rememberVectorPainter(Icons.TwoTone.DoNotDisturb)
             },
             title = if (item.isEnabled) {
                 stringResource(R.string.appcontrol_toggle_app_disable_action)
@@ -370,28 +370,28 @@ private fun ActionItemRow(
         )
 
         is AppActionItem.Action.Uninstall -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Filled.Delete),
+            icon = rememberVectorPainter(Icons.TwoTone.Delete),
             title = stringResource(CommonR.string.general_delete_action),
             description = stringResource(R.string.appcontrol_app_uninstall_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.Archive -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Outlined.Archive),
+            icon = rememberVectorPainter(Icons.TwoTone.Archive),
             title = stringResource(R.string.appcontrol_archive_action),
             description = stringResource(R.string.appcontrol_archive_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.Restore -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Outlined.Unarchive),
+            icon = rememberVectorPainter(Icons.TwoTone.Unarchive),
             title = stringResource(R.string.appcontrol_restore_action),
             description = stringResource(R.string.appcontrol_restore_description),
             onClick = { onActionTapped(item) },
         )
 
         is AppActionItem.Action.Export -> AppActionRow(
-            icon = rememberVectorPainter(Icons.Outlined.SaveAlt),
+            icon = rememberVectorPainter(Icons.TwoTone.SaveAlt),
             title = stringResource(R.string.appcontrol_export_title),
             description = stringResource(R.string.appcontrol_export_description),
             onClick = { onActionTapped(item) },

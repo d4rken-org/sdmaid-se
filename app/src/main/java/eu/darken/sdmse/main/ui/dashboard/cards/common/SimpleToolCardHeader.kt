@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ViewList
+import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -57,7 +57,7 @@ internal fun SimpleToolCardHeader(
 private fun SimpleToolCardHeaderIdlePreview() {
     PreviewWrapper {
         SimpleToolCardHeader(
-            icon = Icons.AutoMirrored.Outlined.ViewList,
+            icon = Icons.AutoMirrored.TwoTone.ViewList,
             title = "Sample Tool",
             subtitle = "A short subtitle that describes the tool's purpose.",
             isInitializing = false,
@@ -70,7 +70,7 @@ private fun SimpleToolCardHeaderIdlePreview() {
 private fun SimpleToolCardHeaderInitializingPreview() {
     PreviewWrapper {
         SimpleToolCardHeader(
-            icon = Icons.AutoMirrored.Outlined.ViewList,
+            icon = Icons.AutoMirrored.TwoTone.ViewList,
             title = "Sample Tool",
             subtitle = "A short subtitle that describes the tool's purpose.",
             isInitializing = true,

@@ -3,7 +3,7 @@ package eu.darken.sdmse.setup.usagestats
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.twotone.BarChart
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -34,7 +34,7 @@ internal fun UsageStatsSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        icon = Icons.Outlined.BarChart,
+        icon = Icons.TwoTone.BarChart,
         title = stringResource(R.string.setup_usagestats_title),
         modifier = modifier,
         onHelp = item.onHelp,

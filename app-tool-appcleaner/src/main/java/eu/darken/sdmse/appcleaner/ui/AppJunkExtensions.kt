@@ -2,17 +2,17 @@ package eu.darken.sdmse.appcleaner.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.Chat
-import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
-import androidx.compose.material.icons.automirrored.outlined.HelpOutline
-import androidx.compose.material.icons.outlined.AdsClick
-import androidx.compose.material.icons.outlined.Analytics
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.PermMedia
-import androidx.compose.material.icons.outlined.PhotoLibrary
-import androidx.compose.material.icons.outlined.SignalCellularOff
-import androidx.compose.material.icons.outlined.SportsEsports
-import androidx.compose.material.icons.outlined.VisibilityOff
+import androidx.compose.material.icons.automirrored.twotone.Chat
+import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.twotone.AdsClick
+import androidx.compose.material.icons.twotone.Analytics
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.PermMedia
+import androidx.compose.material.icons.twotone.PhotoLibrary
+import androidx.compose.material.icons.twotone.SignalCellularOff
+import androidx.compose.material.icons.twotone.SportsEsports
+import androidx.compose.material.icons.twotone.VisibilityOff
 import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.AdvertisementFilter
@@ -100,26 +100,26 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
 
 val <T : ExpendablesFilter> KClass<T>.icon: ImageVector
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
-        DefaultCachesPrivateFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
-        HiddenFilter::class -> Icons.Outlined.VisibilityOff
-        ThumbnailsFilter::class -> Icons.Outlined.PermMedia
-        CodeCacheFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
-        AdvertisementFilter::class -> Icons.Outlined.AdsClick
+        DefaultCachesPublicFilter::class -> Icons.AutoMirrored.TwoTone.FormatListBulleted
+        DefaultCachesPrivateFilter::class -> Icons.AutoMirrored.TwoTone.FormatListBulleted
+        HiddenFilter::class -> Icons.TwoTone.VisibilityOff
+        ThumbnailsFilter::class -> Icons.TwoTone.PermMedia
+        CodeCacheFilter::class -> Icons.AutoMirrored.TwoTone.FormatListBulleted
+        AdvertisementFilter::class -> Icons.TwoTone.AdsClick
         BugReportingFilter::class -> SdmIcons.Bug
-        AnalyticsFilter::class -> Icons.Outlined.Analytics
-        GameFilesFilter::class -> Icons.Outlined.SportsEsports
-        OfflineCacheFilter::class -> Icons.Outlined.SignalCellularOff
-        RecycleBinsFilter::class -> Icons.Outlined.Delete
+        AnalyticsFilter::class -> Icons.TwoTone.Analytics
+        GameFilesFilter::class -> Icons.TwoTone.SportsEsports
+        OfflineCacheFilter::class -> Icons.TwoTone.SignalCellularOff
+        RecycleBinsFilter::class -> Icons.TwoTone.Delete
         WebViewCacheFilter::class -> SdmIcons.Chrome
-        ShortcutServiceFilter::class -> Icons.Outlined.PhotoLibrary
+        ShortcutServiceFilter::class -> Icons.TwoTone.PhotoLibrary
         WhatsAppBackupsFilter::class -> SdmIcons.WhatsApp
         WhatsAppReceivedFilter::class -> SdmIcons.WhatsApp
         WhatsAppSentFilter::class -> SdmIcons.WhatsApp
-        TelegramFilter::class -> Icons.AutoMirrored.Outlined.Chat
-        ThreemaFilter::class -> Icons.AutoMirrored.Outlined.Chat
+        TelegramFilter::class -> Icons.AutoMirrored.TwoTone.Chat
+        ThreemaFilter::class -> Icons.AutoMirrored.TwoTone.Chat
         WeChatFilter::class -> SdmIcons.WeChat
-        ViberFilter::class -> Icons.AutoMirrored.Outlined.Chat
+        ViberFilter::class -> Icons.AutoMirrored.TwoTone.Chat
         MobileQQFilter::class -> SdmIcons.Qq
-        else -> Icons.AutoMirrored.Outlined.HelpOutline
+        else -> Icons.AutoMirrored.TwoTone.HelpOutline
     }

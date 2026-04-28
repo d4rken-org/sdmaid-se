@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Screenshot
+import androidx.compose.material.icons.twotone.Screenshot
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -39,7 +39,7 @@ class ScreenshotsFilter @Inject constructor(
     private val settings: SystemCleanerSettings,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.Screenshot
+    override val icon: ImageVector = Icons.TwoTone.Screenshot
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_screenshots_label.toCaString()
 

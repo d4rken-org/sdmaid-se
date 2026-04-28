@@ -13,8 +13,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccessibilityNew
-import androidx.compose.material.icons.outlined.Cancel
+import androidx.compose.material.icons.twotone.AccessibilityNew
+import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -109,7 +109,7 @@ private fun ControlCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = Icons.Outlined.AccessibilityNew,
+                imageVector = Icons.TwoTone.AccessibilityNew,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
             )
@@ -174,7 +174,7 @@ private fun ControlCard(
                 .padding(16.dp),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Cancel,
+                imageVector = Icons.TwoTone.Cancel,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(8.dp))

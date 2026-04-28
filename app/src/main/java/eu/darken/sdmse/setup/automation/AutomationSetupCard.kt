@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessibilityNew
-import androidx.compose.material.icons.outlined.Warning
+import androidx.compose.material.icons.twotone.AccessibilityNew
+import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -47,7 +47,7 @@ internal fun AutomationSetupCard(
 ) {
     val ui = item.state.toUiModel()
     SetupCardContainer(
-        icon = Icons.Filled.AccessibilityNew,
+        icon = Icons.TwoTone.AccessibilityNew,
         title = stringResource(R.string.setup_acs_card_title),
         modifier = modifier,
         onHelp = item.onHelp,
@@ -192,7 +192,7 @@ private fun AppOpsRestrictionBox(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Warning,
+                imageVector = Icons.TwoTone.Warning,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.size(20.dp),

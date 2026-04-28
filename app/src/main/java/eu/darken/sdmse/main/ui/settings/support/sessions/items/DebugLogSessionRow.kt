@@ -11,9 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
-import androidx.compose.material.icons.outlined.BugReport
-import androidx.compose.material.icons.outlined.ErrorOutline
+import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Stop
 import androidx.compose.material3.CircularProgressIndicator
@@ -141,7 +141,7 @@ private fun SessionStatusIcon(session: DebugLogSession) {
     ) {
         when (session) {
             is DebugLogSession.Recording -> Icon(
-                imageVector = Icons.Outlined.BugReport,
+                imageVector = Icons.TwoTone.BugReport,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -151,13 +151,13 @@ private fun SessionStatusIcon(session: DebugLogSession) {
             )
 
             is DebugLogSession.Finished -> Icon(
-                imageVector = Icons.AutoMirrored.Outlined.InsertDriveFile,
+                imageVector = Icons.AutoMirrored.TwoTone.InsertDriveFile,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
             is DebugLogSession.Failed -> Icon(
-                imageVector = Icons.Outlined.ErrorOutline,
+                imageVector = Icons.TwoTone.ErrorOutline,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.error,
             )

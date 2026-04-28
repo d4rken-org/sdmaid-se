@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.CheckCircle
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -38,7 +38,7 @@ internal fun NotificationSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        icon = Icons.Outlined.Notifications,
+        icon = Icons.TwoTone.Notifications,
         title = stringResource(R.string.setup_notification_title),
         modifier = modifier,
         onHelp = item.onHelp,

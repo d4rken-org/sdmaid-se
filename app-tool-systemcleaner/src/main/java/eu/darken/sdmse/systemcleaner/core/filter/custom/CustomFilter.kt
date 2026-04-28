@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FilterAlt
+import androidx.compose.material.icons.twotone.FilterAlt
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -29,7 +29,7 @@ class CustomFilter @AssistedInject constructor(
 
     override val identifier: FilterIdentifier = filterConfig.identifier
 
-    override val icon: ImageVector = Icons.Outlined.FilterAlt
+    override val icon: ImageVector = Icons.TwoTone.FilterAlt
 
     override suspend fun getLabel(): CaString = filterConfig.label.toCaString()
 

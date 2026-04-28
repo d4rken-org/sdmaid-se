@@ -13,8 +13,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.Remove
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -153,10 +153,10 @@ internal fun ScheduleItemSheet(
                 )
             }
             IconButton(onClick = onDecreaseDays) {
-                Icon(Icons.Filled.Remove, contentDescription = "−1")
+                Icon(Icons.TwoTone.Remove, contentDescription = "−1")
             }
             IconButton(onClick = onIncreaseDays) {
-                Icon(Icons.Filled.Add, contentDescription = "+1")
+                Icon(Icons.TwoTone.Add, contentDescription = "+1")
             }
         }
 

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Usb
+import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -33,7 +33,7 @@ class LostDirFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.Usb
+    override val icon: ImageVector = Icons.TwoTone.Usb
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_lostdir_label.toCaString()
 

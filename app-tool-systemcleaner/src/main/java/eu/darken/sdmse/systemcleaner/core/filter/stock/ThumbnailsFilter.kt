@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.PhotoLibrary
+import androidx.compose.material.icons.twotone.PhotoLibrary
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -32,7 +32,7 @@ class ThumbnailsFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.PhotoLibrary
+    override val icon: ImageVector = Icons.TwoTone.PhotoLibrary
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_thumbnails_label.toCaString()
 

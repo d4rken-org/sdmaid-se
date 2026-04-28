@@ -4,19 +4,19 @@ import android.os.LocaleList
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.AccessibilityNew
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.AccessibilityNew
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.Image
 import androidx.compose.material.icons.twotone.Language
-import androidx.compose.material.icons.twotone.Message
+import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material.icons.twotone.TouchApp
-import androidx.compose.material.icons.twotone.ViewList
+import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -154,7 +154,7 @@ internal fun GeneralSettingsScreen(
                 title = { Text(stringResource(R.string.general_settings_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -178,7 +178,7 @@ internal fun GeneralSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.TwoTone.ViewList,
+                    icon = Icons.AutoMirrored.TwoTone.ViewList,
                     title = stringResource(R.string.dashboard_settings_oneclick_tools_title),
                     subtitle = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
                     onClick = { showOneClickTools = true },
@@ -271,7 +271,7 @@ internal fun GeneralSettingsScreen(
             item {
                 val context = LocalContext.current
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.AccessibilityNew,
+                    icon = Icons.TwoTone.AccessibilityNew,
                     title = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_romtype_detection_label),
                     subtitle = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_romtype_detection_summary),
                     value = state.romTypeDetection.label.get(context),
@@ -295,7 +295,7 @@ internal fun GeneralSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.TwoTone.Message,
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     title = stringResource(R.string.motd_setting_enabled_label),
                     subtitle = stringResource(R.string.motd_setting_enabled_explanation),
                     checked = state.isMotdEnabled,

@@ -17,18 +17,18 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.AcUnit
-import androidx.compose.material.icons.filled.Block
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.PowerSettingsNew
-import androidx.compose.material.icons.filled.SelectAll
-import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.outlined.Archive
-import androidx.compose.material.icons.outlined.SaveAlt
-import androidx.compose.material.icons.outlined.Unarchive
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.AcUnit
+import androidx.compose.material.icons.twotone.Block
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.MoreVert
+import androidx.compose.material.icons.twotone.PowerSettingsNew
+import androidx.compose.material.icons.twotone.SelectAll
+import androidx.compose.material.icons.twotone.Share
+import androidx.compose.material.icons.twotone.Archive
+import androidx.compose.material.icons.twotone.SaveAlt
+import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -332,7 +332,7 @@ internal fun AppControlListScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         }
                     },
                 )
@@ -341,7 +341,7 @@ internal fun AppControlListScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
@@ -350,7 +350,7 @@ internal fun AppControlListScreen(
                             onUninstallSelected(ids)
                         }) {
                             Icon(
-                                Icons.Filled.Delete,
+                                Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_delete_selected_action),
                             )
                         }
@@ -360,24 +360,24 @@ internal fun AppControlListScreen(
                             onExcludeSelected(ids)
                         }) {
                             Icon(
-                                Icons.Filled.Block,
+                                Icons.TwoTone.Block,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
                         IconButton(onClick = { selection = rowIds }) {
                             Icon(
-                                Icons.Filled.SelectAll,
+                                Icons.TwoTone.SelectAll,
                                 contentDescription = stringResource(CommonR.string.general_list_select_all_action),
                             )
                         }
                         IconButton(onClick = { overflowOpen = true }) {
-                            Icon(Icons.Filled.MoreVert, contentDescription = null)
+                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
                         }
                         DropdownMenu(expanded = overflowOpen, onDismissRequest = { overflowOpen = false }) {
                             if (state.allowActionToggle) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_toggle_app_selection_action)) },
-                                    leadingIcon = { Icon(Icons.Filled.AcUnit, contentDescription = null) },
+                                    leadingIcon = { Icon(Icons.TwoTone.AcUnit, contentDescription = null) },
                                     onClick = {
                                         overflowOpen = false
                                         onToggleSelected(selection)
@@ -387,7 +387,7 @@ internal fun AppControlListScreen(
                             if (state.allowActionForceStop) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_force_stop_selection_action)) },
-                                    leadingIcon = { Icon(Icons.Filled.PowerSettingsNew, contentDescription = null) },
+                                    leadingIcon = { Icon(Icons.TwoTone.PowerSettingsNew, contentDescription = null) },
                                     onClick = {
                                         overflowOpen = false
                                         onForceStopSelected(selection)
@@ -397,7 +397,7 @@ internal fun AppControlListScreen(
                             if (state.allowActionArchive) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_archive_selection_action)) },
-                                    leadingIcon = { Icon(Icons.Outlined.Archive, contentDescription = null) },
+                                    leadingIcon = { Icon(Icons.TwoTone.Archive, contentDescription = null) },
                                     onClick = {
                                         overflowOpen = false
                                         onArchiveSelected(selection)
@@ -407,7 +407,7 @@ internal fun AppControlListScreen(
                             if (state.allowActionRestore) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_restore_selection_action)) },
-                                    leadingIcon = { Icon(Icons.Outlined.Unarchive, contentDescription = null) },
+                                    leadingIcon = { Icon(Icons.TwoTone.Unarchive, contentDescription = null) },
                                     onClick = {
                                         overflowOpen = false
                                         onRestoreSelected(selection)
@@ -416,7 +416,7 @@ internal fun AppControlListScreen(
                             }
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.appcontrol_export_app_selection_action)) },
-                                leadingIcon = { Icon(Icons.Outlined.SaveAlt, contentDescription = null) },
+                                leadingIcon = { Icon(Icons.TwoTone.SaveAlt, contentDescription = null) },
                                 onClick = {
                                     overflowOpen = false
                                     onExportSelected(selection)
@@ -424,7 +424,7 @@ internal fun AppControlListScreen(
                             )
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.appcontrol_share_list_action)) },
-                                leadingIcon = { Icon(Icons.Filled.Share, contentDescription = null) },
+                                leadingIcon = { Icon(Icons.TwoTone.Share, contentDescription = null) },
                                 onClick = {
                                     overflowOpen = false
                                     onShareSelected(selection)

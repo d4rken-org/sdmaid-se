@@ -11,10 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.MoreVert
+import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -139,19 +139,19 @@ internal fun PickerScreen(
                 navigationIcon = {
                     IconButton(onClick = onCancel) {
                         if (navigatable) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         } else {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     }
                 },
                 actions = {
                     if (state.progress == null) {
                         IconButton(onClick = onSave) {
-                            Icon(Icons.Filled.Save, contentDescription = stringResource(CommonR.string.general_save_action))
+                            Icon(Icons.TwoTone.Save, contentDescription = stringResource(CommonR.string.general_save_action))
                         }
                         IconButton(onClick = { overflowOpen = true }) {
-                            Icon(Icons.Filled.MoreVert, contentDescription = null)
+                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
                         }
                         DropdownMenu(
                             expanded = overflowOpen,

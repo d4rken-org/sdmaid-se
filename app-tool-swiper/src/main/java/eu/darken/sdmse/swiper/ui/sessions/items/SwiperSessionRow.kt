@@ -12,13 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Cancel
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.FilterList
-import androidx.compose.material.icons.automirrored.filled.Sort
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Swipe
+import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.FilterList
+import androidx.compose.material.icons.automirrored.twotone.Sort
+import androidx.compose.material.icons.twotone.Search
+import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Button
@@ -88,7 +88,7 @@ fun SwiperSessionRow(
                         )
                         IconButton(onClick = onRename, modifier = Modifier.size(32.dp)) {
                             Icon(
-                                Icons.Filled.Edit,
+                                Icons.TwoTone.Edit,
                                 contentDescription = stringResource(R.string.swiper_session_rename_title),
                                 modifier = Modifier.size(18.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -115,7 +115,7 @@ fun SwiperSessionRow(
                 }
                 IconButton(onClick = onRemove) {
                     Icon(
-                        Icons.Filled.Close,
+                        Icons.TwoTone.Close,
                         contentDescription = stringResource(CommonR.string.general_remove_action),
                     )
                 }
@@ -217,7 +217,7 @@ fun SwiperSessionRow(
                     val filterActive = !filter.isEmpty
                     AssistChip(
                         onClick = onFilter,
-                        leadingIcon = { Icon(Icons.Filled.FilterList, contentDescription = null) },
+                        leadingIcon = { Icon(Icons.TwoTone.FilterList, contentDescription = null) },
                         label = { Text(stringResource(R.string.swiper_file_type_filter_title)) },
                         colors = AssistChipDefaults.assistChipColors(
                             labelColor = if (filterActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
@@ -227,7 +227,7 @@ fun SwiperSessionRow(
                     val sortActive = session.sortOrder != SortOrder.DEFAULT
                     AssistChip(
                         onClick = onSortOrder,
-                        leadingIcon = { Icon(Icons.AutoMirrored.Filled.Sort, contentDescription = null) },
+                        leadingIcon = { Icon(Icons.AutoMirrored.TwoTone.Sort, contentDescription = null) },
                         label = { Text(stringResource(CommonR.string.general_sort_by_title)) },
                         colors = AssistChipDefaults.assistChipColors(
                             labelColor = if (sortActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
@@ -269,7 +269,7 @@ private fun SessionActionButton(
 ) {
     when {
         isScanning -> TextButton(onClick = onCancel, enabled = !isCancelling) {
-            Icon(Icons.Filled.Cancel, contentDescription = null)
+            Icon(Icons.TwoTone.Cancel, contentDescription = null)
             Spacer(Modifier.width(8.dp))
             Text(stringResource(CommonR.string.general_cancel_action))
         }
@@ -279,7 +279,7 @@ private fun SessionActionButton(
         }
 
         canContinue -> Button(onClick = onContinue) {
-            Icon(Icons.Filled.Swipe, contentDescription = null)
+            Icon(Icons.TwoTone.Swipe, contentDescription = null)
             Spacer(Modifier.width(8.dp))
             Text(
                 if (hasStarted) stringResource(R.string.swiper_continue_action)
@@ -288,7 +288,7 @@ private fun SessionActionButton(
         }
 
         else -> Button(onClick = onScan) {
-            Icon(Icons.Filled.Search, contentDescription = null)
+            Icon(Icons.TwoTone.Search, contentDescription = null)
             Spacer(Modifier.width(8.dp))
             Text(stringResource(CommonR.string.general_scan_action))
         }

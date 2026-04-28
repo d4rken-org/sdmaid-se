@@ -14,14 +14,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.FileDownload
-import androidx.compose.material.icons.filled.FileUpload
-import androidx.compose.material.icons.filled.HelpOutline
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.FileDownload
+import androidx.compose.material.icons.twotone.FileUpload
+import androidx.compose.material.icons.twotone.HelpOutline
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -183,18 +183,18 @@ internal fun CustomFilterListScreen(
                     title = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         }
                     },
                     actions = {
                         IconButton(onClick = onImport) {
                             Icon(
-                                Icons.Filled.FileUpload,
+                                Icons.TwoTone.FileUpload,
                                 contentDescription = stringResource(R.string.systemcleaner_customfilter_import_action),
                             )
                         }
                         IconButton(onClick = onHelp) {
-                            Icon(Icons.Filled.HelpOutline, contentDescription = null)
+                            Icon(Icons.TwoTone.HelpOutline, contentDescription = null)
                         }
                     },
                 )
@@ -203,7 +203,7 @@ internal fun CustomFilterListScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
@@ -213,7 +213,7 @@ internal fun CustomFilterListScreen(
                                 selection = emptySet()
                                 onEditRow(row)
                             }) {
-                                Icon(Icons.Filled.Edit, contentDescription = null)
+                                Icon(Icons.TwoTone.Edit, contentDescription = null)
                             }
                         }
                         IconButton(onClick = {
@@ -222,7 +222,7 @@ internal fun CustomFilterListScreen(
                             onExportSelected(rows)
                         }) {
                             Icon(
-                                Icons.Filled.FileDownload,
+                                Icons.TwoTone.FileDownload,
                                 contentDescription = stringResource(R.string.systemcleaner_customfilter_export_action),
                             )
                         }
@@ -231,7 +231,7 @@ internal fun CustomFilterListScreen(
                             selection = emptySet()
                             onRemoveSelected(rows)
                         }) {
-                            Icon(Icons.Filled.Delete, contentDescription = null)
+                            Icon(Icons.TwoTone.Delete, contentDescription = null)
                         }
                     },
                 )
@@ -241,7 +241,7 @@ internal fun CustomFilterListScreen(
             if (selection.isEmpty() && state.isPro != null) {
                 ExtendedFloatingActionButton(
                     onClick = onCreate,
-                    icon = { Icon(Icons.Filled.Add, contentDescription = null) },
+                    icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
                     text = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
                 )
             }

@@ -3,11 +3,11 @@ package eu.darken.sdmse.squeezer.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.Compress
-import androidx.compose.material.icons.outlined.History
-import androidx.compose.material.icons.outlined.NewReleases
-import androidx.compose.material.icons.outlined.RotateRight
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Compress
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.NewReleases
+import androidx.compose.material.icons.twotone.RotateRight
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -103,7 +103,7 @@ internal fun SqueezerSettingsScreen(
                 title = { Text(stringResource(CommonR.string.squeezer_tool_name)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -116,7 +116,7 @@ internal fun SqueezerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_types_category_label)) }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.Compress,
+                    icon = Icons.TwoTone.Compress,
                     title = stringResource(R.string.squeezer_type_jpeg_title),
                     subtitle = stringResource(R.string.squeezer_type_jpeg_description),
                     checked = state.includeJpeg,
@@ -125,7 +125,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.Compress,
+                    icon = Icons.TwoTone.Compress,
                     title = stringResource(R.string.squeezer_type_webp_title),
                     subtitle = stringResource(R.string.squeezer_type_webp_description),
                     checked = state.includeWebp,
@@ -135,7 +135,7 @@ internal fun SqueezerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_compression_settings_label)) }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.RotateRight,
+                    icon = Icons.TwoTone.RotateRight,
                     title = stringResource(R.string.squeezer_skip_compressed_title),
                     subtitle = stringResource(R.string.squeezer_skip_compressed_description),
                     checked = state.skipPreviouslyCompressed,
@@ -144,7 +144,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.NewReleases,
+                    icon = Icons.TwoTone.NewReleases,
                     title = stringResource(R.string.squeezer_exif_marker_title),
                     subtitle = stringResource(R.string.squeezer_exif_marker_description),
                     checked = state.writeExifMarker,
@@ -153,7 +153,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.History,
+                    icon = Icons.TwoTone.History,
                     title = stringResource(R.string.squeezer_history_title),
                     subtitle = historySummary,
                     onClick = { showClearDialog = true },

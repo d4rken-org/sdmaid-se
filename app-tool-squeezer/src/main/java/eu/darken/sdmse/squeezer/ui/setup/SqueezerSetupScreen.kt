@@ -17,14 +17,14 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.History
-import androidx.compose.material.icons.outlined.Layers
-import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.Info
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.Layers
+import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -152,7 +152,7 @@ internal fun SqueezerSetupScreen(
                 title = { Text(stringResource(CommonR.string.squeezer_tool_name)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -205,7 +205,7 @@ internal fun SqueezerSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     ) {
                         Icon(
-                            imageVector = Icons.Outlined.Layers,
+                            imageVector = Icons.TwoTone.Layers,
                             contentDescription = null,
                         )
                         Spacer(Modifier.width(8.dp))
@@ -262,7 +262,7 @@ private fun ExplanationCard() {
             verticalAlignment = Alignment.Top,
         ) {
             Icon(
-                imageVector = Icons.Filled.Info,
+                imageVector = Icons.TwoTone.Info,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSecondaryContainer,
             )
@@ -297,7 +297,7 @@ private fun PathsCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = Icons.Outlined.FolderOpen,
+                imageVector = Icons.TwoTone.FolderOpen,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
@@ -315,7 +315,7 @@ private fun PathsCard(
                 )
             }
             Icon(
-                imageVector = Icons.Filled.Edit,
+                imageVector = Icons.TwoTone.Edit,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -336,7 +336,7 @@ private fun QualityCard(
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    imageVector = Icons.Outlined.Settings,
+                    imageVector = Icons.TwoTone.Settings,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )
@@ -396,7 +396,7 @@ private fun QualityCard(
                         enabled = !isLoadingExample,
                     ) {
                         Icon(
-                            imageVector = Icons.Filled.Info,
+                            imageVector = Icons.TwoTone.Info,
                             contentDescription = null,
                             modifier = Modifier.size(18.dp),
                         )
@@ -431,7 +431,7 @@ private fun AgeCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = Icons.Outlined.History,
+                imageVector = Icons.TwoTone.History,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
@@ -449,7 +449,7 @@ private fun AgeCard(
                 )
             }
             Icon(
-                imageVector = Icons.Filled.Edit,
+                imageVector = Icons.TwoTone.Edit,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -474,7 +474,7 @@ private fun MinSizeCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = Icons.AutoMirrored.Outlined.InsertDriveFile,
+                imageVector = Icons.AutoMirrored.TwoTone.InsertDriveFile,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
@@ -492,7 +492,7 @@ private fun MinSizeCard(
                 )
             }
             Icon(
-                imageVector = Icons.Filled.Edit,
+                imageVector = Icons.TwoTone.Edit,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )

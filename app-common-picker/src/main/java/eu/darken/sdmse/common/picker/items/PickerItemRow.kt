@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Folder
+import androidx.compose.material.icons.twotone.Folder
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -38,7 +38,7 @@ fun PickerItemRow(
     val context = LocalContext.current
     val isRoot = item.parent == null
 
-    val icon = if (isRoot) Icons.Outlined.Folder else item.lookup.fileType.icon
+    val icon = if (isRoot) Icons.TwoTone.Folder else item.lookup.fileType.icon
     val primary = if (isRoot) item.lookup.lookedUp.path else item.lookup.name
     val secondary = item.dataArea.type.label.get(context)
     val tertiaryRes = when (item.lookup.fileType) {

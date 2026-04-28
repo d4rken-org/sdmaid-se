@@ -13,10 +13,10 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.SelectAll
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -181,7 +181,7 @@ internal fun SystemCleanerListScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         }
                     },
                 )
@@ -190,7 +190,7 @@ internal fun SystemCleanerListScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
@@ -199,13 +199,13 @@ internal fun SystemCleanerListScreen(
                             onDeleteSelected(ids)
                         }) {
                             Icon(
-                                Icons.Filled.Delete,
+                                Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_delete_selected_action),
                             )
                         }
                         IconButton(onClick = { selection = rowIds }) {
                             Icon(
-                                Icons.Filled.SelectAll,
+                                Icons.TwoTone.SelectAll,
                                 contentDescription = stringResource(CommonR.string.general_list_select_all_action),
                             )
                         }

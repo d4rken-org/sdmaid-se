@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.Stars
+import androidx.compose.material.icons.twotone.BarChart
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -78,7 +78,7 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
     DashboardCard(onClick = item.onViewAction) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.BarChart,
+                imageVector = Icons.TwoTone.BarChart,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -107,7 +107,7 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
             DashboardFlatActionButton(onClick = item.onViewAction) {
                 if (item.showProRequirement) {
                     Icon(
-                        imageVector = Icons.Outlined.Stars,
+                        imageVector = Icons.TwoTone.Stars,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

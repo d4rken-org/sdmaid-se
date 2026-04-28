@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.RunningWithErrors
+import androidx.compose.material.icons.twotone.RunningWithErrors
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -42,7 +42,7 @@ class AnrFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.RunningWithErrors
+    override val icon: ImageVector = Icons.TwoTone.RunningWithErrors
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_anr_label.toCaString()
 

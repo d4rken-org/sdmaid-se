@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Swipe
+import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -86,7 +86,7 @@ internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.Swipe,
+                imageVector = Icons.TwoTone.Swipe,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -118,7 +118,7 @@ internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Swipe,
+                imageVector = Icons.TwoTone.Swipe,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

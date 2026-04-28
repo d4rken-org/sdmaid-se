@@ -3,23 +3,23 @@ package eu.darken.sdmse.systemcleaner.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
-import androidx.compose.material.icons.filled.AccessTimeFilled
-import androidx.compose.material.icons.outlined.AdsClick
-import androidx.compose.material.icons.outlined.Analytics
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.DeleteForever
-import androidx.compose.material.icons.outlined.FilterAlt
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.History
-import androidx.compose.material.icons.outlined.Inventory2
-import androidx.compose.material.icons.outlined.PhoneIphone
-import androidx.compose.material.icons.outlined.RunningWithErrors
-import androidx.compose.material.icons.outlined.StackedBarChart
-import androidx.compose.material.icons.outlined.TaskAlt
-import androidx.compose.material.icons.outlined.ThumbUp
-import androidx.compose.material.icons.outlined.Usb
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
+import androidx.compose.material.icons.twotone.AccessTimeFilled
+import androidx.compose.material.icons.twotone.AdsClick
+import androidx.compose.material.icons.twotone.Analytics
+import androidx.compose.material.icons.twotone.Apps
+import androidx.compose.material.icons.twotone.DeleteForever
+import androidx.compose.material.icons.twotone.FilterAlt
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.Inventory2
+import androidx.compose.material.icons.twotone.PhoneIphone
+import androidx.compose.material.icons.twotone.RunningWithErrors
+import androidx.compose.material.icons.twotone.StackedBarChart
+import androidx.compose.material.icons.twotone.TaskAlt
+import androidx.compose.material.icons.twotone.ThumbUp
+import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -158,7 +158,7 @@ internal fun SystemCleanerSettingsScreen(
                 title = { Text(stringResource(CommonR.string.systemcleaner_tool_name)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -171,7 +171,7 @@ internal fun SystemCleanerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.systemcleaner_filter_custom_label)) }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.FilterAlt,
+                    icon = Icons.TwoTone.FilterAlt,
                     title = stringResource(R.string.systemcleaner_filter_custom_manage_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_custom_manage_summary),
                     onClick = onCustomFiltersClick,
@@ -181,7 +181,7 @@ internal fun SystemCleanerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_filter_generic)) }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
+                    icon = Icons.AutoMirrored.TwoTone.FormatListBulleted,
                     title = stringResource(R.string.systemcleaner_filter_logfiles_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_logfiles_summary),
                     checked = state.filterLogFiles,
@@ -190,7 +190,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.AdsClick,
+                    icon = Icons.TwoTone.AdsClick,
                     title = stringResource(R.string.systemcleaner_filter_advertisements_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_advertisements_summary),
                     checked = state.filterAdvertisements,
@@ -199,7 +199,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.FolderOpen,
+                    icon = Icons.TwoTone.FolderOpen,
                     title = stringResource(R.string.systemcleaner_filter_emptydirectories_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_emptydirectories_summary),
                     checked = state.filterEmptyDirectories,
@@ -208,7 +208,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.Inventory2,
+                    icon = Icons.TwoTone.Inventory2,
                     title = stringResource(R.string.systemcleaner_filter_superfluosapks_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_superfluosapks_summary),
                     checked = state.filterSuperfluosApks,
@@ -228,7 +228,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.DeleteForever,
+                    icon = Icons.TwoTone.DeleteForever,
                     title = stringResource(R.string.systemcleaner_filter_trashed_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_trashed_summary),
                     checked = state.filterTrashed,
@@ -237,7 +237,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.PhoneIphone,
+                    icon = Icons.TwoTone.PhoneIphone,
                     title = stringResource(R.string.systemcleaner_filter_screenshots_label),
                     subtitle = stringResource(
                         R.string.systemcleaner_filter_screenshots_summary,
@@ -250,7 +250,7 @@ internal fun SystemCleanerSettingsScreen(
             if (state.filterScreenshots) {
                 item {
                     SettingsPreferenceItem(
-                        icon = Icons.Outlined.History,
+                        icon = Icons.TwoTone.History,
                         title = stringResource(R.string.systemcleaner_filter_screenshots_age_label),
                         subtitle = stringResource(R.string.systemcleaner_filter_screenshots_age_summary),
                         value = formatAge(context, state.screenshotsAge),
@@ -260,7 +260,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.Usb,
+                    icon = Icons.TwoTone.Usb,
                     title = stringResource(R.string.systemcleaner_filter_lostdir_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_lostdir_summary),
                     checked = state.filterLostDir,
@@ -296,7 +296,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Filled.AccessTimeFilled,
+                    icon = Icons.TwoTone.AccessTimeFilled,
                     title = stringResource(R.string.systemcleaner_filter_tempfiles_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_tempfiles_summary),
                     checked = state.filterTempFiles,
@@ -305,7 +305,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.ThumbUp,
+                    icon = Icons.TwoTone.ThumbUp,
                     title = stringResource(R.string.systemcleaner_filter_thumbnails_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_thumbnails_summary),
                     checked = state.filterThumbnails,
@@ -314,7 +314,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.Analytics,
+                    icon = Icons.TwoTone.Analytics,
                     title = stringResource(R.string.systemcleaner_filter_analytics_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_analytics_summary),
                     checked = state.filterAnalytics,
@@ -325,7 +325,7 @@ internal fun SystemCleanerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_filter_specific)) }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.RunningWithErrors,
+                    icon = Icons.TwoTone.RunningWithErrors,
                     title = stringResource(R.string.systemcleaner_filter_anr_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_anr_summary),
                     checked = state.filterAnr,
@@ -358,7 +358,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
+                    icon = Icons.AutoMirrored.TwoTone.FormatListBulleted,
                     title = stringResource(R.string.systemcleaner_filter_datalogger_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_datalogger_summary),
                     checked = state.filterDataLogger,
@@ -369,7 +369,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
+                    icon = Icons.AutoMirrored.TwoTone.FormatListBulleted,
                     title = stringResource(R.string.systemcleaner_filter_logdropbox_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_logdropbox_summary),
                     checked = state.filterLogDropbox,
@@ -380,7 +380,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.TaskAlt,
+                    icon = Icons.TwoTone.TaskAlt,
                     title = stringResource(R.string.systemcleaner_filter_recenttasks_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_recenttasks_summary),
                     checked = state.filterRecentTasks,
@@ -402,7 +402,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.StackedBarChart,
+                    icon = Icons.TwoTone.StackedBarChart,
                     title = stringResource(R.string.systemcleaner_filter_usagestats_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_usagestats_summary),
                     checked = state.filterUsageStats,
@@ -413,7 +413,7 @@ internal fun SystemCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.Apps,
+                    icon = Icons.TwoTone.Apps,
                     title = stringResource(R.string.systemcleaner_filter_packagecaches_label),
                     subtitle = stringResource(R.string.systemcleaner_filter_packagecaches_summary),
                     checked = state.filterPackageCache,

@@ -11,11 +11,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Alarm
-import androidx.compose.material.icons.filled.Cancel
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.outlined.AccessTime
-import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.twotone.Alarm
+import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.AccessTime
+import androidx.compose.material.icons.twotone.History
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -88,7 +88,7 @@ internal fun ScheduleRow(
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    Icons.Filled.Alarm,
+                    Icons.TwoTone.Alarm,
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
                 )
@@ -118,14 +118,14 @@ internal fun ScheduleRow(
                     Column(modifier = Modifier.padding(12.dp)) {
                         if (nextEtaText != null) {
                             ExecutionInfoLine(
-                                icon = Icons.Outlined.AccessTime,
+                                icon = Icons.TwoTone.AccessTime,
                                 text = stringResource(R.string.scheduler_schedule_next_at_x, nextEtaText),
                             )
                         }
                         if (lastExecutedText != null) {
                             if (nextEtaText != null) Spacer(modifier = Modifier.padding(vertical = 2.dp))
                             ExecutionInfoLine(
-                                icon = Icons.Outlined.History,
+                                icon = Icons.TwoTone.History,
                                 text = stringResource(R.string.scheduler_schedule_last_at_x, lastExecutedText),
                             )
                         }
@@ -190,7 +190,7 @@ internal fun ScheduleRow(
                     enabled = rowEnabled,
                 ) {
                     Icon(
-                        Icons.Filled.Cancel,
+                        Icons.TwoTone.Cancel,
                         contentDescription = null,
                         tint = if (rowEnabled) MaterialTheme.colorScheme.error else Color.Unspecified,
                     )
@@ -204,7 +204,7 @@ internal fun ScheduleRow(
                     onClick = onEdit,
                     enabled = rowEnabled,
                 ) {
-                    Icon(Icons.Filled.Edit, contentDescription = null)
+                    Icon(Icons.TwoTone.Edit, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(stringResource(R.string.scheduler_edit_schedule_action))
                 }
@@ -263,7 +263,7 @@ private fun CommandsRow(
             modifier = Modifier.size(40.dp),
         ) {
             Icon(
-                Icons.Filled.Edit,
+                Icons.TwoTone.Edit,
                 contentDescription = stringResource(CommonR.string.general_edit_action),
                 modifier = Modifier.size(24.dp),
             )

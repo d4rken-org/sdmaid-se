@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AdminPanelSettings
+import androidx.compose.material.icons.twotone.AdminPanelSettings
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -37,7 +37,7 @@ internal fun RootSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        icon = Icons.Outlined.AdminPanelSettings,
+        icon = Icons.TwoTone.AdminPanelSettings,
         title = stringResource(R.string.setup_root_card_title),
         modifier = modifier,
         onHelp = item.onHelp,

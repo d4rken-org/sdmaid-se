@@ -11,9 +11,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.HelpOutline
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -49,21 +49,21 @@ internal fun SwiperStatsCard(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 StatColumn(
-                    icon = Icons.Filled.Favorite,
+                    icon = Icons.TwoTone.Favorite,
                     tint = MaterialTheme.colorScheme.primary,
                     count = state.keepCount,
                     sizeBytes = state.keepSize,
                     context = context,
                 )
                 StatColumn(
-                    icon = Icons.Filled.Delete,
+                    icon = Icons.TwoTone.Delete,
                     tint = MaterialTheme.colorScheme.error,
                     count = state.deleteCount,
                     sizeBytes = state.deleteSize,
                     context = context,
                 )
                 StatColumn(
-                    icon = Icons.AutoMirrored.Filled.HelpOutline,
+                    icon = Icons.AutoMirrored.TwoTone.HelpOutline,
                     tint = MaterialTheme.colorScheme.tertiary,
                     count = state.undecidedCount,
                     sizeBytes = state.undecidedSize,

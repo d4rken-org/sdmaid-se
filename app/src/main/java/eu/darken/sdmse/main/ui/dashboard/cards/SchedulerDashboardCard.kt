@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessTimeFilled
-import androidx.compose.material.icons.outlined.Alarm
+import androidx.compose.material.icons.twotone.AccessTimeFilled
+import androidx.compose.material.icons.twotone.Alarm
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -56,7 +56,7 @@ internal fun SchedulerDashboardCard(item: SchedulerDashboardCardItem) {
     DashboardCard(onClick = item.onManageClicked) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.Alarm,
+                imageVector = Icons.TwoTone.Alarm,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -107,7 +107,7 @@ internal fun SchedulerDashboardCard(item: SchedulerDashboardCardItem) {
         ) {
             DashboardFlatActionButton(onClick = item.onManageClicked) {
                 Icon(
-                    imageVector = Icons.Filled.AccessTimeFilled,
+                    imageVector = Icons.TwoTone.AccessTimeFilled,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

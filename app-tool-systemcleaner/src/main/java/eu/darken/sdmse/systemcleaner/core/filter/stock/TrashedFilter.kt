@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -33,7 +33,7 @@ class TrashedFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.Delete
+    override val icon: ImageVector = Icons.TwoTone.Delete
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_trashed_label.toCaString()
 

@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FolderOpen
+import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -143,7 +143,7 @@ fun CorpseRow(
                 enabled = !selectionActive,
             ) {
                 Icon(
-                    imageVector = Icons.Filled.FolderOpen,
+                    imageVector = Icons.TwoTone.FolderOpen,
                     contentDescription = stringResource(CommonR.string.general_details_label),
                 )
             }

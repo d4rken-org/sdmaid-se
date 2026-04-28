@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.GTranslate
-import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.twotone.GTranslate
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -60,7 +60,7 @@ internal fun MotdDashboardCard(item: MotdDashboardCardItem) {
             if (item.state.allowTranslation) {
                 IconButton(onClick = item.onTranslate) {
                     Icon(
-                        imageVector = Icons.Outlined.GTranslate,
+                        imageVector = Icons.TwoTone.GTranslate,
                         contentDescription = null,
                     )
                 }
@@ -84,7 +84,7 @@ internal fun MotdDashboardCard(item: MotdDashboardCardItem) {
             if (item.state.motd.primaryLink != null) {
                 DashboardFilledTonalActionButton(onClick = item.onPrimary) {
                     Icon(
-                        imageVector = Icons.Outlined.Visibility,
+                        imageVector = Icons.TwoTone.Visibility,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

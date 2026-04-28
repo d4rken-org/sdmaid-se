@@ -15,8 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DeleteSweep
-import androidx.compose.material.icons.outlined.GraphicEq
+import androidx.compose.material.icons.twotone.DeleteSweep
+import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -221,7 +221,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
         }
         if (Duplicate.Type.MEDIA in types) {
             Icon(
-                imageVector = Icons.Outlined.GraphicEq,
+                imageVector = Icons.TwoTone.GraphicEq,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.tertiary,
@@ -281,7 +281,7 @@ private fun DuplicateSubRow(
         if (willBeDeleted) {
             Spacer(Modifier.width(8.dp))
             Icon(
-                imageVector = Icons.Filled.DeleteSweep,
+                imageVector = Icons.TwoTone.DeleteSweep,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.error,
                 modifier = Modifier.size(20.dp),

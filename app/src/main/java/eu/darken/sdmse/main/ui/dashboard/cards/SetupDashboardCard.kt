@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.SettingsSuggest
+import androidx.compose.material.icons.twotone.SettingsSuggest
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -96,7 +96,7 @@ internal fun SetupDashboardCard(item: SetupDashboardCardItem) {
                     onClick = item.onContinue,
                 ) {
                     Icon(
-                        imageVector = Icons.Outlined.SettingsSuggest,
+                        imageVector = Icons.TwoTone.SettingsSuggest,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

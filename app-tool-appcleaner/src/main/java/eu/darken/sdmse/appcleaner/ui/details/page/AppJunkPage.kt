@@ -17,10 +17,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DeleteSweep
-import androidx.compose.material.icons.filled.ExpandLess
-import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.twotone.DeleteSweep
+import androidx.compose.material.icons.twotone.ExpandLess
+import androidx.compose.material.icons.twotone.ExpandMore
+import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -220,7 +220,7 @@ private fun AppJunkPageHeaderCard(
                     onClick = onExcludeJunk,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Icon(Icons.Filled.Shield, contentDescription = null)
+                    Icon(Icons.TwoTone.Shield, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
                 }
@@ -232,7 +232,7 @@ private fun AppJunkPageHeaderCard(
                         contentColor = MaterialTheme.colorScheme.onError,
                     ),
                 ) {
-                    Icon(Icons.Filled.DeleteSweep, contentDescription = null)
+                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_delete_action))
                 }
@@ -355,7 +355,7 @@ private fun AppJunkCategoryCard(
             }
             IconButton(onClick = onCollapseToggle) {
                 Icon(
-                    imageVector = if (isCollapsed) Icons.Filled.ExpandMore else Icons.Filled.ExpandLess,
+                    imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )

@@ -11,11 +11,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.twotone.ArrowDropDown
+import androidx.compose.material.icons.twotone.Clear
+import androidx.compose.material.icons.twotone.KeyboardArrowDown
+import androidx.compose.material.icons.twotone.KeyboardArrowUp
+import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -77,12 +77,12 @@ fun AppControlListFilters(
             modifier = Modifier.weight(1f),
             placeholder = { Text(stringResource(CommonR.string.general_search_action)) },
             leadingIcon = {
-                Icon(Icons.Filled.Search, contentDescription = null)
+                Icon(Icons.TwoTone.Search, contentDescription = null)
             },
             trailingIcon = {
                 if (query.isNotEmpty()) {
                     IconButton(onClick = { query = "" }) {
-                        Icon(Icons.Filled.Clear, contentDescription = null)
+                        Icon(Icons.TwoTone.Clear, contentDescription = null)
                     }
                 }
             },
@@ -169,11 +169,11 @@ private fun SortControl(
     Row(verticalAlignment = Alignment.CenterVertically) {
         TextButton(onClick = { menuOpen = true }) {
             Text(sortLabel(mode), style = MaterialTheme.typography.labelLarge)
-            Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+            Icon(Icons.TwoTone.ArrowDropDown, contentDescription = null)
         }
         IconButton(onClick = onSortDirectionToggle) {
             Icon(
-                imageVector = if (reversed) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                imageVector = if (reversed) Icons.TwoTone.KeyboardArrowDown else Icons.TwoTone.KeyboardArrowUp,
                 contentDescription = stringResource(CommonR.string.general_sort_reverse_action),
             )
         }

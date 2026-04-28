@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Analytics
+import androidx.compose.material.icons.twotone.Analytics
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -38,7 +38,7 @@ class AnalyticsFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.Analytics
+    override val icon: ImageVector = Icons.TwoTone.Analytics
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_analytics_label.toCaString()
 

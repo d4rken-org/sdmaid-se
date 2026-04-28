@@ -3,10 +3,10 @@ package eu.darken.sdmse.scheduler.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.AccessibilityNew
-import androidx.compose.material.icons.outlined.BatteryAlert
-import androidx.compose.material.icons.outlined.PowerOff
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.AccessibilityNew
+import androidx.compose.material.icons.twotone.BatteryAlert
+import androidx.compose.material.icons.twotone.PowerOff
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -58,7 +58,7 @@ internal fun SchedulerSettingsScreen(
                 title = { Text(stringResource(R.string.scheduler_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -70,7 +70,7 @@ internal fun SchedulerSettingsScreen(
         ) {
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.BatteryAlert,
+                    icon = Icons.TwoTone.BatteryAlert,
                     title = stringResource(R.string.scheduler_setting_nopowersaving_title),
                     subtitle = stringResource(R.string.scheduler_setting_nopowersaving_summary),
                     checked = state.skipWhenPowerSaving,
@@ -79,7 +79,7 @@ internal fun SchedulerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.PowerOff,
+                    icon = Icons.TwoTone.PowerOff,
                     title = stringResource(R.string.scheduler_setting_charging_title),
                     subtitle = stringResource(R.string.scheduler_setting_charging_summary),
                     checked = state.skipWhenNotCharging,
@@ -88,7 +88,7 @@ internal fun SchedulerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.AccessibilityNew,
+                    icon = Icons.TwoTone.AccessibilityNew,
                     title = stringResource(R.string.scheduler_setting_automation_title),
                     subtitle = stringResource(R.string.scheduler_setting_automation_summary),
                     checked = state.useAutomation,

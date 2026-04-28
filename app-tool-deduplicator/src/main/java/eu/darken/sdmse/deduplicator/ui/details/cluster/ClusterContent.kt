@@ -19,12 +19,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.DeleteSweep
-import androidx.compose.material.icons.filled.ExpandLess
-import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material.icons.filled.Folder
-import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.DeleteSweep
+import androidx.compose.material.icons.twotone.ExpandLess
+import androidx.compose.material.icons.twotone.ExpandMore
+import androidx.compose.material.icons.twotone.Folder
+import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -229,12 +229,12 @@ private fun ClusterHeaderRow(
             Spacer(Modifier.height(12.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 TextButton(onClick = onDelete) {
-                    Icon(Icons.Filled.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(Icons.TwoTone.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(CommonR.string.general_delete_action))
                 }
                 TextButton(onClick = onExclude) {
-                    Icon(Icons.Filled.Shield, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(Icons.TwoTone.Shield, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
                 }
@@ -265,7 +265,7 @@ private fun DirectoryHeaderRow(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                imageVector = Icons.Filled.Folder,
+                imageVector = Icons.TwoTone.Folder,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
                 tint = MaterialTheme.colorScheme.onSurface,
@@ -287,7 +287,7 @@ private fun DirectoryHeaderRow(
             }
             IconButton(onClick = onCollapseToggle) {
                 Icon(
-                    imageVector = if (isCollapsed) Icons.Filled.ExpandMore else Icons.Filled.ExpandLess,
+                    imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
                     contentDescription = null,
                 )
             }
@@ -337,7 +337,7 @@ private fun ChecksumGroupHeaderRow(
             }
             if (willBeDeleted) {
                 Icon(
-                    imageVector = Icons.Filled.DeleteSweep,
+                    imageVector = Icons.TwoTone.DeleteSweep,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.size(20.dp),
@@ -345,7 +345,7 @@ private fun ChecksumGroupHeaderRow(
                 Spacer(Modifier.width(4.dp))
             }
             IconButton(onClick = onDelete) {
-                Icon(Icons.Filled.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
+                Icon(Icons.TwoTone.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
             }
         }
     }
@@ -395,7 +395,7 @@ private fun ImageGroupHeaderRow(
             }
             if (willBeDeleted) {
                 Icon(
-                    imageVector = Icons.Filled.DeleteSweep,
+                    imageVector = Icons.TwoTone.DeleteSweep,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.size(20.dp),
@@ -403,7 +403,7 @@ private fun ImageGroupHeaderRow(
                 Spacer(Modifier.width(4.dp))
             }
             IconButton(onClick = onDelete) {
-                Icon(Icons.Filled.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
+                Icon(Icons.TwoTone.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
             }
         }
     }
@@ -446,7 +446,7 @@ private fun ChecksumFileRow(
             }
             if (willBeDeleted) {
                 Icon(
-                    imageVector = Icons.Filled.DeleteSweep,
+                    imageVector = Icons.TwoTone.DeleteSweep,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.size(20.dp),
@@ -519,7 +519,7 @@ private fun ImageFileRow(
         if (willBeDeleted) {
             Spacer(Modifier.width(8.dp))
             Icon(
-                imageVector = Icons.Filled.DeleteSweep,
+                imageVector = Icons.TwoTone.DeleteSweep,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.error,
                 modifier = Modifier.size(20.dp),

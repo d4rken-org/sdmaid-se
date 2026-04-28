@@ -26,12 +26,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BugReport
-import androidx.compose.material.icons.outlined.Close
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.Email
-import androidx.compose.material.icons.outlined.ErrorOutline
-import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Email
+import androidx.compose.material.icons.twotone.ErrorOutline
+import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -188,7 +188,7 @@ private fun RecorderHeroCard() {
             contentAlignment = Alignment.Center,
         ) {
             Icon(
-                imageVector = Icons.Outlined.BugReport,
+                imageVector = Icons.TwoTone.BugReport,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.size(24.dp),
@@ -225,7 +225,7 @@ private fun RecorderSensitiveInfoCard(onPrivacyPolicy: () -> Unit) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.Top) {
                 Icon(
-                    imageVector = Icons.Outlined.Info,
+                    imageVector = Icons.TwoTone.Info,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(20.dp),
@@ -327,7 +327,7 @@ private fun RecorderFailedCard(reason: DebugLogSession.Failed.Reason?) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.Top) {
                 Icon(
-                    imageVector = Icons.Outlined.ErrorOutline,
+                    imageVector = Icons.TwoTone.ErrorOutline,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onErrorContainer,
                     modifier = Modifier.size(20.dp),
@@ -517,7 +517,7 @@ private fun RecorderActionBar(
                 ),
             ) {
                 Icon(
-                    imageVector = Icons.Outlined.Delete,
+                    imageVector = Icons.TwoTone.Delete,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.size(18.dp),
@@ -531,7 +531,7 @@ private fun RecorderActionBar(
                 modifier = Modifier.weight(1f),
             ) {
                 Icon(
-                    imageVector = Icons.Outlined.Close,
+                    imageVector = Icons.TwoTone.Close,
                     contentDescription = null,
                     modifier = Modifier.size(18.dp),
                 )
@@ -551,7 +551,7 @@ private fun RecorderActionBar(
                     enabled = shareSlotVisible,
                 ) {
                     Icon(
-                        imageVector = Icons.Outlined.Email,
+                        imageVector = Icons.TwoTone.Email,
                         contentDescription = null,
                         modifier = Modifier.size(18.dp),
                     )

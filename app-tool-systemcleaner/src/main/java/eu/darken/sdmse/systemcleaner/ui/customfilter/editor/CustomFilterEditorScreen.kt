@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.CircularProgressIndicator
@@ -224,7 +224,7 @@ internal fun CustomFilterEditorScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onClose) {
-                        Icon(Icons.Filled.Close, contentDescription = null)
+                        Icon(Icons.TwoTone.Close, contentDescription = null)
                     }
                 },
                 actions = {
@@ -233,7 +233,7 @@ internal fun CustomFilterEditorScreen(
                     if (canSave) {
                         IconButton(onClick = onSave) {
                             Icon(
-                                Icons.Filled.Save,
+                                Icons.TwoTone.Save,
                                 contentDescription = stringResource(CommonR.string.general_save_action),
                             )
                         }
@@ -241,7 +241,7 @@ internal fun CustomFilterEditorScreen(
                     if (canRemove) {
                         IconButton(onClick = onRemove) {
                             Icon(
-                                Icons.Filled.Delete,
+                                Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_remove_action),
                             )
                         }

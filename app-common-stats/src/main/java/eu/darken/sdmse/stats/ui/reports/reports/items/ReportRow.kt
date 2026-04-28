@@ -11,9 +11,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.CheckCircle
-import androidx.compose.material.icons.outlined.RadioButtonUnchecked
-import androidx.compose.material.icons.outlined.WarningAmber
+import androidx.compose.material.icons.twotone.CheckCircle
+import androidx.compose.material.icons.twotone.RadioButtonUnchecked
+import androidx.compose.material.icons.twotone.WarningAmber
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -97,19 +97,19 @@ fun ReportRow(
             Spacer(Modifier.width(8.dp))
             when (row.status) {
                 Report.Status.SUCCESS -> Icon(
-                    imageVector = Icons.Outlined.CheckCircle,
+                    imageVector = Icons.TwoTone.CheckCircle,
                     contentDescription = null,
                     tint = statusTint,
                     modifier = Modifier.size(16.dp),
                 )
                 Report.Status.PARTIAL_SUCCESS -> Icon(
-                    imageVector = Icons.Outlined.RadioButtonUnchecked,
+                    imageVector = Icons.TwoTone.RadioButtonUnchecked,
                     contentDescription = null,
                     tint = statusTint,
                     modifier = Modifier.size(16.dp),
                 )
                 Report.Status.FAILURE -> Icon(
-                    imageVector = Icons.Outlined.WarningAmber,
+                    imageVector = Icons.TwoTone.WarningAmber,
                     contentDescription = null,
                     tint = statusTint,
                     modifier = Modifier.size(16.dp),

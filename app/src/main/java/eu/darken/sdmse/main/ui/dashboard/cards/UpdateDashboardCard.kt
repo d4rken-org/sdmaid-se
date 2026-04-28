@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FileDownload
-import androidx.compose.material.icons.outlined.NewReleases
-import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.twotone.FileDownload
+import androidx.compose.material.icons.twotone.NewReleases
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -47,7 +47,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.NewReleases,
+                imageVector = Icons.TwoTone.NewReleases,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -77,7 +77,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
         ) {
             DashboardFlatActionButton(onClick = item.onViewUpdate) {
                 Icon(
-                    imageVector = Icons.Outlined.Visibility,
+                    imageVector = Icons.TwoTone.Visibility,
                     contentDescription = null,
                 )
             }
@@ -88,7 +88,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
             Spacer(modifier = Modifier.width(8.dp))
             DashboardFilledTonalActionButton(onClick = item.onUpdate) {
                 Icon(
-                    imageVector = Icons.Outlined.FileDownload,
+                    imageVector = Icons.TwoTone.FileDownload,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

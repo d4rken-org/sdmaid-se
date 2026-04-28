@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AdsClick
+import androidx.compose.material.icons.twotone.AdsClick
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -39,7 +39,7 @@ class AdvertisementFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.AdsClick
+    override val icon: ImageVector = Icons.TwoTone.AdsClick
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_advertisements_label.toCaString()
 

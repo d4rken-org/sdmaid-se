@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.MenuBook
-import androidx.compose.material.icons.outlined.Cancel
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.Stars
+import androidx.compose.material.icons.automirrored.twotone.MenuBook
+import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -114,7 +114,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                 Spacer(modifier = Modifier.weight(1f))
                 DashboardOutlinedActionButton(onClick = item.onCancel) {
                     Icon(
-                        imageVector = Icons.Outlined.Cancel,
+                        imageVector = Icons.TwoTone.Cancel,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
@@ -124,7 +124,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                 if (item.onDelete != null) {
                     DashboardIconActionButton(onClick = item.onViewDetails) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Outlined.MenuBook,
+                            imageVector = Icons.AutoMirrored.TwoTone.MenuBook,
                             contentDescription = stringResource(CommonR.string.general_show_details_action),
                         )
                     }
@@ -138,7 +138,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         ),
                     ) {
                         Icon(
-                            imageVector = if (item.showProRequirement) Icons.Outlined.Stars else Icons.Outlined.Delete,
+                            imageVector = if (item.showProRequirement) Icons.TwoTone.Stars else Icons.TwoTone.Delete,
                             contentDescription = null,
                         )
                         Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
@@ -150,7 +150,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            imageVector = Icons.Outlined.FolderOpen,
+                            imageVector = Icons.TwoTone.FolderOpen,
                             contentDescription = stringResource(CommonR.string.general_scan_action),
                         )
                     }
@@ -161,7 +161,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            imageVector = Icons.Outlined.FolderOpen,
+                            imageVector = Icons.TwoTone.FolderOpen,
                             contentDescription = null,
                         )
                         Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

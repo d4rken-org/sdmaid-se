@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Refresh
+import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -47,7 +47,7 @@ internal fun ErrorDataAreaDashboardCard(item: ErrorDataAreaDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Refresh,
+                imageVector = Icons.TwoTone.Refresh,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

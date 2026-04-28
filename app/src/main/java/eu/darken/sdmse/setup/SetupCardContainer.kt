@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.HelpOutline
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -73,7 +73,7 @@ internal fun SetupCardContainer(
                     modifier = Modifier.align(Alignment.TopEnd),
                 ) {
                     Icon(
-                        imageVector = Icons.AutoMirrored.Outlined.HelpOutline,
+                        imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
                         contentDescription = stringResource(CommonR.string.general_help_action),
                     )
                 }

@@ -18,12 +18,12 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.ListAlt
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.outlined.Compress
-import androidx.compose.material.icons.outlined.GridView
-import androidx.compose.material.icons.outlined.SelectAll
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ListAlt
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Compress
+import androidx.compose.material.icons.twotone.GridView
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -226,7 +226,7 @@ internal fun SqueezerListScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         }
                     },
                     actions = {
@@ -234,8 +234,8 @@ internal fun SqueezerListScreen(
                             IconButton(onClick = onToggleLayoutMode) {
                                 Icon(
                                     imageVector = when (state.layoutMode) {
-                                        LayoutMode.LINEAR -> Icons.Outlined.GridView
-                                        LayoutMode.GRID -> Icons.AutoMirrored.Outlined.ListAlt
+                                        LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                                        LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ListAlt
                                     },
                                     contentDescription = null,
                                 )
@@ -261,13 +261,13 @@ internal fun SqueezerListScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
                         IconButton(onClick = { onCompressIds(selection) }) {
                             Icon(
-                                imageVector = Icons.Outlined.Compress,
+                                imageVector = Icons.TwoTone.Compress,
                                 contentDescription = stringResource(R.string.squeezer_compress_action),
                             )
                         }
@@ -282,7 +282,7 @@ internal fun SqueezerListScreen(
                         }
                         IconButton(onClick = { selection = itemIds }) {
                             Icon(
-                                imageVector = Icons.Outlined.SelectAll,
+                                imageVector = Icons.TwoTone.SelectAll,
                                 contentDescription = stringResource(CommonR.string.general_list_select_all_action),
                             )
                         }
@@ -296,7 +296,7 @@ internal fun SqueezerListScreen(
                     onClick = onCompressAll,
                     icon = {
                         Icon(
-                            imageVector = Icons.Outlined.Compress,
+                            imageVector = Icons.TwoTone.Compress,
                             contentDescription = null,
                         )
                     },

@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material.icons.twotone.Share
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -103,7 +103,7 @@ internal fun AnniversaryDashboardCard(item: AnniversaryDashboardCardItem) {
             Spacer(modifier = Modifier.weight(1f))
             DashboardFilledActionButton(onClick = { item.onShare(item.years) }) {
                 Icon(
-                    imageVector = Icons.Outlined.Share,
+                    imageVector = Icons.TwoTone.Share,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

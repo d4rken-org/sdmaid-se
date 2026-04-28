@@ -4,8 +4,8 @@ import android.text.format.Formatter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.MenuBook
 import androidx.compose.material.icons.automirrored.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
@@ -149,7 +149,7 @@ internal fun SupportScreen(
                 title = { Text(stringResource(R.string.settings_support_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -162,7 +162,7 @@ internal fun SupportScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.AutoMirrored.Outlined.MenuBook,
+                    icon = Icons.AutoMirrored.TwoTone.MenuBook,
                     title = stringResource(R.string.documentation_label),
                     onClick = onDocumentationClick,
                 )

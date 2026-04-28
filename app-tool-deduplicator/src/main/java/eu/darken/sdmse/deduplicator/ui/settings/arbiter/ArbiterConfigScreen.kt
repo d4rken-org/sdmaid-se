@@ -5,8 +5,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -130,12 +130,12 @@ internal fun ArbiterConfigScreen(
                 title = { Text(stringResource(R.string.deduplicator_arbiter_title)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
                 actions = {
                     IconButton(onClick = { showOverflow = true }) {
-                        Icon(Icons.Filled.MoreVert, contentDescription = null)
+                        Icon(Icons.TwoTone.MoreVert, contentDescription = null)
                     }
                     DropdownMenu(
                         expanded = showOverflow,

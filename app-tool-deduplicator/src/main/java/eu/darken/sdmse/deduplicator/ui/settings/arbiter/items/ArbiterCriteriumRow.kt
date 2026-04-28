@@ -10,13 +10,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DragHandle
-import androidx.compose.material.icons.outlined.AccountTree
-import androidx.compose.material.icons.outlined.Folder
-import androidx.compose.material.icons.outlined.History
-import androidx.compose.material.icons.outlined.MonitorWeight
-import androidx.compose.material.icons.outlined.PlayCircleOutline
-import androidx.compose.material.icons.outlined.SdCard
+import androidx.compose.material.icons.twotone.DragHandle
+import androidx.compose.material.icons.twotone.AccountTree
+import androidx.compose.material.icons.twotone.Folder
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.MonitorWeight
+import androidx.compose.material.icons.twotone.PlayCircleOutline
+import androidx.compose.material.icons.twotone.SdCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -100,7 +100,7 @@ fun ArbiterCriteriumRow(
 fun ArbiterConfigDragHandle(modifier: Modifier = Modifier) {
     IconButton(onClick = {}, modifier = modifier) {
         Icon(
-            imageVector = Icons.Filled.DragHandle,
+            imageVector = Icons.TwoTone.DragHandle,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -129,10 +129,10 @@ private fun ArbiterCriterium.descriptionRes(): Int = when (this) {
 
 private fun ArbiterCriterium.icon(): ImageVector = when (this) {
     is ArbiterCriterium.DuplicateType -> SdmIcons.CodeEqualBox
-    is ArbiterCriterium.PreferredPath -> Icons.Outlined.Folder
-    is ArbiterCriterium.MediaProvider -> Icons.Outlined.PlayCircleOutline
-    is ArbiterCriterium.Location -> Icons.Outlined.SdCard
-    is ArbiterCriterium.Nesting -> Icons.Outlined.AccountTree
-    is ArbiterCriterium.Modified -> Icons.Outlined.History
-    is ArbiterCriterium.Size -> Icons.Outlined.MonitorWeight
+    is ArbiterCriterium.PreferredPath -> Icons.TwoTone.Folder
+    is ArbiterCriterium.MediaProvider -> Icons.TwoTone.PlayCircleOutline
+    is ArbiterCriterium.Location -> Icons.TwoTone.SdCard
+    is ArbiterCriterium.Nesting -> Icons.TwoTone.AccountTree
+    is ArbiterCriterium.Modified -> Icons.TwoTone.History
+    is ArbiterCriterium.Size -> Icons.TwoTone.MonitorWeight
 }

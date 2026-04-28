@@ -14,9 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.MoreVert
+import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -291,12 +291,12 @@ internal fun SetupScreen(
                     IconButton(onClick = onBack) {
                         if (isOnboarding) {
                             Icon(
-                                imageVector = Icons.Outlined.Close,
+                                imageVector = Icons.TwoTone.Close,
                                 contentDescription = null,
                             )
                         } else {
                             Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                                 contentDescription = null,
                             )
                         }
@@ -332,7 +332,7 @@ private fun SetupMenu(
     var expanded by remember { mutableStateOf(false) }
     IconButton(onClick = { expanded = true }) {
         Icon(
-            imageVector = Icons.Default.MoreVert,
+            imageVector = Icons.TwoTone.MoreVert,
             contentDescription = null,
         )
     }

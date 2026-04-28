@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.HelpOutline
-import androidx.compose.material.icons.automirrored.filled.ListAlt
-import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.automirrored.twotone.ListAlt
+import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -132,7 +132,7 @@ internal fun SwiperSwipeScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.Filled.Close,
+                            imageVector = Icons.TwoTone.Close,
                             contentDescription = stringResource(CommonR.string.general_close_action),
                         )
                     }
@@ -140,7 +140,7 @@ internal fun SwiperSwipeScreen(
                 actions = {
                     IconButton(onClick = { showHelpDialog = true }) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.HelpOutline,
+                            imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
                             contentDescription = stringResource(CommonR.string.general_help_action),
                         )
                     }
@@ -154,7 +154,7 @@ internal fun SwiperSwipeScreen(
                             },
                         ) {
                             Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ListAlt,
+                                imageVector = Icons.AutoMirrored.TwoTone.ListAlt,
                                 contentDescription = stringResource(R.string.swiper_review_action),
                             )
                         }
@@ -255,7 +255,7 @@ internal fun SwiperSwipeScreen(
             onDismissRequest = { showHelpDialog = false },
             icon = {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.HelpOutline,
+                    imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )

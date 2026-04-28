@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.StackedBarChart
-import androidx.compose.material.icons.outlined.Stars
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.StackedBarChart
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -115,19 +115,19 @@ internal fun ReportsScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
                 actions = {
                     IconButton(onClick = onStorageTrendClick) {
                         if (state.isPro) {
                             Icon(
-                                imageVector = Icons.Outlined.StackedBarChart,
+                                imageVector = Icons.TwoTone.StackedBarChart,
                                 contentDescription = stringResource(R.string.stats_storage_trend_action),
                             )
                         } else {
                             Icon(
-                                imageVector = Icons.Outlined.Stars,
+                                imageVector = Icons.TwoTone.Stars,
                                 contentDescription = stringResource(R.string.stats_storage_trend_action),
                             )
                         }

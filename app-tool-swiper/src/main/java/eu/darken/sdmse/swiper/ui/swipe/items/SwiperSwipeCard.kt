@@ -19,8 +19,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
-import androidx.compose.material.icons.filled.ZoomOutMap
+import androidx.compose.material.icons.automirrored.twotone.OpenInNew
+import androidx.compose.material.icons.twotone.ZoomOutMap
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledTonalIconButton
@@ -285,7 +285,7 @@ private fun CardActionRow(
             ),
         ) {
             Icon(
-                imageVector = Icons.Filled.ZoomOutMap,
+                imageVector = Icons.TwoTone.ZoomOutMap,
                 contentDescription = stringResource(CommonR.string.general_view_action),
             )
         }
@@ -297,7 +297,7 @@ private fun CardActionRow(
             ),
         ) {
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                imageVector = Icons.AutoMirrored.TwoTone.OpenInNew,
                 contentDescription = stringResource(R.string.swiper_open_externally_action),
             )
         }

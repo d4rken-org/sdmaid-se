@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.HelpOutline
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.BugReport
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -144,21 +144,21 @@ internal fun SchedulerManagerScreen(
                 title = { Text(stringResource(R.string.scheduler_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
                 actions = {
                     if (Bugs.isDebug) {
                         IconButton(onClick = onDebugSchedule) {
                             Icon(
-                                Icons.Filled.BugReport,
+                                Icons.TwoTone.BugReport,
                                 contentDescription = "Debug schedule",
                             )
                         }
                     }
                     IconButton(onClick = onShowHelp) {
                         Icon(
-                            Icons.AutoMirrored.Outlined.HelpOutline,
+                            Icons.AutoMirrored.TwoTone.HelpOutline,
                             contentDescription = stringResource(CommonR.string.general_help_action),
                         )
                     }
@@ -168,7 +168,7 @@ internal fun SchedulerManagerScreen(
         floatingActionButton = {
             FloatingActionButton(onClick = onCreateNew) {
                 Icon(
-                    Icons.Filled.Add,
+                    Icons.TwoTone.Add,
                     contentDescription = stringResource(R.string.scheduler_new_schedule_action),
                 )
             }

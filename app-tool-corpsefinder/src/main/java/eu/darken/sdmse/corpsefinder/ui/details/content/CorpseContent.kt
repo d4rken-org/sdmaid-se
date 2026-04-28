@@ -17,8 +17,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DeleteSweep
-import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.twotone.DeleteSweep
+import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -197,7 +197,7 @@ private fun CorpseHeaderCard(
                     onClick = onExclude,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Icon(Icons.Filled.Shield, contentDescription = null)
+                    Icon(Icons.TwoTone.Shield, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
                 }
@@ -209,7 +209,7 @@ private fun CorpseHeaderCard(
                         contentColor = MaterialTheme.colorScheme.onError,
                     ),
                 ) {
-                    Icon(Icons.Filled.DeleteSweep, contentDescription = null)
+                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_delete_action))
                 }

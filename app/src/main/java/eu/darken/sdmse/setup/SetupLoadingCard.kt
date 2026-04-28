@@ -6,13 +6,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessibilityNew
-import androidx.compose.material.icons.outlined.AdminPanelSettings
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.Notifications
-import androidx.compose.material.icons.outlined.SdStorage
+import androidx.compose.material.icons.twotone.AccessibilityNew
+import androidx.compose.material.icons.twotone.AdminPanelSettings
+import androidx.compose.material.icons.twotone.Apps
+import androidx.compose.material.icons.twotone.BarChart
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.Notifications
+import androidx.compose.material.icons.twotone.SdStorage
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -65,14 +65,14 @@ internal fun SetupLoadingCard(
 }
 
 private fun loadingTypeDetails(type: SetupModule.Type): Pair<ImageVector, Int> = when (type) {
-    SetupModule.Type.USAGE_STATS -> Icons.Outlined.BarChart to R.string.setup_usagestats_title
-    SetupModule.Type.AUTOMATION -> Icons.Filled.AccessibilityNew to R.string.setup_acs_card_title
+    SetupModule.Type.USAGE_STATS -> Icons.TwoTone.BarChart to R.string.setup_usagestats_title
+    SetupModule.Type.AUTOMATION -> Icons.TwoTone.AccessibilityNew to R.string.setup_acs_card_title
     SetupModule.Type.SHIZUKU -> SdmIcons.Shizuku to R.string.setup_shizuku_card_title
-    SetupModule.Type.ROOT -> Icons.Outlined.AdminPanelSettings to R.string.setup_root_card_title
-    SetupModule.Type.NOTIFICATION -> Icons.Outlined.Notifications to R.string.setup_notification_title
-    SetupModule.Type.SAF -> Icons.Outlined.FolderOpen to R.string.setup_saf_card_title
-    SetupModule.Type.STORAGE -> Icons.Outlined.SdStorage to R.string.setup_manage_storage_card_title
-    SetupModule.Type.INVENTORY -> Icons.Outlined.Apps to R.string.setup_inventory_card_title
+    SetupModule.Type.ROOT -> Icons.TwoTone.AdminPanelSettings to R.string.setup_root_card_title
+    SetupModule.Type.NOTIFICATION -> Icons.TwoTone.Notifications to R.string.setup_notification_title
+    SetupModule.Type.SAF -> Icons.TwoTone.FolderOpen to R.string.setup_saf_card_title
+    SetupModule.Type.STORAGE -> Icons.TwoTone.SdStorage to R.string.setup_manage_storage_card_title
+    SetupModule.Type.INVENTORY -> Icons.TwoTone.Apps to R.string.setup_inventory_card_title
 }
 
 @Preview2

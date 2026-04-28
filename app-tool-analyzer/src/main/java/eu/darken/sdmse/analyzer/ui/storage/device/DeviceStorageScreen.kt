@@ -11,7 +11,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -76,7 +76,7 @@ internal fun DeviceStorageScreen(
             ) {
                 FloatingActionButton(onClick = onRefresh) {
                     Icon(
-                        Icons.Filled.Refresh,
+                        Icons.TwoTone.Refresh,
                         contentDescription = stringResource(eu.darken.sdmse.common.R.string.general_refresh_action),
                     )
                 }

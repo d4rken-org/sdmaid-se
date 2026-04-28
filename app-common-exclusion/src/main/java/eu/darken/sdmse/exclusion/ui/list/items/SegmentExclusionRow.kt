@@ -11,8 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Splitscreen
+import androidx.compose.material.icons.twotone.Info
+import androidx.compose.material.icons.twotone.Splitscreen
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -45,7 +45,7 @@ fun SegmentExclusionRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            imageVector = Icons.Filled.Splitscreen,
+            imageVector = Icons.TwoTone.Splitscreen,
             contentDescription = null,
             modifier = Modifier.size(32.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -68,7 +68,7 @@ fun SegmentExclusionRow(
         }
         if (row.isDefault) {
             Icon(
-                imageVector = Icons.Filled.Info,
+                imageVector = Icons.TwoTone.Info,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )

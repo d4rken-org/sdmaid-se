@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.DataUsage
-import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.twotone.DataUsage
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -44,7 +44,7 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.DataUsage,
+                imageVector = Icons.TwoTone.DataUsage,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -88,7 +88,7 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Visibility,
+                imageVector = Icons.TwoTone.Visibility,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

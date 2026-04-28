@@ -14,9 +14,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
@@ -142,7 +142,7 @@ internal fun PathExclusionEditorScreen(
                 title = { Text(stringResource(R.string.exclusion_type_path)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
                 actions = {
@@ -150,7 +150,7 @@ internal fun PathExclusionEditorScreen(
                     if (ready?.canRemove == true) {
                         IconButton(onClick = onRemove) {
                             Icon(
-                                imageVector = Icons.Filled.Delete,
+                                imageVector = Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_remove_action),
                             )
                         }
@@ -158,7 +158,7 @@ internal fun PathExclusionEditorScreen(
                     if (ready?.canSave == true) {
                         IconButton(onClick = onSave) {
                             Icon(
-                                imageVector = Icons.Filled.Save,
+                                imageVector = Icons.TwoTone.Save,
                                 contentDescription = stringResource(CommonR.string.general_save_action),
                             )
                         }

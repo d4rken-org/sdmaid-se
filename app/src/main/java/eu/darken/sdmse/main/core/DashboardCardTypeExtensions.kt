@@ -2,15 +2,15 @@ package eu.darken.sdmse.main.core
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ViewList
-import androidx.compose.material.icons.outlined.Alarm
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.Compress
-import androidx.compose.material.icons.outlined.ContentCopy
-import androidx.compose.material.icons.outlined.DataUsage
-import androidx.compose.material.icons.outlined.Recycling
-import androidx.compose.material.icons.outlined.Swipe
+import androidx.compose.material.icons.automirrored.twotone.ViewList
+import androidx.compose.material.icons.twotone.Alarm
+import androidx.compose.material.icons.twotone.Apps
+import androidx.compose.material.icons.twotone.BarChart
+import androidx.compose.material.icons.twotone.Compress
+import androidx.compose.material.icons.twotone.ContentCopy
+import androidx.compose.material.icons.twotone.DataUsage
+import androidx.compose.material.icons.twotone.Recycling
+import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Ghost
@@ -34,13 +34,13 @@ val DashboardCardType.labelRes: Int
 val DashboardCardType.icon: ImageVector
     get() = when (this) {
         DashboardCardType.CORPSEFINDER -> SdmIcons.Ghost
-        DashboardCardType.SYSTEMCLEANER -> Icons.AutoMirrored.Outlined.ViewList
-        DashboardCardType.APPCLEANER -> Icons.Outlined.Recycling
-        DashboardCardType.DEDUPLICATOR -> Icons.Outlined.ContentCopy
-        DashboardCardType.APPCONTROL -> Icons.Outlined.Apps
-        DashboardCardType.ANALYZER -> Icons.Outlined.DataUsage
-        DashboardCardType.SWIPER -> Icons.Outlined.Swipe
-        DashboardCardType.SQUEEZER -> Icons.Outlined.Compress
-        DashboardCardType.SCHEDULER -> Icons.Outlined.Alarm
-        DashboardCardType.STATS -> Icons.Outlined.BarChart
+        DashboardCardType.SYSTEMCLEANER -> Icons.AutoMirrored.TwoTone.ViewList
+        DashboardCardType.APPCLEANER -> Icons.TwoTone.Recycling
+        DashboardCardType.DEDUPLICATOR -> Icons.TwoTone.ContentCopy
+        DashboardCardType.APPCONTROL -> Icons.TwoTone.Apps
+        DashboardCardType.ANALYZER -> Icons.TwoTone.DataUsage
+        DashboardCardType.SWIPER -> Icons.TwoTone.Swipe
+        DashboardCardType.SQUEEZER -> Icons.TwoTone.Compress
+        DashboardCardType.SCHEDULER -> Icons.TwoTone.Alarm
+        DashboardCardType.STATS -> Icons.TwoTone.BarChart
     }

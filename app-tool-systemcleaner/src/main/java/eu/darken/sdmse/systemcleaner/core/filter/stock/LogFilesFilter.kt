@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
+import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -37,7 +37,7 @@ class LogFilesFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.AutoMirrored.Outlined.FormatListBulleted
+    override val icon: ImageVector = Icons.AutoMirrored.TwoTone.FormatListBulleted
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_logfiles_label.toCaString()
 

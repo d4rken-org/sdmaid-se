@@ -2,9 +2,9 @@ package eu.darken.sdmse.setup.automation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessTimeFilled
-import androidx.compose.material.icons.outlined.Cancel
-import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.twotone.AccessTimeFilled
+import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.twotone.CheckCircle
 import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.R
 
@@ -39,17 +39,17 @@ internal fun AutomationSetupModule.Result.toUiModel(): AutomationUiModel {
     val enabledChip = when {
         hasConsent != true -> null
         isServiceEnabled -> AutomationUiModel.StateChip(
-            icon = Icons.Outlined.CheckCircle,
+            icon = Icons.TwoTone.CheckCircle,
             tint = AutomationUiModel.ChipTint.PRIMARY,
             textRes = R.string.setup_acs_state_enabled,
         )
         canSelfEnable -> AutomationUiModel.StateChip(
-            icon = Icons.Filled.AccessTimeFilled,
+            icon = Icons.TwoTone.AccessTimeFilled,
             tint = AutomationUiModel.ChipTint.SECONDARY,
             textRes = R.string.setup_acs_state_ondemand,
         )
         else -> AutomationUiModel.StateChip(
-            icon = Icons.Outlined.Cancel,
+            icon = Icons.TwoTone.Cancel,
             tint = AutomationUiModel.ChipTint.ERROR,
             textRes = R.string.setup_acs_state_disabled,
         )
@@ -58,12 +58,12 @@ internal fun AutomationSetupModule.Result.toUiModel(): AutomationUiModel {
     val runningChip = when {
         hasConsent != true || !isServiceEnabled -> null
         isServiceRunning -> AutomationUiModel.StateChip(
-            icon = Icons.Outlined.CheckCircle,
+            icon = Icons.TwoTone.CheckCircle,
             tint = AutomationUiModel.ChipTint.PRIMARY,
             textRes = R.string.setup_acs_state_running,
         )
         else -> AutomationUiModel.StateChip(
-            icon = Icons.Outlined.Cancel,
+            icon = Icons.TwoTone.Cancel,
             tint = AutomationUiModel.ChipTint.ERROR,
             textRes = R.string.setup_acs_state_stopped,
         )

@@ -3,10 +3,10 @@ package eu.darken.sdmse.appcontrol.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.DirectionsRun
-import androidx.compose.material.icons.outlined.Groups
-import androidx.compose.material.icons.outlined.MonitorWeight
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.DirectionsRun
+import androidx.compose.material.icons.twotone.Groups
+import androidx.compose.material.icons.twotone.MonitorWeight
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -68,7 +68,7 @@ internal fun AppControlSettingsScreen(
                 title = { Text(stringResource(CommonR.string.appcontrol_tool_name)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -80,7 +80,7 @@ internal fun AppControlSettingsScreen(
         ) {
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.MonitorWeight,
+                    icon = Icons.TwoTone.MonitorWeight,
                     title = stringResource(R.string.appcontrol_settings_module_sizing_enabled_label),
                     subtitle = stringResource(R.string.appcontrol_settings_module_sizing_enabled_description),
                     checked = state.sizingEnabled,
@@ -91,7 +91,7 @@ internal fun AppControlSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.DirectionsRun,
+                    icon = Icons.TwoTone.DirectionsRun,
                     title = stringResource(R.string.appcontrol_settings_module_activity_enabled_label),
                     subtitle = stringResource(R.string.appcontrol_settings_module_activity_enabled_description),
                     checked = state.activityEnabled,
@@ -102,7 +102,7 @@ internal fun AppControlSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.Outlined.Groups,
+                    icon = Icons.TwoTone.Groups,
                     title = stringResource(CommonR.string.general_include_multiuser_label),
                     subtitle = multiUserSummary,
                     // Non-Pro users see an unchecked switch regardless of the stored value.

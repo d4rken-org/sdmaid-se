@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.LibraryAdd
+import androidx.compose.material.icons.twotone.LibraryAdd
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -57,7 +57,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val settings: SystemCleanerSettings,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.LibraryAdd
+    override val icon: ImageVector = Icons.TwoTone.LibraryAdd
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_superfluosapks_label.toCaString()
 

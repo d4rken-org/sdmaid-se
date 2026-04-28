@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.QueryStats
+import androidx.compose.material.icons.twotone.QueryStats
 import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
@@ -37,7 +37,7 @@ class UsagestatsFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override val icon: ImageVector = Icons.Outlined.QueryStats
+    override val icon: ImageVector = Icons.TwoTone.QueryStats
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_usagestats_label.toCaString()
 

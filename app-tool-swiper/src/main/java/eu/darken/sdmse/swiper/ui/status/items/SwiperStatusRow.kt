@@ -16,10 +16,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.ErrorOutline
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Restore
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.ErrorOutline
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Restore
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -132,19 +132,19 @@ fun SwiperStatusRow(
 private fun DecisionIndicator(decision: SwipeDecision) {
     val (icon, tint, description) = when (decision) {
         SwipeDecision.KEEP, SwipeDecision.DELETED -> Triple(
-            Icons.Filled.Favorite,
+            Icons.TwoTone.Favorite,
             MaterialTheme.colorScheme.primary,
             stringResource(R.string.swiper_keep_action),
         )
 
         SwipeDecision.DELETE -> Triple(
-            Icons.Filled.Delete,
+            Icons.TwoTone.Delete,
             MaterialTheme.colorScheme.error,
             stringResource(CommonR.string.general_delete_action),
         )
 
         SwipeDecision.DELETE_FAILED -> Triple(
-            Icons.Filled.ErrorOutline,
+            Icons.TwoTone.ErrorOutline,
             MaterialTheme.colorScheme.error,
             null,
         )
@@ -171,14 +171,14 @@ private fun QuickActions(
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
             IconButton(onClick = onQuickKeep, enabled = enabled) {
                 Icon(
-                    imageVector = Icons.Filled.Favorite,
+                    imageVector = Icons.TwoTone.Favorite,
                     contentDescription = stringResource(R.string.swiper_keep_action),
                     tint = MaterialTheme.colorScheme.primary,
                 )
             }
             IconButton(onClick = onQuickDelete, enabled = enabled) {
                 Icon(
-                    imageVector = Icons.Filled.Delete,
+                    imageVector = Icons.TwoTone.Delete,
                     contentDescription = stringResource(CommonR.string.general_delete_action),
                     tint = MaterialTheme.colorScheme.error,
                 )
@@ -187,7 +187,7 @@ private fun QuickActions(
     } else {
         IconButton(onClick = onReset, enabled = enabled) {
             Icon(
-                imageVector = Icons.Filled.Restore,
+                imageVector = Icons.TwoTone.Restore,
                 contentDescription = stringResource(CommonR.string.general_reset_action),
             )
         }

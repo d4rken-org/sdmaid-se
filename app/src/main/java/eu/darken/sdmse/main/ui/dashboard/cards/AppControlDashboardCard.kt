@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.twotone.Apps
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +38,7 @@ data class AppControlDashboardCardItem(
 internal fun AppControlDashboardCard(item: AppControlDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails.takeIf { !item.isInitializing }) {
         SimpleToolCardHeader(
-            icon = Icons.Outlined.Apps,
+            icon = Icons.TwoTone.Apps,
             title = stringResource(CommonR.string.appcontrol_tool_name),
             subtitle = stringResource(AppControlR.string.appcontrol_explanation_short),
             isInitializing = item.isInitializing,
@@ -50,7 +50,7 @@ internal fun AppControlDashboardCard(item: AppControlDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Visibility,
+                imageVector = Icons.TwoTone.Visibility,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

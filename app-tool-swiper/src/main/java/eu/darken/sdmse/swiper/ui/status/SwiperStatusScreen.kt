@@ -19,16 +19,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.DeleteForever
-import androidx.compose.material.icons.automirrored.filled.HelpOutline
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Restore
-import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Check
+import androidx.compose.material.icons.twotone.CheckCircle
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.DeleteForever
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Restore
+import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -138,7 +138,7 @@ internal fun SwiperStatusScreen(
                     title = { Text(stringResource(R.string.swiper_status_title)) },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         }
                     },
                     actions = {
@@ -157,7 +157,7 @@ internal fun SwiperStatusScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.Filled.Close, contentDescription = null)
+                            Icon(Icons.TwoTone.Close, contentDescription = null)
                         }
                     },
                     actions = {
@@ -167,7 +167,7 @@ internal fun SwiperStatusScreen(
                             onKeepSelected(payload)
                         }) {
                             Icon(
-                                Icons.Filled.Favorite,
+                                Icons.TwoTone.Favorite,
                                 contentDescription = stringResource(R.string.swiper_keep_action),
                                 tint = MaterialTheme.colorScheme.primary,
                             )
@@ -178,7 +178,7 @@ internal fun SwiperStatusScreen(
                             onDeleteSelected(payload)
                         }) {
                             Icon(
-                                Icons.Filled.Delete,
+                                Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_delete_action),
                                 tint = MaterialTheme.colorScheme.error,
                             )
@@ -189,7 +189,7 @@ internal fun SwiperStatusScreen(
                             onResetSelected(payload)
                         }) {
                             Icon(
-                                Icons.Filled.Restore,
+                                Icons.TwoTone.Restore,
                                 contentDescription = stringResource(CommonR.string.general_reset_action),
                             )
                         }
@@ -199,7 +199,7 @@ internal fun SwiperStatusScreen(
                             onExcludeSelected(payload)
                         }) {
                             Icon(
-                                Icons.Filled.Shield,
+                                Icons.TwoTone.Shield,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
@@ -313,9 +313,9 @@ private fun FinalizeIconButton(
     onClick: () -> Unit,
 ) {
     val icon: ImageVector = when (state.finalizeAction) {
-        SwiperStatusViewModel.FinalizeAction.DELETE -> Icons.Filled.DeleteForever
-        SwiperStatusViewModel.FinalizeAction.APPLY -> Icons.Filled.Check
-        SwiperStatusViewModel.FinalizeAction.DONE -> Icons.Filled.Favorite
+        SwiperStatusViewModel.FinalizeAction.DELETE -> Icons.TwoTone.DeleteForever
+        SwiperStatusViewModel.FinalizeAction.APPLY -> Icons.TwoTone.Check
+        SwiperStatusViewModel.FinalizeAction.DONE -> Icons.TwoTone.Favorite
         SwiperStatusViewModel.FinalizeAction.HIDDEN -> return
     }
     val enabled = when (state.finalizeAction) {
@@ -353,7 +353,7 @@ private fun StatsSection(
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         StatRow(
-            icon = Icons.Filled.Favorite,
+            icon = Icons.TwoTone.Favorite,
             tint = MaterialTheme.colorScheme.primary,
             primary = pluralStringResource(
                 R.plurals.swiper_session_status_to_keep,
@@ -367,7 +367,7 @@ private fun StatsSection(
                     Text("•", color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Spacer(Modifier.width(8.dp))
                     Icon(
-                        imageVector = Icons.Filled.CheckCircle,
+                        imageVector = Icons.TwoTone.CheckCircle,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(20.dp),
@@ -385,7 +385,7 @@ private fun StatsSection(
             },
         )
         StatRow(
-            icon = Icons.Filled.Delete,
+            icon = Icons.TwoTone.Delete,
             tint = MaterialTheme.colorScheme.error,
             primary = pluralStringResource(
                 R.plurals.swiper_session_status_to_delete,
@@ -399,7 +399,7 @@ private fun StatsSection(
                     Text("•", color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Spacer(Modifier.width(8.dp))
                     Icon(
-                        imageVector = Icons.Filled.CheckCircle,
+                        imageVector = Icons.TwoTone.CheckCircle,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.error,
                         modifier = Modifier.size(20.dp),
@@ -425,7 +425,7 @@ private fun StatsSection(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.HelpOutline,
+                    imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(20.dp),
@@ -510,9 +510,9 @@ private fun FinalizeButton(
     }
 
     val icon = when (action) {
-        SwiperStatusViewModel.FinalizeAction.DELETE -> Icons.Filled.DeleteForever
-        SwiperStatusViewModel.FinalizeAction.APPLY -> Icons.Filled.Check
-        SwiperStatusViewModel.FinalizeAction.DONE -> Icons.Filled.Favorite
+        SwiperStatusViewModel.FinalizeAction.DELETE -> Icons.TwoTone.DeleteForever
+        SwiperStatusViewModel.FinalizeAction.APPLY -> Icons.TwoTone.Check
+        SwiperStatusViewModel.FinalizeAction.DONE -> Icons.TwoTone.Favorite
         SwiperStatusViewModel.FinalizeAction.HIDDEN -> return
     }
 

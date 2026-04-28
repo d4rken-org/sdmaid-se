@@ -12,9 +12,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Memory
-import androidx.compose.material.icons.outlined.SdCard
-import androidx.compose.material.icons.outlined.Usb
+import androidx.compose.material.icons.twotone.Memory
+import androidx.compose.material.icons.twotone.SdCard
+import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -70,9 +70,9 @@ internal fun DeviceStorageItemCard(
             ) {
                 Icon(
                     imageVector = when (storage.hardware) {
-                        DeviceStorage.Hardware.BUILT_IN -> Icons.Outlined.Memory
-                        DeviceStorage.Hardware.SDCARD -> Icons.Outlined.SdCard
-                        DeviceStorage.Hardware.USB -> Icons.Outlined.Usb
+                        DeviceStorage.Hardware.BUILT_IN -> Icons.TwoTone.Memory
+                        DeviceStorage.Hardware.SDCARD -> Icons.TwoTone.SdCard
+                        DeviceStorage.Hardware.USB -> Icons.TwoTone.Usb
                     },
                     contentDescription = null,
                     modifier = Modifier

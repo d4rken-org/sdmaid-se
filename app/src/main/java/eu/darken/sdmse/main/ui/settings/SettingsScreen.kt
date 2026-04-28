@@ -3,13 +3,13 @@ package eu.darken.sdmse.main.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.ViewList
-import androidx.compose.material.icons.outlined.Apps
-import androidx.compose.material.icons.outlined.Compress
-import androidx.compose.material.icons.outlined.ContentCopy
-import androidx.compose.material.icons.outlined.Recycling
-import androidx.compose.material.icons.outlined.Swipe
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ViewList
+import androidx.compose.material.icons.twotone.Apps
+import androidx.compose.material.icons.twotone.Compress
+import androidx.compose.material.icons.twotone.ContentCopy
+import androidx.compose.material.icons.twotone.Recycling
+import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.automirrored.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.Alarm
 import androidx.compose.material.icons.twotone.BarChart
@@ -150,7 +150,7 @@ internal fun SettingsScreen(
                 title = { Text(stringResource(CommonR.string.general_settings_title)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -184,7 +184,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.AutoMirrored.Outlined.ViewList,
+                    icon = Icons.AutoMirrored.TwoTone.ViewList,
                     title = stringResource(CommonR.string.systemcleaner_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_explanation_short),
                     onClick = { onToolSettingsClick("SystemCleaner") },
@@ -192,7 +192,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Recycling,
+                    icon = Icons.TwoTone.Recycling,
                     title = stringResource(CommonR.string.appcleaner_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_explanation_short),
                     onClick = { onToolSettingsClick("AppCleaner") },
@@ -200,7 +200,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.ContentCopy,
+                    icon = Icons.TwoTone.ContentCopy,
                     title = stringResource(CommonR.string.deduplicator_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.deduplicator.R.string.deduplicator_explanation_short),
                     onClick = { onToolSettingsClick("Deduplicator") },
@@ -208,7 +208,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Apps,
+                    icon = Icons.TwoTone.Apps,
                     title = stringResource(CommonR.string.appcontrol_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.appcontrol.R.string.appcontrol_explanation_short),
                     onClick = { onToolSettingsClick("AppControl") },
@@ -216,7 +216,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Compress,
+                    icon = Icons.TwoTone.Compress,
                     title = stringResource(CommonR.string.squeezer_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.squeezer.R.string.squeezer_explanation_short),
                     onClick = { onToolSettingsClick("Squeezer") },
@@ -224,7 +224,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Swipe,
+                    icon = Icons.TwoTone.Swipe,
                     title = stringResource(CommonR.string.swiper_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.swiper.R.string.swiper_tool_description),
                     onClick = { onToolSettingsClick("Swiper") },

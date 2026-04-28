@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Compress
-import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.twotone.Compress
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -44,7 +44,7 @@ internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails.takeIf { !item.isInitializing }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.Compress,
+                imageVector = Icons.TwoTone.Compress,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -81,7 +81,7 @@ internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Visibility,
+                imageVector = Icons.TwoTone.Visibility,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

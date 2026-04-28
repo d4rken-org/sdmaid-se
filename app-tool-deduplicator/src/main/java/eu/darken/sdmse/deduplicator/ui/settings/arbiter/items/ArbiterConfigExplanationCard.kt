@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -33,7 +33,7 @@ fun ArbiterConfigExplanationCard(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(16.dp),
         ) {
             Icon(
-                imageVector = Icons.Filled.Info,
+                imageVector = Icons.TwoTone.Info,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,

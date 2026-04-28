@@ -11,15 +11,15 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ViewList
-import androidx.compose.material.icons.filled.Block
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Filter
-import androidx.compose.material.icons.filled.GridView
-import androidx.compose.material.icons.filled.SelectAll
-import androidx.compose.material.icons.filled.SwipeRight
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ViewList
+import androidx.compose.material.icons.twotone.Block
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Filter
+import androidx.compose.material.icons.twotone.GridView
+import androidx.compose.material.icons.twotone.SelectAll
+import androidx.compose.material.icons.twotone.SwipeRight
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -221,7 +221,7 @@ internal fun ContentScreen(
                         title = { },
                         navigationIcon = {
                             IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                             }
                         },
                     )
@@ -236,7 +236,7 @@ internal fun ContentScreen(
                         title = { },
                         navigationIcon = {
                             IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                             }
                         },
                     )
@@ -288,7 +288,7 @@ internal fun ContentScreen(
                             },
                             navigationIcon = {
                                 IconButton(onClick = { selection = emptySet() }) {
-                                    Icon(Icons.Filled.Close, contentDescription = null)
+                                    Icon(Icons.TwoTone.Close, contentDescription = null)
                                 }
                             },
                             actions = {
@@ -298,31 +298,31 @@ internal fun ContentScreen(
                                         .toSet()
                                     selection = if (selection == all) emptySet() else all
                                 }) {
-                                    Icon(Icons.Filled.SelectAll, contentDescription = null)
+                                    Icon(Icons.TwoTone.SelectAll, contentDescription = null)
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
                                     IconButton(onClick = { pendingDelete = selectedItems }) {
-                                        Icon(Icons.Filled.Delete, contentDescription = null)
+                                        Icon(Icons.TwoTone.Delete, contentDescription = null)
                                     }
                                 }
                                 IconButton(onClick = {
                                     onExcludeSelected(selectedItems)
                                     selection = emptySet()
                                 }) {
-                                    Icon(Icons.Filled.Block, contentDescription = null)
+                                    Icon(Icons.TwoTone.Block, contentDescription = null)
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
                                     IconButton(onClick = {
                                         onCreateFilter(selectedItems)
                                         selection = emptySet()
                                     }) {
-                                        Icon(Icons.Filled.Filter, contentDescription = null)
+                                        Icon(Icons.TwoTone.Filter, contentDescription = null)
                                     }
                                     IconButton(onClick = {
                                         onCreateSwiperSession(selectedItems)
                                         selection = emptySet()
                                     }) {
-                                        Icon(Icons.Filled.SwipeRight, contentDescription = null)
+                                        Icon(Icons.TwoTone.SwipeRight, contentDescription = null)
                                     }
                                 }
                             },
@@ -344,15 +344,15 @@ internal fun ContentScreen(
                             },
                             navigationIcon = {
                                 IconButton(onClick = onNavigateBack) {
-                                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                                    Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                                 }
                             },
                             actions = {
                                 IconButton(onClick = onLayoutModeToggle) {
                                     Icon(
                                         imageVector = when (s.layoutMode) {
-                                            LayoutMode.LINEAR -> Icons.Filled.GridView
-                                            LayoutMode.GRID -> Icons.AutoMirrored.Filled.ViewList
+                                            LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                                            LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
                                         },
                                         contentDescription = null,
                                     )

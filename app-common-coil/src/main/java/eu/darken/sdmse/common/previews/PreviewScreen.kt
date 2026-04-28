@@ -15,9 +15,9 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.NavigateBefore
-import androidx.compose.material.icons.automirrored.filled.NavigateNext
-import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.automirrored.twotone.NavigateBefore
+import androidx.compose.material.icons.automirrored.twotone.NavigateNext
+import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
@@ -145,7 +145,7 @@ internal fun PreviewScreen(
                             .align(Alignment.CenterStart)
                             .padding(16.dp),
                     ) {
-                        Icon(Icons.AutoMirrored.Filled.NavigateBefore, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.NavigateBefore, contentDescription = null)
                     }
                     FilledTonalIconButton(
                         onClick = {
@@ -161,7 +161,7 @@ internal fun PreviewScreen(
                             .align(Alignment.CenterEnd)
                             .padding(16.dp),
                     ) {
-                        Icon(Icons.AutoMirrored.Filled.NavigateNext, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.NavigateNext, contentDescription = null)
                     }
                 }
             }
@@ -188,7 +188,7 @@ private fun PreviewHeader(
         ) {
             FilledTonalIconButton(onClick = onClose) {
                 Icon(
-                    imageVector = Icons.Filled.Close,
+                    imageVector = Icons.TwoTone.Close,
                     contentDescription = stringResource(CommonR.string.general_close_action),
                 )
             }

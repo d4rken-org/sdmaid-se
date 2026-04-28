@@ -18,9 +18,9 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -124,7 +124,7 @@ private fun ProgressThumb(
             )
             when (item.decision) {
                 SwipeDecision.KEEP -> DecisionDot(
-                    icon = Icons.Filled.Favorite,
+                    icon = Icons.TwoTone.Favorite,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
@@ -132,7 +132,7 @@ private fun ProgressThumb(
                         .size(20.dp),
                 )
                 SwipeDecision.DELETE, SwipeDecision.DELETE_FAILED, SwipeDecision.DELETED -> DecisionDot(
-                    icon = Icons.Filled.Delete,
+                    icon = Icons.TwoTone.Delete,
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
@@ -143,7 +143,7 @@ private fun ProgressThumb(
             }
             if (isCurrent) {
                 Icon(
-                    imageVector = Icons.Filled.Visibility,
+                    imageVector = Icons.TwoTone.Visibility,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onPrimary,
                     modifier = Modifier

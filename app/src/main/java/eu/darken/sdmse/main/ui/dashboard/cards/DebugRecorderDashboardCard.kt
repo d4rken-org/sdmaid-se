@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BugReport
-import androidx.compose.material.icons.outlined.Save
+import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -57,7 +57,7 @@ internal fun DebugRecorderDashboardCard(item: DebugRecorderDashboardCardItem) {
     DashboardCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                imageVector = Icons.Outlined.BugReport,
+                imageVector = Icons.TwoTone.BugReport,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
             )
@@ -94,7 +94,7 @@ internal fun DebugRecorderDashboardCard(item: DebugRecorderDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                imageVector = Icons.Outlined.Save,
+                imageVector = Icons.TwoTone.Save,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

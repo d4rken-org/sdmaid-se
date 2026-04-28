@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Restore
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Restore
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
@@ -69,12 +69,12 @@ internal fun SwiperActionBar(
             ) {
                 if (swapDirections) {
                     Icon(
-                        imageVector = Icons.Filled.Favorite,
+                        imageVector = Icons.TwoTone.Favorite,
                         contentDescription = stringResource(R.string.swiper_keep_action),
                     )
                 } else {
                     Icon(
-                        imageVector = Icons.Filled.Delete,
+                        imageVector = Icons.TwoTone.Delete,
                         contentDescription = stringResource(CommonR.string.general_delete_action),
                     )
                 }
@@ -87,7 +87,7 @@ internal fun SwiperActionBar(
                     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.Restore,
+                        imageVector = Icons.TwoTone.Restore,
                         contentDescription = stringResource(CommonR.string.general_undo_action),
                     )
                 }
@@ -132,12 +132,12 @@ internal fun SwiperActionBar(
             ) {
                 if (swapDirections) {
                     Icon(
-                        imageVector = Icons.Filled.Delete,
+                        imageVector = Icons.TwoTone.Delete,
                         contentDescription = stringResource(CommonR.string.general_delete_action),
                     )
                 } else {
                     Icon(
-                        imageVector = Icons.Filled.Favorite,
+                        imageVector = Icons.TwoTone.Favorite,
                         contentDescription = stringResource(R.string.swiper_keep_action),
                     )
                 }

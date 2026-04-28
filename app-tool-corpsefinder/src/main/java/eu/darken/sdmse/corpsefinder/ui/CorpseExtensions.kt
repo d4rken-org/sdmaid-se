@@ -2,12 +2,12 @@ package eu.darken.sdmse.corpsefinder.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FolderShared
-import androidx.compose.material.icons.outlined.Inventory2
-import androidx.compose.material.icons.outlined.LocalLibrary
-import androidx.compose.material.icons.outlined.SdStorage
-import androidx.compose.material.icons.outlined.SportsEsports
-import androidx.compose.material.icons.outlined.VisibilityOff
+import androidx.compose.material.icons.twotone.FolderShared
+import androidx.compose.material.icons.twotone.Inventory2
+import androidx.compose.material.icons.twotone.LocalLibrary
+import androidx.compose.material.icons.twotone.SdStorage
+import androidx.compose.material.icons.twotone.SportsEsports
+import androidx.compose.material.icons.twotone.VisibilityOff
 import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.common.compose.icons.Artboard
 import eu.darken.sdmse.common.compose.icons.Ghost
@@ -46,16 +46,16 @@ val <T : CorpseFilter> KClass<T>.labelRes: Int
 
 val <T : CorpseFilter> KClass<T>.icon: ImageVector
     get() = when (this) {
-        SdcardCorpseFilter::class -> Icons.Outlined.SdStorage
-        PublicMediaCorpseFilter::class -> Icons.Outlined.SdStorage
-        PublicDataCorpseFilter::class -> Icons.Outlined.SdStorage
-        PublicObbCorpseFilter::class -> Icons.Outlined.SportsEsports
-        PrivateDataCorpseFilter::class -> Icons.Outlined.VisibilityOff
+        SdcardCorpseFilter::class -> Icons.TwoTone.SdStorage
+        PublicMediaCorpseFilter::class -> Icons.TwoTone.SdStorage
+        PublicDataCorpseFilter::class -> Icons.TwoTone.SdStorage
+        PublicObbCorpseFilter::class -> Icons.TwoTone.SportsEsports
+        PrivateDataCorpseFilter::class -> Icons.TwoTone.VisibilityOff
         DalvikCorpseFilter::class -> SdmIcons.Turbine
         ArtProfilesCorpseFilter::class -> SdmIcons.Artboard
-        AppLibCorpseFilter::class -> Icons.Outlined.LocalLibrary
-        AppSourceCorpseFilter::class -> Icons.Outlined.Inventory2
-        AppSourcePrivateCorpseFilter::class -> Icons.Outlined.FolderShared
-        AppAsecFileCorpseFilter::class -> Icons.Outlined.FolderShared
+        AppLibCorpseFilter::class -> Icons.TwoTone.LocalLibrary
+        AppSourceCorpseFilter::class -> Icons.TwoTone.Inventory2
+        AppSourcePrivateCorpseFilter::class -> Icons.TwoTone.FolderShared
+        AppAsecFileCorpseFilter::class -> Icons.TwoTone.FolderShared
         else -> SdmIcons.Ghost
     }

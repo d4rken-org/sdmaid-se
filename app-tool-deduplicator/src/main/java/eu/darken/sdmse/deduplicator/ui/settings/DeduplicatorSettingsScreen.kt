@@ -4,12 +4,12 @@ import android.text.format.Formatter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
-import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.GraphicEq
-import androidx.compose.material.icons.outlined.PlayCircleOutline
-import androidx.compose.material.icons.outlined.Psychology
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.twotone.FolderOpen
+import androidx.compose.material.icons.twotone.GraphicEq
+import androidx.compose.material.icons.twotone.PlayCircleOutline
+import androidx.compose.material.icons.twotone.Psychology
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -112,7 +112,7 @@ internal fun DeduplicatorSettingsScreen(
                 title = { Text(stringResource(CommonR.string.deduplicator_tool_name)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                     }
                 },
             )
@@ -124,7 +124,7 @@ internal fun DeduplicatorSettingsScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.FolderOpen,
+                    icon = Icons.TwoTone.FolderOpen,
                     title = stringResource(R.string.deduplicator_search_locations_title),
                     subtitle = scanPathsSummary,
                     onClick = onSearchLocationsClick,
@@ -133,7 +133,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.Outlined.Psychology,
+                    icon = Icons.TwoTone.Psychology,
                     title = stringResource(R.string.deduplicator_arbiter_title),
                     subtitle = stringResource(R.string.deduplicator_arbiter_summary),
                     onClick = onArbiterConfigClick,
@@ -150,7 +150,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.AutoMirrored.Outlined.InsertDriveFile,
+                    icon = Icons.AutoMirrored.TwoTone.InsertDriveFile,
                     title = stringResource(R.string.deduplicator_skip_minsize_title),
                     subtitle = stringResource(R.string.deduplicator_skip_minsize_description),
                     value = Formatter.formatShortFileSize(context, state.minSizeBytes),
@@ -159,7 +159,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.PlayCircleOutline,
+                    icon = Icons.TwoTone.PlayCircleOutline,
                     title = stringResource(R.string.deduplicator_skip_uncommon_title),
                     subtitle = stringResource(R.string.deduplicator_skip_uncommon_description),
                     checked = state.skipUncommon,
@@ -188,7 +188,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.Outlined.GraphicEq,
+                    icon = Icons.TwoTone.GraphicEq,
                     title = stringResource(R.string.deduplicator_detection_method_media_title),
                     subtitle = stringResource(R.string.deduplicator_detection_method_media_summary),
                     checked = state.isSleuthMediaEnabled,

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Apps
+import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.CheckCircle
 import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material3.Button
@@ -39,7 +39,7 @@ internal fun InventorySetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        icon = Icons.Outlined.Apps,
+        icon = Icons.TwoTone.Apps,
         title = stringResource(R.string.setup_inventory_card_title),
         modifier = modifier,
         onHelp = item.onHelp,
