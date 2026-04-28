@@ -33,14 +33,9 @@
     <string name="general_empty_label">비어 있음</string>
     <string name="general_new_badge_label">새로운</string>
     <string name="general_dismiss_action">닫기</string>
-    <string name="general_maybe_later_action">나중에</string>
     <string name="general_manage_action">관리</string>
-    <string name="general_sync_action">동기화</string>
     <string name="general_error_label">오류</string>
-    <string name="general_tap_hint_msg">옵션을 더 보려면 탭하세요</string>
     <string name="general_upgrade_action">업그레이드</string>
-    <string name="general_donate_action">후원하기</string>
-    <string name="general_internal_not_available_msg">인터넷 연결을 사용할 수 없습니다.</string>
     <string name="general_refresh_action">새로고침</string>
     <string name="general_progress_searching">검색 중</string>
     <string name="general_progress_generating_searchpaths">검색을 준비하는 중</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">대기 중</string>
     <string name="general_progress_deleting">삭제 중</string>
     <string name="general_progress_deleting_x">%s 삭제중</string>
-    <string name="general_sort_options_label">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
-    <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_tag_system">시스템</string>
     <string name="general_result_success_message">작업 성공</string>
     <plurals name="general_result_x_space_freed">
@@ -86,7 +79,6 @@
     <string name="general_delete_action">삭제</string>
     <string name="general_delete_selected_action">선택한 항목 삭제</string>
     <string name="general_show_details_action">세부 정보 보기</string>
-    <string name="general_show_all_action">모두 보기</string>
     <string name="general_toggle_layout_mode">보기 모드 전환</string>
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
@@ -97,13 +89,10 @@
         <item quantity="other">%d개 항목을 삭제했습니다.</item>
     </plurals>
     <string name="general_remove_action">제거</string>
-    <string name="general_remove_selected_action">선택 사항 삭제하기</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d개 항목을 제거하였습니다</item>
     </plurals>
-    <string name="general_root_required_label">루트 권한 필요</string>
     <string name="general_search_action">검색</string>
-    <string name="general_scan_device_action">기기 스캔</string>
     <string name="general_open_system_settings_action">시스템 설정 열기</string>
     <plurals name="result_x_items">
         <item quantity="other">%s개 항목</item>
@@ -119,7 +108,6 @@
     </plurals>
     <string name="general_info_label">정보</string>
     <string name="general_count_label">개수</string>
-    <string name="general_app_label">앱</string>
     <string name="general_more_info_action">더 보기</string>
     <string name="general_grant_access_action">접근 권한 부여</string>
     <string name="general_enable_service_action">서비스 활성화</string>
@@ -132,7 +120,6 @@
     <string name="general_exclude_selected_action">선택 항목 제외</string>
     <string name="general_device_label">기기</string>
     <string name="general_settings_title">설정</string>
-    <string name="general_help_title">도움</string>
     <string name="general_hints_label">주의</string>
     <string name="file_type_symbolic_link">링크</string>
     <string name="file_type_directory">디렉토리</string>

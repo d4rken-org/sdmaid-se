@@ -33,14 +33,9 @@
     <string name="general_empty_label">Leeg</string>
     <string name="general_new_badge_label">Nuut</string>
     <string name="general_dismiss_action">Maak toe</string>
-    <string name="general_maybe_later_action">Miskien later</string>
     <string name="general_manage_action">Bestuur</string>
-    <string name="general_sync_action">Sinchroniseer</string>
     <string name="general_error_label">Fout</string>
-    <string name="general_tap_hint_msg">Tik vir meer opsies</string>
     <string name="general_upgrade_action">Opgradeer</string>
-    <string name="general_donate_action">Skenk</string>
-    <string name="general_internal_not_available_msg">Internetverbinding nie beskikbaar nie</string>
     <string name="general_refresh_action">Verfris</string>
     <string name="general_progress_searching">Soek</string>
     <string name="general_progress_generating_searchpaths">Genereer soekpaaie</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">In tou</string>
     <string name="general_progress_deleting">Skrap</string>
     <string name="general_progress_deleting_x">Skrap %s</string>
-    <string name="general_sort_options_label">Sorteer opsies</string>
     <string name="general_sort_reverse_action">Keer sorteer modus om</string>
-    <string name="general_tag_filter_label">Filter volgens etikette</string>
     <string name="general_tag_system">Stelsel</string>
     <string name="general_result_success_message">Operasie suksesvol</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">Skrap</string>
     <string name="general_delete_selected_action">Skrap geselekteerde</string>
     <string name="general_show_details_action">Wys besonderhede</string>
-    <string name="general_show_all_action">Wys alles</string>
     <string name="general_toggle_layout_mode">Wissel aansig modus</string>
     <string name="general_delete_confirmation_title">Bevestig skrapping</string>
     <string name="general_delete_confirmation_message_x">Skrap \"%s\"?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d items geskrap.</item>
     </plurals>
     <string name="general_remove_action">Verwyder</string>
-    <string name="general_remove_selected_action">Verwyder geselekteerde</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Een item is verwyder</item>
         <item quantity="other">%d items is verwyder</item>
     </plurals>
-    <string name="general_root_required_label">Vereis root</string>
     <string name="general_search_action">Soek</string>
-    <string name="general_scan_device_action">Skandeer toestel</string>
     <string name="general_open_system_settings_action">Maak sisteem instellings oop</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Inligting</string>
     <string name="general_count_label">Tel</string>
-    <string name="general_app_label">Toep</string>
     <string name="general_more_info_action">Meer inligting</string>
     <string name="general_grant_access_action">Verleen toegang</string>
     <string name="general_enable_service_action">Aktiveer diens</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">Sluit geselekteerde uit</string>
     <string name="general_device_label">Toestel</string>
     <string name="general_settings_title">Instellings</string>
-    <string name="general_help_title">Hulp</string>
     <string name="general_hints_label">Kennisgewing</string>
     <string name="file_type_symbolic_link">Skakel</string>
     <string name="file_type_directory">Gids</string>

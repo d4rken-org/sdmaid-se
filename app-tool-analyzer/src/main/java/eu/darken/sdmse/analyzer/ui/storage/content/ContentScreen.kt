@@ -357,7 +357,7 @@ internal fun ContentScreen(
                                             LayoutMode.LINEAR -> Icons.TwoTone.GridView
                                             LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
                                         },
-                                        contentDescription = null,
+                                        contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
                                     )
                                 }
                             },

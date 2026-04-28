@@ -33,14 +33,9 @@
     <string name="general_empty_label">Tyhjä</string>
     <string name="general_new_badge_label">Uusi</string>
     <string name="general_dismiss_action">Hylkää</string>
-    <string name="general_maybe_later_action">Ehkä myöhemmin</string>
     <string name="general_manage_action">Hallitse</string>
-    <string name="general_sync_action">Synkronoi</string>
     <string name="general_error_label">Virhe</string>
-    <string name="general_tap_hint_msg">Napauta lisävalintoja varten</string>
     <string name="general_upgrade_action">Päivitä</string>
-    <string name="general_donate_action">Lahjoita</string>
-    <string name="general_internal_not_available_msg">Internet-yhteys ei ole saatavilla</string>
     <string name="general_refresh_action">Virkistä</string>
     <string name="general_progress_searching">Etsitään</string>
     <string name="general_progress_generating_searchpaths">Luodaan hakupolkuja</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">Jonossa</string>
     <string name="general_progress_deleting">Poistetaan</string>
     <string name="general_progress_deleting_x">Poistetaan %s</string>
-    <string name="general_sort_options_label">Lajitteluasetukset</string>
     <string name="general_sort_reverse_action">Käänteinen lajittelutila</string>
-    <string name="general_tag_filter_label">Suodata tunnisteiden mukaan</string>
     <string name="general_tag_system">Järjestelmä</string>
     <string name="general_result_success_message">Toiminto onnistui</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">Poista</string>
     <string name="general_delete_selected_action">Poista valitut</string>
     <string name="general_show_details_action">Näytä tiedot</string>
-    <string name="general_show_all_action">Näytä kaikki</string>
     <string name="general_toggle_layout_mode">Vaihda näkymätilaa</string>
     <string name="general_delete_confirmation_title">Vahvista poistaminen</string>
     <string name="general_delete_confirmation_message_x">Poista \"%s\"?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">Poistettiin %d kohdetta.</item>
     </plurals>
     <string name="general_remove_action">Poista</string>
-    <string name="general_remove_selected_action">Poista valitut</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Yksi kohde poistettiin</item>
         <item quantity="other">%d kohdetta poistettiin</item>
     </plurals>
-    <string name="general_root_required_label">Vaatii root-oikeudet</string>
     <string name="general_search_action">Etsi</string>
-    <string name="general_scan_device_action">Skannaa laite</string>
     <string name="general_open_system_settings_action">Avaa järjestelmäasetukset</string>
     <plurals name="result_x_items">
         <item quantity="one">%s kohde</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Tiedot</string>
     <string name="general_count_label">Määrä</string>
-    <string name="general_app_label">Sovellus</string>
     <string name="general_more_info_action">Lisätietoja</string>
     <string name="general_grant_access_action">Myönnä käyttöoikeus</string>
     <string name="general_enable_service_action">Ota palvelu käyttöön</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">Sulje pois valitut</string>
     <string name="general_device_label">Laite</string>
     <string name="general_settings_title">Asetukset</string>
-    <string name="general_help_title">Ohje</string>
     <string name="general_hints_label">Huomautus</string>
     <string name="file_type_symbolic_link">Linkki</string>
     <string name="file_type_directory">Hakemisto</string>

@@ -33,14 +33,9 @@
     <string name="general_empty_label">Vuoto</string>
     <string name="general_new_badge_label">Nuovo</string>
     <string name="general_dismiss_action">Rimuovere</string>
-    <string name="general_maybe_later_action">Forse dopo</string>
     <string name="general_manage_action">Gestione</string>
-    <string name="general_sync_action">Sincronizza</string>
     <string name="general_error_label">Errore</string>
-    <string name="general_tap_hint_msg">Clicca per più opzioni</string>
     <string name="general_upgrade_action">Aggiorna</string>
-    <string name="general_donate_action">Donazione</string>
-    <string name="general_internal_not_available_msg">Connessione internet non disponibile</string>
     <string name="general_refresh_action">Refresh</string>
     <string name="general_progress_searching">Ricerca</string>
     <string name="general_progress_generating_searchpaths">Generazione di percorsi di ricerca</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">In coda</string>
     <string name="general_progress_deleting">Eliminazione</string>
     <string name="general_progress_deleting_x">Eliminazione di %s</string>
-    <string name="general_sort_options_label">Opzioni di ordinamento</string>
     <string name="general_sort_reverse_action">Inverti modalità di ordinamento</string>
-    <string name="general_tag_filter_label">Filtra per tags</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operazione riuscita</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">Elimina</string>
     <string name="general_delete_selected_action">Elimina selezionato</string>
     <string name="general_show_details_action">Mostra dettagli</string>
-    <string name="general_show_all_action">Mostra tutto</string>
     <string name="general_toggle_layout_mode">Cambia modalità di visualizzazione</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">Eliminati %d elementi</item>
     </plurals>
     <string name="general_remove_action">Elimina</string>
-    <string name="general_remove_selected_action">Rimuovi selezionato</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un elemento è stato rimosso</item>
         <item quantity="other">%d elementi sono stati rimossi</item>
     </plurals>
-    <string name="general_root_required_label">Richiede root</string>
     <string name="general_search_action">Ricerca</string>
-    <string name="general_scan_device_action">Scansiona dispositivo</string>
     <string name="general_open_system_settings_action">Apri impostazioni del sistema</string>
     <plurals name="result_x_items">
         <item quantity="one">%s elemento</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Conteggio</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">Ulteriori info</string>
     <string name="general_grant_access_action">Consenti accesso</string>
     <string name="general_enable_service_action">Abilita servizio</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">Escludi selezionato</string>
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Impostazioni</string>
-    <string name="general_help_title">Aiuto</string>
     <string name="general_hints_label">Avviso</string>
     <string name="file_type_symbolic_link">Collegamento</string>
     <string name="file_type_directory">Directory</string>

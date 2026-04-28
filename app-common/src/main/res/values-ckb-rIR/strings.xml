@@ -33,14 +33,9 @@
     <string name="general_empty_label">بەتاڵ</string>
     <string name="general_new_badge_label">نوێ</string>
     <string name="general_dismiss_action">پشتگوێخستن</string>
-    <string name="general_maybe_later_action">ڕەنگە دواتر</string>
     <string name="general_manage_action">بەڕێوەبردن</string>
-    <string name="general_sync_action">هاوسەنگکردن</string>
     <string name="general_error_label">هەڵە</string>
-    <string name="general_tap_hint_msg">پەنجە دابنێ بۆ بژاردەی زیاتر</string>
     <string name="general_upgrade_action">نوێکردنەوە</string>
-    <string name="general_donate_action">بەخشین</string>
-    <string name="general_internal_not_available_msg">پەیوەندی ئینتەرنێت بەردەست نییە</string>
     <string name="general_refresh_action">نوێکردنەوە</string>
     <string name="general_progress_searching">گەڕان</string>
     <string name="general_progress_generating_searchpaths">دروستکردنی ڕێڕەوی گەڕان</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">لە ڕیزدا</string>
     <string name="general_progress_deleting">سڕینەوە</string>
     <string name="general_progress_deleting_x">سڕینەوەی %s</string>
-    <string name="general_sort_options_label">بژاردەکانی ڕێکخستن</string>
     <string name="general_sort_reverse_action">شێوازی ڕێکخستنی پێچەوانە</string>
-    <string name="general_tag_filter_label">پاڵاوتن بەپێی تاگەکان</string>
     <string name="general_tag_system">سیستەم</string>
     <string name="general_result_success_message">کارپێکردن سەرکەوتوو بوو</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">سڕینەوە</string>
     <string name="general_delete_selected_action">سڕینەوەی هەڵبژێردراوەکان</string>
     <string name="general_show_details_action">پیشاندانی وردەکارییەکان</string>
-    <string name="general_show_all_action">پیشاندانی هەموو</string>
     <string name="general_toggle_layout_mode">گۆڕینی شێوازی بینین</string>
     <string name="general_delete_confirmation_title">پشتڕاستکردنەوەی سڕینەوە</string>
     <string name="general_delete_confirmation_message_x">\"%s\" بسڕدرێتەوە؟</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d بابەت سڕایەوە.</item>
     </plurals>
     <string name="general_remove_action">لابردن</string>
-    <string name="general_remove_selected_action">لابردنی هەڵبژێردراوەکان</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">یەک بابەت لادرا</item>
         <item quantity="other">%d بابەت لادرا</item>
     </plurals>
-    <string name="general_root_required_label">پێویستی بە ڕووتە</string>
     <string name="general_search_action">گەڕان</string>
-    <string name="general_scan_device_action">پشکنینی ئامێر</string>
     <string name="general_open_system_settings_action">کردنەوەی ڕێکخستنەکانی سیستەم</string>
     <plurals name="result_x_items">
         <item quantity="one">%s بابەت</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">زانیاری</string>
     <string name="general_count_label">ژماردن</string>
-    <string name="general_app_label">ئەپ</string>
     <string name="general_more_info_action">زانیاری زیاتر</string>
     <string name="general_grant_access_action">مۆڵەتی دەستڕاگەیشتن بدە</string>
     <string name="general_enable_service_action">خزمەتگوزاری چالاک بکە</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">دەرکردنی هەڵبژێردراوەکان</string>
     <string name="general_device_label">ئامێر</string>
     <string name="general_settings_title">ڕێکخستنەکان</string>
-    <string name="general_help_title">یارمەتی</string>
     <string name="general_hints_label">ئاگادارکردنەوە</string>
     <string name="file_type_symbolic_link">بەستەر</string>
     <string name="file_type_directory">دایرێکتۆری</string>

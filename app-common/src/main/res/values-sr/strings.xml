@@ -33,14 +33,9 @@
     <string name="general_empty_label">Празно</string>
     <string name="general_new_badge_label">Ново</string>
     <string name="general_dismiss_action">Одбаци</string>
-    <string name="general_maybe_later_action">Можда касније</string>
     <string name="general_manage_action">Управљај</string>
-    <string name="general_sync_action">Синхронизуј</string>
     <string name="general_error_label">Грешка</string>
-    <string name="general_tap_hint_msg">Додирните за више опција</string>
     <string name="general_upgrade_action">Надогради</string>
-    <string name="general_donate_action">Донирај</string>
-    <string name="general_internal_not_available_msg">Интернет веза није доступна</string>
     <string name="general_refresh_action">Освежи</string>
     <string name="general_progress_searching">Претражување</string>
     <string name="general_progress_generating_searchpaths">Генерисање путања за претрагу</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">У реду</string>
     <string name="general_progress_deleting">Брисање</string>
     <string name="general_progress_deleting_x">Брисање %s</string>
-    <string name="general_sort_options_label">Опције сортирања</string>
     <string name="general_sort_reverse_action">Обрнути режим сортирања</string>
-    <string name="general_tag_filter_label">Филтрирај по таговима</string>
     <string name="general_tag_system">Систем</string>
     <string name="general_result_success_message">Операција успешна</string>
     <plurals name="general_result_x_space_freed">
@@ -88,7 +81,6 @@
     <string name="general_delete_action">Обриши</string>
     <string name="general_delete_selected_action">Обриши изабране</string>
     <string name="general_show_details_action">Прикажи детаље</string>
-    <string name="general_show_all_action">Прикажи све</string>
     <string name="general_toggle_layout_mode">Промени режим приказа</string>
     <string name="general_delete_confirmation_title">Потврди брисање</string>
     <string name="general_delete_confirmation_message_x">Обриши \"%s\"?</string>
@@ -103,15 +95,12 @@
         <item quantity="other">Обрисано %d ставки.</item>
     </plurals>
     <string name="general_remove_action">Уклони</string>
-    <string name="general_remove_selected_action">Уклони изабране</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Једна ставка је уклоњена</item>
         <item quantity="few">%d ставке су уклоњене</item>
         <item quantity="other">%d ставки је уклоњено</item>
     </plurals>
-    <string name="general_root_required_label">Потребан root</string>
     <string name="general_search_action">Претражи</string>
-    <string name="general_scan_device_action">Скенирај уређај</string>
     <string name="general_open_system_settings_action">Отвори системска подешавања</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ставка</item>
@@ -135,7 +124,6 @@
     </plurals>
     <string name="general_info_label">Информације</string>
     <string name="general_count_label">Број</string>
-    <string name="general_app_label">Апликација</string>
     <string name="general_more_info_action">Више информација</string>
     <string name="general_grant_access_action">Додели приступ</string>
     <string name="general_enable_service_action">Омогући услугу</string>
@@ -148,7 +136,6 @@
     <string name="general_exclude_selected_action">Искључи изабране</string>
     <string name="general_device_label">Уређај</string>
     <string name="general_settings_title">Подешавања</string>
-    <string name="general_help_title">Помоћ</string>
     <string name="general_hints_label">Напомена</string>
     <string name="file_type_symbolic_link">Веза</string>
     <string name="file_type_directory">Директоријум</string>

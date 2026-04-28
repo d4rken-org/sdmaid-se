@@ -255,7 +255,10 @@ internal fun DeduplicatorListScreen(
                                 LayoutMode.LINEAR -> Icons.TwoTone.GridView
                                 LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
                             }
-                            Icon(icon, contentDescription = null)
+                            Icon(
+                                icon,
+                                contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
+                            )
                         }
                     },
                 )

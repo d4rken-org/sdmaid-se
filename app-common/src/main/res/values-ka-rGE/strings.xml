@@ -33,14 +33,9 @@
     <string name="general_empty_label">ცარიელი</string>
     <string name="general_new_badge_label">ახალი</string>
     <string name="general_dismiss_action">გაუქმება</string>
-    <string name="general_maybe_later_action">შეიძლება მოგვიანებით</string>
     <string name="general_manage_action">მართვა</string>
-    <string name="general_sync_action">სინქრონიზაცია</string>
     <string name="general_error_label">შეცდომა</string>
-    <string name="general_tap_hint_msg">შეეხეთ მეტი ვარიანტებისთვის</string>
     <string name="general_upgrade_action">გარემონტება</string>
-    <string name="general_donate_action">შემოწირულება</string>
-    <string name="general_internal_not_available_msg">ინტერნეტი მიუწვდომელია</string>
     <string name="general_refresh_action">განახლება</string>
     <string name="general_progress_searching">ვეძებ</string>
     <string name="general_progress_generating_searchpaths">ძიების გზების გენერირება</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">რიგში</string>
     <string name="general_progress_deleting">წაშლა</string>
     <string name="general_progress_deleting_x">%s-ის წაშლა</string>
-    <string name="general_sort_options_label">დალაგების ვარიანტები</string>
     <string name="general_sort_reverse_action">დალაგების რევერსიული რეჟიმი</string>
-    <string name="general_tag_filter_label">ტეგების მიხედვით ფილტრაცია</string>
     <string name="general_tag_system">სისტემა</string>
     <string name="general_result_success_message">ოპერაცია წარმატებული</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">წაშლა</string>
     <string name="general_delete_selected_action">მონიშნულის წაშლა</string>
     <string name="general_show_details_action">დეტალების ჩვენება</string>
-    <string name="general_show_all_action">ყველას ჩვენება</string>
     <string name="general_toggle_layout_mode">ნახვის რეჟიმის გადართვა</string>
     <string name="general_delete_confirmation_title">წაშლის დადასტურება</string>
     <string name="general_delete_confirmation_message_x">წავშალოთ \"%s\"?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d ელემენტი წაიშალა.</item>
     </plurals>
     <string name="general_remove_action">ამოშლა</string>
-    <string name="general_remove_selected_action">მონიშნულის მოშორება</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ერთი ელემენტი მოიშორა</item>
         <item quantity="other">%d ელემენტი მოიშორა</item>
     </plurals>
-    <string name="general_root_required_label">საჭიროებს root-ს</string>
     <string name="general_search_action">ძებნა</string>
-    <string name="general_scan_device_action">მოწყობილობის სკანირება</string>
     <string name="general_open_system_settings_action">სისტემის პარამეტრების გახსნა</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ელემენტი</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">ინფორმაცია</string>
     <string name="general_count_label">რაოდენობა</string>
-    <string name="general_app_label">აპი</string>
     <string name="general_more_info_action">მეტი ინფორმაცია</string>
     <string name="general_grant_access_action">წვდომის მიცემა</string>
     <string name="general_enable_service_action">სერვისის ჩართვა</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">მონიშნულის გამორიცხვა</string>
     <string name="general_device_label">მოწყობილობა</string>
     <string name="general_settings_title">პარამეტრები</string>
-    <string name="general_help_title">დახმარება</string>
     <string name="general_hints_label">შენიშვნა</string>
     <string name="file_type_symbolic_link">Ბმული</string>
     <string name="file_type_directory">დირექტორია</string>

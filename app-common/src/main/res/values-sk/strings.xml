@@ -33,14 +33,9 @@
     <string name="general_empty_label">Prázdne</string>
     <string name="general_new_badge_label">Nové</string>
     <string name="general_dismiss_action">Odmietnuť</string>
-    <string name="general_maybe_later_action">Možno pozdejšie</string>
     <string name="general_manage_action">Spravovať</string>
-    <string name="general_sync_action">Synchronizovať</string>
     <string name="general_error_label">Chyba</string>
-    <string name="general_tap_hint_msg">Klepnutím zobrazíte ďalšie možnosti</string>
     <string name="general_upgrade_action">Inovovať</string>
-    <string name="general_donate_action">Prispieť</string>
-    <string name="general_internal_not_available_msg">Internetové pripojenie je nedostupné</string>
     <string name="general_refresh_action">Obnoviť</string>
     <string name="general_progress_searching">Vyhľadávanie</string>
     <string name="general_progress_generating_searchpaths">Generovanie ciest vyhľadávania</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">V poradí</string>
     <string name="general_progress_deleting">Vymazávanie</string>
     <string name="general_progress_deleting_x">Odstraňuje sa %s</string>
-    <string name="general_sort_options_label">Možnosti zoradenia</string>
     <string name="general_sort_reverse_action">Obrátený režim triedenia</string>
-    <string name="general_tag_filter_label">Filtrujte podľa štítkov</string>
     <string name="general_tag_system">Systém</string>
     <string name="general_result_success_message">Operácia úspešná</string>
     <plurals name="general_result_x_space_freed">
@@ -89,7 +82,6 @@
     <string name="general_delete_action">Vymazať</string>
     <string name="general_delete_selected_action">Zmazať vybrané</string>
     <string name="general_show_details_action">Zobraziť podrobnosti</string>
-    <string name="general_show_all_action">Zobraziť všetko</string>
     <string name="general_toggle_layout_mode">Prepnúť zobrazovací mód</string>
     <string name="general_delete_confirmation_title">Potvrďte vymazanie</string>
     <string name="general_delete_confirmation_message_x">Vymazať \"%s\"?</string>
@@ -106,16 +98,13 @@
         <item quantity="other">Zmazaných %d položiek.</item>
     </plurals>
     <string name="general_remove_action">Odstrániť</string>
-    <string name="general_remove_selected_action">Odstrániť vybrané</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Jedna položka bola odstránená</item>
         <item quantity="few">%d položky boli odstránené</item>
         <item quantity="many">%d položiek bolo odstránených</item>
         <item quantity="other">%d položiek bolo odstránených</item>
     </plurals>
-    <string name="general_root_required_label">Vyžaduje root</string>
     <string name="general_search_action">Hľadať</string>
-    <string name="general_scan_device_action">Skenovať zariadenie</string>
     <string name="general_open_system_settings_action">Otvoriť nastavenia systému</string>
     <plurals name="result_x_items">
         <item quantity="one">%s položka</item>
@@ -143,7 +132,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Počet</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">Viac informácií</string>
     <string name="general_grant_access_action">Povoliť prístup</string>
     <string name="general_enable_service_action">Povoliť službu</string>
@@ -156,7 +144,6 @@
     <string name="general_exclude_selected_action">Vylúčiť vybrané</string>
     <string name="general_device_label">Zariadenie</string>
     <string name="general_settings_title">Nastavenia</string>
-    <string name="general_help_title">Pomoc</string>
     <string name="general_hints_label">Oznámenie</string>
     <string name="file_type_symbolic_link">Odkaz</string>
     <string name="file_type_directory">Adresár</string>

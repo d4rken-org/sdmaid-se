@@ -30,14 +30,9 @@
     <string name="general_empty_label">Malplena</string>
     <string name="general_new_badge_label">Nova</string>
     <string name="general_dismiss_action">Forigi</string>
-    <string name="general_maybe_later_action">Eble poste</string>
     <string name="general_manage_action">Administri</string>
-    <string name="general_sync_action">Sinkronigi</string>
     <string name="general_error_label">Eraro</string>
-    <string name="general_tap_hint_msg">Tuŝu por pli da opcioj</string>
     <string name="general_upgrade_action">Promocii</string>
-    <string name="general_donate_action">Donaci</string>
-    <string name="general_internal_not_available_msg">Interreta konekto ne disponebla</string>
     <string name="general_refresh_action">Aktualigi</string>
     <string name="general_progress_searching">Serĉas</string>
     <string name="general_progress_generating_searchpaths">Kreas serĉ-vojojn</string>
@@ -66,9 +61,7 @@
     <string name="general_progress_queued">En vico</string>
     <string name="general_progress_deleting">Forigas</string>
     <string name="general_progress_deleting_x">Forigas %s</string>
-    <string name="general_sort_options_label">Ordig-opcioj</string>
     <string name="general_sort_reverse_action">Renversa ordig-reĝimo</string>
-    <string name="general_tag_filter_label">Filtri laŭ etikedoj</string>
     <string name="general_tag_system">Sistemo</string>
     <string name="general_result_success_message">Operacio sukcesis</string>
     <plurals name="general_result_x_space_freed">
@@ -83,7 +76,6 @@
     <string name="general_delete_action">Forigi</string>
     <string name="general_delete_selected_action">Forigi elektitajn</string>
     <string name="general_show_details_action">Montri detalojn</string>
-    <string name="general_show_all_action">Montri ĉion</string>
     <string name="general_toggle_layout_mode">Ŝanĝi vid-reĝimon</string>
     <string name="general_delete_confirmation_title">Konfirmi forigon</string>
     <string name="general_delete_confirmation_message_x">Forigi \"%s\"?</string>
@@ -93,14 +85,11 @@
         <item quantity="other">%d eroj foriĝis.</item>
     </plurals>
     <string name="general_remove_action">Forpreni</string>
-    <string name="general_remove_selected_action">Forpreni elektitajn</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Unu ero forpreniĝis</item>
         <item quantity="other">%d eroj forpreniĝis</item>
     </plurals>
-    <string name="general_root_required_label">Radika aliro necesa</string>
     <string name="general_search_action">Serĉi</string>
-    <string name="general_scan_device_action">Skani aparaton</string>
     <string name="general_open_system_settings_action">Malfermi sistem-agordojn</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ero</item>
@@ -120,7 +109,6 @@
     </plurals>
     <string name="general_info_label">Informo</string>
     <string name="general_count_label">Kalkulo</string>
-    <string name="general_app_label">Aplikaĵo</string>
     <string name="general_more_info_action">Pli da informo</string>
     <string name="general_grant_access_action">Doni aliron</string>
     <string name="general_enable_service_action">Ŝalti servon</string>
@@ -133,7 +121,6 @@
     <string name="general_exclude_selected_action">Ekskluzivi elektitajn</string>
     <string name="general_device_label">Aparato</string>
     <string name="general_settings_title">Agordoj</string>
-    <string name="general_help_title">Helpo</string>
     <string name="file_type_symbolic_link">Ligilo</string>
     <string name="file_type_directory">Dosierujo</string>
     <string name="file_type_file">Dosiero</string>

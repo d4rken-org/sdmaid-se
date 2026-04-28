@@ -33,14 +33,9 @@
     <string name="general_empty_label">Kosong</string>
     <string name="general_new_badge_label">Baru</string>
     <string name="general_dismiss_action">Tutup</string>
-    <string name="general_maybe_later_action">Mungkin nanti</string>
     <string name="general_manage_action">Kelola</string>
-    <string name="general_sync_action">Sinkronkan</string>
     <string name="general_error_label">Eror</string>
-    <string name="general_tap_hint_msg">Tekan untuk pilihan lain</string>
     <string name="general_upgrade_action">Tingkatkan</string>
-    <string name="general_donate_action">Donasi</string>
-    <string name="general_internal_not_available_msg">Koneksi Internet tidak tersedia</string>
     <string name="general_refresh_action">Segarkan</string>
     <string name="general_progress_searching">Mencari</string>
     <string name="general_progress_generating_searchpaths">Membuat jalur pencarian</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">Dalam antrean</string>
     <string name="general_progress_deleting">Menghapus</string>
     <string name="general_progress_deleting_x">Menghapus %s</string>
-    <string name="general_sort_options_label">Pilihan pengurutan</string>
     <string name="general_sort_reverse_action">Mode penyortiran terbalik</string>
-    <string name="general_tag_filter_label">Saring berdasarkan tag</string>
     <string name="general_tag_system">Sistem</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <plurals name="general_result_x_space_freed">
@@ -86,7 +79,6 @@
     <string name="general_delete_action">Hapus</string>
     <string name="general_delete_selected_action">Hapus yang dipilih</string>
     <string name="general_show_details_action">Tampilkan detail</string>
-    <string name="general_show_all_action">Tampilkan semua</string>
     <string name="general_toggle_layout_mode">Ganti mode tampilan</string>
     <string name="general_delete_confirmation_title">Konfirmasi penghapusan</string>
     <string name="general_delete_confirmation_message_x">Hapus \"%s\"?</string>
@@ -97,13 +89,10 @@
         <item quantity="other">%d item dihapus.</item>
     </plurals>
     <string name="general_remove_action">Hapus</string>
-    <string name="general_remove_selected_action">Hapus yang dipilih</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d barang telah dihapus</item>
     </plurals>
-    <string name="general_root_required_label">Memerlukan root</string>
     <string name="general_search_action">Cari</string>
-    <string name="general_scan_device_action">Pindai perangkat</string>
     <string name="general_open_system_settings_action">Buka pengaturan sistem</string>
     <plurals name="result_x_items">
         <item quantity="other">%s barang</item>
@@ -119,7 +108,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Jumlah</string>
-    <string name="general_app_label">Aplikasi</string>
     <string name="general_more_info_action">Info lebih lanjut</string>
     <string name="general_grant_access_action">Berikan akses</string>
     <string name="general_enable_service_action">Aktifkan layanan</string>
@@ -132,7 +120,6 @@
     <string name="general_exclude_selected_action">Kecualikan yang dipilih</string>
     <string name="general_device_label">Perangkat</string>
     <string name="general_settings_title">Pengaturan</string>
-    <string name="general_help_title">Bantuan</string>
     <string name="general_hints_label">Catatan</string>
     <string name="file_type_symbolic_link">Tautan</string>
     <string name="file_type_directory">Direktori</string>

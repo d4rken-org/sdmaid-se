@@ -33,14 +33,9 @@
     <string name="general_empty_label">Leeg</string>
     <string name="general_new_badge_label">Nieuw</string>
     <string name="general_dismiss_action">Afwijzen</string>
-    <string name="general_maybe_later_action">Misschien later</string>
     <string name="general_manage_action">Beheren</string>
-    <string name="general_sync_action">Synchroniseren</string>
     <string name="general_error_label">Fout</string>
-    <string name="general_tap_hint_msg">Tik voor meer opties</string>
     <string name="general_upgrade_action">Upgraden</string>
-    <string name="general_donate_action">Doneren</string>
-    <string name="general_internal_not_available_msg">Internetverbinding niet beschikbaar</string>
     <string name="general_refresh_action">Vernieuwen</string>
     <string name="general_progress_searching">Zoeken</string>
     <string name="general_progress_generating_searchpaths">Genereren van zoekpaden</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">In de wachtrij</string>
     <string name="general_progress_deleting">Verwijderen</string>
     <string name="general_progress_deleting_x">Verwijderen %s</string>
-    <string name="general_sort_options_label">Sorteer opties</string>
     <string name="general_sort_reverse_action">Omgekeerde sorteermodus</string>
-    <string name="general_tag_filter_label">Filteren op tags</string>
     <string name="general_tag_system">Systeem</string>
     <string name="general_result_success_message">Bewerking geslaagd</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">Verwijderen</string>
     <string name="general_delete_selected_action">Verwijder geselecteerde</string>
     <string name="general_show_details_action">Toon details</string>
-    <string name="general_show_all_action">Toon alles</string>
     <string name="general_toggle_layout_mode">Wijzig de weergavemodus</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d items verwijderd.</item>
     </plurals>
     <string name="general_remove_action">Verwijderen</string>
-    <string name="general_remove_selected_action">Verwijder geselecteerde</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Eén item is verwijderd</item>
         <item quantity="other">%d items zijn verwijderd</item>
     </plurals>
-    <string name="general_root_required_label">Vereist root</string>
     <string name="general_search_action">Zoeken</string>
-    <string name="general_scan_device_action">Apparaat scannen</string>
     <string name="general_open_system_settings_action">Systeeminstellingen openen</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">Meer informatie</string>
     <string name="general_grant_access_action">Toegang verlenen</string>
     <string name="general_enable_service_action">Dienst inschakelen</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">Geselecteerde uitsluiten</string>
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
-    <string name="general_help_title">Help</string>
     <string name="general_hints_label">Kennisgeving</string>
     <string name="file_type_symbolic_link">Koppeling</string>
     <string name="file_type_directory">Adresboek</string>

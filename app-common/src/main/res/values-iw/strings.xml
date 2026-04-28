@@ -33,14 +33,9 @@
     <string name="general_empty_label">ריק</string>
     <string name="general_new_badge_label">חדש</string>
     <string name="general_dismiss_action">דחה</string>
-    <string name="general_maybe_later_action">אולי מאוחר יותר</string>
     <string name="general_manage_action">נהל</string>
-    <string name="general_sync_action">סנכרן</string>
     <string name="general_error_label">שגיאה</string>
-    <string name="general_tap_hint_msg">לחץ לעוד אפשרויות</string>
     <string name="general_upgrade_action">שדרוג</string>
-    <string name="general_donate_action">תרומה</string>
-    <string name="general_internal_not_available_msg">אין חיבור לאינטרנט</string>
     <string name="general_refresh_action">רענן</string>
     <string name="general_progress_searching">מחפש</string>
     <string name="general_progress_generating_searchpaths">יצירת נתיבי חיפוש</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">בתור</string>
     <string name="general_progress_deleting">מוחק</string>
     <string name="general_progress_deleting_x">מוחק %s</string>
-    <string name="general_sort_options_label">אפשרויות מיון</string>
     <string name="general_sort_reverse_action">מצב סידור הפוך</string>
-    <string name="general_tag_filter_label">סנן לפי תגיות</string>
     <string name="general_tag_system">מערכת</string>
     <string name="general_result_success_message">הפעולה בוצעה בהצלחה</string>
     <plurals name="general_result_x_space_freed">
@@ -89,7 +82,6 @@
     <string name="general_delete_action">מחיקה</string>
     <string name="general_delete_selected_action">מחק נבחרים</string>
     <string name="general_show_details_action">הצג פרטים</string>
-    <string name="general_show_all_action">הצג הכל</string>
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
     <string name="general_delete_confirmation_title">אישור מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
@@ -106,16 +98,13 @@
         <item quantity="other">נמחקו %d פריטים.</item>
     </plurals>
     <string name="general_remove_action">הסרה</string>
-    <string name="general_remove_selected_action">הסר נבחרים</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">פריט אחד הוסר</item>
         <item quantity="two">%d פריטים הוסרו</item>
         <item quantity="many">%d פריטים הוסרו</item>
         <item quantity="other">%d פריטים הוסרו</item>
     </plurals>
-    <string name="general_root_required_label">מצריך גישת רוט</string>
     <string name="general_search_action">חיפוש</string>
-    <string name="general_scan_device_action">סרוק מכשיר</string>
     <string name="general_open_system_settings_action">פתח הגדרות מכשיר</string>
     <plurals name="result_x_items">
         <item quantity="one">%s פריט</item>
@@ -143,7 +132,6 @@
     </plurals>
     <string name="general_info_label">מידע</string>
     <string name="general_count_label">ספירה</string>
-    <string name="general_app_label">אפליקציה</string>
     <string name="general_more_info_action">מידע נוסף</string>
     <string name="general_grant_access_action">אשר גישה</string>
     <string name="general_enable_service_action">הפעלת שירות</string>
@@ -156,7 +144,6 @@
     <string name="general_exclude_selected_action">החרג נבחרים</string>
     <string name="general_device_label">מכשיר</string>
     <string name="general_settings_title">הגדרות</string>
-    <string name="general_help_title">עזרה</string>
     <string name="general_hints_label">הודעה</string>
     <string name="file_type_symbolic_link">קישור</string>
     <string name="file_type_directory">תיקייה</string>

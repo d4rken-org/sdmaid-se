@@ -33,14 +33,9 @@
     <string name="general_empty_label">ఖాళీ</string>
     <string name="general_new_badge_label">కొత్త</string>
     <string name="general_dismiss_action">తీసివేయండి</string>
-    <string name="general_maybe_later_action">బహుశా తరువాత</string>
     <string name="general_manage_action">నిర్వహించండి</string>
-    <string name="general_sync_action">సింక్రొనైజ్ చేయండి</string>
     <string name="general_error_label">లోపం</string>
-    <string name="general_tap_hint_msg">మరిన్ని ఎంపికల కోసం నొక్కండి</string>
     <string name="general_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>
-    <string name="general_donate_action">దానం చేయండి</string>
-    <string name="general_internal_not_available_msg">ఇంటర్నెట్ కనెక్షన్ అందుబాటులో లేదు</string>
     <string name="general_refresh_action">రిఫ్రెష్ చేయండి</string>
     <string name="general_progress_searching">వెతుకుతూంది</string>
     <string name="general_progress_generating_searchpaths">వెతుకుట మార్గాలను రూపొందిస్తుంది</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">వరుసలో</string>
     <string name="general_progress_deleting">తొలగిస్తుంది</string>
     <string name="general_progress_deleting_x">%s తొలగిస్తుంది</string>
-    <string name="general_sort_options_label">క్రమబద్ధీకరణ ఎంపికలు</string>
     <string name="general_sort_reverse_action">రివర్స్ సార్ట్ మోడ్</string>
-    <string name="general_tag_filter_label">ట్యాగ్‌ల ద్వారా ఫిల్టర్ చేయండి</string>
     <string name="general_tag_system">సిస్టం</string>
     <string name="general_result_success_message">విజయవంతంగా పూర్తయింది</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">తొలగించండి</string>
     <string name="general_delete_selected_action">ఎంచుకున్నవి తొలగించండి</string>
     <string name="general_show_details_action">వివరాలు చూపించండి</string>
-    <string name="general_show_all_action">అన్నిటినీ చూపించండి</string>
     <string name="general_toggle_layout_mode">వీక్షణ మోడ్‌ను మార్చండి</string>
     <string name="general_delete_confirmation_title">తొలగింపును నిర్ధారించండి</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ను తొలగించాలా?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d వస్తువులు తొలగించబడ్డాయి.</item>
     </plurals>
     <string name="general_remove_action">తీసివేయండి</string>
-    <string name="general_remove_selected_action">ఎంచుకున్నవి తీసివేయండి</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ఒక వస్తువు తీసివేయబడింది</item>
         <item quantity="other">%d వస్తువులు తీసివేయబడ్డాయి</item>
     </plurals>
-    <string name="general_root_required_label">రూట్ అవసరం</string>
     <string name="general_search_action">వెతకండి</string>
-    <string name="general_scan_device_action">పరికరాన్ని స్కాన్ చేయండి</string>
     <string name="general_open_system_settings_action">సిస్టమ్ సెట్టింగ్‌లను తెరవండి</string>
     <plurals name="result_x_items">
         <item quantity="one">%s వస్తువు</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">సమాచారం</string>
     <string name="general_count_label">గణన</string>
-    <string name="general_app_label">యాప్</string>
     <string name="general_more_info_action">మరిన్ని సమాచారం</string>
     <string name="general_grant_access_action">యాక్సెస్ మంజూరు చేయండి</string>
     <string name="general_enable_service_action">సేవను ప్రారంభించండి</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">ఎంచుకున్నవి మినహాయించండి</string>
     <string name="general_device_label">పరికరం</string>
     <string name="general_settings_title">సెట్టింగులు</string>
-    <string name="general_help_title">సహాయం</string>
     <string name="general_hints_label">గమనిక</string>
     <string name="file_type_symbolic_link">లింక్</string>
     <string name="file_type_directory">డైరెక్టరీ</string>

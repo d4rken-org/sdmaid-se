@@ -33,14 +33,9 @@
     <string name="general_empty_label">ശൂന്യം</string>
     <string name="general_new_badge_label">പുതിയത്</string>
     <string name="general_dismiss_action">തള്ളിക്കളയുക</string>
-    <string name="general_maybe_later_action">പിന്നീട്</string>
     <string name="general_manage_action">കൈകാര്യം ചെയ്യുക</string>
-    <string name="general_sync_action">സമന്വയിപ്പിക്കുക</string>
     <string name="general_error_label">ഇറർ</string>
-    <string name="general_tap_hint_msg">കൂടുതൽ ഓപ്ഷനുകൾക്ക് ടാപ്പുചെയ്യുക</string>
     <string name="general_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
-    <string name="general_donate_action">സംഭാവനചെയ്യുക</string>
-    <string name="general_internal_not_available_msg">ഇന്റർനെറ്റ് കണക്ഷൻ ലഭ്യമല്ല</string>
     <string name="general_refresh_action">റിഫ്രഷ്</string>
     <string name="general_progress_searching">തിരയുന്നു</string>
     <string name="general_progress_generating_searchpaths">സെർച്ച് പാത്ത് സൃഷ്ടിക്കുന്നു</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">ക്യൂവിൽ</string>
     <string name="general_progress_deleting">ഡിലീറ്റ് ചെയ്യുന്നു</string>
     <string name="general_progress_deleting_x">%s ഡിലീറ്റ് ചെയ്യുന്നു</string>
-    <string name="general_sort_options_label">ഓപ്‌ഷനുകൾ അടുക്കുക</string>
     <string name="general_sort_reverse_action">റിവേഴ്സ് സോർട്ട് മോഡ്</string>
-    <string name="general_tag_filter_label">ടാഗുകൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="general_tag_system">സിസ്റ്റം</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">ഇല്ലാതാക്കുക</string>
     <string name="general_delete_selected_action">തിരഞ്ഞെടുത്തവ ഇല്ലാതാക്കുക</string>
     <string name="general_show_details_action">വിശദാംശങ്ങൾ കാണിക്കുക</string>
-    <string name="general_show_all_action">എല്ലാം കാണിക്കുക</string>
     <string name="general_toggle_layout_mode">കാഴ്ച മോഡ് മാറ്റുക</string>
     <string name="general_delete_confirmation_title">ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ഇല്ലാതാക്കണോ?</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d ഇനങ്ങൾ ഇല്ലാതാക്കി.</item>
     </plurals>
     <string name="general_remove_action">നീക്കം ചെയ്യുക</string>
-    <string name="general_remove_selected_action">തിരഞ്ഞെടുത്തവ നീക്കം ചെയ്യുക</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ഒരു ഇനം നീക്കം ചെയ്തു</item>
         <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്തു</item>
     </plurals>
-    <string name="general_root_required_label">റൂട്ട് ആവശ്യമാണ്</string>
     <string name="general_search_action">തിരയുക</string>
-    <string name="general_scan_device_action">ഉപകരണം സ്കാൻ ചെയ്യുക</string>
     <string name="general_open_system_settings_action">സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കുക</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ഇനം</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">വിവരങ്ങൾ</string>
     <string name="general_count_label">എണ്ണം</string>
-    <string name="general_app_label">അപ്ലിക്കേഷൻ</string>
     <string name="general_more_info_action">കൂടുതല്‍ വിവരം</string>
     <string name="general_grant_access_action">Grant access</string>
     <string name="general_enable_service_action">സേവനം പ്രവർത്തനക്ഷമമാക്കുക</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">തിരഞ്ഞെടുത്തവ ഒഴിവാക്കുക</string>
     <string name="general_device_label">ഉപകരണം</string>
     <string name="general_settings_title">ക്രമീകരണങ്ങൾ</string>
-    <string name="general_help_title">ഹെല്പ്</string>
     <string name="general_hints_label">അറിയിപ്പ്</string>
     <string name="file_type_symbolic_link">ലിങ്ക്</string>
     <string name="file_type_directory">മേല്‍വിലാസപ്പട്ടിക</string>

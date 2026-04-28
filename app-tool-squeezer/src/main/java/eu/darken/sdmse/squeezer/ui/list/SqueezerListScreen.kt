@@ -237,7 +237,7 @@ internal fun SqueezerListScreen(
                                         LayoutMode.LINEAR -> Icons.TwoTone.GridView
                                         LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ListAlt
                                     },
-                                    contentDescription = null,
+                                    contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
                                 )
                             }
                         }

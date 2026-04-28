@@ -33,14 +33,9 @@
     <string name="general_empty_label">خالی</string>
     <string name="general_new_badge_label">نیا</string>
     <string name="general_dismiss_action">بار کریں</string>
-    <string name="general_maybe_later_action">شاید بعد میں</string>
     <string name="general_manage_action">مینج کریں</string>
-    <string name="general_sync_action">ہم آہنگ کریں</string>
     <string name="general_error_label">غلطی</string>
-    <string name="general_tap_hint_msg">مزید اختیارات کے لیے ٹیپ کریں</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
-    <string name="general_donate_action">عطیہ کریں</string>
-    <string name="general_internal_not_available_msg">انٹرنیٹ کنکشن دستیاب نہیں</string>
     <string name="general_refresh_action">تازہ کریں</string>
     <string name="general_progress_searching">تلاش کر رہا ہے</string>
     <string name="general_progress_generating_searchpaths">تلاشی راستے بنا رہا ہے</string>
@@ -69,9 +64,7 @@
     <string name="general_progress_queued">قطار میں</string>
     <string name="general_progress_deleting">حذف کر رہا ہے</string>
     <string name="general_progress_deleting_x">%s حذف کر رہا ہے</string>
-    <string name="general_sort_options_label">ترتیب کے اختیارات</string>
     <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
-    <string name="general_tag_filter_label">ٹیگز کے ذریعے فلٹر کریں</string>
     <string name="general_tag_system">سسٹم</string>
     <string name="general_result_success_message">کامیابی سے مکمل</string>
     <plurals name="general_result_x_space_freed">
@@ -87,7 +80,6 @@
     <string name="general_delete_action">حذف کریں</string>
     <string name="general_delete_selected_action">منتخب کو حذف کریں</string>
     <string name="general_show_details_action">تفصیلات دکھائیں</string>
-    <string name="general_show_all_action">سب دکھائیں</string>
     <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
     <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
     <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
@@ -100,14 +92,11 @@
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
     </plurals>
     <string name="general_remove_action">ہٹائیں</string>
-    <string name="general_remove_selected_action">منتخب کو ہٹائیں</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ایک آئٹم ہٹایا گیا</item>
         <item quantity="other">%d آئٹمز ہٹاے گئے</item>
     </plurals>
-    <string name="general_root_required_label">Root کی ضرورت</string>
     <string name="general_search_action">تلاش کریں</string>
-    <string name="general_scan_device_action">ڈیوائس اسکین کریں</string>
     <string name="general_open_system_settings_action">سسٹم سیٹنگز کھولیں</string>
     <plurals name="result_x_items">
         <item quantity="one">%s آئٹم</item>
@@ -127,7 +116,6 @@
     </plurals>
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">شمار</string>
-    <string name="general_app_label">ایپ</string>
     <string name="general_more_info_action">مزید معلومات</string>
     <string name="general_grant_access_action">رسائی فراہم کریں</string>
     <string name="general_enable_service_action">سروس فعال کریں</string>
@@ -140,7 +128,6 @@
     <string name="general_exclude_selected_action">منتخب کو خارج کریں</string>
     <string name="general_device_label">ڈیوائس</string>
     <string name="general_settings_title">سیٹنگز</string>
-    <string name="general_help_title">مدد</string>
     <string name="general_hints_label">نوٹس</string>
     <string name="file_type_symbolic_link">لنک</string>
     <string name="file_type_directory">ڈائریکٹری</string>
