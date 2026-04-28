@@ -51,8 +51,6 @@ dependencies {
     addCoroutines()
     addSerialization()
 
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
-
     addTesting()
     testImplementation(project(":app-common-test"))
 }

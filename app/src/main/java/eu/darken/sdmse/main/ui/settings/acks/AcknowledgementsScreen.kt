@@ -125,8 +125,6 @@ internal fun AcknowledgementsScreen(
             LicenseItem("Lottie", "Airbnb's Lottie for Android. (APACHE 2.0)", "https://github.com/airbnb/lottie-android", onOpenUrl)
             LicenseItem("Reorderable", "Reorderable Composables for Jetpack Compose. (APACHE 2.0)", "https://github.com/Calvin-LL/Reorderable", onOpenUrl)
             LicenseItem("ZoomImage", "Library for zoom images, supported Android View, Compose and Compose Multiplatform. (APACHE 2.0)", "https://github.com/panpf/zoomimage", onOpenUrl)
-            LicenseItem("Indicator Fast Scroll", "Android library providing a simple UI control for scrolling through RecyclerViews. (APACHE 2.0)", "https://github.com/reddit/IndicatorFastScroll", onOpenUrl)
-            LicenseItem("AndroidFastScroll", "Fast scroll for Android RecyclerView and more. (APACHE 2.0)", "https://github.com/zhanghai/AndroidFastScroll", onOpenUrl)
             LicenseItem("Kotlin", "The Kotlin Programming Language. (APACHE 2.0)", "https://github.com/JetBrains/kotlin", onOpenUrl)
             LicenseItem("Dagger", "A fast dependency injector for Android and Java. (APACHE 2.0)", "https://github.com/google/dagger", onOpenUrl)
             LicenseItem("Android", "Android Open Source Project (APACHE 2.0)", "https://source.android.com/source/licenses.html", onOpenUrl)

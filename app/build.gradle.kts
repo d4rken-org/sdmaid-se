@@ -252,9 +252,6 @@ dependencies {
 
     addLottie()
 
-    implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
-    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("sh.calvin.reorderable:reorderable:2.5.1")
 
     implementation("androidx.exifinterface:exifinterface:1.4.2")

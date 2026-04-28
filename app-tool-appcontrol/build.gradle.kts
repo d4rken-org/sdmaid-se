@@ -56,8 +56,6 @@ dependencies {
     addCoroutines()
     addSerialization()
 
-    implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
-
     addTesting()
     testImplementation(project(":app-common-test"))
     testImplementation("org.robolectric:robolectric:4.16")
