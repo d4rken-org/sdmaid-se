@@ -19,6 +19,7 @@ jobs:
     name: Create GitHub release
     permissions:
       contents: write
+      actions: write
     runs-on: ubuntu-22.04
     environment: foss-production
     steps:
