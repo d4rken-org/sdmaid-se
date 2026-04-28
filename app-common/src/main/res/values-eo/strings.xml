@@ -79,7 +79,10 @@
     <string name="general_toggle_layout_mode">Ŝanĝi vid-reĝimon</string>
     <string name="general_delete_confirmation_title">Konfirmi forigon</string>
     <string name="general_delete_confirmation_message_x">Forigi \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Forigi la %d elektitajn erojn?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Forigi la %d elektitajn erojn?</item>
+        <item quantity="other">Forigi la %d elektitajn erojn?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ero foriĝis.</item>
         <item quantity="other">%d eroj foriĝis.</item>

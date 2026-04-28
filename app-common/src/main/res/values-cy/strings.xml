@@ -83,7 +83,10 @@
     <string name="general_toggle_layout_mode">Newid modd gweld</string>
     <string name="general_delete_confirmation_title">Cadarnhau dileu</string>
     <string name="general_delete_confirmation_message_x">Dileu \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Dileu\'r %d eitem a ddewiswyd?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Dileu\'r %d eitem a ddewiswyd?</item>
+        <item quantity="other">Dileu\'r %d eitem a ddewiswyd?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="zero">Dilëwyd %d eitem.</item>
         <item quantity="one">Dilëwyd %d eitem.</item>

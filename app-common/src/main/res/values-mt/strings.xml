@@ -81,7 +81,10 @@
     <string name="general_toggle_layout_mode">Ibdel modalità tal-veduta</string>
     <string name="general_delete_confirmation_title">Ikkonferma t-tħassir</string>
     <string name="general_delete_confirmation_message_x">Tħassar \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Tħassar il-%d oġġetti magħżula?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Tħassar il-%d oġġetti magħżula?</item>
+        <item quantity="other">Tħassar il-%d oġġetti magħżula?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d oġġett imħassar.</item>
         <item quantity="few">%d oġġetti mħassra.</item>
