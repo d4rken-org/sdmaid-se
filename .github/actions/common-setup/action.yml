@@ -31,12 +31,3 @@ runs:
         key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'buildSrc/**/*.kt') }}
         restore-keys: |
           ${{ runner.os }}-gradle-caches-
-
-    - name: Cache Android Global Build-Cache
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
-      with:
-        path: |
-          ~/.android/build-cache
-        key: ${{ runner.os }}-android-build-cache-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-android-build-cache-

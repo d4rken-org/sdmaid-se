@@ -61,7 +61,7 @@ jobs:
 
       - name: Create pre-release
         if: "contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b #v2.5.0
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda #v3.0.0
         with:
           prerelease: true
           tag_name: ${{ github.ref_name }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Create release
         if: "!contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b #v2.5.0
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda #v3.0.0
         with:
           prerelease: false
           tag_name: ${{ github.ref_name }}
@@ -82,6 +82,12 @@ jobs:
           files: app/build/outputs/apk/foss/release/eu.darken.sdmse-*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger GitHub Pages deployment
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main
 
   release-gplay:
     name: Create Google Play release
