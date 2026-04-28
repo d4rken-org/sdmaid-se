@@ -252,7 +252,6 @@ dependencies {
 
     addLottie()
 
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
     implementation("me.zhanghai.android.fastscroll:library:1.3.0")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
