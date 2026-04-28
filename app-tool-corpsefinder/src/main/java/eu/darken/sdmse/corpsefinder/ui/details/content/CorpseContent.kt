@@ -1,7 +1,6 @@
 package eu.darken.sdmse.corpsefinder.ui.details.content
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,6 +37,8 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.joinSegments
@@ -47,6 +48,7 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.corpsefinder.ui.icon
 import eu.darken.sdmse.corpsefinder.ui.labelRes
+import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 
 @Composable
 internal fun CorpseContent(
@@ -116,26 +118,28 @@ private fun CorpseHeaderCard(
             )
 
             Spacer(Modifier.height(8.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = corpse.filterType.icon,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Spacer(Modifier.width(8.dp))
+            Row(verticalAlignment = Alignment.Top) {
+                Row(
+                    modifier = Modifier.weight(1f),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(
+                        imageVector = corpse.filterType.icon,
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Column {
                         Text(
                             text = stringResource(CommonR.string.general_type_label),
                             style = MaterialTheme.typography.labelMedium,
                         )
+                        Text(
+                            text = stringResource(corpse.filterType.labelRes),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
                     }
-                    Text(
-                        text = stringResource(corpse.filterType.labelRes),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(start = 32.dp),
-                    )
                 }
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
@@ -218,7 +222,6 @@ private fun CorpseHeaderCard(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun CorpseFileRow(
     corpse: Corpse,
@@ -261,5 +264,35 @@ private fun CorpseFileRow(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseContentPreview() {
+    PreviewWrapper {
+        CorpseContent(
+            corpse = previewCorpse(),
+            selection = emptySet(),
+            onSelectionChange = {},
+            onDeleteCorpseRequest = {},
+            onExcludeRequest = {},
+            onFileTap = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseContentKeeperPreview() {
+    PreviewWrapper {
+        CorpseContent(
+            corpse = previewCorpse(riskLevel = RiskLevel.KEEPER),
+            selection = emptySet(),
+            onSelectionChange = {},
+            onDeleteCorpseRequest = {},
+            onExcludeRequest = {},
+            onFileTap = {},
+        )
     }
 }

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.details
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -19,7 +18,6 @@ import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -171,7 +169,6 @@ private fun describeSpec(spec: DeleteSpec): String {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 internal fun AppJunkDetailsScreen(
     stateSource: StateFlow<AppJunkDetailsViewModel.State> =
@@ -328,6 +325,7 @@ internal fun AppJunkDetailsScreen(
                                 modifier = Modifier.fillMaxSize(),
                                 pageSize = PageSize.Fixed(pageWidth),
                                 contentPadding = PaddingValues(horizontal = 0.dp),
+                                verticalAlignment = Alignment.Top,
                             ) { page ->
                                 val junk = items.getOrNull(page) ?: return@HorizontalPager
                                 val collapsed = state.collapsedByJunk[junk.identifier].orEmpty()
