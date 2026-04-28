@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -40,7 +41,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -74,7 +74,6 @@ import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCard
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
 import kotlinx.coroutines.launch
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 private val TAG = logTag("Setup", "Screen")
 
@@ -292,7 +291,7 @@ internal fun SetupScreen(
                     IconButton(onClick = onBack) {
                         if (isOnboarding) {
                             Icon(
-                                painter = painterResource(UiR.drawable.ic_baseline_close_24),
+                                imageVector = Icons.Outlined.Close,
                                 contentDescription = null,
                             )
                         } else {

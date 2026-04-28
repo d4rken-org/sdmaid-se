@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DeleteSweep
+import androidx.compose.material.icons.outlined.GraphicEq
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -27,14 +28,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
-import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.deduplicator.R as DeduplicatorR
+import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
+import eu.darken.sdmse.common.compose.icons.CodeEqualBox
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 
@@ -204,7 +205,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         if (Duplicate.Type.CHECKSUM in types) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_code_equal_box_24),
+                imageVector = SdmIcons.CodeEqualBox,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.primary,
@@ -212,7 +213,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
         }
         if (Duplicate.Type.PHASH in types) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_approximately_equal_box_24),
+                imageVector = SdmIcons.ApproximatelyEqualBox,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.secondary,
@@ -220,7 +221,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
         }
         if (Duplicate.Type.MEDIA in types) {
             Icon(
-                painter = painterResource(DeduplicatorR.drawable.ic_waveform_box_24),
+                imageVector = Icons.Outlined.GraphicEq,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.tertiary,

@@ -1,16 +1,22 @@
 package eu.darken.sdmse.stats.core
 
-import androidx.annotation.DrawableRes
-import eu.darken.sdmse.common.stats.R
-import eu.darken.sdmse.common.ui.R as UiR
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AcUnit
+import androidx.compose.material.icons.outlined.Archive
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.DoNotDisturb
+import androidx.compose.material.icons.outlined.Save
+import androidx.compose.material.icons.outlined.SettingsBackupRestore
+import androidx.compose.material.icons.outlined.WarningAmber
+import androidx.compose.ui.graphics.vector.ImageVector
 
-@get:DrawableRes val AffectedPkg.Action.iconRes: Int
+val AffectedPkg.Action.icon: ImageVector
     get() = when (this) {
-        AffectedPkg.Action.EXPORTED -> UiR.drawable.ic_baseline_save_24
-        AffectedPkg.Action.STOPPED -> UiR.drawable.ic_alert_octagon_outline_24
-        AffectedPkg.Action.ENABLED -> UiR.drawable.ic_snowflake_off_24
-        AffectedPkg.Action.DISABLED -> UiR.drawable.ic_snowflake_24
-        AffectedPkg.Action.DELETED -> UiR.drawable.ic_delete
-        AffectedPkg.Action.ARCHIVED -> eu.darken.sdmse.common.io.R.drawable.ic_archive_24
-        AffectedPkg.Action.RESTORED -> UiR.drawable.ic_settings_backup_restore_24
+        AffectedPkg.Action.EXPORTED -> Icons.Outlined.Save
+        AffectedPkg.Action.STOPPED -> Icons.Outlined.WarningAmber
+        AffectedPkg.Action.ENABLED -> Icons.Outlined.DoNotDisturb
+        AffectedPkg.Action.DISABLED -> Icons.Outlined.AcUnit
+        AffectedPkg.Action.DELETED -> Icons.Outlined.Delete
+        AffectedPkg.Action.ARCHIVED -> Icons.Outlined.Archive
+        AffectedPkg.Action.RESTORED -> Icons.Outlined.SettingsBackupRestore
     }

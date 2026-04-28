@@ -13,7 +13,6 @@ import androidx.compose.material3.InputChipDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.sieve.SieveCriterium
 
@@ -31,9 +30,8 @@ internal fun TaggedChip(
         modifier = modifier.combinedClickable(onClick = {}, onLongClick = onLongClick),
         label = { Text(criteriumValue(criterium)) },
         leadingIcon = {
-            Icon(
-                painter = painterResource(criteriumIconRes(criterium)),
-                contentDescription = null,
+            CriteriumLeadingIcon(
+                criterium = criterium,
                 modifier = Modifier.size(InputChipDefaults.IconSize),
             )
         },
@@ -49,5 +47,17 @@ internal fun TaggedChip(
                 )
             }
         },
+    )
+}
+
+@Composable
+private fun CriteriumLeadingIcon(
+    criterium: SieveCriterium,
+    modifier: Modifier = Modifier,
+) {
+    Icon(
+        imageVector = criteriumIcon(criterium),
+        contentDescription = null,
+        modifier = modifier,
     )
 }

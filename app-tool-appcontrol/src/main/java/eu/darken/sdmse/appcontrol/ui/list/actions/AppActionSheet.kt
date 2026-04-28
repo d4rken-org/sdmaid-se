@@ -20,9 +20,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.PowerSettingsNew
+import androidx.compose.material.icons.outlined.AcUnit
 import androidx.compose.material.icons.outlined.Archive
+import androidx.compose.material.icons.outlined.DoNotDisturb
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.SaveAlt
+import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.material.icons.outlined.Shop
 import androidx.compose.material.icons.outlined.Unarchive
 import androidx.compose.material3.AlertDialog
@@ -46,7 +49,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -63,6 +65,8 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoUsageRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldEdit
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -71,7 +75,6 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
-import eu.darken.sdmse.common.ui.R as UiR
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -330,9 +333,9 @@ private fun ActionItemRow(
 
         is AppActionItem.Action.Exclude -> AppActionRow(
             icon = if (item.existingExclusionId == null) {
-                painterResource(UiR.drawable.ic_shield_24)
+                rememberVectorPainter(Icons.Outlined.Shield)
             } else {
-                painterResource(UiR.drawable.ic_shield_edit_24)
+                rememberVectorPainter(SdmIcons.ShieldEdit)
             },
             title = if (item.existingExclusionId == null) {
                 stringResource(R.string.appcontrol_app_exclude_add_title)
@@ -349,9 +352,9 @@ private fun ActionItemRow(
 
         is AppActionItem.Action.Toggle -> AppActionRow(
             icon = if (item.isEnabled) {
-                painterResource(UiR.drawable.ic_snowflake_24)
+                rememberVectorPainter(Icons.Outlined.AcUnit)
             } else {
-                painterResource(UiR.drawable.ic_snowflake_off_24)
+                rememberVectorPainter(Icons.Outlined.DoNotDisturb)
             },
             title = if (item.isEnabled) {
                 stringResource(R.string.appcontrol_toggle_app_disable_action)

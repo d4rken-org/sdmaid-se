@@ -7,13 +7,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AdminPanelSettings
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
@@ -36,7 +37,7 @@ internal fun RootSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        iconPainter = painterResource(R.drawable.ic_root_24),
+        icon = Icons.Outlined.AdminPanelSettings,
         title = stringResource(R.string.setup_root_card_title),
         modifier = modifier,
         onHelp = item.onHelp,

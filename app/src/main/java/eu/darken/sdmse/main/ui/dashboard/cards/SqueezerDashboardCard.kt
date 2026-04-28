@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Compress
+import androidx.compose.material.icons.outlined.Visibility
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -12,13 +15,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.common.progress.Progress
 
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
@@ -43,7 +44,7 @@ internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails.takeIf { !item.isInitializing }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(CommonR.drawable.ic_image_compress_24),
+                imageVector = Icons.Outlined.Compress,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -80,7 +81,7 @@ internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_eye_24),
+                imageVector = Icons.Outlined.Visibility,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

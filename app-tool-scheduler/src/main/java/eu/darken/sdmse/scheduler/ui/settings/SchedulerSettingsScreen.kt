@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.AccessibilityNew
+import androidx.compose.material.icons.outlined.BatteryAlert
+import androidx.compose.material.icons.outlined.PowerOff
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -13,7 +16,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -23,7 +25,6 @@ import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.scheduler.R
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun SchedulerSettingsScreenHost(
@@ -69,7 +70,7 @@ internal fun SchedulerSettingsScreen(
         ) {
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_baseline_battery_alert_24),
+                    icon = Icons.Outlined.BatteryAlert,
                     title = stringResource(R.string.scheduler_setting_nopowersaving_title),
                     subtitle = stringResource(R.string.scheduler_setting_nopowersaving_summary),
                     checked = state.skipWhenPowerSaving,
@@ -78,7 +79,7 @@ internal fun SchedulerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_baseline_power_plug_off_24),
+                    icon = Icons.Outlined.PowerOff,
                     title = stringResource(R.string.scheduler_setting_charging_title),
                     subtitle = stringResource(R.string.scheduler_setting_charging_summary),
                     checked = state.skipWhenNotCharging,
@@ -87,7 +88,7 @@ internal fun SchedulerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_baseline_accessibility_new_24),
+                    icon = Icons.Outlined.AccessibilityNew,
                     title = stringResource(R.string.scheduler_setting_automation_title),
                     subtitle = stringResource(R.string.scheduler_setting_automation_summary),
                     checked = state.useAutomation,

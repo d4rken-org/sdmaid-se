@@ -22,15 +22,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.iconRes
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -94,7 +93,7 @@ internal fun ContentItemRow(
                     )
                 } else {
                     Icon(
-                        painter = painterResource(content.type.iconRes),
+                        imageVector = content.type.icon,
                         contentDescription = null,
                         modifier = Modifier.size(40.dp),
                     )

@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -17,15 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.areas.label
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.labelRes
 import eu.darken.sdmse.common.picker.PickerViewModel
-import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun PickerItemRow(
@@ -38,7 +38,7 @@ fun PickerItemRow(
     val context = LocalContext.current
     val isRoot = item.parent == null
 
-    val iconRes = if (isRoot) CommonR.drawable.ic_folder else item.lookup.fileType.iconRes
+    val icon = if (isRoot) Icons.Outlined.Folder else item.lookup.fileType.icon
     val primary = if (isRoot) item.lookup.lookedUp.path else item.lookup.name
     val secondary = item.dataArea.type.label.get(context)
     val tertiaryRes = when (item.lookup.fileType) {
@@ -53,7 +53,7 @@ fun PickerItemRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            painter = painterResource(iconRes),
+            imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(32.dp),
             tint = Color.Unspecified,

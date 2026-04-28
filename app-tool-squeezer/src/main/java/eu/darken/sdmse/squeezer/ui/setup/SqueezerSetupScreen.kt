@@ -18,8 +18,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.outlined.FolderOpen
+import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.outlined.Layers
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -47,7 +52,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -63,7 +67,6 @@ import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.ui.comparison.SqueezerComparisonDialog
@@ -202,7 +205,7 @@ internal fun SqueezerSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     ) {
                         Icon(
-                            painter = painterResource(UiR.drawable.ic_layer_search_24),
+                            imageVector = Icons.Outlined.Layers,
                             contentDescription = null,
                         )
                         Spacer(Modifier.width(8.dp))
@@ -294,7 +297,7 @@ private fun PathsCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_folder_search_24),
+                imageVector = Icons.Outlined.FolderOpen,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
@@ -333,7 +336,7 @@ private fun QualityCard(
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    painter = painterResource(UiR.drawable.ic_baseline_settings_24),
+                    imageVector = Icons.Outlined.Settings,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                 )
@@ -428,7 +431,7 @@ private fun AgeCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_file_clock_outline_24),
+                imageVector = Icons.Outlined.History,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )
@@ -471,7 +474,7 @@ private fun MinSizeCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                imageVector = Icons.AutoMirrored.Outlined.InsertDriveFile,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
             )

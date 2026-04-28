@@ -7,6 +7,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Lock
+import androidx.compose.material.icons.outlined.LockOpen
+import androidx.compose.material.icons.outlined.SdStorage
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -14,7 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
@@ -29,7 +32,6 @@ import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
 import java.io.File
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 data class StorageSetupCardItem(
     override val state: StorageSetupModule.Result,
@@ -43,7 +45,7 @@ internal fun StorageSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        iconPainter = painterResource(UiR.drawable.ic_sd_storage),
+        icon = Icons.Outlined.SdStorage,
         title = stringResource(R.string.setup_manage_storage_card_title),
         modifier = modifier,
         onHelp = item.onHelp,
@@ -106,9 +108,7 @@ internal fun StoragePathRow(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Icon(
-            painter = painterResource(
-                if (granted) R.drawable.folder_lock_open else R.drawable.folder_lock,
-            ),
+            imageVector = if (granted) Icons.Outlined.LockOpen else Icons.Outlined.Lock,
             contentDescription = null,
             modifier = Modifier.size(24.dp),
             tint = if (granted) {

@@ -1,9 +1,13 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
+import eu.darken.sdmse.common.compose.icons.ApproximatelyEqual
+import eu.darken.sdmse.common.compose.icons.Contain
+import eu.darken.sdmse.common.compose.icons.ContainEnd
+import eu.darken.sdmse.common.compose.icons.ContainStart
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.common.sieve.SieveCriterium
-import eu.darken.sdmse.common.ui.R as UiR
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -40,27 +44,27 @@ class TaggedInputHelpersTest : BaseTest() {
     }
 
     @Test
-    fun `criteriumIconRes maps each NameCriterium mode`() {
-        criteriumIconRes(NameCriterium("x", NameCriterium.Mode.Start())) shouldBe UiR.drawable.ic_contain_start_24
-        criteriumIconRes(NameCriterium("x", NameCriterium.Mode.Contain())) shouldBe UiR.drawable.ic_contain_24
-        criteriumIconRes(NameCriterium("x", NameCriterium.Mode.End())) shouldBe UiR.drawable.ic_contain_end_24
-        criteriumIconRes(NameCriterium("x", NameCriterium.Mode.Equal())) shouldBe UiR.drawable.ic_approximately_equal_24
+    fun `criteriumIcon maps each NameCriterium mode`() {
+        criteriumIcon(NameCriterium("x", NameCriterium.Mode.Start())) shouldBe SdmIcons.ContainStart
+        criteriumIcon(NameCriterium("x", NameCriterium.Mode.Contain())) shouldBe SdmIcons.Contain
+        criteriumIcon(NameCriterium("x", NameCriterium.Mode.End())) shouldBe SdmIcons.ContainEnd
+        criteriumIcon(NameCriterium("x", NameCriterium.Mode.Equal())) shouldBe SdmIcons.ApproximatelyEqual
     }
 
     @Test
-    fun `criteriumIconRes maps each supported SegmentCriterium mode`() {
-        criteriumIconRes(
+    fun `criteriumIcon maps each supported SegmentCriterium mode`() {
+        criteriumIcon(
             SegmentCriterium(listOf("x"), SegmentCriterium.Mode.Start(allowPartial = true)),
-        ) shouldBe UiR.drawable.ic_contain_start_24
-        criteriumIconRes(
+        ) shouldBe SdmIcons.ContainStart
+        criteriumIcon(
             SegmentCriterium(listOf("x"), SegmentCriterium.Mode.Contain(allowPartial = true)),
-        ) shouldBe UiR.drawable.ic_contain_24
-        criteriumIconRes(
+        ) shouldBe SdmIcons.Contain
+        criteriumIcon(
             SegmentCriterium(listOf("x"), SegmentCriterium.Mode.End(allowPartial = true)),
-        ) shouldBe UiR.drawable.ic_contain_end_24
-        criteriumIconRes(
+        ) shouldBe SdmIcons.ContainEnd
+        criteriumIcon(
             SegmentCriterium(listOf("x"), SegmentCriterium.Mode.Equal()),
-        ) shouldBe UiR.drawable.ic_approximately_equal_24
+        ) shouldBe SdmIcons.ApproximatelyEqual
     }
 
     @Test

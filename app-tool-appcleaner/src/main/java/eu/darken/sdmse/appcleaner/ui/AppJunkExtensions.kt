@@ -1,8 +1,19 @@
 package eu.darken.sdmse.appcleaner.ui
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import eu.darken.sdmse.appcleaner.R
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.Chat
+import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
+import androidx.compose.material.icons.automirrored.outlined.HelpOutline
+import androidx.compose.material.icons.outlined.AdsClick
+import androidx.compose.material.icons.outlined.Analytics
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.PermMedia
+import androidx.compose.material.icons.outlined.PhotoLibrary
+import androidx.compose.material.icons.outlined.SignalCellularOff
+import androidx.compose.material.icons.outlined.SportsEsports
+import androidx.compose.material.icons.outlined.VisibilityOff
+import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.AdvertisementFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.AnalyticsFilter
@@ -25,9 +36,13 @@ import eu.darken.sdmse.appcleaner.core.forensics.filter.WebViewCacheFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppBackupsFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppReceivedFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppSentFilter
+import eu.darken.sdmse.common.compose.icons.Bug
+import eu.darken.sdmse.common.compose.icons.Chrome
+import eu.darken.sdmse.common.compose.icons.Qq
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.WeChat
+import eu.darken.sdmse.common.compose.icons.WhatsApp
 import kotlin.reflect.KClass
-import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
 val <T : ExpendablesFilter> KClass<T>.labelRes: Int
@@ -83,29 +98,28 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
-@get:DrawableRes
-val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
+val <T : ExpendablesFilter> KClass<T>.icon: ImageVector
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
-        DefaultCachesPrivateFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
-        HiddenFilter::class -> UiR.drawable.ic_hidden_file_24
-        ThumbnailsFilter::class -> UiR.drawable.ic_multimedia_24
-        CodeCacheFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
-        AdvertisementFilter::class -> CommonR.drawable.ic_baseline_ads_click_24
-        BugReportingFilter::class -> UiR.drawable.ic_bug_report
-        AnalyticsFilter::class -> CommonR.drawable.ic_analytics_onsurface
-        GameFilesFilter::class -> UiR.drawable.ic_game_controller_24
-        OfflineCacheFilter::class -> UiR.drawable.ic_signal_off_24
-        RecycleBinsFilter::class -> CommonR.drawable.ic_recycle_bin_24
-        WebViewCacheFilter::class -> UiR.drawable.ic_chrome_24
-        ShortcutServiceFilter::class -> UiR.drawable.ic_image_multiple_24
-        WhatsAppBackupsFilter::class -> UiR.drawable.ic_whatsapp_24
-        WhatsAppReceivedFilter::class -> UiR.drawable.ic_whatsapp_24
-        WhatsAppSentFilter::class -> UiR.drawable.ic_whatsapp_24
-        TelegramFilter::class -> UiR.drawable.ic_chat_24
-        ThreemaFilter::class -> UiR.drawable.ic_chat_24
-        WeChatFilter::class -> UiR.drawable.ic_wechat_24
-        ViberFilter::class -> UiR.drawable.ic_chat_24
-        MobileQQFilter::class -> UiR.drawable.ic_qqchat_24
-        else -> CommonR.drawable.file_question
+        DefaultCachesPublicFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
+        DefaultCachesPrivateFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
+        HiddenFilter::class -> Icons.Outlined.VisibilityOff
+        ThumbnailsFilter::class -> Icons.Outlined.PermMedia
+        CodeCacheFilter::class -> Icons.AutoMirrored.Outlined.FormatListBulleted
+        AdvertisementFilter::class -> Icons.Outlined.AdsClick
+        BugReportingFilter::class -> SdmIcons.Bug
+        AnalyticsFilter::class -> Icons.Outlined.Analytics
+        GameFilesFilter::class -> Icons.Outlined.SportsEsports
+        OfflineCacheFilter::class -> Icons.Outlined.SignalCellularOff
+        RecycleBinsFilter::class -> Icons.Outlined.Delete
+        WebViewCacheFilter::class -> SdmIcons.Chrome
+        ShortcutServiceFilter::class -> Icons.Outlined.PhotoLibrary
+        WhatsAppBackupsFilter::class -> SdmIcons.WhatsApp
+        WhatsAppReceivedFilter::class -> SdmIcons.WhatsApp
+        WhatsAppSentFilter::class -> SdmIcons.WhatsApp
+        TelegramFilter::class -> Icons.AutoMirrored.Outlined.Chat
+        ThreemaFilter::class -> Icons.AutoMirrored.Outlined.Chat
+        WeChatFilter::class -> SdmIcons.WeChat
+        ViberFilter::class -> Icons.AutoMirrored.Outlined.Chat
+        MobileQQFilter::class -> SdmIcons.Qq
+        else -> Icons.AutoMirrored.Outlined.HelpOutline
     }

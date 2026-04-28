@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.automirrored.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
-import androidx.compose.material.icons.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.PermIdentity
 import androidx.compose.material3.Icon
@@ -27,12 +28,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.SdmSeLinks
+import eu.darken.sdmse.common.compose.icons.Discord
+import eu.darken.sdmse.common.compose.icons.Github
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
@@ -159,14 +162,14 @@ internal fun SupportScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(R.drawable.ic_book_onsurface),
+                    icon = Icons.AutoMirrored.Outlined.MenuBook,
                     title = stringResource(R.string.documentation_label),
                     onClick = onDocumentationClick,
                 )
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(R.drawable.ic_github_onsurface),
+                    icon = SdmIcons.Github,
                     title = stringResource(R.string.issue_tracker_label),
                     subtitle = stringResource(R.string.issue_tracker_description),
                     onClick = onIssueTrackerClick,
@@ -174,7 +177,7 @@ internal fun SupportScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(R.drawable.ic_discord_onsurface),
+                    icon = SdmIcons.Discord,
                     title = stringResource(R.string.discord_label),
                     subtitle = stringResource(R.string.discord_description),
                     onClick = onDiscordClick,
@@ -182,7 +185,7 @@ internal fun SupportScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.TwoTone.ContactSupport,
+                    icon = Icons.AutoMirrored.TwoTone.ContactSupport,
                     title = stringResource(R.string.support_contact_label),
                     subtitle = stringResource(R.string.support_contact_desc),
                     onClick = onContactClick,

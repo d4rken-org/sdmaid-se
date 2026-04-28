@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.LocalLibrary
+import androidx.compose.material.icons.outlined.PhotoLibrary
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -27,7 +29,6 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.io.R as IoR
 import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
@@ -132,7 +133,7 @@ internal fun CorpseFinderSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_risklevel)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_image_multiple_24),
+                    icon = Icons.Outlined.PhotoLibrary,
                     title = stringResource(R.string.corpsefinder_settings_risk_keeper_title),
                     subtitle = stringResource(R.string.corpsefinder_settings_risk_keeper_summary),
                     checked = state.includeRiskKeeper,
@@ -221,7 +222,7 @@ internal fun CorpseFinderSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(IoR.drawable.ic_baseline_local_library_24),
+                    icon = Icons.Outlined.LocalLibrary,
                     title = stringResource(R.string.corpsefinder_filter_applib_label),
                     subtitle = stringResource(R.string.corpsefinder_filter_applib_summary),
                     checked = state.filterAppLibEnabled,

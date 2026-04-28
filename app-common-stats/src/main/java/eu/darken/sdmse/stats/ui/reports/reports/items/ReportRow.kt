@@ -10,6 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.RadioButtonUnchecked
+import androidx.compose.material.icons.outlined.WarningAmber
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,20 +23,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.stats.R
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.ui.reports.ReportsViewModel
 import java.time.Instant
 import java.util.UUID
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun ReportRow(
@@ -50,11 +52,6 @@ fun ReportRow(
         ).toString()
     }
 
-    val statusIcon = when (row.status) {
-        Report.Status.SUCCESS -> UiR.drawable.ic_check_circle
-        Report.Status.PARTIAL_SUCCESS -> R.drawable.ic_circle_outline_24
-        Report.Status.FAILURE -> UiR.drawable.ic_alert_octagon_outline_24
-    }
     val statusTint = when (row.status) {
         Report.Status.SUCCESS -> MaterialTheme.colorScheme.primary
         Report.Status.PARTIAL_SUCCESS -> MaterialTheme.colorScheme.secondary
@@ -81,7 +78,7 @@ fun ReportRow(
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(row.tool.iconRes),
+                imageVector = row.tool.icon,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = Color.Unspecified,
@@ -98,12 +95,26 @@ fun ReportRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(Modifier.width(8.dp))
-            Icon(
-                painter = painterResource(statusIcon),
-                contentDescription = null,
-                tint = statusTint,
-                modifier = Modifier.size(16.dp),
-            )
+            when (row.status) {
+                Report.Status.SUCCESS -> Icon(
+                    imageVector = Icons.Outlined.CheckCircle,
+                    contentDescription = null,
+                    tint = statusTint,
+                    modifier = Modifier.size(16.dp),
+                )
+                Report.Status.PARTIAL_SUCCESS -> Icon(
+                    imageVector = Icons.Outlined.RadioButtonUnchecked,
+                    contentDescription = null,
+                    tint = statusTint,
+                    modifier = Modifier.size(16.dp),
+                )
+                Report.Status.FAILURE -> Icon(
+                    imageVector = Icons.Outlined.WarningAmber,
+                    contentDescription = null,
+                    tint = statusTint,
+                    modifier = Modifier.size(16.dp),
+                )
+            }
         }
         if (primaryText.isNotEmpty()) {
             Text(

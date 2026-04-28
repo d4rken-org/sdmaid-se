@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Swipe
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -14,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
@@ -85,7 +86,7 @@ internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(CommonR.drawable.ic_baseline_swipe_24),
+                imageVector = Icons.Outlined.Swipe,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -117,7 +118,7 @@ internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                painter = painterResource(CommonR.drawable.ic_baseline_swipe_24),
+                imageVector = Icons.Outlined.Swipe,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

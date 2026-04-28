@@ -1,10 +1,10 @@
 package eu.darken.sdmse.common.pkgs.container
 
+import android.content.Context
 import android.content.pm.PackageInfo
+import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.caDrawable
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.io.R
@@ -31,15 +31,9 @@ data class PkgArchive(
         id.name
     }.cache()
 
-    override val icon: CaDrawable = caDrawable { context ->
-        context.packageManager.getIcon2(id)?.let { return@caDrawable it }
-
-        AKnownPkg.values
-            .singleOrNull { it.id == id }
-            ?.iconRes
-            ?.let { ContextCompat.getDrawable(context, it) }
-            ?.let { return@caDrawable it }
-
-        ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
-    }.cache()
+    override val icon: ((Context) -> Drawable)? = { context ->
+        context.packageManager.getIcon2(id)
+            ?: AKnownPkg.values.singleOrNull { it.id == id }?.icon?.invoke(context)
+            ?: ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }
 }

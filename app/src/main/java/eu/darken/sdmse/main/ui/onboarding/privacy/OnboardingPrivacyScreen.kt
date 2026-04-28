@@ -17,6 +17,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AutoAwesome
+import androidx.compose.material.icons.outlined.NotificationImportant
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -140,7 +143,7 @@ internal fun OnboardingPrivacyScreen(
                         ToggleRow(
                             icon = {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_creation_24),
+                                    imageVector = Icons.Outlined.AutoAwesome,
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp),
                                 )
@@ -155,7 +158,7 @@ internal fun OnboardingPrivacyScreen(
                     ToggleRow(
                         icon = {
                             Icon(
-                                painter = painterResource(R.drawable.ic_message_alert_24),
+                                imageVector = Icons.Outlined.NotificationImportant,
                                 contentDescription = null,
                                 modifier = Modifier.size(24.dp),
                             )

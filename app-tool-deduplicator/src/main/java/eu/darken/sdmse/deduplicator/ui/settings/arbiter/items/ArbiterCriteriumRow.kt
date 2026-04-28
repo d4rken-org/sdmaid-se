@@ -11,6 +11,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DragHandle
+import androidx.compose.material.icons.outlined.AccountTree
+import androidx.compose.material.icons.outlined.Folder
+import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.outlined.MonitorWeight
+import androidx.compose.material.icons.outlined.PlayCircleOutline
+import androidx.compose.material.icons.outlined.SdCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -18,13 +24,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.icons.CodeEqualBox
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun ArbiterCriteriumRow(
@@ -36,7 +43,7 @@ fun ArbiterCriteriumRow(
     val context = LocalContext.current
     val titleRes = criterium.titleRes()
     val descriptionRes = criterium.descriptionRes()
-    val iconRes = criterium.iconRes()
+    val icon = criterium.icon()
 
     val modeText: String = when (criterium) {
         is ArbiterCriterium.PreferredPath -> {
@@ -58,7 +65,7 @@ fun ArbiterCriteriumRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            painter = painterResource(iconRes),
+            imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(24.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -120,12 +127,12 @@ private fun ArbiterCriterium.descriptionRes(): Int = when (this) {
     is ArbiterCriterium.PreferredPath -> R.string.deduplicator_arbiter_criterium_preferred_path_description
 }
 
-private fun ArbiterCriterium.iconRes(): Int = when (this) {
-    is ArbiterCriterium.DuplicateType -> UiR.drawable.ic_code_equal_box_24
-    is ArbiterCriterium.PreferredPath -> UiR.drawable.ic_folder_home_24
-    is ArbiterCriterium.MediaProvider -> UiR.drawable.ic_multimedia_24
-    is ArbiterCriterium.Location -> R.drawable.ic_sd_24
-    is ArbiterCriterium.Nesting -> UiR.drawable.ic_contain_24
-    is ArbiterCriterium.Modified -> UiR.drawable.ic_file_clock_outline_24
-    is ArbiterCriterium.Size -> UiR.drawable.ic_weight_24
+private fun ArbiterCriterium.icon(): ImageVector = when (this) {
+    is ArbiterCriterium.DuplicateType -> SdmIcons.CodeEqualBox
+    is ArbiterCriterium.PreferredPath -> Icons.Outlined.Folder
+    is ArbiterCriterium.MediaProvider -> Icons.Outlined.PlayCircleOutline
+    is ArbiterCriterium.Location -> Icons.Outlined.SdCard
+    is ArbiterCriterium.Nesting -> Icons.Outlined.AccountTree
+    is ArbiterCriterium.Modified -> Icons.Outlined.History
+    is ArbiterCriterium.Size -> Icons.Outlined.MonitorWeight
 }

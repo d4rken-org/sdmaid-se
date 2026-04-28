@@ -29,7 +29,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.systemcleaner.ui.list.SystemCleanerListViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -53,7 +52,6 @@ fun SystemCleanerRow(
         content.items.size,
     )
     val sizeText = Formatter.formatShortFileSize(context, content.size)
-    val iconPainter = content.icon.asComposable()
 
     Row(
         modifier = modifier
@@ -64,7 +62,7 @@ fun SystemCleanerRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            painter = iconPainter,
+            imageVector = content.icon,
             contentDescription = null,
             modifier = Modifier.size(32.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,

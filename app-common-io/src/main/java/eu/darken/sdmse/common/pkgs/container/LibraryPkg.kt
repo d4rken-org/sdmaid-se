@@ -1,12 +1,12 @@
 package eu.darken.sdmse.common.pkgs.container
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.SharedLibraryInfo
+import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.caDrawable
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.files.APath
@@ -68,10 +68,10 @@ data class LibraryPkg(
         return field.get(sharedLibraryInfo) as? T
     }
 
-    override val icon: CaDrawable = caDrawable { context ->
+    override val icon: ((Context) -> Drawable)? = { context ->
         context.packageManager.getIcon2(id)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_baseline_local_library_24)!!
-    }.cache()
+    }
 
 
     override fun toString(): String = "LibraryPkg(packageName=$packageName, path=$apkPath)"

@@ -10,11 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.Shizuku
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -35,7 +36,7 @@ internal fun ShizukuSetupCard(
     modifier: Modifier = Modifier,
 ) {
     SetupCardContainer(
-        iconPainter = rememberVectorPainter(ShizukuIcon),
+        icon = SdmIcons.Shizuku,
         title = stringResource(R.string.setup_shizuku_card_title),
         modifier = modifier,
         onHelp = item.onHelp,

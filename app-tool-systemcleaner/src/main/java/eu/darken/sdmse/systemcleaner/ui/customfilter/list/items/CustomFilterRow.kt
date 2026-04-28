@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -18,14 +20,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListViewModel
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import eu.darken.sdmse.common.ui.R as UiR
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -62,7 +62,7 @@ fun CustomFilterRow(
     ) {
         IconButton(onClick = onEditClick, enabled = !selectionActive) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_mode_edit),
+                imageVector = Icons.Outlined.Edit,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )

@@ -1,8 +1,18 @@
 package eu.darken.sdmse.corpsefinder.ui
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import eu.darken.sdmse.corpsefinder.R
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FolderShared
+import androidx.compose.material.icons.outlined.Inventory2
+import androidx.compose.material.icons.outlined.LocalLibrary
+import androidx.compose.material.icons.outlined.SdStorage
+import androidx.compose.material.icons.outlined.SportsEsports
+import androidx.compose.material.icons.outlined.VisibilityOff
+import androidx.compose.ui.graphics.vector.ImageVector
+import eu.darken.sdmse.common.compose.icons.Artboard
+import eu.darken.sdmse.common.compose.icons.Ghost
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.Turbine
 import eu.darken.sdmse.corpsefinder.core.filter.AppAsecFileCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppLibCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppSourceCorpseFilter
@@ -16,8 +26,6 @@ import eu.darken.sdmse.corpsefinder.core.filter.PublicMediaCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.PublicObbCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.SdcardCorpseFilter
 import kotlin.reflect.KClass
-import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
 val <T : CorpseFilter> KClass<T>.labelRes: Int
@@ -36,19 +44,18 @@ val <T : CorpseFilter> KClass<T>.labelRes: Int
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
-@get:DrawableRes
-val <T : CorpseFilter> KClass<T>.iconRes: Int
+val <T : CorpseFilter> KClass<T>.icon: ImageVector
     get() = when (this) {
-        SdcardCorpseFilter::class -> UiR.drawable.ic_sd_storage
-        PublicMediaCorpseFilter::class -> UiR.drawable.ic_sd_storage
-        PublicDataCorpseFilter::class -> UiR.drawable.ic_sd_storage
-        PublicObbCorpseFilter::class -> UiR.drawable.ic_game_controller_24
-        PrivateDataCorpseFilter::class -> UiR.drawable.ic_incognito_circle_24
-        DalvikCorpseFilter::class -> UiR.drawable.ic_turbine_24
-        ArtProfilesCorpseFilter::class -> UiR.drawable.ic_artboard_24
-        AppLibCorpseFilter::class -> eu.darken.sdmse.common.io.R.drawable.ic_baseline_local_library_24
-        AppSourceCorpseFilter::class -> CommonR.drawable.ic_app_extra_24
-        AppSourcePrivateCorpseFilter::class -> UiR.drawable.ic_folder_key_24
-        AppAsecFileCorpseFilter::class -> UiR.drawable.ic_folder_key_24
-        else -> CommonR.drawable.ghost
+        SdcardCorpseFilter::class -> Icons.Outlined.SdStorage
+        PublicMediaCorpseFilter::class -> Icons.Outlined.SdStorage
+        PublicDataCorpseFilter::class -> Icons.Outlined.SdStorage
+        PublicObbCorpseFilter::class -> Icons.Outlined.SportsEsports
+        PrivateDataCorpseFilter::class -> Icons.Outlined.VisibilityOff
+        DalvikCorpseFilter::class -> SdmIcons.Turbine
+        ArtProfilesCorpseFilter::class -> SdmIcons.Artboard
+        AppLibCorpseFilter::class -> Icons.Outlined.LocalLibrary
+        AppSourceCorpseFilter::class -> Icons.Outlined.Inventory2
+        AppSourcePrivateCorpseFilter::class -> Icons.Outlined.FolderShared
+        AppAsecFileCorpseFilter::class -> Icons.Outlined.FolderShared
+        else -> SdmIcons.Ghost
     }

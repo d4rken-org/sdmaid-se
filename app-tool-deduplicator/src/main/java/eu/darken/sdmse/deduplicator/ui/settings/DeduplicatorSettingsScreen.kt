@@ -5,6 +5,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
+import androidx.compose.material.icons.outlined.FolderOpen
+import androidx.compose.material.icons.outlined.GraphicEq
+import androidx.compose.material.icons.outlined.PlayCircleOutline
+import androidx.compose.material.icons.outlined.Psychology
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -18,10 +23,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
+import eu.darken.sdmse.common.compose.icons.CodeEqualBox
+import eu.darken.sdmse.common.compose.icons.Numeric0Box
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
@@ -32,7 +40,6 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun DeduplicatorSettingsScreenHost(
@@ -117,7 +124,7 @@ internal fun DeduplicatorSettingsScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_folder_search_24),
+                    icon = Icons.Outlined.FolderOpen,
                     title = stringResource(R.string.deduplicator_search_locations_title),
                     subtitle = scanPathsSummary,
                     onClick = onSearchLocationsClick,
@@ -126,7 +133,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_strategy_24),
+                    icon = Icons.Outlined.Psychology,
                     title = stringResource(R.string.deduplicator_arbiter_title),
                     subtitle = stringResource(R.string.deduplicator_arbiter_summary),
                     onClick = onArbiterConfigClick,
@@ -134,7 +141,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_numeric_0_box_24),
+                    icon = SdmIcons.Numeric0Box,
                     title = stringResource(R.string.deduplicator_protection_deleteall_allowed_title),
                     subtitle = stringResource(R.string.deduplicator_protection_deleteall_allowed_summary),
                     checked = state.allowDeleteAll,
@@ -143,7 +150,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                    icon = Icons.AutoMirrored.Outlined.InsertDriveFile,
                     title = stringResource(R.string.deduplicator_skip_minsize_title),
                     subtitle = stringResource(R.string.deduplicator_skip_minsize_description),
                     value = Formatter.formatShortFileSize(context, state.minSizeBytes),
@@ -152,7 +159,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_multimedia_24),
+                    icon = Icons.Outlined.PlayCircleOutline,
                     title = stringResource(R.string.deduplicator_skip_uncommon_title),
                     subtitle = stringResource(R.string.deduplicator_skip_uncommon_description),
                     checked = state.skipUncommon,
@@ -163,7 +170,7 @@ internal fun DeduplicatorSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.deduplicator_detection_method_label)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_code_equal_box_24),
+                    icon = SdmIcons.CodeEqualBox,
                     title = stringResource(R.string.deduplicator_detection_method_checksum_title),
                     subtitle = stringResource(R.string.deduplicator_detection_method_checksum_summary),
                     checked = state.isSleuthChecksumEnabled,
@@ -172,7 +179,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_approximately_equal_box_24),
+                    icon = SdmIcons.ApproximatelyEqualBox,
                     title = stringResource(R.string.deduplicator_detection_method_phash_title),
                     subtitle = stringResource(R.string.deduplicator_detection_method_phash_summary),
                     checked = state.isSleuthPHashEnabled,
@@ -181,7 +188,7 @@ internal fun DeduplicatorSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(R.drawable.ic_waveform_box_24),
+                    icon = Icons.Outlined.GraphicEq,
                     title = stringResource(R.string.deduplicator_detection_method_media_title),
                     subtitle = stringResource(R.string.deduplicator_detection_method_media_summary),
                     checked = state.isSleuthMediaEnabled,

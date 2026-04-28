@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.DataUsage
+import androidx.compose.material.icons.outlined.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -13,14 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.R as AnalyzerR
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
@@ -43,7 +44,7 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(CommonR.drawable.baseline_data_usage_24),
+                imageVector = Icons.Outlined.DataUsage,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -87,7 +88,7 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
             modifier = Modifier.align(Alignment.End),
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_eye_24),
+                imageVector = Icons.Outlined.Visibility,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

@@ -48,7 +48,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.ui.descriptionRes
-import eu.darken.sdmse.appcleaner.ui.iconsRes
+import eu.darken.sdmse.appcleaner.ui.icon
 import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
@@ -317,7 +317,7 @@ private fun AppJunkCategoryCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(category.iconsRes),
+                imageVector = category.icon,
                 contentDescription = null,
                 modifier = Modifier.size(32.dp),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,

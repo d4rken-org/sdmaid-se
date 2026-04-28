@@ -21,16 +21,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.stats.core.Report
 import java.time.Duration
@@ -70,7 +69,7 @@ fun AffectedPkgsHeaderItem(
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    painter = painterResource(report.tool.iconRes),
+                    imageVector = report.tool.icon,
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
                     tint = Color.Unspecified,

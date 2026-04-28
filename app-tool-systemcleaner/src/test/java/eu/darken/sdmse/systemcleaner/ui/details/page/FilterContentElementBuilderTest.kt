@@ -1,6 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.details.page
 
-import eu.darken.sdmse.common.ca.CaDrawable
+import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
@@ -45,7 +45,7 @@ class FilterContentElementBuilderTest : BaseTest() {
         items: List<SystemCleanerFilter.Match>,
     ): FilterContent = FilterContent(
         identifier = identifier,
-        icon = mockk<CaDrawable>(relaxed = true),
+        icon = mockk<ImageVector>(relaxed = true),
         label = mockk<CaString>(relaxed = true),
         description = mockk<CaString>(relaxed = true),
         items = items,

@@ -24,17 +24,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.files.iconRes
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.corpsefinder.R as CorpseR
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
-import eu.darken.sdmse.corpsefinder.ui.iconRes
+import eu.darken.sdmse.corpsefinder.ui.icon
 import eu.darken.sdmse.corpsefinder.ui.labelRes
 import eu.darken.sdmse.corpsefinder.ui.list.CorpseFinderListViewModel
 
@@ -74,7 +73,7 @@ fun CorpseRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            painter = painterResource(corpse.filterType.iconRes),
+            imageVector = corpse.filterType.icon,
             contentDescription = null,
             modifier = Modifier.size(24.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -110,7 +109,7 @@ fun CorpseRow(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Icon(
-                    painter = painterResource(corpse.lookup.fileType.iconRes),
+                    imageVector = corpse.lookup.fileType.icon,
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -5,6 +5,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
+import androidx.compose.material.icons.outlined.AdsClick
+import androidx.compose.material.icons.outlined.Analytics
+import androidx.compose.material.icons.outlined.Apps
+import androidx.compose.material.icons.outlined.BugReport
+import androidx.compose.material.icons.outlined.Cancel
+import androidx.compose.material.icons.outlined.Chat
+import androidx.compose.material.icons.outlined.DeleteForever
+import androidx.compose.material.icons.outlined.FolderOff
+import androidx.compose.material.icons.outlined.Groups
+import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.outlined.PhotoLibrary
+import androidx.compose.material.icons.outlined.PlayCircleOutline
+import androidx.compose.material.icons.outlined.RotateRight
+import androidx.compose.material.icons.outlined.SignalCellularOff
+import androidx.compose.material.icons.outlined.VisibilityOff
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,6 +40,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcleaner.R
+import eu.darken.sdmse.common.compose.icons.Chrome
+import eu.darken.sdmse.common.compose.icons.Qq
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.WeChat
+import eu.darken.sdmse.common.compose.icons.WhatsApp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingGate
@@ -181,7 +203,7 @@ internal fun AppCleanerSettingsScreen(
         ) {
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_apps),
+                    icon = Icons.Outlined.Apps,
                     title = stringResource(R.string.appcleaner_include_systemapps_label),
                     subtitle = stringResource(R.string.appcleaner_include_systemapps_summary),
                     checked = state.includeSystemApps,
@@ -190,7 +212,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_account_group_24),
+                    icon = Icons.Outlined.Groups,
                     title = stringResource(CommonR.string.general_include_multiuser_label),
                     subtitle = stringResource(CommonR.string.general_include_multiuser_summary),
                     checked = state.includeOtherUsers,
@@ -201,7 +223,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_skip_over_24),
+                    icon = Icons.Outlined.RotateRight,
                     title = stringResource(R.string.appcleaner_include_runningapps_label),
                     subtitle = stringResource(R.string.appcleaner_include_runningapps_summary),
                     checked = state.includeRunningApps,
@@ -212,7 +234,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                    icon = Icons.AutoMirrored.Outlined.InsertDriveFile,
                     title = stringResource(R.string.appcleaner_include_minimumsize_label),
                     subtitle = stringResource(R.string.appcleaner_include_minimumsize_summary),
                     value = Formatter.formatShortFileSize(context, state.minCacheSizeBytes),
@@ -221,7 +243,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_file_clock_outline_24),
+                    icon = Icons.Outlined.History,
                     title = stringResource(R.string.appcleaner_include_minimumage_label),
                     subtitle = stringResource(R.string.appcleaner_include_minimumage_summary),
                     value = formatAge(context, Duration.ofMillis(state.minCacheAgeMs)),
@@ -231,7 +253,7 @@ internal fun AppCleanerSettingsScreen(
             if (state.isAcsRequired) {
                 item {
                     SettingsBadgedSwitchItem(
-                        iconPainter = painterResource(UiR.drawable.ic_folder_hidden_24),
+                        icon = Icons.Outlined.FolderOff,
                         title = stringResource(R.string.appcleaner_include_inaccessible_label),
                         subtitle = stringResource(R.string.appcleaner_include_inaccessible_summary),
                         checked = state.includeInaccessible,
@@ -242,7 +264,7 @@ internal fun AppCleanerSettingsScreen(
                 }
                 item {
                     SettingsBadgedSwitchItem(
-                        iconPainter = painterResource(UiR.drawable.ic_cancel),
+                        icon = Icons.Outlined.Cancel,
                         title = stringResource(R.string.appcleaner_forcestop_before_clearing_label),
                         subtitle = stringResource(R.string.appcleaner_forcestop_before_clearing_summary),
                         checked = state.forceStopBeforeClearing,
@@ -256,7 +278,7 @@ internal fun AppCleanerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_filter_generic)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_format_list_bulleted_24),
+                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
                     title = stringResource(R.string.appcleaner_filter_defaultcachespublic_label),
                     subtitle = stringResource(R.string.appcleaner_filter_defaultcachespublic_summary),
                     checked = state.filterDefaultCachesPublic,
@@ -265,7 +287,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_format_list_bulleted_24),
+                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
                     title = stringResource(R.string.appcleaner_filter_defaultcachesprivate_label),
                     subtitle = stringResource(R.string.appcleaner_filter_defaultcachesprivate_summary),
                     checked = state.filterDefaultCachesPrivate,
@@ -274,7 +296,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_hidden_file_24),
+                    icon = Icons.Outlined.VisibilityOff,
                     title = stringResource(R.string.appcleaner_filter_hiddencaches_label),
                     subtitle = stringResource(R.string.appcleaner_filter_hiddencaches_summary),
                     checked = state.filterHiddenCaches,
@@ -283,7 +305,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_multimedia_24),
+                    icon = Icons.Outlined.PlayCircleOutline,
                     title = stringResource(R.string.appcleaner_filter_thumbnails_label),
                     subtitle = stringResource(R.string.appcleaner_filter_thumbnails_summary),
                     checked = state.filterThumbnails,
@@ -292,7 +314,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_format_list_bulleted_24),
+                    icon = Icons.AutoMirrored.Outlined.FormatListBulleted,
                     title = stringResource(R.string.appcleaner_filter_codecache_label),
                     subtitle = stringResource(R.string.appcleaner_filter_codecache_summary),
                     checked = state.filterCodeCache,
@@ -301,7 +323,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_ads_click_24),
+                    icon = Icons.Outlined.AdsClick,
                     title = stringResource(R.string.appcleaner_filter_advertisement_label),
                     subtitle = stringResource(R.string.appcleaner_filter_advertisement_summary),
                     checked = state.filterAdvertisement,
@@ -310,7 +332,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_bug_report),
+                    icon = Icons.Outlined.BugReport,
                     title = stringResource(R.string.appcleaner_filter_bugreporting_label),
                     subtitle = stringResource(R.string.appcleaner_filter_bugreporting_summary),
                     checked = state.filterBugreporting,
@@ -319,7 +341,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_analytics_onsurface),
+                    icon = Icons.Outlined.Analytics,
                     title = stringResource(R.string.appcleaner_filter_analytics_label),
                     subtitle = stringResource(R.string.appcleaner_filter_analytics_summary),
                     checked = state.filterAnalytics,
@@ -337,7 +359,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_signal_off_24),
+                    icon = Icons.Outlined.SignalCellularOff,
                     title = stringResource(R.string.appcleaner_filter_offlinecache_label),
                     subtitle = stringResource(R.string.appcleaner_filter_offlinecache_summary),
                     checked = state.filterOfflineCache,
@@ -346,7 +368,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_recycle_bin_24),
+                    icon = Icons.Outlined.DeleteForever,
                     title = stringResource(R.string.appcleaner_filter_recyclebins_label),
                     subtitle = stringResource(R.string.appcleaner_filter_recyclebins_summary),
                     checked = state.filterRecycleBins,
@@ -355,7 +377,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_chrome_24),
+                    icon = SdmIcons.Chrome,
                     title = stringResource(R.string.appcleaner_filter_webview_label),
                     subtitle = stringResource(R.string.appcleaner_filter_webview_summary),
                     checked = state.filterWebview,
@@ -364,7 +386,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_image_multiple_24),
+                    icon = Icons.Outlined.PhotoLibrary,
                     title = stringResource(R.string.appcleaner_filter_shortcutservice_label),
                     subtitle = stringResource(R.string.appcleaner_filter_shortcutservice_summary),
                     checked = state.filterShortcutService,
@@ -375,7 +397,7 @@ internal fun AppCleanerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_filter_specific)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_whatsapp_24),
+                    icon = SdmIcons.WhatsApp,
                     title = stringResource(R.string.appcleaner_filter_whatsapp_backups_label),
                     subtitle = stringResource(R.string.appcleaner_filter_whatsapp_backups_summary),
                     checked = state.filterWhatsappBackups,
@@ -385,7 +407,7 @@ internal fun AppCleanerSettingsScreen(
             item {
                 // Legacy XML intentionally swaps label/summary for this row — preserve for parity.
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_whatsapp_24),
+                    icon = SdmIcons.WhatsApp,
                     title = stringResource(R.string.appcleaner_filter_whatsapp_received_summary),
                     subtitle = stringResource(R.string.appcleaner_filter_whatsapp_received_label),
                     checked = state.filterWhatsappReceived,
@@ -394,7 +416,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_whatsapp_24),
+                    icon = SdmIcons.WhatsApp,
                     title = stringResource(R.string.appcleaner_filter_whatsapp_sent_label),
                     subtitle = stringResource(R.string.appcleaner_filter_whatsapp_sent_summary),
                     checked = state.filterWhatsappSent,
@@ -403,7 +425,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_chat_24),
+                    icon = Icons.Outlined.Chat,
                     title = stringResource(R.string.appcleaner_filter_telegram_label),
                     subtitle = stringResource(R.string.appcleaner_filter_telegram_summary),
                     checked = state.filterTelegram,
@@ -412,7 +434,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_chat_24),
+                    icon = Icons.Outlined.Chat,
                     title = stringResource(R.string.appcleaner_filter_threema_label),
                     subtitle = stringResource(R.string.appcleaner_filter_threema_summary),
                     checked = state.filterThreema,
@@ -421,7 +443,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_wechat_24),
+                    icon = SdmIcons.WeChat,
                     title = stringResource(R.string.appcleaner_filter_wechat_label),
                     subtitle = stringResource(R.string.appcleaner_filter_wechat_summary),
                     checked = state.filterWeChat,
@@ -430,7 +452,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_chat_24),
+                    icon = Icons.Outlined.Chat,
                     title = stringResource(R.string.appcleaner_filter_viber_label),
                     subtitle = stringResource(R.string.appcleaner_filter_viber_summary),
                     checked = state.filterViber,
@@ -439,7 +461,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_qqchat_24),
+                    icon = SdmIcons.Qq,
                     title = stringResource(R.string.appcleaner_filter_qqchat_label),
                     subtitle = stringResource(R.string.appcleaner_filter_qqchat_summary),
                     checked = state.filterMobileQQ,

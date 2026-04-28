@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.outlined.Stars
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -14,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -25,7 +27,6 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.stats.R as StatsR
-import eu.darken.sdmse.common.ui.R as UiR
 
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
@@ -77,7 +78,7 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
     DashboardCard(onClick = item.onViewAction) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(CommonR.drawable.ic_chartbox_24),
+                imageVector = Icons.Outlined.BarChart,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -106,7 +107,7 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
             DashboardFlatActionButton(onClick = item.onViewAction) {
                 if (item.showProRequirement) {
                     Icon(
-                        painter = painterResource(UiR.drawable.ic_baseline_stars_24),
+                        imageVector = Icons.Outlined.Stars,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

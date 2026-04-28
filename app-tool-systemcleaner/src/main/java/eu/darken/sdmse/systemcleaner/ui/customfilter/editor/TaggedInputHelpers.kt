@@ -1,13 +1,17 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.ui.graphics.vector.ImageVector
+import eu.darken.sdmse.common.compose.icons.ApproximatelyEqual
+import eu.darken.sdmse.common.compose.icons.Contain
+import eu.darken.sdmse.common.compose.icons.ContainEnd
+import eu.darken.sdmse.common.compose.icons.ContainStart
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.common.sieve.SieveCriterium
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 
 internal enum class TagType {
@@ -32,20 +36,19 @@ internal fun criteriumValue(criterium: SieveCriterium): String = when (criterium
     is SegmentCriterium -> criterium.segments.joinSegments()
 }
 
-@DrawableRes
-internal fun criteriumIconRes(criterium: SieveCriterium): Int = when (criterium) {
+internal fun criteriumIcon(criterium: SieveCriterium): ImageVector = when (criterium) {
     is NameCriterium -> when (criterium.mode) {
-        is NameCriterium.Mode.Contain -> UiR.drawable.ic_contain_24
-        is NameCriterium.Mode.End -> UiR.drawable.ic_contain_end_24
-        is NameCriterium.Mode.Equal -> UiR.drawable.ic_approximately_equal_24
-        is NameCriterium.Mode.Start -> UiR.drawable.ic_contain_start_24
+        is NameCriterium.Mode.Contain -> SdmIcons.Contain
+        is NameCriterium.Mode.End -> SdmIcons.ContainEnd
+        is NameCriterium.Mode.Equal -> SdmIcons.ApproximatelyEqual
+        is NameCriterium.Mode.Start -> SdmIcons.ContainStart
     }
 
     is SegmentCriterium -> when (criterium.mode) {
-        is SegmentCriterium.Mode.Contain -> UiR.drawable.ic_contain_24
-        is SegmentCriterium.Mode.End -> UiR.drawable.ic_contain_end_24
-        is SegmentCriterium.Mode.Equal -> UiR.drawable.ic_approximately_equal_24
-        is SegmentCriterium.Mode.Start -> UiR.drawable.ic_contain_start_24
+        is SegmentCriterium.Mode.Contain -> SdmIcons.Contain
+        is SegmentCriterium.Mode.End -> SdmIcons.ContainEnd
+        is SegmentCriterium.Mode.Equal -> SdmIcons.ApproximatelyEqual
+        is SegmentCriterium.Mode.Start -> SdmIcons.ContainStart
         is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
         is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
     }

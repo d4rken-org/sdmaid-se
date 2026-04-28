@@ -12,10 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import eu.darken.sdmse.stats.core.iconRes
+import eu.darken.sdmse.stats.core.icon
 import eu.darken.sdmse.stats.ui.paths.AffectedPathsViewModel
 
 @Composable
@@ -34,7 +33,7 @@ fun AffectedPathRow(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Icon(
-            painter = painterResource(row.affectedPath.action.iconRes),
+            imageVector = row.affectedPath.action.icon,
             contentDescription = null,
             modifier = Modifier.size(20.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,

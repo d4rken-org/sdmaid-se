@@ -6,6 +6,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.outlined.Cancel
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.FolderOpen
+import androidx.compose.material.icons.outlined.Stars
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -16,16 +22,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.asComposable
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.SDMTool
 
 import eu.darken.sdmse.main.ui.dashboard.MainActionItem
@@ -62,7 +66,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(toolIconRes(item.toolType)),
+                imageVector = item.toolType.icon,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = if (item.toolType == SDMTool.Type.CORPSEFINDER) Color.Unspecified else LocalContentColor.current,
@@ -110,7 +114,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                 Spacer(modifier = Modifier.weight(1f))
                 DashboardOutlinedActionButton(onClick = item.onCancel) {
                     Icon(
-                        painter = painterResource(UiR.drawable.ic_cancel),
+                        imageVector = Icons.Outlined.Cancel,
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
@@ -120,7 +124,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                 if (item.onDelete != null) {
                     DashboardIconActionButton(onClick = item.onViewDetails) {
                         Icon(
-                            painter = painterResource(R.drawable.book_open),
+                            imageVector = Icons.AutoMirrored.Outlined.MenuBook,
                             contentDescription = stringResource(CommonR.string.general_show_details_action),
                         )
                     }
@@ -134,9 +138,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         ),
                     ) {
                         Icon(
-                            painter = painterResource(
-                                if (item.showProRequirement) UiR.drawable.ic_baseline_stars_24 else UiR.drawable.ic_delete,
-                            ),
+                            imageVector = if (item.showProRequirement) Icons.Outlined.Stars else Icons.Outlined.Delete,
                             contentDescription = null,
                         )
                         Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
@@ -148,7 +150,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            painter = painterResource(UiR.drawable.ic_folder_search_24),
+                            imageVector = Icons.Outlined.FolderOpen,
                             contentDescription = stringResource(CommonR.string.general_scan_action),
                         )
                     }
@@ -159,7 +161,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            painter = painterResource(UiR.drawable.ic_folder_search_24),
+                            imageVector = Icons.Outlined.FolderOpen,
                             contentDescription = null,
                         )
                         Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

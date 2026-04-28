@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.HelpOutline
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -17,17 +19,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 internal fun SetupCardContainer(
-    iconPainter: Painter,
+    icon: ImageVector,
     title: String,
     modifier: Modifier = Modifier,
     onHelp: (() -> Unit)? = null,
@@ -54,7 +54,7 @@ internal fun SetupCardContainer(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
                     Icon(
-                        painter = iconPainter,
+                        imageVector = icon,
                         contentDescription = null,
                         modifier = Modifier.size(20.dp),
                         tint = MaterialTheme.colorScheme.primary,
@@ -73,7 +73,7 @@ internal fun SetupCardContainer(
                     modifier = Modifier.align(Alignment.TopEnd),
                 ) {
                     Icon(
-                        painter = painterResource(UiR.drawable.ic_help_outline),
+                        imageVector = Icons.AutoMirrored.Outlined.HelpOutline,
                         contentDescription = stringResource(CommonR.string.general_help_action),
                     )
                 }

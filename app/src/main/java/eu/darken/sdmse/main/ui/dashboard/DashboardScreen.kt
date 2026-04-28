@@ -22,6 +22,9 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.Stars
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -450,7 +453,7 @@ private fun BottomBar(
                     if (state?.upgradeInfo?.isPro != true) {
                         IconButton(onClick = onUpgrade) {
                             Icon(
-                                painter = painterResource(UiR.drawable.ic_baseline_stars_24),
+                                imageVector = Icons.Outlined.Stars,
                                 contentDescription = stringResource(R.string.upgrades_dashcard_upgrade_action),
                             )
                         }
@@ -458,7 +461,7 @@ private fun BottomBar(
 
                     IconButton(onClick = onSettings) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_settings),
+                            imageVector = Icons.Outlined.Settings,
                             contentDescription = stringResource(CommonR.string.general_settings_title),
                         )
                     }

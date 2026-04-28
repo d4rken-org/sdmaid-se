@@ -1,7 +1,19 @@
 package eu.darken.sdmse.main.core
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ViewList
+import androidx.compose.material.icons.outlined.Alarm
+import androidx.compose.material.icons.outlined.Apps
+import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.outlined.Compress
+import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material.icons.outlined.DataUsage
+import androidx.compose.material.icons.outlined.Recycling
+import androidx.compose.material.icons.outlined.Swipe
+import androidx.compose.ui.graphics.vector.ImageVector
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.Ghost
 import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
@@ -19,17 +31,16 @@ val DashboardCardType.labelRes: Int
         DashboardCardType.STATS -> CommonR.string.stats_label
     }
 
-@get:DrawableRes
-val DashboardCardType.iconRes: Int
+val DashboardCardType.icon: ImageVector
     get() = when (this) {
-        DashboardCardType.CORPSEFINDER -> CommonR.drawable.ghost
-        DashboardCardType.SYSTEMCLEANER -> CommonR.drawable.ic_baseline_view_list_24
-        DashboardCardType.APPCLEANER -> CommonR.drawable.ic_recycle
-        DashboardCardType.DEDUPLICATOR -> CommonR.drawable.ic_content_duplicate_24
-        DashboardCardType.APPCONTROL -> CommonR.drawable.ic_apps
-        DashboardCardType.ANALYZER -> CommonR.drawable.baseline_data_usage_24
-        DashboardCardType.SWIPER -> CommonR.drawable.ic_baseline_swipe_24
-        DashboardCardType.SQUEEZER -> CommonR.drawable.ic_image_compress_24
-        DashboardCardType.SCHEDULER -> CommonR.drawable.ic_alarm_check_24
-        DashboardCardType.STATS -> CommonR.drawable.ic_chartbox_24
+        DashboardCardType.CORPSEFINDER -> SdmIcons.Ghost
+        DashboardCardType.SYSTEMCLEANER -> Icons.AutoMirrored.Outlined.ViewList
+        DashboardCardType.APPCLEANER -> Icons.Outlined.Recycling
+        DashboardCardType.DEDUPLICATOR -> Icons.Outlined.ContentCopy
+        DashboardCardType.APPCONTROL -> Icons.Outlined.Apps
+        DashboardCardType.ANALYZER -> Icons.Outlined.DataUsage
+        DashboardCardType.SWIPER -> Icons.Outlined.Swipe
+        DashboardCardType.SQUEEZER -> Icons.Outlined.Compress
+        DashboardCardType.SCHEDULER -> Icons.Outlined.Alarm
+        DashboardCardType.STATS -> Icons.Outlined.BarChart
     }

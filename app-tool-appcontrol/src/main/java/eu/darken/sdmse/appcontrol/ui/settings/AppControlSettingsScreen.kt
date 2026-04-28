@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.DirectionsRun
+import androidx.compose.material.icons.outlined.Groups
+import androidx.compose.material.icons.outlined.MonitorWeight
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -13,7 +16,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -25,7 +27,6 @@ import eu.darken.sdmse.common.compose.settings.SettingsBadgedSwitchItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun AppControlSettingsScreenHost(
@@ -79,7 +80,7 @@ internal fun AppControlSettingsScreen(
         ) {
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_weight_24),
+                    icon = Icons.Outlined.MonitorWeight,
                     title = stringResource(R.string.appcontrol_settings_module_sizing_enabled_label),
                     subtitle = stringResource(R.string.appcontrol_settings_module_sizing_enabled_description),
                     checked = state.sizingEnabled,
@@ -90,7 +91,7 @@ internal fun AppControlSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_run_24),
+                    icon = Icons.Outlined.DirectionsRun,
                     title = stringResource(R.string.appcontrol_settings_module_activity_enabled_label),
                     subtitle = stringResource(R.string.appcontrol_settings_module_activity_enabled_description),
                     checked = state.activityEnabled,
@@ -101,7 +102,7 @@ internal fun AppControlSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_account_group_24),
+                    icon = Icons.Outlined.Groups,
                     title = stringResource(CommonR.string.general_include_multiuser_label),
                     subtitle = multiUserSummary,
                     // Non-Pro users see an unchecked switch regardless of the stored value.

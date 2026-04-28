@@ -1,12 +1,9 @@
 package eu.darken.sdmse.common.progress
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import androidx.annotation.StringRes
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
@@ -19,18 +16,6 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlin.coroutines.EmptyCoroutineContext
-
-fun <T : Progress.Client> T.updateProgressIcon(icon: Drawable) {
-    updateProgress { (it ?: Progress.Data()).copy(icon = icon.toCaDrawable()) }
-}
-
-fun <T : Progress.Client> T.updateProgressIcon(icon: CaDrawable?) {
-    updateProgress { (it ?: Progress.Data()).copy(icon = icon) }
-}
-
-fun <T : Progress.Client> T.updateProgressIcon(resolv: (Context) -> Drawable) {
-    updateProgress { (it ?: Progress.Data()).copy(icon = resolv.toCaDrawable()) }
-}
 
 fun <T : Progress.Client> T.updateProgressPrimary(primary: String) {
     updateProgress { (it ?: Progress.Data()).copy(primary = primary.toCaString()) }

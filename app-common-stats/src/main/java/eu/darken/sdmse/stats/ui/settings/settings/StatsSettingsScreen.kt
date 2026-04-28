@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Assessment
+import androidx.compose.material.icons.outlined.BarChart
+import androidx.compose.material.icons.outlined.SettingsBackupRestore
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -19,7 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -36,7 +38,6 @@ import eu.darken.sdmse.common.ui.formatAge
 import eu.darken.sdmse.common.stats.R
 import java.time.Duration
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun StatsSettingsScreenHost(
@@ -168,7 +169,7 @@ internal fun StatsSettingsScreen(
         ) {
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.chart_box_outline_24),
+                    icon = Icons.Outlined.BarChart,
                     title = stringResource(CommonR.string.stats_label),
                     subtitle = statsSummary,
                     onClick = onViewStatsClick,
@@ -177,7 +178,7 @@ internal fun StatsSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.stats_settings_retention_category)) }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.chart_box_outline_24),
+                    icon = Icons.Outlined.BarChart,
                     title = stringResource(R.string.stats_settings_retention_reports_label),
                     subtitle = stringResource(R.string.stats_settings_retention_reports_desc),
                     value = formatAge(context, state.retentionReports),
@@ -186,7 +187,7 @@ internal fun StatsSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                    icon = Icons.Outlined.Assessment,
                     title = stringResource(R.string.stats_settings_retention_paths_label),
                     subtitle = stringResource(R.string.stats_settings_retention_paths_desc),
                     value = formatAge(context, state.retentionPaths),
@@ -195,7 +196,7 @@ internal fun StatsSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_settings_backup_restore_24),
+                    icon = Icons.Outlined.SettingsBackupRestore,
                     title = stringResource(R.string.stats_settings_reset_all_label),
                     subtitle = resetSummary,
                     onClick = { showResetAllDialog = true },

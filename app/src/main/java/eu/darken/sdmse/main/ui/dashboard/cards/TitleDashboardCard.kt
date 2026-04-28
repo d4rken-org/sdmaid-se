@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -33,7 +35,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -47,7 +48,6 @@ import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 
 @StringRes
@@ -278,7 +278,7 @@ private fun BuildTypeRibbon(
         ) {
             androidx.compose.foundation.layout.Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    painter = painterResource(UiR.drawable.ic_bug_report),
+                    imageVector = Icons.Outlined.BugReport,
                     contentDescription = null,
                     modifier = Modifier.size(12.dp),
                 )

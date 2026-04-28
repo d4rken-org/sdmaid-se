@@ -14,13 +14,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 
 @Composable
@@ -38,7 +37,7 @@ internal fun SpaceHistoryTooltipContent(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Icon(
-                painter = painterResource(tool.iconRes),
+                imageVector = tool.icon,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )

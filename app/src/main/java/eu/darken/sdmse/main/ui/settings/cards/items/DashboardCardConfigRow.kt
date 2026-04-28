@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.DashboardCardType
-import eu.darken.sdmse.main.core.iconRes
+import eu.darken.sdmse.main.core.icon
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.common.ui.R as UiR
 
@@ -47,7 +47,7 @@ fun DashboardCardConfigRow(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(type.iconRes),
+                imageVector = type.icon,
                 contentDescription = null,
                 modifier = Modifier
                     .padding(start = 16.dp)

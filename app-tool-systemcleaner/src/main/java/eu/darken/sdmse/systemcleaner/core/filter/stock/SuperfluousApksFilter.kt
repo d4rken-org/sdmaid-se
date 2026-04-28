@@ -1,17 +1,17 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.LibraryAdd
+import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.cache.CacheRepo
 import eu.darken.sdmse.common.compression.entries
@@ -57,7 +57,7 @@ class SuperfluousApksFilter @Inject constructor(
     private val settings: SystemCleanerSettings,
 ) : BaseSystemCleanerFilter() {
 
-    override suspend fun getIcon(): CaDrawable = CommonR.drawable.ic_app_extra_24.toCaDrawable()
+    override val icon: ImageVector = Icons.Outlined.LibraryAdd
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_superfluosapks_label.toCaString()
 

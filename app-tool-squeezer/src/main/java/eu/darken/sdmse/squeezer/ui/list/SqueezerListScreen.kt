@@ -19,7 +19,11 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.ListAlt
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.outlined.Compress
+import androidx.compose.material.icons.outlined.GridView
+import androidx.compose.material.icons.outlined.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -45,20 +49,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldPlus
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.LayoutMode
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
@@ -229,12 +233,10 @@ internal fun SqueezerListScreen(
                         if (state.progress == null && images.isNotEmpty()) {
                             IconButton(onClick = onToggleLayoutMode) {
                                 Icon(
-                                    painter = painterResource(
-                                        when (state.layoutMode) {
-                                            LayoutMode.LINEAR -> UiR.drawable.baseline_grid_view_24
-                                            LayoutMode.GRID -> UiR.drawable.baseline_list_alt_24
-                                        },
-                                    ),
+                                    imageVector = when (state.layoutMode) {
+                                        LayoutMode.LINEAR -> Icons.Outlined.GridView
+                                        LayoutMode.GRID -> Icons.AutoMirrored.Outlined.ListAlt
+                                    },
                                     contentDescription = null,
                                 )
                             }
@@ -265,7 +267,7 @@ internal fun SqueezerListScreen(
                     actions = {
                         IconButton(onClick = { onCompressIds(selection) }) {
                             Icon(
-                                painter = painterResource(CommonR.drawable.ic_image_compress_24),
+                                imageVector = Icons.Outlined.Compress,
                                 contentDescription = stringResource(R.string.squeezer_compress_action),
                             )
                         }
@@ -274,13 +276,13 @@ internal fun SqueezerListScreen(
                             selection = emptySet()
                         }) {
                             Icon(
-                                painter = painterResource(UiR.drawable.ic_shield_plus_24),
+                                imageVector = SdmIcons.ShieldPlus,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
                         IconButton(onClick = { selection = itemIds }) {
                             Icon(
-                                painter = painterResource(UiR.drawable.ic_select_all_24),
+                                imageVector = Icons.Outlined.SelectAll,
                                 contentDescription = stringResource(CommonR.string.general_list_select_all_action),
                             )
                         }
@@ -294,7 +296,7 @@ internal fun SqueezerListScreen(
                     onClick = onCompressAll,
                     icon = {
                         Icon(
-                            painter = painterResource(CommonR.drawable.ic_image_compress_24),
+                            imageVector = Icons.Outlined.Compress,
                             contentDescription = null,
                         )
                     },

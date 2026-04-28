@@ -8,6 +8,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccessibilityNew
+import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -18,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,7 +30,6 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 data class AutomationSetupCardItem(
     override val state: AutomationSetupModule.Result,
@@ -46,7 +47,7 @@ internal fun AutomationSetupCard(
 ) {
     val ui = item.state.toUiModel()
     SetupCardContainer(
-        iconPainter = painterResource(UiR.drawable.ic_baseline_accessibility_new_24),
+        icon = Icons.Filled.AccessibilityNew,
         title = stringResource(R.string.setup_acs_card_title),
         modifier = modifier,
         onHelp = item.onHelp,
@@ -161,7 +162,7 @@ private fun StateChipRow(chip: AutomationUiModel.StateChip) {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Icon(
-            painter = painterResource(chip.icon),
+            imageVector = chip.icon,
             contentDescription = null,
             tint = color,
             modifier = Modifier.size(20.dp),
@@ -191,7 +192,7 @@ private fun AppOpsRestrictionBox(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_baseline_warning_24),
+                imageVector = Icons.Outlined.Warning,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.size(20.dp),

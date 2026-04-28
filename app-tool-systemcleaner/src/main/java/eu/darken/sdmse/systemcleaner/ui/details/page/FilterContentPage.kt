@@ -38,7 +38,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
-import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.toSystemTimezone
@@ -114,7 +113,7 @@ private fun FilterContentHeaderCard(
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    painter = filterContent.icon.asComposable(),
+                    imageVector = filterContent.icon,
                     contentDescription = null,
                     modifier = Modifier.size(40.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -4,9 +4,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.ViewList
+import androidx.compose.material.icons.outlined.Apps
+import androidx.compose.material.icons.outlined.Compress
+import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material.icons.outlined.Recycling
+import androidx.compose.material.icons.outlined.Swipe
+import androidx.compose.material.icons.automirrored.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.Alarm
 import androidx.compose.material.icons.twotone.BarChart
-import androidx.compose.material.icons.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.Policy
@@ -31,13 +37,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.Ghost
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -169,7 +176,7 @@ internal fun SettingsScreen(
 
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ghost),
+                    icon = SdmIcons.Ghost,
                     title = stringResource(CommonR.string.corpsefinder_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_settings_summary),
                     onClick = { onToolSettingsClick("CorpseFinder") },
@@ -177,7 +184,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_view_list_24),
+                    icon = Icons.AutoMirrored.Outlined.ViewList,
                     title = stringResource(CommonR.string.systemcleaner_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_explanation_short),
                     onClick = { onToolSettingsClick("SystemCleaner") },
@@ -185,7 +192,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_recycle),
+                    icon = Icons.Outlined.Recycling,
                     title = stringResource(CommonR.string.appcleaner_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_explanation_short),
                     onClick = { onToolSettingsClick("AppCleaner") },
@@ -193,7 +200,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_content_duplicate_24),
+                    icon = Icons.Outlined.ContentCopy,
                     title = stringResource(CommonR.string.deduplicator_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.deduplicator.R.string.deduplicator_explanation_short),
                     onClick = { onToolSettingsClick("Deduplicator") },
@@ -201,7 +208,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_apps),
+                    icon = Icons.Outlined.Apps,
                     title = stringResource(CommonR.string.appcontrol_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.appcontrol.R.string.appcontrol_explanation_short),
                     onClick = { onToolSettingsClick("AppControl") },
@@ -209,7 +216,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_image_compress_24),
+                    icon = Icons.Outlined.Compress,
                     title = stringResource(CommonR.string.squeezer_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.squeezer.R.string.squeezer_explanation_short),
                     onClick = { onToolSettingsClick("Squeezer") },
@@ -217,7 +224,7 @@ internal fun SettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_baseline_swipe_24),
+                    icon = Icons.Outlined.Swipe,
                     title = stringResource(CommonR.string.swiper_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.swiper.R.string.swiper_tool_description),
                     onClick = { onToolSettingsClick("Swiper") },
@@ -278,7 +285,7 @@ internal fun SettingsScreen(
 
             item {
                 SettingsPreferenceItem(
-                    icon = Icons.TwoTone.ContactSupport,
+                    icon = Icons.AutoMirrored.TwoTone.ContactSupport,
                     title = stringResource(R.string.settings_support_label),
                     subtitle = stringResource(R.string.settings_support_description),
                     onClick = onSupportClick,

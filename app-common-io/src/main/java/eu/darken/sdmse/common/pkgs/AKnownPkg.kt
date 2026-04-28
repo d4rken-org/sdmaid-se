@@ -1,12 +1,12 @@
 package eu.darken.sdmse.common.pkgs
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.caDrawable
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.features.AppStore
@@ -16,7 +16,9 @@ sealed class AKnownPkg(override val id: Pkg.Id) : Pkg {
     constructor(rawPkgId: String) : this(Pkg.Id(rawPkgId))
 
     @get:StringRes open val labelRes: Int? = null
-    @get:DrawableRes open val iconRes: Int? = R.drawable.ic_default_app_icon_24
+
+    @get:DrawableRes
+    protected open val fallbackIconRes: Int = R.drawable.ic_default_app_icon_24
 
     override val label: CaString?
         get() = caString { context ->
@@ -27,21 +29,16 @@ sealed class AKnownPkg(override val id: Pkg.Id) : Pkg {
             id.name
         }
 
-    override val icon: CaDrawable?
-        get() = caDrawable { context ->
-            context.packageManager.getIcon2(id)?.let { return@caDrawable it }
-
-            iconRes
-                ?.let { ContextCompat.getDrawable(context, it) }
-                ?.let { return@caDrawable it }
-
-            ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
-        }
+    override val icon: ((Context) -> Drawable)? = { context ->
+        context.packageManager.getIcon2(id)
+            ?: ContextCompat.getDrawable(context, fallbackIconRes)
+            ?: ContextCompat.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
+    }
 
     data object AndroidSystem : AKnownPkg("android")
 
     data object GooglePlay : AKnownPkg("com.android.vending"), AppStore {
-        override val iconRes: Int = R.drawable.ic_baseline_gplay_24
+        override val fallbackIconRes: Int = R.drawable.ic_baseline_gplay_24
         override val storeLabel: String = "Google Play"
         override val urlGenerator: ((Pkg.Id) -> String) = {
             "https://play.google.com/store/apps/details?id=${it.name}"

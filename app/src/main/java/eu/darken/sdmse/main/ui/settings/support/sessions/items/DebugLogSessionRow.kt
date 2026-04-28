@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.InsertDriveFile
+import androidx.compose.material.icons.outlined.BugReport
+import androidx.compose.material.icons.outlined.ErrorOutline
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Stop
 import androidx.compose.material3.CircularProgressIndicator
@@ -22,7 +25,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
@@ -33,7 +35,6 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import java.io.File
 import java.time.Instant
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun DebugLogSessionRow(
@@ -140,7 +141,7 @@ private fun SessionStatusIcon(session: DebugLogSession) {
     ) {
         when (session) {
             is DebugLogSession.Recording -> Icon(
-                painter = painterResource(UiR.drawable.ic_bug_report),
+                imageVector = Icons.Outlined.BugReport,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -150,13 +151,13 @@ private fun SessionStatusIcon(session: DebugLogSession) {
             )
 
             is DebugLogSession.Finished -> Icon(
-                painter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                imageVector = Icons.AutoMirrored.Outlined.InsertDriveFile,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
             is DebugLogSession.Failed -> Icon(
-                painter = painterResource(UiR.drawable.ic_error_outline),
+                imageVector = Icons.Outlined.ErrorOutline,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.error,
             )

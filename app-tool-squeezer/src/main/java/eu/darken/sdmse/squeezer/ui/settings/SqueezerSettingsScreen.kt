@@ -4,6 +4,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Compress
+import androidx.compose.material.icons.outlined.History
+import androidx.compose.material.icons.outlined.NewReleases
+import androidx.compose.material.icons.outlined.RotateRight
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -19,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,7 +37,6 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun SqueezerSettingsScreenHost(
@@ -114,7 +116,7 @@ internal fun SqueezerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_types_category_label)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_image_compress_24),
+                    icon = Icons.Outlined.Compress,
                     title = stringResource(R.string.squeezer_type_jpeg_title),
                     subtitle = stringResource(R.string.squeezer_type_jpeg_description),
                     checked = state.includeJpeg,
@@ -123,7 +125,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(CommonR.drawable.ic_image_compress_24),
+                    icon = Icons.Outlined.Compress,
                     title = stringResource(R.string.squeezer_type_webp_title),
                     subtitle = stringResource(R.string.squeezer_type_webp_description),
                     checked = state.includeWebp,
@@ -133,7 +135,7 @@ internal fun SqueezerSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_compression_settings_label)) }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_skip_over_24),
+                    icon = Icons.Outlined.RotateRight,
                     title = stringResource(R.string.squeezer_skip_compressed_title),
                     subtitle = stringResource(R.string.squeezer_skip_compressed_description),
                     checked = state.skipPreviouslyCompressed,
@@ -142,7 +144,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    iconPainter = painterResource(UiR.drawable.ic_new_box_24),
+                    icon = Icons.Outlined.NewReleases,
                     title = stringResource(R.string.squeezer_exif_marker_title),
                     subtitle = stringResource(R.string.squeezer_exif_marker_description),
                     checked = state.writeExifMarker,
@@ -151,7 +153,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsPreferenceItem(
-                    iconPainter = painterResource(UiR.drawable.ic_baseline_history_24),
+                    icon = Icons.Outlined.History,
                     title = stringResource(R.string.squeezer_history_title),
                     subtitle = historySummary,
                     onClick = { showClearDialog = true },

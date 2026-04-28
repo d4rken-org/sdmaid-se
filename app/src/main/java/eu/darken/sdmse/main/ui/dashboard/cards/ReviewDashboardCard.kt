@@ -19,9 +19,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.icons.GooglePlay
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledActionButton
@@ -72,7 +73,7 @@ internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
                 enabled = activity != null,
             ) {
                 Icon(
-                    painter = painterResource(UiR.drawable.ic_google_play_24),
+                    imageVector = SdmIcons.GooglePlay,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

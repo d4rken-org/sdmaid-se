@@ -7,14 +7,6 @@ import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 
-internal fun toolIconRes(type: SDMTool.Type): Int = when (type) {
-    SDMTool.Type.CORPSEFINDER -> CommonR.drawable.ghost
-    SDMTool.Type.SYSTEMCLEANER -> CommonR.drawable.ic_baseline_view_list_24
-    SDMTool.Type.APPCLEANER -> CommonR.drawable.ic_recycle
-    SDMTool.Type.DEDUPLICATOR -> CommonR.drawable.ic_content_duplicate_24
-    else -> error("Unsupported tool type: $type")
-}
-
 internal fun toolNameRes(type: SDMTool.Type): Int = when (type) {
     SDMTool.Type.CORPSEFINDER -> CommonR.string.corpsefinder_tool_name
     SDMTool.Type.SYSTEMCLEANER -> CommonR.string.systemcleaner_tool_name

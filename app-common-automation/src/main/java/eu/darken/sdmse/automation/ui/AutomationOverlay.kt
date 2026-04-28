@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AccessibilityNew
+import androidx.compose.material.icons.outlined.Cancel
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -23,7 +26,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -35,7 +37,6 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.automation.R as AutomationR
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.ui.R as CommonUiR
 
 internal data class AutomationOverlayState(
     val title: CaString = "".toCaString(),
@@ -108,7 +109,7 @@ private fun ControlCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(CommonUiR.drawable.ic_baseline_accessibility_new_24),
+                imageVector = Icons.Outlined.AccessibilityNew,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
             )
@@ -173,7 +174,7 @@ private fun ControlCard(
                 .padding(16.dp),
         ) {
             Icon(
-                painter = painterResource(CommonUiR.drawable.ic_cancel),
+                imageVector = Icons.Outlined.Cancel,
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(8.dp))

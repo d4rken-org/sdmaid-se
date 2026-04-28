@@ -1,5 +1,8 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.RunningWithErrors
+import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -11,9 +14,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.hasFlags
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -41,7 +42,7 @@ class AnrFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_baseline_running_with_errors_24.toCaDrawable()
+    override val icon: ImageVector = Icons.Outlined.RunningWithErrors
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_anr_label.toCaString()
 

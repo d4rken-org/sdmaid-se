@@ -13,11 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.compose.icons.Bug
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.automation.core.AutomationTask
@@ -52,7 +53,7 @@ internal fun DebugDashboardCard(item: DebugDashboardCardItem) {
     DashboardCard(containerColor = MaterialTheme.colorScheme.secondaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(R.drawable.ic_spider_thread_onsurface),
+                imageVector = SdmIcons.Bug,
                 contentDescription = null,
                 modifier = Modifier.size(24.dp),
             )

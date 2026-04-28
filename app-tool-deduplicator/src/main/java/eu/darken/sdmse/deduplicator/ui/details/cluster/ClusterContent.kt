@@ -39,15 +39,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
+import eu.darken.sdmse.common.compose.icons.CodeEqualBox
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -197,7 +198,7 @@ private fun ClusterHeaderRow(
             if (checksumCount > 0) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        painter = painterResource(UiR.drawable.ic_code_equal_box_24),
+                        imageVector = SdmIcons.CodeEqualBox,
                         contentDescription = null,
                         modifier = Modifier.size(20.dp),
                         tint = MaterialTheme.colorScheme.primary,
@@ -213,7 +214,7 @@ private fun ClusterHeaderRow(
                 Spacer(Modifier.height(4.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        painter = painterResource(UiR.drawable.ic_approximately_equal_box_24),
+                        imageVector = SdmIcons.ApproximatelyEqualBox,
                         contentDescription = null,
                         modifier = Modifier.size(20.dp),
                         tint = MaterialTheme.colorScheme.secondary,

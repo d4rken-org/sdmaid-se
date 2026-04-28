@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -21,7 +20,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.stats.core.AffectedPkg
-import eu.darken.sdmse.stats.core.iconRes
+import eu.darken.sdmse.stats.core.icon
 import eu.darken.sdmse.stats.ui.pkgs.AffectedPkgsViewModel
 
 @Composable
@@ -42,7 +41,7 @@ fun AffectedPkgRow(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Icon(
-            painter = painterResource(row.affectedPkg.action.iconRes),
+            imageVector = row.affectedPkg.action.icon,
             contentDescription = null,
             modifier = Modifier.size(20.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,

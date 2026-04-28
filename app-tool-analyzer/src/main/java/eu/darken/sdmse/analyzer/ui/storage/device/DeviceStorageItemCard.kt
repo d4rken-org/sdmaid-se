@@ -11,6 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Memory
+import androidx.compose.material.icons.outlined.SdCard
+import androidx.compose.material.icons.outlined.Usb
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -21,7 +25,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -30,7 +33,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryChartView
 import kotlin.math.absoluteValue
@@ -67,13 +69,11 @@ internal fun DeviceStorageItemCard(
                 verticalAlignment = Alignment.Top,
             ) {
                 Icon(
-                    painter = painterResource(
-                        when (storage.hardware) {
-                            DeviceStorage.Hardware.BUILT_IN -> R.drawable.ic_chip_24
-                            DeviceStorage.Hardware.SDCARD -> R.drawable.ic_sd_24
-                            DeviceStorage.Hardware.USB -> UiR.drawable.ic_usb_24
-                        },
-                    ),
+                    imageVector = when (storage.hardware) {
+                        DeviceStorage.Hardware.BUILT_IN -> Icons.Outlined.Memory
+                        DeviceStorage.Hardware.SDCARD -> Icons.Outlined.SdCard
+                        DeviceStorage.Hardware.USB -> Icons.Outlined.Usb
+                    },
                     contentDescription = null,
                     modifier = Modifier
                         .size(24.dp)

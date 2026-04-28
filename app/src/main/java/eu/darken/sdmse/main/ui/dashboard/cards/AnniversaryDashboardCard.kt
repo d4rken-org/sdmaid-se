@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -14,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -25,7 +26,6 @@ import eu.darken.sdmse.common.compose.SdmMascotMode
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledActionButton
@@ -103,7 +103,7 @@ internal fun AnniversaryDashboardCard(item: AnniversaryDashboardCardItem) {
             Spacer(modifier = Modifier.weight(1f))
             DashboardFilledActionButton(onClick = { item.onShare(item.years) }) {
                 Icon(
-                    painter = painterResource(UiR.drawable.outline_share_24),
+                    imageVector = Icons.Outlined.Share,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))

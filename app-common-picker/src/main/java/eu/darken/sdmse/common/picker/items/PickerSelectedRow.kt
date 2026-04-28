@@ -17,9 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import eu.darken.sdmse.common.files.iconRes
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.picker.PickerViewModel
 
 @Composable
@@ -36,7 +35,7 @@ fun PickerSelectedRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            painter = painterResource(row.lookup.fileType.iconRes),
+            imageVector = row.lookup.fileType.icon,
             contentDescription = null,
             modifier = Modifier.size(20.dp),
             tint = Color.Unspecified,

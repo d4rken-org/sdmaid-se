@@ -6,13 +6,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FileDownload
+import androidx.compose.material.icons.outlined.NewReleases
+import androidx.compose.material.icons.outlined.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
@@ -20,7 +23,6 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
@@ -45,7 +47,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
-                painter = painterResource(UiR.drawable.ic_new_box_24),
+                imageVector = Icons.Outlined.NewReleases,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
             )
@@ -75,7 +77,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
         ) {
             DashboardFlatActionButton(onClick = item.onViewUpdate) {
                 Icon(
-                    painter = painterResource(UiR.drawable.ic_eye_24),
+                    imageVector = Icons.Outlined.Visibility,
                     contentDescription = null,
                 )
             }
@@ -86,7 +88,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
             Spacer(modifier = Modifier.width(8.dp))
             DashboardFilledTonalActionButton(onClick = item.onUpdate) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_file_download_24),
+                    imageVector = Icons.Outlined.FileDownload,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
