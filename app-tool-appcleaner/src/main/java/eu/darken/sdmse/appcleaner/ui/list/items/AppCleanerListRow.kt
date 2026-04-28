@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,8 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -32,7 +29,12 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
+import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.FolderInfo
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -40,7 +42,6 @@ import eu.darken.sdmse.common.pkgs.getSettingsIntent
 
 private val TAG = logTag("AppCleaner", "List", "Row")
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppCleanerListRow(
     modifier: Modifier = Modifier,
@@ -128,10 +129,40 @@ fun AppCleanerListRow(
                 enabled = !selectionActive,
             ) {
                 Icon(
-                    imageVector = Icons.TwoTone.FolderOpen,
+                    imageVector = SdmIcons.FolderInfo,
                     contentDescription = stringResource(CommonR.string.general_details_label),
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppCleanerListRowPreview() {
+    PreviewWrapper {
+        AppCleanerListRow(
+            row = previewAppCleanerRow(),
+            selected = false,
+            selectionActive = false,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppCleanerListRowSelectedPreview() {
+    PreviewWrapper {
+        AppCleanerListRow(
+            row = previewAppCleanerRow(),
+            selected = true,
+            selectionActive = true,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
     }
 }

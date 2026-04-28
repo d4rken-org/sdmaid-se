@@ -1,7 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.details.page
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,10 +37,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.systemcleaner.core.FilterContent
+import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -178,7 +180,6 @@ private fun FilterContentHeaderCard(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun FilterContentFileRow(
     element: FilterContentElement.FileRow,
@@ -237,5 +238,21 @@ private fun FilterContentFileRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun FilterContentPagePreview() {
+    PreviewWrapper {
+        FilterContentPage(
+            filterContent = previewFilterContent(),
+            selection = emptySet(),
+            onSelectionChange = {},
+            onDeleteFilterRequest = {},
+            onExcludeFilterRequest = {},
+            onFileTap = {},
+            onPreviewFile = {},
+        )
     }
 }

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.details.page
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -50,8 +49,11 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.ui.descriptionRes
 import eu.darken.sdmse.appcleaner.ui.icon
 import eu.darken.sdmse.appcleaner.ui.labelRes
+import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -241,7 +243,6 @@ private fun AppJunkPageHeaderCard(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun AppIconWithSettingsLongPress(junk: AppJunk) {
     val context = LocalContext.current
@@ -364,7 +365,6 @@ private fun AppJunkCategoryCard(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun AppJunkFileRow(
     match: ExpendablesFilter.Match,
@@ -404,5 +404,25 @@ private fun AppJunkFileRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppJunkPagePreview() {
+    PreviewWrapper {
+        AppJunkPage(
+            junk = previewAppJunk(),
+            collapsed = emptySet(),
+            selection = emptySet(),
+            selectionActive = false,
+            onSelectionChange = {},
+            onDeleteJunk = {},
+            onExcludeJunk = {},
+            onDeleteInaccessible = {},
+            onDeleteCategory = {},
+            onDeleteFile = { _, _ -> },
+            onToggleCollapse = {},
+        )
     }
 }

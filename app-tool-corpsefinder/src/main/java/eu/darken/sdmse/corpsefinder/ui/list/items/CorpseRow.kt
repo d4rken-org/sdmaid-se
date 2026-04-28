@@ -1,7 +1,6 @@
 package eu.darken.sdmse.corpsefinder.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,8 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -29,15 +26,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.FolderInfo
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.corpsefinder.R as CorpseR
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.corpsefinder.ui.icon
 import eu.darken.sdmse.corpsefinder.ui.labelRes
 import eu.darken.sdmse.corpsefinder.ui.list.CorpseFinderListViewModel
+import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
+import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpseRow
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CorpseRow(
     modifier: Modifier = Modifier,
@@ -143,10 +145,40 @@ fun CorpseRow(
                 enabled = !selectionActive,
             ) {
                 Icon(
-                    imageVector = Icons.TwoTone.FolderOpen,
+                    imageVector = SdmIcons.FolderInfo,
                     contentDescription = stringResource(CommonR.string.general_details_label),
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseRowPreview() {
+    PreviewWrapper {
+        CorpseRow(
+            row = previewCorpseRow(),
+            selected = false,
+            selectionActive = false,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseRowSelectedPreview() {
+    PreviewWrapper {
+        CorpseRow(
+            row = previewCorpseRow(corpse = previewCorpse(riskLevel = RiskLevel.KEEPER)),
+            selected = true,
+            selectionActive = true,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
     }
 }

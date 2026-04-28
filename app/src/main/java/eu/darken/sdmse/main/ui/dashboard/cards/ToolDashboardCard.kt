@@ -10,22 +10,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.MenuBook
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.Delete
-import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.asComposable
+import eu.darken.sdmse.common.compose.icons.FolderSearch
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -69,7 +68,6 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                 imageVector = item.toolType.icon,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
-                tint = if (item.toolType == SDMTool.Type.CORPSEFINDER) Color.Unspecified else LocalContentColor.current,
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
@@ -150,7 +148,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            imageVector = Icons.TwoTone.FolderOpen,
+                            imageVector = SdmIcons.FolderSearch,
                             contentDescription = stringResource(CommonR.string.general_scan_action),
                         )
                     }
@@ -161,7 +159,7 @@ internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
                         enabled = !item.isInitializing,
                     ) {
                         Icon(
-                            imageVector = Icons.TwoTone.FolderOpen,
+                            imageVector = SdmIcons.FolderSearch,
                             contentDescription = null,
                         )
                         Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
