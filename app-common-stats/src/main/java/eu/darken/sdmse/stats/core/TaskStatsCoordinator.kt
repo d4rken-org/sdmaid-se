@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.withPrevious
+import eu.darken.sdmse.common.storage.StorageRescue
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -21,6 +22,7 @@ class TaskStatsCoordinator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val taskSubmitter: TaskSubmitter,
     private val statsRepo: StatsRepo,
+    private val storageRescue: StorageRescue,
 ) {
     private val isStarted = AtomicBoolean(false)
 
@@ -56,6 +58,9 @@ class TaskStatsCoordinator @Inject constructor(
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Failed to record idle snapshot: ${e.asLog()}" }
                     }
+                    // restoreIfPossible() catches all non-cancellation exceptions internally,
+                    // so a wrapper try/catch here would be dead code.
+                    storageRescue.restoreIfPossible()
                 }
             }
             .launchIn(appScope)

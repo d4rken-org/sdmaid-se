@@ -1,6 +1,7 @@
 package eu.darken.sdmse
 
 import android.app.Application
+import android.content.Context
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import coil.Coil
@@ -24,6 +25,7 @@ import eu.darken.sdmse.common.error.installErrorDialogCustomizer
 import eu.darken.sdmse.setup.installShowSetupHint
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.storage.StorageRescue
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -57,8 +59,17 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var spaceMonitorControl: SpaceMonitorControl
     @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
+    @Inject lateinit var storageRescue: StorageRescue
 
     private val logCatLogger = LogCatLogger()
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        // Runs BEFORE Hilt field-injection in super.onCreate(): release the storage
+        // rescue early so the very first DataStore/Room writes triggered by
+        // singleton init blocks have somewhere to land. See StorageRescue / #2401.
+        StorageRescue.releaseIfNeeded(this)
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -97,6 +108,7 @@ open class App : Application(), Configuration.Provider {
         memoryMonitor.register()
 
         appScope.launch { coilTempFiles.cleanUp() }
+        appScope.launch { storageRescue.restoreIfPossible() }
         Coil.setImageLoader(imageLoaderFactory)
 
         curriculumVitae.updateAppLaunch()
