@@ -1,14 +1,11 @@
 package eu.darken.sdmse.common.uix
 
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import eu.darken.sdmse.common.coroutine.DefaultDispatcherProvider
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.error.ErrorEventSource
-import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -30,34 +27,12 @@ abstract class ViewModel2(
 
     private fun getVMContext(): CoroutineContext {
         val dispatcher = dispatcherProvider.Default
-        return getErrorHandler()?.let { dispatcher + it } ?: dispatcher
+        return launchErrorHandler?.let { dispatcher + it } ?: dispatcher
     }
 
     val vmScope: CoroutineScope by lazy {
         viewModelScope + getVMContext()
     }
-
-    private fun getErrorHandler(): CoroutineExceptionHandler? {
-        val handler = launchErrorHandler
-        if (handler != null) return handler
-
-        if (this is ErrorEventSource) {
-            return CoroutineExceptionHandler { _, ex ->
-                log(tag, WARN) { "Error during launch: ${ex.asLog()}" }
-                errorEvents.postValue(ex)
-            }
-        }
-
-        return null
-    }
-
-    // FIXME: Remove after Compose rewrite — use Flow + collectAsStateWithLifecycle in Compose
-    @Deprecated("Use Flow-based state in Compose screens")
-    fun <T : Any> DynamicStateFlow<T>.asLiveData2() = flow.asLiveData2()
-
-    // FIXME: Remove after Compose rewrite — use Flow + collectAsStateWithLifecycle in Compose
-    @Deprecated("Use Flow-based state in Compose screens")
-    fun <T> Flow<T>.asLiveData2() = this.asLiveData(context = getVMContext())
 
     fun launch(
         scope: CoroutineScope = viewModelScope,
