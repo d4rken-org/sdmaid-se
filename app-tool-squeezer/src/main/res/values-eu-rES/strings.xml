@@ -17,19 +17,12 @@
         <item quantity="one">%d irudi hautatuta</item>
         <item quantity="other">%d irudi hautatuta</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Bilaketa-kokalekuak</string>
-    <string name="squeezer_search_locations_default_summary">Kamera-karpetak (lehenetsiak)</string>
     <string name="squeezer_min_size_title">Fitxategiaren gutxieneko tamaina</string>
     <string name="squeezer_min_size_description">Saltatu tamaina hau baino txikiagoak diren irudiak.</string>
     <string name="squeezer_min_age_title">Fitxategiaren gutxieneko adina</string>
     <string name="squeezer_min_age_description">Sartu adin hau baino zaharragoak diren irudiak soilik.</string>
     <string name="squeezer_compression_settings_label">Konpresio-ezarpenak</string>
-    <string name="squeezer_quality_label">Kalitatea</string>
-    <string name="squeezer_quality_title">Konpresio-kalitatea</string>
     <string name="squeezer_quality_description">Kalitate baxuagoak fitxategi txikiagoak esan nahi du baina irudi-kalitate txikiagoa ere bai.</string>
-    <string name="squeezer_quality_example_format">Adibidea: %1$s irudia → ~%2$s aurrezten du %3$d%% kalitatean</string>
-    <string name="squeezer_quality_warning_low">Kalitate baxuagoek ikusgai dauden artifaktuak sor ditzakete.</string>
-    <string name="squeezer_quality_warning_high">Kalitate oso altuak leku-aurrezpen minimoa ematen du.</string>
     <string name="squeezer_types_category_label">Irudi-motak</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Sartu JPEG irudiak (.jpg, .jpeg).</string>
@@ -55,23 +48,16 @@
     <string name="squeezer_history_empty">Ez dago konpresio-historiarik</string>
     <string name="squeezer_history_clear_title">Garbitu konpresio-historia</string>
     <string name="squeezer_history_clear_message">Honek aurrez konprimatutako irudiak berriro konprima daitezen utziko du. Irudiak berrak ez dira kaltetuko.</string>
-    <string name="squeezer_onboarding_title">Irudi-konpresioa buruz</string>
-    <string name="squeezer_onboarding_message">Irudi-konpresioak fitxategi-tamaina murrizten du xehetasun bisuala kenduz. Prozesu hau itzulezina da - jatorrizko kalitatea ezin da berreskuratu.
-
-Hona hemen zure irudiak nola ikusiko diren aurrebista:</string>
     <string name="squeezer_onboarding_original_label">Jatorrizkoa</string>
     <string name="squeezer_onboarding_compressed_label">Konpresio ondoren</string>
-    <string name="squeezer_onboarding_quality_label">Kalitatea: %d%%</string>
     <string name="squeezer_compare_action">Ikusi konparazioa</string>
     <string name="squeezer_no_example_found">Ez da irudirik aurkitu hautatutako bideetan.</string>
     <string name="squeezer_result_empty_message">Ez da konprimatu daitezkeen irudirik aurkitu.</string>
-    <string name="squeezer_setup_warning">Konpresioak behin betiko murrizten du irudi-kalitatea biltegiratzeko lekua aurrezteko. Hau ezin da desegin. Berrikusi zure ezarpenak arretaz hasi baino lehen.</string>
     <string name="squeezer_setup_explanation">Media Squeeze-k irudien fitxategi-tamaina murrizten du biltegiratzeko lekua askatzeko. Honek behin betiko murrizten du irudi-kalitatea eta ezin da desegin. Berrikusi zure ezarpenak arretaz hasi baino lehen.</string>
     <string name="squeezer_setup_paths_title">Bilaketa-kokalekuak</string>
     <string name="squeezer_setup_paths_default">Hautatu bilatzeko karpetak</string>
     <string name="squeezer_setup_quality_title">Konpresio-kalitatea</string>
     <string name="squeezer_setup_age_title">Gutxieneko adina</string>
-    <string name="squeezer_setup_age_none">Mugarik gabe (sartu fitxategi guztiak)</string>
     <string name="squeezer_setup_start_action">Hasi eskaneatzea</string>
     <string name="squeezer_quality_hint_very_low">%40 azpiko kalitateak erabilezin bihurtu ditzake irudiak.</string>
     <string name="squeezer_quality_hint_low">Kalitate baxuagoak espazio gehiago aurrezten du, baina artifaktu ikusgarriak sor ditzake.</string>

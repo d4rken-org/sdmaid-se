@@ -346,6 +346,12 @@ private fun QualityCard(
                     style = MaterialTheme.typography.titleMedium,
                 )
             }
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.squeezer_quality_description),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
             Spacer(Modifier.height(8.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Slider(
@@ -441,6 +447,11 @@ private fun AgeCard(
                     text = stringResource(R.string.squeezer_setup_age_title),
                     style = MaterialTheme.typography.titleMedium,
                 )
+                Text(
+                    text = stringResource(R.string.squeezer_min_age_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = valueText,
@@ -483,6 +494,11 @@ private fun MinSizeCard(
                 Text(
                     text = stringResource(R.string.squeezer_min_size_title),
                     style = MaterialTheme.typography.titleMedium,
+                )
+                Text(
+                    text = stringResource(R.string.squeezer_min_size_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
