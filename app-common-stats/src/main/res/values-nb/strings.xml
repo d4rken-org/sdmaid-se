@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Primærlagring</string>
     <string name="stats_storage_type_secondary">Sekundærlagring</string>
     <string name="stats_storage_type_portable">Bærbar lagring</string>
-    <string name="stats_settings_retention_snapshots_label">Lagringøyeblikksbilder</string>
-    <string name="stats_settings_retention_snapshots_desc">Antall dager for å beholde øyeblikksbilder av lagringsplass.</string>
 </resources>

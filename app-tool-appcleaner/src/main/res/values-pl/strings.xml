@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatyzacja czyszczenia aplikacji</string>
     <string name="appcleaner_automation_subtitle_default_caches">Czyszczenie domyślnych pamięci podręcznych…</string>
-    <string name="appcleaner_automation_progress_open_settings">Otwieranie ekranu ustawień (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Wyszukiwanie wpisu \"Pamięć\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień dostępu).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień dostępu niedostępna</string>
     <string name="appcleaner_automation_unavailable_body">Oczyszczanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dostępu dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
-    <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Usunąć zbędne pliki dla %d wybranej aplikacji?</item>

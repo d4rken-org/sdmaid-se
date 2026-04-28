@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">แอพที่ติดตั้งในอุปกรณ์ของคุณ</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">ตรวจพบแอพ %d แอพ</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">สลับการเลือกแอพ</string>
     <string name="appcontrol_toggle_app_enable_action">เปิดใช้งานแอพ</string>
     <string name="appcontrol_toggle_app_disable_action">ปิดใช้งานแอพ</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">ดีบัก</string>
     <string name="appcontrol_progress_enabling_package">กำลังเปิดใช้งานแอพ</string>
     <string name="appcontrol_progress_disabling_package">กำลังปิดใช้งานแอพ</string>
-    <string name="appcontrol_list_filteroptions_label">ตัวเลือกการกรอง</string>
     <string name="appcontrol_list_sortmode_name_label">ชื่อแอพ</string>
     <string name="appcontrol_list_sortmode_updated_label">อัปเดตล่าสุด</string>
     <string name="appcontrol_list_sortmode_installed_label">ติดตั้งครั้งแรก</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
     <string name="shortcut_appcontrol_short">ควบคุมแอป</string>
     <string name="shortcut_appcontrol_long">จัดการแอปที่ติดตั้ง</string>
-    <string name="appcontrol_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้คนอื่น</string>
 </resources>

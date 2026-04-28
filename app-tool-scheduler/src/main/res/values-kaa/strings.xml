@@ -20,7 +20,6 @@
         <item quantity="one">Hár küni</item>
         <item quantity="other">Hár %d kúnde</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Qaytalaw aralığı</string>
     <string name="scheduler_inaccurate_execution_hint">Kútilip turğan ótkiziw waqıtları jaqın sandılar. Batareyanı únemdeş úshin josparlawlar keshiktiriliw yáki tezletiliw múmkin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Aktiv josparlawlar joq</string>
     <string name="scheduler_setting_nopowersaving_title">Batareya az bolsa ótkeriw</string>

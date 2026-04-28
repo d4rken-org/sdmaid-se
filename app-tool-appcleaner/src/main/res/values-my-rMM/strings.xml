@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner အလိုအလျောက် လုပ်ငန်း</string>
     <string name="appcleaner_automation_subtitle_default_caches">မူလ cache များ ရှင်းလင်းနေသည်…</string>
-    <string name="appcleaner_automation_progress_open_settings">ဆက်တင်မျက်နှာပြင် ဖွင့်နေသည် (သော့ချက်စကားများ - %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"သိလှောင့်မှု\" ဝင်ခွင့်ကို ရှာဖွေနေသည် (သော့ချက်စကားများ - %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"ဒေတာ ရှင်းလင်း\" ခလုတ်ကို ရှာနေသည် (သော့ချက်စကားများ - %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Cache ရှင်းလင်း\" ခလုတ်ကို ရှာနေသည် (သော့ချက်စကားများ - %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">အများပြည်သူ နှင့် ကိုယ်ပိုင် မူလ cache များ။ တိုက်ရိုက် ဝင်ရောက်မရသော်လည်း သို့မဟုတ် သွယ်ဝိုက်၍ ဖျက်နိုင်သည် (ဥပမာ - accessibility service မှတဆင့်)။</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility ဝန်ဆောင်မှု ရနိုင်မည်မဟုတ်</string>
     <string name="appcleaner_automation_unavailable_body">ဝင်ရောက်မရသော cache များ ရှင်းလင်းရန် SD Maid တာ် အဝင်ရောက်ဝန်ဆောင်မှု လိုအပ်ပါသော်လည်း ရနိုင်မည်မဟုတ်ခဲ့ပါ။ အသုံးပြုမပြုလိုပါက - \"ဝင်ရောက်မရသော cache များ ထည့်သွင်းပါ\" ရွေးချယ်ကို ပိတ်ပါ။</string>
-    <string name="appcleaner_junk_userprofile_label">အသုံးပြုသူ</string>
     <string name="appcleaner_delete_confirmation_message_x">%s အတွက် သုံးလောက်သောဖိုင်များ ဖျက်မည်လား?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ရွေးချယ်ထားသော %d ခု အပ်ပ်များအတွက် သုံးလောက်သောဖိုင်များ ဖျက်မည်လား?</item>

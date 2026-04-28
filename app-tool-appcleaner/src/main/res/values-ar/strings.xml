@@ -74,7 +74,6 @@
     </plurals>
     <string name="appcleaner_automation_title">أتمتة منظف التطبيقات</string>
     <string name="appcleaner_automation_subtitle_default_caches">مسح ذاكرة التخزين المؤقت الافتراضية…</string>
-    <string name="appcleaner_automation_progress_open_settings">فتح شاشة الإعدادات (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">البحث عن إدخال \"التخزين\" (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">البحث عن زر \"مسح البيانات\" (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">البحث عن زر \"مسح ذاكرة التخزين المؤقتة\" (الكلمات الرئيسية: %s)</string>
@@ -82,7 +81,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
     <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
-    <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcleaner_delete_confirmation_message_x">حذف الملفات المستهلكة لـ %s؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="zero">حذف الملفات المستهلكة لـ %d تطبيق مختار؟</item>

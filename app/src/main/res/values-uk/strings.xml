@@ -41,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Не вдалося: помилка стиснення</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Видалити цю сесію журналу налагодження?</string>
     <string name="support_contact_post_send_message">Повідомлення надіслано успішно?</string>
-    <string name="debug_debuglog_sessions_stop_action">Зупинити</string>
     <string name="tasks_activity_notification_channel_label">Активні завдання</string>
     <string name="tasks_activity_working_notification_title">SD Maid працює</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -56,7 +55,6 @@
         <item quantity="many">Завдань в черзі: %d</item>
         <item quantity="other">Завдань в черзі: %d</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Результати завдання</string>
     <string name="tasks_result_subtext">Результат завдання</string>
     <string name="tasks_timeout_error_label">Час виконання завдання закінчився</string>
     <string name="tasks_timeout_error_desc">Завдання зайняло занадто багато часу і було зупинено. Спробуйте ще раз.</string>
@@ -243,9 +241,6 @@
     <string name="data_area_sdcard_label">SD карта</string>
     <string name="data_areas_label">Області даних</string>
     <string name="data_areas_description">Області даних - це місця на вашому пристрої, доступні для SD Maid. Залежно від версії Android і наданих дозволів можуть бути доступні різні області даних.</string>
-    <string name="data_areas_short_summary">Області, до яких SD Maid може отримати доступ на основі наданих дозволів.</string>
-    <string name="history_label">Історія</string>
-    <string name="history_description">Хронологічний список нещодавніх дій та даних, на які вони вплинули.</string>
     <string name="updates_dashcard_title">Доступне оновлення</string>
     <string name="updates_dashcard_body">Доступно оновлення. У вас %1$s, а остання версія - %2$s.</string>
     <string name="translation_encourage_title">Перекласти SD Maid</string>
@@ -257,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Перевірка оновлень</string>
     <string name="updatecheck_setting_enabled_explanation">Дозвольте SD Maid перевіряти оновлення, щоб повідомити вас про появу нової версії.</string>
     <string name="device_settings_category">Пристрій</string>
-    <string name="beta_version_indicator_desc">Попередні версії мають світлу стрічку на стартовому екрані. Вони оновлюються частіше, можуть мати більше можливостей, але також можуть містити більше помилок.</string>
     <string name="review_app_review_action">Огляд</string>
     <string name="review_app_dismiss_action">Можливо пізніше</string>
     <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>

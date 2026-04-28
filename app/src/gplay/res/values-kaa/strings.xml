@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro talap etiledi</string>
     <string name="upgrades_dashcard_title">SD Maid SE ni jańalaw</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro jaqsıraq nátiyjelер, kóbirek múmkinshilikler hám quwatlı paydalanıwshılar ushın variantlar usınadı.</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>

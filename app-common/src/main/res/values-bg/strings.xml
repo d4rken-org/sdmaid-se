@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Собственик</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Настройка</string>
-    <string name="setup_feature_requires_additional_setup_x">Тази функция изисква завършване на допълнителни елементи за настройка: %s</string>
-    <string name="upgrade_feature_requires_pro">Изисква Pro</string>
     <string name="general_include_multiuser_label">Включване на други потребители</string>
     <string name="general_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
     <string name="general_unsaved_confirmation_message">Имате незапазени промени!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Ниво на риск</string>
     <string name="settings_category_filter">Филтър</string>
     <string name="appcontrol_systemsettings_open_title">Показване на настройки</string>
-    <string name="systemcleaner_customfilter_create_action">Създаване на персонализиран филтър</string>
 </resources>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">ძირითადი მეხსიერება</string>
     <string name="stats_storage_type_secondary">მეორადი მეხსიერება</string>
     <string name="stats_storage_type_portable">პორტატული მეხსიერება</string>
-    <string name="stats_settings_retention_snapshots_label">მეხსიერების სნეფშოტები</string>
-    <string name="stats_settings_retention_snapshots_desc">დღეების რაოდენობა მეხსიერების სივრცის სნეფშოტების შესანახად.</string>
 </resources>

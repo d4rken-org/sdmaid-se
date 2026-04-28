@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE โปร</string>
     <string name="app_name_upgrade_postfix">โปร</string>
-    <string name="upgrade_feature_requires_pro">ต้องการ SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">อัปเกรด SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro ให้ผลลัพธ์ที่ดีกว่า มีฟีเจอร์และตัวเลือกมากขึ้นสำหรับผู้ใช้ขั้นสูง</string>
     <string name="upgrades_dashcard_upgrade_action">อัปเกรด</string>

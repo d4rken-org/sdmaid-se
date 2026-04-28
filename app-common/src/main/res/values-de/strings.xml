@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Besitzer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Einrichtung</string>
-    <string name="setup_feature_requires_additional_setup_x">Diese Funktion erfordert den Abschluss zusätzlicher Einrichtungsschritte: %s</string>
-    <string name="upgrade_feature_requires_pro">Erfordert Pro</string>
     <string name="general_include_multiuser_label">Andere Benutzer einbeziehen</string>
     <string name="general_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="general_unsaved_confirmation_message">Du hast ungespeicherte Änderungen!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Risikostufe</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Einstellungen anzeigen</string>
-    <string name="systemcleaner_customfilter_create_action">Benutzerdefinierten Filter erstellen</string>
 </resources>

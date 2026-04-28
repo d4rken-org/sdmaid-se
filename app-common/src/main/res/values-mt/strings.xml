@@ -188,5 +188,4 @@
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="appcontrol_systemsettings_open_title">Uri settings</string>
-    <string name="systemcleaner_customfilter_create_action">Oħloq filtru personalizzat</string>
 </resources>

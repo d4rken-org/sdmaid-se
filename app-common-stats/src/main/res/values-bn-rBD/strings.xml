@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">প্রাথমিক স্টোরেজ</string>
     <string name="stats_storage_type_secondary">সেকেন্ডারি স্টোরেজ</string>
     <string name="stats_storage_type_portable">পোর্টেবল স্টোরেজ</string>
-    <string name="stats_settings_retention_snapshots_label">স্টোরেজ স্ন্যাপশট</string>
-    <string name="stats_settings_retention_snapshots_desc">স্টোরেজ স্পেস স্ন্যাপশট রাখার দিনের সংখ্যা।</string>
 </resources>

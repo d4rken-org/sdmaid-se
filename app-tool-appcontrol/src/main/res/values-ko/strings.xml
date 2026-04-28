@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">장치에 설치한 앱입니다.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d개의 앱을 발견했습니다</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">앱 전환</string>
     <string name="appcontrol_toggle_app_enable_action">앱 활성화</string>
     <string name="appcontrol_toggle_app_disable_action">앱 사용 중지</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">디버그</string>
     <string name="appcontrol_progress_enabling_package">앱 활성화 중</string>
     <string name="appcontrol_progress_disabling_package">앱 사용 중지하는 중</string>
-    <string name="appcontrol_list_filteroptions_label">필터 설정</string>
     <string name="appcontrol_list_sortmode_name_label">앱 이름</string>
     <string name="appcontrol_list_sortmode_updated_label">최근 업데이트</string>
     <string name="appcontrol_list_sortmode_installed_label">최초 설치</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">설치일: %s</string>
     <string name="shortcut_appcontrol_short">앱 관리</string>
     <string name="shortcut_appcontrol_long">설치된 앱 관리</string>
-    <string name="appcontrol_automation_loading">자동화 준비 중</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
-    <string name="appcontrol_include_multiuser_label">다른 사용자 포함</string>
 </resources>

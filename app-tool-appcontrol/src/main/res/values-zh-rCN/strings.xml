@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">管理安装在您的设备上的应用程序。</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">检测到 %d 个应用</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">切换应用</string>
     <string name="appcontrol_toggle_app_enable_action">启用应用</string>
     <string name="appcontrol_toggle_app_disable_action">停用应用</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">调试</string>
     <string name="appcontrol_progress_enabling_package">正在启用应用</string>
     <string name="appcontrol_progress_disabling_package">正在停用应用</string>
-    <string name="appcontrol_list_filteroptions_label">过滤器选项</string>
     <string name="appcontrol_list_sortmode_name_label">应用名称</string>
     <string name="appcontrol_list_sortmode_updated_label">最后更新于</string>
     <string name="appcontrol_list_sortmode_installed_label">安装日期</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">安装在: %s</string>
     <string name="shortcut_appcontrol_short">应用控制</string>
     <string name="shortcut_appcontrol_long">管理已安装的应用</string>
-    <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
-    <string name="appcontrol_include_multiuser_label">包括其他用户</string>
 </resources>

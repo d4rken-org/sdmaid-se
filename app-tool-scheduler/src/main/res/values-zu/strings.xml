@@ -20,7 +20,6 @@
         <item quantity="one">Njalo ezinsukwini ezingu-%d</item>
         <item quantity="other">Njalo ezinsukwini ezingu-%d</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Isikhathi sokuphinda</string>
     <string name="scheduler_inaccurate_execution_hint">Izikhathi zokwenza ezilindelekile zilinganisela. Izinhlelo zingase ziphuziswe noma zisheshiswe uma kulondoloza ibhethri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Azikho izinhlelo ezisebenzayo</string>
     <string name="scheduler_setting_nopowersaving_title">Yeqa uma ibhethri iphansi</string>

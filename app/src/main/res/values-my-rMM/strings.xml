@@ -38,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">မအောင်မြင်ပါ: ချုံ့ရာတွင် အမှားအယွင်းဖြစ်သည်</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ဤ debug log အစည်းအဝေးကို ဖျက်မည်လား?</string>
     <string name="support_contact_post_send_message">မက်ဆေ့ချ် အောင်မြင်စွာ ပေးပို့ပြီးပြီလား?</string>
-    <string name="debug_debuglog_sessions_stop_action">ရပ်ရန်</string>
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -47,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d တာဝန်တန်းစီနေသော</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
     <string name="tasks_timeout_error_label">တာဝန်ကြာချိန်ကျော်လွန်သွားပြီ</string>
     <string name="tasks_timeout_error_desc">တာဝန်သည် အချိန်အတော်ကြာနေသောကြောင့် ရပ်တန့်သွားသည်။ ထပ်မံကြိုးစားပါ။</string>
@@ -228,9 +226,6 @@
     <string name="data_area_sdcard_label">SD ကဒ်</string>
     <string name="data_areas_label">ဒေတာနေရာများ</string>
     <string name="data_areas_description">ဒေတာနေရာများသည် SD Maid အသုံးပြုနိုင်သည့် ကိရိယာပေါ်ရှိ တည်နေရာများကို ကိုယ်စားပြုသည်။ Android ဗားရှင်း နှင့် ပေးထားသည့် ခွင့်ပြုချက်များပေါ်မူတည်၍ မတူညီသည့် ဒေတာနေရာများ ရနိုင်သည်။</string>
-    <string name="data_areas_short_summary">SD Maid သည် လက်ရှိ ပြည့်စုံသည့် ခွင့်ပြုချက်ပေါ်အခြန်ချမ့် သုံးမြုနိုင်သည့် နေရာများ။</string>
-    <string name="history_label">မှတ်တမ်း</string>
-    <string name="history_description">မကြာသေးမီက လုပ်ဆောင်ချက်များနှင့် ထိခိုက်ခံရသော ဒေတာများ၏ အချိန်စဉ် စာရင်း။</string>
     <string name="updates_dashcard_title">အပ်ဒိတ်ရနိုင်သည်</string>
     <string name="updates_dashcard_body">အပ်ဒိတ်ရနိုင်သည်။ သင်သည် %1$s ရှိပြီး နောက်ဆုံးဗားရှင်း %2$s ဖြစ်သည်။</string>
     <string name="translation_encourage_title">SD Maid ကို ဘာသာပြန်ဆိုရန်</string>
@@ -242,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">အဆင့်မြှင့်တင်ခြင်းကို စစ်ဆေးပါ</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid သည် အဆင့်မြှင့်တင်ခြင်းများကို စစ်ဆေးရန် ခွင့်ပြုပါ ၊ ထို့ကြောင့် ပိုသစ်သော version မရှိနိုင်ခြင်းကို သိရှိနိုင်ပါသည်။</string>
     <string name="device_settings_category">စက်ပစ္စည်း</string>
-    <string name="beta_version_indicator_desc">ကြိုတင်ဖြန့်ချိမှု ဗားရှင်းများသည် ပြိုင်ပွဲ မျက်နှာပြင်တွင် ရှည်သော ဖဲကြိုးလေး ပြသသည်။ ၎င်းတို့သည် မကြာခဏ အပ်ဒိတ် ပြုလုပ်ပြီး၊ လုပ်ဆောင်ချက်များ ပိုများနိုင်သော်လည်း ချွတ်ယွင်းချက်များလည်း ပိုများနိုင်သည်။</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>

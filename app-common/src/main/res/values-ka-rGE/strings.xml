@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
     <string name="setup_title">დაყენება</string>
-    <string name="setup_feature_requires_additional_setup_x">ამ ფუნქციას სჭირდება დამატებითი დაყენების ელემენტების დასრულება: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro-ს სჭირდება</string>
     <string name="general_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
     <string name="general_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
     <string name="general_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">რისკის დონე</string>
     <string name="settings_category_filter">ფილტრი</string>
     <string name="appcontrol_systemsettings_open_title">პარამეტრების ჩვენება</string>
-    <string name="systemcleaner_customfilter_create_action">კასტომ ფილტრის შექმნა</string>
 </resources>

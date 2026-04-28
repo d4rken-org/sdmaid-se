@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d εφαρμογή εντοπίστηκε</item>
-        <item quantity="other">%d εφαρμογές εντοπίστηκαν</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Εναλλαγή εφαρμογών</string>
     <string name="appcontrol_toggle_app_enable_action">Ενεργοποίηση εφαρμογής</string>
     <string name="appcontrol_toggle_app_disable_action">Απενεργοποίηση εφαρμογής</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Αποσφαλμάτωση</string>
     <string name="appcontrol_progress_enabling_package">Ενεργοποίηση εφαρμογής</string>
     <string name="appcontrol_progress_disabling_package">Απενεργοποίηση εφαρμογής</string>
-    <string name="appcontrol_list_filteroptions_label">Επιλογές φίλτρου</string>
     <string name="appcontrol_list_sortmode_name_label">Όνομα εφαρμογής</string>
     <string name="appcontrol_list_sortmode_updated_label">Τελευταία ενημέρωση</string>
     <string name="appcontrol_list_sortmode_installed_label">Πρώτη εγκατάσταση</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Εγκαταστάθηκε στις: %s</string>
     <string name="shortcut_appcontrol_short">Έλεγχος Εφαρμογής</string>
     <string name="shortcut_appcontrol_long">Διαχείριση εγκατεστημένων εφαρμογών</string>
-    <string name="appcontrol_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
 </resources>

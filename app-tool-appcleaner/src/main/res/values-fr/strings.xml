@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatisation du Nettoyeur d’applis</string>
     <string name="appcleaner_automation_subtitle_default_caches">Vidage des caches par défaut…</string>
-    <string name="appcleaner_automation_progress_open_settings">Ouverture de l’écran des paramètres (mots-clés : %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Recherche de l\'entrée « Stockage » (mots-clés : %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Recherche du bouton « Effacer les données » (mots-clés : %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Recherche du bouton « Vider le cache » (mots clés : %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Caches par défaut publics et privés. Non accessible directement, mais qui peuvent être vidés indirectement (p. ex. avec le service d’accessibilité).</string>
     <string name="appcleaner_automation_unavailable_title">Le service d’accessibilité est inaccessible</string>
     <string name="appcleaner_automation_unavailable_body">Le vidage des caches inaccessibles nécessite le service d’accessibilité de SD Maid, mais il ne pouvait pas être utilisé. Si vous ne voulez pas l’utiliser, désactivez l’option « Inclure les caches inaccessibles ».</string>
-    <string name="appcleaner_junk_userprofile_label">Utilisateur</string>
     <string name="appcleaner_delete_confirmation_message_x">Supprimer les fichiers superflus pour %s ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Supprimer les fichiers superflus pour %d appli choisie ?</item>

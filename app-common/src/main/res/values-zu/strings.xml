@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
-    <string name="setup_feature_requires_additional_setup_x">Lesi sici sidinga ukuqedela ezinye izinto zokusetshenziswa: %s</string>
-    <string name="upgrade_feature_requires_pro">Idinga i-Pro</string>
     <string name="general_include_multiuser_label">Faka abasebenzisi abanye</string>
     <string name="general_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
     <string name="general_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Izinga lengozi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="appcontrol_systemsettings_open_title">Bonisa izilungiselelo</string>
-    <string name="systemcleaner_customfilter_create_action">Dala isihluzi sangasese</string>
 </resources>

@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
     <string name="setup_title">រៀបចំ</string>
-    <string name="setup_feature_requires_additional_setup_x">មុខ​ងារ​នេះ​ត្រូវ​ការ​បំពេញ​ធាតុ​ការ​រៀបចំ​បន្ថែម​ទៀត​ៈ %s</string>
-    <string name="upgrade_feature_requires_pro">ត្រូវការ Pro</string>
     <string name="general_include_multiuser_label">រួម​បញ្ចូល​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត</string>
     <string name="general_include_multiuser_summary">រួម​បញ្ចូល​កម្ម​វិធី​ពី​ប្រ​វត្តិ​រូប​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត​នៅ​ឧបករណ៍​នេះ។</string>
     <string name="general_unsaved_confirmation_message">អ្នក​មាន​ការ​ផ្លាស់​ប្ដូរ​ដែល​មិន​ទាន់​រក្សា​ទុក!</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="settings_category_filter">តម្រង</string>
     <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
-    <string name="systemcleaner_customfilter_create_action">បង្កើតតម្រងផ្ទាល់ខ្លួន</string>
 </resources>

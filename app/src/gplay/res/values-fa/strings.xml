@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">خدمتکار SD نسخه کامل</string>
     <string name="app_name_upgrade_postfix">حرفه‌ای</string>
-    <string name="upgrade_feature_requires_pro">نیاز به خدمتکار SD نسخه کامل</string>
     <string name="upgrades_dashcard_title">ارتقاء SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro نتایج بهتر، امکانات بیشتر و گزینه‌های بیشتری را برای کاربران حرفه‌ای ارائه می‌دهد.</string>
     <string name="upgrades_dashcard_upgrade_action">ارتقاء</string>

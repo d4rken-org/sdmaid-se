@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Jūsu ierīcē instalētās lietotnes.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="zero">%d lietotnes konstatētas</item>
-        <item quantity="one">%d lietotne konstatēta</item>
-        <item quantity="other">%d lietotnes konstatētas</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Pārslēgt lietotnes</string>
     <string name="appcontrol_toggle_app_enable_action">Iespējot lietotni</string>
     <string name="appcontrol_toggle_app_disable_action">Atspējot lietotni</string>
@@ -35,7 +30,6 @@
     <string name="appcontrol_tag_debug">Atklāšanas režīms</string>
     <string name="appcontrol_progress_enabling_package">Lietotnes iespējošana</string>
     <string name="appcontrol_progress_disabling_package">Lietotnes atspējošana</string>
-    <string name="appcontrol_list_filteroptions_label">Filtrēšanas opcijas</string>
     <string name="appcontrol_list_sortmode_name_label">Lietotnes nosaukums</string>
     <string name="appcontrol_list_sortmode_updated_label">Pēdējo reizi atjaunināts</string>
     <string name="appcontrol_list_sortmode_installed_label">Pirmo reizi instalēts</string>
@@ -135,7 +129,4 @@
     <string name="appcontrol_item_installedat_x_label">Instalēts: %s</string>
     <string name="shortcut_appcontrol_short">Lietotniņu kontrole</string>
     <string name="shortcut_appcontrol_long">Pārvaldīt instalētās lietotnes</string>
-    <string name="appcontrol_automation_loading">Sagatavojas automātizācijai, izmantojot pieejamības pakalpojumu</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Mēģina apstiprināt iepriekšējo darbību (atslēgvārdi: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Iekļaut citus lietotājus</string>
 </resources>

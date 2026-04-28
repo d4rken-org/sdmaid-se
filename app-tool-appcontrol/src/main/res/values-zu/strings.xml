@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Izinhlelo zokusebenza ezifakwe kudivayisi yakho.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Uhlelo olu-%d luboniwe</item>
-        <item quantity="other">Izinhlelo zokusebenza ezingu-%d ziboniwe</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Guqula izinhlelo zokusebenza</string>
     <string name="appcontrol_toggle_app_enable_action">Nika amandla uhlelo</string>
     <string name="appcontrol_toggle_app_disable_action">Khubaza uhlelo</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Ususa iziphazamiso</string>
     <string name="appcontrol_progress_enabling_package">Kunika amandla uhlelo</string>
     <string name="appcontrol_progress_disabling_package">Kukhubaza uhlelo</string>
-    <string name="appcontrol_list_filteroptions_label">Izinketho zokusihluza</string>
     <string name="appcontrol_list_sortmode_name_label">Igama lohlelo</string>
     <string name="appcontrol_list_sortmode_updated_label">Kubuyekeziwe kokuqcina</string>
     <string name="appcontrol_list_sortmode_installed_label">Kufakwe kuqala</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Kufakwe ngo: %s</string>
     <string name="shortcut_appcontrol_short">Ukulawula Kohlelo</string>
     <string name="shortcut_appcontrol_long">Phatha izinhlelo zokusebenza ezifakiwe</string>
-    <string name="appcontrol_automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Faka abasebenzisi abanye</string>
 </resources>

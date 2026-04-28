@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Основне сховище</string>
     <string name="stats_storage_type_secondary">Додаткове сховище</string>
     <string name="stats_storage_type_portable">Портативне сховище</string>
-    <string name="stats_settings_retention_snapshots_label">Знімки сховища</string>
-    <string name="stats_settings_retention_snapshots_desc">Кількість днів, протягом яких зберігаються знімки стану сховища.</string>
 </resources>

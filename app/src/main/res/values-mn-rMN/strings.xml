@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Амжилтгүй: шахалтын алдаа</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Энэ дебаг лог сессийг устгах уу?</string>
     <string name="support_contact_post_send_message">Мессеж амжилттай илгээгдсэн үү?</string>
-    <string name="debug_debuglog_sessions_stop_action">Зогсоох</string>
     <string name="tasks_activity_notification_channel_label">Идэвхтэй даалгаврууд</string>
     <string name="tasks_activity_working_notification_title">SD Maid ажиллаж байна</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d даалгавар хүлээж байна</item>
         <item quantity="other">%d даалгавар хүлээж байна</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Даалгаврын үр дүн</string>
     <string name="tasks_result_subtext">Даалгаврын үр дүн</string>
     <string name="tasks_timeout_error_label">Даалгаврын хугацаа дууссан</string>
     <string name="tasks_timeout_error_desc">Даалгавар хэт удаан үргэлжилж, зогсоогдлоо. Дахин оролдоно уу.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD карт</string>
     <string name="data_areas_label">Өгөгдлийн бүсүүд</string>
     <string name="data_areas_description">Өгөгдөлийн мужууд нь SD Maid-д хүртэх төхөөрөмжийн байршлуудыг төлөөлөдгүүд. Таны Днг Android хувилбар болон олгосон зөвшөөрөлүүдээс хамаарч өгөгдөлийн чиг мужууд боломжтой байна.</string>
-    <string name="data_areas_short_summary">SD Maid-д одоогийн олгогдсон зөвшөөрлүүд дээр үндэслэн хандах боломжтой бүсүүд.</string>
-    <string name="history_label">Түүх</string>
-    <string name="history_description">Сүүлийн үйлдлүүд болон нөлөөлсөн өгөгдлийн цаг хугацааны жагсаалт.</string>
     <string name="updates_dashcard_title">Шинэчлэлт боломжтой</string>
     <string name="updates_dashcard_body">Шинэчлэлт боломжтой байна. Таны хувилбар %1$s, хамгийн сүүлийн хувилбар %2$s.</string>
     <string name="translation_encourage_title">SD Maid-г орчуулах</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Шинэчлэлт шалгах</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-д шинэчлэлт шалгахыг зөвшөөрч, шинэ хувилбар боломжтой бол мэдэгдэх.</string>
     <string name="device_settings_category">Төхөөрөмж</string>
-    <string name="beta_version_indicator_desc">Урьдчилсан гаралтын хувилбарууд эхлэлийн дэлгэцэнд жижигхэн тууз харуулдаг. Тэдгээр илүү олон удаа шинэчлэгддэг, илүү функцтай байж болох ч, илүү алдаатай ч байж болно.</string>
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа болов уу</string>
     <string name="review_app_body">SD Maid-д үнэлгээ үлдээхийг хүсэж байна уу? ❤️</string>

@@ -38,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">실패: 압축 오류</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">이 디버그 로그 세션을 삭제하시겠습니까?</string>
     <string name="support_contact_post_send_message">메시지가 성공적으로 전송되었나요?</string>
-    <string name="debug_debuglog_sessions_stop_action">중지</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -47,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">작업 %d개 대기 중</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">작업 결과</string>
     <string name="tasks_result_subtext">작업 결과</string>
     <string name="tasks_timeout_error_label">작업 시간이 초과되었습니다</string>
     <string name="tasks_timeout_error_desc">작업이 너무 오래 걸려 중지되었습니다. 다시 시도해 주세요.</string>
@@ -228,9 +226,6 @@
     <string name="data_area_sdcard_label">SD 카드</string>
     <string name="data_areas_label">데이터 영역</string>
     <string name="data_areas_description">데이터 영역은 기기에서 SD Maid가 접근 가능한 여러 위치를 표현합니다. 안드로이드 버젼과 허용된 접근 권한에 따라 다른 영역이 표시될 수 있습니다.</string>
-    <string name="data_areas_short_summary">현재 부여된 접근 권한으로 SD Maid가 접근 가능할 수 있는 영역들.</string>
-    <string name="history_label">이력</string>
-    <string name="history_description">최근 활동과 영향을 받은 데이터의 시간순 목록</string>
     <string name="updates_dashcard_title">사용할 수 있는 업데이트</string>
     <string name="updates_dashcard_body">업데이트를 사용할 수 있습니다. 지금은 %1$s(을)를 사용하고 있고 최신 버전은 %2$s입니다.</string>
     <string name="translation_encourage_title">SD Maid 번역하기</string>
@@ -242,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">업데이트 확인</string>
     <string name="updatecheck_setting_enabled_explanation">새로운 버전을 사용할 수 있으면 알 수 있도록 SD Maid가 업데이트를 확인하도록 허용하세요.</string>
     <string name="device_settings_category">기기</string>
-    <string name="beta_version_indicator_desc">프리-릴리즈 버전에서는 시작 화면에 작은 리본을 보입니다. 이는 조금 더 자주 업데이트하고, 더 많은 기능이 있을 수 있지만, 그만큼 더 많은 버그도 있을 수 있습니다.</string>
     <string name="review_app_review_action">리뷰</string>
     <string name="review_app_dismiss_action">다음에 해요</string>
     <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요?️ ❤️</string>

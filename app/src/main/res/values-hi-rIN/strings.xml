@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">विफल: संपीडन त्रुटि</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">इस डीबग लॉग सत्र को हटाएं?</string>
     <string name="support_contact_post_send_message">संदेश सफलतापूर्वक भेजा गया?</string>
-    <string name="debug_debuglog_sessions_stop_action">रोकें</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्य</string>
     <string name="tasks_activity_working_notification_title">SD मेड काम कर रही है</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">कतार में %d कार्य</item>
         <item quantity="other">%d कतारबद्ध कार्य</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">कार्य के परिणाम</string>
     <string name="tasks_result_subtext">कार्य परिणाम</string>
     <string name="tasks_timeout_error_label">कार्य का समय समाप्त हो गया</string>
     <string name="tasks_timeout_error_desc">कार्य में बहुत अधिक समय लगा और इसे रोक दिया गया। कृपया पुनः प्रयास करें।</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD कार्ड</string>
     <string name="data_areas_label">भंडारण क्षेत्र</string>
     <string name="data_areas_description">डेटा क्षेत्र आपके डिवाइस पर उन स्थानों का प्रतिनिधित्व करते हैं जो SD मैड के लिए सुलभ हैं। आपके एंड्रॉयड संस्करण और प्रदान की गई अनुमतियों के आधार पर विभिन्न डेटा क्षेत्र उपलब्ध हो सकते हैं।</string>
-    <string name="data_areas_short_summary">वर्तमान में दी गई अनुमतियों के आधार पर SD मेड जिन क्षेत्रों तक पहुंच सकती है।</string>
-    <string name="history_label">इतिहास</string>
-    <string name="history_description">हाल की कार्रवाइयों और प्रभावित डेटा की कालानुक्रमिक सूची।</string>
     <string name="updates_dashcard_title">अद्यतन उपलब्ध है</string>
     <string name="updates_dashcard_body">एक अद्यतन उपलब्ध है। आपके पास %1$s है और नवीनतम संस्करण %2$s है।</string>
     <string name="translation_encourage_title">SD मेड का अनुवाद करें</string>
@@ -248,7 +243,6 @@
     <string name="updatecheck_setting_enabled_label">अपडेट जांच</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid को अपडेट की जांच करने की अनुमति दें ताकि आपको पता चल सके कि कोई नया संस्करण उपलब्ध है या नहीं।</string>
     <string name="device_settings_category">डिवाइस सेटिंग्स</string>
-    <string name="beta_version_indicator_desc">प्री-रिलीज़ संस्करण प्रारंभ स्क्रीन पर एक छोटा रिबन प्रदर्शित करते हैं। वे अधिक बार अपडेट किए जाते हैं, उनमें अधिक सुविधाएं हो सकती हैं, लेकिन अधिक बग भी हो सकते हैं।</string>
     <string name="review_app_review_action">समीक्षा करें</string>
     <string name="review_app_dismiss_action">शायद बाद में</string>
     <string name="review_app_body">क्या आप SD Maid को एक समीक्षा देना चाहेंगे? ❤️</string>

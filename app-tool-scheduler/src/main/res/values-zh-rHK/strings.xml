@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">每 %d 天</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">重複間隔</string>
     <string name="scheduler_inaccurate_execution_hint">預期的執行時間是近似值。如果能節約電力，編排可能會被延遲或加快。</string>
     <string name="scheduler_no_active_schedules_subtitle">沒有已啟用的編排</string>
     <string name="scheduler_setting_nopowersaving_title">低電量時跳過</string>

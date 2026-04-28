@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Millora a l\'SD Maid SE</string>
     <string name="upgrades_dashcard_body">L\'SD Maid SE Pro ofereix millors resultats, més funcions i opcions per a usuaris avançats.</string>
     <string name="upgrades_dashcard_upgrade_action">Millora</string>

@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Тохиргоо</string>
-    <string name="setup_feature_requires_additional_setup_x">Энэ функц нь нэмэлт тохиргоо шаарддаг: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro шаардлагатай</string>
     <string name="general_include_multiuser_label">Бусад хэрэглэгчдийг оруулах</string>
     <string name="general_include_multiuser_summary">Энэ төхөөрөмж дээрх бусад хэрэглэгчийн профайлаас аппуудыг оруулах.</string>
     <string name="general_unsaved_confirmation_message">Хадгалагдаагүй өөрчлөлтүүд байна!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Эрсдлийн түвшин</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="appcontrol_systemsettings_open_title">Тохиргоог харуулах</string>
-    <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
 </resources>

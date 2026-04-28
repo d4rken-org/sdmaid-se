@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE 프로</string>
     <string name="app_name_upgrade_postfix">프로</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro 필요</string>
     <string name="upgrades_dashcard_title">SD Maid SE 업그레이드</string>
     <string name="upgrades_dashcard_body">SD Maid SE 프로는 더 나은 결과, 더 많은 기능 및 고급 사용자를 위한 옵션을 제공합니다.</string>
     <string name="upgrades_dashcard_upgrade_action">업그레이드</string>

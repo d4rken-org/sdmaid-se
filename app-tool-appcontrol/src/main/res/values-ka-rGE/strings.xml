@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">აპები, რომლებიც დაინსტალირებულია თქვენს მოწყობილობაზე.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d აპი ნაპოვნია</item>
-        <item quantity="other">%d აპი ნაპოვნია</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">აპების გადართვა</string>
     <string name="appcontrol_toggle_app_enable_action">აპის ჩართვა</string>
     <string name="appcontrol_toggle_app_disable_action">აპის გათიშვა</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">გამართვა</string>
     <string name="appcontrol_progress_enabling_package">აპის ჩართვა</string>
     <string name="appcontrol_progress_disabling_package">აპის გათიშვა</string>
-    <string name="appcontrol_list_filteroptions_label">ფილტრის ოფციები</string>
     <string name="appcontrol_list_sortmode_name_label">აპის სახელი</string>
     <string name="appcontrol_list_sortmode_updated_label">ბოლოს განახლებული</string>
     <string name="appcontrol_list_sortmode_installed_label">პირველად დაინსტალირებული</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">დაინსტალირდა: %s</string>
     <string name="shortcut_appcontrol_short">აპების მართვა</string>
     <string name="shortcut_appcontrol_long">დაინსტალირებული აპების მართვა</string>
-    <string name="appcontrol_automation_loading">ავტომატიზაციის მომზადება ხელმისაწვდომობის სერვისის საშუალებით</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
-    <string name="appcontrol_include_multiuser_label">სხვა მომხმარებლების ჩართვა</string>
 </resources>

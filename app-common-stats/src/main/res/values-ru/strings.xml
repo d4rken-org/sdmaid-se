@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Основное хранилище</string>
     <string name="stats_storage_type_secondary">Дополнительное хранилище</string>
     <string name="stats_storage_type_portable">Съёмный накопитель</string>
-    <string name="stats_settings_retention_snapshots_label">Снимки состояния хранилища</string>
-    <string name="stats_settings_retention_snapshots_desc">Количество дней для хранения снимков состояния памяти.</string>
 </resources>

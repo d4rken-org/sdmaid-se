@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">အက်ပ်များကို ထိန်းချုပ်ရန်နှင့် ကြီးကြပ်ရန်။</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d အကြေး လျှောသားတွေးပုံသည်</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">အကြေးများ ဖွစ်ချရန်</string>
     <string name="appcontrol_toggle_app_enable_action">အကြေးကို ဖွစ်ချရန်</string>
     <string name="appcontrol_toggle_app_disable_action">အကြေးကို ပိဤက်ချရန်</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">အကြေးကို ဖွစ်ချနေစ်သည်</string>
     <string name="appcontrol_progress_disabling_package">အကြေးကို ပိဤက်ချနေစ်သည်</string>
-    <string name="appcontrol_list_filteroptions_label">ဆပ်ရှားများ</string>
     <string name="appcontrol_list_sortmode_name_label">အကြေးအမည့်အသေး</string>
     <string name="appcontrol_list_sortmode_updated_label">နောဆုံး အဆေးပြန်စာက်</string>
     <string name="appcontrol_list_sortmode_installed_label">ပထမည့်က တပ်ဆိုင်ချသည်က</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">တပ်ဆိုင်ချသောတမ်း: %s</string>
     <string name="shortcut_appcontrol_short">အကြေးခြစ်ချရန်</string>
     <string name="shortcut_appcontrol_long">တပ်ဆိုင်ချပြီးသော အကြေးများကို စိုးချရန်</string>
-    <string name="appcontrol_automation_loading">Accessibility service မှတဆိုင် အလုပ်ဆောင်ချမှုကို ပြင်န်ဆွဲပြင်န်းသည်</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ယခင်က လုပ်ဆောင်ချကို အတည်ပြုပြီးသည် (%s ဆုံးလုးများ)</string>
-    <string name="appcontrol_include_multiuser_label">အခြအနေရာ အသုံးသပြများကို ထည့်သွင်းရန်</string>
 </resources>

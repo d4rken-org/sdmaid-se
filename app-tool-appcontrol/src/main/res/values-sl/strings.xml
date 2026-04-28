@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Programi, ki so nameščeni na napravi.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Zaznan je bil %d program.</item>
-        <item quantity="two">Zaznana sta bila %d programa.</item>
-        <item quantity="few">Zaznani so bili %d-je programi.</item>
-        <item quantity="other">Zaznanih je bilo %d programov.</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Preklopi programe</string>
     <string name="appcontrol_toggle_app_enable_action">Omogoči program</string>
     <string name="appcontrol_toggle_app_disable_action">Onemogoči program</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Razhroščevanje</string>
     <string name="appcontrol_progress_enabling_package">Omogočanje programa</string>
     <string name="appcontrol_progress_disabling_package">Onemogočanje programa</string>
-    <string name="appcontrol_list_filteroptions_label">Možnosti filtra</string>
     <string name="appcontrol_list_sortmode_name_label">Ime programa</string>
     <string name="appcontrol_list_sortmode_updated_label">Nazadnje posodobljeno</string>
     <string name="appcontrol_list_sortmode_installed_label">Datum namestitve</string>
@@ -146,7 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Nameščeno dne: %s</string>
     <string name="shortcut_appcontrol_short">Nadzor programov</string>
     <string name="shortcut_appcontrol_long">Upravljaj z nameščenimi programi</string>
-    <string name="appcontrol_automation_loading">Pripravljanje samodejni dejanj preko storitve dostopnosti</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Vključi druge uporabnike</string>
 </resources>

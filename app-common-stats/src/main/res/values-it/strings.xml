@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Archivio principale</string>
     <string name="stats_storage_type_secondary">Archivio secondario</string>
     <string name="stats_storage_type_portable">Archiviazione portatile</string>
-    <string name="stats_settings_retention_snapshots_label">Istantanee dello spazio di archiviazione</string>
-    <string name="stats_settings_retention_snapshots_desc">Numero di giorni per mantenere le istantanee dello spazio di archiviazione.</string>
 </resources>

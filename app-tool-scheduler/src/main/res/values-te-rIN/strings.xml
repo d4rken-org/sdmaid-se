@@ -20,7 +20,6 @@
         <item quantity="one">ప్రతిదినం</item>
         <item quantity="other">ప్రతి %d రోజులకి</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">పునరావృత అంతరాలం</string>
     <string name="scheduler_inaccurate_execution_hint">అపేక్షిత క్రియాన్వయన సమయాలు శ్రేణులు. బ్యాటరీని బెరతకడం కాపాడుతే, శెడ్యూల్‌లు ఆలస్యం అవవచ్చు లేదా వెగగా అవవచ్చు.</string>
     <string name="scheduler_no_active_schedules_subtitle">సక్రియ శెడ్యూల్‌లు లేవు</string>
     <string name="scheduler_setting_nopowersaving_title">తక్కువ బ్యాటరీలో విడువడండి</string>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner آٹومیشن</string>
     <string name="appcleaner_automation_subtitle_default_caches">ڈیفالٹ کیشیز صاف کر رہے ہیں…</string>
-    <string name="appcleaner_automation_progress_open_settings">سیٹنگز سکرین کھول رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" انٹری تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
     <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>
     <string name="appcleaner_automation_unavailable_body">ناقابل رسائی کیشیز صاف کرنے کے لیے SD Maid کی رسائی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔ اگر آپ اسے استعمال نہیں کرنا چاہتے: \"ناقابل رسائی کیشیز شامل کریں\" آپشن کو غیر فعال کریں۔</string>
-    <string name="appcleaner_junk_userprofile_label">صارف</string>
     <string name="appcleaner_delete_confirmation_message_x">%s کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d منتخب ایپ کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>

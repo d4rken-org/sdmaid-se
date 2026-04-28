@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Almacenamiento principal</string>
     <string name="stats_storage_type_secondary">Almacenamiento secundario</string>
     <string name="stats_storage_type_portable">Almacenamiento portátil</string>
-    <string name="stats_settings_retention_snapshots_label">Instantáneas de almacenamiento</string>
-    <string name="stats_settings_retention_snapshots_desc">Número de días para conservar las instantáneas del espacio de almacenamiento.</string>
 </resources>

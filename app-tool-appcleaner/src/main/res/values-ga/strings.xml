@@ -57,7 +57,6 @@
     <string name="appcleaner_delete_all_confirmation_message">Scrios míreanna inchaite do gach aip?</string>
     <string name="appcleaner_automation_title">Uathoibriú AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Ag glanadh na dtaiscí réamhshocruithe…</string>
-    <string name="appcleaner_automation_progress_open_settings">Ag oscailt scáileán na socruithe (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Ag cuardach do iontráil \"Stórála\" (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ag lorg cnaipe \"Glan sonraí\" (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ag lorg cnaipe \"Glan taisce\" (eochairfhocail: %s)</string>
@@ -65,7 +64,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Taiscí réamhshocruithe poiblí agus príobháideacha. Ní féidir rochtain a fháil orthu go díreach, ach is féidir iad a scriosadh go hindíreach (m.sh. trí sheirbhís inrochtaineachta).</string>
     <string name="appcleaner_automation_unavailable_title">Seirbhís inrochtaineachta níl ar fáil</string>
     <string name="appcleaner_automation_unavailable_body">Teastaíonn seirbhís inrochtaineachta SD Maid chun taiscí nach bhfuil inrochtana a ghlanadh, ach ní raibh sí ar fáil. Mura dteastaíonn uait é a úsáid: Díchumasaigh an rogha "Cuir taiscí nach bhfuil inrochtana san áireamh".</string>
-    <string name="appcleaner_junk_userprofile_label">Úsáideoir</string>
     <string name="appcleaner_delete_confirmation_message_x">Scrios comhaid inchaite do %s?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Ag scriosadh taiscí trí Shizuku a úsáid</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Glan taisce níl ar fáil</string>

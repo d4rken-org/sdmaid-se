@@ -35,6 +35,4 @@
     <string name="stats_storage_type_primary">ئەنبارێکی سەرەکی</string>
     <string name="stats_storage_type_secondary">ئەنبارێکی دووەم</string>
     <string name="stats_storage_type_portable">ئەنبارێکی گواستانەپێز</string>
-    <string name="stats_settings_retention_snapshots_label">سناپشێتی ئەنبار</string>
-    <string name="stats_settings_retention_snapshots_desc">ژمارەی ڕۆژەکان بۆ چاودانی سناپشیتی ئەنباری سطحی.</string>
 </resources>

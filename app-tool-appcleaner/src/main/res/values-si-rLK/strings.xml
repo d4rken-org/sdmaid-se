@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ස්වයංක්‍රියකරණය</string>
     <string name="appcleaner_automation_subtitle_default_caches">පෙරනිමි කැශ් ඉවත් කරමින්…</string>
-    <string name="appcleaner_automation_progress_open_settings">සැකසීම් තිරය විවෘත කරමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ආචයනය\" ප්‍රවේශය සොයමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"දත්ත ඉවත් කරන්න\" බොත්තම සොයමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"කැශ් ඉවත් කරන්න\" බොත්තම සොයමින් (මූල පද: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">පොදු සහ පුද්ගලික පෙරනිමි කැශ්. සෘජුව ප්‍රවේශ විය නොහැකි නමුත් වක්‍රව මකා දැමිය හැක (උදා. ප්‍රවේශ්‍යතා සේවාව හරහා).</string>
     <string name="appcleaner_automation_unavailable_title">ප්‍රවේශ්‍යතා සේවාව නොමැත</string>
     <string name="appcleaner_automation_unavailable_body">ප්‍රවේශ විය නොහැකි කැශ් ඉවත් කිරීමට SD Maid ගේ ප්‍රවේශ්‍යතා සේවාව අවශ්‍ය නමුත් එය නොමැත. ඔබ එය භාවිතා කිරීමට අකමැති නම්: \"ප්‍රවේශ විය නොහැකි කැශ් ඇතුළත් කරන්න\" විකල්පය අබල කරන්න.</string>
-    <string name="appcleaner_junk_userprofile_label">පරිශීලක</string>
     <string name="appcleaner_delete_confirmation_message_x">%s සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">තෝරන ලද %d යෙදුම සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</item>

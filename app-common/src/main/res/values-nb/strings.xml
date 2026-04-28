@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Eier</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Oppsett</string>
-    <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
-    <string name="upgrade_feature_requires_pro">Krever Pro</string>
     <string name="general_include_multiuser_label">Inkluder andre brukere</string>
     <string name="general_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="general_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Risikonivå</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Vis innstillinger</string>
-    <string name="systemcleaner_customfilter_create_action">Opprett egendefinert filter</string>
 </resources>

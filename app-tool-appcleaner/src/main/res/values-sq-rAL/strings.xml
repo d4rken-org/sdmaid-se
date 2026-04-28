@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizimi i AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Po pastrohet memoria e paracaktuar…</string>
-    <string name="appcleaner_automation_progress_open_settings">Hapja e ekranit të cilësimeve (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Duke kërkuar për hyrjen \"Storage\" (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Po kërkon butonin \"Pastro të dhënat\" (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Duke kërkuar për butonin \"Pastro cache\" (fjalë kyçe: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Memoriet e paracaktuara publike dhe private. Jo i aksesueshëm drejtpërdrejt, por mund të fshihet në mënyrë indirekte (p.sh. nëpërmjet shërbimit të aksesueshmërisë).</string>
     <string name="appcleaner_automation_unavailable_title">Shërbimi i aksesueshmërisë është i çaktivizuar</string>
     <string name="appcleaner_automation_unavailable_body">Pastrimi i memories së paarritshme kërkon shërbimin e aksesueshmërisë së SD Maid, por ai nuk ishte i disponueshëm. Nëse nuk dëshironi ta përdorni: Çaktivizoni opsionin \"Përfshi cache të paarritshme\".</string>
-    <string name="appcleaner_junk_userprofile_label">Përdoruesi</string>
     <string name="appcleaner_delete_confirmation_message_x">Të fshihen skedarët e shpenzuar për %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Të fshihen skedarët e shpenzueshëm për %d aplikacionin e zgjedhur?</item>

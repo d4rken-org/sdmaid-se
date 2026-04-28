@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
     <string name="setup_title">Instelling</string>
-    <string name="setup_feature_requires_additional_setup_x">Voor deze functie zijn aanvullende installatie-items vereist: %s</string>
-    <string name="upgrade_feature_requires_pro">Vereist Pro</string>
     <string name="general_include_multiuser_label">Inclusief andere gebruikers</string>
     <string name="general_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="general_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Risico niveau</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
-    <string name="systemcleaner_customfilter_create_action">Maak een aangepast filter</string>
 </resources>

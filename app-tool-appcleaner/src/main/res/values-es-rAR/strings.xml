@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatización de App Cleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Borrando las cachés predeterminadas…</string>
-    <string name="appcleaner_automation_progress_open_settings">Abriendo pantalla de ajustes (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Buscando la entrada \"Almacenamiento\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Buscando el botón \"Borrar datos\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Buscando el botón \"Borrar caché\" (palabras clave: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cachés públicas y privadas por defecto. No son accesibles directamente, pero pueden eliminarse indirectamente (por ejemplo, a través del servicio de accesibilidad).</string>
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>
     <string name="appcleaner_automation_unavailable_body">La limpieza de cachés inaccesibles requiere el servicio de accesibilidad de SD Maid, pero no estaba disponible. Si no deseás usarlo: Desactivá la opción \"Incluir cachés inaccesibles\".</string>
-    <string name="appcleaner_junk_userprofile_label">Usuario</string>
     <string name="appcleaner_delete_confirmation_message_x">¿Borrar los archivos innecesarios para %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">¿Eliminar archivos prescindibles para %d aplicación seleccionada?</item>

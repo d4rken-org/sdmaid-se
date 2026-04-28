@@ -22,7 +22,6 @@
         <item quantity="few">Vsakih %d dni</item>
         <item quantity="other">Vsakih %d dni</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Razmik ponovitev</string>
     <string name="scheduler_inaccurate_execution_hint">Pričakovani časi izvajanja so približni.  Urniki se lahko zaženejo prej ali kasneje glede na shemo varčevanja z energijo.</string>
     <string name="scheduler_no_active_schedules_subtitle">Ni dejavnih urnikov.</string>
     <string name="scheduler_setting_nopowersaving_title">Preskoči pri nizkem stanju baterije</string>

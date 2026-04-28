@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d 個應用程式已偵測</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">切換應用程式</string>
     <string name="appcontrol_toggle_app_enable_action">啟用應用程式</string>
     <string name="appcontrol_toggle_app_disable_action">停用應用程式</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">偵錯</string>
     <string name="appcontrol_progress_enabling_package">正在啟用應用程式</string>
     <string name="appcontrol_progress_disabling_package">正在停用應用程式</string>
-    <string name="appcontrol_list_filteroptions_label">過濾器選項</string>
     <string name="appcontrol_list_sortmode_name_label">應用程式名稱</string>
     <string name="appcontrol_list_sortmode_updated_label">最後更新</string>
     <string name="appcontrol_list_sortmode_installed_label">首次安裝</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="shortcut_appcontrol_short">程式控制</string>
     <string name="shortcut_appcontrol_long">管理已安裝的程式</string>
-    <string name="appcontrol_automation_loading">透過輔助功能服務準備自動化</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
-    <string name="appcontrol_include_multiuser_label">包含其他使用者</string>
 </resources>

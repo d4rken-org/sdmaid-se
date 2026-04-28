@@ -20,7 +20,6 @@
         <item quantity="one">दैनिक</item>
         <item quantity="other">प्रत्‍येक %d दिन</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">अंतराल पर दोहराएं</string>
     <string name="scheduler_inaccurate_execution_hint">अपेक्षित निष्पादन समय अनुमानित हैं। यदि यह बैटरी की बचत करता है तब परिसंख्या में देरी हो सकती है या उसमें तेजी आ सकती है।</string>
     <string name="scheduler_no_active_schedules_subtitle">कोई सक्रिय कार्यक्रम नहीं है</string>
     <string name="scheduler_setting_nopowersaving_title">कम बैटरी पर रहने दें</string>

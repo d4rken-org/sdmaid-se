@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Ukuzenzelela kwe-AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Kusula ama-cache azenzakalelayo…</string>
-    <string name="appcleaner_automation_progress_open_settings">Kuvula isikrini sezilungiselelo (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Kusesha okufakwe okuthi \"Isitoreji\" (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Kubheka inkinobho ethi \"Sula idatha\" (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Kubheka inkinobho ethi \"Sula i-cache\" (amagatsha angukhiye: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Ama-cache azenzakalelayo omphakathi nangasese. Awakwazi ukuwafinyelela ngqo, kodwa angasuswa ngokungangqo (isib. ngensiza yokufinyelela).</string>
     <string name="appcleaner_automation_unavailable_title">Insiza yokufinyelela ayitholakali</string>
     <string name="appcleaner_automation_unavailable_body">Ukusula ama-cache angatholakalayo kudinga insiza yokufinyelela ye-SD Maid, kodwa ayitholakalanga. Uma ungafuni ukuyisebenzisa: Khubaza inketho ethi \"Faka ama-cache angatholakalayo\".</string>
-    <string name="appcleaner_junk_userprofile_label">Umsebenzisi</string>
     <string name="appcleaner_delete_confirmation_message_x">Susa amafayela angasetshenziswa ka-%s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Susa amafayela angasetshenziswa wohlelo olukhethiwe olu-%d?</item>

@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">אוטומציה של ניקוי אפליקציות</string>
     <string name="appcleaner_automation_subtitle_default_caches">מנקה מטמון ברירת מחדל...</string>
-    <string name="appcleaner_automation_progress_open_settings">פתיחת מסך ההגדרות (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">מחפש ערך \"אחסון\" (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">מחפש את הלחצן \"נקה נתונים\" (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">מחפש כפתור \"נקה מטמון\" (מילות מפתח: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">מטמון ברירת מחדל ציבורי ופרטי. לא נגיש ישירות, אבל ניתן למחוק בעקיפין (למשל באמצעות שירות נגישות).</string>
     <string name="appcleaner_automation_unavailable_title">שירות הנגישות לא זמין</string>
     <string name="appcleaner_automation_unavailable_body">ניקוי מטמונים בלתי נגישים מצריך את שירות הנגישות של SD Maid, אך הוא לא היה זמין. אם אינך רוצה להשתמש בו: השבת את האפשרות \"כלול מטמונים בלתי נגישים\".</string>
-    <string name="appcleaner_junk_userprofile_label">משתמש</string>
     <string name="appcleaner_delete_confirmation_message_x">למחוק קבצים זמניים עבור %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">האם למחוק קבצים שניתנים להרחבה עבור %d האפליקציה שנבחרה?</item>

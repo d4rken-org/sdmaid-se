@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Jūsų įrenginyje įdiegtos programos.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Aptikta %d programa</item>
-        <item quantity="few">Aptiktos %d programos</item>
-        <item quantity="many">Aptikta %d programų</item>
-        <item quantity="other">Aptikta %d programų</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Perjungti programas</string>
     <string name="appcontrol_toggle_app_enable_action">Įjungti programą</string>
     <string name="appcontrol_toggle_app_disable_action">Išjungti programą</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Derinimas</string>
     <string name="appcontrol_progress_enabling_package">Įjungiama programa</string>
     <string name="appcontrol_progress_disabling_package">Išjungiama programa</string>
-    <string name="appcontrol_list_filteroptions_label">Filtravimo parinktys</string>
     <string name="appcontrol_list_sortmode_name_label">Programos pavadinimas</string>
     <string name="appcontrol_list_sortmode_updated_label">Paskutinis atnaujinimas</string>
     <string name="appcontrol_list_sortmode_installed_label">Pirmas įdiegimas</string>
@@ -146,7 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">įdiegta: %s</string>
     <string name="shortcut_appcontrol_short">Programų valdymas</string>
     <string name="shortcut_appcontrol_long">Tvarkyti įdiegtas programas</string>
-    <string name="appcontrol_automation_loading">Rengiamas automatizavimas per prieigamumo tarnybą</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veiksmą (raktažoždiai: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Įtraukti kitus vartotojus</string>
 </resources>

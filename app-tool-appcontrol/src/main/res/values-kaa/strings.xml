@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Qurılmańızǵa ornatılǵan baǵdarlamalar.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d baǵdarlama tabıldı</item>
-        <item quantity="other">%d baǵdarlama tabıldı</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Qosímshalardı aýıstırıw</string>
     <string name="appcontrol_toggle_app_enable_action">Baǵdarlamanı qosıw</string>
     <string name="appcontrol_toggle_app_disable_action">Baǵdarlamanı óshiriw</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debaglash</string>
     <string name="appcontrol_progress_enabling_package">Qosímsha qosılıwda</string>
     <string name="appcontrol_progress_disabling_package">Qosímsha óshiriliw</string>
-    <string name="appcontrol_list_filteroptions_label">Súzgiw opsiyaları</string>
     <string name="appcontrol_list_sortmode_name_label">Baǵdarlama ataması</string>
     <string name="appcontrol_list_sortmode_updated_label">Sońǵı jańalanǵan</string>
     <string name="appcontrol_list_sortmode_installed_label">Birinshi ornatılǵan</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Ornatılǵan: %s</string>
     <string name="shortcut_appcontrol_short">Ilova Basparlawi</string>
     <string name="shortcut_appcontrol_long">Ornatılǵan qollanbalardı basqarıw</string>
-    <string name="appcontrol_automation_loading">Qoljetimlilik xızmetin paydalanıp avtomatlandırıwdı tayarlaw</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Aldıńǵı háreketti tastıyıqlawǵa háreket etilip atır (gilt sózler: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Basqa paydalanıwshılardı qosıw</string>
 </resources>

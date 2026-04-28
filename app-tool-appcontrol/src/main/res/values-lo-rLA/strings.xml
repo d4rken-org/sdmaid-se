@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ແອບທີ່ຕິດຕັ້ງໃນອຸປະກອນຂອງທ່ານ.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">ພົບ %d ແອບ</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ໂຊກການໃຊ້ງານແອບ</string>
     <string name="appcontrol_toggle_app_enable_action">ເອີ້ນເຂົ້າໃຊ້ງານແອບ</string>
     <string name="appcontrol_toggle_app_disable_action">ປິດແອບ</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">ດີບັກ</string>
     <string name="appcontrol_progress_enabling_package">ກຳລັງເອີ້ນເຂົ້າໃຊ້ງານແອບ</string>
     <string name="appcontrol_progress_disabling_package">ກຳລັງປິດແອບ</string>
-    <string name="appcontrol_list_filteroptions_label">ຕັວເລືອກການການຕອງການ</string>
     <string name="appcontrol_list_sortmode_name_label">ຊື່ອແອບ</string>
     <string name="appcontrol_list_sortmode_updated_label">ອັບເດດລ່າສຸດ</string>
     <string name="appcontrol_list_sortmode_installed_label">ຕິດຕັ້ງຄັ້ງແລກ</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">ຕິດຕັ້ງໃນວັນທີ່: %s</string>
     <string name="shortcut_appcontrol_short">ການຄວບຄຸມແອບ</string>
     <string name="shortcut_appcontrol_long">ຈັດການແອບທີ່ຕິດຕັ້ງ</string>
-    <string name="appcontrol_automation_loading">ກຳລັງຕາມຕ້ນການທຳງານອັດໂນມັດຜ່ານລະບົບລະບັບພີເສດພາບ</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ກຳລັງພົບສິ່ງຍືນຍັນການກະທຳກ່ອນຫນ້າ (ຄຳສຳຄັຍ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">ຮວມຜູ້ໃຊ້ອື່ນ</string>
 </resources>

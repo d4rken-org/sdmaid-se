@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">بنیادی اسٹوریج</string>
     <string name="stats_storage_type_secondary">ثانوی اسٹوریج</string>
     <string name="stats_storage_type_portable">پورٹابل اسٹوریج</string>
-    <string name="stats_settings_retention_snapshots_label">اسٹوریج اسنیپ شاٹس</string>
-    <string name="stats_settings_retention_snapshots_desc">اسٹوریج اسپیس اسنیپ شاٹس کو رکھنے کے دنوں کی تعداد۔</string>
 </resources>

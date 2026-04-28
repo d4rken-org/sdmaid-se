@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">プライマリストレージ</string>
     <string name="stats_storage_type_secondary">セカンダリストレージ</string>
     <string name="stats_storage_type_portable">ポータブルストレージ</string>
-    <string name="stats_settings_retention_snapshots_label">ストレージスナップショット</string>
-    <string name="stats_settings_retention_snapshots_desc">ストレージスペースのスナップショットを保持する日数。</string>
 </resources>

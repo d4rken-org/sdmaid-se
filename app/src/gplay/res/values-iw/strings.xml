@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE פרו</string>
     <string name="app_name_upgrade_postfix">פרו</string>
-    <string name="upgrade_feature_requires_pro">דורש מנוי פרימיום</string>
     <string name="upgrades_dashcard_title">שדרג את SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro מציע תוצאות טובות יותר, יותר תכונות ואפשרויות למשתמשים מתקדמים.</string>
     <string name="upgrades_dashcard_upgrade_action">שדרוג</string>

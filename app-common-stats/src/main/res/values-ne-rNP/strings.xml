@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
     <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>
     <string name="stats_storage_type_portable">पोर्टेबल भण्डारण</string>
-    <string name="stats_settings_retention_snapshots_label">भण्डारण स्न्यापशटहरू</string>
-    <string name="stats_settings_retention_snapshots_desc">भण्डारण स्थान स्न्यापशटहरू राख्ने दिनहरूको संख्या।</string>
 </resources>

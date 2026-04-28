@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">Ĉi tiu funkcio registras ĉion, kion la aplikaĵo faras, en kunhaveblan dosieron. La generita dosiero enhavas sentemajn informojn (ekz. dosiernomoj kaj instalitaj aplikaĵoj). Kunhavigu ĝin nur kun fidindaj partioj (ekz. programisto solvanta problemon).</string>
     <string name="tasks_activity_notification_channel_label">Aktivaj taskoj</string>
     <string name="tasks_activity_working_notification_title">SD Maid laboras</string>
-    <string name="tasks_result_notification_channel_label">Taskaj rezultoj</string>
     <string name="tasks_result_subtext">Taska rezulto</string>
     <string name="onboarding_welcome_title">Bonvenon</string>
     <string name="onboarding_welcome_body1">SD Maid SE administras dosierojn, aplikaĵojn kaj stokadon.</string>
@@ -141,9 +140,6 @@
     <string name="data_area_sdcard_label">SD-karto</string>
     <string name="data_areas_label">Datumareoj</string>
     <string name="data_areas_description">Datumareoj reprezentas lokojn en via aparato kiuj estas alireblaj al SD Maid. Malsamaj datumareoj povas esti disponeblaj dependante de via Android-versio kaj la permesoj kiuj estis donitaj.</string>
-    <string name="data_areas_short_summary">Areoj kiujn SD Maid povas aliri bazite sur la nune donitaj permesoj.</string>
-    <string name="history_label">Historio</string>
-    <string name="history_description">Kronologia listo de lastatempaj agoj kaj tuŝitaj datumoj.</string>
     <string name="updates_dashcard_title">Ĝisdatigo disponebla</string>
     <string name="updates_dashcard_body">Ĝisdatigo estas disponebla. Vi havas %1$s kaj la lasta versio estas %2$s.</string>
     <string name="translation_encourage_title">Traduki SD Maid</string>
@@ -155,7 +151,6 @@
     <string name="updatecheck_setting_enabled_label">Ĝisdatiga kontrolo</string>
     <string name="updatecheck_setting_enabled_explanation">Permesu al SD Maid kontroli ĝisdatigojn por scigi vin ĉu pli nova versio estas disponebla.</string>
     <string name="device_settings_category">Aparato</string>
-    <string name="beta_version_indicator_desc">Antaŭeldonaj versioj montras malgrandan rubandon sur la komenca ekrano. Ili estas ĝisdatigitaj pli ofte, eble havas pli da funkcioj, sed povus ankaŭ havi pli da cimoj.</string>
     <string name="review_app_review_action">Recenzi</string>
     <string name="review_app_dismiss_action">Eble poste</string>
     <string name="review_app_body">Ĉu vi volus lasi recenzon al SD Maid? ❤️</string>

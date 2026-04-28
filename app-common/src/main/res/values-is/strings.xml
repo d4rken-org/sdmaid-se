@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Eigandi</string>
     <string name="general_user_label_system">Kerfi</string>
     <string name="setup_title">Uppsetning</string>
-    <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
-    <string name="upgrade_feature_requires_pro">Krefst Pro</string>
     <string name="general_include_multiuser_label">Taka aðra notendur með</string>
     <string name="general_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
     <string name="general_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Áhættustig</string>
     <string name="settings_category_filter">Sía</string>
     <string name="appcontrol_systemsettings_open_title">Sýna stillingar</string>
-    <string name="systemcleaner_customfilter_create_action">Búa til sérsniðna síu</string>
 </resources>

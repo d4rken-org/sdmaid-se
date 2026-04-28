@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">Setiap %d hari</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Interval pengulangan</string>
     <string name="scheduler_inaccurate_execution_hint">Waktu eksekusi yang diharapkan adalah perkiraan. Jadwal dapat ditunda atau dipercepat untuk menghemat baterai.</string>
     <string name="scheduler_no_active_schedules_subtitle">Tidak ada jadwal aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Lewati saat baterai lemah</string>

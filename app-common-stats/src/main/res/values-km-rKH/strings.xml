@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>
     <string name="stats_storage_type_secondary">ឧបករណ៍ផ្ទុកបន្ទាប់បន្សំ</string>
     <string name="stats_storage_type_portable">ឧបករណ៍ផ្ទុកចល័ត</string>
-    <string name="stats_settings_retention_snapshots_label">ថតអេក្រង់ផ្ទុក</string>
-    <string name="stats_settings_retention_snapshots_desc">ចំនួនថ្ងៃដើម្បីរក្សាទុករូបថតទំហំផ្ទុក។</string>
 </resources>

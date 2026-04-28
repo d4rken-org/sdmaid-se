@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Mémoire principale</string>
     <string name="stats_storage_type_secondary">Mémoire secondaire</string>
     <string name="stats_storage_type_portable">Unité de stockage amovible</string>
-    <string name="stats_settings_retention_snapshots_label">Instantanés de stockage</string>
-    <string name="stats_settings_retention_snapshots_desc">Nombre de jours de conservation des instantanés d’espace de stockage.</string>
 </resources>

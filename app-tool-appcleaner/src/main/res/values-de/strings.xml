@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">App-Reiniger-Automatisierung</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standard Caches löschen…</string>
-    <string name="appcleaner_automation_progress_open_settings">Öffne Einstellungsbildschirm (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Suche nach \"Storage\"-Eintrag (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Suche nach \"Daten löschen\" Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
-    <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>

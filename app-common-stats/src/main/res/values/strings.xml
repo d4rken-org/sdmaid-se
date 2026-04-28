@@ -41,6 +41,4 @@
     <string name="stats_storage_type_portable">Portable storage</string>
     <string name="stats_space_history_delete_storage_title">Delete storage history?</string>
     <string name="stats_space_history_delete_storage_desc">All trend data for this storage will be permanently deleted.</string>
-    <string name="stats_settings_retention_snapshots_label">Storage snapshots</string>
-    <string name="stats_settings_retention_snapshots_desc">Number of days to keep storage space snapshots.</string>
 </resources>

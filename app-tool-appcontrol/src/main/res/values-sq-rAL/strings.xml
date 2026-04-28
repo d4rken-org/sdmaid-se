@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikacionet e instaluara në pajisjen tuaj.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">U zbulua %d aplikacion</item>
-        <item quantity="other">%d aplikacione u zbuluan</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Ndrysho aplikacionet</string>
     <string name="appcontrol_toggle_app_enable_action">Aktivizo aplikacionin</string>
     <string name="appcontrol_toggle_app_disable_action">Çaktivizo aplikacionin</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Korrigjim</string>
     <string name="appcontrol_progress_enabling_package">Aktivizimi i aplikacionit</string>
     <string name="appcontrol_progress_disabling_package">Çaktivizimi i aplikacionit</string>
-    <string name="appcontrol_list_filteroptions_label">Opsionet e filtrit</string>
     <string name="appcontrol_list_sortmode_name_label">Emri i aplikacionit</string>
     <string name="appcontrol_list_sortmode_updated_label">Përditësimi i fundit</string>
     <string name="appcontrol_list_sortmode_installed_label">Instaluar për herë të parë në</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Instaluar më: %s</string>
     <string name="shortcut_appcontrol_short">Kontrolli i aplikacionit</string>
     <string name="shortcut_appcontrol_long">Menaxho aplikacionet e instaluara</string>
-    <string name="appcontrol_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Përfshini përdorues të tjerë</string>
 </resources>

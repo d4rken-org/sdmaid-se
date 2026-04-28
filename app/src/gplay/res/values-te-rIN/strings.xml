@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ</string>
     <string name="app_name_upgrade_postfix">ప్రొ</string>
-    <string name="upgrade_feature_requires_pro">ఎస్ డి పనిమనిషి ఎస్ ఈ ప్రొ అవసరం</string>
     <string name="upgrades_dashcard_title">SD Maid SE ను అప్‌గ్రేడ్ చేయండి</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro మెరుగైన ఫలితాలు, మరిన్ని ఫీచర్లు మరియు పవర్ వినియోగదారుల కోసం ఎంపికలను అందిస్తుంది.</string>
     <string name="upgrades_dashcard_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>

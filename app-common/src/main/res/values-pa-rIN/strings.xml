@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">ਮਾਲਕ</string>
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
     <string name="setup_title">ਸੈਟਅੱਪ</string>
-    <string name="setup_feature_requires_additional_setup_x">ਇਸ ਫੀਚਰ ਲਈ ਵਾਧੂ ਸੈੱਟਅੱਪ ਆਈਟਮਾਂ ਨੂੰ ਪੂਰਾ ਕਰਨਾ ਜ਼ਰੂਰੀ ਹੈ: %s</string>
-    <string name="upgrade_feature_requires_pro">ਪ੍ਰੋ ਦੀ ਲੋੜ ਹੈ</string>
     <string name="general_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="general_include_multiuser_summary">ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਪ੍ਰੋਫਾਈਲਾਂ ਤੋਂ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="general_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੇਵ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>
     <string name="settings_category_filter">ਫਿਲਟਰ</string>
     <string name="appcontrol_systemsettings_open_title">ਸੈਟਿੰਗਾਂ ਦਿਖਾਓ</string>
-    <string name="systemcleaner_customfilter_create_action">ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ</string>
 </resources>

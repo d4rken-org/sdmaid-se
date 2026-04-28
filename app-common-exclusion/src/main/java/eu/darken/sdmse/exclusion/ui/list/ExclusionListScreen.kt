@@ -353,7 +353,7 @@ internal fun ExclusionListScreen(
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
-                        text = stringResource(CommonR.string.general_empty_label),
+                        text = stringResource(R.string.exclusion_add_new_hint),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

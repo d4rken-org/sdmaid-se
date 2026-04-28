@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Elsődleges tároló</string>
     <string name="stats_storage_type_secondary">Másodlagos tároló</string>
     <string name="stats_storage_type_portable">Hordozható tárhely</string>
-    <string name="stats_settings_retention_snapshots_label">Tárhelyképek</string>
-    <string name="stats_settings_retention_snapshots_desc">A tárhelyképek megőrzési napjainak száma.</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">נכשל: שגיאת דחיסה</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">למחוק את הפעלת יומן הניפוי שגיאות הזו?</string>
     <string name="support_contact_post_send_message">ההודעה נשלחה בהצלחה?</string>
-    <string name="debug_debuglog_sessions_stop_action">עצור</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
     <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -56,7 +55,6 @@
         <item quantity="many">%d משימות בתור</item>
         <item quantity="other">%d משימות בתור</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
     <string name="tasks_result_subtext">תוצאת המשימה</string>
     <string name="tasks_timeout_error_label">המשימה פגה</string>
     <string name="tasks_timeout_error_desc">המשימה ארכה זמן רב מדי והופסקה. אנא נסה שוב.</string>
@@ -244,9 +242,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="data_area_sdcard_label">כרטיס זכרון</string>
     <string name="data_areas_label">אזורי נתונים</string>
     <string name="data_areas_description">אזורי נתונים מייצגים מיקומים במכשיר שלך שנגישים ל-SD Maid. אזורי נתונים שונים עשויים להיות זמינים בהתאם לגרסת האנדרואיד שלך ולהרשאות שניתנו.</string>
-    <string name="data_areas_short_summary">אזורים ש-SD Maid יכולה לגשת אליהם בהתבסס על ההרשאות המוענקות כעת.</string>
-    <string name="history_label">היסטוריה</string>
-    <string name="history_description">רשימה כרונולוגית של פעולות אחרונות ונתונים מושפעים.</string>
     <string name="updates_dashcard_title">קיים עדכון</string>
     <string name="updates_dashcard_body">עדכון זמין. מותקן לך %1$s והגרסה האחרונה היא %2$s.</string>
     <string name="translation_encourage_title">עזרה בתרגום</string>
@@ -258,7 +253,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="updatecheck_setting_enabled_label">בדיקת עדכונים</string>
     <string name="updatecheck_setting_enabled_explanation">אפשר ל-SD Maid לחפש עדכונים כדי ליידע אותך אם גרסה חדשה יותר זמינה.</string>
     <string name="device_settings_category">מכשיר</string>
-    <string name="beta_version_indicator_desc">גרסאות טרום-הפצה מציגות סרט קטן במסך ההתחלה. הם מתעדכנים בתדירות גבוהה יותר, אולי יהיו להם יותר תכונות, אבל יכולים להיות גם יותר באגים.</string>
     <string name="review_app_review_action">סקירה</string>
     <string name="review_app_dismiss_action">אולי מאוחר יותר</string>
     <string name="review_app_body">האם תרצה להשאיר ביקורת ל-SD Maid?️ ❤️</string>

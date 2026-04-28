@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Jabea</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Konfigurazioa</string>
-    <string name="setup_feature_requires_additional_setup_x">Eginbide honek konfigurazio-elementu gehigarriak osatzea eskatzen du: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro bertsioa behar da</string>
     <string name="general_include_multiuser_label">Sartu beste erabiltzaileak</string>
     <string name="general_include_multiuser_summary">Sartu gailu honetako beste erabiltzaile-profiletako aplikazioak.</string>
     <string name="general_unsaved_confirmation_message">Gorde gabeko aldaketak dituzu!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Arrisku-maila</string>
     <string name="settings_category_filter">Iragazkia</string>
     <string name="appcontrol_systemsettings_open_title">Erakutsi ezarpenak</string>
-    <string name="systemcleaner_customfilter_create_action">Sortu iragazki pertsonalizatua</string>
 </resources>

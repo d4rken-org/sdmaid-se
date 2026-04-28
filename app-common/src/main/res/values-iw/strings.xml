@@ -179,8 +179,6 @@
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
     <string name="setup_title">הגדרה</string>
-    <string name="setup_feature_requires_additional_setup_x">תכונה זו דורשת השלמת פריטי הגדרה נוספים: %s</string>
-    <string name="upgrade_feature_requires_pro">דורש Pro</string>
     <string name="general_include_multiuser_label">כלול משתמשים אחרים</string>
     <string name="general_include_multiuser_summary">כלול אפליקציות מפרופילי משתמשים אחרים במכשיר זה.</string>
     <string name="general_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
@@ -205,5 +203,4 @@
     <string name="settings_category_risklevel">רמת סיכון</string>
     <string name="settings_category_filter">סינון</string>
     <string name="appcontrol_systemsettings_open_title">הגדרות האפליקציה</string>
-    <string name="systemcleaner_customfilter_create_action">צור מסנן מותאם אישית</string>
 </resources>

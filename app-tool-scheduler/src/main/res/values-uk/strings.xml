@@ -22,7 +22,6 @@
         <item quantity="many">Кожні %d днів</item>
         <item quantity="other">Кожні %d днів</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Інтервал повторення</string>
     <string name="scheduler_inaccurate_execution_hint">Очікуваний час виконання є приблизним. Розклад може затримуватися або прискорюватися, якщо він економить заряд акумулятора.</string>
     <string name="scheduler_no_active_schedules_subtitle">Немає активних розкладів</string>
     <string name="scheduler_setting_nopowersaving_title">Пропуск при низькому заряді батареї</string>

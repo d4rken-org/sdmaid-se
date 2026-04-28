@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">പ്രാഥമിക സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_secondary">ദ്വിതീയ സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_portable">പോർട്ടബിൾ സ്റ്റോറേജ്</string>
-    <string name="stats_settings_retention_snapshots_label">സ്റ്റോറേജ് സ്നാപ്പ്ഷോട്ടുകൾ</string>
-    <string name="stats_settings_retention_snapshots_desc">സ്റ്റോറേജ് സ്പേസ് സ്നാപ്പ്ഷോട്ടുകൾ സൂക്ഷിക്കേണ്ട ദിവസങ്ങളുടെ എണ്ണം.</string>
 </resources>

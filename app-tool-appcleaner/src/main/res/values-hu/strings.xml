@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AlkalmazésTisztító automatizálás</string>
     <string name="appcleaner_automation_subtitle_default_caches">Alapértelmezett gyorsítótárak törlése…</string>
-    <string name="appcleaner_automation_progress_open_settings">A beállítások képernyő megnyitása (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">„Tárhely” elem keresése (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">„Adatok törlése” gomb keresése (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">„Gyorsítótár törlése” gomb keresése (kulcsszavak: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Nyilvános és privát alapértelmezett gyorsítótárak. Közvetlenül nem elérhető, de közvetve törölhető (pl. akadálymentesítési szolgáltatáson keresztül).</string>
     <string name="appcleaner_automation_unavailable_title">A kisegítő lehetőségek szolgáltatása nem érhető el</string>
     <string name="appcleaner_automation_unavailable_body">Az elérhetetlen gyorsítótárak törléséhez az SD Maid elérhetőségi szolgáltatása szükséges, de az nem volt elérhető. Ha nem szeretné használni: Kapcsolja ki a \"Hozzáférhetetlen gyorsítótárak bevonása\" opciót.</string>
-    <string name="appcleaner_junk_userprofile_label">Felhasználó</string>
     <string name="appcleaner_delete_confirmation_message_x">Felesleges fájlok törlése %s számára?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Felesleges fájlok törlése %d kiválasztott alkalmazáshoz?</item>

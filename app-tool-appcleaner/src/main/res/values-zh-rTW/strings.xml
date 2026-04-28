@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">應用清理器自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">正在清理預設快取…</string>
-    <string name="appcleaner_automation_progress_open_settings">打開設定畫面（關鍵詞：%s）</string>
     <string name="appcleaner_automation_progress_find_storage">尋找「儲存空間」項目（關鍵詞：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_data">尋找「清除資料」按鈕（關鍵詞：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_cache">尋找「清除快取」按鈕（關鍵詞：%s）</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">清除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
-    <string name="appcleaner_junk_userprofile_label">使用者</string>
     <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>

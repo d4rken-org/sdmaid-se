@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">Taifeadênn an ghné seo gach rud atá an aip á dhéanamh i gcomhad inroinn. Tá faisnéis íogánach sa chomhad ginte (m.sh. ainmneacha comhad agus aipeanna suiteáilte). Ná roinn é ach le páirtí iontaofa (m.sh. forbróir atá ag réiteach fadhb).</string>
     <string name="tasks_activity_notification_channel_label">Tascanna gníomacha</string>
     <string name="tasks_activity_working_notification_title">Tá SD Maid ag obair</string>
-    <string name="tasks_result_notification_channel_label">Torthaí tasc</string>
     <string name="tasks_result_subtext">Toradh tasc</string>
     <string name="onboarding_welcome_title">Fáilte</string>
     <string name="onboarding_welcome_body1">Bainíonn SD Maid SE comhaid, aipeanna agus stóráil.</string>
@@ -141,9 +140,6 @@
     <string name="data_area_sdcard_label">Cárta SD</string>
     <string name="data_areas_label">Limistéir sonraí</string>
     <string name="data_areas_description">Léiríonn limistéir sonraí áiteanna ar do ghléas atá inrochtana ag SD Maid. D\'fhéadfadh limistéir sonraí éagsúla a bheith ar fáil ag brath ar do leagan Android agus na ceadanna atá tugtha.</string>
-    <string name="data_areas_short_summary">Limistéir ar féidir le SD Maid rochtain orthu bunaithe ar na ceadanna atá tugtha faoi láthair.</string>
-    <string name="history_label">Stair</string>
-    <string name="history_description">Liosta in ord cróineolaíoch de ghníomhartha le déanaí agus sonraí difear orthu.</string>
     <string name="updates_dashcard_title">Nuashonrú ar fáil</string>
     <string name="updates_dashcard_body">Tá nuashonrú ar fáil. Tá %1$s agat agus is é %2$s an leagan is déanaí.</string>
     <string name="translation_encourage_title">Aistrigh SD Maid</string>
@@ -155,7 +151,6 @@
     <string name="updatecheck_setting_enabled_label">Seiceáil nuashonruithe</string>
     <string name="updatecheck_setting_enabled_explanation">Lig do SD Maid seiceáil le haghaidh nuashonruithe chun a chur in iúl duit má tá leagan níos nua ar fáil.</string>
     <string name="device_settings_category">Gléas</string>
-    <string name="beta_version_indicator_desc">Taispeánann leagain réamheisiúna ribín beag ar an scáileán tosaithe. Nuashonraítear iad níos minice, b\'fhéidir go mbeadh níos mó gnéithe acu, ach d\'fhéadfadh níos mó fabhtanna a bheith acu freisin.</string>
     <string name="review_app_review_action">Athbhreithniú</string>
     <string name="review_app_dismiss_action">B\'fhéidir níos déanaí</string>
     <string name="review_app_body">Ar mhaith leat athbhreithniú a fhágáil ar SD Maid?️ ❤️</string>

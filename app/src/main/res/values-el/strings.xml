@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Αποτυχία: σφάλμα συμπίεσης</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Διαγραφή αυτής της συνεδρίας αρχείου καταγραφής αποσφαλμάτωσης;</string>
     <string name="support_contact_post_send_message">Το μήνυμα εστάλη επιτυχώς;</string>
-    <string name="debug_debuglog_sessions_stop_action">Διακοπή</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d εργασία στην ουρά</item>
         <item quantity="other">%d εργασίες στην ουρά</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Αποτελέσματα διεργασιών</string>
     <string name="tasks_result_subtext">Αποτέλεσμα διεργασίας</string>
     <string name="tasks_timeout_error_label">Η εργασία εξέπνευσε</string>
     <string name="tasks_timeout_error_desc">Η εργασία διήρκεσε πολύ και διακόπηκε. Παρακαλώ δοκιμάστε ξανά.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">Κάρτα SD</string>
     <string name="data_areas_label">Περιοχές δεδομένων</string>
     <string name="data_areas_description">Οι περιοχές δεδομένων αντιπροσωπεύουν τοποθεσίες στη συσκευή σας που είναι προσβάσιμες στο SD Maid. Διαφορετικές περιοχές δεδομένων ενδέχεται να είναι διαθέσιμες ανάλογα με την έκδοση Android και τα δικαιώματα που έχουν χορηγηθεί.</string>
-    <string name="data_areas_short_summary">Περιοχές στις οποίες μπορεί να έχει πρόσβαση το SD Maid βάσει των δικαιωμάτων που έχουν χορηγηθεί αυτήν τη στιγμή.</string>
-    <string name="history_label">Ιστορικό</string>
-    <string name="history_description">Μια χρονολογική λίστα των πρόσφατων ενεργειών και των επηρεαζόμενων δεδομένων.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
     <string name="updatecheck_setting_enabled_explanation">Επιτρέψτε στο SD Maid να ελέγχει για ενημερώσεις για να σας ειδοποιεί εάν είναι διαθέσιμη νεότερη έκδοση.</string>
     <string name="device_settings_category">Συσκευή</string>
-    <string name="beta_version_indicator_desc">Οι εκδόσεις πριν την κυκλοφορία εμφανίζουν μια κορδέλα litte στην οθόνη έναρξης. Ενημερώνονται πιο συχνά, μπορεί να έχουν περισσότερα χαρακτηριστικά, αλλά θα μπορεί επίσης να έχουν περισσότερα σφάλματα.</string>
     <string name="review_app_review_action">Αξιολόγηση</string>
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner автоматжуулалт</string>
     <string name="appcleaner_automation_subtitle_default_caches">Үндсэн кэшүүдийг цэвхлэж байна…</string>
-    <string name="appcleaner_automation_progress_open_settings">Тохиргооны дэлгэц нээж байна (үг үеүд: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Санах ой\" цэс хайж байна (үг үеүд: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Datа цэвхлэх\" товч хайж байна (үг үеүд: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Kэш цэвхлэх\" товч хайж байна (үг үеүд: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Нийтлэг ба хувийн үндсэн кэшүүд. Шууд шуусаар хүргэхгүй боловч шуудгаар устгаж болно (жишээ нь: хандалтын үйлчилгээгээр).</string>
     <string name="appcleaner_automation_unavailable_title">Хандалтын үйлчилгээ боломжгүй</string>
     <string name="appcleaner_automation_unavailable_body">Хүртэх боломжгүй кэш цэвхлэхд SD Maid-ийн хандалтын үйлчилгээ шаардлагатай боловч боломжгүй байв. Ашиглахгүй бол \"Хүртэх боломжгүй кэшүүдийг оруулах\" сонгоог идэвхгүй болго.</string>
-    <string name="appcleaner_junk_userprofile_label">Хэрэглэгч</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-ийн зарцлаж болох файлуудыг устгах уу?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>

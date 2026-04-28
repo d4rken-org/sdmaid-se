@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner outomatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Maak verstek kas skoon…</string>
-    <string name="appcleaner_automation_progress_open_settings">Maak instellings skerm oop (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Soek vir \"Berging\" inskrywing (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Soek vir \"Maak data skoon\" knoppie (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Soek vir \"Maak kas skoon\" knoppie (sleutelwoorde: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Openbare en private verstek kas. Nie direk toeganklik nie, maar kan indirek geskrap word (bv. via toeganklikheid diens).</string>
     <string name="appcleaner_automation_unavailable_title">Toeganklikheid diens nie beskikbaar nie</string>
     <string name="appcleaner_automation_unavailable_body">Skoonmaak van ontoeganklike kas vereis SD Maid se toeganklikheid diens, maar dit was nie beskikbaar nie. As jy dit nie wil gebruik nie: Deaktiveer die opsie \"Sluit ontoeganklike kas in\".</string>
-    <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
     <string name="appcleaner_delete_confirmation_message_x">Skrap uitgeebare lêers vir %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Skrap uitgeebare lêers vir %d gekiesde toepassing?</item>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">మీ పరికరంలో ఇన్‌స్టాల్ చేయబడిన యాప్‌లు.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d యాప్ కనుగొనబడింది</item>
-        <item quantity="other">%d యాప్‌లు కనుగొనబడినాయి</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">యాప్‌లను టాగల్ చేయండి</string>
     <string name="appcontrol_toggle_app_enable_action">యాప్‌ను ప్రారంభించండి</string>
     <string name="appcontrol_toggle_app_disable_action">యాప్‌ను రద్దు చేయండి</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">డీబగ్</string>
     <string name="appcontrol_progress_enabling_package">యాప్‌ను ప్రారంభిస్తోంది</string>
     <string name="appcontrol_progress_disabling_package">యాప్‌ను రద్దు చేస్తోంది</string>
-    <string name="appcontrol_list_filteroptions_label">ఫిల్టర్ ఎంపికలు</string>
     <string name="appcontrol_list_sortmode_name_label">యాప్ పేరు</string>
     <string name="appcontrol_list_sortmode_updated_label">కొత్తగా అప్‌డేట్ చేయబడిన</string>
     <string name="appcontrol_list_sortmode_installed_label">ముందు ఇన్‌స్టాల్ చేయబడిన</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
     <string name="shortcut_appcontrol_short">యాప్ కంట్రోల్</string>
     <string name="shortcut_appcontrol_long">ఇన్‌స్టాల్ చేసిన యాప్‌లను నిర్వహించండి</string>
-    <string name="appcontrol_automation_loading">ప్రాప్యతా సేవ ద్వారా స్వయంచాలకతను సిద్ధం చేస్తోంది</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
-    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
 </resources>

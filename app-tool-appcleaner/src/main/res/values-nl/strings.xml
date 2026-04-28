@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppReiniger-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standaard cachegeheugen wissen…</string>
-    <string name="appcleaner_automation_progress_open_settings">Instellingenscherm openen (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Zoeken naar item \"Opslag\" (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Cache wissen\' (trefwoorden: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
     <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid nodig, maar deze was niet beschikbaar. Als je deze niet wilt gebruiken: schakel de optie \'Inclusief ontoegankelijke caches\' uit.</string>
-    <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
     <string name="appcleaner_delete_confirmation_message_x">Overbodige bestanden verwijderen voor %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Overbodige bestanden verwijderen voor %d geselecteerde app?</item>

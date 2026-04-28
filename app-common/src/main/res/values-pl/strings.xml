@@ -179,8 +179,6 @@
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>
     <string name="setup_title">Konfiguracja</string>
-    <string name="setup_feature_requires_additional_setup_x">Funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
-    <string name="upgrade_feature_requires_pro">Wymaga wersji Pro</string>
     <string name="general_include_multiuser_label">Uwzględnij innych użytkowników</string>
     <string name="general_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="general_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
@@ -205,5 +203,4 @@
     <string name="settings_category_risklevel">Poziom ryzyka</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="appcontrol_systemsettings_open_title">Pokaż ustawienia</string>
-    <string name="systemcleaner_customfilter_create_action">Utwórz filtr użytkownika</string>
 </resources>

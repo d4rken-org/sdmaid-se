@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Seadmesse paigaldatud rakendused.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d rakendus tuvastatud</item>
-        <item quantity="other">%d rakendust kustutada</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Näita/peida rakendusi</string>
     <string name="appcontrol_toggle_app_enable_action">Luba rakendus</string>
     <string name="appcontrol_toggle_app_disable_action">Keela rakendused</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Silumine</string>
     <string name="appcontrol_progress_enabling_package">Rakenduse lubamine</string>
     <string name="appcontrol_progress_disabling_package">Rakenduse keelamine</string>
-    <string name="appcontrol_list_filteroptions_label">Filtri valikud</string>
     <string name="appcontrol_list_sortmode_name_label">Rakenduse nimi</string>
     <string name="appcontrol_list_sortmode_updated_label">Viimati uuendatud</string>
     <string name="appcontrol_list_sortmode_installed_label">Esmapaigaldus</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
     <string name="shortcut_appcontrol_short">Rakenduste haldamine</string>
     <string name="shortcut_appcontrol_long">Paigaldatud rakenduste haldamine</string>
-    <string name="appcontrol_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Kaasa teisi kasutajaid</string>
 </resources>

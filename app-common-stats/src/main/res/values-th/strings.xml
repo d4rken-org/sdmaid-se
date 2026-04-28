@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">พื้นที่จัดเก็บหลัก</string>
     <string name="stats_storage_type_secondary">พื้นที่จัดเก็บรอง</string>
     <string name="stats_storage_type_portable">พื้นที่จัดเก็บแบบพกพา</string>
-    <string name="stats_settings_retention_snapshots_label">สแนปช็อตพื้นที่เก็บข้อมูล</string>
-    <string name="stats_settings_retention_snapshots_desc">จำนวนวันที่จะเก็บสแนปช็อตพื้นที่เก็บข้อมูล</string>
 </resources>

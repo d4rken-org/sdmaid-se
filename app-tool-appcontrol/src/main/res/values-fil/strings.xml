@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Mga app na naka-install sa inyong device.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d app na natuklasan</item>
-        <item quantity="other">%d mga app na natuklasan</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">I-toggle ang mga app</string>
     <string name="appcontrol_toggle_app_enable_action">I-enable ang app</string>
     <string name="appcontrol_toggle_app_disable_action">I-disable ang app</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Ine-enable ang app</string>
     <string name="appcontrol_progress_disabling_package">Dini-disable ang app</string>
-    <string name="appcontrol_list_filteroptions_label">Mga filter option</string>
     <string name="appcontrol_list_sortmode_name_label">Pangalan ng app</string>
     <string name="appcontrol_list_sortmode_updated_label">Huling na-update</string>
     <string name="appcontrol_list_sortmode_installed_label">Unang naka-install</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
     <string name="shortcut_appcontrol_short">Kontrol ng App</string>
     <string name="shortcut_appcontrol_long">Pamahalaan ang mga naka-install na app</string>
-    <string name="appcontrol_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Isama ang ibang mga gumagamit</string>
 </resources>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Pangunahing imbakan</string>
     <string name="stats_storage_type_secondary">Pangalawang imbakan</string>
     <string name="stats_storage_type_portable">Portable na imbakan</string>
-    <string name="stats_settings_retention_snapshots_label">Mga snapshot ng imbakan</string>
-    <string name="stats_settings_retention_snapshots_desc">Bilang ng mga araw na itatago ang mga snapshot ng espasyo ng imbakan.</string>
 </resources>

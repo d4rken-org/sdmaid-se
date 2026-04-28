@@ -68,7 +68,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner automātizācija</string>
     <string name="appcleaner_automation_subtitle_default_caches">Notīra noklusušās kešatmiņas…</string>
-    <string name="appcleaner_automation_progress_open_settings">Tiek atvērts iestatījumu ekrāns (atslēgvārdi: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Tiek meklēts ieraksts \"Krātuve\" (atslēgvārdi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Tiek meklēta poga \"Notīrīt datus\" (atslēgvārdi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Tiek meklēta poga \"Notīrīt kešatmiņu\" (atslēgvārdi: %s)</string>
@@ -76,7 +75,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publiskie un privātie noklusuma kešatmiņas. Nav tiei pieejas, taču var tikt dzēstas netieši (piem., ar pieejamības pakalpojumu).</string>
     <string name="appcleaner_automation_unavailable_title">Pieejamības pakalpojums nav pieejams</string>
     <string name="appcleaner_automation_unavailable_body">Nepieejamo kešatmiņu notīrīšanai nepieciešams SD Maid pieejamības pakalpojums, taču tas nebija pieejams. Ja to nevlies izmantot: atspējojiet opciju \"Iekļaut nepieejamās kešatmiņas\".</string>
-    <string name="appcleaner_junk_userprofile_label">Lietotājs</string>
     <string name="appcleaner_delete_confirmation_message_x">Dzēst iztērējamos failus lietotnei %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="zero">Dzēst iztērējamos failus %d atlasītām lietotnēm?</item>

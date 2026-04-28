@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Sikertelen: tömörítési hiba</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Törli ezt a hibakeresési napló munkamenetet?</string>
     <string name="support_contact_post_send_message">Üzenet sikeresen elküldve?</string>
-    <string name="debug_debuglog_sessions_stop_action">Leállítás</string>
     <string name="tasks_activity_notification_channel_label">Aktív feladatok</string>
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d feladat a sorban</item>
         <item quantity="other">%d feladatok a sorban</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">A feladat eredményei</string>
     <string name="tasks_result_subtext">Feladat eredménye</string>
     <string name="tasks_timeout_error_label">A feladat túllépte az időkorlátot</string>
     <string name="tasks_timeout_error_desc">A feladat túl sokáig tartott és leállt. Kérjük, próbálja újra.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD kártya</string>
     <string name="data_areas_label">Adatterületek</string>
     <string name="data_areas_description">Az adatterületek az eszköz azon helyeit jelentik, amelyek elérhetők az SD Maid számára. Az Android-verziótól és a megadott engedélyektől függően különböző adatterületek állnak rendelkezésre.</string>
-    <string name="data_areas_short_summary">Azok a területek, amelyekhez az SD Maid hozzáférhet a jelenleg megadott engedélyek alapján.</string>
-    <string name="history_label">Előzmények</string>
-    <string name="history_description">A legutóbbi műveletek és az érintett adatok időrendi listája.</string>
     <string name="updates_dashcard_title">Frissítés elérhető</string>
     <string name="updates_dashcard_body">Frissítés elérhető. Önnek %1$s van, a legújabb verzió pedig %2$s.</string>
     <string name="translation_encourage_title">Az SD Maid fordítása</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Frissítések ellenőrzése</string>
     <string name="updatecheck_setting_enabled_explanation">Engedélyezd az SD Maid számára a frissítések keresését, hogy értesítsen, ha újabb verzió áll rendelkezésre.</string>
     <string name="device_settings_category">Eszköz</string>
-    <string name="beta_version_indicator_desc">A kiadás előtti verziók egy kis szalagot jelenítenek meg a kezdőképernyőn. Ezeket gyakrabban frissítik, több funkcióval rendelkezhetnek, de több hibát is tartalmazhatnak.</string>
     <string name="review_app_review_action">Áttekintés</string>
     <string name="review_app_dismiss_action">Talán később</string>
     <string name="review_app_body">Szeretnél véleményt hagyni az SD Maidről?️ ❤️</string>

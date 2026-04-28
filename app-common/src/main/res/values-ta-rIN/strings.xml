@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
     <string name="setup_title">அமைப்பு</string>
-    <string name="setup_feature_requires_additional_setup_x">இந்த அம்சத்திற்கு கூடுதல் அமைப்பு உருப்படிகளை முடித்தல் தேவை: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro தேவை</string>
     <string name="general_include_multiuser_label">மற்ற பயனர்களை சேர்க்கவும்</string>
     <string name="general_include_multiuser_summary">இந்த சாதனத்திலுள்ள மற்ற பயனர் சுயவிவரங்களிலிருந்து பயன்பாடுகளை சேர்க்கவும்.</string>
     <string name="general_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">ஆபத்து நிலை</string>
     <string name="settings_category_filter">வடிப்பான்</string>
     <string name="appcontrol_systemsettings_open_title">அமைப்புகளைக் காட்டு</string>
-    <string name="systemcleaner_customfilter_create_action">தனிப்பயன் வடிகட்டியை உருவாக்கு</string>
 </resources>

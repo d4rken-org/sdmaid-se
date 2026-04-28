@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Pag-setup</string>
-    <string name="setup_feature_requires_additional_setup_x">Ang feature na ito ay nangangailangan ng pagkumpleto ng mga karagdagang setup item: %s</string>
-    <string name="upgrade_feature_requires_pro">Nangangailangan ng Pro</string>
     <string name="general_include_multiuser_label">Isama ang ibang mga user</string>
     <string name="general_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
     <string name="general_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago\!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Antas ng panganib</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>
-    <string name="systemcleaner_customfilter_create_action">Gumawa ng custom filter</string>
 </resources>

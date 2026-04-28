@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">ပိုင်ရှင်</string>
     <string name="general_user_label_system">စနစ်</string>
     <string name="setup_title">တပ်ဆင်မှု</string>
-    <string name="setup_feature_requires_additional_setup_x">ဤအင်္ဂါရပ်အတွက် နောက်ထပ်တပ်ဆင်မှုအရာများ ပြီးအောင်လုပ်ရန် လိုအပ်သည်- %s</string>
-    <string name="upgrade_feature_requires_pro">Pro လိုအပ်ပါသည်</string>
     <string name="general_include_multiuser_label">အခြားအသုံးပြုသူများ ထည့်သွင်းပါ</string>
     <string name="general_include_multiuser_summary">ဤကိရိယာပေါ်ရှိ အခြားအသုံးပြုသူပရိုဖိုင်များမှ အပ်ပ်များ ထည့်သွင်းပါ။</string>
     <string name="general_unsaved_confirmation_message">သိမ်းမထားသေးသော ပြောင်းလဲမှုများ ရှိသည်!</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
     <string name="appcontrol_systemsettings_open_title">ဆက်တင်များပြပါ</string>
-    <string name="systemcleaner_customfilter_create_action">စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးရန်</string>
 </resources>

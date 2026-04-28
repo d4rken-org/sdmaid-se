@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Приложения, инсталирани на вашето устройство.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d приложение открито</item>
-        <item quantity="other">%d приложения открити</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Превключване на приложения</string>
     <string name="appcontrol_toggle_app_enable_action">Активиране на приложение</string>
     <string name="appcontrol_toggle_app_disable_action">Деактивиране на приложение</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Дебъг</string>
     <string name="appcontrol_progress_enabling_package">Активиrane на приложение</string>
     <string name="appcontrol_progress_disabling_package">Деактивиране на приложение</string>
-    <string name="appcontrol_list_filteroptions_label">Опции за филтриране</string>
     <string name="appcontrol_list_sortmode_name_label">Име на приложение</string>
     <string name="appcontrol_list_sortmode_updated_label">Последно актуализирано</string>
     <string name="appcontrol_list_sortmode_installed_label">Първо инсталирано</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Инсталирано на: %s</string>
     <string name="shortcut_appcontrol_short">Управление на приложения</string>
     <string name="shortcut_appcontrol_long">Управление на инсталирани приложения</string>
-    <string name="appcontrol_automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Включи други потребители</string>
 </resources>

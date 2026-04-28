@@ -47,6 +47,4 @@
     <string name="stats_storage_type_primary">التخزين الأساسي</string>
     <string name="stats_storage_type_secondary">التخزين الثانوي</string>
     <string name="stats_storage_type_portable">وحدة تخزين محمولة</string>
-    <string name="stats_settings_retention_snapshots_label">لقطات التخزين</string>
-    <string name="stats_settings_retention_snapshots_desc">عدد الأيام للاحتفاظ بلقطات مساحة التخزين.</string>
 </resources>

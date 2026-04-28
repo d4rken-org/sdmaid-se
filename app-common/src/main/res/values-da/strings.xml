@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
-    <string name="setup_feature_requires_additional_setup_x">Denne funktion kræver yderligere opsætning: %s</string>
-    <string name="upgrade_feature_requires_pro">Kræver Pro</string>
     <string name="general_include_multiuser_label">Inkluder andre brugere</string>
     <string name="general_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="general_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Risikoniveau</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Vis indstillinger</string>
-    <string name="systemcleaner_customfilter_create_action">Opret brugerdefineret filter</string>
 </resources>

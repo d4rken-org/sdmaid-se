@@ -16,7 +16,6 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s ĉirkaŭ %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planita por %s</string>
     <string name="scheduler_schedule_last_at_x">Laste plenumita je %s</string>
-    <string name="scheduler_schedule_repeat_interval">Ripeta intervalo</string>
     <string name="scheduler_inaccurate_execution_hint">Atenditaj plenumaj tempoj estas proksimumaj. Planoj povas esti prokrastitaj aŭ rapidigitaj se tio ŝparas baterion.</string>
     <string name="scheduler_no_active_schedules_subtitle">Neniuj aktivaj planoj</string>
     <string name="scheduler_setting_nopowersaving_title">Preterpasi ĉe malalta baterio</string>

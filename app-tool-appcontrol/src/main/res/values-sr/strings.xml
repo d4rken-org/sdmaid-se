@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Апликације инсталиране на вашем уређају.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d апликација откривена</item>
-        <item quantity="few">%d апликације откривене</item>
-        <item quantity="other">%d апликација откривено</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Пребаци апликације</string>
     <string name="appcontrol_toggle_app_enable_action">Омогући апликацију</string>
     <string name="appcontrol_toggle_app_disable_action">Онемогући апликацију</string>
@@ -35,7 +30,6 @@
     <string name="appcontrol_tag_debug">Дебаг</string>
     <string name="appcontrol_progress_enabling_package">Омогућавање апликације</string>
     <string name="appcontrol_progress_disabling_package">Онемогућавање апликације</string>
-    <string name="appcontrol_list_filteroptions_label">Опције филтера</string>
     <string name="appcontrol_list_sortmode_name_label">Име апликације</string>
     <string name="appcontrol_list_sortmode_updated_label">Последње ажурирање</string>
     <string name="appcontrol_list_sortmode_installed_label">Прво инсталирање</string>
@@ -135,7 +129,4 @@
     <string name="appcontrol_item_installedat_x_label">Инсталирано: %s</string>
     <string name="shortcut_appcontrol_short">Контрола апликација</string>
     <string name="shortcut_appcontrol_long">Управљајте инсталираним апликацијама</string>
-    <string name="appcontrol_automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Укључи остале кориснике</string>
 </resources>

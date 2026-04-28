@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Uygulama Temizleyici otomasyonu</string>
     <string name="appcleaner_automation_subtitle_default_caches">Varsayılan önbellekler temizleniyor…</string>
-    <string name="appcleaner_automation_progress_open_settings">Ayarlar ekranı açılıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Depolama\" girişi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Verileri temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Önbelleği temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Genel ve özel varsayılan önbellekler. Doğrudan erişilemez, ancak dolaylı olarak silinebilir (ör. erişilebilirlik hizmeti aracılığıyla).</string>
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>
     <string name="appcleaner_automation_unavailable_body">Erişilemeyen önbelleklerin silinmesi için SD Maid\'in erişilebilirlik hizmeti gerekiyor, ancak bu hizmet kullanılamıyor. Kullanmak istemiyorsanız: \"Erişilemez önbellekleri dahil et\" seçeneğini devre dışı bırakın.</string>
-    <string name="appcleaner_junk_userprofile_label">Kullanıcı</string>
     <string name="appcleaner_delete_confirmation_message_x">%s\'a ait gereksiz dosyalar silinsin mi?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Seçilen %d uygulamanın gereksiz dosyaları silinsin mi?</item>

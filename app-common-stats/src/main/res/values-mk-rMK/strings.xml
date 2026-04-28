@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Примарно складиште</string>
     <string name="stats_storage_type_secondary">Секундарно складиште</string>
     <string name="stats_storage_type_portable">Преносливо складиште</string>
-    <string name="stats_settings_retention_snapshots_label">Снимки на складиштето</string>
-    <string name="stats_settings_retention_snapshots_desc">Број на денови за чување снимки на просторот за складирање.</string>
 </resources>

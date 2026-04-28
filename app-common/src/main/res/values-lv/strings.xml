@@ -168,8 +168,6 @@
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
     <string name="setup_title">Iestatīšana</string>
-    <string name="setup_feature_requires_additional_setup_x">Šī funkcija prasa papildu iestatīšanas darbību pabeigšanu: %s</string>
-    <string name="upgrade_feature_requires_pro">Nepieciešams Pro</string>
     <string name="general_include_multiuser_label">Iekļaut citus lietotājus</string>
     <string name="general_include_multiuser_summary">Iekļaut lietotnes no citiem šīs ierīces lietotāju profiliem.</string>
     <string name="general_unsaved_confirmation_message">Jums ir nesaglabātas izmaiņas!</string>
@@ -193,5 +191,4 @@
     <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="settings_category_filter">Filtrēt</string>
     <string name="appcontrol_systemsettings_open_title">Rādīt iestatījumus</string>
-    <string name="systemcleaner_customfilter_create_action">Izveidot pielāgotu filtru</string>
 </resources>

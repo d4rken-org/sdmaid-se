@@ -41,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Błąd: błąd kompresji</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Usunąć tę sesję dziennika debugowania?</string>
     <string name="support_contact_post_send_message">Wiadomość wysłana pomyślnie?</string>
-    <string name="debug_debuglog_sessions_stop_action">Zatrzymaj</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -56,7 +55,6 @@
         <item quantity="many">%d zadań w kolejce</item>
         <item quantity="other">%d zadań w kolejce</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Wyniki zadania</string>
     <string name="tasks_result_subtext">Wynik zadania</string>
     <string name="tasks_timeout_error_label">Zadanie przekroczyło limit czasu</string>
     <string name="tasks_timeout_error_desc">Zadanie trwało zbyt długo i zostało przerwane. Spróbuj ponownie.</string>
@@ -243,9 +241,6 @@
     <string name="data_area_sdcard_label">Karta SD</string>
     <string name="data_areas_label">Obszary danych</string>
     <string name="data_areas_description">Obszary danych reprezentują miejsca na twoim urządzeniu, które są dostępne dla SD Maid. W zależności od wersji Androida i udzielonych uprawnień mogą być dostępne różne obszary danych.</string>
-    <string name="data_areas_short_summary">Obszary, do których SD Maid może uzyskać dostęp na podstawie aktualnie udzielonych uprawnień.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
     <string name="updates_dashcard_body">Dostępna jest aktualizacja. Masz %1$s, a najnowsza wersja to %2$s.</string>
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>
@@ -258,7 +253,6 @@ Karol Szastok (K4r0lSz);</string>
     <string name="updatecheck_setting_enabled_label">Sprawdzanie aktualizacji</string>
     <string name="updatecheck_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie aktualizacji, aby poinformować cię, gdy nowa wersja będzie dostępna.</string>
     <string name="device_settings_category">Urządzenie</string>
-    <string name="beta_version_indicator_desc">Wersje przedpremierowe wyświetlają małą wstążkę na ekranie startowym. Są częściej aktualizowane, mogą mieć więcej funkcji, ale mogą też zawierać więcej błędów.</string>
     <string name="review_app_review_action">Oceń</string>
     <string name="review_app_dismiss_action">Może później</string>
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>

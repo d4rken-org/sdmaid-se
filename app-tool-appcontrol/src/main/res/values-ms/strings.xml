@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d aplikasi dikesan</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Togol aplikasi</string>
     <string name="appcontrol_toggle_app_enable_action">Dayakan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nyahdayakan aplikasi</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Mendayakan aplikasi</string>
     <string name="appcontrol_progress_disabling_package">Menyahdayakan aplikasi</string>
-    <string name="appcontrol_list_filteroptions_label">Pilihan penapis</string>
     <string name="appcontrol_list_sortmode_name_label">Nama aplikasi</string>
     <string name="appcontrol_list_sortmode_updated_label">Kemaskini terakhir</string>
     <string name="appcontrol_list_sortmode_installed_label">Tarikh pemasangan</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="shortcut_appcontrol_short">Kawalan Aplikasi</string>
     <string name="shortcut_appcontrol_long">Urus aplikasi yang dipasang</string>
-    <string name="appcontrol_automation_loading">Memuatkan...</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
-    <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
 </resources>

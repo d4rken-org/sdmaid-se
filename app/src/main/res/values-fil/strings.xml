@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Nabigo: error sa compression</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Tanggalin ang debug log session na ito?</string>
     <string name="support_contact_post_send_message">Matagumpay na naipadala ang mensahe?</string>
-    <string name="debug_debuglog_sessions_stop_action">Itigil</string>
     <string name="tasks_activity_notification_channel_label">Mga aktibong gawain</string>
     <string name="tasks_activity_working_notification_title">Nagtatrabaho ang SD Maid</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d gawain ang nakapila</item>
         <item quantity="other">%d gawain ang nakapila</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Mga resulta ng gawain</string>
     <string name="tasks_result_subtext">Resulta ng gawain</string>
     <string name="tasks_timeout_error_label">Nag-timeout ang gawain</string>
     <string name="tasks_timeout_error_desc">Ang gawain ay tumagal nang masyadong matagal at natigil. Pakisubukan muli.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Mga data area</string>
     <string name="data_areas_description">Ang mga data area ay kumakatawan sa mga lokasyon sa inyong device na accessible sa SD Maid. Maaaring magkakaibang data area ang makakagamit depende sa inyong Android version at mga permission na naibigay.</string>
-    <string name="data_areas_short_summary">Mga area na ma-access ng SD Maid base sa kasalukuyang mga permission na naibigay.</string>
-    <string name="history_label">Kasaysayan</string>
-    <string name="history_description">Isang chronological na listahan ng mga kamakailang aksyon at apektadong data.</string>
     <string name="updates_dashcard_title">May available na update</string>
     <string name="updates_dashcard_body">May available na update. Mayroon kayong %1$s at ang pinakabagong version ay %2$s.</string>
     <string name="translation_encourage_title">I-translate ang SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Pag-check ng update</string>
     <string name="updatecheck_setting_enabled_explanation">Payagan ang SD Maid na mag-check ng mga update para maipakita sa inyo kung may mas bagong version na available.</string>
     <string name="device_settings_category">Device</string>
-    <string name="beta_version_indicator_desc">Ang mga pre-release version ay nagpapakita ng maliit na ribbon sa start screen. Mas madalas itong na-update, maaaring may mas maraming feature, ngunit maaari rin namang may mas maraming bug.</string>
     <string name="review_app_review_action">I-review</string>
     <string name="review_app_dismiss_action">Siguro mamaya</string>
     <string name="review_app_body">Gusto ba ninyong mag-iwan ng review para sa SD Maid?️ ❤️</string>

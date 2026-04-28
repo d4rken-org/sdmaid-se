@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
-    <string name="setup_feature_requires_additional_setup_x">이 기능은 추가 설청 항목을 완료할 필요가 있습니다: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro 필요</string>
     <string name="general_include_multiuser_label">다른 유저 포함</string>
     <string name="general_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
     <string name="general_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">위험 수준</string>
     <string name="settings_category_filter">필터</string>
     <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
-    <string name="systemcleaner_customfilter_create_action">사용자 정의 필터 만들기</string>
 </resources>

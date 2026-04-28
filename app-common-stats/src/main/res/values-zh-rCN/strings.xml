@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">内部存储</string>
     <string name="stats_storage_type_secondary">外部存储</string>
     <string name="stats_storage_type_portable">外置存储</string>
-    <string name="stats_settings_retention_snapshots_label">存储快照</string>
-    <string name="stats_settings_retention_snapshots_desc">保留存储空间快照的天数。</string>
 </resources>

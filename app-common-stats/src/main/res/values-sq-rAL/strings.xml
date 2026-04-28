@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Magazina primare</string>
     <string name="stats_storage_type_secondary">Magazina sekondare</string>
     <string name="stats_storage_type_portable">Ruajtja e lëvizshme</string>
-    <string name="stats_settings_retention_snapshots_label">Fotografi të hapësirës ruajtëse</string>
-    <string name="stats_settings_retention_snapshots_desc">Numri i ditëve për të ruajtur fotografitë e hapësirës ruajtëse.</string>
 </resources>

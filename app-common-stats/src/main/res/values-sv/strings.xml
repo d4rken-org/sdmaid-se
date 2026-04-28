@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Primär lagring</string>
     <string name="stats_storage_type_secondary">Sekundär lagring</string>
     <string name="stats_storage_type_portable">Portabel lagring</string>
-    <string name="stats_settings_retention_snapshots_label">Lagringsögonblicksbilder</string>
-    <string name="stats_settings_retention_snapshots_desc">Antal dagar att behålla ögonblicksbilder av lagringsutrymme.</string>
 </resources>

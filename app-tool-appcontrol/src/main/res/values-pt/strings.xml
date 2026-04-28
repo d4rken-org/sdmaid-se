@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplicações instaladas no seu dispositivo.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplicação detectada</item>
-        <item quantity="other">%d aplicações detectadas</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Alternar aplicativos</string>
     <string name="appcontrol_toggle_app_enable_action">Ativar aplicativo</string>
     <string name="appcontrol_toggle_app_disable_action">Desactivar aplicação</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Depuração</string>
     <string name="appcontrol_progress_enabling_package">Ativando o aplicativo</string>
     <string name="appcontrol_progress_disabling_package">Desativando o aplicativo</string>
-    <string name="appcontrol_list_filteroptions_label">Opções de filtro</string>
     <string name="appcontrol_list_sortmode_name_label">Nome da aplicação</string>
     <string name="appcontrol_list_sortmode_updated_label">Última atualização</string>
     <string name="appcontrol_list_sortmode_installed_label">Primeira Instalação</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Instalado em: %s</string>
     <string name="shortcut_appcontrol_short">Controlo de Aplicações</string>
     <string name="shortcut_appcontrol_long">Faça a gestão das apps instaladas</string>
-    <string name="appcontrol_automation_loading">A preparar automação através do serviço de acessibilidade</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Incluir outros utilizadores</string>
 </resources>

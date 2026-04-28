@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Uotomatishaji wa Kisafishi Programu</string>
     <string name="appcleaner_automation_subtitle_default_caches">Inafuta akiba za msingi…</string>
-    <string name="appcleaner_automation_progress_open_settings">Inafungua skrini ya mipangilio (maneno muhimu: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Inatafuta ingizo la \"Hifadhi\" (maneno muhimu: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Inatafuta kitufe cha \"Futa data\" (maneno muhimu: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Inatafuta kitufe cha \"Futa akiba\" (maneno muhimu: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Akiba za msingi za umma na kibinafsi. Hazifikiwa moja kwa moja, lakini zinaweza kufutwa kwa njia isiyo ya moja kwa moja (k.m. kupitia huduma ya ufikiaji).</string>
     <string name="appcleaner_automation_unavailable_title">Huduma ya ufikiaji haipatikani</string>
     <string name="appcleaner_automation_unavailable_body">Kufuta akiba zisizofikiwa kunahitaji huduma ya ufikiaji ya SD Maid, lakini haikupatikana. Ikiwa hutaki kuitumia: Lemaza chaguo la \"Jumuisha akiba zisizofikiwa\".</string>
-    <string name="appcleaner_junk_userprofile_label">Mtumiaji</string>
     <string name="appcleaner_delete_confirmation_message_x">Futa faili zinazoweza kutumika za %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Futa faili zinazoweza kutumika za programu %d iliyochaguliwa?</item>

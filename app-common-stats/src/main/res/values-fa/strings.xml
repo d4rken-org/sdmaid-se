@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">حافظه اصلی</string>
     <string name="stats_storage_type_secondary">حافظه ثانویه</string>
     <string name="stats_storage_type_portable">فضای ذخیره‌سازی قابل‌حمل</string>
-    <string name="stats_settings_retention_snapshots_label">عکس‌برداری‌های ذخیره‌سازی</string>
-    <string name="stats_settings_retention_snapshots_desc">تعداد روزهای نگهداشت عکس‌برداری‌های فضای ذخیره‌سازی.</string>
 </resources>

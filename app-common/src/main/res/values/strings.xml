@@ -175,9 +175,6 @@
     <string name="general_user_label_owner">Owner</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Setup</string>
-    <string name="setup_feature_requires_additional_setup_x">This feature requires completing additional setup items: %s</string>
-    <string name="upgrade_feature_requires_pro">Requires Pro</string>
-
     <string name="general_include_multiuser_label">Include other users</string>
     <string name="general_include_multiuser_summary">Include apps from other user profiles on this device.</string>
     <string name="general_unsaved_confirmation_message">You have unsaved changes!</string>
@@ -202,5 +199,4 @@
     <string name="settings_category_risklevel">Risk level</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
-    <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
 </resources>

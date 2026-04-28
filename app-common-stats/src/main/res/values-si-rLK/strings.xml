@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">මුලික ආචයනය</string>
     <string name="stats_storage_type_secondary">ද්විතීය ආචයනය</string>
     <string name="stats_storage_type_portable">ජංගම ආචයනය</string>
-    <string name="stats_settings_retention_snapshots_label">ගබඩා ස්නැප්ශොට්</string>
-    <string name="stats_settings_retention_snapshots_desc">ගබඩා අවකාශ ස්නැප්ශොට් තබා ගත යුතු දින ගණන.</string>
 </resources>

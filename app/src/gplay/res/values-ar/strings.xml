@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">احترافي</string>
-    <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">ترقية SD Maid SE</string>
     <string name="upgrades_dashcard_body">يوفر SD Maid SE Pro نتائج أفضل وميزات وخيارات أكثر للمستخدمين المتقدمين.</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>

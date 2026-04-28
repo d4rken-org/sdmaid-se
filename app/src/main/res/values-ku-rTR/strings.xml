@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">ئەم تایبەتمەندیە هەموو ئەوەی ئەپەکە دەیکات لە فایلێکی هاوبەشکراودا تۆمار دەکات. فایلی دروستکراو زانیاری هەستیار لەخۆ دەگرێت (بۆ نموونە ناوی فایلەکان و ئەپە دامەزراوەکان). تەنها لەگەڵ لایەنە متمانەدارەکان هاوبەش بکە (بۆ نموونە گەشەپێدەرێک کە کێشەیەک چارەسەر دەکات).</string>
     <string name="tasks_activity_notification_channel_label">ئەرکە چالاکەکان</string>
     <string name="tasks_activity_working_notification_title">SD Maid کار دەکات</string>
-    <string name="tasks_result_notification_channel_label">ئەنجامەکانی ئەرکەکان</string>
     <string name="tasks_result_subtext">ئەنجامی ئەرک</string>
     <string name="onboarding_welcome_title">بەخێرهاتی</string>
     <string name="onboarding_welcome_body1">SD Maid SE فایلەکان، ئەپەکان و کۆگاکردن بەڕێوە دەبات.</string>
@@ -68,8 +67,6 @@
     <string name="dataarea_warningcard_label">ناوچەکانی داتا</string>
     <string name="debug_mode_label">دۆخی دیباگ</string>
     <string name="debug_card_title">دۆخی دیباگ چالاکە</string>
-    <string name="history_label">مێژوو</string>
-    <string name="history_description">لیستێکی کاتیی کردارە نوێکان و داتای کاریگەربوو.</string>
     <string name="data_areas_label">ناوچەکانی داتا</string>
     <string name="updates_dashcard_title">نوێکاری بەردەستە</string>
     <string name="updates_dashcard_body">نوێکاریەک بەردەستە. تۆ %1$s ت هەیە و نوێترین وەشان %2$s ە.</string>

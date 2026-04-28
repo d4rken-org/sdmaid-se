@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Laitteellesi asennetut sovellukset.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d sovellus havaittu</item>
-        <item quantity="other">%d sovellusta havaittu</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Vaihda sovelluksia</string>
     <string name="appcontrol_toggle_app_enable_action">Ota sovellus käyttöön</string>
     <string name="appcontrol_toggle_app_disable_action">Poista sovellus käytöstä</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Virheenkorjaus</string>
     <string name="appcontrol_progress_enabling_package">Otetaan sovellus käyttöön</string>
     <string name="appcontrol_progress_disabling_package">Poistetaan sovellus käytöstä</string>
-    <string name="appcontrol_list_filteroptions_label">Suodatusasetukset</string>
     <string name="appcontrol_list_sortmode_name_label">Sovelluksen nimi</string>
     <string name="appcontrol_list_sortmode_updated_label">Päivitetty</string>
     <string name="appcontrol_list_sortmode_installed_label">Asennettu</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Tälle asennettu: %s</string>
     <string name="shortcut_appcontrol_short">Sovellussäätö</string>
     <string name="shortcut_appcontrol_long">Hallinnoi asennettuja sovelluksia</string>
-    <string name="appcontrol_automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Sisällytä muut käyttäjät</string>
 </resources>

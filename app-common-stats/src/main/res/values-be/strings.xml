@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Асноўнае сховішча</string>
     <string name="stats_storage_type_secondary">Дадатковае сховішча</string>
     <string name="stats_storage_type_portable">Партатыўнае сховішча</string>
-    <string name="stats_settings_retention_snapshots_label">Здымкі сховішча</string>
-    <string name="stats_settings_retention_snapshots_desc">Колькасць дзён для захавання здымкаў прасторы сховішча.</string>
 </resources>

@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">యజమాని</string>
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>
-    <string name="setup_feature_requires_additional_setup_x">ఈ ఫీచర్ అదనపు సెటప్ అంశాలను పూర్తి చేయడానికి అవసరం: %s</string>
-    <string name="upgrade_feature_requires_pro">ప్రో అవసరం</string>
     <string name="general_include_multiuser_label">ఇతర వాడుకరులను చేర్చండి</string>
     <string name="general_include_multiuser_summary">ఈ పరికరంలో ఇతర వాడుకరు ప్రొఫైల్ల నుండి యాప్‌లను చేర్చండి.</string>
     <string name="general_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
     <string name="settings_category_filter">ఫిల్టర్</string>
     <string name="appcontrol_systemsettings_open_title">సెట్టింగ్స్ చూపించండి</string>
-    <string name="systemcleaner_customfilter_create_action">కస్టమ్ ఫిల్టర్‌ను సృష్టించండి</string>
 </resources>

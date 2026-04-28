@@ -38,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">失敗: 圧縮エラー</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">このデバッグログセッションを削除しますか？</string>
     <string name="support_contact_post_send_message">メッセージは正常に送信されましたか？</string>
-    <string name="debug_debuglog_sessions_stop_action">停止</string>
     <string name="tasks_activity_notification_channel_label">実行中のタスク</string>
     <string name="tasks_activity_working_notification_title">SD Maidは稼動中です</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -47,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d つのタスクを実行予定</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">タスクの結果</string>
     <string name="tasks_result_subtext">タスクの結果</string>
     <string name="tasks_timeout_error_label">タスクがタイムアウトしました</string>
     <string name="tasks_timeout_error_desc">タスクに時間がかかりすぎたため、停止されました。もう一度お試しください。</string>
@@ -228,9 +226,6 @@
     <string name="data_area_sdcard_label">SDカード</string>
     <string name="data_areas_label">データ領域</string>
     <string name="data_areas_description">データエリアは、SDMaidがアクセス可能なデバイス上の場所を表します。 Android のバージョンと許可された権限によって、異なるデータエリアが利用可能になる場合があります。</string>
-    <string name="data_areas_short_summary">現在付与されている権限に基づいてSDメイドがアクセスできるエリア。</string>
-    <string name="history_label">履歴</string>
-    <string name="history_description">最近のアクションと影響を受けたデータの時系列リスト。</string>
     <string name="updates_dashcard_title">アップデートが利用可能です</string>
     <string name="updates_dashcard_body">アップデートが利用可能です。今のあなたのバージョンは%1$sで最新バージョンが%2$sです。</string>
     <string name="translation_encourage_title">SD Maidを翻訳</string>
@@ -242,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">更新を確認</string>
     <string name="updatecheck_setting_enabled_explanation">新しいバージョンが利用可能かどうかを知らせるために、SD Maidがアップデートを確認できるようにします。</string>
     <string name="device_settings_category">デバイス</string>
-    <string name="beta_version_indicator_desc">プレリリースのバージョンはスタート画面に少しリボンを表示します。より頻繁に更新され、より多くの機能を持っているかもしれませんが、より多くのバグが見られるかもしれません。</string>
     <string name="review_app_review_action">レビュー</string>
     <string name="review_app_dismiss_action">また後で</string>
     <string name="review_app_body">SDメイドをレビューしませんか？ ❤️</string>

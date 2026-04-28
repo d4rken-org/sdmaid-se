@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">ناموفق: خطای فشرده‌سازی</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">این جلسه گزارش اشکال‌زدایی حذف شود؟</string>
     <string name="support_contact_post_send_message">پیام با موفقیت ارسال شد؟</string>
-    <string name="debug_debuglog_sessions_stop_action">توقف</string>
     <string name="tasks_activity_notification_channel_label">وظایف فعال</string>
     <string name="tasks_activity_working_notification_title">SDMaid در حال کار کردن است</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d کار در صف</item>
         <item quantity="other">%d کار در صف</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">حاصل کار</string>
     <string name="tasks_result_subtext">حاصل کار</string>
     <string name="tasks_timeout_error_label">زمان وظیفه به پایان رسید</string>
     <string name="tasks_timeout_error_desc">وظیفه خیلی طول کشید و متوقف شد. لطفاً دوباره امتحان کنید.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">کارت حافظه</string>
     <string name="data_areas_label">حوزه های داده</string>
     <string name="data_areas_description">منطقه‌های داده نشان‌دهنده مکان‌هایی بر روی دستگاه شما هستند که SD Maid به آنها دسترسی دارد. منطقه‌های داده مختلف ممکن است با توجه به نسخه اندروید شما و مجوزهایی که داده شده‌اند، در دسترس باشند.</string>
-    <string name="data_areas_short_summary">مناطقی که SD Maid می تواند بر اساس مجوزهای اعطا شده فعلی به آنها دسترسی داشته باشد.</string>
-    <string name="history_label">تاریخچه</string>
-    <string name="history_description">یک لیست زمانی از اقدامات اخیر و داده‌های تأثیر پذیرفته.</string>
     <string name="updates_dashcard_title">به‌روزرسانی موجود است</string>
     <string name="updates_dashcard_body">به‌روزرسانی موجود است. شما نسخه %1$s را دارید و جدیدترین نسخه موجود %2$s است.</string>
     <string name="translation_encourage_title">ترجمه خدمتکار SD</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">بررسی به‌روز رسانی</string>
     <string name="updatecheck_setting_enabled_explanation">اجازه دهید SD Maid بررسی کند که آیا نسخه جدیدتری در دسترس است یا خیر.</string>
     <string name="device_settings_category">دستگاه</string>
-    <string name="beta_version_indicator_desc">نسخه‌های پیش‌انتشار یک نشان کوچک روی صفحه شروع نمایش می‌دهند. این نسخه‌ها بیشتر به‌روزرسانی می‌شوند و ممکن است ویژگی‌های بیشتری داشته باشند، اما احتمالاً باگ‌های بیشتری نیز دارند.</string>
     <string name="review_app_review_action">مرور</string>
     <string name="review_app_dismiss_action">شاید بعداً</string>
     <string name="review_app_body">آیا می خواهید نظری برای SD Maid بگذارید؟️ ❤️</string>

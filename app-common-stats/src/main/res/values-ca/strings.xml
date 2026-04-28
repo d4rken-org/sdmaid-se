@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Emmagatzematge primari</string>
     <string name="stats_storage_type_secondary">Emmagatzematge secundari</string>
     <string name="stats_storage_type_portable">Emmagatzematge portàtil</string>
-    <string name="stats_settings_retention_snapshots_label">Instantànies d’emmagatzematge</string>
-    <string name="stats_settings_retention_snapshots_desc">Nombre de dies per conservar les instantànies de l’espai d’emmagatzematge.</string>
 </resources>

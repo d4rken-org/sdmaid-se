@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Автоматизација на AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Бришење стандардни кешови…</string>
-    <string name="appcleaner_automation_progress_open_settings">Отворање екран за поставки (клучни зборови: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Пребарување за запис \"Складирање\" (клучни зборови: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Барање копче \"Избриши податоци\" (клучни зборови: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Барање копче \"Избриши кеш\" (клучни зборови: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Јавни и приватни стандардни кешови. Не се директно достапни, но може да се избришат индиректно (пр. преку услуга за пристапност).</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за пристапност е недостапна</string>
     <string name="appcleaner_automation_unavailable_body">Бришењето на недостапни кешови бара услуга за пристапност на SD Maid, но не беше достапна. Ако не сакате да ја користите: Исклучете ја опцијата \"Вклучи недостапни кешови\".</string>
-    <string name="appcleaner_junk_userprofile_label">Корисник</string>
     <string name="appcleaner_delete_confirmation_message_x">Избриши непотребни датотеки за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Избриши непотребни датотеки за %d избрана апликација?</item>

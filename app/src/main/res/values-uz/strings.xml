@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Muvaffaqiyatsiz: siqish xatosi</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Ushbu debug jurnal seansini o\'chirib tashlamoqchimisiz?</string>
     <string name="support_contact_post_send_message">Xabar muvaffaqiyatli yuborildi?</string>
-    <string name="debug_debuglog_sessions_stop_action">To\'xtatish</string>
     <string name="tasks_activity_notification_channel_label">Faol vazifalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid ishlayapti</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d vazifa navbatda</item>
         <item quantity="other">%d vazifa navbatda</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Vazifa natijalari</string>
     <string name="tasks_result_subtext">Vazifa natijasi</string>
     <string name="tasks_timeout_error_label">Vazifa vaqti tugadi</string>
     <string name="tasks_timeout_error_desc">Vazifa juda ko\'p vaqt oldi va to\'xtatildi. Iltimos, qayta urinib ko\'ring.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Ma\'lumotlar sohalari</string>
     <string name="data_areas_description">Ma\'lumotlar sohalari SD Maid kirishi mumkin bo\'lgan qurilmangizdagi joylarni ifodalaydi. Android versiyangiz va berilgan ruxsatlarga qarab turli ma\'lumotlar sohalari mavjud bo\'lishi mumkin.</string>
-    <string name="data_areas_short_summary">Hozirda berilgan ruxsatlarga asoslangan holda SD Maid kirishi mumkin bo\'lgan sohalar.</string>
-    <string name="history_label">Tarix</string>
-    <string name="history_description">So\'nggi harakatlar va ta\'sirlangan ma\'lumotlarning xronologik ro\'yxati.</string>
     <string name="updates_dashcard_title">Yangilanish mavjud</string>
     <string name="updates_dashcard_body">Yangilanish mavjud. Sizda %1$s bor va eng so\'nggi versiya %2$s.</string>
     <string name="translation_encourage_title">SD Maid ni tarjima qilish</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Yangilanish tekshiruvi</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid ga yangi versiya mavjud ekanligini bilish uchun yangilanishlarni tekshirishga ruxsat berish.</string>
     <string name="device_settings_category">Qurilma</string>
-    <string name="beta_version_indicator_desc">Sinov versiyalari boshlang\'ich ekranda kichik lenta ko\'rsatadi. Ular tez-tez yangilanadi, ko\'proq xususiyatlarga ega bo\'lishi mumkin, lekin ko\'proq xatolarga ham ega bo\'lishi mumkin.</string>
     <string name="review_app_review_action">Ko\'rib chiqish</string>
     <string name="review_app_dismiss_action">Balki keyinroq</string>
     <string name="review_app_body">SD Maid ga sharh qoldirishni xohlaysizmi? ❤️</string>

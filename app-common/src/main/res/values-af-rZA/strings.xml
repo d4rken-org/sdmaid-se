@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Eienaar</string>
     <string name="general_user_label_system">Stelsel</string>
     <string name="setup_title">Opstelling</string>
-    <string name="setup_feature_requires_additional_setup_x">Hierdie kenmerk vereis die voltooiing van addisionele opstelling items: %s</string>
-    <string name="upgrade_feature_requires_pro">Vereis Pro</string>
     <string name="general_include_multiuser_label">Sluit ander gebruikers in</string>
     <string name="general_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
     <string name="general_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Risiko vlak</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Wys instellings</string>
-    <string name="systemcleaner_customfilter_create_action">Skep aangepaste filter</string>
 </resources>

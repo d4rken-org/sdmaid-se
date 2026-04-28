@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Автоматизація очищення додатків</string>
     <string name="appcleaner_automation_subtitle_default_caches">Очищення кешу за умовчанням…</string>
-    <string name="appcleaner_automation_progress_open_settings">Відкриття екрана налаштувань (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Пошук запису \"Сховище\" (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Пошук кнопки \"Очистити дані\" (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопки \"Очистити кеш\" (ключові слова: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публічні та приватні кеші за умовчанням. Не доступні безпосередньо, але можуть бути видалені опосередковано (наприклад, через сервіс спеціальних можливостей).</string>
     <string name="appcleaner_automation_unavailable_title">Сервіс спеціальних можливостей недоступний</string>
     <string name="appcleaner_automation_unavailable_body">Для очищення недоступних кешів потрібен сервіс спеціальних можливостей SD Maid, але він був недоступний. Якщо ви не хочете його використовувати: Вимкніть опцію \"Включати недоступні кеші\".</string>
-    <string name="appcleaner_junk_userprofile_label">Користувач</string>
     <string name="appcleaner_delete_confirmation_message_x">Видалити витратні файли для %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Видалити витратні файли для %d вибраного додатка?</item>

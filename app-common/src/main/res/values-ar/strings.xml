@@ -201,8 +201,6 @@
     <string name="general_user_label_owner">المالك</string>
     <string name="general_user_label_system">النظام</string>
     <string name="setup_title">الإعداد</string>
-    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
-    <string name="upgrade_feature_requires_pro">يتطلب النسخة الاحترافية</string>
     <string name="general_include_multiuser_label">ضم مستعملين آخرين</string>
     <string name="general_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
     <string name="general_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
@@ -229,5 +227,4 @@
     <string name="settings_category_risklevel">مستوى المخاطرة</string>
     <string name="settings_category_filter">المرشحات</string>
     <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
-    <string name="systemcleaner_customfilter_create_action">إنشاء فلتر مخصص</string>
 </resources>

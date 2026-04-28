@@ -248,6 +248,12 @@ private fun ReadyContent(
                         )
                     }
                 }
+                Spacer(Modifier.size(8.dp))
+                Text(
+                    text = stringResource(R.string.exclusion_editor_path_change_action),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
             }
         }
         Spacer(Modifier.size(8.dp))

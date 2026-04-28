@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner автоматизация</string>
     <string name="appcleaner_automation_subtitle_default_caches">Изчистване на кешове по подразбиране…</string>
-    <string name="appcleaner_automation_progress_open_settings">Отваряне на екран с настройки (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Търсене на запис \"Хранилище\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Търсене на бутон \"Изчистване на данни\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Търсене на бутон \"Изчистване на кеш\" (ключови думи: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публични и частни кешове по подразбиране. Не са директно достъпни, но могат да бъдат изтрити косвено (напр. чрез услуга за достъпност).</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за достъпност не е налична</string>
     <string name="appcleaner_automation_unavailable_body">Изчистването на недостъпни кешове изисква услугата за достъпност на SD Maid, но тя не беше налична. Ако не искате да я използвате: Деактивирайте опцията \"Включване на недостъпни кешове\".</string>
-    <string name="appcleaner_junk_userprofile_label">Потребител</string>
     <string name="appcleaner_delete_confirmation_message_x">Изтриване на разходни файлове за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Изтриване на разходни файлове за %d избрано приложение?</item>

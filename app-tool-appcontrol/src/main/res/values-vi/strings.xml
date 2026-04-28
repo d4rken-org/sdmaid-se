@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Ứng dụng được cài đặt trên thiết bị của bạn.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">Đã phát hiện %d ứng dụng</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Chuyển đổi ứng dụng</string>
     <string name="appcontrol_toggle_app_enable_action">Bật ứng dụng</string>
     <string name="appcontrol_toggle_app_disable_action">Tắt ứng dụng</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">Gỡ lỗi</string>
     <string name="appcontrol_progress_enabling_package">Kích hoạt ứng dụng</string>
     <string name="appcontrol_progress_disabling_package">Vô hiệu hóa ứng dụng</string>
-    <string name="appcontrol_list_filteroptions_label">Tùy chọn bộ lọc</string>
     <string name="appcontrol_list_sortmode_name_label">Tên ứng dụng</string>
     <string name="appcontrol_list_sortmode_updated_label">Cập nhật lần cuối</string>
     <string name="appcontrol_list_sortmode_installed_label">Cài đặt lần đầu</string>
@@ -113,7 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
     <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
     <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
-    <string name="appcontrol_automation_loading">Đang chuẩn bị tự động hóa qua dịch vụ trợ năng</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Bao gồm những người dùng khác</string>
 </resources>

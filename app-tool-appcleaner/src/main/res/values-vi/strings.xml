@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Dọn dẹp ứng dụng tự động</string>
     <string name="appcleaner_automation_subtitle_default_caches">Đang xóa bộ nhớ cache mặc định…</string>
-    <string name="appcleaner_automation_progress_open_settings">Đang mở màn hình cài đặt (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Đang tìm kiếm mục \"Bộ nhớ\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Đang tìm nút \"Xóa dữ liệu\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Đang tìm nút \"Xóa bộ nhớ cache\" (từ khóa: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
     <string name="appcleaner_automation_unavailable_body">Xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
-    <string name="appcleaner_junk_userprofile_label">Người dùng</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>

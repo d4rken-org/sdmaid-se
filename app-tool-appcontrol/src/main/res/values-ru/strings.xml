@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Управление приложениями, установленными на Вашем устройстве.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Обнаружено приложений: %d</item>
-        <item quantity="few">Обнаружено приложений: %d</item>
-        <item quantity="many">Обнаружено приложений: %d</item>
-        <item quantity="other">Обнаружено %d приложений</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Переключение приложений</string>
     <string name="appcontrol_toggle_app_enable_action">Включить приложение</string>
     <string name="appcontrol_toggle_app_disable_action">Отключить приложение</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Отладка</string>
     <string name="appcontrol_progress_enabling_package">Включение приложения</string>
     <string name="appcontrol_progress_disabling_package">Отключение приложения</string>
-    <string name="appcontrol_list_filteroptions_label">Параметры фильтра</string>
     <string name="appcontrol_list_sortmode_name_label">Название приложения</string>
     <string name="appcontrol_list_sortmode_updated_label">Последнее обновление</string>
     <string name="appcontrol_list_sortmode_installed_label">Первая установка</string>
@@ -146,7 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Установлено: %s</string>
     <string name="shortcut_appcontrol_short">Менеджер</string>
     <string name="shortcut_appcontrol_long">Управление установленными приложениями</string>
-    <string name="appcontrol_automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Включать других пользователей</string>
 </resources>

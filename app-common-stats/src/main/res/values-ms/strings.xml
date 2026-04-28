@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">Storan utama</string>
     <string name="stats_storage_type_secondary">Storan sekunder</string>
     <string name="stats_storage_type_portable">Storan mudah alih</string>
-    <string name="stats_settings_retention_snapshots_label">Syot kilat storan</string>
-    <string name="stats_settings_retention_snapshots_desc">Bilangan hari untuk menyimpan syot kilat ruang storan.</string>
 </resources>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Основно хранилище</string>
     <string name="stats_storage_type_secondary">Вторично хранилище</string>
     <string name="stats_storage_type_portable">Преносимо хранилище</string>
-    <string name="stats_settings_retention_snapshots_label">Снимки на хранилището</string>
-    <string name="stats_settings_retention_snapshots_desc">Брой дни за съхранение на снимки на пространството за съхранение.</string>
 </resources>

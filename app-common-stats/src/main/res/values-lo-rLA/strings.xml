@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">ບ່ອນເກັບຂໍ້ມູນຫຼັກ</string>
     <string name="stats_storage_type_secondary">ບ່ອນເກັບຂໍ້ມູນສຳຮອງ</string>
     <string name="stats_storage_type_portable">ບ່ອນເກັບຂໍ້ມູນແບບພົກພາ</string>
-    <string name="stats_settings_retention_snapshots_label">ສະແນັບຊັອດການເກັບຂໍ້ມູນ</string>
-    <string name="stats_settings_retention_snapshots_desc">ຈຳນວນວັນທີ່ຈະເກັບຮັກສາສະແນັບຊັອດພື້ນທີ່ເກັບຂໍ້ມູນ.</string>
 </resources>

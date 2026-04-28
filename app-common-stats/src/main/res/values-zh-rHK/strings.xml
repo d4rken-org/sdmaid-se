@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">主要儲存空間</string>
     <string name="stats_storage_type_secondary">次要儲存空間</string>
     <string name="stats_storage_type_portable">可攜式儲存空間</string>
-    <string name="stats_settings_retention_snapshots_label">儲存空間快照</string>
-    <string name="stats_settings_retention_snapshots_desc">保留儲存空間快照的天數。</string>
 </resources>

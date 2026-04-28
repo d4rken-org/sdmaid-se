@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Kuhlulekile: iphutha lokucindezela</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Susa lesi seshini se-debug log?</string>
     <string name="support_contact_post_send_message">Umlayezo uthunyelwe ngempumelelo?</string>
-    <string name="debug_debuglog_sessions_stop_action">Misa</string>
     <string name="tasks_activity_notification_channel_label">Imisebenzi esebenzayo</string>
     <string name="tasks_activity_working_notification_title">I-SD Maid iyasebenza</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d umsebenzi okulindile</item>
         <item quantity="other">%d imisebenzi ekulindile</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Imiphumela yemisebenzi</string>
     <string name="tasks_result_subtext">Umphumela womsebenzi</string>
     <string name="tasks_timeout_error_label">Umsebenzi uphelelwe isikhathi</string>
     <string name="tasks_timeout_error_desc">Umsebenzi wathatha isikhathi eside kakhulu futhi wamiswa. Sicela uzame futhi.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">Ikhadi le-SD</string>
     <string name="data_areas_label">Izindawo zedatha</string>
     <string name="data_areas_description">Izindawo zedatha zimele izindawo kudivayisi yakho ezingafinyelelwa yi-SD Maid. Izindawo zedatha ezahlukene zingase zitholakale kuye ngokuthi inguqulo yakho ye-Android nangokuthi yimaphi amavumelwano anikeziwe.</string>
-    <string name="data_areas_short_summary">Izindawo i-SD Maid engayifinyelela ngokusekelwe emvumeni enikezwe manje.</string>
-    <string name="history_label">Umlando</string>
-    <string name="history_description">Uhlu ngokulandelana kwesikhathi lwezenzo zakamuva nedatha ethintekile.</string>
     <string name="updates_dashcard_title">Isibuyekezo siyatholakala</string>
     <string name="updates_dashcard_body">Isibuyekezo siyatholakala. Una-%1$s futhi inguqulo yakamuva ingu-%2$s.</string>
     <string name="translation_encourage_title">Humusha i-SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Ukuhlola isibuyekezo</string>
     <string name="updatecheck_setting_enabled_explanation">Vumela i-SD Maid ukuthi ihlole izibuyekezo ukuze ikwazise uma kunguqulo entsha etholakalayo.</string>
     <string name="device_settings_category">Idivayisi</string>
-    <string name="beta_version_indicator_desc">Izinguqulo zangaphambi kokukhishwa zibonisa iribhini elincane esikriningi sokuqala. Zibuyekezwa kaningi, zingase zibe nezici eziningi, kodwa zingase futhi zibe namaphutha amaningi.</string>
     <string name="review_app_review_action">Buyekeza</string>
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
     <string name="review_app_body">Ungathanda ukushiyela i-SD Maid ukubuyekeza?️ ❤️</string>

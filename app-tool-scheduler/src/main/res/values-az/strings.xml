@@ -20,7 +20,6 @@
         <item quantity="one">Gündəlik</item>
         <item quantity="other">Hər %d gündə</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Təkrar intervalı</string>
     <string name="scheduler_inaccurate_execution_hint">Gözlənilən icra vaxtları təxminidir. Batareya qənaət edərsə, cədvəllər gecikdirilə və ya sürətləndirə bilər.</string>
     <string name="scheduler_no_active_schedules_subtitle">Aktiv cədvəl yoxdur</string>
     <string name="scheduler_setting_nopowersaving_title">Aşağı batareya zamanı keç</string>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Applis installées sur votre appareil.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d appli a été détectée</item>
-        <item quantity="other">%d applis ont été détectées</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Activer ou désactiver les applis</string>
     <string name="appcontrol_toggle_app_enable_action">Activer l’appli</string>
     <string name="appcontrol_toggle_app_disable_action">Désactiver l’appli</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Débogage</string>
     <string name="appcontrol_progress_enabling_package">Activation de l’appli</string>
     <string name="appcontrol_progress_disabling_package">Désactivation de l’appli</string>
-    <string name="appcontrol_list_filteroptions_label">Options de filtrage</string>
     <string name="appcontrol_list_sortmode_name_label">Nom de l’appli</string>
     <string name="appcontrol_list_sortmode_updated_label">Dernière mise à jour</string>
     <string name="appcontrol_list_sortmode_installed_label">Première installation</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Installée le : %s</string>
     <string name="shortcut_appcontrol_short">Contrôle des applis</string>
     <string name="shortcut_appcontrol_long">Gérez les applis installées</string>
-    <string name="appcontrol_automation_loading">Préparation de l’automatisation grâce au service d’accessibilité</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Tentative de confirmation de l’action précédente (mots clés : %s)</string>
-    <string name="appcontrol_include_multiuser_label">Inclure d’autres utilisateurs-trices</string>
 </resources>

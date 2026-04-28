@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">பயன்பாட்டு சுத்தி தானியங்கியமாக்கம்</string>
     <string name="appcleaner_automation_subtitle_default_caches">இயல்புநிலை துளையகங்களை அழிக்கிறது…</string>
-    <string name="appcleaner_automation_progress_open_settings">அமைப்பு திரையை திறக்கிறது (சொல்தொடர்கள்: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"சேமிப்பிடம்\" பதிவைத் தேடுகிறது (சொல்தொடர்கள்: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"தரவுகளை அழிக்கும்\" பட்டனைத் தேடுகிறது (சொல்தொடர்கள்: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"துளையகத்தை அழிக்கும்\" பட்டனைத் தேடுகிறது (சொல்தொடர்கள்: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">பொது மற்றும் தனியார் இயல்புநிலை துளையகங்கள். நேரடியாக அணுகலாம் இல்லை, ஆனால் மற்றவாறு நீக்கலாம் (உதா.: அக்செஸிபிலிட்டி சேவை மூலம்).</string>
     <string name="appcleaner_automation_unavailable_title">அணுகல் சேவை கிடைக்கவில்லை</string>
     <string name="appcleaner_automation_unavailable_body">அணுக முடியாத கேச்களை நீக்குவதற்கு SD Maid இன் அணுகல் சேவை தேவை, ஆனால் அது கிடைக்கவில்லை. நீங்கள் அதைப் பயன்படுத்த விரும்பவில்லை என்றால்: \"அணுக முடியாத கேச்களை சேர்க்கவும்\" விருப்பத்தை அவலாக்கவும்.</string>
-    <string name="appcleaner_junk_userprofile_label">பயனர்</string>
     <string name="appcleaner_delete_confirmation_message_x">%s க்கான தேவையில்லாத கோப்புகளை நீக்கவுமா?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d தேர்ந்தெடுத்த பயன்பாடுக்கான தேவையில்லாத கோப்புகளை நீக்கவுமா?</item>

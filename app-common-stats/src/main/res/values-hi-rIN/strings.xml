@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">प्रारंभिक संग्रहण</string>
     <string name="stats_storage_type_secondary">माध्यमिक संग्रहण</string>
     <string name="stats_storage_type_portable">पोर्टेबल संग्रहण</string>
-    <string name="stats_settings_retention_snapshots_label">संग्रहण स्नैपशॉट</string>
-    <string name="stats_settings_retention_snapshots_desc">संग्रहण स्थान स्नैपशॉट रखने के दिनों की संख्या।</string>
 </resources>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">ਮੁੱਖ ਸਟੋਰੇਜ</string>
     <string name="stats_storage_type_secondary">ਸੈਕੰਡਰੀ ਸਟੋਰੇਜ</string>
     <string name="stats_storage_type_portable">ਪੋਰਟੇਬਲ ਸਟੋਰੇਜ</string>
-    <string name="stats_settings_retention_snapshots_label">ਸਟੋਰੇਜ ਸਨੈਪਸ਼ਾਟ</string>
-    <string name="stats_settings_retention_snapshots_desc">ਸਟੋਰੇਜ ਸਪੇਸ ਸਨੈਪਸ਼ਾਟ ਰੱਖਣ ਲਈ ਦਿਨਾਂ ਦੀ ਸੰਖਿਆ੍</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Chyba: chyba komprese</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Smazat tuto relaci logu ladění?</string>
     <string name="support_contact_post_send_message">Zpráva byla úspěšně odeslána?</string>
-    <string name="debug_debuglog_sessions_stop_action">Ukončit</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -56,7 +55,6 @@
         <item quantity="many">%d úloh ve frontě</item>
         <item quantity="other">%d úloh ve frontě</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledek úlohy</string>
     <string name="tasks_timeout_error_label">Úkol vypršel</string>
     <string name="tasks_timeout_error_desc">Úkol trval příliš dlouho a byl zastaven. Zkuste to prosím znovu.</string>
@@ -243,9 +241,6 @@
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Oblasti dat</string>
     <string name="data_areas_description">Oblasti dat představují místa v zařízení, která jsou přístupná aplikaci SD Maid. V závislosti na verzi systému Android a udělených oprávněních mohou být k dispozici tyto oblasti různé.</string>
-    <string name="data_areas_short_summary">Oblasti, do kterých má SD Maid přístup na základě aktuálně udělených oprávnění.</string>
-    <string name="history_label">Historie</string>
-    <string name="history_description">Chronologický seznam nedávných akcí a dotčených dat.</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
     <string name="updates_dashcard_body">Aktualizace je k dispozici. Máte %1$s a poslední verze je %2$s.</string>
     <string name="translation_encourage_title">Přeložit SD Maid</string>
@@ -257,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizací</string>
     <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
     <string name="device_settings_category">Zařízení</string>
-    <string name="beta_version_indicator_desc">Ve zkušebních verzích se na úvodní obrazovce zobrazuje malá lišta. Jsou častěji aktualizovány, mohou mít více funkcí, ale také více chyb.</string>
     <string name="review_app_review_action">Posoudit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>

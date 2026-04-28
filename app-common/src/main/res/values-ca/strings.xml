@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuració</string>
-    <string name="setup_feature_requires_additional_setup_x">Aquesta característica requereix completar elements de configuració addicionals: %s</string>
-    <string name="upgrade_feature_requires_pro">Requereix Pro</string>
     <string name="general_include_multiuser_label">Inclou altres usuaris</string>
     <string name="general_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="general_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">Nivell de risc</string>
     <string name="settings_category_filter">Filtra</string>
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
-    <string name="systemcleaner_customfilter_create_action">Crea un filtre personalitzat</string>
 </resources>

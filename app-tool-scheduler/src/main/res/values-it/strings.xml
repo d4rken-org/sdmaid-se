@@ -20,7 +20,6 @@
         <item quantity="one">Giornaliero</item>
         <item quantity="other">Ogni %d giorni</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Intervallo di ripetizione</string>
     <string name="scheduler_inaccurate_execution_hint">I tempi di esecuzione previsti sono approssimazioni. Gli orari possono essere ritardati o accelerati se conservano la batteria.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nessuna pianificazione attiva</string>
     <string name="scheduler_setting_nopowersaving_title">Salta se la batteria è scarica</string>

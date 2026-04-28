@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Primarna pomnilniška naprava</string>
     <string name="stats_storage_type_secondary">Sekundarna pomnilniška naprava</string>
     <string name="stats_storage_type_portable">Prenosna pomnilniška naprava</string>
-    <string name="stats_settings_retention_snapshots_label">Posnetki stanja pomnilnika</string>
-    <string name="stats_settings_retention_snapshots_desc">Število dni za shranjevanje posnetkov stanja pomnilniškega prostora.</string>
 </resources>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ਸਵੈਚਾਲਨ</string>
     <string name="appcleaner_automation_subtitle_default_caches">ਮੂਲ ਕੈਸ਼ ਸਾਫ਼ ਕਰ ਰਿਹਾ ਹੈ…</string>
-    <string name="appcleaner_automation_progress_open_settings">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ਸਟੋਰੇਜ\" ਐਂਟਰੀ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"ਡੇਟਾ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">ਜਨਤਕ ਅਤੇ ਨਿੱਜੀ ਮੂਲ ਕੈਸ਼। ਸਿੱਧੇ ਤੌਰ \'ਤੇ ਪਹੁੰਚਯੋਗ ਨਹੀਂ, ਪਰ ਅਸਿੱਧੇ ਤੌਰ \'ਤੇ ਮਿਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ)।</string>
     <string name="appcleaner_automation_unavailable_title">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="appcleaner_automation_unavailable_body">ਅਪਹੁੰਚ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਲਈ SD Maid ਦੀ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ। ਜੇ ਤੁਸੀਂ ਇਸਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰਨਾ ਚਾਹੁੰਦੇ: \"ਅਪਹੁੰਚ ਕੈਸ਼ ਸ਼ਾਮਲ ਕਰੋ\" ਵਿਕਲਪ ਨੂੰ ਅਯੋਗ ਕਰੋ।</string>
-    <string name="appcleaner_junk_userprofile_label">ਵਰਤੋਂਕਾਰ</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ਲਈ ਖਰਚਯੋਗ ਫਾਇਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ਕੀ %d ਚੁਣੀ ਗਈ ਐਪ ਲਈ ਖਰਚੇਯੋਗ ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>

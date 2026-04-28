@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">தோல்வி: சுருக்க பிழை</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">இந்த பிழைத்திருத்த பதிவு அமர்வை நீக்கவா?</string>
     <string name="support_contact_post_send_message">செய்தி வெற்றிகரமாக அனுப்பப்பட்டதா?</string>
-    <string name="debug_debuglog_sessions_stop_action">நிறுத்து</string>
     <string name="tasks_activity_notification_channel_label">செயலில் உள்ள பணிகள்</string>
     <string name="tasks_activity_working_notification_title">SD Maid வேலை செய்கிறது</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d பணி வரிசையில்</item>
         <item quantity="other">%d வரிசையில் உள்ள பணிகள்</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">பணி முடிவுகள்</string>
     <string name="tasks_result_subtext">பணி முடிவு</string>
     <string name="tasks_timeout_error_label">பணி நேர வரம்பு மீறியது</string>
     <string name="tasks_timeout_error_desc">பணி மிக நீண்ட நேரம் எடுத்தது மற்றும் நிறுத்தப்பட்டது. மீண்டும் முயற்சிக்கவும்.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD கார்டு</string>
     <string name="data_areas_label">தரவு பகுதிகள்</string>
     <string name="data_areas_description">தரவு பகுதிகள் SD Maid அணுக முடியும் உங்கள் சாதனத்திலுள்ள இடங்களைப் பிரதிநிதித்துகின்றன. உங்கள் Android வெர்ஷன் மற்றும் வழங்கப்பட்ட அனுமதிகளைப் பொறுத்து வேற்று தரவு பகுதிகள் கிடைக்கலாம்.</string>
-    <string name="data_areas_short_summary">தற்போது வழங்கப்பட்ட அனுமதிகளை அடிப்படையாக SD Maid அணுக முடியும் பகுதிகள்.</string>
-    <string name="history_label">வரலாறு</string>
-    <string name="history_description">இறுதிய செயல்கள் மற்றும் பாதிக்கப்பட்ட தரவின் நேரக்ரம பட்டியல்.</string>
     <string name="updates_dashcard_title">புதுப்பிப்பு கிடைக்கும்</string>
     <string name="updates_dashcard_body">ஒரு புதுப்பிப்பு கிடைக்கும். உங்களிடம் %1$s உள்ளது மற்றும் செல வெர்ஷன் %2$s.</string>
     <string name="translation_encourage_title">SD Maid இற்கு மொழிபெயர்க்கவும்</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">புதுப்பிப்பு சரிபார்ப்பு</string>
     <string name="updatecheck_setting_enabled_explanation">புதிய வெர்ஷன் கிடைக்கும் என்று உங்களுக்கு தெரியப்படுத்த புதுப்பிப்புகளைச் சரிபார்க்க SD Maid அனுமதிக்கவும்.</string>
     <string name="device_settings_category">சாதனம்</string>
-    <string name="beta_version_indicator_desc">விடுதலையின் முன் வெர்ஷன்கள் தொடங்க திரையில் ஒரு சிறிய ரிபனைக் காட்டுகின்றன. அவை அடிக்கடி புதுப்பிக்கப்படுகின்றன, அதிக அம்சங்களை கொண்டிருக்கலாம், ஆனால் அதிக பராமரிகளையும் கொண்டிருக்கலாம்.</string>
     <string name="review_app_review_action">மார்வு</string>
     <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
     <string name="review_app_body">நீங்கள் SD Maid க்கு மார்வை வழங்க விரும்புகிறீர்களா?️ ❤️</string>

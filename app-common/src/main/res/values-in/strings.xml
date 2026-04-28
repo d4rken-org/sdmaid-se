@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Pengaturan</string>
-    <string name="setup_feature_requires_additional_setup_x">Fitur ini mengharuskan Anda untuk melengkapi item pengaturan tambahan: %s</string>
-    <string name="upgrade_feature_requires_pro">Membutuhkan Pro</string>
     <string name="general_include_multiuser_label">Sertakan pengguna lain</string>
     <string name="general_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada perangkat ini.</string>
     <string name="general_unsaved_confirmation_message">Anda punya perubahan yang belum tersimpan!</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">Tingkat risiko</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
-    <string name="systemcleaner_customfilter_create_action">Buat filter khusus</string>
 </resources>

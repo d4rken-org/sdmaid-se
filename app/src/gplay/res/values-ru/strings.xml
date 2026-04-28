@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Требуется SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Обновление SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid Pro предлагает лучшие результаты, больше функций и опций для удобства пользователей.</string>
     <string name="upgrades_dashcard_upgrade_action">Обновить</string>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Archìviu primàriu</string>
     <string name="stats_storage_type_secondary">Archìviu secundàriu</string>
     <string name="stats_storage_type_portable">Archìviu portàbile</string>
-    <string name="stats_settings_retention_snapshots_label">Instantàneas de memorizamentu</string>
-    <string name="stats_settings_retention_snapshots_desc">Número de dies pro mantenni sas instantàneas de s’ispatziu de memorizamentu.</string>
 </resources>

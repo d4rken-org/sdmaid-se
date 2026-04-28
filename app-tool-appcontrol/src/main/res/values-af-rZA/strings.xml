@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Toepassings geïnstalleer op jou toestel.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d toepassing opgespoor</item>
-        <item quantity="other">%d toepassings opgespoor</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Skakel toepassings</string>
     <string name="appcontrol_toggle_app_enable_action">Aktiveer toepassing</string>
     <string name="appcontrol_toggle_app_disable_action">Deaktiveer toepassing</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Ontfouting</string>
     <string name="appcontrol_progress_enabling_package">Aktiveer toepassing</string>
     <string name="appcontrol_progress_disabling_package">Deaktiveer toepassing</string>
-    <string name="appcontrol_list_filteroptions_label">Filter opsies</string>
     <string name="appcontrol_list_sortmode_name_label">Toepassing naam</string>
     <string name="appcontrol_list_sortmode_updated_label">Laas opgedateer</string>
     <string name="appcontrol_list_sortmode_installed_label">Eerste geïnstalleer</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Geïnstalleer op: %s</string>
     <string name="shortcut_appcontrol_short">Toep Beheer</string>
     <string name="shortcut_appcontrol_long">Bestuur geïnstalleerde toepassings</string>
-    <string name="appcontrol_automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Sluit ander gebruikers in</string>
 </resources>

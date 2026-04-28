@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">אחסון ראשי</string>
     <string name="stats_storage_type_secondary">אחסון משני</string>
     <string name="stats_storage_type_portable">אחסון נייד</string>
-    <string name="stats_settings_retention_snapshots_label">תמונות מצב של אחסון</string>
-    <string name="stats_settings_retention_snapshots_desc">מספר ימים לשמירת תמונות מצב של שטח האחסון.</string>
 </resources>

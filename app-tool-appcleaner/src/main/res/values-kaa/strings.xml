@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner avtomatiyası</string>
     <string name="appcleaner_automation_subtitle_default_caches">Baslı keşlerdı tazalawda…</string>
-    <string name="appcleaner_automation_progress_open_settings">Parametrler ekranın ashıw (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Saqlawsh\" jazıwın izlew (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Maǵlıwmatlardı tazalaw\" tugmesin izlew (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keşti tazalaw\" tugmesin izlew (gilt sözler: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Ashıq hám jeke baslı keşler. Tuwrıdan-tuwrı jetimli emes, biraq bilvosita öshiriwge boladı (mısalı, jetimlilik qullıǵı arqalı).</string>
     <string name="appcleaner_automation_unavailable_title">Jetimlilik qullıǵı jetimli emes</string>
     <string name="appcleaner_automation_unavailable_body">Jetimli bolmaǵan keşlerdı tazalaw SD Maid jetimlilik qullıǵın talap etedi, biraq ol jetimli emes edi. Eger onı paydalanǵıńız kelmese: \"Jetimli bolmaǵan keşlerdı qosıw\" optsiyasın öshiriń.</string>
-    <string name="appcleaner_junk_userprofile_label">Paydalanıwshı</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ushın jok etetuǵın fayllarıdı öshirip taslama?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Tańlangan %d ilova ushın artiqsha fayllar óśirip taslansinba?</item>

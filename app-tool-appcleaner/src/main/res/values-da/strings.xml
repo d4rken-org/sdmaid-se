@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Apprenser-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Rydder standardcacher…</string>
-    <string name="appcleaner_automation_progress_open_settings">Åbner indstillingsskærm (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Søger efter \"Lager\" (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Leder efter knappen \"Ryd data\" (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Leder efter knappen \"Ryd cache\" (søgeord: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Offentlige og private standardcacher. Ikke direkte tilgængelige, men kan slettes indirekte (f.eks. via tilgængelighedstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgængelighedstjeneste utilgængelig</string>
     <string name="appcleaner_automation_unavailable_body">Rydning af utilgængelige cacher kræver SD Maids tilgængelighedstjeneste, men den var ikke tilgængelig. Hvis du ikke vil bruge den, så deaktiver indstillingen \"Inkluder utilgængelige cacher\".</string>
-    <string name="appcleaner_junk_userprofile_label">Bruger</string>
     <string name="appcleaner_delete_confirmation_message_x">Slet overflødige filer for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Slet overflødige filer for %d valgt app?</item>

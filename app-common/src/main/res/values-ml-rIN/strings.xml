@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">ഉടമ</string>
     <string name="general_user_label_system">സിസ്റ്റം</string>
     <string name="setup_title">സെറ്റപ്പ്</string>
-    <string name="setup_feature_requires_additional_setup_x">ഈ ഫീച്ചറിന് അധിക സജ്ജീകരണ ഇനങ്ങൾ പൂർത്തിയാക്കേണ്ടതുണ്ട്: %s</string>
-    <string name="upgrade_feature_requires_pro">പ്രോ ആവശ്യമാണ്</string>
     <string name="general_include_multiuser_label">മറ്റ് ഉപയോക്താക്കളെ ഉൾപ്പെടുത്തുക</string>
     <string name="general_include_multiuser_summary">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്തൃ പ്രൊഫൈലുകളിൽ നിന്നുള്ള ആപ്പുകൾ ഉൾപ്പെടുത്തുക.</string>
     <string name="general_unsaved_confirmation_message">സംരക്ഷിക്കാത്ത മാറ്റങ്ങളുണ്ട്!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">റിസ്ക് ലെവൽ</string>
     <string name="settings_category_filter">ഫിൽട്ടർ</string>
     <string name="appcontrol_systemsettings_open_title">ക്രമീകരണങ്ങൾ കാണിക്കുക</string>
-    <string name="systemcleaner_customfilter_create_action">ഇഷ്‌ടാനുസൃത ഫിൽട്ടർ സൃഷ്ടിക്കുക</string>
 </resources>

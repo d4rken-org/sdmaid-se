@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
     <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>
     <string name="stats_storage_type_portable">Алмаламалы сақлау орны</string>
-    <string name="stats_settings_retention_snapshots_label">Сақлау орны снимоклары</string>
-    <string name="stats_settings_retention_snapshots_desc">Сақлау орны снимокларын сақлаў күнлер саны.</string>
 </resources>

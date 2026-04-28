@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Qurilmangizda o\'rnatilgan ilovalar.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ilova aniqlandi</item>
-        <item quantity="other">%d ilova aniqlandi</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Ilovalarni almashtirish</string>
     <string name="appcontrol_toggle_app_enable_action">Ilovani yoqish</string>
     <string name="appcontrol_toggle_app_disable_action">Ilovani o\'chirish</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Nosozliklarni tuzatish</string>
     <string name="appcontrol_progress_enabling_package">Ilovani yoqish</string>
     <string name="appcontrol_progress_disabling_package">Ilovani o\'chirish</string>
-    <string name="appcontrol_list_filteroptions_label">Filtr variantlari</string>
     <string name="appcontrol_list_sortmode_name_label">Ilova nomi</string>
     <string name="appcontrol_list_sortmode_updated_label">Oxirgi yangilanish</string>
     <string name="appcontrol_list_sortmode_installed_label">Birinchi o\'rnatilgan</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">O\'rnatilgan sana: %s</string>
     <string name="shortcut_appcontrol_short">Ilovalarni boshqarish</string>
     <string name="shortcut_appcontrol_long">O\'rnatilgan ilovalarni boshqarish</string>
-    <string name="appcontrol_automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
 </resources>

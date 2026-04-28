@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro gerektirir</string>
     <string name="upgrades_dashcard_title">SD Maid SE\'yi Yükselt</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro daha iyi sonuçlar, daha fazla özellik ve ileri düzey kullanıcılar için seçenekler sunar.</string>
     <string name="upgrades_dashcard_upgrade_action">Yükselt</string>

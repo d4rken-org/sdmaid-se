@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">ባለቤት</string>
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>
-    <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
-    <string name="upgrade_feature_requires_pro">Pro ያስፈልጋል</string>
     <string name="general_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
     <string name="general_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት།</string>
     <string name="general_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
     <string name="settings_category_filter">ማጣሪያ</string>
     <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
-    <string name="systemcleaner_customfilter_create_action">ሰው ሰራሽ ማጣሪያ ፍጠር</string>
 </resources>

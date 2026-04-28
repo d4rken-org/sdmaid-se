@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">เจ้าของ</string>
     <string name="general_user_label_system">ระบบ</string>
     <string name="setup_title">การตั้งค่า</string>
-    <string name="setup_feature_requires_additional_setup_x">คุณสมบัตินี้ต้องการให้ทำการตั้งค่าเพิ่มเติมให้เสร็จสิ้น: %s</string>
-    <string name="upgrade_feature_requires_pro">ต้องการ Pro</string>
     <string name="general_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
     <string name="general_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
     <string name="general_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
     <string name="settings_category_filter">ตัวกรอง</string>
     <string name="appcontrol_systemsettings_open_title">แสดงการตั้งค่า</string>
-    <string name="systemcleaner_customfilter_create_action">สร้างตัวกรองกำหนดเอง</string>
 </resources>

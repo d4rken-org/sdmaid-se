@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Primárne úložisko</string>
     <string name="stats_storage_type_secondary">Sekundárne úložisko</string>
     <string name="stats_storage_type_portable">Prenosné úložisko</string>
-    <string name="stats_settings_retention_snapshots_label">Snímky úložiska</string>
-    <string name="stats_settings_retention_snapshots_desc">Počet dní na uchovanie snímok úložného priestoru.</string>
 </resources>

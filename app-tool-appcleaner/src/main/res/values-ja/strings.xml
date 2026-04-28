@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">アプリクリーナーの自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">デフォルトキャッシュをクリアしています…</string>
-    <string name="appcleaner_automation_progress_open_settings">設定画面を開く (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ストレージ\" エントリを検索中 (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">「データを消去」ボタンを探しています (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">「キャッシュをクリア」ボタンを探しています (キーワード: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (ユーザー補助サービスなど)。</string>
     <string name="appcleaner_automation_unavailable_title">ユーザー補助サービスは無効です。</string>
     <string name="appcleaner_automation_unavailable_body">アクセスできないキャッシュをクリアするには、SD Maidのユーザー補助サービスが必要ですが、利用できませんでした。使用したくない場合は、「アクセスできないキャッシュを含める」オプションを無効にします。</string>
-    <string name="appcleaner_junk_userprofile_label">ユーザー</string>
     <string name="appcleaner_delete_confirmation_message_x">%s の消耗ファイルを削除しますか？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">%d 選択したアプリの消耗ファイルを削除しますか？</item>

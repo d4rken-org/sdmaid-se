@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_secondary">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_portable">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
-    <string name="stats_settings_retention_snapshots_label">ଷ୍ଟୋରେଜ ସ୍ନାପସଟ</string>
-    <string name="stats_settings_retention_snapshots_desc">ଷ୍ଟୋରେଜ ସ୍ପେସ ସ୍ନାପସଟ ରଖିବାର ଦିନ ସଂଖ୍ୟା।</string>
 </resources>

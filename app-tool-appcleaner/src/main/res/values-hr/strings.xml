@@ -68,7 +68,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizacija čistača aplikacija</string>
     <string name="appcleaner_automation_subtitle_default_caches">Brisanje zadanih predmemorija…</string>
-    <string name="appcleaner_automation_progress_open_settings">Otvaranje zaslona postavki (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Traženje unosa \"Pohrana\" (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Traženje gumba \"Obriši podatke\" (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Traženje gumba \"Obriši predmemoriju\" (ključne riječi: %s)</string>
@@ -76,7 +75,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Javne i privatne zadane predmemorije. Nisu izravno dostupne, ali se mogu neizravno izbrisati (npr. putem usluge pristupačnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Usluga pristupačnosti nije dostupna</string>
     <string name="appcleaner_automation_unavailable_body">Za brisanje nedostupnih predmemorija potrebna je usluga pristupačnosti SD Maida, ali ona nije bila dostupna. Ako je ne želite koristiti: Isključite opciju \"Uključi nedostupne predmemorije\".</string>
-    <string name="appcleaner_junk_userprofile_label">Korisnik</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbrisati potrošne datoteke za %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Izbrisati potrošne datoteke za %d odabranu aplikaciju?</item>

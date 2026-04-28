@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Échec : erreur de compression</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Supprimer cette session de journal de débogage ?</string>
     <string name="support_contact_post_send_message">Le message a-t-il été envoyé ?</string>
-    <string name="debug_debuglog_sessions_stop_action">Arrêter</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
     <string name="tasks_activity_working_notification_title">SD Maid travaille</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d tâche en attente</item>
         <item quantity="other">%d tâches en attente</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Résultats de la tâche</string>
     <string name="tasks_result_subtext">Résultat de la tâche</string>
     <string name="tasks_timeout_error_label">La tâche est arrivé au bout de son délai</string>
     <string name="tasks_timeout_error_desc">La tâche a pris trop de temps et a été arrêtée. Réessayez.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">Carte SD</string>
     <string name="data_areas_label">Zones de données</string>
     <string name="data_areas_description">Les zones de données représentent les emplacements accessibles à SD Maid sur votre appareil. Différentes zones de données peuvent être accessibles selon votre version d’Android et les autorisations accordées.</string>
-    <string name="data_areas_short_summary">Zones auxquelles SD Maid peut accéder d’après les autorisations accordées actuellement.</string>
-    <string name="history_label">Historique</string>
-    <string name="history_description">Liste chronologique des actions récentes et des données affectées.</string>
     <string name="updates_dashcard_title">Une mise à jour est proposée</string>
     <string name="updates_dashcard_body">Une mise à jour est proposée. Vous avez %1$s et %2$s est la version la plus récente.</string>
     <string name="translation_encourage_title">Traduire SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Chercher des mises à jour</string>
     <string name="updatecheck_setting_enabled_explanation">Permettre à SD Maid de chercher les mises à jour pour vous en informer.</string>
     <string name="device_settings_category">Appareil</string>
-    <string name="beta_version_indicator_desc">Les préversions affichent un petit ruban sur l’écran de démarrage. Elles sont mises à jour plus fréquemment, peuvent comporter davantage de fonctions, mais aussi plus de bogues.</string>
     <string name="review_app_review_action">Évaluation</string>
     <string name="review_app_dismiss_action">Plus tard, peut-être</string>
     <string name="review_app_body">Voulez-vous évaluer SD Maid ? ️ ❤️</string>

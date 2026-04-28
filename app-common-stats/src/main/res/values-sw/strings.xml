@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Hifadhi ya msingi</string>
     <string name="stats_storage_type_secondary">Hifadhi ya pili</string>
     <string name="stats_storage_type_portable">Hifadhi ya kubeba</string>
-    <string name="stats_settings_retention_snapshots_label">Picha za hifadhi ya nafasi</string>
-    <string name="stats_settings_retention_snapshots_desc">Idadi ya siku za kuhifadhi picha za nafasi ya hifadhi.</string>
 </resources>

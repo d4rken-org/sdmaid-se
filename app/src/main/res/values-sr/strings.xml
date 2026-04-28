@@ -40,7 +40,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Неуспешно: грешка при компресији</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Обрисати ову сесију дневника за отклањање грешака?</string>
     <string name="support_contact_post_send_message">Порука је успешно послата?</string>
-    <string name="debug_debuglog_sessions_stop_action">Заустави</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -53,7 +52,6 @@
         <item quantity="few">%d задатака на чекању</item>
         <item quantity="other">%d задатака на чекању</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Резултати задатака</string>
     <string name="tasks_result_subtext">Резултат задатака</string>
     <string name="tasks_timeout_error_label">Задатак је истекао</string>
     <string name="tasks_timeout_error_desc">Задатак је трајао предуго и заустављен је. Молимо покушајте поново.</string>
@@ -239,9 +237,6 @@
     <string name="data_area_sdcard_label">SD картица</string>
     <string name="data_areas_label">Области података</string>
     <string name="data_areas_description">Области података представљају локације на вашем уређају које су доступне СД Чистачу. Различите области података могу бити доступне у зависности од ваше Андроид верзије и датих дозвола.</string>
-    <string name="data_areas_short_summary">Области којима СД Чистач може приступити на основу тренутно датих дозвола.</string>
-    <string name="history_label">Историја</string>
-    <string name="history_description">Хронолошка листа недавних акција и погођених података.</string>
     <string name="updates_dashcard_title">Ажурирање доступно</string>
     <string name="updates_dashcard_body">Ажурирање је доступно. Имате %1$s а најновија верзија је %2$s.</string>
     <string name="translation_encourage_title">Преведите СД Чистач</string>
@@ -253,7 +248,6 @@
     <string name="updatecheck_setting_enabled_label">Провера ажурирања</string>
     <string name="updatecheck_setting_enabled_explanation">Дозволите СД Чистачу да проверава ажурирања и обавести вас ако је доступна новија верзија.</string>
     <string name="device_settings_category">Уређај</string>
-    <string name="beta_version_indicator_desc">Пред-издања приказују малу траку на почетном екрану. Ажурирају се чешће, могу имати више функција, али могу имати и више грешака.</string>
     <string name="review_app_review_action">Оцени</string>
     <string name="review_app_dismiss_action">Можда касније</string>
     <string name="review_app_body">Желите ли оставити рецензију за СД Чистач?️ ❤️</string>

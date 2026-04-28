@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatització del Netejador d\'aplicacions</string>
     <string name="appcleaner_automation_subtitle_default_caches">S\'estan esborrant les memòries cau per defecte…</string>
-    <string name="appcleaner_automation_progress_open_settings">Obertura de la pantalla de configuració (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">S\'està cercant l\'entrada «Emmagatzematge» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">S\'està buscant el botó «Esborra les dades» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">S\'està buscant el botó «Esborra la memòria cau» (paraules clau: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
     <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
-    <string name="appcleaner_junk_userprofile_label">Usuari</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Voleu suprimir els fitxers prescindibles d\'%d aplicacio selecciona?</item>

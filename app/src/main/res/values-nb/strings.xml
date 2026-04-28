@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Mislyktes: komprimeringsfeil</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Slette denne feilsøkingsloggøkten?</string>
     <string name="support_contact_post_send_message">Ble meldingen sendt?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stopp</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d oppgave i kø</item>
         <item quantity="other">%d oppgaver i kø</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Oppgaveresultater</string>
     <string name="tasks_result_subtext">Oppgaveresultat</string>
     <string name="tasks_timeout_error_label">Oppgaven fikk tidsavbrudd</string>
     <string name="tasks_timeout_error_desc">Oppgaven tok for lang tid og ble stoppet. Prøv igjen.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">Minnekort</string>
     <string name="data_areas_label">Dataområder</string>
     <string name="data_areas_description">Dataområder representerer steder på enheten din som er tilgjengelige for SD Maid. Ulike dataområder kan være tilgjengelige avhengig av Android-versjonen din og tillatelsene som er gitt.</string>
-    <string name="data_areas_short_summary">Områder som SD Maid har tilgang til, basert på gjeldende tillatelser.</string>
-    <string name="history_label">Historie</string>
-    <string name="history_description">En kronologisk liste over nylige handlinger og berørt data.</string>
     <string name="updates_dashcard_title">Oppdatering tilgjengelig</string>
     <string name="updates_dashcard_body">En oppdatering er tilgjengelig. Du har %1$s og den nyeste versjonen er %2$s.</string>
     <string name="translation_encourage_title">Oversett SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Oppdateringssjekk</string>
     <string name="updatecheck_setting_enabled_explanation">La SD Maid se etter oppdateringer for å fortelle deg om en nyere versjon er tilgjengelig.</string>
     <string name="device_settings_category">Enhet</string>
-    <string name="beta_version_indicator_desc">Pre-release-versjoner viser et lite bånd på startskjermen. De oppdateres oftere, kan ha flere funksjoner, men kan også ha flere feil.</string>
     <string name="review_app_review_action">Anmeldelse</string>
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>

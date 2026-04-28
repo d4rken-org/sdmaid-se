@@ -169,7 +169,6 @@
     <string name="general_user_label_owner">Úinéir</string>
     <string name="general_user_label_system">Córas</string>
     <string name="setup_title">Socrú</string>
-    <string name="setup_feature_requires_additional_setup_x">Téann an ghné seo ag teastail míreanna socrú breise a chríochnú: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Cruthaíodh eisiamh amháin</item>
         <item quantity="two">Cruthaíodh %d eisiamh</item>
@@ -196,5 +195,4 @@
     <string name="settings_category_risklevel">Leibhéal rioscai</string>
     <string name="settings_category_filter">Scagán</string>
     <string name="appcontrol_systemsettings_open_title">Taispeáin socruithe</string>
-    <string name="systemcleaner_customfilter_create_action">Cruthaigh scagaire saincheaptha</string>
 </resources>

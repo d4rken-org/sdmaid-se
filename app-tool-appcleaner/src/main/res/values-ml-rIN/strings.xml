@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ഓട്ടോമേഷൻ</string>
     <string name="appcleaner_automation_subtitle_default_caches">ഡിഫോൾട്ട് ക്യാഷുകൾ മായ്ക്കുന്നു…</string>
-    <string name="appcleaner_automation_progress_open_settings">ക്രമീകരണ സ്‌ക്രീൻ തുറക്കുന്നു (കീവേഡുകൾ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" എൻട്റി തിരയുന്നു (കീവേഡുകൾ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" ബട്ടൻ തിരയുന്നു (കീവേഡുകൾ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" ബട്ടൻ തിരയുന്നു (കീവേഡുകൾ: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">പൊതു, സ്വകാർയ ഡിഫോൾട്ട് ക്യാഷുകൾ. നേരിട്ട് ആക്‍സസ് ചെയ്യാൻ കഴിയില്ല, പക്ഷേ പരോക്ഷമായി ഡിലീറ്റ് ചെയ്യാൻ കഴിയും (ഉദാ: ആക്‍സസിബിലിറ്റി സേവനം വഴി).</string>
     <string name="appcleaner_automation_unavailable_title">ആക്‍സസിബിലിറ്റി സേവനം ലഭ്യമല്ല</string>
     <string name="appcleaner_automation_unavailable_body">ആക്‍സസ് ചെയ്യാൻ കഴിയാത്ത ക്യാഷുകൾ മായ്ക്കാൻ SD Maid-ന്റെ ആക്‍സസിബിലിറ്റി സേവനം ആവശ്യമാണ്, പക്ഷേ അത് ലഭ്യമല്ലായിരുന്നു. ഉപയോഗിക്കാൻ ആഗ്രഹമില്ലെങ്കിൽ: \"ആക്‍സസ് ചെയ്യാൻ കഴിയാത്ത ക്യാഷുകൾ ഉൾപ്പെടുത്തുക\" ഓപ്ഷൻ പ്രവർത്തനരഹിതമാക്കുക.</string>
-    <string name="appcleaner_junk_userprofile_label">ഉപയോക്താവ്</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-നായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d തിരഞ്ഞെടുത്ത ആപ്പിനായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</item>

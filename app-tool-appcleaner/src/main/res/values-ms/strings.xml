@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automasi AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Mengosongkan cache lalai…</string>
-    <string name="appcleaner_automation_progress_open_settings">Membuka tetapan aplikasi</string>
     <string name="appcleaner_automation_progress_find_storage">Mencari butang storan</string>
     <string name="appcleaner_automation_progress_find_clear_data">Mencari butang kosongkan data</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Mencari butang kosongkan cache</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache lalai awam dan peribadi. Tidak boleh diakses secara langsung, tetapi boleh dipadamkan secara tidak langsung (cth. melalui perkhidmatan aksesibiliti).</string>
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>
     <string name="appcleaner_automation_unavailable_body">Membersihkan cache yang tidak boleh diakses memerlukan perkhidmatan kebolehcapaian SD Maid, tetapi ia tidak tersedia. Jika anda tidak mahu menggunakannya: Lumpuhkan pilihan \"Sertakan cache yang tidak boleh diakses\".</string>
-    <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Padamkan fail boleh guna untuk %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Padam fail yang boleh dibuang untuk %d aplikasi terpilih?</item>

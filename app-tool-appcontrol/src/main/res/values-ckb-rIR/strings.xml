@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ئەپs installed on your device.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ئەپ دۆزراوەتەوە</item>
-        <item quantity="other">%d ئەپ دۆزراوەتەوە</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">گۆڕینی بارودۆخی ئەپەکان</string>
     <string name="appcontrol_toggle_app_enable_action">چالاککردن app</string>
     <string name="appcontrol_toggle_app_disable_action">ناچالاککردن app</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">دیباگ</string>
     <string name="appcontrol_progress_enabling_package">چالاکردنی ئەپ</string>
     <string name="appcontrol_progress_disabling_package">ناچالاکردنی ئەپ</string>
-    <string name="appcontrol_list_filteroptions_label">پاڵاوتن options</string>
     <string name="appcontrol_list_sortmode_name_label">ئەپ name</string>
     <string name="appcontrol_list_sortmode_updated_label">دوایین updated</string>
     <string name="appcontrol_list_sortmode_installed_label">یەکەم installed</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">دامەزراوە لە: %s</string>
     <string name="shortcut_appcontrol_short">کۆنترۆڵی ئەپ</string>
     <string name="shortcut_appcontrol_long">بەڕەوانی ئەپە دامەزراوەکان</string>
-    <string name="appcontrol_automation_loading">ئامادەکردنی ئۆتۆماسیۆن لە ڕێگەی خزمەتگوزاری دەستپێگەیشتن</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">هەوڵی دڵنیاکردنەوەی کردارە پێشووەکە دەدات (کلیلە وشەکان: %s)</string>
-    <string name="appcontrol_include_multiuser_label">بەکارهێنەرانی تری تێبگرە</string>
 </resources>

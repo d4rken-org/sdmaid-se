@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">በመሣሪያዎ ላይ የተጫኑ መተግበሪያዎች።</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d መተግበሪያ ተፈለጋል</item>
-        <item quantity="other">%d መተግበሪያዎች ተፈለጉ</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">መተግበሪያዎችን ቀይር</string>
     <string name="appcontrol_toggle_app_enable_action">መተግበሪያ አስችል</string>
     <string name="appcontrol_toggle_app_disable_action">መተግበሪያ አሰናክል</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">ማረም</string>
     <string name="appcontrol_progress_enabling_package">መተግበሪያን በማስቻል ላይ</string>
     <string name="appcontrol_progress_disabling_package">መተግበሪያን በማሰናከል ላይ</string>
-    <string name="appcontrol_list_filteroptions_label">የማጣሪያ አማራጮች</string>
     <string name="appcontrol_list_sortmode_name_label">የመተግበሪያ ስም</string>
     <string name="appcontrol_list_sortmode_updated_label">በመጨረሻ ተዘምኗል</string>
     <string name="appcontrol_list_sortmode_installed_label">መጀመሪያ ተጫኗል</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">የተጫነበት: %s</string>
     <string name="shortcut_appcontrol_short">የመተግበሪያ ቁጥጥር</string>
     <string name="shortcut_appcontrol_long">የተጫኑ መተግበሪያዎችን ያስተዳድሩ</string>
-    <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
-    <string name="appcontrol_include_multiuser_label">ለላሎች ተጠቋሚዊውን አክሉፓ</string>
 </resources>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner avtomatlaşdırması</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standart keşlər təmizlənir…</string>
-    <string name="appcleaner_automation_progress_open_settings">Parametrlər ekranı açılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Yaddaş\" girişi axtarılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Məlumatları təmizlə\" düyməsi axtarılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keşi təmizlə\" düyməsi axtarılır (açar sözlər: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">İctimai və şəxsi standart keşlər. Birbaşa əlçatan deyil, lakin dolayısı ilə silinə bilər (məsələn əlçatanlıq xidməti vasitəsilə).</string>
     <string name="appcleaner_automation_unavailable_title">Əlçatanlıq xidməti əlçatan deyil</string>
     <string name="appcleaner_automation_unavailable_body">Əlçatmaz keşləri təmizləmək SD Maid-in əlçatanlıq xidmətini tələb edir, lakin əlçatan deyildi. İstifadə etmək istəmirsinizsə: \"Əlçatmaz keşləri daxil et\" seçimini deaktiv edin.</string>
-    <string name="appcleaner_junk_userprofile_label">İstifadəçi</string>
     <string name="appcleaner_delete_confirmation_message_x">%s üçün xərclənə bilən fayllar silinsinmi?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d seçilmiş tətbiq üçün xərclənə bilən fayllar silinsinmi?</item>

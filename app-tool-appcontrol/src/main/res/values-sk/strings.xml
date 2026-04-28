@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplikácia zistená</item>
-        <item quantity="few">%d aplikácie zistené</item>
-        <item quantity="many">%d aplikácií zistených</item>
-        <item quantity="other">%d aplikácií zistených</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Prepnúť aplikácie</string>
     <string name="appcontrol_toggle_app_enable_action">Povoliť aplikáciu</string>
     <string name="appcontrol_toggle_app_disable_action">Zakázať aplikáciu</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Ladenie</string>
     <string name="appcontrol_progress_enabling_package">Aktivácia aplikácie</string>
     <string name="appcontrol_progress_disabling_package">Deaktivácia aplikácie</string>
-    <string name="appcontrol_list_filteroptions_label">Možnosti filtrovania</string>
     <string name="appcontrol_list_sortmode_name_label">Názov aplikácie</string>
     <string name="appcontrol_list_sortmode_updated_label">Naposledy aktualizované</string>
     <string name="appcontrol_list_sortmode_installed_label">Prvá inštalácia</string>
@@ -146,7 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
     <string name="shortcut_appcontrol_short">Kontrola aplikácií</string>
     <string name="shortcut_appcontrol_long">Správa nainštalovaných aplikácií</string>
-    <string name="appcontrol_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Zahrnúť ďalších používateľov</string>
 </resources>

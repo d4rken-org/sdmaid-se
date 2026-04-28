@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
     <string name="stats_storage_type_secondary">Isitoreji sesibili</string>
     <string name="stats_storage_type_portable">Isitoreji esiphathekayo</string>
-    <string name="stats_settings_retention_snapshots_label">Izithombe zesitoreji</string>
-    <string name="stats_settings_retention_snapshots_desc">Inani lezinsuku yokugcina izithombe zendawo yesitoreji.</string>
 </resources>

@@ -20,7 +20,6 @@
         <item quantity="one">Daagliks</item>
         <item quantity="other">Elke %d dae</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Herhaal interval</string>
     <string name="scheduler_inaccurate_execution_hint">Verwagte uitvoering tye is benaderings. Skedules mag vertraag of vervroeg word as dit battery bespaar.</string>
     <string name="scheduler_no_active_schedules_subtitle">Geen aktiewe skedules nie</string>
     <string name="scheduler_setting_nopowersaving_title">Slaan oor op lae battery</string>

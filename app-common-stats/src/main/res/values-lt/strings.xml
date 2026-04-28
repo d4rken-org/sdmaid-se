@@ -43,6 +43,4 @@
     <string name="stats_storage_type_primary">Pagrindinė saugykla</string>
     <string name="stats_storage_type_secondary">Antrinė saugykla</string>
     <string name="stats_storage_type_portable">Nešiojama saugykla</string>
-    <string name="stats_settings_retention_snapshots_label">Saugyklos momentinės nuotraukos</string>
-    <string name="stats_settings_retention_snapshots_desc">Dienų skaičius, kurį reikia saugoti saugyklos vietos momentines nuotraukas.</string>
 </resources>

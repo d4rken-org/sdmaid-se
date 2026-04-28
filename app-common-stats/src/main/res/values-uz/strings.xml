@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Asosiy xotira</string>
     <string name="stats_storage_type_secondary">Ikkilamchi xotira</string>
     <string name="stats_storage_type_portable">Ko\'chma xotira</string>
-    <string name="stats_settings_retention_snapshots_label">Xotira snapshotlari</string>
-    <string name="stats_settings_retention_snapshots_desc">Xotira bo\'shligi snapshotlarini saqlash kunlari soni.</string>
 </resources>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ఆటొమేషన్</string>
     <string name="appcleaner_automation_subtitle_default_caches">డిఫాల్ట్ క్యాషేలను క్లీర్ చేస్తోంది…</string>
-    <string name="appcleaner_automation_progress_open_settings">సెట్టింగ్స్ స్క్రీన్ తెరుస్తోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" ఎంట్రి కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">పబ్లిక్ మరియు ప్రైవేట్ డిఫాల్ట్ క్యాషేలు. నేరుగా ప్రాప్యత కాదు, కానీ పరోక్షంగా తొలగించవచ్చు (ఉదా. ప్రాప్యతా సేవ ద్వారా).</string>
     <string name="appcleaner_automation_unavailable_title">ప్రాప్యతా సేవ అనుపలబ్ధం</string>
     <string name="appcleaner_automation_unavailable_body">ప్రాప్యత కాని క్యాషేలను క్లీర్ చేయడానికి SD Maid ప్రాప్యతా సేవ అవసరం, కానీ అది అనుపలబ్ధం. దీనిని ఉపయోగించాలనుకోకపోతే: \"Include inaccessible caches\" ఎంపికను రద్దు చేయండి.</string>
-    <string name="appcleaner_junk_userprofile_label">వినియోగదారు</string>
     <string name="appcleaner_delete_confirmation_message_x">%s కోసం వ్యయించదగిన ఫైల్‌లను తొలగించాలా?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ఎంచుకొన్న %d యాప్ కోసం వ్యయించదగిన ఫైల్‌లను తొలగించాలా?</item>

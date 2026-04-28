@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Birincil depolama</string>
     <string name="stats_storage_type_secondary">İkincil depolama</string>
     <string name="stats_storage_type_portable">Taşınabilir depolama</string>
-    <string name="stats_settings_retention_snapshots_label">Depolama anlık görüntüleri</string>
-    <string name="stats_settings_retention_snapshots_desc">Depolama alanı anlık görüntülerini saklamak için gün sayısı.</string>
 </resources>

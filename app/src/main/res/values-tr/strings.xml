@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Başarısız: sıkıştırma hatası</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Bu hata ayıklama günlük oturumu silinsin mi?</string>
     <string name="support_contact_post_send_message">Mesaj başarıyla gönderildi mi?</string>
-    <string name="debug_debuglog_sessions_stop_action">Durdur</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d görev sırada</item>
         <item quantity="other">%d görev sırada</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Sonuçlar</string>
     <string name="tasks_result_subtext">Sonuç</string>
     <string name="tasks_timeout_error_label">Görev zaman aşımına uğradı</string>
     <string name="tasks_timeout_error_desc">Görev çok uzun sürdü ve durduruldu. Lütfen tekrar deneyin.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">Hafıza kartı</string>
     <string name="data_areas_label">Veri alanları</string>
     <string name="data_areas_description">Veri alanları, cihazınızda SD Maid tarafından erişilebilen konumları temsil eder. Android sürümünüze ve verilen izinlere bağlı olarak farklı veri alanları mevcut olabilir.</string>
-    <string name="data_areas_short_summary">SD Maid\'in halihazırda verilen izinlere göre erişebileceği alanlar.</string>
-    <string name="history_label">Geçmiş</string>
-    <string name="history_description">Son eylemlerin ve etkilenen verilerin kronolojik listesi.</string>
     <string name="updates_dashcard_title">Güncelleme mevcut</string>
     <string name="updates_dashcard_body">Güncelleme mevcut. Cihazınızda %1$s sürümü var. En son sürüm: %2$s.</string>
     <string name="translation_encourage_title">SD Maid\'i çevirmeye yardım et</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Güncelleme kontrolü</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid\'in daha yeni bir sürümün mevcut olup olmadığını size bildirmek için güncellemeleri kontrol etmesine izin verin.</string>
     <string name="device_settings_category">Cihaz</string>
-    <string name="beta_version_indicator_desc">Tam sürüm öncesi sürümler başlangıç ekranında küçük bir şerit görüntüler. Daha sık güncellenirler, daha fazla özelliğe sahip olabilirler, ancak daha fazla hataya da sahip olabilirler.</string>
     <string name="review_app_review_action">Değerlendir</string>
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>

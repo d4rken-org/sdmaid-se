@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Primêre berging</string>
     <string name="stats_storage_type_secondary">Sekondêre berging</string>
     <string name="stats_storage_type_portable">Draagbare berging</string>
-    <string name="stats_settings_retention_snapshots_label">Bergingskietkiekies</string>
-    <string name="stats_settings_retention_snapshots_desc">Aantal dae om bergingspasie-kietkiekies te bewaar.</string>
 </resources>

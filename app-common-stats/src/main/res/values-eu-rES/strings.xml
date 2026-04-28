@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Lehen mailako biltegiratzea</string>
     <string name="stats_storage_type_secondary">Bigarren mailako biltegiratzea</string>
     <string name="stats_storage_type_portable">Biltegiratze eramangarria</string>
-    <string name="stats_settings_retention_snapshots_label">Biltegiratze argazkiak</string>
-    <string name="stats_settings_retention_snapshots_desc">Biltegiratze-espazioaren argazkiak gordetzeko egun kopurua.</string>
 </resources>

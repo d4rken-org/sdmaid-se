@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">Teastaíonn SD Maid SE Pro</string>
 
     <string name="upgrades_dashcard_title">Uasghrádú SD Maid</string>
     <string name="upgrades_dashcard_body">Cuireann SD Maid Pro torthaí níos fearr, tuilleadh gnéithe agus roghanna d\'úsáideoirí cumhachta ar fáil.</string>

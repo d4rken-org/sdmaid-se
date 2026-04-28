@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Απαιτεί το SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Αναβάθμιση SD Maid SE</string>
     <string name="upgrades_dashcard_body">Το SD Maid SE Pro προσφέρει καλύτερα αποτελέσματα, περισσότερες δυνατότητες και επιλογές για προχωρημένους χρήστες.</string>
     <string name="upgrades_dashcard_upgrade_action">Αναβάθμιση</string>

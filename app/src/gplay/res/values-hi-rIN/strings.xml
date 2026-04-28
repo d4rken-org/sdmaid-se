@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD मेड SE प्रो</string>
     <string name="app_name_upgrade_postfix">प्रो</string>
-    <string name="upgrade_feature_requires_pro">SD मेड SE प्रो की अवश्यकता है</string>
     <string name="upgrades_dashcard_title">SD Maid SE को अपग्रेड करें</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro बेहतर परिणाम, अधिक सुविधाएं और पावर उपयोगकर्ताओं के लिए विकल्प प्रदान करता है।</string>
     <string name="upgrades_dashcard_upgrade_action">उन्नत करें</string>

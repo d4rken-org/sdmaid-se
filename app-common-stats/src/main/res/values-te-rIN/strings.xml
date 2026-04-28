@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">ముఖ్య స్టోరేజీ</string>
     <string name="stats_storage_type_secondary">ద్వితీయ స్టోరేజీ</string>
     <string name="stats_storage_type_portable">పోర్టేబుల్ స్టోరేజీ</string>
-    <string name="stats_settings_retention_snapshots_label">స్టోరేజ్ స్నాప్‌షాట్లు</string>
-    <string name="stats_settings_retention_snapshots_desc">స్టోరేజ్ స్నాప్‌షాట్లను ఉంచుకోవాలసిన రోజుల సంఖ్య.</string>
 </resources>

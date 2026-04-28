@@ -41,6 +41,4 @@
     <string name="stats_storage_type_primary">Stocare principală</string>
     <string name="stats_storage_type_secondary">Stocare secundară</string>
     <string name="stats_storage_type_portable">Depozitare portabilă</string>
-    <string name="stats_settings_retention_snapshots_label">Instantanee de stocare</string>
-    <string name="stats_settings_retention_snapshots_desc">Numărul de zile pentru păstrarea instantaneelor spațiului de stocare.</string>
 </resources>

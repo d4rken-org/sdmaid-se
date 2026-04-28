@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Peamine hoiustamisruum</string>
     <string name="stats_storage_type_secondary">Teisejärguline hoiustamisruum</string>
     <string name="stats_storage_type_portable">Kaasaskantav hoiustamisruum</string>
-    <string name="stats_settings_retention_snapshots_label">Hoiustamisruumi kuvatõmmised</string>
-    <string name="stats_settings_retention_snapshots_desc">Päevade arv, kui kaua säilitada hoiustamisruumi kuvatõmmiseid.</string>
 </resources>

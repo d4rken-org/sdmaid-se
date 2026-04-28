@@ -179,8 +179,6 @@
     <string name="general_user_label_owner">Savininkas</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>
-    <string name="setup_feature_requires_additional_setup_x">Šiai funkcijai reikia atlikti papildomus sąrankos elementus: %s</string>
-    <string name="upgrade_feature_requires_pro">Reikia Pro</string>
     <string name="general_include_multiuser_label">Įtraukti kitus naudotojus</string>
     <string name="general_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
     <string name="general_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
@@ -205,5 +203,4 @@
     <string name="settings_category_risklevel">Rizikos lygis</string>
     <string name="settings_category_filter">Filtras</string>
     <string name="appcontrol_systemsettings_open_title">Rodyti nustatymus</string>
-    <string name="systemcleaner_customfilter_create_action">Sukurti pasirinktinį filtrą</string>
 </resources>

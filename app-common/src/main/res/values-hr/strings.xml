@@ -168,8 +168,6 @@
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
     <string name="setup_title">Postavljanje</string>
-    <string name="setup_feature_requires_additional_setup_x">Ova značajka zahtijeva postavljanje dodatnih postavki: %s</string>
-    <string name="upgrade_feature_requires_pro">Zahtijeva Pro</string>
     <string name="general_include_multiuser_label">Uključi druge korisnike</string>
     <string name="general_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
     <string name="general_unsaved_confirmation_message">Imate nespremljene promjene!</string>
@@ -193,5 +191,4 @@
     <string name="settings_category_risklevel">Razina rizika</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Prikaži postavke</string>
-    <string name="systemcleaner_customfilter_create_action">Stvori prilagođeni filter</string>
 </resources>

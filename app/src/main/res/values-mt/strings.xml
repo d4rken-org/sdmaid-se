@@ -33,7 +33,6 @@
         <item quantity="one">%d task fil-kju</item>
         <item quantity="other">%d tasks fil-kju</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Riżultati tat-tasks</string>
     <string name="tasks_result_subtext">Riżultat tat-task</string>
     <string name="onboarding_welcome_title">Merħba</string>
     <string name="onboarding_welcome_body1">SD Maid SE jimmaniġġja fajls, apps u ħażna.</string>
@@ -131,8 +130,6 @@
     <string name="dataarea_warningcard_reload_action">Erġa\' agħbija ż-żoni tad-data</string>
     <string name="debug_mode_label">Modalità tad-debugging</string>
     <string name="debug_card_title">Il-modalità tad-debugging hija attivata</string>
-    <string name="history_label">Storja</string>
-    <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>
     <string name="data_areas_label">Żoni tad-data</string>
     <string name="updates_dashcard_title">Aġġornament disponibbli</string>
     <string name="updates_dashcard_body">Hemm aġġornament disponibbli. Għandek %1$s u l-aħħar verżjoni hija %2$s.</string>

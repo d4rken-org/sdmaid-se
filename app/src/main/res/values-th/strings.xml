@@ -37,7 +37,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">ล้มเหลว: ข้อผิดพลาดในการบีบอัด</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ลบเซสชันบันทึกการดีบักนี้?</string>
     <string name="support_contact_post_send_message">ส่งข้อความสำเร็จแล้วหรือไม่?</string>
-    <string name="debug_debuglog_sessions_stop_action">หยุด</string>
     <string name="tasks_activity_notification_channel_label">งานที่ทำอยู่</string>
     <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -46,7 +45,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d งานอยู่ในคิว</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">ผลงาน</string>
     <string name="tasks_result_subtext">ผลงาน</string>
     <string name="tasks_timeout_error_label">งานหมดเวลา</string>
     <string name="tasks_timeout_error_desc">งานใช้เวลานานเกินไปและถูกหยุด โปรดลองอีกครั้ง</string>
@@ -227,9 +225,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">พื้นที่ข้อมูล</string>
     <string name="data_areas_description">พื้นที่ข้อมูลหมายถึงสถานที่ในอุปกรณ์ของคุณที่ SD Maid สามารถเข้าถึงได้ พื้นที่ข้อมูลที่แตกต่างกันอาจใช้ได้ขึ้นอยู่กับเวอร์ชัน Android และสิทธิ์ที่ได้รับอนุญาต</string>
-    <string name="data_areas_short_summary">พื้นที่ที่ SD Maid สามารถเข้าถึงได้ตามสิทธิ์ที่ได้รับอนุญาตในปัจจุบัน</string>
-    <string name="history_label">ประวัติ</string>
-    <string name="history_description">รายการตามลำดับเวลาของการดำเนินการล่าสุดและข้อมูลที่ได้รับผลกระทบ</string>
     <string name="updates_dashcard_title">มีการอัปเดต</string>
     <string name="updates_dashcard_body">มีการอัปเดตใหม่ คุณมีเวอร์ชัน %1$s และเวอร์ชันล่าสุดคือ %2$s</string>
     <string name="translation_encourage_title">แปล SD Maid</string>
@@ -241,7 +236,6 @@
     <string name="updatecheck_setting_enabled_label">ตรวจสอบการอัปเดต</string>
     <string name="updatecheck_setting_enabled_explanation">อนุญาตให้ SD Maid ตรวจสอบการอัปเดตเพื่อแจ้งให้คุณทราบหากมีเวอร์ชันใหม่</string>
     <string name="device_settings_category">อุปกรณ์</string>
-    <string name="beta_version_indicator_desc">เวอร์ชันก่อนการออกจำหน่ายจะแสดงริบบิ้นเล็กๆ บนหน้าจอเริ่มต้น มีการอัปเดตบ่อยกว่า อาจมีฟีเจอร์มากกว่า แต่อาจมีบักมากกว่าด้วย</string>
     <string name="review_app_review_action">รีวิว</string>
     <string name="review_app_dismiss_action">อาจในคราวหน้า</string>
     <string name="review_app_body">คุณต้องการให้คะแนน SD Maid หรือไม่?️ ❤️</string>

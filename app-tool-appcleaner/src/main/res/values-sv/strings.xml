@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Rensar standardcache…</string>
-    <string name="appcleaner_automation_progress_open_settings">Öppnar inställningsskärm (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Söker efter \"Lagring\" post (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Letar efter knappen \"Rensa data\" (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Letar efter knappen \"Rensa cache\" (nyckelord: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Offentliga och privata standardcache. Inte direkt tillgängliga, men kan tas bort indirekt (t.ex. via tillgänglighetstjänst).</string>
     <string name="appcleaner_automation_unavailable_title">Tillgänglighetstjänst otillgänglig</string>
     <string name="appcleaner_automation_unavailable_body">Rensning av otillgängliga cache kräver SD Maids tillgänglighetstjänst, men den var otillgänglig. Om du inte vill använda den: Inaktivera alternativet \"Inkludera otillgängliga cache\".</string>
-    <string name="appcleaner_junk_userprofile_label">Användare</string>
     <string name="appcleaner_delete_confirmation_message_x">Ta bort förbrukningsbara filer för %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ta bort förbrukningsbara filer för %d vald app?</item>

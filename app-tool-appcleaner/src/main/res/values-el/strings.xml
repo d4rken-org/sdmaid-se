@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Αυτοματοποίηση Εκκαθάρισης Εφαρμογών</string>
     <string name="appcleaner_automation_subtitle_default_caches">Εκκαθάριση προεπιλεγμένων προσωρινών μνημών…</string>
-    <string name="appcleaner_automation_progress_open_settings">Άνοιγμα οθόνης ρυθμίσεων (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Αναζήτηση για καταχώρηση \"Αποθήκευση\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Αναζήτηση για το κουμπί \"Εκκαθάριση δεδομένων\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Αναζήτηση για το κουμπί \"Εκκαθάριση προσωρινής μνήμης\" (λέξεις-κλειδιά: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
     <string name="appcleaner_automation_unavailable_title">Η υπηρεσία προσβασιμότητας δεν είναι διαθέσιμη</string>
     <string name="appcleaner_automation_unavailable_body">Η εκκαθάριση των απρόσιτων κρυφών μνήμης απαιτεί την υπηρεσία προσβασιμότητας της SD Maid, αλλά δεν ήταν διαθέσιμη. Εάν δε θέλετε να το χρησιμοποιήσετε: απενεργοποιήστε την επιλογή \"Συμπερίληψη μη προσβάσιμων κρυφών μνημών\".</string>
-    <string name="appcleaner_junk_userprofile_label">Χρήστη</string>
     <string name="appcleaner_delete_confirmation_message_x">Διαγραφή αναλώσιμων αρχείων για %s;</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Διαγραφή αναλώσιμων αρχείων για %d επιλεγμένη εφαρμογή;</item>

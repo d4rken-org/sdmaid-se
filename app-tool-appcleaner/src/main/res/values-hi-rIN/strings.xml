@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">ऐप स्वच्छक स्वचालन</string>
     <string name="appcleaner_automation_subtitle_default_caches">डिफ़ॉल्ट कैश साफ़ कर रहा है…</string>
-    <string name="appcleaner_automation_progress_open_settings">सेटिंग स्क्रीन खोल रहे हैं (कीवर्ड: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"संग्रहण\" प्रविष्टि खोज रहे हैं (कीवर्ड: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"डेटा साफ़ करें\" बटन ढूंढ रहे हैं (कीवर्ड: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"कैश साफ़ करें\" बटन ढूंढ रहे हैं (कीवर्ड: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>
     <string name="appcleaner_automation_unavailable_body">आपके डिवाइस पर स्वचालन समर्थित नहीं है या यह अक्षम है।</string>
-    <string name="appcleaner_junk_userprofile_label">उपयोगकर्ता</string>
     <string name="appcleaner_delete_confirmation_message_x">%s के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d चयनित ऐप के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>

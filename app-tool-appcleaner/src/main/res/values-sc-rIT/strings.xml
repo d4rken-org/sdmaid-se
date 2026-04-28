@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizatzione AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpiadela de cache predefinidas…</string>
-    <string name="appcleaner_automation_progress_open_settings">Abertura de ischermada de impostatziones (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Chirchende entrada \"Archìviu\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Chirchende butone \"Limpiai datos\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Chirchende butone \"Limpiai cache\" (faeddas crae: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinidas púbblicas e privadas. No diretamente atzessìbiles, ma podent èssere cantzelladas indiretamente (pro es. a travessu de servitziu de atzessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Servitziu de atzessibilidade non disponìbile</string>
     <string name="appcleaner_automation_unavailable_body">Sa limpiadela de cache inatzessìbiles riekeret su servitziu de atzessibilidade de SD Maid, ma non fiat disponìbile. Si no lu cheres impreare: Disabilita s\'optzione \"Inclutìghere cache inatzessìbiles\".</string>
-    <string name="appcleaner_junk_userprofile_label">Usuàriu</string>
     <string name="appcleaner_delete_confirmation_message_x">Cantzellare documentos ispentzìbiles pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cantzellare documentos ispentzìbiles pro %d aplicatzione seletzionada?</item>

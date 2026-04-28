@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD 女僕 SE 專業版</string>
     <string name="app_name_upgrade_postfix">專業版</string>
-    <string name="upgrade_feature_requires_pro">需要 SD 女僕 SE 專業版</string>
     <string name="upgrades_dashcard_title">升級 SD 女僕 SE</string>
     <string name="upgrades_dashcard_body">SD 女僕 SE 專業版提供更好的結果、更多功能及進階使用者選項。</string>
     <string name="upgrades_dashcard_upgrade_action">升級</string>

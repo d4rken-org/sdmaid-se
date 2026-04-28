@@ -39,8 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Failed: compression error</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Delete this debug log session?</string>
     <string name="support_contact_post_send_message">Message sent successfully?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stop</string>
-
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d task in queue</item>
         <item quantity="other">%d queued tasks</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Task results</string>
     <string name="tasks_result_subtext">Task result</string>
     <string name="tasks_timeout_error_label">Task timed out</string>
     <string name="tasks_timeout_error_desc">The task took too long and was stopped. Please try again.</string>
@@ -266,11 +263,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Data areas</string>
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
-    <string name="data_areas_short_summary">Areas that SD Maid can access based on the currently granted permissions.</string>
-
-    <string name="history_label">History</string>
-    <string name="history_description">A chronological list of recent actions and affected data.</string>
-
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>
 
@@ -285,8 +277,6 @@
     <string name="updatecheck_setting_enabled_label">Update check</string>
     <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
     <string name="device_settings_category">Device</string>
-
-    <string name="beta_version_indicator_desc">Pre-release versions display a litte ribbon on the start screen. They are updated more frequently, might have more features, but could also have more bugs.</string>
 
     <string name="review_app_review_action">Review</string>
     <string name="review_app_dismiss_action">Maybe later</string>

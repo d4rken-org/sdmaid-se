@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Сәтсіз: сығу қатесі</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Бұл отладка журналы сессиясын жою керек пе?</string>
     <string name="support_contact_post_send_message">Xабар сәтли жиберилди ме?</string>
-    <string name="debug_debuglog_sessions_stop_action">Тоқтату</string>
     <string name="tasks_activity_notification_channel_label">Aktiv wazıypalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid islep atır</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d tapsırma gezekte</item>
         <item quantity="other">%d tapsırma gezekte</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Tapsırmanı orınlaw nátiyjeleri</string>
     <string name="tasks_result_subtext">Tapsırmanı orınlaw nátiyjesi</string>
     <string name="tasks_timeout_error_label">Тапсырманың уақыты өтіп кетти</string>
     <string name="tasks_timeout_error_desc">Тапсырма өте көп уақыт алды ҳәм тоқтатылды. Қайта урыныңыз.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Aymaqlardı skanerlew</string>
     <string name="data_areas_description">Maǵlıwmat tarawları SD Maid ushın qol jetimli bolǵan qurılmańızdaǵı orınlardı kórsetedi. Hár túrlı maǵlıwmat tarawları Android nusqańız hám berilgen ruqsatnamaǵa qaray qol jetimli bolıwı múmkin.</string>
-    <string name="data_areas_short_summary">Házirgi waqıtta berilgen ruqsatnamalar tiykarında SD Maid kire alatuǵın tarawlar.</string>
-    <string name="history_label">Tariyxıy</string>
-    <string name="history_description">Sońǵı háreketler hám tásir etilgen maǵlıwmatlardıń xronologiyalıq dizimi.</string>
     <string name="updates_dashcard_title">Jańalanıw bar</string>
     <string name="updates_dashcard_body">Jańartu bor. Sizde %1$s bar hám eń jańa versiya %2$s.</string>
     <string name="translation_encourage_title">SD Maid-tı awdarıw</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Jańartu tekseriw</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-ǵa jańa versiya bar ma degenin bildiru úśin jańartıwlardı tekseruwe ruqsat beriu.</string>
     <string name="device_settings_category">Qurilma</string>
-    <string name="beta_version_indicator_desc">Aldın-ala shıg̱arılımlar bas betinde kishi lenta kórsetedi. Olar жиі jańartılad̨ı, kóp funkcialar bolıwı múmkin, biraq kóp qateler de bolıwı múmkin.</string>
     <string name="review_app_review_action">Bahalawg̱a</string>
     <string name="review_app_dismiss_action">Keiinrek</string>
     <string name="review_app_body">SD Maid-qa bahalawı qaldırıwıńızın qálei me?️ ❤️</string>

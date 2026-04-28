@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">आपके डिवाइस पर स्थापित किए गए ऐप्स।</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ऐप का पता चला</item>
-        <item quantity="other">%d ऐपो का पता चला</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ऐप्स टॉगल करें</string>
     <string name="appcontrol_toggle_app_enable_action">ऐप सक्षम करें</string>
     <string name="appcontrol_toggle_app_disable_action">ऐप अक्षम करें</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">डीबग</string>
     <string name="appcontrol_progress_enabling_package">ऐप सक्षम हो रहा है</string>
     <string name="appcontrol_progress_disabling_package">ऐप अक्षम हो रहा है</string>
-    <string name="appcontrol_list_filteroptions_label">फ़िल्टर विकल्प</string>
     <string name="appcontrol_list_sortmode_name_label">ऐप का नाम</string>
     <string name="appcontrol_list_sortmode_updated_label">अद्यतन की तारीख</string>
     <string name="appcontrol_list_sortmode_installed_label">इंस्टॉल की तारीख</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">इंस्टॉल किया गया: %s</string>
     <string name="shortcut_appcontrol_short">ऐप नियंत्रण</string>
     <string name="shortcut_appcontrol_long">स्थापित ऐप्स प्रबंधित करें</string>
-    <string name="appcontrol_automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
-    <string name="appcontrol_include_multiuser_label">अन्य उपयोगकर्ता शामिल करें</string>
 </resources>

@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Əsas yaddaş</string>
     <string name="stats_storage_type_secondary">İkinci yaddaş</string>
     <string name="stats_storage_type_portable">Taşınan yaddaş</string>
-    <string name="stats_settings_retention_snapshots_label">Yaddaş anlıq görüntüləri</string>
-    <string name="stats_settings_retention_snapshots_desc">Yaddaş məkan anlıq görüntülərini saxlamaq üçün günlərin sayı.</string>
 </resources>

@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Dështoi: gabim kompresimi</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Të fshihet ky sesion i regjistrit të korrigjimit?</string>
     <string name="support_contact_post_send_message">Mesazhi u dërgua me sukses?</string>
-    <string name="debug_debuglog_sessions_stop_action">Ndalo</string>
     <string name="tasks_activity_notification_channel_label">Detyra aktive</string>
     <string name="tasks_activity_working_notification_title">SD Maid po punon</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d detyrë në radhë</item>
         <item quantity="other">%d detyra në radhë</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Rezultatet e detyrës</string>
     <string name="tasks_result_subtext">Rezultat e detyrës</string>
     <string name="tasks_timeout_error_label">Detyra ka skaduar</string>
     <string name="tasks_timeout_error_desc">Detyra zgjati shumë dhe u ndal. Ju lutem provoni përsëri.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD kartela</string>
     <string name="data_areas_label">Zonat e të dhënave</string>
     <string name="data_areas_description">Zonat e të dhënave përfaqësojnë vendndodhje në pajisjen tuaj që janë të aksesueshme për SD Maid. Zona të ndryshme të të dhënave mund të jenë të disponueshme në varësi të versionit tuaj të Android dhe lejeve që janë dhënë.</string>
-    <string name="data_areas_short_summary">Zonat ku SD Maid mund të qaset bazuar në lejet e dhëna aktualisht.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Një listë kronologjike e veprimeve të fundit dhe të dhënave të prekura.</string>
     <string name="updates_dashcard_title">Përditësimi është gati</string>
     <string name="updates_dashcard_body">Ekziston një përditësim. Ju keni %1$s dhe versioni më i fundit është %2$s.</string>
     <string name="translation_encourage_title">Përkthim i SD Maid</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrolli i azhurnuar</string>
     <string name="updatecheck_setting_enabled_explanation">Lejo SD Maid të kontrollojë për përditësime për t\'ju njoftuar nëse disponohet një version më i ri.</string>
     <string name="device_settings_category">Pajisja</string>
-    <string name="beta_version_indicator_desc">Versionet e para-lëshimit shfaqin një shirit të vogël në ekranin fillestar. Ato përditësohen më shpesh, mund të kenë më shumë veçori, por gjithashtu mund të kenë më shumë gabime.</string>
     <string name="review_app_review_action">Rishikimi</string>
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
     <string name="review_app_body">Dëshironi t\'i lini një koment SD Maid? ❤️</string>

@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">Mae\'r nodwedd hon yn recordio popeth mae\'r ap yn ei wneud i ffeil y gellir ei rhannu. Mae\'r ffeil a gynhyrchwyd yn cynnwys gwybodaeth sensitif (e.e. enwau ffeiliau ac apiau wedi\'u gosod). Rhannwch hi gyda phartïon dibynadwy yn unig (e.e. datblygwr sy\'n datrys problem).</string>
     <string name="tasks_activity_notification_channel_label">Tasgau gweithredol</string>
     <string name="tasks_activity_working_notification_title">Mae SD Maid yn gweithio</string>
-    <string name="tasks_result_notification_channel_label">Canlyniadau tasgau</string>
     <string name="tasks_result_subtext">Canlyniad tasg</string>
     <string name="onboarding_welcome_title">Croeso</string>
     <string name="onboarding_welcome_body1">Mae SD Maid SE yn rheoli ffeiliau, apiau a storfa.</string>
@@ -141,9 +140,6 @@
     <string name="data_area_sdcard_label">Cerdyn SD</string>
     <string name="data_areas_label">Ardaloedd data</string>
     <string name="data_areas_description">Mae ardaloedd data yn cynrychioli lleoliadau ar eich dyfais sy\'n hygyrch i SD Maid. Gall gwahanol ardaloedd data fod ar gael yn dibynnu ar eich fersiwn Android a\'r caniatadau a roddwyd.</string>
-    <string name="data_areas_short_summary">Ardaloedd y gall SD Maid eu cyrchu yn seiliedig ar y caniatadau a roddwyd ar hyn o bryd.</string>
-    <string name="history_label">Hanes</string>
-    <string name="history_description">Rhestr gronolegol o weithredoedd diweddar a data a effeithiwyd.</string>
     <string name="updates_dashcard_title">Diweddariad ar gael</string>
     <string name="updates_dashcard_body">Mae diweddariad ar gael. Mae gennych %1$s a\'r fersiwn diweddaraf yw %2$s.</string>
     <string name="translation_encourage_title">Cyfieithu SD Maid</string>
@@ -155,7 +151,6 @@
     <string name="updatecheck_setting_enabled_label">Gwiriad diweddariad</string>
     <string name="updatecheck_setting_enabled_explanation">Caniatáu i SD Maid wirio am ddiweddariadau i roi gwybod i chi os oes fersiwn newydd ar gael.</string>
     <string name="device_settings_category">Dyfais</string>
-    <string name="beta_version_indicator_desc">Mae fersiynau cyn-rhyddhau yn dangos rhuban bach ar y sgrin gychwyn. Maent yn cael eu diweddaru\'n amlach, gallant gael mwy o nodweddion, ond gallant hefyd gael mwy o wallau.</string>
     <string name="review_app_review_action">Adolygu</string>
     <string name="review_app_dismiss_action">Efallai\'n hwyrach</string>
     <string name="review_app_body">Hoffech chi adael adolygiad i SD Maid?️ ❤️</string>

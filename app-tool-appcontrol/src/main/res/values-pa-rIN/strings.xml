@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਸਥਾਪਿਤ ਐਪਾਂ।</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ਐਪ ਖੋਜੀ ਗਈ</item>
-        <item quantity="other">%d ਐਪਾਂ ਖੋਜੀਆਂ ਗਈਆਂ</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ਐਪਾਂ ਨੂੰ ਟੌਗਲ ਕਰੋ</string>
     <string name="appcontrol_toggle_app_enable_action">ਐਪ ਨੂੰ ਸਮਰੱਥ ਕਰੋ</string>
     <string name="appcontrol_toggle_app_disable_action">ਐਪ ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">ਡੀਬੱਗ</string>
     <string name="appcontrol_progress_enabling_package">ਐਪ ਨੂੰ ਸਮਰੱਥ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <string name="appcontrol_progress_disabling_package">ਐਪ ਨੂੰ ਅਸਮਰੱਥ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
-    <string name="appcontrol_list_filteroptions_label">ਫਿਲਟਰ ਵਿਕਲਪ</string>
     <string name="appcontrol_list_sortmode_name_label">ਐਪ ਦਾ ਨਾਮ</string>
     <string name="appcontrol_list_sortmode_updated_label">ਆਖਰੀ ਅੱਪਡੇਟ</string>
     <string name="appcontrol_list_sortmode_installed_label">ਪਹਿਲੀ ਵਾਰ ਸਥਾਪਿਤ</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">ਸਥਾਪਿਤ: %s</string>
     <string name="shortcut_appcontrol_short">ਐਪ ਕੰਟਰੋਲ</string>
     <string name="shortcut_appcontrol_long">ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ</string>
-    <string name="appcontrol_automation_loading">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਰਾਹੀਂ ਆਟੋਮੇਸ਼ਨ ਤਿਆਰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
 </resources>

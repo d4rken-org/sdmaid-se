@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Forrit uppsett á tækinu þínu.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d forrit greint</item>
-        <item quantity="other">%d forrit greind</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Skipta um forrit</string>
     <string name="appcontrol_toggle_app_enable_action">Virkja forrit</string>
     <string name="appcontrol_toggle_app_disable_action">Gera forrit óvirkt</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Villuleit</string>
     <string name="appcontrol_progress_enabling_package">Virkja forrit</string>
     <string name="appcontrol_progress_disabling_package">Geri forrit óvirkt</string>
-    <string name="appcontrol_list_filteroptions_label">Síuvalkostir</string>
     <string name="appcontrol_list_sortmode_name_label">Nafn forrits</string>
     <string name="appcontrol_list_sortmode_updated_label">Síðast uppfært</string>
     <string name="appcontrol_list_sortmode_installed_label">Fyrst sett upp</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Uppsett: %s</string>
     <string name="shortcut_appcontrol_short">Forritastjórnun</string>
     <string name="shortcut_appcontrol_long">Stjórna uppsettum forritum</string>
-    <string name="appcontrol_automation_loading">Undirbýr sjálfvirkni í gegnum aðgengisþjónustu</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (leitarorð: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Hafa með aðra notendur</string>
 </resources>

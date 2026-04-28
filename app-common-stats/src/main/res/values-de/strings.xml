@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Primärspeicher</string>
     <string name="stats_storage_type_secondary">Sekundärspeicher</string>
     <string name="stats_storage_type_portable">Tragbarer Speicher</string>
-    <string name="stats_settings_retention_snapshots_label">Speicher-Snapshots</string>
-    <string name="stats_settings_retention_snapshots_desc">Anzahl der Tage, für die Speicherplatz-Snapshots aufbewahrt werden.</string>
 </resources>

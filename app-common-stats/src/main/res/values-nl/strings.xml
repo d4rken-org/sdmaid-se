@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>
     <string name="stats_storage_type_portable">Draagbare opslag</string>
-    <string name="stats_settings_retention_snapshots_label">Opslagmomentopnames</string>
-    <string name="stats_settings_retention_snapshots_desc">Aantal dagen om opslagruimte-momentopnames te bewaren.</string>
 </resources>

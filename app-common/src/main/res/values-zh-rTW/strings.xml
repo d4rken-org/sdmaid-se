@@ -146,8 +146,6 @@
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
-    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
-    <string name="upgrade_feature_requires_pro">需要專業版</string>
     <string name="general_include_multiuser_label">包含其他使用者</string>
     <string name="general_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="general_unsaved_confirmation_message">您有未儲存的變更！</string>
@@ -169,5 +167,4 @@
     <string name="settings_category_risklevel">風險層級</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
-    <string name="systemcleaner_customfilter_create_action">建立自訂過濾器</string>
 </resources>

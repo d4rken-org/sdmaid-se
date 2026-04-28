@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Nurjus: tihendamisviga</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Kustutada see silumislogi seanss?</string>
     <string name="support_contact_post_send_message">Sõnum edukalt saadetud?</string>
-    <string name="debug_debuglog_sessions_stop_action">Peata</string>
     <string name="tasks_activity_notification_channel_label">Aktiivsed ülesanded</string>
     <string name="tasks_activity_working_notification_title">SD Maid toimetab</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d ülesanne järjekorras</item>
         <item quantity="other">%d ülesannet järjekorras</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Ülesande tulemused</string>
     <string name="tasks_result_subtext">Ülesande tulemus</string>
     <string name="tasks_timeout_error_label">Ülesande aeg sai täis</string>
     <string name="tasks_timeout_error_desc">Ülesande lahendamine kestis liiga kaua ja lõpetati. Proovige uuesti.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD-kaart</string>
     <string name="data_areas_label">Andmekogud</string>
     <string name="data_areas_description">SD Maidi juurdepääsetavad seadme kohad. Need võivad erineda olenevalt Androidi versioonist ja antud lubadest.</string>
-    <string name="data_areas_short_summary">Kohad, kuhu SD Maid võib praegu juurde pääseda.</string>
-    <string name="history_label">Ajalugu</string>
-    <string name="history_description">Hiljutised toimingud ja mõjutatud andmed kronoloogilises loendis.</string>
     <string name="updates_dashcard_title">Uuendus saadaval</string>
     <string name="updates_dashcard_body">Saadaval on uuendus. Teil on %1$s ja uusim versioon on %2$s.</string>
     <string name="translation_encourage_title">Tõlkige SD Maidi</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrolli uuendusi</string>
     <string name="updatecheck_setting_enabled_explanation">Luba SD Maidil kontrollida uuendusi, et teada saada uue versiooni saadavusest.</string>
     <string name="device_settings_category">Seade</string>
-    <string name="beta_version_indicator_desc">Katsetamisel versioonid näitavad avakuval väikest riba. Neid uuendatakse sagedamini, võivad sisaldada rohkem võimalusi, samas ka vigu.</string>
     <string name="review_app_review_action">Arvustus</string>
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>

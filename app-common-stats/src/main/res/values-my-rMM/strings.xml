@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">မူလသိုလှောင်မှု</string>
     <string name="stats_storage_type_secondary">ဒုတိယသိုလှောင်မှု</string>
     <string name="stats_storage_type_portable">လွယ်ကူစွာသယ်နိုင်သော သိုလှောင်မှု</string>
-    <string name="stats_settings_retention_snapshots_label">သိုလှောင်မှု ဓာတ်ပုံရိုက်ချက်များ</string>
-    <string name="stats_settings_retention_snapshots_desc">သိုလှောင်မှုနေရာ ဓာတ်ပုံရိုက်ချက်များကို သိမ်းဆည်းထားရမည့် ရက်အရေအတွက်။</string>
 </resources>

@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">주 저장소</string>
     <string name="stats_storage_type_secondary">추가 저장소</string>
     <string name="stats_storage_type_portable">휴대용 저장소</string>
-    <string name="stats_settings_retention_snapshots_label">저장공간 스냅샷</string>
-    <string name="stats_settings_retention_snapshots_desc">저장공간 스냅샷을 보관할 일수입니다.</string>
 </resources>

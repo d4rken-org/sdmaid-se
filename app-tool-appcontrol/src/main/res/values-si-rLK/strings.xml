@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ඔබේ පිකරණයම ස්ථාපිත යෙදුම්.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d යෙදුමක් සොයා ගනු ලැබීම</item>
-        <item quantity="other">%d යෙදුම් සොයා ගනු ලැබීම</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">යෙදුම් වෙනස් කරන්න</string>
     <string name="appcontrol_toggle_app_enable_action">යෙදුම සක්‍රිය කරන්න</string>
     <string name="appcontrol_toggle_app_disable_action">යෙදුම අබල කරන්න</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">නිදොස්කරණ</string>
     <string name="appcontrol_progress_enabling_package">යෙදුම සක්‍රිය කරමින්</string>
     <string name="appcontrol_progress_disabling_package">යෙදුම අබල කරමින්</string>
-    <string name="appcontrol_list_filteroptions_label">පෙරණ විකල්ප</string>
     <string name="appcontrol_list_sortmode_name_label">යෙදුමේ නම</string>
     <string name="appcontrol_list_sortmode_updated_label">අවසාන වන් වාර යාවත්කාලීන කරන ලදී</string>
     <string name="appcontrol_list_sortmode_installed_label">පළමු ස්ථාපනය</string>
@@ -124,7 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">ස්ථාපිත දිනය: %s</string>
     <string name="shortcut_appcontrol_short">යෙදුම් පාලනය</string>
     <string name="shortcut_appcontrol_long">ස්ථාපිත යෙදුම් කළමනාකරණය</string>
-    <string name="appcontrol_automation_loading">ප්‍රවේශ්‍යතා සේවාව හරහා ස්වයංක්‍රියකරණය සූදානම් කරමින්</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">පෙර ක්‍රියාව තහවුරු කිරීමට උත්සාහ කරමින් (මූල පද: %s)</string>
-    <string name="appcontrol_include_multiuser_label">අනෙකුත් පරිශීලකයන් ඇතුළත් කරන්න</string>
 </resources>

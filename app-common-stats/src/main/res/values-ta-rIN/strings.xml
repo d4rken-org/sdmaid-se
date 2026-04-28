@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">முதன்மை சேமிப்பு</string>
     <string name="stats_storage_type_secondary">இரண்டாம் நிலை சேமிப்பு</string>
     <string name="stats_storage_type_portable">கையடக்க சேமிப்பு</string>
-    <string name="stats_settings_retention_snapshots_label">சேமிப்பக ஸ்னாப்ஷாட்கள்</string>
-    <string name="stats_settings_retention_snapshots_desc">சேமிப்பக இடத்தின் ஸ்னாப்ஷாட்களை வைத்திருக்க வேண்டிய நாட்களின் எண்ணிக்கை.</string>
 </resources>

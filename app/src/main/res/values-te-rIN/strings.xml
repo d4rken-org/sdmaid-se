@@ -39,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">విఫలమైంది: కంప్రెషన్ లోపం</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ఈ డీబగ్ లాగ్ సెషన్‌ను తొలగించాలా?</string>
     <string name="support_contact_post_send_message">సందేశం విజయవంతంగా పంపబడిందా?</string>
-    <string name="debug_debuglog_sessions_stop_action">ఆపు</string>
     <string name="tasks_activity_notification_channel_label">సక్రియ కార్యాలు</string>
     <string name="tasks_activity_working_notification_title">SD Maid పని చేస్తోంది</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -50,7 +49,6 @@
         <item quantity="one">%d కార్యం క్యూలో</item>
         <item quantity="other">%d కార్యాలు క్యూలో</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">కార్యం ఫలితాలు</string>
     <string name="tasks_result_subtext">కార్యం ఫలితం</string>
     <string name="tasks_timeout_error_label">టాస్క్ సమయం ముగిసింది</string>
     <string name="tasks_timeout_error_desc">టాస్క్ చాలా ఎక్కువ సమయం తీసుకుంది మరియు ఆపబడింది. దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
@@ -233,9 +231,6 @@
     <string name="data_area_sdcard_label">SD కార్డ్</string>
     <string name="data_areas_label">డేటా ప్రాంతాలు</string>
     <string name="data_areas_description">డేటా ప్రాంతాలు SD Maid కు ప్రాప్యత ఉన్న మీ పరికరంలోని స్థలాలను ప్రతినిధులు చేస్తాయి. మీ Android వెర్షన్ మరియు మంజూరు చేయబడిన అనుమతుల ఆధారంగా వేరే డేటా ప్రాంతాలు అనుపలబ్ధం అవవచ్చు.</string>
-    <string name="data_areas_short_summary">ప్రస్తుతం మంజూరు చేయబడిన అనుమతుల ఆధారంగా SD Maid ప్రాప్యత చేసే ప్రాంతాలు.</string>
-    <string name="history_label">చరిత్ర</string>
-    <string name="history_description">ఇక్కడిన క్రియలు మరియు ప్రభావితమైన డేటా కాలానుక్రమ జాబితా.</string>
     <string name="updates_dashcard_title">అప్‌డేట్ అనుపలబ్ధం</string>
     <string name="updates_dashcard_body">అప్‌డేట్ అనుపలబ్ధం. మీ దగ్గర %1$s ఉంది మరియు కొత్త వెర్షన్ %2$s.</string>
     <string name="translation_encourage_title">SD Maid ను అనువదించండి</string>
@@ -247,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">అప్‌డేట్ చూడలు</string>
     <string name="updatecheck_setting_enabled_explanation">కొత్త వెర్షన్ అనుపలబ్ధమైతే మిమ్మల్ని తెలియజేయడానికి అప్‌డేట్‌ల కోసం చూడడానికి SD Maid కి అనుమతించండి.</string>
     <string name="device_settings_category">పరికరం</string>
-    <string name="beta_version_indicator_desc">ప్రీ-రిలీస్ వెర్షన్‌లు ప్రారంభ స్క్రీన్‌లో చిన్న రిబ్బన్‌ను ప్రదర్శిస్తాయి. వాటి మెల్ల ఆవృత్తిని అప్‌డేట్ చేయబడతాయి, మెల్ల ఫీచర్లు ఉండవచ్చు, కానీ మెల్ల బగ్‌లు కూడా ఉండవచ్చు.</string>
     <string name="review_app_review_action">సమీక్ష</string>
     <string name="review_app_dismiss_action">తరువాత ఆగామి</string>
     <string name="review_app_body">మీరు SD Maid కోసం సమీక్ష వ్రాయాలనుకుంటారా?️ ❤️</string>

@@ -20,7 +20,6 @@
         <item quantity="one">Kila siku</item>
         <item quantity="other">Kila siku %d</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Muda wa kurudia</string>
     <string name="scheduler_inaccurate_execution_hint">Nyakati za utekelezaji zinazotarajiwa ni makadirio. Ratiba zinaweza kuchelewa au kuongezewa kasi ikiwa itahifadhi betri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Hakuna ratiba zinazofanya kazi</string>
     <string name="scheduler_setting_nopowersaving_title">Ruka wakati betri ni chini</string>

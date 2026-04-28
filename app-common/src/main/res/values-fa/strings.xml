@@ -157,8 +157,6 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سیستم</string>
     <string name="setup_title">راه‌اندازی</string>
-    <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
-    <string name="upgrade_feature_requires_pro">نیاز به Pro دارد</string>
     <string name="general_include_multiuser_label">شامل کردن کاربران دیگر</string>
     <string name="general_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
     <string name="general_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
@@ -181,5 +179,4 @@
     <string name="settings_category_risklevel">سطح خطر</string>
     <string name="settings_category_filter">فیلتر</string>
     <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
-    <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
 </resources>

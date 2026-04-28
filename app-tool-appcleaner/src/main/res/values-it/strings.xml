@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automazione della Pulizia App</string>
     <string name="appcleaner_automation_subtitle_default_caches">Pulizia cache predefinita…</string>
-    <string name="appcleaner_automation_progress_open_settings">Apertura schermata impostazioni (parola chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Cercando la voce \"Spazio di archiviazione\" (parole chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Cercando il pulsante \"Cancella dati\" (parole chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Cercando il pulsante \"Cancella cache\" (parole chiave: %s)</string>
@@ -75,7 +74,6 @@
     <string name="appcleaner_automation_unavailable_title">Servizio di accessibilità non disponibile</string>
     <string name="appcleaner_automation_unavailable_body">La cancellazione delle cache inaccessibili richiede il servizio di accessibilità di SD Maid, ma non era disponibile.
 Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".</string>
-    <string name="appcleaner_junk_userprofile_label">Utente</string>
     <string name="appcleaner_delete_confirmation_message_x">Cancellare %s file inutili?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cancellare %d file inutili dell\'app selezionata?</item>

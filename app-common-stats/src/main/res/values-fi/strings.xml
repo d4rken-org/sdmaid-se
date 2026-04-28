@@ -39,6 +39,4 @@
     <string name="stats_storage_type_primary">Sisäinen tallennustila</string>
     <string name="stats_storage_type_secondary">Ulkoinen tallennustila</string>
     <string name="stats_storage_type_portable">Siirrettävä tallennustila</string>
-    <string name="stats_settings_retention_snapshots_label">Tallennustilan tilannekuvat</string>
-    <string name="stats_settings_retention_snapshots_desc">Kuinka monta päivää tallennustilan tilannekuvat säilytetään.</string>
 </resources>

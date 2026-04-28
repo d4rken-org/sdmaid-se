@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">Ev taybetmendî her tiştê ku sepan dike di pelek parvekirî de tomar dike. Pelê hatî afirandin agahiyên hesas dihewîne (mînak navên pelan û sepanên sazkirî). Tenê bi aliyên pêbawer re parve bikin (mînak pêşvebirek ku pirsgirêkek çareser dike).</string>
     <string name="tasks_activity_notification_channel_label">Karên çalak</string>
     <string name="tasks_activity_working_notification_title">SD Maid dixebite</string>
-    <string name="tasks_result_notification_channel_label">Encamên karan</string>
     <string name="tasks_result_subtext">Encama karê</string>
     <string name="onboarding_welcome_title">Bi xêr hatî</string>
     <string name="onboarding_welcome_body1">SD Maid SE pelan, sepanan û hilanînê birêve dibe.</string>
@@ -86,8 +85,6 @@
     <string name="dataarea_warningcard_label">Deverên daneyan</string>
     <string name="debug_mode_label">Moda debug</string>
     <string name="debug_card_title">Moda debug çalak e</string>
-    <string name="history_label">Dîrok</string>
-    <string name="history_description">Lîsteya kronolojîk a çalakiyên dawî û daneyên bandorkirî.</string>
     <string name="data_areas_label">Deverên daneyan</string>
     <string name="updates_dashcard_title">Nûvekirin heye</string>
     <string name="updates_dashcard_body">Nûvekirin heye. Guhertoya we %1$s e û guhertoya herî dawî %2$s e.</string>

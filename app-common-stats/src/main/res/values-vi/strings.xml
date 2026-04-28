@@ -37,6 +37,4 @@
     <string name="stats_storage_type_primary">Bộ nhớ chính</string>
     <string name="stats_storage_type_secondary">Bộ nhớ thứ cấp</string>
     <string name="stats_storage_type_portable">Bộ lưu trữ di động</string>
-    <string name="stats_settings_retention_snapshots_label">Ảnh chụp nhanh bộ nhớ</string>
-    <string name="stats_settings_retention_snapshots_desc">Số ngày lưu giữ ảnh chụp nhanh dung lượng bộ nhớ.</string>
 </resources>

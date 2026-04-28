@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner sjálfvirkni</string>
     <string name="appcleaner_automation_subtitle_default_caches">Hreinsa sjálfgefin skyndiminni…</string>
-    <string name="appcleaner_automation_progress_open_settings">Opna stillingaskjá (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Leita að \"Geymsla\" færslu (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Leita að \"Hreinsa gögn\" hnapp (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Leita að \"Hreinsa skyndiminni\" hnapp (lykilorð: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Opinber og einka sjálfgefin skyndiminni. Ekki beint aðgengileg, en hægt er að eyða óbeint (t.d. í gegnum aðgengisþjónustu).</string>
     <string name="appcleaner_automation_unavailable_title">Aðgengisþjónusta ekki tiltæk</string>
     <string name="appcleaner_automation_unavailable_body">Hreinsun óaðgengilegra skyndiminnis krefst aðgengisþjónustu SD Maid, en hún var ekki tiltæk. Ef þú vilt ekki nota hana: Slökktu á \"Taka óaðgengileg skyndiminni með\" valkostinum.</string>
-    <string name="appcleaner_junk_userprofile_label">Notandi</string>
     <string name="appcleaner_delete_confirmation_message_x">Eyða óþarfa skrám fyrir %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Eyða óþarfa skrám fyrir %d valið forrit?</item>
