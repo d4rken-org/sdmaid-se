@@ -152,11 +152,8 @@ fun DependencyHandlerScope.addAndroidUI() {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.9.4")
-    implementation("androidx.lifecycle:lifecycle-process:2.9.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
 
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("com.google.android.material:material:1.13.0")
 }
 
@@ -184,8 +181,6 @@ fun DependencyHandlerScope.addCompose() {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
 
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
-
-    implementation("com.google.accompanist:accompanist-drawablepainter:0.37.3")
 }
 
 fun DependencyHandlerScope.addNavigation3() {
