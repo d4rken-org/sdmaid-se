@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Opties weergeven waarmee je alle bestanden in een set duplicaten kunt verwijderen, zodat er geen bestand overblijft.</string>
     <string name="deduplicator_search_locations_title">Zoek locaties</string>
     <string name="deduplicator_search_locations_all_summary">Alle toegankelijke gebieden</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Geef bij het bepalen welk duplicaat behouden wordt de voorkeur aan bestanden op deze locaties.</string>
     <string name="deduplicator_skip_minsize_title">Minimale afmeting</string>
     <string name="deduplicator_skip_minsize_description">Bestanden overslaan die kleiner zijn dan de minimale grootte.</string>
     <string name="deduplicator_skip_uncommon_title">Sla ongebruikelijke bestandstypen over</string>

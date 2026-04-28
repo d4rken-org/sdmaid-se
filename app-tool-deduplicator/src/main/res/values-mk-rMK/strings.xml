@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Прикажи опции кои ви дозволуваат да ги избришете сите датотеки во група дупликати така што ниедна датотека не останува.</string>
     <string name="deduplicator_search_locations_title">Локации за пребарување</string>
     <string name="deduplicator_search_locations_all_summary">Сите достапни области</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Кога се одлучува кој дупликат да се задржи, претпочитај задржување датотеки на овие локации.</string>
     <string name="deduplicator_skip_minsize_title">Минимална големина</string>
     <string name="deduplicator_skip_minsize_description">Прескокни датотеки кои се под минималната големина.</string>
     <string name="deduplicator_skip_uncommon_title">Прескокни невообичаени типови датотеки</string>

@@ -15,7 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
     <string name="deduplicator_search_locations_title">Căutați locații</string>
     <string name="deduplicator_search_locations_all_summary">Toate zonele accesibile</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Atunci când decideți ce duplicate să păstrați, preferați să păstrați fișierele în aceste locații.</string>
     <string name="deduplicator_skip_minsize_title">Dimensiunea minimă</string>
     <string name="deduplicator_skip_minsize_description">Sari peste fișierele care sunt sub dimensiunea minimă.</string>
     <string name="deduplicator_skip_uncommon_title">Sari peste tipurile de fișiere mai puțin frecvente</string>

@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Vis indstillinger, der lader dig slette alle filer i et sæt duplikater, så ingen filer er tilovers.</string>
     <string name="deduplicator_search_locations_title">Søgeplaceringer</string>
     <string name="deduplicator_search_locations_all_summary">Alle tilgængelige områder</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Når der besluttes hvilken dublet der skal beholdes, foretrækkes det at beholde filer på disse placeringer.</string>
     <string name="deduplicator_skip_minsize_title">Minimum størrelse</string>
     <string name="deduplicator_skip_minsize_description">Spring over filer under minimumsstørrelsen.</string>
     <string name="deduplicator_skip_uncommon_title">Spring over ualmindelige filtyper</string>

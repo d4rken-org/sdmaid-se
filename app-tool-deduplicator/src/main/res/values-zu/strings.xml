@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Bonisa izinketho ezikuvumela ukuthi ususe wonke amafayela esetheni sokukhophisa ukuze kungabi nafayela elisele.</string>
     <string name="deduplicator_search_locations_title">Izindawo zokusesha</string>
     <string name="deduplicator_search_locations_all_summary">Zonke izindawo ezifikelekayo</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Uma uqukethwe ukuthi yikuphi okufanayo okugcinwa, khetha ukugcina amafayela kulezi zindawo.</string>
     <string name="deduplicator_skip_minsize_title">Usayizi omncane</string>
     <string name="deduplicator_skip_minsize_description">Yeqa amafayela angaphansi kosayizi omncane.</string>
     <string name="deduplicator_skip_uncommon_title">Yeqa izinhlobo zamafayela angavamile</string>

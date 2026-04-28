@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">सभी फ़ाइलों को मिटाने की अनुमति दें, भले ही कोई प्रति न बची हो।</string>
     <string name="deduplicator_search_locations_title">खोज स्थान</string>
     <string name="deduplicator_search_locations_all_summary">सभी पहुंच योग्य क्षेत्र</string>
-    <string name="deduplicator_keep_prefer_paths_summary">यह तय करते समय कि कौन सा डुप्लिकेट रखना है, इन स्थानों में फ़ाइलें रखने को प्राथमिकता दें।</string>
     <string name="deduplicator_skip_minsize_title">न्यूनतम आकार</string>
     <string name="deduplicator_skip_minsize_description">न्यूनतम आकार से कम फ़ाइलों को छोड़ें।</string>
     <string name="deduplicator_skip_uncommon_title">असामान्य फ़ाइल प्रकार छोड़ें</string>

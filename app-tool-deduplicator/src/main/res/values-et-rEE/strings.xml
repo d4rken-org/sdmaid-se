@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Näita valikuid, mis lubab kustutada kõik samad failid, nii et ühtki faili ei jää alles.</string>
     <string name="deduplicator_search_locations_title">Otsinguasukohad</string>
     <string name="deduplicator_search_locations_all_summary">Kõik juurdepääsetavad alad</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Korduste säilitamise otsustamisel eelista failide hoiustamist nendes kohtades.</string>
     <string name="deduplicator_skip_minsize_title">Väikseim maht</string>
     <string name="deduplicator_skip_minsize_description">Eira faile, mis on väiksemad kui väikseim maht.</string>
     <string name="deduplicator_skip_uncommon_title">Eira haruldasi failitüüpe</string>

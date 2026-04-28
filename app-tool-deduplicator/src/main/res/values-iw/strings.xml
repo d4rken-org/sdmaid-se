@@ -17,7 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">הצג אפשרויות המאפשרות לך למחוק את כל הקבצים בסט של כפילויות כך שלא יישאר קובץ.</string>
     <string name="deduplicator_search_locations_title">חיפוש מיקומים</string>
     <string name="deduplicator_search_locations_all_summary">כל האזורים הנגישים</string>
-    <string name="deduplicator_keep_prefer_paths_summary">כאשר מחליטים איזה עותק לשמור, העדף לשמור קבצים במיקומים אלה.</string>
     <string name="deduplicator_skip_minsize_title">גודל מינימלי</string>
     <string name="deduplicator_skip_minsize_description">דלג על קבצים שהם מתחת לגודל המינימלי.</string>
     <string name="deduplicator_skip_uncommon_title">דלג על סוגי קבצים לא שכיחים</string>

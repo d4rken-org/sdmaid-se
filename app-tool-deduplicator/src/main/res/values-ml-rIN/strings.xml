@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ഒരു ഫയലും ബാക്കി ഇല്ലാതെ ഡ്യൂപ്ലിക്കേറ്റ് സെറ്റിലെ എല്ലാ ഫയലുകളും ഡിലീറ്റ് ചെയ്യാൻ അനുവദിക്കുന്ന ഓപ്ഷൻസ് കാണിക്കുക.</string>
     <string name="deduplicator_search_locations_title">തിരയൽ സ്ഥാനങ്ങൾ</string>
     <string name="deduplicator_search_locations_all_summary">ആക്‍സസ് ചെയ്യാൻ കഴിയുന്ന എല്ലാ ഇടങ്ങളും</string>
-    <string name="deduplicator_keep_prefer_paths_summary">ഏത് ഡ്യൂപ്ലിക്കേറ്റ് സൂക്ഷിക്കണമെന്ന് തീരുമാനിക്കുമ്പോൾ, ഈ ലൊക്കേഷനുകളിൽ ഫയലുകൾ സൂക്ഷിക്കാൻ ഇഷ്ടപ്പെടുക.</string>
     <string name="deduplicator_skip_minsize_title">കുറഞ്ഞ വലുപ്പം</string>
     <string name="deduplicator_skip_minsize_description">കുറഞ്ഞ വലുപ്പത്തിൽ താഴെയുള്ള ഫയലുകൾ ഒഴിവാക്കുക.</string>
     <string name="deduplicator_skip_uncommon_title">അസാധാരണ ഫയൽ തരങ്ങൾ ഒഴിവാക്കുക</string>

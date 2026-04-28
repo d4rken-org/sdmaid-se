@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">डुप्लिकेटहरूको सेटमा सबै फाइलहरू मेटाउन अनुमति दिने विकल्पहरू देखाउनुहोस् ताकि कुनै फाइल बाँकी नरहोस्।</string>
     <string name="deduplicator_search_locations_title">खोज स्थानहरू</string>
     <string name="deduplicator_search_locations_all_summary">सबै पहुँचयोग्य क्षेत्रहरू</string>
-    <string name="deduplicator_keep_prefer_paths_summary">कुन डुप्लिकेट राख्ने भनी निर्णय गर्दा, यी स्थानहरूमा फाइलहरू राख्न प्राथमिकता दिनुहोस्।</string>
     <string name="deduplicator_skip_minsize_title">न्यूनतम साइज</string>
     <string name="deduplicator_skip_minsize_description">न्यूनतम साइजभन्दा सानो भएका फाइलहरूलाई छोड्नुहोस्।</string>
     <string name="deduplicator_skip_uncommon_title">असामान्य फाइल प्रकारहरू छोड्नुहोस्</string>

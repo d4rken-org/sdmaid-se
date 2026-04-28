@@ -188,6 +188,11 @@ private fun ClusterHeaderRow(
                 Formatter.formatShortFileSize(context, cluster.redundantSize),
             )
             Text(
+                text = stringResource(DeduplicatorR.string.deduplicator_occupied_space_label),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
                 text = "$totalSize ($freeable)",
                 style = MaterialTheme.typography.titleMedium,
             )
@@ -205,7 +210,9 @@ private fun ClusterHeaderRow(
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        text = pluralStringResource(CommonR.plurals.result_x_files, checksumCount, checksumCount),
+                        text = "${stringResource(DeduplicatorR.string.deduplicator_matches_exact_label)}: ${
+                            pluralStringResource(CommonR.plurals.result_x_files, checksumCount, checksumCount)
+                        }",
                         style = MaterialTheme.typography.bodyMedium,
                     )
                 }
@@ -221,7 +228,9 @@ private fun ClusterHeaderRow(
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        text = pluralStringResource(CommonR.plurals.result_x_files, similarCount, similarCount),
+                        text = "${stringResource(DeduplicatorR.string.deduplicator_matches_similar_label)}: ${
+                            pluralStringResource(CommonR.plurals.result_x_files, similarCount, similarCount)
+                        }",
                         style = MaterialTheme.typography.bodyMedium,
                     )
                 }
@@ -330,7 +339,9 @@ private fun ChecksumGroupHeaderRow(
                     style = MaterialTheme.typography.titleSmall,
                 )
                 Text(
-                    text = Formatter.formatFileSize(context, group.averageSize.roundToLong()),
+                    text = "${stringResource(DeduplicatorR.string.deduplicator_average_size_label)}: ${
+                        Formatter.formatFileSize(context, group.averageSize.roundToLong())
+                    }",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -388,7 +399,9 @@ private fun ImageGroupHeaderRow(
                     style = MaterialTheme.typography.titleSmall,
                 )
                 Text(
-                    text = Formatter.formatFileSize(context, group.averageSize.roundToLong()),
+                    text = "${stringResource(DeduplicatorR.string.deduplicator_average_size_label)}: ${
+                        Formatter.formatFileSize(context, group.averageSize.roundToLong())
+                    }",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -512,7 +525,9 @@ private fun ImageFileRow(
         }
         Spacer(Modifier.width(8.dp))
         Text(
-            text = Formatter.formatShortFileSize(context, duplicate.size),
+            text = "${stringResource(DeduplicatorR.string.deduplicator_file_size_label)}: ${
+                Formatter.formatShortFileSize(context, duplicate.size)
+            }",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">نیشاندان options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">گەڕان locations</string>
     <string name="deduplicator_search_locations_all_summary">هەموو ناوچەکانی دەستگەیشتراو</string>
-    <string name="deduplicator_keep_prefer_paths_summary">لە کاتی بڕیاردانەوە کام دووبارە نگەبداریت، پێشتر فایلەکان لەم شوێنانەدا نگەبدارە.</string>
     <string name="deduplicator_skip_minsize_title">کەمترین size</string>
     <string name="deduplicator_skip_minsize_description">Skip فایلs that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon فایل types</string>

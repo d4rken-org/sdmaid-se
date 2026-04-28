@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">نمایش گزینه‌هایی که به شما اجازه می‌دهد همه فایل‌ها در یک مجموعه تکراری را حذف کنید به طوری که هیچ فایلی باقی نماند.</string>
     <string name="deduplicator_search_locations_title">جستجوی مکان‌ها</string>
     <string name="deduplicator_search_locations_all_summary">تمام مناطق قابل دسترسی</string>
-    <string name="deduplicator_keep_prefer_paths_summary">هنگام تصمیم‌گیری درباره نگه‌داشتن کدام نسخه تکراری، فایل‌های موجود در این مکان‌ها ترجیح داده شوند.</string>
     <string name="deduplicator_skip_minsize_title">حداقل اندازه</string>
     <string name="deduplicator_skip_minsize_description">فایل‌هایی که کمتر از اندازه حداقل هستند را نادیده بگیرید.</string>
     <string name="deduplicator_skip_uncommon_title">چشم‌پوشی از انواع فایل‌های نادر</string>

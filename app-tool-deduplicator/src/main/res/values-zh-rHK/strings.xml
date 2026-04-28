@@ -11,7 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">顯示刪除一組重複文件中所有文件的選項</string>
     <string name="deduplicator_search_locations_title">搜尋位置</string>
     <string name="deduplicator_search_locations_all_summary">所有可存取區域</string>
-    <string name="deduplicator_keep_prefer_paths_summary">決定保留哪個重複項目時，優先保留這些位置中的檔案。</string>
     <string name="deduplicator_skip_minsize_title">最小大小</string>
     <string name="deduplicator_skip_minsize_description">跳過小於所設定的最低大小的文件。</string>
     <string name="deduplicator_skip_uncommon_title">跳過不常見的格式</string>

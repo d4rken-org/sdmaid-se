@@ -11,7 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ထပ်တူများ အစုတစ်ခုရှိ ဖိုင်အားလုံး ဖျက်နိုင်သော ရွေးချယ်များ ပြသပါ။</string>
     <string name="deduplicator_search_locations_title">ရှာဖွေသောနေရာများ</string>
     <string name="deduplicator_search_locations_all_summary">ဝင်ရောက်နိုင်သော နေရာအားလုံး</string>
-    <string name="deduplicator_keep_prefer_paths_summary">မည်သည့့် ထပ်တူကို ထိန်းသိမ်းမဟုတ် ဆုံးဖြစ်ရာတွင် ဤနေရာများတွင် ဖိုင်များ ထိန်းသိမ်းရန် ဥးစားပေးပါ။</string>
     <string name="deduplicator_skip_minsize_title">အနည်းဆုံး အရွယ်အစား</string>
     <string name="deduplicator_skip_minsize_description">အနည်းဆုံး အရွယ်အစားထက် သေးသော ဖိုင်များကို ကျောပါ။</string>
     <string name="deduplicator_skip_uncommon_title">ဆန်ပြားသော ဖိုင်အမျိုးအစားများ ကျောပါ</string>

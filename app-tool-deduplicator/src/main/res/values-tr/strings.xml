@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Tekrar eden dosyalar için tüm dosyaları sil seçeneklerini göster, sonucunda hiçbir dosya kalmayacaktır.</string>
     <string name="deduplicator_search_locations_title">Arama konumları</string>
     <string name="deduplicator_search_locations_all_summary">Tüm erişilebilir alanlar</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Hangi yineleneni saklayacağına karar verirken, bu konumlardaki dosyaları saklamayı tercih et.</string>
     <string name="deduplicator_skip_minsize_title">Minimum boyut</string>
     <string name="deduplicator_skip_minsize_description">Minimum boyutun altındaki dosyaları geç.</string>
     <string name="deduplicator_skip_uncommon_title">Tanıdık olmayan dosya türlerini geç</string>

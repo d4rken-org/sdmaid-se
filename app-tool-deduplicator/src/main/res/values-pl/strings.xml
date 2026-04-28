@@ -17,7 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Pokaż opcje, które pozwalają usunąć wszystkie pliki w zestawie duplikatów, aby żaden plik nie został pozostawiony.</string>
     <string name="deduplicator_search_locations_title">Lokalizacje wyszukiwania</string>
     <string name="deduplicator_search_locations_all_summary">Wszystkie dostępne obszary</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Decydując, który duplikat zachować, najlepiej jest przechowywać pliki w tych lokalizacjach.</string>
     <string name="deduplicator_skip_minsize_title">Minimalny rozmiar</string>
     <string name="deduplicator_skip_minsize_description">Pomiń pliki poniżej minimalnego rozmiaru.</string>
     <string name="deduplicator_skip_uncommon_title">Pomiń niestandardowe typy plików</string>

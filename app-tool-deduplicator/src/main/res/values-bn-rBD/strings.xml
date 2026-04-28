@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">এমন বিকল্পগুলি দেখান যা আপনাকে সদৃশগুলির একটি সেটের সমস্ত ফাইল মুছতে দেয় যাতে কোনও ফাইল অবশিষ্ট না থাকে।</string>
     <string name="deduplicator_search_locations_title">অবস্থান অনুসন্ধান করুন</string>
     <string name="deduplicator_search_locations_all_summary">সমস্ত প্রবেশযোগ্য এলাকা</string>
-    <string name="deduplicator_keep_prefer_paths_summary">কোন ডুপ্লিকেটটি রাখতে হবে তা সিদ্ধান্ত নেওয়ার সময়, এই অবস্থানগুলিতে ফাইল রাখা পছন্দ করুন।</string>
     <string name="deduplicator_skip_minsize_title">ন্যূনতম আকার</string>
     <string name="deduplicator_skip_minsize_description">ন্যূনতম আকারের নিচের ফাইলগুলি এড়িয়ে যান।</string>
     <string name="deduplicator_skip_uncommon_title">অস্বাভাবিক ফাইলের ধরন এড়িয়ে যান</string>

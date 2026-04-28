@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Sýna valkosti sem leyfa þér að eyða öllum skrám í settum tvítekinna þannig að engin skrá er eftir.</string>
     <string name="deduplicator_search_locations_title">Leitarstaðir</string>
     <string name="deduplicator_search_locations_all_summary">Öll aðgengileg svæði</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Þegar ákveðið er hvaða tvítekningu á að halda, frekar halda skrám á þessum stöðum.</string>
     <string name="deduplicator_skip_minsize_title">Lágmarksstærð</string>
     <string name="deduplicator_skip_minsize_description">Sleppa skrám sem eru undir lágmarksstærð.</string>
     <string name="deduplicator_skip_uncommon_title">Sleppa óalgengum skráartegundum</string>

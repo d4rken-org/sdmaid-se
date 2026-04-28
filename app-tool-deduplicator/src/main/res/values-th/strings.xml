@@ -11,7 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">แสดงตัวเลือกที่ให้คุณสามารถลบไฟล์ทั้งหมดในกลุ่มไฟล์ซ้ำได้ จนไม่มีไฟล์เหลืออยู่</string>
     <string name="deduplicator_search_locations_title">สถานที่ค้นหา</string>
     <string name="deduplicator_search_locations_all_summary">พื้นที่ทั้งหมดที่เข้าถึงได้</string>
-    <string name="deduplicator_keep_prefer_paths_summary">เมื่อตัดสินใจว่าจะเก็บไฟล์ซ้ำตัวไหน ให้เลือกเก็บไฟล์ในตำแหน่งเหล่านี้</string>
     <string name="deduplicator_skip_minsize_title">ขนาดขั้นต่ำ</string>
     <string name="deduplicator_skip_minsize_description">ข้ามไฟล์ที่มีขนาดต่ำกว่าขนาดขั้นต่ำ</string>
     <string name="deduplicator_skip_uncommon_title">ข้ามไฟล์ประเภทที่ไม่พบบ่อย</string>

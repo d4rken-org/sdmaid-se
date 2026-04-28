@@ -13,7 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitem que você exclua todos os arquivos em um conjunto de duplicados para que nenhum arquivo fique sobrando.</string>
     <string name="deduplicator_search_locations_title">Pesquisar os locais</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Ao decidir qual duplicado manter, preferir manter os arquivos destes locais.</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Pular os arquivos que estejam abaixo do tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de arquivo incomuns</string>
