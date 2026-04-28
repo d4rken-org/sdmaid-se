@@ -9,8 +9,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -22,6 +28,7 @@ import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -32,6 +39,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarDuration
@@ -101,7 +109,6 @@ fun ExclusionListScreenHost(
         result.data?.data?.let { vm.performExport(it) }
     }
 
-    var pendingInfoDialog by remember { mutableStateOf(false) }
     var pendingTypePicker by remember { mutableStateOf(false) }
 
     LaunchedEffect(vm) {
@@ -139,7 +146,7 @@ fun ExclusionListScreenHost(
         stateSource = vm.state,
         snackbarHostState = snackbarHostState,
         onRowClick = vm::onRowClick,
-        onShowInfo = { pendingInfoDialog = true },
+        onMoreInfo = vm::openHelp,
         onImport = vm::requestImport,
         onResetDefaults = vm::resetDefaultExclusions,
         onToggleShowDefaults = vm::showDefaultExclusions,
@@ -147,24 +154,6 @@ fun ExclusionListScreenHost(
         onExportSelected = { vm.exportExclusions(it) },
         onAddExclusion = { pendingTypePicker = true },
     )
-
-    if (pendingInfoDialog) {
-        AlertDialog(
-            onDismissRequest = { pendingInfoDialog = false },
-            text = { Text(stringResource(R.string.exclusion_explanation_body1)) },
-            confirmButton = {
-                TextButton(onClick = {
-                    pendingInfoDialog = false
-                    vm.openHelp()
-                }) { Text(stringResource(CommonR.string.general_more_info_action)) }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingInfoDialog = false }) {
-                    Text(stringResource(CommonR.string.general_dismiss_action))
-                }
-            },
-        )
-    }
 
     if (pendingTypePicker) {
         AlertDialog(
@@ -214,7 +203,7 @@ internal fun ExclusionListScreen(
     stateSource: StateFlow<ExclusionListViewModel.State> = MutableStateFlow(ExclusionListViewModel.State()),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onRowClick: (ExclusionListViewModel.Row) -> Unit = {},
-    onShowInfo: () -> Unit = {},
+    onMoreInfo: () -> Unit = {},
     onImport: () -> Unit = {},
     onResetDefaults: () -> Unit = {},
     onToggleShowDefaults: (Boolean) -> Unit = {},
@@ -225,6 +214,7 @@ internal fun ExclusionListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
     val currentIds = rows?.map { it.stableId }?.toSet() ?: emptySet()
+    val selectableIds = rows?.filter { !it.isDefault }?.map { it.stableId }?.toSet() ?: emptySet()
 
     var selection by remember { mutableStateOf<Set<ExclusionId>>(emptySet()) }
     // Prune stale IDs when the underlying list changes.
@@ -241,12 +231,6 @@ internal fun ExclusionListScreen(
                 TopAppBar(
                     title = { Text(stringResource(R.string.exclusion_manager_title)) },
                     actions = {
-                        IconButton(onClick = onShowInfo) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Info,
-                                contentDescription = stringResource(CommonR.string.general_info_label),
-                            )
-                        }
                         IconButton(onClick = onImport) {
                             Icon(
                                 imageVector = Icons.TwoTone.FileDownload,
@@ -260,13 +244,15 @@ internal fun ExclusionListScreen(
                             expanded = overflowExpanded,
                             onDismissRequest = { overflowExpanded = false },
                         ) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
-                                onClick = {
-                                    overflowExpanded = false
-                                    onResetDefaults()
-                                },
-                            )
+                            if (state.showDefaults) {
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
+                                    onClick = {
+                                        overflowExpanded = false
+                                        onResetDefaults()
+                                    },
+                                )
+                            }
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.exclusion_show_defaults_action)) },
                                 onClick = {
@@ -319,6 +305,12 @@ internal fun ExclusionListScreen(
                                 contentDescription = stringResource(CommonR.string.general_remove_action),
                             )
                         }
+                        IconButton(onClick = { selection = selectableIds }) {
+                            Icon(
+                                imageVector = Icons.TwoTone.SelectAll,
+                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                            )
+                        }
                     },
                 )
             }
@@ -336,85 +328,123 @@ internal fun ExclusionListScreen(
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            when {
-                rows == null -> Box(
+            when (rows) {
+                null -> Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center,
                 ) {
                     CircularProgressIndicator()
                 }
 
-                rows.isEmpty() -> Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(32.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = stringResource(R.string.exclusion_add_new_hint),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-
                 else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    items(rows, key = { it.stableId }) { row ->
-                        val isSelected = selection.contains(row.stableId)
-                        val rowModifier = Modifier
-                        when (row) {
-                            is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
-                                modifier = rowModifier,
-                                row = row,
-                                selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
-                                onClick = {
-                                    if (selection.isNotEmpty()) {
-                                        selection = selection.toggle(row.stableId)
-                                    } else {
-                                        onRowClick(row)
-                                    }
-                                },
-                                onLongClick = {
-                                    if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                },
+                    item(key = "info-card") {
+                        ExclusionInfoCard(onMoreInfo = onMoreInfo)
+                    }
+                    if (rows.isEmpty()) {
+                        item(key = "empty-hint") {
+                            Text(
+                                text = stringResource(R.string.exclusion_add_new_hint),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 32.dp, vertical = 24.dp),
                             )
+                        }
+                    } else {
+                        items(rows, key = { it.stableId }) { row ->
+                            val isSelected = selection.contains(row.stableId)
+                            val rowModifier = Modifier
+                            when (row) {
+                                is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
+                                    modifier = rowModifier,
+                                    row = row,
+                                    selected = isSelected,
+                                    selectionActive = selection.isNotEmpty(),
+                                    onClick = {
+                                        if (selection.isNotEmpty()) {
+                                            selection = selection.toggle(row.stableId)
+                                        } else {
+                                            onRowClick(row)
+                                        }
+                                    },
+                                    onLongClick = {
+                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
+                                    },
+                                )
 
-                            is ExclusionListViewModel.Row.Path -> PathExclusionRow(
-                                modifier = rowModifier,
-                                row = row,
-                                selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
-                                onClick = {
-                                    if (selection.isNotEmpty()) {
-                                        selection = selection.toggle(row.stableId)
-                                    } else {
-                                        onRowClick(row)
-                                    }
-                                },
-                                onLongClick = {
-                                    if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                },
-                            )
+                                is ExclusionListViewModel.Row.Path -> PathExclusionRow(
+                                    modifier = rowModifier,
+                                    row = row,
+                                    selected = isSelected,
+                                    selectionActive = selection.isNotEmpty(),
+                                    onClick = {
+                                        if (selection.isNotEmpty()) {
+                                            selection = selection.toggle(row.stableId)
+                                        } else {
+                                            onRowClick(row)
+                                        }
+                                    },
+                                    onLongClick = {
+                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
+                                    },
+                                )
 
-                            is ExclusionListViewModel.Row.Segment -> SegmentExclusionRow(
-                                modifier = rowModifier,
-                                row = row,
-                                selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
-                                onClick = {
-                                    if (selection.isNotEmpty()) {
-                                        selection = selection.toggle(row.stableId)
-                                    } else {
-                                        onRowClick(row)
-                                    }
-                                },
-                                onLongClick = {
-                                    if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                },
-                            )
+                                is ExclusionListViewModel.Row.Segment -> SegmentExclusionRow(
+                                    modifier = rowModifier,
+                                    row = row,
+                                    selected = isSelected,
+                                    selectionActive = selection.isNotEmpty(),
+                                    onClick = {
+                                        if (selection.isNotEmpty()) {
+                                            selection = selection.toggle(row.stableId)
+                                        } else {
+                                            onRowClick(row)
+                                        }
+                                    },
+                                    onLongClick = {
+                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
+                                    },
+                                )
+                            }
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ExclusionInfoCard(
+    onMoreInfo: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    OutlinedCard(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.TwoTone.Info,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(20.dp),
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(
+                    text = stringResource(R.string.exclusion_explanation_body1),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+            TextButton(
+                onClick = onMoreInfo,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Text(stringResource(CommonR.string.general_more_info_action))
             }
         }
     }
