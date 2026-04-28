@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Ponechať vybrané</string>
     <string name="swiper_status_action_delete_selected">Zmazať vybrané</string>
     <string name="swiper_status_action_reset_selected">Obnoviť vybrané</string>
-    <string name="swiper_decision_undecided">Nerozhodnuté</string>
-    <string name="swiper_retry_action">Skúsiť znova</string>
     <string name="swiper_delete_confirmation_title">Odstrániť súbory?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Toto natrvalo odstráni %1$d súbor (%2$s). Túto akciu nie je možné vrátiť späť.</item>
@@ -116,18 +114,6 @@
         <item quantity="many">%d nerozhodnutých</item>
         <item quantity="other">%d nerozhodnutých</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d už ponechaná</item>
-        <item quantity="few">%d už ponechané</item>
-        <item quantity="many">%d už ponechaných</item>
-        <item quantity="other">%d už ponechaných</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d už odstránená</item>
-        <item quantity="few">%d už odstránené</item>
-        <item quantity="many">%d už odstránených</item>
-        <item quantity="other">%d už odstránených</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ponechaná</item>
         <item quantity="few">%d ponechané</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Archívy</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Použiť</string>
-    <string name="swiper_session_filter_action">Filtrovať súbory</string>
     <string name="swiper_file_type_filter_summary">Filtrované: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenašli sa žiadne zodpovedajúce súbory</string>
     <string name="swiper_open_externally_action">Otvoriť v externej aplikácii</string>

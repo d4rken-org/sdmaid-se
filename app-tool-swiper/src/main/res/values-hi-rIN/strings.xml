@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">चयनित रखें</string>
     <string name="swiper_status_action_delete_selected">चयनित को मिटाएं</string>
     <string name="swiper_status_action_reset_selected">चयनित रीसेट करें</string>
-    <string name="swiper_decision_undecided">अनिर्णीत</string>
-    <string name="swiper_retry_action">पुनः प्रयास</string>
     <string name="swiper_delete_confirmation_title">फ़ाइलें हटाएं?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">यह %1$d फ़ाइल (%2$s) को स्थायी रूप से हटा देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d अनिर्णीत</item>
         <item quantity="other">%d अनिर्णीत</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d पहले से रखा गया</item>
-        <item quantity="other">%d पहले से रखे गए</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d पहले से हटाया गया</item>
-        <item quantity="other">%d पहले से हटाए गए</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d रखा गया</item>
         <item quantity="other">%d रखे गए</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">संग्रह</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">लागू करें</string>
-    <string name="swiper_session_filter_action">फ़ाइलें फ़िल्टर करें</string>
     <string name="swiper_file_type_filter_summary">फ़िल्टर किया गया: %1$s</string>
     <string name="swiper_session_no_matching_files">कोई मिलान फ़ाइलें नहीं मिलीं</string>
     <string name="swiper_open_externally_action">बाहरी एप में खोलें</string>

@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Geselecteerde bewaren</string>
     <string name="swiper_status_action_delete_selected">Verwijder geselecteerde</string>
     <string name="swiper_status_action_reset_selected">Geselecteerde resetten</string>
-    <string name="swiper_decision_undecided">Onbeslist</string>
-    <string name="swiper_retry_action">Opnieuw proberen</string>
     <string name="swiper_delete_confirmation_title">Bestanden verwijderen?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Hiermee wordt %1$d bestand (%2$s) permanent verwijderd. Deze actie kan niet ongedaan gemaakt worden.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d onbeslist</item>
         <item quantity="other">%d onbeslist</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d al bewaard</item>
-        <item quantity="other">%d al bewaard</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d al verwijderd</item>
-        <item quantity="other">%d al verwijderd</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d bewaard</item>
         <item quantity="other">%d bewaard</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Archieven</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Toepassen</string>
-    <string name="swiper_session_filter_action">Filter bestanden</string>
     <string name="swiper_file_type_filter_summary">Gefilterd: %1$s</string>
     <string name="swiper_session_no_matching_files">Geen overeenkomende bestanden gevonden</string>
     <string name="swiper_open_externally_action">Openen in externe app</string>

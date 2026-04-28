@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Halda völdum</string>
     <string name="swiper_status_action_delete_selected">Eyða völdum</string>
     <string name="swiper_status_action_reset_selected">Endurstilla val</string>
-    <string name="swiper_decision_undecided">Óákveðið</string>
-    <string name="swiper_retry_action">Reyna aftur</string>
     <string name="swiper_delete_confirmation_title">Eyða skrám?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Þetta mun eyða %1$d skrá varanlega (%2$s). Ekki er hægt að afturkalla þessa aðgerð.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d óákveðinn</item>
         <item quantity="other">%d óákveðnir</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d þegar haldið</item>
-        <item quantity="other">%d þegar haldið</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d þegar eytt</item>
-        <item quantity="other">%d þegar eytt</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d haldið</item>
         <item quantity="other">%d haldið</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Skjalasafn</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Nota</string>
-    <string name="swiper_session_filter_action">Sía skrár</string>
     <string name="swiper_file_type_filter_summary">Síað: %1$s</string>
     <string name="swiper_session_no_matching_files">Engar samsvarandi skrár fundust</string>
     <string name="swiper_open_externally_action">Opna í utanaðkomandi forriti</string>

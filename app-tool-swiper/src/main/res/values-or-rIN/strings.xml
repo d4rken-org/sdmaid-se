@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">ଚୟନିତ ରଖନ୍ତୁ</string>
     <string name="swiper_status_action_delete_selected">ମନୋନୀତ ବିଲୋପ କରିବା</string>
     <string name="swiper_status_action_reset_selected">ଚୟନିତ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
-    <string name="swiper_decision_undecided">ଅନିଷ୍ପତ୍ତିତ</string>
-    <string name="swiper_retry_action">ପୁନଃଚେଷ୍ଟା</string>
     <string name="swiper_delete_confirmation_title">ଫାଇଲ୍ ଡିଲିଟ୍ କରିବେ?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ଏହା ସ୍ଥାୟୀ ଭାବରେ %1$d ଫାଇଲ୍ (%2$s) ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ</item>
         <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
-        <item quantity="other">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
-        <item quantity="other">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ରଖାଯାଇଛି</item>
         <item quantity="other">%d ରଖାଯାଇଛି</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">ଆର୍କାଇଭ୍‌ଗୁଡ଼ିକ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">ପ୍ରୟୋଗ କରନ୍ତୁ</string>
-    <string name="swiper_session_filter_action">ଫାଇଲ ଫିଲ୍ଟର୍ କରନ୍ତୁ</string>
     <string name="swiper_file_type_filter_summary">ଫିଲ୍ଟର୍ ହୋଇଛି: %1$s</string>
     <string name="swiper_session_no_matching_files">କୌଣସି ମିଳୁଥିବା ଫାଇଲ ମିଳିଲା ନାହିଁ</string>
     <string name="swiper_open_externally_action">ବାହ୍ୟ ଆପ୍‌ରେ ଖୋଲନ୍ତୁ</string>

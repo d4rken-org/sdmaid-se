@@ -30,8 +30,6 @@
     <string name="swiper_status_action_keep_selected">Păstrați selecțiile</string>
     <string name="swiper_status_action_delete_selected">Ştergeţi selecţia</string>
     <string name="swiper_status_action_reset_selected">Resetați selecțiile</string>
-    <string name="swiper_decision_undecided">Indecis</string>
-    <string name="swiper_retry_action">Reîncărcați</string>
     <string name="swiper_delete_confirmation_title">Ștergeți fișierele?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Aceasta va șterge permanent %1$d fișier (%2$s). Această acțiune nu poate fi anulată.</item>
@@ -103,16 +101,6 @@
         <item quantity="few">%d indecise</item>
         <item quantity="other">%d indecise</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d deja păstrat</item>
-        <item quantity="few">%d deja păstrate</item>
-        <item quantity="other">%d deja păstrate</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d deja șters</item>
-        <item quantity="few">%d deja șterse</item>
-        <item quantity="other">%d deja șterse</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d păstrat</item>
         <item quantity="few">%d păstrate</item>
@@ -168,7 +156,6 @@
     <string name="swiper_file_type_category_archives">Arhive</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Aplică</string>
-    <string name="swiper_session_filter_action">Filtrează fișierele</string>
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">Nu s-au găsit fișiere corespunzătoare</string>
     <string name="swiper_open_externally_action">Deschide în aplicație externă</string>

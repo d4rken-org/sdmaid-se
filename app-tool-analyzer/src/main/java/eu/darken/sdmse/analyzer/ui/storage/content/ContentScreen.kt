@@ -322,7 +322,10 @@ internal fun ContentScreen(
                                         onCreateSwiperSession(selectedItems)
                                         selection = emptySet()
                                     }) {
-                                        Icon(Icons.TwoTone.SwipeRight, contentDescription = null)
+                                        Icon(
+                                            Icons.TwoTone.SwipeRight,
+                                            contentDescription = stringResource(R.string.analyzer_content_create_swiper_session_action),
+                                        )
                                     }
                                 }
                             },

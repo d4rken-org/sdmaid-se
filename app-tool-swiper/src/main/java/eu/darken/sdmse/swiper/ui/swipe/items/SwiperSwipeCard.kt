@@ -200,6 +200,14 @@ internal fun SwiperSwipeCard(
             elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
+                Text(
+                    text = stringResource(R.string.swiper_no_preview_available),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(top = 64.dp),
+                )
                 FilePreviewImage(
                     lookup = item.lookup,
                     contentScale = ContentScale.Fit,

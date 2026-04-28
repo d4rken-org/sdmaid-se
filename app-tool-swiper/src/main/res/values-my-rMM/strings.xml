@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">ရွေးချယ်ပြီးသောကို ဆေးလိုက်ပါ</string>
     <string name="swiper_status_action_delete_selected">ရွေးချယ်ထားသည်ကို ဖျက်ပါ</string>
     <string name="swiper_status_action_reset_selected">ရွေးချယ်ပြီးသောကို အသစ်သန်ပြန်ပါ</string>
-    <string name="swiper_decision_undecided">ဆုံးပြေဆုံးမခြယ်ပြီး</string>
-    <string name="swiper_retry_action">ချုမ်းကြိုးပြန်ပါ</string>
     <string name="swiper_delete_confirmation_title">ဖိုင်များ ဖက်ချလိုက်မည်လား?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">ဤလုပ်ဆောင်ချက်သည် %1$d ဖိုင် (%2$s) ကို အမြဲတမ်းဖက်ချလိုက်မည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ပြန်ဆွဲ၍မရပါ။</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d ခု သိုထားလိုက်ပြီး</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ခု ဖယ်ချလိုက်ပြီး</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d ခု သိုထားပြီး</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">မော်ကွန်းများ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">သုံးမည်</string>
-    <string name="swiper_session_filter_action">ဖိုင်များ စစ်ထုတ်မည်</string>
     <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
     <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
     <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>

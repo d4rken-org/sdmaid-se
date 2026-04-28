@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">שמור נבחרים</string>
     <string name="swiper_status_action_delete_selected">מחק נבחרים</string>
     <string name="swiper_status_action_reset_selected">אפס נבחרים</string>
-    <string name="swiper_decision_undecided">לא הוחלט</string>
-    <string name="swiper_retry_action">נסה שוב</string>
     <string name="swiper_delete_confirmation_title">למחוק קבצים?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">פעולה זו תמחק לצמיתות קובץ %1$d (%2$s). לא ניתן לבטל פעולה זו.</item>
@@ -116,18 +114,6 @@
         <item quantity="many">%d לא הוחלט</item>
         <item quantity="other">%d לא הוחלט</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d כבר נשמר</item>
-        <item quantity="two">%d כבר נשמרו</item>
-        <item quantity="many">%d כבר נשמרו</item>
-        <item quantity="other">%d כבר נשמרו</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d כבר נמחק</item>
-        <item quantity="two">%d כבר נמחקו</item>
-        <item quantity="many">%d כבר נמחקו</item>
-        <item quantity="other">%d כבר נמחקו</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d נשמר</item>
         <item quantity="two">%d נשמרו</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">ארכיונים</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">החל</string>
-    <string name="swiper_session_filter_action">סינון קבצים</string>
     <string name="swiper_file_type_filter_summary">מסונן: %1$s</string>
     <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
     <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>

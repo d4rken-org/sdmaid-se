@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Mantén la selecció</string>
     <string name="swiper_status_action_delete_selected">Suprimeix els seleccionats</string>
     <string name="swiper_status_action_reset_selected">Restableix la selecció</string>
-    <string name="swiper_decision_undecided">Indecís</string>
-    <string name="swiper_retry_action">Reintenta</string>
     <string name="swiper_delete_confirmation_title">Voleu suprimir els fitxers?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Això suprimirà permanentment %1$d fitxer (%2$s). Aquesta acció no es pot desfer.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d indecís</item>
         <item quantity="other">%d indecisos</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ja conservat</item>
-        <item quantity="other">%d ja conservats</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ja suprimit</item>
-        <item quantity="other">%d ja suprimits</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d conservat</item>
         <item quantity="other">%d conservats</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Fitxers comprimits</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Aplica</string>
-    <string name="swiper_session_filter_action">Filtra fitxers</string>
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">No s\'han trobat fitxers coincidents</string>
     <string name="swiper_open_externally_action">Obre en una aplicació externa</string>

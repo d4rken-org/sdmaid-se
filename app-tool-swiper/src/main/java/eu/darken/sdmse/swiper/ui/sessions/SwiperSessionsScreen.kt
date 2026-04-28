@@ -129,7 +129,7 @@ internal fun SwiperSessionsScreen(
             ExtendedFloatingActionButton(
                 onClick = onOpenPicker,
                 icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
-                text = { Text(stringResource(R.string.swiper_start_action)) },
+                text = { Text(stringResource(R.string.swiper_select_folders_action)) },
                 expanded = state.canCreateNewSession,
             )
         },
@@ -255,6 +255,7 @@ private fun RenameSessionDialog(
             OutlinedTextField(
                 value = text,
                 onValueChange = { text = it },
+                placeholder = { Text(stringResource(R.string.swiper_session_rename_hint)) },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -295,11 +296,16 @@ private fun FileTypeFilterDialog(
         title = { Text(stringResource(R.string.swiper_file_type_filter_title)) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                CategoryRow(R.string.swiper_file_type_category_images, images) { images = it }
-                CategoryRow(R.string.swiper_file_type_category_videos, videos) { videos = it }
-                CategoryRow(R.string.swiper_file_type_category_audio, audio) { audio = it }
-                CategoryRow(R.string.swiper_file_type_category_documents, documents) { documents = it }
-                CategoryRow(R.string.swiper_file_type_category_archives, archives) { archives = it }
+                Text(
+                    text = stringResource(R.string.swiper_file_type_filter_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                CategoryRow(R.string.swiper_file_type_category_images, R.string.swiper_file_type_category_images_subtitle, images) { images = it }
+                CategoryRow(R.string.swiper_file_type_category_videos, R.string.swiper_file_type_category_videos_subtitle, videos) { videos = it }
+                CategoryRow(R.string.swiper_file_type_category_audio, R.string.swiper_file_type_category_audio_subtitle, audio) { audio = it }
+                CategoryRow(R.string.swiper_file_type_category_documents, R.string.swiper_file_type_category_documents_subtitle, documents) { documents = it }
+                CategoryRow(R.string.swiper_file_type_category_archives, R.string.swiper_file_type_category_archives_subtitle, archives) { archives = it }
                 OutlinedTextField(
                     value = customExtensions,
                     onValueChange = { customExtensions = it },
@@ -334,6 +340,7 @@ private fun FileTypeFilterDialog(
 @Composable
 private fun CategoryRow(
     labelRes: Int,
+    subtitleRes: Int,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
@@ -344,10 +351,17 @@ private fun CategoryRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Checkbox(checked = checked, onCheckedChange = onCheckedChange)
-        Text(
-            text = stringResource(labelRes),
-            style = MaterialTheme.typography.bodyMedium,
-        )
+        Column {
+            Text(
+                text = stringResource(labelRes),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                text = stringResource(subtitleRes),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
 

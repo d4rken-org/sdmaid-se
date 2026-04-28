@@ -168,7 +168,7 @@ internal fun SwiperStatusScreen(
                         }) {
                             Icon(
                                 Icons.TwoTone.Favorite,
-                                contentDescription = stringResource(R.string.swiper_keep_action),
+                                contentDescription = stringResource(R.string.swiper_status_action_keep_selected),
                                 tint = MaterialTheme.colorScheme.primary,
                             )
                         }
@@ -179,7 +179,7 @@ internal fun SwiperStatusScreen(
                         }) {
                             Icon(
                                 Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_action),
+                                contentDescription = stringResource(R.string.swiper_status_action_delete_selected),
                                 tint = MaterialTheme.colorScheme.error,
                             )
                         }
@@ -190,7 +190,7 @@ internal fun SwiperStatusScreen(
                         }) {
                             Icon(
                                 Icons.TwoTone.Restore,
-                                contentDescription = stringResource(CommonR.string.general_reset_action),
+                                contentDescription = stringResource(R.string.swiper_status_action_reset_selected),
                             )
                         }
                         IconButton(onClick = {

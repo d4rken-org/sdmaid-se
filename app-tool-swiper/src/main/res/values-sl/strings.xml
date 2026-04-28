@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Obdrži izbrane</string>
     <string name="swiper_status_action_delete_selected">Izbriši izbrano</string>
     <string name="swiper_status_action_reset_selected">Ponastavi izbrane</string>
-    <string name="swiper_decision_undecided">Neodločeno</string>
-    <string name="swiper_retry_action">Poizkusi znova</string>
     <string name="swiper_delete_confirmation_title">Izbriši datoteke?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">S tem boste trajno izbrisali %1$d datoteko (%2$s).  Tega dejanja ni mogoče razveljaviti.</item>
@@ -116,18 +114,6 @@
         <item quantity="few">%d neodločeni</item>
         <item quantity="other">%d neodločenih</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d že obdržana</item>
-        <item quantity="two">%d že obdržani</item>
-        <item quantity="few">%d že obdržane</item>
-        <item quantity="other">%d že obdržanih</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d že izbrisan</item>
-        <item quantity="two">%d že izbrisana</item>
-        <item quantity="few">%d že izbrisani</item>
-        <item quantity="other">%d že izbrisanih</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d obdržana</item>
         <item quantity="two">%d obdržani</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Arhivi</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk …</string>
     <string name="swiper_file_type_filter_apply_action">Uporabi</string>
-    <string name="swiper_session_filter_action">Filtriraj datoteke</string>
     <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
     <string name="swiper_session_no_matching_files">Ni ujemajočih se datotek.</string>
     <string name="swiper_open_externally_action">Odpri v zunanjem programu</string>

@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">ਚੁਣੇ ਹੋਏ ਰੱਖੋ</string>
     <string name="swiper_status_action_delete_selected">ਚੁਣੇ ਮਿਟਾਓ</string>
     <string name="swiper_status_action_reset_selected">ਚੁਣੇ ਹੋਏ ਰੀਸੈੱਟ ਕਰੋ</string>
-    <string name="swiper_decision_undecided">ਅਣ-ਫੈਸਲਾ</string>
-    <string name="swiper_retry_action">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
     <string name="swiper_delete_confirmation_title">ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ਇਹ %1$d ਫਾਈਲ (%2$s) ਨੂੰ ਪੱਕੇ ਤੌਰ \'ਤੇ ਮਿਟਾ ਦੇਵੇਗਾ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d ਅਣ-ਫੈਸਲਾ</item>
         <item quantity="other">%d ਅਣ-ਫੈਸਲਾ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ਪਹਿਲਾਂ ਹੀ ਰੱਖਿਆ</item>
-        <item quantity="other">%d ਪਹਿਲਾਂ ਹੀ ਰੱਖੇ</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ਪਹਿਲਾਂ ਹੀ ਮਿਟਾਇਆ</item>
-        <item quantity="other">%d ਪਹਿਲਾਂ ਹੀ ਮਿਟਾਏ</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ਰੱਖਿਆ</item>
         <item quantity="other">%d ਰੱਖੇ</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">ਪੁਰਾਲੇਖ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">ਲਾਗੂ ਕਰੋ</string>
-    <string name="swiper_session_filter_action">ਫ਼ਾਈਲਾਂ ਫ਼ਿਲਟਰ ਕਰੋ</string>
     <string name="swiper_file_type_filter_summary">ਫ਼ਿਲਟਰ ਕੀਤਾ: %1$s</string>
     <string name="swiper_session_no_matching_files">ਕੋਈ ਮੇਲ ਖਾਂਦੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
     <string name="swiper_open_externally_action">ਬਾਹਰੀ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>

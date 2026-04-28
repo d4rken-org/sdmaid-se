@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">حفظ انتخاب شده</string>
     <string name="swiper_status_action_delete_selected">حذف انتخاب شده</string>
     <string name="swiper_status_action_reset_selected">بازنشانی انتخاب شده</string>
-    <string name="swiper_decision_undecided">تصمیم‌نگرفته</string>
-    <string name="swiper_retry_action">تلاش مجدد</string>
     <string name="swiper_delete_confirmation_title">فایل‌ها حذف شوند؟</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">این عمل %1$d فایل (%2$s) را برای همیشه حذف می‌کند. این عمل قابل بازگشت نیست.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d تصمیم‌نگرفته</item>
         <item quantity="other">%d تصمیم‌نگرفته</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d قبلاً حفظ شده</item>
-        <item quantity="other">%d قبلاً حفظ شده</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d قبلاً حذف شده</item>
-        <item quantity="other">%d قبلاً حذف شده</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d حفظ شده</item>
         <item quantity="other">%d حفظ شده</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">آرشیوها</string>
     <string name="swiper_file_type_category_archives_subtitle">zip، rar، 7z، tar، apk…</string>
     <string name="swiper_file_type_filter_apply_action">اعمال</string>
-    <string name="swiper_session_filter_action">فیلتر فایل‌ها</string>
     <string name="swiper_file_type_filter_summary">فیلتر شده: %1$s</string>
     <string name="swiper_session_no_matching_files">فایل مطابقی یافت نشد</string>
     <string name="swiper_open_externally_action">باز کردن در برنامه خارجی</string>

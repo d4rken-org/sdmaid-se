@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">ເກັບທີ່ເລືອກ</string>
     <string name="swiper_status_action_delete_selected">ລຶບທີ່ເລືອກ</string>
     <string name="swiper_status_action_reset_selected">ຮີບອົດທີ່ເລືອກ</string>
-    <string name="swiper_decision_undecided">ຍັງເປີນຕັດສິນໃຈໄມ່ໄດ້</string>
-    <string name="swiper_retry_action">ລອງແຜນໃໝ່</string>
     <string name="swiper_delete_confirmation_title">ລົບໄຟລ໌?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">ການນີ້ຈະລົບ %1$d ໄຟລ໌ (%2$s) ອຍ່າງຖາວນີรະພົ. ການກະທຳນີ້ໄມ່ສາມາຖຍ້ອນຄືນໄດ້.</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d ຍັງຕັດສິນໃຈໄມ່ໄດ້</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d ເກັບໄວ້ແລ້ວ</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ລົບໄປແລ້ວ</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d ເກັບໄວ້</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">ໄຟລ໌ບີບອັດ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">ນຳໃຊ້</string>
-    <string name="swiper_session_filter_action">ກອງໄຟລ໌</string>
     <string name="swiper_file_type_filter_summary">ກອງແລ້ວ: %1$s</string>
     <string name="swiper_session_no_matching_files">ບໍ່ພົບໄຟລ໌ທີ່ກົງກັນ</string>
     <string name="swiper_open_externally_action">ເປີດໃນແອັບພາຍນອກ</string>

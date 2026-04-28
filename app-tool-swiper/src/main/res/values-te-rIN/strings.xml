@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">ఎంచుకున్నవి ఉంచు</string>
     <string name="swiper_status_action_delete_selected">ఎంచుకున్నవి తొలగించండి</string>
     <string name="swiper_status_action_reset_selected">ఎంచుకున్నవి రీసెట్ చేయి</string>
-    <string name="swiper_decision_undecided">నిర్ణయించబడలేదు</string>
-    <string name="swiper_retry_action">మళ్ళీ ప్రయత్నించు</string>
     <string name="swiper_delete_confirmation_title">ఫైల్‌లను తొలగించాలా?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ఇది %1$d ఫైల్‌ను (%2$s) శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d నిర్ణయించబడలేదు</item>
         <item quantity="other">%d నిర్ణయించబడలేదు</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ఇప్పటికే ఉంచబడింది</item>
-        <item quantity="other">%d ఇప్పటికే ఉంచబడ్డాయి</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ఇప్పటికే తొలగించబడింది</item>
-        <item quantity="other">%d ఇప్పటికే తొలగించబడ్డాయి</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ఉంచబడింది</item>
         <item quantity="other">%d ఉంచబడ్డాయి</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">ఆర్కైవ్‌లు</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">వర్తించు</string>
-    <string name="swiper_session_filter_action">ఫైల్స్ వడపోత</string>
     <string name="swiper_file_type_filter_summary">వడపోయబడినవి: %1$s</string>
     <string name="swiper_session_no_matching_files">సరిపోలే ఫైల్స్ కనుగొనబడలేదు</string>
     <string name="swiper_open_externally_action">బాహ్య యాప్‌లో తెరవండి</string>

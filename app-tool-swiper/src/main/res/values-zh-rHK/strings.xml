@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">保留所選</string>
     <string name="swiper_status_action_delete_selected">刪除已選取的項目</string>
     <string name="swiper_status_action_reset_selected">重設所選</string>
-    <string name="swiper_decision_undecided">未決定</string>
-    <string name="swiper_retry_action">重試</string>
     <string name="swiper_delete_confirmation_title">刪除檔案？</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">這將永久刪除 %1$d 個檔案（%2$s）。此操作無法撤銷。</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d 個未決定</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d 個已保留</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d 個已刪除</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d 已保留</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">壓縮檔</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">套用</string>
-    <string name="swiper_session_filter_action">篩選檔案</string>
     <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>

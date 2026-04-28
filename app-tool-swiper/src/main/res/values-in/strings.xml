@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">Simpan terpilih</string>
     <string name="swiper_status_action_delete_selected">Hapus yang dipilih</string>
     <string name="swiper_status_action_reset_selected">Atur ulang pilihan</string>
-    <string name="swiper_decision_undecided">Belum diputuskan</string>
-    <string name="swiper_retry_action">Coba lagi</string>
     <string name="swiper_delete_confirmation_title">Hapus berkas?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">Ini akan menghapus secara permanen. %1$d file (%2$s). Tindakan ini tidak dapat dibatalkan.</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d belum diputuskan</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d sudah disimpan</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d sudah dihapus</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d disimpan</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">Arsip</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Terapkan</string>
-    <string name="swiper_session_filter_action">Filter file</string>
     <string name="swiper_file_type_filter_summary">Difilter: %1$s</string>
     <string name="swiper_session_no_matching_files">Tidak ada file yang cocok ditemukan</string>
     <string name="swiper_open_externally_action">Buka di aplikasi eksternal</string>

@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">चयनित राख्नुहोस्</string>
     <string name="swiper_status_action_delete_selected">चयन गरिएको मेटाउनुहोस्</string>
     <string name="swiper_status_action_reset_selected">चयनित रिसेट गर्नुहोस्</string>
-    <string name="swiper_decision_undecided">अनिर्णीत</string>
-    <string name="swiper_retry_action">पुनः प्रयास गर्नुहोस्</string>
     <string name="swiper_delete_confirmation_title">फाइलहरू मेटाउने?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">यसले 1 फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
@@ -95,14 +93,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="one">%d अनिर्णीत</item>
         <item quantity="other">%d अनिर्णीत</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d पहिले नै राखिएको</item>
-        <item quantity="other">%d पहिले नै राखिएका</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d पहिले नै मेटाइएको</item>
-        <item quantity="other">%d पहिले नै मेटाइएका</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d राखिएको</item>
@@ -166,7 +156,6 @@
     <string name="swiper_file_type_category_archives">संग्रहणहरू</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">लागू गर्नुहोस्</string>
-    <string name="swiper_session_filter_action">फाइलहरू फिल्टर गर्नुहोस्</string>
     <string name="swiper_file_type_filter_summary">फिल्टर गरिएको: %1$s</string>
     <string name="swiper_session_no_matching_files">मिल्दो फाइलहरू फेला परेनन्</string>
     <string name="swiper_open_externally_action">बाह्य एपमा खोल्नुहोस्</string>

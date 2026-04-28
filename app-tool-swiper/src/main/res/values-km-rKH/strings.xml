@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">រក្សាដែលបានជ្រើស</string>
     <string name="swiper_status_action_delete_selected">លុបធាតុដែលបានរើស</string>
     <string name="swiper_status_action_reset_selected">ស្ទើរដែលបានជ្រើស</string>
-    <string name="swiper_decision_undecided">មិនត្រូវបានសម្រេច</string>
-    <string name="swiper_retry_action">ស្កើនម្តង</string>
     <string name="swiper_delete_confirmation_title">លុបឯកសារ?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">នេឣនឹងលុបឯកសារ %1$d (%2$s) ផ័ល់ប័វត់។ ការប័ក័វត់នេឣមិនអាចត្រលប់វិញបាន។</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d មិនបានសម្រេច</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d ត្រូវបានរក្សាហើយ</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ត្រូវបានលុបហើយ</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d ត្រូវបានរក្សា</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">ប័ណ្ណសារ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">អនុវត្ត</string>
-    <string name="swiper_session_filter_action">ត្រងឯកសារ</string>
     <string name="swiper_file_type_filter_summary">បានត្រង: %1$s</string>
     <string name="swiper_session_no_matching_files">រកមិនខើញឯកសារដែត្រូវគ្នា</string>
     <string name="swiper_open_externally_action">បើកក្នុងកម្មវិធីខាងក្រៅ</string>

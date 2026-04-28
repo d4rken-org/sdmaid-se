@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">არჩეულის შენახვა</string>
     <string name="swiper_status_action_delete_selected">მონიშნულის წაშლა</string>
     <string name="swiper_status_action_reset_selected">არჩეულის გადაყენება</string>
-    <string name="swiper_decision_undecided">გადაუწყვეტელი</string>
-    <string name="swiper_retry_action">ხელახლა ცდა</string>
     <string name="swiper_delete_confirmation_title">ფაილების წაშლა?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ეს სამუდამოდ წაშლის %1$d ფაილს (%2$s). ეს მოქმედება ვერ გაუქმდება.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d გადაუწყვეტელი</item>
         <item quantity="other">%d გადაუწყვეტელი</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d უკვე შენახული</item>
-        <item quantity="other">%d უკვე შენახული</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d უკვე წაშლილი</item>
-        <item quantity="other">%d უკვე წაშლილი</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d შენახული</item>
         <item quantity="other">%d შენახული</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">არქივები</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">გამოყენება</string>
-    <string name="swiper_session_filter_action">ფაილების გაფილტვრა</string>
     <string name="swiper_file_type_filter_summary">გაფილტრული: %1$s</string>
     <string name="swiper_session_no_matching_files">შესაბამისი ფაილები ვერ მოიძებნა</string>
     <string name="swiper_open_externally_action">გარე აპლიკაციაში გახსნა</string>

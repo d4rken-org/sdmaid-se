@@ -24,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">เก็บที่เลือก</string>
     <string name="swiper_status_action_delete_selected">ลบที่เลือก</string>
     <string name="swiper_status_action_reset_selected">รีเซ็ตที่เลือก</string>
-    <string name="swiper_decision_undecided">ยังไม่ตัดสินใจ</string>
-    <string name="swiper_retry_action">ลองใหม่</string>
     <string name="swiper_delete_confirmation_title">ลบไฟล์?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">สิ่งนี้จะลบ %1$d ไฟล์ (%2$s) อย่างถาวร ไม่สามารถเลิกทำได้</item>
@@ -76,12 +74,6 @@
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d ยังไม่ตัดสินใจ</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d เก็บไว้แล้ว</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ลบแล้ว</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">เก็บ %d</item>
@@ -134,7 +126,6 @@
     <string name="swiper_file_type_category_archives">ไฟล์บีบอัด</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">ใช้งาน</string>
-    <string name="swiper_session_filter_action">กรองไฟล์</string>
     <string name="swiper_file_type_filter_summary">กรองแล้ว: %1$s</string>
     <string name="swiper_session_no_matching_files">ไม่พบไฟล์ที่ตรงกัน</string>
     <string name="swiper_open_externally_action">เปิดในแอปภายนอก</string>

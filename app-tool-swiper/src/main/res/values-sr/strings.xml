@@ -30,8 +30,6 @@
     <string name="swiper_status_action_keep_selected">Задржи изабрано</string>
     <string name="swiper_status_action_delete_selected">Обриши изабране</string>
     <string name="swiper_status_action_reset_selected">Ресетуј изабрано</string>
-    <string name="swiper_decision_undecided">Неодлучено</string>
-    <string name="swiper_retry_action">Покушај поново</string>
     <string name="swiper_delete_confirmation_title">Обрисати датотеке?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Ово ће трајно обрисати %1$d датотеку (%2$s). Ова акција се не може поништити.</item>
@@ -103,16 +101,6 @@
         <item quantity="few">%d неодлучено</item>
         <item quantity="other">%d неодлучено</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d већ задржано</item>
-        <item quantity="few">%d већ задржано</item>
-        <item quantity="other">%d већ задржано</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d већ обрисано</item>
-        <item quantity="few">%d већ обрисано</item>
-        <item quantity="other">%d већ обрисано</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d задржано</item>
         <item quantity="few">%d задржано</item>
@@ -168,7 +156,6 @@
     <string name="swiper_file_type_category_archives">Архиве</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Примени</string>
-    <string name="swiper_session_filter_action">Филтрирај датотеке</string>
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Нису пронађене одговарајуће датотеке</string>
     <string name="swiper_open_externally_action">Отвори у спољашњој апликацији</string>

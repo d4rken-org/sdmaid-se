@@ -56,6 +56,23 @@ fun SwiperSessionsHeaderCard(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = stringResource(R.string.swiper_sessions_suggestions_label),
+                style = MaterialTheme.typography.labelMedium,
+            )
+            Spacer(Modifier.height(4.dp))
+            listOf(
+                R.string.swiper_sessions_suggestion_camera,
+                R.string.swiper_sessions_suggestion_downloads,
+                R.string.swiper_sessions_suggestion_screenshots,
+            ).forEach { res ->
+                Text(
+                    text = "• " + stringResource(res),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }

@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Palikti pasirinktus</string>
     <string name="swiper_status_action_delete_selected">Trinti pažymėtus</string>
     <string name="swiper_status_action_reset_selected">Atstatyti pasirinktus</string>
-    <string name="swiper_decision_undecided">Nespręstas</string>
-    <string name="swiper_retry_action">Bandyti dar kartą</string>
     <string name="swiper_delete_confirmation_title">Ištrinti failus?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Tai neatstatoma ištrins %1$d failą (%2$s). Ši veiksmo atlikti nebus galima.</item>
@@ -116,18 +114,6 @@
         <item quantity="many">%d neapsprendžiama</item>
         <item quantity="other">%d neapsispręsta</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jau palikta</item>
-        <item quantity="few">%d jau palikta</item>
-        <item quantity="many">%d jau palikta</item>
-        <item quantity="other">%d jau palikta</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d jau ištrinta</item>
-        <item quantity="few">%d jau ištrinta</item>
-        <item quantity="many">%d jau ištrinta</item>
-        <item quantity="other">%d jau ištrinta</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d palikta</item>
         <item quantity="few">%d palikti</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Archyvai</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Taikyti</string>
-    <string name="swiper_session_filter_action">Filtruoti failus</string>
     <string name="swiper_file_type_filter_summary">Filtruota: %1$s</string>
     <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
     <string name="swiper_open_externally_action">Atidaryti išorine programa</string>

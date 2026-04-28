@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Gcina okukhethiwe</string>
     <string name="swiper_status_action_delete_selected">Susa okukhethiwe</string>
     <string name="swiper_status_action_reset_selected">Setha kabusha okukhethiwe</string>
-    <string name="swiper_decision_undecided">Akunqunyiwe</string>
-    <string name="swiper_retry_action">Zama futhi</string>
     <string name="swiper_delete_confirmation_title">Susa amafayela?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Lokhu kuzosusa unomphela %1$d ifayela (%2$s). Lesi senzo asikwazi ukuhlehliswa.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d enganqunyiwe</item>
         <item quantity="other">%d ezinganqunyiwe</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d osugciniwe</item>
-        <item quantity="other">%d osugciniwe</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d osususwe kakade</item>
-        <item quantity="other">%d osususwe kakade</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ogciniwe</item>
         <item quantity="other">%d ogciniwe</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Izilondolozi</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Faka</string>
-    <string name="swiper_session_filter_action">Hlunga amafayela</string>
     <string name="swiper_file_type_filter_summary">Kuhlunyiwe: %1$s</string>
     <string name="swiper_session_no_matching_files">Awekho amafayela afanayo atholakalayo</string>
     <string name="swiper_open_externally_action">Vula kusoftware yangaphandle</string>

@@ -21,8 +21,6 @@
     <string name="swiper_status_action_keep_selected">Żomm magħżula</string>
     <string name="swiper_status_action_delete_selected">Ħassar magħżula</string>
     <string name="swiper_status_action_reset_selected">Irrisettja magħżula</string>
-    <string name="swiper_decision_undecided">Mhux deċiż</string>
-    <string name="swiper_retry_action">Erġa\' pprova</string>
     <string name="swiper_delete_confirmation_title">Tħassar fajls?</string>
     <string name="swiper_no_preview_available">L-ebda preview disponibbli</string>
     <string name="swiper_sessions_header_title">Lest biex tirranġa?</string>

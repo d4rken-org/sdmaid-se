@@ -30,8 +30,6 @@
     <string name="swiper_status_action_keep_selected">Saglabāt atlasītos</string>
     <string name="swiper_status_action_delete_selected">Dzēst izvēlētos</string>
     <string name="swiper_status_action_reset_selected">Atiestatīt atlasītos</string>
-    <string name="swiper_decision_undecided">Neizlemts</string>
-    <string name="swiper_retry_action">Mēģināt vēlreiz</string>
     <string name="swiper_delete_confirmation_title">Dzēst failus?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="zero">Tas neatgriezeniski dzēsts %1$d failus (%2$s). Šo darbību nav iespējams atcelt.</item>
@@ -103,16 +101,6 @@
         <item quantity="one">%d neizlemts</item>
         <item quantity="other">%d neizlemts</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="zero">%d jau saglabāts</item>
-        <item quantity="one">%d jau saglabāts</item>
-        <item quantity="other">%d jau saglabāts</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="zero">%d jau dzēsts</item>
-        <item quantity="one">%d jau dzēsts</item>
-        <item quantity="other">%d jau dzēsts</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="zero">%d saglabāts</item>
         <item quantity="one">%d saglabāts</item>
@@ -177,7 +165,6 @@ Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. 
     <string name="swiper_file_type_category_archives">Arhīvi</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Lietot</string>
-    <string name="swiper_session_filter_action">Filtrēt failus</string>
     <string name="swiper_file_type_filter_summary">Filtrēts: %1$s</string>
     <string name="swiper_session_no_matching_files">Nav atrasts neviens atbilstošs fails</string>
     <string name="swiper_open_externally_action">Atvērt ārējā lietotne</string>

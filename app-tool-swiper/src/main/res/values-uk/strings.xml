@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Зберегти вибране</string>
     <string name="swiper_status_action_delete_selected">Видалити вибране</string>
     <string name="swiper_status_action_reset_selected">Скинути вибране</string>
-    <string name="swiper_decision_undecided">Невизначений</string>
-    <string name="swiper_retry_action">Повторити спробу</string>
     <string name="swiper_delete_confirmation_title">Видалити файли?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Це назавжди видалить %1$d файл (%2$s). Цю дію неможливо скасувати.</item>
@@ -116,18 +114,6 @@
         <item quantity="many">%d невизначених</item>
         <item quantity="other">%d невизначених</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d вже збережено</item>
-        <item quantity="few">%d вже збережено</item>
-        <item quantity="many">%d вже збережено</item>
-        <item quantity="other">%d вже збережено</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d вже видалено</item>
-        <item quantity="few">%d вже видалено</item>
-        <item quantity="many">%d вже видалено</item>
-        <item quantity="other">%d вже видалено</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d збережено</item>
         <item quantity="few">%d збережено</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Архіви</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Застосувати</string>
-    <string name="swiper_session_filter_action">Фільтр файлів</string>
     <string name="swiper_file_type_filter_summary">Відфільтровано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не знайдено відповідних файлів</string>
     <string name="swiper_open_externally_action">Відкрити у зовнішньому додатку</string>

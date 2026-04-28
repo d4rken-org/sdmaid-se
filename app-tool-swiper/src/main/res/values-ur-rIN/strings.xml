@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">منتخب رکھیں</string>
     <string name="swiper_status_action_delete_selected">منتخب حذف کریں</string>
     <string name="swiper_status_action_reset_selected">منتخب ری سیٹ کریں</string>
-    <string name="swiper_decision_undecided">غیر فیصلہ شدہ</string>
-    <string name="swiper_retry_action">دوبارہ کوشش</string>
     <string name="swiper_delete_confirmation_title">فائلیں حذف کریں؟</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">یہ %1$d فائل (%2$s) کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d غیر فیصلہ شدہ</item>
         <item quantity="other">%d غیر فیصلہ شدہ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d پہلے سے رکھا گیا</item>
-        <item quantity="other">%d پہلے سے رکھے گئے</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d پہلے سے حذف شدہ</item>
-        <item quantity="other">%d پہلے سے حذف شدہ</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d رکھا گیا</item>
         <item quantity="other">%d رکھے گئے</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">آرکائیوز</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">لاگو کریں</string>
-    <string name="swiper_session_filter_action">فائلیں فلٹر کریں</string>
     <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
     <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
     <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>

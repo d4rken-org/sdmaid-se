@@ -116,12 +116,17 @@ fun SwiperSessionRow(
                 IconButton(onClick = onRemove) {
                     Icon(
                         Icons.TwoTone.Close,
-                        contentDescription = stringResource(CommonR.string.general_remove_action),
+                        contentDescription = stringResource(R.string.swiper_session_remove_action),
                     )
                 }
             }
 
             Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.swiper_session_paths_label),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
             session.sourcePaths.forEach { path ->
                 Text(
                     text = path.userReadablePath.get(context),
@@ -177,6 +182,11 @@ fun SwiperSessionRow(
                     Text(text = "$percent%", style = MaterialTheme.typography.labelSmall)
                 }
                 Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.swiper_session_status_label),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     Text(
                         text = pluralStringResource(

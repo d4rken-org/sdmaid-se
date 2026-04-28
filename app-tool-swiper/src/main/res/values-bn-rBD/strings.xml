@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">নির্বাচিত রাখুন</string>
     <string name="swiper_status_action_delete_selected">নির্বাচিত অংশ মুছুন</string>
     <string name="swiper_status_action_reset_selected">নির্বাচিত রিসেট করুন</string>
-    <string name="swiper_decision_undecided">অনির্ধারিত</string>
-    <string name="swiper_retry_action">পুনরায় চেষ্টা</string>
     <string name="swiper_delete_confirmation_title">ফাইল মুছবেন?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">এটি স্থায়ীভাবে %1$d ফাইল (%2$s) মুছে ফেলবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d অনির্ধারিত</item>
         <item quantity="other">%d অনির্ধারিত</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ইতিমধ্যে রাখা হয়েছে</item>
-        <item quantity="other">%d ইতিমধ্যে রাখা হয়েছে</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
-        <item quantity="other">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d রাখা হয়েছে</item>
         <item quantity="other">%d রাখা হয়েছে</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">আর্কাইভ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">প্রয়োগ করুন</string>
-    <string name="swiper_session_filter_action">ফাইল ফিল্টার করুন</string>
     <string name="swiper_file_type_filter_summary">ফিল্টার করা হয়েছে: %1$s</string>
     <string name="swiper_session_no_matching_files">কোনো মিলসম্পন্ন ফাইল পাওয়া যায়নি</string>
     <string name="swiper_open_externally_action">বাহ্যিক অ্যাপে খুলুন</string>

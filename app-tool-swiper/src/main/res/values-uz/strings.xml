@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Tanlanganlarni saqlash</string>
     <string name="swiper_status_action_delete_selected">Tanlanganlarni o\'chirish</string>
     <string name="swiper_status_action_reset_selected">Tanlanganlarni qayta o\'rnatish</string>
-    <string name="swiper_decision_undecided">Hal qilinmagan</string>
-    <string name="swiper_retry_action">Qayta urinish</string>
     <string name="swiper_delete_confirmation_title">Fayllarni o\'chirish kerakmi?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Bu %1$d faylni (%2$s) butunlay o\'chiradi. Bu amalni qaytarib bo\'lmaydi.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d hal qilinmagan</item>
         <item quantity="other">%d hal qilinmagan</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d allaqachon saqlangan</item>
-        <item quantity="other">%d allaqachon saqlangan</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d allaqachon o\'chirilgan</item>
-        <item quantity="other">%d allaqachon o\'chirilgan</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d saqlandi</item>
         <item quantity="other">%d saqlandi</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arxivlar</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Qo\'llash</string>
-    <string name="swiper_session_filter_action">Fayllarni filtrlash</string>
     <string name="swiper_file_type_filter_summary">Filtrlangan: %1$s</string>
     <string name="swiper_session_no_matching_files">Mos keladigan fayllar topilmadi</string>
     <string name="swiper_open_externally_action">Tashqi ilovada ochish</string>

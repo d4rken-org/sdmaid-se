@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Mbaj të zgjedhurat</string>
     <string name="swiper_status_action_delete_selected">Fshij të zgjedhurin</string>
     <string name="swiper_status_action_reset_selected">Rivendos të zgjedhurat</string>
-    <string name="swiper_decision_undecided">I pavendosur</string>
-    <string name="swiper_retry_action">Riprovo</string>
     <string name="swiper_delete_confirmation_title">Fshi skedarët?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Kjo do të fshijë përgjithmonë %1$d skedar (%2$s). Ky veprim nuk mund të zhbëhet.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d i pavendosur</item>
         <item quantity="other">%d të pavendosur</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d tashmë i mbajtur</item>
-        <item quantity="other">%d tashmë të mbajtur</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d tashmë i fshirë</item>
-        <item quantity="other">%d tashmë të fshirë</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d i mbajtur</item>
         <item quantity="other">%d të mbajtur</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arkiva</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Apliko</string>
-    <string name="swiper_session_filter_action">Filtro skedarët</string>
     <string name="swiper_file_type_filter_summary">Filtruar: %1$s</string>
     <string name="swiper_session_no_matching_files">Nuk u gjetën skedarë përputhës</string>
     <string name="swiper_open_externally_action">Hap në aplikacion të jashtëm</string>

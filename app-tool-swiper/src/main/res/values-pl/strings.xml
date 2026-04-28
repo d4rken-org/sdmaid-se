@@ -33,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Zachowaj wybrane</string>
     <string name="swiper_status_action_delete_selected">Usuń zaznaczone</string>
     <string name="swiper_status_action_reset_selected">Resetuj zaznaczone</string>
-    <string name="swiper_decision_undecided">Niepotwierdzone</string>
-    <string name="swiper_retry_action">Ponów</string>
     <string name="swiper_delete_confirmation_title">Usunąć pliki?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Spowoduje to trwałe usunięcie pliku %1$d (%2$s). Tej czynności nie można cofnąć.</item>
@@ -116,18 +114,6 @@
         <item quantity="many">%d niepotwierdzonych</item>
         <item quantity="other">%d niepotwierdzonych</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jest już zachowany</item>
-        <item quantity="few">%d jest już zachowane</item>
-        <item quantity="many">%d jest już zachowanych</item>
-        <item quantity="other">%d jest już zachowanych</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d został już usunięty</item>
-        <item quantity="few">%d zostały już usunięte</item>
-        <item quantity="many">%d zostało już usuniętych</item>
-        <item quantity="other">%d zostało już usuniętych</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d zachowany</item>
         <item quantity="few">%d zachowane</item>
@@ -185,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Archiwa</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Zastosuj</string>
-    <string name="swiper_session_filter_action">Filtr plików</string>
     <string name="swiper_file_type_filter_summary">Przefiltrowano: %1$s</string>
     <string name="swiper_session_no_matching_files">Nie znaleziono pasujących plików</string>
     <string name="swiper_open_externally_action">Otwórz w aplikacji zewnętrznej</string>

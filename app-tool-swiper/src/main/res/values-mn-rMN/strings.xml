@@ -27,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Сонгосныг хадгалах</string>
     <string name="swiper_status_action_delete_selected">Сонгосныг устгах</string>
     <string name="swiper_status_action_reset_selected">Сонгосныг шинэчлэх</string>
-    <string name="swiper_decision_undecided">Шийдэгдээгүй</string>
-    <string name="swiper_retry_action">Дахин оролдох</string>
     <string name="swiper_delete_confirmation_title">Файлуудыг устгах уу?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">%1$d файлыг (%2$s) бүрмөсөн устгана. Энэ үйлдлийг буцаах боломжгүй.</item>
@@ -90,14 +88,6 @@
         <item quantity="one">%d шийдэгдээгүй</item>
         <item quantity="other">%d шийдэгдээгүй</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d аль хэдийн хадгалсан</item>
-        <item quantity="other">%d аль хэдийн хадгалсан</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d аль хэдийн устгасан</item>
-        <item quantity="other">%d аль хэдийн устгасан</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d хадгалсан</item>
         <item quantity="other">%d хадгалсан</item>
@@ -151,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Архивууд</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Хэрэглэх</string>
-    <string name="swiper_session_filter_action">Файл шүүх</string>
     <string name="swiper_file_type_filter_summary">Шүүсэн: %1$s</string>
     <string name="swiper_session_no_matching_files">Тохирох файл олдсонгүй</string>
     <string name="swiper_open_externally_action">Гадаад аппликейшнд нээх</string>
