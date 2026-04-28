@@ -132,6 +132,9 @@ jobs:
           bundler-cache: true
           working-directory: fastlane
 
+      - name: Verify fastlane Bundler wiring
+        run: bundle exec fastlane --version
+
       - name: Assemble beta and upload to Google Play
         if: "contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
         run: bundle exec fastlane beta

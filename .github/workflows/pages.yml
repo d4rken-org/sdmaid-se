@@ -33,6 +33,9 @@ jobs:
         env:
           JEKYLL_GITHUB_TOKEN: ${{ github.token }}
 
+      - name: Sanity-check Jekyll output
+        run: test -f _site/index.html && test -f _site/CNAME
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 #v5.0.0
 
