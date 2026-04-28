@@ -59,8 +59,6 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.7.0")
 
-    implementation("androidx.preference:preference-ktx:1.2.1")
-
     addTesting()
     testImplementation(project(":app-common-test"))
 }

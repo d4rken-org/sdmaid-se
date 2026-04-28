@@ -44,7 +44,6 @@ dependencies {
     addAndroidUI()
     addCompose()
     addNavigation3()
-    implementation("androidx.preference:preference-ktx:1.2.1")
     addDI()
     addCoroutines()
     addSerialization()

@@ -5,22 +5,19 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class CorpseFinderSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_corpsefinder")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val filterAppSourceAsecEnabled = dataStore.createValue("filter.appasec.enabled", false)
@@ -41,25 +38,6 @@ class CorpseFinderSettings @Inject constructor(
 
     val includeRiskKeeper = dataStore.createValue("risk.include.keeper", false)
     val includeRiskCommon = dataStore.createValue("risk.include.common", false)
-
-    override val mapper = PreferenceStoreMapper(
-        isWatcherEnabled,
-        isWatcherAutoDeleteEnabled,
-        includeRiskCommon,
-        includeRiskKeeper,
-        filterPublicMediaEnabled,
-        filterPublicObbEnabled,
-        filterPublicDataEnabled,
-        filterSdcardEnabled,
-        filterPrivateDataEnabled,
-        filterAppSourceAsecEnabled,
-        filterDalvikCacheEnabled,
-        filterArtProfilesEnabled,
-        filterAppLibEnabled,
-        filterAppSourceEnabled,
-        filterAppSourcePrivateEnabled,
-        filterAppToSdEnabled,
-    )
 
     companion object {
         internal val TAG = logTag("CorpseFinder", "Settings")

@@ -128,7 +128,6 @@ fun DependencyHandlerScope.addAndroidCore() {
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.annotation:annotation:1.9.1")
 
-    implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("androidx.datastore:datastore-preferences:1.2.0")
 }
 
