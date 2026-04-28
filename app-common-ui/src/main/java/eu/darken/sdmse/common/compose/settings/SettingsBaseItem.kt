@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.compose.settings
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SettingsBaseItem(
     modifier: Modifier = Modifier,

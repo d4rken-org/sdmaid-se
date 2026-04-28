@@ -9,7 +9,6 @@ import androidx.compose.material.icons.twotone.SwapHoriz
 import androidx.compose.material.icons.twotone.Vibration
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -43,7 +42,6 @@ fun SwiperSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SwiperSettingsScreen(
     state: SwiperSettingsViewModel.State = SwiperSettingsViewModel.State(),

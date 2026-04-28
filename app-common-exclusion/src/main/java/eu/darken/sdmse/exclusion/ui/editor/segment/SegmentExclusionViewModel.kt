@@ -18,7 +18,6 @@ import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -71,7 +70,6 @@ class SegmentExclusionViewModel @Inject constructor(
         currentFlow.value = initialExcl
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State> = fatalFlow
         .flatMapLatest { fatal ->
             if (fatal) flow { emit(State.NotFound) }

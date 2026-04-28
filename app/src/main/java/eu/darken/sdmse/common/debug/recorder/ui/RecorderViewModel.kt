@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.GeneralSettings
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -66,7 +65,6 @@ class RecorderViewModel @Inject constructor(
         ThemeState(mode = mode, style = style)
     }.stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State> = sessionFlow
         .mapLatest { session ->
             if (session == null) State()

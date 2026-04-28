@@ -1,10 +1,8 @@
 package eu.darken.sdmse.common.sharedresource
 
-import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-@OptIn(ExperimentalContracts::class)
 suspend fun <T : Any, R> SharedResource<T>.useRes(block: suspend (T) -> R): R {
     contract {
         callsInPlace(block, InvocationKind.EXACTLY_ONCE)
@@ -12,7 +10,6 @@ suspend fun <T : Any, R> SharedResource<T>.useRes(block: suspend (T) -> R): R {
     return get().use { res -> block(res.item) }
 }
 
-@OptIn(ExperimentalContracts::class)
 suspend inline fun <T : SharedResource<*>, R> Collection<T>.useRes(block: (Collection<*>) -> R): R {
     contract {
         callsInPlace(block, InvocationKind.EXACTLY_ONCE)
@@ -50,7 +47,6 @@ suspend inline fun <C : HasSharedResource<*>, R> C.keepResourceHoldersAlive(
     )
 }
 
-@OptIn(ExperimentalContracts::class)
 suspend inline fun <C : HasSharedResource<*>, R> C.keepResourcesAlive(
     vararg children: SharedResource<*>,
     block: () -> R

@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui.dashboard.cards
 import androidx.annotation.StringRes
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -74,7 +73,6 @@ data class TitleDashboardCardItem(
     override val stableId: Long = this.javaClass.hashCode().toLong()
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
     val slogan = remember { getRngSlogan() }

@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -29,7 +28,6 @@ import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material.icons.twotone.Shop
 import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SnackbarDuration
@@ -81,7 +79,6 @@ import kotlinx.coroutines.launch
 
 private val TAG = logTag("AppControl", "Action", "Sheet")
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppActionSheetHost(
     installId: eu.darken.sdmse.common.pkgs.features.InstallId,
@@ -193,7 +190,6 @@ fun AppActionSheetHost(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 internal fun AppActionSheet(
     stateSource: StateFlow<AppActionViewModel.State> = MutableStateFlow(AppActionViewModel.State()),

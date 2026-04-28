@@ -1,6 +1,5 @@
 package eu.darken.sdmse.swiper.ui.status.items
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -40,7 +39,6 @@ import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import androidx.compose.ui.res.stringResource
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SwiperStatusRow(
     modifier: Modifier = Modifier,

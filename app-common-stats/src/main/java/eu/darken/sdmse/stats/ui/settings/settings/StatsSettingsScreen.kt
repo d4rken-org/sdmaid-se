@@ -8,7 +8,6 @@ import androidx.compose.material.icons.twotone.Assessment
 import androidx.compose.material.icons.twotone.BarChart
 import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -59,7 +58,6 @@ fun StatsSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun StatsSettingsScreen(
     state: StatsSettingsViewModel.State = StatsSettingsViewModel.State(),

@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.stats.core.AffectedPath
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.StatsRepo
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -32,7 +31,6 @@ class AffectedPathsViewModel @Inject constructor(
         reportIdFlow.value = id
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State> = reportIdFlow
         .filterNotNull()
         .flatMapLatest { id ->

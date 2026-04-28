@@ -2,7 +2,6 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -519,7 +518,6 @@ private fun bottomBarSummary(context: android.content.Context, state: DashboardV
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun MainActionFab(
     modifier: Modifier = Modifier,

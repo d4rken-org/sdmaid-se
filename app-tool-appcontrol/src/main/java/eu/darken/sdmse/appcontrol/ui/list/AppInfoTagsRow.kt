@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -25,7 +24,6 @@ import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUninstalled
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AppInfoTagsRow(
     modifier: Modifier = Modifier,

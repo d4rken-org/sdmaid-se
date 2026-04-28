@@ -1,6 +1,5 @@
 package eu.darken.sdmse.exclusion.ui.list.items
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
@@ -23,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListViewModel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PkgExclusionRow(
     modifier: Modifier = Modifier,

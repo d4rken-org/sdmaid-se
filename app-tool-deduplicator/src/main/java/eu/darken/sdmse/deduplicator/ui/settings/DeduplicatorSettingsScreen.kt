@@ -10,7 +10,6 @@ import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.PlayCircleOutline
 import androidx.compose.material.icons.twotone.Psychology
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -65,7 +64,6 @@ fun DeduplicatorSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DeduplicatorSettingsScreen(
     state: DeduplicatorSettingsViewModel.State = DeduplicatorSettingsViewModel.State(),

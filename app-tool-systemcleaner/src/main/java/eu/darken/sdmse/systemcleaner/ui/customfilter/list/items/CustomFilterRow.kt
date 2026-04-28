@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.list.items
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
@@ -27,7 +26,6 @@ import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListViewMo
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CustomFilterRow(
     modifier: Modifier = Modifier,

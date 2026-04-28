@@ -1,7 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,7 +24,6 @@ import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.icon
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun ContentItemTile(
     item: Item,

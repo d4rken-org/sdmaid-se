@@ -1,7 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -422,7 +421,6 @@ private fun ImageGroupHeaderRow(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ChecksumFileRow(
     duplicate: ChecksumDuplicate,
@@ -469,7 +467,6 @@ private fun ChecksumFileRow(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ImageFileRow(
     duplicate: Duplicate,
@@ -553,6 +550,5 @@ private fun mediaMatchTypeLabel(duplicate: MediaDuplicate): String? = when {
     else -> null
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 private fun Modifier.combinedClickableSafe(onClick: () -> Unit): Modifier =
     this.combinedClickable(onClick = onClick, onLongClick = {})

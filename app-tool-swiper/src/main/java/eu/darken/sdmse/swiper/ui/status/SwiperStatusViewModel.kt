@@ -21,7 +21,6 @@ import eu.darken.sdmse.swiper.core.tasks.SwiperDeleteTask
 import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
 import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -51,7 +50,6 @@ class SwiperStatusViewModel @Inject constructor(
         routeFlow.value = route
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
         val sid = route.sessionId
         combine(

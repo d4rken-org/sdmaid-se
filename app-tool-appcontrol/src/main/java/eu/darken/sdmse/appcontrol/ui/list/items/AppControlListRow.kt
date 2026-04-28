@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcontrol.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +34,6 @@ import eu.darken.sdmse.common.toSystemTimezone
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppControlListRow(
     modifier: Modifier = Modifier,

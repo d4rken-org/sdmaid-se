@@ -1,7 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
@@ -30,7 +29,6 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun SqueezerListGridCard(
     modifier: Modifier = Modifier,

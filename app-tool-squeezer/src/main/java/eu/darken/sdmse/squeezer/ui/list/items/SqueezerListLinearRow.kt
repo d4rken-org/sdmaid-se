@@ -1,7 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
@@ -28,7 +27,6 @@ import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun SqueezerListLinearRow(
     modifier: Modifier = Modifier,

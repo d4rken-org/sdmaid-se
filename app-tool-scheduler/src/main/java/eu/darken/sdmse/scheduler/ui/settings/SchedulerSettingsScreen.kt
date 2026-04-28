@@ -7,7 +7,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AccessibilityNew
 import androidx.compose.material.icons.twotone.BatteryAlert
 import androidx.compose.material.icons.twotone.PowerOff
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -43,7 +42,6 @@ fun SchedulerSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SchedulerSettingsScreen(
     state: SchedulerSettingsViewModel.State = SchedulerSettingsViewModel.State(),

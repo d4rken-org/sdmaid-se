@@ -7,7 +7,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.DirectionsRun
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.MonitorWeight
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -48,7 +47,6 @@ fun AppControlSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun AppControlSettingsScreen(
     state: AppControlSettingsViewModel.State = AppControlSettingsViewModel.State(),

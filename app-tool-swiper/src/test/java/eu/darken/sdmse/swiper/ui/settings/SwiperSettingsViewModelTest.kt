@@ -4,7 +4,6 @@ import eu.darken.sdmse.swiper.core.SwiperSettings
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -12,7 +11,6 @@ import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
 import testhelpers.mockDataStoreValue
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class SwiperSettingsViewModelTest : BaseTest() {
 
     private fun vm(

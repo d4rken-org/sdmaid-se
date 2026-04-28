@@ -24,7 +24,6 @@ import io.mockk.mockkStatic
 import io.mockk.slot
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -39,7 +38,6 @@ import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import javax.inject.Provider
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class RecorderModuleTest : BaseTest() {
 
     @TempDir lateinit var tempDir: File

@@ -7,13 +7,11 @@ import androidx.annotation.StringRes
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.serialization.APathSerializer
 import eu.darken.sdmse.deduplicator.R
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
 import kotlinx.serialization.json.JsonClassDiscriminator
 
-@OptIn(ExperimentalSerializationApi::class)
 @Serializable
 @JsonClassDiscriminator("criteriumType")
 sealed interface ArbiterCriterium {

@@ -22,7 +22,6 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.Shield
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -198,7 +197,6 @@ fun DeduplicatorListScreenHost(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DeduplicatorListScreen(
     stateSource: StateFlow<DeduplicatorListViewModel.State?> = MutableStateFlow(null),

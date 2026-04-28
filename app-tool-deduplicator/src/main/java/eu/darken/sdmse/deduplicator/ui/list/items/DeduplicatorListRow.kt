@@ -1,7 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -39,7 +38,6 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun DeduplicatorLinearRow(
     row: DeduplicatorListRow,
@@ -128,7 +126,6 @@ internal fun DeduplicatorLinearRow(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun DeduplicatorGridRow(
     row: DeduplicatorListRow,
@@ -230,7 +227,6 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun DuplicateSubRow(
     duplicate: Duplicate,

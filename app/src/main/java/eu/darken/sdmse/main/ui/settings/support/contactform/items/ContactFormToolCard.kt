@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.ui.settings.support.contactform.items
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,7 +24,6 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormViewModel.Tool
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ContactFormToolCard(
     selected: Tool,

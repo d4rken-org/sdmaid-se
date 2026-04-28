@@ -32,7 +32,6 @@ import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChangedBy
@@ -96,7 +95,6 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         routeFlow.value = route
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State?> = routeFlow.filterNotNull().flatMapLatest { route ->
         combine(
             deduplicator.progress,

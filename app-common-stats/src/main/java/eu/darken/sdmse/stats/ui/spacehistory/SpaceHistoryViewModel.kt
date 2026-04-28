@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -80,7 +79,6 @@ class SpaceHistoryViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     private val snapshots = combine(
         selectedStorageId,
         selectedRange,
@@ -99,7 +97,6 @@ class SpaceHistoryViewModel @Inject constructor(
             }
         }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     private val reportMarkers = combine(
         selectedRange,
         upgradeRepo.upgradeInfo.map { it.isPro },

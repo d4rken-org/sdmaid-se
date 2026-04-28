@@ -23,7 +23,6 @@ import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.HelpOutline
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -155,7 +154,6 @@ fun CustomFilterListScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun CustomFilterListScreen(
     stateSource: StateFlow<CustomFilterListViewModel.State> =

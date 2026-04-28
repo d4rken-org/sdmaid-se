@@ -13,7 +13,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.BugReport
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -117,7 +116,6 @@ fun SchedulerManagerScreenHost(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SchedulerManagerScreen(
     stateSource: Flow<SchedulerManagerViewModel.State> = MutableStateFlow(SchedulerManagerViewModel.State()),

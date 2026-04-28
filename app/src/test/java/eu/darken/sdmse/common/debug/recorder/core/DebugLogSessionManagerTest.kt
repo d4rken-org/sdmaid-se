@@ -8,7 +8,6 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -22,7 +21,6 @@ import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import java.time.Instant
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class DebugLogSessionManagerTest : BaseTest() {
 
     @TempDir lateinit var testDir: File
