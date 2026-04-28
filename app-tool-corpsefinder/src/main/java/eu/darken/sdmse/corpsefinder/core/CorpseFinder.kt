@@ -44,6 +44,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.pkgExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
@@ -347,7 +348,7 @@ class CorpseFinder @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifiers: Set<CorpseIdentifier>) = toolLock.withLock {
+    suspend fun exclude(identifiers: Set<CorpseIdentifier>): ExclusionUndo = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
         val snapshot = internalData.value!!
@@ -361,14 +362,39 @@ class CorpseFinder @Inject constructor(
                 tags = setOf(Exclusion.Tag.CORPSEFINDER),
             )
         }.toSet()
-        exclusionManager.save(exclusions)
+        val saved = exclusionManager.save(exclusions)
 
-        internalData.value = snapshot.copy(
+        val updated = snapshot.copy(
             corpses = snapshot.corpses.filter { corpse ->
                 exclusions.none { it.match(corpse.lookup) }
             }
         )
+        internalData.value = updated
+
+        ExclusionUndo(
+            exclusionIds = saved.map { it.id }.toSet(),
+            previousData = snapshot,
+            postExcludeData = updated,
+        )
     }
+
+    suspend fun undoExclude(handle: ExclusionUndo) = toolLock.withLock {
+        log(TAG, INFO) { "undoExclude(${handle.exclusionIds})" }
+        if (handle.exclusionIds.isNotEmpty()) {
+            exclusionManager.remove(handle.exclusionIds)
+        }
+        if (internalData.value === handle.postExcludeData) {
+            internalData.value = handle.previousData
+        } else {
+            log(TAG, WARN) { "undoExclude: state moved on, only removed exclusions" }
+        }
+    }
+
+    data class ExclusionUndo(
+        val exclusionIds: Set<ExclusionId>,
+        internal val previousData: Data,
+        internal val postExcludeData: Data,
+    )
 
     data class State(
         val data: Data?,

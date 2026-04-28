@@ -79,6 +79,7 @@ fun AppJunkDetailsScreenHost(
 
     var pendingSpec by remember { mutableStateOf<DeleteSpec?>(null) }
     val viewActionLabel = stringResource(CommonR.string.general_view_action)
+    val undoActionLabel = stringResource(CommonR.string.general_undo_action)
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -90,7 +91,22 @@ fun AppJunkDetailsScreenHost(
                         duration = SnackbarDuration.Long,
                     )
                 }
-                is AppJunkDetailsViewModel.Event.ExclusionsCreated -> snackScope.launch {
+                is AppJunkDetailsViewModel.Event.HeaderExclusionCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = undoActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onUndoExclude(event.undo, event.restoreTarget)
+                    }
+                }
+                is AppJunkDetailsViewModel.Event.SelectionExclusionsCreated -> snackScope.launch {
                     val message = context.resources.getQuantityString(
                         CommonR.plurals.exclusion_x_new_exclusions,
                         event.count,

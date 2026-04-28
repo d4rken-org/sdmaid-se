@@ -151,8 +151,14 @@ class AppJunkDetailsViewModel @Inject constructor(
     fun onExcludeJunk(installId: InstallId) = launch {
         log(TAG, INFO) { "onExcludeJunk($installId)" }
         val junk = currentJunk(installId) ?: return@launch
-        appCleaner.exclude(setOf(junk.identifier))
-        events.tryEmit(Event.ExclusionsCreated(1))
+        val undo = appCleaner.exclude(setOf(junk.identifier))
+        events.tryEmit(
+            Event.HeaderExclusionCreated(
+                count = undo.exclusionIds.size,
+                undo = undo,
+                restoreTarget = installId,
+            ),
+        )
     }
 
     fun onExcludeSelectedFiles(installId: InstallId, paths: Set<APath>) = launch {
@@ -163,7 +169,13 @@ class AppJunkDetailsViewModel @Inject constructor(
         val validPaths = paths intersect livePaths
         if (validPaths.isEmpty()) return@launch
         appCleaner.exclude(junk.identifier, validPaths)
-        events.tryEmit(Event.ExclusionsCreated(validPaths.size))
+        events.tryEmit(Event.SelectionExclusionsCreated(validPaths.size))
+    }
+
+    fun onUndoExclude(undo: AppCleaner.ExclusionUndo, restoreTarget: InstallId) = launch {
+        log(TAG, INFO) { "onUndoExclude(${undo.exclusionIds.size}, restore=$restoreTarget)" }
+        currentTarget = restoreTarget
+        appCleaner.undoExclude(undo)
     }
 
     fun onShowExclusions() {
@@ -197,7 +209,12 @@ class AppJunkDetailsViewModel @Inject constructor(
     sealed interface Event {
         data class TaskResult(val result: AppCleanerTask.Result) : Event
         data class ConfirmDelete(val spec: DeleteSpec) : Event
-        data class ExclusionsCreated(val count: Int) : Event
+        data class HeaderExclusionCreated(
+            val count: Int,
+            val undo: AppCleaner.ExclusionUndo,
+            val restoreTarget: InstallId,
+        ) : Event
+        data class SelectionExclusionsCreated(val count: Int) : Event
     }
 
     companion object {

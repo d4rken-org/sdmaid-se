@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
@@ -236,7 +237,7 @@ class SystemCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifier: FilterIdentifier, exclusionTargets: Set<APath>) = toolLock.withLock {
+    suspend fun exclude(identifier: FilterIdentifier, exclusionTargets: Set<APath>): ExclusionUndo = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, ${exclusionTargets.size}" }
         val exclusions = exclusionTargets.map {
             PathExclusion(
@@ -244,15 +245,40 @@ class SystemCleaner @Inject constructor(
                 tags = setOf(Exclusion.Tag.SYSTEMCLEANER),
             )
         }.toSet()
-        exclusionManager.save(exclusions)
+        val saved = exclusionManager.save(exclusions)
 
         val snapshot = internalData.value!!
-        internalData.value = snapshot.copy(
+        val updated = snapshot.copy(
             filterContents = snapshot.filterContents
                 .map { it.copy(items = exclusions.excludeNestedLookups(it.items)) }
                 .filter { it.items.isNotEmpty() }
         )
+        internalData.value = updated
+
+        ExclusionUndo(
+            exclusionIds = saved.map { it.id }.toSet(),
+            previousData = snapshot,
+            postExcludeData = updated,
+        )
     }
+
+    suspend fun undoExclude(handle: ExclusionUndo) = toolLock.withLock {
+        log(TAG, INFO) { "undoExclude(${handle.exclusionIds})" }
+        if (handle.exclusionIds.isNotEmpty()) {
+            exclusionManager.remove(handle.exclusionIds)
+        }
+        if (internalData.value === handle.postExcludeData) {
+            internalData.value = handle.previousData
+        } else {
+            log(TAG, WARN) { "undoExclude: state moved on, only removed exclusions" }
+        }
+    }
+
+    data class ExclusionUndo(
+        val exclusionIds: Set<ExclusionId>,
+        internal val previousData: Data,
+        internal val postExcludeData: Data,
+    )
 
     data class State(
         val data: Data?,

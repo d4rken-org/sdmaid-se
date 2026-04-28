@@ -293,7 +293,14 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     fun excludeCluster(clusterId: Duplicate.Cluster.Id) = launch {
         log(TAG, INFO) { "excludeCluster($clusterId)" }
         val cluster = currentClusterOrNull(clusterId) ?: return@launch
-        deduplicator.exclude(setOf(cluster.identifier))
+        val undo = deduplicator.exclude(setOf(cluster.identifier))
+        events.tryEmit(
+            Event.ExclusionsCreated(
+                count = undo.exclusionIds.size,
+                undo = undo,
+                restoreTarget = clusterId,
+            ),
+        )
     }
 
     fun excludeDuplicates(clusterId: Duplicate.Cluster.Id, ids: Collection<Duplicate.Id>) = launch {
@@ -303,6 +310,12 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         val paths = liveDuplicates.filter { it.identifier in ids }.map { it.path }
         if (paths.isEmpty()) return@launch
         deduplicator.exclude(cluster.identifier, paths)
+    }
+
+    fun onUndoExclude(undo: Deduplicator.ExclusionUndo, restoreTarget: Duplicate.Cluster.Id) = launch {
+        log(TAG, INFO) { "onUndoExclude(${undo.exclusionIds.size}, restore=$restoreTarget)" }
+        currentTarget = restoreTarget
+        deduplicator.undoExclude(undo)
     }
 
     private suspend fun currentClusterOrNull(clusterId: Duplicate.Cluster.Id): Duplicate.Cluster? {
@@ -325,6 +338,11 @@ class DeduplicatorDetailsViewModel @Inject constructor(
 
         data class OpenDuplicate(val intent: Intent) : Event
         data class TaskResult(val result: DeduplicatorTask.Result) : Event
+        data class ExclusionsCreated(
+            val count: Int,
+            val undo: Deduplicator.ExclusionUndo,
+            val restoreTarget: Duplicate.Cluster.Id,
+        ) : Event
     }
 
     companion object {

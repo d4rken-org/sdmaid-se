@@ -129,7 +129,20 @@ class CorpseDetailsViewModel @Inject constructor(
         log(TAG, INFO) { "onExcludeCorpse($corpseId)" }
         val snapshot = corpseFinder.state.first().data ?: return@launch
         if (snapshot.corpses.none { it.identifier == corpseId }) return@launch
-        corpseFinder.exclude(setOf(corpseId))
+        val undo = corpseFinder.exclude(setOf(corpseId))
+        events.tryEmit(
+            Event.ExclusionsCreated(
+                count = undo.exclusionIds.size,
+                undo = undo,
+                restoreTarget = corpseId,
+            ),
+        )
+    }
+
+    fun onUndoExclude(undo: CorpseFinder.ExclusionUndo, restoreTarget: CorpseIdentifier) = launch {
+        log(TAG, INFO) { "onUndoExclude(${undo.exclusionIds.size}, restore=$restoreTarget)" }
+        currentTarget = restoreTarget
+        corpseFinder.undoExclude(undo)
     }
 
     data class State(
@@ -140,6 +153,11 @@ class CorpseDetailsViewModel @Inject constructor(
 
     sealed interface Event {
         data class TaskResult(val result: CorpseFinderTask.Result) : Event
+        data class ExclusionsCreated(
+            val count: Int,
+            val undo: CorpseFinder.ExclusionUndo,
+            val restoreTarget: CorpseIdentifier,
+        ) : Event
     }
 
     companion object {

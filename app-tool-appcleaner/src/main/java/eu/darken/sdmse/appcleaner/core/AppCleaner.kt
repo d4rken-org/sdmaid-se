@@ -41,6 +41,7 @@ import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
@@ -350,7 +351,7 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifiers: Set<InstallId>) = toolLock.withLock {
+    suspend fun exclude(identifiers: Set<InstallId>): ExclusionUndo = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
         // FIXME what about user specific exclusion?
@@ -360,15 +361,40 @@ class AppCleaner @Inject constructor(
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
         }.toSet()
-        exclusionManager.save(exclusions)
+        val saved = exclusionManager.save(exclusions)
 
         val snapshot = internalData.value!!
-        internalData.value = snapshot.copy(
+        val updated = snapshot.copy(
             junks = snapshot.junks.filter { junk ->
                 exclusions.none { it.match(junk.identifier.pkgId) }
             }
         )
+        internalData.value = updated
+
+        ExclusionUndo(
+            exclusionIds = saved.map { it.id }.toSet(),
+            previousData = snapshot,
+            postExcludeData = updated,
+        )
     }
+
+    suspend fun undoExclude(handle: ExclusionUndo) = toolLock.withLock {
+        log(TAG, INFO) { "undoExclude(${handle.exclusionIds})" }
+        if (handle.exclusionIds.isNotEmpty()) {
+            exclusionManager.remove(handle.exclusionIds)
+        }
+        if (internalData.value === handle.postExcludeData) {
+            internalData.value = handle.previousData
+        } else {
+            log(TAG, WARN) { "undoExclude: state moved on, only removed exclusions" }
+        }
+    }
+
+    data class ExclusionUndo(
+        val exclusionIds: Set<ExclusionId>,
+        internal val previousData: Data,
+        internal val postExcludeData: Data,
+    )
 
     suspend fun exclude(identifier: InstallId, exclsionTargets: Set<APath>) = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, $exclsionTargets" }

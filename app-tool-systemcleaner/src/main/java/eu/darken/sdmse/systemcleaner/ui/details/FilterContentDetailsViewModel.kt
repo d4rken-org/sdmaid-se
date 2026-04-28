@@ -136,7 +136,14 @@ class FilterContentDetailsViewModel @Inject constructor(
         val fc = data.filterContents.firstOrNull { it.identifier == id } ?: return@launch
         val paths = fc.items.map { it.path }.toSet()
         if (paths.isEmpty()) return@launch
-        systemCleaner.exclude(id, paths)
+        val undo = systemCleaner.exclude(id, paths)
+        events.tryEmit(
+            Event.ExclusionsCreated(
+                count = undo.exclusionIds.size,
+                undo = undo,
+                restoreTarget = id,
+            ),
+        )
     }
 
     fun onExcludeFiles(id: FilterIdentifier, paths: Set<APath>) = launch {
@@ -148,6 +155,12 @@ class FilterContentDetailsViewModel @Inject constructor(
         val validPaths = paths intersect livePaths
         if (validPaths.isEmpty()) return@launch
         systemCleaner.exclude(id, validPaths)
+    }
+
+    fun onUndoExclude(undo: SystemCleaner.ExclusionUndo, restoreTarget: FilterIdentifier) = launch {
+        log(TAG, INFO) { "onUndoExclude(${undo.exclusionIds.size}, restore=$restoreTarget)" }
+        currentTarget = restoreTarget
+        systemCleaner.undoExclude(undo)
     }
 
     fun onPreviewFile(filterId: FilterIdentifier, path: APath) {
@@ -166,6 +179,11 @@ class FilterContentDetailsViewModel @Inject constructor(
 
     sealed interface Event {
         data class TaskResult(val result: SystemCleanerTask.Result) : Event
+        data class ExclusionsCreated(
+            val count: Int,
+            val undo: SystemCleaner.ExclusionUndo,
+            val restoreTarget: FilterIdentifier,
+        ) : Event
     }
 
     companion object {

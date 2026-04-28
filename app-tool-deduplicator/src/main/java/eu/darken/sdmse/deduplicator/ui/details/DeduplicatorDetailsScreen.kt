@@ -23,6 +23,7 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -75,6 +76,7 @@ fun DeduplicatorDetailsScreenHost(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val snackScope = rememberCoroutineScope()
+    val undoActionLabel = stringResource(CommonR.string.general_undo_action)
 
     var pendingDeletion by remember { mutableStateOf<PendingDetailsDeletion?>(null) }
 
@@ -103,6 +105,22 @@ fun DeduplicatorDetailsScreenHost(
                         message = event.result.primaryInfo.get(context),
                         duration = SnackbarDuration.Long,
                     )
+                }
+
+                is DeduplicatorDetailsViewModel.Event.ExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = undoActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onUndoExclude(event.undo, event.restoreTarget)
+                    }
                 }
             }
         }

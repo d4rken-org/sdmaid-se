@@ -25,6 +25,7 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -81,6 +82,7 @@ fun CorpseDetailsScreenHost(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val snackScope = rememberCoroutineScope()
+    val undoActionLabel = stringResource(CommonR.string.general_undo_action)
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -90,6 +92,21 @@ fun CorpseDetailsScreenHost(
                         message = event.result.primaryInfo.get(context),
                         duration = SnackbarDuration.Long,
                     )
+                }
+                is CorpseDetailsViewModel.Event.ExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = undoActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onUndoExclude(event.undo, event.restoreTarget)
+                    }
                 }
             }
         }
