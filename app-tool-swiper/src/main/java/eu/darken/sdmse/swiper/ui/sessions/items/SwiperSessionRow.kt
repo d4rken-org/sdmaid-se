@@ -19,6 +19,7 @@ import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Sort
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material.icons.twotone.Swipe
+import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Button
@@ -53,6 +54,7 @@ fun SwiperSessionRow(
     isScanning: Boolean,
     isCancelling: Boolean,
     isRefreshing: Boolean,
+    isRisky: Boolean = false,
     onScan: () -> Unit,
     onContinue: () -> Unit,
     onRemove: () -> Unit,
@@ -137,6 +139,39 @@ fun SwiperSessionRow(
             }
 
             val filter = session.fileTypeFilter
+            if (isRisky) {
+                Spacer(Modifier.height(8.dp))
+                // Filter narrows the scope to a known shape — still a whole-storage walk, but the
+                // user has already opted into a smaller bite. Tone the chip down from error to
+                // tertiary so a focused scan with `images-only` doesn't scream the same red as an
+                // unfiltered "everything on /storage/emulated/0".
+                val chipColors = if (filter.isEmpty) {
+                    AssistChipDefaults.assistChipColors(
+                        labelColor = MaterialTheme.colorScheme.onErrorContainer,
+                        leadingIconContentColor = MaterialTheme.colorScheme.onErrorContainer,
+                        containerColor = MaterialTheme.colorScheme.errorContainer,
+                    )
+                } else {
+                    AssistChipDefaults.assistChipColors(
+                        labelColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                        leadingIconContentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    )
+                }
+                AssistChip(
+                    onClick = {},
+                    label = { Text(stringResource(R.string.swiper_session_risky_label)) },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.TwoTone.Warning,
+                            contentDescription = null,
+                            modifier = Modifier.size(AssistChipDefaults.IconSize),
+                        )
+                    },
+                    colors = chipColors,
+                )
+            }
+
             if (!filter.isEmpty) {
                 Spacer(Modifier.height(8.dp))
                 val parts = buildList {

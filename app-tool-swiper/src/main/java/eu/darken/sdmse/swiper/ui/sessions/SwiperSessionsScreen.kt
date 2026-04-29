@@ -57,6 +57,7 @@ import kotlinx.coroutines.flow.StateFlow
 private data class PendingRename(val sessionId: String, val currentLabel: String?)
 private data class PendingFilter(val sessionId: String, val current: FileTypeFilter)
 private data class PendingSort(val sessionId: String, val current: SortOrder)
+private data class PendingScanWarn(val sessionId: String, val displayLabel: String)
 
 @Composable
 fun SwiperSessionsScreenHost(
@@ -101,6 +102,7 @@ internal fun SwiperSessionsScreen(
     var pendingFilter by remember { mutableStateOf<PendingFilter?>(null) }
     var pendingSort by remember { mutableStateOf<PendingSort?>(null) }
     var pendingDiscard by remember { mutableStateOf<String?>(null) }
+    var pendingScanWarn by remember { mutableStateOf<PendingScanWarn?>(null) }
 
     Scaffold(
         topBar = {
@@ -160,7 +162,14 @@ internal fun SwiperSessionsScreen(
                     isScanning = state.isSessionScanning(sessionId),
                     isCancelling = state.isSessionCancelling(sessionId),
                     isRefreshing = state.isSessionRefreshing(sessionId),
-                    onScan = { onScan(sessionId) },
+                    isRisky = state.isSessionRisky(sessionId),
+                    onScan = {
+                        if (state.isSessionRisky(sessionId)) {
+                            pendingScanWarn = PendingScanWarn(sessionId, displayLabel)
+                        } else {
+                            onScan(sessionId)
+                        }
+                    },
                     onContinue = { onContinue(sessionId) },
                     onRemove = { pendingDiscard = sessionId },
                     onRename = { pendingRename = PendingRename(sessionId, entry.session.label ?: displayLabel) },
@@ -201,6 +210,34 @@ internal fun SwiperSessionsScreen(
             onSelect = { sort ->
                 onUpdateSortOrder(req.sessionId, sort)
                 pendingSort = null
+            },
+        )
+    }
+
+    pendingScanWarn?.let { req ->
+        AlertDialog(
+            onDismissRequest = { pendingScanWarn = null },
+            title = { Text(stringResource(R.string.swiper_sensitive_root_warning_title)) },
+            text = {
+                Text(
+                    stringResource(
+                        R.string.swiper_sensitive_root_warning_message,
+                        req.displayLabel,
+                    ),
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    pendingScanWarn = null
+                    onScan(req.sessionId)
+                }) {
+                    Text(stringResource(R.string.swiper_sensitive_root_warning_continue_action))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingScanWarn = null }) {
+                    Text(stringResource(CommonR.string.general_cancel_action))
+                }
             },
         )
     }

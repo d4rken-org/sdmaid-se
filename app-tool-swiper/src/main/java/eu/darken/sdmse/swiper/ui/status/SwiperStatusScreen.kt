@@ -31,7 +31,9 @@ import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -258,26 +260,42 @@ internal fun SwiperStatusScreen(
             state.deleteCount,
             deleteSizeFormatted,
         )
-        val message = if (state.undecidedCount > 0) {
-            val undecidedMsg = pluralStringResource(
+        val undecidedNotice = if (state.undecidedCount > 0) {
+            pluralStringResource(
                 R.plurals.swiper_delete_confirmation_message_partial_undecided,
                 state.undecidedCount,
                 state.undecidedCount,
             )
-            "$deleteMsg\n\n$undecidedMsg"
         } else {
-            deleteMsg
+            null
         }
+
+        // Dialog-local state — recreated when the dialog re-opens (key on confirmDelete via the
+        // surrounding `if`). Without this scoping, a previously-checked box would carry across
+        // a later finalize attempt, defeating the gate.
+        var understandChecked by remember { mutableStateOf(false) }
 
         AlertDialog(
             onDismissRequest = { confirmDelete = false },
             title = { Text(stringResource(R.string.swiper_delete_confirmation_title)) },
-            text = { Text(message) },
+            text = {
+                DeleteConfirmationBody(
+                    deleteMsg = deleteMsg,
+                    undecidedNotice = undecidedNotice,
+                    hasSensitiveRoot = state.hasSensitiveRoot,
+                    deletionPreview = state.deletionPreview,
+                    understandChecked = understandChecked,
+                    onUnderstandToggle = { understandChecked = it },
+                )
+            },
             confirmButton = {
-                TextButton(onClick = {
-                    confirmDelete = false
-                    onFinalize()
-                }) {
+                TextButton(
+                    enabled = !state.hasSensitiveRoot || understandChecked,
+                    onClick = {
+                        confirmDelete = false
+                        onFinalize()
+                    },
+                ) {
                     Text(stringResource(CommonR.string.general_delete_action))
                 }
             },
@@ -287,6 +305,88 @@ internal fun SwiperStatusScreen(
                 }
             },
         )
+    }
+}
+
+@Composable
+private fun DeleteConfirmationBody(
+    deleteMsg: String,
+    undecidedNotice: String?,
+    hasSensitiveRoot: Boolean,
+    deletionPreview: DeletionPreview,
+    understandChecked: Boolean,
+    onUnderstandToggle: (Boolean) -> Unit,
+) {
+    val context = LocalContext.current
+    Column {
+        Text(deleteMsg)
+        if (undecidedNotice != null) {
+            Spacer(Modifier.height(12.dp))
+            Text(undecidedNotice)
+        }
+        if (hasSensitiveRoot) {
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = stringResource(R.string.swiper_delete_confirmation_sensitive_root_warning),
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+        if (deletionPreview.buckets.isNotEmpty()) {
+            Spacer(Modifier.height(12.dp))
+            HorizontalDivider()
+            Spacer(Modifier.height(8.dp))
+            deletionPreview.buckets.forEach { bucket ->
+                val (sizeFormatted, _) = ByteFormatter.formatSize(context, bucket.size)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Text(
+                        text = bucket.label,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = "${bucket.count} • $sizeFormatted",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            if (deletionPreview.moreFolders > 0) {
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = pluralStringResource(
+                        R.plurals.swiper_delete_confirmation_more_folders,
+                        deletionPreview.moreFolders,
+                        deletionPreview.moreFolders,
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+        if (hasSensitiveRoot) {
+            Spacer(Modifier.height(12.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onUnderstandToggle(!understandChecked) },
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Checkbox(
+                    checked = understandChecked,
+                    onCheckedChange = onUnderstandToggle,
+                )
+                Spacer(Modifier.width(4.dp))
+                Text(
+                    text = stringResource(R.string.swiper_delete_confirmation_checkbox),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
     }
 }
 
