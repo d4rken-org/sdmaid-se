@@ -236,7 +236,7 @@ class SqueezerSetupViewModel @Inject constructor(
         data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : Event
         data object NoExampleFound : Event
         data object NoResultsFound : Event
-        data class PathsDropped(val droppedPaths: Set<APath>) : Event
+        data class PathsDropped(val droppedPaths: List<APath>) : Event
     }
 
     companion object {

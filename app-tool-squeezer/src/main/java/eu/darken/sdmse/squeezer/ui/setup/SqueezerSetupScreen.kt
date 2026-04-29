@@ -103,6 +103,17 @@ fun SqueezerSetupScreenHost(
                         duration = SnackbarDuration.Short,
                     )
                 }
+
+                is SqueezerSetupViewModel.Event.PathsDropped -> snackScope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = context.resources.getQuantityString(
+                            R.plurals.squeezer_setup_path_dropped_message,
+                            event.droppedPaths.size,
+                            event.droppedPaths.size,
+                        ),
+                        duration = SnackbarDuration.Long,
+                    )
+                }
             }
         }
     }

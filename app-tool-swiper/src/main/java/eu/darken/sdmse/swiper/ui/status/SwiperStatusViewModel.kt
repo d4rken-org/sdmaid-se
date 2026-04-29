@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.SingleEventFlow
-import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.save
@@ -27,6 +26,7 @@ import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
