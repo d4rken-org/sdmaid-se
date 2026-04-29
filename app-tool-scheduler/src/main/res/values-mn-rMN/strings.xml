@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Төлөвлөгч</string>
     <string name="scheduler_notification_title">Төлөвлөгдсөн даалгавар</string>
     <string name="scheduler_notification_message">Гүйцэтгэж байна: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Хуваарьлагчийн үр дүнгүүд</string>
     <string name="scheduler_notification_result_title">Төлөвлөгч дууссан</string>
     <string name="scheduler_notification_result_success_message">Бүх төлөвлөгдсөн даалгаврууд амжилттай гүйцэтгэгдсэн.</string>
     <string name="scheduler_notification_result_failure_message">Зарим төлөвлөгдсөн даалгаврууд амжилтгүй болсон эсвэл алдаатай тулгарсан. Гар аргаар ажиллуулж үзнэ үү.</string>

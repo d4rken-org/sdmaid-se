@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">Фатаграфіі, відэа ці спампаваныя даныя. Любыя даныя, якія не адносяцца да пэўных праграм.</string>
     <string name="analyzer_storage_content_type_system_label">Сістэмныя даныя</string>
     <string name="analyzer_storage_content_type_system_description">Сістэмныя праграмы і сістэмныя даныя. Праграмы і даныя іншых карыстальнікаў, калі на гэтай прыладзе маецца некалькі ўліковых запісаў.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Іншае</string>
+    <string name="analyzer_storage_content_type_system_info">Файлы, якія не адносяцца да катэгорый «Праграмы» або «Файлы карыстальніка». Толькі прагляд — выдаленне не падтрымліваецца. Некаторыя вобласці могуць быць няпоўнымі з-за абмежаванняў доступу.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Сістэмныя файлы і іншыя даныя, да якіх SD Maid не мог атрымаць доступ або катэгарызаваць. Аперацыйная сістэма абмяжоўвае пералічэнне змесціва некаторых вобласцей.</string>
     <string name="analyzer_storage_content_app_code_label">Праграмы код</string>
     <string name="analyzer_storage_content_app_code_description">Файлы праграм, бібліятэкі і рэсурсы. Гэта месца можна вызваліць, выдаліўшы праграму або перамясціць яе ў архіў (даступна ў навейшых версіях Android).</string>
     <string name="analyzer_storage_content_app_data_label">Праграмныя даныя</string>

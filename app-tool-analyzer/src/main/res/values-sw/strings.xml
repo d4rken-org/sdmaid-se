@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Picha zilizochukuliwa, video zilizoandikwa au data zilizopakuliwa. Data yoyote ambayo haimilikiwi na programu maalum.</string>
     <string name="analyzer_storage_content_type_system_label">Data ya mfumo</string>
     <string name="analyzer_storage_content_type_system_description">Programu za mfumo na data ya mfumo. Programu na data kutoka watumiaji wengine, ikiwa akaunti nyingi za watumiaji zimewekwa kwenye kifaa hiki.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Nyingine</string>
+    <string name="analyzer_storage_content_type_system_info">Faili ambazo hazifai katika kategoria za Programu au faili za Mtumiaji. Vinjari tu — kufuta hakusaidiwi. Baadhi ya maeneo yanaweza kuwa hayakamiliki kwa sababu ya vikwazo vya ufikiaji.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Faili za mfumo na data nyingine ambayo SD Maid haikuweza kufikia au kuainisha. Mfumo wa uendeshaji unazuia kuorodhesha maudhui ya baadhi ya maeneo.</string>
     <string name="analyzer_storage_content_app_code_label">Msimbo wa programu</string>
     <string name="analyzer_storage_content_app_code_description">Faili za programu, maktaba na rasilimali. Nafasi hii inaweza kufunguliwa kwa kuondoa programu au kuihifadhi (inapatikana kwenye toleo jipya la Android).</string>
     <string name="analyzer_storage_content_app_data_label">Data ya programu</string>

@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">အချိန်ဇယား ချိန်ညှိမှု</string>
     <string name="scheduler_notification_title">ဆုံးဆေးခြယ်စိုး</string>
     <string name="scheduler_notification_message">အလုပ်ဆောင်ချနေစ်သည်: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">အချိန်ဇယား ရလဒ်များ</string>
     <string name="scheduler_notification_result_title">ဆုံးဆေးပြီးသောသည်</string>
     <string name="scheduler_notification_result_success_message">ဆုံးဆေးခြယ်စိုးများအားလုံး အအကြေးများ ပြမည့်ပြမည့် အလုပ်ဆောင်ချပြီးသည်။</string>
     <string name="scheduler_notification_result_failure_message">ဆုံးဆေးခြယ်စိုးများအချား အချားများ မအစားတွေနေရာပြီးသည် သိုမရှိပါ။ ကိုယ်ကိုယ် အလုပ်ဆောင်ချပြမည့်တွက်အသုံးချသည်။</string>

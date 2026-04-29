@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Tambua nakala kwa kukokotoa jumla za kuangalia za faili. Faili zenye jumla za kuangalia zinazofanana zina maudhui sawa kabisa.</string>
     <string name="deduplicator_detection_method_phash_title">Hash ya utambuzi</string>
     <string name="deduplicator_detection_method_phash_summary">Pata mafaili yanayofanana kwa kuchanganua vipengele vya maudhui na kulinganisha thamani za hash ya mtazamo. ⚠️ Ugunduzi unaotegemea ufanano unaweza kujumuisha matokeo ya uongo yanayohitaji uthibitisho wa mikono.</string>
+    <string name="deduplicator_detection_method_media_title">Alama ya kidole ya midia</string>
+    <string name="deduplicator_detection_method_media_summary">Tafuta video na faili za sauti zinazofanana kwa kuchambua alama za kidole za sauti. ⚠️ Ugunduzi unaotegemea ufanani unaweza kujumuisha matokeo ya uwongo yanayohitaji uthibitisho wa mkono.</string>
+    <string name="deduplicator_matches_media_label">Midia inayofanana</string>
+    <string name="deduplicator_media_match_audio">Mechi inayotegemea sauti</string>
+    <string name="deduplicator_media_match_visual">Mechi inayotegemea video</string>
+    <string name="deduplicator_media_match_audio_visual">Mechi inayotegemea sauti na video</string>
     <string name="deduplicator_occupied_space_label">Hifadhi iliyotumika</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s inatumika na nakala</item>

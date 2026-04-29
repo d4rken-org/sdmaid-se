@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Fayllar uchun nazorat yig\'indilarini hisoblash orqali takrorlanganlarni aniqlash. Mos nazorat yig\'indili fayllar aynan bir xil kontentga ega.</string>
     <string name="deduplicator_detection_method_phash_title">Sezgi hash</string>
     <string name="deduplicator_detection_method_phash_summary">Kontent xususiyatlarini tahlil qilib va perseptual xesh qiymatlarini solishtirish orqali o\'xshash fayllarni topish. ⚠️ O\'xshashlikka asoslangan aniqlash qo\'lda tekshirishni talab qiladigan noto\'g\'ri natijalarni o\'z ichiga olishi mumkin.</string>
+    <string name="deduplicator_detection_method_media_title">Media barmoq izi</string>
+    <string name="deduplicator_detection_method_media_summary">Audio barmoq izlarini tahlil qilib o\'xshash video va audio fayllarni toping. ⚠️ O\'xshashlikka asoslangan aniqlash noto\'g\'ri natijalarni o\'z ichiga olishi mumkin, bu qo\'lda tekshirishni talab qiladi.</string>
+    <string name="deduplicator_matches_media_label">O\'xshash media</string>
+    <string name="deduplicator_media_match_audio">Audioga asoslangan moslik</string>
+    <string name="deduplicator_media_match_visual">Videoga asoslangan moslik</string>
+    <string name="deduplicator_media_match_audio_visual">Audio va videoga asoslangan moslik</string>
     <string name="deduplicator_occupied_space_label">Band xotira</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s takrorlanganlar tomonidan band qilingan</item>

@@ -19,6 +19,7 @@ data class SqueezerScanTask(
         private val itemCount: Int,
         private val totalSize: Long,
         private val estimatedSavings: Long,
+        private val skippedInaccessibleCount: Int = 0,
     ) : Result {
         override val primaryInfo
             get() = caString {
@@ -28,11 +29,21 @@ data class SqueezerScanTask(
         override val secondaryInfo
             get() = caString {
                 val (text, quantity) = ByteFormatter.formatSize(this, estimatedSavings)
-                getQuantityString2(
+                val base = getQuantityString2(
                     R.plurals.squeezer_result_x_estimated_savings,
                     quantity,
                     text,
                 )
+                if (skippedInaccessibleCount > 0) {
+                    val skipped = getQuantityString2(
+                        R.plurals.squeezer_result_x_skipped_inaccessible,
+                        skippedInaccessibleCount,
+                        skippedInaccessibleCount,
+                    )
+                    "$base • $skipped"
+                } else {
+                    base
+                }
             }
     }
 }

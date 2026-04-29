@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Déterminer les doublons en calculant les sommes de contrôle des fichiers. Le contenu des fichiers dont les sommes de contrôle correspondent est identique.</string>
     <string name="deduplicator_detection_method_phash_title">Hachage perceptuel</string>
     <string name="deduplicator_detection_method_phash_summary">Trouvez des fichiers similaires en analysant les caractéristiques du contenu et en comparant les valeurs perceptuelles de hachage. ⚠️ La détection fondée sur la similitude peut comporter de faux positifs qui nécessitent une vérification manuelle.</string>
+    <string name="deduplicator_detection_method_media_title">Empreinte multimédia</string>
+    <string name="deduplicator_detection_method_media_summary">Trouver des fichiers vidéo et audio similaires en analysant les empreintes audio. ⚠️ La détection basée sur la similarité peut inclure des faux positifs nécessitant une vérification manuelle.</string>
+    <string name="deduplicator_matches_media_label">Médias similaires</string>
+    <string name="deduplicator_media_match_audio">Correspondance audio</string>
+    <string name="deduplicator_media_match_visual">Correspondance vidéo</string>
+    <string name="deduplicator_media_match_audio_visual">Correspondance audio et vidéo</string>
     <string name="deduplicator_occupied_space_label">Mémoire occupée</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est occupé par des doublons</item>

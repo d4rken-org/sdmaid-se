@@ -1,10 +1,14 @@
 package eu.darken.sdmse.swiper.ui.status
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.uix.ViewModel4
@@ -34,6 +38,7 @@ class SwiperStatusViewModel @Inject constructor(
     private val swiper: Swiper,
     private val taskSubmitter: TaskSubmitter,
     private val exclusionManager: ExclusionManager,
+    private val dataAreaManager: DataAreaManager,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     // Route deserialization via SavedStateHandle.toRoute<>() crashes with MissingFieldException
@@ -56,7 +61,8 @@ class SwiperStatusViewModel @Inject constructor(
             swiper.getSession(sid),
             swiper.getItemsForSession(sid),
             swiper.progress,
-        ) { session: SwipeSession?, items: List<SwipeItem>, progress ->
+            dataAreaManager.state,
+        ) { session: SwipeSession?, items: List<SwipeItem>, progress, areaState ->
             val keepCount = items.count { it.decision == SwipeDecision.KEEP }
             val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
             val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
@@ -66,6 +72,12 @@ class SwiperStatusViewModel @Inject constructor(
                 .filter { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
                 .sumOf { it.lookup.size }
             val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
+
+            val sourcePaths = session?.sourcePaths.orEmpty()
+            val hasSensitiveRoot = sourcePaths.any { source ->
+                areaState.areas.any { it.isSensitiveRoot && source.matches(it.path) }
+            }
+            val deletionPreview = DeletionPreview.from(items, sourcePaths)
 
             State(
                 items = items,
@@ -79,6 +91,9 @@ class SwiperStatusViewModel @Inject constructor(
                 isProcessing = progress != null,
                 alreadyKeptCount = session?.keptCount ?: 0,
                 alreadyDeletedCount = session?.deletedCount ?: 0,
+                sourcePaths = sourcePaths,
+                hasSensitiveRoot = hasSensitiveRoot,
+                deletionPreview = deletionPreview,
             )
         }
     }.safeStateIn(
@@ -180,6 +195,9 @@ class SwiperStatusViewModel @Inject constructor(
         val isProcessing: Boolean = false,
         val alreadyKeptCount: Int = 0,
         val alreadyDeletedCount: Int = 0,
+        val sourcePaths: List<APath> = emptyList(),
+        val hasSensitiveRoot: Boolean = false,
+        val deletionPreview: DeletionPreview = DeletionPreview(emptyList(), 0),
     ) {
         val canFinalize: Boolean = !isProcessing
         val canDone: Boolean = deletedCount > 0 && deleteCount == 0 && !isProcessing

@@ -38,6 +38,9 @@
     <string name="analyzer_storage_content_type_media_description">Uzfotografēti attēli, ieņemti video vai lejupielādēti dati. Jebkuri dati, kas nepieder konkrētai lietotnei.</string>
     <string name="analyzer_storage_content_type_system_label">Sistēmas dati</string>
     <string name="analyzer_storage_content_type_system_description">Sistēmas lietotnes un sistēmas dati. Citu lietotāju lietotnes un dati, ja šajā ierīcē ir uzstādīti vairāki lietotāja konti.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Cits</string>
+    <string name="analyzer_storage_content_type_system_info">Faili, kas neietilpst kategorijās Lietotnes vai Lietotāja faili. Tikai pārlūkošana — dzēšana netiek atbalstīta. Dažas jomas var būt nepilnīgas piekļušanas ierobežojumu dēļ.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Sistēmas faili un citi dati, kuriem SD Maid nevarēja piekļūt vai tos kategorizēt. Operētājsistēma ierobežo dažu apgabalu satura uzskaitīšanu.</string>
     <string name="analyzer_storage_content_app_code_label">Lietotnes kods</string>
     <string name="analyzer_storage_content_app_code_description">Lietotnes faili, bibliotēkas un resursi. Šo vietu var atbrīvot, atinstalējot lietotni vai arhivējot to (pieejams jaunākās Android versijās).</string>
     <string name="analyzer_storage_content_app_data_label">Lietotnes dati</string>

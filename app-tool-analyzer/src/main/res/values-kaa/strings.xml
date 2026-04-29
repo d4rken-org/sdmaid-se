@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Túsirilgen súwretler, jazılǵan videolar yamasa júklengen maǵlıwmatlar. Qandayda bir anıq baǵdarlamaǵa tiyisli bolmaǵan hár qanday maǵlıwmat.</string>
     <string name="analyzer_storage_content_type_system_label">Sistema maǵlıwmatları</string>
     <string name="analyzer_storage_content_type_system_description">Sistema baǵdarlamaları hám sistema maǵlıwmatları. Eger bul qurılmada bir neshe paydalanıwshı akkauntı ornatılǵan bolsa, basqa paydalanıwshılardıń baǵdarlamaları hám maǵlıwmatları.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Басқа</string>
+    <string name="analyzer_storage_content_type_system_info">Қолланбалар яки Пайдаланыўшы файллары категорияларына тиймейтуғын файллар. Тек қараў мүмкин — өширіў қолланбайды. Кириў шекленгенлиги себепли кейбир аймақлар толық болмауы мүмкин.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid кириў яки категорияға бөле алмаған системалық файллар ҳәм басқа мәліметлер. Операциялық система кейбир аймақлардың мазмунын тизимлеўди шеклейди.</string>
     <string name="analyzer_storage_content_app_code_label">Qosımsha kodı</string>
     <string name="analyzer_storage_content_app_code_description">Baǵdarlama faylları, kitapxanalar hám resurslar. Bul orındı baǵdarlamanı óshiriw yamasa arxivlew arqalı bosatıw múmkin (jańa Android nusqalarında bar).</string>
     <string name="analyzer_storage_content_app_data_label">Qosımsha maǵlıwmatları</string>

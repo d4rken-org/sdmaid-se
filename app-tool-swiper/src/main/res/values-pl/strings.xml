@@ -2,7 +2,7 @@
 <resources>
     <string name="swiper_label">Przesuwacz</string>
     <string name="swiper_tool_description">Szybko pozbądź się zbędnych folderów — przeglądaj pliki, aby je zachować, usunąć lub pominąć.</string>
-    <string name="swiper_dashcard_description">Uporządkuj konkretne foldery szybciej niż eksplorator plików — po prostu przesuń każdy plik.</string>
+    <string name="swiper_dashcard_description">Uporządkuj konkretne foldery szybciej niż eksplorator plików. Po prostu przesuń każdy plik.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
     <string name="swiper_continue_action">Kontynuuj sesję</string>
     <string name="swiper_sessions_description">Przejrzyj pliki w 3 prostych krokach:\n\n1. Wybierz folder do przeskanowania.\n2. Przesuń palcem po plikach, aby zachować, usunąć lub pominąć.\n3. Przejrzyj swoje wybory i potwierdź.\n\nNic nie zostanie usunięte, dopóki nie klikniesz przycisku usuwania.</string>

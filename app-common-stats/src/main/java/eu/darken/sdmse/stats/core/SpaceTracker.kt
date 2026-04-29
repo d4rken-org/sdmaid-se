@@ -19,6 +19,7 @@ import java.time.Instant
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.abs
 
 @Singleton
 class SpaceTracker @Inject constructor(
@@ -140,18 +141,35 @@ class SpaceTracker @Inject constructor(
                     internalId = volume.fsUuid,
                     externalId = volumeUuid,
                 )
+                val isFatUuid = volumeUuid.toString().startsWith(StorageId.FAT_UUID_PREFIX)
+                val fileTotal = volume.path?.totalSpace ?: 0L
+                val fileFree = volume.path?.freeSpace ?: 0L
 
-                val totalBytes = try {
-                    storageStatsManager.getTotalBytes(storageId)
+                val (totalBytes, freeBytes) = try {
+                    val statsTotal = storageStatsManager.getTotalBytes(storageId)
+                    val statsFree = storageStatsManager.getFreeBytes(storageId)
+
+                    // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
+                    // If statfs disagrees with the API by >10%, trust the filesystem.
+                    val mismatches = isFatUuid
+                        && fileTotal > 0
+                        && abs(statsTotal - fileTotal) * 10 > fileTotal
+                    if (mismatches) {
+                        log(TAG, WARN) {
+                            "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $storageId; using File"
+                        }
+                        fileTotal to fileFree
+                    } else {
+                        statsTotal to statsFree
+                    }
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to get total bytes for $storageId: ${e.asLog()}" }
-                    volume.path?.totalSpace ?: 0L
+                    log(TAG, WARN) { "StorageStatsManager failed for $storageId, using File API: ${e.asLog()}" }
+                    fileTotal to fileFree
                 }
-                val freeBytes = try {
-                    storageStatsManager.getFreeBytes(storageId)
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to get free bytes for $storageId: ${e.asLog()}" }
-                    volume.path?.freeSpace ?: 0L
+
+                if (totalBytes <= 0L) {
+                    log(TAG, WARN) { "Secondary volume reports zero capacity, skipping: $volume" }
+                    return@mapNotNull null
                 }
 
                 StorageSnapshot(

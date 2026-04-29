@@ -17,7 +17,8 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.squeezer.core.processor.ImageProcessor
-import eu.darken.sdmse.squeezer.core.scanner.ImageScanner
+import eu.darken.sdmse.squeezer.core.processor.VideoProcessor
+import eu.darken.sdmse.squeezer.core.scanner.MediaScanner
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
@@ -41,8 +42,9 @@ class Squeezer @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val gatewaySwitch: GatewaySwitch,
     private val exclusionManager: ExclusionManager,
-    private val scanner: Provider<ImageScanner>,
-    private val processor: Provider<ImageProcessor>,
+    private val scanner: Provider<MediaScanner>,
+    private val imageProcessor: Provider<ImageProcessor>,
+    private val videoProcessor: Provider<VideoProcessor>,
     private val settings: SqueezerSettings,
 ) : SDMTool, Progress.Client {
 
@@ -103,9 +105,10 @@ class Squeezer @Inject constructor(
         val enabledMimeTypes = buildSet {
             if (settings.includeJpeg.value()) add(CompressibleImage.MIME_TYPE_JPEG)
             if (settings.includeWebp.value()) add(CompressibleImage.MIME_TYPE_WEBP)
+            if (settings.includeVideo.value()) add(CompressibleVideo.MIME_TYPE_MP4)
         }
 
-        val scanOptions = ImageScanner.Options(
+        val scanOptions = MediaScanner.Options(
             paths = task.paths ?: settings.scanPaths.value().paths,
             minimumSize = settings.minSizeBytes.value(),
             minAge = settings.minAge.value(),
@@ -114,20 +117,25 @@ class Squeezer @Inject constructor(
             compressionQuality = settings.compressionQuality.value(),
         )
 
-        val results = scanner.get().withProgress(this) {
+        val scanResult = scanner.get().withProgress(this) {
             scan(scanOptions)
         }
+        val results = scanResult.items
 
-        log(TAG, INFO) { "performScan(): ${results.size} images found" }
+        log(TAG, INFO) {
+            "performScan(): ${results.size} media items found, " +
+                    "${scanResult.skippedInaccessibleCount} skipped (inaccessible)"
+        }
 
         internalData.value = Data(
-            images = results
+            media = results,
         )
 
         return SqueezerScanTask.Success(
             itemCount = results.size,
             totalSize = results.sumOf { it.size },
             estimatedSavings = results.sumOf { it.estimatedSavings ?: 0L },
+            skippedInaccessibleCount = scanResult.skippedInaccessibleCount,
         )
     }
 
@@ -140,18 +148,47 @@ class Squeezer @Inject constructor(
 
         val quality = task.qualityOverride ?: settings.compressionQuality.value()
 
-        val result = processor.get().withProgress(this) {
-            process(task, snapshot, quality)
+        val targets = when (val mode = task.mode) {
+            is SqueezerProcessTask.TargetMode.All -> snapshot.media
+            is SqueezerProcessTask.TargetMode.Selected -> {
+                snapshot.media.filter { mode.targets.contains(it.identifier) }.toSet()
+            }
         }
+
+        val imageTargets = targets.filterIsInstance<CompressibleImage>().toSet()
+        val videoTargets = targets.filterIsInstance<CompressibleVideo>().toSet()
+
+        val imageResult = if (imageTargets.isNotEmpty()) {
+            imageProcessor.get().withProgress(this) { process(imageTargets, quality) }
+        } else {
+            ImageProcessor.Result(success = emptySet(), failed = emptyMap(), savedSpace = 0L)
+        }
+
+        val videoResult = if (videoTargets.isNotEmpty()) {
+            videoProcessor.get().withProgress(this) { process(videoTargets, quality) }
+        } else {
+            VideoProcessor.Result(success = emptySet(), failed = emptyMap(), savedSpace = 0L)
+        }
+
+        val allSuccess: Set<CompressibleMedia> = imageResult.success + videoResult.success
+        val totalSavedSpace = imageResult.savedSpace + videoResult.savedSpace
+
+        val allFailures = imageResult.failed.values + videoResult.failed.values
+        val failureReasons: Map<FailureReason, Int> = allFailures
+            .map { it.toFailureReason() }
+            .groupingBy { it }
+            .eachCount()
 
         updateProgress { Progress.Data() }
 
-        internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
+        internalData.value = snapshot.prune(allSuccess.map { it.identifier }.toSet())
 
         return SqueezerProcessTask.Success(
-            affectedSpace = result.savedSpace,
-            affectedPaths = result.success.map { it.path }.toSet(),
-            processedCount = result.success.size,
+            affectedSpace = totalSavedSpace,
+            affectedPaths = allSuccess.map { it.path }.toSet(),
+            processedCount = allSuccess.size,
+            failedCount = allFailures.size,
+            failureReasons = failureReasons,
         )
     }
 
@@ -163,7 +200,7 @@ class Squeezer @Inject constructor(
         val snapshot = internalData.value ?: return@withLock
 
         val exclusions = identifiers
-            .mapNotNull { id -> snapshot.images.find { it.identifier == id } }
+            .mapNotNull { id -> snapshot.media.find { it.identifier == id } }
             .map { media ->
                 PathExclusion(
                     path = media.path,
@@ -174,7 +211,7 @@ class Squeezer @Inject constructor(
         exclusionManager.save(exclusions)
 
         internalData.value = snapshot.copy(
-            images = snapshot.images.filter { !identifiers.contains(it.identifier) }.toSet()
+            media = snapshot.media.filter { !identifiers.contains(it.identifier) }.toSet()
         )
     }
 
@@ -185,11 +222,13 @@ class Squeezer @Inject constructor(
     ) : SDMTool.State
 
     data class Data(
-        val images: Set<CompressibleImage> = emptySet(),
+        val media: Set<CompressibleMedia> = emptySet(),
     ) {
-        val totalSize: Long get() = images.sumOf { it.size }
-        val estimatedSavings: Long get() = images.sumOf { it.estimatedSavings ?: 0L }
-        val totalCount: Int get() = images.size
+        val images: Set<CompressibleImage> get() = media.filterIsInstance<CompressibleImage>().toSet()
+        val videos: Set<CompressibleVideo> get() = media.filterIsInstance<CompressibleVideo>().toSet()
+        val totalSize: Long get() = media.sumOf { it.size }
+        val estimatedSavings: Long get() = media.sumOf { it.estimatedSavings ?: 0L }
+        val totalCount: Int get() = media.size
     }
 
     @InstallIn(SingletonComponent::class)
@@ -204,13 +243,13 @@ class Squeezer @Inject constructor(
 }
 
 internal fun Squeezer.Data.prune(processedIds: Set<CompressibleMedia.Id>): Squeezer.Data {
-    val newImages = this.images
-        .filter { image ->
-            val wasProcessed = processedIds.contains(image.identifier)
-            if (wasProcessed) log(Squeezer.TAG) { "Prune: Processed image: $image" }
+    val newMedia = this.media
+        .filter { item ->
+            val wasProcessed = processedIds.contains(item.identifier)
+            if (wasProcessed) log(Squeezer.TAG) { "Prune: Processed item: $item" }
             !wasProcessed
         }
         .toSet()
 
-    return this.copy(images = newImages)
+    return this.copy(media = newMedia)
 }

@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Find duplikater ved at beregne kontrolsummer for filer. Filer med ens kontrolsum har nøjagtigt det samme indhold.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuel hash</string>
     <string name="deduplicator_detection_method_phash_summary">Find lignende filer ved at analysere indholdsegenskaber og sammenligne perceptuelle hashværdier. Lighedsbaseret detektion kan inkludere falske positiver der kræver manuel verifikation.</string>
+    <string name="deduplicator_detection_method_media_title">Mediefingeraftryk</string>
+    <string name="deduplicator_detection_method_media_summary">Find lignende video- og lydfiler ved at analysere lydfingeraftryk. ⚠️ Lighedsbaseret registrering kan indeholde falske positiver, der kræver manuel bekræftelse.</string>
+    <string name="deduplicator_matches_media_label">Lignende medier</string>
+    <string name="deduplicator_media_match_audio">Lydbaseret match</string>
+    <string name="deduplicator_media_match_visual">Videobaseret match</string>
+    <string name="deduplicator_media_match_audio_visual">Lyd- og videobaseret match</string>
     <string name="deduplicator_occupied_space_label">Optaget lagerplads</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er optaget af duplikater</item>

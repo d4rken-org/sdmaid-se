@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">Pořízené fotky, nahraná videa nebo stažená data. Jakákoliv data, která nepatří ke konkrétní aplikaci.</string>
     <string name="analyzer_storage_content_type_system_label">Systémová data</string>
     <string name="analyzer_storage_content_type_system_description">Systémové aplikace a systémová data. Aplikace a data od jiných uživatelů, pokud je v tomto zařízení nastaveno více uživatelských účtů.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Ostatní</string>
+    <string name="analyzer_storage_content_type_system_info">Soubory, které nespadají do kategorií Aplikace nebo Uživatelské soubory. Pouze procházení — mazání není podporováno. Některé oblasti mohou být neúplné z důvodu omezení přístupu.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Systémové soubory a další data, ke kterým SD Maid nemohl přistupovat nebo je zařadit. Operační systém omezuje výpis obsahu některých oblastí.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
     <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a prostředky. Tento prostor může být uvolněn odinstalováním aplikace nebo její archivací (dostupné v novějších verzích Android).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikace</string>

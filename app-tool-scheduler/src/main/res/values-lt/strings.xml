@@ -33,6 +33,7 @@
     <string name="scheduler_notification_channel_label">Planuotuvas</string>
     <string name="scheduler_notification_title">Planuojama užduotis</string>
     <string name="scheduler_notification_message">Vykdoma: „%s“</string>
+    <string name="scheduler_notification_result_channel_label">Planuoklio rezultatai</string>
     <string name="scheduler_notification_result_title">Planuotuvas baigė</string>
     <string name="scheduler_notification_result_success_message">Visos planuotos užduotys įvykdytos sėkmingai.</string>
     <string name="scheduler_notification_result_failure_message">Kai kurios planuotos užduotys nepavyko arba susidarė klaidų. Pabandykite jas vykdyti rankiniu būdu.</string>

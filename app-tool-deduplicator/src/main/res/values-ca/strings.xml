@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Determina els duplicats calculant les sumes de control dels fitxers. Els fitxers amb sumes de comprovació coincidents tenen exactament el mateix contingut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptiu</string>
     <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques del contingut i comparant els valors hash perceptuals. ⚠️ La detecció basada en la similitud pot incloure falsos positius que requereixen verificació manual.</string>
+    <string name="deduplicator_detection_method_media_title">Empremta digital multimèdia</string>
+    <string name="deduplicator_detection_method_media_summary">Trobeu fitxers de vídeo i àudio similars analitzant les empremtes d\'àudio. ⚠️ La detecció basada en la similitud pot incloure falsos positius que requereixen verificació manual.</string>
+    <string name="deduplicator_matches_media_label">Multimèdia similar</string>
+    <string name="deduplicator_media_match_audio">Coincidència basada en àudio</string>
+    <string name="deduplicator_media_match_visual">Coincidència basada en vídeo</string>
+    <string name="deduplicator_media_match_audio_visual">Coincidència basada en àudio i vídeo</string>
     <string name="deduplicator_occupied_space_label">Emmagatzematge ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s està ocupat per duplicats</item>

@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">예약관리자</string>
     <string name="scheduler_notification_title">예약 작</string>
     <string name="scheduler_notification_message">실행 : \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">스케줄러 결과</string>
     <string name="scheduler_notification_result_title">스케쥴 완료</string>
     <string name="scheduler_notification_result_success_message">스케줄된 모든 작업을 성공적으로 완료했습니다.</string>
     <string name="scheduler_notification_result_failure_message">일부 예약된 작업이 실패했거나 오류가 발생했습니다. 수동으로 실행해 보세요.</string>

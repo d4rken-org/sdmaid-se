@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Ateratako argazkiak, grabatutako bideoak edo deskargatutako datuak. Aplikazio zehatz bati ez dagokion edozein datu.</string>
     <string name="analyzer_storage_content_type_system_label">Sistema-datuak</string>
     <string name="analyzer_storage_content_type_system_description">Sistema-aplikazioak eta sistema-datuak. Beste erabiltzaileen aplikazioak eta datuak, gailu honetan hainbat erabiltzaile-kontu konfiguratuta badaude.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Bestelakoak</string>
+    <string name="analyzer_storage_content_type_system_info">Aplikazio edo Erabiltzaile fitxategien kategorietara egokitzen ez diren fitxategiak. Arakatu soilik — ezabatzea ez da onartzen. Zenbait area ez da osoa sarbide mugapenak direla eta.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Sistema-fitxategiak eta SD Maid-ek atzitu edo sailkatu ezin dituen beste datu batzuk. Eragiketa-sistemak zenbait arearen edukia zerrendatzea mugatzen du.</string>
     <string name="analyzer_storage_content_app_code_label">Aplikazioaren kodea</string>
     <string name="analyzer_storage_content_app_code_description">Aplikazio-fitxategiak, liburutegiak eta baliabideak. Leku hau askatu daiteke aplikazioa desinstalatu edo artxibatuz (Android bertsio berrietan erabilgarri).</string>
     <string name="analyzer_storage_content_app_data_label">Aplikazioaren datuak</string>

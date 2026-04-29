@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">Зроблені фотографії, записані відео або завантажені дані. Будь-які дані, що не належать конкретній програмі.</string>
     <string name="analyzer_storage_content_type_system_label">Системні дані</string>
     <string name="analyzer_storage_content_type_system_description">Системні додатки та системні дані. Додатки та дані інших користувачів, якщо на пристрої встановлено кілька облікових записів.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Інше</string>
+    <string name="analyzer_storage_content_type_system_info">Файли, які не належать до категорій «Додатки» або «Файли користувача». Тільки перегляд — видалення не підтримується. Деякі розділи можуть бути неповними через обмеження доступу.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Системні файли та інші дані, до яких SD Maid не зміг отримати доступ або класифікувати. Операційна система обмежує відображення вмісту деяких розділів.</string>
     <string name="analyzer_storage_content_app_code_label">Код додатка</string>
     <string name="analyzer_storage_content_app_code_description">Файли додатка, бібліотеки та ресурси. Цей простір можна звільнити, видаливши додатки або заархівувавши їх (доступно на нових версіях Android).</string>
     <string name="analyzer_storage_content_app_data_label">Дані додатка</string>

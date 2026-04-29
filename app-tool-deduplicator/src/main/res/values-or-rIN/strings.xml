@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ଫାଇଲଗୁଡ଼ିକ ପାଇଁ ଚେକସମ୍ ଗଣନା କରି ନକଲ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ। ମେଳ ଖାଉଥିବା ଚେକସମ୍ ଥିବା ଫାଇଲଗୁଡ଼ିକର ଏକେ ସମାନ ବିଷୟବସ୍ତୁ ରହିଛି।</string>
     <string name="deduplicator_detection_method_phash_title">ପର୍ସେପଚୁଆଲ ହ୍ୟାସ୍</string>
     <string name="deduplicator_detection_method_phash_summary">ବିଷୟବସ୍ତୁ ବୈଶିଷ୍ଟ୍ୟ ବିଶ୍ଳେଷଣ ଏବଂ ଅନୁଭୂତିମୂଳକ ହ୍ୟାସ୍ ମୂଲ୍ୟ ତୁଳନା କରି ସମାନ ଫାଇଲ୍ ଖୋଜନ୍ତୁ। ⚠️ ସମାନତା-ଆଧାରିତ ଚିହ୍ନଟ ମିଥ୍ୟା ସକରାତ୍ମକ ଅନ୍ତର୍ଭୁକ୍ତ କରିପାରେ ଯାହା ହାତରେ ଯାଞ୍ଚ ଆବଶ୍ୟକ କରେ।</string>
+    <string name="deduplicator_detection_method_media_title">ମିଡ଼ିଆ ଫିଙ୍ଗର୍‌ପ୍ରିଣ୍ଟ</string>
+    <string name="deduplicator_detection_method_media_summary">ଅଡ଼ିଓ ଫିଙ୍ଗର୍‌ପ୍ରିଣ୍ଟ ବିଶ୍ଳେଷଣ କରି ସମାନ ଭିଡ଼ିଓ ଓ ଅଡ଼ିଓ ଫାଇଲ ଖୋଜନ୍ତୁ। ⚠️ ସମାନତା ଆଧାରିତ ଚିହ୍ନଟ ପ୍ରଣାଳୀ ଭୁଲ ଫଳ ଦେଇ ପାରେ, ତେଣୁ ହସ୍ତ ଯାଞ୍ଚ ଆବଶ୍ୟକ।</string>
+    <string name="deduplicator_matches_media_label">ସମାନ ମିଡ଼ିଆ</string>
+    <string name="deduplicator_media_match_audio">ଅଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
+    <string name="deduplicator_media_match_visual">ଭିଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
+    <string name="deduplicator_media_match_audio_visual">ଅଡ଼ିଓ ଓ ଭିଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
     <string name="deduplicator_occupied_space_label">ଅଧିକୃତ ଷ୍ଟୋରେଜ୍</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ନକଲ ଦ୍ୱାରା ଦଖଲ ହୋଇଛି</item>

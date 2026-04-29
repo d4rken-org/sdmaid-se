@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Bestem duplikater ved å beregne sjekksummer for filer. Filer med samsvarende sjekksum har nøyaktig samme innhold.</string>
     <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
     <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdsfunksjoner og sammenligne perseptuelle hashverdier. ⚠️ Likhetsbasert deteksjon kan inkludere falske positiver som krever manuell verifisering.</string>
+    <string name="deduplicator_detection_method_media_title">Mediefingeravtrykk</string>
+    <string name="deduplicator_detection_method_media_summary">Finn lignende video- og lydfiler ved å analysere lydfingeravtrykk. ⚠️ Likhetbasert gjenkjenning kan inkludere falske positiver som krever manuell verifisering.</string>
+    <string name="deduplicator_matches_media_label">Lignende medier</string>
+    <string name="deduplicator_media_match_audio">Lydbasert treff</string>
+    <string name="deduplicator_media_match_visual">Videobasert treff</string>
+    <string name="deduplicator_media_match_audio_visual">Lyd- og videobasert treff</string>
     <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er brukt av duplikater</item>

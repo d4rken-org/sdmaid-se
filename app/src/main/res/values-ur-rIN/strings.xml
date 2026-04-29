@@ -138,7 +138,7 @@
         <item quantity="other">%1$d / %2$d الفاظ</item>
     </plurals>
     <string name="support_contact_debuglog_label">ڈیبگ لاگ</string>
-    <string name="support_contact_debuglog_zip_error">ڈیبگ لاگ کو کمپریس کرنے میں ناکامی ہوئی</string>
+    <string name="support_contact_debuglog_zip_error">ڈیبگ لاگ کو کمپریس کرنے میں ناکامی</string>
     <string name="support_contact_debuglog_picker_hint">کوئی موجودہ ڈیبگ لاگ منسلک کریں، یا نیا ریکارڈ کریں۔</string>
     <string name="support_contact_debuglog_picker_empty">کوئی ڈیبگ لاگ نہیں ملی۔ پہلے ایک ریکارڈ کریں۔</string>
     <string name="support_contact_send_action">ای میل ایپ کھولیں</string>

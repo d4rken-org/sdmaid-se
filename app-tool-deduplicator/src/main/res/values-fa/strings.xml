@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">تشخیص تکراری‌ها با محاسبه مجموع چکیده برای فایل‌ها. فایل‌هایی که مجموع چکیده یکسان دارند، محتوای دقیقا یکسانی دارند.</string>
     <string name="deduplicator_detection_method_phash_title">چکیده ادراکی</string>
     <string name="deduplicator_detection_method_phash_summary">با تجزیه و تحلیل ویژگی‌های محتوا و مقایسه مقادیر هش ادراکی، فایل‌های مشابه را پیدا کنید. ⚠️ تشخیص مبتنی بر شباهت ممکن است شامل موارد مثبت کاذب باشد که نیاز به تأیید دستی دارند.</string>
+    <string name="deduplicator_detection_method_media_title">اثر انگشت رسانه</string>
+    <string name="deduplicator_detection_method_media_summary">یافتن فایل‌های ویدیویی و صوتی مشابه با تحلیل اثر انگشت صوتی. ⚠️ تشخیص مبتنی بر شباهت ممکن است شامل موارد مثبت کاذب باشد که نیاز به تأیید دستی دارند.</string>
+    <string name="deduplicator_matches_media_label">رسانه‌های مشابه</string>
+    <string name="deduplicator_media_match_audio">تطابق مبتنی بر صدا</string>
+    <string name="deduplicator_media_match_visual">تطابق مبتنی بر ویدیو</string>
+    <string name="deduplicator_media_match_audio_visual">تطابق مبتنی بر صدا و ویدیو</string>
     <string name="deduplicator_occupied_space_label">حافظه اشغال شده</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s توسط فایل‌های تکراری اشغال شده</item>

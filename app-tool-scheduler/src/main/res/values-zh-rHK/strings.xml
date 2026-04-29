@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">時間表</string>
     <string name="scheduler_notification_title">已編排的工作</string>
     <string name="scheduler_notification_message">正在執行：%s</string>
+    <string name="scheduler_notification_result_channel_label">排程器結果</string>
     <string name="scheduler_notification_result_title">計劃任務已完成</string>
     <string name="scheduler_notification_result_success_message">所有計劃任務已成功運行。</string>
     <string name="scheduler_notification_result_failure_message">部分計劃任務失敗或遇到錯誤。請嘗試手動執行它們。</string>

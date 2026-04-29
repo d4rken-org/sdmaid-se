@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Zamanlayıcı</string>
     <string name="scheduler_notification_title">Planlanmış görev</string>
     <string name="scheduler_notification_message">Yürütülüyor: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Zamanlayıcı sonuçları</string>
     <string name="scheduler_notification_result_title">Zamanlayıcı tamamlandı</string>
     <string name="scheduler_notification_result_success_message">Tüm zamanlanmış görevler başarıyla çalıştı.</string>
     <string name="scheduler_notification_result_failure_message">Bazı zamanlanmış görevler başarısız oldu veya hatalarla karşılaştı. Bunları manuel olarak çalıştırmayı deneyin.</string>

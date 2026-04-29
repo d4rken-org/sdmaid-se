@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ファイルのチェックサムを計算することで重複を決定します。チェックサムに一致するファイルは全く同じ内容を持ちます。</string>
     <string name="deduplicator_detection_method_phash_title">概念ハッシュ</string>
     <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し知覚ハッシュ値を比較して類似ファイルを検出します。⚠️ 類似性に基づく検出では誤検出が含まれる場合があり、手動確認が必要です。</string>
+    <string name="deduplicator_detection_method_media_title">メディアフィンガープリント</string>
+    <string name="deduplicator_detection_method_media_summary">オーディオフィンガープリントを解析して類似した動画・音声ファイルを検索します。⚠️ 類似性ベースの検出には誤検知が含まれる場合があり、手動での確認が必要です。</string>
+    <string name="deduplicator_matches_media_label">類似メディア</string>
+    <string name="deduplicator_media_match_audio">音声ベースの一致</string>
+    <string name="deduplicator_media_match_visual">映像ベースの一致</string>
+    <string name="deduplicator_media_match_audio_visual">音声・映像ベースの一致</string>
     <string name="deduplicator_occupied_space_label">占拠されたストレージ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%sが重複により占有されています</item>

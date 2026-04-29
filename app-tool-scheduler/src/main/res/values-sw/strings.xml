@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Mpangaji</string>
     <string name="scheduler_notification_title">Kazi iliyopangwa</string>
     <string name="scheduler_notification_message">Inatekeleza: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Matokeo ya mpanga ratiba</string>
     <string name="scheduler_notification_result_title">Mpangaji umemaliza</string>
     <string name="scheduler_notification_result_success_message">Kazi zote zilizopangwa zimetekelezwa kwa mafanikio.</string>
     <string name="scheduler_notification_result_failure_message">Baadhi ya kazi zilizopangwa zimeshindwa au zimekutana na makosa. Jaribu kuzitekeleza kwa mkono.</string>

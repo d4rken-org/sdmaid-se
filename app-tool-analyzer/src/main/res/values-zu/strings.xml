@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Izithombe ezithathiwe, amavidiyo arekhotiwe noma idatha elandiwe. Noma iyiphi idatha engeyona eyinhlelo lokusebenza elithile.</string>
     <string name="analyzer_storage_content_type_system_label">Idatha yesistimu</string>
     <string name="analyzer_storage_content_type_system_description">Izinhlelo zokusebenza zesistimu nedatha yesistimu. Izinhlelo zokusebenza nedatha kwabanye abasebenzisi, uma ama-akhawunti abasebenzisi ambalwa esetiwe kule divayisi.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Okunye</string>
+    <string name="analyzer_storage_content_type_system_info">Amafayela angafaneli izigaba ze-Apps noma izifayela zomsebenzisi. Bhrowza kuphela — ukususa akusekelelwa. Ezinye izindawo zingaba nekhona okuswelekayo ngenxa yemikhawulo yokungena.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Amafayela esikhungo namanye idatha i-SD Maid engakwazi ukungena noma ukuhlukanisa. Uhlelo lwokusebenza luvimba ukubhaliswa kwamazwi ezindaweni ezithile.</string>
     <string name="analyzer_storage_content_app_code_label">Ikhodi yohlelo</string>
     <string name="analyzer_storage_content_app_code_description">Amafayela ohlelo, amathala ezincwadi nezinsiza. Lesi sikhala singakhululwa ngokususa uhlelo noma ngokusibekela (sitholakala kwinguqulo entsha ye-Android).</string>
     <string name="analyzer_storage_content_app_data_label">Idatha yohlelo</string>

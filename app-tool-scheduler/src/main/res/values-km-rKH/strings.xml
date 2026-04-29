@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">ការកំណត់ការរង្វាំ</string>
     <string name="scheduler_notification_title">ការងារត័ត្រូវបានកំណត់</string>
     <string name="scheduler_notification_message">កំពុងដំឡើរ: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">លទ្ធផល​កម្មវិធីកំណត់ពេលវេលា</string>
     <string name="scheduler_notification_result_title">ការរង្វាំបានប័រចប់</string>
     <string name="scheduler_notification_result_success_message">ការងារត័ត្រូទាំងនាំត្រូវបានជៅកជ័យ។</string>
     <string name="scheduler_notification_result_failure_message">ការងារខ្ឡើនមួយបានប័កស្ខាល ឬប័ត្រងកៀស។ ស្វែងដែលប័រើរត្រងដ្តី។</string>

@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ກຳນົດສຳເນົາทີ່ຊ້າກັນໂດຍການຄຳນວນ checksum ຂອງໄຟລ໌. ໄຟລ໌ທີ່ checksum ກົງກັນມີເນື້ຫາດຽວກັນ.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">ຊອກຫາໄຟລ໌ທີ່ຄ້າຍກັນໂດຍການວິເຄາະຄຸນລັກຂອງເນື້ຫາ ແລະປຽບທຽຍຄ່າ perceptual hash. ⚠️ ການກວດຫາທີ່ອ້າງໃສ່ຄວາມຄ້າຍກັນ ອາດລວມຜົນບວກທີ່ຜິດຕ້ອງການກວດສອບດ້ວຍຕົນເອງ.</string>
+    <string name="deduplicator_detection_method_media_title">ລາຍນິ້ວມືສື່</string>
+    <string name="deduplicator_detection_method_media_summary">ຊອກຫາໄຟລ໌ວິດີໂອ ແລະ ສຽງທີ່ຄ້າຍຄືກັນໂດຍການວິເຄາະລາຍນິ້ວມືສຽງ. ⚠️ ການກວດຫາທີ່ອ້າງອິງຈາກຄວາມຄ້າຍຄືກັນອາດລວມມີຜົນບວກຜິດພາດທີ່ຕ້ອງການກວດສອບດ້ວຍຕົນເອງ.</string>
+    <string name="deduplicator_matches_media_label">ສື່ທີ່ຄ້າຍຄືກັນ</string>
+    <string name="deduplicator_media_match_audio">ກົງກັນໂດຍອ້າງອີງສຽງ</string>
+    <string name="deduplicator_media_match_visual">ກົງກັນໂດຍອ້າງອີງວິດີໂອ</string>
+    <string name="deduplicator_media_match_audio_visual">ກົງກັນໂດຍອ້າງອີງສຽງ ແລະ ວິດີໂອ</string>
     <string name="deduplicator_occupied_space_label">ຫນ່ວຍເກັບຂໍ້ມູລທີ່ຖືກໃຊ້</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ຖືກໃຊ້ໂດຍສຳເນົາທີ່ຊ້າ</item>

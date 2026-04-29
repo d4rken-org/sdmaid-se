@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Ordutegia</string>
     <string name="scheduler_notification_title">Planifikatutako ataza</string>
     <string name="scheduler_notification_message">Exekutatzen: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Programatzailearen emaitzak</string>
     <string name="scheduler_notification_result_title">Ordutegia amaituta</string>
     <string name="scheduler_notification_result_success_message">Planifikatutako ataza guztiak arrakastaz exekutatu dira.</string>
     <string name="scheduler_notification_result_failure_message">Planifikatutako ataza batzuek huts egin dute edo erroreak jaso dituzte. Saiatu eskuz exekutatzen.</string>

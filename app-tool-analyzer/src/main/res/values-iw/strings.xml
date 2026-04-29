@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">תמונות שצולמו, סרטונים מוקלטים או נתונים שהורדו. כל נתונים שאינם שייכים לאפליקציה מסוימת.</string>
     <string name="analyzer_storage_content_type_system_label">נתוני מערכת</string>
     <string name="analyzer_storage_content_type_system_description">אפליקציות מערכת ונתוני מערכת. אפליקציות ונתונים ממשתמשים אחרים, אם מוגדרים מספר חשבונות משתמש במכשיר זה.</string>
+    <string name="analyzer_storage_content_type_system_other_label">אחר</string>
+    <string name="analyzer_storage_content_type_system_info">קבצים שאינם מתאימים לקטגוריות אפליקציות או קבצי משתמש. עיון בלבד — מחיקה אינה נתמכת. ייתכן שחלק מהאזורים אינם שלמים עקב הגבלות גישה.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">קבצי מערכת ונתונים אחרים ש-SD Maid לא יכלה לגשת אליהם או לסווג. מערכת ההפעלה מגבילה את רישום תכולת חלק מהאזורים.</string>
     <string name="analyzer_storage_content_app_code_label">קוד אפליקציה</string>
     <string name="analyzer_storage_content_app_code_description">קבצי אפליקציות, ספריות ומשאבים. מקום זה יכול להתפנות על ידי הסרת האפליקציה או אירכובה (זמין בגירסאות אנדרואיד חדשות).</string>
     <string name="analyzer_storage_content_app_data_label">נתוני יישום</string>

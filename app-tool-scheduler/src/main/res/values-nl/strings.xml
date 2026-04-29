@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Planner</string>
     <string name="scheduler_notification_title">Geplande taak</string>
     <string name="scheduler_notification_message">Wordt uitgevoerd: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Planner-resultaten</string>
     <string name="scheduler_notification_result_title">Planner is klaar</string>
     <string name="scheduler_notification_result_success_message">Alle geplande taken werden succesvol uitgevoerd.</string>
     <string name="scheduler_notification_result_failure_message">Sommige geplande taken zijn mislukt of er zijn fouten opgetreden. Probeer ze handmatig uit te voeren.</string>

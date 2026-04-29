@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">ตัวจัดตารางเวลา</string>
     <string name="scheduler_notification_title">งานตามตาราง</string>
     <string name="scheduler_notification_message">กำลังทำงาน: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">ผลลัพธ์ตัวกำหนดเวลา</string>
     <string name="scheduler_notification_result_title">ตัวจัดตารางเวลาเสร็จสิ้น</string>
     <string name="scheduler_notification_result_success_message">งานตามตารางทั้งหมดทำงานสำเร็จ</string>
     <string name="scheduler_notification_result_failure_message">งานตามตารางบางงานล้มเหลวหรือพบข้อผิดพลาด ลองทำงานด้วยตนเอง</string>

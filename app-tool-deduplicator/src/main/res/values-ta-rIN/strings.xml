@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">கோப்புகளுக்கான செக்சம்களை கணக்கீடு செய்வதன் மூலம் நகல்களை நிர்ணயிக்கவும். பொருந்தும் செக்சம்களை கொண்ட கோப்புகள் சரியான அதே விஷயத்தை கொண்டிருக்கும்.</string>
     <string name="deduplicator_detection_method_phash_title">உணர்வு ஹாஷ்</string>
     <string name="deduplicator_detection_method_phash_summary">உள்ளடக்க அம்சங்களை பகுப்பாய்வு செய்து புலனுணர்வு ஹாஷ் மதிப்புகளை ஒப்பிட்டு ஒத்த கோப்புகளைக் கண்டறியவும். ⚠️ ஒற்றுமை அடிப்படையிலான கண்டறிதலில் கைமுறை சரிபார்ப்பு தேவைப்படும் தவறான நேர்மறைகள் இருக்கலாம்.</string>
+    <string name="deduplicator_detection_method_media_title">மீடியா கைரேகை</string>
+    <string name="deduplicator_detection_method_media_summary">ஆடியோ கைரேகைகளை பகுப்பாய்வு செய்வதன் மூலம் ஒத்த வீடியோ மற்றும் ஆடியோ கோப்புகளைக் கண்டறியவும். ⚠️ ஒற்றுமை அடிப்படையிலான கண்டறிதல் தவறான நேர்மறைகளை உள்ளடக்கியிருக்கலாம், கைமுறை சரிபார்ப்பு தேவை.</string>
+    <string name="deduplicator_matches_media_label">ஒத்த மீடியா</string>
+    <string name="deduplicator_media_match_audio">ஆடியோ அடிப்படையிலான பொருத்தம்</string>
+    <string name="deduplicator_media_match_visual">வீடியோ அடிப்படையிலான பொருத்தம்</string>
+    <string name="deduplicator_media_match_audio_visual">ஆடியோ மற்றும் வீடியோ அடிப்படையிலான பொருத்தம்</string>
     <string name="deduplicator_occupied_space_label">ஆக்ரமிக்கப்பட்ட சேமிப்பு</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s நகல்களால் ஆக்ரமிக்கப்பட்டுள்ளது</item>

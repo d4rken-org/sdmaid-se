@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Tukuyin ang mga duplicate sa pamamagitan ng pagkakalkula ng mga checksum para sa mga file. Ang mga file na may magkatugang checksum ay may eksaktong magkaparehong nilalaman.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hanapin ang mga katulad na file sa pamamagitan ng pagsusuri ng mga content feature at paghahambing ng perceptual hash values. ⚠️ Ang similarity-based detection ay maaaring magsama ng mga false positive na nangangailangan ng manu-manong verification.</string>
+    <string name="deduplicator_detection_method_media_title">Media fingerprint</string>
+    <string name="deduplicator_detection_method_media_summary">Hanapin ang mga katulad na video at audio file sa pamamagitan ng pagsusuri ng mga audio fingerprint. ⚠️ Maaaring maglaman ng mga maling positibo ang pagtuklas batay sa pagkakatulad na nangangailangan ng manu-manong pag-verify.</string>
+    <string name="deduplicator_matches_media_label">Katulad na media</string>
+    <string name="deduplicator_media_match_audio">Tugma batay sa audio</string>
+    <string name="deduplicator_media_match_visual">Tugma batay sa video</string>
+    <string name="deduplicator_media_match_audio_visual">Tugma batay sa audio at video</string>
     <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ay ginagamit ng mga duplicate</item>

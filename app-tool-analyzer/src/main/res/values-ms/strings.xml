@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akaun pengguna ditetapkan pada peranti ini.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Lain-lain</string>
+    <string name="analyzer_storage_content_type_system_info">Fail yang tidak sesuai dalam kategori Aplikasi atau fail Pengguna. Layar sahaja — pemadaman tidak disokong. Sesetengah kawasan mungkin tidak lengkap disebabkan sekatan akses.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Fail sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem pengendalian menyekat penyenaraian kandungan sesetengah kawasan.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini boleh dibebaskan dengan menyahpasang aplikasi atau mengarkibkannya (tersedia pada versi Android yang lebih baharu).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>

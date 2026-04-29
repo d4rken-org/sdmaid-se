@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">फ़ाइल सामग्री की तुलना करने के लिए चेकसम का उपयोग करें। अधिक सटीक लेकिन धीमा।</string>
     <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल हैश</string>
     <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताओं का विश्लेषण करके और अवधारणात्मक हैश मूल्यों की तुलना करके समान फ़ाइलें ढूंढें। ⚠️ समानता-आधारित पहचान में गलत परिणाम हो सकते हैं जिन्हें मैन्युअल सत्यापन की आवश्यकता होती है।</string>
+    <string name="deduplicator_detection_method_media_title">मीडिया फिंगरप्रिंट</string>
+    <string name="deduplicator_detection_method_media_summary">ऑडियो फिंगरप्रिंट विश्लेषण करके समान वीडियो और ऑडियो फ़ाइलें खोजें। ⚠️ समानता-आधारित पहचान में गलत परिणाम शामिल हो सकते हैं जिन्हें मैन्युअल सत्यापन की आवश्यकता है।</string>
+    <string name="deduplicator_matches_media_label">समान मीडिया</string>
+    <string name="deduplicator_media_match_audio">ऑडियो-आधारित मिलान</string>
+    <string name="deduplicator_media_match_visual">वीडियो-आधारित मिलान</string>
+    <string name="deduplicator_media_match_audio_visual">ऑडियो और वीडियो-आधारित मिलान</string>
     <string name="deduplicator_occupied_space_label">कब्जाया गया स्थान</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>

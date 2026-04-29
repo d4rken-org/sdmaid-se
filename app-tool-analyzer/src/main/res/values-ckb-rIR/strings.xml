@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="analyzer_explanation_short">بزانە چی شوێن دەگێرێت لە ئامێرەکەتدا.</string>
+    <string name="analyzer_progress_scanning_device">گەڕان بەدوای ئامێرەکانی حەزداری</string>
+    <string name="analyzer_progress_scanning_storage">سکانکردنی حەزداری</string>
+    <string name="analyzer_progress_scanning_apps">سکانکردنی بەرنامەکان</string>
+    <string name="analyzer_progress_scanning_userfiles">گەڕان بەدوای فایلەکانی بەکارهێنەر</string>
+    <string name="analyzer_progress_scanning_system">سکانکردنی داتای سیستەم</string>
+    <string name="analyzer_device_storage_title">حەزداری ئامێر</string>
     <plurals name="analyzer_space_available">
         <item quantity="one">%s بەردەستە</item>
         <item quantity="other">%s بەردەستە</item>
@@ -9,6 +15,7 @@
         <item quantity="one">%s بەکاردەهێنرێت</item>
         <item quantity="other">%s بەکاردەهێنرێت</item>
     </plurals>
+    <string name="analyzer_content_access_opaque">دەسترسی ڕاستەوخۆ بەردەست نییە</string>
     <string name="analyzer_content_create_swiper_session_action">دروستکردنی سێشنی Swiper</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">سێشنی Swiper دروستکرا بە %d بابەت</item>
@@ -17,11 +24,27 @@
     <string name="analyzer_storage_type_primary_title">ئەمبارەکردنی سەرەکی</string>
     <string name="analyzer_storage_type_primary_description">ئەمبارەکردنی سەرەکی ئامێرەکەت. کارتی SD ناوخۆیی، ئەمبارەکردنی تایبەت بۆ ئەپەکان و داتای سیستەم دەگێرێتەوە.</string>
     <string name="analyzer_storage_type_secondary_title">ئەمبارەکردنی دووەم</string>
+    <string name="analyzer_storage_type_secondary_description">حەزداریەکی دووەم، بەمعمولا کارتی SD کە دەرهێنرێت. فایلە میدیاکان و داتای بەرنامەکانی پشتیوانیکەرەوەی تێدایە.</string>
     <string name="analyzer_storage_type_tertiary_title">ئەمبارەی گواستراوە</string>
     <string name="analyzer_storage_type_tertiary_description">ئەمبارەی گواستراوە، بۆ نموونە فلاش درایڤ کراوتەناو پۆرتی USB.</string>
+    <string name="analyzer_storage_content_title">ناوەڕۆکی حەزداری</string>
     <string name="analyzer_storage_content_type_app_label">ئەپەکان</string>
+    <string name="analyzer_storage_content_type_app_description">شوێنی داگیرکراو بەرنامە دامەزراوەکان و داتاکانیان (بەوانەش فایلی بەرنامە، داتا و کاچێکان).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">مۆڵەتەکان کەمن</string>
+    <string name="analyzer_storage_content_type_media_label">فایلەکانی بەکارهێنەر</string>
     <string name="analyzer_storage_content_type_media_description">وێنەی وێنەگیراو، ڤیدیۆی تۆمارکراو یان داتای داونلۆدکراو. هەر داتاییکە بەلونگی ئەپێکی دیاریکراو نابێت.</string>
+    <string name="analyzer_storage_content_type_system_label">داتای سیستەم</string>
+    <string name="analyzer_storage_content_type_system_description">بەرنامە و داتاکانی سیستەم. بەرنامە و داتای بەکارهێنەرانی تر، ئەگەر چەندین هەژمار لەسەر ئەم ئامێرە ڕێکخراوبێن.</string>
+    <string name="analyzer_storage_content_type_system_other_label">تر</string>
+    <string name="analyzer_storage_content_type_system_info">فایلەکانی کە لە سەردەستەی بەرنامەکان یان فایلەکانی بەکارهێنەر ناگنجنەن. بێنین تەنھا ― سماچکردن پشتیوانیکرینیکەوە نییە. هەندێکێ ناحێگەکانی ھەندێکەکان لە هەگیری دەسترسی ناتەواو دەبێت.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">فایلەکانی سیستەم و داتای ترەکە SD Maid دەسترسیی پێنێوابوو یان بەخشبەندیكردنییمن. سیستەمەکەی ڤەرمانروایی کۆمساییکێش ناوەكانی هەندێکێ ناحێگەکان بیست.</string>
+    <string name="analyzer_storage_content_app_code_label">کۆدی بەرنامە</string>
+    <string name="analyzer_storage_content_app_code_description">فایلەکانی بەرنامە، کتێبخانەکان و سەرچاوەکان. ئەم شوێنە دەتوانرێت بە لابردنی بەرنامەکە یان ئەرشیفکردنی ئازاد بکرێتەوە (بەردەستە لە وەرزیانی نویتری ئەندرۆید).</string>
+    <string name="analyzer_storage_content_app_data_label">داتای بەرنامە</string>
+    <string name="analyzer_storage_content_app_data_description">داتا، ڕێکخستنەکان و کاچێکان.</string>
     <string name="analyzer_storage_content_app_media_label">ئەپ media</string>
+    <string name="analyzer_storage_content_app_media_description">فایلە میدیاکانی ئەم بەرنامەیە، بۆ نموونە وێنەکانی WhatsApp کە وەرگیراون.</string>
+    <string name="analyzer_storage_content_app_extra_label">فایلە زیادەکانی بەرنامە</string>
     <string name="analyzer_storage_content_app_extra_description">داتای زیادە کە ئەم ئەپە لە دەرەوەی ڕێگاکانی بنەڕەتی داناوە، بۆ نموونە وێنەکان یان داونلۆدەکان.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ئەم ئەپە %1$s لەسەر \"%2$s\" دەیگێرێت.</string>
     <string name="analyzer_app_details_app_is_archived">ئەم ئەپە ئەرشیفکراوە.</string>

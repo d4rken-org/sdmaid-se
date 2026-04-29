@@ -1,17 +1,15 @@
 package eu.darken.sdmse.squeezer.core.processor
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.media.MediaScannerConnection
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
@@ -19,10 +17,10 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.squeezer.core.CompressibleImage
-import eu.darken.sdmse.squeezer.core.Squeezer
+import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
-import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
+import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -34,10 +32,11 @@ import kotlin.coroutines.cancellation.CancellationException
 
 class ImageProcessor @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val gatewaySwitch: GatewaySwitch,
-    private val exifPreserver: ExifPreserver,
+    private val imageCompressor: ImageCompressor,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val imageContentHasher: ImageContentHasher,
+    private val fileTransaction: FileTransaction,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
 
@@ -55,22 +54,14 @@ class ImageProcessor @Inject constructor(
     )
 
     suspend fun process(
-        task: SqueezerProcessTask,
-        snapshot: Squeezer.Data,
+        targets: Set<CompressibleImage>,
         quality: Int,
     ): Result = withContext(dispatcherProvider.IO) {
-        log(TAG) { "process($task, quality=$quality)" }
+        log(TAG) { "process(${targets.size} images, quality=$quality)" }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
-
-        val targets: Set<CompressibleImage> = when (val mode = task.mode) {
-            is SqueezerProcessTask.TargetMode.All -> snapshot.images
-            is SqueezerProcessTask.TargetMode.Selected -> {
-                snapshot.images.filter { mode.targets.contains(it.identifier) }.toSet()
-            }
-        }
 
         log(TAG, INFO) { "Processing ${targets.size} images" }
 
@@ -83,30 +74,44 @@ class ImageProcessor @Inject constructor(
             updateProgressSecondary(image.lookup.userReadablePath)
 
             try {
-                val saved = processImage(image, quality)
+                val outcome = processImage(image, quality)
                 successful.add(image)
 
-                val contentHash = historyDatabase.computeContentHash(image.path)
-                historyDatabase.recordCompression(contentHash)
-
-                if (saved > 0) {
-                    totalSaved += saved
-                    log(TAG, VERBOSE) { "Compressed ${image.path}: saved $saved bytes" }
+                if (outcome.replaced) {
+                    totalSaved += outcome.savedBytes
+                    try {
+                        val identifier = imageContentHasher.computeHash(image.path)
+                        historyDatabase.recordCompression(identifier.contentId)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to record compression for ${image.path}: ${e.message}" }
+                    }
+                    log(TAG, VERBOSE) { "Compressed ${image.path}: saved ${outcome.savedBytes} bytes" }
+                } else if (outcome.savedBytes == 0L) {
+                    // Actual re-encode ran and produced output >= original. Record so rescans
+                    // don't burn cycles re-trying a file we already know won't shrink. Dry runs
+                    // fall through to the else branch (they have savedBytes > 0 even though
+                    // replaced = false). User's retry escape hatch is clearing history.
+                    try {
+                        val identifier = imageContentHasher.computeHash(image.path)
+                        historyDatabase.recordNoSavings(identifier.contentId)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to record no-savings for ${image.path}: ${e.message}" }
+                    }
+                    log(TAG, INFO) { "Skipped ${image.path} (no savings, recorded)" }
                 } else {
-                    log(TAG, INFO) { "No savings for ${image.path}, marking as processed" }
+                    log(TAG, INFO) { "Skipped ${image.path} (dry-run)" }
                 }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to compress ${image.path}: ${e.message}" }
+                log(TAG, ERROR) { "Failed to compress ${image.path}: ${e.asLog()}" }
                 failed[image] = e
             }
         }
 
-        log(
-            TAG,
-            INFO
-        ) { "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes" }
+        log(TAG, INFO) {
+            "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes"
+        }
 
         Result(
             success = successful,
@@ -115,139 +120,43 @@ class ImageProcessor @Inject constructor(
         )
     }
 
-    private suspend fun processImage(image: CompressibleImage, quality: Int): Long {
-        val originalSize = image.size
+    private suspend fun processImage(
+        image: CompressibleImage,
+        quality: Int,
+    ): FileTransaction.Outcome {
+        // TODO(gateway): bitmap decode/encode already stream via FileInputStream /
+        // FileOutputStream, but (a) ExifPreserver works on raw file paths and (b) the
+        // atomic swap in FileTransaction operates on java.io.File. MediaScanner pre-filters
+        // accessibility at Mode.NORMAL — preflight here so state drift between scan and
+        // process surfaces as a typed IO error instead of a crash in native EXIF code.
         val localPath = image.path as? LocalPath
             ?: throw IllegalArgumentException("Only local paths are supported: ${image.path}")
 
         val originalFile = File(localPath.path)
-        val backupFile = File(originalFile.parent, ".sdmaid_backup_${originalFile.name}")
-        val tempFile = File(originalFile.parent, ".sdmaid_compress_${originalFile.name}")
 
-        try {
-            val exifData = if (image.isJpeg) {
-                exifPreserver.extractExif(originalFile)
-            } else {
-                null
-            }
+        val verdict = SqueezerEligibility.check(originalFile)
+        if (verdict != SqueezerEligibility.Verdict.OK) {
+            throw IOException("File no longer processable ($verdict): ${originalFile.path}")
+        }
 
-            val bitmap = decodeSampledBitmap(originalFile) ?: throw IllegalStateException("Failed to decode bitmap")
+        val outcome = fileTransaction.replace(
+            target = originalFile,
+            dryRun = Bugs.isDryRun,
+        ) { tempFile ->
+            imageCompressor.compress(
+                inputFile = originalFile,
+                outputFile = tempFile,
+                mimeType = image.mimeType,
+                quality = quality,
+                writeExifMarker = settings.writeExifMarker.value(),
+            )
+        }
 
-            val compressedSize = try {
-                compressBitmapToFile(bitmap, image.mimeType, quality, tempFile)
-            } finally {
-                bitmap.recycle()
-            }
-
-            if (compressedSize >= originalSize) {
-                log(TAG, VERBOSE) { "Compressed size >= original, skipping ${image.path}" }
-                tempFile.delete()
-                return 0
-            }
-
-            if (Bugs.isDryRun) {
-                log(TAG, INFO) { "DRYRUN: Not compressing ${image.path}, would save ${originalSize - compressedSize} bytes" }
-                tempFile.delete()
-                return originalSize - compressedSize
-            }
-
-            if (image.isJpeg) {
-                exifPreserver.applyExif(tempFile.absolutePath, exifData)
-            }
-
-            if (settings.writeExifMarker.value()) {
-                exifPreserver.writeCompressionMarker(tempFile.absolutePath)
-            }
-
-            if (!originalFile.renameTo(backupFile)) {
-                throw IOException("Failed to create backup: ${backupFile.path}")
-            }
-
-            try {
-                if (!tempFile.renameTo(originalFile)) {
-                    tempFile.inputStream().use { input ->
-                        originalFile.outputStream().use { output ->
-                            input.copyTo(output)
-                        }
-                    }
-                    if (!tempFile.delete()) {
-                        log(TAG, WARN) { "Failed to delete temp file: ${tempFile.path}" }
-                    }
-                }
-
-                if (!originalFile.exists() || !originalFile.canRead()) {
-                    throw IOException("Verification failed: compressed file not readable")
-                }
-
-                if (!backupFile.delete()) {
-                    log(TAG, WARN) { "Failed to delete backup file: ${backupFile.path}" }
-                }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Compression failed, restoring backup: ${e.message}" }
-                originalFile.delete()
-                if (!backupFile.renameTo(originalFile)) {
-                    throw IOException("Failed to restore backup after error: ${e.message}", e)
-                }
-                throw e
-            }
-
+        if (outcome.replaced) {
             notifyMediaScanner(originalFile)
-
-            return originalSize - compressedSize
-        } catch (e: Exception) {
-            tempFile.delete()
-            backupFile.delete()
-            throw e
-        }
-    }
-
-    private fun decodeSampledBitmap(file: File): Bitmap? {
-        val options = BitmapFactory.Options().apply {
-            inJustDecodeBounds = true
-        }
-        file.inputStream().use { input ->
-            BitmapFactory.decodeStream(input, null, options)
         }
 
-        val inSampleSize = calculateInSampleSize(options.outWidth, options.outHeight, MAX_DIMENSION)
-
-        if (inSampleSize > 1) {
-            log(TAG, VERBOSE) { "Using inSampleSize=$inSampleSize for ${options.outWidth}x${options.outHeight}" }
-        }
-
-        options.apply {
-            inJustDecodeBounds = false
-            this.inSampleSize = inSampleSize
-        }
-
-        return file.inputStream().use { input ->
-            BitmapFactory.decodeStream(input, null, options)
-        }
-    }
-
-    private fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {
-        var inSampleSize = 1
-        if (width > maxDimension || height > maxDimension) {
-            val halfWidth = width / 2
-            val halfHeight = height / 2
-            while ((halfWidth / inSampleSize) >= maxDimension || (halfHeight / inSampleSize) >= maxDimension) {
-                inSampleSize *= 2
-            }
-        }
-        return inSampleSize
-    }
-
-    private fun compressBitmapToFile(
-        bitmap: Bitmap,
-        mimeType: String,
-        quality: Int,
-        outputFile: File,
-    ): Long {
-        val format = CompressibleImage.compressFormat(mimeType)
-        outputFile.outputStream().buffered().use { output ->
-            bitmap.compress(format, quality, output)
-        }
-        return outputFile.length()
+        return outcome
     }
 
     private fun notifyMediaScanner(file: File) {
@@ -261,6 +170,5 @@ class ImageProcessor @Inject constructor(
 
     companion object {
         private val TAG = logTag("Squeezer", "Processor")
-        private const val MAX_DIMENSION = 4096
     }
 }

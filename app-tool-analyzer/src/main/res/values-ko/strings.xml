@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">스크린샷, 녹화한 영상, 다운로드 파일 등의 특정 앱에 속하지 않은 파일이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
     <string name="analyzer_storage_content_type_system_description">시스템 앱 및 데이터. 여러 유저가 추가되어 있다면 다른 유저의 앱과 데이터를 포함합니다.</string>
+    <string name="analyzer_storage_content_type_system_other_label">기타</string>
+    <string name="analyzer_storage_content_type_system_info">앱 또는 사용자 파일 카테고리에 맞지 않는 파일입니다. 탐색만 가능하며 삭제는 지원되지 않습니다. 접근 제한으로 인해 일부 영역이 불완전할 수 있습니다.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid가 접근하거나 분류할 수 없었던 시스템 파일 및 기타 데이터입니다. 운영 체제가 일부 영역의 내용 목록을 제한합니다.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
     <string name="analyzer_storage_content_app_code_description">APK 파일 및 기타 설치 관련 파일</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>

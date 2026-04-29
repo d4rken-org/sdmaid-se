@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
     <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
+    <string name="analyzer_storage_content_type_system_other_label">其他</string>
+    <string name="analyzer_storage_content_type_system_info">不属于应用或用户文件类别的文件。仅供浏览——不支持删除。由于访问限制，某些区域可能不完整。</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid 无法访问或分类的系统文件和其他数据。操作系统限制了对某些区域内容的列出。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
     <string name="analyzer_storage_content_app_code_description">应用程序的文件、依赖库和资源。此空间可以通过卸载应用程序或将其存档（在较新的安卓版本上）从而释放。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>

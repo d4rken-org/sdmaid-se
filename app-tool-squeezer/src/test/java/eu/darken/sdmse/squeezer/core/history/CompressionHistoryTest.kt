@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.core.history
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
@@ -230,5 +231,61 @@ class CompressionHistoryTest : BaseTest() {
 
         // All should be identical
         hashes.toSet().size shouldBe 1
+    }
+
+    // === Outcome bucket semantics ===
+
+    @Test
+    fun `entity defaults to COMPRESSED outcome`() {
+        val entry = CompressionHistoryEntity(contentHash = "h")
+        entry.outcome shouldBe CompressionHistoryEntity.Outcome.COMPRESSED
+    }
+
+    @Test
+    fun `entity can be tagged as TRIED_NO_SAVINGS`() {
+        val entry = CompressionHistoryEntity(
+            contentHash = "h",
+            outcome = CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS,
+        )
+        entry.outcome shouldBe CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS
+    }
+
+    @Test
+    fun `Outcome enum has exactly two values`() {
+        // Guard against accidental enum growth that would need a schema bump.
+        CompressionHistoryEntity.Outcome.entries.size shouldBe 2
+    }
+
+    @Test
+    fun `converter round-trips COMPRESSED`() {
+        val converters = CompressionHistoryConverters()
+        val encoded = converters.fromOutcome(CompressionHistoryEntity.Outcome.COMPRESSED)
+        converters.toOutcome(encoded) shouldBe CompressionHistoryEntity.Outcome.COMPRESSED
+    }
+
+    @Test
+    fun `converter round-trips TRIED_NO_SAVINGS`() {
+        val converters = CompressionHistoryConverters()
+        val encoded = converters.fromOutcome(CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS)
+        converters.toOutcome(encoded) shouldBe CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS
+    }
+
+    // Pin the exact serialized names. If an enum value is renamed, these tests break
+    // before users hit a deserialization crash on upgrade.
+    @Test
+    fun `COMPRESSED name is stable for Room serialization`() {
+        CompressionHistoryEntity.Outcome.COMPRESSED.name shouldBe "COMPRESSED"
+    }
+
+    @Test
+    fun `TRIED_NO_SAVINGS name is stable for Room serialization`() {
+        CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS.name shouldBe "TRIED_NO_SAVINGS"
+    }
+
+    @Test
+    fun `valueOf rejects unknown values`() {
+        shouldThrow<IllegalArgumentException> {
+            CompressionHistoryEntity.Outcome.valueOf("BOGUS")
+        }
     }
 }

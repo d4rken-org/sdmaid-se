@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Rejalashtiruvchi</string>
     <string name="scheduler_notification_title">Rejalashtirilgan vazifa</string>
     <string name="scheduler_notification_message">Bajarilmoqda: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Rejalashtiruvchi natijalari</string>
     <string name="scheduler_notification_result_title">Rejalashtiruvchi tugallandi</string>
     <string name="scheduler_notification_result_success_message">Barcha rejalashtirilgan vazifalar muvaffaqiyatli bajarildi.</string>
     <string name="scheduler_notification_result_failure_message">Ba\'zi rejalashtirilgan vazifalar muvaffaqiyatsiz tugadi yoki xatolarga duch keldi. Ularni qo\'lda ishga tushirishga harakat qiling.</string>

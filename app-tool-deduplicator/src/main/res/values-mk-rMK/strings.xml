@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Одредете дупликати со пресметување контролни зборови за датотеки. Датотеки со совпаднати контролни зборови имаат потполно иста содржина.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуален хеш</string>
     <string name="deduplicator_detection_method_phash_summary">Најдете слични датотеки со анализа на карактеристики на содржината и споредба на перцептуални хеш вредности. ⚠️ Откривањето базирано на сличност може да вклучи лажни позитивни резултати кои бараат рачна верификација.</string>
+    <string name="deduplicator_detection_method_media_title">Медиумски отпечаток</string>
+    <string name="deduplicator_detection_method_media_summary">Пронајди слични видео и аудио датотеки со анализа на аудио отпечатоци. ⚠️ Откривањето засновано на сличност може да вклучи лажни позитиви кои бараат рачна верификација.</string>
+    <string name="deduplicator_matches_media_label">Слични медиуми</string>
+    <string name="deduplicator_media_match_audio">Совпаѓање засновано на аудио</string>
+    <string name="deduplicator_media_match_visual">Совпаѓање засновано на видео</string>
+    <string name="deduplicator_media_match_audio_visual">Совпаѓање засновано на аудио и видео</string>
     <string name="deduplicator_occupied_space_label">Зафатено складирање</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е зафатено од дупликати</item>

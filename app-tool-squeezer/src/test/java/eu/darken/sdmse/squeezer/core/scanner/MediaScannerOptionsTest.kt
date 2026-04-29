@@ -13,11 +13,11 @@ import testhelpers.BaseTest
 import java.time.Duration
 import java.time.Instant
 
-class ImageScannerOptionsTest : BaseTest() {
+class MediaScannerOptionsTest : BaseTest() {
 
     @Test
     fun `default options with empty paths`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -40,7 +40,7 @@ class ImageScannerOptionsTest : BaseTest() {
             LocalPath.build("/storage/emulated/0/Pictures"),
         )
 
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = customPaths,
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -55,7 +55,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `enabled mime types - JPEG only`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -70,7 +70,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `enabled mime types - JPEG and WebP`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -89,7 +89,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `enabled mime types - all supported`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -104,7 +104,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `minimum size boundary - at MIN_FILE_SIZE`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -118,7 +118,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `minimum size - custom smaller value`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = 100 * 1024L, // 100KB
             minAge = null,
@@ -132,7 +132,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `minimum size - custom larger value`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = 1024 * 1024L, // 1MB
             minAge = null,
@@ -146,7 +146,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `min age - null means no age limit`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -160,7 +160,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `min age - 7 days`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = Duration.ofDays(7),
@@ -174,7 +174,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `min age - 30 days`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = Duration.ofDays(30),
@@ -199,7 +199,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `quality constraint - minimum value 1`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -213,7 +213,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `quality constraint - maximum value 100`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -227,7 +227,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `quality constraint - default value 80`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -241,7 +241,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `skip previously compressed - enabled`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -255,7 +255,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `skip previously compressed - disabled`() {
-        val options = ImageScanner.Options(
+        val options = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -269,7 +269,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `options data class equality`() {
-        val options1 = ImageScanner.Options(
+        val options1 = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -278,7 +278,7 @@ class ImageScannerOptionsTest : BaseTest() {
             compressionQuality = 80,
         )
 
-        val options2 = ImageScanner.Options(
+        val options2 = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -292,7 +292,7 @@ class ImageScannerOptionsTest : BaseTest() {
 
     @Test
     fun `options data class inequality - different paths`() {
-        val options1 = ImageScanner.Options(
+        val options1 = MediaScanner.Options(
             paths = emptySet(),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,
@@ -301,7 +301,7 @@ class ImageScannerOptionsTest : BaseTest() {
             compressionQuality = 80,
         )
 
-        val options2 = ImageScanner.Options(
+        val options2 = MediaScanner.Options(
             paths = setOf(LocalPath.build("/storage/emulated/0/DCIM")),
             minimumSize = SqueezerSettings.MIN_FILE_SIZE,
             minAge = null,

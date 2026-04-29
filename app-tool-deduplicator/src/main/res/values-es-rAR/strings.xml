@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Determina los duplicados calculando las sumas de verificación para los archivos. Los archivos con las sumas de comprobación coincidentes tienen exactamente el mismo contenido.</string>
     <string name="deduplicator_detection_method_phash_title">Hash conceptual</string>
     <string name="deduplicator_detection_method_phash_summary">Encontrar archivos similares analizando características del contenido y comparando valores de hash perceptual. La detección basada en similitud puede incluir falsos positivos que requieren verificación manual.</string>
+    <string name="deduplicator_detection_method_media_title">Huella digital de medios</string>
+    <string name="deduplicator_detection_method_media_summary">Buscá archivos de video y audio similares analizando huellas digitales de audio. ⚠️ La detección basada en similitudes puede incluir falsos positivos que requieren verificación manual.</string>
+    <string name="deduplicator_matches_media_label">Medios similares</string>
+    <string name="deduplicator_media_match_audio">Coincidencia basada en audio</string>
+    <string name="deduplicator_media_match_visual">Coincidencia basada en video</string>
+    <string name="deduplicator_media_match_audio_visual">Coincidencia basada en audio y video</string>
     <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados</item>

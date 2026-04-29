@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Teknar myndir, tekin myndbönd eða sótt gögn. Öll gögn sem tilheyra ekki ákveðnu forriti.</string>
     <string name="analyzer_storage_content_type_system_label">Kerfisgögn</string>
     <string name="analyzer_storage_content_type_system_description">Kerfisforrit og kerfisgögn. Forrit og gögn frá öðrum notendum, ef fleiri en einn reikningur er settur upp á þessu tæki.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Annað</string>
+    <string name="analyzer_storage_content_type_system_info">Skrár sem passa ekki í flokka Forrita eða Notendaskráa. Aðeins vafra — eyðing er ekki studd. Sumar svæðum getur verið ábótavant vegna aðgangstakmarkana.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Kerfaskrár og önnur gögn sem SD Maid gat ekki nálgast eða flokkað. Stýrikerfi takmarkar skráningu á innihaldi sumra svæða.</string>
     <string name="analyzer_storage_content_app_code_label">Kóði forrits</string>
     <string name="analyzer_storage_content_app_code_description">Forritaskrár, söfn og auðlindir. Hægt er að losa um þetta pláss með því að fjarlægja forritið eða safnvista það.</string>
     <string name="analyzer_storage_content_app_data_label">Forritagögn</string>

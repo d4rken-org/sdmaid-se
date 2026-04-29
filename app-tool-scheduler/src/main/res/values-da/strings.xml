@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Planlægger</string>
     <string name="scheduler_notification_title">Planlagt opgave</string>
     <string name="scheduler_notification_message">Udfører: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Planlæggerresultater</string>
     <string name="scheduler_notification_result_title">Planlæggeren er færdig</string>
     <string name="scheduler_notification_result_success_message">Alle planlagte opgaver blev kørt.</string>
     <string name="scheduler_notification_result_failure_message">Nogle planlagte opgaver mislykkedes eller stødte på fejl. Prøv at køre dem manuelt.</string>

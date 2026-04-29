@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Ajastaja</string>
     <string name="scheduler_notification_title">Ajastatud ülesanne</string>
     <string name="scheduler_notification_message">Käivitub: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Ajastaja tulemused</string>
     <string name="scheduler_notification_result_title">Ajastatu lõppes</string>
     <string name="scheduler_notification_result_success_message">Kõik ajastatud ülesanded lõppesid edukalt.</string>
     <string name="scheduler_notification_result_failure_message">Osad ajastatud ülesanded nurjusid või sattusid vea otsa. Üritage neid ise teha.</string>

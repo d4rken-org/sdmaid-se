@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">فائلوں کے لیے چیک سم کی گنتی کرکے ڈپلیکیٹس کا تعین کریں۔ میچنگ چیک سم والی فائلوں میں بالکل وہی مواد ہوتا ہے۔</string>
     <string name="deduplicator_detection_method_phash_title">ادراکی ہیش</string>
     <string name="deduplicator_detection_method_phash_summary">مواد کی خصوصیات کا تجزیہ کر کے اور ادراکی ہیش اقدار کا موازنہ کر کے ملتی جلتی فائلیں تلاش کریں۔ ⚠️ مماثلت پر مبنی شناخت میں غلط مثبت نتائج شامل ہو سکتے ہیں جن کی دستی تصدیق ضروری ہے۔</string>
+    <string name="deduplicator_detection_method_media_title">میڈیا فنگر پرنٹ</string>
+    <string name="deduplicator_detection_method_media_summary">آڈیو فنگر پرنٹس کا تجزیہ کر کے ملتی جلتی ویڈیو اور آڈیو فائلیں تلاش کریں۔ ⚠️ مماثلت پر مبنی پتہ لگانے میں غلط نتائج شامل ہو سکتے ہیں جن کی دستی تصدیق ضروری ہے۔</string>
+    <string name="deduplicator_matches_media_label">ملتا جلتا میڈیا</string>
+    <string name="deduplicator_media_match_audio">آڈیو پر مبنی مماثلت</string>
+    <string name="deduplicator_media_match_visual">ویڈیو پر مبنی مماثلت</string>
+    <string name="deduplicator_media_match_audio_visual">آڈیو اور ویڈیو پر مبنی مماثلت</string>
     <string name="deduplicator_occupied_space_label">قبضہ شدہ سٹوریج</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہے</item>

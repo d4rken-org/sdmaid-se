@@ -26,6 +26,12 @@
     <string name="deduplicator_detection_method_checksum_summary">קבע כפילויות על ידי חישוב סכומי ביקורת עבור קבצים. לקבצים עם סכומי ביקורת תואמים יש את אותו תוכן בדיוק.</string>
     <string name="deduplicator_detection_method_phash_title">זיהוי גיבוב</string>
     <string name="deduplicator_detection_method_phash_summary">מציאת קבצים דומים על ידי ניתוח מאפייני תוכן והשוואת ערכי גיבוב תפיסתיים. ⚠️ זיהוי מבוסס דמיון עשוי לכלול תוצאות חיוביות שגויות הדורשות אימות ידני.</string>
+    <string name="deduplicator_detection_method_media_title">טביעת אצבע מדיה</string>
+    <string name="deduplicator_detection_method_media_summary">מצא קבצי וידאו ואודיו דומים על ידי ניתוח טביעות אצבע אודיו. ⚠️ זיהוי מבוסס-דמיון עשוי לכלול תוצאות חיוביות שגויות הדורשות אימות ידני.</string>
+    <string name="deduplicator_matches_media_label">מדיה דומה</string>
+    <string name="deduplicator_media_match_audio">התאמה מבוססת-אודיו</string>
+    <string name="deduplicator_media_match_visual">התאמה מבוססת-וידאו</string>
+    <string name="deduplicator_media_match_audio_visual">התאמה מבוססת-אודיו ווידאו</string>
     <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>

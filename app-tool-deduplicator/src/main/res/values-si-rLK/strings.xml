@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ගොනු සඳහා මගොස්තන ගණනය කිරීමෙන් බහුපත නිර්ණය කරන්න. සමාන මගොස්තන හෛය ගොනුවල නිවැරදිව එකම අන්තර්ගතය හැදේ.</string>
     <string name="deduplicator_detection_method_phash_title">ඇන්දරිය හැශ්</string>
     <string name="deduplicator_detection_method_phash_summary">අන්තර්ගත විශේෂාංග විශ්ලේෂණය කර සහ සංකල්පමය හැෂ් අගයන් සැසඳීමෙන් සමාන ගොනු සොයන්න. ⚠️ සමානත්ව පාදක හඳුනාගැනීමේදී අතින් සත්‍යාපනය අවශ්‍ය ව්‍යාජ ධනාත්මක ඇතුළත් විය හැක.</string>
+    <string name="deduplicator_detection_method_media_title">මාධ්‍ය ඇඟිලි සලකුණ</string>
+    <string name="deduplicator_detection_method_media_summary">ශ්‍රව්‍ය ඇඟිලි සලකුණු විශ්ලේෂණය කිරීමෙන් සමාන වීඩියෝ සහ ශ්‍රව්‍ය ගොනු සොයන්න. ⚠️ සමානත්ව-පදනම් කළ හඳුනාගැනීමට අත්පිටපත් සත්‍යාපනය අවශ්‍ය වන අසත්‍ය ධනාත්මක ප්‍රතිඵල ඇතුළත් විය හැකිය.</string>
+    <string name="deduplicator_matches_media_label">සමාන මාධ්‍ය</string>
+    <string name="deduplicator_media_match_audio">ශ්‍රව්‍ය-පදනම් ගැළපීම</string>
+    <string name="deduplicator_media_match_visual">වීඩියෝ-පදනම් ගැළපීම</string>
+    <string name="deduplicator_media_match_audio_visual">ශ්‍රව්‍ය සහ වීඩියෝ-පදනම් ගැළපීම</string>
     <string name="deduplicator_occupied_space_label">අවවන් න් ඇත ආචයනය</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s බහුපත විසින් අවවන් න් වෙ</item>

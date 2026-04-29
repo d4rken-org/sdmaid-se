@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Определяне на дубликати чрез изчисляване на контролни суми за файлове. Файлове със съвпадащи контролни суми имат точно същото съдържание.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуален хеш</string>
     <string name="deduplicator_detection_method_phash_summary">Намиране на подобни файлове чрез анализ на характеристиките на съдържанието и сравняване на перцептуални хеш стойности. ⚠️ Базираното на подобие откриване може да включва фалшиви положителни резултати, изискващи ръчна проверка.</string>
+    <string name="deduplicator_detection_method_media_title">Медиен пръстов отпечатък</string>
+    <string name="deduplicator_detection_method_media_summary">Намерете подобни видео и аудио файлове чрез анализ на аудио пръстови отпечатъци. ⚠️ Базираното на сходство откриване може да включва фалшиви позитиви, изискващи ръчна проверка.</string>
+    <string name="deduplicator_matches_media_label">Подобни медии</string>
+    <string name="deduplicator_media_match_audio">Съвпадение по аудио</string>
+    <string name="deduplicator_media_match_visual">Съвпадение по видео</string>
+    <string name="deduplicator_media_match_audio_visual">Съвпадение по аудио и видео</string>
     <string name="deduplicator_occupied_space_label">Заето хранилище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е заето от дубликати</item>

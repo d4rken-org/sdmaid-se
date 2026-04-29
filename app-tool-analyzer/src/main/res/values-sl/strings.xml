@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">Posnete slike, videoposnetki in prejeti podatki.  Vsi podatki, ki ne pripadajo nobenemu določenemu programu.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemski podatki</string>
     <string name="analyzer_storage_content_type_system_description">Sistemski programi in podatki.  Programi in podatki drugih uporabnikov, če je na napravi več uporabniških računov.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Drugo</string>
+    <string name="analyzer_storage_content_type_system_info">Datoteke, ki ne spadajo v kategoriji Aplikacije ali Uporabniške datoteke. Samo brskanje — brisanje ni podprto. Nekatera področja so morda nepopolna zaradi omejitev dostopa.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Sistemske datoteke in drugi podatki, do katerih SD Maid ni mogel dostopati ali jih razvrstiti. Operacijski sistem omejuje izpisovanje vsebine nekaterih področij.</string>
     <string name="analyzer_storage_content_app_code_label">Programska koda</string>
     <string name="analyzer_storage_content_app_code_description">Programske datoteke, knjižnice in viri.  Ta prostor lahko sprostite z odstranitvijo ali arhiviranjem (na voljo v novejših različicah Androida) programa.</string>
     <string name="analyzer_storage_content_app_data_label">Programski podatki</string>

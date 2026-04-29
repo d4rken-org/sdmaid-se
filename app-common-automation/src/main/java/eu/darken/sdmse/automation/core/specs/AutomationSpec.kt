@@ -6,7 +6,7 @@ sealed interface AutomationSpec {
     val tag: String
     interface Explorer : AutomationSpec {
         val executionTimeout: Duration
-            get() = Duration.ofSeconds(20)
+            get() = Duration.ofSeconds(30)
 
         val executionRetryCount: Int
             get() = 3

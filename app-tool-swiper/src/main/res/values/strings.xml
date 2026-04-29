@@ -36,6 +36,16 @@
         <item quantity="one">%d undecided item will remain for later review.</item>
         <item quantity="other">%d undecided items will remain for later review.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">This session targets a whole storage volume — deleting here spans every folder on that storage.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…and %d more folder</item>
+        <item quantity="other">…and %d more folders</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">I understand these files will be permanently deleted.</string>
+    <string name="swiper_sensitive_root_warning_title">Scan entire storage?</string>
+    <string name="swiper_sensitive_root_warning_message">Scanning %1$s includes every file on this storage — photos, documents, downloads, app media, and more. Continue?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continue anyway</string>
+    <string name="swiper_session_risky_label">Whole-storage scan</string>
     <string name="swiper_delete_x_action">Delete %1$d</string>
     <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
     <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>

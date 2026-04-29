@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Bepaal dubbele bestanden door controlesommen voor bestanden te berekenen. Bestanden met overeenkomende controlesommen hebben exact dezelfde inhoud.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptie-hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vind vergelijkbare bestanden door inhoudskenmerken te analyseren en perceptuele hashwaarden te vergelijken. ⚠️ Detectie op basis van gelijkenis kan vals-positieve resultaten opleveren, waarvoor handmatige verificatie vereist is.</string>
+    <string name="deduplicator_detection_method_media_title">Media-vingerafdruk</string>
+    <string name="deduplicator_detection_method_media_summary">Vind vergelijkbare video- en audiobestanden door audio-vingerafdrukken te analyseren. ⚠️ Detectie op basis van gelijkenis kan valse positieven opleveren die handmatige verificatie vereisen.</string>
+    <string name="deduplicator_matches_media_label">Vergelijkbare media</string>
+    <string name="deduplicator_media_match_audio">Op audio gebaseerde overeenkomst</string>
+    <string name="deduplicator_media_match_visual">Op video gebaseerde overeenkomst</string>
+    <string name="deduplicator_media_match_audio_visual">Op audio en video gebaseerde overeenkomst</string>
     <string name="deduplicator_occupied_space_label">Gebruikte opslag</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s wordt ingenomen door duplicaten</item>

@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Imatges capturades, vídeos gravats o dades baixades. Qualsevol dada que no pertanyi a una aplicació específica.</string>
     <string name="analyzer_storage_content_type_system_label">Dades del sistema</string>
     <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si hi ha diversos comptes d\'usuari configurats en aquest dispositiu.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Altres</string>
+    <string name="analyzer_storage_content_type_system_info">Fitxers que no pertanyen a les categories d\'aplicacions o fitxers d\'usuari. Només es permet la visualització; no s\'admet l\'eliminació. Algunes àrees poden estar incompletes per restriccions d\'accés.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Fitxers del sistema i altres dades a les quals l\'SD Maid no ha pogut accedir o classificar. El sistema operatiu restringeix la llista del contingut d\'algunes àrees.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
     <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai es pot alliberar desinstal·lant l\'aplicació o arxivant-la (disponible a la versió d\'Android més recent).</string>
     <string name="analyzer_storage_content_app_data_label">Dades de l\'aplicació</string>

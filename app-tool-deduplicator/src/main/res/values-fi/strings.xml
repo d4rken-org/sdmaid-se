@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Määritä kaksoiskappaleet laskemalla tiedostojen tarkistussummat. Tiedostot, joilla on vastaavat tarkistussummat, sisältävät täsmälleen saman sisällön.</string>
     <string name="deduplicator_detection_method_phash_title">Havainnollinen hash</string>
     <string name="deduplicator_detection_method_phash_summary">Löydä samankaltaisia ​​tiedostoja analysoimalla sisällön ominaisuuksia ja vertaamalla tiivistearvoja. ⚠️ Samankaltaisuuteen perustuva tunnistus voi sisältää vääriä positiivisia tuloksia, jotka vaativat manuaalisen vahvistuksen.</string>
+    <string name="deduplicator_detection_method_media_title">Median sormenjälki</string>
+    <string name="deduplicator_detection_method_media_summary">Etsi samankaltaisia video- ja äänitiedostoja analysoimalla äänen sormenjälkiä. ⚠️ Samankaltaisuuteen perustuva tunnistus saattaa sisältää vääriä positiivisia, jotka vaativat manuaalista tarkistusta.</string>
+    <string name="deduplicator_matches_media_label">Samankaltainen media</string>
+    <string name="deduplicator_media_match_audio">Äänipohjainen vastaavuus</string>
+    <string name="deduplicator_media_match_visual">Videopohjainen vastaavuus</string>
+    <string name="deduplicator_media_match_audio_visual">Ääni- ja videopohjainen vastaavuus</string>
     <string name="deduplicator_occupied_space_label">Käytetty tallennustila</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s on kaksoiskappaleiden käyttämää</item>

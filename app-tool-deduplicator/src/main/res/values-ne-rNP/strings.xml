@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">फाइलहरूका लागि checksum गणना गरेर डुप्लिकेटहरू पत्ता लगाउनुहोस्। मिल्दो checksum भएका फाइलहरूमा एकदमै उस्तै सामग्री हुन्छ।</string>
     <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल ह्यास</string>
     <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताहरू विश्लेषण गरेर र पर्सेप्चुअल ह्यास मानहरू तुलना गरेर मिल्दोजुल्दो फाइलहरू फेला पार्नुहोस्। ⚠️ समानता-आधारित पहिचानमा म्यानुअल सत्यापन आवश्यक पर्ने गलत सकारात्मक परिणामहरू समावेश हुन सक्छ।</string>
+    <string name="deduplicator_detection_method_media_title">मिडिया फिंगरप्रिन्ट</string>
+    <string name="deduplicator_detection_method_media_summary">अडियो फिंगरप्रिन्ट विश्लेषण गरेर मिल्दो भिडियो र अडियो फाइलहरू खोज्नुहोस्। ⚠️ समानता-आधारित पहिचानमा गलत परिणामहरू समावेश हुन सक्छन् जसलाई म्यानुअल प्रमाणीकरण आवश्यक छ।</string>
+    <string name="deduplicator_matches_media_label">मिल्दो मिडिया</string>
+    <string name="deduplicator_media_match_audio">अडियो-आधारित मिलान</string>
+    <string name="deduplicator_media_match_visual">भिडियो-आधारित मिलान</string>
+    <string name="deduplicator_media_match_audio_visual">अडियो र भिडियो-आधारित मिलान</string>
     <string name="deduplicator_occupied_space_label">कब्जा गरिएको भण्डारण</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेटले ओगटेको छ</item>

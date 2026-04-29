@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Skeduleerder</string>
     <string name="scheduler_notification_title">Geskeduleerde taak</string>
     <string name="scheduler_notification_message">Voer uit: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Skeduleerderresultate</string>
     <string name="scheduler_notification_result_title">Skeduleerder klaar</string>
     <string name="scheduler_notification_result_success_message">Alle geskeduleerde take het suksesvol geloop.</string>
     <string name="scheduler_notification_result_failure_message">Sommige geskeduleerde take het gefaal of foute ondervind. Probeer om hulle handmatig te loop.</string>

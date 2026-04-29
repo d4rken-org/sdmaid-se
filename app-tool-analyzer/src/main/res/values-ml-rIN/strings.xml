@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">ക്യാപ്ചർ ചെയ്ത ചിത്രങ്ങൾ, റെക്കർഡ് ചെയ്ത വീഡിയോകൾ അഥവാ ഡൗൺലോഡ് ചെയ്ത ഡേറ്റ. ഓരോ ഉൾപ്പ് നിർദിഷ്ട ആപ്പിന് സ്വന്തമല്ലാത്ത ഡേറ്റ.</string>
     <string name="analyzer_storage_content_type_system_label">സിസ്റ്റം ഡേറ്റ</string>
     <string name="analyzer_storage_content_type_system_description">സിസ്റ്റം ആപ്പുകൾം സിസ്റ്റം ഡേറ്റയും. ഈ ഉപകരണത്തിൽ പല ഉപയോക്തൃ അക്കൗണ്ടുകൾ സെറ്റ് ചെയ്തിട്ടുണ്ടെങ്കിൽ, മറ്റ ഉപയോക്താകളിൽ നിന്നുള്ള ആപ്പുകൾം ഡേറ്റയും.</string>
+    <string name="analyzer_storage_content_type_system_other_label">മറ്റുള്ളവ</string>
+    <string name="analyzer_storage_content_type_system_info">ആപ്പുകൾ അല്ലെങ്കിൽ ഉപയോക്തൃ ഫയൽ വിഭാഗങ്ങളിൽ പെടാത്ത ഫയലുകൾ. ബ്രൗസ് മാത്രം — ഇല്ലാതാക്കൽ പിന്തുണയ്ക്കുന്നില്ല. ആക്സസ് നിയന്ത്രണങ്ങൾ കാരണം ചില മേഖലകൾ അപൂർണ്ണമായിരിക്കാം.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid-ന് ആക്സസ് ചെയ്യാനോ വർഗ്ഗീകരിക്കാനോ കഴിയാത്ത സിസ്റ്റം ഫയലുകളും മറ്റ് ഡേറ്റയും. ചില മേഖലകളുടെ ഉള്ളടക്കങ്ങൾ ലിസ്റ്റ് ചെയ്യുന്നത് ഓപ്പറേറ്റിംഗ് സിസ്റ്റം നിയന്ത്രിക്കുന്നു.</string>
     <string name="analyzer_storage_content_app_code_label">ആപ്പ് കോഡ്</string>
     <string name="analyzer_storage_content_app_code_description">ആപ്ലിക്കേഷൻ ഫയലുകൾ, ലൈബ്രറികൾ, റിസോർസുകൾ. ആപ്പ് അനിന്സ്റ്റോൾ ചെയ്ത് അഥവാ ആർക്കൈവ് ചെയ്ത് ഈ സ്ഥലം ശൂന്യമാക്കാം (പുതിയ Android പതിപ്പിൽ ലഭ്യം).</string>
     <string name="analyzer_storage_content_app_data_label">ആപ്പ് ഡേറ്റ</string>

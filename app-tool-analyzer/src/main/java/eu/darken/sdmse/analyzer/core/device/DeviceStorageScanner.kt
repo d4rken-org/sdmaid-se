@@ -49,9 +49,11 @@ class DeviceStorageScanner @Inject constructor(
 
         val primaryDevice = run {
             updateProgressSecondary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_primary_title)
+            val primaryUuid = StorageManager.UUID_DEFAULT
+                ?: UUID.fromString("00000000-0000-0000-0000-000000000000")
             val id = StorageId(
                 internalId = null,
-                externalId = StorageManager.UUID_DEFAULT,
+                externalId = primaryUuid,
             )
 
             val totalBytes = try {
@@ -95,9 +97,8 @@ class DeviceStorageScanner @Inject constructor(
                 }
                 if (volumeId == null && volume.fsUuid != null) {
                     try {
-                        // StorageManager.FAT_UUID_PREFIX
                         volumeId = UUID.fromString(
-                            "fafafafa-fafa-5afa-8afa-fafa" + volume.fsUuid!!.replace("-", "")
+                            "${StorageId.FAT_UUID_PREFIX}${volume.fsUuid!!.replace("-", "")}"
                         )
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Failed to construct UUID: ${e.asLog()}" }
@@ -110,19 +111,37 @@ class DeviceStorageScanner @Inject constructor(
                 }
 
                 val id = StorageId(internalId = volume.fsUuid, externalId = volumeId)
+                val isFatUuid = volumeId.toString().startsWith(StorageId.FAT_UUID_PREFIX)
+                val fileTotal = volume.path?.totalSpace ?: 0L
+                val fileFree = volume.path?.freeSpace ?: 0L
 
-                val totalBytes = try {
-                    // Secondary storage isn't available in on all APIs, (e.g. not on a Redmi 7A @ Android 9)
-                    storageStatsmanager.getTotalBytes(id)
+                val (totalBytes, freeBytes) = try {
+                    // Secondary storage isn't available on all APIs (e.g. not on a Redmi 7A @ Android 9).
+                    // Keep the pair coupled: if either call fails the sentinel guard the other is suspect too (#2389).
+                    val statsTotal = storageStatsmanager.getTotalBytes(id)
+                    val statsFree = storageStatsmanager.getFreeBytes(id)
+
+                    // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
+                    // If statfs disagrees with the API by >10%, trust the filesystem.
+                    val mismatches = isFatUuid
+                        && fileTotal > 0
+                        && kotlin.math.abs(statsTotal - fileTotal) * 10 > fileTotal
+                    if (mismatches) {
+                        log(TAG, WARN) {
+                            "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $id; using File"
+                        }
+                        fileTotal to fileFree
+                    } else {
+                        statsTotal to statsFree
+                    }
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to get total bytes for $id" }
-                    volume.path?.totalSpace ?: 0L
+                    log(TAG, WARN) { "StorageStatsManager failed for $id, using File API: ${e.message}" }
+                    fileTotal to fileFree
                 }
-                val freeBytes = try {
-                    storageStatsmanager.getFreeBytes(id)
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to get free bytes for $id" }
-                    volume.path?.freeSpace ?: 0L
+
+                if (totalBytes <= 0L) {
+                    log(TAG, WARN) { "Secondary volume reports zero capacity, skipping: $volume" }
+                    return@mapNotNull null
                 }
 
                 val type = when {

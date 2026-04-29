@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Заснети снимки, записани видеа или изтеглени данни. Всякакви данни, които не принадлежат на конкретно приложение.</string>
     <string name="analyzer_storage_content_type_system_label">Системни данни</string>
     <string name="analyzer_storage_content_type_system_description">Системни приложения и системни данни. Приложения и данни от други потребители, ако са настроени няколко потребителски акаунта на това устройство.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Друго</string>
+    <string name="analyzer_storage_content_type_system_info">Файлове, които не попадат в категориите Приложения или Потребителски файлове. Само преглеждане — изтриването не се поддържа. Някои области може да са непълни поради ограничения достъп.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Системни файлове и други данни, до които SD Maid не може да получи достъп или да категоризира. Операционната система ограничава изброяването на съдържанието на някои области.</string>
     <string name="analyzer_storage_content_app_code_label">Код на приложение</string>
     <string name="analyzer_storage_content_app_code_description">Файлове на приложения, библиотеки и ресурси. Това място може да бъде освободено чрез деинсталиране на приложението или архивирането му (налично в по-нови версии на Android).</string>
     <string name="analyzer_storage_content_app_data_label">Данни на приложение</string>

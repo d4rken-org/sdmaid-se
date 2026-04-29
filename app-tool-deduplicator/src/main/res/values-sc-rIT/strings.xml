@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Determinare duplicados calculende checksums pro documentos. Documentos cun checksums chi currispondent tenent su stessu cuntentu isatu.</string>
     <string name="deduplicator_detection_method_phash_title">Hash percettivu</string>
     <string name="deduplicator_detection_method_phash_summary">Agatza archìvios simìliles analizende is caraterìsticas de su cuntenutu e paragonende is valores de hash pertzettivos. ⚠️ Sa rilevadura basada in sa similitùdine podet inclùere positivos falsos chi ant a bisongiare de verìfica manuale.</string>
+    <string name="deduplicator_detection_method_media_title">Imprenta digitale multimediale</string>
+    <string name="deduplicator_detection_method_media_summary">Acata archìvios de vìdeo e àudio simìlares analizende is imprentas digitales de s\'àudio. ⚠️ Sa detecione basada in sa similitùdine podet incluire falsos positivos chi cherent verificatzione manuale.</string>
+    <string name="deduplicator_matches_media_label">Mèdia simìlare</string>
+    <string name="deduplicator_media_match_audio">Cumbinadura basada in s\'àudio</string>
+    <string name="deduplicator_media_match_visual">Cumbinadura basada in su vìdeo</string>
+    <string name="deduplicator_media_match_audio_visual">Cumbinadura basada in àudio e vìdeo</string>
     <string name="deduplicator_occupied_space_label">Archìviu ocupadu</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est ocupadu dae duplicados</item>

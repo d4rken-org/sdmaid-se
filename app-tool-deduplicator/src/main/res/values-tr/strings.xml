@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Dosyalar için sağlama toplamlarını hesaplayarak kopyaları belirleyin. Eşleşen sağlama toplamlarına sahip dosyalar tamamen aynı içeriğe sahiptir.</string>
     <string name="deduplicator_detection_method_phash_title">Algısal hash</string>
     <string name="deduplicator_detection_method_phash_summary">İçerik özelliklerini analiz ederek ve algısal karma değerleri karşılaştırarak benzer dosyaları bulun. ⚠️ Benzerlik tabanlı algılama, manuel doğrulama gerektiren yanlış pozitif sonuçlar içerebilir.</string>
+    <string name="deduplicator_detection_method_media_title">Medya parmak izi</string>
+    <string name="deduplicator_detection_method_media_summary">Ses parmak izlerini analiz ederek benzer video ve ses dosyalarını bulur. ⚠️ Benzerlik tabanlı algılama, manuel doğrulama gerektiren yanlış pozitifler içerebilir.</string>
+    <string name="deduplicator_matches_media_label">Benzer medya</string>
+    <string name="deduplicator_media_match_audio">Ses tabanlı eşleşme</string>
+    <string name="deduplicator_media_match_visual">Video tabanlı eşleşme</string>
+    <string name="deduplicator_media_match_audio_visual">Ses ve video tabanlı eşleşme</string>
     <string name="deduplicator_occupied_space_label">Kullanılan depolama</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s kopyalar tarafından işgal edilmiş</item>

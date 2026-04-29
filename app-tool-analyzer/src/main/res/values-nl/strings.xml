@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeem-apps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Andere</string>
+    <string name="analyzer_storage_content_type_system_info">Bestanden die niet in de categorieën Apps of Gebruikersbestanden passen. Alleen bladeren — verwijderen wordt niet ondersteund. Sommige gebieden zijn mogelijk onvolledig vanwege toegangsbeperkingen.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Systeembestanden en andere gegevens waartoe SD Maid geen toegang had of die niet gecategoriseerd konden worden. Het besturingssysteem beperkt het weergeven van de inhoud van sommige gebieden.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan vrijgemaakt worden door de app te verwijderen of te archiveren (beschikbaar op nieuwere Android-versie).</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>

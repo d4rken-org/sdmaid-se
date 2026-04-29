@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">กำหนดไฟล์ซ้ำโดยการคำนวณค่าตรวจสอบสำหรับไฟล์ ไฟล์ที่มีค่าตรวจสอบตรงกันจะมีเนื้อหาเหมือนกันทุกประการ</string>
     <string name="deduplicator_detection_method_phash_title">แฮชการรับรู้</string>
     <string name="deduplicator_detection_method_phash_summary">ค้นหาไฟล์ที่คล้ายกันโดยวิเคราะห์คุณลักษณะเนื้อหาและเปรียบเทียบค่าแฮชเชิงรับรู้ ⚠️ การตรวจจับตามความคล้ายคลึงอาจรวมผลบวกปลอมที่ต้องตรวจสอบด้วยตนเอง</string>
+    <string name="deduplicator_detection_method_media_title">ลายนิ้วมือสื่อ</string>
+    <string name="deduplicator_detection_method_media_summary">ค้นหาไฟล์วิดีโอและเสียงที่คล้ายกันโดยวิเคราะห์ลายนิ้วมือเสียง ⚠️ การตรวจจับตามความคล้ายคลึงอาจรวมถึงผลบวกเท็จที่ต้องการการยืนยันด้วยตนเอง</string>
+    <string name="deduplicator_matches_media_label">สื่อที่คล้ายกัน</string>
+    <string name="deduplicator_media_match_audio">การจับคู่ตามเสียง</string>
+    <string name="deduplicator_media_match_visual">การจับคู่ตามวิดีโอ</string>
+    <string name="deduplicator_media_match_audio_visual">การจับคู่ตามเสียงและวิดีโอ</string>
     <string name="deduplicator_occupied_space_label">พื้นที่ที่ถูกใช้งาน</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ถูกใช้งานโดยไฟล์ซ้ำ</item>

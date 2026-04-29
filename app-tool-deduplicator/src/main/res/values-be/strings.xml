@@ -26,6 +26,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Вызначэнне дублікатаў шляхам разліку кантрольных сум для файлаў. Файлы з супадаючымі кантрольнымі сумамі маюць аднолькавы змест.</string>
     <string name="deduplicator_detection_method_phash_title">Падобныя ўласцівасці</string>
     <string name="deduplicator_detection_method_phash_summary">Пошук падобных файлаў з дапамогай аналізу асаблівасцей і параўнання падобных уласцівасцей. ⚠️ Выяўленне на аснове падабенства можа змяшчаць памылковыя вынікі, якія патрабуюць ручнога выяўлення.</string>
+    <string name="deduplicator_detection_method_media_title">Медыяадбітак</string>
+    <string name="deduplicator_detection_method_media_summary">Знайсці падобныя відэа- і аўдыяфайлы шляхам аналізу аўдыяадбіткаў. ⚠️ Выяўленне на аснове падабенства можа ўключаць ілжывыя спрацоўванні, якія патрабуюць ручной праверкі.</string>
+    <string name="deduplicator_matches_media_label">Падобныя медыяфайлы</string>
+    <string name="deduplicator_media_match_audio">Супадзенне па аўдыя</string>
+    <string name="deduplicator_media_match_visual">Супадзенне па відэа</string>
+    <string name="deduplicator_media_match_audio_visual">Супадзенне па аўдыя і відэа</string>
     <string name="deduplicator_occupied_space_label">Занятае сховішча</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s занята дублікатамі</item>

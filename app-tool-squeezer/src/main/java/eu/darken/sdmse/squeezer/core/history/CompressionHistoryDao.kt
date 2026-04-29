@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CompressionHistoryDao {
 
-    @Query("SELECT EXISTS(SELECT 1 FROM compression_history WHERE content_hash = :contentHash)")
-    suspend fun exists(contentHash: String): Boolean
+    @Query("SELECT * FROM compression_history WHERE content_hash = :contentHash LIMIT 1")
+    suspend fun get(contentHash: String): CompressionHistoryEntity?
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: CompressionHistoryEntity)
 
     @Query("SELECT COUNT(*) FROM compression_history")

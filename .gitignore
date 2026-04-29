@@ -19,3 +19,6 @@ build/
 
 /fastlane/README.md
 .codex
+_site/
+.jekyll-cache/
+vendor/bundle/

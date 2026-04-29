@@ -33,6 +33,7 @@
     <string name="scheduler_notification_channel_label">Urejevalec urnikov</string>
     <string name="scheduler_notification_title">Načrtovano opravilo</string>
     <string name="scheduler_notification_message">Izvajanje: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Rezultati razporejevalnika</string>
     <string name="scheduler_notification_result_title">Urnik je končan.</string>
     <string name="scheduler_notification_result_success_message">Vsa načrtovana opravila so se uspešno izvedla.</string>
     <string name="scheduler_notification_result_failure_message">Nekatera načrtovana opravila se niso uspešno končala ali so naletela na napake.  Poizkusite jih ročno zagnati.</string>

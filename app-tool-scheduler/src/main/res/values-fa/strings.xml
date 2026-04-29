@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">برنامه ریز</string>
     <string name="scheduler_notification_title">وظیفه زمان‌بندی شده</string>
     <string name="scheduler_notification_message">اجرایی: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">نتایج زمان‌بند</string>
     <string name="scheduler_notification_result_title">برنامه‌ زمان‌بندی به پایان رسید.</string>
     <string name="scheduler_notification_result_success_message">تمام وظایف زمان‌بندی شده با موفقیت اجرا شدند.</string>
     <string name="scheduler_notification_result_failure_message">برخی از وظایف زمان‌بندی شده با خطا مواجه شدند یا شکست خوردند. سعی کنید آنها را به صورت دستی اجرا کنید.</string>

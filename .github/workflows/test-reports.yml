@@ -18,7 +18,7 @@ jobs:
     if: always()
     steps:
       - name: Test Report - FOSS Debug
-        uses: dorny/test-reporter@5540be7d257d0059d55ee0c144ab5a516329d0a1 #v2.6.0
+        uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
         if: always()
         with:
           name: 'Unit Tests - testFoss Debug'
@@ -31,7 +31,7 @@ jobs:
           max-annotations: 10
 
       - name: Test Report - GPlay Debug
-        uses: dorny/test-reporter@5540be7d257d0059d55ee0c144ab5a516329d0a1 #v2.6.0
+        uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
         if: always()
         with:
           name: 'Unit Tests - testGplay Debug'

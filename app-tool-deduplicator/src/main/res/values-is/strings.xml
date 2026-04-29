@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Ákvarða tvítekningu með því að reikna efnisskoðun skráa. Skrár með samsvarandi skoðun hafa nákvæmlega sama efni.</string>
     <string name="deduplicator_detection_method_phash_title">Skynjunarhassh</string>
     <string name="deduplicator_detection_method_phash_summary">Finna svipaðar skrár með því að greina efniseiginleika og bera saman skynjunarhassh gildi. ⚠️ Greining byggð á líkingu gæti falið í sér falska jákvæðninga sem krefjast handvirkrar staðfestingar.</string>
+    <string name="deduplicator_detection_method_media_title">Fjölmiðlafingraför</string>
+    <string name="deduplicator_detection_method_media_summary">Finna svipað myndband og hljóðskrár með greiningu á hljóðfingraförum. ⚠️ Líkindargreining getur falið í sér ranga jákvæða sem krefjast handvirkrar staðfestingar.</string>
+    <string name="deduplicator_matches_media_label">Svipuð fjölmiðlaskrár</string>
+    <string name="deduplicator_media_match_audio">Samsvörun byggð á hljóði</string>
+    <string name="deduplicator_media_match_visual">Samsvörun byggð á myndbandi</string>
+    <string name="deduplicator_media_match_audio_visual">Samsvörun byggð á hljóði og myndbandi</string>
     <string name="deduplicator_occupied_space_label">Upptekið geymslupláss</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er tekið af tvítekningum</item>

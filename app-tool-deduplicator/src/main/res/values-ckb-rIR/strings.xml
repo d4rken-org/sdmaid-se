@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. فایلs with matching checksums have the exact same content.</string>
     <string name="deduplicator_detection_method_phash_title">هاشی هەستبردنی</string>
     <string name="deduplicator_detection_method_phash_summary">فایلی هاوشێوە بدۆزەرەوە بە شیکردنەوەی تایبەتمەندییەکانی ناوەڕۆک و بەراوردکردنی بەهاکانی هاشی هەستبردنی. ⚠️ دۆزینەوەی بنەماتی هاوشێوەیی لەوانەیە هەڵەی دروستی تێدابێت کە پشکنینی دەستی پێویستە.</string>
+    <string name="deduplicator_detection_method_media_title">نیشانەی میدیا</string>
+    <string name="deduplicator_detection_method_media_summary">فایلە کاریکانی کورتە و دەنگ ھەمان بە تالیلکردنی نیشانەی دەنگ بدەستبێنە. ⚠️ کاشفکردنی لە سەر هاوبەندی لەوانی ھەبیهەی شاشە راست نییە کە چەککردنی دەست دەخەی بەکارھێنەر دەبێتەوە.</string>
+    <string name="deduplicator_matches_media_label">میدیای هاوبێش</string>
+    <string name="deduplicator_media_match_audio">هاوبێشی لەسەر دەنگ</string>
+    <string name="deduplicator_media_match_visual">هاوبێشی لەسەر ڤیدیۆ</string>
+    <string name="deduplicator_media_match_audio_visual">هاوبێشی لەسەر دەنگ و ڤیدیۆ</string>
     <string name="deduplicator_occupied_space_label">ئەمبارەی پڕکراو</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s لەلایەن دووبارەکانەوە پڕکراوە</item>

@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Планировчик</string>
     <string name="scheduler_notification_title">Планирана задача</string>
     <string name="scheduler_notification_message">Изпълнява се: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Резултати от планировчика</string>
     <string name="scheduler_notification_result_title">Планировчикът завърши</string>
     <string name="scheduler_notification_result_success_message">Всички планирани задачи се изпълниха успешно.</string>
     <string name="scheduler_notification_result_failure_message">Някои планирани задачи се провалиха или срещнаха грешки. Опитайте да ги стартирате ръчно.</string>

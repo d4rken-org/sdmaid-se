@@ -24,6 +24,10 @@ object Versions {
             const val lifecycleVm = "2.10.0"
             const val adaptive = "1.3.0-alpha10"
         }
+
+        object Media3 {
+            const val core = "1.6.0"
+        }
     }
 
     object Desugar {

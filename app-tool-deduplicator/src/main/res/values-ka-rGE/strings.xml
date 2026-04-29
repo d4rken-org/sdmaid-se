@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">დუბლიკატების განსაზღვრა ფაილებისთვის კონტროლური ჯამების გამოთვლით. ფაილები შესაბამისი კონტროლური ჯამებით აქვთ ზუსტად იგივე შინაარსი.</string>
     <string name="deduplicator_detection_method_phash_title">პერცეპტუალური ჰეში</string>
     <string name="deduplicator_detection_method_phash_summary">მსგავსი ფაილების პოვნა კონტენტის მახასიათებლების ანალიზითა და პერცეპტუალური ჰეშის მნიშვნელობების შედარებით. ⚠️ მსგავსებაზე დაფუძნებულმა ამოცნობამ შეიძლება მოიცვას ცრუ პოზიტივები, რომლებიც ხელით შემოწმებას საჭიროებს.</string>
+    <string name="deduplicator_detection_method_media_title">მედიის თითის ანაბეჭდი</string>
+    <string name="deduplicator_detection_method_media_summary">იპოვეთ მსგავსი ვიდეო და აუდიო ფაილები აუდიო თითის ანაბეჭდების ანალიზით. ⚠️ მსგავსებაზე დაფუძნებული გამოვლენა შეიძლება შეიცავდეს ყალბ დადებით შედეგებს, რომლებიც საჭიროებს ხელით გადამოწმებას.</string>
+    <string name="deduplicator_matches_media_label">მსგავსი მედია</string>
+    <string name="deduplicator_media_match_audio">აუდიოზე დაფუძნებული დამთხვევა</string>
+    <string name="deduplicator_media_match_visual">ვიდეოზე დაფუძნებული დამთხვევა</string>
+    <string name="deduplicator_media_match_audio_visual">აუდიო და ვიდეოზე დაფუძნებული დამთხვევა</string>
     <string name="deduplicator_occupied_space_label">დაკავებული მეხსიერება</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s დაკავებულია დუბლიკატებით</item>

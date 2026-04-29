@@ -33,6 +33,7 @@
     <string name="scheduler_notification_channel_label">Harmonogram</string>
     <string name="scheduler_notification_title">Zaplanowane zadanie</string>
     <string name="scheduler_notification_message">Wykonywanie: „%s”</string>
+    <string name="scheduler_notification_result_channel_label">Wyniki harmonogramu</string>
     <string name="scheduler_notification_result_title">Harmonogram zakończony</string>
     <string name="scheduler_notification_result_success_message">Wszystkie zaplanowane zadania zostały pomyślnie uruchomione.</string>
     <string name="scheduler_notification_result_failure_message">Niektóre zaplanowane zadania nie powiodły się lub wystąpiły błędy. Spróbuj uruchomić je ręcznie.</string>

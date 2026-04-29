@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Imágenes capturadas, videos grabados o datos descargados. Cualquier dato que no pertenezca a una aplicación específica.</string>
     <string name="analyzer_storage_content_type_system_label">Datos del sistema</string>
     <string name="analyzer_storage_content_type_system_description">Las aplicaciones y los datos del sistema. Las aplicaciones y los datos de otros usuarios, si hay varias cuentas de usuario configuradas en este dispositivo.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Otros</string>
+    <string name="analyzer_storage_content_type_system_info">Archivos que no encajan en las categorías Aplicaciones o Archivos de usuario. Solo navegación — la eliminación no está disponible. Algunas áreas pueden estar incompletas debido a restricciones de acceso.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Archivos del sistema y otros datos a los que SD Maid no pudo acceder o categorizar. El sistema operativo restringe el listado de contenidos de algunas áreas.</string>
     <string name="analyzer_storage_content_app_code_label">Código de la aplicación</string>
     <string name="analyzer_storage_content_app_code_description">Archivos, bibliotecas y recursos de la aplicación. Este espacio puede liberarse desinstalando la aplicación o archivándola (disponible en las versiones más recientes de Android).</string>
     <string name="analyzer_storage_content_app_data_label">Datos de la aplicación</string>

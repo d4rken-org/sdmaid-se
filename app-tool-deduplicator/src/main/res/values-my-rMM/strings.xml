@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ဖိုင်များတာ် အမှား checksum တွက်ချက်ခြင်းဖြင့် ထပ်တူများ ဆုံးဖြစ်ပါ။ ကိုက်ညိသော checksum ရှိသော ဖိုင်များသည် အတိအကျ တူညီသော အကြောင်အရာ ရှိသည်။</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">အကြောင်အရာ လက္ခနာများ ခွဲခြမ်းစိတ်ဖြာပြီး perceptual hash တန်ဖိုးများ နှိုးယှေစ်ကာ ဆင်တူသော ဖိုင်များ ရှာပါ။ ⚠️ ဆင်တူမှုအပေါ် အခှပြု သစ်ဆေးခြင်းတွင် လက်ဖြင့် သစ်ဆေးရမည့်သော မှားယွင်းသော ရလဒ်များ ပါဝင်နိုင်သည်။</string>
+    <string name="deduplicator_detection_method_media_title">မီဒီယာ လက်ဗွေ</string>
+    <string name="deduplicator_detection_method_media_summary">အသံ လက်ဗွေများကို ခွဲခြမ်းစိတ်ဖြာ၍ ဗီဒီယိုနှင့် အသံဖိုင်များ ကို ရှာဖွေပါ။ ⚠️ တူညီမှုအပေါ် အခြေပြု စစ်ဆေးခြင်းသည် ကိုယ်တိုင် စစ်ဆေးမှု လိုအပ်သော မှားယွင်းသော ကိုက်ညီမှုများ ပါဝင်နိုင်သည်။</string>
+    <string name="deduplicator_matches_media_label">ဆင်တူသော မီဒီယာ</string>
+    <string name="deduplicator_media_match_audio">အသံအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
+    <string name="deduplicator_media_match_visual">ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
+    <string name="deduplicator_media_match_audio_visual">အသံနှင့် ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
     <string name="deduplicator_occupied_space_label">လွှမ်းမိုးထားသော သိုလှောင့်မှု</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ကို ထပ်တူများက လွှမ်းမိုးထေသည်</item>

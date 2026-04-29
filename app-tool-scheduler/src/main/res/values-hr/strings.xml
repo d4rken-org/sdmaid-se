@@ -32,6 +32,7 @@
     <string name="scheduler_notification_channel_label">Planer</string>
     <string name="scheduler_notification_title">Zakazani zadatak</string>
     <string name="scheduler_notification_message">Izvršavanje: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Rezultati planera</string>
     <string name="scheduler_notification_result_title">Planer završen</string>
     <string name="scheduler_notification_result_success_message">Svi zakazani zadaci su uspješno izvršeni.</string>
     <string name="scheduler_notification_result_failure_message">Neki zakazani zadaci nisu uspješni ili su naišli na greške. Pokušajte ih pokrenuti ručno.</string>

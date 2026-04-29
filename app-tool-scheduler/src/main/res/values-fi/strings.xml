@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Ajastin</string>
     <string name="scheduler_notification_title">Ajoitettu tehtävä</string>
     <string name="scheduler_notification_message">Suoritetaan: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Ajastimen tulokset</string>
     <string name="scheduler_notification_result_title">Ajastin valmis</string>
     <string name="scheduler_notification_result_success_message">Kaikki ajoitetut tehtävät suoritettiin onnistuneesti.</string>
     <string name="scheduler_notification_result_failure_message">Jotkut ajoitetut tehtävät epäonnistuivat tai kohtasivat virheitä. Kokeile suorittaa ne manuaalisesti.</string>

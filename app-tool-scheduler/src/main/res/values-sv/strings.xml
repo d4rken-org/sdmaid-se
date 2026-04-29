@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Schemaläggare</string>
     <string name="scheduler_notification_title">Schemalagd uppgift</string>
     <string name="scheduler_notification_message">Kör: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Schemaläggningsresultat</string>
     <string name="scheduler_notification_result_title">Schemaläggaren slutförd</string>
     <string name="scheduler_notification_result_success_message">Alla schemalagda uppgifter kördes framgångsrikt.</string>
     <string name="scheduler_notification_result_failure_message">Vissa schemalagda uppgifter misslyckades eller påträffade fel. Försök köra dem manuellt.</string>

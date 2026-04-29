@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Taga-iskedyul</string>
     <string name="scheduler_notification_title">Naka-schedule na task</string>
     <string name="scheduler_notification_message">Ine-execute: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Mga resulta ng Scheduler</string>
     <string name="scheduler_notification_result_title">Tapos na ang scheduler</string>
     <string name="scheduler_notification_result_success_message">Lahat ng naka-schedule na task ay matagumpay na nag-run.</string>
     <string name="scheduler_notification_result_failure_message">Ang ilang naka-schedule na task ay nabigo o nakatagpo ng mga error. Subukang patakbuhin ito nang mano-mano.</string>

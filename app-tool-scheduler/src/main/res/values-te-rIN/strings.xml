@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">శెడ్యూలర్</string>
     <string name="scheduler_notification_title">శెడ్యూల్ చేయబడిన కార్యం</string>
     <string name="scheduler_notification_message">క్రియాన్వయం చేస్తోంది: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">షెడ్యూలర్ ఫలితాలు</string>
     <string name="scheduler_notification_result_title">శెడ్యూలర్ పూర్తి అయింది</string>
     <string name="scheduler_notification_result_success_message">అన్ని శెడ్యూల్ చేయబడిన కార్యాలు విజయవంతంగా పూర్తి అయినాయి.</string>
     <string name="scheduler_notification_result_failure_message">కొన్ని శెడ్యూల్ చేయబడిన కార్యాలు విఫలమైనాయి లేదా లోపాలను ఎదుర్కొన్నాయి. వాటిని మానువల్‌గా చాలానికి ప్రయత్నించండి.</string>

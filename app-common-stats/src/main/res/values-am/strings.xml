@@ -39,4 +39,8 @@
     <string name="stats_storage_type_primary">ዋና ማጠራቀሚያ</string>
     <string name="stats_storage_type_secondary">ሁለተኛ ማጠራቀሚያ</string>
     <string name="stats_storage_type_portable">ተለዋወጂች ማጠራቀሚያ</string>
+    <string name="stats_space_history_delete_storage_title">የማስቀመጫ ታሪክ ይሰርዝ?</string>
+    <string name="stats_space_history_delete_storage_desc">ለዚህ ማስቀመጫ ያሉ ሁሉም የዝንባሌ ውሂቦች በቋሚነት ይሰረዛሉ።</string>
+    <string name="stats_settings_retention_snapshots_label">የማስቀመጫ ቅጽበታዊ ገጽ እይታዎች</string>
+    <string name="stats_settings_retention_snapshots_desc">የማስቀመጫ ቦታ ቅጽበታዊ ገጽ እይታዎችን ለማቆየት የቀናት ብዛት።</string>
 </resources>

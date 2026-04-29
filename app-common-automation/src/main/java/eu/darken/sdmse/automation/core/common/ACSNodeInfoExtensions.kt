@@ -128,9 +128,21 @@ fun ACSNodeInfo.scrollNode(): Boolean {
         return false
     }
 
-    log(TAG, VERBOSE) { "scrollNode(): Scrolling node: $this" }
-    return performAction(ACSNodeInfo.ACTION_SCROLL_FORWARD).also {
-        log(TAG, VERBOSE) { "scrollNode(): Successfully scrolled: $this" }
+    log(TAG, VERBOSE) { "scrollNode(): Scrolling forward: $this" }
+    return performAction(ACSNodeInfo.ACTION_SCROLL_FORWARD).also { success ->
+        log(TAG, VERBOSE) { "scrollNode(): Forward scroll success=$success: $this" }
+    }
+}
+
+fun ACSNodeInfo.scrollNodeBackward(): Boolean {
+    if (!isScrollable) {
+        log(TAG, WARN) { "scrollNodeBackward(): Not scrollable: $this" }
+        return false
+    }
+
+    log(TAG, VERBOSE) { "scrollNodeBackward(): Scrolling backward: $this" }
+    return performAction(ACSNodeInfo.ACTION_SCROLL_BACKWARD).also { success ->
+        log(TAG, VERBOSE) { "scrollNodeBackward(): Backward scroll success=$success: $this" }
     }
 }
 

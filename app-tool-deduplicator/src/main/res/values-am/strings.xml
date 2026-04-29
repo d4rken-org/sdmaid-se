@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ለፋይሎች ማረጋገጫ ድምሮችን በማስላት ተመሳሳዮችን ወስን። ተመሳሳይ ማረጋገጫ ድምሮች ያላቸው ፋይሎች ፍጹም ተመሳሳይ ይዘት አላቸው።</string>
     <string name="deduplicator_detection_method_phash_title">የእይታ ሃሽ</string>
     <string name="deduplicator_detection_method_phash_summary">የይዘት ባህሪያትን በመተንተንና የማስተዋል ሃሽ ዋጋዎችን በማነጻጸር ተመሳሳይ ፋይሎችን ያግኙ። ⚠️ በተመሳሳይነት ላይ የተመሰረተ ግኝት በእጅ ማረጋገጫ የሚያስፈልጋቸውን የሐሰት አዎንታዊ ውጤቶች ሊያካትት ይችላል።</string>
+    <string name="deduplicator_detection_method_media_title">የሚዲያ ጣት አሻራ</string>
+    <string name="deduplicator_detection_method_media_summary">የድምፅ ጣት አሻራዎችን በመተንተን ተመሳሳይ ቪዲዮ እና ድምፅ ፋይሎችን ያግኙ። ⚠️ ተመሳሳይነት ላይ የተመሰረተ ማወቅ የሐሰት አዎንታዊ ውጤቶችን ሊያካትት ይችላል፣ ይህም ከእጅ ማረጋገጥ ያስፈልጋል።</string>
+    <string name="deduplicator_matches_media_label">ተመሳሳይ ሚዲያ</string>
+    <string name="deduplicator_media_match_audio">በድምፅ ላይ የተመሰረተ ተዛምዶ</string>
+    <string name="deduplicator_media_match_visual">በቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>
+    <string name="deduplicator_media_match_audio_visual">በድምፅ እና ቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>
     <string name="deduplicator_occupied_space_label">የተያዘ ማጠራቀሚያ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s በተመሳሳዮች ተይዟል</item>

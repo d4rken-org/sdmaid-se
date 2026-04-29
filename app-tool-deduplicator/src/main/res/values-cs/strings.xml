@@ -26,6 +26,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Určení duplikátů pomocí výpočtu kontrolních součtů souborů. Soubory se shodnými kontrolními součty mají naprosto stejný obsah.</string>
     <string name="deduplicator_detection_method_phash_title">Percepční hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vyhledejte podobné soubory pomocí analýzy vlastností obsahu a porovnání hodnot percepčního hash. ⚠️ Detekce na základě podobnosti může zahrnovat falešné pozitivní výsledky, které vyžadují ruční ověření.</string>
+    <string name="deduplicator_detection_method_media_title">Otisk média</string>
+    <string name="deduplicator_detection_method_media_summary">Najde podobné video a audio soubory analýzou zvukových otisků. ⚠️ Detekce na základě podobnosti může zahrnovat falešné poplachy vyžadující ruční ověření.</string>
+    <string name="deduplicator_matches_media_label">Podobná média</string>
+    <string name="deduplicator_media_match_audio">Shoda na základě zvuku</string>
+    <string name="deduplicator_media_match_visual">Shoda na základě videa</string>
+    <string name="deduplicator_media_match_audio_visual">Shoda na základě zvuku a videa</string>
     <string name="deduplicator_occupied_space_label">Obsazené úložiště</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Obsazeno duplikáty je %s</item>

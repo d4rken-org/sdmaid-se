@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">தேதி நிர்ணாயகர்</string>
     <string name="scheduler_notification_title">திட்டமிடப்பட்ட பணி</string>
     <string name="scheduler_notification_message">நிறைவேற்றுகிறது: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">திட்டமிடல் முடிவுகள்</string>
     <string name="scheduler_notification_result_title">தேதி நிர்ணாயகர் முடிந்தது</string>
     <string name="scheduler_notification_result_success_message">அனைத்து திட்டமிடப்பட்ட பணிகளும் வெற்றிகரமாக இயங்கின.</string>
     <string name="scheduler_notification_result_failure_message">சில திட்டமிடப்பட்ட பணிகள் தோல்வியடைந்தன அல்லது பிழைகளைச் சந்தித்தன. அவற்றை கையால் இயக்க முயற்சிக்கவும்.</string>

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.FailureReason
 import eu.darken.sdmse.stats.core.AffectedPath
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
@@ -39,6 +40,8 @@ data class SqueezerProcessTask(
         override val affectedSpace: Long,
         override val affectedPaths: Set<APath>,
         val processedCount: Int,
+        val failedCount: Int = 0,
+        val failureReasons: Map<FailureReason, Int> = emptyMap(),
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val action: AffectedPath.Action
@@ -52,11 +55,17 @@ data class SqueezerProcessTask(
         override val secondaryInfo
             get() = caString {
                 val (formatted, quantity) = ByteFormatter.formatSize(this, affectedSpace)
-                getQuantityString2(
+                val base = getQuantityString2(
                     eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
                     quantity,
                     formatted,
                 )
+                if (failedCount > 0) {
+                    val failedStr = getQuantityString2(R.plurals.squeezer_result_x_items_failed, failedCount)
+                    "$base • $failedStr"
+                } else {
+                    base
+                }
             }
     }
 }

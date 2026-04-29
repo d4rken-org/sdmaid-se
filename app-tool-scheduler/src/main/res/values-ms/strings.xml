@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">Penjadual</string>
     <string name="scheduler_notification_title">Tugas berjadual</string>
     <string name="scheduler_notification_message">Melaksanakan: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Keputusan penjadual</string>
     <string name="scheduler_notification_result_title">Penjadual selesai</string>
     <string name="scheduler_notification_result_success_message">Semua tugas berjadual berjalan dengan jayanya.</string>
     <string name="scheduler_notification_result_failure_message">Beberapa tugas berjadual gagal atau menghadapi ralat. Cuba jalankan secara manual.</string>

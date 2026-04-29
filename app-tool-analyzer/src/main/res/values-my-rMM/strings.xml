@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">ရိုကူးထားသော ပုံများ၊ ဗီဒီယာများ သို့မဟုတ် ဒော်င်လုဒ်ဆွဲးထားသော ဒေတာ။ တိကျသောအပ်ပ်တစ်ခုနှင့် မဆက်နွှေသော မည်သည့့်ဒေတာမဆို။</string>
     <string name="analyzer_storage_content_type_system_label">စနစ်ဒေတာ</string>
     <string name="analyzer_storage_content_type_system_description">စနစ်အပ်ပ်များနှင့် စနစ်ဒေတာ။ ဤကိရိယာတွင် အသုံးပြု အကောင်အည်းများစွာ သတ်မှတ်ထားလျှင် အခြားအသုံးပြုသူများမှ အပ်ပ်များနှင့် ဒေတာ။</string>
+    <string name="analyzer_storage_content_type_system_other_label">အခြား</string>
+    <string name="analyzer_storage_content_type_system_info">Apps သို့မဟုတ် အသုံးပြုသူဖိုင်များ အမျိုးအစားများတွင် မကိုက်ညီသော ဖိုင်များ။ ကြည့်ရှုရန်သာ — ဖျက်ခြင်းကို ပံ့ပိုးမထားပါ။ ဝင်ရောက်ခွင့် ကန့်သတ်ချက်များကြောင့် အချို့နေရာများ မပြည့်စုံနိုင်ပါ။</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid ဝင်ရောက်၍ မရသော သို့မဟုတ် အမျိုးအစားခွဲ၍ မရသော စနစ်ဖိုင်များနှင့် အခြားဒေတာ။ ကွန်ပျူတာ စစ်ဆင်ရေး စနစ်သည် အချို့နေရာများ၏ အကြောင်းအရာများကို ကြည့်ရှုခွင့် ကန့်သတ်ထားသည်။</string>
     <string name="analyzer_storage_content_app_code_label">အပ်ပ် ကုဒ်</string>
     <string name="analyzer_storage_content_app_code_description">Application ဖိုင်များ၊ library များနှင့် အရင်းအမြစ်များ။ ဤနေရာကို အပ်ပ်ကို ဖြုတ်ချပြီး သို့မဟုတ် မြှုပ်သိမ်းခြင်းဖြင့် (Android ဗားရှင်းအသစ်တွင် ရနိုင်သည်) ရှင်းလင်းနိုင်သည်။</string>
     <string name="analyzer_storage_content_app_data_label">အပ်ပ် ဒေတာ</string>

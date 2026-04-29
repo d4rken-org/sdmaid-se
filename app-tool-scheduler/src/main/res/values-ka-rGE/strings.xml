@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">მგეგმავი</string>
     <string name="scheduler_notification_title">დაგეგმილი ამოცანა</string>
     <string name="scheduler_notification_message">შესრულება: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">გამრიგებლის შედეგები</string>
     <string name="scheduler_notification_result_title">მგეგმავი დასრულდა</string>
     <string name="scheduler_notification_result_success_message">ყველა დაგეგმილი ამოცანა წარმატებით შესრულდა.</string>
     <string name="scheduler_notification_result_failure_message">ზოგიერთი დაგეგმილი ამოცანა ვერ შესრულდა ან წააწყდა შეცდომებს. სცადეთ მათი მანუალური გაშვება.</string>

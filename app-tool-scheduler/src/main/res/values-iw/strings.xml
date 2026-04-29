@@ -33,6 +33,7 @@
     <string name="scheduler_notification_channel_label">מתזמן</string>
     <string name="scheduler_notification_title">משימה מתוזמנת</string>
     <string name="scheduler_notification_message">מבצע: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">תוצאות מתזמן</string>
     <string name="scheduler_notification_result_title">תזמון הסתיים</string>
     <string name="scheduler_notification_result_success_message">כל המשימות המתוזמנות פעלו בהצלחה.</string>
     <string name="scheduler_notification_result_failure_message">חלק מהמשימות המתוזמנות נכשלו או נתקלו בשגיאות. נסה להפעיל אותם ידנית.</string>

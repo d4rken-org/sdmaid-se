@@ -41,6 +41,9 @@
     <string name="analyzer_storage_content_type_media_description">Užfiksuotos nuotraukos, įrašyti vaizdo įrašai ar atsisiųsti duomenys. Visi duomenys, nepriklausantys konkreiai programai.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemos duomenys</string>
     <string name="analyzer_storage_content_type_system_description">Sistemos programos ir sistemos duomenys. Programos ir duomenys iš kitų vartotojų, jei šiame įrenginyje nustatytos kelios vartotojų paskyros.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Kita</string>
+    <string name="analyzer_storage_content_type_system_info">Failai, kurie netinka programų ar vartotojo failų kategorijoms. Tik naršymas — ištrynimas nepalaikomas. Kai kurios sritys gali būti neišsamios dėl prieigos apribojimų.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Sisteminiai failai ir kiti duomenys, kurių SD Maid negalėjo pasiekti ar suskirstyti į kategorijas. Operatė sistema riboja kai kurių sričių turinio peržiūrą.</string>
     <string name="analyzer_storage_content_app_code_label">Programos kodas</string>
     <string name="analyzer_storage_content_app_code_description">Programos failai, bibliotekos ir ištekliai. Ši vieta gali būti atlaisvinta išdiegiant programą arba ją archyvuojant (galima naujesnose Android versijose).</string>
     <string name="analyzer_storage_content_app_data_label">Programos duomenys</string>

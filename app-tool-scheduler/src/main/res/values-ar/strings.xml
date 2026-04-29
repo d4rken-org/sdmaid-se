@@ -35,6 +35,7 @@
     <string name="scheduler_notification_channel_label">الجدولة</string>
     <string name="scheduler_notification_title">المهام المجدولة</string>
     <string name="scheduler_notification_message">جارٍ التنفيذ: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">نتائج جدولة المهام</string>
     <string name="scheduler_notification_result_title">انتهت الجدولة</string>
     <string name="scheduler_notification_result_success_message">تمت جميع المهام المجدولة بنجاح.</string>
     <string name="scheduler_notification_result_failure_message">بعض المهام المجدولة فشلت أو واجهت أخطاء. حاول تشغيلها يدويا.</string>

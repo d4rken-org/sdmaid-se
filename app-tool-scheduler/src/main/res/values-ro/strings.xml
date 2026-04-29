@@ -32,6 +32,7 @@
     <string name="scheduler_notification_channel_label">Programator</string>
     <string name="scheduler_notification_title">Sarcina programată</string>
     <string name="scheduler_notification_message">Executare: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Rezultate programator</string>
     <string name="scheduler_notification_result_title">Programator terminat</string>
     <string name="scheduler_notification_result_success_message">Toate sarcinile programate au fost rulate cu succes.</string>
     <string name="scheduler_notification_result_failure_message">Unele sarcini programate au eșuat sau au întâmpinat erori. Încercați să le rulați manual.</string>

@@ -22,6 +22,12 @@ android {
 
     setupCompileOptions()
 
+    sourceSets {
+        getByName("test") {
+            assets.srcDirs(files("$projectDir/schemas"))
+        }
+    }
+
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -64,8 +70,11 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
+    implementation("androidx.media3:media3-transformer:${Versions.AndroidX.Media3.core}")
+
     addTesting()
     testImplementation(project(":app-common-test"))
     testImplementation("org.robolectric:robolectric:4.16")
     testImplementation("androidx.test.ext:junit:1.3.0")
+    testImplementation("androidx.room:room-testing:2.8.4")
 }

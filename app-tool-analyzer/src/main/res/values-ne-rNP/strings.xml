@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">खिचिएका तस्बिरहरू, रेकर्ड गरिएका भिडियोहरू वा डाउनलोड गरिएका डेटा। कुनै विशेष app को नभएको कुनै पनि डेटा।</string>
     <string name="analyzer_storage_content_type_system_label">सिस्टम डेटा</string>
     <string name="analyzer_storage_content_type_system_description">सिस्टम apps र सिस्टम डेटा। यदि यस उपकरणमा धेरै प्रयोगकर्ता खाताहरू सेट छन् भने अन्य प्रयोगकर्ताहरूका Apps र डेटा।</string>
+    <string name="analyzer_storage_content_type_system_other_label">अन्य</string>
+    <string name="analyzer_storage_content_type_system_info">एप्स वा प्रयोगकर्ता फाइलहरू श्रेणीमा नफिट्ने फाइलहरू। ब्राउज मात्र — मेटाउने कार्य समर्थित छैन। पहुँच प्रतिबन्धहरूका कारण केही क्षेत्रहरू अपूर्ण हुन सक्छन्।</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid ले पहुँच गर्न वा वर्गीकृत गर्न नसकेका प्रणाली फाइलहरू र अन्य डेटा। अपरेटिङ प्रणालीले केही क्षेत्रहरूको सामग्री सूचीबद्ध गर्न प्रतिबन्ध लगाउँछ।</string>
     <string name="analyzer_storage_content_app_code_label">App कोड</string>
     <string name="analyzer_storage_content_app_code_description">Application फाइलहरू, libraries र संसाधनहरू। यो ठाउँ app हटाएर वा archive गरेर (नयाँ Android version मा उपलब्ध) फ्री गर्न सकिन्छ।</string>
     <string name="analyzer_storage_content_app_data_label">App डेटा</string>

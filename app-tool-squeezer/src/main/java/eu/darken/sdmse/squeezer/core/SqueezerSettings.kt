@@ -36,6 +36,7 @@ class SqueezerSettings @Inject constructor(
     val compressionQuality = dataStore.createValue("compression.quality", DEFAULT_QUALITY)
     val includeJpeg = dataStore.createValue("filter.type.jpeg.enabled", true)
     val includeWebp = dataStore.createValue("filter.type.webp.enabled", true)
+    val includeVideo = dataStore.createValue("filter.type.video.enabled", false)
     val skipPreviouslyCompressed = dataStore.createValue("skip.previously.compressed", true)
     val writeExifMarker = dataStore.createValue("compression.exif.marker.enabled", false)
     val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), json)

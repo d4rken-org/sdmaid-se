@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/message_text"
+            style="?attr/textAppearanceBodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="This will permanently delete 123 files (456 MB). This action cannot be undone." />
+
+        <TextView
+            android:id="@+id/undecided_text"
+            style="?attr/textAppearanceBodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            tools:text="5 undecided items will remain for later review."
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/sensitive_root_warning"
+            style="?attr/textAppearanceBodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="?attr/colorError"
+            android:visibility="gone"
+            tools:text="This session targets a whole storage volume — deleting here affects many apps and folders."
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/buckets_text"
+            style="?attr/textAppearanceBodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="2dp"
+            android:visibility="gone"
+            tools:text="• DCIM — 134 items (480 MB)\n• WhatsApp/Media — 812 items (1.2 GB)\n…and 3 more folders"
+            tools:visibility="visible" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/confirm_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/swiper_delete_confirmation_checkbox"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

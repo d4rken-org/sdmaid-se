@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Programmadore</string>
     <string name="scheduler_notification_title">Tarea programmada</string>
     <string name="scheduler_notification_message">Eseguende: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Resultados de su pianificadore</string>
     <string name="scheduler_notification_result_title">Programmadore finidu</string>
     <string name="scheduler_notification_result_success_message">Totu is tareas programmadas sunt eseguidas cun sutzessu.</string>
     <string name="scheduler_notification_result_failure_message">Calchìzas tareas programmadas sunt falladas o ant agatadu errores. Prova a is eseguire manualmente.</string>

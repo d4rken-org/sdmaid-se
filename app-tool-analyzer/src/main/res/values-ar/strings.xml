@@ -47,6 +47,9 @@
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
     <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا تم تعيين عدة حسابات للمستخدمين على هذا الجهاز.</string>
+    <string name="analyzer_storage_content_type_system_other_label">أخرى</string>
+    <string name="analyzer_storage_content_type_system_info">الملفات التي لا تنتمي إلى فئتَي التطبيقات أو ملفات المستخدم. للاستعراض فقط — الحذف غير مدعوم. قد تكون بعض المناطق غير مكتملة بسبب قيود الوصول.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ملفات النظام والبيانات الأخرى التي تعذّر على SD Maid الوصول إليها أو تصنيفها. يقيّد نظام التشغيل إمكانية سرد محتويات بعض المناطق.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. يمكن تحرير هذه المساحة عن طريق إلغاء تثبيت التطبيق أو أرشفته (متاحة على إصدارات أندرويد الأحدث).</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>

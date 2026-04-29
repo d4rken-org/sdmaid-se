@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">تصاویر گرفته شده، ویدئوهای ضبط شده یا داده‌های دانلود شده. هر داده‌ای که به یک برنامه خاص تعلق ندارد.</string>
     <string name="analyzer_storage_content_type_system_label">داده های سیستم</string>
     <string name="analyzer_storage_content_type_system_description">برنامه های سیستم و داده های سیستم و سایر کاربران، در صورتی که چندین حساب کاربری در این دستگاه تنظیم شده باشد.</string>
+    <string name="analyzer_storage_content_type_system_other_label">بقیه</string>
+    <string name="analyzer_storage_content_type_system_info">فایل‌هایی که در دسته‌بندی برنامه‌ها یا فایل‌های کاربر جای نمی‌گیرند. فقط مرور — حذف پشتیبانی نمی‌شود. برخی بخش‌ها ممکن است به دلیل محدودیت دسترسی ناقص باشند.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">فایل‌های سیستمی و سایر داده‌هایی که SD Maid قادر به دسترسی یا دسته‌بندی آن‌ها نبود. سیستم‌عامل فهرست‌کردن محتوای برخی بخش‌ها را محدود می‌کند.</string>
     <string name="analyzer_storage_content_app_code_label">کد برنامه</string>
     <string name="analyzer_storage_content_app_code_description">فایل‌های برنامه، کتابخانه‌ها و منابع. این فضا را می‌توان با حذف برنامه یا بایگانی آن آزاد کرد (این امکان در نسخه‌های جدیدتر اندروید وجود دارد).</string>
     <string name="analyzer_storage_content_app_data_label">داده برنامه</string>

@@ -36,4 +36,34 @@ class CompressionEstimator @Inject constructor() {
             else -> null
         }
     }
+
+    /**
+     * Video size estimate using target bitrate × duration instead of a ratio.
+     *
+     * The video pipeline sets target bitrate linearly from the quality slider, so the right
+     * estimator is also linear in bitrate. A fixed allowance is added for audio + container
+     * muxing overhead (~AUDIO_BITRATE_BPS × duration), which is roughly constant across files
+     * with typical audio tracks.
+     *
+     * Returns null if duration or bitrate are unavailable — the UI should render this as
+     * "unknown" rather than showing a misleading zero.
+     */
+    fun estimateVideoSize(
+        originalSize: Long,
+        durationMs: Long,
+        originalBitrateBps: Long,
+        quality: Int,
+    ): Long? {
+        if (durationMs <= 0 || originalBitrateBps <= 0) return null
+        val targetVideoBitrateBps = (originalBitrateBps * quality / 100)
+            .coerceAtLeast(MIN_VIDEO_BITRATE_BPS)
+        val videoBytes = (targetVideoBitrateBps * durationMs) / 8_000L
+        val audioAndMuxingBytes = (AUDIO_BITRATE_BPS * durationMs) / 8_000L
+        return (videoBytes + audioAndMuxingBytes).coerceIn(0L, originalSize)
+    }
+
+    companion object {
+        private const val MIN_VIDEO_BITRATE_BPS = 100_000L
+        private const val AUDIO_BITRATE_BPS = 128_000L
+    }
 }

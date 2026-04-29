@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">รูปภาพที่ถ่าย, วิดีโอที่บันทึก, หรือข้อมูลที่ดาวน์โหลด ข้อมูลใดๆ ที่ไม่ได้เป็นของแอพใดโดยเฉพาะ</string>
     <string name="analyzer_storage_content_type_system_label">ข้อมูลระบบ</string>
     <string name="analyzer_storage_content_type_system_description">แอพระบบและข้อมูลระบบ แอพและข้อมูลจากผู้ใช้คนอื่น หากมีบัญชีผู้ใช้หลายบัญชีบนอุปกรณ์นี้</string>
+    <string name="analyzer_storage_content_type_system_other_label">อื่นๆ</string>
+    <string name="analyzer_storage_content_type_system_info">ไฟล์ที่ไม่เข้าหมวดหมู่แอปหรือไฟล์ผู้ใช้ เรียกดูเท่านั้น — ไม่รองรับการลบ บางพื้นที่อาจไม่ครบถ้วนเนื่องจากข้อจำกัดในการเข้าถึง</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ไฟล์ระบบและข้อมูลอื่นๆ ที่ SD Maid ไม่สามารถเข้าถึงหรือจัดหมวดหมู่ได้ ระบบปฏิบัติการจำกัดการแสดงรายการเนื้อหาของบางพื้นที่</string>
     <string name="analyzer_storage_content_app_code_label">โค้ดแอพ</string>
     <string name="analyzer_storage_content_app_code_description">ไฟล์แอพพลิเคชัน, ไลบรารี และทรัพยากร สามารถลบพื้นที่นี้ได้โดยถอนการติดตั้งแอพหรือเก็บแอพไว้ (ใช้ได้ใน Android รุ่นใหม่)</string>
     <string name="analyzer_storage_content_app_data_label">ข้อมูลแอพ</string>

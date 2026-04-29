@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">スケジューラー</string>
     <string name="scheduler_notification_title">スケジュールされたタスク</string>
     <string name="scheduler_notification_message">実行中: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">スケジューラーの結果</string>
     <string name="scheduler_notification_result_title">スケジューラが完了しました</string>
     <string name="scheduler_notification_result_success_message">すべてのスケジュールされたタスクが正常に実行されました。</string>
     <string name="scheduler_notification_result_failure_message">スケジュールされたタスクの一部で失敗またはエラーが発生しました。手動で実行してください。</string>

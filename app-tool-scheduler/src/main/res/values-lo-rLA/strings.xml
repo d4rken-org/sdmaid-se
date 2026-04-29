@@ -30,6 +30,7 @@
     <string name="scheduler_notification_channel_label">ຕັວຈັດຕາຣາງເວລາ</string>
     <string name="scheduler_notification_title">ງານທີ່ຖືກວາງເວລາ</string>
     <string name="scheduler_notification_message">ກຳລັງທໍາງານ: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">ຜົນໄດ້ຮັບຂອງຕາຕະລາງ</string>
     <string name="scheduler_notification_result_title">ຕັວຈັດຕາຣາງເວລາສຳເລີດແລ້ວ</string>
     <string name="scheduler_notification_result_success_message">ງານຕາຣາງເວລາທັງຫມົດທໍາງານສຳເລີດ.</string>
     <string name="scheduler_notification_result_failure_message">ງານຕາຣາງເວລາບາງอັນລ້ວເຫລວ ຫຼືພົບຂໍ້ຜິດພາດ. ລອງທໍາງານດ້ວຍຕນເອງ.</string>

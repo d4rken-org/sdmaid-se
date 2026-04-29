@@ -26,6 +26,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Nustatyti dublikatus skaičiuojant failų kontrolines sumas. Failai su sutampančiomis kontrolinėmis sumomis turi tiksliai toki patut turinį.</string>
     <string name="deduplicator_detection_method_phash_title">Suvokimo maistėlis</string>
     <string name="deduplicator_detection_method_phash_summary">Rasti panašius failus analizuojant turinio požymius ir lyginant suvokimo maštėlio reikšmes. ⚠️ Panaumo pagrindu aptikimas gali apimti klaidingų rezultatų, reikalaujančių rankinio tikrinimo.</string>
+    <string name="deduplicator_detection_method_media_title">Medijų pirštų atspaudas</string>
+    <string name="deduplicator_detection_method_media_summary">Raskite panašius vaizdo ir garso failus analizuodami garso pirštų atspaudus. ⚠️ Panašumu pagrįstas aptikimas gali apimti klaidingus teigiamus atvejus, reikalaujančius rankinio patikrinimo.</string>
+    <string name="deduplicator_matches_media_label">Panašios medijos</string>
+    <string name="deduplicator_media_match_audio">Atitiktis pagal garsą</string>
+    <string name="deduplicator_media_match_visual">Atitiktis pagal vaizdą</string>
+    <string name="deduplicator_media_match_audio_visual">Atitiktis pagal garsą ir vaizdą</string>
     <string name="deduplicator_occupied_space_label">Užimta atmintis</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s užimama dublikatų</item>

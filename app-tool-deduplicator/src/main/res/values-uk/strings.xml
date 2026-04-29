@@ -26,6 +26,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Визначте дублікати, обчисливши контрольні суми для файлів. Файли з однаковими контрольними сумами мають однаковий вміст.</string>
     <string name="deduplicator_detection_method_phash_title">Хеш сприйняття</string>
     <string name="deduplicator_detection_method_phash_summary">Знаходьте схожі файли, аналізуючи особливості вмісту та порівнюючи сприйнятливі хеш-значення. ⚠️ Виявлення на основі подібності може містити помилкові спрацьовування, які потребують ручної перевірки.</string>
+    <string name="deduplicator_detection_method_media_title">Медіа-відбиток</string>
+    <string name="deduplicator_detection_method_media_summary">Знаходьте схожі відео та аудіофайли за допомогою аналізу аудіовідбитків. ⚠️ Виявлення на основі схожості може супроводжуватися помилковими спрацьовуваннями, які потребують ручної перевірки.</string>
+    <string name="deduplicator_matches_media_label">Схожі медіа</string>
+    <string name="deduplicator_media_match_audio">Збіг на основі аудіо</string>
+    <string name="deduplicator_media_match_visual">Збіг на основі відео</string>
+    <string name="deduplicator_media_match_audio_visual">Збіг на основі аудіо та відео</string>
     <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s зайнято дублікатами</item>

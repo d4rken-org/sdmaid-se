@@ -13,7 +13,7 @@ data class AutomationStep(
     val windowCheck: (suspend StepContext.() -> ACSNodeInfo)? = null,
     val nodeRecovery: (suspend StepContext.(ACSNodeInfo) -> Boolean)? = null,
     val nodeAction: (suspend StepContext.() -> Boolean)? = null,
-    val timeout: Duration = 30.seconds, // Inner attempt timeout is 10s, queryStatsForPkg timeout is 20s
+    val timeout: Duration = 40.seconds, // Inner attempt timeout is 15s, executionTimeout is 30s
 ) {
     override fun toString(): String = "Step(source=$source, description=$descriptionInternal)"
 }

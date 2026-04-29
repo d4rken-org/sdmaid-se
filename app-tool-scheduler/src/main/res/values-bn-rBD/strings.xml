@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">সময়সূচী</string>
     <string name="scheduler_notification_title">সূচীভুক্ত কাজ</string>
     <string name="scheduler_notification_message">কার্যকর করা হচ্ছে: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">শিডিউলারের ফলাফল</string>
     <string name="scheduler_notification_result_title">সময়সূচী সমাপ্ত</string>
     <string name="scheduler_notification_result_success_message">সমস্ত নির্ধারিত কাজ সফলভাবে চালিত হয়েছে৷</string>
     <string name="scheduler_notification_result_failure_message">কিছু নির্ধারিত কাজ ব্যর্থ হয়েছে বা ত্রুটির সম্মুখীন হয়েছে। এগুলোকে নিজে নিজে চালানোর চেষ্টা করুন।</string>

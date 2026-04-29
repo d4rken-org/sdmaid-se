@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Tentukan duplikat dengan menghitung checksum untuk file. File dengan checksum yang cocok memiliki konten yang persis sama.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsual</string>
     <string name="deduplicator_detection_method_phash_summary">Temukan file serupa dengan menganalisis fitur konten dan membandingkan nilai hash perseptual. ⚠️ Deteksi berbasis kesamaan dapat mencakup positif palsu yang memerlukan verifikasi manual.</string>
+    <string name="deduplicator_detection_method_media_title">Sidik jari media</string>
+    <string name="deduplicator_detection_method_media_summary">Temukan file video dan audio serupa dengan menganalisis sidik jari audio. ⚠️ Deteksi berbasis kemiripan dapat mencakup positif palsu yang memerlukan verifikasi manual.</string>
+    <string name="deduplicator_matches_media_label">Media serupa</string>
+    <string name="deduplicator_media_match_audio">Kecocokan berbasis audio</string>
+    <string name="deduplicator_media_match_visual">Kecocokan berbasis video</string>
+    <string name="deduplicator_media_match_audio_visual">Kecocokan berbasis audio dan video</string>
     <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ditempati oleh duplikat</item>

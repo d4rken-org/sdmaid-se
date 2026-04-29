@@ -33,6 +33,7 @@
     <string name="scheduler_notification_channel_label">Plánovač</string>
     <string name="scheduler_notification_title">Naplánovaná úloha</string>
     <string name="scheduler_notification_message">Prebieha: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Výsledky plánovača</string>
     <string name="scheduler_notification_result_title">Plánovač skončil</string>
     <string name="scheduler_notification_result_success_message">Všetky naplánované úlohy prebehli úspešne.</string>
     <string name="scheduler_notification_result_failure_message">Niektoré naplánované úlohy zlyhali alebo sa vyskytli chyby. Skúste ich spustiť manuálne.</string>

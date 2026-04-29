@@ -132,6 +132,10 @@ class AOSPLabels29Plus @Inject constructor(
         .append { aospLabels14Plus.getStorageEntryStatic(acsContext) }
         .toSet()
 
+    fun getComputingSizeDynamic(
+        acsContext: AutomationExplorer.Context,
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("computing_size"))
+
     fun getClearCacheDynamic(acsContext: AutomationExplorer.Context): Set<String> =
         aospLabels14Plus.getClearCacheDynamic(acsContext)
 

@@ -30,6 +30,12 @@
     <string name="deduplicator_detection_method_checksum_summary">تحديد التكرارات عن طريق حساب مقادير الاختبار للملفات. الملفات مع مقاييس الاختبار المطابقة لها نفس المحتوى بالضبط.</string>
     <string name="deduplicator_detection_method_phash_title">التجزئة المفهومة</string>
     <string name="deduplicator_detection_method_phash_summary">البحث عن ملفات مشابهة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية. ⚠️ قد يتضمن الكشف القائم على المماثلة إيجابيات خاطئة تتطلب التحقق اليدوي.</string>
+    <string name="deduplicator_detection_method_media_title">بصمة الوسائط</string>
+    <string name="deduplicator_detection_method_media_summary">البحث عن ملفات الفيديو والصوت المتشابهة عن طريق تحليل البصمات الصوتية. ⚠️ قد يتضمن الكشف القائم على التشابه نتائج إيجابية كاذبة تتطلب التحقق اليدوي.</string>
+    <string name="deduplicator_matches_media_label">وسائط متشابهة</string>
+    <string name="deduplicator_media_match_audio">تطابق قائم على الصوت</string>
+    <string name="deduplicator_media_match_visual">تطابق قائم على الفيديو</string>
+    <string name="deduplicator_media_match_audio_visual">تطابق قائم على الصوت والفيديو</string>
     <string name="deduplicator_occupied_space_label">المساحة المستخدمة</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="zero">%s مشغولة بالنسخ المكررة</item>

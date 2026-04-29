@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">የተወሰዱ ምስሎች፣ የተቀዱ ቪዲዮዎች ወይም የተወረዱ ውሂቦች። ለተወሰነ መተግበሪያ የማያመሩ ማንኛቸውም ውሂቦች።</string>
     <string name="analyzer_storage_content_type_system_label">የሲስተም ውሂብ</string>
     <string name="analyzer_storage_content_type_system_description">የሲስተም መተግበሪያዎችና የሲስተም ውሂብ። ብዙ የተጠቃሚ መለያዎች በዚህ መሣሪያ ላይ ከተሰናዱ የሌሎች ተጠቃሚዎች መተግበሪያዎችና ውሂብ።</string>
+    <string name="analyzer_storage_content_type_system_other_label">ሌላ</string>
+    <string name="analyzer_storage_content_type_system_info">ከመተግበሪያዎች ወይም ከተጠቃሚ ፋይሎች ምድቦች ውጭ የሆኑ ፋይሎች። ማሰስ ብቻ — ሰርዛ አይደገፍም። አንዳንድ ቦታዎች ባለው ፍቃድ ገደብ ምክንያት ሙሉ ላይሆኑ ይችላሉ።</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid መድረስ ወይም መመደብ ያልቻለ የስርዓት ፋይሎች እና ሌሎች ውሂቦች። ስርዓተ ክወናው አንዳንድ ቦታዎች ይዘት ዝርዝር መዘርዘርን ይገድባል።</string>
     <string name="analyzer_storage_content_app_code_label">የመተግበሪያ ኮድ</string>
     <string name="analyzer_storage_content_app_code_description">የመተግበሪያ ፋይሎች፣ ቤተ-መጻሕፍትና ሀብቶች። ይህ ቦታ መተግበሪያውን በማጥፋት ወይም በማከማቸት (በአዲሶቹ አንድሮይድ ስሪቶች ላይ ይገኛል) ሊለቀቅ ይችላል።</string>
     <string name="analyzer_storage_content_app_data_label">የመተግበሪያ ውሂብ</string>

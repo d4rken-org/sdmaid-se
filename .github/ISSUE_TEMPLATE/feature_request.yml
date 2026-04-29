@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest a new feature or an enhancement
+labels:
+  - enhancement
+  - triage
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear and concise description of what the problem is.
+      placeholder: "e.g. Mornings in Sweden are always very cold and I'm not an early bird."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+      placeholder: "e.g. I would like it if SD Maid could make me coffee in the morning."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: "e.g. I have considered making the coffee myself but both me and myself decided against it."
+
+  - type: textarea
+    id: user-benefit
+    attributes:
+      label: Describe why this would be in the interest of all users
+      description: Describe why this is not a niche feature, but would be a benefit for the majority of users.
+      placeholder: "e.g. Everyone enjoys getting a hot beverage on a cold morning."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.

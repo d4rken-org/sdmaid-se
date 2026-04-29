@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Programmateur</string>
     <string name="scheduler_notification_title">Tâche programmée</string>
     <string name="scheduler_notification_message">Exécution : %s</string>
+    <string name="scheduler_notification_result_channel_label">Résultats du planificateur</string>
     <string name="scheduler_notification_result_title">Le programmateur a terminé</string>
     <string name="scheduler_notification_result_success_message">Toutes vos tâches programmées ont été effectuées correctement.</string>
     <string name="scheduler_notification_result_failure_message">Certaines tâches ont échoué ou des erreurs sont survenues. Tentez de les effectuer manuellement.</string>

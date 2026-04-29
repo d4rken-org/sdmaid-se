@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Bestäm dubbletter genom att beräkna kontrollsummor för filer. Filer med matchande kontrollsummor har exakt samma innehåll.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuell hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hitta liknande filer genom att analysera innehållsfunktioner och jämföra perceptuella hashvärden. Likhetsbaserad detektering kan inkludera falska positiva som kräver manuell verifiering.</string>
+    <string name="deduplicator_detection_method_media_title">Mediefingeravtryck</string>
+    <string name="deduplicator_detection_method_media_summary">Hitta liknande video- och ljudfiler genom att analysera ljudfingeravtryck. ⚠️ Likhetbaserad identifiering kan inkludera falskt positiva fynd som kräver manuell verifiering.</string>
+    <string name="deduplicator_matches_media_label">Liknande media</string>
+    <string name="deduplicator_media_match_audio">Ljudbaserad matchning</string>
+    <string name="deduplicator_media_match_visual">Videobaserad matchning</string>
+    <string name="deduplicator_media_match_audio_visual">Ljud- och videobaserad matchning</string>
     <string name="deduplicator_occupied_space_label">Upptagen lagring</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s upptas av dubbletter</item>

@@ -102,7 +102,7 @@
     <string name="support_debuglog_desc">एपले गरिरहेको सबै कुरा एक टेक्स्ट फाइलमा रेकर्ड गर्नुहोस् जुन तपाईंले साझा गर्न सक्नुहुन्छ।</string>
     <string name="support_debuglog_folder_label">डिबग लग फोल्डर</string>
     <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">1 फाइल %1$s प्रयोग गरिरहेको छ</item>
+        <item quantity="one">%1$d फाइल %2$s प्रयोग गरिरहेको छ</item>
         <item quantity="other">%1$d फाइलहरू %2$s प्रयोग गरिरहेका छन्</item>
     </plurals>
     <string name="support_debuglog_folder_empty_desc">कुनै डिबग लग संग्रहित छैन</string>

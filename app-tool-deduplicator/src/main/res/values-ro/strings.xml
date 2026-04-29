@@ -24,6 +24,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Determinați duplicate prin calcularea sumelor de verificare pentru fișiere. Fișierele cu sumele corespunzătoare de verificare au exact același conținut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash veșnic</string>
     <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile de conținut și comparând valorile hash perceptuale. ⚠️ Detectarea bazată pe similitudine poate include rezultate fals pozitive care necesită verificare manuală.</string>
+    <string name="deduplicator_detection_method_media_title">Amprentă media</string>
+    <string name="deduplicator_detection_method_media_summary">Găsește fișiere video și audio similare analizând amprentele audio. ⚠️ Detecția bazată pe similitudine poate include fals pozitive care necesită verificare manuală.</string>
+    <string name="deduplicator_matches_media_label">Media similară</string>
+    <string name="deduplicator_media_match_audio">Potrivire bazată pe audio</string>
+    <string name="deduplicator_media_match_visual">Potrivire bazată pe video</string>
+    <string name="deduplicator_media_match_audio_visual">Potrivire bazată pe audio și video</string>
     <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s este ocupat de duplicate</item>

@@ -20,6 +20,12 @@
     <string name="deduplicator_detection_method_checksum_summary">通过计算文件的校验和来确定重复项，校验和匹配的文件具有「完全相同」的内容</string>
     <string name="deduplicator_detection_method_phash_title">感知哈希</string>
     <string name="deduplicator_detection_method_phash_summary">通过分析内容特征并比较感知哈希值来查找相似文件。⚠️ 基于相似度的检测可能包含需要人工验证的误报。</string>
+    <string name="deduplicator_detection_method_media_title">媒体指纹</string>
+    <string name="deduplicator_detection_method_media_summary">通过分析音频指纹查找相似的视频和音频文件。⚠️ 基于相似度的检测可能包含误报，需要手动验证。</string>
+    <string name="deduplicator_matches_media_label">相似媒体</string>
+    <string name="deduplicator_media_match_audio">基于音频的匹配</string>
+    <string name="deduplicator_media_match_visual">基于视频的匹配</string>
+    <string name="deduplicator_media_match_audio_visual">基于音频和视频的匹配</string>
     <string name="deduplicator_occupied_space_label">占用的存储空间</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">重复项占用 %s</item>

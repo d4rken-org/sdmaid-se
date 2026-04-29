@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ఫైల్‌ల కోసం చెక్‌సమ్‌లను లెక్కించి డుప్లికేట్‌లను నిర్ణయించండి. సరిపోలిక చెక్‌సమ్‌ల ఉన్న ఫైల్‌లు సరియాగా అను కంటెంట్ ఉంటాయి.</string>
     <string name="deduplicator_detection_method_phash_title">పర్సెప్చుఅల్ హాష్</string>
     <string name="deduplicator_detection_method_phash_summary">కంటెంట్ ఫీచర్‌లను విశ్లేషించడం మరియు పర్సెప్చువల్ హాష్ విలువలను పోల్చడం ద్వారా సారూప్య ఫైల్‌లను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు పాజిటివ్‌లు ఉండవచ్చు, మాన్యువల్ ధృవీకరణ అవసరం.</string>
+    <string name="deduplicator_detection_method_media_title">మీడియా వేలిముద్ర</string>
+    <string name="deduplicator_detection_method_media_summary">ఆడియో వేలిముద్రలను విశ్లేషించడం ద్వారా సారూప్య వీడియో మరియు ఆడియో ఫైళ్ళను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు ఫలితాలు ఉండవచ్చు, వాటికి మాన్యువల్ ధృవీకరణ అవసరం.</string>
+    <string name="deduplicator_matches_media_label">సారూప్య మీడియా</string>
+    <string name="deduplicator_media_match_audio">ఆడియో-ఆధారిత సరిపోలిక</string>
+    <string name="deduplicator_media_match_visual">వీడియో-ఆధారిత సరిపోలిక</string>
+    <string name="deduplicator_media_match_audio_visual">ఆడియో మరియు వీడియో-ఆధారిత సరిపోలిక</string>
     <string name="deduplicator_occupied_space_label">ఆక్రమించిన స్టోరేజీ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s డుప్లికేట్‌లు ఆక్రమించాయి</item>

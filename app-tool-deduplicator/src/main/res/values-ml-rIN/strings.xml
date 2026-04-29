@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">ഫയലുകൾക്കായി ചെക്ക്സം കണക്കാക്കി ഡ്യൂപ്ലിക്കേറ്റുകൾ നിർണ്ണയിക്കുക. ഒരേ ചെക്ക്സം ഉള്ള ഫയലുകൾക്ക് ഒരേ ഉള്ളടക്കമാണ്.</string>
     <string name="deduplicator_detection_method_phash_title">പെർസെപ്ച്വൽ ഹാഷ്</string>
     <string name="deduplicator_detection_method_phash_summary">ഉള്ളടക്ക സവിശേഷതകൾ വിശകലനം ചെയ്ത് പെർസെപ്ച്വൽ ഹാഷ് മൂല്യങ്ങൾ താരതമ്യം ചെയ്ത് സമാന ഫയലുകൾ കണ്ടെത്തുക. ⚠️ സമാനത അടിസ്ഥാനത്തിലുള്ള കണ്ടെത്തൽ തെറ്റായ ഫലങ്ങൾ നൽകിയേക്കാം, അതിന് സ്വമേധയായ പരിശോധന ആവശ്യമായി വരും.</string>
+    <string name="deduplicator_detection_method_media_title">മീഡിയ ഫിംഗർപ്രിന്റ്</string>
+    <string name="deduplicator_detection_method_media_summary">ഓഡിയോ ഫിംഗർപ്രിന്റുകൾ വിശകലനം ചെയ്ത് സമാനമായ വീഡിയോ, ഓഡിയോ ഫയലുകൾ കണ്ടെത്തുക. ⚠️ സാദൃശ്യ അടിസ്ഥാനത്തിലുള്ള കണ്ടെത്തൽ തെറ്റായ ഫലങ്ങൾ ഉൾക്കൊള്ളാം, അതിനാൽ സ്വമേധയാ പരിശോധന ആവശ്യമാണ്.</string>
+    <string name="deduplicator_matches_media_label">സമാന മീഡിയ</string>
+    <string name="deduplicator_media_match_audio">ഓഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
+    <string name="deduplicator_media_match_visual">വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
+    <string name="deduplicator_media_match_audio_visual">ഓഡിയോ, വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
     <string name="deduplicator_occupied_space_label">ഉപയോഗിക്കുന്ന സ്റ്റോറേജ്</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ഡ്യൂപ്ലിക്കേറ്റ് ഉപയോഗിക്കുന്നു</item>

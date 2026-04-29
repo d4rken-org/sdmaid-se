@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Bepaal duplikate deur checksums vir lêers te bereken. Lêers met passende checksums het presies dieselfde inhoud.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptuele hash</string>
     <string name="deduplicator_detection_method_phash_summary">Vind soortgelyke lêers deur inhoudkenmerke te ontleed en perseptuele hash-waardes te vergelyk. ⚠️ Ooreenkoms-gebaseerde opsporing kan vals positiewes insluit wat handmatige verifikasie vereis.</string>
+    <string name="deduplicator_detection_method_media_title">Media-vingerafdruk</string>
+    <string name="deduplicator_detection_method_media_summary">Vind soortgelyke video- en oudiolêers deur oudio-vingerafdrukke te ontleed. ⚠️ Gelykenisgebaseerde opsporing kan vals positiewe insluit wat handmatige verifikasie vereis.</string>
+    <string name="deduplicator_matches_media_label">Soortgelyke media</string>
+    <string name="deduplicator_media_match_audio">Oudiogebaseerde ooreenkoms</string>
+    <string name="deduplicator_media_match_visual">Video-gebaseerde ooreenkoms</string>
+    <string name="deduplicator_media_match_audio_visual">Oudio- en video-gebaseerde ooreenkoms</string>
     <string name="deduplicator_occupied_space_label">Besette berging</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s word deur duplikate beset</item>

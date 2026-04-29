@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Файлуудад хяналтын нийлбэр тооцоолж давхардлыг тодорхойлох. Тааралдсан хяналтын нийлбэртэй файлууд яг ижил агуулгатай.</string>
     <string name="deduplicator_detection_method_phash_title">Хүртэхүйн хэш</string>
     <string name="deduplicator_detection_method_phash_summary">Агуулгын шинж чанарыг дүн шинжилгээ хийж, хүртэхүйн хэш утгуудыг харьцуулж ижил файлуудыг олох.</string>
+    <string name="deduplicator_detection_method_media_title">Медиа хурууны хээ</string>
+    <string name="deduplicator_detection_method_media_summary">Аудио хурууны хээг шинжлэн төстэй видео болон аудио файлуудыг олох. ⚠️ Төстэй байдалд суурилсан илрүүлэлт нь гараар баталгаажуулалт шаардах худал эерэг үр дүнг агуулж болно.</string>
+    <string name="deduplicator_matches_media_label">Төстэй медиа</string>
+    <string name="deduplicator_media_match_audio">Аудиод суурилсан тохирц</string>
+    <string name="deduplicator_media_match_visual">Видеод суурилсан тохирц</string>
+    <string name="deduplicator_media_match_audio_visual">Аудио болон видеод суурилсан тохирц</string>
     <string name="deduplicator_occupied_space_label">Езлэгдсэн санах</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s давхардах файлууд эзлаад байна</item>

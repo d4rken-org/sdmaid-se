@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">शेड्युलर</string>
     <string name="scheduler_notification_title">अनुसूचित कार्य</string>
     <string name="scheduler_notification_message">कार्यान्वयन गरिँदैछ: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">शेड्युलर परिणामहरू</string>
     <string name="scheduler_notification_result_title">शेड्युलर सम्पन्न भयो</string>
     <string name="scheduler_notification_result_success_message">सबै अनुसूचित कार्यहरू सफलतापूर्वक चलाइए।</string>
     <string name="scheduler_notification_result_failure_message">केही अनुसूचित कार्यहरू विफल भयो वा त्रुटिहरूको सामना गरियो। तिनलाई म्यानुअली चलाउने प्रयास गर्नुहोस्।</string>

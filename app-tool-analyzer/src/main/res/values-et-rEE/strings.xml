@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
     <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Muude kasutajate rakendused ja andmed, kui seadmes on seadistatud mitu kasutajakontot.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Muu</string>
+    <string name="analyzer_storage_content_type_system_info">Failid, mis ei kuulu rakenduste ega kasutajafailide kategooriatesse. Ainult sirvimine — kustutamine pole toetatud. Mõned alad võivad olla mittetäielikud juurdepääsupiirangute tõttu.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Süsteemifailid ja muud andmed, millele SD Maid ei saanud juurde pääseda ega kategoriseerida. Operatsioonisüsteem piirab mõnede alade sisu loetlemist.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
     <string name="analyzer_storage_content_app_code_description">Rakenduse failid, teegid ja allikad. Sellle ruumi vabastamiseks eemaldage rakendus või arhiveerige see (saadaval uusimas Androidi versioonis).</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>

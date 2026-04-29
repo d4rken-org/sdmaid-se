@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Fayllar ushın tekseriw jıyındıların esaplaw arqalı dublikatlardı anıqlaw. Sáykes tekseriw jıyındısına iye fayllar tap sol mazmunǵa iye.</string>
     <string name="deduplicator_detection_method_phash_title">Qabıllaw xeshi</string>
     <string name="deduplicator_detection_method_phash_summary">Mazmun o\'zgesheliklerdi taldaw ha\'m perseptual xesh qıymatların salıstırıw arqalı uqsas faylları tabın\'. ⚠️ Uqsaslıqqa tiykarlanǵan anıqlaw jalǵan pozitiflerdı o\'z ishine alıwı mu\'mkin, qoldan tekseriwdi talap etedi.</string>
+    <string name="deduplicator_detection_method_media_title">Медиа саусақ изи</string>
+    <string name="deduplicator_detection_method_media_summary">Аудио саусақ излери арқалы усыс видео ҳәм аудио файлларды табыў. ⚠️ Усыслыққа тийкарланған анықлаў нәтийжесинде қол менен тексериўди талап ететуғын жалған позитивлер болыўы мүмкин.</string>
+    <string name="deduplicator_matches_media_label">Усыс медиа</string>
+    <string name="deduplicator_media_match_audio">Аудиоға тийкарланған сәйкеслик</string>
+    <string name="deduplicator_media_match_visual">Видеоға тийкарланған сәйкеслик</string>
+    <string name="deduplicator_media_match_audio_visual">Аудио ҳәм видеоға тийкарланған сәйкеслик</string>
     <string name="deduplicator_occupied_space_label">Bándelgen saqlawsh</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s dublikatlları iyelep turır</item>

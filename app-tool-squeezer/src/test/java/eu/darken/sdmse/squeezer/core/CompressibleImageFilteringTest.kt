@@ -235,7 +235,7 @@ class CompressibleImageFilteringTest : BaseTest() {
     @Test
     fun `hasData returns true when images exist`() {
         val data = Squeezer.Data(
-            images = setOf(createImage("/test.jpg"))
+            media = setOf(createImage("/test.jpg"))
         )
 
         data.hasData shouldBe true
@@ -243,7 +243,7 @@ class CompressibleImageFilteringTest : BaseTest() {
 
     @Test
     fun `hasData returns false when images is empty`() {
-        val data = Squeezer.Data(images = emptySet())
+        val data = Squeezer.Data(media = emptySet())
 
         data.hasData shouldBe false
     }

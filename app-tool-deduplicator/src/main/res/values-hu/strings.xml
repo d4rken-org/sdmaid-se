@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Duplikátumok meghatározása a fájlok ellenőrző összegének kiszámításával. Az egyező ellenőrzőösszegű fájlok tartalma pontosan megegyezik.</string>
     <string name="deduplicator_detection_method_phash_title">Hasonló hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hasonló fájlok keresése tartalmi jellemzők elemzésével és perceptuális hash értékek összehasonlításával. ⚠️ A hasonlóság alapú felismerés téves találatokat is tartalmazhat, amelyek kézi ellenőrzést igényelnek.</string>
+    <string name="deduplicator_detection_method_media_title">Médiaujjlenyomat</string>
+    <string name="deduplicator_detection_method_media_summary">Hasonló videó- és hangfájlok keresése hangujjlenyomatok elemzésével. ⚠️ A hasonlóságalapú észlelés fals pozitív találatokat is tartalmazhat, amelyek manuális ellenőrzést igényelnek.</string>
+    <string name="deduplicator_matches_media_label">Hasonló média</string>
+    <string name="deduplicator_media_match_audio">Hangalapú egyezés</string>
+    <string name="deduplicator_media_match_visual">Videóalapú egyezés</string>
+    <string name="deduplicator_media_match_audio_visual">Hang- és videóalapú egyezés</string>
     <string name="deduplicator_occupied_space_label">Foglalt tároló</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s duplikátummal elfoglalva</item>

@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">වේලාව නිර්ණායක</string>
     <string name="scheduler_notification_title">වේලාව කාර්ය</string>
     <string name="scheduler_notification_message">කාර්යාන්විත කරමින්: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">කාලසටහන් ප්‍රතිඵල</string>
     <string name="scheduler_notification_result_title">වේලාව නිර්ණායක සමාප්ත විය</string>
     <string name="scheduler_notification_result_success_message">සියලු වේලාව කාර්ය ඪාවිතාවෙන් කාර්යාන්විත විය.</string>
     <string name="scheduler_notification_result_failure_message">කදාචර වේලාව කාර්ය ඉඤාඵර විය හෝ ගැට්ටු ආහ්වාන කරෑය. එවා හස්තින් චාවිත කිරීමට උත්සාහ කරන්න.</string>

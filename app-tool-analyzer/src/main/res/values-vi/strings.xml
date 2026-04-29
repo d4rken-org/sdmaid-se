@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
     <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác nếu có nhiều tài khoản người dùng được đặt trên thiết bị này.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Khác</string>
+    <string name="analyzer_storage_content_type_system_info">Các tệp không thuộc danh mục Ứng dụng hoặc Tệp người dùng. Chỉ duyệt — không hỗ trợ xóa. Một số khu vực có thể không đầy đủ do hạn chế truy cập.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Tệp hệ thống và dữ liệu khác mà SD Maid không thể truy cập hoặc phân loại. Hệ điều hành hạn chế việc liệt kê nội dung của một số khu vực.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tập tin ứng dụng, thư viện và tài nguyên. Không gian này có thể được giải phóng bằng cách gỡ cài đặt ứng dụng hoặc lưu trữ nó (có sẵn trên phiên bản Android mới hơn).</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>

@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">ନିର୍ଦ୍ଧାରଣକାରୀ</string>
     <string name="scheduler_notification_title">ନିର୍ଦ୍ଧାରିତ କାର୍ଯ୍ୟ</string>
     <string name="scheduler_notification_message">କାର୍ଯ୍ୟକାରୀ କରୁଛି: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">ସ୍କ୍ୟାଡ୍ୟୁଲର ଫଳାଫଳ</string>
     <string name="scheduler_notification_result_title">ନିର୍ଦ୍ଧାରଣକାରୀ ସମାପ୍ତ ହୋଇଛି</string>
     <string name="scheduler_notification_result_success_message">ସମସ୍ତ ନିର୍ଦ୍ଧାରିତ କାର୍ଯ୍ୟ ସଫଳତାର ସହିତ ଚାଲିଛି।</string>
     <string name="scheduler_notification_result_failure_message">କିଛି ନିର୍ଦ୍ଧାରିତ କାର୍ଯ୍ୟ ବିଫଳ ହୋଇଛି କିମ୍ବା ତ୍ରୁଟିର ସମ୍ମୁଖୀନ ହୋଇଛି। ସେଗୁଡ଼ିକୁ ହସ୍ତକୃତ ଭାବରେ ଚଲାଇବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>

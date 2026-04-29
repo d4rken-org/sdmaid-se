@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">ഷെഡ്യൂർ</string>
     <string name="scheduler_notification_title">ഷെഡ്യൂർ ചെയ്ത ടാസ്ക്</string>
     <string name="scheduler_notification_message">നടപ്പിലാക്കുന്നു: “%s”</string>
+    <string name="scheduler_notification_result_channel_label">ഷെഡ്യൂളർ ഫലങ്ങൾ</string>
     <string name="scheduler_notification_result_title">ഷെഡ്യൂർ പൂർത്തിയായി</string>
     <string name="scheduler_notification_result_success_message">ഷെഡ്യൂർ ചെയ്ത എല്ലാ ടാസ്ക്കുകളും വിജയകരമായി പൂർത്തിയായി.</string>
     <string name="scheduler_notification_result_failure_message">ചില ഷെഡ്യൂർ ടാസ്ക്കുകൾ പരാജയപ്പെടുകയോ പിശകുകൾ നേരിടുകയോ ചെയ്തു. അവ കൈയാർ നടത്തി പരീക്ഷിക്കുക.</string>

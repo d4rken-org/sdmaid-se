@@ -19,8 +19,8 @@
     <string name="debug_debuglog_screen_session_path_label">Njia ya Kipindi</string>
     <string name="debug_debuglog_screen_log_files_label">Mafaili ya Rekodi</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">faili %1$d tayari (%2$s) · %3$s</item>
-        <item quantity="other">mafaili %1$d tayari (%2$s) · %3$s</item>
+        <item quantity="one">Faili %1$d tayari (%2$s) · %3$s</item>
+        <item quantity="other">Faili %1$d tayari (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Kipengele hiki kinarekodi kila kitu programu inachofanya katika faili linaweza kushirikishwa. Faili lililotengenezwa lina maelezo ya siri (k.m. majina ya mafaili na programu zilizosakiniwa). Shiriki tu na wahusika wanaoweza kuaminika (k.m. msanidi programu anayetatua tatizo).</string>
     <string name="debug_debuglog_short_recording_title">Rekodi fupi sana</string>

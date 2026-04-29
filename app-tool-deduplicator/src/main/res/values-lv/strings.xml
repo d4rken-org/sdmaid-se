@@ -24,6 +24,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Noteikt dublikātus, apreķinot failu kontrolsummas. Failiem ar sakristošām kontrolsummām ir precizīgi tadās pašas saturs.</string>
     <string name="deduplicator_detection_method_phash_title">Uztveres jūkls</string>
     <string name="deduplicator_detection_method_phash_summary">Atrast līdzīgus failus, analīzējot satura pazīmes un salīdzinot uztveres jūkla vērtības. ⚠️ Līdzībās bazēta noteikšana var iekļaut neprecizitātes, kas prasa manuālu pārbaudi.</string>
+    <string name="deduplicator_detection_method_media_title">Multivides pirkstspiediens</string>
+    <string name="deduplicator_detection_method_media_summary">Atrast līdzīgus video un audio failus, analizējot audio pirkstspiedienus. ⚠️ Uz līdzību balstīta noteikšana var ietvert viltus pozitīvus rezultātus, kuriem nepieciešama manuāla pārbaude.</string>
+    <string name="deduplicator_matches_media_label">Līdzīga multivide</string>
+    <string name="deduplicator_media_match_audio">Uz audio balstīta atbilstība</string>
+    <string name="deduplicator_media_match_visual">Uz video balstīta atbilstība</string>
+    <string name="deduplicator_media_match_audio_visual">Uz audio un video balstīta atbilstība</string>
     <string name="deduplicator_occupied_space_label">Aizņemtais krātuves apjoms</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="zero">%s ir aizņemti ar dublikātiem</item>

@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">شیڈیولر</string>
     <string name="scheduler_notification_title">مقررہ کام</string>
     <string name="scheduler_notification_message">عمل کر رہے ہیں: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">شیڈیولر کے نتائج</string>
     <string name="scheduler_notification_result_title">شیڈیولر مکمل</string>
     <string name="scheduler_notification_result_success_message">تمام شیڈیول شدہ کام کامیابی سے چلے۔</string>
     <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>

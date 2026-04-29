@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Zehaztu bikoiztuak fitxategien egiaztapen-batuak kalkulatuz. Egiaztapen-batu berdinak dituzten fitxategiek eduki berdina dute.</string>
     <string name="deduplicator_detection_method_phash_title">Hash pertzeptuala</string>
     <string name="deduplicator_detection_method_phash_summary">Bilatu antzeko fitxategiak edukiaren ezaugarriak aztertuz eta hash pertzeptualak alderatuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsuki positiboak sar ditzake eskuzko egiaztapena behar dutenak.</string>
+    <string name="deduplicator_detection_method_media_title">Media hatz-marka</string>
+    <string name="deduplicator_detection_method_media_summary">Bilatu antzeko bideo eta audio fitxategiak audio hatz-markak aztertuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsu positiboak sor ditzake eskuzko egiaztapena eskatuz.</string>
+    <string name="deduplicator_matches_media_label">Antzeko multimedia</string>
+    <string name="deduplicator_media_match_audio">Audio-oinarritutako bat etortzea</string>
+    <string name="deduplicator_media_match_visual">Bideo-oinarritutako bat etortzea</string>
+    <string name="deduplicator_media_match_audio_visual">Audio eta bideo-oinarritutako bat etortzea</string>
     <string name="deduplicator_occupied_space_label">Erabilitako biltegiratzea</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s bikoiztuek hartuta dago</item>

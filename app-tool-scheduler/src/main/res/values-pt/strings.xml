@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Agenda</string>
     <string name="scheduler_notification_title">Tarefa agendada</string>
     <string name="scheduler_notification_message">Executando: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Resultados do agendador</string>
     <string name="scheduler_notification_result_title">Tarefa agendada finalizada</string>
     <string name="scheduler_notification_result_success_message">Todas as tarefas agendadas foram executadas com sucesso.</string>
     <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>

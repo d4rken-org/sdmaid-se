@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Распоредувач</string>
     <string name="scheduler_notification_title">Закажана задача</string>
     <string name="scheduler_notification_message">Извршување: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Резултати на распоредувачот</string>
     <string name="scheduler_notification_result_title">Распоредувачот заврши</string>
     <string name="scheduler_notification_result_success_message">Сите закажани задачи се извршија успешно.</string>
     <string name="scheduler_notification_result_failure_message">Некои закажани задачи не успеаја или наидоа на грешки. Обидете се да ги извршите рачно.</string>

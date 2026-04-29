@@ -32,6 +32,7 @@
     <string name="scheduler_notification_channel_label">Plānotājs</string>
     <string name="scheduler_notification_title">Plānotais uzdevums</string>
     <string name="scheduler_notification_message">Izpilda: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Plānotāja rezultāti</string>
     <string name="scheduler_notification_result_title">Grafiks pabeigts</string>
     <string name="scheduler_notification_result_success_message">Visi plānotie uzdevumi tika izpildīti veiksmgi.</string>
     <string name="scheduler_notification_result_failure_message">Daži plānotić uzdevumi neizdevās vai saskara ar kļūdām. Mēģiniet tos izpildīt manuāli.</string>

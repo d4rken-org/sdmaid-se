@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">გადაღებული სურათები, ჩაწერილი ვიდეოები ან ჩამოტვირთული მონაცემები. ნებისმიერი მონაცემი, რომელიც არ ეკუთვნის კონკრეტულ აპს.</string>
     <string name="analyzer_storage_content_type_system_label">სისტემური მონაცემები</string>
     <string name="analyzer_storage_content_type_system_description">სისტემური აპები და სისტემური მონაცემები. აპები და მონაცემები სხვა მომხმარებლებისგან, თუ ამ მოწყობილობაზე დაყენებულია რამდენიმე მომხმარებლის ანგარიში.</string>
+    <string name="analyzer_storage_content_type_system_other_label">სხვა</string>
+    <string name="analyzer_storage_content_type_system_info">ფაილები, რომლებიც არ შეესაბამება აპლიკაციების ან მომხმარებლის ფაილების კატეგორიებს. მხოლოდ დათვალიერება — წაშლა არ არის მხარდაჭერილი. ზოგიერთი სფერო შეიძლება არასრული იყოს წვდომის შეზღუდვების გამო.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">სისტემური ფაილები და სხვა მონაცემები, რომლებზეც SD Maid-ს არ ჰქონდა წვდომა ან ვერ დაახარისეთ. ოპერაციული სისტემა ზღუდავს ზოგიერთი სფეროს შინაარსის ჩამოთვლას.</string>
     <string name="analyzer_storage_content_app_code_label">აპის კოდი</string>
     <string name="analyzer_storage_content_app_code_description">აპლიკაციის ფაილები, ბიბლიოთეკები და რესურსები. ეს ადგილი შეიძლება განთავისუფლდეს აპის წაშლით ან დაარქივებით (ხელმისაწვდომია Android-ის ახალ ვერსიებზე).</string>
     <string name="analyzer_storage_content_app_data_label">აპის მონაცემები</string>

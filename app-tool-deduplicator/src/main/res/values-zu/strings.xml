@@ -22,6 +22,12 @@
     <string name="deduplicator_detection_method_checksum_summary">Nquma okukhophisiwe ngokubala ama-checksum wamafayela. Amafayela ama-checksum afanayo anokuqukethwe okufanayo ngqo.</string>
     <string name="deduplicator_detection_method_phash_title">I-hash yokubona</string>
     <string name="deduplicator_detection_method_phash_summary">Thola amafayela afanayo ngokuhlaziya izici zokuqukethwe nokuqhathanisa amagugu e-hash okuqonda. ⚠️ Ukutholwa okungesokunembile okusekelwe kufanayo kungafaka imiphumela engalona iqiniso edinga ukuqinisekiswa ngesandla.</string>
+    <string name="deduplicator_detection_method_media_title">Uphawu lwemidiya</string>
+    <string name="deduplicator_detection_method_media_summary">Thola amafayela efuziwe evidiyo namazwi ngokuhlaziya izimpawu zamazwi. ⚠️ Ukutholwa okusekelwe okulunganayo kungahlanganisa izinto ezingeyizo ezidinga ukuqinisekiswa ngesandla.</string>
+    <string name="deduplicator_matches_media_label">Imidiya efanayo</string>
+    <string name="deduplicator_media_match_audio">Ukufanana okusekelwe kumazwi</string>
+    <string name="deduplicator_media_match_visual">Ukufanana okusekelwe evidiyo</string>
+    <string name="deduplicator_media_match_audio_visual">Ukufanana okusekelwe kumazwi nasevidiyo</string>
     <string name="deduplicator_occupied_space_label">Isitoreji esihleli</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">I-%s ihleli okukhophisiwe</item>

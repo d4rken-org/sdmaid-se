@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Fotografi të shkrepura, video të regjistruara ose të dhëna të shkarkuara. Çdo të dhënë që nuk i përket një aplikacioni specifik.</string>
     <string name="analyzer_storage_content_type_system_label">Të dhënat e sistemit</string>
     <string name="analyzer_storage_content_type_system_description">Aplikacionet e sistemit dhe të dhënat e sistemit. Aplikacionet dhe të dhënat nga përdoruesit e tjerë, nëse në këtë pajisje janë caktuar disa llogari përdoruesish.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Tjetër</string>
+    <string name="analyzer_storage_content_type_system_info">Skedarë që nuk i përshtaten kategorive Aplikacione ose Skedarë të përdoruesit. Shfletim i vetëm — fshirja nuk mbështet. Disa zona mund të jenë të paplotë për shkak të kufizimeve të aksesit.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Skedarë të sistemit dhe të dhëna të tjera që SD Maid nuk mund t’i aksesojë ose kategorizojë. Sistemi operativ kufizon listimin e përbajtjes në disa zona.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
     <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
     <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>

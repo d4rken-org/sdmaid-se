@@ -31,6 +31,7 @@
     <string name="scheduler_notification_channel_label">Programuesi</string>
     <string name="scheduler_notification_title">Detyrë e planifikuar</string>
     <string name="scheduler_notification_message">Ekzekutimi: \"%s\"</string>
+    <string name="scheduler_notification_result_channel_label">Rezultatet e planifikuesit</string>
     <string name="scheduler_notification_result_title">Programuesi përfundoi</string>
     <string name="scheduler_notification_result_success_message">Të gjitha detyrat e planifikuara u kryen me sukses.</string>
     <string name="scheduler_notification_result_failure_message">Disa detyra të planifikuara dështuan ose hasën në gabime. Provoni t\'i ekzekutoni ato manualisht.</string>
