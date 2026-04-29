@@ -132,7 +132,7 @@ fun SqueezerSetupScreenHost(
 
     exampleDialog?.let { event ->
         SqueezerComparisonDialog(
-            image = event.sampleImage,
+            media = event.sampleImage,
             quality = event.quality,
             onClose = { exampleDialog = null },
         )

@@ -1,6 +1,8 @@
 package eu.darken.sdmse.squeezer.ui.comparison
 
 import android.content.res.Configuration
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -56,6 +58,8 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.copyToAutoClose
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
@@ -73,7 +77,7 @@ internal interface SqueezerComparisonEntryPoint {
 
 @Composable
 fun SqueezerComparisonDialog(
-    image: CompressibleImage,
+    media: CompressibleMedia,
     quality: Int,
     onClose: () -> Unit,
 ) {
@@ -84,6 +88,7 @@ fun SqueezerComparisonDialog(
             SqueezerComparisonEntryPoint::class.java,
         ).gatewaySwitch()
     }
+    val isVideo = media is CompressibleVideo
 
     Dialog(
         onDismissRequest = onClose,
@@ -92,37 +97,66 @@ fun SqueezerComparisonDialog(
             decorFitsSystemWindows = false,
         ),
     ) {
-        var originalFile by remember(image) { mutableStateOf<File?>(null) }
-        var compressedFile by remember(image, quality) { mutableStateOf<File?>(null) }
-        var failed by remember(image, quality) { mutableStateOf(false) }
-        var tempDir by remember(image, quality) { mutableStateOf<File?>(null) }
+        var originalFile by remember(media) { mutableStateOf<File?>(null) }
+        var compressedFile by remember(media, quality) { mutableStateOf<File?>(null) }
+        var failed by remember(media, quality) { mutableStateOf(false) }
+        var tempDir by remember(media, quality) { mutableStateOf<File?>(null) }
 
-        LaunchedEffect(image, quality) {
+        LaunchedEffect(media, quality) {
             failed = false
             originalFile = null
             compressedFile = null
 
-            val unique = "preview_${System.currentTimeMillis()}_${image.identifier.value.hashCode()}"
+            val unique = "preview_${System.currentTimeMillis()}_${media.identifier.value.hashCode()}"
             val dir = File(context.cacheDir, "squeezer_preview/$unique")
             tempDir = dir
 
             withContext(Dispatchers.IO) {
                 try {
                     dir.mkdirs()
-                    val cachedOriginal = File(dir, "original")
 
-                    gatewaySwitch.file(image.path, readWrite = false).use { handle ->
-                        handle.source().copyToAutoClose(cachedOriginal)
+                    // Source-of-truth file the "Original" pane displays. For images this is the
+                    // raw file copied from APath; for videos we extract a representative frame
+                    // first and treat that JPEG as the source — the same image-comparison pipeline
+                    // then re-encodes it at the selected quality on the "Compressed" side. This is
+                    // approximate (single I-frame doesn't model H.264 motion artifacts) but gives
+                    // users a feel for the quality slider without paying for a real partial transcode.
+                    val sourceForPipeline: File = if (media is CompressibleVideo) {
+                        val rawVideo = File(dir, "raw_video")
+                        gatewaySwitch.file(media.path, readWrite = false).use { handle ->
+                            handle.source().copyToAutoClose(rawVideo)
+                        }
+                        val frameFile = File(dir, "frame.jpg")
+                        val frameOk = extractRepresentativeFrame(rawVideo, frameFile)
+                        rawVideo.delete()
+                        if (!frameOk) {
+                            failed = true
+                            return@withContext
+                        }
+                        frameFile
+                    } else {
+                        val cachedOriginal = File(dir, "original")
+                        gatewaySwitch.file(media.path, readWrite = false).use { handle ->
+                            handle.source().copyToAutoClose(cachedOriginal)
+                        }
+                        cachedOriginal
                     }
-                    originalFile = cachedOriginal
+                    originalFile = sourceForPipeline
 
-                    val sampled = BitmapSampler.decodeSampledBitmap(cachedOriginal)
+                    val sampled = BitmapSampler.decodeSampledBitmap(sourceForPipeline)
                     if (sampled != null) {
                         try {
-                            val format = image.compressFormat
+                            // Videos always re-encode the sampled frame as JPEG; images keep their
+                            // native format (JPEG/WebP) so the preview reflects what the actual
+                            // compressor would do.
+                            val format = (media as? CompressibleImage)?.compressFormat
+                                ?: Bitmap.CompressFormat.JPEG
                             val baos = ByteArrayOutputStream()
                             sampled.compress(format, quality, baos)
-                            val extension = if (image.isWebp) "webp" else "jpg"
+                            val extension = when {
+                                media is CompressibleImage && media.isWebp -> "webp"
+                                else -> "jpg"
+                            }
                             val outFile = File(dir, "compressed_q$quality.$extension")
                             FileOutputStream(outFile).use { it.write(baos.toByteArray()) }
                             compressedFile = outFile
@@ -158,10 +192,21 @@ fun SqueezerComparisonDialog(
             color = Color.Black,
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
+                val originalLabel = if (isVideo) {
+                    stringResource(R.string.squeezer_onboarding_video_original_label)
+                } else {
+                    stringResource(R.string.squeezer_onboarding_original_label)
+                }
+                val compressedLabel = if (isVideo) {
+                    stringResource(R.string.squeezer_onboarding_video_compressed_label) + " ($quality%)"
+                } else {
+                    stringResource(R.string.squeezer_onboarding_compressed_label) + " ($quality%)"
+                }
+
                 if (isLandscape) {
                     Row(modifier = Modifier.fillMaxSize()) {
                         ImagePane(
-                            label = stringResource(R.string.squeezer_onboarding_original_label),
+                            label = originalLabel,
                             file = originalFile,
                             failed = failed,
                             modifier = Modifier
@@ -169,7 +214,7 @@ fun SqueezerComparisonDialog(
                                 .fillMaxHeight(),
                         )
                         ImagePane(
-                            label = stringResource(R.string.squeezer_onboarding_compressed_label) + " ($quality%)",
+                            label = compressedLabel,
                             file = compressedFile,
                             failed = failed,
                             modifier = Modifier
@@ -180,7 +225,7 @@ fun SqueezerComparisonDialog(
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
                         ImagePane(
-                            label = stringResource(R.string.squeezer_onboarding_original_label),
+                            label = originalLabel,
                             file = originalFile,
                             failed = failed,
                             modifier = Modifier
@@ -188,7 +233,7 @@ fun SqueezerComparisonDialog(
                                 .fillMaxWidth(),
                         )
                         ImagePane(
-                            label = stringResource(R.string.squeezer_onboarding_compressed_label) + " ($quality%)",
+                            label = compressedLabel,
                             file = compressedFile,
                             failed = failed,
                             modifier = Modifier
@@ -270,5 +315,36 @@ private fun ImagePane(
                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
             )
         }
+    }
+}
+
+/**
+ * Pulls a representative frame from `videoFile` and writes it to `outFile` as JPEG. Picks a frame
+ * around the 25% mark to avoid leading black/title frames. Returns true on success.
+ */
+private fun extractRepresentativeFrame(videoFile: File, outFile: File): Boolean {
+    val retriever = MediaMetadataRetriever()
+    return try {
+        retriever.setDataSource(videoFile.absolutePath)
+        val durationMs = retriever
+            .extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+            ?.toLongOrNull() ?: 0L
+        val targetUs = (durationMs * 1000L * 25L / 100L).coerceAtLeast(0L)
+        val bitmap = retriever.getFrameAtTime(targetUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+            ?: retriever.frameAtTime
+            ?: return false
+        try {
+            FileOutputStream(outFile).use { out ->
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 95, out)
+            }
+            true
+        } finally {
+            bitmap.recycle()
+        }
+    } catch (e: Exception) {
+        log(TAG, WARN) { "extractRepresentativeFrame failed for ${videoFile.path}: ${e.asLog()}" }
+        false
+    } finally {
+        runCatching { retriever.release() }
     }
 }

@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
 import androidx.compose.material.icons.twotone.RotateRight
 import androidx.compose.material3.AlertDialog
@@ -50,6 +51,7 @@ fun SqueezerSettingsScreenHost(
         onNavigateUp = vm::navUp,
         onIncludeJpegChanged = vm::setIncludeJpeg,
         onIncludeWebpChanged = vm::setIncludeWebp,
+        onIncludeVideoChanged = vm::setIncludeVideo,
         onSkipPreviouslyCompressedChanged = vm::setSkipPreviouslyCompressed,
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
         onClearHistoryConfirmed = vm::clearHistory,
@@ -62,6 +64,7 @@ internal fun SqueezerSettingsScreen(
     onNavigateUp: () -> Unit = {},
     onIncludeJpegChanged: (Boolean) -> Unit = {},
     onIncludeWebpChanged: (Boolean) -> Unit = {},
+    onIncludeVideoChanged: (Boolean) -> Unit = {},
     onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
     onClearHistoryConfirmed: () -> Unit = {},
@@ -130,6 +133,16 @@ internal fun SqueezerSettingsScreen(
                     onCheckedChange = onIncludeWebpChanged,
                 )
             }
+            item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_video_settings_category_label)) }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.Movie,
+                    title = stringResource(R.string.squeezer_type_video_title),
+                    subtitle = stringResource(R.string.squeezer_type_video_description),
+                    checked = state.includeVideo,
+                    onCheckedChange = onIncludeVideoChanged,
+                )
+            }
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_compression_settings_label)) }
             item {
                 SettingsSwitchItem(
@@ -169,6 +182,7 @@ private fun SqueezerSettingsScreenPreview() {
             state = SqueezerSettingsViewModel.State(
                 includeJpeg = true,
                 includeWebp = true,
+                includeVideo = false,
                 skipPreviouslyCompressed = true,
                 writeExifMarker = false,
                 historyCount = 42,

@@ -23,14 +23,16 @@ class SqueezerSettingsViewModel @Inject constructor(
     val state: StateFlow<State> = combine(
         settings.includeJpeg.flow,
         settings.includeWebp.flow,
+        settings.includeVideo.flow,
         settings.skipPreviouslyCompressed.flow,
         settings.writeExifMarker.flow,
         historyDatabase.count,
         historyDatabase.databaseSize,
-    ) { jpeg, webp, skipCompressed, exif, historyCount, historySize ->
+    ) { jpeg, webp, video, skipCompressed, exif, historyCount, historySize ->
         State(
             includeJpeg = jpeg,
             includeWebp = webp,
+            includeVideo = video,
             skipPreviouslyCompressed = skipCompressed,
             writeExifMarker = exif,
             historyCount = historyCount,
@@ -49,6 +51,10 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeWebp.value(value)
     }
 
+    fun setIncludeVideo(value: Boolean) = launch {
+        settings.includeVideo.value(value)
+    }
+
     fun setSkipPreviouslyCompressed(value: Boolean) = launch {
         settings.skipPreviouslyCompressed.value(value)
     }
@@ -65,6 +71,7 @@ class SqueezerSettingsViewModel @Inject constructor(
     data class State(
         val includeJpeg: Boolean = true,
         val includeWebp: Boolean = true,
+        val includeVideo: Boolean = false,
         val skipPreviouslyCompressed: Boolean = true,
         val writeExifMarker: Boolean = false,
         val historyCount: Int = 0,

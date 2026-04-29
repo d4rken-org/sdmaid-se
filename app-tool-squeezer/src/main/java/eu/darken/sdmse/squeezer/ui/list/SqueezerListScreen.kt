@@ -65,6 +65,7 @@ import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.ui.comparison.SqueezerComparisonDialog
 import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListGridCard
 import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListLinearRow
@@ -73,12 +74,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 private data class PendingConfirmation(
-    val items: List<CompressibleImage>,
+    val items: List<CompressibleMedia>,
     val quality: Int,
 )
 
 private data class ComparisonRequest(
-    val image: CompressibleImage,
+    val media: CompressibleMedia,
     val quality: Int,
 )
 
@@ -140,7 +141,7 @@ fun SqueezerListScreenHost(
         onCompressIds = { ids -> vm.compress(ids) },
         onExcludeIds = { ids -> vm.exclude(ids) },
         onToggleLayoutMode = vm::toggleLayoutMode,
-        onPreviewImage = vm::openPreview,
+        onPreviewMedia = vm::openPreview,
     )
 
     val pending = pendingConfirmation
@@ -156,14 +157,14 @@ fun SqueezerListScreenHost(
             onDismiss = { pendingConfirmation = null },
             onViewComparison = {
                 val sample = pending.items.firstOrNull() ?: return@SqueezerPreviewCompressionDialog
-                comparisonRequest = ComparisonRequest(image = sample, quality = pending.quality)
+                comparisonRequest = ComparisonRequest(media = sample, quality = pending.quality)
             },
         )
     }
 
     comparisonRequest?.let { request ->
         SqueezerComparisonDialog(
-            image = request.image,
+            media = request.media,
             quality = request.quality,
             onClose = { comparisonRequest = null },
         )
@@ -179,12 +180,12 @@ internal fun SqueezerListScreen(
     onCompressIds: (Set<CompressibleMedia.Id>) -> Unit = {},
     onExcludeIds: (Set<CompressibleMedia.Id>) -> Unit = {},
     onToggleLayoutMode: () -> Unit = {},
-    onPreviewImage: (CompressibleImage) -> Unit = {},
+    onPreviewMedia: (CompressibleMedia) -> Unit = {},
 ) {
     val context = LocalContext.current
     val state by stateSource.collectAsStateWithLifecycle()
-    val images = state.images ?: emptyList()
-    val itemIds = remember(images) { images.map { it.identifier }.toSet() }
+    val media = state.media ?: emptyList()
+    val itemIds = remember(media) { media.map { it.identifier }.toSet() }
 
     var selection by remember { mutableStateOf<Set<CompressibleMedia.Id>>(emptySet()) }
 
@@ -194,8 +195,8 @@ internal fun SqueezerListScreen(
 
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
-    val totalSavings = images.sumOf { it.estimatedSavings ?: 0L }
-    val selectedSavings = images.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
+    val totalSavings = media.sumOf { it.estimatedSavings ?: 0L }
+    val selectedSavings = media.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
 
     Scaffold(
         topBar = {
@@ -204,11 +205,11 @@ internal fun SqueezerListScreen(
                     title = {
                         Column {
                             Text(stringResource(CommonR.string.squeezer_tool_name))
-                            if (state.progress == null && images.isNotEmpty()) {
+                            if (state.progress == null && media.isNotEmpty()) {
                                 val countText = pluralStringResource(
                                     CommonR.plurals.result_x_items,
-                                    images.size,
-                                    images.size,
+                                    media.size,
+                                    media.size,
                                 )
                                 val subtitle = if (totalSavings > 0) {
                                     "$countText • ~" + Formatter.formatShortFileSize(context, totalSavings)
@@ -228,7 +229,7 @@ internal fun SqueezerListScreen(
                         }
                     },
                     actions = {
-                        if (state.progress == null && images.isNotEmpty()) {
+                        if (state.progress == null && media.isNotEmpty()) {
                             IconButton(onClick = onToggleLayoutMode) {
                                 Icon(
                                     imageVector = when (state.layoutMode) {
@@ -289,7 +290,7 @@ internal fun SqueezerListScreen(
             }
         },
         floatingActionButton = {
-            if (state.progress == null && images.isNotEmpty() && selection.isEmpty()) {
+            if (state.progress == null && media.isNotEmpty() && selection.isEmpty()) {
                 ExtendedFloatingActionButton(
                     onClick = onCompressAll,
                     icon = {
@@ -318,26 +319,26 @@ internal fun SqueezerListScreen(
             ) {
                 when (state.layoutMode) {
                     LayoutMode.LINEAR -> LazyColumn(modifier = Modifier.fillMaxSize()) {
-                        items(images, key = { it.identifier.value }) { image ->
+                        items(media, key = { it.identifier.value }) { item ->
                             SqueezerListLinearRow(
-                                image = image,
-                                isSelected = image.identifier in selection,
+                                media = item,
+                                isSelected = item.identifier in selection,
                                 onTap = {
                                     if (selection.isEmpty()) {
-                                        onCompressIds(setOf(image.identifier))
+                                        onCompressIds(setOf(item.identifier))
                                     } else {
-                                        selection = if (image.identifier in selection) {
-                                            selection - image.identifier
+                                        selection = if (item.identifier in selection) {
+                                            selection - item.identifier
                                         } else {
-                                            selection + image.identifier
+                                            selection + item.identifier
                                         }
                                     }
                                 },
                                 onLongPress = {
-                                    selection = selection + image.identifier
+                                    selection = selection + item.identifier
                                 },
                                 onPreviewTap = {
-                                    if (selection.isEmpty()) onPreviewImage(image)
+                                    if (selection.isEmpty()) onPreviewMedia(item)
                                 },
                             )
                         }
@@ -348,26 +349,26 @@ internal fun SqueezerListScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(8.dp),
                     ) {
-                        items(images, key = { it.identifier.value }) { image ->
+                        items(media, key = { it.identifier.value }) { item ->
                             SqueezerListGridCard(
-                                image = image,
-                                isSelected = image.identifier in selection,
+                                media = item,
+                                isSelected = item.identifier in selection,
                                 onTap = {
                                     if (selection.isEmpty()) {
-                                        onCompressIds(setOf(image.identifier))
+                                        onCompressIds(setOf(item.identifier))
                                     } else {
-                                        selection = if (image.identifier in selection) {
-                                            selection - image.identifier
+                                        selection = if (item.identifier in selection) {
+                                            selection - item.identifier
                                         } else {
-                                            selection + image.identifier
+                                            selection + item.identifier
                                         }
                                     }
                                 },
                                 onLongPress = {
-                                    selection = selection + image.identifier
+                                    selection = selection + item.identifier
                                 },
                                 onPreviewTap = {
-                                    if (selection.isEmpty()) onPreviewImage(image)
+                                    if (selection.isEmpty()) onPreviewMedia(item)
                                 },
                             )
                         }
@@ -380,7 +381,7 @@ internal fun SqueezerListScreen(
 
 @Composable
 private fun SqueezerPreviewCompressionDialog(
-    items: List<CompressibleImage>,
+    items: List<CompressibleMedia>,
     quality: Int,
     onCompress: (Int) -> Unit,
     onDismiss: () -> Unit,
@@ -389,6 +390,12 @@ private fun SqueezerPreviewCompressionDialog(
     val context = LocalContext.current
     val totalSize = items.sumOf { it.size }
     val estimatedSavings = items.sumOf { it.estimatedSavings ?: 0L }
+    // Comparison only makes sense when all items share a media type — JPEG/WebP go through the
+    // image pipeline; videos through frame extraction. A mixed selection has no single sample
+    // representative of "what compression will look like".
+    val canCompare = items.isNotEmpty() && (
+        items.all { it is CompressibleImage } || items.all { it is CompressibleVideo }
+        )
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -442,7 +449,7 @@ private fun SqueezerPreviewCompressionDialog(
                 TextButton(onClick = onDismiss) {
                     Text(stringResource(CommonR.string.general_cancel_action))
                 }
-                if (items.isNotEmpty()) {
+                if (canCompare) {
                     TextButton(onClick = onViewComparison) {
                         Text(stringResource(R.string.squeezer_compare_action))
                     }
@@ -457,7 +464,7 @@ private fun SqueezerPreviewCompressionDialog(
 private fun SqueezerListScreenEmptyPreview() {
     PreviewWrapper {
         SqueezerListScreen(
-            stateSource = MutableStateFlow(SqueezerListViewModel.State(images = emptyList())),
+            stateSource = MutableStateFlow(SqueezerListViewModel.State(media = emptyList())),
         )
     }
 }

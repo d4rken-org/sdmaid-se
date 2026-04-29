@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
@@ -65,7 +64,7 @@ class SqueezerListViewModel @Inject constructor(
         settings.compressionQuality.flow,
     ) { data, progress, layoutMode, quality ->
         State(
-            images = data?.images?.sortedByDescending { it.size },
+            media = data?.media?.sortedByDescending { it.size },
             progress = progress,
             layoutMode = layoutMode,
             quality = quality,
@@ -76,7 +75,7 @@ class SqueezerListViewModel @Inject constructor(
     )
 
     data class State(
-        val images: List<CompressibleImage>? = null,
+        val media: List<CompressibleMedia>? = null,
         val progress: Progress.Data? = null,
         val layoutMode: LayoutMode = LayoutMode.LINEAR,
         val quality: Int = SqueezerSettings.DEFAULT_QUALITY,
@@ -84,7 +83,7 @@ class SqueezerListViewModel @Inject constructor(
 
     sealed interface Event {
         data class ConfirmCompression(
-            val items: List<CompressibleImage>,
+            val items: List<CompressibleMedia>,
             val quality: Int,
         ) : Event
 
@@ -95,9 +94,9 @@ class SqueezerListViewModel @Inject constructor(
 
     fun compressAll() = launch {
         log(TAG, INFO) { "compressAll()" }
-        val images = state.value.images ?: return@launch
-        if (images.isEmpty()) return@launch
-        compress(images.map { it.identifier }.toSet())
+        val media = state.value.media ?: return@launch
+        if (media.isEmpty()) return@launch
+        compress(media.map { it.identifier }.toSet())
     }
 
     fun compress(
@@ -107,7 +106,7 @@ class SqueezerListViewModel @Inject constructor(
     ) = launch {
         log(TAG, INFO) { "compress(): ${ids.size} confirmed=$confirmed" }
 
-        val current = state.value.images ?: return@launch
+        val current = state.value.media ?: return@launch
         val items = current.filter { it.identifier in ids }
         if (items.isEmpty()) return@launch
 
@@ -147,9 +146,9 @@ class SqueezerListViewModel @Inject constructor(
         }
     }
 
-    fun openPreview(image: CompressibleImage) {
-        log(TAG) { "openPreview(${image.identifier})" }
-        navTo(PreviewRoute(options = PreviewOptions(paths = listOf(image.path))))
+    fun openPreview(media: CompressibleMedia) {
+        log(TAG) { "openPreview(${media.identifier})" }
+        navTo(PreviewRoute(options = PreviewOptions(paths = listOf(media.path))))
     }
 
     fun openExclusionsList() {

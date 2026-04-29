@@ -3,6 +3,7 @@ package eu.darken.sdmse.squeezer.ui.list.items
 import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +11,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.PlayArrow
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,12 +30,13 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.CompressibleVideo
 
 @Composable
 internal fun SqueezerListLinearRow(
     modifier: Modifier = Modifier,
-    image: CompressibleImage,
+    media: CompressibleMedia,
     isSelected: Boolean,
     onTap: () -> Unit,
     onLongPress: () -> Unit,
@@ -54,8 +60,7 @@ internal fun SqueezerListLinearRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        FilePreviewImage(
-            lookup = image.lookup,
+        Box(
             modifier = Modifier
                 .size(56.dp)
                 .clip(RoundedCornerShape(4.dp))
@@ -63,18 +68,35 @@ internal fun SqueezerListLinearRow(
                     onClick = onPreviewTap,
                     onLongClick = onLongPress,
                 ),
-        )
+            contentAlignment = Alignment.Center,
+        ) {
+            FilePreviewImage(lookup = media.lookup, modifier = Modifier.fillMaxWidth())
+            if (media is CompressibleVideo) {
+                Icon(
+                    imageVector = Icons.TwoTone.PlayArrow,
+                    contentDescription = stringResource(R.string.squeezer_type_video_title),
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier
+                        .size(28.dp)
+                        .background(
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                            shape = CircleShape,
+                        )
+                        .padding(4.dp),
+                )
+            }
+        }
         Spacer(Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = image.lookup.name,
+                text = media.lookup.name,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            val pathText = image.lookup.userReadablePath
+            val pathText = media.lookup.userReadablePath
                 .get(context)
-                .replaceLast(image.lookup.name, "")
+                .replaceLast(media.lookup.name, "")
             Text(
                 text = pathText,
                 style = MaterialTheme.typography.labelSmall,
@@ -85,11 +107,11 @@ internal fun SqueezerListLinearRow(
             Text(
                 text = stringResource(
                     R.string.squeezer_current_size_format,
-                    Formatter.formatShortFileSize(context, image.size),
+                    Formatter.formatShortFileSize(context, media.size),
                 ),
                 style = MaterialTheme.typography.labelSmall,
             )
-            val savings = image.estimatedSavings
+            val savings = media.estimatedSavings
             Text(
                 text = if (savings != null && savings > 0) {
                     stringResource(

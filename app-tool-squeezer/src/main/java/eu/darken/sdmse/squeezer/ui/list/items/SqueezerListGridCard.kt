@@ -10,7 +10,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,12 +30,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.CompressibleVideo
 
 @Composable
 internal fun SqueezerListGridCard(
     modifier: Modifier = Modifier,
-    image: CompressibleImage,
+    media: CompressibleMedia,
     isSelected: Boolean,
     onTap: () -> Unit,
     onLongPress: () -> Unit,
@@ -64,9 +68,24 @@ internal fun SqueezerListGridCard(
                     .aspectRatio(1f),
             ) {
                 FilePreviewImage(
-                    lookup = image.lookup,
+                    lookup = media.lookup,
                     modifier = Modifier.fillMaxSize(),
                 )
+                if (media is CompressibleVideo) {
+                    Icon(
+                        imageVector = Icons.TwoTone.PlayArrow,
+                        contentDescription = stringResource(R.string.squeezer_type_video_title),
+                        tint = MaterialTheme.colorScheme.onPrimary,
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .size(40.dp)
+                            .background(
+                                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                                shape = CircleShape,
+                            )
+                            .padding(6.dp),
+                    )
+                }
                 FilledTonalIconButton(
                     onClick = onPreviewTap,
                     modifier = Modifier
@@ -82,10 +101,10 @@ internal fun SqueezerListGridCard(
             }
             Column(modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp)) {
                 Text(
-                    text = Formatter.formatShortFileSize(context, image.size),
+                    text = Formatter.formatShortFileSize(context, media.size),
                     style = MaterialTheme.typography.bodyMedium,
                 )
-                val savings = image.estimatedSavings
+                val savings = media.estimatedSavings
                 Text(
                     text = if (savings != null && savings > 0) {
                         stringResource(
