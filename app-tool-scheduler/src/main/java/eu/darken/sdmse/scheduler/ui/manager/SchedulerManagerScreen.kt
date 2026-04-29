@@ -100,7 +100,7 @@ fun SchedulerManagerScreenHost(
         onToggleSystemCleaner = vm::toggleSystemCleaner,
         onToggleAppCleaner = vm::toggleAppCleaner,
         onEditCommands = vm::requestEditCommands,
-        onFixBattery = vm::requestBatteryOptimizationSettings,
+        onFixBattery = vm::fixBatteryOptimization,
         onDismissBattery = vm::dismissBatteryHint,
     )
 
