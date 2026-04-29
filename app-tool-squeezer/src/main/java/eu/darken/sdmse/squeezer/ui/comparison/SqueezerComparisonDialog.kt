@@ -198,7 +198,9 @@ fun SqueezerComparisonDialog(
                     stringResource(R.string.squeezer_onboarding_original_label)
                 }
                 val compressedLabel = if (isVideo) {
-                    stringResource(R.string.squeezer_onboarding_video_compressed_label) + " ($quality%)"
+                    stringResource(R.string.squeezer_onboarding_video_compressed_label) +
+                        " ($quality%)\n" +
+                        stringResource(R.string.squeezer_onboarding_video_quality_disclaimer)
                 } else {
                     stringResource(R.string.squeezer_onboarding_compressed_label) + " ($quality%)"
                 }
