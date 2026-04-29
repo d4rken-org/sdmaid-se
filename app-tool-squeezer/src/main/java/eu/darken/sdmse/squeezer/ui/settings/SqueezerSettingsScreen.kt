@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
@@ -27,15 +28,18 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import android.text.format.Formatter
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
+import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.squeezer.R
+import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
@@ -54,6 +58,7 @@ fun SqueezerSettingsScreenHost(
         onIncludeVideoChanged = vm::setIncludeVideo,
         onSkipPreviouslyCompressedChanged = vm::setSkipPreviouslyCompressed,
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
+        onMinSizeChanged = vm::setMinSizeBytes,
         onClearHistoryConfirmed = vm::clearHistory,
     )
 }
@@ -67,9 +72,11 @@ internal fun SqueezerSettingsScreen(
     onIncludeVideoChanged: (Boolean) -> Unit = {},
     onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
+    onMinSizeChanged: (Long) -> Unit = {},
     onClearHistoryConfirmed: () -> Unit = {},
 ) {
     var showClearDialog by remember { mutableStateOf(false) }
+    var showMinSizeDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
 
     val historySummary = if (state.historyCount > 0) {
@@ -95,6 +102,23 @@ internal fun SqueezerSettingsScreen(
                     Text(stringResource(CommonR.string.general_cancel_action))
                 }
             },
+        )
+    }
+
+    if (showMinSizeDialog) {
+        SizeInputDialog(
+            titleRes = R.string.squeezer_min_size_title,
+            currentSize = state.minSizeBytes,
+            maximumSize = 20 * 1000 * 1000L,
+            onSave = {
+                onMinSizeChanged(it)
+                showMinSizeDialog = false
+            },
+            onReset = {
+                onMinSizeChanged(SqueezerSettings.MIN_FILE_SIZE)
+                showMinSizeDialog = false
+            },
+            onDismiss = { showMinSizeDialog = false },
         )
     }
 
@@ -145,6 +169,15 @@ internal fun SqueezerSettingsScreen(
             }
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_compression_settings_label)) }
             item {
+                SettingsPreferenceItem(
+                    icon = Icons.AutoMirrored.TwoTone.InsertDriveFile,
+                    title = stringResource(R.string.squeezer_min_size_title),
+                    subtitle = stringResource(R.string.squeezer_min_size_description) +
+                        "\n" + Formatter.formatShortFileSize(context, state.minSizeBytes),
+                    onClick = { showMinSizeDialog = true },
+                )
+            }
+            item {
                 SettingsSwitchItem(
                     icon = Icons.TwoTone.RotateRight,
                     title = stringResource(R.string.squeezer_skip_compressed_title),
@@ -185,6 +218,7 @@ private fun SqueezerSettingsScreenPreview() {
                 includeVideo = false,
                 skipPreviouslyCompressed = true,
                 writeExifMarker = false,
+                minSizeBytes = 512 * 1024L,
                 historyCount = 42,
                 historyDatabaseSize = 32 * 1024L,
             ),

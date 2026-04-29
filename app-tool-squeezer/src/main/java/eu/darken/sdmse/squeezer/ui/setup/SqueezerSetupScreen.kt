@@ -126,7 +126,6 @@ fun SqueezerSetupScreenHost(
         onQualityChange = vm::updateQuality,
         onShowExample = vm::showExample,
         onMinAgeChange = vm::updateMinAge,
-        onMinSizeChange = vm::updateMinSize,
         onStartScan = vm::startScan,
     )
 
@@ -148,12 +147,10 @@ internal fun SqueezerSetupScreen(
     onQualityChange: (Int) -> Unit = {},
     onShowExample: () -> Unit = {},
     onMinAgeChange: (Duration) -> Unit = {},
-    onMinSizeChange: (Long) -> Unit = {},
     onStartScan: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     var showAgeDialog by remember { mutableStateOf(false) }
-    var showSizeDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -202,11 +199,6 @@ internal fun SqueezerSetupScreen(
                         minAge = state.minAge,
                         onClick = { showAgeDialog = true },
                     )
-                    Spacer(Modifier.height(16.dp))
-                    MinSizeCard(
-                        minSizeBytes = state.minSizeBytes,
-                        onClick = { showSizeDialog = true },
-                    )
                     Spacer(Modifier.height(24.dp))
                     Button(
                         onClick = onStartScan,
@@ -239,23 +231,6 @@ internal fun SqueezerSetupScreen(
                 showAgeDialog = false
             },
             onDismiss = { showAgeDialog = false },
-        )
-    }
-
-    if (showSizeDialog) {
-        SizeInputDialog(
-            titleRes = R.string.squeezer_min_size_title,
-            currentSize = state.minSizeBytes,
-            maximumSize = 20 * 1000 * 1000L,
-            onSave = {
-                onMinSizeChange(it)
-                showSizeDialog = false
-            },
-            onReset = {
-                onMinSizeChange(SqueezerSettings.MIN_FILE_SIZE)
-                showSizeDialog = false
-            },
-            onDismiss = { showSizeDialog = false },
         )
     }
 }
@@ -458,54 +433,6 @@ private fun AgeCard(
                 )
                 Text(
                     text = stringResource(R.string.squeezer_min_age_description),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = valueText,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            Icon(
-                imageVector = Icons.TwoTone.Edit,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
-}
-
-@Composable
-private fun MinSizeCard(
-    minSizeBytes: Long,
-    onClick: () -> Unit,
-) {
-    val context = LocalContext.current
-    val valueText = Formatter.formatShortFileSize(context, minSizeBytes)
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-    ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.TwoTone.InsertDriveFile,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-            )
-            Spacer(Modifier.width(16.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(R.string.squeezer_min_size_title),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-                Text(
-                    text = stringResource(R.string.squeezer_min_size_description),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

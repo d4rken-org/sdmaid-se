@@ -26,15 +26,17 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeVideo.flow,
         settings.skipPreviouslyCompressed.flow,
         settings.writeExifMarker.flow,
+        settings.minSizeBytes.flow,
         historyDatabase.count,
         historyDatabase.databaseSize,
-    ) { jpeg, webp, video, skipCompressed, exif, historyCount, historySize ->
+    ) { jpeg, webp, video, skipCompressed, exif, minSize, historyCount, historySize ->
         State(
             includeJpeg = jpeg,
             includeWebp = webp,
             includeVideo = video,
             skipPreviouslyCompressed = skipCompressed,
             writeExifMarker = exif,
+            minSizeBytes = minSize,
             historyCount = historyCount,
             historyDatabaseSize = historySize,
         )
@@ -63,6 +65,10 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.writeExifMarker.value(value)
     }
 
+    fun setMinSizeBytes(value: Long) = launch {
+        settings.minSizeBytes.value(value)
+    }
+
     fun clearHistory() = launch {
         log(TAG) { "clearHistory()" }
         historyDatabase.clear()
@@ -74,6 +80,7 @@ class SqueezerSettingsViewModel @Inject constructor(
         val includeVideo: Boolean = false,
         val skipPreviouslyCompressed: Boolean = true,
         val writeExifMarker: Boolean = false,
+        val minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
         val historyCount: Int = 0,
         val historyDatabaseSize: Long = 0L,
     )
