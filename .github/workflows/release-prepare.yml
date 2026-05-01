@@ -75,6 +75,22 @@ jobs:
             exit 0
           fi
 
+          # GitHub check-run names are job names, not workflow names. Ignore this
+          # release workflow's own jobs so a manual release run cannot gate itself.
+          RELEASE_WORKFLOW_CHECKS='["Compute and validate","Push and dispatch"]'
+          IGNORED_REQUIRED=$(echo "$REQUIRED" | jq --argjson ignored "$RELEASE_WORKFLOW_CHECKS" \
+            '[.[] | select(. as $name | ($ignored | index($name)))]')
+          if [[ "$IGNORED_REQUIRED" != "[]" ]]; then
+            echo "Ignoring Release prepare self-checks: $(echo "$IGNORED_REQUIRED" | jq -r 'join(", ")')"
+          fi
+          REQUIRED=$(echo "$REQUIRED" | jq --argjson ignored "$RELEASE_WORKFLOW_CHECKS" \
+            'map(select(. as $name | ($ignored | index($name) | not)))')
+
+          if [[ "$REQUIRED" == "[]" || -z "$REQUIRED" ]]; then
+            echo "::warning::No external required status checks found after ignoring Release prepare self-checks - skipping pre-flight gate."
+            exit 0
+          fi
+
           echo "Required checks: $(echo "$REQUIRED" | jq -r 'join(", ")')"
 
           # Fetch latest check-run per name for this commit (first 100 — enough for CI).
