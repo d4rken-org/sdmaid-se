@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ ଅଧିସ୍ଥାପିତ ଆପ୍‌ସବୁ।</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ଆପ୍ ଚିହ୍ନଟ ହୋଇଛି</item>
-        <item quantity="other">%d ଆପ୍ ଚିହ୍ନଟ ହୋଇଛି</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ଆପ୍ ଟୋଗଲ୍ କରନ୍ତୁ</string>
     <string name="appcontrol_toggle_app_enable_action">ଆପ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="appcontrol_toggle_app_disable_action">ଆପ୍ ଅକ୍ଷମ କରିବା</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">ଡିବଗ୍</string>
     <string name="appcontrol_progress_enabling_package">ଆପ୍ ସକ୍ଷମ ହେଉଛି</string>
     <string name="appcontrol_progress_disabling_package">ଆପ୍ ଅକ୍ଷମ ହେଉଛି</string>
-    <string name="appcontrol_list_filteroptions_label">ଫିଲ୍ଟର ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="appcontrol_list_sortmode_name_label">ଆପ୍ ନାମ</string>
     <string name="appcontrol_list_sortmode_updated_label">ଗତ ଅଦ୍ୟତନ</string>
     <string name="appcontrol_list_sortmode_installed_label">ପ୍ରଥମେ ଅଧିସ୍ଥାପିତ</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା: %s</string>
     <string name="shortcut_appcontrol_short">ଆପ୍ ନିୟନ୍ତ୍ରଣ</string>
     <string name="shortcut_appcontrol_long">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ପରିଚାଳନା କରନ୍ତୁ</string>
-    <string name="appcontrol_automation_loading">ଅଭିଗମ୍ୟତା ସେବା ମାଧ୍ୟମରେ ସ୍ୱୟଂଚାଳନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟକୁ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କୀୱାର୍ଡ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="appcontrol_include_multiuser_summary">ଏହି ଡିଭାଇସ୍‌ରେ ଥିବା ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲ୍‌ରୁ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
 </resources>

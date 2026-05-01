@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">세션 계속</string>
     <string name="swiper_sessions_description">3단계로 파일을 검토하세요:\n\n1. 스캔할 폴더를 선택\n2. 파일을 스와이프하여 보관, 삭제 또는 건너뛰기\n3. 선택 사항을 검토하고 확인\n\n최종 삭제 버튼을 탭하기 전까지는 아무것도 삭제되지 않습니다.</string>
     <string name="swiper_select_folders_action">폴더 선택</string>
-    <string name="swiper_scanning_title">스캔 중…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d개 항목 발견</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">선택 항목 유지</string>
     <string name="swiper_status_action_delete_selected">선택한 항목 삭제</string>
     <string name="swiper_status_action_reset_selected">선택 항목 초기화</string>
-    <string name="swiper_decision_undecided">미결정</string>
-    <string name="swiper_retry_action">다시 시도</string>
     <string name="swiper_delete_confirmation_title">파일을 삭제하시겠습니까?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">%1$d개 파일(%2$s)이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다.</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d개 미결정</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d개 이미 유지됨</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d개 이미 삭제됨</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d개 유지됨</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Swiper 사용 방법</string>
     <string name="swiper_help_message">각 파일을 스와이프하여 결정하세요:\n\n← 왼쪽으로 스와이프: %1$s\n→ 오른쪽으로 스와이프: %2$s\n↑ 위로 스와이프: 건너뛰기\n↓ 아래로 스와이프: 되돌리기 (첫 스와이프 이후)\n\n하단 버튼을 사용할 수도 있습니다.\n\n완료되면 \"검토\"를 탭하여 모든 결정을 확인하세요. 검토 화면에서 확인하기 전까지는 아무것도 삭제되지 않습니다.</string>
     <string name="swiper_gesture_overlay_dismiss_action">확인</string>
-    <string name="swiper_help_action">도움</string>
     <string name="swiper_file_type_filter_title">이 파일 형식만 표시</string>
     <string name="swiper_file_type_filter_hint">보고 싶은 유형을 선택하세요. 아무것도 선택하지 않으면 모든 파일이 표시됩니다.</string>
     <string name="swiper_file_type_category_images">이미지</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">압축 파일</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">적용</string>
-    <string name="swiper_session_filter_action">파일 필터링</string>
     <string name="swiper_file_type_filter_summary">필터링됨: %1$s</string>
     <string name="swiper_session_no_matching_files">일치하는 파일을 찾을 수 없습니다</string>
     <string name="swiper_open_externally_action">외부 앱에서 열기</string>

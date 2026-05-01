@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
     <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
-    <string name="debug_debuglog_screen_discard_action">Buang</string>
     <string name="debug_debuglog_screen_session_path_label">Laluan Sesi</string>
     <string name="debug_debuglog_screen_log_files_label">Fail Log</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Gagal: ralat pemampatan</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Padam sesi log debug ini?</string>
     <string name="support_contact_post_send_message">Mesej berjaya dihantar?</string>
-    <string name="debug_debuglog_sessions_stop_action">Henti</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d giliran tugasan</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Keputusan tugas</string>
     <string name="tasks_result_subtext">Keputusan tugas</string>
     <string name="tasks_timeout_error_label">Tugas tamat masa</string>
     <string name="tasks_timeout_error_desc">Tugas mengambil masa terlalu lama dan telah dihentikan. Sila cuba lagi.</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">Teruskan</string>
     <string name="onboarding_privacy_title">Privasi</string>
     <string name="onboarding_privacy_body1">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Laporan pepijat dihantar apabila ralat berlaku dan mungkin mengandungi butiran tentang aplikasi dan fail pada peranti anda. Laporan membantu saya membetulkan pepijat dan menambah baik aplikasi.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Benarkan laporan pepijat automatik</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Pilihan ini boleh diubah dalam tetapan.</string>
-    <string name="onboarding_privacy_continue_action">Teruskan</string>
     <string name="onboarding_setup_title">Persediaan</string>
     <string name="onboarding_setup_body1">SD Maid akan mencari semua kawasan data yang boleh diakses.</string>
     <string name="onboarding_setup_body2">Perkara yang boleh diakses bergantung pada peranti anda, versi Android dan kebenaran yang diberikan.</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">Persediaan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan persediaan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid cuba menyelesaikan isu persediaan.</string>
-    <string name="setup_incomplete_card_dismiss_action">Bubar</string>
     <string name="setup_incomplete_card_continue_action">Teruskan persediaan</string>
     <string name="setup_forcedshow_summary">Tunjukkan skrin persediaan sekali lagi, termasuk item yang telah siap.</string>
     <string name="setup_checking_card_body">Mengesahkan penyiapan lengkap dan kefungsian.</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">Muat semula kawasan data</string>
     <string name="debug_mode_label">Mod nyahpepijat</string>
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
-    <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
-    <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
     <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">Kad SD</string>
     <string name="data_areas_label">Kawasan data</string>
     <string name="data_areas_description">Kawasan data mewakili lokasi pada peranti anda yang boleh diakses oleh SD Maid. Kawasan data yang berbeza mungkin tersedia bergantung pada versi Android anda dan kebenaran yang telah diberikan.</string>
-    <string name="data_areas_short_summary">Kawasan yang boleh diakses oleh SD Maid berdasarkan kebenaran yang diberikan pada masa ini.</string>
-    <string name="history_label">Sejarah</string>
-    <string name="history_description">Senarai kronologi tindakan terkini dan data yang terjejas.</string>
     <string name="updates_dashcard_title">Kemaskini tersedia</string>
     <string name="updates_dashcard_body">Kemas kini tersedia. Anda memiliki %1$s dan versi terkini ialah %2$s.</string>
     <string name="translation_encourage_title">Alih bahasa SD Maid</string>
@@ -250,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">Semakan kemaskini</string>
     <string name="updatecheck_setting_enabled_explanation">Benarkan SD Maid memeriksa kemaskini untuk memberitahu anda jika versi yang lebih baharu tersedia.</string>
     <string name="device_settings_category">Peranti</string>
-    <string name="beta_version_indicator_desc">Ini adalah versi beta SD Maid.</string>
     <string name="review_app_review_action">Ulas aplikasi</string>
     <string name="review_app_dismiss_action">Tidak, terima kasih</string>
     <string name="review_app_body">Adakah anda ingin meninggalkan ulasan untuk SD Maid? ❤️</string>

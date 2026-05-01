@@ -1,96 +1,107 @@
 package eu.darken.sdmse.stats.ui.reports
 
-import android.annotation.SuppressLint
-import android.content.Context
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.Report
+import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 import eu.darken.sdmse.stats.ui.AffectedPkgsRoute
 import eu.darken.sdmse.stats.ui.SpaceHistoryRoute
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onStart
+import java.time.Instant
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
 
-@SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class ReportsViewModel @Inject constructor(
-    @ApplicationContext private val context: Context,
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val statsRepo: StatsRepo,
     private val upgradeRepo: UpgradeRepo,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val updateTicks = intervalFlow(1.minutes)
-    val event = SingleLiveEvent<ReportsEvent>()
+    val events = SingleEventFlow<Event>()
 
-    val items = combine(
+    private val nowTicks = intervalFlow(1.minutes).map { Instant.now() }
+
+    val state: StateFlow<State> = combine(
         statsRepo.reports,
-        updateTicks,
+        nowTicks,
         upgradeRepo.upgradeInfo.map { it.isPro },
-    ) { reports, tick, isPro ->
-        val items = mutableListOf<ReportsAdapter.Item>()
-
-        reports.reversed().map { report ->
-            ReportBaseRowVH.Item(
-                tick = tick,
-                report = report,
-                onReportAction = {
-                    when (report.status) {
-                        Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> {
-                            when (report.tool) {
-                                SDMTool.Type.APPCONTROL -> navigateTo(AffectedPkgsRoute(reportId = report.reportId.toString()))
-                                else -> navigateTo(AffectedFilesRoute(reportId = report.reportId.toString()))
-                            }
-                        }
-
-                        Report.Status.FAILURE -> {
-                            report.errorMessage?.let {
-                                event.postValue(ReportsEvent.ShowError(it))
-                            }
-                        }
-                    }
-                }
-            ).also { items.add(it) }
-        }
-
+    ) { reports, now, isPro ->
         State(
-            listItems = items,
+            rows = reports.reversed().map { it.toRow() },
             isPro = isPro,
+            now = now,
         )
-    }
-        .onStart { emit(State()) }
-        .asLiveData()
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State(rows = emptyList()) },
+    )
 
-    fun openStorageTrend() = launch {
-        log(TAG) { "openStorageTrend()" }
-        if (upgradeRepo.isPro()) {
-            navigateTo(SpaceHistoryRoute())
-        } else {
-            navigateTo(UpgradeRoute())
+    fun onReportClick(row: Row) {
+        log(TAG) { "onReportClick($row)" }
+        when (row.status) {
+            Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> when (row.tool) {
+                SDMTool.Type.APPCONTROL -> navTo(AffectedPkgsRoute(reportId = row.reportId.toString()))
+                else -> navTo(AffectedFilesRoute(reportId = row.reportId.toString()))
+            }
+
+            Report.Status.FAILURE -> {
+                row.errorMessage?.let { events.tryEmit(Event.ShowError(it)) }
+            }
         }
     }
+
+    fun onStorageTrendClick() = launch {
+        log(TAG) { "onStorageTrendClick()" }
+        if (upgradeRepo.isPro()) {
+            navTo(SpaceHistoryRoute())
+        } else {
+            navTo(UpgradeRoute(forced = true))
+        }
+    }
+
+    private fun Report.toRow() = Row(
+        reportId = reportId,
+        tool = tool,
+        status = status,
+        endAt = endAt,
+        primaryMessage = primaryMessage,
+        secondaryMessage = secondaryMessage,
+        errorMessage = errorMessage,
+    )
 
     data class State(
-        val listItems: List<ReportsAdapter.Item>? = null,
+        val rows: List<Row>? = null,
         val isPro: Boolean = false,
+        val now: Instant = Instant.EPOCH,
     )
+
+    data class Row(
+        val reportId: ReportId,
+        val tool: SDMTool.Type,
+        val status: Report.Status,
+        val endAt: Instant,
+        val primaryMessage: String?,
+        val secondaryMessage: String?,
+        val errorMessage: String?,
+    )
+
+    sealed interface Event {
+        data class ShowError(val msg: String) : Event
+    }
 
     companion object {
         private val TAG = logTag("Stats", "Reports", "ViewModel")

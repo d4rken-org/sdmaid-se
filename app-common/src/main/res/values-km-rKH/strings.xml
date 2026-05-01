@@ -33,16 +33,9 @@
     <string name="general_empty_label">ទទេ</string>
     <string name="general_new_badge_label">ថ្មី</string>
     <string name="general_dismiss_action">បដិសេធ</string>
-    <string name="general_maybe_later_action">ប្រហែលពេលក្រោយ</string>
     <string name="general_manage_action">គ្រប់គ្រង</string>
-    <string name="general_sync_action">ធ្វើសមកាលកម្ម</string>
     <string name="general_error_label">កំហុស</string>
-    <string name="general_tap_hint_msg">ប៉ះសម្រាប់ជម្រើសផ្សេងទៀត</string>
     <string name="general_upgrade_action">វិសិដ្ឋកម្ម</string>
-    <string name="general_donate_action">បរិច្ចាគ</string>
-    <string name="general_check_action">ពិនិត្យ</string>
-    <string name="general_filter_action">តម្រង</string>
-    <string name="general_internal_not_available_msg">ការតភ្ជាប់អ៊ីនធឺណិតមិនអាចប្រើបានទេ</string>
     <string name="general_refresh_action">រីហ្វ្រេស</string>
     <string name="general_progress_searching">កំពុងស្វែងរក</string>
     <string name="general_progress_generating_searchpaths">កំពុងបង្កើតផ្លូវស្វែងរក</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">កំពុងចាំជួរ</string>
     <string name="general_progress_deleting">កំពុងលុប</string>
     <string name="general_progress_deleting_x">កំពុងលុប %s</string>
-    <string name="general_sort_action">តម្រៀប</string>
-    <string name="general_sort_by_title">តម្រៀបតាម</string>
-    <string name="general_sort_options_label">ជម្រើសនៃតម្រៀប</string>
     <string name="general_sort_reverse_action">ម៉ូតតម្រៀបបញ្ច្រាស</string>
-    <string name="general_sort_oldest_first">ចាស់ជាងមុន</string>
-    <string name="general_sort_newest_first">ថ្មីជាងគេ</string>
-    <string name="general_sort_name_asc">ឈ្មោះ (A → Z)</string>
-    <string name="general_sort_size_desc">ធំជាងគេ</string>
-    <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
     <string name="general_tag_system">ប្រព័ន្ធ</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
-    <string name="general_result_failure_message">ប្រតិបត្តិការបរាជ័យ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ទំហំនៅទំនេរ %s។</item>
     </plurals>
@@ -95,7 +79,6 @@
     <string name="general_delete_action">លុប</string>
     <string name="general_delete_selected_action">លុបធាតុដែលបានរើស</string>
     <string name="general_show_details_action">បង្ហាញព័ត៌មានលម្អិត</string>
-    <string name="general_show_all_action">បង្ហាញទាំងអស់</string>
     <string name="general_toggle_layout_mode">ប្តូរម៉ូតទិដ្ឋភាព</string>
     <string name="general_delete_confirmation_title">បញ្ជាក់ការលុប</string>
     <string name="general_delete_confirmation_message_x">លុប \"%s\"?</string>
@@ -106,14 +89,10 @@
         <item quantity="other">បានលុបធាតុចំនួន %d។</item>
     </plurals>
     <string name="general_remove_action">លុបចេញ</string>
-    <string name="general_remove_selected_action">លុបធាតុដែលបានរើស</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">ធាតុចំនួន %d ត្រូវបានលុបចេញ</item>
     </plurals>
-    <string name="general_root_required_label">ត្រូវ​ការ​ឬស</string>
-    <string name="general_root_required_message">ត្រូវការឧបករណ៍បានឬស</string>
     <string name="general_search_action">ស្វែងរក</string>
-    <string name="general_scan_device_action">ស្គែនឧបករណ៍</string>
     <string name="general_open_system_settings_action">បើកការកំណត់ប្រព័ន្ធ</string>
     <plurals name="result_x_items">
         <item quantity="other">ធាតុចំនួន %s</item>
@@ -129,7 +108,6 @@
     </plurals>
     <string name="general_info_label">ព័ត៌មាន</string>
     <string name="general_count_label">ចំនួន</string>
-    <string name="general_app_label">កម្មវិធី</string>
     <string name="general_more_info_action">ព័ត៌មានបន្ថែម</string>
     <string name="general_grant_access_action">ផ្តល់សិទ្ធិចូលប្រើ</string>
     <string name="general_enable_service_action">ភ្ជាប់សេវាកម្ម</string>
@@ -142,7 +120,6 @@
     <string name="general_exclude_selected_action">មិនរាប់បញ្ចូលធាតុដែលបានរើស</string>
     <string name="general_device_label">ឧបករណ៍</string>
     <string name="general_settings_title">ការកំណត់</string>
-    <string name="general_help_title">ជំនួយ</string>
     <string name="general_hints_label">សេចក្តីជូនដំណឹង</string>
     <string name="file_type_symbolic_link">បញ្ជាប់</string>
     <string name="file_type_directory">ថត</string>
@@ -169,8 +146,6 @@
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
     <string name="setup_title">រៀបចំ</string>
-    <string name="setup_feature_requires_additional_setup_x">មុខ​ងារ​នេះ​ត្រូវ​ការ​បំពេញ​ធាតុ​ការ​រៀបចំ​បន្ថែម​ទៀត​ៈ %s</string>
-    <string name="upgrade_feature_requires_pro">ត្រូវការ Pro</string>
     <string name="general_include_multiuser_label">រួម​បញ្ចូល​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត</string>
     <string name="general_include_multiuser_summary">រួម​បញ្ចូល​កម្ម​វិធី​ពី​ប្រ​វត្តិ​រូប​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត​នៅ​ឧបករណ៍​នេះ។</string>
     <string name="general_unsaved_confirmation_message">អ្នក​មាន​ការ​ផ្លាស់​ប្ដូរ​ដែល​មិន​ទាន់​រក្សា​ទុក!</string>
@@ -192,5 +167,4 @@
     <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="settings_category_filter">តម្រង</string>
     <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
-    <string name="systemcleaner_customfilter_create_action">បង្កើតតម្រងផ្ទាល់ខ្លួន</string>
 </resources>

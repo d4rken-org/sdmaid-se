@@ -33,16 +33,9 @@
     <string name="general_empty_label">Пусто</string>
     <string name="general_new_badge_label">Новый</string>
     <string name="general_dismiss_action">Отклонить</string>
-    <string name="general_maybe_later_action">Возможно, позже</string>
     <string name="general_manage_action">Управлять</string>
-    <string name="general_sync_action">Синхронизировать</string>
     <string name="general_error_label">Ошибка</string>
-    <string name="general_tap_hint_msg">Нажмите для дополнительных опций</string>
     <string name="general_upgrade_action">Обновить</string>
-    <string name="general_donate_action">Пожертвовать</string>
-    <string name="general_check_action">Проверить</string>
-    <string name="general_filter_action">Фильтр</string>
-    <string name="general_internal_not_available_msg">Отсутствует интернет-соединение</string>
     <string name="general_refresh_action">Обновить</string>
     <string name="general_progress_searching">Поиск</string>
     <string name="general_progress_generating_searchpaths">Создание путей поиска</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">В очереди</string>
     <string name="general_progress_deleting">Удаление</string>
     <string name="general_progress_deleting_x">Удаление %s</string>
-    <string name="general_sort_action">Сортировка</string>
-    <string name="general_sort_by_title">Порядок сортировки</string>
-    <string name="general_sort_options_label">Опции сортировки</string>
     <string name="general_sort_reverse_action">Обратный порядок сортировки</string>
-    <string name="general_sort_oldest_first">Сначала старые</string>
-    <string name="general_sort_newest_first">Сначала новые</string>
-    <string name="general_sort_name_asc">По имени (A - Z)</string>
-    <string name="general_sort_size_desc">Сначала большие</string>
-    <string name="general_tag_filter_label">Фильтр по тегам</string>
     <string name="general_tag_system">Системная</string>
     <string name="general_result_success_message">Операция выполнена</string>
-    <string name="general_result_failure_message">Сбой операции</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Освобождено места: %s</item>
         <item quantity="few">Освобождено места: %s</item>
@@ -98,7 +82,6 @@
     <string name="general_delete_action">Удалить</string>
     <string name="general_delete_selected_action">Удалить выбранные</string>
     <string name="general_show_details_action">Показать детали</string>
-    <string name="general_show_all_action">Показать все</string>
     <string name="general_toggle_layout_mode">Переключить режим просмотра</string>
     <string name="general_delete_confirmation_title">Подтвердить удаление</string>
     <string name="general_delete_confirmation_message_x">Удалить \"%s\"?</string>
@@ -115,17 +98,13 @@
         <item quantity="other">Удалено элементов: %d</item>
     </plurals>
     <string name="general_remove_action">Удалить</string>
-    <string name="general_remove_selected_action">Убрать выбранные</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">%d элем. был убран</item>
         <item quantity="few">%d элем. было убрано</item>
         <item quantity="many">%d элем. было убрано</item>
         <item quantity="other">%d элем. было убрано</item>
     </plurals>
-    <string name="general_root_required_label">Требуются рут-права</string>
-    <string name="general_root_required_message">Требуется устройство с рутом</string>
     <string name="general_search_action">Поиск</string>
-    <string name="general_scan_device_action">Сканировать устройство</string>
     <string name="general_open_system_settings_action">Открыть системные настройки</string>
     <plurals name="result_x_items">
         <item quantity="one">%s элем.</item>
@@ -153,7 +132,6 @@
     </plurals>
     <string name="general_info_label">Информация</string>
     <string name="general_count_label">Количество</string>
-    <string name="general_app_label">Приложение</string>
     <string name="general_more_info_action">Дополнительная информация</string>
     <string name="general_grant_access_action">Предоставить доступ</string>
     <string name="general_enable_service_action">Включить службу</string>
@@ -166,7 +144,6 @@
     <string name="general_exclude_selected_action">Исключить выбранные</string>
     <string name="general_device_label">Устройство</string>
     <string name="general_settings_title">Настройки</string>
-    <string name="general_help_title">Помощь</string>
     <string name="general_hints_label">Примечание</string>
     <string name="file_type_symbolic_link">Ссылка</string>
     <string name="file_type_directory">Папка</string>
@@ -202,8 +179,6 @@
     <string name="general_user_label_owner">Владелец</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Установка</string>
-    <string name="setup_feature_requires_additional_setup_x">Эта функция требует завершения дополнительных настроек: %s</string>
-    <string name="upgrade_feature_requires_pro">Требуется Pro</string>
     <string name="general_include_multiuser_label">Включать других пользователей</string>
     <string name="general_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="general_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
@@ -228,5 +203,4 @@
     <string name="settings_category_risklevel">Уровень риска</string>
     <string name="settings_category_filter">Фильтр</string>
     <string name="appcontrol_systemsettings_open_title">Показать настройки</string>
-    <string name="systemcleaner_customfilter_create_action">Создать свой фильтр</string>
 </resources>

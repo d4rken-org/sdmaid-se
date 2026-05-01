@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама.</string>
     <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
-    <string name="debug_debuglog_screen_discard_action">Одбаци</string>
     <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
     <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -41,7 +40,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Неуспешно: грешка при компресији</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Обрисати ову сесију дневника за отклањање грешака?</string>
     <string name="support_contact_post_send_message">Порука је успешно послата?</string>
-    <string name="debug_debuglog_sessions_stop_action">Заустави</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -54,7 +52,6 @@
         <item quantity="few">%d задатака на чекању</item>
         <item quantity="other">%d задатака на чекању</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Резултати задатака</string>
     <string name="tasks_result_subtext">Резултат задатака</string>
     <string name="tasks_timeout_error_label">Задатак је истекао</string>
     <string name="tasks_timeout_error_desc">Задатак је трајао предуго и заустављен је. Молимо покушајте поново.</string>
@@ -71,10 +68,6 @@
     <string name="onboarding_versus_continue_action">Настави</string>
     <string name="onboarding_privacy_title">Приватност</string>
     <string name="onboarding_privacy_body1">СД Чистач нема рекламе и не продаје корисничке податке.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Извештаји о грешкама се шаљу када се појаве грешке и могу да садрже детаље о апликацијама и датотекама на вашем уређају. Извештаји ми помажу да поправим грешке и побољшам апликацију.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Дозволи аутоматске извештаје о грешкама</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Ове опције се могу променити у подешавањима.</string>
-    <string name="onboarding_privacy_continue_action">Настави</string>
     <string name="onboarding_setup_title">Подешавање</string>
     <string name="onboarding_setup_body1">СД Чистач ће претражити све доступне области података.</string>
     <string name="onboarding_setup_body2">Шта је доступно зависи од Вашег уређаја, Андроид верзије и датих дозвола.</string>
@@ -167,7 +160,6 @@
     <string name="setup_incomplete_card_title">Подешавање није завршено</string>
     <string name="setup_incomplete_card_body">Завршите подешавање СД Чистача да бисте добили боље резултате.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid покушава да поправи проблеме са подешавањем.</string>
-    <string name="setup_incomplete_card_dismiss_action">Одбаци</string>
     <string name="setup_incomplete_card_continue_action">Наставите подешавање</string>
     <string name="setup_forcedshow_summary">Прикажи поново екран за подешавање, укључујући већ завршене ставке.</string>
     <string name="setup_checking_card_body">Провера завршетка подешавања и функционалности.</string>
@@ -231,8 +223,6 @@
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>
     <string name="debug_mode_label">Режим за отклањање грешака</string>
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
-    <string name="debug_bugreporter_label">Аутоматски извештаји о грешкама</string>
-    <string name="debug_bugreporter_summary">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како би могао да схватим зашто и да то поправим.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
     <string name="debug_card_trace_mode_label">Укључи режим праћења</string>
@@ -247,9 +237,6 @@
     <string name="data_area_sdcard_label">SD картица</string>
     <string name="data_areas_label">Области података</string>
     <string name="data_areas_description">Области података представљају локације на вашем уређају које су доступне СД Чистачу. Различите области података могу бити доступне у зависности од ваше Андроид верзије и датих дозвола.</string>
-    <string name="data_areas_short_summary">Области којима СД Чистач може приступити на основу тренутно датих дозвола.</string>
-    <string name="history_label">Историја</string>
-    <string name="history_description">Хронолошка листа недавних акција и погођених података.</string>
     <string name="updates_dashcard_title">Ажурирање доступно</string>
     <string name="updates_dashcard_body">Ажурирање је доступно. Имате %1$s а најновија верзија је %2$s.</string>
     <string name="translation_encourage_title">Преведите СД Чистач</string>
@@ -261,7 +248,6 @@
     <string name="updatecheck_setting_enabled_label">Провера ажурирања</string>
     <string name="updatecheck_setting_enabled_explanation">Дозволите СД Чистачу да проверава ажурирања и обавести вас ако је доступна новија верзија.</string>
     <string name="device_settings_category">Уређај</string>
-    <string name="beta_version_indicator_desc">Пред-издања приказују малу траку на почетном екрану. Ажурирају се чешће, могу имати више функција, али могу имати и више грешака.</string>
     <string name="review_app_review_action">Оцени</string>
     <string name="review_app_dismiss_action">Можда касније</string>
     <string name="review_app_body">Желите ли оставити рецензију за СД Чистач?️ ❤️</string>

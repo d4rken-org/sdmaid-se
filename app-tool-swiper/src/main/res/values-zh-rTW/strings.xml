@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">繼續工作階段</string>
     <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_select_folders_action">選取資料夾</string>
-    <string name="swiper_scanning_title">正在掃描…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">找到 %d 個項目</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">保留所選</string>
     <string name="swiper_status_action_delete_selected">刪除已選取的項目</string>
     <string name="swiper_status_action_reset_selected">重設所選</string>
-    <string name="swiper_decision_undecided">未決定</string>
-    <string name="swiper_retry_action">重試</string>
     <string name="swiper_delete_confirmation_title">刪除檔案？</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">這將永久刪除 %1$d 個檔案（%2$s）。此操作無法復原。</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d 個未決定</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d 個已保留</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d 個已刪除</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">已保留 %d 個</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Swiper 使用方式</string>
     <string name="swiper_help_message">滑動每個檔案來做決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（第一次滑動後）\n\n您也可以使用底部的按鈕。\n\n完成後，點擊「檢閱」查看所有決定。在檢閱畫面確認之前，不會刪除任何內容。</string>
     <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
-    <string name="swiper_help_action">說明</string>
     <string name="swiper_file_type_filter_title">只顯示這些檔案類型</string>
     <string name="swiper_file_type_filter_hint">勾選您想查看的類型。若未勾選任何類型，將顯示所有檔案。</string>
     <string name="swiper_file_type_category_images">圖片</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">壓縮檔</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">套用</string>
-    <string name="swiper_session_filter_action">篩選檔案</string>
     <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>

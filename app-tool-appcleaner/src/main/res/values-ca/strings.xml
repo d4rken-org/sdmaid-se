@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatització del Netejador d\'aplicacions</string>
     <string name="appcleaner_automation_subtitle_default_caches">S\'estan esborrant les memòries cau per defecte…</string>
-    <string name="appcleaner_automation_progress_open_settings">Obertura de la pantalla de configuració (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">S\'està cercant l\'entrada «Emmagatzematge» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">S\'està buscant el botó «Esborra les dades» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">S\'està buscant el botó «Esborra la memòria cau» (paraules clau: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
     <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
-    <string name="appcleaner_junk_userprofile_label">Usuari</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Voleu suprimir els fitxers prescindibles d\'%d aplicacio selecciona?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Força l\'aturada abans de netejar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Força l\'aturada de les aplicacions abans d\'esborrar-ne la memòria cau. Pot ajudar a esborrar la memòria cau d\'algunes aplicacions, però pot fer que les aplicacions es comportin malament i calgui reiniciar-les manualment.</string>
     <string name="appcleaner_progress_force_stopping">S\'està forçant l\'aturada d\'aplicacions…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
-    <string name="appcleaner_automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
-    <string name="appcleaner_automation_loading">S\'està preparant l\'automatització mitjançant el servei d\'accessibilitat</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inclou altres usuaris</string>
-    <string name="appcleaner_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
 </resources>

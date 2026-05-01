@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Comprimir imágenes y videos para ahorrar espacio de almacenamiento.</string>
+    <string name="squeezer_explanation_short">Comprimir imágenes para ahorrar espacio de almacenamiento.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d elemento encontrado</item>
-        <item quantity="other">%d elementos encontrados</item>
+        <item quantity="one">%d imagen encontrada</item>
+        <item quantity="other">%d imágenes encontradas</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s de ahorro estimado</item>
         <item quantity="other">~%s de ahorro estimado</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d elemento comprimido</item>
-        <item quantity="other">%d elementos comprimidos</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ha fallado</item>
-        <item quantity="other">%d ha fallado</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d archivo omitido (no accesible)</item>
-        <item quantity="other">%d archivos omitidos (no accesibles)</item>
+        <item quantity="one">%d imagen comprimida</item>
+        <item quantity="other">%d imágenes comprimidas</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d elemento seleccionado</item>
-        <item quantity="other">%d elementos seleccionados</item>
+        <item quantity="one">%d imagen</item>
+        <item quantity="other">%d imágenes</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Ubicaciones de búsqueda</string>
-    <string name="squeezer_search_locations_default_summary">Carpetas de cámara (predeterminado)</string>
     <string name="squeezer_min_size_title">Tamaño mínimo de archivo</string>
-    <string name="squeezer_min_size_description">Omitir archivos más pequeños que este tamaño.</string>
+    <string name="squeezer_min_size_description">Omitir imágenes más chicas que este tamaño.</string>
     <string name="squeezer_min_age_title">Antigüedad mínima del archivo</string>
-    <string name="squeezer_min_age_description">Solo incluir archivos más antiguos que esta edad.</string>
-    <string name="squeezer_compression_settings_label">General</string>
-    <string name="squeezer_quality_label">Calidad</string>
-    <string name="squeezer_quality_title">Calidad de compresión</string>
-    <string name="squeezer_quality_description">Una calidad más baja significa un tamaño de archivo menor pero una calidad visual reducida.</string>
-    <string name="squeezer_quality_example_format">Ejemplo: imagen %1$s → ahorra ~%2$s al %3$d%% de calidad</string>
-    <string name="squeezer_quality_warning_low">Las calidades más bajas pueden causar artefactos visibles.</string>
-    <string name="squeezer_quality_warning_high">La calidad muy alta proporciona un ahorro mínimo de espacio.</string>
-    <string name="squeezer_types_category_label">Configuración de imágenes</string>
-    <string name="squeezer_video_settings_category_label">Configuración de video</string>
+    <string name="squeezer_min_age_description">Solo incluir imágenes más viejas que esta antigüedad.</string>
+    <string name="squeezer_compression_settings_label">Configuración de compresión</string>
+    <string name="squeezer_quality_description">Menor calidad significa menor tamaño de archivo pero menor calidad de imagen.</string>
+    <string name="squeezer_types_category_label">Tipos de imagen</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Incluir imágenes JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Incluir imágenes WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Incluir archivos de video MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Omitir previamente comprimidas</string>
-    <string name="squeezer_skip_compressed_description">Omitir archivos que ya han sido comprimidos por SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Omitir imágenes que ya fueron comprimidas por SD Maid.</string>
     <string name="squeezer_exif_marker_title">Escribir marcador EXIF</string>
     <string name="squeezer_exif_marker_description">Agregar un marcador al campo de comentario EXIF de la imagen para evitar la recompresión incluso si se borra el historial de compresión.</string>
     <string name="squeezer_estimated_savings_format">~%s de ahorro</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Confirmar compresión</string>
     <string name="squeezer_preview_total_size">Tamaño total</string>
     <string name="squeezer_preview_estimated_savings">Ahorro estimado</string>
-    <string name="squeezer_compress_confirmation_title">¿Comprimir los elementos seleccionados?</string>
-    <string name="squeezer_compress_confirmation_message">Esto reemplazará los archivos originales con versiones comprimidas. Esta acción no se puede deshacer.</string>
     <string name="squeezer_history_title">Historial de compresión</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%d imagen comprimida previamente</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Sin historial de compresión</string>
     <string name="squeezer_history_clear_title">Borrar historial de compresión</string>
-    <string name="squeezer_history_clear_message">Esto permitirá que los archivos previamente comprimidos vuelvan a comprimirse. Los archivos en sí no se ven afectados.</string>
-    <string name="squeezer_onboarding_title">Acerca de la compresión de imágenes</string>
-    <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAcá tenés una vista previa de cómo se verán tus imágenes:</string>
+    <string name="squeezer_history_clear_message">Esto permitirá que las imágenes previamente comprimidas sean comprimidas de nuevo. Las imágenes en sí no se ven afectadas.</string>
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
-    <string name="squeezer_onboarding_video_original_label">Fotograma de video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Vista previa (aproximada)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">La calidad real del video puede variar</string>
-    <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
     <string name="squeezer_compare_action">Ver comparación</string>
     <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
-    <string name="squeezer_result_empty_message">No se encontraron medios comprimibles.</string>
-    <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad para ahorrar espacio de almacenamiento. Esto no se puede deshacer. Revise su configuración cuidadosamente antes de comenzar.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d ubicación no se puede usar para compresión y fue eliminada. La compresión requiere acceso directo al almacenamiento interno.</item>
-        <item quantity="other">%d ubicaciones no se pueden usar para compresión y fueron eliminadas. La compresión requiere acceso directo al almacenamiento interno.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze reduce el tamaño de archivo de imágenes y videos para liberar espacio de almacenamiento. Esto reduce permanentemente la calidad y no se puede deshacer. Revise su configuración cuidadosamente antes de comenzar.</string>
+    <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduce el tamaño de los archivos de imagen para liberar espacio. Esto reduce permanentemente la calidad de las imágenes y no se puede deshacer. Revisá cuidadosamente la configuración antes de comenzar.</string>
     <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
     <string name="squeezer_setup_paths_default">Seleccioná carpetas para buscar</string>
     <string name="squeezer_setup_quality_title">Calidad de compresión</string>
     <string name="squeezer_setup_age_title">Edad mínima</string>
-    <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
     <string name="squeezer_setup_start_action">Iniciar escaneo</string>
     <string name="squeezer_quality_hint_very_low">La calidad por debajo del 40%% puede crear imágenes inutilizables.</string>
     <string name="squeezer_quality_hint_low">Una calidad más baja ahorra más espacio pero puede causar artefactos visibles.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Al menos %d día de antigüedad</item>
         <item quantity="other">Al menos %d días de antigüedad</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para imágenes</string>
-    <string name="squeezer_onboarding_got_it">Entendido</string>
+    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
 </resources>

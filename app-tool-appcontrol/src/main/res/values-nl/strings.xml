@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Apps die op je apparaat zijn geïnstalleerd.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d app gedetecteerd</item>
-        <item quantity="other">%d apps gedetecteerd</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Schakel tussen apps</string>
     <string name="appcontrol_toggle_app_enable_action">App inschakelen</string>
     <string name="appcontrol_toggle_app_disable_action">App uitschakelen</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Foutopsporing</string>
     <string name="appcontrol_progress_enabling_package">App inschakelen</string>
     <string name="appcontrol_progress_disabling_package">App uitschakelen</string>
-    <string name="appcontrol_list_filteroptions_label">Filter opties</string>
     <string name="appcontrol_list_sortmode_name_label">App-naam</string>
     <string name="appcontrol_list_sortmode_updated_label">Laatst bijgewerkt</string>
     <string name="appcontrol_list_sortmode_installed_label">Eerst geïnstalleerd</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="shortcut_appcontrol_short">App-bediening</string>
     <string name="shortcut_appcontrol_long">Geïnstalleerde apps beheren</string>
-    <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Inclusief andere gebruikers</string>
-    <string name="appcontrol_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
 </resources>

@@ -8,7 +8,6 @@
         <item quantity="one">%s elemento analizzati da quando hai iniziato a usare SD Maid.</item>
         <item quantity="other">%s elementi analizzati da quando hai iniziato a usare SD Maid.</item>
     </plurals>
-    <string name="stats_report_status_success">Completato</string>
     <string name="stats_report_status_partial_success">Completato parzialmente</string>
     <string name="stats_report_status_partial_failure">Errore</string>
     <string name="stats_settings_desc">Configura statistiche, report e periodo di conservazione dei dati di SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Per quanti giorni SD Maid deve mantenere i report generali.</string>
     <string name="stats_settings_retention_paths_label">Informazioni dettagliate sui percorsi</string>
     <string name="stats_settings_retention_paths_desc">Per quanti giorni SD Maid deve mantenere i dettagli sui percorsi interessati.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d giorno</item>
-        <item quantity="other">%d giorni</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ripristina</string>
     <string name="stats_settings_reset_all_desc">Cancella tutti i report e imposta tutte le statistiche a zero.</string>
     <string name="stats_affected_paths_label">Percorsi interessati</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Archivio principale</string>
     <string name="stats_storage_type_secondary">Archivio secondario</string>
     <string name="stats_storage_type_portable">Archiviazione portatile</string>
-    <string name="stats_space_history_delete_storage_title">Eliminare la cronologia di archiviazione?</string>
-    <string name="stats_space_history_delete_storage_desc">Tutti i dati di tendenza per questa archiviazione verranno eliminati definitivamente.</string>
-    <string name="stats_settings_retention_snapshots_label">Istantanee dello spazio di archiviazione</string>
-    <string name="stats_settings_retention_snapshots_desc">Numero di giorni per mantenere le istantanee dello spazio di archiviazione.</string>
 </resources>

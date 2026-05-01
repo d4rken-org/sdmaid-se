@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automazione della Pulizia App</string>
     <string name="appcleaner_automation_subtitle_default_caches">Pulizia cache predefinita…</string>
-    <string name="appcleaner_automation_progress_open_settings">Apertura schermata impostazioni (parola chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Cercando la voce \"Spazio di archiviazione\" (parole chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Cercando il pulsante \"Cancella dati\" (parole chiave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Cercando il pulsante \"Cancella cache\" (parole chiave: %s)</string>
@@ -75,7 +74,6 @@
     <string name="appcleaner_automation_unavailable_title">Servizio di accessibilità non disponibile</string>
     <string name="appcleaner_automation_unavailable_body">La cancellazione delle cache inaccessibili richiede il servizio di accessibilità di SD Maid, ma non era disponibile.
 Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".</string>
-    <string name="appcleaner_junk_userprofile_label">Utente</string>
     <string name="appcleaner_delete_confirmation_message_x">Cancellare %s file inutili?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cancellare %d file inutili dell\'app selezionata?</item>
@@ -90,10 +88,4 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcleaner_forcestop_before_clearing_label">Arresto forzato prima della pulizia</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Arresta forzatamente le app prima di cancellare la cache. Può aiutare a cancellare la cache di alcune app, ma potrebbe causare malfunzionamenti e richiedere il riavvio manuale.</string>
     <string name="appcleaner_progress_force_stopping">Arresto forzato delle app…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Questa app di sistema non ha una schermata delle impostazioni. La cancellazione della cache tramite servizio di accessibilità non è possibile. Escludila per velocizzare la cancellazione della cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Schermata impostazioni non disponibile</string>
-    <string name="appcleaner_automation_loading">Il servizio di accessibilità sta preparando l\'automazione</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentativo di confermare l\'azione precedente (parole chiave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Includi gli altri utenti</string>
-    <string name="appcleaner_include_multiuser_summary">Includi app da altri profili utente su questo dispositivo.</string>
 </resources>

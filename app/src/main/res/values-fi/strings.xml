@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Lopeta tallennus</string>
     <string name="debug_debuglog_sensitive_information_message">Luotu tiedosto sisältää arkaluontoista tietoa (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa.</string>
     <string name="debug_debuglog_screen_title">Virheenkorjausloki</string>
-    <string name="debug_debuglog_screen_discard_action">Hylkää</string>
     <string name="debug_debuglog_screen_session_path_label">Istunnon Polku</string>
     <string name="debug_debuglog_screen_log_files_label">Loki Tiedostot</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Epäonnistui: pakkausvirhe</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Poistetaanko tämä virheenkorjauslokiistunto?</string>
     <string name="support_contact_post_send_message">Viesti lähetetty onnistuneesti?</string>
-    <string name="debug_debuglog_sessions_stop_action">Lopeta</string>
     <string name="tasks_activity_notification_channel_label">Aktiiviset tehtävät</string>
     <string name="tasks_activity_working_notification_title">SD Maid työskentelee</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d tehtävä jonossa</item>
         <item quantity="other">%d tehtävää jonossa</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Tehtävien tulokset</string>
     <string name="tasks_result_subtext">Tehtävän tulos</string>
     <string name="tasks_timeout_error_label">Tehtävä aikakatkaistiin</string>
     <string name="tasks_timeout_error_desc">Tehtävä kesti liian kauan ja se pysäytettiin. Yritä uudelleen.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Jatka</string>
     <string name="onboarding_privacy_title">Yksityisyys</string>
     <string name="onboarding_privacy_body1">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Virheraportit lähetetään kun virheitä ilmenee ja ne voivat sisältää tietoja laitteesi sovelluksista ja tiedostoista. Raportit auttavat minua korjaamaan virheitä ja parantamaan sovellusta.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Salli automaattiset virheraportit</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Nämä asetukset voidaan muuttaa asetuksissa.</string>
-    <string name="onboarding_privacy_continue_action">Jatka</string>
     <string name="onboarding_setup_title">Asennus</string>
     <string name="onboarding_setup_body1">SD Maid etsii kaikkia käytettävissä olevia tietoalueita.</string>
     <string name="onboarding_setup_body2">Se mikä on käytettävissä riippuu laitteestasi, Android-versiosta ja myönnetyistä käyttöoikeuksista.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Asennus on keskeneräinen</string>
     <string name="setup_incomplete_card_body">Viimeistele SD Maidin asennus parempien tulosten saamiseksi.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid yrittää korjata asennusongelmia.</string>
-    <string name="setup_incomplete_card_dismiss_action">Hylkää</string>
     <string name="setup_incomplete_card_continue_action">Jatka asennusta</string>
     <string name="setup_forcedshow_summary">Näytä asennusnäyttö uudelleen, mukaan lukien jo valmistuneet kohteet.</string>
     <string name="setup_checking_card_body">Varmistetaan asennuksen valmistuminen ja toimivuus.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Lataa tietoalueet uudelleen</string>
     <string name="debug_mode_label">Virheenkorjaustila</string>
     <string name="debug_mode_explanation">Ota käyttöön testiasetukset ja yksityiskohtaisempi tuloste. Sovellus toimii hitaammin ja käyttäytyy eri tavalla.</string>
-    <string name="debug_bugreporter_label">Automaattiset virheraportit</string>
-    <string name="debug_bugreporter_summary">Raportoi automaattisesti ongelmista, esim. tiedot sovelluksen kaatumisista, jotta voin selvittää miksi ja korjata sen.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Virheenkorjaustila on käytössä</string>
     <string name="debug_card_trace_mode_label">Ota jäljitystila käyttöön</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD-kortti</string>
     <string name="data_areas_label">Tietoalueet</string>
     <string name="data_areas_description">Tietoalueet edustavat laitteellasi sijaitsevia paikkoja, joihin SD Maidilla on pääsy. Eri tietoalueet voivat olla käytettävissä riippuen Android-versiostasi ja myönnetyistä käyttöoikeuksista.</string>
-    <string name="data_areas_short_summary">Alueet, joihin SD Maidilla on pääsy nykyisten myönnettyjen käyttöoikeuksien perusteella.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Kronologinen luettelo viimeaikaisista toiminnoista ja vaikutetuista tiedoista.</string>
     <string name="updates_dashcard_title">Päivitys saatavilla</string>
     <string name="updates_dashcard_body">Päivitys on saatavilla. Sinulla on %1$s ja uusin versio on %2$s.</string>
     <string name="translation_encourage_title">Käännä SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Päivitystarkistus</string>
     <string name="updatecheck_setting_enabled_explanation">Salli SD Maidin tarkistaa päivitykset ilmoittaakseen, jos uudempi versio on saatavilla.</string>
     <string name="device_settings_category">Laite</string>
-    <string name="beta_version_indicator_desc">Ennakkojulkaisuversiot näyttävät pienen nauhan aloitusnäytössä. Niitä päivitetään useammin, niissä saattaa olla enemmän ominaisuuksia, mutta ne voivat myös sisältää enemmän virheitä.</string>
     <string name="review_app_review_action">Arvostele</string>
     <string name="review_app_dismiss_action">Ehkä myöhemmin</string>
     <string name="review_app_body">Haluaisitko jättää SD Maidille arvostelun?️ ❤️</string>

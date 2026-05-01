@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ایسے آپشنز دکھائیں جو آپ کو ڈپلیکیٹس کے سیٹ میں تمام فائلیں ڈیلیٹ کرنے کی اجازت دیں تاکہ کوئی فائل باقی نہ رہے۔</string>
     <string name="deduplicator_search_locations_title">تلاش کے مقامات</string>
     <string name="deduplicator_search_locations_all_summary">تمام قابل رسائی علاقے</string>
-    <string name="deduplicator_keep_prefer_paths_title">ترجیحاً یہاں رکھیں</string>
-    <string name="deduplicator_keep_prefer_paths_summary">فیصلہ کرتے وقت کہ کون سی ڈپلیکیٹ رکھنی ہے، ان مقامات میں فائلیں رکھنے کو ترجیح دیں۔</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">کوئی مقام ترتیب نہیں دیا گیا</string>
     <string name="deduplicator_skip_minsize_title">کم سے کم سائز</string>
     <string name="deduplicator_skip_minsize_description">ایسی فائلیں چھوڑیں جو کم سے کم سائز سے کم ہیں۔</string>
     <string name="deduplicator_skip_uncommon_title">غیر عام فائل اقسام چھوڑیں</string>

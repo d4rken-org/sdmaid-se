@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">จำกัดผลลัพธ์ตามอายุไฟล์ (เวลาแก้ไขล่าสุด) เว้นว่างเพื่อจับคู่ทุกอายุ</string>
     <string name="systemcleaner_customfilter_import_action">นำเข้าตัวกรองใหม่</string>
     <string name="systemcleaner_customfilter_export_action">ส่งออกตัวกรองที่เลือก</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
 </resources>

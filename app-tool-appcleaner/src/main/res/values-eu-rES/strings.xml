@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner-en automatizazioa</string>
     <string name="appcleaner_automation_subtitle_default_caches">Cache lehenetsiak garbitzen…</string>
-    <string name="appcleaner_automation_progress_open_settings">Ezarpen-pantaila irekitzen (gako-hitzak: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Biltegiratzea\" sarrera bilatzen (gako-hitzak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Garbitu datuak\" botoia bilatzen (gako-hitzak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Garbitu cachea\" botoia bilatzen (gako-hitzak: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache lehenetsi publikoak eta pribatuak. Ez dira zuzenean eskuragarri, baina zeharka ezabatu daitezke (adibidez, irisgarritasun-zerbitzuaren bidez).</string>
     <string name="appcleaner_automation_unavailable_title">Irisgarritasun-zerbitzua erabilgarri ez</string>
     <string name="appcleaner_automation_unavailable_body">Cache eskuraezinakoak garbitzeak SD Maid-en irisgarritasun-zerbitzua eskatzen du, baina erabilgarri ez zegoen. Ez baduzu erabili nahi: Desgaitu \"Sartu cache eskuraezinakoak\" aukera.</string>
-    <string name="appcleaner_junk_userprofile_label">Erabiltzailea</string>
     <string name="appcleaner_delete_confirmation_message_x">Ezabatu %s-ren datu soberakinak?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ezabatu %d hautatutako aplikazioaren datu soberakinak?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Behartu gelditzera garbitu aurretik</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Behartu aplikazioak gelditzera haien cachea garbitu aurretik. Zenbait aplikazioren cacheak garbitzen lagun dezake, baina aplikazioak gaizki funtziona dezakete eta eskuz berrabiarazi behar izatea eragin dezake.</string>
     <string name="appcleaner_progress_force_stopping">Aplikazioak geldiarazten…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Sistema-aplikazio honek ez du ezarpen-pantailarik. Cachea garbitzea irisgarritasun-zerbitzuaren bidez ez da posible. Baztertu cachea garbitzea azkartasunez egiteko.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ezarpen-pantaila erabilgarri ez</string>
-    <string name="appcleaner_automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Aurreko ekintza bermatzen saiatzen (gako-hitzak: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sartu beste erabiltzaileak</string>
-    <string name="appcleaner_include_multiuser_summary">Sartu gailu honetako beste erabiltzaile-profiletako aplikazioak.</string>
 </resources>

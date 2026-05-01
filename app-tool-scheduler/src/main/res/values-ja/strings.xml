@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">%d 日ごと</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">リピートの間隔</string>
     <string name="scheduler_inaccurate_execution_hint">予期される実行時間は近似値です。バッテリーを節約するとスケジュールが遅延または迅速に変更されることがあります。</string>
     <string name="scheduler_no_active_schedules_subtitle">アクティブなスケジュールはありません</string>
     <string name="scheduler_setting_nopowersaving_title">低バッテリー時はスキップする</string>

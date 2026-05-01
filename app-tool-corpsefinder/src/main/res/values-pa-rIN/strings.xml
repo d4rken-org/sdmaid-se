@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ਪ੍ਰਤਿਬੰਧਿਤ ਐਪ ਇੰਸਟਾਲੇਸ਼ਨ ਡੇਟਾ, ਜਿਵੇਂ ਕਿ ਸੁਰੱਖਿਅਤ ਤੀਜੀ ਧਿਰ ਦੀਆਂ ਐਪਾਂ।</string>
     <string name="corpsefinder_filter_appasec_label">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ</string>
     <string name="corpsefinder_filter_appasec_summary">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ, ਜਿਵੇਂ ਕਿ ਗੇਮ ਸੰਪੱਤੀਆਂ।</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd ਮੋਡਾਂ ਦੁਆਰਾ ਬਾਹਰੀ ਸਟੋਰੇਜ \'ਤੇ ਭੇਜਿਆ ਗਿਆ ਡੇਟਾ।</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ਐਪ ਬਕਾਇਆ ਮਿਟਾਇਆ ਗਿਆ</item>

@@ -6,7 +6,10 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.uix.ViewModel4
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -14,17 +17,29 @@ import javax.inject.Inject
 class DebugLogSessionsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val sessionManager: DebugLogSessionManager,
-) : ViewModel3(dispatcherProvider) {
-
-    val state = sessionManager.sessions
-        .map { sessions ->
-            State(sessions = sessions)
-        }
-        .asLiveData2()
+) : ViewModel4(dispatcherProvider, TAG) {
 
     data class State(
         val sessions: List<DebugLogSession> = emptyList(),
-    )
+    ) {
+        val hasDeletable: Boolean = sessions.any {
+            it is DebugLogSession.Finished || it is DebugLogSession.Failed
+        }
+    }
+
+    sealed interface Event {
+        data class LaunchRecorder(val sessionId: SessionId) : Event
+    }
+
+    val state: StateFlow<State> = sessionManager.sessions
+        .map { State(sessions = it) }
+        .safeStateIn(State()) { State() }
+
+    val events = SingleEventFlow<Event>()
+
+    fun openSession(sessionId: SessionId) {
+        events.tryEmit(Event.LaunchRecorder(sessionId))
+    }
 
     fun delete(sessionId: SessionId) = launch {
         sessionManager.delete(sessionId)
@@ -36,6 +51,10 @@ class DebugLogSessionsViewModel @Inject constructor(
 
     fun stopRecording() = launch {
         sessionManager.forceStopRecording()
+    }
+
+    fun refresh() {
+        sessionManager.refresh()
     }
 
     companion object {

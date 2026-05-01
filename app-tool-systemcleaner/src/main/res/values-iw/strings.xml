@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
     <string name="systemcleaner_customfilter_import_action">ייבא פילטר חדש</string>
     <string name="systemcleaner_customfilter_export_action">ייצא פילטרים נבחרים</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
 </resources>

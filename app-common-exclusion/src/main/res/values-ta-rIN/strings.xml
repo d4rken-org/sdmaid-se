@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">பயன்பாட்டு விலக்கல்களை உருவாக்க AppControl கருவியைப் பயன்படுத்தவும்.</string>
     <string name="exclusion_create_path_hint">பாதை விலக்கல்களை உருவாக்க StorageAnalyzer கருவியைப் பயன்படுத்தவும்.</string>
     <string name="exclusion_show_defaults_action">இயல்புகளைக் காட்டு</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
 </resources>

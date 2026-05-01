@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar las opciones que permiten eliminar todos los archivos duplicados para que no quede ningún archivo.</string>
     <string name="deduplicator_search_locations_title">Buscar ubicaciones</string>
     <string name="deduplicator_search_locations_all_summary">Todos los espacios accesibles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Prefiero mantenerlo</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Al decidir qué duplicado conservar, prefiere mantener los archivos en estas ubicaciones.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Sin ubicaciones configuradas</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omite los archivos que no alcanzan el tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir los tipos de archivos poco comunes</string>

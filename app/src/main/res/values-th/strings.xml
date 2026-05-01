@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">หยุดการบันทึก</string>
     <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่เพิ่งสร้างมีข้อมูลสำคัญ (เช่น ชื่อไฟล์และแอพที่ได้ติดตั้ง) แชร์เฉพาะกับแหล่งที่ไว้ใจได้เท่านั้น</string>
     <string name="debug_debuglog_screen_title">บันทึกดีบัก</string>
-    <string name="debug_debuglog_screen_discard_action">ละทิ้ง</string>
     <string name="debug_debuglog_screen_session_path_label">เส้นทางเซสชัน</string>
     <string name="debug_debuglog_screen_log_files_label">ไฟล์บันทึก</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">ล้มเหลว: ข้อผิดพลาดในการบีบอัด</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ลบเซสชันบันทึกการดีบักนี้?</string>
     <string name="support_contact_post_send_message">ส่งข้อความสำเร็จแล้วหรือไม่?</string>
-    <string name="debug_debuglog_sessions_stop_action">หยุด</string>
     <string name="tasks_activity_notification_channel_label">งานที่ทำอยู่</string>
     <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d งานอยู่ในคิว</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">ผลงาน</string>
     <string name="tasks_result_subtext">ผลงาน</string>
     <string name="tasks_timeout_error_label">งานหมดเวลา</string>
     <string name="tasks_timeout_error_desc">งานใช้เวลานานเกินไปและถูกหยุด โปรดลองอีกครั้ง</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">ถัดไป</string>
     <string name="onboarding_privacy_title">ความเป็นส่วนตัว</string>
     <string name="onboarding_privacy_body1">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลของผู้ใช้</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">จะมีการส่งรายงานข้อผิดพลาดเมื่อพบปัญหาการใช้งานซึ่งอาจมีข้อมูลเกี่ยวกับแอพและไฟล์ในอุปกรณ์ของคุณ รายงานดังกล่าวช่วยผมแก้ไขปัญหาและพัฒนาแอพต่อไปได้</string>
-    <string name="onboarding_privacy_bugreport_toggle">ส่งรายงานข้อผิดพลาดโดยอัตโนมัติ</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ตัวเลือกนี้สามารถเปลี่ยนได้ในการตั้งค่า</string>
-    <string name="onboarding_privacy_continue_action">ถัดไป</string>
     <string name="onboarding_setup_title">เริ่มต้น</string>
     <string name="onboarding_setup_body1">SD Maid จะค้นหาในพื้นที่ทั้งหมดที่เข้าถึงได้</string>
     <string name="onboarding_setup_body2">สิ่งที่สามารถเข้าถึงได้ขึ้นอยู่กับอุปกรณ์ของคุณ, เวอร์ชัน Android และสิทธิ์ที่ได้รับอนุญาต</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">การตั้งค่ายังไม่เสร็จ</string>
     <string name="setup_incomplete_card_body">ตั้งค่า SD Maid ให้เสร็จเพื่อให้แอพทำงานได้ดีขึ้น</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid กำลังพยายามแก้ไขปัญหาการตั้งค่า</string>
-    <string name="setup_incomplete_card_dismiss_action">ข้ามไปก่อน</string>
     <string name="setup_incomplete_card_continue_action">ตั้งค่าต่อ</string>
     <string name="setup_forcedshow_summary">แสดงหน้าต่างการตั้งค่าอีกครั้ง รวมถึงสิ่งที่ตั้งค่าเสร็จไปแล้ว</string>
     <string name="setup_checking_card_body">ตรวจสอบความสมบูรณ์และการทำงานของการตั้งค่า</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">โหลดพื้นที่เก็บข้อมูลใหม่</string>
     <string name="debug_mode_label">โหมดดีบัก</string>
     <string name="debug_mode_explanation">เปิดใช้การทดสอบเพื่อแสดงรายละเอียดมากขึ้นในรายงาน แอพจะทำงานช้าลงและประสิทธิภาพลดลง</string>
-    <string name="debug_bugreporter_label">รายงานข้อผิดพลาดโดยอัตโนมัติ</string>
-    <string name="debug_bugreporter_summary">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับแอปขัดข้อง ดังนั้นฉันจึงสามารถทราบสาเหตุและแก้ไขได้</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">เปิดใช้โหมดดีบักแล้ว</string>
     <string name="debug_card_trace_mode_label">เปิดใช้โหมดติดตาม</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">พื้นที่ข้อมูล</string>
     <string name="data_areas_description">พื้นที่ข้อมูลหมายถึงสถานที่ในอุปกรณ์ของคุณที่ SD Maid สามารถเข้าถึงได้ พื้นที่ข้อมูลที่แตกต่างกันอาจใช้ได้ขึ้นอยู่กับเวอร์ชัน Android และสิทธิ์ที่ได้รับอนุญาต</string>
-    <string name="data_areas_short_summary">พื้นที่ที่ SD Maid สามารถเข้าถึงได้ตามสิทธิ์ที่ได้รับอนุญาตในปัจจุบัน</string>
-    <string name="history_label">ประวัติ</string>
-    <string name="history_description">รายการตามลำดับเวลาของการดำเนินการล่าสุดและข้อมูลที่ได้รับผลกระทบ</string>
     <string name="updates_dashcard_title">มีการอัปเดต</string>
     <string name="updates_dashcard_body">มีการอัปเดตใหม่ คุณมีเวอร์ชัน %1$s และเวอร์ชันล่าสุดคือ %2$s</string>
     <string name="translation_encourage_title">แปล SD Maid</string>
@@ -250,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">ตรวจสอบการอัปเดต</string>
     <string name="updatecheck_setting_enabled_explanation">อนุญาตให้ SD Maid ตรวจสอบการอัปเดตเพื่อแจ้งให้คุณทราบหากมีเวอร์ชันใหม่</string>
     <string name="device_settings_category">อุปกรณ์</string>
-    <string name="beta_version_indicator_desc">เวอร์ชันก่อนการออกจำหน่ายจะแสดงริบบิ้นเล็กๆ บนหน้าจอเริ่มต้น มีการอัปเดตบ่อยกว่า อาจมีฟีเจอร์มากกว่า แต่อาจมีบักมากกว่าด้วย</string>
     <string name="review_app_review_action">รีวิว</string>
     <string name="review_app_dismiss_action">อาจในคราวหน้า</string>
     <string name="review_app_body">คุณต้องการให้คะแนน SD Maid หรือไม่?️ ❤️</string>

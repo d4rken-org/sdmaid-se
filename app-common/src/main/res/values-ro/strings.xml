@@ -33,16 +33,9 @@
     <string name="general_empty_label">Gol</string>
     <string name="general_new_badge_label">Nou</string>
     <string name="general_dismiss_action">Respinge</string>
-    <string name="general_maybe_later_action">Poate mai târziu</string>
     <string name="general_manage_action">Gestionează</string>
-    <string name="general_sync_action">Sincronizează</string>
     <string name="general_error_label">Eroare</string>
-    <string name="general_tap_hint_msg">Apasă pentru mai multe opțiuni</string>
     <string name="general_upgrade_action">Actualizează</string>
-    <string name="general_donate_action">Donează</string>
-    <string name="general_check_action">Verifică</string>
-    <string name="general_filter_action">Filtrează</string>
-    <string name="general_internal_not_available_msg">Conexiunea la internet nu este disponibilă</string>
     <string name="general_refresh_action">Reîncarcă</string>
     <string name="general_progress_searching">Se caută</string>
     <string name="general_progress_generating_searchpaths">Generarea căilor de căutare</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">În coadă</string>
     <string name="general_progress_deleting">Se sterge</string>
     <string name="general_progress_deleting_x">Se șterge %s</string>
-    <string name="general_sort_action">Sortare</string>
-    <string name="general_sort_by_title">Sortare după</string>
-    <string name="general_sort_options_label">Opțiuni pentru sortare</string>
     <string name="general_sort_reverse_action">Modul de sortare inversă</string>
-    <string name="general_sort_oldest_first">Cele mai vechi primele</string>
-    <string name="general_sort_newest_first">Cele mai noi primele</string>
-    <string name="general_sort_name_asc">Nume (A → Z)</string>
-    <string name="general_sort_size_desc">Cele mai mari primele</string>
-    <string name="general_tag_filter_label">Filtrează după etichete</string>
     <string name="general_tag_system">Sistem</string>
     <string name="general_result_success_message">Operațiune cu succes</string>
-    <string name="general_result_failure_message">Operațiune eșuată</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">S-a eliberat %s spațiu.</item>
         <item quantity="few">S-a eliberat %s spațiu.</item>
@@ -97,7 +81,6 @@
     <string name="general_delete_action">Șterge</string>
     <string name="general_delete_selected_action">Ştergeţi selecţia</string>
     <string name="general_show_details_action">Vezi detalii</string>
-    <string name="general_show_all_action">Arată tot</string>
     <string name="general_toggle_layout_mode">Schimbă modul de vizualizare</string>
     <string name="general_delete_confirmation_title">Confirmă ștergerea</string>
     <string name="general_delete_confirmation_message_x">Ștergi \"%s\"?</string>
@@ -112,16 +95,12 @@
         <item quantity="other">Au fost șterse %d articole.</item>
     </plurals>
     <string name="general_remove_action">Elimină</string>
-    <string name="general_remove_selected_action">Elimină selecția</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un element a fost eliminat</item>
         <item quantity="few">%d elemente au fost eliminate</item>
         <item quantity="other">%d elemente au fost eliminate</item>
     </plurals>
-    <string name="general_root_required_label">Necesită root</string>
-    <string name="general_root_required_message">Necesită un dispozitiv rootat</string>
     <string name="general_search_action">Caută</string>
-    <string name="general_scan_device_action">Scanează dispozitivul</string>
     <string name="general_open_system_settings_action">Deschide setările de sistem</string>
     <plurals name="result_x_items">
         <item quantity="one">%s articol</item>
@@ -145,7 +124,6 @@
     </plurals>
     <string name="general_info_label">Informații</string>
     <string name="general_count_label">Numără</string>
-    <string name="general_app_label">Aplicație</string>
     <string name="general_more_info_action">Mai multe informații</string>
     <string name="general_grant_access_action">Acordă accesul</string>
     <string name="general_enable_service_action">Activează serviciul</string>
@@ -158,7 +136,6 @@
     <string name="general_exclude_selected_action">Exclude selectia</string>
     <string name="general_device_label">Dispozitiv</string>
     <string name="general_settings_title">Setări</string>
-    <string name="general_help_title">Ajutor</string>
     <string name="general_hints_label">Înștiințare</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Director</string>
@@ -191,8 +168,6 @@
     <string name="general_user_label_owner">Proprietar</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Parte de configurare</string>
-    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor adiționale de configurare: %s</string>
-    <string name="upgrade_feature_requires_pro">Necesită Pro</string>
     <string name="general_include_multiuser_label">Includeți alți utilizatori</string>
     <string name="general_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="general_unsaved_confirmation_message">Ai modificări nesalvate!</string>
@@ -216,5 +191,4 @@
     <string name="settings_category_risklevel">Nivel de risc</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Arată setările</string>
-    <string name="systemcleaner_customfilter_create_action">Crează filtru personalizat</string>
 </resources>

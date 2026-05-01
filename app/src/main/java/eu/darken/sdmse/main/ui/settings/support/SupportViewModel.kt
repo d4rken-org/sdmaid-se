@@ -2,11 +2,11 @@ package eu.darken.sdmse.main.ui.settings.support
 
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.ClipboardHelper
 import eu.darken.sdmse.common.SDMId
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -15,47 +15,52 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.uix.ViewModel4
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
 class SupportViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     @ApplicationContext private val context: Context,
     dispatcherProvider: DispatcherProvider,
     private val sdmId: SDMId,
     private val sessionManager: DebugLogSessionManager,
-) : ViewModel3(dispatcherProvider) {
+    private val webpageTool: WebpageTool,
+    private val clipboardHelper: ClipboardHelper,
+) : ViewModel4(dispatcherProvider, TAG) {
 
     sealed interface SupportEvents {
         data object ShowShortRecordingWarning : SupportEvents
         data class LaunchRecorderActivity(val intent: Intent) : SupportEvents
+        data class ShowInstallId(val installId: String) : SupportEvents
     }
 
-    val clipboardEvent = SingleLiveEvent<String>()
-    val events = SingleLiveEvent<SupportEvents>()
+    val events = SingleEventFlow<SupportEvents>()
 
-    val isRecording = sessionManager.sessions
+    val isRecording: Flow<Boolean> = sessionManager.sessions
         .map { sessions -> sessions.any { it is DebugLogSession.Recording } }
-        .asLiveData2()
 
     data class DebugLogFolderStats(
         val sessionCount: Int = 0,
         val totalSizeBytes: Long = 0L,
     )
 
-    val debugLogFolderStats = sessionManager.sessions
+    val debugLogFolderStats: Flow<DebugLogFolderStats> = sessionManager.sessions
         .map { sessions ->
             DebugLogFolderStats(
                 sessionCount = sessions.size,
                 totalSizeBytes = sessions.sumOf { it.diskSize },
             )
         }
-        .asLiveData2()
 
     fun copyInstallID() = launch {
-        clipboardEvent.postValue(sdmId.id)
+        events.emit(SupportEvents.ShowInstallId(sdmId.id))
+    }
+
+    fun copyToClipboard(text: String) {
+        clipboardHelper.copyToClipboard(text)
     }
 
     fun startDebugLog() = launch {
@@ -67,7 +72,7 @@ class SupportViewModel @Inject constructor(
         log(TAG) { "stopDebugLog()" }
         when (val result = sessionManager.requestStopRecording()) {
             is RecorderModule.StopResult.TooShort -> {
-                events.postValue(SupportEvents.ShowShortRecordingWarning)
+                events.emit(SupportEvents.ShowShortRecordingWarning)
             }
             is RecorderModule.StopResult.Stopped -> {
                 launchRecorderActivity(result.sessionId)
@@ -86,16 +91,15 @@ class SupportViewModel @Inject constructor(
         val intent = RecorderActivity.getLaunchIntent(context, sessionId).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-        events.postValue(SupportEvents.LaunchRecorderActivity(intent))
+        events.tryEmit(SupportEvents.LaunchRecorderActivity(intent))
+    }
+
+    fun openUrl(url: String) {
+        webpageTool.open(url)
     }
 
     fun refreshSessions() {
         sessionManager.refresh()
-    }
-
-    fun deleteAllDebugLogs() = launch {
-        log(TAG) { "deleteAllDebugLogs()" }
-        sessionManager.deleteAll()
     }
 
     companion object {

@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Dọn dẹp ứng dụng tự động</string>
     <string name="appcleaner_automation_subtitle_default_caches">Đang xóa bộ nhớ cache mặc định…</string>
-    <string name="appcleaner_automation_progress_open_settings">Đang mở màn hình cài đặt (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Đang tìm kiếm mục \"Bộ nhớ\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Đang tìm nút \"Xóa dữ liệu\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Đang tìm nút \"Xóa bộ nhớ cache\" (từ khóa: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
     <string name="appcleaner_automation_unavailable_body">Xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
-    <string name="appcleaner_junk_userprofile_label">Người dùng</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Buộc dừng trước khi xóa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Buộc dừng ứng dụng trước khi xóa bộ nhớ đệm của chúng. Thao tác này có thể giúp xóa bộ nhớ đệm của một số ứng dụng, nhưng có thể khiến ứng dụng hoạt động không đúng cách và cần phải khởi động lại thủ công.</string>
     <string name="appcleaner_progress_force_stopping">Đang buộc dừng ứng dụng…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
-    <string name="appcleaner_automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
-    <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
 </resources>

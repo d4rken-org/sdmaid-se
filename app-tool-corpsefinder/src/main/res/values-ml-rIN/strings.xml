@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">നിയന്ത്രിത ആപ്പ് ഇൻസ്റലേഷൻ ഡേറ്റ, ഉദാ: സംരക്ഷിത മൂന്നാം കക്ഷി ആപ്പുകൾ.</string>
     <string name="corpsefinder_filter_appasec_label">എൻക്രിപ്റ് ചെയ്ത ആപ്പ് റിസോഴ്‌സുകൾ</string>
     <string name="corpsefinder_filter_appasec_summary">എൻക്രിപ്റ് ചെയ്ത ആപ്പ് റിസോഴ്‌സുകൾ, ഉദാ: ഗെയ്ം അസറ്റുകൾ.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd മോഡുകൾ ബാഹ്യ സ്റ്റോറേജിലേക്ക് മാറ്റിയ ഡേറ്റ.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ആപ്പ് അവശിഷ്ടം ഡിലീറ്റ് ചെയ്തു</item>

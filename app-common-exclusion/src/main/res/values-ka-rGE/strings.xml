@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">გამოიყენეთ AppControl ხელსაწყო აპის გამონაკლისების შესაქმნელად.</string>
     <string name="exclusion_create_path_hint">გამოიყენეთ StorageAnalyzer ხელსაწყო გზის გამონაკლისების შესაქმნელად.</string>
     <string name="exclusion_show_defaults_action">ნაგულისხმევების ჩვენება</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
 </resources>

@@ -33,16 +33,9 @@
     <string name="general_empty_label">Хоосон</string>
     <string name="general_new_badge_label">Шинэ</string>
     <string name="general_dismiss_action">Хаах</string>
-    <string name="general_maybe_later_action">Дараа нь магадгүй</string>
     <string name="general_manage_action">Удирдах</string>
-    <string name="general_sync_action">Синхрончлох</string>
     <string name="general_error_label">Алдаа</string>
-    <string name="general_tap_hint_msg">Нэмэлт сонголтуудыг харахын тулд товшино уу</string>
     <string name="general_upgrade_action">Сайжруулах</string>
-    <string name="general_donate_action">Хандив өгөх</string>
-    <string name="general_check_action">Шалгах</string>
-    <string name="general_filter_action">Шүүлтүүр</string>
-    <string name="general_internal_not_available_msg">Интернет холболт боломжгүй</string>
     <string name="general_refresh_action">Сэргээх</string>
     <string name="general_progress_searching">Хайж байна</string>
     <string name="general_progress_generating_searchpaths">Хайлтын замыг үүсгэж байна</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Дарааллд</string>
     <string name="general_progress_deleting">Устгаж байна</string>
     <string name="general_progress_deleting_x">%s устгаж байна</string>
-    <string name="general_sort_action">Эрэмбэлэх</string>
-    <string name="general_sort_by_title">Эрэмбэлэх шалгуур</string>
-    <string name="general_sort_options_label">Эрэмбэлэх сонголтууд</string>
     <string name="general_sort_reverse_action">Урвуу эрэмбэлэх горим</string>
-    <string name="general_sort_oldest_first">Эхэлсэн огноогоор</string>
-    <string name="general_sort_newest_first">Шинэ эхэлж</string>
-    <string name="general_sort_name_asc">Нэр (А → Я)</string>
-    <string name="general_sort_size_desc">Хамгийн том эхэлж</string>
-    <string name="general_tag_filter_label">Шошгоор шүүх</string>
     <string name="general_tag_system">Систем</string>
     <string name="general_result_success_message">Амжилттай гүйцэтгэгдсэн</string>
-    <string name="general_result_failure_message">Үйлдэл амжилтгүй</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s зай чөлөөлөгдсөн.</item>
         <item quantity="other">%s зай чөлөөлөгдсөн.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Устгах</string>
     <string name="general_delete_selected_action">Сонгосныг устгах</string>
     <string name="general_show_details_action">Дэлгэрэнгүй харуулах</string>
-    <string name="general_show_all_action">Бүгдийг харуулах</string>
     <string name="general_toggle_layout_mode">Харах горимыг сэлгэх</string>
     <string name="general_delete_confirmation_title">Устгахыг баталгаажуулах</string>
     <string name="general_delete_confirmation_message_x">\"%s\" устгах уу?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d зүйл устгасан.</item>
     </plurals>
     <string name="general_remove_action">Хасах</string>
-    <string name="general_remove_selected_action">Сонгосныг хасах</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Нэг зүйл хасагдсан</item>
         <item quantity="other">%d зүйл хасагдсан</item>
     </plurals>
-    <string name="general_root_required_label">Root эрх шаардлагатай</string>
-    <string name="general_root_required_message">Root эрхтэй төхөөрөмж шаардлагатай</string>
     <string name="general_search_action">Хайх</string>
-    <string name="general_scan_device_action">Төхөөрөмж скан хийх</string>
     <string name="general_open_system_settings_action">Системийн тохиргоо нээх</string>
     <plurals name="result_x_items">
         <item quantity="one">%s зүйл</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Мэдээлэл</string>
     <string name="general_count_label">Тоо</string>
-    <string name="general_app_label">Апп</string>
     <string name="general_more_info_action">Нэмэлт мэдээлэл</string>
     <string name="general_grant_access_action">Хандалт олгох</string>
     <string name="general_enable_service_action">Үйлчилгээ идэвхжүүлэх</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Сонгосныг хасах</string>
     <string name="general_device_label">Төхөөрөмж</string>
     <string name="general_settings_title">Тохиргоо</string>
-    <string name="general_help_title">Тусламж</string>
     <string name="general_hints_label">Мэдэгдэл</string>
     <string name="file_type_symbolic_link">Холбоос</string>
     <string name="file_type_directory">Лавлах</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Тохиргоо</string>
-    <string name="setup_feature_requires_additional_setup_x">Энэ функц нь нэмэлт тохиргоо шаарддаг: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro шаардлагатай</string>
     <string name="general_include_multiuser_label">Бусад хэрэглэгчдийг оруулах</string>
     <string name="general_include_multiuser_summary">Энэ төхөөрөмж дээрх бусад хэрэглэгчийн профайлаас аппуудыг оруулах.</string>
     <string name="general_unsaved_confirmation_message">Хадгалагдаагүй өөрчлөлтүүд байна!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Эрсдлийн түвшин</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="appcontrol_systemsettings_open_title">Тохиргоог харуулах</string>
-    <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
 </resources>

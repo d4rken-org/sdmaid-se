@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Користете ја алатката AppControl за создавање исклучоци за апликации.</string>
     <string name="exclusion_create_path_hint">Користете ја алатката StorageAnalyzer за создавање исклучоци за патеки.</string>
     <string name="exclusion_show_defaults_action">Прикажи стандардни</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате незачувани промени!</string>
 </resources>

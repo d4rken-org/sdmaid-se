@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">وێنە و ڤیدیۆ بچووک بکەرەوە بۆ خەزن کردنی شوێنی ساردەرگە.</string>
+    <string name="squeezer_explanation_short">وێنەکان بپەکێنە بۆ زیادکردنی شوێنی ئەمبارکردن.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d دانە دۆزرایەوە</item>
-        <item quantity="other">%d دانە دۆزرایەوە</item>
+        <item quantity="one">%d وێنە دۆزرایەوە</item>
+        <item quantity="other">%d وێنە دۆزرایەوە</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s دەکرێت خەزن بکرێت</item>
         <item quantity="other">~%s دەکرێت خەزن بکرێت</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d دانە بچووک کرایەوە</item>
-        <item quantity="other">%d دانە بچووک کرایەوە</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d شکستی هێنا</item>
-        <item quantity="other">%d شکستی هێنا</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d فایل تێپەڕا (دەستنەگەی)</item>
-        <item quantity="other">%d فایل تێپەڕا (دەستنەگەی)</item>
+        <item quantity="one">%d وێنە پەکاندرا</item>
+        <item quantity="other">%d وێنە پەکاندرا</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d دانە هەڵبژێردرا</item>
-        <item quantity="other">%d دانە هەڵبژێردرا</item>
+        <item quantity="one">%d وێنە هەڵبژێردرا</item>
+        <item quantity="other">%d وێنە هەڵبژێردرا</item>
     </plurals>
-    <string name="squeezer_search_locations_title">گەڕان locations</string>
-    <string name="squeezer_search_locations_default_summary">فۆڵدەرەکانی کامێرا (بنەڕەت)</string>
     <string name="squeezer_min_size_title">کەمترین قەبارەی فایل</string>
-    <string name="squeezer_min_size_description">فایلەکانی بچووکتر لەم قەبارەیە تێپەڕ بکە.</string>
+    <string name="squeezer_min_size_description">وێنەکانی بچووکتر لەم قەبارەیە بگوێزرێنەوە.</string>
     <string name="squeezer_min_age_title">کەمترین تەمەنی فایل</string>
-    <string name="squeezer_min_age_description">تەنها فایلەکانی کۆنتر لەم تەمەنە لەخۆ بگرە.</string>
-    <string name="squeezer_compression_settings_label">گشتی</string>
-    <string name="squeezer_quality_label">کوالیتی</string>
-    <string name="squeezer_quality_title">کوالیتی پەکاندن</string>
-    <string name="squeezer_quality_description">کوالیتی نزم یانی قەبارەی فایل بچووکتر دەبێت بەڵام کوالیتی دیداری کەمتر دەبێت.</string>
-    <string name="squeezer_quality_example_format">نموونە: وێنەی %1$s → ~%2$s خەزن دەکات لە %3$d%% کوالیتیدا</string>
-    <string name="squeezer_quality_warning_low">کوالیتی کەمتر لەوانەیە بکاتە هۆی ئارتیفاکتی دیاریکراو.</string>
-    <string name="squeezer_quality_warning_high">کوالیتی زۆر بەرز کەمترین خەزنکردنی شوێن دابین دەکات.</string>
-    <string name="squeezer_types_category_label">ڕێکخستنەکانی وێنە</string>
-    <string name="squeezer_video_settings_category_label">ڕێکخستنەکانی ڤیدیۆ</string>
+    <string name="squeezer_min_age_description">تەنها وێنەکانی کۆنتر لەم تەمەنە تێبگرە.</string>
+    <string name="squeezer_compression_settings_label">ڕێکخستنەکانی پەکاندن</string>
+    <string name="squeezer_quality_description">کوالیتی کەمتر یانی قەبارەی فایلی بچووکتر بەڵام کوالیتی وێنەی کەمتر.</string>
+    <string name="squeezer_types_category_label">جۆرەکانی وێنە</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">وێنەکانی JPEG تێبگرە (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">وێنەکانی WebP تێبگرە (.webp).</string>
-    <string name="squeezer_type_video_title">ڤیدیۆی MP4</string>
-    <string name="squeezer_type_video_description">فایلەکانی ڤیدیۆی MP4 لەخۆ بگرە (.mp4).</string>
     <string name="squeezer_skip_compressed_title">یەکانی پێشووی پەکاندراو بگوێزرێنەوە</string>
-    <string name="squeezer_skip_compressed_description">فایلەکانی کە پێشتر لەلایەن SD Maid بچووک کراوەتەوە تێپەڕ بکە.</string>
+    <string name="squeezer_skip_compressed_description">وێنەکانی پێشووی پەکاندراو لەلایەن SD Maidەوە بگوێزرێنەوە.</string>
     <string name="squeezer_exif_marker_title">نیشانەی EXIF بنووسە</string>
     <string name="squeezer_exif_marker_description">نیشانەیەک لە خانەی کۆمێنتی بەکارهێنەری EXIF ی وێنەکە زیاد بکە بۆ ئەوەی دووبارە پەکاندن جێگیر بکات تەوەکو مێژووی پەکاندن پاک بکرێتەوە.</string>
     <string name="squeezer_estimated_savings_format">~%s خەزن</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">پشتڕاستکردنەوەی پەکاندن</string>
     <string name="squeezer_preview_total_size">قەبارەی سەرجەم</string>
     <string name="squeezer_preview_estimated_savings">خەزنکردنی خەمڵاندراو</string>
-    <string name="squeezer_compress_confirmation_title">دانەبژێردراوەکان بچووک بکرێتەوە؟</string>
-    <string name="squeezer_compress_confirmation_message">ئەمە فایلە بنەڕەتیەکان بە گەڕانەوەیەکی بچووک کراو دەگۆڕێت. ئەم کاری پێچەوانەی نابێت.</string>
     <string name="squeezer_history_title">مێژووی پەکاندن</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d بابەت (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">هیچ مێژووی پەکاندنێک نییە</string>
     <string name="squeezer_history_clear_title">مێژووی پەکاندن پاک بکەرەوە</string>
-    <string name="squeezer_history_clear_message">ئەمە ڕێ دەدات فایلەکانی کە پێشتر بچووک کراوەتەوە دووبارە بچووک بکرێتەوە. فایلەکان خۆیان کاریگەریان لێ نابێت.</string>
-    <string name="squeezer_onboarding_title">دەربارەی پەکاندنی وێنە</string>
-    <string name="squeezer_onboarding_message">پەکاندنی وێنە قەبارەی فایل کەم دەکاتەوە بە لابردنی وردەکاری بینراو. ئەم پرۆسەیە گەڕاندنەوەی نییە - کوالیتی ڕەسەن نابێتەوە.\n\nئەمێتە پێشبینییەک لەوەی وێنەکانت چۆن دەبێتەوە:</string>
+    <string name="squeezer_history_clear_message">ئەمە ڕێ دەدات بە وێنەکانی پێشووی پەکاندراو کە دووبارە پەکاندرێن. وێنەکانی خۆیان کاریگەر نابن.</string>
     <string name="squeezer_onboarding_original_label">ڕەسەن</string>
     <string name="squeezer_onboarding_compressed_label">پاش پەکاندن</string>
-    <string name="squeezer_onboarding_video_original_label">فریمی ڤیدیۆ</string>
-    <string name="squeezer_onboarding_video_compressed_label">پێشبینی (بە نزیکەیی)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">کوالیتی ڤیدیۆی ڕاستەقینە لەوانەیە جیاواز بێت</string>
-    <string name="squeezer_onboarding_quality_label">کوالیتی: %d%%</string>
     <string name="squeezer_compare_action">بەراوردکردن ببینە</string>
     <string name="squeezer_no_example_found">هیچ وێنەیەک لە ڕێگاکانی دیاریکراودا نەدۆزرایەوە.</string>
-    <string name="squeezer_result_empty_message">هیچ میدیایەکی بچووک کراوەپەذیر نەدۆزرایەوە.</string>
-    <string name="squeezer_setup_warning">بچووک کردنەوە بەردەوام کوالیتی کەم دەکاتەوە بۆ خەزن کردنی شوێنی ساردەرگە. ئەمە پێچەوانەی نابێت. ڕێکخستنەکانت بە باشی پێش دەستپێکردن بکولێنەوە.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d شوێن ناتوانرێت بۆ بچووک کردنەوە بەکار بهێنرێت و لابرا. بچووک کردنەوە پێویستی بە دەستڕاگەیشتنی ڕاستەوخۆ بە ساردەرگەی ناوەکی هەیە.</item>
-        <item quantity="other">%d شوێن ناتوانرێت بۆ بچووک کردنەوە بەکار بهێنرێت و لابرا. بچووک کردنەوە پێویستی بە دەستڕاگەیشتنی ڕاستەوخۆ بە ساردەرگەی ناوەکی هەیە.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze قەبارەی فایلی وێنە و ڤیدیۆ کەم دەکاتەوە بۆ ئازاد کردنی شوێنی ساردەرگە. ئەمە بەردەوام کوالیتی کەم دەکاتەوە و پێچەوانەی نابێت. ڕێکخستنەکانت بە باشی پێش دەستپێکردن بکولێنەوە.</string>
+    <string name="squeezer_result_empty_message">هیچ وێنەی پەکاندنەپەزیریوو نەدۆزرایەوە.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze قەبارەی فایلی وێنەکان کەم دەکاتەوە بۆ ئازادکردنی شوێنی ئەمبارکردن. ئەمە کوالیتی وێنە بە جێگیری کەم دەکاتەوە و نابێتەوە. ڕێکخستنەکانت بە وریاییەوە بپشکنە پێش دەستپێکردن.</string>
     <string name="squeezer_setup_paths_title">گەڕان locations</string>
     <string name="squeezer_setup_paths_default">فۆڵدەرەکان بۆ گەڕان هەڵبژێرە</string>
     <string name="squeezer_setup_quality_title">کوالیتی پەکاندن</string>
     <string name="squeezer_setup_age_title">کەمترین age</string>
-    <string name="squeezer_setup_age_none">هیچ سنووری نییە (هەموو فایلەکان تێبگرە)</string>
     <string name="squeezer_setup_start_action">سکانی دەستپێبکە</string>
     <string name="squeezer_quality_hint_very_low">کوالیتی لەژێر 40% لەوانەیە وێنەی بێ بەهادا درووست بکات.</string>
     <string name="squeezer_quality_hint_low">کوالیتی کەمتر شوێنی زیاتر خەزن دەکات بەڵام لەوانەیە بکاتە هۆی ئارتیفاکتی دیاریکراو.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">لانی کەم %d ڕۆژ کۆنە</item>
         <item quantity="other">لانی کەم %d ڕۆژ کۆنن</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">~%d%% تەخمینی پاشەکەوتی بۆ وێنەکان</string>
-    <string name="squeezer_onboarding_got_it">تێگەیشتم</string>
+    <string name="squeezer_estimated_savings_percent">خەمڵاندراوی ~%d%% خەزنکردن بۆ فایلەکانی JPEG</string>
 </resources>

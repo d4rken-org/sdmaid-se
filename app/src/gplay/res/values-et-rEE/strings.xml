@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro on vajalik</string>
     <string name="upgrades_dashcard_title">SD Maid SE täiendamine</string>
     <string name="upgrades_dashcard_body">SD Maid SE pakub paremaid tulemusi, rohkem võimalusi ja valikuid edasijõudnutele.</string>
     <string name="upgrades_dashcard_upgrade_action">Täienda</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Ühendumine Google Playga nurjus. Kontrollige internetiühendust ja proovige uuesti.</string>
     <string name="upgrades_gplay_already_owned_error_title">Juba ostetud</string>
     <string name="upgrades_gplay_already_owned_error_description">Ostu taastamiseks kasuta „Taasta ost“ valikut. Mure püsimisel ürita tühjendada Google Play vahemälu ja taaskäivitada seadet.</string>
-    <string name="upgrades_no_purchases_found_check_account">Oste ei leitud. Kas kasutate õiget kontot?</string>
     <string name="upgrade_screen_title">Hankige SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Minu tööd toetate teie ❤️.</string>
     <string name="upgrade_screen_benefits_title">Eelised</string>

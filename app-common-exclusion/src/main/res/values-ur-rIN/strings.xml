@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ایپ استثنائات بنانے کے لیے AppControl ٹول استعمال کریں۔</string>
     <string name="exclusion_create_path_hint">پاتھ استثنائات بنانے کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
     <string name="exclusion_show_defaults_action">ڈیفالٹس دکھائیں</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">آپ کی غیر محفوظ تبدیلیاں ہیں!</string>
 </resources>

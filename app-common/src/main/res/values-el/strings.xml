@@ -33,16 +33,9 @@
     <string name="general_empty_label">Κενό</string>
     <string name="general_new_badge_label">Νέο</string>
     <string name="general_dismiss_action">Παράλειψη</string>
-    <string name="general_maybe_later_action">Ίσως αργότερα</string>
     <string name="general_manage_action">Διαχείριση</string>
-    <string name="general_sync_action">Συγχρονισμός</string>
     <string name="general_error_label">Σφάλμα</string>
-    <string name="general_tap_hint_msg">Πατήστε για περισσότερες επιλογές</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
-    <string name="general_donate_action">Δωρεά</string>
-    <string name="general_check_action">Έλεγχος</string>
-    <string name="general_filter_action">Φίλτρο</string>
-    <string name="general_internal_not_available_msg">Η σύνδεση στο διαδίκτυο δεν είναι διαθέσιμη</string>
     <string name="general_refresh_action">Ανανέωση</string>
     <string name="general_progress_searching">Αναζήτηση</string>
     <string name="general_progress_generating_searchpaths">Δημιουργία διαδρομών αναζήτησης</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Σε αναμονή</string>
     <string name="general_progress_deleting">Διαγραφή</string>
     <string name="general_progress_deleting_x">Διαγραφή %s</string>
-    <string name="general_sort_action">Ταξινόμηση</string>
-    <string name="general_sort_by_title">Ταξινόμηση κατά</string>
-    <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
     <string name="general_sort_reverse_action">Αντιστροφή λειτουργίας ταξινόμησης</string>
-    <string name="general_sort_oldest_first">Παλαιότερα πρώτα</string>
-    <string name="general_sort_newest_first">Νεότερα πρώτα</string>
-    <string name="general_sort_name_asc">Όνομα (Α → Ω)</string>
-    <string name="general_sort_size_desc">Μεγαλύτερα πρώτα</string>
-    <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
     <string name="general_tag_system">Σύστημα</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
-    <string name="general_result_failure_message">Η λειτουργία απέτυχε</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Απελευθερώθηκε %s χώρου.</item>
         <item quantity="other">Απελευθερώθηκαν %s χώρου.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Διαγραφή</string>
     <string name="general_delete_selected_action">Διαγραφή επιλεγμένου</string>
     <string name="general_show_details_action">Εμφάνιση λεπτομερειών</string>
-    <string name="general_show_all_action">Εμφάνιση όλων</string>
     <string name="general_toggle_layout_mode">Εναλλαγή λειτουργίας προβολής</string>
     <string name="general_delete_confirmation_title">Επιβεβαίωση διαγραφής</string>
     <string name="general_delete_confirmation_message_x">Διαγραφή \"%s\";</string>
@@ -109,15 +92,11 @@
         <item quantity="other">Διαγράφηκαν %d στοιχεία.</item>
     </plurals>
     <string name="general_remove_action">Αφαίρεση</string>
-    <string name="general_remove_selected_action">Αφαίρεση επιλεγμένων</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Ένα στοιχείο αφαιρέθηκε</item>
         <item quantity="other">%d στοιχεία αφαιρέθηκαν</item>
     </plurals>
-    <string name="general_root_required_label">Απαιτεί root</string>
-    <string name="general_root_required_message">Απαιτεί συσκευή με root</string>
     <string name="general_search_action">Αναζήτηση</string>
-    <string name="general_scan_device_action">Σάρωση συσκευής</string>
     <string name="general_open_system_settings_action">Άνοιγμα ρυθμίσεων συστήματος</string>
     <plurals name="result_x_items">
         <item quantity="one">%s στοιχείο</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Πληροφορίες</string>
     <string name="general_count_label">Πλήθος</string>
-    <string name="general_app_label">Εφαρμογή</string>
     <string name="general_more_info_action">Περισσότερες πληροφορίες</string>
     <string name="general_grant_access_action">Παραχώρηση πρόσβασης</string>
     <string name="general_enable_service_action">Ενεργοποίηση υπηρεσίας</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Εξαίρεση επιλεγμένου</string>
     <string name="general_device_label">Συσκευή</string>
     <string name="general_settings_title">Ρυθμίσεις</string>
-    <string name="general_help_title">Βοήθεια</string>
     <string name="general_hints_label">Προσοχή</string>
     <string name="file_type_symbolic_link">Σύνδεσμος</string>
     <string name="file_type_directory">Κατάλογος</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
     <string name="setup_title">Εγκατάσταση</string>
-    <string name="setup_feature_requires_additional_setup_x">Αυτή η λειτουργία απαιτεί την ολοκλήρωση πρόσθετων στοιχείων ρύθμισης: %s</string>
-    <string name="upgrade_feature_requires_pro">Απαιτεί Pro</string>
     <string name="general_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
     <string name="general_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
     <string name="general_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
     <string name="settings_category_filter">Φίλτρο</string>
     <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
-    <string name="systemcleaner_customfilter_create_action">Δημιουργία προσαρμοσμένου φίλτρου</string>
 </resources>

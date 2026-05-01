@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Продължаване на сесията</string>
     <string name="swiper_sessions_description">Прегледайте файлове в 3 лесни стъпки:\n\n1. Изберете папка за сканиране\n2. Плъзнете файлове, за да запазите, изтриете или пропуснете\n3. Прегледайте решенията си и потвърдете\n\nНищо не се премахва, докато не докоснете крайния бутон за изтриване.</string>
     <string name="swiper_select_folders_action">Избиране на папки</string>
-    <string name="swiper_scanning_title">Сканиране…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d елемент намерен</item>
         <item quantity="other">%d елемента намерени</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Запазване на избраните</string>
     <string name="swiper_status_action_delete_selected">Изтриване на избраните</string>
     <string name="swiper_status_action_reset_selected">Нулиране на избраните</string>
-    <string name="swiper_decision_undecided">Нерешен</string>
-    <string name="swiper_retry_action">Повторен опит</string>
     <string name="swiper_delete_confirmation_title">Изтриване на файлове?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Това ще изтрие окончателно %1$d файл (%2$s). Това действие не може да бъде отменено.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d нерешен</item>
         <item quantity="other">%d нерешени</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d вече запазен</item>
-        <item quantity="other">%d вече запазени</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d вече изтрит</item>
-        <item quantity="other">%d вече изтрити</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d запазен</item>
         <item quantity="other">%d запазени</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Как работи Swiper</string>
     <string name="swiper_help_message">Плъзнете всеки файл, за да вземете решение:\n\n← Плъзнете наляво: %1$s\n→ Плъзнете надясно: %2$s\n↑ Плъзнете нагоре: Пропускане\n↓ Плъзнете надолу: Отмяна (след първото плъзгане)\n\nМожете също да използвате бутоните в долната част.\n\nКогато приключите, докоснете \"Преглед\", за да видите всичките си решения. Нищо не се изтрива, докато не потвърдите на екрана за преглед.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Разбрах</string>
-    <string name="swiper_help_action">Помощ</string>
     <string name="swiper_file_type_filter_title">Показвай само тези типове файлове</string>
     <string name="swiper_file_type_filter_hint">Отметнете типовете, които искате да виждате. Ако нито един не е отметнат, се показват всички файлове.</string>
     <string name="swiper_file_type_category_images">Изображения</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Архиви</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Приложи</string>
-    <string name="swiper_session_filter_action">Филтриране на файлове</string>
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не са намерени съответстващи файлове</string>
     <string name="swiper_open_externally_action">Отвори във външно приложение</string>

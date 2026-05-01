@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Utilizați instrumentul Controlul aplicațiilor pentru a crea excluderi de aplicații.</string>
     <string name="exclusion_create_path_hint">Utilizați instrumentul Analizor de stocare pentru a crea căi de excludere.</string>
     <string name="exclusion_show_defaults_action">Afișați valorile implicite</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ai modificări nesalvate!</string>
 </resources>

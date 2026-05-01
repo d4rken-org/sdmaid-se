@@ -26,5 +26,4 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="exclusion_create_pkg_hint">Utilizzare lo strumento AppControl per creare esclusioni di app.</string>
     <string name="exclusion_create_path_hint">Utilizzare lo strumento StorageAnalyzer per creare esclusioni di percorsi.</string>
     <string name="exclusion_show_defaults_action">Mostra predefiniti</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ci sono modifiche non salvate!</string>
 </resources>

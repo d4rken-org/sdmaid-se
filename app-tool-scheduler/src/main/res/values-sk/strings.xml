@@ -22,7 +22,6 @@
         <item quantity="many">Každých %d dní</item>
         <item quantity="other">Každých %d dní</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Interval opakovania</string>
     <string name="scheduler_inaccurate_execution_hint">Očakávané časy spustenia sú približné. Plány sa môžu oneskoriť alebo urýchliť, ak sa tým šetrí batéria.</string>
     <string name="scheduler_no_active_schedules_subtitle">Žiadne aktívne plány</string>
     <string name="scheduler_setting_nopowersaving_title">Preskočiť pri nízkom stave batérie</string>

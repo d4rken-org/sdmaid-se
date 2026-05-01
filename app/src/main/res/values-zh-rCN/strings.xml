@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">停止记录</string>
     <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息（例如文件名称和已安装应用程序），请仅与可信的人共享。</string>
     <string name="debug_debuglog_screen_title">调试日志</string>
-    <string name="debug_debuglog_screen_discard_action">丢弃</string>
     <string name="debug_debuglog_screen_session_path_label">会话路径</string>
     <string name="debug_debuglog_screen_log_files_label">日志文件</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">失败：压缩错误</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">删除此调试日志会话？</string>
     <string name="support_contact_post_send_message">消息发送成功？</string>
-    <string name="debug_debuglog_sessions_stop_action">停止</string>
     <string name="tasks_activity_notification_channel_label">正在执行的操作</string>
     <string name="tasks_activity_working_notification_title">SD Maid 正在运行</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d 个操作排队中</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">任务结果</string>
     <string name="tasks_result_subtext">任务结果</string>
     <string name="tasks_timeout_error_label">任务超时</string>
     <string name="tasks_timeout_error_desc">任务耗时过长，已被停止。请重试。</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">继续</string>
     <string name="onboarding_privacy_title">隐私</string>
     <string name="onboarding_privacy_body1">SD Maid 不含广告，也不会对第三方分享用户信息。</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">出现错误时会发送错误报告，可能包含有关您设备上应用和文件的详细信息。这些报告有助于开发者修复错误并更新 App。</string>
-    <string name="onboarding_privacy_bugreport_toggle">允许自动提交错误报告</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">这些选项可以在设置中更改。</string>
-    <string name="onboarding_privacy_continue_action">继续</string>
     <string name="onboarding_setup_title">设置</string>
     <string name="onboarding_setup_body1">SD Maid 将扫描所有可访问的存储空间。</string>
     <string name="onboarding_setup_body2">可访问的内容因您的设备、Android 版本及已授予的权限而异。</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">设置未完成</string>
     <string name="setup_incomplete_card_body">完成 SD Maid 的设置以获得更好的效果。</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid 正在尝试修复设置问题。</string>
-    <string name="setup_incomplete_card_dismiss_action">取消</string>
     <string name="setup_incomplete_card_continue_action">继续设置</string>
     <string name="setup_forcedshow_summary">再次显示设置界面，包括已完成的项目。</string>
     <string name="setup_checking_card_body">验证设置完成情况和功能。</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">重载数据区域</string>
     <string name="debug_mode_label">调试模式</string>
     <string name="debug_mode_explanation">启用测试功能和更详细的日志输出后，应用的运行速度和性能都会减慢。</string>
-    <string name="debug_bugreporter_label">自动错误报告</string>
-    <string name="debug_bugreporter_summary">自动报告诸如应用崩溃详情等问题，以便我能查明原因并进行修复</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">调试模式已启用</string>
     <string name="debug_card_trace_mode_label">启用跟踪模式</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">SD 卡</string>
     <string name="data_areas_label">数据区域</string>
     <string name="data_areas_description">数据区域表示您设备中 SD Maid 可以访问的位置。数据区域会根据您的安卓版本和权限有所不同。</string>
-    <string name="data_areas_short_summary">在当前权限下 SD Maid 能访问的区域。</string>
-    <string name="history_label">历史</string>
-    <string name="history_description">将最近操作和涉及数据按时间排序的列表。</string>
     <string name="updates_dashcard_title">更新可用</string>
     <string name="updates_dashcard_body">更新可用。当前版本为 %1$s，最新版本为 %2$s。</string>
     <string name="translation_encourage_title">为 SD Maid 贡献翻译</string>
@@ -250,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">检查更新</string>
     <string name="updatecheck_setting_enabled_explanation">允许 SD Maid 检查更新，让您知道是否有新版本可用</string>
     <string name="device_settings_category">设备</string>
-    <string name="beta_version_indicator_desc">预发布版本会在开始屏幕上显示一个小条幅。预发布版本更新更频繁，可能具有更多的功能，但也可能有更多的漏洞。</string>
     <string name="review_app_review_action">评论</string>
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 SD Maid 写一条评论吗？❤️</string>

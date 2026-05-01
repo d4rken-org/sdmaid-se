@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">Jeħtieġ SD Maid SE Pro</string>
 
     <string name="upgrades_dashcard_title">Aġġorna SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro joffri riżultati aħjar, aktar karatteristiċi u għażliet għal utenti avvanzati.</string>
@@ -11,7 +8,6 @@
 
     <string name="upgrades_gplay_unavailable_error_title">Google Play mhuwiex disponibbli</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ma jistax jikkonnettja ma\' Google Play. Google Play huwa installat u aġġornat? Il-Kont Google tiegħek huwa illoggjat? Ipprova ħassar il-cache tal-app Google Play u erġa\' ixgħel l-apparat tiegħek.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ma nstab l-ebda xiri. Qed tuża l-kont it-tajjeb?</string>
     <string name="upgrade_screen_title">Ikseb SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid m\'għandux reklami u ma jbigħx id-data tal-utenti. Ix-xogħol tiegħi huwa ffinanzjat minnek ❤️.</string>
     <string name="upgrade_screen_benefits_title">Vantaġġi</string>

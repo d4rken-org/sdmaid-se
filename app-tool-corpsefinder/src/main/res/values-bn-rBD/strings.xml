@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">সীমাবদ্ধ অ্যাপ ইনস্টলেশন ডেটা, যেমন সুরক্ষিত তৃতীয় পক্ষের অ্যাপ।</string>
     <string name="corpsefinder_filter_appasec_label">এনক্রিপ্ট করা অ্যাপ রিসোর্স</string>
     <string name="corpsefinder_filter_appasec_summary">এনক্রিপ্ট করা অ্যাপ রিসোর্স, যেমন গেম অ্যাসেট।</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd মোড দ্বারা ডেটা এক্সট্রানাল স্টোরেজে স্থানান্তরিত হয়েছে৷</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d টি অ্যাপের অবশিষ্টাংশ মুছে ফেলা হয়েছে</item>

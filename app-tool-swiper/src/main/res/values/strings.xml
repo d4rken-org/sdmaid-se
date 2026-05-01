@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continue session</string>
     <string name="swiper_sessions_description">Review files in 3 simple steps:\n\n1. Pick a folder to scan\n2. Swipe through files to keep, delete, or skip\n3. Review your choices and confirm\n\nNothing is removed until you tap the final delete button.</string>
     <string name="swiper_select_folders_action">Select folders</string>
-    <string name="swiper_scanning_title">Scanning…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d item found</item>
         <item quantity="other">%d items found</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Keep selected</string>
     <string name="swiper_status_action_delete_selected">Delete selected</string>
     <string name="swiper_status_action_reset_selected">Reset selected</string>
-    <string name="swiper_decision_undecided">Undecided</string>
-    <string name="swiper_retry_action">Retry</string>
     <string name="swiper_delete_confirmation_title">Delete files?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">This will permanently delete %1$d file (%2$s). This action cannot be undone.</item>
@@ -101,14 +98,6 @@
         <item quantity="one">%d undecided</item>
         <item quantity="other">%d undecided</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d already kept</item>
-        <item quantity="other">%d already kept</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d already deleted</item>
-        <item quantity="other">%d already deleted</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d kept</item>
         <item quantity="other">%d kept</item>
@@ -149,7 +138,6 @@
     <string name="swiper_help_title">How Swiper works</string>
     <string name="swiper_help_message">Swipe each file to make a decision:\n\n← Swipe left: %1$s\n→ Swipe right: %2$s\n↑ Swipe up: Skip\n↓ Swipe down: Undo (after first swipe)\n\nYou can also use the buttons at the bottom.\n\nWhen you\'re done, tap \"Review\" to see all your decisions. Nothing is deleted until you confirm on the review screen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Got it</string>
-    <string name="swiper_help_action">Help</string>
     <string name="swiper_file_type_filter_title">Only show these file types</string>
     <string name="swiper_file_type_filter_hint">Check the types you want to see. If none are checked, all files are shown.</string>
     <string name="swiper_file_type_category_images">Images</string>
@@ -163,7 +151,6 @@
     <string name="swiper_file_type_category_archives">Archives</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Apply</string>
-    <string name="swiper_session_filter_action">Filter files</string>
     <string name="swiper_file_type_filter_summary">Filtered: %1$s</string>
     <string name="swiper_session_no_matching_files">No matching files found</string>
     <string name="swiper_open_externally_action">Open in external app</string>

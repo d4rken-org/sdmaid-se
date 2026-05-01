@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na twoim urządzeniu.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Wykryto %d aplikację</item>
-        <item quantity="few">Wykryto %d aplikacje</item>
-        <item quantity="many">Wykryto %d aplikacji</item>
-        <item quantity="other">Wykryto %d aplikacji</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Przełącz aplikacje</string>
     <string name="appcontrol_toggle_app_enable_action">Włącz aplikację</string>
     <string name="appcontrol_toggle_app_disable_action">Wyłącz aplikację</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debuguj</string>
     <string name="appcontrol_progress_enabling_package">Włączanie aplikacji</string>
     <string name="appcontrol_progress_disabling_package">Wyłączanie aplikacji</string>
-    <string name="appcontrol_list_filteroptions_label">Opcje filtrowania</string>
     <string name="appcontrol_list_sortmode_name_label">Nazwa aplikacji</string>
     <string name="appcontrol_list_sortmode_updated_label">Ostatnio zaktualizowano</string>
     <string name="appcontrol_list_sortmode_installed_label">Pierwsza instalacja</string>
@@ -146,8 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
     <string name="shortcut_appcontrol_short">Kontrola aplikacji</string>
     <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
-    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Uwzględnij innych użytkowników</string>
-    <string name="appcontrol_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
 </resources>

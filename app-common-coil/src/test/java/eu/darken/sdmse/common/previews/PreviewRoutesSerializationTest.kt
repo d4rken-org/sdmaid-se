@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.previews
 
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.previews.item.PreviewItem
 import io.kotest.matchers.shouldBe
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -43,29 +42,6 @@ class PreviewRoutesSerializationTest : BaseTest() {
         """.toComparableKotlinxJson()
 
         val deserialized = json.decodeFromString<PreviewRoute>(serialized)
-        deserialized shouldBe original
-    }
-
-    @Test
-    fun `PreviewItemRoute serialization round-trip`() {
-        val original = PreviewItemRoute(
-            item = PreviewItem(
-                path = LocalPath.build("/test/image.jpg"),
-            ),
-        )
-
-        val serialized = json.encodeToString(original)
-        serialized.toComparableKotlinxJson() shouldBe """
-            {
-                "item": {
-                    "path": {
-                        "file": "/test/image.jpg"
-                    }
-                }
-            }
-        """.toComparableKotlinxJson()
-
-        val deserialized = json.decodeFromString<PreviewItemRoute>(serialized)
         deserialized shouldBe original
     }
 }

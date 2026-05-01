@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Бичлэгийг зогсоох</string>
     <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь эмзэг мэдээлэл агуулдаг (жишээ нь файлын нэр, суулгасан аппликешн). Зөвхөн итгэмжлэгдсэн талуудтай хуваалцана уу.</string>
     <string name="debug_debuglog_screen_title">Дебаг лог</string>
-    <string name="debug_debuglog_screen_discard_action">Хаях</string>
     <string name="debug_debuglog_screen_session_path_label">Сессийн зам</string>
     <string name="debug_debuglog_screen_log_files_label">Лог файлууд</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Амжилтгүй: шахалтын алдаа</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Энэ дебаг лог сессийг устгах уу?</string>
     <string name="support_contact_post_send_message">Мессеж амжилттай илгээгдсэн үү?</string>
-    <string name="debug_debuglog_sessions_stop_action">Зогсоох</string>
     <string name="tasks_activity_notification_channel_label">Идэвхтэй даалгаврууд</string>
     <string name="tasks_activity_working_notification_title">SD Maid ажиллаж байна</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d даалгавар хүлээж байна</item>
         <item quantity="other">%d даалгавар хүлээж байна</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Даалгаврын үр дүн</string>
     <string name="tasks_result_subtext">Даалгаврын үр дүн</string>
     <string name="tasks_timeout_error_label">Даалгаврын хугацаа дууссан</string>
     <string name="tasks_timeout_error_desc">Даалгавар хэт удаан үргэлжилж, зогсоогдлоо. Дахин оролдоно уу.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Үргэлжлүүлэх</string>
     <string name="onboarding_privacy_title">Нууцлал</string>
     <string name="onboarding_privacy_body1">SD Maid-д зар сурталчилгаа байхгүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Алдаа гарах үед алдааны тайлан илгээгддэг бөгөөд таны төхөөрөмж дээрх аппликешн, файлуудын дэлгэрэнгүй мэдээлэл агуулж болно. Тайлангууд нь надад алдааг засч, аппыг сайжруулахад тусалдаг.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Автомат алдааны тайлан зөвшөөрөх</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Эдгээр сонголтыг тохиргоонд өөрчлөх боломжтой.</string>
-    <string name="onboarding_privacy_continue_action">Үргэлжлүүлэх</string>
     <string name="onboarding_setup_title">Тохиргоо</string>
     <string name="onboarding_setup_body1">SD Maid бүх хандах боломжтой өгөгдлийн бүсүүдийг хайна.</string>
     <string name="onboarding_setup_body2">Юу хандах боломжтой нь таны төхөөрөмж, Android хувилбар болон олгосон зөвшөөрлөөс хамаарна.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Тохиргоо дуусаагүй байна</string>
     <string name="setup_incomplete_card_body">Илүү сайн үр дүн авахын тулд SD Maid-ийн тохиргоог дуусгана уу.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid тохиргооны асуудлыг засахыг оролдож байна.</string>
-    <string name="setup_incomplete_card_dismiss_action">Үл тоомсорлох</string>
     <string name="setup_incomplete_card_continue_action">Тохиргоог үргэлжлүүлэх</string>
     <string name="setup_forcedshow_summary">Тохиргооны дэлгэцийг аль хэдийн дууссан зүйлсийг оруулаад дахин харуулах.</string>
     <string name="setup_checking_card_body">Тохиргоо дууссан эсэх болон ажиллагааг шалгаж байна.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Өгөгдлийн бүсүүдийг дахин ачаалах</string>
     <string name="debug_mode_label">Дебаг горим</string>
     <string name="debug_mode_explanation">Туршилтын сонголтууд болон илүү дэлгэрэнгүй гаралтыг идэвхжүүлэх. Апп удаан ажиллаж, өөр арга замаар ажиллана.</string>
-    <string name="debug_bugreporter_label">Автомат алдааны тайлан</string>
-    <string name="debug_bugreporter_summary">Асуудлыг автоматаар мэдэгдэх, жишээ нь апп гацсан дэлгэрэнгүй мэдээллийг илгээх.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Дебаг горим идэвхжсэн</string>
     <string name="debug_card_trace_mode_label">Мөрдлөгийн горим идэвхжүүлэх</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD карт</string>
     <string name="data_areas_label">Өгөгдлийн бүсүүд</string>
     <string name="data_areas_description">Өгөгдөлийн мужууд нь SD Maid-д хүртэх төхөөрөмжийн байршлуудыг төлөөлөдгүүд. Таны Днг Android хувилбар болон олгосон зөвшөөрөлүүдээс хамаарч өгөгдөлийн чиг мужууд боломжтой байна.</string>
-    <string name="data_areas_short_summary">SD Maid-д одоогийн олгогдсон зөвшөөрлүүд дээр үндэслэн хандах боломжтой бүсүүд.</string>
-    <string name="history_label">Түүх</string>
-    <string name="history_description">Сүүлийн үйлдлүүд болон нөлөөлсөн өгөгдлийн цаг хугацааны жагсаалт.</string>
     <string name="updates_dashcard_title">Шинэчлэлт боломжтой</string>
     <string name="updates_dashcard_body">Шинэчлэлт боломжтой байна. Таны хувилбар %1$s, хамгийн сүүлийн хувилбар %2$s.</string>
     <string name="translation_encourage_title">SD Maid-г орчуулах</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Шинэчлэлт шалгах</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-д шинэчлэлт шалгахыг зөвшөөрч, шинэ хувилбар боломжтой бол мэдэгдэх.</string>
     <string name="device_settings_category">Төхөөрөмж</string>
-    <string name="beta_version_indicator_desc">Урьдчилсан гаралтын хувилбарууд эхлэлийн дэлгэцэнд жижигхэн тууз харуулдаг. Тэдгээр илүү олон удаа шинэчлэгддэг, илүү функцтай байж болох ч, илүү алдаатай ч байж болно.</string>
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа болов уу</string>
     <string name="review_app_body">SD Maid-д үнэлгээ үлдээхийг хүсэж байна уу? ❤️</string>

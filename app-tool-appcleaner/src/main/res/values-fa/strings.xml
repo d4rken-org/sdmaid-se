@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">خودکارسازی پاک کننده برنامه</string>
     <string name="appcleaner_automation_subtitle_default_caches">پاک کردن حافظه‌های نهان پیش‌فرض…</string>
-    <string name="appcleaner_automation_progress_open_settings">باز کردن صفحه تنظیمات (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">در حال جستجو برای دکمه \"Storage\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">در حال جستجو برای دکمه \"Clear data\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">در حال جستجو برای دکمه \"Clear cache\" (کلید‌واژه: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">حافظه‌های نهان پیش‌فرض عمومی و خصوصی. به‌طور مستقیم قابل دسترسی نیستند، اما می‌توان به‌طور غیرمستقیم آنها را حذف کرد (به عنوان مثال، از طریق سرویس دسترسی).</string>
     <string name="appcleaner_automation_unavailable_title">سرویس دسترسی در دسترس نیست</string>
     <string name="appcleaner_automation_unavailable_body">پاک کردن حافظه‌های نهان غیرقابل دسترسی نیازمند سرویس دسترسی SD Maid است، اما این سرویس در دسترس نبود. اگر نمی‌خواهید از آن استفاده کنید: گزینه \"شامل حافظه‌های نهان غیرقابل دسترسی\" را غیرفعال کنید.</string>
-    <string name="appcleaner_junk_userprofile_label">کاربر</string>
     <string name="appcleaner_delete_confirmation_message_x">آیا فایل‌های قابل حذف برای %s حذف شوند؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">توقف اجباری قبل از پاکسازی</string>
     <string name="appcleaner_forcestop_before_clearing_summary">قبل از پاکسازی حافظه نهان، برنامه‌ها را به اجبار متوقف کنید. این می‌تواند به پاکسازی حافظه نهان برخی برنامه‌ها کمک کند، اما ممکن است باعث اختلال در برنامه‌ها شود و نیاز به راه‌اندازی مجدد دستی داشته باشد.</string>
     <string name="appcleaner_progress_force_stopping">در حال توقف اجباری برنامه‌ها…</string>
-    <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
-    <string name="appcleaner_automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
-    <string name="appcleaner_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
-    <string name="appcleaner_include_multiuser_label">شامل کردن کاربران دیگر</string>
-    <string name="appcleaner_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
 </resources>

@@ -2,21 +2,24 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
+import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.flow.DynamicStateFlow
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.flow.withPrevious
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.sieve.SieveCriterium
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.SystemCrawler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
@@ -25,15 +28,14 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
-import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
-import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
-import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -41,7 +43,6 @@ import kotlinx.coroutines.flow.scan
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
-
 
 @HiltViewModel
 class CustomFilterEditorViewModel @Inject constructor(
@@ -52,26 +53,31 @@ class CustomFilterEditorViewModel @Inject constructor(
     private val crawler: SystemCrawler,
     private val filterFactory: CustomFilter.Factory,
     private val settings: SystemCleanerSettings,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val route = CustomFilterEditorRoute.from(handle)
-    private val navArgs = object {
-        val initial: CustomFilterEditorOptions? = route.initial
-        val identifier: FilterIdentifier? = route.identifier
-    }
-    private val initialOptions: CustomFilterEditorOptions? = navArgs.initial
-    private val identifier: FilterIdentifier = navArgs.identifier ?: filterRepo.generateIdentifier()
+    private val initialOptions: CustomFilterEditorOptions? = route.initial
+    private val identifier: FilterIdentifier = route.identifier ?: filterRepo.generateIdentifier()
 
-    val events = SingleLiveEvent<CustomFilterEditorEvents>()
+    val events = SingleEventFlow<Event>()
 
     private val currentState = DynamicStateFlow(TAG, vmScope) {
         val originalConfig = filterRepo.currentConfigs().singleOrNull { it.identifier == identifier }
 
         if (originalConfig == null && initialOptions == null) {
-            throw IllegalArgumentException("Neither existing config nor init options were available")
+            // Edit-by-identifier route landed on a config that no longer exists. Surface the
+            // error and unwind instead of crashing or rendering a phantom blank filter.
+            errorEvents.emit(IllegalStateException("Custom filter $identifier does not exist"))
+            navUp()
+            // Return a transient placeholder; the navUp will tear the screen down before this
+            // emission has any visible effect.
+            return@DynamicStateFlow State(
+                original = null,
+                current = CustomFilterConfig(identifier = identifier, label = ""),
+            )
         }
 
-        val newConfig = originalConfig ?: CustomFilterConfig(
+        val seedConfig = originalConfig ?: CustomFilterConfig(
             identifier = identifier,
             label = initialOptions!!.label ?: "",
             areas = initialOptions.areas,
@@ -81,11 +87,11 @@ class CustomFilterEditorViewModel @Inject constructor(
 
         State(
             original = originalConfig,
-            current = newConfig,
+            current = seedConfig,
         )
     }
 
-    val state = currentState.flow.asLiveData2()
+    val state: StateFlow<State?> = currentState.flow.safeStateIn(initialValue = null) { null }
 
     init {
         dataAreaManager.state
@@ -94,7 +100,7 @@ class CustomFilterEditorViewModel @Inject constructor(
                     copy(availableAreas = areaState.areas.map { it.type }.toSet())
                 }
             }
-            .launchInViewModel()
+            .launchIn(vmScope)
     }
 
     fun save() = launch {
@@ -104,7 +110,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         if (initialOptions?.saveAsEnabled == true) {
             settings.toggleCustomFilter(toSave.identifier, true)
         }
-        popNavStack()
+        navUp()
     }
 
     fun remove(confirmed: Boolean = false) = launch {
@@ -113,10 +119,10 @@ class CustomFilterEditorViewModel @Inject constructor(
         if (!snap.canRemove) return@launch
 
         if (!confirmed) {
-            events.postValue(CustomFilterEditorEvents.RemoveConfirmation(snap.current))
+            events.tryEmit(Event.RemoveConfirmation(snap.current))
         } else {
             filterRepo.remove(setOf(snap.current.identifier))
-            popNavStack()
+            navUp()
         }
     }
 
@@ -124,21 +130,19 @@ class CustomFilterEditorViewModel @Inject constructor(
         log(TAG) { "cancel()" }
         val snap = currentState.value()
         if ((snap.canSave || snap.hasUnchanged) && !confirmed) {
-            events.postValue(CustomFilterEditorEvents.UnsavedChangesConfirmation(snap.current))
+            events.tryEmit(Event.UnsavedChangesConfirmation(snap.current))
         } else {
-            popNavStack()
+            navUp()
         }
     }
 
     fun updateLabel(label: String) = launch {
-        log(TAG) { "updateLabel($label)" }
         currentState.updateBlocking {
-            copy(current = this.current.copy(label = label))
+            copy(current = current.copy(label = label))
         }
     }
 
     fun addPath(criterium: SegmentCriterium) = launch {
-        log(TAG) { "addPath($criterium)" }
         currentState.updateBlocking {
             val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { add(criterium) }
             copy(current = current.copy(pathCriteria = new))
@@ -146,15 +150,22 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     fun removePath(criterium: SegmentCriterium) = launch {
-        log(TAG) { "removePath($criterium)" }
         currentState.updateBlocking {
             val new = (current.pathCriteria ?: emptySet()).toMutableSet().apply { remove(criterium) }
             copy(current = current.copy(pathCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
+    fun swapPath(old: SieveCriterium, new: SieveCriterium) = launch {
+        currentState.updateBlocking {
+            val swapped = swapPreservingOrder(current.pathCriteria, old, new)
+                .filterIsInstance<SegmentCriterium>()
+                .toCollection(LinkedHashSet())
+            copy(current = current.copy(pathCriteria = swapped.takeIf { it.isNotEmpty() }))
+        }
+    }
+
     fun addNameContains(criterium: NameCriterium) = launch {
-        log(TAG) { "addNameContains($criterium)" }
         currentState.updateBlocking {
             val new = (current.nameCriteria ?: emptySet()) + criterium
             copy(current = current.copy(nameCriteria = new))
@@ -162,15 +173,22 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     fun removeNameContains(criterium: NameCriterium) = launch {
-        log(TAG) { "removeNameContains($criterium)" }
         currentState.updateBlocking {
             val new = (current.nameCriteria ?: emptySet()) - criterium
             copy(current = current.copy(nameCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
+    fun swapNameContains(old: SieveCriterium, new: SieveCriterium) = launch {
+        currentState.updateBlocking {
+            val swapped = swapPreservingOrder(current.nameCriteria, old, new)
+                .filterIsInstance<NameCriterium>()
+                .toCollection(LinkedHashSet())
+            copy(current = current.copy(nameCriteria = swapped.takeIf { it.isNotEmpty() }))
+        }
+    }
+
     fun addExclusion(criterium: SegmentCriterium) = launch {
-        log(TAG) { "addExclusion($criterium)" }
         currentState.updateBlocking {
             val new = (current.exclusionCriteria ?: emptySet()).toMutableSet().apply { add(criterium) }
             copy(current = current.copy(exclusionCriteria = new))
@@ -178,15 +196,22 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     fun removeExclusion(criterium: SegmentCriterium) = launch {
-        log(TAG) { "removeExclusion($criterium)" }
         currentState.updateBlocking {
             val new = (current.exclusionCriteria ?: emptySet()).toMutableSet().apply { remove(criterium) }
             copy(current = current.copy(exclusionCriteria = new.takeIf { it.isNotEmpty() }))
         }
     }
 
+    fun swapExclusion(old: SieveCriterium, new: SieveCriterium) = launch {
+        currentState.updateBlocking {
+            val swapped = swapPreservingOrder(current.exclusionCriteria, old, new)
+                .filterIsInstance<SegmentCriterium>()
+                .toCollection(LinkedHashSet())
+            copy(current = current.copy(exclusionCriteria = swapped.takeIf { it.isNotEmpty() }))
+        }
+    }
+
     fun toggleArea(type: DataArea.Type, checked: Boolean) = launch {
-        log(TAG) { "toggleArea($type,$checked)" }
         currentState.updateBlocking {
             val new = (current.areas ?: emptySet()).toMutableSet().apply {
                 if (checked) add(type) else remove(type)
@@ -196,7 +221,6 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     fun toggleFileType(type: FileType) = launch {
-        log(TAG) { "toggleFileType($type)" }
         currentState.updateBlocking {
             val currentTypes = current.fileTypes
             val newFileTypes = if (currentTypes?.contains(type) == true) {
@@ -211,45 +235,22 @@ class CustomFilterEditorViewModel @Inject constructor(
     }
 
     fun updateSizeMinimum(size: Long?) = launch {
-        log(TAG) { "updateSizeMinimum($size)" }
-        currentState.updateBlocking {
-            copy(current = current.copy(sizeMinimum = size))
-        }
+        currentState.updateBlocking { copy(current = current.copy(sizeMinimum = size)) }
     }
 
     fun updateSizeMaximum(size: Long?) = launch {
-        log(TAG) { "updateSizeMaximum($size)" }
-        currentState.updateBlocking {
-            copy(current = current.copy(sizeMaximum = size))
-        }
+        currentState.updateBlocking { copy(current = current.copy(sizeMaximum = size)) }
     }
 
     fun updateAgeMinimum(age: Duration?) = launch {
-        log(TAG) { "updateAgeMinimum($age)" }
-        currentState.updateBlocking {
-            copy(current = current.copy(ageMinimum = age))
-        }
+        currentState.updateBlocking { copy(current = current.copy(ageMinimum = age)) }
     }
 
     fun updateAgeMaximum(age: Duration?) = launch {
-        log(TAG) { "updateAgeMaximum($age)" }
-        currentState.updateBlocking {
-            copy(current = current.copy(ageMaximum = age))
-        }
+        currentState.updateBlocking { copy(current = current.copy(ageMaximum = age)) }
     }
 
-    data class State(
-        val original: CustomFilterConfig?,
-        val current: CustomFilterConfig,
-        val availableAreas: Set<DataArea.Type>? = null,
-    ) {
-        val canRemove: Boolean = original != null
-        val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()
-        val hasUnchanged: Boolean = if (original != null) original != current else !current.isDefault
-
-    }
-
-    val liveSearch = currentState.flow
+    val liveSearch: StateFlow<LiveSearchState> = currentState.flow
         .withPrevious()
         .filter { (old, new) ->
             if (old == null) return@filter true
@@ -279,8 +280,8 @@ class CustomFilterEditorViewModel @Inject constructor(
 
             combine(
                 crawler.matchEvents
-                    .map { LiveSearchListRow.Item(lookup = it.match) }
-                    .scan(listOf<LiveSearchListRow.Item>()) { list, event -> list.plus(event) },
+                    .map { LiveSearchMatch(lookup = it.match) }
+                    .scan(listOf<LiveSearchMatch>()) { list, event -> list.plus(event) },
                 crawler.progress,
                 crawlerJobFlow,
             ) { matches, progress, isWorking ->
@@ -290,16 +291,30 @@ class CustomFilterEditorViewModel @Inject constructor(
                 .throttleLatest(200)
         }
         .onStart { emit(LiveSearchState(firstInit = true)) }
-        .asLiveData2()
+        .safeStateIn(initialValue = LiveSearchState(firstInit = true)) { LiveSearchState(firstInit = true) }
+
+    data class State(
+        val original: CustomFilterConfig?,
+        val current: CustomFilterConfig,
+        val availableAreas: Set<DataArea.Type>? = null,
+    ) {
+        val canRemove: Boolean = original != null
+        val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()
+        val hasUnchanged: Boolean = if (original != null) original != current else !current.isDefault
+    }
 
     data class LiveSearchState(
-        val matches: List<LiveSearchListRow.Item> = emptyList(),
+        val matches: List<LiveSearchMatch> = emptyList(),
         val progress: Progress.Data? = null,
         val firstInit: Boolean = false,
     )
 
+    sealed interface Event {
+        data class RemoveConfirmation(val config: CustomFilterConfig) : Event
+        data class UnsavedChangesConfirmation(val config: CustomFilterConfig) : Event
+    }
+
     companion object {
         private val TAG = logTag("SystemCleaner", "CustomFilter", "Editor", "ViewModel")
     }
-
 }

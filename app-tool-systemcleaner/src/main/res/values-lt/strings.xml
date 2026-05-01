@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Riboti atitikmenis pagal failo amžių (paskutinio modifikavimo laiką). Laikykite nenustatytą, kad atitiktų bet kokio amžiaus.</string>
     <string name="systemcleaner_customfilter_import_action">Importuoti naują filtrą</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuoti pasirinktą filtrą</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Turite neišsaugotų pakeitimų!</string>
 </resources>

@@ -10,11 +10,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
 import kotlin.io.encoding.Base64
-import kotlin.io.encoding.ExperimentalEncodingApi
 
 interface IpcClientModule {
 
-    @OptIn(ExperimentalEncodingApi::class)
     fun String.decodeStacktrace(): Array<StackTraceElement>? = try {
         val decodedBytes = Base64.decode(this)
         ObjectInputStream(ByteArrayInputStream(decodedBytes)).use {

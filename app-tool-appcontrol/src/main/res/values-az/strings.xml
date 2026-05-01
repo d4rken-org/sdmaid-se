@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Cihazınızda quraşdırılmış tətbiqlər.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d tətbiq aşkar edildi</item>
-        <item quantity="other">%d tətbiq aşkar edildi</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Tətbiqləri dəyiş</string>
     <string name="appcontrol_toggle_app_enable_action">Tətbiqi aktiv et</string>
     <string name="appcontrol_toggle_app_disable_action">Tətbiqi deaktiv et</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Sazlama</string>
     <string name="appcontrol_progress_enabling_package">Tətbiq aktiv edilir</string>
     <string name="appcontrol_progress_disabling_package">Tətbiq deaktiv edilir</string>
-    <string name="appcontrol_list_filteroptions_label">Filter seçimləri</string>
     <string name="appcontrol_list_sortmode_name_label">Tətbiq adı</string>
     <string name="appcontrol_list_sortmode_updated_label">Son yeniləndi</string>
     <string name="appcontrol_list_sortmode_installed_label">İlk quraşdırıldı</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Quraşdırılma tarixi: %s</string>
     <string name="shortcut_appcontrol_short">Tətbiq İdarəetməsi</string>
     <string name="shortcut_appcontrol_long">Quraşdırılmış tətbiqləri idarə et</string>
-    <string name="appcontrol_automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Digər istifadəçiləri daxil et</string>
-    <string name="appcontrol_include_multiuser_summary">Bu cihazda digər istifadəçi profillərinə aid tətbiqləri daxil edin.</string>
 </resources>

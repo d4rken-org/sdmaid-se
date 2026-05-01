@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continuar sesión</string>
     <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar cartafoles</string>
-    <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elemento atopado</item>
         <item quantity="other">%d elementos atopados</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Gardar seleccionados</string>
     <string name="swiper_status_action_delete_selected">Eliminar seleccionados</string>
     <string name="swiper_status_action_reset_selected">Restablecer seleccionados</string>
-    <string name="swiper_decision_undecided">Sen decidir</string>
-    <string name="swiper_retry_action">Reintentar</string>
     <string name="swiper_delete_confirmation_title">Eliminar ficheiros?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Isto eliminará permanentemente %1$d ficheiro (%2$s). Esta acción non se pode desfacer.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d sen decidir</item>
         <item quantity="other">%d sen decidir</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d xa gardado</item>
-        <item quantity="other">%d xa gardados</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d xa eliminado</item>
-        <item quantity="other">%d xa eliminados</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d gardado</item>
         <item quantity="other">%d gardados</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Como funciona Swiper</string>
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
-    <string name="swiper_help_action">Axuda</string>
     <string name="swiper_file_type_filter_title">Mostrar só estes tipos de ficheiro</string>
     <string name="swiper_file_type_filter_hint">Marca os tipos que queres ver. Se non se marca ningún, móstranse todos os ficheiros.</string>
     <string name="swiper_file_type_category_images">Imaxes</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arquivos</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Aplicar</string>
-    <string name="swiper_session_filter_action">Filtrar ficheiros</string>
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">Non se atoparon ficheiros coincidentes</string>
     <string name="swiper_open_externally_action">Abrir nunha aplicación externa</string>

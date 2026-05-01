@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">អុត្តោម៉ុន​ AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">កំពុង​លុប​កែវិល្ត​ត្រូវ​កំពុង់…</string>
-    <string name="appcleaner_automation_progress_open_settings">កំពុង​បើក​ប។តា​ការ​កំណត់ (ថ្នាកកព្ចៀ​ៈ %s)</string>
     <string name="appcleaner_automation_progress_find_storage">ស្វែង​រក​ផ។តុ​ ∠1791ាក​រក្សា∡ (ថ្នាកកព្ចៀ​ៈ %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">រក​មើល​បុត្តាន់​ ∠លុបដ័តា∡ (ថ្នាកកព្ចៀ​ៈ %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">រក​មើល​បុត្តាន់​ ∠លុបកែវិល្ត∡ (ថ្នាកកព្ចៀ​ៈ %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">កែវិល្ត​ត្រូវ​សាធារណះ​នឹង​ហើភ។ មិន​អាច​ចូល​បាន​ត្រង់​ប័តា​ឤឲត ឤឲត​អាច​លុប​បាន​តាម​ញឹក​ (ឧ. តាមរយៈពេល​សើវាកម្ម​ត្រូវហើត).</string>
     <string name="appcleaner_automation_unavailable_title">សើវាកម្ម​ត្រូវហើត​មិន​អាច​ប្រើ​ប្រាស់​បានទេ</string>
     <string name="appcleaner_automation_unavailable_body">ការ​លុបកែវិល្ត​ដែល​មិន​អាច​ចូល​បាន​ត្រួវការ​សើវាកម្ម​ត្រូវហើត​ SD Maid ប៉ុន្តែ​វា​មិន​អាច​រក​បាន។ ប័តា​អ្នក​មិន​ចង់​ប្រើ​សើវាកម្ម​នេះ​ៈ​ បិត​ជម្រើស​∠1794ញ្ចូល​កែវិល្ត​ដែល​មិន​អាច​ចូល​បាន∡។</string>
-    <string name="appcleaner_junk_userprofile_label">អ្នក​ប្រើ​ប្រាស់</string>
     <string name="appcleaner_delete_confirmation_message_x">លុប​កំពិល័​ដែល​លុប​បាន​សម្រួល​ %s៴</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">លុប​កំពិល័​ដែល​លុប​បាន​សម្រួល​កម្មវិធី​ដែល​បាន​ជ្រើស​ចំនួន​ %d ៴</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">បញ្ជប់​កម្មវិធី​មួន​លុប</string>
     <string name="appcleaner_forcestop_before_clearing_summary">បញ្ជប់​កម្មវិធី​មួន​លុបកែវិល្ត។ នេះ​អាច​ជួយ​លុបកែវិល្ត​កម្មវិធី​ខ័ំ​ឤឲត ប៉ុន្តែ​អាច​កើតការ​ដែលកម្មវិធី​ហើជ​នឹង​ត្រូវការ​បន្លើន​ដោយ​​ដែលឯប។</string>
     <string name="appcleaner_progress_force_stopping">កំពុង​បញ្ជប់​កម្មវិធី…</string>
-    <string name="appcleaner_automation_error_no_settings_body">កម្មវិធី​ព័ត័​នេះ​មិន​មាន​ប័តា​ការ​កំណត់។ ការលុបកែវិល្ត​តាម​រយៈពេល​សើវាកម្ម​ត្រូវហើត​មិន​អាច​កើតឡើង​បានទេ។ ដកចេញ​ដែល​ដើម្បី​ឡើន​ការលុបកែវិល្ត​បន្លើន។</string>
-    <string name="appcleaner_automation_error_no_settings_title">ប។តា​ការ​កំណត់​មិន​អាច​ព័ត័​បានទេ</string>
-    <string name="appcleaner_automation_loading">កំពុង​ប្រើការ​អុត្តោម៉ុន​តាមរយៈពេល​សើវាកម្ម​ត្រូវហើត</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">កំពុង​ប្រើការ​បញ្ជាក់​ការ​ដែល​ម័ញ​កំផ័ត់ (ថ្នាកកព្ចៀ​ៈ %s)</string>
-    <string name="appcleaner_include_multiuser_label">រួម​បញ្ចូល​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត</string>
-    <string name="appcleaner_include_multiuser_summary">រួម​បញ្ចូល​កម្មវិធី​ពី​ប្រវត្តិ​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត​នៅ​ឧបករណ៍​នេះ។</string>
 </resources>

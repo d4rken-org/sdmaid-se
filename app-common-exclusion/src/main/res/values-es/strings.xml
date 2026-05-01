@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Utilice la herramienta AppControl para crear exclusiones de aplicaciones.</string>
     <string name="exclusion_create_path_hint">Utilice la herramienta StorageAnalyzer para crear exclusiones de rutas.</string>
     <string name="exclusion_show_defaults_action">Mostrar valores por defecto</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
 </resources>

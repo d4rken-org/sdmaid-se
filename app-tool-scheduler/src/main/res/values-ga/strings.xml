@@ -16,7 +16,6 @@
     <string name="scheduler_schedule_default_name">Sceideal réamhshocraithe</string>
     <string name="scheduler_current_schedule_x_at_x">%1$s thart ar %2$s</string>
     <string name="scheduler_schedule_next_at_x">Pleanáilte do %s</string>
-    <string name="scheduler_schedule_repeat_interval">Eatramh athdhéanta</string>
     <string name="scheduler_inaccurate_execution_hint">Is neasachán iad na hamanna forghníomhaithe ionchais. D\'fhéadfaí moill a chur ar sceidil nó iad a luathú má chaomhnaíonn sé ceallraí.</string>
     <string name="scheduler_no_active_schedules_subtitle">Gan sceidil ghníomhacha</string>
     <string name="scheduler_setting_nopowersaving_title">Ná déan má tá ceallraí íseal</string>

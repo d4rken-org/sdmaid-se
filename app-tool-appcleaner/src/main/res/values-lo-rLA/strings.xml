@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ອັດຕະໂນມັດ</string>
     <string name="appcleaner_automation_subtitle_default_caches">ກຳລັງລ້າງ cache ເລີ່ມຕ້ນ…</string>
-    <string name="appcleaner_automation_progress_open_settings">ກຳລັງເປີດໜ້າຈອການຕັ້ງຄ່າ (ຄຳສຳຄັນ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">ຊອກຫາລາຍການ \"Storage\" (ຄຳສຳຄັນ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">ຊອກຫາປຸ່ມ \"ລ້າງຂໍ້ມູລ\" (ຄຳສຳຄັນ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">ຊອກຫາປຸ່ມ \"ລ້າງ cache\" (ຄຳສຳຄັນ: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">cache ເລີ່ມຕ້ນສາທາລະນະ ແລະສ່ວນຕົວ. ບໍ່ສາມາຖເຂ້າຫາໄດ້ໂດຍກົງ, ແຕ່ສາມາຖລຶ້ໄດ້ທາງອ້ອມ (ເຊ່ນ: ຜ່ານບໍລິການການເຂ້າຫາ).</string>
     <string name="appcleaner_automation_unavailable_title">ບໍລິການການເຂ້າຫາບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
     <string name="appcleaner_automation_unavailable_body">ການລ້າງ cache ທີ່ເຂ້າຫາບໍ່ໄດ້ຕ້ອງການບໍລິການການເຂ້າຫາຂອງ SD Maid, ແຕ່ມັນບໍ່ສາມາຖໃຊ້ງານໄດ້. ຖ້າທ່ານບໍ່ຕ້ອງການໃຊ້: ປິດໃຊ້ຕົວເລືອກ \"ລວມ cache ທີ່ເຂ້າຫາບໍ່ໄດ້\".</string>
-    <string name="appcleaner_junk_userprofile_label">ຜູ້ໃຊ້</string>
     <string name="appcleaner_delete_confirmation_message_x">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %d ແອັບທີ່ເລືອກ?</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop ກ່ອນລ້າງ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop ແອັບກ່ອນລ້າງ cache. ມັນສາມາຖຊ່ວຍລ້າງ cache ຂອງບາງແອັບ, ແຕ່ອາດເຮັດໃຫ້ແອັບເຮັດວຽກຜິດປົກກະຕິ ແລະຕ້ອງການ restart ດ້ວຍຕົນເອງ.</string>
     <string name="appcleaner_progress_force_stopping">ກຳລັງ Force-stop ແອັບ…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ແອັບລະບົມນີ້ບໍ່ມີໜ້າຈອການຕັ້ງຄ່າ. ການລ້າງ cache ຜ່ານບໍລິການການເຂ້າຫາບໍ່ສາມາຖທຳໄດ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">ໜ້າຈອການຕັ້ງຄ່າບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
-    <string name="appcleaner_automation_loading">ກຳລັງກະກຽມການອັດຕະໂນມັດຜ່ານບໍລິການການເຂ້າຫາ</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ພະຍາຍາມຍືນຍັນການດຳເນີນງານກ່ອນໜ້າ (ຄຳສຳຄັນ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ລວມຜູ້ໃຊ້ອື່ນ</string>
-    <string name="appcleaner_include_multiuser_summary">ລວມແອັບຈາກໂປຣໄຟລ໌ຜູ້ໃຊ້ອື່ນໃນອຸປະກອນນີ້.</string>
 </resources>

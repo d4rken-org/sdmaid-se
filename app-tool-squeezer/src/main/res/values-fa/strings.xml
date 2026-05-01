@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">تصاویر و ویدیوها را فشرده کنید تا فضای ذخیره‌سازی آزاد شود.</string>
+    <string name="squeezer_explanation_short">فشرده‌سازی تصاویر برای صرفه‌جویی در فضای ذخیره‌سازی.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d مورد پیدا شد</item>
-        <item quantity="other">%d مورد پیدا شد</item>
+        <item quantity="one">%d تصویر یافت شد</item>
+        <item quantity="other">%d تصویر یافت شد</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s قابل صرفه‌جویی است</item>
         <item quantity="other">~%s قابل صرفه‌جویی است</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d مورد فشرده شد</item>
-        <item quantity="other">%d مورد فشرده شد</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d شکست خورد</item>
-        <item quantity="other">%d شکست خورد</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d فایل رد شد (قابل دسترس نیست)</item>
-        <item quantity="other">%d فایل رد شد (قابل دسترس نیست)</item>
+        <item quantity="one">%d تصویر فشرده شد</item>
+        <item quantity="other">%d تصویر فشرده شد</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d مورد انتخاب شد</item>
-        <item quantity="other">%d مورد انتخاب شد</item>
+        <item quantity="one">%d تصویر انتخاب شد</item>
+        <item quantity="other">%d تصویر انتخاب شد</item>
     </plurals>
-    <string name="squeezer_search_locations_title">جستجوی مکان‌ها</string>
-    <string name="squeezer_search_locations_default_summary">پوشه‌های دوربین (پیش‌فرض)</string>
     <string name="squeezer_min_size_title">حداقل اندازه فایل</string>
     <string name="squeezer_min_size_description">فایل‌های کوچک‌تر از این اندازه را رد کنید.</string>
     <string name="squeezer_min_age_title">حداقل سن فایل</string>
-    <string name="squeezer_min_age_description">فقط فایل‌هایی که قدیمی‌تر از این سن هستند را شامل شوید.</string>
-    <string name="squeezer_compression_settings_label">عمومی</string>
-    <string name="squeezer_quality_label">کیفیت</string>
-    <string name="squeezer_quality_title">کیفیت فشرده‌سازی</string>
-    <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای حجم فایل کمتر اما کیفیت بصری کاهش‌یافته است.</string>
-    <string name="squeezer_quality_example_format">مثال: تصویر %1$s → صرفه‌جویی ~%2$s در کیفیت %3$d%%</string>
-    <string name="squeezer_quality_warning_low">کیفیت‌های پایین‌تر ممکن است آثار قابل مشاهده‌ای ایجاد کنند.</string>
-    <string name="squeezer_quality_warning_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
-    <string name="squeezer_types_category_label">تنظیمات تصویر</string>
-    <string name="squeezer_video_settings_category_label">تنظیمات ویدیو</string>
+    <string name="squeezer_min_age_description">فقط تصاویر قدیمی‌تر از این سن را شامل کنید.</string>
+    <string name="squeezer_compression_settings_label">تنظیمات فشرده‌سازی</string>
+    <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای اندازه فایل کوچک‌تر اما کاهش کیفیت تصویر است.</string>
+    <string name="squeezer_types_category_label">انواع تصاویر</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">شامل تصاویر JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">شامل تصاویر WebP (.webp).</string>
-    <string name="squeezer_type_video_title">ویدیوی MP4</string>
-    <string name="squeezer_type_video_description">فایل‌های ویدیویی MP4 (‎.mp4) را شامل شوید.</string>
     <string name="squeezer_skip_compressed_title">رد کردن فایل‌های قبلاً فشرده شده</string>
-    <string name="squeezer_skip_compressed_description">فایل‌هایی که قبلاً توسط SD Maid فشرده شده‌اند را رد کنید.</string>
+    <string name="squeezer_skip_compressed_description">رد کردن تصاویری که قبلاً توسط SD Maid فشرده شده‌اند.</string>
     <string name="squeezer_exif_marker_title">نوشتن نشانگر EXIF</string>
     <string name="squeezer_exif_marker_description">افزودن نشانگر به فیلد نظر کاربر EXIF تصویر برای جلوگیری از فشرده‌سازی مجدد حتی اگر تاریخچه فشرده‌سازی پاک شود.</string>
     <string name="squeezer_estimated_savings_format">~%s صرفه‌جویی</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">تأیید فشرده‌سازی</string>
     <string name="squeezer_preview_total_size">اندازه کل</string>
     <string name="squeezer_preview_estimated_savings">صرفه‌جویی تخمینی</string>
-    <string name="squeezer_compress_confirmation_title">موارد انتخاب‌شده فشرده شوند؟</string>
-    <string name="squeezer_compress_confirmation_message">این کار فایل‌های اصلی را با نسخه‌های فشرده‌شده جایگزین می‌کند. این عمل قابل بازگشت نیست.</string>
     <string name="squeezer_history_title">تاریخچه فشرده‌سازی</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d مورد (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">تاریخچه فشرده‌سازی خالی است</string>
     <string name="squeezer_history_clear_title">پاک کردن تاریخچه فشرده‌سازی</string>
-    <string name="squeezer_history_clear_message">این کار اجازه می‌دهد فایل‌هایی که قبلاً فشرده شده‌اند دوباره فشرده شوند. خود فایل‌ها تحت تأثیر قرار نمی‌گیرند.</string>
-    <string name="squeezer_onboarding_title">درباره فشرده‌سازی تصاویر</string>
-    <string name="squeezer_onboarding_message">فشرده‌سازی تصاویر اندازه فایل را با حذف جزئیات بصری کاهش می‌دهد. این فرآیند غیرقابل بازگشت است - کیفیت اصلی قابل بازیابی نیست.\n\nدر اینجا پیش‌نمایشی از ظاهر تصاویر شما آمده است:</string>
+    <string name="squeezer_history_clear_message">این اجازه می‌دهد تصاویر قبلاً فشرده شده دوباره فشرده شوند. خود تصاویر تحت تأثیر قرار نمی‌گیرند.</string>
     <string name="squeezer_onboarding_original_label">اصلی</string>
     <string name="squeezer_onboarding_compressed_label">پس از فشرده‌سازی</string>
-    <string name="squeezer_onboarding_video_original_label">فریم ویدیو</string>
-    <string name="squeezer_onboarding_video_compressed_label">پیش‌نمایش (تقریبی)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">کیفیت واقعی ویدیو ممکن است متفاوت باشد</string>
-    <string name="squeezer_onboarding_quality_label">کیفیت: %d%%</string>
     <string name="squeezer_compare_action">مشاهده مقایسه</string>
     <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
-    <string name="squeezer_result_empty_message">هیچ رسانه‌ای قابل فشرده‌سازی پیدا نشد.</string>
-    <string name="squeezer_setup_warning">فشرده‌سازی کیفیت را به‌طور دائمی کاهش می‌دهد تا فضای ذخیره‌سازی آزاد شود. این عمل قابل بازگشت نیست. قبل از شروع، تنظیمات خود را با دقت بررسی کنید.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d مکان قابل استفاده برای فشرده‌سازی نیست و حذف شد. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
-        <item quantity="other">%d مکان قابل استفاده برای فشرده‌سازی نیستند و حذف شدند. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze حجم فایل تصاویر و ویدیوها را برای آزاد کردن فضای ذخیره‌سازی کاهش می‌دهد. این به‌طور دائمی کیفیت را کاهش می‌دهد و قابل بازگشت نیست. قبل از شروع، تنظیمات خود را با دقت بررسی کنید.</string>
+    <string name="squeezer_result_empty_message">تصویر قابل فشرده‌سازی یافت نشد.</string>
+    <string name="squeezer_setup_explanation">فشرده‌سازی رسانه اندازه فایل تصاویر را برای آزادسازی فضا کاهش می‌دهد. این عمل به طور دائم کیفیت تصویر را کاهش می‌دهد و قابل بازگشت نیست. تنظیمات خود را قبل از شروع با دقت بررسی کنید.</string>
     <string name="squeezer_setup_paths_title">جستجوی مکان‌ها</string>
     <string name="squeezer_setup_paths_default">انتخاب پوشه‌ها برای جستجو</string>
     <string name="squeezer_setup_quality_title">کیفیت فشرده‌سازی</string>
     <string name="squeezer_setup_age_title">حداقل سن</string>
-    <string name="squeezer_setup_age_none">بدون محدودیت (شامل همه فایل‌ها)</string>
     <string name="squeezer_setup_start_action">شروع اسکن</string>
     <string name="squeezer_quality_hint_very_low">کیفیت زیر ۴۰٪ ممکن است تصاویر غیرقابل استفاده ایجاد کند.</string>
     <string name="squeezer_quality_hint_low">کیفیت پایین‌تر فضای بیشتری صرفه‌جویی می‌کند اما ممکن است آثار قابل مشاهده ایجاد کند.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">حداقل %d روزه</item>
         <item quantity="other">حداقل %d روزه</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">صرفه‌جویی تخمینی ~%d%% برای تصاویر</string>
-    <string name="squeezer_onboarding_got_it">فهمیدم</string>
+    <string name="squeezer_estimated_savings_percent">صرفه‌جویی تخمینی ~%d%% برای فایل‌های JPEG</string>
 </resources>

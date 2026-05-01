@@ -2,7 +2,7 @@
 <resources>
     <string name="exclusion_manager_title">Exclusion manager</string>
     <string name="exclusion_manager_desc">Manage file and app exclusions.</string>
-    <string name="exclusion_explanation_body1">Exclude files and apps from SD Maid\'s operations.</string>
+    <string name="exclusion_explanation_body1">Exclude files and apps to protect them from SD Maid\'s tools, or to skip irrelevant items and speed up operations.</string>
     <string name="exclusion_add_new_hint">Add new exclusions by first letting SD Maid search and then using the context menu on the result you want to exclude.</string>
     <string name="exclusion_create_action">Create exclusion</string>
     <string name="exclusion_edit_action">Edit exclusion</string>
@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
     <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
     <string name="exclusion_show_defaults_action">Show defaults</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">You have unsaved changes!</string>
 </resources>

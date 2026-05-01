@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Давхардах файлуудын бүх копийг устгах боломжтой сонгоогуудыг харуулах.</string>
     <string name="deduplicator_search_locations_title">Хайлтын байршлууд</string>
     <string name="deduplicator_search_locations_all_summary">Бүх хандах боломжтой бүсүүд</string>
-    <string name="deduplicator_keep_prefer_paths_title">Хадгалах газрыг үүддээр</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Яамар давхардах хуулбурийг нь хадгалахыг шийдвэрлэхдээ эдгээр газруудын файлыг хадгалахыг үүд.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Газр тохируулаагүй</string>
     <string name="deduplicator_skip_minsize_title">Деэд хэмжээ</string>
     <string name="deduplicator_skip_minsize_description">Деэд хэмжээас бага файлуудыг алгасах.</string>
     <string name="deduplicator_skip_uncommon_title">Түгээмэл биш файлын төрлөлийг алгах</string>

@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">ดำเนินการ %s รายการตั้งแต่คุณเชิญ SD Maid มายังอุปกรณ์</item>
     </plurals>
-    <string name="stats_report_status_success">สำเร็จ</string>
     <string name="stats_report_status_partial_success">สำเร็จบางส่วน</string>
     <string name="stats_report_status_partial_failure">ล้มเหลว</string>
     <string name="stats_settings_desc">กำหนดค่าสถิติ, รายงาน และการเก็บข้อมูลของ SD Maid</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">จำนวนวันก่อนลบรายงานการดำเนินการพื้นฐานของ SD Maid</string>
     <string name="stats_settings_retention_paths_label">ข้อมูลเส้นทางรายละเอียด</string>
     <string name="stats_settings_retention_paths_desc">จำนวนวันที่จะเก็บรายละเอียดเกี่ยวกับเส้นทางที่ได้รับผลกระทบโดย SD Maid</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d วัน</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">รีเซ็ตทั้งหมด</string>
     <string name="stats_settings_reset_all_desc">ลบรายงานทั้งหมดและตั้งค่าสถิติทั้งหมดเป็นศูนย์</string>
     <string name="stats_affected_paths_label">เส้นทางที่ได้รับผลกระทบ</string>
@@ -41,8 +37,4 @@
     <string name="stats_storage_type_primary">พื้นที่จัดเก็บหลัก</string>
     <string name="stats_storage_type_secondary">พื้นที่จัดเก็บรอง</string>
     <string name="stats_storage_type_portable">พื้นที่จัดเก็บแบบพกพา</string>
-    <string name="stats_space_history_delete_storage_title">ลบประวัติพื้นที่จัดเก็บ?</string>
-    <string name="stats_space_history_delete_storage_desc">ข้อมูลแนวโน้มทั้งหมดสำหรับพื้นที่จัดเก็บนี้จะถูกลบถาวร</string>
-    <string name="stats_settings_retention_snapshots_label">สแนปช็อตพื้นที่เก็บข้อมูล</string>
-    <string name="stats_settings_retention_snapshots_desc">จำนวนวันที่จะเก็บสแนปช็อตพื้นที่เก็บข้อมูล</string>
 </resources>

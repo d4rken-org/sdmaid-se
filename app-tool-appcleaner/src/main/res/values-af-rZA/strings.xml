@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner outomatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Maak verstek kas skoon…</string>
-    <string name="appcleaner_automation_progress_open_settings">Maak instellings skerm oop (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Soek vir \"Berging\" inskrywing (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Soek vir \"Maak data skoon\" knoppie (sleutelwoorde: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Soek vir \"Maak kas skoon\" knoppie (sleutelwoorde: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Openbare en private verstek kas. Nie direk toeganklik nie, maar kan indirek geskrap word (bv. via toeganklikheid diens).</string>
     <string name="appcleaner_automation_unavailable_title">Toeganklikheid diens nie beskikbaar nie</string>
     <string name="appcleaner_automation_unavailable_body">Skoonmaak van ontoeganklike kas vereis SD Maid se toeganklikheid diens, maar dit was nie beskikbaar nie. As jy dit nie wil gebruik nie: Deaktiveer die opsie \"Sluit ontoeganklike kas in\".</string>
-    <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
     <string name="appcleaner_delete_confirmation_message_x">Skrap uitgeebare lêers vir %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Skrap uitgeebare lêers vir %d gekiesde toepassing?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforseerd stop voor uitvee</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Stop toepassings geforseerd voor die uitvee van hul kas. Dit kan help om sommige toepassings se kas uit te vee, maar kan veroorsaak dat toepassings wanfunksioneer en handmatige herbegin vereis.</string>
     <string name="appcleaner_progress_force_stopping">Stop toepassings geforseerd…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
-    <string name="appcleaner_automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sluit ander gebruikers in</string>
-    <string name="appcleaner_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
 </resources>

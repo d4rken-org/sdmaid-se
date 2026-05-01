@@ -43,7 +43,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Ierobežoti instalācijas dati, piem. aizsargātas trešo pušu lietotnes.</string>
     <string name="corpsefinder_filter_appasec_label">Šifrēti lietotņu resursi</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrēti lietotņu resursi, piem. spēļu aktīvi.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Dati, kas pārvietoti uz ārējo krātuvi, izmantojot App2Sd modifikācijas.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="zero">%d lietotņu atlikumu dzēsts</item>

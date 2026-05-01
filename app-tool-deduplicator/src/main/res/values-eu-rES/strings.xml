@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Erakutsi bikoiztuen multzo bateko fitxategi guztiak ezabatzeko aukerak, fitxategirik gabe geratu gabe.</string>
     <string name="deduplicator_search_locations_title">Bilaketa-kokalekuak</string>
     <string name="deduplicator_search_locations_all_summary">Eskuragarri dauden arlo guztiak</string>
-    <string name="deduplicator_keep_prefer_paths_title">Hobets non gorde</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Zein bikoiztua gordeko den erabakitzean, hobetsi fitxategiak kokaleku hauetan gordetzea.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ez dago kokalekurik konfiguratuta</string>
     <string name="deduplicator_skip_minsize_title">Gutxieneko tamaina</string>
     <string name="deduplicator_skip_minsize_description">Saltatu gutxieneko tamaina baino txikiagoak diren fitxategiak.</string>
     <string name="deduplicator_skip_uncommon_title">Saltatu ohikoak ez diren fitxategi-motak</string>

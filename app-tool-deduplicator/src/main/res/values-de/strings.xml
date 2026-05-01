@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Zeige Optionen an, mit denen Du alle Dateien in einem Duplikatsatz löschen kannst, sodass keine Datei übrig bleibt.</string>
     <string name="deduplicator_search_locations_title">Suchorte</string>
     <string name="deduplicator_search_locations_all_summary">Alle zugänglichen Bereiche</string>
-    <string name="deduplicator_keep_prefer_paths_title">Bevorzugt behalten in</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Bei der Entscheidung, welches Duplikat behalten wird, Dateien an diesen Speicherorten bevorzugen.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Keine Speicherorte konfiguriert</string>
     <string name="deduplicator_skip_minsize_title">Mindestgröße</string>
     <string name="deduplicator_skip_minsize_description">Überspringe Dateien, die kleiner als die Mindestgröße sind.</string>
     <string name="deduplicator_skip_uncommon_title">Überspringe ungewöhnliche Dateitypen</string>

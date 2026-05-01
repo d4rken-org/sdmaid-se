@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Ruumi säästmiseks paki pilte ja videoid.</string>
+    <string name="squeezer_explanation_short">Ruumi tekitamiseks paki pilte.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d leiti</item>
-        <item quantity="other">%d leiti</item>
+        <item quantity="one">Leiti %d pilt</item>
+        <item quantity="other">Leiti %d pilti</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s saab säästa</item>
         <item quantity="other">~%s saab säästa</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d kokkupakitud</item>
-        <item quantity="other">%d kokkupakitud</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d nurjus</item>
-        <item quantity="other">%d nurjus</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d fail jäeti vahele (pole ligipääsetav)</item>
-        <item quantity="other">%d faili jäeti vahele (pole ligipääsetav)</item>
+        <item quantity="one">%d pilt kokkupakitud</item>
+        <item quantity="other">%d pilti kokkupakitud</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d valitud</item>
-        <item quantity="other">%d valitud</item>
+        <item quantity="one">%d pilt valitud</item>
+        <item quantity="other">%d pilti valitud</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Otsi asukohti</string>
-    <string name="squeezer_search_locations_default_summary">Kaamera kaustad (tavaline)</string>
     <string name="squeezer_min_size_title">Väikseim faili maht</string>
-    <string name="squeezer_min_size_description">Eira sellest mahust väiksemaid faile.</string>
+    <string name="squeezer_min_size_description">Eira sellest mahust väiksemaid pilte.</string>
     <string name="squeezer_min_age_title">Faili noorim vanus</string>
-    <string name="squeezer_min_age_description">Kaasa ainult sellest east vanemad failid.</string>
-    <string name="squeezer_compression_settings_label">Üldine</string>
-    <string name="squeezer_quality_label">Kvaliteet</string>
-    <string name="squeezer_quality_title">Kokkupakkimise kvaliteet</string>
-    <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat visuaalset kvaliteeti.</string>
-    <string name="squeezer_quality_example_format">Näiteks: %1$s pilt → säästab ~%2$s %3$d%% kvaliteedi puhul</string>
-    <string name="squeezer_quality_warning_low">Kehvem kvaliteet võib põhjustada nähtavaid segajaid.</string>
-    <string name="squeezer_quality_warning_high">Väga kõrge kvaliteet ei paku eriti mälu säästmist.</string>
-    <string name="squeezer_types_category_label">Pildi seaded</string>
-    <string name="squeezer_video_settings_category_label">Video seaded</string>
+    <string name="squeezer_min_age_description">Kaasa pilte, mis vanemad sellest east.</string>
+    <string name="squeezer_compression_settings_label">Kokkupakkimise seaded</string>
+    <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat pildikvaliteeti.</string>
+    <string name="squeezer_types_category_label">Pildi tüübid</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Kaasa JPEG pilte (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Kaasa WebP pilte (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Kaasa MP4 videofailid (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Eira varem kokkupakitut</string>
-    <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud failid.</string>
+    <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud pildid.</string>
     <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
     <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
     <string name="squeezer_preview_total_size">Kogumaht</string>
     <string name="squeezer_preview_estimated_savings">Hinnanguline sääst</string>
-    <string name="squeezer_compress_confirmation_title">Pakkida valitud üksused kokku?</string>
-    <string name="squeezer_compress_confirmation_message">See asendab originaalfailid kokkupakitud versioonidega. Seda toimingut ei saa tagasi võtta.</string>
     <string name="squeezer_history_title">Kokkupakkimise ajalugu</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d kirje (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Kokkupakkimise ajalugu puudub</string>
     <string name="squeezer_history_clear_title">Tühjenda kokkupakkimise ajalugu</string>
-    <string name="squeezer_history_clear_message">See võimaldab eelnevalt kokkupakitud faile uuesti kokku pakkida. Failid ise ei muutu.</string>
-    <string name="squeezer_onboarding_title">Piltide kokkupakkimisest</string>
-    <string name="squeezer_onboarding_message">Pildi kokkupakkimine vähendab faili mahtu, eemaldades nähtavad osad. Toiming on lõplik ehk algkvaliteeti pole võimalik taastada.\n\nPildid muutuvad sellisteks:</string>
+    <string name="squeezer_history_clear_message">Pärast seda saab taas kokku pakkida varem kokkupakitud pilte. Pildid jäävad alles.</string>
     <string name="squeezer_onboarding_original_label">Algne</string>
     <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
-    <string name="squeezer_onboarding_video_original_label">Videokaader</string>
-    <string name="squeezer_onboarding_video_compressed_label">Eelvaade (ligikaudne)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Tegelik videokvaliteet võib erineda</string>
-    <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
-    <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
-    <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti püsiavlt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
-        <item quantity="other">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze vähendab piltide ja videote failimaht, et vabastada salvestusruumi. See vähendab kvaliteeti püsiavlt ja seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
+    <string name="squeezer_result_empty_message">Ühtki kokkupakitud pilti ei leitud.</string>
+    <string name="squeezer_setup_explanation">Meedia kokkupakkija vähendab pildifaili mahtu, et tekitada juurde mäluruumi. See vähendab pildi kvaliteeti jäädavalt ja seda ei saa ennistada. Enne alustamist kontrollige seadeid hoolikalt.</string>
     <string name="squeezer_setup_paths_title">Otsi asukohti</string>
     <string name="squeezer_setup_paths_default">Vali otsitavad kaustad</string>
     <string name="squeezer_setup_quality_title">Kokkupakkimise kvaliteet</string>
     <string name="squeezer_setup_age_title">Noorim vanus</string>
-    <string name="squeezer_setup_age_none">Piiranguta (kaasa kõik failid)</string>
     <string name="squeezer_setup_start_action">Alusta skanni</string>
     <string name="squeezer_quality_hint_very_low">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
     <string name="squeezer_quality_hint_low">Madalam kvaliteet tekitab ruumi juurde, ent võib põhjustada nähtavaid häireid.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Vähemalt %d päev vana</item>
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Hinnanguliselt ~%d%% sääst piltide puhul</string>
-    <string name="squeezer_onboarding_got_it">Selge!</string>
+    <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
 </resources>

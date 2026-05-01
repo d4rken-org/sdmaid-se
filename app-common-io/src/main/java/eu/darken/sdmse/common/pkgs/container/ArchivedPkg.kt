@@ -1,12 +1,12 @@
 package eu.darken.sdmse.common.pkgs.container
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.ArchivedPackageInfo
 import android.content.pm.PackageInfo
+import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.caDrawable
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.io.R
@@ -37,9 +37,9 @@ data class ArchivedPkg(
             ?: id.name
     }.cache()
 
-    override val icon: CaDrawable = caDrawable { context ->
+    override val icon: ((Context) -> Drawable)? = { context ->
         context.packageManager.getIcon2(id) ?: AppCompatResources.getDrawable(context, R.drawable.ic_archive_24)!!
-    }.cache()
+    }
 
     override val isEnabled: Boolean
         get() = false

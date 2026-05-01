@@ -49,7 +49,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">بيانات تثبيت التطبيق المقيدة ، على سبيل المثال تطبيقات الطرف الثالث المحمية.</string>
     <string name="corpsefinder_filter_appasec_label">موارد التطبيق المشفرة</string>
     <string name="corpsefinder_filter_appasec_summary">موارد التطبيق المشفرة ، على سبيل المثال أصول اللعبة.</string>
-    <string name="corpsefinder_filter_app2sd_summary">تم نقل البيانات إلى وحدة التخزين الخارجية عن طريق تعديل App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">التطبيق إلى الذاكرة</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="zero">تم حذف %d من بقايا التطبيق</item>

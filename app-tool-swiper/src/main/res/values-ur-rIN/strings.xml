@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">سیشن جاری رکھیں</string>
     <string name="swiper_sessions_description">3 آسان مراحل میں فائلوں کا جائزہ لیں:\n\n1. اسکین کرنے کے لیے فولڈر چنیں\n2. فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں\n3. اپنے انتخاب کا جائزہ لیں اور تصدیق کریں\n\nآخری حذف بٹن دبانے تک کچھ بھی نہیں ہٹایا جاتا۔</string>
     <string name="swiper_select_folders_action">فولڈرز منتخب کریں</string>
-    <string name="swiper_scanning_title">اسکین ہو رہا ہے…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d آئٹم ملا</item>
         <item quantity="other">%d آئٹمز ملے</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">منتخب رکھیں</string>
     <string name="swiper_status_action_delete_selected">منتخب حذف کریں</string>
     <string name="swiper_status_action_reset_selected">منتخب ری سیٹ کریں</string>
-    <string name="swiper_decision_undecided">غیر فیصلہ شدہ</string>
-    <string name="swiper_retry_action">دوبارہ کوشش</string>
     <string name="swiper_delete_confirmation_title">فائلیں حذف کریں؟</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">یہ %1$d فائل (%2$s) کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d غیر فیصلہ شدہ</item>
         <item quantity="other">%d غیر فیصلہ شدہ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d پہلے سے رکھا گیا</item>
-        <item quantity="other">%d پہلے سے رکھے گئے</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d پہلے سے حذف شدہ</item>
-        <item quantity="other">%d پہلے سے حذف شدہ</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d رکھا گیا</item>
         <item quantity="other">%d رکھے گئے</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
     <string name="swiper_gesture_overlay_dismiss_action">سمجھ گیا</string>
-    <string name="swiper_help_action">مدد</string>
     <string name="swiper_file_type_filter_title">صرف یہ فائل کی اقسام دکھائیں</string>
     <string name="swiper_file_type_filter_hint">وہ اقسام چیک کریں جو آپ دیکھنا چاہتے ہیں۔ اگر کوئی چیک نہیں ہے، تمام فائلیں دکھائی جاتی ہیں۔</string>
     <string name="swiper_file_type_category_images">تصاویر</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">آرکائیوز</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">لاگو کریں</string>
-    <string name="swiper_session_filter_action">فائلیں فلٹر کریں</string>
     <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
     <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
     <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>

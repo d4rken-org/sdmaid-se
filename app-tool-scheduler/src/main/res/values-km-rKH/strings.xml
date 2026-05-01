@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">រត្តរយៀ %d ថ្ងៃ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">រយៀពេលសែនណ់</string>
     <string name="scheduler_inaccurate_execution_hint">ពេលដំឡើរការត័ត្រងក្រោយជាញន័យ៴ ការរង្វាំអាចនឹងផ័ន្ទឡើង ទ្រងក្រោយថ្មីបាន ប័ប័រប័ក្រមនឹងនៃ៴</string>
     <string name="scheduler_no_active_schedules_subtitle">មិនមានការរង្វាំសកម្ម</string>
     <string name="scheduler_setting_nopowersaving_title">លើក់ចោលនៅពេលថ្ម្ម័នត្រងបានទាប</string>

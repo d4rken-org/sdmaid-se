@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Visa alternativ som låter dig ta bort alla filer i en uppsättning dubbletter så att ingen fil blir kvar.</string>
     <string name="deduplicator_search_locations_title">Sökplatser</string>
     <string name="deduplicator_search_locations_all_summary">Alla tillgängliga områden</string>
-    <string name="deduplicator_keep_prefer_paths_title">Föredra att behålla i</string>
-    <string name="deduplicator_keep_prefer_paths_summary">När det avgörs vilken dubblett som ska behållas, föredra filer på dessa platser.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Inga platser konfigurerade</string>
     <string name="deduplicator_skip_minsize_title">Minsta storlek</string>
     <string name="deduplicator_skip_minsize_description">Hoppa över filer som är under minsta storlek.</string>
     <string name="deduplicator_skip_uncommon_title">Hoppa över ovanliga filtyper</string>

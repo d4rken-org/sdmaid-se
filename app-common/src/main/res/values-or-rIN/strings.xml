@@ -33,16 +33,9 @@
     <string name="general_empty_label">ଖାଲି</string>
     <string name="general_new_badge_label">ନୂଆ</string>
     <string name="general_dismiss_action">ଖାରଜ କର</string>
-    <string name="general_maybe_later_action">ହୁଏତ ପରେ</string>
     <string name="general_manage_action">ପରିଚାଳନା କରିବା</string>
-    <string name="general_sync_action">ସିଙ୍କ୍ରୋନାଇଜ୍ କରିବା</string>
     <string name="general_error_label">ତ୍ରୁଟି</string>
-    <string name="general_tap_hint_msg">ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
     <string name="general_upgrade_action">ଅପଗ୍ରେଡ୍ କରିବା</string>
-    <string name="general_donate_action">ଦାନ କରନ୍ତୁ</string>
-    <string name="general_check_action">ଯାଞ୍ଚ କରିବା</string>
-    <string name="general_filter_action">ଶୋଧନ କରାଇବା</string>
-    <string name="general_internal_not_available_msg">ଇଣ୍ଟର୍‌ନେଟ୍ ସଂଯୋଜନା ଅନୁପଲବ୍ଧ</string>
     <string name="general_refresh_action">ସତେଜ କର</string>
     <string name="general_progress_searching">ସନ୍ଧାନ ଚାଲିଛି</string>
     <string name="general_progress_generating_searchpaths">ସନ୍ଧାନ ପଥ ସୃଷ୍ଟି ଚାଲିଛି</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">ଧାଡ଼ିରେ</string>
     <string name="general_progress_deleting">ବିଲୋପ କରାଯାଉଛି</string>
     <string name="general_progress_deleting_x">%s ବିଲୋପ କରାଯାଉଛି</string>
-    <string name="general_sort_action">ସଜାଇବେ</string>
-    <string name="general_sort_by_title">ଏହା ଦ୍ୱାରା ସଜାଇବେ</string>
-    <string name="general_sort_options_label">ସର୍ଟ୍ ବିକଳ୍ପ</string>
     <string name="general_sort_reverse_action">ରିଭର୍ସ ସର୍ଟ୍ ମୋଡ୍</string>
-    <string name="general_sort_oldest_first">ସବୁଠୁ ପୁରୁଣା ପ୍ରଥମ</string>
-    <string name="general_sort_newest_first">ସବୁଠୁ ନୂଆ ପ୍ରଥମ</string>
-    <string name="general_sort_name_asc">ନାମ (A → Z)</string>
-    <string name="general_sort_size_desc">ସବୁଠୁ ବଡ଼ ପ୍ରଥମ</string>
-    <string name="general_tag_filter_label">ଟ୍ୟାଗ ଦ୍ୱାରା ଫିଲ୍ଟର୍ କରିବା</string>
     <string name="general_tag_system">ସିଷ୍ଟମ୍</string>
     <string name="general_result_success_message">ପ୍ରକ୍ରିୟା ସଫଳ ହୋଇଛି</string>
-    <string name="general_result_failure_message">ପ୍ରକ୍ରିୟା ବିଫଳ ହୋଇଛି</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
         <item quantity="other">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">ବିଲୋପ କର</string>
     <string name="general_delete_selected_action">ମନୋନୀତ ବିଲୋପ କରିବା</string>
     <string name="general_show_details_action">ବିବରଣୀ ଦେଖାଅ</string>
-    <string name="general_show_all_action">ସବୁ ଦେଖାଇବା</string>
     <string name="general_toggle_layout_mode">ଦୃଶ୍ୟ ମୋଡ୍ ବଦଳାଇବା</string>
     <string name="general_delete_confirmation_title">ବିଲୋପ ନିଶ୍ଚିତ କରିବା</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ବିଲୋପ କରିବେ?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>
     </plurals>
     <string name="general_remove_action">ଅପସାରଣ କରିବା</string>
-    <string name="general_remove_selected_action">ମନୋନୀତ ଅପସାରଣ କରିବା</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ଗୋଟିଏ ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>
         <item quantity="other">%dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>
     </plurals>
-    <string name="general_root_required_label">ରୁଟ୍ ଆବଶ୍ୟକ</string>
-    <string name="general_root_required_message">ରୁଟ୍ ହୋଇଥିବା ଡିଭାଇସ୍ ଆବଶ୍ୟକ</string>
     <string name="general_search_action">ସନ୍ଧାନ</string>
-    <string name="general_scan_device_action">ଡିଵାଇସ୍ ସ୍କେନ୍ କରିବା</string>
     <string name="general_open_system_settings_action">ସିସ୍ଟମ୍ ସେଟିଂ ଖୋଲିବା</string>
     <plurals name="result_x_items">
         <item quantity="one">%sଟିଏ ଦ୍ରବ୍ୟ</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">ସୂଚନା</string>
     <string name="general_count_label">ଗଣନା</string>
-    <string name="general_app_label">ଆପ୍</string>
     <string name="general_more_info_action">ଅଧିକ ସୂଚନା</string>
     <string name="general_grant_access_action">ପରିଚୟ ଦେବା</string>
     <string name="general_enable_service_action">ସେବା ସକ୍ଷମ କରିବା</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">ମନୋନୀତଗୁଡ଼ିକୁ ବାଦ୍ ଦେବା</string>
     <string name="general_device_label">ଡିଵାଇସ୍</string>
     <string name="general_settings_title">ସେଟିଂ</string>
-    <string name="general_help_title">ସହାୟତା</string>
     <string name="general_hints_label">ସୂଚନା</string>
     <string name="file_type_symbolic_link">ଲିଙ୍କ୍</string>
     <string name="file_type_directory">ଡାଇରେକ୍ଟୋରୀ</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">ମାଲିକ</string>
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>
-    <string name="setup_feature_requires_additional_setup_x">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଅତିରିକ୍ତ ସେଟଅପ ଆଇଟମଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ଆବଶ୍ୟକ କରେ: %s</string>
-    <string name="upgrade_feature_requires_pro">ପ୍ରୋ ଆବଶ୍ୟକ</string>
     <string name="general_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
     <string name="general_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="general_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>
     <string name="settings_category_filter">ଶୋଧକ</string>
     <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
-    <string name="systemcleaner_customfilter_create_action">କଷ୍ଟମ୍ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
 </resources>

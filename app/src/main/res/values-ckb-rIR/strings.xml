@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">وەستاندنی تۆمارکردن</string>
     <string name="debug_debuglog_sensitive_information_message">فایلی دروستکراو زانیاری هەستیار لەخۆدەگرێت (بۆ نموونە ناوی فایلەکان و ئەپە دامەزراوەکان). تەنها لەگەڵ لایەنە متمانەپێکراوەکاندا هاوبەشی بکە.</string>
     <string name="debug_debuglog_screen_title">لۆگی دەبوگ</string>
-    <string name="debug_debuglog_screen_discard_action">ڕێکۚنەکردن</string>
     <string name="debug_debuglog_screen_session_path_label">ڕێگەی دانیشتن</string>
     <string name="debug_debuglog_screen_log_files_label">فایلەکانی لۆگ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">سووتا: هەڵەی فشردەکردن</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ئایا ئەم دەمی تۆمارکردنی دیباگ بسڕیتەوە؟</string>
     <string name="support_contact_post_send_message">پەیام بە سەرکەوتوویی نێردرا؟</string>
-    <string name="debug_debuglog_sessions_stop_action">وەستان</string>
     <string name="tasks_activity_notification_channel_label">ئەرکە چالاکەکان</string>
     <string name="tasks_activity_working_notification_title">SD Maid کار دەکات</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d ئەرک لە ڕیزدا</item>
         <item quantity="other">%d ئەرکی ڕیزکراو</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">ئەنجامەکانی ئەرک</string>
     <string name="tasks_result_subtext">ئەنجامی ئەرک</string>
     <string name="tasks_timeout_error_label">کاری کات تێپەڕی</string>
     <string name="tasks_timeout_error_desc">کارەکە زۆر کات وەرگرت و رایگیرا. تکایە دووبارە هەوڵبدەرەوە.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">بەردەوامبە</string>
     <string name="onboarding_privacy_title">تایبەتمەندی</string>
     <string name="onboarding_privacy_body1">SD Maid هیچ ڕیکلامێکی نییە و داتای بەکارهێنەر نافرۆشێت.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">ڕاپۆرتی هەڵە دەنێردرێن کاتێک هەڵەکان ڕوودەدەن و ڕەنگە وردەکاری دەربارەی ئەپ و فایلەکانی سەر ئامێرەکەت لەخۆبگرن. ڕاپۆرتەکان یارمەتیم دەدەن هەڵەکان چاک بکەمەوە و ئەپەکە باشتر بکەم.</string>
-    <string name="onboarding_privacy_bugreport_toggle">ڕێگە بە ڕاپۆرتی خۆکاری هەڵە بدە</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ئەم بژاردانە دەکرێت لە ڕێکخستنەکاندا بگۆڕدرێت.</string>
-    <string name="onboarding_privacy_continue_action">بەردەوامبە</string>
     <string name="onboarding_setup_title">دامەزراندن</string>
     <string name="onboarding_setup_body1">SD Maid هەموو ناوچە دەستڕاگەیشتنکراوەکانی داتا بەدوادا دەگەڕێت.</string>
     <string name="onboarding_setup_body2">چی دەستڕاگەیشتنە بەندە بە ئامێرەکەت، وەشانی ئەندرۆید و مۆڵەتە ڕەزامەندکراوەکانەوە.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">رێکخستن تەواو نیە</string>
     <string name="setup_incomplete_card_body">رێکخستنی SD Maid تەواو بکە بۆ بەدەستهێنانی ئەنجامی باشتر.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid هەوڵ دەدات کێشەکانی ڕێکخستن چارەسەر بکات.</string>
-    <string name="setup_incomplete_card_dismiss_action">پاڵپشتیکردن</string>
     <string name="setup_incomplete_card_continue_action">بەردەوامبوون لە ڕێکخستن</string>
     <string name="setup_forcedshow_summary">رووپەڕی ڕێکخستن دیسان بەرهەوە، لەوانەشدا ئەوانەی تەواوکراون.</string>
     <string name="setup_checking_card_body">جەرەنکاری تەواوبوون و کارلێکی ڕێکخستن.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">ناوچەکانی داتا دووبارە بارببە</string>
     <string name="debug_mode_label">دۆخی چاککردنەوە</string>
     <string name="debug_mode_explanation">بژاردەکانی تاقیکردنەوە و دەرکەوتنی زیاتری وردبین چالاک بکە. ئەپەکە خاوتر کار دەکات و بە شێوەی جیاواز کار دەکات.</string>
-    <string name="debug_bugreporter_label">راپۆرتی خۆکاری هەڵە</string>
-    <string name="debug_bugreporter_summary">کێشەکان بە خۆکاری راپۆرت دەکات، بۆ نموونە وردەکاری دەربارەی کچانی ئەپەکە تا بتوانم بزانم بۆچی و چاکی بکەمەوە.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">مۆدی دەبوگ چالاککراوە</string>
     <string name="debug_card_trace_mode_label">چالاککردنی مۆدی ترێس</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">کاردی SD</string>
     <string name="data_areas_label">داتا areas</string>
     <string name="data_areas_description">داتا areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
-    <string name="data_areas_short_summary">شوێنەکان کە SD Maid دەتوانێ بیانتێبگەیشێت بنیات بە دەسوڵاتەکانی دراودەدا.</string>
-    <string name="history_label">مێկوو</string>
-    <string name="history_description">لیستێکی کرۆنۆلۆկی لە کاریگەریی بازووەکان و دراوەکانی کاریگەر.</string>
     <string name="updates_dashcard_title">نوێکردنەوە available</string>
     <string name="updates_dashcard_body">نوێکاری بەردەست دایە. تۆ %1$s هەیت و وەشانی نوێترین %2$s دایە.</string>
     <string name="translation_encourage_title">SD Maid وەرگێڕ بکە</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">نوێکردنەوە check</string>
     <string name="updatecheck_setting_enabled_explanation">بڵیبینە SD Maid بروسکەدانی نوێ بگهێڕێتەوە تا بتوانیت بزانیت ئایا وەشانێکی نویترتر بەردەست دا یان نا.</string>
     <string name="device_settings_category">ئامێر</string>
-    <string name="beta_version_indicator_desc">وەشانەکانی پێش-ڕووخساندن باندێکی بچووک لە سەر سکرینی دەستپێکردن نیشان دەدەن. ئەمانە بەردەوامتر نوێ دەکرێنەوە، دەتوانن تایبەتمەندیی زیاتر هەبن، بەڵام دەتوانن خەوزیش زیاتر هەبن.</string>
     <string name="review_app_review_action">پێداچوونەوە</string>
     <string name="review_app_dismiss_action">دواتر</string>
     <string name="review_app_body">ئایا دەتەوێت پێداچوونەوەی SD Maid بھێلیت؟️ ❤️</string>

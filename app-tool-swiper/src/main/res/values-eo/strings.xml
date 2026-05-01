@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Daŭrigi seancon</string>
     <string name="swiper_sessions_description">Kelkaj dosieroj bezonas homan decidon. Svingu tra eroj kaj elektu kion konservi aŭ forigi. Preterpasu tion pri kio vi ne certas. Ĉi tiu ilo ebligas mane revizii specifajn dosierujojn, kaj nenio estas forigita ĝis vi konfirmas.</string>
     <string name="swiper_select_folders_action">Elekti dosierujojn</string>
-    <string name="swiper_scanning_title">Skanante…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d ero trovita</item>
         <item quantity="other">%d eroj trovitaj</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Konservi elektitajn</string>
     <string name="swiper_status_action_delete_selected">Forigi elektitajn</string>
     <string name="swiper_status_action_reset_selected">Restarigi elektitajn</string>
-    <string name="swiper_decision_undecided">Nedecidita</string>
-    <string name="swiper_retry_action">Reprovi</string>
     <string name="swiper_delete_confirmation_title">Ĉu forigi dosierojn?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Ĉi tio porĉiame forigos %1$d dosieron (%2$s). Ĉi tiu ago ne estas malfarebla.</item>
@@ -90,14 +87,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="one">%d nedecidita</item>
         <item quantity="other">%d nedecititaj</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jam konservita</item>
-        <item quantity="other">%d jam konservitaj</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d jam forigita</item>
-        <item quantity="other">%d jam forigitaj</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d konservita</item>

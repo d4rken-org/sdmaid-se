@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Tumia zana ya Udhibiti wa Programu kuunda kutengwa kwa programu.</string>
     <string name="exclusion_create_path_hint">Tumia zana ya Kichambua Hifadhi kuunda kutengwa kwa njia.</string>
     <string name="exclusion_show_defaults_action">Onyesha za msingi</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
 </resources>

@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">SD Maidをデバイスに招待してから%s個のアイテムが処理されました。</item>
     </plurals>
-    <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">一部成功</string>
     <string name="stats_report_status_partial_failure">失敗</string>
     <string name="stats_settings_desc">SD Maidの統計、レポート、データ保持に関する設定を行います。</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">SD Maidの基本操作レポートを削除するまでの日数</string>
     <string name="stats_settings_retention_paths_label">詳細なパス情報</string>
     <string name="stats_settings_retention_paths_desc">SD Maidが操作したパスの詳細情報を保持する日数</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d日</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">すべてリセット</string>
     <string name="stats_settings_reset_all_desc">レポートをすべて削除し、統計をリセットします。</string>
     <string name="stats_affected_paths_label">操作対象パス</string>
@@ -41,8 +37,4 @@
     <string name="stats_storage_type_primary">プライマリストレージ</string>
     <string name="stats_storage_type_secondary">セカンダリストレージ</string>
     <string name="stats_storage_type_portable">ポータブルストレージ</string>
-    <string name="stats_space_history_delete_storage_title">ストレージ履歴を削除しますか？</string>
-    <string name="stats_space_history_delete_storage_desc">このストレージのすべてのトレンドデータが完全に削除されます。</string>
-    <string name="stats_settings_retention_snapshots_label">ストレージスナップショット</string>
-    <string name="stats_settings_retention_snapshots_desc">ストレージスペースのスナップショットを保持する日数。</string>
 </resources>

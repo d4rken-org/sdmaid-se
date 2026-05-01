@@ -68,7 +68,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Аутоматизација чистача апликација</string>
     <string name="appcleaner_automation_subtitle_default_caches">Брисање подразумеваних кешова…</string>
-    <string name="appcleaner_automation_progress_open_settings">Отварање екрана подешавања (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Претрага \"Складиште\" уноса (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Претрага \"Обриши податке\" дугмета (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Претрага \"Обриши кеш\" дугмета (кључне речи: %s)</string>
@@ -76,7 +75,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Јавни и приватни подразумевани кешови. Нису непосредно приступачни, али се могу обрисати непосредно (нпр. преко сервиса приступачности).</string>
     <string name="appcleaner_automation_unavailable_title">Сервис приступачности није доступан</string>
     <string name="appcleaner_automation_unavailable_body">Брисање неприступачних кешова захтева СД Чистачов сервис приступачности, али није био доступан. Ако не желите да га користите: Онемогућите опцију \"Укључи неприступачне кешове\".</string>
-    <string name="appcleaner_junk_userprofile_label">Корисник</string>
     <string name="appcleaner_delete_confirmation_message_x">Обрисати потрошне датотеке за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Обрисати потрошне датотеке за %d изабрану апликацију?</item>
@@ -92,10 +90,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Екран подешавања недоступан</string>
-    <string name="appcleaner_automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Укључи остале кориснике</string>
-    <string name="appcleaner_include_multiuser_summary">Укључи апликације из осталих корисничких профила на овом уређају.</string>
 </resources>

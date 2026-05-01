@@ -17,9 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">V nizih dvojnikov prikaži možnosti za izbris vseh datotek, tako da ne ostane nobena.</string>
     <string name="deduplicator_search_locations_title">Mesta iskanja</string>
     <string name="deduplicator_search_locations_all_summary">Vsa dostopna področja</string>
-    <string name="deduplicator_keep_prefer_paths_title">Daj prednost ohranjanju v</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Pri odločanju, katero podvojeno datoteko ohraniti, daj prednost datotekam na teh lokacijah.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ni nastavljenih lokacij</string>
     <string name="deduplicator_skip_minsize_title">Najmanjša velikost</string>
     <string name="deduplicator_skip_minsize_description">Preskoči datoteke, ki manjše od najmanjše velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Preskoči redke vrste datotek</string>

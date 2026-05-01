@@ -74,7 +74,6 @@
     </plurals>
     <string name="appcleaner_automation_title">أتمتة منظف التطبيقات</string>
     <string name="appcleaner_automation_subtitle_default_caches">مسح ذاكرة التخزين المؤقت الافتراضية…</string>
-    <string name="appcleaner_automation_progress_open_settings">فتح شاشة الإعدادات (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">البحث عن إدخال \"التخزين\" (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">البحث عن زر \"مسح البيانات\" (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">البحث عن زر \"مسح ذاكرة التخزين المؤقتة\" (الكلمات الرئيسية: %s)</string>
@@ -82,7 +81,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
     <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
-    <string name="appcleaner_junk_userprofile_label">مستخدم</string>
     <string name="appcleaner_delete_confirmation_message_x">حذف الملفات المستهلكة لـ %s؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="zero">حذف الملفات المستهلكة لـ %d تطبيق مختار؟</item>
@@ -101,10 +99,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">إيقاف إجباري قبل التنظيف</string>
     <string name="appcleaner_forcestop_before_clearing_summary">إيقاف التطبيقات إجباريًا قبل مسح ذاكرة التخزين المؤقت. قد يساعد في مسح بعض ذاكرات التخزين المؤقت، لكنه قد يتسبب في سلوك غير طبيعي للتطبيقات ويتطلب إعادة تشغيل يدوية.</string>
     <string name="appcleaner_progress_force_stopping">جارٍ الإيقاف الإجباري للتطبيقات…</string>
-    <string name="appcleaner_automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
-    <string name="appcleaner_automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
-    <string name="appcleaner_automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
-    <string name="appcleaner_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
-    <string name="appcleaner_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
 </resources>

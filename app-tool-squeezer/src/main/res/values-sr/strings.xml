@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Компримујте слике и видео записе да бисте уштедели простор за складиштење.</string>
+    <string name="squeezer_explanation_short">Компримујте слике да бисте уштедели простор за складиштење.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d ставка пронађена</item>
-        <item quantity="few">%d ставке пронађене</item>
-        <item quantity="other">%d ставки пронађено</item>
+        <item quantity="one">%d слика пронађена</item>
+        <item quantity="few">%d слике пронађене</item>
+        <item quantity="other">%d слика пронађено</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s се може уштедети</item>
@@ -12,48 +12,28 @@
         <item quantity="other">~%s се може уштедети</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d ставка компримована</item>
-        <item quantity="few">%d ставке компримоване</item>
-        <item quantity="other">%d ставки компримовано</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d неуспешан</item>
-        <item quantity="few">%d неуспешна</item>
-        <item quantity="other">%d неуспешних</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d датотека прескочена (није доступна)</item>
-        <item quantity="few">%d датотеке прескочене (нису доступне)</item>
-        <item quantity="other">%d датотека прескочено (нису доступне)</item>
+        <item quantity="one">%d слика компримована</item>
+        <item quantity="few">%d слике компримоване</item>
+        <item quantity="other">%d слика компримовано</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d ставка изабрана</item>
-        <item quantity="few">%d ставке изабране</item>
-        <item quantity="other">%d ставки изабрано</item>
+        <item quantity="one">%d слика изабрана</item>
+        <item quantity="few">%d слике изабране</item>
+        <item quantity="other">%d слика изабрано</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Локације претраге</string>
-    <string name="squeezer_search_locations_default_summary">Фасцикле камере (подразумевано)</string>
     <string name="squeezer_min_size_title">Минимална величина датотеке</string>
-    <string name="squeezer_min_size_description">Прескочи датотеке мање од ове величине.</string>
+    <string name="squeezer_min_size_description">Прескочи слике мање од ове величине.</string>
     <string name="squeezer_min_age_title">Минимална старост датотеке</string>
-    <string name="squeezer_min_age_description">Укључи само датотеке старије од ове старости.</string>
-    <string name="squeezer_compression_settings_label">Опште</string>
-    <string name="squeezer_quality_label">Квалитет</string>
-    <string name="squeezer_quality_title">Квалитет компресије</string>
-    <string name="squeezer_quality_description">Нижи квалитет значи мању величину датотеке, али смањен визуелни квалитет.</string>
-    <string name="squeezer_quality_example_format">Пример: %1$s слика → штеди ~%2$s при %3$d%% квалитету</string>
-    <string name="squeezer_quality_warning_low">Нижи квалитети могу изазвати видљиве артефакте.</string>
-    <string name="squeezer_quality_warning_high">Веома висок квалитет пружа минималну уштеду простора.</string>
-    <string name="squeezer_types_category_label">Подешавања слике</string>
-    <string name="squeezer_video_settings_category_label">Подешавања видеа</string>
+    <string name="squeezer_min_age_description">Укључи само слике старије од ове старости.</string>
+    <string name="squeezer_compression_settings_label">Подешавања компресије</string>
+    <string name="squeezer_quality_description">Нижи квалитет значи мању величину датотеке али смањен квалитет слике.</string>
+    <string name="squeezer_types_category_label">Типови слика</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Укључи JPEG слике (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Укључи WebP слике (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 видео</string>
-    <string name="squeezer_type_video_description">Укључи MP4 видео датотеке (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Прескочи претходно компримоване</string>
-    <string name="squeezer_skip_compressed_description">Прескочи датотеке које је SD Maid већ компримовао.</string>
+    <string name="squeezer_skip_compressed_description">Прескочи слике које су већ компримоване од стране СД Чистача.</string>
     <string name="squeezer_exif_marker_title">Упиши EXIF ознаку</string>
     <string name="squeezer_exif_marker_description">Додај ознаку у EXIF поље коментара корисника слике да спречи поновну компресију чак и ако се историја компресије обрише.</string>
     <string name="squeezer_estimated_savings_format">~%s уштеде</string>
@@ -64,8 +44,6 @@
     <string name="squeezer_preview_dialog_title">Потврди компресију</string>
     <string name="squeezer_preview_total_size">Укупна величина</string>
     <string name="squeezer_preview_estimated_savings">Процењена уштеда</string>
-    <string name="squeezer_compress_confirmation_title">Компримовати изабране ставке?</string>
-    <string name="squeezer_compress_confirmation_message">Ово ће заменити оригиналне датотеке компримованим верзијама. Ова радња не може да се опозове.</string>
     <string name="squeezer_history_title">Историја компресије</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ставка (%2$s)</item>
@@ -74,30 +52,17 @@
     </plurals>
     <string name="squeezer_history_empty">Нема историје компресије</string>
     <string name="squeezer_history_clear_title">Обриши историју компресије</string>
-    <string name="squeezer_history_clear_message">Ово ће омогућити да претходно компримоване датотеке буду поново компримоване. Саме датотеке нису погођене.</string>
-    <string name="squeezer_onboarding_title">О компресији слика</string>
-    <string name="squeezer_onboarding_message">Компресија слика смањује величину датотеке уклањањем визуелних детаља. Овај процес је неповратан - оригинални квалитет се не може вратити.\n\nЕво прегледа како ће ваше слике изгледати:</string>
+    <string name="squeezer_history_clear_message">Ово ће омогућити да се претходно компримоване слике поново компримују. Саме слике нису погођене.</string>
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">После компресије</string>
-    <string name="squeezer_onboarding_video_original_label">Кадар видеа</string>
-    <string name="squeezer_onboarding_video_compressed_label">Преглед (приближно)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Стварни квалитет видеа може да се разликује</string>
-    <string name="squeezer_onboarding_quality_label">Квалитет: %d%%</string>
     <string name="squeezer_compare_action">Прегледај поређење</string>
     <string name="squeezer_no_example_found">Нису пронађене слике на изабраним путањама.</string>
-    <string name="squeezer_result_empty_message">Нема медија погодних за компресију.</string>
-    <string name="squeezer_setup_warning">Компресија трајно смањује квалитет да би се уштедео простор за складиштење. Ово не може да се опозове. Пажљиво прегледај подешавања пре него што почнеш.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d локација не може да се користи за компресију и уклоњена је. Компресија захтева директан приступ интерној меморији.</item>
-        <item quantity="few">%d локације не могу да се користе за компресију и уклоњене су. Компресија захтева директан приступ интерној меморији.</item>
-        <item quantity="other">%d локација не може да се користи за компресију и уклоњено је. Компресија захтева директан приступ интерној меморији.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze смањује величину датотека слика и видеа да би се ослободио простор за складиштење. Ово трајно смањује квалитет и не може да се опозове. Пажљиво прегледај подешавања пре него што почнеш.</string>
+    <string name="squeezer_result_empty_message">Нису пронађене слике за компресију.</string>
+    <string name="squeezer_setup_explanation">Компресија медија смањује величину датотеке слика да ослободи простор за складиштење. Ово трајно смањује квалитет слике и не може се поништити. Пажљиво прегледајте подешавања пре почетка.</string>
     <string name="squeezer_setup_paths_title">Локације претраге</string>
     <string name="squeezer_setup_paths_default">Изаберите фасцикле за претрагу</string>
     <string name="squeezer_setup_quality_title">Квалитет компресије</string>
     <string name="squeezer_setup_age_title">Минимална старост</string>
-    <string name="squeezer_setup_age_none">Без ограничења (укључи све датотеке)</string>
     <string name="squeezer_setup_start_action">Покрени скенирање</string>
     <string name="squeezer_quality_hint_very_low">Квалитет испод 40% може створити неупотребљиве слике.</string>
     <string name="squeezer_quality_hint_low">Нижи квалитет штеди више простора али може изазвати видљиве артефакте.</string>
@@ -108,6 +73,5 @@
         <item quantity="few">Најмање %d дана старо</item>
         <item quantity="other">Најмање %d дана старо</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Процењена уштеда ~%d%% за слике</string>
-    <string name="squeezer_onboarding_got_it">Разумем</string>
+    <string name="squeezer_estimated_savings_percent">Процењена ~%d%% уштеда за JPEG датотеке</string>
 </resources>

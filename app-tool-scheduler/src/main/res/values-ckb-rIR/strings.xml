@@ -20,7 +20,6 @@
         <item quantity="one">ڕۆژانە</item>
         <item quantity="other">هەر %d ڕۆژ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ماوەی دووبارەکردنەوە</string>
     <string name="scheduler_inaccurate_execution_hint">کاتەکانی ئەنجامدانی چاوەڕوانکراو خەمڵاندنن. زامانەکان لەوانەیە دواکەوتن یان پێشکەوتن ئەگەر باتری پارێزبێت.</string>
     <string name="scheduler_no_active_schedules_subtitle">نەخێر active schedules</string>
     <string name="scheduler_setting_nopowersaving_title">تێپەڕاندن کاتی باتری کەم</string>

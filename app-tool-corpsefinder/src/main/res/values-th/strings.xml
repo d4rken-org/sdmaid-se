@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ข้อมูลการติดตั้งแอพที่ถูกจำกัด เช่น แอพบุคคลที่สามที่ได้รับการป้องกัน</string>
     <string name="corpsefinder_filter_appasec_label">ทรัพยากรแอพที่ถูกเข้ารหัส</string>
     <string name="corpsefinder_filter_appasec_summary">ทรัพยากรแอพที่ถูกเข้ารหัส เช่น ทรัพยากรเกม</string>
-    <string name="corpsefinder_filter_app2sd_summary">ข้อมูลที่ถูกย้ายไปยังพื้นที่เก็บข้อมูลภายนอกโดย App2Sd mods</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">ลบซากแอพ %d รายการแล้ว</item>

@@ -33,16 +33,9 @@
     <string name="general_empty_label">ว่างเปล่า</string>
     <string name="general_new_badge_label">ใหม่</string>
     <string name="general_dismiss_action">ปิด</string>
-    <string name="general_maybe_later_action">ทีหลัง</string>
     <string name="general_manage_action">จัดการ</string>
-    <string name="general_sync_action">ซิงค์</string>
     <string name="general_error_label">ข้อผิดพลาด</string>
-    <string name="general_tap_hint_msg">แตะเพื่อดูตัวเลือกเพิ่มเติม</string>
     <string name="general_upgrade_action">อัปเกรด</string>
-    <string name="general_donate_action">บริจาค</string>
-    <string name="general_check_action">ตรวจสอบ</string>
-    <string name="general_filter_action">กรอง</string>
-    <string name="general_internal_not_available_msg">การเชื่อมต่ออินเทอร์เน็ตไม่พร้อมใช้งาน</string>
     <string name="general_refresh_action">รีเฟรช</string>
     <string name="general_progress_searching">กำลังค้นหา</string>
     <string name="general_progress_generating_searchpaths">กำลังสร้างเส้นทางการค้นหา</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">อยู่ในคิว</string>
     <string name="general_progress_deleting">กำลังลบ</string>
     <string name="general_progress_deleting_x">กำลังลบ %s</string>
-    <string name="general_sort_action">เรียงลำดับ</string>
-    <string name="general_sort_by_title">เรียงตาม</string>
-    <string name="general_sort_options_label">ตัวเลือกการเรียงลำดับ</string>
     <string name="general_sort_reverse_action">โหมดเรียงลำดับแบบกลับด้าน</string>
-    <string name="general_sort_oldest_first">เก่าที่สุดก่อน</string>
-    <string name="general_sort_newest_first">ใหม่ที่สุดก่อน</string>
-    <string name="general_sort_name_asc">ชื่อ (ก → ฮ)</string>
-    <string name="general_sort_size_desc">ใหญ่ที่สุดก่อน</string>
-    <string name="general_tag_filter_label">กรองตามแท็ก</string>
     <string name="general_tag_system">ระบบ</string>
     <string name="general_result_success_message">การดำเนินการสำเร็จ</string>
-    <string name="general_result_failure_message">การดำเนินการล้มเหลว</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ปลดปล่อยพื้นที่ %s</item>
     </plurals>
@@ -95,7 +79,6 @@
     <string name="general_delete_action">ลบ</string>
     <string name="general_delete_selected_action">ลบที่เลือก</string>
     <string name="general_show_details_action">แสดงรายละเอียด</string>
-    <string name="general_show_all_action">แสดงทั้งหมด</string>
     <string name="general_toggle_layout_mode">เปลี่ยนโหมดการแสดงผล</string>
     <string name="general_delete_confirmation_title">ยืนยันการลบ</string>
     <string name="general_delete_confirmation_message_x">ลบ \"%s\"?</string>
@@ -106,14 +89,10 @@
         <item quantity="other">ลบ %d รายการแล้ว</item>
     </plurals>
     <string name="general_remove_action">ลบออก</string>
-    <string name="general_remove_selected_action">ลบที่เลือกออก</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">ลบ %d รายการออกแล้ว</item>
     </plurals>
-    <string name="general_root_required_label">ต้องการ Root</string>
-    <string name="general_root_required_message">ต้องการอุปกรณ์ที่ Root แล้ว</string>
     <string name="general_search_action">ค้นหา</string>
-    <string name="general_scan_device_action">สแกนอุปกรณ์</string>
     <string name="general_open_system_settings_action">เปิดการตั้งค่าระบบ</string>
     <plurals name="result_x_items">
         <item quantity="other">%s รายการ</item>
@@ -129,7 +108,6 @@
     </plurals>
     <string name="general_info_label">ข้อมูล</string>
     <string name="general_count_label">จำนวน</string>
-    <string name="general_app_label">แอป</string>
     <string name="general_more_info_action">ข้อมูลเพิ่มเติม</string>
     <string name="general_grant_access_action">ให้สิทธิ์การเข้าถึง</string>
     <string name="general_enable_service_action">เปิดใช้งานบริการ</string>
@@ -142,7 +120,6 @@
     <string name="general_exclude_selected_action">ไม่รวมที่เลือก</string>
     <string name="general_device_label">อุปกรณ์</string>
     <string name="general_settings_title">การตั้งค่า</string>
-    <string name="general_help_title">ช่วยเหลือ</string>
     <string name="general_hints_label">ข้อสังเกต</string>
     <string name="file_type_symbolic_link">ลิงก์</string>
     <string name="file_type_directory">ไดเรกทอรี</string>
@@ -169,8 +146,6 @@
     <string name="general_user_label_owner">เจ้าของ</string>
     <string name="general_user_label_system">ระบบ</string>
     <string name="setup_title">การตั้งค่า</string>
-    <string name="setup_feature_requires_additional_setup_x">คุณสมบัตินี้ต้องการให้ทำการตั้งค่าเพิ่มเติมให้เสร็จสิ้น: %s</string>
-    <string name="upgrade_feature_requires_pro">ต้องการ Pro</string>
     <string name="general_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
     <string name="general_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
     <string name="general_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
@@ -192,5 +167,4 @@
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
     <string name="settings_category_filter">ตัวกรอง</string>
     <string name="appcontrol_systemsettings_open_title">แสดงการตั้งค่า</string>
-    <string name="systemcleaner_customfilter_create_action">สร้างตัวกรองกำหนดเอง</string>
 </resources>

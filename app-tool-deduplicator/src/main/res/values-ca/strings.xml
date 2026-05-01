@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostra les opcions que us permeten suprimir tots els fitxers d\'un conjunt de duplicats perquè no quedi cap fitxer.</string>
     <string name="deduplicator_search_locations_title">Cerca ubicacions</string>
     <string name="deduplicator_search_locations_all_summary">Totes les zones accessibles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Prefereix mantenir</string>
-    <string name="deduplicator_keep_prefer_paths_summary">A l\'hora de decidir quin duplicat conservar, és preferible conservar els fitxers en aquestes ubicacions.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">No hi ha cap ubicació configurada</string>
     <string name="deduplicator_skip_minsize_title">Grandària mínima</string>
     <string name="deduplicator_skip_minsize_description">Omet els fitxers que estan per sota de la mida mínima.</string>
     <string name="deduplicator_skip_uncommon_title">Omet els tipus de fitxers poc comuns</string>

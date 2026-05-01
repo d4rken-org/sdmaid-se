@@ -1,6 +1,7 @@
 plugins {
     id("projectConfig")
     id("com.google.devtools.ksp") version "2.3.6" apply false
+    id("org.jetbrains.kotlin.plugin.compose") version "2.2.10" apply false
 }
 
 buildscript {

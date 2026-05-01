@@ -33,16 +33,9 @@
     <string name="general_empty_label">खाली</string>
     <string name="general_new_badge_label">नयाँ</string>
     <string name="general_dismiss_action">बन्द गर्नुहोस्</string>
-    <string name="general_maybe_later_action">पछि गर्ने</string>
     <string name="general_manage_action">व्यवस्थापन गर्नुहोस्</string>
-    <string name="general_sync_action">सिङ्क गर्नुहोस्</string>
     <string name="general_error_label">त्रुटि</string>
-    <string name="general_tap_hint_msg">थप विकल्पहरूका लागि ट्याप गर्नुहोस्</string>
     <string name="general_upgrade_action">अपग्रेड गर्नुहोस्</string>
-    <string name="general_donate_action">दान दिनुहोस्</string>
-    <string name="general_check_action">जाँच गर्नुहोस्</string>
-    <string name="general_filter_action">फिल्टर गर्नुहोस्</string>
-    <string name="general_internal_not_available_msg">इन्टरनेट जडान उपलब्ध छैन</string>
     <string name="general_refresh_action">ताजा गर्नुहोस्</string>
     <string name="general_progress_searching">खोजी गर्दै</string>
     <string name="general_progress_generating_searchpaths">खोजी पथहरू सिर्जना गर्दै</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">लाइनमा</string>
     <string name="general_progress_deleting">मेटाउँदै</string>
     <string name="general_progress_deleting_x">%s मेटाउँदै</string>
-    <string name="general_sort_action">क्रमबद्ध गर्नुहोस्</string>
-    <string name="general_sort_by_title">यसद्वारा क्रमबद्ध गर्नुहोस्</string>
-    <string name="general_sort_options_label">क्रमबद्ध विकल्पहरू</string>
     <string name="general_sort_reverse_action">उल्टो क्रमबद्ध मोड</string>
-    <string name="general_sort_oldest_first">पुरानो पहिले</string>
-    <string name="general_sort_newest_first">नयाँ पहिले</string>
-    <string name="general_sort_name_asc">नाम (अ → ज्ञ)</string>
-    <string name="general_sort_size_desc">सबैभन्दा ठूलो पहिले</string>
-    <string name="general_tag_filter_label">ट्यागहरूद्वारा फिल्टर गर्नुहोस्</string>
     <string name="general_tag_system">सिस्टम</string>
     <string name="general_result_success_message">सफलतापूर्वक सम्पन्न</string>
-    <string name="general_result_failure_message">कार्य असफल</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ठाउँ खाली गरियो।</item>
         <item quantity="other">%s ठाउँ खाली गरियो।</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">मेटाउनुहोस्</string>
     <string name="general_delete_selected_action">चयन गरिएको मेटाउनुहोस्</string>
     <string name="general_show_details_action">विवरणहरू देखाउनुहोस्</string>
-    <string name="general_show_all_action">सबै देखाउनुहोस्</string>
     <string name="general_toggle_layout_mode">हेर्ने मोड बदल्नुहोस्</string>
     <string name="general_delete_confirmation_title">मेटाउने पुष्टि गर्नुहोस्</string>
     <string name="general_delete_confirmation_message_x">\"%s\" मेटाउने?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d वस्तुहरू मेटाइए।</item>
     </plurals>
     <string name="general_remove_action">हटाउनुहोस्</string>
-    <string name="general_remove_selected_action">चयन गरिएको हटाउनुहोस्</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">एक वस्तु हटाइयो</item>
         <item quantity="other">%d वस्तुहरू हटाइए</item>
     </plurals>
-    <string name="general_root_required_label">रूट आवश्यक</string>
-    <string name="general_root_required_message">रूट गरिएको उपकरण आवश्यक</string>
     <string name="general_search_action">खोज्नुहोस्</string>
-    <string name="general_scan_device_action">उपकरण स्क्यान गर्नुहोस्</string>
     <string name="general_open_system_settings_action">सिस्टम सेटिङहरू खोल्नुहोस्</string>
     <plurals name="result_x_items">
         <item quantity="one">%s वस्तु</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">जानकारी</string>
     <string name="general_count_label">गणना</string>
-    <string name="general_app_label">एप</string>
     <string name="general_more_info_action">थप जानकारी</string>
     <string name="general_grant_access_action">पहुँच दिनुहोस्</string>
     <string name="general_enable_service_action">सेवा सक्षम गर्नुहोस्</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">चयन गरिएको बहिष्कार गर्नुहोस्</string>
     <string name="general_device_label">उपकरण</string>
     <string name="general_settings_title">सेटिङहरू</string>
-    <string name="general_help_title">मद्दत</string>
     <string name="general_hints_label">सूचना</string>
     <string name="file_type_symbolic_link">लिङ्क</string>
     <string name="file_type_directory">डाइरेक्टरी</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">प्रणाली</string>
     <string name="setup_title">सेटअप</string>
-    <string name="setup_feature_requires_additional_setup_x">यो सुविधाका लागि थप सेटअप वस्तुहरू पूरा गर्न आवश्यक छ: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro आवश्यक छ</string>
     <string name="general_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
     <string name="general_include_multiuser_summary">यस उपकरणका अन्य प्रयोगकर्ता प्रोफाइलहरूका एप्सहरू समावेश गर्नुहोस्।</string>
     <string name="general_unsaved_confirmation_message">तपाईंसँग असेभ गरिएका परिवर्तनहरू छन्!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">जोखिम स्तर</string>
     <string name="settings_category_filter">फिल्टर</string>
     <string name="appcontrol_systemsettings_open_title">सेटिङहरू देखाउनुहोस्</string>
-    <string name="systemcleaner_customfilter_create_action">कस्टम फिल्टर सिर्जना गर्नुहोस्</string>
 </resources>

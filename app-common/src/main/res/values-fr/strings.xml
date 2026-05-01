@@ -33,16 +33,9 @@
     <string name="general_empty_label">Vide</string>
     <string name="general_new_badge_label">Nouveau</string>
     <string name="general_dismiss_action">Ignorer</string>
-    <string name="general_maybe_later_action">Plus tard, peut-être</string>
     <string name="general_manage_action">Gérer</string>
-    <string name="general_sync_action">Synchroniser</string>
     <string name="general_error_label">Erreur</string>
-    <string name="general_tap_hint_msg">Toucher pour d’autres options</string>
     <string name="general_upgrade_action">Passer Pro</string>
-    <string name="general_donate_action">Faire un don</string>
-    <string name="general_check_action">Vérifier</string>
-    <string name="general_filter_action">Filtrer</string>
-    <string name="general_internal_not_available_msg">Aucune connexion à Internet</string>
     <string name="general_refresh_action">Actualiser</string>
     <string name="general_progress_searching">Recherche…</string>
     <string name="general_progress_generating_searchpaths">Génération des chemins de recherche</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">En attente</string>
     <string name="general_progress_deleting">Suppression</string>
     <string name="general_progress_deleting_x">Suppression de %s</string>
-    <string name="general_sort_action">Trier</string>
-    <string name="general_sort_by_title">Trier par</string>
-    <string name="general_sort_options_label">Options de tri</string>
     <string name="general_sort_reverse_action">Mode de tri inversé</string>
-    <string name="general_sort_oldest_first">Plus anciens en premier</string>
-    <string name="general_sort_newest_first">Plus récents en premier</string>
-    <string name="general_sort_name_asc">Nom (A → Z)</string>
-    <string name="general_sort_size_desc">Plus grands en premier</string>
-    <string name="general_tag_filter_label">Filtrer par étiquettes</string>
     <string name="general_tag_system">Système</string>
     <string name="general_result_success_message">L’opération est réussie</string>
-    <string name="general_result_failure_message">Échec de l’opération</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s libéré.</item>
         <item quantity="other">%s libérés.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Supprimer</string>
     <string name="general_delete_selected_action">Supprimer les éléments choisis</string>
     <string name="general_show_details_action">Afficher les détails</string>
-    <string name="general_show_all_action">Tout afficher</string>
     <string name="general_toggle_layout_mode">Changer le mode d’affichage</string>
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d éléments ont été supprimés.</item>
     </plurals>
     <string name="general_remove_action">Supprimer</string>
-    <string name="general_remove_selected_action">Supprimer les éléments choisis</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un élément a été supprimé</item>
         <item quantity="other">%d éléments ont été supprimés</item>
     </plurals>
-    <string name="general_root_required_label">L’accès racine est exigé</string>
-    <string name="general_root_required_message">L’appareil doit être débridé</string>
     <string name="general_search_action">Chercher</string>
-    <string name="general_scan_device_action">Analyser l’appareil</string>
     <string name="general_open_system_settings_action">Ouvrir les paramètres système</string>
     <plurals name="result_x_items">
         <item quantity="one">%s élément</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Renseignements</string>
     <string name="general_count_label">Quantité</string>
-    <string name="general_app_label">Appli</string>
     <string name="general_more_info_action">Plus de précisions</string>
     <string name="general_grant_access_action">Accorder l’accès</string>
     <string name="general_enable_service_action">Activer le service</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Exclure les éléments choisis</string>
     <string name="general_device_label">Appareil</string>
     <string name="general_settings_title">Paramètres</string>
-    <string name="general_help_title">Aide</string>
     <string name="general_hints_label">Avis</string>
     <string name="file_type_symbolic_link">Lien</string>
     <string name="file_type_directory">Dossier</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Propriétaire</string>
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>
-    <string name="setup_feature_requires_additional_setup_x">Cette fonction nécessite de configurer des éléments supplémentaires : %s</string>
-    <string name="upgrade_feature_requires_pro">Version Pro seulement</string>
     <string name="general_include_multiuser_label">Inclure d’autres utilisateurs</string>
     <string name="general_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
     <string name="general_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Niveau de risque</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Afficher les paramètres</string>
-    <string name="systemcleaner_customfilter_create_action">Créer un filtre personnalisé</string>
 </resources>

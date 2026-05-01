@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ගොනුවක් ඉරි නොවෑනිව බහුපත සමුහයක සියලුම ගොනු මකා දැමීමට ඔබට ඉඩම දේ විකල්ප පෙනන්න.</string>
     <string name="deduplicator_search_locations_title">සොයන ස්ථාන</string>
     <string name="deduplicator_search_locations_all_summary">ප්‍රවේශ විය හැකි සියලු පෙමිණ</string>
-    <string name="deduplicator_keep_prefer_paths_title">මෙහි තබා ගැනීමට කැමැත්තක්</string>
-    <string name="deduplicator_keep_prefer_paths_summary">කුමන අනුපිටපත තබා ගැනීම ද යන්න තීරණය කිරීමේදී, මෙම ස්ථානවල ගොනු තබා ගැනීමට කැමැත්ත දක්වන්න.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ස්ථාන වින්‍යාස කර නැත</string>
     <string name="deduplicator_skip_minsize_title">අවම ප්‍රමාණය</string>
     <string name="deduplicator_skip_minsize_description">අවම ප්‍රමාණයට වැඩා ඇපැත් ගොනු මකා හමන්න.</string>
     <string name="deduplicator_skip_uncommon_title">අසාධාරණ ගොනු ප්‍රකාර මකා හමන්න</string>

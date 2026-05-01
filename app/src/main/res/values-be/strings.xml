@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Спыніць запіс</string>
     <string name="debug_debuglog_sensitive_information_message">Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі.</string>
     <string name="debug_debuglog_screen_title">Журналы адладкі</string>
-    <string name="debug_debuglog_screen_discard_action">Адхіліць</string>
     <string name="debug_debuglog_screen_session_path_label">Шлях сесіі</string>
     <string name="debug_debuglog_screen_log_files_label">Файлы журналаў</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -42,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Збой: памылка сціску</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Выдаліць гэты сеанс адладачнага журнала?</string>
     <string name="support_contact_post_send_message">Паведамленне паспяхова адпраўлена?</string>
-    <string name="debug_debuglog_sessions_stop_action">Спыніць</string>
     <string name="tasks_activity_notification_channel_label">Актыўныя задачы</string>
     <string name="tasks_activity_working_notification_title">SD Maid працуе</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -57,7 +55,6 @@
         <item quantity="many">%d задач у чарзе</item>
         <item quantity="other">%d задач у чарзе</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Рэзультаты задач</string>
     <string name="tasks_result_subtext">Рэзультат задачы</string>
     <string name="tasks_timeout_error_label">Час выканання задачы скончыўся</string>
     <string name="tasks_timeout_error_desc">Задача заняла занадта шмат часу і была спынена. Калі ласка, паспрабуйце яшчэ раз.</string>
@@ -74,10 +71,6 @@
     <string name="onboarding_versus_continue_action">Працягнуць</string>
     <string name="onboarding_privacy_title">Прыватнасць</string>
     <string name="onboarding_privacy_body1">SD Maid не змяшчае рэкламы і не прадае карыстальніцкія даныя.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Справаздачы аб памылках адпраўляюцца пры ўзнікненні памылак і могуць змяшчаць падрабязную інфармацыю аб праграмах і файлах на вашай прыладзе. Справаздачы дапамагаюць мне выпраўляць памылкі і паляпшаць праграму.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Дазволіць аўтаматычныя справаздачы аб памылках</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Гэтыя параметры можна змяніць у наладах.</string>
-    <string name="onboarding_privacy_continue_action">Працягнуць</string>
     <string name="onboarding_setup_title">Наладжванне</string>
     <string name="onboarding_setup_body1">SD Maid выканае пошук ва ўсіх даступных абласцях даных.</string>
     <string name="onboarding_setup_body2">Даступнасць даных залежыць ад вашай прылады, версіі Android і дадзеных дазволаў.</string>
@@ -172,7 +165,6 @@
     <string name="setup_incomplete_card_title">Наладжванне не завершана</string>
     <string name="setup_incomplete_card_body">Каб дамагчыся лепшых рэзультатаў, завяршыце наладжванне SD Maid.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid спрабуе выправіць праблемы з наладамі.</string>
-    <string name="setup_incomplete_card_dismiss_action">Адхіліць</string>
     <string name="setup_incomplete_card_continue_action">Працягнуць наладжванне</string>
     <string name="setup_forcedshow_summary">Паўторна паказаць экран наладжвання, у тым ліку з ужо наладжанымі элементамі.</string>
     <string name="setup_checking_card_body">Праверка налад і функцыянальнасці.</string>
@@ -235,8 +227,6 @@
     <string name="dataarea_warningcard_reload_action">Перазагрузіць вобласці даных</string>
     <string name="debug_mode_label">Рэжым адладкі</string>
     <string name="debug_mode_explanation">Уключыць эксперыментальныя параметры і больш падрабязны вывад даных. Праграма будзе працаваць павольней, і яе прадукцыйнасць можа змяніцца.</string>
-    <string name="debug_bugreporter_label">Аўтаматычныя справаздачы аб памылках</string>
-    <string name="debug_bugreporter_summary">Аўтаматычна паведамляць пра праблемы, напрыклад, падрабязную інфармацыю аб збоях праграмы, каб я мог высветліць, чаму адбылася памылка.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Уключаны рэжым адладкі</string>
     <string name="debug_card_trace_mode_label">Уключыць рэжым адладкі</string>
@@ -251,9 +241,6 @@
     <string name="data_area_sdcard_label">Карта памяці</string>
     <string name="data_areas_label">Вобласці даных</string>
     <string name="data_areas_description">Вобласці даных — гэта месцы на вашай прыладзе, даступныя SD Maid. У залежнасці ад вашай версіі Android і дадзеных дазволаў могуць быць даступныя розныя вобласці даных.</string>
-    <string name="data_areas_short_summary">Вобласці, да якіх SD Maid можа атрымаць доступ на падставе дадзеных у цяперашні час дазволаў.</string>
-    <string name="history_label">Гісторыя</string>
-    <string name="history_description">Храналагічны спіс апошніх дзеянняў і закранутых даных.</string>
     <string name="updates_dashcard_title">Даступна абнаўленне</string>
     <string name="updates_dashcard_body">Даступна абнаўленне. У вас версія %1$s, а апошняя версія — %2$s.</string>
     <string name="translation_encourage_title">Перакласці SD Maid</string>
@@ -265,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Праверка абнаўленняў</string>
     <string name="updatecheck_setting_enabled_explanation">Дазвольце SD Maid правяраць наяўнасць абнаўленняў для апавяшчэння вас пра даступнасць новай версіі.</string>
     <string name="device_settings_category">Прылада</string>
-    <string name="beta_version_indicator_desc">Папярэднія версіі адлюстроўваюць маленькую стужку на стартавым экране. Яны абнаўляюцца часцей, могуць мець больш функцый, але таксама могуць мець больш памылак.</string>
     <string name="review_app_review_action">Водгук</string>
     <string name="review_app_dismiss_action">Магчыма пазней</string>
     <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>

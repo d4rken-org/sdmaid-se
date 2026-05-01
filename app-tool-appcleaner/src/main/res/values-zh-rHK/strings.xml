@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">應用清理器自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">正在清理預設快取…</string>
-    <string name="appcleaner_automation_progress_open_settings">開啟 %s 的設定</string>
     <string name="appcleaner_automation_progress_find_storage">尋找「儲存空間」按鈕（關鍵字：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_data">尋找「清除資料」按鈕（關鍵字：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_cache">尋找「清除快取」按鈕（關鍵字：%s）</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">清除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
-    <string name="appcleaner_junk_userprofile_label">使用者</string>
     <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除快取前強制停止應用程式。可能有助於清除某些應用程式的快取，但可能導致應用程式異常並需要手動重新啟動。</string>
     <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
-    <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
-    <string name="appcleaner_automation_error_no_settings_title">設定畫面不可用</string>
-    <string name="appcleaner_automation_loading">正在透過無障礙服務準備自動化工作</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">嘗試確認先前動作（關鍵字：%s）</string>
-    <string name="appcleaner_include_multiuser_label">包含其他使用者</string>
-    <string name="appcleaner_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
 </resources>

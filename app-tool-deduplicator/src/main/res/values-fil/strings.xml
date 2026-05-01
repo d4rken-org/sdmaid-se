@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Ipakita ang mga opsyon na nagbibigay-daan sa inyong tanggalin ang lahat ng file sa isang set ng mga duplicate para walang natitirang file.</string>
     <string name="deduplicator_search_locations_title">Mga lokasyon ng paghahanap</string>
     <string name="deduplicator_search_locations_all_summary">Lahat ng ma-access na lugar</string>
-    <string name="deduplicator_keep_prefer_paths_title">Mas gusto na panatilihin sa</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Kapag nagpapasya kung aling duplicate ang pananatilihin, mas gusto na panatilihin ang mga file sa mga lokasyong ito.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Walang naka-configure na lokasyon</string>
     <string name="deduplicator_skip_minsize_title">Minimum na laki</string>
     <string name="deduplicator_skip_minsize_description">Laktawan ang mga file na nasa ibaba ng minimum na laki.</string>
     <string name="deduplicator_skip_uncommon_title">Laktawan ang mga hindi karaniwang uri ng file</string>

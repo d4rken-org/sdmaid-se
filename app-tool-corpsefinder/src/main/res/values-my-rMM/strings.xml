@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ကန့်သတ်ထားသော အက်ပ် ထည့်သွင်းမှု ဒေတာ၊ ဥပမာ - ကာကွယ်ထားသော တတိယပါတီ အက်ပ်များ။</string>
     <string name="corpsefinder_filter_appasec_label">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ</string>
     <string name="corpsefinder_filter_appasec_summary">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ၊ ဥပမာ - ဂိမ်း ပိုင်ဆိုင်မှုများ။</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2SD မွန်များ အသုံးပြု၍ ပြင်ပ သိုလှောင်ခန်းသို့ ရွှေ့ထားသော ဒေတာ။</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d ခု အပ်ပ်ကြွင်းကျန်များ ဖျက်ပြီးပြီ</item>

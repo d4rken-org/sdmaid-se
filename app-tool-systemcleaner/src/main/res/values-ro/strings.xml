@@ -102,5 +102,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitați meciurile pe baza vârstei fișierului (ultimul timp modificat). Lăsați nesetat pentru a se potrivi cu orice vârstă.</string>
     <string name="systemcleaner_customfilter_import_action">Importă filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Exportă filtrul selectat</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Ai modificări nesalvate!</string>
 </resources>

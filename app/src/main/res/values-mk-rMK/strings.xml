@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Запри снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерираната датотека содржи чувствителни информации (пр. имиња на датотеки и инсталирани апликации). Споделувајте ја само со доверливи лица.</string>
     <string name="debug_debuglog_screen_title">Дневник за дебагирање</string>
-    <string name="debug_debuglog_screen_discard_action">Отфрли</string>
     <string name="debug_debuglog_screen_session_path_label">Патека на сесијата</string>
     <string name="debug_debuglog_screen_log_files_label">Дневнички датотеки</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Неуспешно: грешка при компресија</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Да се избрише оваа сесија со дебаг запис?</string>
     <string name="support_contact_post_send_message">Пораката е испратена успешно?</string>
-    <string name="debug_debuglog_sessions_stop_action">Стоп</string>
     <string name="tasks_activity_notification_channel_label">Активни задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работи</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d задача во ред</item>
         <item quantity="other">%d задачи во ред</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Резултати од задачи</string>
     <string name="tasks_result_subtext">Резултат од задача</string>
     <string name="tasks_timeout_error_label">Задачата истече</string>
     <string name="tasks_timeout_error_desc">Задачата траеше предолго и беше запрена. Ве молиме обидете се повторно.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Продолжи</string>
     <string name="onboarding_privacy_title">Приватност</string>
     <string name="onboarding_privacy_body1">SD Maid нема реклами и не продава кориснички податоци.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Извештаите за грешки се испраќаат кога се јавуваат грешки и може да содржат детали за апликациите и датотеките на вашиот уред. Извештаите ми помагаат да ги поправам грешките и да ја подобрам апликацијата.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Дозволи автоматски извештаи за грешки</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Овие опции може да се променат во поставките.</string>
-    <string name="onboarding_privacy_continue_action">Продолжи</string>
     <string name="onboarding_setup_title">Поставување</string>
     <string name="onboarding_setup_body1">SD Maid ќе ги пребарува сите достапни области со податоци.</string>
     <string name="onboarding_setup_body2">Достапноста зависи од вашиот уред, верзијата на Android и дадените дозволи.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Поставувањето е нецелосно</string>
     <string name="setup_incomplete_card_body">Завршете го поставувањето на SD Maid за подобри резултати.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid се обидува да ги поправи проблемите со поставувањето.</string>
-    <string name="setup_incomplete_card_dismiss_action">Отфрли</string>
     <string name="setup_incomplete_card_continue_action">Продолжи со поставување</string>
     <string name="setup_forcedshow_summary">Покажи го екранот за поставување повторно, вклучувајќи ги веќе завршените ставки.</string>
     <string name="setup_checking_card_body">Проверка на завршеност и функционалност на поставувањето.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Повторно вчитај области со податоци</string>
     <string name="debug_mode_label">Режим за дебагирање</string>
     <string name="debug_mode_explanation">Овозможи тест опции и поопширен излез. Апликацијата ќе работи побавно и поинаку.</string>
-    <string name="debug_bugreporter_label">Автоматски извештаи за грешки</string>
-    <string name="debug_bugreporter_summary">Автоматски пријавува проблеми, пр. детали за падовите на апликацијата за да можам да дознаам зошто и да ги поправам.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режимот за дебагирање е овозможен</string>
     <string name="debug_card_trace_mode_label">Овозможи режим за следење</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD картичка</string>
     <string name="data_areas_label">Области со податоци</string>
     <string name="data_areas_description">Областите со податоци претставуваат локации на вашиот уред кои се достапни за SD Maid. Различни области со податоци може да бидат достапни во зависност од верзијата на Android и дадените дозволи.</string>
-    <string name="data_areas_short_summary">Области до кои SD Maid може да пристапи врз основа на моментално дадените дозволи.</string>
-    <string name="history_label">Историја</string>
-    <string name="history_description">Хронолошка листа на скорешни дејства и засегнати податоци.</string>
     <string name="updates_dashcard_title">Достапно ажурирање</string>
     <string name="updates_dashcard_body">Достапно е ажурирање. Имате %1$s, а најновата верзија е %2$s.</string>
     <string name="translation_encourage_title">Преведете го SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Проверка за ажурирања</string>
     <string name="updatecheck_setting_enabled_explanation">Дозволете на SD Maid да проверува за ажурирања за да ве извести ако е достапна понова верзија.</string>
     <string name="device_settings_category">Уред</string>
-    <string name="beta_version_indicator_desc">Предизданијата прикажуваат мала лента на почетниот екран. Се ажурираат почесто, може да имаат повеќе функции, но исто така може да имаат повеќе грешки.</string>
     <string name="review_app_review_action">Оценете</string>
     <string name="review_app_dismiss_action">Можеби подоцна</string>
     <string name="review_app_body">Дали би сакале да оставите оценка за SD Maid? ❤️</string>

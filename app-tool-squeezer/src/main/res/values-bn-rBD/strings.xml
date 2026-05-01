@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">স্টোরেজ স্থান বাঁচাতে ছবি এবং ভিডিও সংকুচিত করুন।</string>
+    <string name="squeezer_explanation_short">স্টোরেজ স্পেস বাঁচাতে ছবি সংকুচিত করুন।</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%dটি আইটেম পাওয়া গেছে</item>
-        <item quantity="other">%dটি আইটেম পাওয়া গেছে</item>
+        <item quantity="one">%d ছবি পাওয়া গেছে</item>
+        <item quantity="other">%d ছবি পাওয়া গেছে</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s সাশ্রয় করা যাবে</item>
         <item quantity="other">~%s সাশ্রয় করা যাবে</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%dটি আইটেম সংকুচিত হয়েছে</item>
-        <item quantity="other">%dটি আইটেম সংকুচিত হয়েছে</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ব্যর্থ</item>
-        <item quantity="other">%d ব্যর্থ</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%dটি ফাইল এড়িয়ে যাওয়া হয়েছে (অ্যাক্সেসযোগ্য নয়)</item>
-        <item quantity="other">%dটি ফাইল এড়িয়ে যাওয়া হয়েছে (অ্যাক্সেসযোগ্য নয়)</item>
+        <item quantity="one">%d ছবি সংকুচিত হয়েছে</item>
+        <item quantity="other">%d ছবি সংকুচিত হয়েছে</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%dটি আইটেম নির্বাচিত</item>
-        <item quantity="other">%dটি আইটেম নির্বাচিত</item>
+        <item quantity="one">%d ছবি নির্বাচিত</item>
+        <item quantity="other">%d ছবি নির্বাচিত</item>
     </plurals>
-    <string name="squeezer_search_locations_title">অনুসন্ধান অবস্থান</string>
-    <string name="squeezer_search_locations_default_summary">ক্যামেরা ফোল্ডার (ডিফল্ট)</string>
     <string name="squeezer_min_size_title">সর্বনিম্ন ফাইল আকার</string>
-    <string name="squeezer_min_size_description">এই আকারের চেয়ে ছোট ফাইলগুলি এড়িয়ে যান।</string>
+    <string name="squeezer_min_size_description">এই আকারের চেয়ে ছোট ছবি এড়িয়ে যান।</string>
     <string name="squeezer_min_age_title">সর্বনিম্ন ফাইল বয়স</string>
-    <string name="squeezer_min_age_description">কেবল এই বয়সের চেয়ে পুরানো ফাইলগুলি অন্তর্ভুক্ত করুন।</string>
-    <string name="squeezer_compression_settings_label">সাধারণ</string>
-    <string name="squeezer_quality_label">গুণমান</string>
-    <string name="squeezer_quality_title">সংকোচনের গুণমান</string>
-    <string name="squeezer_quality_description">কম মান মানে ছোট ফাইলের আকার কিন্তু কম দৃশ্যমান মান।</string>
-    <string name="squeezer_quality_example_format">উদাহরণ: %1$s ছবি → %3$d%% গুণমানে ~%2$s সাশ্রয়</string>
-    <string name="squeezer_quality_warning_low">নিম্ন গুণমান দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
-    <string name="squeezer_quality_warning_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
-    <string name="squeezer_types_category_label">ছবির সেটিংস</string>
-    <string name="squeezer_video_settings_category_label">ভিডিও সেটিংস</string>
+    <string name="squeezer_min_age_description">শুধুমাত্র এই বয়সের চেয়ে পুরনো ছবি অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_compression_settings_label">সংকোচন সেটিংস</string>
+    <string name="squeezer_quality_description">নিম্ন গুণমান মানে ছোট ফাইল আকার কিন্তু হ্রাসকৃত ছবির গুণমান।</string>
+    <string name="squeezer_types_category_label">ছবির ধরন</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ছবি (.jpg, .jpeg) অন্তর্ভুক্ত করুন।</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ছবি (.webp) অন্তর্ভুক্ত করুন।</string>
-    <string name="squeezer_type_video_title">MP4 ভিডিও</string>
-    <string name="squeezer_type_video_description">MP4 ভিডিও ফাইল (.mp4) অন্তর্ভুক্ত করুন।</string>
     <string name="squeezer_skip_compressed_title">আগে সংকুচিত এড়িয়ে যান</string>
-    <string name="squeezer_skip_compressed_description">SD Maid দ্বারা ইতিমধ্যে সংকুচিত ফাইলগুলি এড়িয়ে যান।</string>
+    <string name="squeezer_skip_compressed_description">SD Maid দ্বারা আগে সংকুচিত ছবি এড়িয়ে যান।</string>
     <string name="squeezer_exif_marker_title">EXIF মার্কার লিখুন</string>
     <string name="squeezer_exif_marker_description">সংকোচন ইতিহাস মুছে ফেলা হলেও পুনরায় সংকোচন রোধ করতে ছবির EXIF ব্যবহারকারী মন্তব্য ক্ষেত্রে একটি মার্কার যোগ করুন।</string>
     <string name="squeezer_estimated_savings_format">~%s সাশ্রয়</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>
     <string name="squeezer_preview_total_size">মোট আকার</string>
     <string name="squeezer_preview_estimated_savings">আনুমানিক সাশ্রয়</string>
-    <string name="squeezer_compress_confirmation_title">নির্বাচিত আইটেমগুলি সংকুচিত করবেন?</string>
-    <string name="squeezer_compress_confirmation_message">এটি মূল ফাইলগুলিকে সংকুচিত সংস্করণ দিয়ে প্রতিস্থাপন করবে। এই ক্রিয়াটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
     <string name="squeezer_history_title">সংকোচন ইতিহাস</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d আইটেম (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">কোন সংকোচন ইতিহাস নেই</string>
     <string name="squeezer_history_clear_title">সংকোচন ইতিহাস মুছুন</string>
-    <string name="squeezer_history_clear_message">এটি পূর্বে সংকুচিত ফাইলগুলিকে আবার সংকুচিত করার অনুমতি দেবে। ফাইলগুলি নিজেই প্রভাবিত হয় না।</string>
-    <string name="squeezer_onboarding_title">ছবি সংকোচন সম্পর্কে</string>
-    <string name="squeezer_onboarding_message">ছবি সংকোচন ভিজ্যুয়াল বিশদ অপসারণ করে ফাইলের আকার কমায়। এই প্রক্রিয়া অপরিবর্তনীয় - আসল গুণমান পুনরুদ্ধার করা যাবে না।\n\nআপনার ছবিগুলি কেমন দেখাবে তার একটি প্রিভিউ এখানে:</string>
+    <string name="squeezer_history_clear_message">এটি আগে সংকুচিত ছবিগুলিকে আবার সংকুচিত করার অনুমতি দেবে। ছবিগুলি নিজেরা প্রভাবিত হবে না।</string>
     <string name="squeezer_onboarding_original_label">আসল</string>
     <string name="squeezer_onboarding_compressed_label">সংকোচনের পর</string>
-    <string name="squeezer_onboarding_video_original_label">ভিডিও ফ্রেম</string>
-    <string name="squeezer_onboarding_video_compressed_label">প্রিভিউ (আনুমানিক)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">প্রকৃত ভিডিও মান ভিন্ন হতে পারে</string>
-    <string name="squeezer_onboarding_quality_label">গুণমান: %d%%</string>
     <string name="squeezer_compare_action">তুলনা দেখুন</string>
     <string name="squeezer_no_example_found">নির্বাচিত পাথে কোনো ছবি পাওয়া যায়নি।</string>
-    <string name="squeezer_result_empty_message">কোনো সংকোচনযোগ্য মিডিয়া পাওয়া যায়নি।</string>
-    <string name="squeezer_setup_warning">সংকোচন স্থায়ীভাবে স্টোরেজ স্থান বাঁচাতে মান কমিয়ে দেয়। এটি পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%dটি অবস্থান সংকোচনের জন্য ব্যবহার করা যাবে না এবং সরানো হয়েছে। সংকোচনের জন্য অভ্যন্তরীণ স্টোরেজে সরাসরি অ্যাক্সেস প্রয়োজন।</item>
-        <item quantity="other">%dটি অবস্থান সংকোচনের জন্য ব্যবহার করা যাবে না এবং সরানো হয়েছে। সংকোচনের জন্য অভ্যন্তরীণ স্টোরেজে সরাসরি অ্যাক্সেস প্রয়োজন।</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">মিডিয়া স্কুইজ স্টোরেজ স্থান খালি করতে ছবি ও ভিডিওর ফাইলের আকার কমায়। এটি স্থায়ীভাবে মান কমিয়ে দেয় এবং পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
+    <string name="squeezer_result_empty_message">সংকোচনযোগ্য কোনো ছবি পাওয়া যায়নি।</string>
+    <string name="squeezer_setup_explanation">মিডিয়া স্কুইজ স্টোরেজ স্পেস খালি করতে ছবির ফাইলের আকার কমায়। এটি স্থায়ীভাবে ছবির গুণমান হ্রাস করে এবং পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
     <string name="squeezer_setup_paths_title">অনুসন্ধান অবস্থান</string>
     <string name="squeezer_setup_paths_default">অনুসন্ধানের জন্য ফোল্ডার নির্বাচন করুন</string>
     <string name="squeezer_setup_quality_title">সংকোচনের গুণমান</string>
     <string name="squeezer_setup_age_title">সর্বনিম্ন বয়স</string>
-    <string name="squeezer_setup_age_none">কোনো সীমা নেই (সব ফাইল অন্তর্ভুক্ত)</string>
     <string name="squeezer_setup_start_action">স্ক্যান শুরু করুন</string>
     <string name="squeezer_quality_hint_very_low">৪০% এর নিচে গুণমান ব্যবহারের অযোগ্য ছবি তৈরি করতে পারে।</string>
     <string name="squeezer_quality_hint_low">নিম্ন গুণমান বেশি স্থান সাশ্রয় করে কিন্তু দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
@@ -99,6 +67,5 @@
         <item quantity="one">অন্তত %d দিন পুরনো</item>
         <item quantity="other">অন্তত %d দিন পুরনো</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">ছবির জন্য আনুমানিক ~%d%% সাশ্রয়</string>
-    <string name="squeezer_onboarding_got_it">বুঝেছি</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ফাইলের জন্য আনুমানিক ~%d%% সাশ্রয়</string>
 </resources>

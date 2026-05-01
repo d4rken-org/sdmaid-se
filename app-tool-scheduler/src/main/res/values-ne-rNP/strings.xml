@@ -20,7 +20,6 @@
         <item quantity="one">दैनिक</item>
         <item quantity="other">हरेक %d दिन</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">दोहोरिने अन्तराल</string>
     <string name="scheduler_inaccurate_execution_hint">अपेक्षित कार्यान्वयन समय लगभग हो। ब्याटरी बचाउनको लागि समय सारणी ढिलो वा छिटो हुन सक्छ।</string>
     <string name="scheduler_no_active_schedules_subtitle">कुनै पनि सक्रिय समय सारणी छैन</string>
     <string name="scheduler_setting_nopowersaving_title">कम ब्याटरीमा छोड्नुहोस्</string>

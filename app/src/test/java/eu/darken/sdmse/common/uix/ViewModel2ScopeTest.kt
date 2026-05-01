@@ -45,13 +45,13 @@ class ViewModel2ScopeTest : BaseTest() {
         vm.state.first()
         advanceUntilIdle()
 
-        val postedError = vm.errorEvents.value
+        val postedError = vm.errorEvents.first()
         postedError.shouldBeInstanceOf<ReadException>()
     }
 
     private class TestViewModel(
         dispatcherProvider: DispatcherProvider,
-    ) : ViewModel3(dispatcherProvider) {
+    ) : ViewModel4(dispatcherProvider) {
         val state = flow<String> {
             throw ReadException(message = "No matching mode available.")
         }

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Grabaketa geldiarazi</string>
     <string name="debug_debuglog_sensitive_information_message">Sortutako fitxategiak informazio sentikorra du (adibidez, fitxategi-izenak eta instalatutako aplikazioak). Konfiantzazko alderdiekin bakarrik partekatu.</string>
     <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
-    <string name="debug_debuglog_screen_discard_action">Baztertu</string>
     <string name="debug_debuglog_screen_session_path_label">Saioa Bidearen bidea</string>
     <string name="debug_debuglog_screen_log_files_label">Erregistro fitxategiak</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Huts eginda: konpresio-errorea</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Arazketa-egunkariaren saio hau ezabatu?</string>
     <string name="support_contact_post_send_message">Mezua behar bezala bidali da?</string>
-    <string name="debug_debuglog_sessions_stop_action">Gelditu</string>
     <string name="tasks_activity_notification_channel_label">Zeregin aktiboak</string>
     <string name="tasks_activity_working_notification_title">SD Maid lanean dabil</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d zeregin ilaran</item>
         <item quantity="other">%d zeregin ilaran</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Zereginen emaitzak</string>
     <string name="tasks_result_subtext">Zereginaren emaitza</string>
     <string name="tasks_timeout_error_label">Atazak denbora-muga gainditu du</string>
     <string name="tasks_timeout_error_desc">Atazak denbora gehiegi hartu du eta gelditu egin da. Saiatu berriro.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Jarraitu</string>
     <string name="onboarding_privacy_title">Pribatutasuna</string>
     <string name="onboarding_privacy_body1">SD Maid-ek ez du iragarkiririk eta ez du erabiltzaile-datuak saltzen.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Erroreen txostenak bidaltzen dira erroreak gertatzen direnean eta zure gailuko aplikazioen eta fitxategien xehetasunak izan ditzakete. Txostenek erroreak konpontzen eta aplikazioa hobetzen laguntzen didate.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Baimendu errore-txosten automatikoak</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aukera hauek ezarpenetan alda daitezke.</string>
-    <string name="onboarding_privacy_continue_action">Jarraitu</string>
     <string name="onboarding_setup_title">Konfigurazioa</string>
     <string name="onboarding_setup_body1">SD Maid-ek atzitu daitezkeen datu-eremu guztiak bilatuko ditu.</string>
     <string name="onboarding_setup_body2">Zer den atzitgarria zure gailua, Android bertsioa eta emandako baimenen araberakoa da.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Konfigurazioa ez da osatu</string>
     <string name="setup_incomplete_card_body">Amaitu SD Maid-en konfigurazioa emaitza hobeak lortzeko.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid konfigurazio-arazoak konpontzen saiatzen ari da.</string>
-    <string name="setup_incomplete_card_dismiss_action">Baztertu</string>
     <string name="setup_incomplete_card_continue_action">Jarraitu konfigurazioarekin</string>
     <string name="setup_forcedshow_summary">Erakutsi konfigurazio-pantaila berriro, osatutako elementuak barne.</string>
     <string name="setup_checking_card_body">Konfigurazio-osotasuna eta funtzionalitatea egiaztatzen.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Birkargatu datu-areoak</string>
     <string name="debug_mode_label">Arazketa modua</string>
     <string name="debug_mode_explanation">Gaitu proba-aukerak eta irteera xeheagoa. Aplikazioa motelago ibiliko da eta modu ezberdinean funtzionatuko du.</string>
-    <string name="debug_bugreporter_label">Akats-txosten automatikoa</string>
-    <string name="debug_bugreporter_summary">Automatikoki jakinarazten ditu arazoak, adib. aplikazioaren kraskaduren xehetasunak, zergatia aurkitu eta konpon dezadan.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Arazketa modua gaituta dago</string>
     <string name="debug_card_trace_mode_label">Gaitu traza modua</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD txartela</string>
     <string name="data_areas_label">Datu-areak</string>
     <string name="data_areas_description">Datu-areak zure gailuan SD Maidak atzitu ditzakeen tokiak dira. Android bertsioa eta emandako baimenak kontuan hartuta, datu-area desberdinak egon daitezke.</string>
-    <string name="data_areas_short_summary">SD Maidak gaur emandako baimen horien arabera atzitu ditzakeen areak.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Denbora- ordenean, azken ekintzak eta eragin dituzten datuak.</string>
     <string name="updates_dashcard_title">Eguneratzea eskuragarri</string>
     <string name="updates_dashcard_body">Eguneratzea eskuragarri. %1$s dituzu eta azken bertsioa %2$s da.</string>
     <string name="translation_encourage_title">SD Maida itzuli</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Eguneraketa bilaketa</string>
     <string name="updatecheck_setting_enabled_explanation">Baimendu SD Maidi eguneraketen bilaketa egitea bertsio berriagoa dagoen jakiteko.</string>
     <string name="device_settings_category">Gailua</string>
-    <string name="beta_version_indicator_desc">Aurreikustirako bertsioak litzara bat erakusten dute hasierako pantailan. Behin-behinean eguneratzen dira, ezaugarri gehiago izan ditzakete, baina akatse gehiago ere izan ditzakete.</string>
     <string name="review_app_review_action">Iritzia</string>
     <string name="review_app_dismiss_action">Agian geroago</string>
     <string name="review_app_body">Iritzia uzten diozu SD Maid-ri? ❤️</string>

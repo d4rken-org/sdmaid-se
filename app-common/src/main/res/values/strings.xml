@@ -32,16 +32,9 @@
     <string name="general_empty_label">Empty</string>
     <string name="general_new_badge_label">New</string>
     <string name="general_dismiss_action">Dismiss</string>
-    <string name="general_maybe_later_action">Maybe later</string>
     <string name="general_manage_action">Manage</string>
-    <string name="general_sync_action">Synchronize</string>
     <string name="general_error_label">Error</string>
-    <string name="general_tap_hint_msg">Tap for more options</string>
     <string name="general_upgrade_action">Upgrade</string>
-    <string name="general_donate_action">Donate</string>
-    <string name="general_check_action">Check</string>
-    <string name="general_filter_action">Filter</string>
-    <string name="general_internal_not_available_msg">Internet connection unavailable</string>
     <string name="general_refresh_action">Refresh</string>
     <string name="general_progress_searching">Searching</string>
     <string name="general_progress_generating_searchpaths">Generating search paths</string>
@@ -70,19 +63,15 @@
     <string name="general_progress_queued">In queue</string>
     <string name="general_progress_deleting">Deleting</string>
     <string name="general_progress_deleting_x">Deleting %s</string>
-    <string name="general_sort_action">Sort</string>
     <string name="general_sort_by_title">Sort by</string>
-    <string name="general_sort_options_label">Sort options</string>
     <string name="general_sort_reverse_action">Reverse sort mode</string>
     <string name="general_sort_oldest_first">Oldest first</string>
     <string name="general_sort_newest_first">Newest first</string>
     <string name="general_sort_name_asc">Name (A → Z)</string>
     <string name="general_sort_size_desc">Largest first</string>
-    <string name="general_tag_filter_label">Filter by tags</string>
     <string name="general_tag_system">System</string>
 
     <string name="general_result_success_message">Operation successful</string>
-    <string name="general_result_failure_message">Operation failed</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Freed %s space.</item>
         <item quantity="other">Freed %s space.</item>
@@ -97,7 +86,6 @@
     <string name="general_delete_action">Delete</string>
     <string name="general_delete_selected_action">Delete selected</string>
     <string name="general_show_details_action">Show details</string>
-    <string name="general_show_all_action">Show all</string>
     <string name="general_toggle_layout_mode">Switch view mode</string>
 
     <string name="general_delete_confirmation_title">Confirm deletion</string>
@@ -112,17 +100,12 @@
     </plurals>
 
     <string name="general_remove_action">Remove</string>
-    <string name="general_remove_selected_action">Remove selected</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">One item was removed</item>
         <item quantity="other">%d items were removed</item>
     </plurals>
 
-    <string name="general_root_required_label">Requires root</string>
-    <string name="general_root_required_message">Requires a rooted device</string>
-
     <string name="general_search_action">Search</string>
-    <string name="general_scan_device_action">Scan device</string>
     <string name="general_open_system_settings_action">Open system settings</string>
 
     <plurals name="result_x_items">
@@ -143,7 +126,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Count</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">More info</string>
     <string name="general_grant_access_action">Grant access</string>
     <string name="general_enable_service_action">Enable service</string>
@@ -160,7 +142,6 @@
     <string name="general_device_label">Device</string>
 
     <string name="general_settings_title">Settings</string>
-    <string name="general_help_title">Help</string>
     <string name="general_hints_label">Notice</string>
 
     <string name="file_type_symbolic_link">Link</string>
@@ -194,9 +175,6 @@
     <string name="general_user_label_owner">Owner</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Setup</string>
-    <string name="setup_feature_requires_additional_setup_x">This feature requires completing additional setup items: %s</string>
-    <string name="upgrade_feature_requires_pro">Requires Pro</string>
-
     <string name="general_include_multiuser_label">Include other users</string>
     <string name="general_include_multiuser_summary">Include apps from other user profiles on this device.</string>
     <string name="general_unsaved_confirmation_message">You have unsaved changes!</string>
@@ -221,5 +199,4 @@
     <string name="settings_category_risklevel">Risk level</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
-    <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
 </resources>

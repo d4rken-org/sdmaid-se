@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">داده‌های نصب برنامه‌های محدود، به عنوان مثال برنامه‌های شخص ثالث محافظت‌شده.</string>
     <string name="corpsefinder_filter_appasec_label">منابع رمزنگاری شده برنامه</string>
     <string name="corpsefinder_filter_appasec_summary">منابع رمزنگاری شده برنامه، به عنوان مثال فایل‌های بازی.</string>
-    <string name="corpsefinder_filter_app2sd_summary">داده‌هایی که توسط مودهای App2Sd به حافظه خارجی منتقل شده‌اند.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d باقی‌مانده برنامه حذف شد.</item>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Navigation action IDs used by Scheduler UI -->
-    <item name="action_schedulerManagerFragment_to_scheduleItemDialog" type="id" />
-</resources>

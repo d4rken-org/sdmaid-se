@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Шектелген қолданба орнату даталары, мысалы, щиталған үшінші тарап қолданбалары.</string>
     <string name="corpsefinder_filter_appasec_label">Shifrlanǵan qosımsha resursları</string>
     <string name="corpsefinder_filter_appasec_summary">Шифрланған қолданба ресурслары, мысалы, ойын активтері.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd өзгертулері арқылы сыртқы сақтағышқа көшірілген даталар.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ilova qaldıǵi óśirip tastandı</item>

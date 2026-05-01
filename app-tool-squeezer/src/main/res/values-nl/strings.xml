@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Comprimeer afbeeldingen en video\'s om opslagruimte te besparen.</string>
+    <string name="squeezer_explanation_short">Comprimeer afbeeldingen om opslagruimte te besparen.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d item gevonden</item>
-        <item quantity="other">%d items gevonden</item>
+        <item quantity="one">%d afbeelding gevonden</item>
+        <item quantity="other">%d afbeeldingen gevonden</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s kan worden bespaard</item>
         <item quantity="other">~%s kan worden bespaard</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d item gecomprimeerd</item>
-        <item quantity="other">%d items gecomprimeerd</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d mislukt</item>
-        <item quantity="other">%d mislukt</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d bestand overgeslagen (niet toegankelijk)</item>
-        <item quantity="other">%d bestanden overgeslagen (niet toegankelijk)</item>
+        <item quantity="one">%d afbeelding gecomprimeerd</item>
+        <item quantity="other">%d afbeeldingen gecomprimeerd</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d item geselecteerd</item>
-        <item quantity="other">%d items geselecteerd</item>
+        <item quantity="one">%d afbeelding geselecteerd</item>
+        <item quantity="other">%d afbeeldingen geselecteerd</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Zoek locaties</string>
-    <string name="squeezer_search_locations_default_summary">Cameramappen (standaard)</string>
     <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
-    <string name="squeezer_min_size_description">Sla bestanden over die kleiner zijn dan deze grootte.</string>
+    <string name="squeezer_min_size_description">Sla afbeeldingen over die kleiner zijn dan deze grootte.</string>
     <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
-    <string name="squeezer_min_age_description">Alleen bestanden ouder dan deze leeftijd opnemen.</string>
-    <string name="squeezer_compression_settings_label">Algemeen</string>
-    <string name="squeezer_quality_label">Kwaliteit</string>
-    <string name="squeezer_quality_title">Compressiekwaliteit</string>
-    <string name="squeezer_quality_description">Lagere kwaliteit betekent kleinere bestandsgrootte maar verminderde visuele kwaliteit.</string>
-    <string name="squeezer_quality_example_format">Voorbeeld: %1$s afbeelding → bespaart ~%2$s bij %3$d%% kwaliteit</string>
-    <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
-    <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
-    <string name="squeezer_types_category_label">Afbeeldingsinstellingen</string>
-    <string name="squeezer_video_settings_category_label">Video-instellingen</string>
+    <string name="squeezer_min_age_description">Alleen afbeeldingen ouder dan deze leeftijd opnemen.</string>
+    <string name="squeezer_compression_settings_label">Compressie-instellingen</string>
+    <string name="squeezer_quality_description">Lagere kwaliteit betekent kleinere bestandsgrootte maar verminderde beeldkwaliteit.</string>
+    <string name="squeezer_types_category_label">Afbeeldingstypen</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Voeg JPEG-afbeeldingen (.jpg, .jpeg) toe.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Voeg WebP-afbeeldingen (.webp) toe.</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Inclusief MP4-videobestanden (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
-    <string name="squeezer_skip_compressed_description">Sla bestanden over die al door SD Maid zijn gecomprimeerd.</string>
+    <string name="squeezer_skip_compressed_description">Sla afbeeldingen over die al door SD Maid zijn gecomprimeerd.</string>
     <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
     <string name="squeezer_exif_marker_description">Voeg een markering toe aan het EXIF-opmerkingenveld van de afbeelding om hercompressie te voorkomen, zelfs als de compressiegeschiedenis wordt gewist.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
     <string name="squeezer_preview_total_size">Totale grootte</string>
     <string name="squeezer_preview_estimated_savings">Geschatte besparing</string>
-    <string name="squeezer_compress_confirmation_title">Geselecteerde items comprimeren?</string>
-    <string name="squeezer_compress_confirmation_message">Dit vervangt originele bestanden door gecomprimeerde versies. Deze actie kan niet ongedaan worden gemaakt.</string>
     <string name="squeezer_history_title">Compressiegeschiedenis</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Geen compressiegeschiedenis</string>
     <string name="squeezer_history_clear_title">Compressiegeschiedenis wissen</string>
-    <string name="squeezer_history_clear_message">Dit maakt het mogelijk om eerder gecomprimeerde bestanden opnieuw te comprimeren. De bestanden zelf worden niet beïnvloed.</string>
-    <string name="squeezer_onboarding_title">Over beeldcompressie</string>
-    <string name="squeezer_onboarding_message">Beeldcompressie verkleint het bestand door visueel detail te verwijderen. Dit proces is onomkeerbaar - de originele kwaliteit kan niet worden hersteld.\n\nHier is een voorbeeld van hoe je afbeeldingen eruit zullen zien:</string>
+    <string name="squeezer_history_clear_message">Dit maakt het mogelijk om eerder gecomprimeerde afbeeldingen opnieuw te comprimeren. De afbeeldingen zelf worden niet beïnvloed.</string>
     <string name="squeezer_onboarding_original_label">Origineel</string>
     <string name="squeezer_onboarding_compressed_label">Na compressie</string>
-    <string name="squeezer_onboarding_video_original_label">Videoframe</string>
-    <string name="squeezer_onboarding_video_compressed_label">Voorbeeld (bij benadering)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Werkelijke videokwaliteit kan afwijken</string>
-    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
     <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
-    <string name="squeezer_result_empty_message">Geen comprimeerbare media gevonden.</string>
-    <string name="squeezer_setup_warning">Compressie vermindert de kwaliteit permanent om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer uw instellingen zorgvuldig voor u begint.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d locatie kan niet worden gebruikt voor compressie en is verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
-        <item quantity="other">%d locaties kunnen niet worden gebruikt voor compressie en zijn verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen en video\'s om opslagruimte vrij te maken. Dit vermindert de kwaliteit permanent en kan niet ongedaan worden gemaakt. Controleer uw instellingen zorgvuldig voor u begint.</string>
+    <string name="squeezer_result_empty_message">Geen comprimeerbare afbeeldingen gevonden.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen om opslagruimte vrij te maken. Dit vermindert permanent de beeldkwaliteit en kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
     <string name="squeezer_setup_paths_title">Zoek locaties</string>
     <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
     <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>
     <string name="squeezer_setup_age_title">Minimum leeftijd</string>
-    <string name="squeezer_setup_age_none">Geen limiet (alle bestanden opnemen)</string>
     <string name="squeezer_setup_start_action">Scan starten</string>
     <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
     <string name="squeezer_quality_hint_low">Lagere kwaliteit bespaart meer ruimte maar kan zichtbare artefacten veroorzaken.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Minstens %d dag oud</item>
         <item quantity="other">Minstens %d dagen oud</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor afbeeldingen</string>
-    <string name="squeezer_onboarding_got_it">Begrepen</string>
+    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
 </resources>

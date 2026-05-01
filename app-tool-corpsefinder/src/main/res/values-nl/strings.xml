@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Beperkte app-installatiegegevens, bijv. beveiligde apps van derden.</string>
     <string name="corpsefinder_filter_appasec_label">Versleutelde app-bronnen</string>
     <string name="corpsefinder_filter_appasec_summary">Versleutelde app-bronnen, bijv. spelactiva.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Gegevens zijn verplaatst naar externe opslag door App2Sd-mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d app-restant verwijderd</item>

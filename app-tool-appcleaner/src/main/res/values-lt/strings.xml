@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner automatizavimas</string>
     <string name="appcleaner_automation_subtitle_default_caches">Valomi numatytieji talpyklai…</string>
-    <string name="appcleaner_automation_progress_open_settings">Atidaromas nustatymų ekranas (raktiniai žodžiai: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Ieškoma „Atmintis“ įrašo (raktiniai žodžiai: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ieškoma mygtuko „Išvalyti duomenis“ (raktiniai žodžiai: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ieškoma mygtuko „Išvalyti talpyklą“ (raktiniai žodžiai: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Viešosios ir privatūjū numatytųjū talpyklos. Netiesiogiai pasiekiamos, tačiau galima ištrinti netiesiogiai (pvz. per prieinamumo paslaugą).</string>
     <string name="appcleaner_automation_unavailable_title">Prieinamumo paslauga nepasiekiama</string>
     <string name="appcleaner_automation_unavailable_body">Nepasiekiamų talpyklų valymas reikalauja SD Maid prieinamumo paslaugos, bet ji buvo nepasiekiama. Jei nenorite jos naudoti: išjunkite parinktį „Įtraukti nepasiekiamas talpyklas“.</string>
-    <string name="appcleaner_junk_userprofile_label">Vartotojas</string>
     <string name="appcleaner_delete_confirmation_message_x">Ištrinti nereikalingus failus %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ištrinti nereikalingus failus iš %d pasirinktos programos?</item>
@@ -95,10 +93,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Priverstinai sustabdyti prieš valant</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Priverstinai sustabdykite programas prieš valydami jų talpyklą. Tai gali padėti išvalyti kai kurių programų talpyklas, tačiau gali sukelti programų sutrikimų ir reikalautį rankinio paleidimo iš naujo.</string>
     <string name="appcleaner_progress_force_stopping">Priverstinai sustabdomos programos…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ši sistemos programa neturi nustatymų ekrano. Talpyklos valymas per prieinamumo paslaugą negalimas. Pašalinkite ją iš sąrašo, kad paspartintumėte talpyklos valymą.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Nustatymų ekranas nepasiekiamas</string>
-    <string name="appcleaner_automation_loading">Rupošiamas automatizavimas per prieinamumo paslaugą</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veiksmą (raktiniai žodžiai: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Įtraukti kitus naudotojus</string>
-    <string name="appcleaner_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
 </resources>

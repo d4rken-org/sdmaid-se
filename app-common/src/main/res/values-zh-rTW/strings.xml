@@ -33,16 +33,9 @@
     <string name="general_empty_label">空白</string>
     <string name="general_new_badge_label">新增</string>
     <string name="general_dismiss_action">關閉</string>
-    <string name="general_maybe_later_action">稍後再說</string>
     <string name="general_manage_action">管理</string>
-    <string name="general_sync_action">同步處理</string>
     <string name="general_error_label">錯誤</string>
-    <string name="general_tap_hint_msg">輕觸以取得其他選項</string>
     <string name="general_upgrade_action">升級</string>
-    <string name="general_donate_action">捐贈</string>
-    <string name="general_check_action">檢查</string>
-    <string name="general_filter_action">過濾器</string>
-    <string name="general_internal_not_available_msg">網際網路連線無法使用</string>
     <string name="general_refresh_action">重新整理</string>
     <string name="general_progress_searching">正在搜尋</string>
     <string name="general_progress_generating_searchpaths">正在產生搜尋路徑</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">在佇列中</string>
     <string name="general_progress_deleting">正在刪除</string>
     <string name="general_progress_deleting_x">正在刪除 %s</string>
-    <string name="general_sort_action">排序</string>
-    <string name="general_sort_by_title">排序方式</string>
-    <string name="general_sort_options_label">排序選項</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
-    <string name="general_sort_oldest_first">最舊的優先</string>
-    <string name="general_sort_newest_first">最新的優先</string>
-    <string name="general_sort_name_asc">名稱（A → Z）</string>
-    <string name="general_sort_size_desc">最大的優先</string>
-    <string name="general_tag_filter_label">依標籤過濾</string>
     <string name="general_tag_system">系統</string>
     <string name="general_result_success_message">作業成功</string>
-    <string name="general_result_failure_message">作業失敗</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已釋放 %s 空間。</item>
     </plurals>
@@ -95,7 +79,6 @@
     <string name="general_delete_action">刪除</string>
     <string name="general_delete_selected_action">刪除已選取的項目</string>
     <string name="general_show_details_action">顯示詳細資料</string>
-    <string name="general_show_all_action">全部顯示</string>
     <string name="general_toggle_layout_mode">切換檢視模式</string>
     <string name="general_delete_confirmation_title">確認刪除</string>
     <string name="general_delete_confirmation_message_x">刪除「%s」？</string>
@@ -106,14 +89,10 @@
         <item quantity="other">已刪除 %d 項。</item>
     </plurals>
     <string name="general_remove_action">移除</string>
-    <string name="general_remove_selected_action">移除已選取的項目</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d 個項目已移除</item>
     </plurals>
-    <string name="general_root_required_label">需要 Root</string>
-    <string name="general_root_required_message">需要 Root 存取權</string>
     <string name="general_search_action">搜尋</string>
-    <string name="general_scan_device_action">掃描裝置</string>
     <string name="general_open_system_settings_action">開啟系統設定</string>
     <plurals name="result_x_items">
         <item quantity="other">%s 個項目</item>
@@ -129,7 +108,6 @@
     </plurals>
     <string name="general_info_label">資訊</string>
     <string name="general_count_label">計數</string>
-    <string name="general_app_label">應用程式</string>
     <string name="general_more_info_action">更多資訊</string>
     <string name="general_grant_access_action">授予存取權</string>
     <string name="general_enable_service_action">啟用服務</string>
@@ -142,7 +120,6 @@
     <string name="general_exclude_selected_action">排除已選取的項目</string>
     <string name="general_device_label">裝置</string>
     <string name="general_settings_title">設定</string>
-    <string name="general_help_title">說明</string>
     <string name="general_hints_label">注意事項</string>
     <string name="file_type_symbolic_link">連結</string>
     <string name="file_type_directory">目錄</string>
@@ -169,8 +146,6 @@
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
-    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
-    <string name="upgrade_feature_requires_pro">需要專業版</string>
     <string name="general_include_multiuser_label">包含其他使用者</string>
     <string name="general_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="general_unsaved_confirmation_message">您有未儲存的變更！</string>
@@ -192,5 +167,4 @@
     <string name="settings_category_risklevel">風險層級</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
-    <string name="systemcleaner_customfilter_create_action">建立自訂過濾器</string>
 </resources>

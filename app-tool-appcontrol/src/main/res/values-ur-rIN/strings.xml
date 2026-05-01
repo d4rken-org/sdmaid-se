@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">آپ کے ڈیوائس پر انسٹال شدہ ایپس۔</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ایپ کا پتہ لگا</item>
-        <item quantity="other">%d ایپس کا پتہ لگا</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ایپس ٹوگل کریں</string>
     <string name="appcontrol_toggle_app_enable_action">ایپ فعال کریں</string>
     <string name="appcontrol_toggle_app_disable_action">ایپ غیر فعال کریں</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">ڈیبگ</string>
     <string name="appcontrol_progress_enabling_package">ایپ فعال کر رہے ہیں</string>
     <string name="appcontrol_progress_disabling_package">ایپ غیر فعال کر رہے ہیں</string>
-    <string name="appcontrol_list_filteroptions_label">فلٹر آپشنز</string>
     <string name="appcontrol_list_sortmode_name_label">ایپ کا نام</string>
     <string name="appcontrol_list_sortmode_updated_label">آخری اپڈیٹ</string>
     <string name="appcontrol_list_sortmode_installed_label">پہلی انسٹالیشن</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">انسٹال کی تاریخ: %s</string>
     <string name="shortcut_appcontrol_short">ایپ کنٹرول</string>
     <string name="shortcut_appcontrol_long">انسٹال شدہ ایپس کا انتظام</string>
-    <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">دوسرے صارفین کو شامل کریں</string>
-    <string name="appcontrol_include_multiuser_summary">اس ڈیوائس پر دوسرے صارف پروفائلز سے ایپس کو شامل کریں۔</string>
 </resources>

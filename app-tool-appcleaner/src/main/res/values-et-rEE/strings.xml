@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Rakendusepuhastaja automatiseerimine</string>
     <string name="appcleaner_automation_subtitle_default_caches">Tavavahemälude tühjendamine…</string>
-    <string name="appcleaner_automation_progress_open_settings">Seadete avamine (märksõnad: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">„Hoiuruum” kande otsimine (märksõnad: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Nupu „Tühjenda andmed” otsimine (märksõnad: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Nupu „Tühjenda vahemälu” otsimine (märksõnad: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
     <string name="appcleaner_automation_unavailable_body">Juurdepääsmatute vahemälude tühjendamine vajab SD Maidi juurdepääsetavusteenust, kuid see oli kättesaamatu. Kui te ei taha seda kasutada, keelake valik \"Kaasa juurdepääsmatud vahemälud\".</string>
-    <string name="appcleaner_junk_userprofile_label">Kasutaja</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Kustutada %d valitud rakenduse ühekordsed failid?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Sundpeata enne tühjendamist</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sundpeatage rakendused enne nende vahemälu tühjendamist. Nii võib osade rakenduste vahemälu hõlpsamini tühjeneda, ent rakendused võivad toimida veidralt ja vajada taaskäivitamist.</string>
     <string name="appcleaner_progress_force_stopping">Rakenduste sundpeatamine…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
-    <string name="appcleaner_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sh teised kasutajad</string>
-    <string name="appcleaner_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>
 </resources>

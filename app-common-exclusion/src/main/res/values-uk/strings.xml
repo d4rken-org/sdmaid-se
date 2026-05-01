@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Використовуйте інструмент \"Управління додатками\" для створення винятків для додатків.</string>
     <string name="exclusion_create_path_hint">Використовуйте інструмент \"Аналізатор сховища\" для створення винятків шляхів.</string>
     <string name="exclusion_show_defaults_action">Показати за замовчуванням</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
 </resources>

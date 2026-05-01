@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ຈໍາກັດການຈັບຄູ່ຕາມອາຍຸໄຟລ໌ (ເວລາແກ້ໄຂລ່າສຸດ). ປະໄວ້ບໍ່ຕັ້ງຄ່າເພື່ອຈັບຄູ່ທຸກອາຍຸ.</string>
     <string name="systemcleaner_customfilter_import_action">ນໍາເຂ້ຕັວກ໭ງໃຫມ່</string>
     <string name="systemcleaner_customfilter_export_action">ສ່ອອກຕັວກ໭ງທີ່ເລືອກ</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ທ່ານມີການ຺່ນທີ່ຍັງບໍ່ຖືກບັນທຶກ!</string>
 </resources>

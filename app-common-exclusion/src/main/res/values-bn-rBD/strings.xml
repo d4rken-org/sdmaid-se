@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">অ্যাপ এক্সক্লুশন তৈরি করতে AppControl টুল ব্যবহার করুন।</string>
     <string name="exclusion_create_path_hint">পাথ এক্সক্লুশন তৈরি করতে স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
     <string name="exclusion_show_defaults_action">ডিফল্ট দেখান</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
 </resources>

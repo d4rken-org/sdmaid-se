@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">යෙදුම් බැහැර කිරීම් සාදන්න සඳහා AppControl මෙවලම භාවිතා කරන්න.</string>
     <string name="exclusion_create_path_hint">මාර්ග බැහැර කිරීම් සාදන්න සඳහා StorageAnalyzer මෙවලම භාවිතා කරන්න.</string>
     <string name="exclusion_show_defaults_action">පෙරනිමි පෙනන්න</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ඔබ ට සංරක්ෂණය නොකු වෙනස්කම් ඇත!</string>
 </resources>

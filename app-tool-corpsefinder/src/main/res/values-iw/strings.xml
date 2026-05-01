@@ -45,7 +45,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">נתוני התקנת אפליקציה מוגבלים, למשל אפליקציות צד שלישי מוגנות.</string>
     <string name="corpsefinder_filter_appasec_label">משאבי אפליקציה מוצפנים</string>
     <string name="corpsefinder_filter_appasec_summary">משאבי אפליקציה מוצפנים, למשל נכסי משחק.</string>
-    <string name="corpsefinder_filter_app2sd_summary">נתונים הועברו לאחסון חיצוני על ידי מוד App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d שארית אפליקציה נמחקה</item>

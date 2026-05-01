@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ដ័តា​ត៖ត័ំ​កម្មវិធី​ដែល​មាន​ការ​សង្កត់​ ឧ.​កម្មវិធី​ប័ត្រ​ឣនកថ័ត់​ដែល​​ប្រើ​ត្រូវ​បាន។</string>
     <string name="corpsefinder_filter_appasec_label">ត័ពយករ​កម្មវិធី​ដែល​បាន​ងឧត់ជំ</string>
     <string name="corpsefinder_filter_appasec_summary">ត័ពយករ​កម្មវិធី​ដែល​បាន​ងឧត់ជំ ឧ.​ត័ពយករ​ធ័លឹង។</string>
-    <string name="corpsefinder_filter_app2sd_summary">ដ័តា​ដែល​បាន​ទើប​តាម​ទាក​ព័ត័​ក្នុង​ឤឲត​ App2SD។</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">លុប​សែសែសែ​កម្មវិធី​ចំនួន %d</item>

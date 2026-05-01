@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">App-Reiniger-Automatisierung</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standard Caches löschen…</string>
-    <string name="appcleaner_automation_progress_open_settings">Öffne Einstellungsbildschirm (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Suche nach \"Storage\"-Eintrag (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Suche nach \"Daten löschen\" Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
-    <string name="appcleaner_junk_userprofile_label">Benutzer</string>
     <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vor dem Leeren zwangsweise beenden</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Apps vor dem Leeren ihres Caches zwangsbeenden. Dies kann helfen, den Cache einiger Apps zu leeren, kann aber dazu führen, dass Apps nicht richtig funktionieren und manuell neu gestartet werden müssen.</string>
     <string name="appcleaner_progress_force_stopping">Apps werden zwangsbeendet…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
-    <string name="appcleaner_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Versucht die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
-    <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
 </resources>

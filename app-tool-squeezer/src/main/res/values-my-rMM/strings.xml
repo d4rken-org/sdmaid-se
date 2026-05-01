@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">သိုလှောင်မှုနေရာကို သက်သာစေရန် ပုံများနှင့် ဗီဒီယိုများကို ချုံ့ပါ။</string>
+    <string name="squeezer_explanation_short">သိုလှောင်မှု နေရာချွေတာရန် ပုံများ ချုံ့ပါ။</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d ခု တွေ့ရှိသည်</item>
+        <item quantity="other">%d ပုံ တွေ့ရှိသည်</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">~%s သိမ်းဆညးပါ</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d ခု ချုံ့ပြီးသည်</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">%d ခု မအောင်မြင်ခဲ့ပါ</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">%d ဖိုင် ကျော်သွားသည် (ဝင်ရောက်၍ မရနိုင်)</item>
+        <item quantity="other">%d ပုံ ချုံ့ပြီးပြီ</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d ခု ရွေးချယ်ထားသည်</item>
+        <item quantity="other">%d ပုံ ရွေးချယ်ထားသည်</item>
     </plurals>
-    <string name="squeezer_search_locations_title">ရှာဖွေသောနေရာများ</string>
-    <string name="squeezer_search_locations_default_summary">ကင်မရာဖိုဒာများ (မူလ)</string>
     <string name="squeezer_min_size_title">အနည်းဆုံး ဖိုင်အရွယ်အစား</string>
-    <string name="squeezer_min_size_description">ဤအရွယ်အစားထက် သေးသောဖိုင်များကို ကျော်သွားပါ။</string>
+    <string name="squeezer_min_size_description">ဤအရွယ်အစားထက် သေးသောပုံများကို ကျောပါ။</string>
     <string name="squeezer_min_age_title">အနည်းဆုံး ဖိုင်သက်တမ်း</string>
-    <string name="squeezer_min_age_description">ဤသက်တမ်းထက် ဟောင်းသောဖိုင်များသာ ထည့်သွင်းပါ။</string>
-    <string name="squeezer_compression_settings_label">ယေဘူယျ</string>
-    <string name="squeezer_quality_label">အရည်အသွေး</string>
-    <string name="squeezer_quality_title">ချုံ့မှု အရည်အသွေး</string>
-    <string name="squeezer_quality_description">အရည်အသွေး နည်းလေ ဖိုင်အရွယ်အစား သေးလေ သို့သော်လည်း မြင်နိုင်သောအရည်အသွေး ကျဆင်းသွားမည်။</string>
-    <string name="squeezer_quality_example_format">ဥပမာ - %1$s ပုံ → %3$d%% အရည်အသွေးတွင် ~%2$s ချွေတာနိုင်သည်</string>
-    <string name="squeezer_quality_warning_low">အရည်အသွေး နည်းသည့်က မြင်ရနိုင်သော ချို့ပျက်ချက်များ ဖြစ်ပော်နိုင်သည်။</string>
-    <string name="squeezer_quality_warning_high">အလွန် မြင့်မားသော အရည်အသွေးသည် နေရာချွေတာမှု အနည်းဆုံးသာသာ ပေးသည်။</string>
-    <string name="squeezer_types_category_label">ပုံဆက်တင်များ</string>
-    <string name="squeezer_video_settings_category_label">ဗီဒီယိုဆက်တင်များ</string>
+    <string name="squeezer_min_age_description">ဤသက်တမ်းထက် နောက်သောပုံများသာ ထည့်သွင်းပါ။</string>
+    <string name="squeezer_compression_settings_label">ချုံ့မှု ဆက်တင်</string>
+    <string name="squeezer_quality_description">အရည်အသွေး နည်းသည့်က ဖိုင်အရွယ်အစား သေးသော်လည်း ပုံအရည်အသွေး ကျဆင်းသည်။</string>
+    <string name="squeezer_types_category_label">ပုံအမျိုးအစားများ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ပုံများ (.jpg, .jpeg) ထည့်သွင်းရန်။</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ပုံများ (.webp) ထည့်သွင်းရန်။</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 ဗီဒီယိုဖိုင်များ (.mp4) ထည့်သွင်းပါ။</string>
     <string name="squeezer_skip_compressed_title">ယခင်က ချုံ့ပြီးသားများ ကျော်ရန်</string>
-    <string name="squeezer_skip_compressed_description">SD Maid မှ ချုံ့ပြီးသောဖိုင်များကို ကျော်သွားပါ။</string>
+    <string name="squeezer_skip_compressed_description">SD Maid မှ ယခင်က ချုံ့ပြီးသားပုံများကို ကျော်သွားမည်။</string>
     <string name="squeezer_exif_marker_title">EXIF အမှတ်အသား ရေးသားရန်</string>
     <string name="squeezer_exif_marker_description">ချုံ့မှုမှတ်တမ်းကို ရှင်းလင်းလင့်ကစား ထပ်မံချုံ့ခြင်းမှ ကာကွယ်ရန် ပုံ၏ EXIF user comment field တွင် အမှတ်အသားတစ်ခု ထည့်သွင်းသည်။</string>
     <string name="squeezer_estimated_savings_format">~%s သက်သာမှု</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">ချုံ့ခြင်း အတည်ပြုရန်</string>
     <string name="squeezer_preview_total_size">စုစုပေါင်း အရွယ်အစား</string>
     <string name="squeezer_preview_estimated_savings">ခန့်မှန်းသော သက်သာမှု</string>
-    <string name="squeezer_compress_confirmation_title">ရွေးချယ်ထားသောအရာများကို ချုံ့မည်လား?</string>
-    <string name="squeezer_compress_confirmation_message">ဤလုပ်ဆောင်ချက်သည် မူရင်းဖိုင်များကို ချုံ့ထားသောဗားရှင်းများဖြင့် အစားထိုးမည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ကြောင်းပြောင်း၍ မရနိုင်ပါ။</string>
     <string name="squeezer_history_title">ချုံ့ခြင်း မှတ်တမ်း</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ခု (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">ချုံ့ခြင်း မှတ်တမ်း မရှိပါ</string>
     <string name="squeezer_history_clear_title">ချုံ့ခြင်း မှတ်တမ်း သန့်သင်းရန်</string>
-    <string name="squeezer_history_clear_message">ဤလုပ်ဆောင်ချက်သည် ယခင်ချုံ့ပြီးသောဖိုင်များကို ထပ်မံချုံ့နိုင်ရန် ခွင့်ပြုမည်။ ဖိုင်များကိုယ်တိုင် မထိခိုက်ပါ။</string>
-    <string name="squeezer_onboarding_title">ပုံချုံ့ခြင်း အကြောင်း</string>
-    <string name="squeezer_onboarding_message">ပုံချုံ့ခြင်းသည် ဗျင်ပါးချုံ့ခြင်းဖြင့် ပုံဖိုင်အရွယ်အစားကို လျှော့ချသည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်ဆွဲ၍မရ၊ မူရင်းပန်ဆွဲကို ပြန်ယူ၍မရနိုင်ပါ။\n\nသင်လာရပုံများကို မည်သို့မည်သို့:</string>
+    <string name="squeezer_history_clear_message">ဤလုပ်ဆောင်ချက်သည် ယခင်ချုံ့ပြီးသားပုံများကို ချုံ့မှုရန်ပြန်ခွင့်ပေးမည်။ ပုံများကိုယ်တိုင်သည် မထိခိုက်ဘဲသည်။</string>
     <string name="squeezer_onboarding_original_label">မူရင်း</string>
     <string name="squeezer_onboarding_compressed_label">ချုံ့ပြီးသည်နောက်</string>
-    <string name="squeezer_onboarding_video_original_label">ဗီဒီယိုဘောင်</string>
-    <string name="squeezer_onboarding_video_compressed_label">အစမ်းကြည့်ရှုခြင်း (ခန့်မှန်းချက်)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">တကယ့်ဗီဒီယိုအရည်အသွေး ကွဲပြာရနိုင်သည်</string>
-    <string name="squeezer_onboarding_quality_label">အစနအစား: %d%%</string>
     <string name="squeezer_compare_action">နှိုင်းယှဉ်ချက် ကြည့်ရန်</string>
     <string name="squeezer_no_example_found">ရွေးချယ်ထားသောလမ်းများတွင် ပုံများ မရှိပါ။</string>
-    <string name="squeezer_result_empty_message">ချုံ့နိုင်သောမီဒီယို မတွေ့ရှိပါ။</string>
-    <string name="squeezer_setup_warning">ချုံ့ခြင်းသည် သိုလှောင်မှုနေရာကို သက်သာစေရန် အရည်အသွေးကို ဆက်တိုက်လျှော့ချသည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ကြောင်းပြောင်း၍ မရနိုင်ပါ။ စတင်မတိုင်မအစား သင်သောဆက်တင်များကို သေချားသေးသေးသေခြည့်ပါ။</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d တည်နေရာ(များ)ကို ချုံ့ရန် အသုံးမပြုသောကြောင် ဖယ်ရှားလိုက်သည်။ ချုံ့ခြင်းသည် အတွင်သိုလှောင်သို့ဆိုသို တိုက်ရိုက်ခွင့်ပြု လိုအပ်သည်။</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze သည် သိုလှောင်မှုနေရာကို လွတ်ကိင်းစေရန် ပုံများနှင့် ဗီဒီယိုများတို့အရွယ်အစားကို လျှော့ချသည်။ ဤလုပ်ဆောင်ချက်သည် အရည်အသွေးကို အမြဲတမ်းအလျှော့ချသော နောက်ကြောင်း၍ မရနိုင်ပါ။ စတင်မတိုင်မအစား သင်သောဆက်တင်များကို သေချားသေးသေးသေခြည့်ပါ။</string>
+    <string name="squeezer_result_empty_message">ချုံ့နိုင်သောပုံများ မရှိပါ။</string>
+    <string name="squeezer_setup_explanation">Media Squeeze သည် သိုလှောင်မှုနေရာလွတ်ရေးအတွက် ပုံဖိုင်အရွယ်အစားကို လျှော့ချသည်။ ဤလုပ်ဆောင်ချက်သည် ပုံအရည်အသွေးကို အမြဲတမ်းလျှော့ချပြီး နောက်ပြန်ဆွဲ၍မရပါ။ စတင်မတိုင်မီ သင်၏ဆက်တင်များကို သေချာစစ်ဆေးပါ။</string>
     <string name="squeezer_setup_paths_title">ရှာဖွေရမည့်နေရာများ</string>
     <string name="squeezer_setup_paths_default">ရှာဖွေမည့်ဖိုင်တွဲများ ရွေးချယ်ပါ</string>
     <string name="squeezer_setup_quality_title">ချုံ့ခြင်းအရည်အသွေး</string>
     <string name="squeezer_setup_age_title">အနည်းဆုံးသက်တမ်း</string>
-    <string name="squeezer_setup_age_none">ကန့်သတ်ချက်မရှိ (ဖိုင်အားလုံး ထည့်သွင်းရန်)</string>
     <string name="squeezer_setup_start_action">စကင်ဖတ်ရန် စတင်ပါ</string>
     <string name="squeezer_quality_hint_very_low">40% အောက်အရည်အသွေးသည် အသုံးမပြုနိုင်သော ပုံများဖြစ်လာနိုင်သည်။</string>
     <string name="squeezer_quality_hint_low">အရည်အသွေးနိမ့်လေ နေရာပိုချွေတာနိုင်လေ ဆိုသော်လည်း မြင်ရနိုင်သောချွတ်ယွင်းချက်များ ဖြစ်ပေါ်နိုင်သည်။</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">အနည်းဆုံး %d ရက် အနည်းဆုံးသား</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">ပုံများအတွက် ခန့်မှန်းချက် ~%d%% သက်သာမည်</string>
-    <string name="squeezer_onboarding_got_it">နား လည်ပါပြီ</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ဖိုင်များအတွက် ~%d%% သက်သာမှု ခန့်မှန်းတွက်</string>
 </resources>

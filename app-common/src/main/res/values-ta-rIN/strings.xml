@@ -33,16 +33,9 @@
     <string name="general_empty_label">காலி</string>
     <string name="general_new_badge_label">புதிய</string>
     <string name="general_dismiss_action">நிராகரி</string>
-    <string name="general_maybe_later_action">ஒருவேளை பின்னர்</string>
     <string name="general_manage_action">நிர்வகி</string>
-    <string name="general_sync_action">ஒத்திசைக்க</string>
     <string name="general_error_label">பிழை</string>
-    <string name="general_tap_hint_msg">மேலும் விருப்பங்களுக்கு தட்டவும்</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
-    <string name="general_donate_action">நன்கொடை</string>
-    <string name="general_check_action">சரிபார்</string>
-    <string name="general_filter_action">வடிகட்டு</string>
-    <string name="general_internal_not_available_msg">இணைய இணைப்பு கிடைக்கவில்லை</string>
     <string name="general_refresh_action">புதுப்பி</string>
     <string name="general_progress_searching">தேடுகிறது</string>
     <string name="general_progress_generating_searchpaths">தேடல் பாதைகளை உருவாக்குகிறது</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">வரிசையில்</string>
     <string name="general_progress_deleting">நீக்குகிறது</string>
     <string name="general_progress_deleting_x">%s ஐ நீக்குகிறது</string>
-    <string name="general_sort_action">வரிசைப்படுத்து</string>
-    <string name="general_sort_by_title">இதன்படி வரிசைப்படுத்து</string>
-    <string name="general_sort_options_label">வரிசைப்படுத்தும் விருப்பங்கள்</string>
     <string name="general_sort_reverse_action">வெல்-வரிசைப்படுத்தும் பயன்முறை</string>
-    <string name="general_sort_oldest_first">பழையது முதலில்</string>
-    <string name="general_sort_newest_first">புதியது முதலில்</string>
-    <string name="general_sort_name_asc">பெயர் (அ → ஆ)</string>
-    <string name="general_sort_size_desc">பெரியது முதலில்</string>
-    <string name="general_tag_filter_label">குறிகளால் வடிகட்டு</string>
     <string name="general_tag_system">கணினி</string>
     <string name="general_result_success_message">வெற்றிகரமாக முடிக்கப்பட்டது</string>
-    <string name="general_result_failure_message">செயல்பாடு தோல்வியுற்றது</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s இடம் விடுவிக்கப்பட்டது.</item>
         <item quantity="other">%s இடம் விடுவிக்கப்பட்டது.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">நீக்கு</string>
     <string name="general_delete_selected_action">தேர்ந்தெடுத்தவற்றை நீக்கு</string>
     <string name="general_show_details_action">விவரங்களைக் காட்டு</string>
-    <string name="general_show_all_action">அனைத்தையும் காட்டு</string>
     <string name="general_toggle_layout_mode">பார்வை முறையை மாற்று</string>
     <string name="general_delete_confirmation_title">நீக்குதலை உறுதிப்படுத்து</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ஐ நீக்கவா?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>
     </plurals>
     <string name="general_remove_action">அகற்று</string>
-    <string name="general_remove_selected_action">தேர்ந்தெடுத்தவற்றை அகற்று</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ஒரு பொருள் அகற்றப்பட்டது</item>
         <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>
     </plurals>
-    <string name="general_root_required_label">Root தேவை</string>
-    <string name="general_root_required_message">Root செய்யப்பட்ட சாதனம் தேவை</string>
     <string name="general_search_action">தேடு</string>
-    <string name="general_scan_device_action">சாதனத்தை ஸ்கேன் செய்</string>
     <string name="general_open_system_settings_action">கணினி அமைப்புகளைத் திற</string>
     <plurals name="result_x_items">
         <item quantity="one">%s பொருள்</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">தகவல்</string>
     <string name="general_count_label">எண்ணிக்கை</string>
-    <string name="general_app_label">பயன்பாடு</string>
     <string name="general_more_info_action">மேலும் தகவல்</string>
     <string name="general_grant_access_action">அணுகலை வழங்கு</string>
     <string name="general_enable_service_action">சேவையை இயக்கு</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">தேர்ந்தெடுத்தவற்றை விலக்கு</string>
     <string name="general_device_label">சாதனம்</string>
     <string name="general_settings_title">அமைப்புகள்</string>
-    <string name="general_help_title">உதவி</string>
     <string name="general_hints_label">அறிவிப்பு</string>
     <string name="file_type_symbolic_link">இணைப்பு</string>
     <string name="file_type_directory">டைரக்டரி</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
     <string name="setup_title">அமைப்பு</string>
-    <string name="setup_feature_requires_additional_setup_x">இந்த அம்சத்திற்கு கூடுதல் அமைப்பு உருப்படிகளை முடித்தல் தேவை: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro தேவை</string>
     <string name="general_include_multiuser_label">மற்ற பயனர்களை சேர்க்கவும்</string>
     <string name="general_include_multiuser_summary">இந்த சாதனத்திலுள்ள மற்ற பயனர் சுயவிவரங்களிலிருந்து பயன்பாடுகளை சேர்க்கவும்.</string>
     <string name="general_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">ஆபத்து நிலை</string>
     <string name="settings_category_filter">வடிப்பான்</string>
     <string name="appcontrol_systemsettings_open_title">அமைப்புகளைக் காட்டு</string>
-    <string name="systemcleaner_customfilter_create_action">தனிப்பயன் வடிகட்டியை உருவாக்கு</string>
 </resources>

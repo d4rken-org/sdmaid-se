@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ଡୁପ୍ଲିକେଟଗୁଡ଼ିକର ଏକ ସେଟରେ ସମସ୍ତ ଫାଇଲ ଡିଲିଟ କରିବା ପାଇଁ ବିକଳ୍ପ ଦେଖାନ୍ତୁ ଯାହାଫଳରେ କୌଣସି ଫାଇଲ ବାକି ରହିବ ନାହିଁ।</string>
     <string name="deduplicator_search_locations_title">ଖୋଜ ସ୍ଥାନ</string>
     <string name="deduplicator_search_locations_all_summary">ସମସ୍ତ ଆକ୍ସେସ କରିହେବା ଅଞ୍ଚଳ</string>
-    <string name="deduplicator_keep_prefer_paths_title">ରଖିବାକୁ ପସନ୍ଦ</string>
-    <string name="deduplicator_keep_prefer_paths_summary">କେଉଁ ନକଲ ରଖିବା ନିଷ୍ପତ୍ତି ନେବା ସମୟରେ, ଏହି ସ୍ଥାନଗୁଡ଼ିକରେ ଫାଇଲ ରଖିବାକୁ ପସନ୍ଦ କରନ୍ତୁ।</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">କୌଣସି ସ୍ଥାନ ବିନ୍ୟାସିତ ହୋଇନାହିଁ</string>
     <string name="deduplicator_skip_minsize_title">ସର୍ବନିମ୍ନ ଆକାର</string>
     <string name="deduplicator_skip_minsize_description">ସର୍ବନିମ୍ନ ଆକାରଠାରୁ କମ ଥିବା ଫାଇଲଗୁଡ଼ିକୁ ଛାଡ଼ି ଦିଅନ୍ତୁ।</string>
     <string name="deduplicator_skip_uncommon_title">ଅସାଧାରଣ ଫାଇଲ ପ୍ରକାର ଛାଡ଼ି ଦିଅନ୍ତୁ</string>

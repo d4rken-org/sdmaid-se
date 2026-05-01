@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limita les coincidències segons l\'antiguitat del fitxer (hora de l\'última modificació). Deixeu-ho sense definir per a coincidir amb qualsevol antiguitat.</string>
     <string name="systemcleaner_customfilter_import_action">Importa un filtre nou</string>
     <string name="systemcleaner_customfilter_export_action">Exporta el filtre seleccionat</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
 </resources>

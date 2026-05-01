@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">自动化应用清理</string>
     <string name="appcleaner_automation_subtitle_default_caches">清理默认缓存…</string>
-    <string name="appcleaner_automation_progress_open_settings">打开设置界面（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_storage">正在搜索“存储”内容（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_data">正在查找“清除数据”按钮（关键字：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_cache">正在查找“清除缓存”按钮（关键字：%s）</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除(如通过无障碍服务）。</string>
     <string name="appcleaner_automation_unavailable_title">无障碍服务不可用</string>
     <string name="appcleaner_automation_unavailable_body">SD Maid 需要无障碍服务来删除无法访问的缓存，但是服务未启动。如果您不想使用这一功能，可关闭选项“包含无法访问的缓存”。</string>
-    <string name="appcleaner_junk_userprofile_label">用户</string>
     <string name="appcleaner_delete_confirmation_message_x">删除 %s 的可删除文件？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">删除 %d 个所选应用的可删除文件？</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">清除前强制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除缓存前先强制停止应用。这有助于清除部分应用的缓存，但可能导致应用异常，需要手动重启。</string>
     <string name="appcleaner_progress_force_stopping">正在强制停止应用…</string>
-    <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
-    <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
-    <string name="appcleaner_automation_loading">通过无障碍服务来配置自动化处理</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作(关键词：%s)</string>
-    <string name="appcleaner_include_multiuser_label">包含其他用户</string>
-    <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
 </resources>

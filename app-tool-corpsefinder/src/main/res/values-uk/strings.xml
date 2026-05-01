@@ -45,7 +45,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Обмежені дані про встановлення додатків, наприклад, захищених додатків сторонніх розробників.</string>
     <string name="corpsefinder_filter_appasec_label">Зашифровані ресурси додатків</string>
     <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад, ігрові ресурси.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d залишок додатку видалено</item>

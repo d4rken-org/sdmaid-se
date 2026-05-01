@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">ຂໍ້ມູລການຕິດຕັ້ງແອັບທີ່ຈຳກັດ, ເຊ່ນ: ແອັບຂອງບຸກຄົນທີສາมທີ່ປ້ອງກັນ.</string>
     <string name="corpsefinder_filter_appasec_label">ຊັບພະຍາກອນແອັບทີ່ເຂ້າລະຫັດ</string>
     <string name="corpsefinder_filter_appasec_summary">ຊັບພະຍາກອນແອັບทີ່ເຂ້າລະຫັດ, ເຊ່ນ: assets ເກມ.</string>
-    <string name="corpsefinder_filter_app2sd_summary">ຂໍ້ມູລທີ່ຍ້າຍໄປຫາ storage ພາຍນອກໂດຍ App2SD mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d ສ່ວນທີ່ຍັງຄ້າງຂອງແອັບຖືກລຶ້</item>

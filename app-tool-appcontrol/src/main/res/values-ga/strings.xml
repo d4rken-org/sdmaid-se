@@ -31,7 +31,6 @@
     <string name="appcontrol_tag_debug">Dífhabhtú</string>
     <string name="appcontrol_progress_enabling_package">Aip á cumasú</string>
     <string name="appcontrol_progress_disabling_package">Aip á díchumasú</string>
-    <string name="appcontrol_list_filteroptions_label">Roghanna scagtha</string>
     <string name="appcontrol_list_sortmode_name_label">Ainm na haipe</string>
     <string name="appcontrol_list_sortmode_updated_label">Nuashonraithe is déanaí</string>
     <string name="appcontrol_list_sortmode_installed_label">Suiteáilte ar dtús</string>
@@ -68,13 +67,6 @@
     <string name="appcontrol_automation_progress_find_restore">Ag lorg cnaipe \"Athchóirigh\" (eochairfhocail: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Am scáileáin: %1$s ó %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Nuashonraithe is déanaí: %s</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aip braite</item>
-        <item quantity="two">%d aip braite</item>
-        <item quantity="few">%d aip braite</item>
-        <item quantity="many">%d n-aip braite</item>
-        <item quantity="other">%d aip braite</item>
-    </plurals>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">Díshuiteáladh %d aip</item>
         <item quantity="two">Díshuiteáladh %d aip</item>

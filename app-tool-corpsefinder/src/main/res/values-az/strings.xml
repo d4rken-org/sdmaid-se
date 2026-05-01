@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Məhdudlaşdırılmış tətbiq quraşdırma məlumatları, məsələn, qorunan üçüncü tərəf tətbiqləri.</string>
     <string name="corpsefinder_filter_appasec_label">Şifrələnmiş tətbiq resursları</string>
     <string name="corpsefinder_filter_appasec_summary">Şifrələnmiş tətbiq resursları, məsələn, oyun aktivləri.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2SD modları tərəfindən xarici yaddaşa köçürülən məlumatlar.</string>
     <string name="corpsefinder_filter_app2sd_label">Tətbiqlərin Sd karta köçürülməsi</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d tətbiq qalığı silindi</item>

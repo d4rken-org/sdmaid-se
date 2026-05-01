@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplicacions instal·lades al vostre dispositiu.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">S\'ha detectat %d aplicació</item>
-        <item quantity="other">S\'han detectat %d aplicacions</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Commuta aplicacions</string>
     <string name="appcontrol_toggle_app_enable_action">Activa l\'aplicació</string>
     <string name="appcontrol_toggle_app_disable_action">Desactiva l\'aplicació</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Depuració</string>
     <string name="appcontrol_progress_enabling_package">Activant l\'aplicació</string>
     <string name="appcontrol_progress_disabling_package">Desactivant l\'aplicació</string>
-    <string name="appcontrol_list_filteroptions_label">Opcions de filtre</string>
     <string name="appcontrol_list_sortmode_name_label">Nom de l\'aplicació</string>
     <string name="appcontrol_list_sortmode_updated_label">Darrera actualització</string>
     <string name="appcontrol_list_sortmode_installed_label">Primera instal·lació</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
     <string name="shortcut_appcontrol_short">Control d\'aplicacions</string>
     <string name="shortcut_appcontrol_long">Gestioneu les aplicacions instal·lades</string>
-    <string name="appcontrol_automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Inclou altres usuaris</string>
-    <string name="appcontrol_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
 </resources>

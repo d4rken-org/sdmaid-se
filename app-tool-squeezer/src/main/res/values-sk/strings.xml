@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Komprimujte obrázky a videá, aby ste ušetrili úložný priestor.</string>
+    <string name="squeezer_explanation_short">Komprimujte obrázky a ušetrite úložný priestor.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d položka nájdená</item>
-        <item quantity="few">%d položky nájdené</item>
-        <item quantity="many">%d položiek nájdených</item>
-        <item quantity="other">%d položiek nájdených</item>
+        <item quantity="one">%d obrázok nájdený</item>
+        <item quantity="few">%d obrázky nájdené</item>
+        <item quantity="many">%d obrázkov nájdených</item>
+        <item quantity="other">%d obrázkov nájdených</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s je možné ušetriť</item>
@@ -14,52 +14,30 @@
         <item quantity="other">~%s je možné ušetriť</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d položka skomprimovaná</item>
-        <item quantity="few">%d položky skomprimované</item>
-        <item quantity="many">%d položiek skomprimovaných</item>
-        <item quantity="other">%d položiek skomprimovaných</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d zlyhalo</item>
-        <item quantity="few">%d zlyhalo</item>
-        <item quantity="many">%d zlyhalo</item>
-        <item quantity="other">%d zlyhalo</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d súbor preskočený (nie je prístupný)</item>
-        <item quantity="few">%d súbory preskočené (nie sú prístupné)</item>
-        <item quantity="many">%d súborov preskočených (nie sú prístupné)</item>
-        <item quantity="other">%d súborov preskočených (nie sú prístupné)</item>
+        <item quantity="one">%d obrázok komprimovaný</item>
+        <item quantity="few">%d obrázky komprimované</item>
+        <item quantity="many">%d obrázkov komprimovaných</item>
+        <item quantity="other">%d obrázkov komprimovaných</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d položka vybraná</item>
-        <item quantity="few">%d položky vybrané</item>
-        <item quantity="many">%d položiek vybraných</item>
-        <item quantity="other">%d položiek vybraných</item>
+        <item quantity="one">%d obrázok vybraný</item>
+        <item quantity="few">%d obrázky vybrané</item>
+        <item quantity="many">%d obrázkov vybraných</item>
+        <item quantity="other">%d obrázkov vybraných</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Miesta vyhľadávania</string>
-    <string name="squeezer_search_locations_default_summary">Priečinky fotoaparátu (predvolené)</string>
     <string name="squeezer_min_size_title">Minimálna veľkosť súboru</string>
-    <string name="squeezer_min_size_description">Preskočiť súbory menšie ako táto veľkosť.</string>
+    <string name="squeezer_min_size_description">Preskočiť obrázky menšie ako táto veľkosť.</string>
     <string name="squeezer_min_age_title">Minimálny vek súboru</string>
-    <string name="squeezer_min_age_description">Zahrnúť iba súbory staršie ako tento vek.</string>
-    <string name="squeezer_compression_settings_label">Všeobecné</string>
-    <string name="squeezer_quality_label">Kvalita</string>
-    <string name="squeezer_quality_title">Kvalita kompresie</string>
-    <string name="squeezer_quality_description">Nižšia kvalita znamená menšiu veľkosť súboru, ale zníſenú vizuálnu kvalitu.</string>
-    <string name="squeezer_quality_example_format">Príklad: %1$s obrázok → úspora ~%2$s pri %3$d%% kvalite</string>
-    <string name="squeezer_quality_warning_low">Nižšie kvality môžu spôsobiť viditeľné artefakty.</string>
-    <string name="squeezer_quality_warning_high">Veľmi vysoká kvalita poskytuje minimálnu úsporu miesta.</string>
-    <string name="squeezer_types_category_label">Nastavenia obrázkov</string>
-    <string name="squeezer_video_settings_category_label">Nastavenia videa</string>
+    <string name="squeezer_min_age_description">Zahrnúť iba obrázky staršie ako tento vek.</string>
+    <string name="squeezer_compression_settings_label">Nastavenia kompresie</string>
+    <string name="squeezer_quality_description">Nižšia kvalita znamená menšiu veľkosť súboru, ale zníženú kvalitu obrázka.</string>
+    <string name="squeezer_types_category_label">Typy obrázkov</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Zahrnúť obrázky JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Zahrnúť obrázky WebP (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Zahrnúť video súbory MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Preskočiť predtým komprimované</string>
-    <string name="squeezer_skip_compressed_description">Preskočiť súbory, ktoré už boli skomprimované aplikaciou SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Preskočiť obrázky, ktoré už boli komprimované aplikáciou SD Maid.</string>
     <string name="squeezer_exif_marker_title">Zapísať EXIF značku</string>
     <string name="squeezer_exif_marker_description">Pridať značku do poľa používateľského komentára EXIF obrázka, aby sa zabránilo opätovnej kompresii, aj keď sa história kompresie vymaže.</string>
     <string name="squeezer_estimated_savings_format">~%s úspora</string>
@@ -70,8 +48,6 @@
     <string name="squeezer_preview_dialog_title">Potvrdiť kompresiu</string>
     <string name="squeezer_preview_total_size">Celková veľkosť</string>
     <string name="squeezer_preview_estimated_savings">Odhadovaná úspora</string>
-    <string name="squeezer_compress_confirmation_title">Komprimovať vybrané položky?</string>
-    <string name="squeezer_compress_confirmation_message">Tým sa pôvodné súbory nahradia skomprimovanými verziami. Túto akciu nie je možné vrátiť späť.</string>
     <string name="squeezer_history_title">História kompresie</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d položka (%2$s)</item>
@@ -81,31 +57,17 @@
     </plurals>
     <string name="squeezer_history_empty">Žiadna história kompresie</string>
     <string name="squeezer_history_clear_title">Vymazať históriu kompresie</string>
-    <string name="squeezer_history_clear_message">Tým sa umožní, aby prípadne skomprimované súbory boli skomprimované znova. Samé súbory nie sú ovplyvnené.</string>
-    <string name="squeezer_onboarding_title">O kompresii obrázkov</string>
-    <string name="squeezer_onboarding_message">Kompresia obrázkov zmenšuje veľkosť súboru odstránením vizuálnych detailov. Tento proces je nezvratný — pôvodnú kvalitu nie je možné obnoviť.\n\nTu je ukážka, ako budú vaše obrázky vyzerať:</string>
+    <string name="squeezer_history_clear_message">Toto umožní predtým komprimovaným obrázkom byť komprimovaným znova. Samotné obrázky nie sú ovplyvnené.</string>
     <string name="squeezer_onboarding_original_label">Originál</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresii</string>
-    <string name="squeezer_onboarding_video_original_label">Snímka videa</string>
-    <string name="squeezer_onboarding_video_compressed_label">Náhľad (približný)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Skutočná kvalita videa sa môže líšiť</string>
-    <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
     <string name="squeezer_compare_action">Zobraziť porovnanie</string>
     <string name="squeezer_no_example_found">V zvolených cestách sa nenašli žiadne obrázky.</string>
-    <string name="squeezer_result_empty_message">Nebol nájdený žiadny komprimovateľný mediálny obsáh.</string>
-    <string name="squeezer_setup_warning">Kompresia trvalo znižuje kvalitu, aby ušetrila úložný priestor. Túto akciu nie je možné vrátiť späť. Pred spustením si pozorne prezrite nastavenia.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d miesto nemôže byť použité na kompresiu a bolo odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
-        <item quantity="few">%d miesta nemôžu byť použité na kompresiu a boli odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
-        <item quantity="many">%d miest nemôže byť použitých na kompresiu a boli odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
-        <item quantity="other">%d miest nemôže byť použitých na kompresiu a boli odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze zmenšuje veľkosť súborov obrázkov a videí, aby uvoľniiť úložný priestor. Tým sa trvalo znižuje kvalita a túto akciu nie je možné vrátiť späť. Pred spustením si pozorne prezrite nastavenia.</string>
+    <string name="squeezer_result_empty_message">Nenašli sa žiadne komprimovateľné obrázky.</string>
+    <string name="squeezer_setup_explanation">Kompresia médií zmenšuje veľkosť súborov obrázkov, aby sa uvoľnil úložný priestor. Toto natrvalo znižuje kvalitu obrázkov a nie je možné to vrátiť späť. Pred spustením si starostlivo skontrolujte nastavenia.</string>
     <string name="squeezer_setup_paths_title">Miesta vyhľadávania</string>
     <string name="squeezer_setup_paths_default">Vyberte priečinky na prehľadávanie</string>
     <string name="squeezer_setup_quality_title">Kvalita kompresie</string>
     <string name="squeezer_setup_age_title">Minimálny vek</string>
-    <string name="squeezer_setup_age_none">Bez limitu (zahrnúť všetky súbory)</string>
     <string name="squeezer_setup_start_action">Spustiť skenovanie</string>
     <string name="squeezer_quality_hint_very_low">Kvalita pod 40% môže vytvoriť nepoužiteľné obrázky.</string>
     <string name="squeezer_quality_hint_low">Nižšia kvalita ušetrí viac miesta, ale môže spôsobiť viditeľné artefakty.</string>
@@ -117,6 +79,5 @@
         <item quantity="many">Aspoň %d dní starých</item>
         <item quantity="other">Aspoň %d dní starých</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Odhadované úspôr pre obrázky ~%d%%</string>
-    <string name="squeezer_onboarding_got_it">Rozumiem</string>
+    <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pre súbory JPEG</string>
 </resources>

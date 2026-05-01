@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg.</string>
     <string name="debug_debuglog_screen_title">Hibakeresési napló</string>
-    <string name="debug_debuglog_screen_discard_action">Elvetés</string>
     <string name="debug_debuglog_screen_session_path_label">Munkamenet útvonala</string>
     <string name="debug_debuglog_screen_log_files_label">Naplófájlok</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Sikertelen: tömörítési hiba</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Törli ezt a hibakeresési napló munkamenetet?</string>
     <string name="support_contact_post_send_message">Üzenet sikeresen elküldve?</string>
-    <string name="debug_debuglog_sessions_stop_action">Leállítás</string>
     <string name="tasks_activity_notification_channel_label">Aktív feladatok</string>
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d feladat a sorban</item>
         <item quantity="other">%d feladatok a sorban</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">A feladat eredményei</string>
     <string name="tasks_result_subtext">Feladat eredménye</string>
     <string name="tasks_timeout_error_label">A feladat túllépte az időkorlátot</string>
     <string name="tasks_timeout_error_desc">A feladat túl sokáig tartott és leállt. Kérjük, próbálja újra.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Folytatás</string>
     <string name="onboarding_privacy_title">Magánélet</string>
     <string name="onboarding_privacy_body1">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">A rendszer hibajelentéseket küld, amikor hiba történik, és részleteket tartalmazhatnak az eszközön lévő alkalmazásokról és fájlokról. A jelentések segítenek a hibák kijavításában és az alkalmazás fejlesztésében.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Automatikus hibajelentések engedélyezése</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Ezek a beállítások a beállításokban módosíthatók.</string>
-    <string name="onboarding_privacy_continue_action">Folytatás</string>
     <string name="onboarding_setup_title">Beállítás</string>
     <string name="onboarding_setup_body1">Az SD Maid megkeresi az összes elérhető adatterületet.</string>
     <string name="onboarding_setup_body2">Az elérhető funkciók attól függnek, hogy milyen eszközöd van, milyen Android verzióval rendelkezel és milyen engedélyeket adtál meg az alkalmazásoknak.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">A beállítás nem teljes</string>
     <string name="setup_incomplete_card_body">Fejezze be az SD Maid beállítását a jobb eredmények érdekében.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Az SD Maid megpróbálja megoldani a beállítási problémákat.</string>
-    <string name="setup_incomplete_card_dismiss_action">Elvetés</string>
     <string name="setup_incomplete_card_continue_action">Folytassa a beállítást</string>
     <string name="setup_forcedshow_summary">A beállítási képernyő ismételt megjelenítése, beleértve a már befejezett elemeket is.</string>
     <string name="setup_checking_card_body">A telepítés befejezésének ellenőrzése és funkciói.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Adatterületek újratöltése</string>
     <string name="debug_mode_label">Hibakeresési mód</string>
     <string name="debug_mode_explanation">Tesztbeállítások és részletesebb kimenet engedélyezése. Az alkalmazás lassabban fog futni, és másként fog működni.</string>
-    <string name="debug_bugreporter_label">Automatikus hibajelentések</string>
-    <string name="debug_bugreporter_summary">Automatikusan jelenti a problémákat, pl. az alkalmazás összeomlásának részleteit, hogy kitalálhassam, miért, és kijavíthassam.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
     <string name="debug_card_trace_mode_label">Nyomkövetési mód engedélyezése</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD kártya</string>
     <string name="data_areas_label">Adatterületek</string>
     <string name="data_areas_description">Az adatterületek az eszköz azon helyeit jelentik, amelyek elérhetők az SD Maid számára. Az Android-verziótól és a megadott engedélyektől függően különböző adatterületek állnak rendelkezésre.</string>
-    <string name="data_areas_short_summary">Azok a területek, amelyekhez az SD Maid hozzáférhet a jelenleg megadott engedélyek alapján.</string>
-    <string name="history_label">Előzmények</string>
-    <string name="history_description">A legutóbbi műveletek és az érintett adatok időrendi listája.</string>
     <string name="updates_dashcard_title">Frissítés elérhető</string>
     <string name="updates_dashcard_body">Frissítés elérhető. Önnek %1$s van, a legújabb verzió pedig %2$s.</string>
     <string name="translation_encourage_title">Az SD Maid fordítása</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Frissítések ellenőrzése</string>
     <string name="updatecheck_setting_enabled_explanation">Engedélyezd az SD Maid számára a frissítések keresését, hogy értesítsen, ha újabb verzió áll rendelkezésre.</string>
     <string name="device_settings_category">Eszköz</string>
-    <string name="beta_version_indicator_desc">A kiadás előtti verziók egy kis szalagot jelenítenek meg a kezdőképernyőn. Ezeket gyakrabban frissítik, több funkcióval rendelkezhetnek, de több hibát is tartalmazhatnak.</string>
     <string name="review_app_review_action">Áttekintés</string>
     <string name="review_app_dismiss_action">Talán később</string>
     <string name="review_app_body">Szeretnél véleményt hagyni az SD Maidről?️ ❤️</string>

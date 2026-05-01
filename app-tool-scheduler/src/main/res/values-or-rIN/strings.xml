@@ -20,7 +20,6 @@
         <item quantity="one">ନିଇତି</item>
         <item quantity="other">ପ୍ରତି %d ଦିନରେ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ପୁନରାବୃତ୍ତି ବ୍ୟବଧାନ</string>
     <string name="scheduler_inaccurate_execution_hint">ଆଶା କରାଯାଉଥିବା ନିଷ୍ପାଦନ ସମୟ ଆନୁମାନିକ। ଯଦି ବ୍ୟାଟେରୀ ସଂରକ୍ଷଣ କରେ ତେବେ ସିଡ୍ୟୁଲ୍ ବିଳମ୍ବ କିମ୍ବା ତ୍ୱରାନ୍ୱିତ ହୋଇପାରେ।</string>
     <string name="scheduler_no_active_schedules_subtitle">କୌଣସି ସକ୍ରିୟ ସିଡ୍ୟୁଲ୍ ନାହିଁ</string>
     <string name="scheduler_setting_nopowersaving_title">କମ୍ ବ୍ୟାଟେରୀରେ ଛାଡ଼ିଦିଅନ୍ତୁ</string>

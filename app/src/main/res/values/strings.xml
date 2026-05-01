@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
-    <string name="debug_debuglog_screen_discard_action">Discard</string>
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>
     <string name="debug_debuglog_screen_log_files_label">Log Files</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,8 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Failed: compression error</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Delete this debug log session?</string>
     <string name="support_contact_post_send_message">Message sent successfully?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stop</string>
-
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -52,7 +49,6 @@
         <item quantity="one">%d task in queue</item>
         <item quantity="other">%d queued tasks</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Task results</string>
     <string name="tasks_result_subtext">Task result</string>
     <string name="tasks_timeout_error_label">Task timed out</string>
     <string name="tasks_timeout_error_desc">The task took too long and was stopped. Please try again.</string>
@@ -72,11 +68,6 @@
 
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are sent when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Allow automatic bug reports</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">These options can be changed in the settings.</string>
-    <string name="onboarding_privacy_continue_action">Continue</string>
-
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
     <string name="onboarding_setup_body2">What is accessible depends on your device, Android version and granted permissions.</string>
@@ -89,6 +80,8 @@
 
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
+
+    <string name="upgrade_badge_label">Pro</string>
 
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">General tweaks that affect the whole app.</string>
@@ -104,6 +97,8 @@
     <string name="ui_theme_style_setting_explanation">The color style used when theming the app.</string>
     <string name="ui_theme_style_default_label">Default</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Medium contrast</string>
+    <string name="ui_theme_style_highcontrast_label">High contrast</string>
 
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
@@ -178,7 +173,6 @@
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid\'s setup to get better results.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid is trying to fix setup issues.</string>
-    <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
     <string name="setup_incomplete_card_continue_action">Continue setup</string>
     <string name="setup_forcedshow_summary">Show setup screen again, including already completed items.</string>
     <string name="setup_checking_card_body">Verifying setup completion and functionality.</string>
@@ -254,8 +248,6 @@
 
     <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
-    <string name="debug_bugreporter_label">Automatic bug reports</string>
-    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug mode is enabled</string>
     <string name="debug_card_trace_mode_label">Enable trace mode</string>
@@ -271,11 +263,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Data areas</string>
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
-    <string name="data_areas_short_summary">Areas that SD Maid can access based on the currently granted permissions.</string>
-
-    <string name="history_label">History</string>
-    <string name="history_description">A chronological list of recent actions and affected data.</string>
-
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>
 
@@ -290,8 +277,6 @@
     <string name="updatecheck_setting_enabled_label">Update check</string>
     <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
     <string name="device_settings_category">Device</string>
-
-    <string name="beta_version_indicator_desc">Pre-release versions display a litte ribbon on the start screen. They are updated more frequently, might have more features, but could also have more bugs.</string>
 
     <string name="review_app_review_action">Review</string>
     <string name="review_app_dismiss_action">Maybe later</string>

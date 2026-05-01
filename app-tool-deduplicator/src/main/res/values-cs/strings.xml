@@ -17,9 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují smazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
     <string name="deduplicator_search_locations_title">Vyhledat místa</string>
     <string name="deduplicator_search_locations_all_summary">Všechny dostupné oblasti</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferovat zachování</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Při rozhodování které duplikáty uchovat, preferovat zachování souborů v těchto místech.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nenastavena žádná umístění</string>
     <string name="deduplicator_skip_minsize_title">Minimální velikost</string>
     <string name="deduplicator_skip_minsize_description">Přeskočit soubory, které nedosahují minimální velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Přeskočit neobvyklé typy souborů</string>

@@ -1,125 +1,208 @@
 package eu.darken.sdmse.main.ui
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
+import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.createGraph
-import androidx.navigation.fragment.NavHostFragment
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.ui.NavDisplay
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.navigation.findNavController
-import eu.darken.sdmse.common.navigation.safeNavigate
-import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.navigation.LocalNavigationController
+import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.navigation.NavigationDestination
+import eu.darken.sdmse.common.navigation.NavigationEntry
+import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
+import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
+import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.theming.Theming
-import eu.darken.sdmse.common.uix.Activity2
-import eu.darken.sdmse.databinding.MainActivityBinding
+import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
-import eu.darken.sdmse.main.ui.navigation.mainNavGraph
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : Activity2() {
+class MainActivity : ComponentActivity() {
 
     private val vm: MainViewModel by viewModels()
-    private lateinit var ui: MainActivityBinding
-
-    @Suppress("unused")
-    private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     @Inject lateinit var curriculumVitae: CurriculumVitae
-    @Inject lateinit var theming: Theming
     @Inject lateinit var shortcutManager: ShortcutManager
-
-    var showSplashScreen = true
+    @Inject lateinit var navCtrl: NavigationController
+    @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        log(tag) { "onCreate(restoringState=${savedInstanceState != null})" }
-        super.onCreate(savedInstanceState)
+        log(TAG) { "onCreate(restoringState=${savedInstanceState != null})" }
 
-        val splashScreen = installSplashScreen()
+        // Set initial window background to prevent white/black flash before Compose theme loads
+        window.decorView.setBackgroundColor(
+            if (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES) {
+                0xFF0F1510.toInt() // Dark background matching SdmSeColorsGreen
+            } else {
+                0xFFF5FBF3.toInt() // Light background matching SdmSeColorsGreen
+            }
+        )
+
         enableEdgeToEdge()
-        theming.notifySplashScreenDone(this)
-        splashScreen.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
-
-        ui = MainActivityBinding.inflate(layoutInflater)
-        setContentView(ui.root)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        navHostFragment.navController.graph = navHostFragment.navController.createGraph(
-            startDestination = DashboardRoute,
-        ) {
-            mainNavGraph()
-        }
+        super.onCreate(savedInstanceState)
 
         curriculumVitae.updateAppOpened()
 
-        vm.readyState.observe2 { showSplashScreen = false }
+        savedIntent = intent
 
-        vm.keepScreenOn.observe2 { keepOn ->
-            if (keepOn) {
-                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-            } else {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        setContent {
+            // Prime WindowInsets to prevent UI jumping on first composition
+            val primedInsets = WindowInsets.safeDrawing
+            LaunchedEffect(Unit) {
+                log(TAG) { "WindowInsets primed: $primedInsets" }
+            }
+
+            val themeState by vm.themeState.collectAsState()
+
+            SdmSeTheme(state = themeState) {
+                // Update window background to match current theme
+                val backgroundColor = MaterialTheme.colorScheme.background
+                LaunchedEffect(backgroundColor) {
+                    window.decorView.setBackgroundColor(backgroundColor.toArgb())
+                }
+
+                CompositionLocalProvider(
+                    LocalNavigationController provides navCtrl,
+                    LocalUpgradeBadgeLabel provides stringResource(R.string.upgrade_badge_label),
+                ) {
+                    ErrorEventHandler(vm)
+                    NavigationEventHandler(vm)
+
+                    // Keep screen on during tasks
+                    val keepScreenOn by vm.keepScreenOn.collectAsStateWithLifecycle(initialValue = false)
+                    LaunchedEffect(keepScreenOn) {
+                        if (keepScreenOn) {
+                            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                        } else {
+                            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                        }
+                    }
+
+                    // onResume equivalent
+                    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+                        vm.checkUpgrades()
+                        vm.checkErrors()
+                    }
+
+                    Navigation()
+                }
             }
         }
-
-        navController.addOnDestinationChangedListener { _, destination, bundle ->
-            Bugs.leaveBreadCrumb("Navigated to $destination with args $bundle")
-        }
-
-        vm.errorEvents.observe2 {
-            log(tag, VERBOSE) { "Error event: $it" }
-            it.asErrorDialogBuilder(this).show()
-        }
-
-        handleShortcutAction(intent)
     }
 
-    override fun onResume() {
-        super.onResume()
-        vm.checkUpgrades()
-        vm.checkErrors()
+    @Composable
+    private fun Navigation() {
+        val backStack = rememberNavBackStack(vm.startRoute)
+
+        LaunchedEffect(Unit) { navCtrl.setup(backStack) }
+
+        // Breadcrumb logging
+        LaunchedEffect(backStack.size) {
+            Bugs.leaveBreadCrumb("Navigated to ${backStack.lastOrNull()}")
+        }
+
+        Box(modifier = Modifier.fillMaxSize()) {
+            NavDisplay(
+                backStack = backStack,
+                onBack = { navCtrl.up() },
+                transitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                popTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                predictivePopTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                entryDecorators = listOf(
+                    rememberSaveableStateHolderNavEntryDecorator(),
+                    rememberViewModelStoreNavEntryDecorator(),
+                ),
+                entryProvider = entryProvider<NavKey>(
+                    fallback = { unknownKey ->
+                        // Prevents IllegalStateException when a tool-settings row navigates
+                        // to a route whose Fragment screen hasn't been converted yet
+                        // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute,
+                        // ReportsRoute). Tracked as immediate follow-up in the rewrite plan.
+                        NavEntry(key = unknownKey) {
+                            UnknownDestinationScreen(
+                                routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),
+                                onNavigateUp = { navCtrl.up() },
+                            )
+                        }
+                    },
+                ) {
+                    navigationEntries.forEach { entry ->
+                        entry.apply { setup() }
+                    }
+                },
+            )
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        log(tag, VERBOSE) { "onNewIntent() called with action: ${intent.action}" }
-        handleShortcutAction(intent)
+        log(TAG, VERBOSE) { "onNewIntent() called with action: ${intent.action}" }
+        savedIntent = intent
     }
 
-    private fun handleShortcutAction(intent: Intent) {
-        val shortcutAction = intent.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)
-        if (shortcutAction != null) {
-            log(tag, VERBOSE) { "Handling shortcut action: $shortcutAction" }
-
-            when (shortcutAction) {
-                ShortcutActivity.ACTION_OPEN_APPCONTROL -> {
-                    navController.safeNavigate(AppControlListRoute)
-                }
-                ShortcutActivity.ACTION_UPGRADE -> {
-                    navController.safeNavigate(UpgradeRoute())
-                }
-            }
+    override fun onResume() {
+        super.onResume()
+        savedIntent?.let { intent ->
+            handleShortcutAction(intent)
+            savedIntent = null
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putBoolean(B_KEY_SPLASH, showSplashScreen)
-        super.onSaveInstanceState(outState)
+    private fun handleShortcutAction(intent: Intent) {
+        val shortcutAction = intent.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION) ?: return
+        log(TAG, VERBOSE) { "Handling shortcut action: $shortcutAction" }
+
+        when (shortcutAction) {
+            ShortcutActivity.ACTION_OPEN_APPCONTROL -> navCtrl.goTo(AppControlListRoute)
+            ShortcutActivity.ACTION_UPGRADE -> navCtrl.goTo(UpgradeRoute())
+        }
     }
 
+    private var savedIntent: Intent? = null
+
     companion object {
-        private const val B_KEY_SPLASH = "showSplashScreen"
+        private val TAG = logTag("Main", "Activity")
     }
 }

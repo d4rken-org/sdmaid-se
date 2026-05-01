@@ -20,7 +20,6 @@
         <item quantity="one">Iga päev</item>
         <item quantity="other">Iga %d päeva tagant</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Kordamise intervall</string>
     <string name="scheduler_inaccurate_execution_hint">Eeldatavad käivitusajad on umbkaudsed. Ajastatu võidakse edasi lükata või tühistada, kui see säästab akut.</string>
     <string name="scheduler_no_active_schedules_subtitle">Ajastatut pole</string>
     <string name="scheduler_setting_nopowersaving_title">Eira vähese akutasemega</string>

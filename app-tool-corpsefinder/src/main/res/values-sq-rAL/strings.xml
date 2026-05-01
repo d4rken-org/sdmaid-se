@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Të dhënat e kufizuara të instalimit të aplikacionit, p.sh. aplikacionet e mbrojtura të palëve të treta.</string>
     <string name="corpsefinder_filter_appasec_label">Burimet e koduara të aplikacionit</string>
     <string name="corpsefinder_filter_appasec_summary">Burimet e koduara të aplikacionit, p.sh. asetet e lojës.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Të dhënat u zhvendosën në memorien e jashtme nga modalitetet App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d mbetje aplikacioni u fshi</item>

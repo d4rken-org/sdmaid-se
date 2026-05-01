@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Näytä vaihtoehdot, joiden avulla voit poistaa kaikki tiedostot kaksoiskappaleiden joukossa, jotta yhtään tiedostoa ei jää jäljelle.</string>
     <string name="deduplicator_search_locations_title">Hakusijainnit</string>
     <string name="deduplicator_search_locations_all_summary">Kaikki saavutettavat alueet</string>
-    <string name="deduplicator_keep_prefer_paths_title">Suosi säilyttämistä kohteessa</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Päätettäessä minkä kaksoiskappaleen säilyttää, suosi tiedostoja näissä sijainneissa.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ei määritettyjä sijainteja</string>
     <string name="deduplicator_skip_minsize_title">Vähimmäiskoko</string>
     <string name="deduplicator_skip_minsize_description">Ohita tiedostot, jotka ovat vähimmäiskokoa pienempjä.</string>
     <string name="deduplicator_skip_uncommon_title">Ohita epätavalliset tiedostotyypit</string>

@@ -97,6 +97,7 @@ fun DependencyHandlerScope.addCoilApi() {
 
 fun DependencyHandlerScope.addLottie() {
     implementation("com.airbnb.android:lottie:6.7.1")
+    implementation("com.airbnb.android:lottie-compose:6.7.1")
 }
 
 fun DependencyHandlerScope.addSerialization() {
@@ -127,7 +128,6 @@ fun DependencyHandlerScope.addAndroidCore() {
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.annotation:annotation:1.9.1")
 
-    implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("androidx.datastore:datastore-preferences:1.2.0")
 }
 
@@ -149,16 +149,47 @@ fun DependencyHandlerScope.addWorkerManager() {
 
 fun DependencyHandlerScope.addAndroidUI() {
     implementation("androidx.activity:activity-ktx:1.12.4")
-    implementation("androidx.fragment:fragment-ktx:1.8.9")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.9.4")
-    implementation("androidx.lifecycle:lifecycle-process:2.9.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
 
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("com.google.android.material:material:1.13.0")
+}
+
+fun DependencyHandlerScope.addCompose() {
+    val composeBom = platform("androidx.compose:compose-bom:${Versions.AndroidX.Compose.bom}")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    testImplementation(composeBom)
+
+    // Override foundation to get Modifier.visible()
+    implementation("androidx.compose.foundation:foundation:${Versions.AndroidX.Compose.foundationOverride}")
+
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("androidx.compose.ui:ui-test-android")
+    testImplementation("androidx.compose.ui:ui-test-junit4-android")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3.adaptive:adaptive")
+
+    implementation("androidx.activity:activity-compose:1.12.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
+}
+
+fun DependencyHandlerScope.addNavigation3() {
+    implementation("androidx.navigation3:navigation3-runtime-android:${Versions.AndroidX.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui-android:${Versions.AndroidX.Navigation3.core}")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3-android:${Versions.AndroidX.Navigation3.lifecycleVm}")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.Kotlin.serialization}")
 }
 
 fun DependencyHandlerScope.addTesting() {

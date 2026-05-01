@@ -15,9 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Prikaži opcije koje vam omogućavaju brisanje svih datoteka u setu duplikata tako da ne ostane nijedna datoteka.</string>
     <string name="deduplicator_search_locations_title">Lokacije pretraživanja</string>
     <string name="deduplicator_search_locations_all_summary">Sva dostupna područja</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferiraj zadržavanje u</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Prilikom odlučivanja koji duplikat zadržati, preferiraj zadržavanje datoteka na ovim lokacijama.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nema konfiguriranih lokacija</string>
     <string name="deduplicator_skip_minsize_title">Minimalna veličina</string>
     <string name="deduplicator_skip_minsize_description">Preskoči datoteke koje su manje od minimalne veličine.</string>
     <string name="deduplicator_skip_uncommon_title">Preskoči neuobičajene tipove datoteka</string>

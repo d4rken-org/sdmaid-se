@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">متابعة الجلسة</string>
     <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_select_folders_action">اختر المجلدات</string>
-    <string name="swiper_scanning_title">جارٍ الفحص…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="zero">تم العثور على %d عناصر</item>
         <item quantity="one">تم العثور على %d عنصر</item>
@@ -40,8 +39,6 @@
     <string name="swiper_status_action_keep_selected">الاحتفاظ بالمحدد</string>
     <string name="swiper_status_action_delete_selected">حذف المُحدد</string>
     <string name="swiper_status_action_reset_selected">إعادة تعيين المحدد</string>
-    <string name="swiper_decision_undecided">لم يُقرر</string>
-    <string name="swiper_retry_action">إعادة المحاولة</string>
     <string name="swiper_delete_confirmation_title">حذف الملفات؟</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="zero">سيتم حذف %1$d ملفات (%2$s) نهائيًا. لا يمكن التراجع عن هذا الإجراء.</item>
@@ -143,22 +140,6 @@
         <item quantity="many">%d لم يُقرر</item>
         <item quantity="other">%d لم يُقرر</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="zero">%d تم الاحتفاظ بها</item>
-        <item quantity="one">%d تم الاحتفاظ به</item>
-        <item quantity="two">%d تم الاحتفاظ بهما</item>
-        <item quantity="few">%d تم الاحتفاظ بها</item>
-        <item quantity="many">%d تم الاحتفاظ بها</item>
-        <item quantity="other">%d تم الاحتفاظ بها</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="zero">%d تم حذفها</item>
-        <item quantity="one">%d تم حذفه</item>
-        <item quantity="two">%d تم حذفهما</item>
-        <item quantity="few">%d تم حذفها</item>
-        <item quantity="many">%d تم حذفها</item>
-        <item quantity="other">%d تم حذفها</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="zero">%d محتفظ</item>
         <item quantity="one">%d محتفظ</item>
@@ -207,7 +188,6 @@
     <string name="swiper_help_title">كيف يعمل Swiper</string>
     <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
     <string name="swiper_gesture_overlay_dismiss_action">عُلم</string>
-    <string name="swiper_help_action">مساعدة</string>
     <string name="swiper_file_type_filter_title">إظهار أنواع الملفات هذه فقط</string>
     <string name="swiper_file_type_filter_hint">حدد الأنواع التي تريد رؤيتها. إذا لم يتم تحديد أي نوع، سيتم عرض جميع الملفات.</string>
     <string name="swiper_file_type_category_images">الصور</string>
@@ -221,7 +201,6 @@
     <string name="swiper_file_type_category_archives">الأرشيفات</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">تطبيق</string>
-    <string name="swiper_session_filter_action">تصفية الملفات</string>
     <string name="swiper_file_type_filter_summary">تمت التصفية: %1$s</string>
     <string name="swiper_session_no_matching_files">لم يتم العثور على ملفات مطابقة</string>
     <string name="swiper_open_externally_action">فتح في تطبيق خارجي</string>

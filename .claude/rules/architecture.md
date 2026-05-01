@@ -65,9 +65,14 @@ Each cleaning tool is its own Gradle module under `app-tool-*`:
 
 ## MVVM with Custom ViewModel Hierarchy
 
-- `ViewModel1` → `ViewModel2` → `ViewModel3` (defined in `app-common-ui/.../common/uix/`)
-- `ViewModel3` adds navigation and error event capabilities
-- Uses Hilt for assisted injection
+Layered ViewModel hierarchy (defined in `app-common-ui/.../common/uix/`):
+
+- **`ViewModel1`** (extends `androidx.lifecycle.ViewModel`): Debug logging on init/clear, `tag` system for log identification
+- **`ViewModel2`** (extends `ViewModel1`): Adds `DispatcherProvider`, `vmScope`, `launch()`, `Flow<T>.asStateFlow()` for coroutine management
+- **`ViewModel3`** (extends `ViewModel2`): Adds error handling via `ErrorEventSource` with `SingleEventFlow<Throwable>`
+- **`ViewModel4`** (extends `ViewModel3`): Adds navigation via `NavigationEventSource` with `navTo()` and `navUp()`
+
+New ViewModels should extend **`ViewModel3`** (no navigation) or **`ViewModel4`** (with navigation). Uses `@HiltViewModel` with Hilt injection
 
 ## Dependency Injection
 

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Misa ukurekhoda</string>
     <string name="debug_debuglog_sensitive_information_message">Ifayela elenziwe liqukethe ulwazi olubucayi (isib. amagama amafayela nezinhlelo zokusebenza ezifakiwe). Yabelane nalo kuphela nezinhlangothi ezithembekile.</string>
     <string name="debug_debuglog_screen_title">Umvala Wokulungisa</string>
-    <string name="debug_debuglog_screen_discard_action">Lahla</string>
     <string name="debug_debuglog_screen_session_path_label">Indlela Yeseshini</string>
     <string name="debug_debuglog_screen_log_files_label">Amafayela Omvala</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Kuhlulekile: iphutha lokucindezela</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Susa lesi seshini se-debug log?</string>
     <string name="support_contact_post_send_message">Umlayezo uthunyelwe ngempumelelo?</string>
-    <string name="debug_debuglog_sessions_stop_action">Misa</string>
     <string name="tasks_activity_notification_channel_label">Imisebenzi esebenzayo</string>
     <string name="tasks_activity_working_notification_title">I-SD Maid iyasebenza</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d umsebenzi okulindile</item>
         <item quantity="other">%d imisebenzi ekulindile</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Imiphumela yemisebenzi</string>
     <string name="tasks_result_subtext">Umphumela womsebenzi</string>
     <string name="tasks_timeout_error_label">Umsebenzi uphelelwe isikhathi</string>
     <string name="tasks_timeout_error_desc">Umsebenzi wathatha isikhathi eside kakhulu futhi wamiswa. Sicela uzame futhi.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Qhubeka</string>
     <string name="onboarding_privacy_title">Ubumfihlo</string>
     <string name="onboarding_privacy_body1">I-SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Imibiko yamaphutha ithunyelwa lapho amaphutha enweba futhi ingase ibe nemininingwane mayelana nezinhlelo zokusebenza namafayela ohlelweni lwakho. Imibiko iyangisiza ukuthi ngilungise amaphutha futhi ngithuthukise uhlelo.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Vumela imibiko yamaphutha ezenzekelayo</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Lezi zinketho zingashintshwa ezimweni.</string>
-    <string name="onboarding_privacy_continue_action">Qhubeka</string>
     <string name="onboarding_setup_title">Ukusethwa</string>
     <string name="onboarding_setup_body1">I-SD Maid izosesha zonke izindawo zedatha ezifinyelelekayo.</string>
     <string name="onboarding_setup_body2">Lokho okufinyelelekayo kuncike kudivayisi yakho, inguqulo ye-Android nezimvume ezinikeziwe.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Ukusetshenziswa akukapheleli</string>
     <string name="setup_incomplete_card_body">Qedela ukusetshenziswa kwe-SD Maid ukuze uthole imiphumela engcono.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">I-SD Maid izama ukulungisa izinkinga zokusetshenziswa.</string>
-    <string name="setup_incomplete_card_dismiss_action">Cashisa</string>
     <string name="setup_incomplete_card_continue_action">Qhubeka nokusetshenziswa</string>
     <string name="setup_forcedshow_summary">Bonisa isikrini sokusetshenziswa futhi, kubandakanya nezinto eseziqediwe.</string>
     <string name="setup_checking_card_body">Kuqinisekiswa ukuqedwa kokusetshenziswa nokuphathwa.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Layisha kabusha izindawo zedatha</string>
     <string name="debug_mode_label">Imodi yokulungisa amaphutha</string>
     <string name="debug_mode_explanation">Nika amandla izinketho zokuhlola nokukhipha okuningi. Uhlelo lokusebenza luzosebenza kancane futhi lusebenze ngendlela ehlukile.</string>
-    <string name="debug_bugreporter_label">Imibiko yamaphutha ezenzekelayo</string>
-    <string name="debug_bugreporter_summary">Ibika ngokuzenzekelayo izinkinga, isib. imininingwane mayelana nokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi kungani futhi ngikulungise.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
     <string name="debug_card_trace_mode_label">Vula imodi yokulandelela</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">Ikhadi le-SD</string>
     <string name="data_areas_label">Izindawo zedatha</string>
     <string name="data_areas_description">Izindawo zedatha zimele izindawo kudivayisi yakho ezingafinyelelwa yi-SD Maid. Izindawo zedatha ezahlukene zingase zitholakale kuye ngokuthi inguqulo yakho ye-Android nangokuthi yimaphi amavumelwano anikeziwe.</string>
-    <string name="data_areas_short_summary">Izindawo i-SD Maid engayifinyelela ngokusekelwe emvumeni enikezwe manje.</string>
-    <string name="history_label">Umlando</string>
-    <string name="history_description">Uhlu ngokulandelana kwesikhathi lwezenzo zakamuva nedatha ethintekile.</string>
     <string name="updates_dashcard_title">Isibuyekezo siyatholakala</string>
     <string name="updates_dashcard_body">Isibuyekezo siyatholakala. Una-%1$s futhi inguqulo yakamuva ingu-%2$s.</string>
     <string name="translation_encourage_title">Humusha i-SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Ukuhlola isibuyekezo</string>
     <string name="updatecheck_setting_enabled_explanation">Vumela i-SD Maid ukuthi ihlole izibuyekezo ukuze ikwazise uma kunguqulo entsha etholakalayo.</string>
     <string name="device_settings_category">Idivayisi</string>
-    <string name="beta_version_indicator_desc">Izinguqulo zangaphambi kokukhishwa zibonisa iribhini elincane esikriningi sokuqala. Zibuyekezwa kaningi, zingase zibe nezici eziningi, kodwa zingase futhi zibe namaphutha amaningi.</string>
     <string name="review_app_review_action">Buyekeza</string>
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
     <string name="review_app_body">Ungathanda ukushiyela i-SD Maid ukubuyekeza?️ ❤️</string>

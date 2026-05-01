@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">ضغط الصور ومقاطع الفيديو لتوفير مساحة التخزين.</string>
+    <string name="squeezer_explanation_short">ضغط الصور لتوفير مساحة التخزين.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="zero">لم يتم العثور على عناصر</item>
-        <item quantity="one">تم العثور على عنصر واحد</item>
-        <item quantity="two">تم العثور على عنصرين</item>
-        <item quantity="few">تم العثور على %d عناصر</item>
-        <item quantity="many">تم العثور على %d عنصرًا</item>
-        <item quantity="other">تم العثور على %d عنصر</item>
+        <item quantity="zero">تم العثور على %d صور</item>
+        <item quantity="one">تم العثور على صورة %d</item>
+        <item quantity="two">تم العثور على صورتين %d</item>
+        <item quantity="few">تم العثور على %d صور</item>
+        <item quantity="many">تم العثور على %d صورة</item>
+        <item quantity="other">تم العثور على %d صورة</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="zero">يمكن توفير ~%s</item>
@@ -18,60 +18,34 @@
         <item quantity="other">يمكن توفير ~%s</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="zero">لم يتم ضغط أي عنصر</item>
-        <item quantity="one">تم ضغط عنصر واحد</item>
-        <item quantity="two">تم ضغط عنصرين</item>
-        <item quantity="few">تم ضغط %d عناصر</item>
-        <item quantity="many">تم ضغط %d عنصرًا</item>
-        <item quantity="other">تم ضغط %d عنصر</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="zero">لم يفشل أي عنصر</item>
-        <item quantity="one">فشل عنصر واحد</item>
-        <item quantity="two">فشل عنصران</item>
-        <item quantity="few">فشل %d عناصر</item>
-        <item quantity="many">فشل %d عنصرًا</item>
-        <item quantity="other">فشل %d عنصر</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="zero">لم يتم تخطي أي ملف (غير متاح)</item>
-        <item quantity="one">تم تخطي ملف واحد (غير متاح)</item>
-        <item quantity="two">تم تخطي ملفين (غير متاحين)</item>
-        <item quantity="few">تم تخطي %d ملفات (غير متاحة)</item>
-        <item quantity="many">تم تخطي %d ملفًا (غير متاح)</item>
-        <item quantity="other">تم تخطي %d ملف (غير متاح)</item>
+        <item quantity="zero">تم ضغط %d صور</item>
+        <item quantity="one">تم ضغط صورة %d</item>
+        <item quantity="two">تم ضغط صورتين %d</item>
+        <item quantity="few">تم ضغط %d صور</item>
+        <item quantity="many">تم ضغط %d صورة</item>
+        <item quantity="other">تم ضغط %d صورة</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="zero">لم يتم تحديد أي عنصر</item>
-        <item quantity="one">تم تحديد عنصر واحد</item>
-        <item quantity="two">تم تحديد عنصرين</item>
-        <item quantity="few">تم تحديد %d عناصر</item>
-        <item quantity="many">تم تحديد %d عنصرًا</item>
-        <item quantity="other">تم تحديد %d عنصر</item>
+        <item quantity="zero">تم تحديد %d صور</item>
+        <item quantity="one">تم تحديد صورة %d</item>
+        <item quantity="two">تم تحديد صورتين %d</item>
+        <item quantity="few">تم تحديد %d صور</item>
+        <item quantity="many">تم تحديد %d صورة</item>
+        <item quantity="other">تم تحديد %d صورة</item>
     </plurals>
-    <string name="squeezer_search_locations_title">أماكن البحث</string>
-    <string name="squeezer_search_locations_default_summary">مجلدات الكاميرا (افتراضي)</string>
     <string name="squeezer_min_size_title">الحد الأدنى لحجم الملف</string>
-    <string name="squeezer_min_size_description">تخطي الملفات الأصغر من هذا الحجم.</string>
+    <string name="squeezer_min_size_description">تخطي الصور الأصغر من هذا الحجم.</string>
     <string name="squeezer_min_age_title">الحد الأدنى لعمر الملف</string>
-    <string name="squeezer_min_age_description">تضمين الملفات الأقدم من هذا العمر فقط.</string>
-    <string name="squeezer_compression_settings_label">عام</string>
-    <string name="squeezer_quality_label">الجودة</string>
-    <string name="squeezer_quality_title">جودة الضغط</string>
-    <string name="squeezer_quality_description">الجودة المنخفضة تعني حجم ملف أصغر ولكن جودة بصرية أقل.</string>
-    <string name="squeezer_quality_example_format">مثال: صورة %1$s → توفير ~%2$s بجودة %3$d%%</string>
-    <string name="squeezer_quality_warning_low">الجودة المنخفضة قد تسبب تشوهات مرئية.</string>
-    <string name="squeezer_quality_warning_high">الجودة العالية جدًا توفر مساحة قليلة.</string>
-    <string name="squeezer_types_category_label">إعدادات الصورة</string>
-    <string name="squeezer_video_settings_category_label">إعدادات الفيديو</string>
+    <string name="squeezer_min_age_description">تضمين الصور الأقدم من هذا العمر فقط.</string>
+    <string name="squeezer_compression_settings_label">إعدادات الضغط</string>
+    <string name="squeezer_quality_description">جودة أقل تعني حجم ملف أصغر لكن جودة صورة أقل.</string>
+    <string name="squeezer_types_category_label">أنواع الصور</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">تضمين صور JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">تضمين صور WebP (.webp).</string>
-    <string name="squeezer_type_video_title">فيديو MP4</string>
-    <string name="squeezer_type_video_description">تضمين ملفات الفيديو بصيغة MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">تخطي المضغوطة سابقًا</string>
-    <string name="squeezer_skip_compressed_description">تخطي الملفات التي سبق ضغطها بواسطة SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">تخطي الصور التي تم ضغطها بالفعل بواسطة SD Maid.</string>
     <string name="squeezer_exif_marker_title">كتابة علامة EXIF</string>
     <string name="squeezer_exif_marker_description">إضافة علامة إلى حقل تعليق مستخدم EXIF للصورة لمنع إعادة الضغط حتى لو تم مسح سجل الضغط.</string>
     <string name="squeezer_estimated_savings_format">~%s توفير</string>
@@ -82,8 +56,6 @@
     <string name="squeezer_preview_dialog_title">تأكيد الضغط</string>
     <string name="squeezer_preview_total_size">الحجم الإجمالي</string>
     <string name="squeezer_preview_estimated_savings">التوفير المقدر</string>
-    <string name="squeezer_compress_confirmation_title">ضغط العناصر المحددة؟</string>
-    <string name="squeezer_compress_confirmation_message">سيتم استبدال الملفات الأصلية بنسخ مضغوطة. لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="squeezer_history_title">سجل الضغط</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d عناصر (%2$s)</item>
@@ -95,33 +67,17 @@
     </plurals>
     <string name="squeezer_history_empty">لا يوجد سجل ضغط</string>
     <string name="squeezer_history_clear_title">مسح سجل الضغط</string>
-    <string name="squeezer_history_clear_message">سيسمح هذا بضغط الملفات المضغوطة سابقًا مرة أخرى. الملفات نفسها لن تتأثر.</string>
-    <string name="squeezer_onboarding_title">حول ضغط الصور</string>
-    <string name="squeezer_onboarding_message">ضغط الصور يقلل حجم الملف عن طريق إزالة التفاصيل المرئية. هذه العملية لا رجعة فيها - لا يمكن استعادة الجودة الأصلية.\n\nإليك معاينة لكيفية ظهور صورك:</string>
+    <string name="squeezer_history_clear_message">سيسمح هذا بإعادة ضغط الصور المضغوطة سابقًا. الصور نفسها لن تتأثر.</string>
     <string name="squeezer_onboarding_original_label">الأصلية</string>
     <string name="squeezer_onboarding_compressed_label">بعد الضغط</string>
-    <string name="squeezer_onboarding_video_original_label">إطار الفيديو</string>
-    <string name="squeezer_onboarding_video_compressed_label">معاينة (تقريبية)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">قد تختلف جودة الفيديو الفعلية</string>
-    <string name="squeezer_onboarding_quality_label">الجودة: %d%%</string>
     <string name="squeezer_compare_action">عرض المقارنة</string>
     <string name="squeezer_no_example_found">لم يتم العثور على صور في المسارات المحددة.</string>
-    <string name="squeezer_result_empty_message">لم يتم العثور على وسائط قابلة للضغط.</string>
-    <string name="squeezer_setup_warning">يُقلّل الضغط من الجودة بشكل دائم لتوفير مساحة التخزين. لا يمكن التراجع عن ذلك. راجع إعداداتك بعناية قبل البدء.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="zero">لا توجد مواقع يمكن استخدامها للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-        <item quantity="one">لا يمكن استخدام موقع واحد للضغط وتمت إزالته. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-        <item quantity="two">لا يمكن استخدام موقعين للضغط وتمت إزالتهما. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-        <item quantity="few">لا يمكن استخدام %d مواقع للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-        <item quantity="many">لا يمكن استخدام %d موقعًا للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-        <item quantity="other">لا يمكن استخدام %d موقع للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">يُقلّل Media Squeeze من حجم ملفات الصور ومقاطع الفيديو لتحرير مساحة التخزين. يُقلّل هذا من الجودة بشكل دائم ولا يمكن التراجع عنه. راجع إعداداتك بعناية قبل البدء.</string>
+    <string name="squeezer_result_empty_message">لم يتم العثور على صور قابلة للضغط.</string>
+    <string name="squeezer_setup_explanation">ضغط الوسائط يقلل حجم ملفات الصور لتحرير مساحة التخزين. هذا يقلل جودة الصورة بشكل دائم ولا يمكن التراجع عنه. راجع إعداداتك بعناية قبل البدء.</string>
     <string name="squeezer_setup_paths_title">أماكن البحث</string>
     <string name="squeezer_setup_paths_default">اختر المجلدات للبحث</string>
     <string name="squeezer_setup_quality_title">جودة الضغط</string>
     <string name="squeezer_setup_age_title">الحد الأدنى للسن</string>
-    <string name="squeezer_setup_age_none">بدون حد (تضمين جميع الملفات)</string>
     <string name="squeezer_setup_start_action">بدء الفحص</string>
     <string name="squeezer_quality_hint_very_low">الجودة أقل من 40% قد تنتج صورًا غير قابلة للاستخدام.</string>
     <string name="squeezer_quality_hint_low">الجودة المنخفضة توفر مساحة أكثر لكن قد تسبب تشوهات مرئية.</string>
@@ -135,6 +91,5 @@
         <item quantity="many">عمرها %d يومًا على الأقل</item>
         <item quantity="other">عمرها %d يوم على الأقل</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">توفير تقديري ~%d%% للصور</string>
-    <string name="squeezer_onboarding_got_it">عُلم</string>
+    <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
 </resources>

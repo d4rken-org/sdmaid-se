@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui
 
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.storage.StorageId
@@ -26,6 +27,15 @@ class AnalyzerRoutesSerializationTest : BaseTest() {
         pkgId = Pkg.Id("com.example.app"),
         userHandle = UserHandle2(0),
     )
+
+    @Test
+    fun `DeviceStorageRoute serialization round-trip`() {
+        val serialized = json.encodeToString(DeviceStorageRoute.serializer(), DeviceStorageRoute)
+        serialized.toComparableKotlinxJson() shouldBe "{}".toComparableKotlinxJson()
+
+        val deserialized = json.decodeFromString(DeviceStorageRoute.serializer(), serialized)
+        deserialized shouldBe DeviceStorageRoute
+    }
 
     @Test
     fun `StorageContentRoute serialization round-trip`() {

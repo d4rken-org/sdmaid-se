@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Vyžaduje SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Upgradovat SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE nabízí lepší výsledky, více funkcí a možností pro zkušené uživatele.</string>
     <string name="upgrades_dashcard_upgrade_action">Upgradovat</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Nelze se připojit k Google Play. Zkontrolujte připojení k internetu a zkuste to znovu.</string>
     <string name="upgrades_gplay_already_owned_error_title">Již zakoupeno</string>
     <string name="upgrades_gplay_already_owned_error_description">Použijte možnost \"Obnovit nákup\" k obnovení nákupu. Pokud problém přetrvává, zkuste vyčistit mezipaměť Google Play a restartovat zařízení.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
     <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody</string>

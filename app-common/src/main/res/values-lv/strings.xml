@@ -33,16 +33,9 @@
     <string name="general_empty_label">Tukšs</string>
     <string name="general_new_badge_label">Jauns</string>
     <string name="general_dismiss_action">Noraidīt</string>
-    <string name="general_maybe_later_action">Varbūt vēlāk</string>
     <string name="general_manage_action">Pārvaldīt</string>
-    <string name="general_sync_action">Sinhronizēt</string>
     <string name="general_error_label">Kļūda</string>
-    <string name="general_tap_hint_msg">Pieskarieties, lai iegūtu vairāk opciju</string>
     <string name="general_upgrade_action">Jaunināt</string>
-    <string name="general_donate_action">Ziedot</string>
-    <string name="general_check_action">Pārbaudīt</string>
-    <string name="general_filter_action">Filtrēt</string>
-    <string name="general_internal_not_available_msg">Interneta savienojums nav pieejams</string>
     <string name="general_refresh_action">Atsvaidzināt</string>
     <string name="general_progress_searching">Meklēšana</string>
     <string name="general_progress_generating_searchpaths">Ģenerē meklēšanas ceļus</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Rindā</string>
     <string name="general_progress_deleting">Dzēšana</string>
     <string name="general_progress_deleting_x">Dzēš %s</string>
-    <string name="general_sort_action">Kārtot</string>
-    <string name="general_sort_by_title">Kārtot pēc</string>
-    <string name="general_sort_options_label">Kārtošanas opcijas</string>
     <string name="general_sort_reverse_action">Apgrieztais kārtošanas režīms</string>
-    <string name="general_sort_oldest_first">Vispirms vecākie</string>
-    <string name="general_sort_newest_first">Vispirms jaunākie</string>
-    <string name="general_sort_name_asc">Nosaukums (A → Z)</string>
-    <string name="general_sort_size_desc">Vispirms lielākie</string>
-    <string name="general_tag_filter_label">Filtrēt pēc atzīmēm</string>
     <string name="general_tag_system">Sistēma</string>
     <string name="general_result_success_message">Operācija veiksmīga</string>
-    <string name="general_result_failure_message">Operācija neveiksmīga</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="zero">Atbrīvots %s vieta.</item>
         <item quantity="one">Atbrīvots %s vieta.</item>
@@ -97,7 +81,6 @@
     <string name="general_delete_action">Dzēst</string>
     <string name="general_delete_selected_action">Dzēst izvēlētos</string>
     <string name="general_show_details_action">Rādīt sīkāku informāciju</string>
-    <string name="general_show_all_action">Rādīt visu</string>
     <string name="general_toggle_layout_mode">Pārslēgt skata režīmu</string>
     <string name="general_delete_confirmation_title">Apstiprināt dzēšanu</string>
     <string name="general_delete_confirmation_message_x">Dzēst \"%s\"?</string>
@@ -112,16 +95,12 @@
         <item quantity="other">Izdzēsti %d vienumi.</item>
     </plurals>
     <string name="general_remove_action">Noņemt</string>
-    <string name="general_remove_selected_action">Noņemt izvēlētos</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="zero">Viens vienums tika noņemts</item>
         <item quantity="one">Viens vienums tika noņemts</item>
         <item quantity="other">%d vienumi tika noņemti</item>
     </plurals>
-    <string name="general_root_required_label">Nepieciešams root</string>
-    <string name="general_root_required_message">Nepieciešama root ierīce</string>
     <string name="general_search_action">Meklēt</string>
-    <string name="general_scan_device_action">Skenēt ierīci</string>
     <string name="general_open_system_settings_action">Atvērt sistēmas iestatījumus</string>
     <plurals name="result_x_items">
         <item quantity="zero">%s vienums</item>
@@ -145,7 +124,6 @@
     </plurals>
     <string name="general_info_label">Informācija</string>
     <string name="general_count_label">Skaits</string>
-    <string name="general_app_label">Lietotne</string>
     <string name="general_more_info_action">Vairāk informācijas</string>
     <string name="general_grant_access_action">Piešķirt piekļuvi</string>
     <string name="general_enable_service_action">Iespējot pakalpojumu</string>
@@ -158,7 +136,6 @@
     <string name="general_exclude_selected_action">Izslēgt izvēlētos</string>
     <string name="general_device_label">Ierīce</string>
     <string name="general_settings_title">Iestatījumi</string>
-    <string name="general_help_title">Palīdzība</string>
     <string name="general_hints_label">Paziņojums</string>
     <string name="file_type_symbolic_link">Saite</string>
     <string name="file_type_directory">Direktorijs</string>
@@ -191,8 +168,6 @@
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
     <string name="setup_title">Iestatīšana</string>
-    <string name="setup_feature_requires_additional_setup_x">Šī funkcija prasa papildu iestatīšanas darbību pabeigšanu: %s</string>
-    <string name="upgrade_feature_requires_pro">Nepieciešams Pro</string>
     <string name="general_include_multiuser_label">Iekļaut citus lietotājus</string>
     <string name="general_include_multiuser_summary">Iekļaut lietotnes no citiem šīs ierīces lietotāju profiliem.</string>
     <string name="general_unsaved_confirmation_message">Jums ir nesaglabātas izmaiņas!</string>
@@ -216,5 +191,4 @@
     <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="settings_category_filter">Filtrēt</string>
     <string name="appcontrol_systemsettings_open_title">Rādīt iestatījumus</string>
-    <string name="systemcleaner_customfilter_create_action">Izveidot pielāgotu filtru</string>
 </resources>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Rensar standardcache…</string>
-    <string name="appcleaner_automation_progress_open_settings">Öppnar inställningsskärm (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Söker efter \"Lagring\" post (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Letar efter knappen \"Rensa data\" (nyckelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Letar efter knappen \"Rensa cache\" (nyckelord: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Offentliga och privata standardcache. Inte direkt tillgängliga, men kan tas bort indirekt (t.ex. via tillgänglighetstjänst).</string>
     <string name="appcleaner_automation_unavailable_title">Tillgänglighetstjänst otillgänglig</string>
     <string name="appcleaner_automation_unavailable_body">Rensning av otillgängliga cache kräver SD Maids tillgänglighetstjänst, men den var otillgänglig. Om du inte vill använda den: Inaktivera alternativet \"Inkludera otillgängliga cache\".</string>
-    <string name="appcleaner_junk_userprofile_label">Användare</string>
     <string name="appcleaner_delete_confirmation_message_x">Ta bort förbrukningsbara filer för %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ta bort förbrukningsbara filer för %d vald app?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tvångsstoppa före rensning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvångsstoppa appar innan du rensar deras cache. Det kan hjälpa till att rensa vissa appars cache, men kan göra att appar inte fungerar korrekt och kräver manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvångsstoppar appar…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denna systemapp har ingen inställningsskärm. Cache-rensning via tillgänglighetstjänst är inte möjlig. Uteslut den för att påskynda cache-rensning.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Inställningsskärm otillgänglig</string>
-    <string name="appcleaner_automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inkludera andra användare</string>
-    <string name="appcleaner_include_multiuser_summary">Inkludera appar från andra användarprofiler på denna enhet.</string>
 </resources>

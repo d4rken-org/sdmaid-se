@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">デバイスにインストールされたアプリ</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d 個のアプリが検出されました</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">アプリの切り替え</string>
     <string name="appcontrol_toggle_app_enable_action">アプリを有効化</string>
     <string name="appcontrol_toggle_app_disable_action">アプリを無効化</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">デバッグ</string>
     <string name="appcontrol_progress_enabling_package">アプリを有効化</string>
     <string name="appcontrol_progress_disabling_package">アプリを無効化</string>
-    <string name="appcontrol_list_filteroptions_label">フィルタオプション</string>
     <string name="appcontrol_list_sortmode_name_label">アプリ名</string>
     <string name="appcontrol_list_sortmode_updated_label">最終更新</string>
     <string name="appcontrol_list_sortmode_installed_label">初回インストール</string>
@@ -113,8 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">インストール日: %s</string>
     <string name="shortcut_appcontrol_short">アプリを管理</string>
     <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
-    <string name="appcontrol_automation_loading">ユーザー補助サービスによる自動化の準備</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
-    <string name="appcontrol_include_multiuser_label">他のユーザーを含める</string>
-    <string name="appcontrol_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
 </resources>

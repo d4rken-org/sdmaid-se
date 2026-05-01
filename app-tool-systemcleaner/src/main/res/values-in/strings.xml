@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Batasi kecocokan berdasarkan usia file (waktu terakhir diubah). Biarkan kosong untuk mencocokkan usia apa pun.</string>
     <string name="systemcleaner_customfilter_import_action">Impor filter baru</string>
     <string name="systemcleaner_customfilter_export_action">Ekspor filter yang dipilih</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Anda punya perubahan yang belum tersimpan!</string>
 </resources>

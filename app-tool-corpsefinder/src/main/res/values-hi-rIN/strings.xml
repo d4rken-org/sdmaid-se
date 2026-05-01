@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">प्रतिबंधित ऐप्लिकेशन स्थापित डेटा, जैसे कि संरक्षित तृतीय पक्ष ऐप्स।</string>
     <string name="corpsefinder_filter_appasec_label">गूढकृत ऐप संसाधन</string>
     <string name="corpsefinder_filter_appasec_summary">गूढकृत ऐप संसाधन, जैसे कि खेल संपत्ति।</string>
-    <string name="corpsefinder_filter_app2sd_summary">डेटा को App2Sd मॉड द्वारा बाह्य संग्रहण में ले जाया गया।</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ऐप अवशेष मिटाया गया</item>

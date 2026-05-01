@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">画像と動画を圧縮してストレージ容量を節約します。</string>
+    <string name="squeezer_explanation_short">画像を圧縮してストレージ容量を節約します。</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d件のアイテムが見つかりました</item>
+        <item quantity="other">%d 枚の画像が見つかりました</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">約 %s 節約可能</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d件のアイテムを圧縮しました</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">%d件が失敗しました</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">%d件のファイルをスキップしました（アクセス不可）</item>
+        <item quantity="other">%d 枚の画像を圧縮しました</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d件のアイテムが選択されました</item>
+        <item quantity="other">%d 枚の画像を選択</item>
     </plurals>
-    <string name="squeezer_search_locations_title">検索場所</string>
-    <string name="squeezer_search_locations_default_summary">カメラフォルダ（デフォルト）</string>
     <string name="squeezer_min_size_title">最小ファイルサイズ</string>
-    <string name="squeezer_min_size_description">このサイズより小さいファイルをスキップします。</string>
+    <string name="squeezer_min_size_description">このサイズより小さい画像をスキップします。</string>
     <string name="squeezer_min_age_title">最小ファイル年齢</string>
-    <string name="squeezer_min_age_description">この経過時間より古いファイルのみ対象にします。</string>
-    <string name="squeezer_compression_settings_label">一般</string>
-    <string name="squeezer_quality_label">品質</string>
-    <string name="squeezer_quality_title">圧縮品質</string>
-    <string name="squeezer_quality_description">品質を下げるとファイルサイズは小さくなりますが、画質が低下します。</string>
-    <string name="squeezer_quality_example_format">例：%1$s 画像 → %3$d%% 品質で約 %2$s 節約</string>
-    <string name="squeezer_quality_warning_low">品質が低いと目に見えるアーティファクトが発生する場合があります。</string>
-    <string name="squeezer_quality_warning_high">非常に高い品質では容量の節約がごくわずかです。</string>
-    <string name="squeezer_types_category_label">画像設定</string>
-    <string name="squeezer_video_settings_category_label">動画設定</string>
+    <string name="squeezer_min_age_description">この年齢より古い画像のみを含めます。</string>
+    <string name="squeezer_compression_settings_label">圧縮設定</string>
+    <string name="squeezer_quality_description">品質が低いほどファイルサイズは小さくなりますが、画質が低下します。</string>
+    <string name="squeezer_types_category_label">画像タイプ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG画像（.jpg、.jpeg）を含めます。</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP画像（.webp）を含めます。</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4動画ファイル（.mp4）を対象にします。</string>
     <string name="squeezer_skip_compressed_title">圧縮済みをスキップ</string>
-    <string name="squeezer_skip_compressed_description">SD Maidによってすでに圧縮されたファイルをスキップします。</string>
+    <string name="squeezer_skip_compressed_description">SD Maidで既に圧縮された画像をスキップします。</string>
     <string name="squeezer_exif_marker_title">EXIFマーカーを書き込む</string>
     <string name="squeezer_exif_marker_description">圧縮履歴がクリアされても再圧縮を防ぐため、画像のEXIFユーザーコメント欄にマーカーを追加します。</string>
     <string name="squeezer_estimated_savings_format">約 %s 節約</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">圧縮の確認</string>
     <string name="squeezer_preview_total_size">合計サイズ</string>
     <string name="squeezer_preview_estimated_savings">推定節約量</string>
-    <string name="squeezer_compress_confirmation_title">選択したアイテムを圧縮しますか？</string>
-    <string name="squeezer_compress_confirmation_message">元のファイルを圧縮バージョンに置き換えます。この操作は元に戻せません。</string>
     <string name="squeezer_history_title">圧縮履歴</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d 項目（%2$s）</item>
     </plurals>
     <string name="squeezer_history_empty">圧縮履歴がありません</string>
     <string name="squeezer_history_clear_title">圧縮履歴をクリア</string>
-    <string name="squeezer_history_clear_message">以前に圧縮されたファイルを再度圧縮できるようになります。ファイル自体には影響しません。</string>
-    <string name="squeezer_onboarding_title">画像圧縮について</string>
-    <string name="squeezer_onboarding_message">画像圧縮は視覚的な詳細を削除してファイルサイズを縮小します。このプロセスは元に戻せません。元の品質は復元できません。\n\n圧縮後の画像のプレビューはこちらです：</string>
+    <string name="squeezer_history_clear_message">以前に圧縮された画像を再度圧縮できるようにします。画像自体は影響を受けません。</string>
     <string name="squeezer_onboarding_original_label">オリジナル</string>
     <string name="squeezer_onboarding_compressed_label">圧縮後</string>
-    <string name="squeezer_onboarding_video_original_label">動画フレーム</string>
-    <string name="squeezer_onboarding_video_compressed_label">プレビュー（目安）</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">実際の動画品質は異なる場合があります</string>
-    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
     <string name="squeezer_compare_action">比較を表示</string>
     <string name="squeezer_no_example_found">選択したパスに画像が見つかりません。</string>
-    <string name="squeezer_result_empty_message">圧縮可能なメディアが見つかりません。</string>
-    <string name="squeezer_setup_warning">圧縮すると品質が恒久的に低下してストレージ容量を節約します。この操作は元に戻せません。開始前に設定を慎重に確認してください。</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d件の場所は圧縮に使用できないため削除されました。圧縮には内部ストレージへの直接アクセスが必要です。</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">メディアスクイーズは、画像と動画のファイルサイズを縮小してストレージ空き容量を確保します。これにより品質が恒久的に低下し、元に戻すことはできません。開始前に設定を慎重に確認してください。</string>
+    <string name="squeezer_result_empty_message">圧縮可能な画像が見つかりません。</string>
+    <string name="squeezer_setup_explanation">メディア圧縮は画像のファイルサイズを縮小してストレージ容量を解放します。画質が永久に低下し、元に戻せません。開始前に設定を慎重に確認してください。</string>
     <string name="squeezer_setup_paths_title">検索場所</string>
     <string name="squeezer_setup_paths_default">検索するフォルダを選択</string>
     <string name="squeezer_setup_quality_title">圧縮品質</string>
     <string name="squeezer_setup_age_title">変更拒否期間</string>
-    <string name="squeezer_setup_age_none">制限なし（すべてのファイルを含む）</string>
     <string name="squeezer_setup_start_action">スキャン開始</string>
     <string name="squeezer_quality_hint_very_low">40%未満の品質では使用不能な画像が生成される場合があります。</string>
     <string name="squeezer_quality_hint_low">低品質はより多くの容量を節約しますが、目に見えるアーティファクトが発生する場合があります。</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">少なくとも %d 日以上</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">画像の推定節約量 約%d%%</string>
-    <string name="squeezer_onboarding_got_it">わかりました。</string>
+    <string name="squeezer_estimated_savings_percent">JPEGファイルの推定節約率 約 %d%%</string>
 </resources>

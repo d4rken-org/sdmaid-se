@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Sustabdyti įrašymą</string>
     <string name="debug_debuglog_sensitive_information_message">Sukurtame faile yra neskelbtinos informacijos (pvz., failų pavadinimai ir įdiegtos programos). Dalinkitės juo tik su patikimomis šalimis.</string>
     <string name="debug_debuglog_screen_title">Derinimo žurnalas</string>
-    <string name="debug_debuglog_screen_discard_action">Atmesti</string>
     <string name="debug_debuglog_screen_session_path_label">Sesijos kelias</string>
     <string name="debug_debuglog_screen_log_files_label">Žurnalo failai</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -42,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Nepavyko: suspaudimo klaida</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Ištrinti šią derinimo žurnalo sesiją?</string>
     <string name="support_contact_post_send_message">Pranešimas išsiųstas sėkmingai?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stabdyti</string>
     <string name="tasks_activity_notification_channel_label">Aktyvios užduotys</string>
     <string name="tasks_activity_working_notification_title">SD Maid veikia</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -57,7 +55,6 @@
         <item quantity="many">%d užduočių eilėje</item>
         <item quantity="other">%d užduočių eilėje</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Užduoties rezultatai</string>
     <string name="tasks_result_subtext">Užduoties rezultatas</string>
     <string name="tasks_timeout_error_label">Užduoties laikas baigėsi</string>
     <string name="tasks_timeout_error_desc">Užduotis užtruko per ilgai ir buvo sustabdyta. Bandykite dar kartą.</string>
@@ -74,10 +71,6 @@
     <string name="onboarding_versus_continue_action">Tęsti</string>
     <string name="onboarding_privacy_title">Privatumas</string>
     <string name="onboarding_privacy_body1">SD Maid neturi reklamų ir neparduoda naudotojų duomenų.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Klaidų ataskaitos siunčiamos įvykus klaidoms, jose gali būti pateikiama išsami informacija apie jūsų prietaise esančias programas ir failus. Pranešimai padeda ištaisyti klaidas ir tobulinti programėlę.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Leisti automatiškai teikti pranešimus apie klaidas</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Šias parinktis galima pakeisti nustatymuose.</string>
-    <string name="onboarding_privacy_continue_action">Tęsti</string>
     <string name="onboarding_setup_title">Nustatymai</string>
     <string name="onboarding_setup_body1">SD Maid atliks paiešką visose prieinamose duomenų srityse.</string>
     <string name="onboarding_setup_body2">Tai, kas pasiekiama, priklauso nuo jūsų prietaiso, Android versijos ir suteiktų leidimų.</string>
@@ -172,7 +165,6 @@
     <string name="setup_incomplete_card_title">Sąranka nebaigta</string>
     <string name="setup_incomplete_card_body">Baigti SD Maid\'s nustatymus, kad pasiektumėte geresnių rezultatų.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid bando išspręsti sąrankos problemas.</string>
-    <string name="setup_incomplete_card_dismiss_action">Atmesti</string>
     <string name="setup_incomplete_card_continue_action">Tęsti sąranką</string>
     <string name="setup_forcedshow_summary">Dar kartą parodykite sąrankos ekraną, įskaitant jau atliktus elementus.</string>
     <string name="setup_checking_card_body">Tikrinamas sąrankos užbaigimas ir funkcionalumas.</string>
@@ -235,8 +227,6 @@
     <string name="dataarea_warningcard_reload_action">Duomenų sričių perkrovimas</string>
     <string name="debug_mode_label">Derinimo režimas</string>
     <string name="debug_mode_explanation">Įgalinkite testavimo parinktis ir daugiau verbalinės išvesties. Programėlė veiks lėčiau ir veiks kitaip.</string>
-    <string name="debug_bugreporter_label">Automatiniai klaidų pranešimai</string>
-    <string name="debug_bugreporter_summary">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos gedimus, kad galėčiau išsiaiškinti priežastis ir jas ištaisyti.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Derinimo režimas įjungtas</string>
     <string name="debug_card_trace_mode_label">Įjungti stebėjimo režimą</string>
@@ -251,9 +241,6 @@
     <string name="data_area_sdcard_label">SD kortelė</string>
     <string name="data_areas_label">Duomenų sritys</string>
     <string name="data_areas_description">Duomenų sritys žymi vietas jūsų įrenginyje, kurias gali pasiekti SD Maid. Priklausomai nuo jūsų „Android“ versijos ir suteiktų leidimų, gali būti prieinamos skirtingos duomenų sritys.</string>
-    <string name="data_areas_short_summary">Sritys, kurias „SD Maid“ gali pasiekti remiantis šiuo metu suteiktais leidimais.</string>
-    <string name="history_label">Istorija</string>
-    <string name="history_description">Chronologinis nedavno atliktas veiksmų ir paveiktų duomenų sąrašas.</string>
     <string name="updates_dashcard_title">Atnaujinimas pasiekiamas</string>
     <string name="updates_dashcard_body">Pasiekiamas atnaujinimas. Jūs turite %1$s, o naujausias versijas yra %2$s.</string>
     <string name="translation_encourage_title">Išversti SD Maid</string>
@@ -265,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Atnaujinimo patikrinimas</string>
     <string name="updatecheck_setting_enabled_explanation">Leisti „SD Maid“ patikrinti atnaujinimus, kad sužinotumėte, ar yra naujesnė versija.</string>
     <string name="device_settings_category">Įrenginys</string>
-    <string name="beta_version_indicator_desc">Išankstinės versijos pradžios ekrane rodo mažą juostelę. Jos atnaujinamos dažniau, gali turėti daugiau funkcijų, tačiau gali turėti ir daugiau klaidų.</string>
     <string name="review_app_review_action">Atsiliepimas</string>
     <string name="review_app_dismiss_action">Gal vėliau</string>
     <string name="review_app_body">Ar norėtumėte palikti SD Maid atsiliepimu?️ ❤️</string>

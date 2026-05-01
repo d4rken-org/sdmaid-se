@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">每 %d 天一次</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">重复间隔</string>
     <string name="scheduler_inaccurate_execution_hint">预期执行时间是近似值。计划任务可能会为了保存电量而被推迟或提前。</string>
     <string name="scheduler_no_active_schedules_subtitle">无活动计划</string>
     <string name="scheduler_setting_nopowersaving_title">低电量时跳过</string>

@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ራሳዊነት</string>
     <string name="appcleaner_automation_subtitle_default_caches">ነባሪ መሸፈኛዎችን በማጽዳት ላይ…</string>
-    <string name="appcleaner_automation_progress_open_settings">የቅንብሮች ማያ በመክፈት ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">ለ\"ማጠራቀሚያ\" ግቤት በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">ለ\"ውሂብ አጽዳ\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">ለ\"መሸፈኛ አጽዳ\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">ሕዝባዊና ግላዊ ነባሪ መሸፈኛዎች። በቀጥታ ሊደረስባቸው አይችሉም፣ ግን በተዘዋዋሪ ሊሰረዙ ይችላሉ (ለምሳሌ በተደራሽነት አገልግሎት)።</string>
     <string name="appcleaner_automation_unavailable_title">ተደራሽነት አገልግሎት አልተገኘም</string>
     <string name="appcleaner_automation_unavailable_body">ሊደረስባቸው የማይችሉ መሸፈኛዎችን ማጽዳት የSD Maidን ተደራሽነት አገልግሎት ይፈልጋል፣ ግን አልተገኘም። መጠቀም ካልፈለጉ: \"ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት\" አማራጭን ያሰናክሉ።</string>
-    <string name="appcleaner_junk_userprofile_label">ተጠቃሚ</string>
     <string name="appcleaner_delete_confirmation_message_x">ለ%s ወጪ ፋይሎች ይሰረዙ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ለ%d የተመረጠ መተግበሪያ ወጪ ፋይሎች ይሰረዙ?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">ከማጽዳት በፊት በግዳጅ አቁም</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ማኅደራቸውን ከማጽዳት በፊት መተግበሪያዎችን በግዳጅ ያቁሙ። የአንዳንድ መተግበሪያዎችን ማኅደር ለማጽዳት ሊረዳ ይችላል፣ ግን መተግበሪያዎች በትክክል እንዳይሰሩ ሊያደርግና በእጅ እንደገና ማስጀመር ሊያስፈልግ ይችላል።</string>
     <string name="appcleaner_progress_force_stopping">መተግበሪያዎችን በግዳጅ ማቆም…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
-    <string name="appcleaner_automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
-    <string name="appcleaner_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
-    <string name="appcleaner_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት།</string>
 </resources>

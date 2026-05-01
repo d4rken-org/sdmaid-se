@@ -7,7 +7,8 @@ import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.logviewer.core.LogViewLogger
 import eu.darken.sdmse.common.flow.throttleLatest
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
@@ -19,15 +20,15 @@ class LogViewViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val logViewLogger: LogViewLogger,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    private val currentLog = LinkedList<LogViewerAdapter.LogViewerRow.Item>()
+    private val currentLog = LinkedList<String>()
 
-    val log = logViewLogger.lines
-        .map {
-            currentLog.add(LogViewerAdapter.LogViewerRow.Item(it))
+    val log: Flow<List<String>> = logViewLogger.lines
+        .map { line ->
+            currentLog.add(line.message)
             if (currentLog.size > 50) currentLog.removeFirst()
-            currentLog
+            currentLog.toList()
         }
         .throttleLatest(500)
         .onStart {
@@ -35,7 +36,6 @@ class LogViewViewModel @Inject constructor(
             Logging.install(logViewLogger)
         }
         .onCompletion { Logging.remove(logViewLogger) }
-        .asLiveData2()
 
     companion object {
         private val TAG = logTag("LogView", "ViewModel")

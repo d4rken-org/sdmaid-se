@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro ያስፈልጋል</string>
     <string name="upgrades_dashcard_title">SD Maid SE ያሻሽሉ</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro ለላቁ ተጠቃሚዎች የተሻሉ ውጤቶች፣ ተጨማሪ ባህሪያት እና አማራጮችን ይሰጣል።</string>
     <string name="upgrades_dashcard_upgrade_action">ያሻሽሉ</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">ከGoogle Play ጋር መገናኘት አልተቻለም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
     <string name="upgrades_gplay_already_owned_error_title">አስቀድሞ ተገዝቷል</string>
     <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
-    <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
     <string name="upgrade_screen_benefits_title">ጥቅሞች</string>

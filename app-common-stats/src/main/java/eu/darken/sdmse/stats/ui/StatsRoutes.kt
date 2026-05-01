@@ -2,16 +2,20 @@ package eu.darken.sdmse.stats.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import kotlinx.serialization.Serializable
 import java.util.UUID
 
 @Serializable
-data object ReportsRoute
+data object StatsSettingsRoute : NavigationDestination
+
+@Serializable
+data object ReportsRoute : NavigationDestination
 
 @Serializable
 data class SpaceHistoryRoute(
     val storageId: String? = null,
-) {
+) : NavigationDestination {
     companion object {
         fun from(handle: SavedStateHandle) = handle.toRoute<SpaceHistoryRoute>()
     }
@@ -20,7 +24,7 @@ data class SpaceHistoryRoute(
 @Serializable
 data class AffectedFilesRoute(
     val reportId: String,
-) {
+) : NavigationDestination {
     constructor(uuid: UUID) : this(reportId = uuid.toString())
     val reportIdUUID: UUID
         get() = try {
@@ -37,7 +41,7 @@ data class AffectedFilesRoute(
 @Serializable
 data class AffectedPkgsRoute(
     val reportId: String,
-) {
+) : NavigationDestination {
     constructor(uuid: UUID) : this(reportId = uuid.toString())
 
     val reportIdUUID: UUID

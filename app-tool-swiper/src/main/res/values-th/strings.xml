@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">ดำเนินเซสชันต่อ</string>
     <string name="swiper_sessions_description">ตรวจสอบไฟล์ใน 3 ขั้นตอนง่ายๆ:\n\n1. เลือกโฟลเดอร์ที่จะสแกน\n2. ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม\n3. ตรวจสอบตัวเลือกของคุณและยืนยัน\n\nจะไม่มีอะไรถูกลบจนกว่าคุณจะแตะปุ่มลบสุดท้าย</string>
     <string name="swiper_select_folders_action">เลือกโฟลเดอร์</string>
-    <string name="swiper_scanning_title">กำลังสแกน…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">พบ %d รายการ</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">เก็บที่เลือก</string>
     <string name="swiper_status_action_delete_selected">ลบที่เลือก</string>
     <string name="swiper_status_action_reset_selected">รีเซ็ตที่เลือก</string>
-    <string name="swiper_decision_undecided">ยังไม่ตัดสินใจ</string>
-    <string name="swiper_retry_action">ลองใหม่</string>
     <string name="swiper_delete_confirmation_title">ลบไฟล์?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">สิ่งนี้จะลบ %1$d ไฟล์ (%2$s) อย่างถาวร ไม่สามารถเลิกทำได้</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d ยังไม่ตัดสินใจ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d เก็บไว้แล้ว</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ลบแล้ว</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">เก็บ %d</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">วิธีใช้ Swiper</string>
     <string name="swiper_help_message">ปัดไฟล์แต่ละรายการเพื่อตัดสินใจ:\n\n← ปัดซ้าย: %1$s\n→ ปัดขวา: %2$s\n↑ ปัดขึ้น: ข้าม\n↓ ปัดลง: เลิกทำ (หลังจากปัดครั้งแรก)\n\nคุณยังสามารถใช้ปุ่มด้านล่างได้\n\nเมื่อเสร็จแล้ว แตะ \"ตรวจสอบ\" เพื่อดูการตัดสินใจทั้งหมดของคุณ จะไม่มีอะไรถูกลบจนกว่าคุณจะยืนยันในหน้าตรวจสอบ</string>
     <string name="swiper_gesture_overlay_dismiss_action">เข้าใจแล้ว</string>
-    <string name="swiper_help_action">ช่วยเหลือ</string>
     <string name="swiper_file_type_filter_title">แสดงเฉพาะประเภทไฟล์เหล่านี้</string>
     <string name="swiper_file_type_filter_hint">เลือกประเภทที่ต้องการดู หากไม่ได้เลือกประเภทใด จะแสดงไฟล์ทั้งหมด</string>
     <string name="swiper_file_type_category_images">รูปภาพ</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">ไฟล์บีบอัด</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">ใช้งาน</string>
-    <string name="swiper_session_filter_action">กรองไฟล์</string>
     <string name="swiper_file_type_filter_summary">กรองแล้ว: %1$s</string>
     <string name="swiper_session_no_matching_files">ไม่พบไฟล์ที่ตรงกัน</string>
     <string name="swiper_open_externally_action">เปิดในแอปภายนอก</string>

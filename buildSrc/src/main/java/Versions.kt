@@ -14,6 +14,17 @@ object Versions {
             const val core = "2.9.7"
         }
 
+        object Compose {
+            const val bom = "2025.12.00"
+            const val foundationOverride = "1.11.0-alpha01"
+        }
+
+        object Navigation3 {
+            const val core = "1.0.1"
+            const val lifecycleVm = "2.10.0"
+            const val adaptive = "1.3.0-alpha10"
+        }
+
         object Media3 {
             const val core = "1.6.0"
         }

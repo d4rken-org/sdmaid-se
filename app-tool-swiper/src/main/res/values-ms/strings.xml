@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Teruskan sesi</string>
     <string name="swiper_sessions_description">Semak fail dalam 3 langkah mudah:\n\n1. Pilih folder untuk diimbas\n2. Leret fail untuk simpan, padam atau langkau\n3. Semak pilihan anda dan sahkan\n\nTiada apa yang dibuang sehingga anda mengetik butang padam terakhir.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
-    <string name="swiper_scanning_title">Mengimbas…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d item dijumpai</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">Simpan yang dipilih</string>
     <string name="swiper_status_action_delete_selected">Padam yang dipilih</string>
     <string name="swiper_status_action_reset_selected">Set semula yang dipilih</string>
-    <string name="swiper_decision_undecided">Belum diputuskan</string>
-    <string name="swiper_retry_action">Cuba semula</string>
     <string name="swiper_delete_confirmation_title">Padam fail?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">Ini akan memadam secara kekal %1$d fail (%2$s). Tindakan ini tidak boleh dibatalkan.</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d belum diputuskan</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d sudah disimpan</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d sudah dipadam</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d disimpan</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Cara Swiper berfungsi</string>
     <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
-    <string name="swiper_help_action">Bantu</string>
     <string name="swiper_file_type_filter_title">Tunjukkan jenis fail ini sahaja</string>
     <string name="swiper_file_type_filter_hint">Tandakan jenis yang ingin anda lihat. Jika tiada yang ditandakan, semua fail ditunjukkan.</string>
     <string name="swiper_file_type_category_images">Imej</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">Arkib</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Guna</string>
-    <string name="swiper_session_filter_action">Tapis fail</string>
     <string name="swiper_file_type_filter_summary">Ditapis: %1$s</string>
     <string name="swiper_session_no_matching_files">Tiada fail yang sepadan ditemui</string>
     <string name="swiper_open_externally_action">Buka dalam aplikasi luaran</string>

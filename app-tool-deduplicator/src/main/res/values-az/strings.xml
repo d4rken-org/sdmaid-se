@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikat dəstində bütün faylları silməyə imkan verən seçimləri göstər, beləliklə heç bir fayl qalmaz.</string>
     <string name="deduplicator_search_locations_title">Axtarış yerleri</string>
     <string name="deduplicator_search_locations_all_summary">Bütün əlçatan sahələr</string>
-    <string name="deduplicator_keep_prefer_paths_title">Burada saxlamağa üstünlük ver</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Hansı dublikatın saxlanacağına qərar verərkən, faylların bu məkanlarda saxlanılmasına üstünlük ver.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Heç bir məkan konfiqurasiya edilməyib</string>
     <string name="deduplicator_skip_minsize_title">Minimum ölçü</string>
     <string name="deduplicator_skip_minsize_description">Minimum ölçüdən kiçik olan faylları keç.</string>
     <string name="deduplicator_skip_uncommon_title">Qeyri-adi fayl növlərini keç</string>

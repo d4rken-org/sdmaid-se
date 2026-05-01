@@ -43,7 +43,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Date restricționate de instalare a aplicației, ex: aplicații terță parte protejate.</string>
     <string name="corpsefinder_filter_appasec_label">Resurse a aplicației criptat</string>
     <string name="corpsefinder_filter_appasec_summary">Resurse criptate a aplicației, ex: activele jocului.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Datele mutate în stocarea externă de către modurile aplicației App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d aplicație restantă a fost ștearsă</item>

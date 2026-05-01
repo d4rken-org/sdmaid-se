@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Samodejna dejanja čistilca programov</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čiščenje privzetih predpomnilnikov …</string>
-    <string name="appcleaner_automation_progress_open_settings">Odpiranje zaslona z nastavitvami (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Iskanje vnosa \"Shranjevanje\" (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Iskanje gumba \"Počisti podatke\" (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Iskanje gumba \"Počisti predpomnilnik\" (ključne besede: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Privzeti javni in zasebni predpomnilniki, ki niso neposredno dostopni, ampak se jih lahko posredno izbriše (npr. preko storitve dostopnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Storitev dostopnosti ni na voljo.</string>
     <string name="appcleaner_automation_unavailable_body">Čiščenje nedostopnih predpomnilnikov zahteva SD Maidovo storitev dostopnosti, vendar ni bila na voljo.  Če je ne želite uporabljati, onemogočite možnost \"Vključi nedostopne predpomnilnike\". </string>
-    <string name="appcleaner_junk_userprofile_label">Uporabnik</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbriši odvečne predmete za uporabnika %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Izbriši odvečne datoteke za %d izbrani program?</item>
@@ -95,10 +93,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno ustavi pred čiščenjem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno ustavi programe pred čiščenjem predpomnilnika. Lahko pomaga pri čiščenju nekaterih predpomnilnikov, vendar lahko povzroči nepravilno delovanje programov in zahteva ročni ponovni zagon.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno ustavljanje programov …</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
-    <string name="appcleaner_automation_loading">Pripravljanje samodejnih dejanj preko storitve dostopnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Vključi druge uporabnike</string>
-    <string name="appcleaner_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
 </resources>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Rajoita osumia tiedoston iän (viimeisin muokkausaika) perusteella. Jätä asettamatta osuaksesi mihin tahansa ikään.</string>
     <string name="systemcleaner_customfilter_import_action">Tuo uusi suodatin</string>
     <string name="systemcleaner_customfilter_export_action">Vie valittu suodatin</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Sinulla on tallentamattomia muutoksia!</string>
 </resources>

@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Nén ảnh và video để tiết kiệm dung lượng lưu trữ.</string>
+    <string name="squeezer_explanation_short">Nén ảnh để tiết kiệm dung lượng lưu trữ.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d mục được tìm thấy</item>
+        <item quantity="other">%d ảnh được tìm thấy</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">~%s có thể được lưu</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d mục được nén</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">%d thất bại</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">%d tệp bị bỏ qua (không thể truy cập)</item>
+        <item quantity="other">%d ảnh được nén</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d mục đã chọn</item>
+        <item quantity="other">%d ảnh đã chọn</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Vị trí tìm kiếm</string>
-    <string name="squeezer_search_locations_default_summary">Thư mục ảnh (mặc định)</string>
     <string name="squeezer_min_size_title">Kích thước tệp tối thiểu</string>
-    <string name="squeezer_min_size_description">Bỏ qua các tệp nhỏ hơn kích thước này.</string>
+    <string name="squeezer_min_size_description">Bỏ qua những hình ảnh có kích thước nhỏ hơn kích thước này.</string>
     <string name="squeezer_min_age_title">Tuổi tối thiểu của tệp</string>
-    <string name="squeezer_min_age_description">Chỉ bao gồm các tệp cũ hơn thời gian này.</string>
-    <string name="squeezer_compression_settings_label">Chung</string>
-    <string name="squeezer_quality_label">Chất lượng</string>
-    <string name="squeezer_quality_title">Chất lượng nén</string>
+    <string name="squeezer_min_age_description">Chỉ bao gồm những hình ảnh có tuổi hơn mức này.</string>
+    <string name="squeezer_compression_settings_label">Cài đặt nén</string>
     <string name="squeezer_quality_description">Chất lượng thấp hơn có nghĩa là kích thước tệp nhỏ hơn nhưng chất lượng hình ảnh lại giảm.</string>
-    <string name="squeezer_quality_example_format">Ví dụ: %1$s ảnh → lưu ~%2$s với %3$d%% chất lượng</string>
-    <string name="squeezer_quality_warning_low">Chất lượng thấp hơn có thể gây ra hiện tượng nhiễu có thể nhìn thấy được.</string>
-    <string name="squeezer_quality_warning_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
-    <string name="squeezer_types_category_label">Cài đặt hình ảnh</string>
-    <string name="squeezer_video_settings_category_label">Cài đặt video</string>
+    <string name="squeezer_types_category_label">Kiểu hình ảnh</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Bao gồm các hình ảnh JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Bao gồm các hình ảnh WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Bao gồm các tệp video MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Bỏ qua phần đã nén trước đó</string>
-    <string name="squeezer_skip_compressed_description">Bỏ qua các tệp đã được nén bởi SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Bỏ qua các hình ảnh đã được nén bởi SD Maid.</string>
     <string name="squeezer_exif_marker_title">Ghi dấu EXIF</string>
     <string name="squeezer_exif_marker_description">Thêm dấu hiệu vào trường chú thích EXIF của hình ảnh để ngăn việc nén lại ngay cả khi lịch sử nén đã bị xóa.</string>
     <string name="squeezer_estimated_savings_format">~%s đang lưu</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">Xác nhận nén</string>
     <string name="squeezer_preview_total_size">Tổng kích thước</string>
     <string name="squeezer_preview_estimated_savings">Tiết kiệm ước tính</string>
-    <string name="squeezer_compress_confirmation_title">Nén các mục đã chọn?</string>
-    <string name="squeezer_compress_confirmation_message">Thao tác này sẽ thay thế các tệp gốc bằng phiên bản nén. Không thể hoàn tác thao tác này.</string>
     <string name="squeezer_history_title">Lịch sử nén</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d mục (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">Không có lịch sử nén</string>
     <string name="squeezer_history_clear_title">Xóa lịch sử nén</string>
-    <string name="squeezer_history_clear_message">Thao tác này sẽ cho phép nén lại các tệp đã được nén trước đó. Bản thân những tệp đó không bị ảnh hưởng.</string>
-    <string name="squeezer_onboarding_title">Về nén ảnh</string>
-    <string name="squeezer_onboarding_message">Nén ảnh làm giảm kích thước tập tin bằng cách loại bỏ các chi tiết hình ảnh. Qúa trình này không thể đảo ngược - chất lượng ban đầu không thể khôi phục được.\n\n Dưới đây là bản xem trước các hình ảnh của bạn sẽ trông như thế nào:</string>
+    <string name="squeezer_history_clear_message">Điều này sẽ cho phép nén lại các hình ảnh đã được nén trước đó. Bản thân những hình ảnh đó không bị ảnh hưởng.</string>
     <string name="squeezer_onboarding_original_label">Bản gốc</string>
     <string name="squeezer_onboarding_compressed_label">Sau khi nén</string>
-    <string name="squeezer_onboarding_video_original_label">Khung hình video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Xem trước (gần đúng)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Chất lượng video thực tế có thể khác</string>
-    <string name="squeezer_onboarding_quality_label">Chất lượng: %d%%</string>
     <string name="squeezer_compare_action">Xem so sánh</string>
     <string name="squeezer_no_example_found">Không tìm thấy hình ảnh nào trong các đường dẫn đã chọn.</string>
-    <string name="squeezer_result_empty_message">Không tìm thấy phương tiện có thể nén.</string>
-    <string name="squeezer_setup_warning">Việc nén sẽ làm giảm vĩnh viễn chất lượng để tiết kiệm dung lượng lưu trữ. Không thể hoàn tác điều này. Hãy kiểm tra kỹ các cài đặt của bạn trước khi bắt đầu.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d vị trí không thể được sử dụng để nén và đã bị xóa. Việc nén yêu cầu quyền truy cập trực tiếp vào bộ nhớ trong.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze giảm kích thước tệp hình ảnh và video để giải phóng dung lượng lưu trữ. Thao tác này sẽ làm giảm chất lượng vĩnh viễn và không thể hoàn tác. Vui lòng xem lại cài đặt cẩn thận trước khi bắt đầu.</string>
+    <string name="squeezer_result_empty_message">Không tìm thấy hình ảnh nén nào.</string>
+    <string name="squeezer_setup_explanation">Chức năng Media Squeeze giảm kích thước tệp hình ảnh để giải phóng dung lượng lưu trữ. Thao tác này sẽ làm giảm chất lượng hình ảnh vĩnh viễn và không thể hoàn tác. Vui lòng xem lại cài đặt cẩn thận trước khi bắt đầu.</string>
     <string name="squeezer_setup_paths_title">Vị trí tìm kiếm</string>
     <string name="squeezer_setup_paths_default">Chọn thư mục để tìm kiếm</string>
     <string name="squeezer_setup_quality_title">Chất lượng nén</string>
     <string name="squeezer_setup_age_title">Độ tuổi tối thiểu</string>
-    <string name="squeezer_setup_age_none">Không giới hạn (bao gồm tất cả các tệp)</string>
     <string name="squeezer_setup_start_action">Bắt đầu quét</string>
     <string name="squeezer_quality_hint_very_low">Chất lượng dưới 40% có thể tạo ra những hình ảnh không thể sử dụng được.</string>
     <string name="squeezer_quality_hint_low">Chất lượng thấp hơn giúp tiết kiệm dung lượng nhưng có thể gây ra hiện tượng nhiễu ảnh.</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">Ít nhất %d ngày tuổi</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm ~%d%% cho hình ảnh</string>
-    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
+    <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
 </resources>

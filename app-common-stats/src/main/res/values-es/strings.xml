@@ -8,7 +8,6 @@
         <item quantity="one">%s elemento ha sido procesado desde que invitaste a SD Maid a tu dispositivo.</item>
         <item quantity="other">%s elementos han sido procesados desde que invitaste a SD Maid a tu dispositivo.</item>
     </plurals>
-    <string name="stats_report_status_success">Correctamente</string>
     <string name="stats_report_status_partial_success">Parcialmente</string>
     <string name="stats_report_status_partial_failure">Fallo</string>
     <string name="stats_settings_desc">Configura las estadísticas, los informes y la permanencia de los datos de SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Número de días antes de borrar los informes básicos de las operaciones de SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Información detallada de la ruta</string>
     <string name="stats_settings_retention_paths_desc">El número de días que se conservarán los detalles sobre las rutas afectadas por SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d día</item>
-        <item quantity="other">%d días</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Restablecer todo</string>
     <string name="stats_settings_reset_all_desc">Borrar todos los informes y poner a cero todas las estadísticas.</string>
     <string name="stats_affected_paths_label">Rutas afectadas</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Almacenamiento principal</string>
     <string name="stats_storage_type_secondary">Almacenamiento secundario</string>
     <string name="stats_storage_type_portable">Almacenamiento portátil</string>
-    <string name="stats_space_history_delete_storage_title">¿Eliminar historial de almacenamiento?</string>
-    <string name="stats_space_history_delete_storage_desc">Todos los datos de tendencia de este almacenamiento se eliminarán de forma permanente.</string>
-    <string name="stats_settings_retention_snapshots_label">Instantáneas de almacenamiento</string>
-    <string name="stats_settings_retention_snapshots_desc">Número de días para conservar las instantáneas del espacio de almacenamiento.</string>
 </resources>

@@ -33,16 +33,9 @@
     <string name="general_empty_label">Tupu</string>
     <string name="general_new_badge_label">Mpya</string>
     <string name="general_dismiss_action">Ondoa</string>
-    <string name="general_maybe_later_action">Labda baadaye</string>
     <string name="general_manage_action">Simamia</string>
-    <string name="general_sync_action">Sawazisha</string>
     <string name="general_error_label">Hitilafu</string>
-    <string name="general_tap_hint_msg">Gusa kwa chaguo zaidi</string>
     <string name="general_upgrade_action">Boresha</string>
-    <string name="general_donate_action">Changia</string>
-    <string name="general_check_action">Angalia</string>
-    <string name="general_filter_action">Chuja</string>
-    <string name="general_internal_not_available_msg">Muunganisho wa mtandao haupatikani</string>
     <string name="general_refresh_action">Onyesha upya</string>
     <string name="general_progress_searching">Kutafuta</string>
     <string name="general_progress_generating_searchpaths">Kuunda njia za utafutaji</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Kwenye foleni</string>
     <string name="general_progress_deleting">Kufuta</string>
     <string name="general_progress_deleting_x">Kufuta %s</string>
-    <string name="general_sort_action">Panga</string>
-    <string name="general_sort_by_title">Panga kulingana na</string>
-    <string name="general_sort_options_label">Chaguo za kupanga</string>
     <string name="general_sort_reverse_action">Hali ya kupanga kinyume</string>
-    <string name="general_sort_oldest_first">La zamani kwanza</string>
-    <string name="general_sort_newest_first">Jipya kwanza</string>
-    <string name="general_sort_name_asc">Jina (A → Z)</string>
-    <string name="general_sort_size_desc">Kubwa kwanza</string>
-    <string name="general_tag_filter_label">Chuja kwa lebo</string>
     <string name="general_tag_system">Mfumo</string>
     <string name="general_result_success_message">Imekamilika kwa mafanikio</string>
-    <string name="general_result_failure_message">Uendeshaji umeshindwa</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Nafasi ya %s imeachiliwa.</item>
         <item quantity="other">Nafasi ya %s imeachiliwa.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Futa</string>
     <string name="general_delete_selected_action">Futa vilichochaguliwa</string>
     <string name="general_show_details_action">Onyesha maelezo</string>
-    <string name="general_show_all_action">Onyesha vyote</string>
     <string name="general_toggle_layout_mode">Badilisha hali ya kuona</string>
     <string name="general_delete_confirmation_title">Thibitisha kufuta</string>
     <string name="general_delete_confirmation_message_x">Futa \"%s\"?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">Kimefuta vitu %d.</item>
     </plurals>
     <string name="general_remove_action">Ondoa</string>
-    <string name="general_remove_selected_action">Ondoa vilichochaguliwa</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Kitu kimoja kimeondolewa</item>
         <item quantity="other">Vitu %d vimeondolewa</item>
     </plurals>
-    <string name="general_root_required_label">Root inahitajika</string>
-    <string name="general_root_required_message">Inahitaji kifaa kilichofungwa root</string>
     <string name="general_search_action">Tafuta</string>
-    <string name="general_scan_device_action">Changanua kifaa</string>
     <string name="general_open_system_settings_action">Fungua mipangilio ya mfumo</string>
     <plurals name="result_x_items">
         <item quantity="one">kitu %s</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Maelezo</string>
     <string name="general_count_label">Hesabu</string>
-    <string name="general_app_label">Programu</string>
     <string name="general_more_info_action">Maelezo zaidi</string>
     <string name="general_grant_access_action">Ruhusu ufikiaji</string>
     <string name="general_enable_service_action">Wezesha huduma</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Tenga vilichochaguliwa</string>
     <string name="general_device_label">Kifaa</string>
     <string name="general_settings_title">Mipangilio</string>
-    <string name="general_help_title">Msaada</string>
     <string name="general_hints_label">Ilani</string>
     <string name="file_type_symbolic_link">Kiungo</string>
     <string name="file_type_directory">Saraka</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Mmiliki</string>
     <string name="general_user_label_system">Mfumo</string>
     <string name="setup_title">Usanidi</string>
-    <string name="setup_feature_requires_additional_setup_x">Kipengele hiki kinahitaji kukamilisha vipengele vya ziada vya usanidi: %s</string>
-    <string name="upgrade_feature_requires_pro">Inahitaji Pro</string>
     <string name="general_include_multiuser_label">Jumuisha watumiaji wengine</string>
     <string name="general_include_multiuser_summary">Jumuisha programu kutoka wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
     <string name="general_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Kiwango cha hatari</string>
     <string name="settings_category_filter">Kichungi</string>
     <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
-    <string name="systemcleaner_customfilter_create_action">Unda kichungi maalum</string>
 </resources>

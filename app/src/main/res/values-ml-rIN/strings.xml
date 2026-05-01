@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">രേഖപ്പെടുത്തൽ നിർത്തുക</string>
     <string name="debug_debuglog_sensitive_information_message">സൃഷ്ടിക്കപ്പെട്ട ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ഫയൽ പേരുകൾ, ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ). വിശ്വസ്ത കക്ഷികളുമായി മാത്രം പങ്കിടുക.</string>
     <string name="debug_debuglog_screen_title">ഡീബഗ് ലോഗ്</string>
-    <string name="debug_debuglog_screen_discard_action">നിരസിക്കുക</string>
     <string name="debug_debuglog_screen_session_path_label">സെഷൻ പാത്ത്</string>
     <string name="debug_debuglog_screen_log_files_label">ലോഗ് ഫയലുകൾ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">പരാജയം: കംപ്രഷൻ പിഴവ്</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ഈ ഡീബഗ് ലോഗ് സെഷൻ ഇല്ലാതാക്കണോ?</string>
     <string name="support_contact_post_send_message">സന്ദേശം വിജയകരമായി അയച്ചോ?</string>
-    <string name="debug_debuglog_sessions_stop_action">നിർത്തുക</string>
     <string name="tasks_activity_notification_channel_label">സജീവ ടാസ്കുകൾ</string>
     <string name="tasks_activity_working_notification_title">SD Maid പ്രവർത്തിക്കുന്നു</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d ടാസ്ക് വരിയിൽ</item>
         <item quantity="other">%d ടാസ്കുകൾ വരിയിൽ</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">ടാസ്ക് ഫലങ്ങൾ</string>
     <string name="tasks_result_subtext">ടാസ്ക് ഫലം</string>
     <string name="tasks_timeout_error_label">ടാസ്ക് സമയപരിധി കഴിഞ്ഞു</string>
     <string name="tasks_timeout_error_desc">ടാസ്ക് വളരെ സമയമെടുത്തതിനാൽ നിർത്തിവച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">തുടരുക</string>
     <string name="onboarding_privacy_title">സ്വകാര്യത</string>
     <string name="onboarding_privacy_body1">SD Maid ൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">പിശകുകൾ സംഭവിക്കുമ്പോൾ ബഗ് റിപ്പോർട്ടുകൾ അയയ്ക്കുന്നു, നിങ്ങളുടെ ഉപകരണത്തിലെ ആപ്പുകൾ, ഫയലുകൾ എന്നിവയെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ അടങ്ങിയിരിക്കാം. റിപ്പോർട്ടുകൾ ബഗുകൾ പരിഹരിക്കാനും ആപ്പ് മെച്ചപ്പെടുത്താനും എന്നെ സഹായിക്കുന്നു.</string>
-    <string name="onboarding_privacy_bugreport_toggle">ഓട്ടോമാറ്റിക് ബഗ് റിപ്പോർട്ടുകൾ അനുവദിക്കുക</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ഈ ഓപ്ഷനുകൾ ക്രമീകരണങ്ങളിൽ മാറ്റാനാകും.</string>
-    <string name="onboarding_privacy_continue_action">തുടരുക</string>
     <string name="onboarding_setup_title">സെറ്റപ്പ്</string>
     <string name="onboarding_setup_body1">SD Maid എല്ലാ ആക്സസ് ചെയ്യാവുന്ന ഡാറ്റ ഏരിയകളിലും തിരയും.</string>
     <string name="onboarding_setup_body2">എന്താണ് ആക്സസ് ചെയ്യാവുന്നത് എന്നത് നിങ്ങളുടെ ഉപകരണം, Android വേർഷൻ, നൽകിയ അനുമതികൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">സെറ്റപ്പ് അപൂർണ്ണമാണ്</string>
     <string name="setup_incomplete_card_body">മെച്ചപ്പെട്ട ഫലങ്ങൾ ലഭിക്കാൻ SD Maid ന്റെ സെറ്റപ്പ് പൂർത്തിയാക്കുക.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid സെറ്റപ്പ് പ്രശ്നങ്ങൾ പരിഹരിക്കാൻ ശ്രമിക്കുന്നു.</string>
-    <string name="setup_incomplete_card_dismiss_action">തള്ളിക്കളയുക</string>
     <string name="setup_incomplete_card_continue_action">സെറ്റപ്പ് തുടരുക</string>
     <string name="setup_forcedshow_summary">ഇതിനകം പൂർത്തിയാക്കിയ ഇനങ്ങൾ ഉൾപ്പെടെ, സെറ്റപ്പ് സ്ക്രീൻ വീണ്ടും കാണിക്കുക.</string>
     <string name="setup_checking_card_body">സെറ്റപ്പ് പൂർത്തീകരണവും പ്രവർത്തനവും പരിശോധിക്കുന്നു.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">ഡേറ്റ മേഖലകൾ പുനഃലോഡ് ചെയ്യുക</string>
     <string name="debug_mode_label">ഡീബഗ് മോഡ്</string>
     <string name="debug_mode_explanation">ടെസ്റ്റ് ഓപ്ഷനുകളും കൂടുതൽ വിശദമായ ഔട്ട്പുട്ടും പ്രവർത്തനക്ഷമമാക്കുക. ആപ്പ് മന്ദഗതിയിൽ പ്രവർത്തിക്കുകയും വ്യത്യസ്തമായി പ്രവർത്തിക്കുകയും ചെയ്യും.</string>
-    <string name="debug_bugreporter_label">ഓട്ടോമാറ്റിക് ബഗ് റിപ്പോർട്ട്</string>
-    <string name="debug_bugreporter_summary">പ്രശ്നങ്ങൾ സ്വയമേവ റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷ് ആകുന്നതിന്റെ വിശദാംശങ്ങൾ, അതിലൂടെ കാരണം കണ്ടെത്തി പരിഹരിക്കാൻ സഹായിക്കുന്നു.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ഡീബഗ് മോഡ് പ്രാപ്തമാണ്</string>
     <string name="debug_card_trace_mode_label">ട്രേസ് മോഡ് പ്രാപ്തമാക്കുക</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD കാർഡ്</string>
     <string name="data_areas_label">ഡേറ്റ ഏരിയകൾ</string>
     <string name="data_areas_description">SD Maid-ന് ആക്‌സസ് ചെയ്യാൻ കഴിയുന്ന നിങ്ങളുടെ ഉപകരണത്തിലെ സ്ഥാനങ്ങളെയാണ് ഡേറ്റ ഏരിയകൾ പ്രതിനിധീകരിക്കുന്നത്. നിങ്ങളുടെ Android പതിപ്പും അനുവദിച്ച അനുമതികളും അനുസരിച്ച് വ്യത്യസ്ത ഡേറ്റ ഏരിയകൾ ലഭ്യമാകാം.</string>
-    <string name="data_areas_short_summary">നിലവിൽ അനുവദിച്ച അനുമതികളുടെ അടിസ്ഥാനത്തിൽ SD Maid-ന് ആക്‌സസ് ചെയ്യാൻ കഴിയുന്ന ഏരിയകൾ.</string>
-    <string name="history_label">ചരിത്രം</string>
-    <string name="history_description">സമീപകാല പ്രവർത്തനങ്ങളുടെയും ബാധിക്കപ്പെട്ട ഡേറ്റയുടെയും കാലക്രമ പട്ടിക.</string>
     <string name="updates_dashcard_title">അപ്ഡേറ്റ് ലഭ്യമാണ്</string>
     <string name="updates_dashcard_body">ഒരു അപ്ഡേറ്റ് ലഭ്യമാണ്. നിങ്ങളുടെ പക്കൽ %1$s ഉണ്ട്, ഏറ്റവും പുതിയ പതിപ്പ് %2$s ആണ്.</string>
     <string name="translation_encourage_title">SD Maid വിവർത്തനം ചെയ്യുക</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">അപ്ഡേറ്റ് പരിശോധന</string>
     <string name="updatecheck_setting_enabled_explanation">പുതിയ പതിപ്പ് ലഭ്യമാണോ എന്ന് അറിയിക്കാൻ അപ്ഡേറ്റുകൾ പരിശോധിക്കാൻ SD Maid-നെ അനുവദിക്കുക.</string>
     <string name="device_settings_category">ഉപകരണം</string>
-    <string name="beta_version_indicator_desc">പ്രി-റിലീസ് പതിപ്പുകൾ ആരംഭ സ്ക്രീനിൽ ഒരു ചെറിയ റിബൺ പ്രദർശിപ്പിക്കുന്നു. അവ കൂടുതൽ തവണ അപ്ഡേറ്റ് ചെയ്യപ്പെടുന്നു, കൂടുതൽ ഫീച്ചറുകൾ ഉണ്ടായിരിക്കാം, പക്ഷേ കൂടുതൽ ബഗുകളും ഉണ്ടായേക്കാം.</string>
     <string name="review_app_review_action">റിവ്യൂ</string>
     <string name="review_app_dismiss_action">ഒരുപക്ഷേ പിന്നീട്</string>
     <string name="review_app_body">SD Maid-ന് ഒരു റിവ്യൂ നൽകാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുവോ? ❤️</string>

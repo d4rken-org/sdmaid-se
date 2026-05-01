@@ -43,7 +43,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Podaci o ograničenoj instalaciji aplikacije, npr. zaštićene aplikacije trećih strana.</string>
     <string name="corpsefinder_filter_appasec_label">Šifrirani resursi aplikacije</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrirani resursi aplikacije, npr. podaci igara.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Podaci premješteni u vanjsku pohranu putem App2SD modova.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ostatak aplikacija izbrisan</item>

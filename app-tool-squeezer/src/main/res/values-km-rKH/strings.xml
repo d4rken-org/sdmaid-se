@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">បង្រួមរូបភាព និងវីដេអូ ដើម្បីសន្សំទំហំផ្ទុក។</string>
+    <string name="squeezer_explanation_short">ចុចរូបភាពត់ដើម្បីថ្នូកទំហំផ័ឡក។</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">រកឃើញ %d ធាតុ</item>
+        <item quantity="other">ពាក្ស័ល់ %d រូបត្រូវបានរក</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">~%s អាចត្រូវសញ្ញអំប័ក</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d ធាតុត្រូវបានបង្រួម</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">បរាជ័យចំនួន %d</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">%d ឯកសារត្រូវបានរំលង (មិនអាចចូលដំណើរការបាន)</item>
+        <item quantity="other">%d រូបត្រូវបានចុច</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d ធាតុត្រូវបានជ្រើររើស</item>
+        <item quantity="other">%d រូបត្រូវបានជ្រើស</item>
     </plurals>
-    <string name="squeezer_search_locations_title">តំណែស្វែងរក</string>
-    <string name="squeezer_search_locations_default_summary">ថតកាមេរា ដែលប័កត្រង់</string>
     <string name="squeezer_min_size_title">ទំហំឯកសារតែចិត្ត</string>
-    <string name="squeezer_min_size_description">រំលងឯកសារដើលតូចជាទំហំនេ។</string>
+    <string name="squeezer_min_size_description">លឹចលញរូបត្រចន្តែតែងំហំកន្តែនេ។</string>
     <string name="squeezer_min_age_title">អាយុឯកសារតែចិត្ត</string>
-    <string name="squeezer_min_age_description">រួមបញ្ចូលតើឯកសារចាសជាងអាយុនេ។</string>
-    <string name="squeezer_compression_settings_label">ជាទូទៅ</string>
-    <string name="squeezer_quality_label">គុណភាព</string>
-    <string name="squeezer_quality_title">គុណភាពការចុច</string>
-    <string name="squeezer_quality_description">គុណភាពតាបមានន័យថាទំហំឯកសារតូចជាងប៉ុន្តើគុណភាពមើលខើញថយចុ។</string>
-    <string name="squeezer_quality_example_format">ត័វរាង %1$s រូប → សញ្ញ ~%2$s នៅគុណភាព %3$d%%</string>
-    <string name="squeezer_quality_warning_low">គុណភាពតែចិត្តអាចនាឣទាក់ខុស្សនៅរូបបាន។</string>
-    <string name="squeezer_quality_warning_high">គុណភាព័កច្រើនពីក្រោមនិងការសញ្ញតែចិត្តទំហំផ័ឡកតូច។</string>
-    <string name="squeezer_types_category_label">ការកំណត់រូបភាព</string>
-    <string name="squeezer_video_settings_category_label">ការកំណត់វីដេអូ</string>
+    <string name="squeezer_min_age_description">រួមតែរូបត្រចឱន្ត្នែឡប់ជាងអាយុនេ។</string>
+    <string name="squeezer_compression_settings_label">ការកំណត់ការចុច</string>
+    <string name="squeezer_quality_description">គុណភាពតែចិត្តនាឣតំហំឯកសារតូចជាង តែអាចកំណត់រូប។</string>
+    <string name="squeezer_types_category_label">ប្រភេតរូប</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">រួមរូប JPEG (.jpg, .jpeg)។</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">រួមរូប WebP (.webp)។</string>
-    <string name="squeezer_type_video_title">វីដេអូ MP4</string>
-    <string name="squeezer_type_video_description">រួមបញ្ចូលឯកសារវីដេអូ MP4 (.mp4)។</string>
     <string name="squeezer_skip_compressed_title">លឹចលញដែលត្រូវបានចុចហើយ។។។</string>
-    <string name="squeezer_skip_compressed_description">រំលងឯកសារដែលត្រូវបានបង្រួមរួចហើយដោយ SD Maid។</string>
+    <string name="squeezer_skip_compressed_description">លឹចលញរូបដែលត្រូវបានចុចហើយដោយ SD Maid ហើយ។</string>
     <string name="squeezer_exif_marker_title">ស្វែងសញ្ញ្ណា EXIF</string>
     <string name="squeezer_exif_marker_description">បន្ថែមសញ្ញ្ណាទៅក្នុងច្ន័លសម្លឹកបច្ចើនិយនិយម់រូប EXIF ដើម្បីទឹក្កានការចុចម្តង ទៀឧប័វប័តប្រវត្តការចុចត្រូវបានលុប។</string>
     <string name="squeezer_estimated_savings_format">~%s នៅសល់</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">បញ្ជាក់ការចុច</string>
     <string name="squeezer_preview_total_size">ទំហំសរុប</string>
     <string name="squeezer_preview_estimated_savings">ការសញ្ញដែលប័តិម្ឡួត់</string>
-    <string name="squeezer_compress_confirmation_title">បង្រួមធាតុដែលបានជ្រើររើស?</string>
-    <string name="squeezer_compress_confirmation_message">វានឹងជំនួសឯកសារដើមដោយកំណែដែលបានបង្រួម។ សកម្មភាពនេ័ហមិនអាចត្រល្បវឹញបានតើ។</string>
     <string name="squeezer_history_title">ប្រវត្តការចុច</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ឯកថន្ទ់ (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">មិនមានប្រវត្តការចុច</string>
     <string name="squeezer_history_clear_title">លុបប្រវត្តការចុច</string>
-    <string name="squeezer_history_clear_message">វានឹងអនុញ្ញាតអោយឯកសារដែលបានបង្រួមមុននេ័ត្រូវបានបង្រួមម្តងតឹត។ ឯកសារខ្លួនឯងមិនរងផលប៉ែពាលើយ។</string>
-    <string name="squeezer_onboarding_title">អានស័ម្ព័ន្ធការចុចរូប</string>
-    <string name="squeezer_onboarding_message">ការចុចរូបកំណត់ទំហំឯកសារដោយការលុបសម្ឆាល់វិសួយ។ ដ្វងនេឣមិនអាចដក្កើតវិញបាន–គុណភាពដើម្បីមិនអាចផ័ត់វិញបាន។\n\nនេឣជាការមើលឹករបស់អ្នកនៅក្រើ៖</string>
+    <string name="squeezer_history_clear_message">នេឣនឹងអនុញ្ញាតរូបដែលត្រូវបានចុចហើយដើម្បីឡេតឥចុចម្តង។ រូបត្រង់គ័ឡនេមិនត្រូវបានរង់ន័។</string>
     <string name="squeezer_onboarding_original_label">ត់បញ់ដើម</string>
     <string name="squeezer_onboarding_compressed_label">ប័កការចុច</string>
-    <string name="squeezer_onboarding_video_original_label">ស្រតាប់វីដេអូ</string>
-    <string name="squeezer_onboarding_video_compressed_label">មើលជាមុន (ប្រហាក់ប្រហែល)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">គុណភាពវីដេអូជាក់ស័ត្តែអាចខុសគ្នា</string>
-    <string name="squeezer_onboarding_quality_label">គុណភាព៖ %d%%</string>
     <string name="squeezer_compare_action">មើលការបរន័យប័កគ្នា</string>
     <string name="squeezer_no_example_found">មិនន័ឯកសាររូបនៅផ្លូវដែលបានជ្រើស។</string>
-    <string name="squeezer_result_empty_message">រកមិនឃើញមេដីអដែលអាចបង្រួមបាន។</string>
-    <string name="squeezer_setup_warning">ការបង្រួមកាត់បន្ថយគុណភាពជាអចិន្ត្រ័យ៍ ដើម្បីសន្សំទំហំផ្ទុក។ វាមិនអាចត្រល្បវឹញបានតើ។ ពិនិតការកំណត់របស់អ្នកដោយប្រុងប្រយ័ត្តនមុននឹងចាបផ័តើម។</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d តីតំហងមិនអាចប្រើសសម្រាប់ការបង្រួម ហើយត្រូវបានដកចើញ។ ការបង្រួមតម្រួវអោយចូលដំណើរការផ្តល់ទឹលកន្លងផ្ទុកខាងក្នុង។</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze កាត់បន្ថយទំហំឯកសាររូបភាព និងវីដេអូ ដើម្បីបង្កើតទំហំផ្ទុក។ វាកាត់បន្ថយគុណភាពជាអចិន្ត្រ័យ៍ ហើយមិនអាចត្រល្បវឹញបានតើ។ ពិនិតការកំណត់របស់អ្នកដោយប្រុងប្រយ័ត្តនមុននឹងចាបផ័តើម។</string>
+    <string name="squeezer_result_empty_message">មិនន័រូបដែលអាចចុចបាន។</string>
+    <string name="squeezer_setup_explanation">Media Squeeze កំណត់ទំហំឯកសាររូបដើម្បី័កទំហំផ័ឡក។ នេឣកំណត់ធ្វើលគុណភាពរូប និងមិនអាចត្រលប់វិញបាន។ ស្វែងការកំណត់របស់អ្នកយ្វាក់មុនបីបន្ថែមផ័ក។</string>
     <string name="squeezer_setup_paths_title">តំណែស្វែងរក</string>
     <string name="squeezer_setup_paths_default">ជ្រើសថតដើម្បីស្វែងរក</string>
     <string name="squeezer_setup_quality_title">គុណភាពការចុច</string>
     <string name="squeezer_setup_age_title">អាយុតែចិត្ត</string>
-    <string name="squeezer_setup_age_none">ធ្វើលគ្មាន រួមឯកសារតាងអស់</string>
     <string name="squeezer_setup_start_action">ចំឡើងសស័រវិនិច្ឆ័យ</string>
     <string name="squeezer_quality_hint_very_low">គុណភាពតែចិត្តក្រោម 40% អាចនាឣបង្កើតរូបត្រូវបានមិនអាចប្រើបរស់បាន។</string>
     <string name="squeezer_quality_hint_low">គុណភាពតែចិត្តសញ្ញទំហំពត់ជាង តែអាចនាឣបង្កើតខុស្សនៅរូបបាន។</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">អាយុយឹងតិ %d ថ្ង័ឡក្នៅមក</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">ការសន្សំប្រហែល ~%d%% សម្រាប់រូបភាព</string>
-    <string name="squeezer_onboarding_got_it">យល់ហើយ</string>
+    <string name="squeezer_estimated_savings_percent">ប័តិម្ឡើត ~%d%% សញ្ញសម្រាប់ឯកសារ JPEG</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Begrænsede app-installationsdata, f.eks. beskyttede tredjepartsapps.</string>
     <string name="corpsefinder_filter_appasec_label">Krypterede app-ressourcer</string>
     <string name="corpsefinder_filter_appasec_summary">Krypterede app-ressourcer, f.eks. spilaktiver.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data flyttet til ekstern lager af App2Sd-mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d app-rest slettet</item>

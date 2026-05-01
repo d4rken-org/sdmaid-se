@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Zatrzymaj rejestrowanie</string>
     <string name="debug_debuglog_sensitive_information_message">Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Udostępniaj go tylko zaufanym podmiotom.</string>
     <string name="debug_debuglog_screen_title">Dziennik debugowania</string>
-    <string name="debug_debuglog_screen_discard_action">Odrzuć</string>
     <string name="debug_debuglog_screen_session_path_label">Ścieżka sesji</string>
     <string name="debug_debuglog_screen_log_files_label">Pliki dziennika</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -42,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Błąd: błąd kompresji</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Usunąć tę sesję dziennika debugowania?</string>
     <string name="support_contact_post_send_message">Wiadomość wysłana pomyślnie?</string>
-    <string name="debug_debuglog_sessions_stop_action">Zatrzymaj</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -57,7 +55,6 @@
         <item quantity="many">%d zadań w kolejce</item>
         <item quantity="other">%d zadań w kolejce</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Wyniki zadania</string>
     <string name="tasks_result_subtext">Wynik zadania</string>
     <string name="tasks_timeout_error_label">Zadanie przekroczyło limit czasu</string>
     <string name="tasks_timeout_error_desc">Zadanie trwało zbyt długo i zostało przerwane. Spróbuj ponownie.</string>
@@ -74,10 +71,6 @@
     <string name="onboarding_versus_continue_action">Kontynuuj</string>
     <string name="onboarding_privacy_title">Prywatność</string>
     <string name="onboarding_privacy_body1">SD Maid nie ma reklam i nie sprzedaje danych użytkowników.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Raporty błędów są wysyłane w przypadku wystąpienia problemów i mogą zawierać szczegóły dotyczące aplikacji i plików na urządzeniu. Raporty pomagają naprawić błędy i poprawić działanie aplikacji.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Włącz automatyczne raportowanie błędów</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Te opcje będzie można zmienić w ustawieniach.</string>
-    <string name="onboarding_privacy_continue_action">Kontynuuj</string>
     <string name="onboarding_setup_title">Konfiguracja</string>
     <string name="onboarding_setup_body1">SD Maid przeszuka wszystkie dostępne obszary danych.</string>
     <string name="onboarding_setup_body2">Dostęp do określonych treści zależy od urządzenia, wersji systemu Android i udzielonych uprawnień.</string>
@@ -172,7 +165,6 @@
     <string name="setup_incomplete_card_title">Konfiguracja nie jest ukończona</string>
     <string name="setup_incomplete_card_body">Dokończ konfigurację SD Maid, aby uzyskać lepsze wyniki.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid próbuje naprawić problemy z konfiguracją.</string>
-    <string name="setup_incomplete_card_dismiss_action">Odrzuć</string>
     <string name="setup_incomplete_card_continue_action">Kontynuuj konfigurację</string>
     <string name="setup_forcedshow_summary">Pokaż ponownie ekran konfiguracji, uwzględniając już wykonane elementy.</string>
     <string name="setup_checking_card_body">Weryfikacja ukończenia konfiguracji i funkcjonalności.</string>
@@ -235,8 +227,6 @@
     <string name="dataarea_warningcard_reload_action">Przeładuj obszary danych</string>
     <string name="debug_mode_label">Tryb debugowania</string>
     <string name="debug_mode_explanation">Włącz opcje testowania i bardziej szczegółowy wynik. Aplikacja będzie działać wolniej i zachowywać się inaczej.</string>
-    <string name="debug_bugreporter_label">Automatyczne raporty błędów</string>
-    <string name="debug_bugreporter_summary">Automatycznie zgłasza problemy, m.in. szczegóły dotyczące awarii aplikacji, więc mogę dowiedzieć się, dlaczego i to naprawić.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Tryb debugowania jest włączony</string>
     <string name="debug_card_trace_mode_label">Włącz tryb śledzenia</string>
@@ -251,9 +241,6 @@
     <string name="data_area_sdcard_label">Karta SD</string>
     <string name="data_areas_label">Obszary danych</string>
     <string name="data_areas_description">Obszary danych reprezentują miejsca na twoim urządzeniu, które są dostępne dla SD Maid. W zależności od wersji Androida i udzielonych uprawnień mogą być dostępne różne obszary danych.</string>
-    <string name="data_areas_short_summary">Obszary, do których SD Maid może uzyskać dostęp na podstawie aktualnie udzielonych uprawnień.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="updates_dashcard_title">Aktualizacja dostępna</string>
     <string name="updates_dashcard_body">Dostępna jest aktualizacja. Masz %1$s, a najnowsza wersja to %2$s.</string>
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>
@@ -266,7 +253,6 @@ Karol Szastok (K4r0lSz);</string>
     <string name="updatecheck_setting_enabled_label">Sprawdzanie aktualizacji</string>
     <string name="updatecheck_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie aktualizacji, aby poinformować cię, gdy nowa wersja będzie dostępna.</string>
     <string name="device_settings_category">Urządzenie</string>
-    <string name="beta_version_indicator_desc">Wersje przedpremierowe wyświetlają małą wstążkę na ekranie startowym. Są częściej aktualizowane, mogą mieć więcej funkcji, ale mogą też zawierać więcej błędów.</string>
     <string name="review_app_review_action">Oceń</string>
     <string name="review_app_dismiss_action">Może później</string>
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>

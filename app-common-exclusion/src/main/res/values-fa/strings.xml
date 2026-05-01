@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">از ابزار کنترل برنامه برای ایجاد استثناءهای برنامه استفاده کنید.</string>
     <string name="exclusion_create_path_hint">از ابزار آنالیز ذخیره‌سازی برای ایجاد استثناءهای مسیر استفاده کنید.</string>
     <string name="exclusion_show_defaults_action">نمایش پیش‌فرض</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
 </resources>

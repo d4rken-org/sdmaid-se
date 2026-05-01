@@ -6,6 +6,7 @@ import android.content.Context
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.navigation.NavigationDestination
 
 interface HasLocalizedError {
     fun getLocalizedError(): LocalizedError
@@ -17,8 +18,10 @@ data class LocalizedError(
     val description: CaString,
     val fixActionLabel: CaString? = null,
     val fixAction: ((Activity) -> Unit)? = null,
+    val fixActionRoute: NavigationDestination? = null,
     val infoActionLabel: CaString? = null,
     val infoAction: ((Activity) -> Unit)? = null,
+    val infoActionRoute: NavigationDestination? = null,
 ) {
     fun asText() = caString { "${label.get(it)}:\n${description.get(it)}" }
 }

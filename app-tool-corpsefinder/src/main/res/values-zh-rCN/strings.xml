@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">受限应用安装数据，如受保护的第三方应用。</string>
     <string name="corpsefinder_filter_appasec_label">加密的应用资源</string>
     <string name="corpsefinder_filter_appasec_summary">加密的应用资源，例如游戏资产</string>
-    <string name="corpsefinder_filter_app2sd_summary">通过 App2Sd 模组移动到外部储存的数据。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d 应用残留已删除</item>

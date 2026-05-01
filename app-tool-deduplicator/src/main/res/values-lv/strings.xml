@@ -15,9 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Rādīt opcijas, kas ļauj dzēst visus failus dublikātu kopā, lai nepaliku neviens fails.</string>
     <string name="deduplicator_search_locations_title">Meklēšanas vietas</string>
     <string name="deduplicator_search_locations_all_summary">Visas pieejamās vietas</string>
-    <string name="deduplicator_keep_prefer_paths_title">Dot priekšroku saglabāšanai</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Lemjot, kuru dublikātu saglabāt, dot priekšroku failiem šajās vietās.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nav konfigūrētu vieţu</string>
     <string name="deduplicator_skip_minsize_title">Minimālais izmērs</string>
     <string name="deduplicator_skip_minsize_description">Izlaist failus, kas ir mazāki par minimālo izmēru.</string>
     <string name="deduplicator_skip_uncommon_title">Izlaist retsāk failu tipus</string>

@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">በተመሳሳዩ ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች መሰረዝ የሚያስችሉ አማራጮችን አሳይ፣ ስለዚህ ምንም ፋይል አይቀርም።</string>
     <string name="deduplicator_search_locations_title">የፍለጋ ቦታዎች</string>
     <string name="deduplicator_search_locations_all_summary">ሁሉም ሊደረስባቸው የሚችሉ አካባቢዎች</string>
-    <string name="deduplicator_keep_prefer_paths_title">ለማስቀመጥ ተመራጭ ቦታ</string>
-    <string name="deduplicator_keep_prefer_paths_summary">የትኛውን ተመሳሳይ ማስቀመጥ እንዳለብ ሲወሰን፣ በእነዚህ ቦታዎች ያሉ ፋይሎችን ማስቀመጥ ይመረጣል።</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ምንም ቦታዎች አልተዋቀሩም</string>
     <string name="deduplicator_skip_minsize_title">ዝቅተኛ መጠን</string>
     <string name="deduplicator_skip_minsize_description">ከዝቅተኛ መጠን በታች ያሉ ፋይሎችን ዝለል።</string>
     <string name="deduplicator_skip_uncommon_title">ያልተለመዱ የፋይል ዓይነቶችን ዝለል</string>

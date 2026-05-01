@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">നിങ്ങളുടെ ഉപകരണത്തിൽ ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d ആപ്പ് കണ്ടെത്തി</item>
-        <item quantity="other">%d ആപ്പുകൾ കണ്ടെത്തി</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">ആപ്പുകൾ ടോഗിൾ ചെയ്യുക</string>
     <string name="appcontrol_toggle_app_enable_action">ആപ്പ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="appcontrol_toggle_app_disable_action">ആപ്പ് നിഷ്ക്രിയമാക്കുക</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">ഡീബഗ്</string>
     <string name="appcontrol_progress_enabling_package">ആപ്പ് പ്രവർത്തനക്ഷമമാക്കുന്നു</string>
     <string name="appcontrol_progress_disabling_package">ആപ്പ് നിഷ്ക്രിയമാക്കുന്നു</string>
-    <string name="appcontrol_list_filteroptions_label">ഫിൽടർ ഓപ്ഷൻസ്</string>
     <string name="appcontrol_list_sortmode_name_label">ആപ്പ് പേര്</string>
     <string name="appcontrol_list_sortmode_updated_label">അവസാനം അപ്ഡേറ്റ് ചെയ്തത്</string>
     <string name="appcontrol_list_sortmode_installed_label">ആദ്യമായി ഇൻസ്റ്റാൾ ചെയ്തത്</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">ഇൻസ്റ്റാൾ ചെയ്തത്: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ മാനേജ് ചെയ്യുക</string>
-    <string name="appcontrol_automation_loading">ആക്സസിബിലിറ്റി സർവീസ് വഴി ഓടോമേഷൻ തയാറാക്കുന്നു</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">മുൻപിന്നതെ പ്രവൃത്തി സ്ഥിരീകരിക്കാൻ ശ്രമിക്കുന്നു (കീവർഡുകൾ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">മറ്റ് ഉപയോക്താക്കളെ ഉൾപ്പെടുത്തുക</string>
-    <string name="appcontrol_include_multiuser_summary">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്തൃ പ്രൊഫൈലുകളിലെ ആപ്പുകൾ ഉൾപ്പെടുത്തുക.</string>
 </resources>

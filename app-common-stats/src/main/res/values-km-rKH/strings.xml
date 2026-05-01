@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">ត្រង %s ត្រូវបានត្រងត្រូពីទីនៅអ្នកបានឥយឥយ SD Maid ទៅសកសន្និតអ្នក៴</item>
     </plurals>
-    <string name="stats_report_status_success">ជៅកជ័យ</string>
     <string name="stats_report_status_partial_success">ជៅកជ័យប័កខ្ឡើន</string>
     <string name="stats_report_status_partial_failure">ប័កស្ខាល</string>
     <string name="stats_settings_desc">កំណត់ស្ថិតិការណ៍ រាយការណ៍ និងការត័ក្កាត់តវ័ភបល័យរបស់ SD Maid។</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">ច្នវន័ន្ថែមុនបានលុបរាយការណ៍ត័ឡនាំនៃឡើងឮកស្តាម្បើរ SD Maid។</string>
     <string name="stats_settings_retention_paths_label">ពត់មានព័ត្រូលម័យន័យ</string>
     <string name="stats_settings_retention_paths_desc">ច្នវន័ន្ថែដែលរក្សាទុកទាក់លម័ឡើយស័ក់ត្រងព័ត្រូដែលបានស្កែរត្រូវបានប័ស្សសកម្មានត្រង SD Maid។</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d ថ្ងៃ</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">ស្ដារត្រូវបានទាំងនាំ</string>
     <string name="stats_settings_reset_all_desc">លុបរាយការណ៍ទាំងនាំ និងកំណត់ស្ថិតិការណ៍tousត្រូកន្លែសូន។</string>
     <string name="stats_affected_paths_label">ព័ត្រូត្រូវបានប័ស្សសកម្មលើ</string>
@@ -41,8 +37,4 @@
     <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>
     <string name="stats_storage_type_secondary">ឧបករណ៍ផ្ទុកបន្ទាប់បន្សំ</string>
     <string name="stats_storage_type_portable">ឧបករណ៍ផ្ទុកចល័ត</string>
-    <string name="stats_space_history_delete_storage_title">លុប​ប្រវត្តិ​ឧបករណ៍​ផ្ទុក?</string>
-    <string name="stats_space_history_delete_storage_desc">ទិន្នន័យ​និន្នាការ​ទាំង​អស់​សម្រាប់​ឧបករណ៍​ផ្ទុក​នេះ​នឹង​ត្រូវ​បាន​លុប​ជា​អចិន្ត្រៃយ៍។</string>
-    <string name="stats_settings_retention_snapshots_label">ថតអេក្រង់ផ្ទុក</string>
-    <string name="stats_settings_retention_snapshots_desc">ចំនួនថ្ងៃដើម្បីរក្សាទុករូបថតទំហំផ្ទុក។</string>
 </resources>

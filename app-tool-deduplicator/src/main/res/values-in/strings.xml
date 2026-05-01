@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Tampilkan opsi yang memungkinkan Anda menghapus semua file dalam satu set duplikat sehingga tidak ada file yang tersisa.</string>
     <string name="deduplicator_search_locations_title">Lokasi pencarian</string>
     <string name="deduplicator_search_locations_all_summary">Semua area yang dapat diakses</string>
-    <string name="deduplicator_keep_prefer_paths_title">Utamakan menyimpan di</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Saat memutuskan duplikat mana yang disimpan, utamakan menyimpan file di lokasi ini.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Tidak ada lokasi yang dikonfigurasikan</string>
     <string name="deduplicator_skip_minsize_title">Ukuran minimum</string>
     <string name="deduplicator_skip_minsize_description">Lewati file yang berada di bawah ukuran minimum.</string>
     <string name="deduplicator_skip_uncommon_title">Lewati jenis file yang tidak umum</string>

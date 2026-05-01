@@ -20,7 +20,6 @@
         <item quantity="one">Dagligen</item>
         <item quantity="other">Var %d dag</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Upprepningsintervall</string>
     <string name="scheduler_inaccurate_execution_hint">Förväntade körningstider är uppskattningar. Scheman kan försenas eller påskyndas om det sparar batteri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Inga aktiva scheman</string>
     <string name="scheduler_setting_nopowersaving_title">Hoppa över vid lågt batteri</string>

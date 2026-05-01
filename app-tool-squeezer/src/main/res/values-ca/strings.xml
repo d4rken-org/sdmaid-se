@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Comprimiu imatges i vídeos per estalviar espai d\'emmagatzematge.</string>
+    <string name="squeezer_explanation_short">Comprimiu imatges per estalviar espai d\'emmagatzematge.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">S\'ha trobat %d element</item>
-        <item quantity="other">S\'han trobat %d elements</item>
+        <item quantity="one">S\'ha trobat %d imatge</item>
+        <item quantity="other">S\'han trobat %d imatges</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">Es pot estalviar ~%s</item>
         <item quantity="other">Es poden estalviar ~%s</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">S\'ha comprimit %d element</item>
-        <item quantity="other">S\'han comprimit %d elements</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ha fallat</item>
-        <item quantity="other">%d han fallat</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">S\'ha omès %d fitxer (no accessible)</item>
-        <item quantity="other">S\'han omès %d fitxers (no accessibles)</item>
+        <item quantity="one">S\'ha comprimit %d imatge</item>
+        <item quantity="other">S\'han comprimit %d imatges</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d element seleccionat</item>
-        <item quantity="other">%d elements seleccionats</item>
+        <item quantity="one">S\'ha seleccionat %d imatge</item>
+        <item quantity="other">S\'han seleccionat %d imatges</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Cerca ubicacions</string>
-    <string name="squeezer_search_locations_default_summary">Carpetes de càmera (per defecte)</string>
     <string name="squeezer_min_size_title">Mida mínima del fitxer</string>
-    <string name="squeezer_min_size_description">Omet els fitxers més petits que aquesta mida.</string>
+    <string name="squeezer_min_size_description">Omet les imatges més petites que aquesta mida.</string>
     <string name="squeezer_min_age_title">Antiguitat mínima del fitxer</string>
-    <string name="squeezer_min_age_description">Només inclou fitxers anteriors a aquesta antiguitat.</string>
-    <string name="squeezer_compression_settings_label">General</string>
-    <string name="squeezer_quality_label">Qualitat</string>
-    <string name="squeezer_quality_title">Qualitat de compressió</string>
-    <string name="squeezer_quality_description">Una qualitat més baixa significa una mida de fitxer més petita però una qualitat visual reduïda.</string>
-    <string name="squeezer_quality_example_format">Exemple: %1$s imatge → estalvia ~%2$s amb una qualitat del %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Les qualitats inferiors poden causar artefactes visibles.</string>
-    <string name="squeezer_quality_warning_high">La qualitat molt alta proporciona un estalvi mínim d\'espai.</string>
-    <string name="squeezer_types_category_label">Configuració d\'imatges</string>
-    <string name="squeezer_video_settings_category_label">Configuració de vídeo</string>
+    <string name="squeezer_min_age_description">Només inclou imatges anteriors a aquesta antiguitat.</string>
+    <string name="squeezer_compression_settings_label">Configuració de la compressió</string>
+    <string name="squeezer_quality_description">Una qualitat més baixa significa una mida de fitxer més petita però una qualitat d\'imatge reduïda.</string>
+    <string name="squeezer_types_category_label">Tipus d\'imatge</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Inclou imatges JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inclou imatges WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Vídeo MP4</string>
-    <string name="squeezer_type_video_description">Inclou fitxers de vídeo MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Omet els elements comprimits anteriorment</string>
-    <string name="squeezer_skip_compressed_description">Omet els fitxers que ja han estat comprimits per l\'SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Omet les imatges que ja han estat comprimides per l\'SD Maid.</string>
     <string name="squeezer_exif_marker_title">Escriu el marcador EXIF</string>
     <string name="squeezer_exif_marker_description">Afegeix un marcador al camp de comentaris de l\'usuari EXIF ​​de la imatge per evitar la recompressió fins i tot si s\'esborra l\'historial de compressió.</string>
     <string name="squeezer_estimated_savings_format">~%s estalviats</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Confirmeu la compressió</string>
     <string name="squeezer_preview_total_size">Mida total</string>
     <string name="squeezer_preview_estimated_savings">Estalvi estimat</string>
-    <string name="squeezer_compress_confirmation_title">Voleu comprimir els elements seleccionats?</string>
-    <string name="squeezer_compress_confirmation_message">Això substituïrà els fitxers originals per versions comprimides. Aquesta acció no es pot desfer.</string>
     <string name="squeezer_history_title">Historial de compressió</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Sense historial de compressió</string>
     <string name="squeezer_history_clear_title">Esborra l\'historial de compressió</string>
-    <string name="squeezer_history_clear_message">Això permetrà que els fitxers prèviament comprimits es tornin a comprimir. Els fitxers en si no es veuen afectats.</string>
-    <string name="squeezer_onboarding_title">Quant a la compressió d\'imatges</string>
-    <string name="squeezer_onboarding_message">La compressió d\'imatges redueix la mida del fitxer eliminant detalls visuals. Aquest procés és irreversible: la qualitat original no es pot restaurar.\n\nAquí teniu una vista prèvia de com quedaran les vostres imatges:</string>
+    <string name="squeezer_history_clear_message">Això permetrà que les imatges prèviament comprimides es tornin a comprimir. Les imatges en si no es veuen afectades.</string>
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Després de la compressió</string>
-    <string name="squeezer_onboarding_video_original_label">Fotograma de vídeo</string>
-    <string name="squeezer_onboarding_video_compressed_label">Previsualització (aproximada)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">La qualitat real del vídeo pot variar</string>
-    <string name="squeezer_onboarding_quality_label">Qualitat: %d%%</string>
     <string name="squeezer_compare_action">Mostra la comparació</string>
     <string name="squeezer_no_example_found">No s\'han trobat imatges a les rutes seleccionades.</string>
-    <string name="squeezer_result_empty_message">No s\'han trobat fitxers multimèdia comprimibles.</string>
-    <string name="squeezer_setup_warning">La compressió reduïx permanentment la qualitat per estalviar espai d\'emmagatzematge. Això no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d ubicació no es pot utilitzar per a la compressió i s\'ha eliminat. La compressió requereix accés directe a l\'emmagatzematge intern.</item>
-        <item quantity="other">%d ubicacions no es poden utilitzar per a la compressió i s\'han eliminat. La compressió requereix accés directe a l\'emmagatzematge intern.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">La compressió de fitxers multimèdia reduïx la mida dels fitxers d\'imatges i vídeos per alliberar espai d\'emmagatzematge. Això reduïx permanentment la qualitat i no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
+    <string name="squeezer_result_empty_message">No s\'han trobat imatges comprimibles.</string>
+    <string name="squeezer_setup_explanation">La compressió multimèdia redueix la mida dels fitxers d\'imatges per alliberar espai d\'emmagatzematge. Això redueix permanentment la qualitat de la imatge i no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
     <string name="squeezer_setup_paths_title">Cerca ubicacions</string>
     <string name="squeezer_setup_paths_default">Seleccioneu les carpetes per cercar</string>
     <string name="squeezer_setup_quality_title">Qualitat de compressió</string>
     <string name="squeezer_setup_age_title">Edat mínima</string>
-    <string name="squeezer_setup_age_none">Sense límit (inclou tots els fitxers)</string>
     <string name="squeezer_setup_start_action">Comença la cerca</string>
     <string name="squeezer_quality_hint_very_low">Una qualitat inferior al 40% pot crear imatges inutilitzables.</string>
     <string name="squeezer_quality_hint_low">Una qualitat més baixa estalvia més espai però pot causar artefactes visibles.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Almenys %d dia d\'antiguitat</item>
         <item quantity="other">Almenys %d dies d\'antiguitat</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un ~%d%% per a imatges</string>
-    <string name="squeezer_onboarding_got_it">Entesos</string>
+    <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un %d%% per a fitxers JPEG</string>
 </resources>

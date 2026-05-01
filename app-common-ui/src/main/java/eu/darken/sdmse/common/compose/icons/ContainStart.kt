@@ -1,0 +1,50 @@
+package eu.darken.sdmse.common.compose.icons
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.unit.dp
+
+val SdmIcons.ContainStart: ImageVector
+    get() {
+        _containStart?.let { return it }
+        return ImageVector.Builder(
+            name = "ContainStart",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f,
+        ).apply {
+            path(
+                fill = SolidColor(Color.Black),
+            ) {
+                moveTo(2f, 3f)
+                horizontalLineTo(8f)
+                verticalLineTo(5f)
+                horizontalLineTo(4f)
+                verticalLineTo(19f)
+                horizontalLineTo(8f)
+                verticalLineTo(21f)
+                horizontalLineTo(2f)
+                verticalLineTo(3f)
+                moveTo(7f, 17f)
+                verticalLineTo(15f)
+                horizontalLineTo(9f)
+                verticalLineTo(17f)
+                horizontalLineTo(7f)
+                moveTo(11f, 17f)
+                verticalLineTo(15f)
+                horizontalLineTo(13f)
+                verticalLineTo(17f)
+                horizontalLineTo(11f)
+                moveTo(15f, 17f)
+                verticalLineTo(15f)
+                horizontalLineTo(17f)
+                verticalLineTo(17f)
+                horizontalLineTo(15f)
+                close()
+            }
+        }.build().also { _containStart = it }
+    }
+private var _containStart: ImageVector? = null

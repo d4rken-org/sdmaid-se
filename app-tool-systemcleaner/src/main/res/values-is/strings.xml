@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Takmarka samsvörun eftir aldri skráar (síðast breytt). Skildu eftir óstillt til að para við hvaða aldur sem er.</string>
     <string name="systemcleaner_customfilter_import_action">Flytja inn nýja síu</string>
     <string name="systemcleaner_customfilter_export_action">Flytja út valda síu</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Þú ert með óvistaðar breytingar!</string>
 </resources>

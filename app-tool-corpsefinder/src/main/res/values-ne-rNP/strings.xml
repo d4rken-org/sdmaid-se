@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">प्रतिबन्धित एप स्थापना डाटा, जस्तै सुरक्षित तेस्रो पक्ष एप्सहरू।</string>
     <string name="corpsefinder_filter_appasec_label">एन्क्रिप्टेड एप संसाधनहरू</string>
     <string name="corpsefinder_filter_appasec_summary">एन्क्रिप्टेड एप संसाधनहरू, जस्तै गेम एसेटहरू।</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd मोडहरूद्वारा बाह्य भण्डारणमा सारिएको डाटा।</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d अनुप्रयोग अवशेष मेटाइयो</item>

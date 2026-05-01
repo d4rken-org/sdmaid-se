@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Goqa izithombe namaviyo ukonga indawo yokugcina.</string>
+    <string name="squeezer_explanation_short">Cindezela izithombe ukonga isikhala sesitoreji.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d into etholakele</item>
-        <item quantity="other">%d izinto ezitholakele</item>
+        <item quantity="one">%d isithombe sitholakele</item>
+        <item quantity="other">%d izithombe zitholakele</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s kungongeka</item>
         <item quantity="other">~%s kungongeka</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d into egoqiwe</item>
-        <item quantity="other">%d izinto ezigoqiwe</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ehlulekile</item>
-        <item quantity="other">%d ezihlulekile</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ifayela lishiyiwe (alifikeleleki)</item>
-        <item quantity="other">%d amafayela ashiyiwe (awafikileleki)</item>
+        <item quantity="one">%d isithombe sicindezelwe</item>
+        <item quantity="other">%d izithombe zicindezelwe</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d into ekhethiwe</item>
-        <item quantity="other">%d izinto ezikhethiwe</item>
+        <item quantity="one">%d isithombe sikhethiwe</item>
+        <item quantity="other">%d izithombe zikhethiwe</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Izindawo zokusesha</string>
-    <string name="squeezer_search_locations_default_summary">Amafolda ekhamera (okuzenzakalelayo)</string>
     <string name="squeezer_min_size_title">Usayizi omncane wefayela</string>
-    <string name="squeezer_min_size_description">Yeqa amafayela amancane kunale ndawo.</string>
+    <string name="squeezer_min_size_description">Yeqa izithombe ezincane kunalo sayizi.</string>
     <string name="squeezer_min_age_title">Ubudala obuncane befayela</string>
-    <string name="squeezer_min_age_description">Faka kuphela amafayela amadala kunaleli zinga.</string>
-    <string name="squeezer_compression_settings_label">Okujwayelekile</string>
-    <string name="squeezer_quality_label">Ikhwalithi</string>
-    <string name="squeezer_quality_title">Ikhwalithi yokucindezela</string>
-    <string name="squeezer_quality_description">Ikhwalithi ephansi kusho ifayela elincane kodwa ikhwalithi yombono inciphisiwe.</string>
-    <string name="squeezer_quality_example_format">Isibonelo: %1$s isithombe → onga ~%2$s ku-%3$d%% ikhwalithi</string>
-    <string name="squeezer_quality_warning_low">Amakhwalithi aphansi angabangela izinkinga ezibonakalayo.</string>
-    <string name="squeezer_quality_warning_high">Ikhwalithi ephezulu kakhulu ihlinzeka ngokonga kancane.</string>
-    <string name="squeezer_types_category_label">Izilungiselelo zezithombe</string>
-    <string name="squeezer_video_settings_category_label">Izilungiselelo zeviyo</string>
+    <string name="squeezer_min_age_description">Faka kuphela izithombe ezindala kunobu budala.</string>
+    <string name="squeezer_compression_settings_label">Izilungiselelo zokucindezela</string>
+    <string name="squeezer_quality_description">Ikhwalithi ephansi isho usayizi wefayela omncane kodwa ikhwalithi yesithombe encishisiwe.</string>
+    <string name="squeezer_types_category_label">Izinhlobo zezithombe</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Faka izithombe ze-JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Faka izithombe ze-WebP (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Faka amafayela eviyo we-MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Yeqa ezicindezelwe ngaphambilini</string>
-    <string name="squeezer_skip_compressed_description">Yeqa amafayela asevele egoqiwe ngu-SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Yeqa izithombe esezicindezelwe yi-SD Maid.</string>
     <string name="squeezer_exif_marker_title">Bhala uphawu lwe-EXIF</string>
     <string name="squeezer_exif_marker_description">Engeza uphawu enkundleni yokuphawula komsebenzisi we-EXIF yesithombe ukuvimbela ukucindezelwa kabusha noma umlando wokucindezela usulwe.</string>
     <string name="squeezer_estimated_savings_format">~%s ukonga</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>
     <string name="squeezer_preview_total_size">Usayizi ophelele</string>
     <string name="squeezer_preview_estimated_savings">Ukonga okulinganisiwe</string>
-    <string name="squeezer_compress_confirmation_title">Goqa izinto ezikhethiwe?</string>
-    <string name="squeezer_compress_confirmation_message">Lokhu kuzobuyisela amafayela asekuqaleni ngamaviyo egoqiwe. Lesi senzo asinakuguqulwa.</string>
     <string name="squeezer_history_title">Umlando wokucindezela</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d into (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Akukho umlando wokucindezela</string>
     <string name="squeezer_history_clear_title">Sula umlando wokucindezela</string>
-    <string name="squeezer_history_clear_message">Lokhu kuzovumela amafayela asevele egoqiwe ukuba agoqwe futhi. Amafayela ngokwawo awathinteki.</string>
-    <string name="squeezer_onboarding_title">Mayelana Nokucindezela Izithombe</string>
-    <string name="squeezer_onboarding_message">Ukucindezela isithombe kunciphisa usayizi wefayela ngokususa imininingwane ebonakalayo. Le nqubo ayihlehliseki - ikhwalithi yokuqala ayikwazi ukubuyiswa.\n\nNansi imboniso yangaphambili yokuthi izithombe zakho zizobukeka kanjani:</string>
+    <string name="squeezer_history_clear_message">Lokhu kuzovumela izithombe ebezicindezelwe ngaphambilini ukuba zicindezelwe futhi. Izithombe ngokwazo azithinteki.</string>
     <string name="squeezer_onboarding_original_label">Okwangiempela</string>
     <string name="squeezer_onboarding_compressed_label">Ngemuva kokucindezela</string>
-    <string name="squeezer_onboarding_video_original_label">Uhlaka lweviyo</string>
-    <string name="squeezer_onboarding_video_compressed_label">Iphrevyu (ecatshangwayo)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Ikhwalithi yeviyo yangempela ingahluka</string>
-    <string name="squeezer_onboarding_quality_label">Ikhwalithi: %d%%</string>
     <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
     <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
-    <string name="squeezer_result_empty_message">Akukho imidiya engoqwa etholakele.</string>
-    <string name="squeezer_setup_warning">Ukugoqwa kwehlisa ikhwalithi ngokunaphakade ukonga indawo yokugcina. Lokhu akunakuguqulwa. Hlola izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">Indawo engu-%d ayikwazi ukusetshenziswa ukugoqwa futhi isuswe. Ukugoqwa kudinga ukufinyelela ngokuqondile kwesitoreji sangaphakathi.</item>
-        <item quantity="other">%d izindawo azikwazi ukusetshenziswa ukugoqwa futhi zisuswe. Ukugoqwa kudinga ukufinyelela ngokuqondile kwesitoreji sangaphakathi.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">I-Media Squeeze inciphisa usayizi wefayela lwezithombe namaviyo ukuze ikhulule indawo yokugcina. Lokhu kwehlisa ikhwalithi ngokunaphakade futhi akunakuguqulwa. Hlola izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
+    <string name="squeezer_result_empty_message">Azikho izithombe ezicindezelekayo ezitholakele.</string>
+    <string name="squeezer_setup_explanation">Ukucindezela Imidiya kunciphisa usayizi wefayela lezithombe ukukhulula isikhala sesitoreji. Lokhu kunciphisa unomphela ikhwalithi yesithombe futhi akukwazi ukuhlehliswa. Buyekeza izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
     <string name="squeezer_setup_paths_title">Izindawo zokusesha</string>
     <string name="squeezer_setup_paths_default">Khetha amafolda okuseshwa</string>
     <string name="squeezer_setup_quality_title">Ikhwalithi yokucindezela</string>
     <string name="squeezer_setup_age_title">Iminyaka emincane</string>
-    <string name="squeezer_setup_age_none">Akukho umkhawulo (faka wonke amafayela)</string>
     <string name="squeezer_setup_start_action">Qala Ukusesha</string>
     <string name="squeezer_quality_hint_very_low">Ikhwalithi engaphansi kuka-40% ingadala izithombe ezingasebenziseki.</string>
     <string name="squeezer_quality_hint_low">Ikhwalithi ephansi yonga isikhala esiningi kodwa ingabangela izinkinga ezibonakalayo.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Okungenani usuku olungu-%d</item>
         <item quantity="other">Okungenani izinsuku ezingu-%d</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Kulinganiselwa ukonga okungama-%d%% kwezithombe</string>
-    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
+    <string name="squeezer_estimated_savings_percent">Kulinganiswa ~%d%% ukonga kwamafayela e-JPEG</string>
 </resources>

@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Wys opsies wat jou toelaat om alle lêers in \'n stel duplikate te skrap sodat geen lêer oorgebly word nie.</string>
     <string name="deduplicator_search_locations_title">Soek liggings</string>
     <string name="deduplicator_search_locations_all_summary">Alle toeganklike areas</string>
-    <string name="deduplicator_keep_prefer_paths_title">Verkies om te hou in</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Wanneer besluit word watter duplikaat om te hou, verkies om lêers in hierdie liggings te hou.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Geen liggings opgestel nie</string>
     <string name="deduplicator_skip_minsize_title">Minimum grootte</string>
     <string name="deduplicator_skip_minsize_description">Slaan lêers oor wat onder die minimum grootte is.</string>
     <string name="deduplicator_skip_uncommon_title">Slaan ongewone lêer tipes oor</string>

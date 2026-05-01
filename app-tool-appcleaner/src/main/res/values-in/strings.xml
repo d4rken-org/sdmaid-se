@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Otomatisasi Pembersih Aplikasi</string>
     <string name="appcleaner_automation_subtitle_default_caches">Menghapus cache bawaan…</string>
-    <string name="appcleaner_automation_progress_open_settings">Membuka pengaturan (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Sedang mencari entri \"Penyimpanan\" (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Sedang mencari tombol \"Hapus data\" (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Mencari tombol \"Hapus cache\" (kata kunci: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache bawaan privat dan publik. Tidak terakses secara langsung, namun bisa dihapus secara tidak langsung (cth. layanan aksesibilitas).</string>
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>
     <string name="appcleaner_automation_unavailable_body">Menghapus cache yang tidak dapat diakses membutuhkan layanan aksesibilitas SD Maid, namun tidak tersedia. Jika tidak ingin menggunakannya: Matikan pilihan \"Sertakan cache yang tidak bisa diakses\".</string>
-    <string name="appcleaner_junk_userprofile_label">Pengguna</string>
     <string name="appcleaner_delete_confirmation_message_x">Hapus file tidak penting di %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Hapus file tidak penting untuk %d aplikasi yang terpilih?</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersihkan</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cache-nya. Ini dapat membantu membersihkan cache beberapa aplikasi, tetapi dapat menyebabkan aplikasi bermasalah dan memerlukan mulai ulang secara manual.</string>
     <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Layar pengaturan tidak tersedia</string>
-    <string name="appcleaner_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencoba mengkonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
 </resources>

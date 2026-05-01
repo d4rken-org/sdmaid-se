@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Pakkaa kuvat ja videot tallennustilan säästämiseksi.</string>
+    <string name="squeezer_explanation_short">Pakkaa kuvia tallennustilan säästämiseksi.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d kohde löydetty</item>
-        <item quantity="other">%d kohdetta löydetty</item>
+        <item quantity="one">%d kuva löydetty</item>
+        <item quantity="other">%d kuvaa löydetty</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s voidaan säästää</item>
         <item quantity="other">~%s voidaan säästää</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d kohde pakattu</item>
-        <item quantity="other">%d kohdetta pakattu</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d epäonnistui</item>
-        <item quantity="other">%d epäonnistui</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d tiedosto ohitettu (ei pääsyä)</item>
-        <item quantity="other">%d tiedostoa ohitettu (ei pääsyä)</item>
+        <item quantity="one">%d kuva pakattu</item>
+        <item quantity="other">%d kuvaa pakattu</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d kohde valittu</item>
-        <item quantity="other">%d kohdetta valittu</item>
+        <item quantity="one">%d kuva valittu</item>
+        <item quantity="other">%d kuvaa valittu</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Hakusijainnit</string>
-    <string name="squeezer_search_locations_default_summary">Kamerakansiot (oletus)</string>
     <string name="squeezer_min_size_title">Tiedoston vähimmäiskoko</string>
-    <string name="squeezer_min_size_description">Ohita tiedostot, jotka ovat pienempiä kuin tämä koko.</string>
+    <string name="squeezer_min_size_description">Ohita kuvia jotka ovat pienempiä kuin tämä koko.</string>
     <string name="squeezer_min_age_title">Tiedoston vähimmäisikä</string>
-    <string name="squeezer_min_age_description">Sisällytä vain tätä ikää vanhemmat tiedostot.</string>
-    <string name="squeezer_compression_settings_label">Yleiset</string>
-    <string name="squeezer_quality_label">Laatu</string>
-    <string name="squeezer_quality_title">Pakkauksen laatu</string>
-    <string name="squeezer_quality_description">Alempi laatu tarkoittaa pienempiä tiedostokokoja, mutta heikentynytä kuvanlaatua.</string>
-    <string name="squeezer_quality_example_format">Esimerkki: %1$s kuva → säästä ~%2$s laadulla %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Matalampi laatu voi aiheuttaa näkyviä artefakteja.</string>
-    <string name="squeezer_quality_warning_high">Erittäin korkea laatu tarjoaa minimaalisia tilansäästöjä.</string>
-    <string name="squeezer_types_category_label">Kuva-asetukset</string>
-    <string name="squeezer_video_settings_category_label">Videoasetukset</string>
+    <string name="squeezer_min_age_description">Sisällytä vain tätä ikää vanhemmat kuvat.</string>
+    <string name="squeezer_compression_settings_label">Pakkausasetukset</string>
+    <string name="squeezer_quality_description">Matalampi laatu tarkoittaa pienempää tiedostokokoa mutta heikompaa kuvanlaatua.</string>
+    <string name="squeezer_types_category_label">Kuvatyypit</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Sisällytä JPEG-kuvat (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Sisällytä WebP-kuvat (.webp).</string>
-    <string name="squeezer_type_video_title">MP4-video</string>
-    <string name="squeezer_type_video_description">Sisällytä MP4-videotiedostot (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Ohita aiemmin pakatut</string>
-    <string name="squeezer_skip_compressed_description">Ohita tiedostot, jotka SD Maid on jo pakannut.</string>
+    <string name="squeezer_skip_compressed_description">Ohita kuvat jotka SD Maid on jo pakkannut.</string>
     <string name="squeezer_exif_marker_title">Kirjoita EXIF-merkintä</string>
     <string name="squeezer_exif_marker_description">Lisää merkintä kuvan EXIF-käyttäjäkommenttikenttään estääksesi uudelleenpakkauksen vaikka pakkaushistoria tyhjennettäisiin.</string>
     <string name="squeezer_estimated_savings_format">~%s säästöä</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Vahvista pakkaus</string>
     <string name="squeezer_preview_total_size">Kokonaiskoko</string>
     <string name="squeezer_preview_estimated_savings">Arvioitu säästö</string>
-    <string name="squeezer_compress_confirmation_title">Pakataan valitut kohteet?</string>
-    <string name="squeezer_compress_confirmation_message">Tämä korvaa alkuperäiset tiedostot pakatuilla versioilla. Tätä toimintoa ei voi kumota.</string>
     <string name="squeezer_history_title">Pakkaushistoria</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d kohde (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Ei pakkaushistoriaa</string>
     <string name="squeezer_history_clear_title">Tyhjennä pakkaushistoria</string>
-    <string name="squeezer_history_clear_message">Tämä sallii aiemmin pakattujen tiedostojen pakkaamisen uudelleen. Tiedostoihin itseensä ei vaikuteta.</string>
-    <string name="squeezer_onboarding_title">Tietoa kuvien pakkaamisesta</string>
-    <string name="squeezer_onboarding_message">Kuvien pakkaaminen pienentää tiedostokokoa poistamalla visuaalisia yksityiskohtia. Prosessi on peruuttamaton - alkuperäistä laatua ei voi palauttaa.\n\nTässä esikatselu miltä kuvasi näyttävät:</string>
+    <string name="squeezer_history_clear_message">Tämä mahdollistaa aiemmin pakattujen kuvien pakkaamisen uudelleen. Itse kuviin ei vaikuteta.</string>
     <string name="squeezer_onboarding_original_label">Alkuperäinen</string>
     <string name="squeezer_onboarding_compressed_label">Pakkauksen jälkeen</string>
-    <string name="squeezer_onboarding_video_original_label">Videokuva</string>
-    <string name="squeezer_onboarding_video_compressed_label">Esikatselu (likimääräinen)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Todellinen videokuvanlaatu voi poiketa</string>
-    <string name="squeezer_onboarding_quality_label">Laatu: %d%%</string>
     <string name="squeezer_compare_action">Näytä vertailu</string>
     <string name="squeezer_no_example_found">Kuvia ei löytynyt valituista poluista.</string>
-    <string name="squeezer_result_empty_message">Pakattavaa mediaa ei löydetty.</string>
-    <string name="squeezer_setup_warning">Pakkaus heikentää pysyvästi laatua tallennustilan säästämiseksi. Tätä ei voi kumota. Tarkista asetukset huolellisesti ennen aloittamista.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d sijaintia ei voi käyttää pakkaamiseen ja se poistettiin. Pakkaaminen vaatii suoran pääsyn sisäiseen tallennustilaan.</item>
-        <item quantity="other">%d sijaintia ei voi käyttää pakkaamiseen ja ne poistettiin. Pakkaaminen vaatii suoran pääsyn sisäiseen tallennustilaan.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze pienentää kuvien ja videoiden tiedostokokoa vapauttaakseen tallennustilaa. Tämä heikentää pysyvästi laatua eikä sitä voi kumota. Tarkista asetukset huolellisesti ennen aloittamista.</string>
+    <string name="squeezer_result_empty_message">Pakattavia kuvia ei löytynyt.</string>
+    <string name="squeezer_setup_explanation">Median tiivistys pienentää kuvatiedostojen kokoa vapauttaakseen tallennustilaa. Tämä pienentää pysyvästi kuvanlaatua eikä sitä voi kumota. Tarkista asetuksesi huolellisesti ennen aloittamista.</string>
     <string name="squeezer_setup_paths_title">Hakusijainnit</string>
     <string name="squeezer_setup_paths_default">Valitse kansiot haettavaksi</string>
     <string name="squeezer_setup_quality_title">Pakkauksen laatu</string>
     <string name="squeezer_setup_age_title">Vähimmäisikä</string>
-    <string name="squeezer_setup_age_none">Ei rajoitusta (sisällytä kaikki tiedostot)</string>
     <string name="squeezer_setup_start_action">Aloita skannaus</string>
     <string name="squeezer_quality_hint_very_low">Laatu alle 40% voi tuottaa käyttökelvottomia kuvia.</string>
     <string name="squeezer_quality_hint_low">Matalampi laatu säästää enemmän tilaa mutta voi aiheuttaa näkyviä artefakteja.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Vähintään %d päivä vanha</item>
         <item quantity="other">Vähintään %d päivää vanha</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Arvioitu säästö ~%d%% kuville</string>
-    <string name="squeezer_onboarding_got_it">Selvä</string>
+    <string name="squeezer_estimated_savings_percent">Arvioitu ~%d%% säästö JPEG-tiedostoille</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">توقف ضبط کردن</string>
     <string name="debug_debuglog_sensitive_information_message">فایل تولید شده حاوی اطلاعات حساس است (مانند نام فایل ها و برنامه های نصب شده). آن را فقط با اشخاص قابل اعتماد به اشتراک بگذارید.</string>
     <string name="debug_debuglog_screen_title">گزارش خطا</string>
-    <string name="debug_debuglog_screen_discard_action">صرف‌نظر کردن</string>
     <string name="debug_debuglog_screen_session_path_label">مسیر نشست</string>
     <string name="debug_debuglog_screen_log_files_label">فايل گزارشات</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">ناموفق: خطای فشرده‌سازی</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">این جلسه گزارش اشکال‌زدایی حذف شود؟</string>
     <string name="support_contact_post_send_message">پیام با موفقیت ارسال شد؟</string>
-    <string name="debug_debuglog_sessions_stop_action">توقف</string>
     <string name="tasks_activity_notification_channel_label">وظایف فعال</string>
     <string name="tasks_activity_working_notification_title">SDMaid در حال کار کردن است</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d کار در صف</item>
         <item quantity="other">%d کار در صف</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">حاصل کار</string>
     <string name="tasks_result_subtext">حاصل کار</string>
     <string name="tasks_timeout_error_label">زمان وظیفه به پایان رسید</string>
     <string name="tasks_timeout_error_desc">وظیفه خیلی طول کشید و متوقف شد. لطفاً دوباره امتحان کنید.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">ادامه</string>
     <string name="onboarding_privacy_title">حریم خصوصی</string>
     <string name="onboarding_privacy_body1">Sd maid se طبلیقات ندارد و اطلاعات کاربر را نمیفروشد.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">گزارش‌های اشکال زمانی ارسال می‌شوند که خطا رخ می‌دهد و ممکن است حاوی جزئیاتی درباره برنامه‌ها و فایل‌های دستگاه شما باشد. گزارش ها به من کمک می کنند تا اشکالات را برطرف کرده و برنامه را بهبود بخشم.</string>
-    <string name="onboarding_privacy_bugreport_toggle">اجازه به گزارش خودکار اشکال</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">این گزینه‌ها را می‌توانید در تنظیمات تغییر دهید.</string>
-    <string name="onboarding_privacy_continue_action">ادامه</string>
     <string name="onboarding_setup_title">راه‌اندازی</string>
     <string name="onboarding_setup_body1">SD Maid تمام مناطق داده قابل دسترسی را جستجو خواهد کرد.</string>
     <string name="onboarding_setup_body2">آنچه که قابل دسترسی است بستگی به دستگاه شما، نسخه اندروید و دسترسی‌های مجاز دارد.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">راه‌اندازی کامل نیست</string>
     <string name="setup_incomplete_card_body">برای دریافت نتایج بهتر، راه‌اندازی SD Maid را تمام کنید.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid در حال تلاش برای رفع مشکلات تنظیمات است.</string>
-    <string name="setup_incomplete_card_dismiss_action">رد کردن</string>
     <string name="setup_incomplete_card_continue_action">ادامه راه‌اندازی</string>
     <string name="setup_forcedshow_summary">برای نمایش مجدد صفحه تنظیم کردن، از جمله موارد تکمیل شده.</string>
     <string name="setup_checking_card_body">در حال بررسی تکمیل تنظیم و عملکرد.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">بارگذاری دوباره ناحیه‌های داده</string>
     <string name="debug_mode_label">حالت اشکال زدایی</string>
     <string name="debug_mode_explanation">گزینه‌های آزمایشی را فعال کرده و خروجی با جزئیات بیشتر را تنظیم کنید. برنامه کندتر اجرا خواهد شد و عملکرد متفاوتی خواهد داشت.</string>
-    <string name="debug_bugreporter_label">ارسال خودکار مشکلات</string>
-    <string name="debug_bugreporter_summary">به طور خودکار مشکلات را گزارش می‌دهد، مانند جزئیات درباره‌ی خرابی‌های برنامه، تا بتوانم علت آن را بفهمم و آن را رفع کنم.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">حالت اشکال‌زدایی فعال است</string>
     <string name="debug_card_trace_mode_label">فعال کردن حالت ردیابی</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">کارت حافظه</string>
     <string name="data_areas_label">حوزه های داده</string>
     <string name="data_areas_description">منطقه‌های داده نشان‌دهنده مکان‌هایی بر روی دستگاه شما هستند که SD Maid به آنها دسترسی دارد. منطقه‌های داده مختلف ممکن است با توجه به نسخه اندروید شما و مجوزهایی که داده شده‌اند، در دسترس باشند.</string>
-    <string name="data_areas_short_summary">مناطقی که SD Maid می تواند بر اساس مجوزهای اعطا شده فعلی به آنها دسترسی داشته باشد.</string>
-    <string name="history_label">تاریخچه</string>
-    <string name="history_description">یک لیست زمانی از اقدامات اخیر و داده‌های تأثیر پذیرفته.</string>
     <string name="updates_dashcard_title">به‌روزرسانی موجود است</string>
     <string name="updates_dashcard_body">به‌روزرسانی موجود است. شما نسخه %1$s را دارید و جدیدترین نسخه موجود %2$s است.</string>
     <string name="translation_encourage_title">ترجمه خدمتکار SD</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">بررسی به‌روز رسانی</string>
     <string name="updatecheck_setting_enabled_explanation">اجازه دهید SD Maid بررسی کند که آیا نسخه جدیدتری در دسترس است یا خیر.</string>
     <string name="device_settings_category">دستگاه</string>
-    <string name="beta_version_indicator_desc">نسخه‌های پیش‌انتشار یک نشان کوچک روی صفحه شروع نمایش می‌دهند. این نسخه‌ها بیشتر به‌روزرسانی می‌شوند و ممکن است ویژگی‌های بیشتری داشته باشند، اما احتمالاً باگ‌های بیشتری نیز دارند.</string>
     <string name="review_app_review_action">مرور</string>
     <string name="review_app_dismiss_action">شاید بعداً</string>
     <string name="review_app_body">آیا می خواهید نظری برای SD Maid بگذارید؟️ ❤️</string>

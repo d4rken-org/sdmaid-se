@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Χρησιμοποιήστε το εργαλείο Ελέγχου Εφαρμογών για να δημιουργήσετε εξαιρέσεις εφαρμογών.</string>
     <string name="exclusion_create_path_hint">Χρησιμοποιήστε το εργαλείο Αναλυτής Αποθηκευτικού Χώρου για να δημιουργήσετε εξαιρέσεις διαδρομής.</string>
     <string name="exclusion_show_defaults_action">Εμφάνιση προεπιλογών</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
 </resources>

@@ -1,27 +1,37 @@
 package eu.darken.sdmse.main.ui.navigation
 
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object OnboardingWelcomeRoute
+data object OnboardingWelcomeRoute : NavigationDestination
 
 @Serializable
-data object VersusSetupRoute
+data object VersusSetupRoute : NavigationDestination
 
 @Serializable
-data object OnboardingPrivacyRoute
+data object OnboardingPrivacyRoute : NavigationDestination
 
 @Serializable
-data object OnboardingSetupRoute
+data object OnboardingSetupRoute : NavigationDestination
 
 @Serializable
-data object SettingsRoute
+data object SettingsRoute : NavigationDestination
 
 @Serializable
-data object SupportFormRoute
+data object SupportFormRoute : NavigationDestination
 
 @Serializable
-data object DebugLogSessionsRoute
+data object DebugLogSessionsRoute : NavigationDestination
 
 @Serializable
-data object DashboardCardConfigRoute
+data object DashboardCardConfigRoute : NavigationDestination
+
+@Serializable
+data object GeneralSettingsRoute : NavigationDestination
+
+@Serializable
+data object AcknowledgementsRoute : NavigationDestination
+
+@Serializable
+data object SupportRoute : NavigationDestination

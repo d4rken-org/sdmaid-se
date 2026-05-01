@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">Requiere SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Mejorar SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro ofrece mejores resultados, más funciones y opciones para usuarios avanzados.</string>
     <string name="upgrades_dashcard_upgrade_action">Mejorar</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">No se puede conectar a Google Play. Verificá tu conexión a internet e intentá de nuevo.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ya comprado</string>
     <string name="upgrades_gplay_already_owned_error_description">Usá la opción \"Restaurar la compra\" para restaurar tu compra. Si el problema persiste, intentá borrar la caché de Google Play y reiniciar tu dispositivo.</string>
-    <string name="upgrades_no_purchases_found_check_account">No se encontraron compras. ¿Estás usando la cuenta correcta?</string>
     <string name="upgrade_screen_title">Obtené SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. Mi trabajo está financiado por vos.</string>
     <string name="upgrade_screen_benefits_title">Ventajas</string>

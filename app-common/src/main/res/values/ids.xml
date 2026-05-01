@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Common view IDs used by shared list/toolbar utilities -->
-    <item name="list" type="id" />
-    <item name="toolbar" type="id" />
-    <item name="action_select_all" type="id" />
-    <item name="nav_host" type="id" />
-</resources>

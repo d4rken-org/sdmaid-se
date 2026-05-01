@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل أسماء الملفات والتطبيقات المثبتة). شاركها فقط مع الأطراف الموثوقة.</string>
     <string name="debug_debuglog_screen_title">سجل التصحيح</string>
-    <string name="debug_debuglog_screen_discard_action">تجاهل</string>
     <string name="debug_debuglog_screen_session_path_label">مسار الجلسه</string>
     <string name="debug_debuglog_screen_log_files_label">ملفات السجلّ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -44,7 +43,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">فشل: خطأ في الضغط</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">هل تريد حذف جلسة سجل التصحيح هذه؟</string>
     <string name="support_contact_post_send_message">هل تم إرسال الرسالة بنجاح؟</string>
-    <string name="debug_debuglog_sessions_stop_action">إيقاف</string>
     <string name="tasks_activity_notification_channel_label">المهام النشطة</string>
     <string name="tasks_activity_working_notification_title">SD Maid يعمل</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -63,7 +61,6 @@
         <item quantity="many">%d مهام في الانتظار</item>
         <item quantity="other">%d مهام في الانتظار</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">نتائج المهام</string>
     <string name="tasks_result_subtext">نتيجة المهمة</string>
     <string name="tasks_timeout_error_label">انتهت مهلة المهمة</string>
     <string name="tasks_timeout_error_desc">استغرقت المهمة وقتاً طويلاً وتم إيقافها. يرجى المحاولة مرة أخرى.</string>
@@ -80,10 +77,6 @@
     <string name="onboarding_versus_continue_action">متابعة</string>
     <string name="onboarding_privacy_title">الخصوصية</string>
     <string name="onboarding_privacy_body1">لا تحتوي SD Maid على إعلانات ولا تبيع بيانات المستخدم.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">يتم إرسال تقارير الأخطاء عند حدوث أخطاء وقد تحتوي على تفاصيل حول التطبيقات والملفات الموجودة على جهازك. تساعدني التقارير في إصلاح الأخطاء وتحسين التطبيق.</string>
-    <string name="onboarding_privacy_bugreport_toggle">السماح بتقارير الأخطاء التلقائية</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">هذه الخيارات يمكن تغيرها في الإعدادات.</string>
-    <string name="onboarding_privacy_continue_action">متابعة</string>
     <string name="onboarding_setup_title">إعداد</string>
     <string name="onboarding_setup_body1">سيقوم SD Maid بالبحث في جميع أماكن البيانات التي يمكن الوصول إليها.</string>
     <string name="onboarding_setup_body2">ما يمكن الوصول إليه يعتمد على جهازك، إصدار أندرويد والأذونات الممنوحة.</string>
@@ -182,7 +175,6 @@
     <string name="setup_incomplete_card_title">الإعداد غير مكتمل</string>
     <string name="setup_incomplete_card_body">أكمل إعداد SD Maid للحصول على نتائج جيدة.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid يحاول إصلاح مشاكل الإعداد.</string>
-    <string name="setup_incomplete_card_dismiss_action">تجاهل</string>
     <string name="setup_incomplete_card_continue_action">متابعة الإعداد</string>
     <string name="setup_forcedshow_summary">عرض شاشة الإعداد مرة أخرى ، بما في ذلك العناصر المكتملة بالفعل.</string>
     <string name="setup_checking_card_body">التحقق من اكتمال التثبيت وجاهزيته.</string>
@@ -245,8 +237,6 @@
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
     <string name="debug_mode_label">وضع التطوير</string>
     <string name="debug_mode_explanation">تمكين خيارات الاختبار والمزيد من الإخراج المطول. سيعمل التطبيق بشكل أبطأ ويعمل بشكل مختلف.</string>
-    <string name="debug_bugreporter_label">تقارير الأخطاء التلقائية</string>
-    <string name="debug_bugreporter_summary">الإبلاغ عن المشكلات تلقائيًا ، على سبيل المثال تفاصيل تعطل التطبيق حتى أتمكن من تحديد السبب وإصلاحه.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">وضع التصحيح مفعّل</string>
     <string name="debug_card_trace_mode_label">تفعيل وضع التتبع</string>
@@ -261,9 +251,6 @@
     <string name="data_area_sdcard_label">بطاقة الذاكرة SD</string>
     <string name="data_areas_label">مناطق البيانات</string>
     <string name="data_areas_description">تمثل مناطق البيانات المواقع الموجودة على جهازك والتي يمكن الوصول إليها بواسطة SD Maid. قد تتوفر مناطق بيانات مختلفة بناءً على إصدار Android الخاص بك والأذونات التي تم منحها.</string>
-    <string name="data_areas_short_summary">المناطق التي يمكن لـ SD Maid الوصول إليها بناءً على الأذونات الممنوحة حاليًا.</string>
-    <string name="history_label">السجل</string>
-    <string name="history_description">قائمة مرتبة ترتيبًا زمنيًا للإجراءات الأخيرة والبيانات المتأثرة.</string>
     <string name="updates_dashcard_title">تحديث متاح</string>
     <string name="updates_dashcard_body">هنالك تحديث متاح. إصدارك %1$s واخر إصدار هو %2$s.</string>
     <string name="translation_encourage_title">ترجمة SD Maid</string>
@@ -275,7 +262,6 @@
     <string name="updatecheck_setting_enabled_label">التحقق من التحديث</string>
     <string name="updatecheck_setting_enabled_explanation">السماح لـ SD Maid بالتحقق من وجود تحديثات لإعلامك إذا كان إصدار أحدث متاح.</string>
     <string name="device_settings_category">الجهاز</string>
-    <string name="beta_version_indicator_desc">تعرض النسخ الاختبارية شريطًا خفيفًا على شاشة البدء. يتم تحديثها بشكل متكرر، وقد تحتوي على المزيد من الميزات، ولكن قد تحتوي أيضًا على المزيد من الأخطاء.</string>
     <string name="review_app_review_action">مراجعة</string>
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Sessiyanı davam etdir</string>
     <string name="swiper_sessions_description">Faylları 3 sadə addımda nəzərdən keçirin:\n\n1. Skan etmək üçün qovluq seçin\n2. Faylları saxlamaq, silmək və ya keçmək üçün sürüşdürün\n3. Seçimlərinizi nəzərdən keçirin və təsdiqləyin\n\nSon silmə düyməsinə toxunana qədər heç nə silinmir.</string>
     <string name="swiper_select_folders_action">Qovluqları seç</string>
-    <string name="swiper_scanning_title">Skan edilir…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d element tapıldı</item>
         <item quantity="other">%d element tapıldı</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Seçilənləri saxla</string>
     <string name="swiper_status_action_delete_selected">Seçilənləri sil</string>
     <string name="swiper_status_action_reset_selected">Seçilənləri sıfırla</string>
-    <string name="swiper_decision_undecided">Qərarsız</string>
-    <string name="swiper_retry_action">Yenidən cəhd et</string>
     <string name="swiper_delete_confirmation_title">Fayllar silinsin?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Bu %1$d faylı (%2$s) həmişəlik siləcək. Bu əməliyyat geri qaytarıla bilməz.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d qərarsız</item>
         <item quantity="other">%d qərarsız</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d artıq saxlanılıb</item>
-        <item quantity="other">%d artıq saxlanılıb</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d artıq silinib</item>
-        <item quantity="other">%d artıq silinib</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d saxlanılıb</item>
         <item quantity="other">%d saxlanılıb</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Swiper necə işləyir</string>
     <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Başa düşdüm</string>
-    <string name="swiper_help_action">Kömək</string>
     <string name="swiper_file_type_filter_title">Yalnız bu fayl növlərini göstər</string>
     <string name="swiper_file_type_filter_hint">Görmək istədiyiniz növləri seçin. Heç biri seçilməyibsə, bütün fayllar göstərilir.</string>
     <string name="swiper_file_type_category_images">Şəkillər</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arxivlər</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Tətbiq et</string>
-    <string name="swiper_session_filter_action">Faylları filtrele</string>
     <string name="swiper_file_type_filter_summary">Filtrləndi: %1$s</string>
     <string name="swiper_session_no_matching_files">Uyğun fayl tapılmadı</string>
     <string name="swiper_open_externally_action">Xərici tətbibdə aç</string>

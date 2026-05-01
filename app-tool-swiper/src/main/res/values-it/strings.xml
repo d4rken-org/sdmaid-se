@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continua sessione</string>
     <string name="swiper_sessions_description">Rivedi i file in 3 semplici passaggi:\n\n1. Scegli una cartella da scansionare\n2. Scorri i file per tenerli, eliminarli o saltarli\n3. Rivedi le tue scelte e conferma\n\nNulla viene rimosso finché non tocchi il pulsante finale di eliminazione.</string>
     <string name="swiper_select_folders_action">Seleziona cartelle</string>
-    <string name="swiper_scanning_title">Scansione…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elemento trovato</item>
         <item quantity="other">%d elementi trovati</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Tieni selezionati</string>
     <string name="swiper_status_action_delete_selected">Elimina selezionato</string>
     <string name="swiper_status_action_reset_selected">Reimposta selezionati</string>
-    <string name="swiper_decision_undecided">Indeciso</string>
-    <string name="swiper_retry_action">Riprova</string>
     <string name="swiper_delete_confirmation_title">Eliminare i file?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Questo eliminerà permanentemente %1$d file (%2$s). Questa azione non può essere annullata.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d indeciso</item>
         <item quantity="other">%d indecisi</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d già tenuto</item>
-        <item quantity="other">%d già tenuti</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d già eliminato</item>
-        <item quantity="other">%d già eliminati</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d tenuto</item>
         <item quantity="other">%d tenuti</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Come funziona Swiper</string>
     <string name="swiper_help_message">Scorri ogni file per prendere una decisione:\n\n← Scorri a sinistra: %1$s\n→ Scorri a destra: %2$s\n↑ Scorri in alto: Salta\n↓ Scorri in basso: Annulla (dopo il primo scorrimento)\n\nPuoi anche usare i pulsanti in basso.\n\nQuando hai finito, tocca \"Revisione\" per vedere tutte le tue decisioni. Nulla viene eliminato finché non confermi nella schermata di revisione.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Fatto</string>
-    <string name="swiper_help_action">Aiuto</string>
     <string name="swiper_file_type_filter_title">Mostra solo questi tipi di file</string>
     <string name="swiper_file_type_filter_hint">Seleziona i tipi che vuoi vedere. Se nessuno è selezionato, vengono mostrati tutti i file.</string>
     <string name="swiper_file_type_category_images">Immagini</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Archivi</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Applica</string>
-    <string name="swiper_session_filter_action">Filtra file</string>
     <string name="swiper_file_type_filter_summary">Filtrati: %1$s</string>
     <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
     <string name="swiper_open_externally_action">Apri nell’app esterna</string>

@@ -8,7 +8,6 @@
         <item quantity="one">%s element behandlet siden du bragte SD Maid til din enhed.</item>
         <item quantity="other">%s elementer behandlet siden du bragte SD Maid til din enhed.</item>
     </plurals>
-    <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Delvis succes</string>
     <string name="stats_report_status_partial_failure">Fejl</string>
     <string name="stats_settings_desc">Konfigurer SD Maid\'s statistikker, rapporter og dataopbevaring.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Antal dage før sletning af grundlæggende SD Maid-operationsrapporter.</string>
     <string name="stats_settings_retention_paths_label">Detaljerede oplysninger om sti</string>
     <string name="stats_settings_retention_paths_desc">Antal dage at gemme oplysninger om stier påvirket af SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dag</item>
-        <item quantity="other">%d dage</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Nulstil alle</string>
     <string name="stats_settings_reset_all_desc">Slet alle rapporter, og nulstil alle statistikker.</string>
     <string name="stats_affected_paths_label">Påvirkede stier</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Primær lager</string>
     <string name="stats_storage_type_secondary">Sekundær lager</string>
     <string name="stats_storage_type_portable">Flytbart lager</string>
-    <string name="stats_space_history_delete_storage_title">Slet lagerhistorik?</string>
-    <string name="stats_space_history_delete_storage_desc">Alle trenddata for dette lager vil blive slettet permanent.</string>
-    <string name="stats_settings_retention_snapshots_label">Lager-snapshots</string>
-    <string name="stats_settings_retention_snapshots_desc">Antal dage der skal beholdes lagerpladssnapshots.</string>
 </resources>

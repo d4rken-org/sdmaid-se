@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Olyan beállítások megjelenítése, amelyek lehetővé teszik az összes duplikált fájljának törlését, hogy egyetlen fájl se maradjon meg.</string>
     <string name="deduplicator_search_locations_title">Helyek keresése</string>
     <string name="deduplicator_search_locations_all_summary">Minden hozzáférhető hely</string>
-    <string name="deduplicator_keep_prefer_paths_title">Előnyben részesítendő hely</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Amikor eldől, melyik másolatot tartjuk meg, ezeken a helyeken lévő fájlok élveznek előnyt.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nincsenek konfigurált helyek</string>
     <string name="deduplicator_skip_minsize_title">Minimális méret</string>
     <string name="deduplicator_skip_minsize_description">Minimális méret alatti fájlok kihagyása.</string>
     <string name="deduplicator_skip_uncommon_title">Nem gyakori fájltípusok kihagyása</string>

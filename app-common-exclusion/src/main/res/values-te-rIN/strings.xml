@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">యాప్ బహిష్కరణలను సృష్టించడానికి AppControl టూల్‌ను ఉపయోగించండి.</string>
     <string name="exclusion_create_path_hint">పాథ్ బహిష్కరణలను సృష్టించడానికి StorageAnalyzer టూల్‌ను ఉపయోగించండి.</string>
     <string name="exclusion_show_defaults_action">డిఫాల్ట్‌లను చూపించండి</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
 </resources>

@@ -20,7 +20,6 @@
         <item quantity="one">Дневно</item>
         <item quantity="other">На секои %d дена</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Интервал на повторување</string>
     <string name="scheduler_inaccurate_execution_hint">Очекуваните времиња на извршување се приближни. Распоредите може да бидат одложени или забрзани заради заштеда на батерија.</string>
     <string name="scheduler_no_active_schedules_subtitle">Нема активни распореди</string>
     <string name="scheduler_setting_nopowersaving_title">Прескокни при слаба батерија</string>

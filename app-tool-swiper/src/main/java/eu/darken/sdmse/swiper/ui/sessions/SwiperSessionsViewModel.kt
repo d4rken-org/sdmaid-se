@@ -1,47 +1,67 @@
 package eu.darken.sdmse.swiper.ui.sessions
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.picker.PickerRequest
+import eu.darken.sdmse.common.picker.PickerResultKey
+import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SortOrder
-import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
 import eu.darken.sdmse.swiper.core.tasks.SwiperScanTask
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class SwiperSessionsViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val swiper: Swiper,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
+    private val navCtrl: NavigationController,
     private val dataAreaManager: DataAreaManager,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val selectedPaths = MutableStateFlow<Set<APath>>(emptySet())
     private val scanningSessionId = MutableStateFlow<String?>(null)
     private val cancellingSessionId = MutableStateFlow<String?>(null)
     private val refreshingSessionId = MutableStateFlow<String?>(null)
 
-    val state = eu.darken.sdmse.common.flow.combine(
+    init {
+        navCtrl.consumeResults(PickerResultKey(PICKER_REQUEST_KEY))
+            .onEach { result ->
+                log(TAG, INFO) { "Picker returned ${result.selectedPaths.size} paths" }
+                val paths = result.selectedPaths
+                selectedPaths.value = paths
+                if (paths.isNotEmpty()) swiper.createSession(paths)
+            }
+            .launchIn(vmScope)
+    }
+
+    val state: StateFlow<State> = combine(
         swiper.getSessionsWithStats(),
         swiper.progress,
         selectedPaths,
@@ -66,60 +86,71 @@ class SwiperSessionsViewModel @Inject constructor(
             refreshingSessionId = refreshingId,
             riskySessionIds = riskySessionIds,
         )
-    }.asLiveData2()
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
+
+    fun openPicker() {
+        log(TAG, INFO) { "openPicker()" }
+        navTo(
+            PickerRoute(
+                request = PickerRequest(
+                    requestKey = PICKER_REQUEST_KEY,
+                    mode = PickerRequest.PickMode.DIRS,
+                    allowedAreas = setOf(
+                        DataArea.Type.PORTABLE,
+                        DataArea.Type.SDCARD,
+                        DataArea.Type.PUBLIC_DATA,
+                        DataArea.Type.PUBLIC_MEDIA,
+                    ),
+                ),
+            ),
+        )
+    }
 
     suspend fun findSensitiveRoots(paths: Collection<APath>): List<APath> {
         val areas = dataAreaManager.currentAreas()
         return paths.filter { it.isSensitiveRootIn(areas) }
     }
 
-    private fun APath.isSensitiveRootIn(areas: Collection<eu.darken.sdmse.common.areas.DataArea>): Boolean =
+    private fun APath.isSensitiveRootIn(areas: Collection<DataArea>): Boolean =
         areas.any { it.isSensitiveRoot && this.matches(it.path) }
 
-    fun setSelectedPaths(paths: Set<APath>) {
-        log(TAG, INFO) { "setSelectedPaths: $paths" }
-        selectedPaths.value = paths
-    }
-
-    fun createSession(paths: Set<APath>) = launch {
-        log(TAG, INFO) { "createSession(paths=$paths)" }
-        if (paths.isEmpty()) return@launch
-        swiper.createSession(paths)
+    fun onUpgradeClick() {
+        log(TAG, INFO) { "onUpgradeClick()" }
+        navTo(UpgradeRoute())
     }
 
     fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = launch {
-        log(TAG, INFO) { "updateSessionFilter(sessionId=$sessionId, filter=$filter)" }
+        log(TAG, INFO) { "updateSessionFilter($sessionId, $filter)" }
         swiper.updateSessionFilter(sessionId, filter)
     }
 
     fun updateSessionSortOrder(sessionId: String, sortOrder: SortOrder) = launch {
-        log(TAG, INFO) { "updateSessionSortOrder(sessionId=$sessionId, sortOrder=$sortOrder)" }
+        log(TAG, INFO) { "updateSessionSortOrder($sessionId, $sortOrder)" }
         swiper.updateSessionSortOrder(sessionId, sortOrder)
     }
 
     fun continueSession(sessionId: String) = launch {
-        log(TAG, INFO) { "continueSession(sessionId=$sessionId)" }
-        // Only refresh if cache is empty for this session
+        log(TAG, INFO) { "continueSession($sessionId)" }
         if (!swiper.hasSessionLookups(sessionId)) {
-            log(TAG) { "Cache miss for session $sessionId, refreshing lookups..." }
+            log(TAG) { "Cache miss for $sessionId, refreshing lookups" }
             refreshingSessionId.value = sessionId
             try {
                 swiper.refreshSessionLookups(sessionId)
             } finally {
                 refreshingSessionId.value = null
             }
-        } else {
-            log(TAG) { "Cache hit for session $sessionId, skipping refresh" }
         }
-        navigateTo(SwiperSwipeRoute(sessionId = sessionId))
+        navTo(SwiperSwipeRoute(sessionId = sessionId))
     }
 
     fun scanSession(sessionId: String) = launch {
-        log(TAG, INFO) { "scanSession(sessionId=$sessionId)" }
+        log(TAG, INFO) { "scanSession($sessionId)" }
         scanningSessionId.value = sessionId
         try {
-            val result = taskSubmitter.submit(SwiperScanTask(sessionId = sessionId))
-            log(TAG, INFO) { "Scan result: $result" }
+            taskSubmitter.submit(SwiperScanTask(sessionId = sessionId))
         } finally {
             scanningSessionId.value = null
             cancellingSessionId.value = null
@@ -133,28 +164,27 @@ class SwiperSessionsViewModel @Inject constructor(
     }
 
     fun discardSession(sessionId: String) = launch {
-        log(TAG, INFO) { "discardSession(sessionId=$sessionId)" }
+        log(TAG, INFO) { "discardSession($sessionId)" }
         if (scanningSessionId.value == sessionId) {
             taskSubmitter.cancel(SDMTool.Type.SWIPER)
         }
-        // Suspends on toolLock until cancelled scan releases it
         swiper.discardSession(sessionId)
     }
 
     fun renameSession(sessionId: String, label: String?) = launch {
-        log(TAG, INFO) { "renameSession(sessionId=$sessionId, label=$label)" }
+        log(TAG, INFO) { "renameSession($sessionId, $label)" }
         swiper.updateSessionLabel(sessionId, label)
     }
 
     data class State(
-        val sessionsWithStats: List<Swiper.SessionWithStats>,
-        val selectedPaths: Set<APath>,
-        val isScanning: Boolean,
-        val progress: Progress.Data?,
-        val isPro: Boolean,
-        val scanningSessionId: String?,
-        val cancellingSessionId: String?,
-        val refreshingSessionId: String?,
+        val sessionsWithStats: List<Swiper.SessionWithStats> = emptyList(),
+        val selectedPaths: Set<APath> = emptySet(),
+        val isScanning: Boolean = false,
+        val progress: Progress.Data? = null,
+        val isPro: Boolean = false,
+        val scanningSessionId: String? = null,
+        val cancellingSessionId: String? = null,
+        val refreshingSessionId: String? = null,
         val riskySessionIds: Set<String> = emptySet(),
     ) {
         val canCreateNewSession: Boolean = isPro || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
@@ -168,6 +198,7 @@ class SwiperSessionsViewModel @Inject constructor(
     }
 
     companion object {
+        internal const val PICKER_REQUEST_KEY = "swiper_sessions_picker"
         private val TAG = logTag("Swiper", "Sessions", "ViewModel")
     }
 }

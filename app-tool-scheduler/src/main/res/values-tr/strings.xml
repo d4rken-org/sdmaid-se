@@ -20,7 +20,6 @@
         <item quantity="one">Günlük</item>
         <item quantity="other">%d günde bir</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Tekrar aralığı</string>
     <string name="scheduler_inaccurate_execution_hint">Beklenen yürütme süreleri yaklaşık değerlerdir. Pil tasarrufu sağlarsa programlar ertelenebilir veya hızlandırılabilir.</string>
     <string name="scheduler_no_active_schedules_subtitle">Etkin program yok</string>
     <string name="scheduler_setting_nopowersaving_title">Düşük pilde atla</string>

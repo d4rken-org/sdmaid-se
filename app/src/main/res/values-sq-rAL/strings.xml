@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Ndalo inçizimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i krijuar përmban informacione të ndjeshme (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndani atë vetëm me palët e besuara.</string>
     <string name="debug_debuglog_screen_title">Regjistri i korrigjimit</string>
-    <string name="debug_debuglog_screen_discard_action">Hidhni</string>
     <string name="debug_debuglog_screen_session_path_label">Shtegu i sesionit</string>
     <string name="debug_debuglog_screen_log_files_label">Skedarët e regjistrit</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Dështoi: gabim kompresimi</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Të fshihet ky sesion i regjistrit të korrigjimit?</string>
     <string name="support_contact_post_send_message">Mesazhi u dërgua me sukses?</string>
-    <string name="debug_debuglog_sessions_stop_action">Ndalo</string>
     <string name="tasks_activity_notification_channel_label">Detyra aktive</string>
     <string name="tasks_activity_working_notification_title">SD Maid po punon</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d detyrë në radhë</item>
         <item quantity="other">%d detyra në radhë</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Rezultatet e detyrës</string>
     <string name="tasks_result_subtext">Rezultat e detyrës</string>
     <string name="tasks_timeout_error_label">Detyra ka skaduar</string>
     <string name="tasks_timeout_error_desc">Detyra zgjati shumë dhe u ndal. Ju lutem provoni përsëri.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Vazhdo</string>
     <string name="onboarding_privacy_title">Privatësia</string>
     <string name="onboarding_privacy_body1">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Raportet e gabimeve dërgohen kur ndodhin gabime dhe mund të përmbajnë detaje rreth aplikacioneve dhe skedarëve në pajisjen tuaj. Raportet më ndihmojnë të rregulloj gabimet dhe të përmirësoj aplikacionin.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Lejo raportimet automatike të gabimeve</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Këto opsione mund të ndryshohen në cilësimet.</string>
-    <string name="onboarding_privacy_continue_action">Vazhdo</string>
     <string name="onboarding_setup_title">Konfigurim</string>
     <string name="onboarding_setup_body1">SD Maid do të kërkojë të gjitha zonat e aksesueshme të të dhënave.</string>
     <string name="onboarding_setup_body2">Çfarë është e aksesueshme(disponueshme) varet nga pajisja juaj, versioni i Android dhe lejet e dhëna.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Konfigurimi nuk është i plotë</string>
     <string name="setup_incomplete_card_body">Përfundoni konfigurimin e SD Maid për të marrë rezultate më të mira.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid tenton të rregullojë problemet e konfigurimit.</string>
-    <string name="setup_incomplete_card_dismiss_action">Anulo</string>
     <string name="setup_incomplete_card_continue_action">Vazhdo konfigurimin</string>
     <string name="setup_forcedshow_summary">Shfaq sërish ekranin e konfigurimit, duke përfshirë artikujt tashmë të përfunduar.</string>
     <string name="setup_checking_card_body">Verifikimi i përfundimit dhe funksionalitetit të konfigurimit.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Ringarko zonat e të dhënave</string>
     <string name="debug_mode_label">Modaliteti \'debug\'</string>
     <string name="debug_mode_explanation">Aktivizo opsionet e testimit dhe daljen më të hollësishme. Aplikacioni do të funksionojë më ngadalë dhe do të funksionojë ndryshe.</string>
-    <string name="debug_bugreporter_label">Raportet automatike të gabimeve</string>
-    <string name="debug_bugreporter_summary">Raporton automatikisht probleme, p.sh. detajet mbi dështimin e aplikacionit në mënyrë që të kuptoj pse dhe ta rregulloj atë.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mënyra e korrigjimit është aktivizuar</string>
     <string name="debug_card_trace_mode_label">Aktivizo mënyrën e gjurmimit</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD kartela</string>
     <string name="data_areas_label">Zonat e të dhënave</string>
     <string name="data_areas_description">Zonat e të dhënave përfaqësojnë vendndodhje në pajisjen tuaj që janë të aksesueshme për SD Maid. Zona të ndryshme të të dhënave mund të jenë të disponueshme në varësi të versionit tuaj të Android dhe lejeve që janë dhënë.</string>
-    <string name="data_areas_short_summary">Zonat ku SD Maid mund të qaset bazuar në lejet e dhëna aktualisht.</string>
-    <string name="history_label">Historia</string>
-    <string name="history_description">Një listë kronologjike e veprimeve të fundit dhe të dhënave të prekura.</string>
     <string name="updates_dashcard_title">Përditësimi është gati</string>
     <string name="updates_dashcard_body">Ekziston një përditësim. Ju keni %1$s dhe versioni më i fundit është %2$s.</string>
     <string name="translation_encourage_title">Përkthim i SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrolli i azhurnuar</string>
     <string name="updatecheck_setting_enabled_explanation">Lejo SD Maid të kontrollojë për përditësime për t\'ju njoftuar nëse disponohet një version më i ri.</string>
     <string name="device_settings_category">Pajisja</string>
-    <string name="beta_version_indicator_desc">Versionet e para-lëshimit shfaqin një shirit të vogël në ekranin fillestar. Ato përditësohen më shpesh, mund të kenë më shumë veçori, por gjithashtu mund të kenë më shumë gabime.</string>
     <string name="review_app_review_action">Rishikimi</string>
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
     <string name="review_app_body">Dëshironi t\'i lini një koment SD Maid? ❤️</string>

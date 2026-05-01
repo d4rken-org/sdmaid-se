@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">ဖမ်ယူခြင်းကို ရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ။</string>
     <string name="debug_debuglog_screen_title">ဒီဘတ်ဂ်လုံ</string>
-    <string name="debug_debuglog_screen_discard_action">စွန့်ပစ်သည်</string>
     <string name="debug_debuglog_screen_session_path_label">အစီအစဥ်လမ်းကြောင်း</string>
     <string name="debug_debuglog_screen_log_files_label">မှတ်တမ်းဖိုင်များ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">မအောင်မြင်ပါ: ချုံ့ရာတွင် အမှားအယွင်းဖြစ်သည်</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">ဤ debug log အစည်းအဝေးကို ဖျက်မည်လား?</string>
     <string name="support_contact_post_send_message">မက်ဆေ့ချ် အောင်မြင်စွာ ပေးပို့ပြီးပြီလား?</string>
-    <string name="debug_debuglog_sessions_stop_action">ရပ်ရန်</string>
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d တာဝန်တန်းစီနေသော</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
     <string name="tasks_timeout_error_label">တာဝန်ကြာချိန်ကျော်လွန်သွားပြီ</string>
     <string name="tasks_timeout_error_desc">တာဝန်သည် အချိန်အတော်ကြာနေသောကြောင့် ရပ်တန့်သွားသည်။ ထပ်မံကြိုးစားပါ။</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
     <string name="onboarding_privacy_title">ကိုယ်ရေးကိုယ်တာ</string>
     <string name="onboarding_privacy_body1">SD Maid တွင် ကြော်ငြာများမရှိပြီး အသုံးပြုသူဒေတာများကို မရောင်းချပါ။</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">အမှားများဖြစ်ပေါ်လာသောအခါ bug အစီရင်ခံစာများကို ပေးပို့ပြီး သင့်ကိရိယာရှိ အက်ပ်များနှင့် ဖိုင်များ အကြောင်း အသေးစိတ်များ ပါဝင်နိုင်သည်။ အစီရင်ခံစာများသည် ကျွန်ုပ်ကို အမှားများ ပြုပြင်ရန်နှင့် အက်ပ်ကို တိုးတက်စေရန် ကူညီပေးသည်။</string>
-    <string name="onboarding_privacy_bugreport_toggle">အလိုအလျောက် bug အစီရင်ခံစာများကို ခွင့်ပြုပါ</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ဤရွေးချယ်မှုများကို ဆက်တင်များတွင် ပြောင်းလဲနိုင်သည်။</string>
-    <string name="onboarding_privacy_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
     <string name="onboarding_setup_title">ပြင်ဆင်ခြင်း</string>
     <string name="onboarding_setup_body1">SD Maid သည် ရယူနိုင်သော ဒေတာနယ်ပယ်အားလုံးကို ရှာဖွေမည်။</string>
     <string name="onboarding_setup_body2">ရယူနိုင်သည့်အရာသည် သင့်စက်၊ Android ဗားရှင်းနှင့် ပေးထားသော ခွင့်ပြုချက်များပေါ် မူတည်သည်။</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">တပ်ဆင်မှု မပြီးမြောက်သေးပါ</string>
     <string name="setup_incomplete_card_body">ပိုကောင်းသောရလဒ်များရရှိရန် SD Maid ၏ တပ်ဆင်မှုကို ပြီးမြောက်အောင်လုပ်ပါ။</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid သည် တပ်ဆင်မှုပြဿနာများကို ပြုပြင်ရန်ကြိုးစားနေပါသည်။</string>
-    <string name="setup_incomplete_card_dismiss_action">ပယ်ရန်</string>
     <string name="setup_incomplete_card_continue_action">တပ်ဆင်မှုကို ဆက်လက်လုပ်ရန်</string>
     <string name="setup_forcedshow_summary">ပြီးမြောက်ပြီးသားအရာများအပါအဝင် တပ်ဆင်မှုစာမျက်နှာကို ပြန်ပြရန်။</string>
     <string name="setup_checking_card_body">တပ်ဆင်မှုပြီးမြောက်မှုနှင့် လုပ်ဆောင်နိုင်မှုကို စစ်ဆေးနေပါသည်။</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">ဒေတာနယ်ပယ်များကို ပြန်လည်တင်ရန်</string>
     <string name="debug_mode_label">အမှားရှာမုဒ်</string>
     <string name="debug_mode_explanation">စမ်းသပ်ရွေးချယ်မှုများနှင့် ပိုမိုအသေးစိတ်ဖြစ်သော ရလဒ်များကို ဖွင့်ပါ။ အက်ပ်သည် ပိုနှေးကာ မတူညီစွာ လုပ်ဆောင်မည်။</string>
-    <string name="debug_bugreporter_label">အလိုအလျောက် အမှားအစီရင်ခံစာများ</string>
-    <string name="debug_bugreporter_summary">ပြဿနာများကို အလိုအလျောက် သတင်းပို့သည်၊ ဥပမာ အက်ပ် crash ဖြစ်မှုအသေးစိတ်များ၊ ကျွန်ုပ်က အဘယ်ကြောင့်ဖြစ်ကြောင်း ရှာဖွေပြီး ပြုပြင်နိုင်ရန်။</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug မုံဒ်ကို အသုံးပြုထားသည်</string>
     <string name="debug_card_trace_mode_label">Trace မုံဒ်ကို အသုံးပြုခြင်း</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">SD ကဒ်</string>
     <string name="data_areas_label">ဒေတာနေရာများ</string>
     <string name="data_areas_description">ဒေတာနေရာများသည် SD Maid အသုံးပြုနိုင်သည့် ကိရိယာပေါ်ရှိ တည်နေရာများကို ကိုယ်စားပြုသည်။ Android ဗားရှင်း နှင့် ပေးထားသည့် ခွင့်ပြုချက်များပေါ်မူတည်၍ မတူညီသည့် ဒေတာနေရာများ ရနိုင်သည်။</string>
-    <string name="data_areas_short_summary">SD Maid သည် လက်ရှိ ပြည့်စုံသည့် ခွင့်ပြုချက်ပေါ်အခြန်ချမ့် သုံးမြုနိုင်သည့် နေရာများ။</string>
-    <string name="history_label">မှတ်တမ်း</string>
-    <string name="history_description">မကြာသေးမီက လုပ်ဆောင်ချက်များနှင့် ထိခိုက်ခံရသော ဒေတာများ၏ အချိန်စဉ် စာရင်း။</string>
     <string name="updates_dashcard_title">အပ်ဒိတ်ရနိုင်သည်</string>
     <string name="updates_dashcard_body">အပ်ဒိတ်ရနိုင်သည်။ သင်သည် %1$s ရှိပြီး နောက်ဆုံးဗားရှင်း %2$s ဖြစ်သည်။</string>
     <string name="translation_encourage_title">SD Maid ကို ဘာသာပြန်ဆိုရန်</string>
@@ -250,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">အဆင့်မြှင့်တင်ခြင်းကို စစ်ဆေးပါ</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid သည် အဆင့်မြှင့်တင်ခြင်းများကို စစ်ဆေးရန် ခွင့်ပြုပါ ၊ ထို့ကြောင့် ပိုသစ်သော version မရှိနိုင်ခြင်းကို သိရှိနိုင်ပါသည်။</string>
     <string name="device_settings_category">စက်ပစ္စည်း</string>
-    <string name="beta_version_indicator_desc">ကြိုတင်ဖြန့်ချိမှု ဗားရှင်းများသည် ပြိုင်ပွဲ မျက်နှာပြင်တွင် ရှည်သော ဖဲကြိုးလေး ပြသသည်။ ၎င်းတို့သည် မကြာခဏ အပ်ဒိတ် ပြုလုပ်ပြီး၊ လုပ်ဆောင်ချက်များ ပိုများနိုင်သော်လည်း ချွတ်ယွင်းချက်များလည်း ပိုများနိုင်သည်။</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>

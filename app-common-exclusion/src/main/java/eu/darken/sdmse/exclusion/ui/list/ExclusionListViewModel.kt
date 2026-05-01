@@ -8,7 +8,6 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.MimeTypes
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -17,11 +16,15 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgs
 import eu.darken.sdmse.common.readAsText
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.DefaultExclusions
@@ -36,14 +39,11 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
 import eu.darken.sdmse.exclusion.core.types.UserExclusion
-import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
-import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
-import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
-import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -52,7 +52,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ExclusionListViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
+    private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val exclusionManager: ExclusionManager,
@@ -63,9 +63,9 @@ class ExclusionListViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val legacyImporter: LegacyImporter,
     private val exclusionImporter: ExclusionImporter,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    val events = SingleLiveEvent<ExclusionListEvents>()
+    val events = SingleEventFlow<Event>()
 
     private val showDefaults = MutableStateFlow(handle["showDefaults"] ?: false)
 
@@ -86,7 +86,7 @@ class ExclusionListViewModel @Inject constructor(
                 .mapValues { it.value.first() }
         }
 
-    val state = combine(
+    val state: StateFlow<State> = combine(
         exclusionManager.exclusions,
         pkgRepo.pkgs().onStart { emit(emptySet()) },
         lookups.onStart { emit(emptyMap()) },
@@ -94,96 +94,91 @@ class ExclusionListViewModel @Inject constructor(
     ) { holders, pkgs, lookups, showDefaults ->
         handle["showDefaults"] = showDefaults
 
-        val items = mutableListOf<ExclusionListAdapter.Item>()
-
-        holders.mapNotNull { holder ->
+        val rows = mutableListOf<Row>()
+        holders.forEach { holder ->
             val isDefault = when (holder) {
                 is DefaultExclusion -> true
                 is UserExclusion -> false
             }
-            if (isDefault && !showDefaults) return@mapNotNull null
+            if (isDefault && !showDefaults) return@forEach
+
+            val reasonUrl = (holder as? DefaultExclusion)?.reason
 
             when (val exclusion = holder.exclusion) {
-                is PkgExclusion -> PackageExclusionVH.Item(
-                    pkg = pkgs.firstOrNull { it.id == exclusion.pkgId },
-                    exclusion = exclusion,
-                    isDefault = isDefault,
-                    onItemClick = {
-                        if (isDefault) {
-                            webpageTool.open((holder as DefaultExclusion).reason)
-                        } else {
-                            navigateTo(PkgExclusionEditorRoute(exclusionId = exclusion.id))
-                        }
-                    }
+                is PkgExclusion -> rows.add(
+                    Row.Pkg(
+                        exclusion = exclusion,
+                        pkg = pkgs.firstOrNull { it.id == exclusion.pkgId },
+                        isDefault = isDefault,
+                        reasonUrl = reasonUrl,
+                        label = exclusion.label.get(context),
+                    ),
                 )
 
-                is PathExclusion -> PathExclusionVH.Item(
-                    lookup = lookups[exclusion.path],
-                    exclusion = exclusion,
-                    isDefault = isDefault,
-                    onItemClick = {
-                        if (isDefault) {
-                            webpageTool.open((holder as DefaultExclusion).reason)
-                        } else {
-                            navigateTo(PathExclusionEditorRoute(exclusionId = exclusion.id))
-                        }
-                    }
+                is PathExclusion -> rows.add(
+                    Row.Path(
+                        exclusion = exclusion,
+                        lookup = lookups[exclusion.path],
+                        isDefault = isDefault,
+                        reasonUrl = reasonUrl,
+                        label = exclusion.label.get(context),
+                    ),
                 )
 
-                is SegmentExclusion -> SegmentExclusionVH.Item(
-                    exclusion = exclusion,
-                    isDefault = isDefault,
-                    onItemClick = {
-                        if (isDefault) {
-                            webpageTool.open((holder as DefaultExclusion).reason)
-                        } else {
-                            navigateTo(SegmentExclusionEditorRoute(exclusionId = exclusion.id))
-                        }
-                    }
+                is SegmentExclusion -> rows.add(
+                    Row.Segment(
+                        exclusion = exclusion,
+                        isDefault = isDefault,
+                        reasonUrl = reasonUrl,
+                        label = exclusion.label.get(context),
+                    ),
                 )
 
-                else -> throw NotImplementedError()
+                else -> Unit
             }
-        }.run { items.addAll(this) }
+        }
 
-        val sortedItems = items.sortedWith(
-            compareBy<ExclusionListAdapter.Item> { it.isDefault }
+        val sorted = rows.sortedWith(
+            compareBy<Row> { it.isDefault }
                 .thenBy {
                     when (it) {
-                        is PackageExclusionVH.Item -> 0
-                        is PathExclusionVH.Item -> 1
-                        is SegmentExclusionVH.Item -> 2
-                        else -> -1
+                        is Row.Pkg -> 0
+                        is Row.Path -> 1
+                        is Row.Segment -> 2
                     }
-                }.thenBy {
-                    it.exclusion.label.get(context)
                 }
+                .thenBy { it.label },
         )
-        State(
-            items = sortedItems,
-            loading = false,
-            showDefaults = showDefaults,
-        )
+        State(rows = sorted, showDefaults = showDefaults)
     }
-        .onStart { emit(State()) }
-        .asLiveData2()
+        .safeStateIn(
+            initialValue = State(),
+            onError = { State(rows = emptyList()) },
+        )
 
-    data class State(
-        val items: List<ExclusionListAdapter.Item> = emptyList(),
-        val loading: Boolean = true,
-        val showDefaults: Boolean = false,
-    )
+    fun onRowClick(row: Row) {
+        log(TAG) { "onRowClick($row)" }
+        if (row.isDefault) {
+            row.reasonUrl?.let { webpageTool.open(it) }
+            return
+        }
+        when (row) {
+            is Row.Pkg -> navTo(PkgExclusionEditorRoute(exclusionId = row.exclusion.id))
+            is Row.Path -> navTo(PathExclusionEditorRoute(exclusionId = row.exclusion.id))
+            is Row.Segment -> navTo(SegmentExclusionEditorRoute(exclusionId = row.exclusion.id))
+        }
+    }
 
     fun restore(items: Set<Exclusion>) = launch {
         log(TAG) { "restore(${items.size})" }
         exclusionManager.save(items)
     }
 
-    fun remove(items: List<ExclusionListAdapter.Item>) = launch {
-        log(TAG) { "remove(${items.size})" }
-        val exclusions = items.map { it.exclusion }.toSet()
+    fun removeByIds(ids: Set<ExclusionId>) = launch {
+        log(TAG) { "removeByIds(${ids.size})" }
+        val exclusions = exclusionManager.current().filter { ids.contains(it.id) }.toSet()
         exclusionManager.remove(exclusions.map { it.id }.toSet())
-        events.postValue(ExclusionListEvents.UndoRemove(exclusions))
+        events.emit(Event.UndoRemove(exclusions))
     }
 
     fun resetDefaultExclusions() = launch {
@@ -191,18 +186,22 @@ class ExclusionListViewModel @Inject constructor(
         defaultExclusions.reset()
     }
 
-    fun importExclusions(uris: Collection<Uri>? = null) = launch {
-        log(TAG) { "importExclusions($uris)" }
-        if (uris == null) {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = MimeTypes.Json.value
-                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-            }
-            events.postValue(ExclusionListEvents.ImportEvent(intent))
-            return@launch
-        }
+    fun openHelp() = launch {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Exclusions")
+    }
 
+    fun requestImport() = launch {
+        log(TAG) { "requestImport()" }
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = MimeTypes.Json.value
+            putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        }
+        events.emit(Event.ImportEvent(intent))
+    }
+
+    fun importExclusions(uris: Collection<Uri>) = launch {
+        log(TAG) { "importExclusions($uris)" }
         val exclusion = uris
             .map {
                 val result = it.readAsText(context) ?: throw IllegalArgumentException("Failed to read $it")
@@ -232,32 +231,30 @@ class ExclusionListViewModel @Inject constructor(
         try {
             exclusionManager.save(exclusion)
         } catch (e: Exception) {
-            errorEvents.postValue(e)
+            errorEvents.emit(e)
         }
 
-        events.postValue(ExclusionListEvents.ImportSuccess(exclusion))
+        events.emit(Event.ImportSuccess(exclusion))
     }
 
     private var stagedExportIds: Set<ExclusionId>?
         set(value) {
-            handle["stagedExportIds"] = value
+            handle["stagedExportIds"] = value?.toTypedArray()
         }
-        get() = handle["stagedExportIds"]
+        get() = handle.get<Array<ExclusionId>>("stagedExportIds")?.toSet()
 
-    fun exportExclusions(items: Collection<ExclusionListAdapter.Item>) = launch {
-        log(TAG) { "exportExclusions($items)" }
+    fun exportExclusions(ids: Set<ExclusionId>) = launch {
+        log(TAG) { "exportExclusions($ids)" }
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Pro upgrade required" }
-            navigateTo(UpgradeRoute())
+            navTo(UpgradeRoute())
             return@launch
         }
 
-        val exclusion = items.map { it.exclusion.id }
-        stagedExportIds = exclusion.toSet()
-
+        stagedExportIds = ids
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-        events.postValue(ExclusionListEvents.ExportEvent(intent, exclusion))
+        events.emit(Event.ExportEvent(intent))
     }
 
     fun performExport(directoryUri: Uri?) = launch {
@@ -276,7 +273,7 @@ class ExclusionListViewModel @Inject constructor(
         val filename = "SD Maid 2/SE Exclusions ${System.currentTimeMillis()}"
 
         val targetFile = saveDir.createFile(MimeTypes.Json.value, filename)
-            ?: throw IOException("Failed to create ${filename} in $saveDir")
+            ?: throw IOException("Failed to create $filename in $saveDir")
 
         val rawContainer = exclusionImporter.export(exportData)
         context.contentResolver.openOutputStream(targetFile.uri)?.use { out ->
@@ -285,12 +282,73 @@ class ExclusionListViewModel @Inject constructor(
 
         log(TAG, VERBOSE) { "Wrote $rawContainer to ${targetFile.uri}" }
 
-        events.postValue(ExclusionListEvents.ExportSuccess(exportData))
+        events.emit(Event.ExportSuccess(exportData))
     }
 
-    fun showDefeaultExclusions(show: Boolean) {
+    fun showDefaultExclusions(show: Boolean) {
         log(TAG) { "showDefaultExclusions($show)" }
         showDefaults.value = show
+    }
+
+    fun openAppControl() {
+        navTo(eu.darken.sdmse.common.navigation.routes.AppControlListRoute)
+    }
+
+    fun openStoragePicker() {
+        navTo(eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute)
+    }
+
+    fun openSegmentEditor() {
+        navTo(
+            SegmentExclusionEditorRoute(
+                exclusionId = null,
+                initial = eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions(),
+            ),
+        )
+    }
+
+    data class State(
+        val rows: List<Row>? = null,
+        val showDefaults: Boolean = false,
+    )
+
+    sealed interface Row {
+        val exclusion: Exclusion
+        val isDefault: Boolean
+        val reasonUrl: String?
+        val label: String
+        val stableId: String get() = exclusion.id
+
+        data class Pkg(
+            override val exclusion: PkgExclusion,
+            val pkg: eu.darken.sdmse.common.pkgs.Pkg?,
+            override val isDefault: Boolean,
+            override val reasonUrl: String?,
+            override val label: String,
+        ) : Row
+
+        data class Path(
+            override val exclusion: PathExclusion,
+            val lookup: APathLookup<*>?,
+            override val isDefault: Boolean,
+            override val reasonUrl: String?,
+            override val label: String,
+        ) : Row
+
+        data class Segment(
+            override val exclusion: SegmentExclusion,
+            override val isDefault: Boolean,
+            override val reasonUrl: String?,
+            override val label: String,
+        ) : Row
+    }
+
+    sealed interface Event {
+        data class UndoRemove(val exclusions: Set<Exclusion>) : Event
+        data class ImportEvent(val intent: Intent) : Event
+        data class ExportEvent(val intent: Intent) : Event
+        data class ImportSuccess(val exclusions: Set<Exclusion>) : Event
+        data class ExportSuccess(val exclusions: Set<Exclusion>) : Event
     }
 
     companion object {

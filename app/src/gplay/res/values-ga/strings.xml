@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">Teastaíonn SD Maid SE Pro</string>
 
     <string name="upgrades_dashcard_title">Uasghrádú SD Maid</string>
     <string name="upgrades_dashcard_body">Cuireann SD Maid Pro torthaí níos fearr, tuilleadh gnéithe agus roghanna d\'úsáideoirí cumhachta ar fáil.</string>
@@ -11,7 +8,6 @@
 
     <string name="upgrades_gplay_unavailable_error_title">Níl Google Play ar fáil</string>
     <string name="upgrades_gplay_unavailable_error_description">Ní féidir le SD Maid ceangal le Google Play. An bhfuil Google Play suiteáilte agus cothrom le dáta? An bhfuil do Chuntas Google logáilte isteach? Déan iarracht taisce an aip Google Play a ghlanadh agus do ghléas a atosú.</string>
-    <string name="upgrades_no_purchases_found_check_account">Níor aimsíodh aon cheannacháin. An bhfuil tú ag úsáid an chuntas cheart?</string>
     <string name="upgrade_screen_title">Faigh SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">Níl aon fhógraí ag SD Maid agus ní dhíolann sé sonraí úsáideoirí. Tá mo chuid oibre maoinithe agat ❤️.</string>
     <string name="upgrade_screen_benefits_title">Buntáistí</string>

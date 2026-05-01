@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("projectConfig")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -16,7 +17,7 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
+        compose = true
     }
 
     setupCompileOptions()
@@ -49,14 +50,14 @@ dependencies {
 
     addAndroidCore()
     addAndroidUI()
+    addCompose()
+    addNavigation3()
     addDI()
     addCoroutines()
     addSerialization()
 
     implementation("androidx.exifinterface:exifinterface:1.4.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
+    implementation("sh.calvin.reorderable:reorderable:2.5.1")
 
     addTesting()
     testImplementation(project(":app-common-test"))

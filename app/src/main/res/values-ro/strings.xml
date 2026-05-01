@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (ex: numele fișierului și aplicații instalate). Partajează-l doar cu părțile de încredere.</string>
     <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
-    <string name="debug_debuglog_screen_discard_action">Renunțați</string>
     <string name="debug_debuglog_screen_session_path_label">Cale sesiune</string>
     <string name="debug_debuglog_screen_log_files_label">Fișiere jurnal</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -41,7 +40,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Eșuat: eroare de comprimare</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Ștergi această sesiune de jurnal de depanare?</string>
     <string name="support_contact_post_send_message">Mesajul a fost trimis cu succes?</string>
-    <string name="debug_debuglog_sessions_stop_action">Oprire</string>
     <string name="tasks_activity_notification_channel_label">Sarcini active</string>
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -54,7 +52,6 @@
         <item quantity="few">%d sarcini în coadă</item>
         <item quantity="other">%d sarcini în coadă</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Rezultatele sarcinii</string>
     <string name="tasks_result_subtext">Rezultatul sarcinii</string>
     <string name="tasks_timeout_error_label">Sarcina a expirat</string>
     <string name="tasks_timeout_error_desc">Sarcina a durat prea mult și a fost oprită. Vă rugăm să încercați din nou.</string>
@@ -71,10 +68,6 @@
     <string name="onboarding_versus_continue_action">Continuă</string>
     <string name="onboarding_privacy_title">Confidențialitate</string>
     <string name="onboarding_privacy_body1">SD Maid nu are reclame și nu vinde datele utilizatorului.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Rapoartele de erori sunt trimise atunci când apar erori și pot conține detalii despre aplicațiile și fișierele de pe dispozitiv. Rapoartele mă ajută să rezolv erorile și să îmbunătățesc aplicația.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Permite rapoarte automate de erori</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Aceste opțiuni pot fi schimbate din setări.</string>
-    <string name="onboarding_privacy_continue_action">Continuă</string>
     <string name="onboarding_setup_title">Partea de configurare</string>
     <string name="onboarding_setup_body1">SD Maid va căuta toate zonele de date accesibile.</string>
     <string name="onboarding_setup_body2">Ce este accesibil depinde de dispozitivul tău, versiunea Android și permisiuni permise.</string>
@@ -167,7 +160,6 @@
     <string name="setup_incomplete_card_title">Partea de configurare este incompletă</string>
     <string name="setup_incomplete_card_body">Termină partea de configurare al SD Maid pentru a obține rezultate mai bune.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid încearcă să rezolve problemele de instalare.</string>
-    <string name="setup_incomplete_card_dismiss_action">Respinge</string>
     <string name="setup_incomplete_card_continue_action">Continuă configurarea</string>
     <string name="setup_forcedshow_summary">Arată ecranul de configurare din nou, inclusiv sarcini deja completate.</string>
     <string name="setup_checking_card_body">Verificarea finalizării configurării și a funcționalității.</string>
@@ -230,8 +222,6 @@
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
     <string name="debug_mode_label">Mod de depanare</string>
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
-    <string name="debug_bugreporter_label">Rapoarte de jurnal automat</string>
-    <string name="debug_bugreporter_summary">Raportează automat probleme, ex: detalii la oprirea neașteptată a aplicației ca să știu de ce și a rezolva.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modul depanare este activat</string>
     <string name="debug_card_trace_mode_label">Activați modul de urmărire</string>
@@ -246,9 +236,6 @@
     <string name="data_area_sdcard_label">Card SD</string>
     <string name="data_areas_label">Zone de date</string>
     <string name="data_areas_description">Zone de date reprezintă locații în dispozitivul tău care sunt accesibile la SD Maid. Zonele de date diferite pot fi disponibile în funcție de versiunea ta de Android și de permisiunile care au fost acordate.</string>
-    <string name="data_areas_short_summary">Zonele pe care SD Maid le poate accesa pe baza permisiunilor acordate în prezent.</string>
-    <string name="history_label">Istoric</string>
-    <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
     <string name="updates_dashcard_title">Actualizare disponibilă</string>
     <string name="updates_dashcard_body">Este disponibilă o actualizare. Aveți %1$s și cea mai recentă versiune este %2$s.</string>
     <string name="translation_encourage_title">Traduceți SD Maid</string>
@@ -260,7 +247,6 @@
     <string name="updatecheck_setting_enabled_label">Verificare actualizare</string>
     <string name="updatecheck_setting_enabled_explanation">Permiteți ca SD Maid să verifice actualizările pentru a vă anunța dacă este disponibilă o versiune mai nouă.</string>
     <string name="device_settings_category">Dispozitiv</string>
-    <string name="beta_version_indicator_desc">Versiunile de pre-lansare afișează o panglică mică pe ecranul de pornire. Acestea sunt actualizate mai frecvent, ar putea avea mai multe funcții, dar ar putea avea și mai multe erori.</string>
     <string name="review_app_review_action">Revizuire</string>
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>

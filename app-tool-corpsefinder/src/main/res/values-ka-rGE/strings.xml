@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">აპლიკაციის ინსტალაციის შეზღუდული მონაცემები, მაგ. დაცული მესამე მხარის აპები.</string>
     <string name="corpsefinder_filter_appasec_label">დაშიფრული აპლიკაციის რესურსები</string>
     <string name="corpsefinder_filter_appasec_summary">დაშიფრული აპლიკაციის რესურსები, მაგ. თამაშის აქტივები.</string>
-    <string name="corpsefinder_filter_app2sd_summary">მონაცემები გადატანილია გარე მეხსიერებაში App2Sd მოდიფიკაციით.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ნარჩენი წაშლილია</item>

@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Kompreson imazhet dhe videot për të kursyer hapësirë ruajtjeje.</string>
+    <string name="squeezer_explanation_short">Kompresoni imazhet për të kursyer hapësirë ​​ruajtëse.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d artikull u gjet</item>
-        <item quantity="other">%d artikuj u gjetën</item>
+        <item quantity="one">%d imazh u gjet</item>
+        <item quantity="other">%d imazhe u gjetën</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s mund të kursehet</item>
         <item quantity="other">~%s mund të kursehen</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d artikull u kompresua</item>
-        <item quantity="other">%d artikuj u kompresuan</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d dështoi</item>
-        <item quantity="other">%d dështuan</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d skedar u anashkalua (nuk është i aksesueshëm)</item>
-        <item quantity="other">%d skedarë u anashkaluan (nuk janë të aksesueshëm)</item>
+        <item quantity="one">%d imazh u kompresua</item>
+        <item quantity="other">%d imazhe u kompresuan</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d artikull i zgjedhur</item>
-        <item quantity="other">%d artikuj të zgjedhur</item>
+        <item quantity="one">%d imazh i zgjedhur</item>
+        <item quantity="other">%d imazhe të zgjedhura</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Vendet e kërkimit</string>
-    <string name="squeezer_search_locations_default_summary">Dosjet e kamerës (parazgjedhur)</string>
     <string name="squeezer_min_size_title">Madhësia minimale e skedarit</string>
-    <string name="squeezer_min_size_description">Anashkalo skedarët më të vegjël se kjo madhësi.</string>
+    <string name="squeezer_min_size_description">Kapërce imazhet më të vogla se kjo madhësi.</string>
     <string name="squeezer_min_age_title">Mosha minimale e skedarit</string>
-    <string name="squeezer_min_age_description">Përfshi vetëm skedarët më të vjetër se kjo moshë.</string>
-    <string name="squeezer_compression_settings_label">Gjenerik</string>
-    <string name="squeezer_quality_label">Cilësia</string>
-    <string name="squeezer_quality_title">Cilësia e kompresimit</string>
-    <string name="squeezer_quality_description">Cilësia më e ulët nënkupton madhësi më të vogël të skedarit, por cilësi vizuale të reduktuar.</string>
-    <string name="squeezer_quality_example_format">Shembull: imazh %1$s → kursen ~%2$s në cilësinë %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Cilësi më e ulët mund të shkaktojë artefakte të dukshme.</string>
-    <string name="squeezer_quality_warning_high">Cilësia shumë e lartë ofron kursime minimale të hapësirës.</string>
-    <string name="squeezer_types_category_label">Cilësimet e imazhit</string>
-    <string name="squeezer_video_settings_category_label">Cilësimet e videos</string>
+    <string name="squeezer_min_age_description">Përfshi vetëm imazhet më të vjetra se kjo moshë.</string>
+    <string name="squeezer_compression_settings_label">Cilësimet e kompresimit</string>
+    <string name="squeezer_quality_description">Cilësia më e ulët do të thotë madhësi më e vogël e skedarit por cilësi e ulur e imazhit.</string>
+    <string name="squeezer_types_category_label">Llojet e imazheve</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Përfshi imazhet JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Përfshi imazhet WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Përfshi skedarët video MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Kapërce të kompresuarat më parë</string>
-    <string name="squeezer_skip_compressed_description">Anashkalo skedarët që janë kompresuar tashmë nga SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Kapërce imazhet që janë kompresuar tashmë nga SD Maid.</string>
     <string name="squeezer_exif_marker_title">Shkruaj shënuesin EXIF</string>
     <string name="squeezer_exif_marker_description">Shto një shënues në fushën e komentit EXIF të imazhit për të parandaluar rikompresimin edhe nëse historia e kompresimit pastrohet.</string>
     <string name="squeezer_estimated_savings_format">~%s kursime</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Konfirmo kompresimin</string>
     <string name="squeezer_preview_total_size">Madhësia totale</string>
     <string name="squeezer_preview_estimated_savings">Kursime të vlerësuara</string>
-    <string name="squeezer_compress_confirmation_title">Kompreso artikujt e zgjedhur?</string>
-    <string name="squeezer_compress_confirmation_message">Kjo do t\'i zëvendësojë skedarët origjinalë me versione të kompresuar. Ky veprim nuk mund të zhbëhet.</string>
     <string name="squeezer_history_title">Historia e kompresimit</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d artikull (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Asnjë histori kompresimi</string>
     <string name="squeezer_history_clear_title">Pastro historinë e kompresimit</string>
-    <string name="squeezer_history_clear_message">Kjo do të lejojë skedarët e kompresuar më parë të kompresohen përsëri. Vetë skedarët nuk preken.</string>
-    <string name="squeezer_onboarding_title">Rreth kompresimit të imazheve</string>
-    <string name="squeezer_onboarding_message">Kompresimi i imazheve zvogëlon madhësinë e skedarit duke hequr detajet vizuale. Ky proces është i pakthyeshëm - cilësia origjinale nuk mund të rikthehet.\n\nJa një pamje paraprake se si do të duken imazhet tuaja:</string>
+    <string name="squeezer_history_clear_message">Kjo do të lejojë imazhet e kompresuara më parë të kompresohen përsëri. Vetë imazhet nuk preken.</string>
     <string name="squeezer_onboarding_original_label">Origjinale</string>
     <string name="squeezer_onboarding_compressed_label">Pas kompresimit</string>
-    <string name="squeezer_onboarding_video_original_label">Kornizë video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Shikimi paraprak (afërsisht)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Cilësia aktuale e videos mund të ndryshojë</string>
-    <string name="squeezer_onboarding_quality_label">Cilësia: %d%%</string>
     <string name="squeezer_compare_action">Shiko krahasimin</string>
     <string name="squeezer_no_example_found">Nuk u gjetën imazhe në shtegjet e zgjedhura.</string>
-    <string name="squeezer_result_empty_message">Nuk u gjet asnjë media e kompresueshme.</string>
-    <string name="squeezer_setup_warning">Kompresimi zvogëlon cilësinë përgjithmonë për të kursyer hapësirë ruajtjeje. Kjo nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d vend nuk mund të përdoret për kompresim dhe u hoq. Kompresimi kërkon qasje të drejtëpërdrejtë në memorien e brendshme.</item>
-        <item quantity="other">%d vende nuk mund të përdoren për kompresim dhe u hoqën. Kompresimi kërkon qasje të drejtëpërdrejtë në memorien e brendshme.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze zvogëlon madhësinë e skedarëve të imazheve dhe videove për të liruar hapësirë ruajtjeje. Kjo zvogëlon cilësinë përgjithmonë dhe nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
+    <string name="squeezer_result_empty_message">Nuk u gjetën imazhe të kompresueshme.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze zvogëlon madhësinë e skedarëve të imazheve për të liruar hapësirë ​​ruajtëse. Kjo zvogëlon përgjithmonë cilësinë e imazhit dhe nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
     <string name="squeezer_setup_paths_title">Vendet e kërkimit</string>
     <string name="squeezer_setup_paths_default">Zgjidhni dosjet për të kërkuar</string>
     <string name="squeezer_setup_quality_title">Cilësia e kompresimit</string>
     <string name="squeezer_setup_age_title">Mosha minimale</string>
-    <string name="squeezer_setup_age_none">Pa kufizim (përfshi të gjitha skedarët)</string>
     <string name="squeezer_setup_start_action">Fillo skanimin</string>
     <string name="squeezer_quality_hint_very_low">Cilësia nën 40% mund të krijojë imazhe të papërdorshme.</string>
     <string name="squeezer_quality_hint_low">Cilësia më e ulët kursen më shumë hapësirë por mund të shkaktojë artefakte të dukshme.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Të paktën %d ditë e vjetër</item>
         <item quantity="other">Të paktën %d ditë të vjetra</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Kursim i vlerësuar ~%d%% për imazhet</string>
-    <string name="squeezer_onboarding_got_it">E kuptova</string>
+    <string name="squeezer_estimated_savings_percent">Kursime të vlerësuara ~%d%% për skedarët JPEG</string>
 </resources>

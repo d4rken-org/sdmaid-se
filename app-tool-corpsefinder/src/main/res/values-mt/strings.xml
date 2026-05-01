@@ -50,7 +50,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Data ristretta tal-installazzjoni tal-app, eż. apps protetti ta\' parti terza.</string>
     <string name="corpsefinder_filter_appasec_label">Riżorsi encrypted tal-app</string>
     <string name="corpsefinder_filter_appasec_summary">Riżorsi encrypted tal-app, eż. assets tal-logħob.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data mmexxija għal ħażna esterna minn modifiki App2SD.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_owners_label">Sidien</string>
     <string name="corpsefinder_owner_unknown">Sid mhux magħruf</string>

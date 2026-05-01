@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">ທຸກ %d ວັນ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ຊ່ວງທີ່ຊ້ຳ</string>
     <string name="scheduler_inaccurate_execution_hint">ເວລາເດີນງານທີ່ຄາດฮື້ວເປັນການປະມານ. ຕາຣາງເວລາອາດລ່າຊ້າ ຫຼື ເລ່ອນຖ້າມັນຊ່ວຍປະຫຍັດແບດເຕອີ.</string>
     <string name="scheduler_no_active_schedules_subtitle">ບໍ່ມີຕາຣາງເວລາທີ່ເອິດໃຊ້ງານ</string>
     <string name="scheduler_setting_nopowersaving_title">ຂ້າມເມື່ອເຕ຺າເທົ່າຕ່ຳ</string>

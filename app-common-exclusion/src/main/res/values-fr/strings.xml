@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Utilisez le « Vérificateur d’applis » pour exclure des applis.</string>
     <string name="exclusion_create_path_hint">Utilisez l’« Analyseur de mémoire » pour exclure des chemins.</string>
     <string name="exclusion_show_defaults_action">Afficher les valeurs par défaut</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Des changements ne sont pas enregistrés !</string>
 </resources>

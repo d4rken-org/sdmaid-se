@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">AppControl उपकरण प्रयोग गरी अनुप्रयोग बहिष्कार बनाउनुहोस्।</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer उपकरण प्रयोग गरी पथ बहिष्कार बनाउनुहोस्।</string>
     <string name="exclusion_show_defaults_action">पूर्वनिर्धारितहरू देखाउनुहोस्</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">तपाईंसँग असंरक्षित परिवर्तनहरू छन्!</string>
 </resources>

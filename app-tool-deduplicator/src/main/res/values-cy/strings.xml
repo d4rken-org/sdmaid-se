@@ -52,9 +52,6 @@
         <item quantity="many">Mae %s wedi\'u meddiannu gan ddyblygion</item>
         <item quantity="other">Mae %s wedi\'u meddiannu gan ddyblygion</item>
     </plurals>
-    <string name="deduplicator_keep_prefer_paths_title">Yn well cadw yn</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Wrth benderfynu pa ddyblyg i\'w gadw, yn well cadw ffeiliau yn y lleoliadau hyn.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Dim lleoliadau wedi\'u ffurfweddu</string>
     <string name="deduplicator_arbiter_title">Strategaeth dileu</string>
     <string name="deduplicator_arbiter_summary">Ffurfweddwch pa ffeiliau sy\'n cael eu cadw a pha rai sy\'n cael eu dileu.</string>
     <string name="deduplicator_arbiter_explanation">Wrth ddileu dyblygiadau, mae SD Maid yn penderfynu pa ffeil i\'w chadw drwy wirio pob maen prawf yn eu trefn. Y maen prawf cyntaf sy\'n rhoi enillydd clir sy\'n pennu\'r canlyniad. Llusgwch i aildrefnu, tapiwch i newid modd.</string>

@@ -21,9 +21,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">اعرض الخيارات التي تسمح لك بحذف جميع الملفات في مجموعة من التكرارات بحيث لا يبقى أي مِلَفّ بعد الآن.</string>
     <string name="deduplicator_search_locations_title">أماكن البحث</string>
     <string name="deduplicator_search_locations_all_summary">جميع المناطق التي يمكن الوصول إليها</string>
-    <string name="deduplicator_keep_prefer_paths_title">تفضيل الاحتفاظ في</string>
-    <string name="deduplicator_keep_prefer_paths_summary">عند تحديد أي نسخة مكررة للاحتفاظ بها، فضّل الاحتفاظ بالملفات في هذه المواقع.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">لم يتم تكوين أي مواقع</string>
     <string name="deduplicator_skip_minsize_title">الحجم الأدنى</string>
     <string name="deduplicator_skip_minsize_description">تخطي الملفات التي تقل عن الحد الأدنى للحجم.</string>
     <string name="deduplicator_skip_uncommon_title">تخطي أنواع الملفات الغير شائعة</string>

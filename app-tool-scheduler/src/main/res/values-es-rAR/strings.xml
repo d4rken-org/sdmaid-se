@@ -20,7 +20,6 @@
         <item quantity="one">Diario</item>
         <item quantity="other">Cada %d días</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Intervalo de repetición</string>
     <string name="scheduler_inaccurate_execution_hint">Los tiempos de ejecución previstos son aproximados. Los horarios pueden retrasarse o acelerarse si se conserva la batería.</string>
     <string name="scheduler_no_active_schedules_subtitle">No hay ningún planificador activo</string>
     <string name="scheduler_setting_nopowersaving_title">Saltar en batería baja</string>

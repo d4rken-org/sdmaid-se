@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Mugatu bat-etortzeak fitxategi-adinean oinarrituta (azken aldatze-denbora). Utzi ezarri gabe edozein adina bat etortzeko.</string>
     <string name="systemcleaner_customfilter_import_action">Inportatu iragazki berria</string>
     <string name="systemcleaner_customfilter_export_action">Esportatu hautatutako iragazkia</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Gorde gabeko aldaketak dituzu!</string>
 </resources>

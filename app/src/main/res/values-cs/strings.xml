@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Ukončit záznam</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
     <string name="debug_debuglog_screen_title">Protokol ladění</string>
-    <string name="debug_debuglog_screen_discard_action">Zrušit</string>
     <string name="debug_debuglog_screen_session_path_label">Cesta relace</string>
     <string name="debug_debuglog_screen_log_files_label">Soubory protokolů</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -42,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Chyba: chyba komprese</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Smazat tuto relaci logu ladění?</string>
     <string name="support_contact_post_send_message">Zpráva byla úspěšně odeslána?</string>
-    <string name="debug_debuglog_sessions_stop_action">Ukončit</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -57,7 +55,6 @@
         <item quantity="many">%d úloh ve frontě</item>
         <item quantity="other">%d úloh ve frontě</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledek úlohy</string>
     <string name="tasks_timeout_error_label">Úkol vypršel</string>
     <string name="tasks_timeout_error_desc">Úkol trval příliš dlouho a byl zastaven. Zkuste to prosím znovu.</string>
@@ -74,10 +71,6 @@
     <string name="onboarding_versus_continue_action">Pokračovat</string>
     <string name="onboarding_privacy_title">Ochrana osobních údajů</string>
     <string name="onboarding_privacy_body1">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Hlášení o chybách se odesílají v případě výskytu chyb a mohou obsahovat podrobnosti o aplikacích a souborech ve vašem zařízení.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Povolit automatické hlášení chyb</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Tyto možnosti lze změnit v nastavení.</string>
-    <string name="onboarding_privacy_continue_action">Pokračovat</string>
     <string name="onboarding_setup_title">Nastavení</string>
     <string name="onboarding_setup_body1">SD Maid prohledá všechny dostupné oblasti dat.</string>
     <string name="onboarding_setup_body2">Přístupnost závisí na zařízení, verzi systému Android a udělených oprávněních.</string>
@@ -172,7 +165,6 @@
     <string name="setup_incomplete_card_title">Nastavení dokončena</string>
     <string name="setup_incomplete_card_body">Dokončete nastavení aplikace SD Maid pro dosažení lepších výsledků.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid se pokouší opravit problémy s nastavením.</string>
-    <string name="setup_incomplete_card_dismiss_action">Zahodit</string>
     <string name="setup_incomplete_card_continue_action">Pokračovat v nastavení</string>
     <string name="setup_forcedshow_summary">Znovu zobrazit obrazovku nastavení včetně již dokončených položek.</string>
     <string name="setup_checking_card_body">Ověření dokončení nastavení a funkčnosti.</string>
@@ -235,8 +227,6 @@
     <string name="dataarea_warningcard_reload_action">Znovu načíst oblasti dat</string>
     <string name="debug_mode_label">Režim ladění</string>
     <string name="debug_mode_explanation">Povolení možností testování a podrobnějšího slovního výstupu. Aplikace poběží pomaleji a její chování se změní.</string>
-    <string name="debug_bugreporter_label">Automatické hlášení chyb</string>
-    <string name="debug_bugreporter_summary">Automaticky hlásí problémy, např. podrobnosti o pádech aplikace, aby bylo možné zjistit příčinu a opravit ji.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Režim ladění je povolen</string>
     <string name="debug_card_trace_mode_label">Povolit trasovací režim</string>
@@ -251,9 +241,6 @@
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Oblasti dat</string>
     <string name="data_areas_description">Oblasti dat představují místa v zařízení, která jsou přístupná aplikaci SD Maid. V závislosti na verzi systému Android a udělených oprávněních mohou být k dispozici tyto oblasti různé.</string>
-    <string name="data_areas_short_summary">Oblasti, do kterých má SD Maid přístup na základě aktuálně udělených oprávnění.</string>
-    <string name="history_label">Historie</string>
-    <string name="history_description">Chronologický seznam nedávných akcí a dotčených dat.</string>
     <string name="updates_dashcard_title">Aktualizace je k dispozici</string>
     <string name="updates_dashcard_body">Aktualizace je k dispozici. Máte %1$s a poslední verze je %2$s.</string>
     <string name="translation_encourage_title">Přeložit SD Maid</string>
@@ -265,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizací</string>
     <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
     <string name="device_settings_category">Zařízení</string>
-    <string name="beta_version_indicator_desc">Ve zkušebních verzích se na úvodní obrazovce zobrazuje malá lišta. Jsou častěji aktualizovány, mohou mít více funkcí, ale také více chyb.</string>
     <string name="review_app_review_action">Posoudit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
@@ -275,7 +261,7 @@
         <item quantity="one">Již %1$d rok spolu. Děkujeme, že důvěřujete aplikaci SD Maid, aby udržovala váš Android čistý a uklizený. Uvolněné místo: %2$s</item>
         <item quantity="few">%1$d roky bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
         <item quantity="many">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
-        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstává čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Sdílejte své výročí s aplikací SD Maid</string>
     <plurals name="anniversary_share_text">

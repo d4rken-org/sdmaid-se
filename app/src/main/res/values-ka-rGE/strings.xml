@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">ჩაწერის შეჩერება</string>
     <string name="debug_debuglog_sensitive_information_message">გენერირებული ფაილი შეიცავს სენსიტიურ ინფორმაციას (მაგ. ფაილის სახელები და დაინსტალირებული აპები). გაუზიარეთ ის მხოლოდ სანდო მხარეებს.</string>
     <string name="debug_debuglog_screen_title">გამართვის ჟურნალი</string>
-    <string name="debug_debuglog_screen_discard_action">გაუქმება</string>
     <string name="debug_debuglog_screen_session_path_label">სესიის გზა</string>
     <string name="debug_debuglog_screen_log_files_label">ჟურნალის ფაილები</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">შეცდომა: შეკუმშვის შეცდომა</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">წაიშალოს ეს გამართვის ჟურნალის სესია?</string>
     <string name="support_contact_post_send_message">შეტყობინება წარმატებით გაიგზავნა?</string>
-    <string name="debug_debuglog_sessions_stop_action">შეჩერება</string>
     <string name="tasks_activity_notification_channel_label">აქტიური ამოცანები</string>
     <string name="tasks_activity_working_notification_title">SD Maid მუშაობს</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d ამოცანა რიგში</item>
         <item quantity="other">%d ამოცანა რიგში</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">დავალების შედეგები</string>
     <string name="tasks_result_subtext">დავალების შედეგი</string>
     <string name="tasks_timeout_error_label">დავალების დრო ამოიწურა</string>
     <string name="tasks_timeout_error_desc">დავალება ძალიან დიდხანს გაგრძელდა და შეჩერდა. გთხოვთ, სცადოთ თავიდან.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">გაგრძელება</string>
     <string name="onboarding_privacy_title">კონფიდენციალურობა</string>
     <string name="onboarding_privacy_body1">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">შეცდომების შესახებ შეტყობინებები იგზავნება, როდესაც ხდება შეცდომები და შეიძლება შეიცავდეს დეტალებს თქვენს მოწყობილობაზე არსებული აპებისა და ფაილების შესახებ. ანგარიშები მეხმარება შეცდომების გამოსწორებაში და აპის გაუმჯობესებაში.</string>
-    <string name="onboarding_privacy_bugreport_toggle">შეცდომების ავტომატური შეტყობინებების დაშვება</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">ეს პარამეტრები შეიძლება შეიცვალოს პარამეტრებში.</string>
-    <string name="onboarding_privacy_continue_action">გაგრძელება</string>
     <string name="onboarding_setup_title">დაყენება</string>
     <string name="onboarding_setup_body1">SD Maid მოძებნის ყველა ხელმისაწვდომ მონაცემთა ზონას.</string>
     <string name="onboarding_setup_body2">რაც ხელმისაწვდომია, დამოკიდებულია თქვენს მოწყობილობაზე, Android ვერსიასა და მინიჭებულ ნებართვებზე.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">დაყენება არასრულია</string>
     <string name="setup_incomplete_card_body">დაასრულეთ SD Maid-ის დაყენება უკეთესი შედეგების მისაღებად.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ცდილობს დაყენების პრობლემების გამოსწორებას.</string>
-    <string name="setup_incomplete_card_dismiss_action">გაუქმება</string>
     <string name="setup_incomplete_card_continue_action">დაყენების გაგრძელება</string>
     <string name="setup_forcedshow_summary">ხელახლა აჩვენეთ დაყენების ეკრანი, უკვე დასრულებული ელემენტების ჩათვლით.</string>
     <string name="setup_checking_card_body">დაყენების დასრულებისა და ფუნქციონალობის შემოწმება.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">გადატვირთეთ მონაცემთა ზონები</string>
     <string name="debug_mode_label">გამართვის რეჟიმი</string>
     <string name="debug_mode_explanation">ჩართეთ ტესტის ვარიანტები და უფრო ვრცელი გამომავალი. აპლიკაცია უფრო ნელა იმუშავებს და განსხვავებულად მუშაობს.</string>
-    <string name="debug_bugreporter_label">შეცდომების ავტომატური ანგარიშები</string>
-    <string name="debug_bugreporter_summary">ავტომატურად ახსენებს პრობლემებს, მაგ. დეტალებს აპის კრახების შესახებ, რათა შემიძლოს გავარკვიო რატომ და შევასწორო.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">გამართვის რეჟიმი ჩართულია</string>
     <string name="debug_card_trace_mode_label">ტრეისის რეჟიმის ჩართვა</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD ბარათი</string>
     <string name="data_areas_label">მონაცემთა ზონები</string>
     <string name="data_areas_description">მონაცემთა ზონები წარმოადგენს ადგილებს თქვენს მოწყობილობაზე, რომლებიც ხელმისაწვდომია SD Maid-სთვის. სხვადასხვა მონაცემთა ზონები შეიძლება იყოს ხელმისაწვდომი თქვენი Android ვერსიისა და მინიჭებული ნებართვების მიხედვით.</string>
-    <string name="data_areas_short_summary">ზონები, რომლებზეც SD Maid-ს შეუძლია წვდომა ამჟამად მინიჭებული ნებართვების საფუძველზე.</string>
-    <string name="history_label">ისტორია</string>
-    <string name="history_description">ბოლოდროინდელი მოქმედებებისა და დაზარალებული მონაცემების ქრონოლოგიური ჩამონათვალი.</string>
     <string name="updates_dashcard_title">განახლება ხელმისაწვდომია</string>
     <string name="updates_dashcard_body">განახლება ხელმისაწვდომია. თქვენ გაქვთ %1$s და უახლესი ვერსია არის %2$s.</string>
     <string name="translation_encourage_title">თარგმნეთ SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">განახლების შემოწმება</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-ის ნების დართვა განახლებების შესამოწმებლად, რათა გაგაცნოთ თუ ხელმისაწვდომია ახალი ვერსია.</string>
     <string name="device_settings_category">მოწყობილობა</string>
-    <string name="beta_version_indicator_desc">წინასწარი გამოშვების ვერსიები აჩვენებს პატარა ლენტს საწყის ეკრანზე. ისინი უფრო ხშირად ახლდება, შეიძლება ჰქონდეს მეტი ფუნქცია, მაგრამ ასევე შეიძლება ჰქონდეს მეტი შეცდომები.</string>
     <string name="review_app_review_action">მიმოხილვა</string>
     <string name="review_app_dismiss_action">შესაძლოა მოგვიანებით</string>
     <string name="review_app_body">გნებავთ დატოვოთ SD Maid-ს მიმოხილვა?️ ❤️</string>

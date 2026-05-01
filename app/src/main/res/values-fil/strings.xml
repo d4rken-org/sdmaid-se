@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Itigil ang pagta-tala</string>
     <string name="debug_debuglog_sensitive_information_message">Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo.</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
-    <string name="debug_debuglog_screen_discard_action">Itapon</string>
     <string name="debug_debuglog_screen_session_path_label">Path ng Session</string>
     <string name="debug_debuglog_screen_log_files_label">Mga Log File</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Nabigo: error sa compression</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Tanggalin ang debug log session na ito?</string>
     <string name="support_contact_post_send_message">Matagumpay na naipadala ang mensahe?</string>
-    <string name="debug_debuglog_sessions_stop_action">Itigil</string>
     <string name="tasks_activity_notification_channel_label">Mga aktibong gawain</string>
     <string name="tasks_activity_working_notification_title">Nagtatrabaho ang SD Maid</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d gawain ang nakapila</item>
         <item quantity="other">%d gawain ang nakapila</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Mga resulta ng gawain</string>
     <string name="tasks_result_subtext">Resulta ng gawain</string>
     <string name="tasks_timeout_error_label">Nag-timeout ang gawain</string>
     <string name="tasks_timeout_error_desc">Ang gawain ay tumagal nang masyadong matagal at natigil. Pakisubukan muli.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Pagpatuloy</string>
     <string name="onboarding_privacy_title">Pribasidad</string>
     <string name="onboarding_privacy_body1">Ang SD Maid ay walang patalastas at hindi nag bebenta ng datos ng mga gumagamit neto.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Ang mga bug report ay ipinapadala kapag may nangyaring mga error at maaaring maglaman ng mga detalye tungkol sa mga app at file sa inyong device. Nakakatulong sa akin ang mga report na ito na maayos ang mga bug at mapabuti ang app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Pahintulutan ang awtomatikong bug reports</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Maaaring baguhin ang mga pagpipiliang ito sa mga setting.</string>
-    <string name="onboarding_privacy_continue_action">Pagpatuloy</string>
     <string name="onboarding_setup_title">Pag-setup</string>
     <string name="onboarding_setup_body1">Hahanapin ng SD Maid ang lahat ng naa-access na lugar (storage) ng data.</string>
     <string name="onboarding_setup_body2">Ang mga maaaring ma-access ay nakadepende sa inyong device, bersyon ng Android at mga pahintulot na binigay.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Hindi pa tapos ang setup</string>
     <string name="setup_incomplete_card_body">Tapusin ang setup ng SD Maid para sa mas magandang resulta.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Sinusubukan ng SD Maid na ayusin ang mga isyu sa setup.</string>
-    <string name="setup_incomplete_card_dismiss_action">Huwag pansinin</string>
     <string name="setup_incomplete_card_continue_action">Ituloy ang setup</string>
     <string name="setup_forcedshow_summary">Ipakita ulit ang setup screen, kasama ang mga natapos na.</string>
     <string name="setup_checking_card_body">Sinusuri ang pagkakatapos ng setup at functionality.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">I-reload ang mga data area</string>
     <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">I-enable ang mga test option at mas detalyadong output. Mas mabagal tatakbo ang app at iba ang performance.</string>
-    <string name="debug_bugreporter_label">Awtomatikong bug reports</string>
-    <string name="debug_bugreporter_summary">Awtomatikong nag-rereport ng mga isyu, hal. mga detalye tungkol sa app crash para malaman ko kung bakit at maayos ko.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Naka-enable ang debug mode</string>
     <string name="debug_card_trace_mode_label">I-enable ang trace mode</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Mga data area</string>
     <string name="data_areas_description">Ang mga data area ay kumakatawan sa mga lokasyon sa inyong device na accessible sa SD Maid. Maaaring magkakaibang data area ang makakagamit depende sa inyong Android version at mga permission na naibigay.</string>
-    <string name="data_areas_short_summary">Mga area na ma-access ng SD Maid base sa kasalukuyang mga permission na naibigay.</string>
-    <string name="history_label">Kasaysayan</string>
-    <string name="history_description">Isang chronological na listahan ng mga kamakailang aksyon at apektadong data.</string>
     <string name="updates_dashcard_title">May available na update</string>
     <string name="updates_dashcard_body">May available na update. Mayroon kayong %1$s at ang pinakabagong version ay %2$s.</string>
     <string name="translation_encourage_title">I-translate ang SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Pag-check ng update</string>
     <string name="updatecheck_setting_enabled_explanation">Payagan ang SD Maid na mag-check ng mga update para maipakita sa inyo kung may mas bagong version na available.</string>
     <string name="device_settings_category">Device</string>
-    <string name="beta_version_indicator_desc">Ang mga pre-release version ay nagpapakita ng maliit na ribbon sa start screen. Mas madalas itong na-update, maaaring may mas maraming feature, ngunit maaari rin namang may mas maraming bug.</string>
     <string name="review_app_review_action">I-review</string>
     <string name="review_app_dismiss_action">Siguro mamaya</string>
     <string name="review_app_body">Gusto ba ninyong mag-iwan ng review para sa SD Maid?️ ❤️</string>

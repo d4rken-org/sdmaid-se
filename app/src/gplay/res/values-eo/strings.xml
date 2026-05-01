@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">Bezonas SD Maid SE Pro</string>
 
     <string name="upgrades_dashcard_title">Ĝisdatigi SD Maid</string>
     <string name="upgrades_dashcard_body">SD Maid Pro ofertas pli bonajn rezultojn, pliajn funkciojn kaj opciojn por spertaj uzantoj.</string>
@@ -11,7 +8,6 @@
 
     <string name="upgrades_gplay_unavailable_error_title">Google Play ne disponeblas</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid ne povas konekti al Google Play. Ĉu Google Play estas instalita kaj ĝisdata? Ĉu via Google-konto estas ensalutita? Provu vakigi la kaŝmemoron de la Google Play-aplikaĵo kaj restartigi vian aparaton.</string>
-    <string name="upgrades_no_purchases_found_check_account">Neniuj aĉetoj trovitaj. Ĉu vi uzas la ĝustan konton?</string>
     <string name="upgrade_screen_title">Akiru SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid havas neniujn reklamojn kaj ne vendas uzantdatumojn. Mia laboro estas financata de vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Avantaĝoj</string>

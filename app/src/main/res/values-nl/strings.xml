@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen.</string>
     <string name="debug_debuglog_screen_title">Debug-logboek</string>
-    <string name="debug_debuglog_screen_discard_action">Weggooien</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
     <string name="debug_debuglog_screen_log_files_label">Logbestanden</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Mislukt: compressiefout</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Deze foutopsporingssessie verwijderen?</string>
     <string name="support_contact_post_send_message">Bericht succesvol verzonden?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stoppen</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d taak in wachtrij</item>
         <item quantity="other">%d taken in wachtrij</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Taak resultaten</string>
     <string name="tasks_result_subtext">Taak resultaat</string>
     <string name="tasks_timeout_error_label">Taak is verlopen</string>
     <string name="tasks_timeout_error_desc">De taak duurde te lang en is gestopt. Probeer het opnieuw.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Doorgaan</string>
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Foutmeldingen worden verzonden wanneer er fouten optreden en kunnen details bevatten over apps en bestanden op uw apparaat. Rapporten helpen me bugs op te lossen en de app te verbeteren.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Automatische foutrapporten toestaan</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Deze opties kunnen worden gewijzigd in de instellingen.</string>
-    <string name="onboarding_privacy_continue_action">Doorgaan</string>
     <string name="onboarding_setup_title">Instelling</string>
     <string name="onboarding_setup_body1">SD Maid doorzoekt alle toegankelijke gegevens gebieden.</string>
     <string name="onboarding_setup_body2">Wat toegankelijk is, is afhankelijk van je apparaat, Android-versie en verleende machtigingen.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Installatie is onvolledig</string>
     <string name="setup_incomplete_card_body">Voltooi de installatie van SD Maid om betere resultaten te krijgen.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid probeert installatieproblemen op te lossen.</string>
-    <string name="setup_incomplete_card_dismiss_action">Afwijzen</string>
     <string name="setup_incomplete_card_continue_action">Ga door met instellen</string>
     <string name="setup_forcedshow_summary">Toon het configuratiescherm opnieuw, inclusief reeds voltooide items.</string>
     <string name="setup_checking_card_body">De voltooiing en functionaliteit van de installatie verifiëren.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>
     <string name="debug_mode_label">Foutopsporingsmodus</string>
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
-    <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
-    <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
     <string name="debug_card_trace_mode_label">Traceermodus inschakelen</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD-Kaart</string>
     <string name="data_areas_label">Gegevens gebieden</string>
     <string name="data_areas_description">Gegevensgebieden vertegenwoordigen locaties op uw apparaat die toegankelijk zijn voor SD Maid. Er kunnen verschillende gegevensgebieden beschikbaar zijn, afhankelijk van uw Android-versie en de verleende machtigingen.</string>
-    <string name="data_areas_short_summary">Gebieden waartoe SD Maid toegang heeft op basis van de momenteel verleende machtigingen.</string>
-    <string name="history_label">Geschiedenis</string>
-    <string name="history_description">Een chronologische lijst van recente acties en betrokken gegevens.</string>
     <string name="updates_dashcard_title">Update beschikbaar</string>
     <string name="updates_dashcard_body">Een update is beschikbaar. Je hebt %1$s en de nieuwste versie is %2$s.</string>
     <string name="translation_encourage_title">Vertaal SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Updatecontrole</string>
     <string name="updatecheck_setting_enabled_explanation">Sta SD Maid toe om te controleren op updates om je te laten weten of er een nieuwere versie beschikbaar is.</string>
     <string name="device_settings_category">Apparaat</string>
-    <string name="beta_version_indicator_desc">Pre-releaseversies tonen een klein lint op het startscherm. Ze worden vaker bijgewerkt, hebben mogelijk meer functies, maar kunnen ook meer bugs bevatten.</string>
     <string name="review_app_review_action">Beoordeling</string>
     <string name="review_app_dismiss_action">Misschien later</string>
     <string name="review_app_body">Wil je SD Maid een beoordeling achterlaten? ❤️</string>

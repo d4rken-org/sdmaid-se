@@ -20,7 +20,6 @@
         <item quantity="one">Naponta</item>
         <item quantity="other">Minden %d nap</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Ismétlődési időköz</string>
     <string name="scheduler_inaccurate_execution_hint">A várható végrehajtási idők hozzávetőlegesek. Az ütemezések késhetnek vagy felgyorsulhatnak, ha kíméli az akkumulátort.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nincs aktív ütemezés</string>
     <string name="scheduler_setting_nopowersaving_title">Ugrás alacsony akkumulátor töltöttségi szint esetén</string>

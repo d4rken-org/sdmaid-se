@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Komprimer billeder og videoer for at spare lagerplads.</string>
+    <string name="squeezer_explanation_short">Komprimér billeder for at spare lagerplads.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d element fundet</item>
-        <item quantity="other">%d elementer fundet</item>
+        <item quantity="one">%d billede fundet</item>
+        <item quantity="other">%d billeder fundet</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s kan spares</item>
         <item quantity="other">~%s kan spares</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d element komprimeret</item>
-        <item quantity="other">%d elementer komprimeret</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d mislykkedes</item>
-        <item quantity="other">%d mislykkedes</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d fil sprunget over (ikke tilgængelig)</item>
-        <item quantity="other">%d filer sprunget over (ikke tilgængelige)</item>
+        <item quantity="one">%d billede komprimeret</item>
+        <item quantity="other">%d billeder komprimeret</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d element valgt</item>
-        <item quantity="other">%d elementer valgt</item>
+        <item quantity="one">%d billede valgt</item>
+        <item quantity="other">%d billeder valgt</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Søgeplaceringer</string>
-    <string name="squeezer_search_locations_default_summary">Kameramapper (standard)</string>
     <string name="squeezer_min_size_title">Minimum filstørrelse</string>
-    <string name="squeezer_min_size_description">Spring filer over, der er mindre end denne størrelse.</string>
+    <string name="squeezer_min_size_description">Spring billeder over, der er mindre end denne størrelse.</string>
     <string name="squeezer_min_age_title">Minimum fil alder</string>
-    <string name="squeezer_min_age_description">Medtag kun filer, der er ældre end denne alder.</string>
-    <string name="squeezer_compression_settings_label">Generelt</string>
-    <string name="squeezer_quality_label">Kvalitet</string>
-    <string name="squeezer_quality_title">Kompressions kvalitet</string>
-    <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret visuel kvalitet.</string>
-    <string name="squeezer_quality_example_format">Eksempel: %1$s billede → sparer ~%2$s ved %3$d%% kvalitet</string>
-    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
-    <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
-    <string name="squeezer_types_category_label">Billedindstillinger</string>
-    <string name="squeezer_video_settings_category_label">Videoindstillinger</string>
+    <string name="squeezer_min_age_description">Inkludér kun billeder ældre end denne alder.</string>
+    <string name="squeezer_compression_settings_label">Komprimering indstillinger</string>
+    <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret billedkvalitet.</string>
+    <string name="squeezer_types_category_label">Billedtyper</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Inkluder JPEG-billeder (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inkludér WebP-billeder (.Webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Medtag MP4-videofiler (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Spring tidligere komprimerede over</string>
-    <string name="squeezer_skip_compressed_description">Spring filer over, der allerede er komprimeret af SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Spring billeder over, der allerede er komprimeret af SD Maid.</string>
     <string name="squeezer_exif_marker_title">Skriv EXIF-markør</string>
     <string name="squeezer_exif_marker_description">Tilføj en markør til billedets EXIF-brugerkommentarfelt for at forhindre genkomprimering, selvom komprimeringshistorikken ryddes.</string>
     <string name="squeezer_estimated_savings_format">~%s besparelse</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Bekræft komprimering</string>
     <string name="squeezer_preview_total_size">Total størrelse</string>
     <string name="squeezer_preview_estimated_savings">Estimeret besparelse</string>
-    <string name="squeezer_compress_confirmation_title">Komprimer valgte elementer?</string>
-    <string name="squeezer_compress_confirmation_message">Dette vil erstatte de originale filer med komprimerede versioner. Denne handling kan ikke fortrydes.</string>
     <string name="squeezer_history_title">Komprimeringshistorik</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Ingen komprimeringshistorik</string>
     <string name="squeezer_history_clear_title">Ryd komprimeringshistorik</string>
-    <string name="squeezer_history_clear_message">Dette vil tillade tidligere komprimerede filer at blive komprimeret igen. Filerne selv påvirkes ikke.</string>
-    <string name="squeezer_onboarding_title">Om Billedkomprimering</string>
-    <string name="squeezer_onboarding_message">Billedkomprimering reducerer filstørrelsen ved at fjerne visuelle detaljer. Denne proces er irreversibel - den originale kvalitet kan ikke genskabes.\n\nHer er en forhåndsvisning af, hvordan dine billeder vil se ud:</string>
+    <string name="squeezer_history_clear_message">Dette vil tillade, at tidligere komprimerede billeder kan komprimeres igen. Selve billederne påvirkes ikke.</string>
     <string name="squeezer_onboarding_original_label">Oprindelig</string>
     <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
-    <string name="squeezer_onboarding_video_original_label">Videobillede</string>
-    <string name="squeezer_onboarding_video_compressed_label">Forhåndsvisning (omtrentlig)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Den faktiske videokvalitet kan variere</string>
-    <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
     <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
-    <string name="squeezer_result_empty_message">Ingen komprimerbart medie fundet.</string>
-    <string name="squeezer_setup_warning">Komprimering reducerer kvaliteten permanent for at spare lagerplads. Dette kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d placering kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
-        <item quantity="other">%d placeringer kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze reducerer filstørrelsen på billeder og videoer for at frigøre lagerplads. Dette reducerer kvaliteten permanent og kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
+    <string name="squeezer_result_empty_message">Ingen komprimerbare billeder fundet.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reducerer filstørrelsen af billeder for at frigøre lagerplads. Dette reducerer permanent billedkvaliteten og kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
     <string name="squeezer_setup_paths_title">Søgeplaceringer</string>
     <string name="squeezer_setup_paths_default">Vælg mapper at søge i</string>
     <string name="squeezer_setup_quality_title">Komprimeringskvalitet</string>
     <string name="squeezer_setup_age_title">Minimumsalder</string>
-    <string name="squeezer_setup_age_none">Ingen grænse (inkludér alle filer)</string>
     <string name="squeezer_setup_start_action">Start scanning</string>
     <string name="squeezer_quality_hint_very_low">Kvalitet under 40% kan skabe ubrugelige billeder.</string>
     <string name="squeezer_quality_hint_low">Lavere kvalitet sparer mere plads, men kan forårsage synlige artefakter.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Mindst %d dag gammel</item>
         <item quantity="other">Mindst %d dage gammel</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Anslået ~%d%% besparelse for billeder</string>
-    <string name="squeezer_onboarding_got_it">Forstået</string>
+    <string name="squeezer_estimated_savings_percent">Estimeret ~%d%% besparelse for JPEG-filer</string>
 </resources>

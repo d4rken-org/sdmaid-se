@@ -45,7 +45,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Obmedzené údaje o inštalácii aplikácie, napr. chránené aplikácie tretích strán.</string>
     <string name="corpsefinder_filter_appasec_label">Šifrované prostriedky aplikácie</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikácií, napr. herné prostriedky.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Údaje presunuté do externého úložiska pomocou modov App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d zvyšok aplikácie odstránený</item>

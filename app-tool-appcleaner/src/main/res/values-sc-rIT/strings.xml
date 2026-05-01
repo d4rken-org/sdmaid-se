@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizatzione AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpiadela de cache predefinidas…</string>
-    <string name="appcleaner_automation_progress_open_settings">Abertura de ischermada de impostatziones (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Chirchende entrada \"Archìviu\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Chirchende butone \"Limpiai datos\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Chirchende butone \"Limpiai cache\" (faeddas crae: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinidas púbblicas e privadas. No diretamente atzessìbiles, ma podent èssere cantzelladas indiretamente (pro es. a travessu de servitziu de atzessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Servitziu de atzessibilidade non disponìbile</string>
     <string name="appcleaner_automation_unavailable_body">Sa limpiadela de cache inatzessìbiles riekeret su servitziu de atzessibilidade de SD Maid, ma non fiat disponìbile. Si no lu cheres impreare: Disabilita s\'optzione \"Inclutìghere cache inatzessìbiles\".</string>
-    <string name="appcleaner_junk_userprofile_label">Usuàriu</string>
     <string name="appcleaner_delete_confirmation_message_x">Cantzellare documentos ispentzìbiles pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cantzellare documentos ispentzìbiles pro %d aplicatzione seletzionada?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Firma a fortza prima de sa limpesa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Firma a fortza is aplicatziones prima de limpiare sa memòria temporànea insoro. Podet agiudare a limpiare sa memòria de àteras aplicatziones, ma podet càusare cumportamentos anòmalos e netzessitare unu torrada a aviare manuale.</string>
     <string name="appcleaner_progress_force_stopping">Firmende a fortza is aplicatziones…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
-    <string name="appcleaner_automation_loading">Preparende automatizatzione a travessu de servitziu de atzessibilidade</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Proende de confirmaren s\'atzione antekerente (faeddas crae: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inclutìghere àteros usuarios</string>
-    <string name="appcleaner_include_multiuser_summary">Inclutìghere aplicatziones dae àteros profiles de usuarios in custu dispositivu.</string>
 </resources>

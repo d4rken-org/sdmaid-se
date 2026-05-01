@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Dati di installazione delle app limitate, ad esempio app di terze parti protette.</string>
     <string name="corpsefinder_filter_appasec_label">Risorse app crittografate</string>
     <string name="corpsefinder_filter_appasec_summary">Risorse di app criptate, ad esempio risorse di gioco.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Dati spostati nella memoria esterna da App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d resto di applicazione eliminato</item>

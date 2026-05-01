@@ -22,7 +22,6 @@
         <item quantity="many">Kas %d dienų</item>
         <item quantity="other">Kas %d dienų</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Kartojimo intervalas</string>
     <string name="scheduler_inaccurate_execution_hint">Numatomi vykdymo laikai yra apytikslių. Tvarkaraočių vykdymas gali būti atidedamas arba paspartinamas, jei tai taupo akumulatorų.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nėra aktyvaus tvarkaraočų</string>
     <string name="scheduler_setting_nopowersaving_title">Praleisti, kai akumuliatorius žemas</string>

@@ -5,13 +5,16 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.ClipboardHelper
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.uix.ViewModel2
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.setup.SetupManager
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -26,11 +29,11 @@ class SettingsViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     private val clipboardHelper: ClipboardHelper,
     private val curriculumVitae: CurriculumVitae,
-) : ViewModel2(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, TAG) {
 
-    val events = SingleLiveEvent<SettingEvents>()
+    val events = SingleEventFlow<SettingEvents>()
 
-    val state = combine(
+    val state: StateFlow<State> = combine(
         upgradeRepo.upgradeInfo.map { it.isPro },
         setupManager.state.map { it.isDone },
     ) { isPro, isSetUp ->
@@ -38,10 +41,17 @@ class SettingsViewModel @Inject constructor(
             isPro = isPro,
             setupDone = isSetUp,
         )
-    }.asLiveData2()
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     fun openWebsite(url: String) {
         webpageTool.open(url)
+    }
+
+    fun openPrivacyPolicy() {
+        webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
     }
 
     fun openUpgradeWebsite() {
@@ -55,7 +65,7 @@ class SettingsViewModel @Inject constructor(
         """.trimIndent()
 
     fun showVersionInfos() = launch {
-        events.postValue(SettingEvents.ShowVersionInfo(getVersionText()))
+        events.emit(SettingEvents.ShowVersionInfo(getVersionText()))
     }
 
     fun copyVersionInfos() = launch {
@@ -63,8 +73,11 @@ class SettingsViewModel @Inject constructor(
     }
 
     data class State(
-        val isPro: Boolean,
-        val setupDone: Boolean,
+        val isPro: Boolean = false,
+        val setupDone: Boolean = false,
     )
 
+    companion object {
+        private val TAG = logTag("Settings", "ViewModel")
+    }
 }

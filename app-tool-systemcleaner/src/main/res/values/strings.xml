@@ -101,5 +101,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limit matches based on file age (last modified time). Leave unset to match any age.</string>
     <string name="systemcleaner_customfilter_import_action">Import new filter</string>
     <string name="systemcleaner_customfilter_export_action">Export selected filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">You have unsaved changes!</string>
 </resources>

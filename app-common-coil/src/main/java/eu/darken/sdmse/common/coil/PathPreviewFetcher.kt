@@ -27,9 +27,9 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.extension
-import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.R as CommonR
 import okio.buffer
 import kotlinx.coroutines.CancellationException
 import java.io.IOException
@@ -48,8 +48,14 @@ class PathPreviewFetcher @Inject constructor(
 ) : Fetcher {
 
     private val fallbackIcon by lazy {
+        val fallbackResId = when (data.fileType) {
+            FileType.DIRECTORY -> CommonR.drawable.ic_folder
+            FileType.SYMBOLIC_LINK -> CommonR.drawable.ic_file_link
+            FileType.FILE -> CommonR.drawable.ic_file
+            FileType.UNKNOWN -> CommonR.drawable.file_question
+        }
         DrawableResult(
-            drawable = ContextCompat.getDrawable(options.context, data.fileType.iconRes)!!,
+            drawable = ContextCompat.getDrawable(options.context, fallbackResId)!!,
             isSampled = false,
             dataSource = DataSource.MEMORY
         )

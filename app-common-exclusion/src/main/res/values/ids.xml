@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="action_exclusionsListFragment_to_pkgExclusionFragment" type="id" />
-    <item name="action_exclusionsListFragment_to_pathExclusionFragment" type="id" />
-    <item name="action_exclusionsListFragment_to_segmentExclusionFragment" type="id" />
-</resources>

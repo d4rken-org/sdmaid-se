@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Qeydi dayandır</string>
     <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (yəni fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
     <string name="debug_debuglog_screen_title">Sazlama qeydi</string>
-    <string name="debug_debuglog_screen_discard_action">İmtina et</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiya yolu</string>
     <string name="debug_debuglog_screen_log_files_label">Qeyd faylları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Uğursuz: sıxışdırma xətası</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Bu sazlama jurnalı sessiyasını silmək istəyirsiniz?</string>
     <string name="support_contact_post_send_message">Mesaj uğurla göndərildi?</string>
-    <string name="debug_debuglog_sessions_stop_action">Dayandır</string>
     <string name="tasks_activity_notification_channel_label">Aktiv tapşırıqlar</string>
     <string name="tasks_activity_working_notification_title">SD Maid işləyir</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d növbədəki tapşırıq</item>
         <item quantity="other">%d növbəyə alınmış tapşırıqlar</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Tapşırıq nəticələri</string>
     <string name="tasks_result_subtext">Tapşırıq nəticəsi</string>
     <string name="tasks_timeout_error_label">Tapşırığın vaxtı bitdi</string>
     <string name="tasks_timeout_error_desc">Tapşırıq çox uzun çəkdi və dayandırıldı. Zəhmət olmasa, yenidən cəhd edin.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Davam et</string>
     <string name="onboarding_privacy_title">Gizlilik</string>
     <string name="onboarding_privacy_body1">SD Maid-də reklamlar yoxdur və istifadəçi məlumatlarını satmır.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Xəta hesabatları xətalar baş verdikdə göndərilir və buraya cihazınızdakı tətbiq və fayllar barədə detallar aid ola bilər.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Avtomatik xəta hesabatlarına icazə ver</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Bu seçimlər tənzimləmələrdə dəyişdirilə bilər.</string>
-    <string name="onboarding_privacy_continue_action">Davam edin</string>
     <string name="onboarding_setup_title">Quraşdır</string>
     <string name="onboarding_setup_body1">SD Maid bütün əlçatan məlumat sahələrinində axtarış edəcəkdir.</string>
     <string name="onboarding_setup_body2">Nəyə daxil olmaq mümkün olduğu cihazınıza, Android versiyanıza və verilən icazələrə bağlıdır.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Quraşdırma tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha yaxşı nəticələr əldə etmək üçün SD Maid-in quraşdırılmasını tamamlayın.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid, quraşdırma problemlərini həll etməyə çalışır.</string>
-    <string name="setup_incomplete_card_dismiss_action">Ləğv et</string>
     <string name="setup_incomplete_card_continue_action">Quraşdırma davam et</string>
     <string name="setup_forcedshow_summary">Quraşdırma ekranını artıq tamamlanmış elementlərlə birlikdə yenidən göstər.</string>
     <string name="setup_checking_card_body">Funksionallığın və quraşdırmanın tamamlanmasının təsdiqlənməsi.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_mode_label">Araşdırma rejimi</string>
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
-    <string name="debug_bugreporter_label">Avtomatik xəta hesabatı</string>
-    <string name="debug_bugreporter_summary">Problemləri avtomatik bildirir, məsələn, tətbiq çökmələri haqqında təfərrüatları, beləliklə səbəbini anlaya və düzəldə bilərəm.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
     <string name="debug_card_trace_mode_label">İzləmə rejimini aktivləşdir</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD kart</string>
     <string name="data_areas_label">Məlumat sahələri</string>
     <string name="data_areas_description">Məlumat sahələri cihazınızda SD Maid-in daxil ola biləcəyi yerləri təmsil edir. Android versiyanıza və verilən icazələrə əsasən müxtəlif məlumat sahələri mövcud ola bilər.</string>
-    <string name="data_areas_short_summary">SD Maid-in hazırda verilən icazələrə əsasən daxil ola biləcəyi sahələr.</string>
-    <string name="history_label">Tarix</string>
-    <string name="history_description">Son hərəkətlərin və təsirlənən məlumatların xronoloji siyahısı.</string>
     <string name="updates_dashcard_title">Yeniləmə mövcuddur</string>
     <string name="updates_dashcard_body">Yeniləmə mövcuddur. Sizdə %1$s var və ən son versiya %2$s-dir.</string>
     <string name="translation_encourage_title">SD Maid tərcümə edin</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Yeniləmə yoxlaması</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-in daha yeni versiya mövcud olduğunu bildirmək üçün yeniləmələri yoxlamasına icazə ver.</string>
     <string name="device_settings_category">Cihaz</string>
-    <string name="beta_version_indicator_desc">Pre-release versiyaları başlanğıc ekranında kiçik bir lent göstərir. Onlar daha tez-tez yenilənir, daha çox funksiyaya malik ola bilər, lakin daha çox xəta da ola bilər.</string>
     <string name="review_app_review_action">Baxış</string>
     <string name="review_app_dismiss_action">Bəlkə sonra</string>
     <string name="review_app_body">SD Maid üçün rəy yazmaq istərdinizmi? ❤️</string>

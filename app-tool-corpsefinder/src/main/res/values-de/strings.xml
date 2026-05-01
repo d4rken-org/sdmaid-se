@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Eingeschränkte App-Installationsdaten, z.B. geschützte Apps von Drittanbietern.</string>
     <string name="corpsefinder_filter_appasec_label">Verschlüsselte App-Ressourcen</string>
     <string name="corpsefinder_filter_appasec_summary">Verschlüsselte App-Ressourcen, z.B. Spiel-Assets.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d App-Rest gelöscht</item>

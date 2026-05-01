@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Sebenzisa ithuluzi le-AppControl ukudala ukukhishwa kohlelo.</string>
     <string name="exclusion_create_path_hint">Sebenzisa ithuluzi le-StorageAnalyzer ukudala ukukhishwa kwendlela.</string>
     <string name="exclusion_show_defaults_action">Bonisa okuzenzakalelayo</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
 </resources>

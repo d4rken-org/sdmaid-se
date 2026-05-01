@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Διακοπή καταγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π.χ. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με όποιον εμπιστεύεστε.</string>
     <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
-    <string name="debug_debuglog_screen_discard_action">Απόρριψη</string>
     <string name="debug_debuglog_screen_session_path_label">Διαδρομή Συνεδρίας</string>
     <string name="debug_debuglog_screen_log_files_label">Αρχεία καταγραφής</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Αποτυχία: σφάλμα συμπίεσης</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Διαγραφή αυτής της συνεδρίας αρχείου καταγραφής αποσφαλμάτωσης;</string>
     <string name="support_contact_post_send_message">Το μήνυμα εστάλη επιτυχώς;</string>
-    <string name="debug_debuglog_sessions_stop_action">Διακοπή</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d εργασία στην ουρά</item>
         <item quantity="other">%d εργασίες στην ουρά</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Αποτελέσματα διεργασιών</string>
     <string name="tasks_result_subtext">Αποτέλεσμα διεργασίας</string>
     <string name="tasks_timeout_error_label">Η εργασία εξέπνευσε</string>
     <string name="tasks_timeout_error_desc">Η εργασία διήρκεσε πολύ και διακόπηκε. Παρακαλώ δοκιμάστε ξανά.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Συνέχεια</string>
     <string name="onboarding_privacy_title">Απόρρητο</string>
     <string name="onboarding_privacy_body1">Το SD Maid δεν έχει διαφημίσεις και δεν πωλεί δεδομένα χρηστών.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Οι αναφορές σφαλμάτων αποστέλλονται όταν εμφανιστούν σφάλματα και μπορεί να περιέχουν λεπτομέρειες σχετικά με εφαρμογές και αρχεία στη συσκευή σας. Οι αναφορές με βοηθούν να διορθώσω σφάλματα και να βελτιώσω την εφαρμογή.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Να επιτρέπονται αυτόματες αναφορές σφαλμάτων</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Αυτές οι επιλογές μπορούν να αλλάξουν στις ρυθμίσεις.</string>
-    <string name="onboarding_privacy_continue_action">Συνέχεια</string>
     <string name="onboarding_setup_title">Ρύθμιση</string>
     <string name="onboarding_setup_body1">Το SD Maid θα αναζητήσει όλες τις προσβάσιμες περιοχές δεδομένων.</string>
     <string name="onboarding_setup_body2">Αυτά που είναι προσβάσιμα εξαρτώνται από τη συσκευή σας, την έκδοση Android και τα παραχωρημένα δικαιώματα.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Η εγκατάσταση δεν είναι ολοκληρωμένη</string>
     <string name="setup_incomplete_card_body">Τελειώστε τη ρύθμιση του SD Maid για να έχετε καλύτερα αποτελέσματα.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Το SD Maid προσπαθεί να διορθώσει προβλήματα εγκατάστασης.</string>
-    <string name="setup_incomplete_card_dismiss_action">Παράλειψη</string>
     <string name="setup_incomplete_card_continue_action">Συνέχεια εγκατάστασης</string>
     <string name="setup_forcedshow_summary">Εμφάνιση οθόνης ρύθμισης ξανά, συμπεριλαμβανομένων των ήδη ολοκληρωμένων στοιχείων.</string>
     <string name="setup_checking_card_body">Επαλήθευση ολοκλήρωσης και λειτουργικότητας της εγκατάστασης.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
     <string name="debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
     <string name="debug_mode_explanation">Ενεργοποιήστε τις επιλογές δοκιμής και πιο λεπτομερές output. Η εφαρμογή θα λειτουργεί πιο αργά και θα έχει διαφορετική απόδοση.</string>
-    <string name="debug_bugreporter_label">Αυτόματες αναφορές σφαλμάτων</string>
-    <string name="debug_bugreporter_summary">Αναφέρει αυτόματα ζητήματα, π.χ. λεπτομέρειες σχετικά με τα σφάλματα της εφαρμογής, ώστε να μπορώ να καταλάβω γιατί και να το διορθώσω.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Η λειτουργία εντοπισμού σφαλμάτων είναι ενεργοποιημένη</string>
     <string name="debug_card_trace_mode_label">Ενεργοποίηση λειτουργίας ανίχνευσης</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">Κάρτα SD</string>
     <string name="data_areas_label">Περιοχές δεδομένων</string>
     <string name="data_areas_description">Οι περιοχές δεδομένων αντιπροσωπεύουν τοποθεσίες στη συσκευή σας που είναι προσβάσιμες στο SD Maid. Διαφορετικές περιοχές δεδομένων ενδέχεται να είναι διαθέσιμες ανάλογα με την έκδοση Android και τα δικαιώματα που έχουν χορηγηθεί.</string>
-    <string name="data_areas_short_summary">Περιοχές στις οποίες μπορεί να έχει πρόσβαση το SD Maid βάσει των δικαιωμάτων που έχουν χορηγηθεί αυτήν τη στιγμή.</string>
-    <string name="history_label">Ιστορικό</string>
-    <string name="history_description">Μια χρονολογική λίστα των πρόσφατων ενεργειών και των επηρεαζόμενων δεδομένων.</string>
     <string name="updates_dashcard_title">Ενημέρωση διαθέσιμη</string>
     <string name="updates_dashcard_body">Υπάρχει διαθέσιμη ενημέρωση. Έχετε την %1$s και η τελευταία έκδοση είναι %2$s.</string>
     <string name="translation_encourage_title">Μετάφραση του SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Έλεγχος ενημερώσεων</string>
     <string name="updatecheck_setting_enabled_explanation">Επιτρέψτε στο SD Maid να ελέγχει για ενημερώσεις για να σας ειδοποιεί εάν είναι διαθέσιμη νεότερη έκδοση.</string>
     <string name="device_settings_category">Συσκευή</string>
-    <string name="beta_version_indicator_desc">Οι εκδόσεις πριν την κυκλοφορία εμφανίζουν μια κορδέλα litte στην οθόνη έναρξης. Ενημερώνονται πιο συχνά, μπορεί να έχουν περισσότερα χαρακτηριστικά, αλλά θα μπορεί επίσης να έχουν περισσότερα σφάλματα.</string>
     <string name="review_app_review_action">Αξιολόγηση</string>
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>

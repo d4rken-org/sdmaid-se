@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Använd AppControl-verktyget för att skapa apputeslutningar.</string>
     <string name="exclusion_create_path_hint">Använd StorageAnalyzer-verktyget för att skapa sökvägsuteslutningar.</string>
     <string name="exclusion_show_defaults_action">Visa standard</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Du har osparade ändringar!</string>
 </resources>

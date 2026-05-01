@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Додатки, встановлені на вашому пристрої.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Виявлено додаток %d</item>
-        <item quantity="few">Виявлено додатки %d</item>
-        <item quantity="many">Виявлено додатків %d</item>
-        <item quantity="other">Виявлено %d додатків</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Перемикання додатків</string>
     <string name="appcontrol_toggle_app_enable_action">Увімкнути додаток</string>
     <string name="appcontrol_toggle_app_disable_action">Вимкнути додаток</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Налагодження</string>
     <string name="appcontrol_progress_enabling_package">Увімкнення додатка</string>
     <string name="appcontrol_progress_disabling_package">Вимкнення додатка</string>
-    <string name="appcontrol_list_filteroptions_label">Параметри фільтрування</string>
     <string name="appcontrol_list_sortmode_name_label">Назва додатка</string>
     <string name="appcontrol_list_sortmode_updated_label">Останнє оновлення</string>
     <string name="appcontrol_list_sortmode_installed_label">Вперше встановлено</string>
@@ -146,8 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
     <string name="shortcut_appcontrol_short">Контроль додатків</string>
     <string name="shortcut_appcontrol_long">Керувати встановленими додатками</string>
-    <string name="appcontrol_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Включити інших користувачів</string>
-    <string name="appcontrol_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
 </resources>

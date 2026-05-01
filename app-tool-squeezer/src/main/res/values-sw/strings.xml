@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Bana picha na video ili kuokoa nafasi ya hifadhi.</string>
+    <string name="squeezer_explanation_short">Bana picha ili kuokoa nafasi ya hifadhi.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d kipande kimepatikana</item>
-        <item quantity="other">%d vipande vimepatikana</item>
+        <item quantity="one">picha %d imepatikana</item>
+        <item quantity="other">picha %d zimepatikana</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s inaweza kuokolewa</item>
         <item quantity="other">~%s zinaweza kuokolewa</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d kipande kimebaniwa</item>
-        <item quantity="other">%d vipande vimebaniwa</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d imeshindwa</item>
-        <item quantity="other">%d zimeshindwa</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d faili imerukwa (haifikiwi)</item>
-        <item quantity="other">%d faili zimerukwa (hazifikiwi)</item>
+        <item quantity="one">picha %d imebaniwa</item>
+        <item quantity="other">picha %d zimebaniwa</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d kipande kimechaguliwa</item>
-        <item quantity="other">%d vipande vimechaguliwa</item>
+        <item quantity="one">picha %d imechaguliwa</item>
+        <item quantity="other">picha %d zimechaguliwa</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Maeneo ya kutafuta</string>
-    <string name="squeezer_search_locations_default_summary">Folda za kamera (chaguo-msingi)</string>
     <string name="squeezer_min_size_title">Ukubwa wa chini wa faili</string>
-    <string name="squeezer_min_size_description">Ruka faili ndogo kuliko ukubwa huu.</string>
+    <string name="squeezer_min_size_description">Ruka picha ndogo kuliko ukubwa huu.</string>
     <string name="squeezer_min_age_title">Umri wa chini wa faili</string>
-    <string name="squeezer_min_age_description">Jumuisha tu faili za zamani kuliko umri huu.</string>
-    <string name="squeezer_compression_settings_label">Jumla</string>
-    <string name="squeezer_quality_label">Ubora</string>
-    <string name="squeezer_quality_title">Ubora wa kubana</string>
-    <string name="squeezer_quality_description">Ubora mdogo unamaanisha ukubwa mdogo wa faili lakini ubora wa kuona umepungua.</string>
-    <string name="squeezer_quality_example_format">Mfano: picha ya %1$s → inaokoa ~%2$s kwa ubora wa %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Ubora wa chini unaweza kusababisha kasoro zinazoonekana.</string>
-    <string name="squeezer_quality_warning_high">Ubora wa juu sana unatoa akiba ndogo ya nafasi.</string>
-    <string name="squeezer_types_category_label">Mipangilio ya picha</string>
-    <string name="squeezer_video_settings_category_label">Mipangilio ya video</string>
+    <string name="squeezer_min_age_description">Jumuisha picha za zamani kuliko umri huu tu.</string>
+    <string name="squeezer_compression_settings_label">Mipangilio ya kubana</string>
+    <string name="squeezer_quality_description">Ubora wa chini unamaanisha ukubwa mdogo wa faili lakini ubora uliopunguzwa wa picha.</string>
+    <string name="squeezer_types_category_label">Aina za picha</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Jumuisha picha za JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Jumuisha picha za WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Video ya MP4</string>
-    <string name="squeezer_type_video_description">Jumuisha faili za video za MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Ruka zilizobaniwa hapo awali</string>
-    <string name="squeezer_skip_compressed_description">Ruka faili ambazo tayari zimebaniwa na SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Ruka picha ambazo tayari zimebaniwa na SD Maid.</string>
     <string name="squeezer_exif_marker_title">Andika alama ya EXIF</string>
     <string name="squeezer_exif_marker_description">Ongeza alama kwenye sehemu ya maoni ya mtumiaji wa EXIF ya picha ili kuzuia kubaniwa tena hata kama historia ya kubana inafutwa.</string>
     <string name="squeezer_estimated_savings_format">~%s akiba</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Thibitisha kubana</string>
     <string name="squeezer_preview_total_size">Ukubwa wa jumla</string>
     <string name="squeezer_preview_estimated_savings">Akiba iliyokadiriwa</string>
-    <string name="squeezer_compress_confirmation_title">Bana vitu vilivyochaguliwa?</string>
-    <string name="squeezer_compress_confirmation_message">Hii itabadilisha faili za asili na matoleo yaliyobanwa. Kitendo hiki hakiwezi kutenduliwa.</string>
     <string name="squeezer_history_title">Historia ya kubana</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">kipengele %1$d (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Hakuna historia ya kubana</string>
     <string name="squeezer_history_clear_title">Futa historia ya kubana</string>
-    <string name="squeezer_history_clear_message">Hii itaruhusu faili zilizobaniwa awali kubaniwa tena. Faili zenyewe hazitaathiriwa.</string>
-    <string name="squeezer_onboarding_title">Kuhusu Kubana Picha</string>
-    <string name="squeezer_onboarding_message">Kubana picha kunapunguza ukubwa wa faili kwa kuondoa maelezo ya kuona. Mchakato huu hauwezi kutenduliwa - ubora wa asili hauwezi kurejeshwa.\n\nHapa kuna hakikisho la jinsi picha zako zitakavyoonekana:</string>
+    <string name="squeezer_history_clear_message">Hii itaruhusu picha zilizobaniwa hapo awali kubaniwa tena. Picha zenyewe haziathiriwi.</string>
     <string name="squeezer_onboarding_original_label">Asili</string>
     <string name="squeezer_onboarding_compressed_label">Baada ya kubana</string>
-    <string name="squeezer_onboarding_video_original_label">Fremu ya video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Hakikisho (takriban)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Ubora halisi wa video unaweza kutofautiana</string>
-    <string name="squeezer_onboarding_quality_label">Ubora: %d%%</string>
     <string name="squeezer_compare_action">Tazama kulinganisha</string>
     <string name="squeezer_no_example_found">Hakuna picha zilizopatikana katika njia zilizochaguliwa.</string>
-    <string name="squeezer_result_empty_message">Hakuna midia inayoweza kubanwa iliyopatikana.</string>
-    <string name="squeezer_setup_warning">Kubana kunapunguza ubora kwa kudumu ili kuokoa nafasi ya hifadhi. Hii haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">Mahali %d haliwezi kutumika kwa kubana na limeondolewa. Kubana kunahitaji ufikiaji wa moja kwa moja wa hifadhi ya ndani.</item>
-        <item quantity="other">Maeneo %d hayawezi kutumika kwa kubana na yameondolewa. Kubana kunahitaji ufikiaji wa moja kwa moja wa hifadhi ya ndani.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze inapunguza ukubwa wa faili za picha na video ili kuachilia nafasi ya hifadhi. Hii inapunguza ubora kwa kudumu na haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
+    <string name="squeezer_result_empty_message">Hakuna picha zinazoweza kubaniwa zilizopatikana.</string>
+    <string name="squeezer_setup_explanation">Bana Media inapunguza ukubwa wa faili la picha ili kuachilia nafasi ya hifadhi. Hii inapunguza ubora wa picha kwa kudumu na haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
     <string name="squeezer_setup_paths_title">Maeneo ya kutafuta</string>
     <string name="squeezer_setup_paths_default">Chagua folda za kutafuta</string>
     <string name="squeezer_setup_quality_title">Ubora wa kubana</string>
     <string name="squeezer_setup_age_title">Umri wa chini</string>
-    <string name="squeezer_setup_age_none">Hakuna kikomo (jumuisha mafaili yote)</string>
     <string name="squeezer_setup_start_action">Anza Kutafuta</string>
     <string name="squeezer_quality_hint_very_low">Ubora chini ya 40% unaweza kuunda picha zisizotumika.</string>
     <string name="squeezer_quality_hint_low">Ubora wa chini unaokoa nafasi zaidi lakini unaweza kusababisha kasoro zinazoonekana.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Angalau siku %d</item>
         <item quantity="other">Angalau siku %d</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Akiba inayokadiriwa ~%d%% kwa picha</string>
-    <string name="squeezer_onboarding_got_it">Nimeelewa</string>
+    <string name="squeezer_estimated_savings_percent">Takriban ~%d%% akiba kwa mafaili ya JPEG</string>
 </resources>

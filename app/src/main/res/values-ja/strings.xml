@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルにはセンシティブな情報(ファイル名やインストールされているアプリなど)が含まれています。信頼できる相手のみと共有してください。</string>
     <string name="debug_debuglog_screen_title">デバッグログ</string>
-    <string name="debug_debuglog_screen_discard_action">破棄</string>
     <string name="debug_debuglog_screen_session_path_label">セッションパス</string>
     <string name="debug_debuglog_screen_log_files_label">ログファイル</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">失敗: 圧縮エラー</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">このデバッグログセッションを削除しますか？</string>
     <string name="support_contact_post_send_message">メッセージは正常に送信されましたか？</string>
-    <string name="debug_debuglog_sessions_stop_action">停止</string>
     <string name="tasks_activity_notification_channel_label">実行中のタスク</string>
     <string name="tasks_activity_working_notification_title">SD Maidは稼動中です</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d つのタスクを実行予定</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">タスクの結果</string>
     <string name="tasks_result_subtext">タスクの結果</string>
     <string name="tasks_timeout_error_label">タスクがタイムアウトしました</string>
     <string name="tasks_timeout_error_desc">タスクに時間がかかりすぎたため、停止されました。もう一度お試しください。</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">次へ</string>
     <string name="onboarding_privacy_title">プライバシー</string>
     <string name="onboarding_privacy_body1">SD Maidは広告がなく、第三者にユーザー情報を販売することもありません。</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">バグ報告はエラーの発生時に送信され、使用しているデバイスやアプリやファイルに関する詳細情報が含まれている場合があります。報告はバグの修正や改善に役立てられます。</string>
-    <string name="onboarding_privacy_bugreport_toggle">自動的にバグ報告を行うことを許可する</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">これらのオプションは設定で変更できます。</string>
-    <string name="onboarding_privacy_continue_action">次へ</string>
     <string name="onboarding_setup_title">セットアップ</string>
     <string name="onboarding_setup_body1">SD Maidはアクセス可能なすべてのデータ領域を検索します。</string>
     <string name="onboarding_setup_body2">アクセスできる機能はご利用の機種、Androidのバージョン、および許可された権限によって異なります。</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">セットアップが完了していません</string>
     <string name="setup_incomplete_card_body">SD Maidのセットアップを完成させると、利用できる機能が増えます。</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid はセットアップの問題の修復をしています。</string>
-    <string name="setup_incomplete_card_dismiss_action">破棄</string>
     <string name="setup_incomplete_card_continue_action">セットアップを続行</string>
     <string name="setup_forcedshow_summary">既に完了した項目を含めて、再度セットアップ画面を表示します。</string>
     <string name="setup_checking_card_body">セットアップ完了と機能の確認。</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>
     <string name="debug_mode_label">デバッグモード</string>
     <string name="debug_mode_explanation">テストオプションを有効にし、より詳細に出力します。アプリの動作が遅くなり、異なる動作をします。</string>
-    <string name="debug_bugreporter_label">自動バグ報告</string>
-    <string name="debug_bugreporter_summary">問題を自動的に報告します。例えば、アプリのクラッシュの詳細を把握し、原因を調査し修正することができます。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">デバッグモードが有効です</string>
     <string name="debug_card_trace_mode_label">トレースモードを有効にする</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">SDカード</string>
     <string name="data_areas_label">データ領域</string>
     <string name="data_areas_description">データエリアは、SDMaidがアクセス可能なデバイス上の場所を表します。 Android のバージョンと許可された権限によって、異なるデータエリアが利用可能になる場合があります。</string>
-    <string name="data_areas_short_summary">現在付与されている権限に基づいてSDメイドがアクセスできるエリア。</string>
-    <string name="history_label">履歴</string>
-    <string name="history_description">最近のアクションと影響を受けたデータの時系列リスト。</string>
     <string name="updates_dashcard_title">アップデートが利用可能です</string>
     <string name="updates_dashcard_body">アップデートが利用可能です。今のあなたのバージョンは%1$sで最新バージョンが%2$sです。</string>
     <string name="translation_encourage_title">SD Maidを翻訳</string>
@@ -250,7 +237,6 @@
     <string name="updatecheck_setting_enabled_label">更新を確認</string>
     <string name="updatecheck_setting_enabled_explanation">新しいバージョンが利用可能かどうかを知らせるために、SD Maidがアップデートを確認できるようにします。</string>
     <string name="device_settings_category">デバイス</string>
-    <string name="beta_version_indicator_desc">プレリリースのバージョンはスタート画面に少しリボンを表示します。より頻繁に更新され、より多くの機能を持っているかもしれませんが、より多くのバグが見られるかもしれません。</string>
     <string name="review_app_review_action">レビュー</string>
     <string name="review_app_dismiss_action">また後で</string>
     <string name="review_app_body">SDメイドをレビューしませんか？ ❤️</string>

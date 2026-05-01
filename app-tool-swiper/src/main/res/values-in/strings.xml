@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Lanjutkan sesi</string>
     <string name="swiper_sessions_description">Tinjau file dalam 3 langkah sederhana:\n\n1. Pilih folder untuk dipindai\n2. Geser file untuk menyimpan, menghapus, atau melewati\n3. Tinjau pilihan Anda dan konfirmasi\n\nTidak ada yang dihapus sampai Anda menekan tombol hapus terakhir.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
-    <string name="swiper_scanning_title">Memindai…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d item ditemukan</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">Simpan terpilih</string>
     <string name="swiper_status_action_delete_selected">Hapus yang dipilih</string>
     <string name="swiper_status_action_reset_selected">Atur ulang pilihan</string>
-    <string name="swiper_decision_undecided">Belum diputuskan</string>
-    <string name="swiper_retry_action">Coba lagi</string>
     <string name="swiper_delete_confirmation_title">Hapus berkas?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">Ini akan menghapus secara permanen. %1$d file (%2$s). Tindakan ini tidak dapat dibatalkan.</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d belum diputuskan</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d sudah disimpan</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d sudah dihapus</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d disimpan</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Cara kerja Pemilah</string>
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
-    <string name="swiper_help_action">Bantuan</string>
     <string name="swiper_file_type_filter_title">Hanya tampilkan tipe file ini</string>
     <string name="swiper_file_type_filter_hint">Centang tipe yang ingin Anda lihat. Jika tidak ada yang dicentang, semua file ditampilkan.</string>
     <string name="swiper_file_type_category_images">Gambar</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">Arsip</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Terapkan</string>
-    <string name="swiper_session_filter_action">Filter file</string>
     <string name="swiper_file_type_filter_summary">Difilter: %1$s</string>
     <string name="swiper_session_no_matching_files">Tidak ada file yang cocok ditemukan</string>
     <string name="swiper_open_externally_action">Buka di aplikasi eksternal</string>

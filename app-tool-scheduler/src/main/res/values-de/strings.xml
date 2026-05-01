@@ -20,7 +20,6 @@
         <item quantity="one">Täglich</item>
         <item quantity="other">Alle %d Tage</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Wiederholungsintervall</string>
     <string name="scheduler_inaccurate_execution_hint">Die voraussichtichen Ausführungszeiten sind Näherungswerte. Zeitpläne können verschoben oder vorgezogen werden, wenn dies die Batterie schont.</string>
     <string name="scheduler_no_active_schedules_subtitle">Keine aktiven Zeitpläne</string>
     <string name="scheduler_setting_nopowersaving_title">Bei schwacher Batterie überspringen</string>

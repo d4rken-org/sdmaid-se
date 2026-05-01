@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mustrare optziones chi ti permitint de cantzellare totu is documentos in unu grupu de duplicados in manera chi perunu documentu non abarret.</string>
     <string name="deduplicator_search_locations_title">Logus de chirca</string>
     <string name="deduplicator_search_locations_all_summary">Totu is àreas atzessìbiles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Pràtzia a mantènnere in</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Cando si detzìdet cale duplicadu mantènnere, pràtzia a mantènnere is archìvios in custos logos.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Perunu logu cunfiguradu</string>
     <string name="deduplicator_skip_minsize_title">Mannària mínima</string>
     <string name="deduplicator_skip_minsize_description">Saltare documentos chi sunt suta de sa mannària mínima.</string>
     <string name="deduplicator_skip_uncommon_title">Saltare tipos de documentu non cumunes</string>

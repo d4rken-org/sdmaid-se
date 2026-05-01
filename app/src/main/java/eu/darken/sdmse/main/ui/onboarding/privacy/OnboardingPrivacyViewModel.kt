@@ -8,12 +8,14 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
-import eu.darken.sdmse.main.ui.dashboard.items.*
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.main.ui.navigation.OnboardingSetupRoute
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,20 +26,26 @@ class OnboardingPrivacyViewModel @Inject constructor(
     private val motdSettings: MotdSettings,
     private val webpageTool: WebpageTool,
     private val updateChecker: UpdateChecker,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    val state = combine(
+    val state: StateFlow<State> = combine(
         motdSettings.isMotdEnabled.flow,
         generalSettings.isUpdateCheckEnabled.flow,
-        flow { emit(updateChecker.isCheckSupported()) }
+        flow { emit(updateChecker.isCheckSupported()) },
     ) { isMotdEnabled, isUpdateCheckEnabled, isUpdateCheckSupported ->
         State(
             isMotdEnabled = isMotdEnabled,
             isUpdateCheckEnabled = isUpdateCheckEnabled,
             isUpdateCheckSupported = isUpdateCheckSupported,
         )
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
+
+    fun onContinue() {
+        navTo(OnboardingSetupRoute)
     }
-        .asLiveData2()
 
     fun goPrivacyPolicy() {
         log(TAG) { "goPrivacyPolicy()" }
@@ -55,9 +63,9 @@ class OnboardingPrivacyViewModel @Inject constructor(
     }
 
     data class State(
-        val isMotdEnabled: Boolean,
-        val isUpdateCheckEnabled: Boolean,
-        val isUpdateCheckSupported: Boolean,
+        val isMotdEnabled: Boolean = true,
+        val isUpdateCheckEnabled: Boolean = true,
+        val isUpdateCheckSupported: Boolean = false,
     )
 
     companion object {

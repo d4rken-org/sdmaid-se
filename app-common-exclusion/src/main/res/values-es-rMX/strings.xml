@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Usa la herramienta Control de Aplicaciones para crear exclusiones de aplicaciones.</string>
     <string name="exclusion_create_path_hint">Usa la herramienta Analizador de Almacenamiento para crear exclusiones de ruta.</string>
     <string name="exclusion_show_defaults_action">Mostrar predeterminados</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
 </resources>

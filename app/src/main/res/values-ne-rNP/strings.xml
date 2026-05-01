@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">रेकर्डिङ रोक्नुहोस्</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न फाइलमा संवेदनशील जानकारी छ (जस्तै फाइल नामहरू र स्थापना गरिएका एपहरू)। यसलाई केवल विश्वसनीय पक्षहरूसँग साझा गर्नुहोस्।</string>
     <string name="debug_debuglog_screen_title">डिबग लग</string>
-    <string name="debug_debuglog_screen_discard_action">खारेज गर्नुहोस्</string>
     <string name="debug_debuglog_screen_session_path_label">सत्र पथ</string>
     <string name="debug_debuglog_screen_log_files_label">लग फाइलहरू</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">असफल: संकुचन त्रुटि</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">यो डिबग लग सत्र मेट्ने?</string>
     <string name="support_contact_post_send_message">सन्देश सफलतापूर्वक पठाइयो?</string>
-    <string name="debug_debuglog_sessions_stop_action">रोक्नुहोस्</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्यहरू</string>
     <string name="tasks_activity_working_notification_title">SD Maid काम गरिरहेको छ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d कार्य पङ्क्तिमा</item>
         <item quantity="other">%d कार्यहरू पङ्क्तिमा</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">कार्य परिणामहरू</string>
     <string name="tasks_result_subtext">कार्य परिणाम</string>
     <string name="tasks_timeout_error_label">कार्यको समय सकियो</string>
     <string name="tasks_timeout_error_desc">कार्यले धेरै समय लियो र रोकियो। कृपया फेरि प्रयास गर्नुहोस्।</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">जारी राख्नुहोस्</string>
     <string name="onboarding_privacy_title">गोपनीयता</string>
     <string name="onboarding_privacy_body1">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन।</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">त्रुटिहरू देखा पर्दा बग रिपोर्टहरू पठाइन्छन् र तपाईंको उपकरणमा एपहरू र फाइलहरूको बारेमा विवरणहरू हुन सक्छन्। रिपोर्टहरूले मलाई बगहरू ठीक गर्न र एप सुधार गर्न मद्दत गर्छ।</string>
-    <string name="onboarding_privacy_bugreport_toggle">स्वचालित बग रिपोर्टहरूलाई अनुमति दिनुहोस्</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">यी विकल्पहरू सेटिङहरूमा परिवर्तन गर्न सकिन्छ।</string>
-    <string name="onboarding_privacy_continue_action">जारी राख्नुहोस्</string>
     <string name="onboarding_setup_title">सेटअप</string>
     <string name="onboarding_setup_body1">SD Maid ले सबै पहुँचयोग्य डेटा क्षेत्रहरू खोज्नेछ।</string>
     <string name="onboarding_setup_body2">के पहुँचयोग्य छ त्यो तपाईंको उपकरण, एन्ड्रोइड संस्करण र दिइएको अनुमतिहरूमा निर्भर गर्छ।</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">सेटअप अपूर्ण छ</string>
     <string name="setup_incomplete_card_body">राम्रो परिणामहरू प्राप्त गर्न SD Maid को सेटअप पूरा गर्नुहोस्।</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ले सेटअप समस्याहरू समाधान गर्ने प्रयास गरिरहेको छ।</string>
-    <string name="setup_incomplete_card_dismiss_action">खारेज गर्नुहोस्</string>
     <string name="setup_incomplete_card_continue_action">सेटअप जारी राख्नुहोस्</string>
     <string name="setup_forcedshow_summary">पहिले नै पूरा भएका वस्तुहरू सहित सेटअप स्क्रिन फेरि देखाउनुहोस्।</string>
     <string name="setup_checking_card_body">सेटअप पूर्णता र कार्यक्षमता प्रमाणीकरण गर्दै।</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">डाटा क्षेत्रहरू पुनः लोड गर्नुहोस्</string>
     <string name="debug_mode_label">डिबग मोड</string>
     <string name="debug_mode_explanation">परीक्षण विकल्पहरू र अधिक विस्तृत आउटपुट सक्षम गर्नुहोस्। एप सुस्त चल्नेछ र फरक तरिकाले काम गर्नेछ।</string>
-    <string name="debug_bugreporter_label">स्वचालित बग रिपोर्टहरू</string>
-    <string name="debug_bugreporter_summary">स्वचालित रूपमा समस्याहरू रिपोर्ट गर्छ, जस्तै एप क्र्यासका विवरणहरू ताकि म किन भएको हो र यसलाई कसरी ठीक गर्ने भनेर पत्ता लगाउन सकूँ।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">डिबग मोड सक्षम छ</string>
     <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम गर्नुहोस्</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD कार्ड</string>
     <string name="data_areas_label">डेटा क्षेत्रहरू</string>
     <string name="data_areas_description">डेटा क्षेत्रहरूले तपाईंको उपकरणमा SD Maid द्वारा पहुँचयोग्य स्थानहरू प्रतिनिधित्व गर्छ। तपाईंको Android संस्करण र प्रदान गरिएका अनुमतिहरूको आधारमा विभिन्न डेटा क्षेत्रहरू उपलब्ध हुन सक्छन्।</string>
-    <string name="data_areas_short_summary">वर्तमानमा प्रदान गरिएका अनुमतिहरूको आधारमा SD Maid द्वारा पहुँचयोग्य क्षेत्रहरू।</string>
-    <string name="history_label">इतिहास</string>
-    <string name="history_description">हालको कार्य र प्रभावित डेटाको कालक्रमानुसार सूची।</string>
     <string name="updates_dashcard_title">अद्यावधिक उपलब्ध</string>
     <string name="updates_dashcard_body">अद्यावधिक उपलब्ध छ। तपाईसँग %1$s छ र सबैभन्दा नयाँ संस्करण %2$s हो।</string>
     <string name="translation_encourage_title">SD Maid अनुवाद गर्नुहोस्</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">अपडेट जाँच</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid लाई अपडेटहरू जाँच गर्न अनुमति दिनुहोस् ताकि नयाँ संस्करण उपलब्ध छ कि छैन भनेर थाहा पाउनुहोस्।</string>
     <string name="device_settings_category">डिभाइस</string>
-    <string name="beta_version_indicator_desc">प्रि-रिलिज संस्करणहरूले स्टार्ट स्क्रिनमा एउटा सानो रिबन देखाउँछन्। तिनीहरू थप बारम्बार अपडेट हुन्छन्, थप सुविधाहरू हुन सक्छन्, तर थप बगहरू पनि हुन सक्छन्।</string>
     <string name="review_app_review_action">समीक्षा</string>
     <string name="review_app_dismiss_action">पछि हेर्छु</string>
     <string name="review_app_body">के तपाईं SD Maid को समीक्षा दिन चाहनुहुन्छ?️ ❤️</string>

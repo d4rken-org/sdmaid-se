@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikace nainstalované ve vašem zařízení.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">Zjištěna %d aplikace</item>
-        <item quantity="few">Zjištěny %d aplikace</item>
-        <item quantity="many">Zjištěno %d aplikací</item>
-        <item quantity="other">Zjištěno %d aplikací</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Přepnout aplikace</string>
     <string name="appcontrol_toggle_app_enable_action">Povolit aplikaci</string>
     <string name="appcontrol_toggle_app_disable_action">Zakázat aplikaci</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">Ladit</string>
     <string name="appcontrol_progress_enabling_package">Povolování aplikace</string>
     <string name="appcontrol_progress_disabling_package">Zakazování aplikace</string>
-    <string name="appcontrol_list_filteroptions_label">Možnosti filtrování</string>
     <string name="appcontrol_list_sortmode_name_label">Název aplikace</string>
     <string name="appcontrol_list_sortmode_updated_label">Poslední aktualizace</string>
     <string name="appcontrol_list_sortmode_installed_label">První instalace</string>
@@ -146,8 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">Nainstalováno: %s</string>
     <string name="shortcut_appcontrol_short">Ovládání aplikací</string>
     <string name="shortcut_appcontrol_long">Správa nainstalovaných aplikací</string>
-    <string name="appcontrol_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Zahrnout další uživatele</string>
-    <string name="appcontrol_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
 </resources>

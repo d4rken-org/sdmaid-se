@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Yksityiset sovelluksen lähdekoodit.</string>
     <string name="corpsefinder_filter_appasec_label">Salatut sovelluksen resurssit</string>
     <string name="corpsefinder_filter_appasec_summary">Salatut sovelluksen resurssit.</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2SD-tiedostot.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d sovelluksen jäänne poistettu</item>

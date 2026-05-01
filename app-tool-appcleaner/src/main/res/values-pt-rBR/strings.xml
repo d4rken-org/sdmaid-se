@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automação do Limpador de Aplicativos</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpando os caches padrão…</string>
-    <string name="appcleaner_automation_progress_open_settings">Abertura de tela de configurações (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Procurando por \"Armazenamento\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar cache\" (palavras-chave: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão público e privado. Não acessível diretamente, mas pode ser excluído indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>
     <string name="appcleaner_automation_unavailable_body">Limpar caches inacessíveis requer o serviço de acessibilidade da SD Maid, mas não estava disponível. Se você não quiser usá-lo: Desative a opção \"Incluir caches inacessíveis\".</string>
-    <string name="appcleaner_junk_userprofile_label">Usuário</string>
     <string name="appcleaner_delete_confirmation_message_x">Deletar arquivos desnecessários para %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Deletar arquivos desnecessários para %d aplicativos selecionados?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forçar parada antes da limpeza</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forçar parada dos aplicativos antes de limpar o cache. Pode ajudar a limpar o cache de alguns aplicativos, mas pode causar mau funcionamento e exigir reinicialização manual.</string>
     <string name="appcleaner_progress_force_stopping">Forçando parada dos aplicativos…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Este aplicativo do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Excluí-lo para acelerar a limpeza de cache.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Tela de configurações indisponível</string>
-    <string name="appcleaner_automation_loading">Preparando automação por serviço de acessibilidade</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Incluir outros usuários</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir aplicativos de outros perfis de usuário neste dispositivo.</string>
 </resources>

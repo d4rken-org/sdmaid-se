@@ -39,6 +39,7 @@ dependencies {
     addCoroutines()
     addSerialization()
     api("androidx.navigation:navigation-common:${Versions.AndroidX.Navigation.core}")
+    api("androidx.navigation3:navigation3-runtime-android:${Versions.AndroidX.Navigation3.core}")
     addIO()
     addTesting()
 

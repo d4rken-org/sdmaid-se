@@ -1,13 +1,14 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.FilterAlt
+import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -28,7 +29,7 @@ class CustomFilter @AssistedInject constructor(
 
     override val identifier: FilterIdentifier = filterConfig.identifier
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.air_filter.toCaDrawable()
+    override val icon: ImageVector = Icons.TwoTone.FilterAlt
 
     override suspend fun getLabel(): CaString = filterConfig.label.toCaString()
 

@@ -8,7 +8,6 @@
         <item quantity="one">আপনার ডিভাইসে SD Maid আমন্ত্রণ জানানোর পর থেকে %s আইটেমটি প্রক্রিয়া করা হয়েছে।</item>
         <item quantity="other">আপনার ডিভাইসে SD Maid-কে আমন্ত্রণ জানানোর পর থেকে %sটি আইটেম প্রক্রিয়া করা হয়েছে।</item>
     </plurals>
-    <string name="stats_report_status_success">সাফল্য</string>
     <string name="stats_report_status_partial_success">আংশিক সাফল্য</string>
     <string name="stats_report_status_partial_failure">ব্যর্থতা</string>
     <string name="stats_settings_desc">এসডি মেইডের পরিসংখ্যান, প্রতিবেদন এবং ডেটা ধারণ কনফিগার করুন।</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">বেসিক SD Maid অপারেশন রিপোর্ট মুছে ফেলার আগের দিনের সংখ্যা।</string>
     <string name="stats_settings_retention_paths_label">বিস্তারিত পথ তথ্য</string>
     <string name="stats_settings_retention_paths_desc">SD Maid দ্বারা প্রভাবিত পথ সম্পর্কে বিশদ বিবরণ রাখার দিনের সংখ্যা।</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d দিন</item>
-        <item quantity="other">%d দিন</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">সব পুনরায় সেট করুন</string>
     <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>
     <string name="stats_affected_paths_label">প্রভাবিত পাথ</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">প্রাথমিক স্টোরেজ</string>
     <string name="stats_storage_type_secondary">সেকেন্ডারি স্টোরেজ</string>
     <string name="stats_storage_type_portable">পোর্টেবল স্টোরেজ</string>
-    <string name="stats_space_history_delete_storage_title">স্টোরেজ ইতিহাস মুছবেন?</string>
-    <string name="stats_space_history_delete_storage_desc">এই স্টোরেজের সমস্ত ট্রেন্ড ডেটা স্থায়ীভাবে মুছে ফেলা হবে।</string>
-    <string name="stats_settings_retention_snapshots_label">স্টোরেজ স্ন্যাপশট</string>
-    <string name="stats_settings_retention_snapshots_desc">স্টোরেজ স্পেস স্ন্যাপশট রাখার দিনের সংখ্যা।</string>
 </resources>

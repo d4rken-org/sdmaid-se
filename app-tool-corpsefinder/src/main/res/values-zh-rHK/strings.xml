@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">受限制的應用程式安裝資料，例如受保護的第三方應用程式。</string>
     <string name="corpsefinder_filter_appasec_label">加密的應用程式資源</string>
     <string name="corpsefinder_filter_appasec_summary">加密的應用程式資源，例如遊戲資產。</string>
-    <string name="corpsefinder_filter_app2sd_summary">資料已被 App2Sd 模組移至外部儲存空間。</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">已刪除 %d 個應用程式殘留</item>

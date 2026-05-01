@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Stop optagelse</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med parter, du stoler på.</string>
     <string name="debug_debuglog_screen_title">Fejlfindingslogs</string>
-    <string name="debug_debuglog_screen_discard_action">Kassér</string>
     <string name="debug_debuglog_screen_session_path_label">Session Sti</string>
     <string name="debug_debuglog_screen_log_files_label">Log Filer</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +39,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Mislykkedes: komprimeringsfejl</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Slet denne fejllogsession?</string>
     <string name="support_contact_post_send_message">Besked sendt?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stop</string>
     <string name="tasks_activity_notification_channel_label">Aktive opgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbejder</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -51,7 +49,6 @@
         <item quantity="one">%d opgave i kø</item>
         <item quantity="other">%d opgaver i kø</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Opgaveresultater</string>
     <string name="tasks_result_subtext">Resultat af opgave</string>
     <string name="tasks_timeout_error_label">Opgaven fik timeout</string>
     <string name="tasks_timeout_error_desc">Opgaven tog for lang tid og blev stoppet. Prøv venligst igen.</string>
@@ -68,10 +65,6 @@
     <string name="onboarding_versus_continue_action">Fortsæt</string>
     <string name="onboarding_privacy_title">Privatliv</string>
     <string name="onboarding_privacy_body1">SD Maid har ingen annoncer og sælger ikke brugerdata.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Fejlrapporter sendes, når fejl opstår, og kan indeholde detaljer om apps og filer på din enhed. Rapporterne hjælper mig med at rette fejl og forbedre appen.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Tillad automatiske fejlrapporter</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Disse kan ændres i indstillingerne.</string>
-    <string name="onboarding_privacy_continue_action">Fortsæt</string>
     <string name="onboarding_setup_title">Opsætning</string>
     <string name="onboarding_setup_body1">SD Maid søger i alle tilgængelige dataområder.</string>
     <string name="onboarding_setup_body2">Hvad der er tilgængeligt, afhænger af din enhed, Android-version og tildelte tilladelser.</string>
@@ -162,7 +155,6 @@
     <string name="setup_incomplete_card_title">Opsætning er ufærdig</string>
     <string name="setup_incomplete_card_body">Fuldfør SD Maid\'s opsætning for bedre resultater.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid prøver at løse opsætningsproblemer.</string>
-    <string name="setup_incomplete_card_dismiss_action">Afvis</string>
     <string name="setup_incomplete_card_continue_action">Fortsæt opsætning</string>
     <string name="setup_forcedshow_summary">Vis opsætningsskærmen igen, inklusive allerede udførte punkter.</string>
     <string name="setup_checking_card_body">Bekræfter, at opsætningen er fuldført og fungerer.</string>
@@ -225,8 +217,6 @@
     <string name="dataarea_warningcard_reload_action">Genindlæs dataområder</string>
     <string name="debug_mode_label">Fejlfindingstilstand</string>
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
-    <string name="debug_bugreporter_label">Automatiske fejlrapporter</string>
-    <string name="debug_bugreporter_summary">Rapporterer automatisk problemer, f.eks. detaljer om appnedbrud, så jeg kan finde ud af hvorfor og rette det.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
     <string name="debug_card_trace_mode_label">Aktivér sporingstilstand</string>
@@ -241,9 +231,6 @@
     <string name="data_area_sdcard_label">SD-kort</string>
     <string name="data_areas_label">Dataområder</string>
     <string name="data_areas_description">Dataområder repræsenterer placeringer på din enhed, som SD Maid har adgang til. Forskellige dataområder kan være tilgængelige afhængigt af din Android-version og de tilladelser, der er givet.</string>
-    <string name="data_areas_short_summary">Områder, som SD Maid kan tilgå baseret på de aktuelt tildelte tilladelser.</string>
-    <string name="history_label">Historik</string>
-    <string name="history_description">En kronologisk liste over nylige handlinger og påvirkede data.</string>
     <string name="updates_dashcard_title">Opdatering tilgængelig</string>
     <string name="updates_dashcard_body">En opdatering er tilgængelig. Du har %1$s, og den seneste version er %2$s.</string>
     <string name="translation_encourage_title">Oversæt SD Maid</string>
@@ -255,7 +242,6 @@
     <string name="updatecheck_setting_enabled_label">Opdateringstjek</string>
     <string name="updatecheck_setting_enabled_explanation">Tillad SD Maid at søge efter opdateringer og sige til, hvis en ny version er tilgængelig.</string>
     <string name="device_settings_category">Enhed</string>
-    <string name="beta_version_indicator_desc">Pre-release-versioner viser et lille bånd på startskærmen. De opdateres oftere, har muligvis flere funktioner, men kan også have flere fejl.</string>
     <string name="review_app_review_action">Bedøm</string>
     <string name="review_app_dismiss_action">Måske senere</string>
     <string name="review_app_body">Har du lyst til at give SD Maid en anmeldelse? ❤️</string>

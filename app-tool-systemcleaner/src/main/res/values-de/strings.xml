@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Übereinstimmungen basierend auf dem Dateialter (Zeitpunkt der letzten Änderung) einschränken. Leer lassen, um jedes Alter zu berücksichtigen.</string>
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du hast ungespeicherte Änderungen!</string>
 </resources>

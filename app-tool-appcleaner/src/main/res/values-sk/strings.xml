@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizácia Čističa aplikácií</string>
     <string name="appcleaner_automation_subtitle_default_caches">Vymazáva sa predvolená vyrovnávacia pamäť…</string>
-    <string name="appcleaner_automation_progress_open_settings">Otvára sa obrazovka nastavení (kľúčové slová: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Hľadá sa položka \"Úložisko\" (kľúčové slová: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Hľadá sa tlačidlo \"Vymazať údaje\" (kľúčové slová: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Hľadá sa tlačidlo „Vymazať vyrovnávaciu pamäť“ (kľúčové slová: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Verejné a súkromné predvolené vyrovnávacie pamäte. Nie je priamo prístupné, ale možno ho vymazať nepriamo (napr. prostredníctvom služby dostupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba dostupnosti nie je k dispozícii</string>
     <string name="appcleaner_automation_unavailable_body">Odstránenie nedostupných vyrovnávacích pamätí vyžaduje službu dostupnosti SD Maid, ktorá však bola nedostupná. Ak ju nechcete používať: Zakážte možnosť „Zahrnúť neprístupné vyrovnávacie pamäte“.</string>
-    <string name="appcleaner_junk_userprofile_label">Užívateľ</string>
     <string name="appcleaner_delete_confirmation_message_x">Odstrániť nepotrebné položky pre %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Odstrániť nepotrebné položky pre %d zvolenú aplikáciu?</item>
@@ -95,10 +93,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynútiť zastavenie pred vyčistením</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynútiť zastavenie aplikácií pred vyčistením ich vyrovnávacej pamäte. Môže to pomôcť vyčistiť vyrovnávaciu pamäť niektorých aplikácií, ale môže spôsobiť ich nesprávne správanie a vyžadovať manuálny reštart.</string>
     <string name="appcleaner_progress_force_stopping">Vynútené zastavovanie aplikácií…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
-    <string name="appcleaner_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Zahrnúť ďalších používateľov</string>
-    <string name="appcleaner_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
 </resources>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">உங்கள் சாதனத்தில் நிறுவப்பட்ட பயன்பாடுகள்.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d பயன்பாடு கண்டுபிடிக்கப்பட்டது</item>
-        <item quantity="other">%d பயன்பாடுகள் கண்டுபிடிக்கப்பட்டன</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">பயன்பாடுகளை மாற்று</string>
     <string name="appcontrol_toggle_app_enable_action">பயன்பாடை இயக்கு</string>
     <string name="appcontrol_toggle_app_disable_action">பயன்பாடை முடக்கு</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">பிழைத்திருத்தம்</string>
     <string name="appcontrol_progress_enabling_package">பயன்பாடை இயக்குகிறது</string>
     <string name="appcontrol_progress_disabling_package">பயன்பாடை முடக்குகிறது</string>
-    <string name="appcontrol_list_filteroptions_label">வடிகட்டல் விருப்பங்கள்</string>
     <string name="appcontrol_list_sortmode_name_label">பயன்பாட்டு பெயர்</string>
     <string name="appcontrol_list_sortmode_updated_label">கடைசியாக புதுப்பிக்கப்பட்டது</string>
     <string name="appcontrol_list_sortmode_installed_label">முதல் நிறுவப்பட்டது</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">நிறுவிய தேதி: %s</string>
     <string name="shortcut_appcontrol_short">பயன்பாடு கட்டுப்பாடு</string>
     <string name="shortcut_appcontrol_long">நிறுவப்பட்ட செயலிகளை நிர்வகி</string>
-    <string name="appcontrol_automation_loading">அணுகல் சேவை வழியாக தனியாக்கத்தை தயார் செய்கிறது</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">முந்தைய செயலை உறுதிசெய்ய முயற்சிகிறது (சாவி வார்த்தைகள்: %s)</string>
-    <string name="appcontrol_include_multiuser_label">மற்ற பயனர்களை சேர்த்துக்கோ</string>
-    <string name="appcontrol_include_multiuser_summary">ஈ சாதனத்தில் மற்ற பயனர் கணக்குகளிலிருந்த பயன்பாடுகளை சேர்த்துக்குங்கள்.</string>
 </resources>

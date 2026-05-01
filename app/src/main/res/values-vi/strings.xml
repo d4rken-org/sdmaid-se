@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
     <string name="debug_debuglog_screen_title">Nhật ký gỡ lỗi</string>
-    <string name="debug_debuglog_screen_discard_action">Bỏ qua</string>
     <string name="debug_debuglog_screen_session_path_label">Đường dẫn phiên</string>
     <string name="debug_debuglog_screen_log_files_label">Tệp nhật ký</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -39,7 +38,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Thất bại: nén bị lỗi</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Xóa phiên nhật ký gỡ lỗi này?</string>
     <string name="support_contact_post_send_message">Đã gửi tin nhắn thành công?</string>
-    <string name="debug_debuglog_sessions_stop_action">Dừng</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -48,7 +46,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="other">%d tác vụ đang đợi</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Báo cáo tác vụ</string>
     <string name="tasks_result_subtext">Báo cáo tác vụ</string>
     <string name="tasks_timeout_error_label">Tác vụ đã hết thời gian</string>
     <string name="tasks_timeout_error_desc">Tác vụ mất quá nhiều thời gian và đã bị dừng. Vui lòng thử lại.</string>
@@ -65,10 +62,6 @@
     <string name="onboarding_versus_continue_action">Tiếp tục</string>
     <string name="onboarding_privacy_title">Riêng tư</string>
     <string name="onboarding_privacy_body1">SD Maid không có quảng cáo và không bán dữ liệu người dùng.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Báo cáo lỗi được gửi khi xảy ra lỗi và có thể chứa thông tin chi tiết về ứng dụng và tệp trên thiết bị của bạn. Báo cáo giúp tôi sửa lỗi và cải thiện ứng dụng.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Cho phép báo cáo lỗi tự động</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Các tùy chọn này có thể được thay đổi trong cài đặt.</string>
-    <string name="onboarding_privacy_continue_action">Tiếp tục</string>
     <string name="onboarding_setup_title">Cài đặt</string>
     <string name="onboarding_setup_body1">SD Maid sẽ tìm kiếm tất cả các vùng dữ liệu có thể truy cập.</string>
     <string name="onboarding_setup_body2">Những gì có thể truy cập tùy thuộc vào thiết bị của bạn, phiên bản Android và quyền được cấp.</string>
@@ -157,7 +150,6 @@
     <string name="setup_incomplete_card_title">Thiết lập chưa hoàn tất</string>
     <string name="setup_incomplete_card_body">Kết thúc thiết lập của SD Maid để có kết quả tốt hơn.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid đang cố khắc phục sự cố thiết lập.</string>
-    <string name="setup_incomplete_card_dismiss_action">Bỏ qua</string>
     <string name="setup_incomplete_card_continue_action">Tiếp tục thiết lập</string>
     <string name="setup_forcedshow_summary">Hiển thị lại màn hình thiết lập, bao gồm các mục đã hoàn thành.</string>
     <string name="setup_checking_card_body">Xác minh hoàn thành thiết lập và chức năng.</string>
@@ -220,8 +212,6 @@
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>
     <string name="debug_mode_label">Chế độ kiểm tra sửa lỗi</string>
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
-    <string name="debug_bugreporter_label">Báo cáo lỗi tự động</string>
-    <string name="debug_bugreporter_summary">Tự động báo cáo sự cố, ví dụ: chi tiết về sự cố ứng dụng để tôi có thể tìm ra lý do và khắc phục sự cố.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Chế độ gỡ lỗi đã được kích hoạt</string>
     <string name="debug_card_trace_mode_label">Bật chế độ dò tìm dấu vết</string>
@@ -236,9 +226,6 @@
     <string name="data_area_sdcard_label">Thẻ SD</string>
     <string name="data_areas_label">Vùng dữ liệu</string>
     <string name="data_areas_description">Vùng dữ liệu đại diện cho các vị trí trên thiết bị của bạn mà SD Maid có thể truy cập được. Các vùng dữ liệu khác nhau có thể khả dụng tùy thuộc vào phiên bản Android của bạn và các quyền đã được cấp.</string>
-    <string name="data_areas_short_summary">Các khu vực mà SD Maid có thể truy cập dựa trên các quyền hiện được cấp.</string>
-    <string name="history_label">Lịch sử</string>
-    <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="updates_dashcard_title">Bản cập nhật khả dụng</string>
     <string name="updates_dashcard_body">Một bản cập nhật khả dụng. Bạn có %1$s và phiên bản mới nhất là %2$s.</string>
     <string name="translation_encourage_title">Dịch SD Maid</string>
@@ -252,7 +239,6 @@ TheNothingGuy</string>
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
     <string name="updatecheck_setting_enabled_explanation">Cho phép SD Maid kiểm tra các bản cập nhật để cho bạn biết nếu có phiên bản mới hơn.</string>
     <string name="device_settings_category">Thiết bị</string>
-    <string name="beta_version_indicator_desc">Các phiên bản truy cập sớm hiển thị một dải băng nhỏ trên màn hình bắt đầu. Chúng được cập nhật thường xuyên hơn, có thể có nhiều tính năng hơn nhưng cũng có thể có nhiều lỗi hơn.</string>
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>

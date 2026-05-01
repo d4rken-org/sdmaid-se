@@ -19,12 +19,48 @@
 
 ## UI Patterns
 
-- XML layouts with ViewBinding for UI components
-- Material 3 theming and design system
+- Jetpack Compose with Material 3 (`SdmSeTheme`)
 - Edge-to-edge display support
-- Use Material Design icons and follow Material 3 design guidelines
-- Single Activity architecture with Fragment-based navigation
-- Follow Fragment-based navigation patterns using Jetpack Navigation
+- Single Activity architecture with Navigation3 (`NavDisplay`)
+- Legacy Fragments still exist (unconverted screens) — new screens must be Compose
+
+### Host/Page Pattern (mandatory for all Compose screens)
+
+Every screen splits into two composables:
+
+**`<Feature>ScreenHost`** — ViewModel wiring + side effects. The only place that touches `hiltViewModel()`, collects one-shot events, launches activity results, and starts intents. Must call `ErrorEventHandler(vm)` and `NavigationEventHandler(vm)`.
+
+**`<Feature>Screen`** — Pure presentation. Accepts `Flow<State>` or simple parameters. Previewable with mock `flowOf()` data. Marked `internal`.
+
+```kotlin
+@Composable
+fun MyScreenHost(vm: MyViewModel = hiltViewModel()) {
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
+    MyScreen(stateSource = vm.state, onAction = vm::doThing)
+}
+
+@Composable
+internal fun MyScreen(
+    stateSource: Flow<MyViewModel.State> = flowOf(MyViewModel.State()),
+    onAction: () -> Unit = {},
+) { ... }
+```
+
+### Compose Conventions
+
+- `modifier: Modifier = Modifier` must be the **first parameter** in `@Composable` functions
+- All composables must have `@Preview2` previews wrapped in `PreviewWrapper`
+- Preview functions: `private`, named `ComponentNamePreview()`, placed below the composable
+- Extract composables to separate files when the file exceeds ~200 lines
+- Reusable composables (e.g., `SdmMascot`) belong in `app-common-ui/.../compose/`
+- In `when` expressions, omit braces for single-expression branches; a composable's trailing lambda does not require wrapper braces
+
+### Shared Compose Components
+
+- **`SdmMascot`** (`app-common-ui/.../compose/SdmMascot.kt`): Lottie-based animated mascot with seasonal hat overlays. Modes: `SdmMascotMode.Animated` (default looping), `SdmMascotMode.Party` (forces party hat)
+- **Settings toolkit** (`app-common-ui/.../compose/settings/`): `SettingsPreferenceItem`, `SettingsSwitchItem`, `SettingsBaseItem`
+- **`Preview2`/`PreviewWrapper`** (`app-common-ui/.../compose/preview/`): Multi-preview annotation (light+dark) and themed wrapper
 
 ## Error Handling
 

@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">중복된 파일 세트의 모든 파일을 삭제할 수 있는 옵션을 표시하여 파일이 남지 않도록 합니다.</string>
     <string name="deduplicator_search_locations_title">검색 위치</string>
     <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
-    <string name="deduplicator_keep_prefer_paths_title">보관 우선 위치</string>
-    <string name="deduplicator_keep_prefer_paths_summary">어떤 중복을 유지할지 결정할 때, 이 위치의 파일을 우선적으로 유지합니다.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">구성된 위치 없음</string>
     <string name="deduplicator_skip_minsize_title">최소 크기</string>
     <string name="deduplicator_skip_minsize_description">최소 크기 미만의 파일은 건너뜁니다.</string>
     <string name="deduplicator_skip_uncommon_title">흔하지 않은 파일 형식 건너뛰기</string>

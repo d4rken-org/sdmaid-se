@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Data ya usakinishaji iliyozuiliwa, k.m. programu za wahusika wengine zilizolindwa.</string>
     <string name="corpsefinder_filter_appasec_label">Rasilimali za programu zilizosimbwa</string>
     <string name="corpsefinder_filter_appasec_summary">Rasilimali za programu zilizosimbwa, k.m. mali za mchezo.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data iliyohamishwa kwenye hifadhi ya nje na App2SD mods.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Baki %d la programu limefutwa</item>

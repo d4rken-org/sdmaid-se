@@ -39,7 +39,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Data pemasangan aplikasi terhad, mis. aplikasi pihak ketiga yang dilindungi.</string>
     <string name="corpsefinder_filter_appasec_label">Sumber aplikasi yang dipersulitkan</string>
     <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi yang dipersulitkan, mis. aset permainan.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">%d bangkai dipadam</item>

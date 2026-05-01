@@ -25,8 +25,6 @@
         <item quantity="one">%d item selected</item>
         <item quantity="other">%d items selected</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Search locations</string>
-    <string name="squeezer_search_locations_default_summary">Camera folders (default)</string>
     <string name="squeezer_min_size_title">Minimum file size</string>
     <string name="squeezer_min_size_description">Skip files smaller than this size.</string>
     <string name="squeezer_min_age_title">Minimum file age</string>
@@ -89,7 +87,6 @@
     <string name="squeezer_setup_paths_default">Select folders to search</string>
     <string name="squeezer_setup_quality_title">Compression quality</string>
     <string name="squeezer_setup_age_title">Minimum age</string>
-    <string name="squeezer_setup_age_none">No limit (include all files)</string>
     <string name="squeezer_setup_start_action">Start Scan</string>
     <string name="squeezer_quality_hint_very_low">Quality below 40% may create unusable images.</string>
     <string name="squeezer_quality_hint_low">Lower quality saves more space but may cause visible artifacts.</string>
@@ -99,6 +96,6 @@
         <item quantity="one">At least %d day old</item>
         <item quantity="other">At least %d days old</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for images</string>
+    <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for JPEG files</string>
     <string name="squeezer_onboarding_got_it">Got it</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="debug_debuglog_stop_action">Ukončiť nahrávanie</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami.</string>
     <string name="debug_debuglog_screen_title">Režim ladenia</string>
-    <string name="debug_debuglog_screen_discard_action">Zahodiť</string>
     <string name="debug_debuglog_screen_session_path_label">Cesta relácie</string>
     <string name="debug_debuglog_screen_log_files_label">Log súbory</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -42,7 +41,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Zlyhanie: chyba komprimácie</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Odstrániť túto reláciu denníka ladenia?</string>
     <string name="support_contact_post_send_message">Správa bola úspešne odoslaná?</string>
-    <string name="debug_debuglog_sessions_stop_action">Zastaviť</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -57,7 +55,6 @@
         <item quantity="many">%d úloh vo fronte</item>
         <item quantity="other">%d úloh vo fronte</item>
     </plurals>
-    <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledok úlohy</string>
     <string name="tasks_timeout_error_label">Časový limit úlohy vypršal</string>
     <string name="tasks_timeout_error_desc">Úloha trvala príliš dlho a bola zastavená. Skúste to znova.</string>
@@ -74,10 +71,6 @@
     <string name="onboarding_versus_continue_action">Pokračovať</string>
     <string name="onboarding_privacy_title">Ochrana osobných údajov</string>
     <string name="onboarding_privacy_body1">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Hlásenia chýb sa odosielajú, keď sa vyskytnú chyby a môžu obsahovať podrobnosti o aplikáciách a súboroch vo vašom zariadení. Hlásenia mi pomáhajú opraviť chyby a zlepšiť aplikáciu.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Povoliť automatické hlásenia chýb</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Tieto možnosti je možné zmeniť v nastaveniach.</string>
-    <string name="onboarding_privacy_continue_action">Pokračovať</string>
     <string name="onboarding_setup_title">Nastavenia</string>
     <string name="onboarding_setup_body1">SD Maid prehľadá všetky dostupné dátové oblasti.</string>
     <string name="onboarding_setup_body2">To, čo je dostupné, závisí od vášho zariadenia, verzie Androidu a udelených povolení.</string>
@@ -172,7 +165,6 @@
     <string name="setup_incomplete_card_title">Nastavenie je neúplné</string>
     <string name="setup_incomplete_card_body">Ak chcete dosiahnuť lepšie výsledky, dokončite nastavenie služby SD Maid.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sa pokúša vyriešiť problémy s nastavením.</string>
-    <string name="setup_incomplete_card_dismiss_action">Odmietnuť</string>
     <string name="setup_incomplete_card_continue_action">Pokračovať v nastavení</string>
     <string name="setup_forcedshow_summary">Znova zobraziť obrazovku nastavenia vrátane už dokončených položiek.</string>
     <string name="setup_checking_card_body">Overenie dokončenia nastavenia a funkčnosti.</string>
@@ -235,8 +227,6 @@
     <string name="dataarea_warningcard_reload_action">Znovu načítajte dátové oblasti</string>
     <string name="debug_mode_label">Režim ladenia</string>
     <string name="debug_mode_explanation">Povoľte možnosti testovania a podrobnejší výstup. Aplikácia pobeží pomalšie a bude fungovať inak.</string>
-    <string name="debug_bugreporter_label">Automatické hlásenia chýb</string>
-    <string name="debug_bugreporter_summary">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť prečo a opraviť to.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Režim ladenia je povolený</string>
     <string name="debug_card_trace_mode_label">Povoliť režim trasovanie</string>
@@ -251,9 +241,6 @@
     <string name="data_area_sdcard_label">SD karta</string>
     <string name="data_areas_label">Dátové oblasti</string>
     <string name="data_areas_description">Dátové oblasti predstavujú miesta na vašom zariadení, ku ktorým má prístup SD Maid. V závislosti od vašej verzie Androidu a udelených povolení môžu byť k dispozícii rôzne dátové oblasti.</string>
-    <string name="data_areas_short_summary">Oblasti, ku ktorým má SD Maid prístup na základe aktuálne udelených povolení.</string>
-    <string name="history_label">História</string>
-    <string name="history_description">Chronologický zoznam nedávnych akcií a ovplyvnených údajov.</string>
     <string name="updates_dashcard_title">Aktualizácia je k dispozícii</string>
     <string name="updates_dashcard_body">K dispozícii je aktualizácia. Máte %1$s a najnovšia verzia je %2$s.</string>
     <string name="translation_encourage_title">Preložiť SD Maid</string>
@@ -265,7 +252,6 @@
     <string name="updatecheck_setting_enabled_label">Kontrola aktualizácií</string>
     <string name="updatecheck_setting_enabled_explanation">Umožnite aplikácii SD Maid skontrolovať aktualizácie, aby ste vedeli, či je k dispozícii novšia verzia.</string>
     <string name="device_settings_category">Zariadenie</string>
-    <string name="beta_version_indicator_desc">Predbežné verzie zobrazujú na úvodnej obrazovke malú stuhu. Aktualizujú sa častejšie, môžu mať viac funkcií, ale môžu mať aj viac chýb.</string>
     <string name="review_app_review_action">Ohodnotiť</string>
     <string name="review_app_dismiss_action">Možno pozdejšie</string>
     <string name="review_app_body">Chceli by ste zanechať recenziu SD Maid?️ ❤️</string>

@@ -4,42 +4,46 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
-import androidx.navigation.navOptions
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.device.DeviceDetective
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.RuntimePermission
+import eu.darken.sdmse.common.permissions.Specialpermission
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
+import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
-import eu.darken.sdmse.setup.inventory.InventorySetupCardVH
+import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
-import eu.darken.sdmse.setup.notification.NotificationSetupCardVH
+import eu.darken.sdmse.setup.notification.NotificationSetupCardItem
 import eu.darken.sdmse.setup.notification.NotificationSetupModule
-import eu.darken.sdmse.setup.root.RootSetupCardVH
+import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
-import eu.darken.sdmse.setup.saf.SAFSetupCardVH
+import eu.darken.sdmse.setup.saf.SAFSetupCardItem
 import eu.darken.sdmse.setup.saf.SAFSetupModule
-import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardVH
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
-import eu.darken.sdmse.setup.storage.StorageSetupCardVH
+import eu.darken.sdmse.setup.storage.StorageSetupCardItem
 import eu.darken.sdmse.setup.storage.StorageSetupModule
-import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
@@ -58,35 +62,60 @@ class SetupViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
     private val shizukuSetupModule: ShizukuSetupModule,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+    private val deviceDetective: DeviceDetective,
+) : ViewModel4(dispatcherProvider, TAG) {
 
     private val route = SetupRoute.from(handle)
 
+    private val screenOptionsFlow: MutableStateFlow<SetupScreenOptions> =
+        MutableStateFlow(route.options ?: SetupScreenOptions())
+    val screenOptions: SetupScreenOptions get() = screenOptionsFlow.value
+
+    fun setScreenOptions(options: SetupScreenOptions) {
+        log(TAG) { "setScreenOptions($options)" }
+        screenOptionsFlow.value = options
+    }
+
     init {
+        log(TAG) { "Setup route parsed: options=${route.options}" }
         setupManager.setDismissed(false)
     }
 
-    // TODO support filtering based on screenOptions.filterTypes
-    val screenOptions = route.options ?: SetupScreenOptions()
+    val events = SingleEventFlow<SetupEvents>()
 
-    val events = SingleLiveEvent<SetupEvents>()
+    private fun emitPermissionEvent(perm: Permission) {
+        when (perm) {
+            is Specialpermission -> events.tryEmit(
+                SetupEvents.SpecialPermissionRequest(
+                    item = perm,
+                    intent = perm.createIntent(context, deviceDetective),
+                    fallbackIntent = perm.createIntentFallback(context),
+                )
+            )
 
-    private val itemsStateFlow: StateFlow<List<SetupAdapter.Item>?> = setupManager.state
-        .map { setupState ->
-            val items = mutableListOf<SetupAdapter.Item>()
+            is RuntimePermission -> events.tryEmit(SetupEvents.RuntimePermissionRequests(perm))
+            else -> log(TAG, WARN) { "Unknown permission type for $perm, cannot launch" }
+        }
+    }
 
-            val typeFilter = screenOptions.typeFilter
-            setupState.moduleStates
-                .filter { typeFilter == null || typeFilter.contains(it.type) }
-                .filter { it !is SetupModule.State.Current || !it.isComplete || screenOptions.showCompleted }
+    private val itemsStateFlow: StateFlow<List<SetupCardItem>?> = combine(
+        setupManager.state,
+        screenOptionsFlow,
+    ) { setupState, options ->
+        val items = mutableListOf<SetupCardItem>()
+
+        val typeFilter = options.typeFilter
+        setupState.moduleStates
+            .filter { typeFilter == null || typeFilter.contains(it.type) }
+            .filter { it !is SetupModule.State.Current || !it.isComplete || options.showCompleted }
                 .mapNotNull { state ->
                     when (state.type) {
                         SetupModule.Type.SAF -> when (state) {
-                            is SetupModule.State.Current -> SAFSetupCardVH.Item(
+                            is SetupModule.State.Current -> SAFSetupCardItem(
                                 state = state as SAFSetupModule.Result,
                                 onPathClicked = {
                                     if (!it.hasAccess) {
-                                        events.postValue(SetupEvents.SafRequestAccess(it))
+                                        events.tryEmit(SetupEvents.SafRequestAccess(it))
                                     }
                                 },
                                 onHelp = {
@@ -94,15 +123,15 @@ class SetupViewModel @Inject constructor(
                                 },
                             ).takeIf { it.state.paths.isNotEmpty() }
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.STORAGE -> when (state) {
-                            is SetupModule.State.Current -> StorageSetupCardVH.Item(
+                            is SetupModule.State.Current -> StorageSetupCardItem(
                                 state = state as StorageSetupModule.Result,
                                 onPathClicked = {
-                                    state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    state.missingPermission.firstOrNull()?.let { perm ->
+                                        emitPermissionEvent(perm)
                                     }
                                 },
                                 onHelp = {
@@ -110,11 +139,11 @@ class SetupViewModel @Inject constructor(
                                 },
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.ROOT -> when (state) {
-                            is SetupModule.State.Current -> RootSetupCardVH.Item(
+                            is SetupModule.State.Current -> RootSetupCardItem(
                                 state = state as RootSetupModule.Result,
                                 onToggleUseRoot = {
                                     launch {
@@ -127,15 +156,15 @@ class SetupViewModel @Inject constructor(
                                 },
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.USAGE_STATS -> when (state) {
-                            is SetupModule.State.Current -> UsageStatsSetupCardVH.Item(
+                            is SetupModule.State.Current -> UsageStatsSetupCardItem(
                                 state = state as UsageStatsSetupModule.Result,
                                 onGrantAction = {
-                                    state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    state.missingPermission.firstOrNull()?.let { perm ->
+                                        emitPermissionEvent(perm)
                                     }
                                 },
                                 onHelp = {
@@ -143,18 +172,18 @@ class SetupViewModel @Inject constructor(
                                 }
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.AUTOMATION -> when (state) {
-                            is SetupModule.State.Current -> AutomationSetupCardVH.Item(
+                            is SetupModule.State.Current -> AutomationSetupCardItem(
                                 state = state as AutomationSetupModule.Result,
                                 onGrantAction = {
                                     launch {
                                         automationSetupModule.setAllow(true)
                                         automationSetupModule.refresh()
                                         if (!state.canSelfEnable) {
-                                            events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                            events.tryEmit(SetupEvents.ConfigureAccessibilityService(state))
                                         }
                                     }
                                 },
@@ -168,22 +197,22 @@ class SetupViewModel @Inject constructor(
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
                                 },
                                 onRestrictionsShow = {
-                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
+                                    events.tryEmit(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
                                 },
                                 onRestrictionsHelp = {
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
                                 },
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.NOTIFICATION -> when (state) {
-                            is SetupModule.State.Current -> NotificationSetupCardVH.Item(
+                            is SetupModule.State.Current -> NotificationSetupCardItem(
                                 state = state as NotificationSetupModule.Result,
                                 onGrantAction = {
-                                    state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                    state.missingPermission.firstOrNull()?.let { perm ->
+                                        emitPermissionEvent(perm)
                                     }
                                 },
                                 onHelp = {
@@ -191,11 +220,11 @@ class SetupViewModel @Inject constructor(
                                 }
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.SHIZUKU -> when (state) {
-                            is SetupModule.State.Current -> ShizukuSetupCardVH.Item(
+                            is SetupModule.State.Current -> ShizukuSetupCardItem(
                                 state = state as ShizukuSetupModule.Result,
                                 onToggleUseShizuku = {
                                     launch { shizukuSetupModule.toggleUseShizuku(it) }
@@ -208,26 +237,25 @@ class SetupViewModel @Inject constructor(
                                         try {
                                             context.startActivity(it)
                                         } catch (e: ActivityNotFoundException) {
-                                            errorEvents.postValue(e)
+                                            errorEvents.tryEmit(e)
                                         }
                                     }
                                 }
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
 
                         SetupModule.Type.INVENTORY -> when (state) {
-                            is SetupModule.State.Current -> InventorySetupCardVH.Item(
+                            is SetupModule.State.Current -> InventorySetupCardItem(
                                 state = state as InventorySetupModule.Result,
-                                // TODO: If more setup cards need runtime-vs-settings branching, extract a shared helper
                                 onGrantAction = {
-                                    val result = state as InventorySetupModule.Result
+                                    val result = state
                                     val runtimePerm = result.missingPermission.firstOrNull { it is RuntimePermission }
                                     if (runtimePerm != null) {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(runtimePerm))
+                                        emitPermissionEvent(runtimePerm)
                                     } else {
-                                        events.postValue(SetupEvents.ShowOurDetailsPage(result.settingsIntent))
+                                        events.tryEmit(SetupEvents.ShowOurDetailsPage(result.settingsIntent))
                                     }
                                 },
                                 onHelp = {
@@ -235,14 +263,14 @@ class SetupViewModel @Inject constructor(
                                 }
                             )
 
-                            is SetupModule.State.Loading -> SetupModuleLoadingCardVH.Item(state)
+                            is SetupModule.State.Loading -> SetupLoadingCardItem(state)
                         }
                     }
                 }
                 .sortedBy { item ->
-                    if (screenOptions.showCompleted && !item.state.isComplete) {
+                    if (options.showCompleted && item.state is SetupModule.State.Current && !item.state.isComplete) {
                         Int.MIN_VALUE
-                    } else if (item is RootSetupCardVH.Item && item.state.isInstalled && item.state.useRoot == null) {
+                    } else if (item is RootSetupCardItem && item.state.isInstalled && item.state.useRoot == null) {
                         Int.MIN_VALUE
                     } else {
                         DISPLAY_ORDER.indexOfFirst { it == item.state.type }
@@ -250,19 +278,45 @@ class SetupViewModel @Inject constructor(
                 }
                 .run { items.addAll(this) }
 
-            items
-        }
+        items
+    }
         .setupCommonEventHandlers(TAG) { "listItems" }
         .stateIn(vmScope, SharingStarted.Eagerly, null)
 
-    val listItems: LiveData<List<SetupAdapter.Item>> = itemsStateFlow
+    val listItems: StateFlow<List<SetupCardItem>> = itemsStateFlow
         .filterNotNull()
-        .asLiveData2()
+        .safeStateIn(
+            initialValue = emptyList(),
+            onError = { emptyList() },
+        )
 
-    val isSetupComplete: LiveData<Boolean> = itemsStateFlow
-        .map { items -> items != null && items.isEmpty() && !screenOptions.showCompleted }
+    val isSetupComplete: StateFlow<Boolean> = combine(
+        itemsStateFlow,
+        screenOptionsFlow,
+    ) { items, options ->
+        items != null && items.isEmpty() && !options.showCompleted
+    }
         .distinctUntilChanged()
-        .asLiveData2()
+        .safeStateIn(
+            initialValue = false,
+            onError = { false },
+        )
+
+    internal val uiState: StateFlow<SetupUiState> = combine(
+        itemsStateFlow,
+        screenOptionsFlow,
+    ) { items, options ->
+            when {
+                items == null -> SetupUiState.Loading
+                items.isEmpty() && !options.showCompleted -> SetupUiState.Complete
+                else -> SetupUiState.Cards(items)
+            }
+        }
+        .distinctUntilChanged()
+        .safeStateIn(
+            initialValue = SetupUiState.Loading,
+            onError = { SetupUiState.Loading },
+        )
 
     fun onSafAccessGranted(uri: Uri?) = launch {
         log(TAG) { "onSafAccessGranted(uri=$uri)" }
@@ -270,7 +324,7 @@ class SetupViewModel @Inject constructor(
         try {
             safSetupModule.takePermission(uri)
         } catch (e: IllegalArgumentException) {
-            events.postValue(SetupEvents.SafWrongPathError(e))
+            events.tryEmit(SetupEvents.SafWrongPathError(e))
         }
     }
 
@@ -295,25 +349,40 @@ class SetupViewModel @Inject constructor(
         } else if (permission == Permission.GET_INSTALLED_APPS) {
             // Runtime dialog may not work on some OEMs — fall back to app settings
             val settingsIntent = context.packageName.toPkgId().getSettingsIntent(context)
-            events.postValue(SetupEvents.ShowOurDetailsPage(settingsIntent))
+            events.tryEmit(SetupEvents.ShowOurDetailsPage(settingsIntent))
         }
     }
 
     fun onAccessibilityReturn() = launch {
         log(TAG) { "onAccessibilityReturn" }
-        automationSetupModule.refresh()
+        setupManager.refresh()
+    }
+
+    fun openSetupHelp() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
+    }
+
+    fun openSafMissingAppHelpUrl() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#open_document_tree-activitynotfoundexception")
+    }
+
+    fun openSafWrongPathHelpUrl() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
+    }
+
+    fun navToDataAreas() {
+        navTo(DataAreasRoute)
     }
 
     fun navback() {
         if (screenOptions.isOnboarding) {
-            navigateTo(
+            navTo(
                 DashboardRoute,
-                navOptions = navOptions {
-                    popUpTo(DashboardRoute) { inclusive = true }
-                }
+                popUpTo = DashboardRoute,
+                inclusive = true,
             )
         } else {
-            popNavStack()
+            navUp()
         }
     }
 

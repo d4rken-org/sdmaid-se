@@ -15,7 +15,6 @@
     <string name="settings_debuglog_explanation">Mae\'r nodwedd hon yn recordio popeth mae\'r ap yn ei wneud i ffeil y gellir ei rhannu. Mae\'r ffeil a gynhyrchwyd yn cynnwys gwybodaeth sensitif (e.e. enwau ffeiliau ac apiau wedi\'u gosod). Rhannwch hi gyda phartïon dibynadwy yn unig (e.e. datblygwr sy\'n datrys problem).</string>
     <string name="tasks_activity_notification_channel_label">Tasgau gweithredol</string>
     <string name="tasks_activity_working_notification_title">Mae SD Maid yn gweithio</string>
-    <string name="tasks_result_notification_channel_label">Canlyniadau tasgau</string>
     <string name="tasks_result_subtext">Canlyniad tasg</string>
     <string name="onboarding_welcome_title">Croeso</string>
     <string name="onboarding_welcome_body1">Mae SD Maid SE yn rheoli ffeiliau, apiau a storfa.</string>
@@ -30,10 +29,6 @@
     <string name="onboarding_versus_continue_action">Parhau</string>
     <string name="onboarding_privacy_title">Preifatrwydd</string>
     <string name="onboarding_privacy_body1">Nid oes gan SD Maid hysbysebion ac nid yw\'n gwerthu data defnyddwyr.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Anfonir adroddiadau nam pan fydd gwallau\'n digwydd a gallant gynnwys manylion am apiau a ffeiliau ar eich dyfais. Mae adroddiadau\'n fy helpu i drwsio namau a gwella\'r ap.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Caniatáu adroddiadau nam awtomatig</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">Gellir newid yr opsiynau hyn yn y gosodiadau.</string>
-    <string name="onboarding_privacy_continue_action">Parhau</string>
     <string name="onboarding_setup_title">Gosod</string>
     <string name="onboarding_setup_body1">Bydd SD Maid yn chwilio pob ardal ddata hygyrch.</string>
     <string name="onboarding_setup_body2">Mae\'r hyn sy\'n hygyrch yn dibynnu ar eich dyfais, fersiwn Android a chaniatadau a roddwyd.</string>
@@ -77,7 +72,6 @@
     <string name="setup_incomplete_card_title">Mae\'r gosodiad yn anghyflawn</string>
     <string name="setup_incomplete_card_body">Gorffennwch osodiad SD Maid i gael gwell canlyniadau.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Mae SD Maid yn ceisio trwsio problemau gosod.</string>
-    <string name="setup_incomplete_card_dismiss_action">Diystyru</string>
     <string name="setup_incomplete_card_continue_action">Parhau i osod</string>
     <string name="setup_forcedshow_summary">Dangos sgrin gosod eto, gan gynnwys eitemau sydd eisoes wedi\'u cwblhau.</string>
     <string name="setup_checking_card_body">Gwirio cwblhad a swyddogaeth y gosodiad.</string>
@@ -140,17 +134,12 @@
     <string name="dataarea_warningcard_reload_action">Ail-lwytho ardaloedd data</string>
     <string name="debug_mode_label">Modd dadfygio</string>
     <string name="debug_mode_explanation">Galluogi opsiynau prawf ac allbwn mwy manwl. Bydd yr ap yn rhedeg yn arafach ac yn perfformio\'n wahanol.</string>
-    <string name="debug_bugreporter_label">Adroddiadau nam awtomatig</string>
-    <string name="debug_bugreporter_summary">Adrodd problemau\'n awtomatig, e.e. manylion am chwaliadau\'r ap fel y gallaf ddarganfod pam a\'i drwsio.</string>
     <string name="data_area_public_app_data_official_label">Data apiau cyhoeddus rhagosodedig</string>
     <string name="data_area_public_app_assets_official_label">Asedau apiau cyhoeddus rhagosodedig</string>
     <string name="data_area_public_storage_label">Storfa gyhoeddus</string>
     <string name="data_area_sdcard_label">Cerdyn SD</string>
     <string name="data_areas_label">Ardaloedd data</string>
     <string name="data_areas_description">Mae ardaloedd data yn cynrychioli lleoliadau ar eich dyfais sy\'n hygyrch i SD Maid. Gall gwahanol ardaloedd data fod ar gael yn dibynnu ar eich fersiwn Android a\'r caniatadau a roddwyd.</string>
-    <string name="data_areas_short_summary">Ardaloedd y gall SD Maid eu cyrchu yn seiliedig ar y caniatadau a roddwyd ar hyn o bryd.</string>
-    <string name="history_label">Hanes</string>
-    <string name="history_description">Rhestr gronolegol o weithredoedd diweddar a data a effeithiwyd.</string>
     <string name="updates_dashcard_title">Diweddariad ar gael</string>
     <string name="updates_dashcard_body">Mae diweddariad ar gael. Mae gennych %1$s a\'r fersiwn diweddaraf yw %2$s.</string>
     <string name="translation_encourage_title">Cyfieithu SD Maid</string>
@@ -162,7 +151,6 @@
     <string name="updatecheck_setting_enabled_label">Gwiriad diweddariad</string>
     <string name="updatecheck_setting_enabled_explanation">Caniatáu i SD Maid wirio am ddiweddariadau i roi gwybod i chi os oes fersiwn newydd ar gael.</string>
     <string name="device_settings_category">Dyfais</string>
-    <string name="beta_version_indicator_desc">Mae fersiynau cyn-rhyddhau yn dangos rhuban bach ar y sgrin gychwyn. Maent yn cael eu diweddaru\'n amlach, gallant gael mwy o nodweddion, ond gallant hefyd gael mwy o wallau.</string>
     <string name="review_app_review_action">Adolygu</string>
     <string name="review_app_dismiss_action">Efallai\'n hwyrach</string>
     <string name="review_app_body">Hoffech chi adael adolygiad i SD Maid?️ ❤️</string>
@@ -199,7 +187,6 @@
     <string name="dashboard_card_config_desc">Ffurfweddu pa gardiau sy\'n cael eu dangos a\'u trefn</string>
     <string name="dashboard_card_config_header_title">Llusgwch i aildrefnu, toglo i ddangos/cuddio</string>
     <string name="debug_debuglog_screen_title">Cofnod dadfygio</string>
-    <string name="debug_debuglog_screen_discard_action">Taflu</string>
     <string name="debug_debuglog_screen_session_path_label">Llwybr sesiwn</string>
     <string name="debug_debuglog_screen_log_files_label">Ffeiliau cofnod</string>
     <plurals name="debug_debuglog_screen_log_files_ready">

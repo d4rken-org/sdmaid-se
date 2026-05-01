@@ -41,7 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">محدود ایپ انسٹالیشن ڈیٹا، جیسے محفوظ تھرڈ پارٹی ایپس۔</string>
     <string name="corpsefinder_filter_appasec_label">اینکرپٹیڈ ایپ ریسورس</string>
     <string name="corpsefinder_filter_appasec_summary">اینکرپٹیڈ ایپ ریسورس، جیسے گیم کے اثاث۔</string>
-    <string name="corpsefinder_filter_app2sd_summary">App2Sd موڈز کے ذریعے بیرونی اسٹوریج میں منتقل کیا گیا ڈیٹا۔</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ایپ بقایا ڈیلیٹ ہوا</item>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">بەردەوامبوونی سێشن</string>
     <string name="swiper_sessions_description">فایلەکان لە 3 قەدەمی سادەدا بپشکنەوە:\n\n1. فۆڵدەرێک هەڵبژێرە بۆ سکانکردن\n2. بە فایلەکان سوایپ بکە بۆ نگەداشتن، سڕینەوە، یان تێپەڕاندن\n3. هەڵبژاردنەکانت بپشکنەوە و پشتڕاست بکەرەوە\n\nهیچ شتێک لابردنی نابێت تاوەکو دوگمەی سڕینەوەی دوایین دەیتەپێنی.</string>
     <string name="swiper_select_folders_action">فۆڵدەرەکان هەڵبژێرە</string>
-    <string name="swiper_scanning_title">سکانکردن…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d بابەت دۆزرایەوە</item>
         <item quantity="other">%d بابەت دۆزرایەوە</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">پاراستنی هەڵبژێردراوەکان</string>
     <string name="swiper_status_action_delete_selected">سڕینەوەی هەڵبژێردراوەکان</string>
     <string name="swiper_status_action_reset_selected">ڕیسێتکردنی هەڵبژێردراوەکان</string>
-    <string name="swiper_decision_undecided">بڕیارنەدراو</string>
-    <string name="swiper_retry_action">هەوڵدانەوە</string>
     <string name="swiper_delete_confirmation_title">فایلەکان بسڕیتەوە؟</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ئەمە بەردەوام %1$d فایل (%2$s) دەسڕێتەوە. ئەم کردارە ناگەڕێتەوە.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d بڕیارنەدراو</item>
         <item quantity="other">%d بڕیارنەدراو</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d پێشتر پارێزراو</item>
-        <item quantity="other">%d پێشتر پارێزراو</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d پێشتر سڕاوەتەوە</item>
-        <item quantity="other">%d پێشتر سڕاوەتەوە</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d پارێزراو</item>
         <item quantity="other">%d پارێزراو</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">چۆن Swiper کاردەکات</string>
     <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
     <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
-    <string name="swiper_help_action">یارمەتی</string>
     <string name="swiper_file_type_filter_title">تەنها ئەم جۆرە فایلانە نیشان بدە</string>
     <string name="swiper_file_type_filter_hint">جۆرەکانی کە دەتەوێت ببینیت هەڵبژێرە. ئەگەر هیچیان هەڵنەبژێردرا، هەموو فایلەکان نیشان دەدرێن.</string>
     <string name="swiper_file_type_category_images">وێنەکان</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">ئەرشیفەکان</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">جێبەجێکردن</string>
-    <string name="swiper_session_filter_action">فایلەکان فلتەر بکە</string>
     <string name="swiper_file_type_filter_summary">فلتەرکراو: %1$s</string>
     <string name="swiper_session_no_matching_files">هیچ فایلێکی گونجاو نەدۆزرایەوە</string>
     <string name="swiper_open_externally_action">لە ئەپی دەرەکی بکەرەوە</string>
