@@ -3,6 +3,9 @@ name: Code tests & eval
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - VERSION
+      - version.properties
   pull_request:
     branches: [ main ]
 
