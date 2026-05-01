@@ -23,8 +23,8 @@
     <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị Hash. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết qủa không chính xác, cần xác minh thủ công.</string>
-    <string name="deduplicator_detection_method_media_title">Dấu ấn Media</string>
-    <string name="deduplicator_detection_method_media_summary">Tìm các tệp video và âm thanh tương tự bằng cách phân tích Dấu ấn âm thanh. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết qủa không chính xác, cần được xác minh thủ công.</string>
+    <string name="deduplicator_detection_method_media_title">Dấu vân tay phương tiện</string>
+    <string name="deduplicator_detection_method_media_summary">Tìm các tệp video và âm thanh tương tự bằng cách phân tích dấu vân tay âm thanh. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết quả dương tính giả cần được xác minh thủ công.</string>
     <string name="deduplicator_matches_media_label">Media tương tự</string>
     <string name="deduplicator_media_match_audio">Khớp dựa trên âm thanh</string>
     <string name="deduplicator_media_match_visual">Khớp dựa trên video</string>

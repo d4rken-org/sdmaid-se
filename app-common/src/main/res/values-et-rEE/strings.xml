@@ -72,7 +72,7 @@
     <string name="general_progress_deleting">Kustutan</string>
     <string name="general_progress_deleting_x">%s kustutamine</string>
     <string name="general_sort_action">Sordi</string>
-    <string name="general_sort_by_title">Sordi järgi</string>
+    <string name="general_sort_by_title">Sordi:</string>
     <string name="general_sort_options_label">Sortimise sätted</string>
     <string name="general_sort_reverse_action">Pööra järjestamisreziim pahupidi</string>
     <string name="general_sort_oldest_first">Vanemad ees</string>
