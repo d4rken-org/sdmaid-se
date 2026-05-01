@@ -132,6 +132,10 @@
     <string name="general_undo_action">Undo</string>
 
     <string name="general_list_select_all_action">Select all</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
 
     <string name="general_path_label">Path</string>
     <string name="general_type_label">Type</string>

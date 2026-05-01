@@ -5,43 +5,35 @@ import android.net.Uri
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
-import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.SelectAll
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -50,6 +42,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -59,8 +52,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -70,7 +65,6 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
-import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.ui.list.items.PathExclusionRow
 import eu.darken.sdmse.exclusion.ui.list.items.PkgExclusionRow
@@ -86,6 +80,7 @@ fun ExclusionListScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
+    val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -110,6 +105,17 @@ fun ExclusionListScreenHost(
     }
 
     var pendingTypePicker by remember { mutableStateOf(false) }
+    val typePickerSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val typePickerScope = rememberCoroutineScope()
+
+    fun dismissTypePicker(then: () -> Unit = {}) {
+        typePickerScope.launch { typePickerSheetState.hide() }.invokeOnCompletion {
+            if (!typePickerSheetState.isVisible) {
+                pendingTypePicker = false
+                then()
+            }
+        }
+    }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -117,9 +123,14 @@ fun ExclusionListScreenHost(
                 is ExclusionListViewModel.Event.ImportEvent -> importLauncher.launch(event.intent)
                 is ExclusionListViewModel.Event.ExportEvent -> exportLauncher.launch(event.intent)
                 is ExclusionListViewModel.Event.UndoRemove -> scope.launch {
+                    val count = event.exclusions.size
                     val result = snackbarHostState.showSnackbar(
-                        message = "Removed ${event.exclusions.size} exclusions",
-                        actionLabel = "Undo",
+                        message = context.resources.getQuantityString(
+                            CommonR.plurals.general_remove_success_x_items,
+                            count,
+                            count,
+                        ),
+                        actionLabel = context.getString(CommonR.string.general_undo_action),
                         duration = SnackbarDuration.Long,
                     )
                     if (result == SnackbarResult.ActionPerformed) {
@@ -127,14 +138,24 @@ fun ExclusionListScreenHost(
                     }
                 }
                 is ExclusionListViewModel.Event.ImportSuccess -> scope.launch {
+                    val count = event.exclusions.size
                     snackbarHostState.showSnackbar(
-                        message = "Imported ${event.exclusions.size} exclusions",
+                        message = context.resources.getQuantityString(
+                            R.plurals.exclusion_import_success_x_items,
+                            count,
+                            count,
+                        ),
                         duration = SnackbarDuration.Long,
                     )
                 }
                 is ExclusionListViewModel.Event.ExportSuccess -> scope.launch {
+                    val count = event.exclusions.size
                     snackbarHostState.showSnackbar(
-                        message = "Exported ${event.exclusions.size} exclusions",
+                        message = context.resources.getQuantityString(
+                            R.plurals.exclusion_export_success_x_items,
+                            count,
+                            count,
+                        ),
                         duration = SnackbarDuration.Long,
                     )
                 }
@@ -156,47 +177,18 @@ fun ExclusionListScreenHost(
     )
 
     if (pendingTypePicker) {
-        AlertDialog(
-            onDismissRequest = { pendingTypePicker = false },
-            title = { Text(stringResource(R.string.exclusion_create_action)) },
-            text = {
-                Column {
-                    ListItem(
-                        modifier = Modifier.clickableItem {
-                            pendingTypePicker = false
-                            vm.openAppControl()
-                        },
-                        headlineContent = { Text(stringResource(R.string.exclusion_type_package)) },
-                        supportingContent = { Text(stringResource(R.string.exclusion_create_pkg_hint)) },
-                    )
-                    ListItem(
-                        modifier = Modifier.clickableItem {
-                            pendingTypePicker = false
-                            vm.openStoragePicker()
-                        },
-                        headlineContent = { Text(stringResource(R.string.exclusion_type_path)) },
-                        supportingContent = { Text(stringResource(R.string.exclusion_create_path_hint)) },
-                    )
-                    ListItem(
-                        modifier = Modifier.clickableItem {
-                            pendingTypePicker = false
-                            vm.openSegmentEditor()
-                        },
-                        headlineContent = { Text(stringResource(R.string.exclusion_type_segment)) },
-                    )
-                }
-            },
-            confirmButton = {
-                TextButton(onClick = { pendingTypePicker = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
-        )
+        ModalBottomSheet(
+            onDismissRequest = { dismissTypePicker() },
+            sheetState = typePickerSheetState,
+        ) {
+            CreateExclusionTypeSheet(
+                onPickPackage = { dismissTypePicker { vm.openAppControl() } },
+                onPickPath = { dismissTypePicker { vm.openStoragePicker() } },
+                onPickSegment = { dismissTypePicker { vm.openSegmentEditor() } },
+            )
+        }
     }
 }
-
-private fun Modifier.clickableItem(onClick: () -> Unit): Modifier =
-    this.clickable(onClick = onClick)
 
 @Composable
 internal fun ExclusionListScreen(
@@ -276,7 +268,15 @@ internal fun ExclusionListScreen(
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer,
                     ),
-                    title = { Text("${selection.size}") },
+                    title = {
+                        Text(
+                            pluralStringResource(
+                                CommonR.plurals.general_x_selected_count,
+                                selection.size,
+                                selection.size,
+                            ),
+                        )
+                    },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
                             Icon(Icons.TwoTone.Close, contentDescription = null)
@@ -328,85 +328,56 @@ internal fun ExclusionListScreen(
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            when (rows) {
-                null -> Box(
+            when {
+                rows == null -> CircularProgressIndicator(
+                    modifier = Modifier.align(Alignment.Center),
+                )
+
+                rows.isEmpty() -> ExclusionEmptyState(
+                    onMoreInfo = onMoreInfo,
                     modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    CircularProgressIndicator()
-                }
+                )
 
                 else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
                     item(key = "info-card") {
                         ExclusionInfoCard(onMoreInfo = onMoreInfo)
                     }
-                    if (rows.isEmpty()) {
-                        item(key = "empty-hint") {
-                            Text(
-                                text = stringResource(R.string.exclusion_add_new_hint),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 32.dp, vertical = 24.dp),
-                            )
-                        }
-                    } else {
-                        items(rows, key = { it.stableId }) { row ->
-                            val isSelected = selection.contains(row.stableId)
-                            val rowModifier = Modifier
-                            when (row) {
-                                is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
-                                    modifier = rowModifier,
-                                    row = row,
-                                    selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
-                                    onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = selection.toggle(row.stableId)
-                                        } else {
-                                            onRowClick(row)
-                                        }
-                                    },
-                                    onLongClick = {
-                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                    },
-                                )
-
-                                is ExclusionListViewModel.Row.Path -> PathExclusionRow(
-                                    modifier = rowModifier,
-                                    row = row,
-                                    selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
-                                    onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = selection.toggle(row.stableId)
-                                        } else {
-                                            onRowClick(row)
-                                        }
-                                    },
-                                    onLongClick = {
-                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                    },
-                                )
-
-                                is ExclusionListViewModel.Row.Segment -> SegmentExclusionRow(
-                                    modifier = rowModifier,
-                                    row = row,
-                                    selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
-                                    onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = selection.toggle(row.stableId)
-                                        } else {
-                                            onRowClick(row)
-                                        }
-                                    },
-                                    onLongClick = {
-                                        if (!row.isDefault) selection = selection.toggle(row.stableId)
-                                    },
-                                )
+                    items(rows, key = { it.stableId }) { row ->
+                        val isSelected = selection.contains(row.stableId)
+                        val onRowTap = {
+                            if (selection.isNotEmpty()) {
+                                selection = selection.toggle(row.stableId)
+                            } else {
+                                onRowClick(row)
                             }
+                        }
+                        val onRowLongPress = {
+                            if (!row.isDefault) selection = selection.toggle(row.stableId)
+                        }
+                        when (row) {
+                            is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
+                                row = row,
+                                selected = isSelected,
+                                selectionActive = selection.isNotEmpty(),
+                                onClick = onRowTap,
+                                onLongClick = onRowLongPress,
+                            )
+
+                            is ExclusionListViewModel.Row.Path -> PathExclusionRow(
+                                row = row,
+                                selected = isSelected,
+                                selectionActive = selection.isNotEmpty(),
+                                onClick = onRowTap,
+                                onLongClick = onRowLongPress,
+                            )
+
+                            is ExclusionListViewModel.Row.Segment -> SegmentExclusionRow(
+                                row = row,
+                                selected = isSelected,
+                                selectionActive = selection.isNotEmpty(),
+                                onClick = onRowTap,
+                                onLongClick = onRowLongPress,
+                            )
                         }
                     }
                 }
@@ -416,36 +387,31 @@ internal fun ExclusionListScreen(
 }
 
 @Composable
-private fun ExclusionInfoCard(
+private fun ExclusionEmptyState(
     onMoreInfo: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    OutlinedCard(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+    Column(
+        modifier = modifier.padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
     ) {
-        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = Icons.TwoTone.Info,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(20.dp),
-                )
-                Spacer(Modifier.width(12.dp))
-                Text(
-                    text = stringResource(R.string.exclusion_explanation_body1),
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.weight(1f),
-                )
-            }
-            TextButton(
-                onClick = onMoreInfo,
-                modifier = Modifier.align(Alignment.End),
-            ) {
-                Text(stringResource(CommonR.string.general_more_info_action))
-            }
+        Icon(
+            imageVector = Icons.TwoTone.Block,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(72.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        Text(
+            text = stringResource(R.string.exclusion_add_new_hint),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(Modifier.height(8.dp))
+        TextButton(onClick = onMoreInfo) {
+            Text(stringResource(CommonR.string.general_more_info_action))
         }
     }
 }
@@ -476,3 +442,4 @@ private fun ExclusionListScreenLoadingPreview() {
         )
     }
 }
+

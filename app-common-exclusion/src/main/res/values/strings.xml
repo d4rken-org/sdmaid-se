@@ -3,7 +3,7 @@
     <string name="exclusion_manager_title">Exclusion manager</string>
     <string name="exclusion_manager_desc">Manage file and app exclusions.</string>
     <string name="exclusion_explanation_body1">Exclude files and apps to protect them from SD Maid\'s tools, or to skip irrelevant items and speed up operations.</string>
-    <string name="exclusion_add_new_hint">Add new exclusions by first letting SD Maid search and then using the context menu on the result you want to exclude.</string>
+    <string name="exclusion_add_new_hint">No exclusions yet. Use the + button to create one, or exclude items from any tool\'s results.</string>
     <string name="exclusion_create_action">Create exclusion</string>
     <string name="exclusion_edit_action">Edit exclusion</string>
     <string name="exclusion_type_package">App exclusion</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Export exclusions</string>
     <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
     <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
+    <string name="exclusion_create_segment_hint">Match a name segment, like \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Show defaults</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exclusion imported</item>
+        <item quantity="other">%d exclusions imported</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exclusion exported</item>
+        <item quantity="other">%d exclusions exported</item>
+    </plurals>
 </resources>
