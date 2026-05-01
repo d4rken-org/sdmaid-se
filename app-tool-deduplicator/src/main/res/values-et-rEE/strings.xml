@@ -26,9 +26,9 @@
     <string name="deduplicator_detection_method_phash_title">Tajuräsi</string>
     <string name="deduplicator_detection_method_phash_summary">Leidke sarnaseid faile, analüüsides sisu võimalusi ja võrreldes tajuräsi väärtusi. ⚠️ Sarnasusel põhinev tuvastus võib sisaldada valeteateid, mis vajavad inimese kontrolli.</string>
     <string name="deduplicator_detection_method_media_title">Meedia sõrmejälg</string>
-    <string name="deduplicator_detection_method_media_summary">Leia sarnaseid video- ja helifaile heli sõrmejälgede analüüsi abil. ⚠️ Sarnasusepõhine tuvastamine võib sisaldada valepositiivseid tulemusi, mis nõuavad käsitsi kontrollimist.</string>
+    <string name="deduplicator_detection_method_media_summary">Leia sarnaseid video- ja helifaile, analüüsides heli sõrmejälge. ⚠️ Sarnasusepõhine tuvastamine võib sisaldada valetulemusi, mis nõuavad käsitsi kontrollimist.</string>
     <string name="deduplicator_matches_media_label">Sarnane meedia</string>
-    <string name="deduplicator_media_match_audio">Heliõhine vaste</string>
+    <string name="deduplicator_media_match_audio">Helipõhine vaste</string>
     <string name="deduplicator_media_match_visual">Videopõhine vaste</string>
     <string name="deduplicator_media_match_audio_visual">Heli- ja videopõhine vaste</string>
     <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>

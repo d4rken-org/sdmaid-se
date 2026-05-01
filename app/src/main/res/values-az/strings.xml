@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələri silinsinmi?</string>
+    <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələr silinsin?</string>
     <string name="dashboard_settings_category">İdarəetmə paneli</string>
     <string name="dashboard_motd_title">Tərtibatçıdan bir mesaj</string>
-    <string name="dashboard_settings_oneclick_title">Bir toxunma rejimi</string>
-    <string name="dashboard_settings_oneclick_summary">Əsas panelin hərəkət düyməsinə bir toxunma ilə bütün alətlər üçün skan və silinməni başladın, əlavə təsdiqsiz.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Bir toxunma alətləri</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Bir toxunma əməliyyatlarına hansı alətlər daxil edilməlidir?</string>
-    <string name="dashboard_card_config_title">Məlumat paneli kartları</string>
+    <string name="dashboard_settings_oneclick_title">Tək toxunuş rejimi</string>
+    <string name="dashboard_settings_oneclick_summary">Əsas paneldəki düyməyə tək bir toxunuş edərək əlavə təsdiqetmə olmadan bütün alətlər üçün skan və silinməni başladın.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Tək toxunuş alətləri</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Tək toxunuş əməliyyatlarına hansı alətlər daxil edilməlidir?</string>
+    <string name="dashboard_card_config_title">İdarəetmə paneli kartları</string>
     <string name="dashboard_card_config_desc">Hansı kartların göstəriləcəyini və onların ardıcıllığını tənzimləyin</string>
-    <string name="dashboard_card_config_header_title">Yerdəyişmə üçün sürükləyin, göstərmək/gizlətmək üçün keçid edin</string>
-    <string name="debug_debuglog_file_label">Qeydə alınmış xəta aşkarlama faylı</string>
+    <string name="dashboard_card_config_header_title">Yerdəyişmə üçün sürüşdürün, göstərmək/gizlətmək üçün klikləyin</string>
+    <string name="debug_debuglog_file_label">Qeydə alınmış jurnal faylı</string>
     <string name="debug_debuglog_recording_progress">Xəta aşkarlama funksiyası (debug log) işləyir</string>
     <string name="debug_debuglog_record_action">Xəta aşkarlama funksiyasını işə sal</string>
     <string name="debug_debuglog_stop_action">Qeydi dayandır</string>
-    <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (yəni fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
-    <string name="debug_debuglog_screen_title">Sazlama qeydi</string>
-    <string name="debug_debuglog_screen_discard_action">İmtina et</string>
+    <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (məs. fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
+    <string name="debug_debuglog_screen_title">Sazlama jurnalı</string>
+    <string name="debug_debuglog_screen_discard_action">İmtina</string>
     <string name="debug_debuglog_screen_session_path_label">Sessiya yolu</string>
-    <string name="debug_debuglog_screen_log_files_label">Qeyd faylları</string>
+    <string name="debug_debuglog_screen_log_files_label">Jurnal faylları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">%1$d fayl hazırdır (%2$s)</item>
         <item quantity="other">%1$d fayl hazırdır (%2$s)</item>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Стискайте зображення, щоб заощадити місце на диску.</string>
+    <string name="squeezer_explanation_short">Стискайте зображення та відео, щоб заощадити місце для зберігання.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d зображення знайдено</item>
-        <item quantity="few">%d зображення знайдено</item>
-        <item quantity="many">%d зображень знайдено</item>
-        <item quantity="other">%d зображень знайдено</item>
+        <item quantity="one">Знайдено %d елемент</item>
+        <item quantity="few">Знайдено %d елементів</item>
+        <item quantity="many">Знайдено %d елементів</item>
+        <item quantity="other">Знайдено %d елементів</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s можна заощадити</item>
@@ -14,37 +14,52 @@
         <item quantity="other">~%s можна заощадити</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d зображення стиснуто</item>
-        <item quantity="few">%d зображення стиснуто</item>
-        <item quantity="many">%d зображень стиснуто</item>
-        <item quantity="other">%d зображень стиснуто</item>
+        <item quantity="one">%d елемент стиснуто</item>
+        <item quantity="few">%d елементи стиснуто</item>
+        <item quantity="many">%d елементів стиснуто</item>
+        <item quantity="other">%d елементів стиснуто</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d не вдалося</item>
+        <item quantity="few">%d не вдалося</item>
+        <item quantity="many">%d не вдалося</item>
+        <item quantity="other">%d не вдалося</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d файл пропущено (недоступний)</item>
+        <item quantity="few">%d файли пропущено (недоступні)</item>
+        <item quantity="many">%d файлів пропущено (недоступні)</item>
+        <item quantity="other">%d файлів пропущено (недоступні)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d зображення вибрано</item>
-        <item quantity="few">%d зображення вибрано</item>
-        <item quantity="many">%d зображень вибрано</item>
-        <item quantity="other">%d зображень вибрано</item>
+        <item quantity="one">%d елемент вибрано</item>
+        <item quantity="few">%d елементи вибрано</item>
+        <item quantity="many">%d елементів вибрано</item>
+        <item quantity="other">%d елементів вибрано</item>
     </plurals>
     <string name="squeezer_search_locations_title">Місця пошуку</string>
     <string name="squeezer_search_locations_default_summary">Папки камери (за замовчуванням)</string>
     <string name="squeezer_min_size_title">Мінімальний розмір файлу</string>
-    <string name="squeezer_min_size_description">Пропустити зображення, розмір яких менше цього.</string>
+    <string name="squeezer_min_size_description">Пропускати файли менші за цей розмір.</string>
     <string name="squeezer_min_age_title">Мінімальний вік файлу</string>
-    <string name="squeezer_min_age_description">Включайте тільки зображення, старші за цей вік.</string>
-    <string name="squeezer_compression_settings_label">Налаштування стиснення</string>
+    <string name="squeezer_min_age_description">Включати лише файли, старіші за цей вік.</string>
+    <string name="squeezer_compression_settings_label">Загальні</string>
     <string name="squeezer_quality_label">Якість</string>
     <string name="squeezer_quality_title">Якість стиснення</string>
-    <string name="squeezer_quality_description">Нижча якість означає менший розмір файлу, але знижену якість зображення.</string>
+    <string name="squeezer_quality_description">Нижча якість означає менший розмір файлу, але гіршу якість зображення.</string>
     <string name="squeezer_quality_example_format">Приклад: %1$s зображення → зберігає ~%2$s з якістю %3$d%%</string>
     <string name="squeezer_quality_warning_low">Нижча якість може спричинити появу видимих артефактів.</string>
     <string name="squeezer_quality_warning_high">Дуже висока якість забезпечує мінімальну економію місця.</string>
-    <string name="squeezer_types_category_label">Типи зображень</string>
+    <string name="squeezer_types_category_label">Налаштування зображення</string>
+    <string name="squeezer_video_settings_category_label">Налаштування відео</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Включити зображення у форматі JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Включити зображення у форматі WebP (.webp).</string>
+    <string name="squeezer_type_video_title">Відео MP4</string>
+    <string name="squeezer_type_video_description">Включити відеофайли MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Пропустити раніше стиснуті</string>
-    <string name="squeezer_skip_compressed_description">Пропустити зображення, які вже були стиснуті SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Пропустити файли, які вже були стиснуті SD Maid.</string>
     <string name="squeezer_exif_marker_title">Написати EXIF маркер</string>
     <string name="squeezer_exif_marker_description">Додайте маркер до поля коментарів користувача EXIF зображення, щоб запобігти повторному стисненню, навіть якщо історія стиснення буде очищена.</string>
     <string name="squeezer_estimated_savings_format">~%s заощадження</string>
@@ -55,8 +70,8 @@
     <string name="squeezer_preview_dialog_title">Підтвердити стиснення</string>
     <string name="squeezer_preview_total_size">Загальний розмір</string>
     <string name="squeezer_preview_estimated_savings">Орієнтовна економія</string>
-    <string name="squeezer_compress_confirmation_title">Стиснути зображення?</string>
-    <string name="squeezer_compress_confirmation_message">Це замінить оригінальні зображення на стислі версії. Цю дію неможливо скасувати.</string>
+    <string name="squeezer_compress_confirmation_title">Стиснути вибрані елементи?</string>
+    <string name="squeezer_compress_confirmation_message">Це замінить оригінальні файли стиснутими версіями. Цю дію не можна скасувати.</string>
     <string name="squeezer_history_title">Історія стиснення</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d елемент (%2$s)</item>
@@ -66,17 +81,26 @@
     </plurals>
     <string name="squeezer_history_empty">Відсутність історії стиснення</string>
     <string name="squeezer_history_clear_title">Очистити історію стиснення</string>
-    <string name="squeezer_history_clear_message">Це дозволить повторно стиснути раніше стиснуті зображення. Самі зображення не зміняться.</string>
+    <string name="squeezer_history_clear_message">Це дозволить повторно стиснути файли, які вже були стиснуті раніше. Самі файли при цьому не зміняться.</string>
     <string name="squeezer_onboarding_title">Про стиснення зображень</string>
     <string name="squeezer_onboarding_message">Стиснення зображень зменшує розмір файлу шляхом видалення візуальних деталей. Цей процес є незворотним — оригінальну якість неможливо відновити. \n\nОсь попередній перегляд того, як будуть виглядати ваші зображення:</string>
     <string name="squeezer_onboarding_original_label">Оригінал</string>
     <string name="squeezer_onboarding_compressed_label">Після стиснення</string>
+    <string name="squeezer_onboarding_video_original_label">Кадр відео</string>
+    <string name="squeezer_onboarding_video_compressed_label">Попередній перегляд (приблизний)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">Фактична якість відео може відрізнятися</string>
     <string name="squeezer_onboarding_quality_label">Якість: %d%%</string>
     <string name="squeezer_compare_action">Переглянути порівняння</string>
     <string name="squeezer_no_example_found">У вибраних шляхах не знайдено зображень.</string>
-    <string name="squeezer_result_empty_message">Не знайдено стиснутих зображень.</string>
-    <string name="squeezer_setup_warning">Стиснення назавжди знижує якість зображення, щоб заощадити місце для зберігання. Цю дію неможливо скасувати. Уважно перегляньте налаштування перед початком роботи.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze зменшує розмір файлів зображень, щоб звільнити місце на диску. Це призводить до постійного зниження якості зображення і не може бути скасовано. Перед початком роботи уважно перегляньте налаштування.</string>
+    <string name="squeezer_result_empty_message">Не знайдено стиснутих медіа.</string>
+    <string name="squeezer_setup_warning">Стиснення назавжди погіршує якість, щоб заощадити місце на диску. Цю дію неможливо скасувати. Перед початком ретельно перевірте налаштування.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">%d місцезнаходження не може бути використане для стиснення та було видалено. Стиснення вимагає прямого доступу до внутрішньої пам\'яті.</item>
+        <item quantity="few">%d розташування не можуть бути використані для стиснення та були видалені. Стиснення потребує прямого доступу до внутрішнього сховища.</item>
+        <item quantity="many">%d розташувань не можуть бути використані для стиснення та були видалені. Стиснення потребує прямого доступу до внутрішнього сховища.</item>
+        <item quantity="other">%d розташувань не можуть бути використані для стиснення та були видалені. Стиснення потребує прямого доступу до внутрішнього сховища.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">Media Squeeze зменшує розмір файлів зображень і відео, щоб звільнити місце на диску. Це призводить до необоротного зниження якості. Перед початком ретельно перевірте налаштування.</string>
     <string name="squeezer_setup_paths_title">Місця пошуку</string>
     <string name="squeezer_setup_paths_default">Виберіть папки для пошуку</string>
     <string name="squeezer_setup_quality_title">Якість стиснення</string>
@@ -93,6 +117,6 @@
         <item quantity="many">Не менше %d днів</item>
         <item quantity="other">Не менше %d днів</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Орієнтовна економія ~%d%% для файлів JPEG</string>
+    <string name="squeezer_estimated_savings_percent">Орієнтовна економія на зображеннях становить ~%d%%</string>
     <string name="squeezer_onboarding_got_it">Зрозуміло</string>
 </resources>

@@ -28,13 +28,13 @@
     <string name="squeezer_search_locations_title">Zoek locaties</string>
     <string name="squeezer_search_locations_default_summary">Cameramappen (standaard)</string>
     <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
-    <string name="squeezer_min_size_description">Sla bestanden over die kleiner zijn dan deze grootte.</string>
+    <string name="squeezer_min_size_description">Sla bestanden kleiner dan deze grootte over.</string>
     <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
-    <string name="squeezer_min_age_description">Alleen bestanden ouder dan deze leeftijd opnemen.</string>
+    <string name="squeezer_min_age_description">Neem alleen bestanden op die ouder zijn dan deze leeftijd.</string>
     <string name="squeezer_compression_settings_label">Algemeen</string>
     <string name="squeezer_quality_label">Kwaliteit</string>
     <string name="squeezer_quality_title">Compressiekwaliteit</string>
-    <string name="squeezer_quality_description">Lagere kwaliteit betekent kleinere bestandsgrootte maar verminderde visuele kwaliteit.</string>
+    <string name="squeezer_quality_description">Een lagere kwaliteit betekent een kleinere bestandsgrootte, maar een verminderde beeldkwaliteit.</string>
     <string name="squeezer_quality_example_format">Voorbeeld: %1$s afbeelding → bespaart ~%2$s bij %3$d%% kwaliteit</string>
     <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
     <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
@@ -79,12 +79,12 @@
     <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
     <string name="squeezer_result_empty_message">Geen comprimeerbare media gevonden.</string>
-    <string name="squeezer_setup_warning">Compressie vermindert de kwaliteit permanent om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer uw instellingen zorgvuldig voor u begint.</string>
+    <string name="squeezer_setup_warning">Compressie vermindert de kwaliteit permanent om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voor je begint.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locatie kan niet worden gebruikt voor compressie en is verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
         <item quantity="other">%d locaties kunnen niet worden gebruikt voor compressie en zijn verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
     </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen en video\'s om opslagruimte vrij te maken. Dit vermindert de kwaliteit permanent en kan niet ongedaan worden gemaakt. Controleer uw instellingen zorgvuldig voor u begint.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen en video\'s om opslagruimte vrij te maken. Dit vermindert de kwaliteit permanent en kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voor je begint.</string>
     <string name="squeezer_setup_paths_title">Zoek locaties</string>
     <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
     <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>

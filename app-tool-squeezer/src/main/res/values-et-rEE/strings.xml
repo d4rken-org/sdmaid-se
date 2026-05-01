@@ -79,12 +79,12 @@
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
-    <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti püsiavlt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
+    <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti jäädavalt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
         <item quantity="other">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
     </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze vähendab piltide ja videote failimaht, et vabastada salvestusruumi. See vähendab kvaliteeti püsiavlt ja seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
+    <string name="squeezer_setup_explanation">Meedia kokkupakkija vähendab piltide ja videote failimahtu, et vabastada salvestusruumi. See vähendab kvaliteeti jäädavalt ja seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <string name="squeezer_setup_paths_title">Otsi asukohti</string>
     <string name="squeezer_setup_paths_default">Vali otsitavad kaustad</string>
     <string name="squeezer_setup_quality_title">Kokkupakkimise kvaliteet</string>

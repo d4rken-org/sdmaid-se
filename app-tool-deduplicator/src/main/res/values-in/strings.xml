@@ -35,7 +35,7 @@
     </plurals>
     <string name="deduplicator_file_size_label">Ukuran file</string>
     <string name="deduplicator_average_size_label">Ukuran rata-rata</string>
-    <string name="deduplicator_cluster_x_label">Kluster %s</string>
+    <string name="deduplicator_cluster_x_label">Kelompok %s</string>
     <string name="deduplicator_delete_confirmation_message">Hapus semua kecuali satu salinan di semua set file duplikat?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Hapus semua kecuali satu salinan di set file duplikat ini?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Hapus semua file dalam set duplikat ini? Tidak ada file yang tersisa!</string>
@@ -47,16 +47,16 @@
     <string name="deduplicator_matches_exact_label">Salinan yang persis</string>
     <string name="deduplicator_matches_similar_label">File serupa</string>
     <string name="deduplicator_arbiter_title">Strategi penghapusan</string>
-    <string name="deduplicator_arbiter_summary">Konfigurasikan file mana yang disimpan dan mana yang dihapus.</string>
-    <string name="deduplicator_arbiter_explanation">Saat menghapus duplikat, SD Maid memutuskan file mana yang disimpan dengan memeriksa setiap kriteria secara berurutan. Kriteria pertama yang menghasilkan pemenang yang jelas menentukan hasilnya. Seret untuk mengubah urutan, ketuk untuk mengubah mode.</string>
+    <string name="deduplicator_arbiter_summary">Tentukan berkas mana yang akan disimpan dan mana yang akan dihapus.</string>
+    <string name="deduplicator_arbiter_explanation">Saat menghapus duplikat, SD Maid memutuskan berkas mana yang disimpan dengan memeriksa setiap kriteria secara berurutan. Kriteria pertama yang menghasilkan pemenang yang jelas menentukan hasilnya. Seret untuk mengubah urutan, ketuk untuk mengubah mode.</string>
     <string name="deduplicator_arbiter_select_mode_title">Pilih mode</string>
     <string name="deduplicator_arbiter_configure_paths_action">Konfigurasikan jalur…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Jenis duplikat</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Utamakan kecocokan persis daripada file serupa.</string>
     <string name="deduplicator_arbiter_criterium_media_provider_title">Pengindeksan media</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Pertimbangkan apakah file diindeks oleh penyedia media.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Pertimbangkan apakah berkas-berkas tersebut telah diindeks oleh penyedia layanan media.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Lokasi penyimpanan</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Utamakan file di penyimpanan internal atau eksternal.</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Utamakan berkas di penyimpanan internal atau eksternal.</string>
     <string name="deduplicator_arbiter_criterium_nesting_title">Kedalaman folder</string>
     <string name="deduplicator_arbiter_criterium_nesting_description">Utamakan file dalam struktur folder yang lebih dangkal atau lebih dalam.</string>
     <string name="deduplicator_arbiter_criterium_modified_title">Tanggal modifikasi</string>
