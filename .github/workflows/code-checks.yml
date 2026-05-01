@@ -118,3 +118,20 @@ jobs:
           persist-credentials: false
       - name: Validate metadata lengths
         run: bash fastlane/check_metadata_length.sh
+
+  check-release-tooling:
+    name: Release tooling
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Install bats and shellcheck
+        run: sudo apt-get update -q && sudo apt-get install -y bats shellcheck
+      - name: Shellcheck bump.sh
+        run: shellcheck tools/release/bump.sh
+      - name: Run bump.sh unit tests
+        run: bats tools/release/bump.bats
+      - name: Live consistency check
+        run: bash tools/release/bump.sh --mode=check

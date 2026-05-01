@@ -1,0 +1,302 @@
+name: Release prepare
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_kind:
+        description: 'How to bump the version (ignored if version_override is set)'
+        type: choice
+        options: [build, patch, minor, major]
+        default: build
+      version_type:
+        description: 'Channel for the new version (keep-current preserves current type)'
+        type: choice
+        options: [keep-current, rc, beta]
+        default: keep-current
+      version_override:
+        description: 'Explicit version, e.g. 1.8.0-rc0 (overrides bump_kind/version_type)'
+        type: string
+        default: ''
+      expected_current:
+        description: 'Safety check: fail if current version does not match (e.g. 1.7.1-rc0)'
+        type: string
+        default: ''
+      dry_run:
+        description: 'When true: compute and validate only. When false: commit, tag, push.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-prepare-main
+  cancel-in-progress: false
+
+jobs:
+  compute-and-validate:
+    name: Compute and validate
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      checks: read
+    outputs:
+      new_name: ${{ steps.plan.outputs.new_name }}
+      new_code: ${{ steps.plan.outputs.new_code }}
+      current_name: ${{ steps.plan.outputs.current_name }}
+    env:
+      INPUT_BUMP_KIND: ${{ inputs.bump_kind }}
+      INPUT_VERSION_TYPE: ${{ inputs.version_type }}
+      INPUT_VERSION_OVERRIDE: ${{ inputs.version_override }}
+      INPUT_EXPECTED_CURRENT: ${{ inputs.expected_current }}
+    steps:
+      - name: Guard ref must be main
+        run: |
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "::error::Must dispatch from main, got ${GITHUB_REF}"
+            exit 1
+          fi
+
+      - name: Pre-flight main health check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          REPO="${GITHUB_REPOSITORY}"
+          SHA="${GITHUB_SHA}"
+
+          # Fetch required check contexts from the main branch ruleset.
+          REQUIRED=$(gh api "/repos/${REPO}/rules/branches/main" \
+            --jq '[.[] | select(.type == "required_status_checks") | .parameters.required_status_checks[] | .context] | unique' \
+            2>/dev/null || echo '[]')
+
+          if [[ "$REQUIRED" == "[]" || -z "$REQUIRED" ]]; then
+            echo "::warning::No required status checks found in branch ruleset — skipping pre-flight gate."
+            exit 0
+          fi
+
+          echo "Required checks: $(echo "$REQUIRED" | jq -r 'join(", ")')"
+
+          # Fetch latest check-run per name for this commit (first 100 — enough for CI).
+          RUNS=$(gh api "/repos/${REPO}/commits/${SHA}/check-runs?per_page=100" \
+            --jq '.check_runs | group_by(.name) | map(sort_by(.started_at) | last | {name: .name, status: .status, conclusion: (.conclusion // "pending")})')
+
+          FAILED=()
+          PENDING=()
+
+          while IFS= read -r check_name; do
+            result=$(echo "$RUNS" | jq -r --arg name "$check_name" \
+              'map(select(.name == $name)) | if length == 0 then "not_found" else last | "\(.status)|\(.conclusion)" end')
+
+            IFS='|' read -r status conclusion <<< "$result"
+
+            if [[ "$result" == "not_found" ]]; then
+              PENDING+=("$check_name (not yet started)")
+            elif [[ "$status" != "completed" ]]; then
+              PENDING+=("$check_name ($status)")
+            elif [[ "$conclusion" == "failure" || "$conclusion" == "cancelled" || "$conclusion" == "timed_out" ]]; then
+              FAILED+=("$check_name: $conclusion")
+            fi
+          done < <(echo "$REQUIRED" | jq -r '.[]')
+
+          if [[ ${#PENDING[@]} -gt 0 ]]; then
+            {
+              echo "### ⚠️ Pending required checks"
+              echo ""
+              echo "These checks have not yet completed. Release is proceeding — verify their outcomes:"
+              echo ""
+              for item in "${PENDING[@]}"; do
+                echo "- $item"
+              done
+              echo ""
+            } >> "${GITHUB_STEP_SUMMARY}"
+            echo "::warning::${#PENDING[@]} required check(s) still pending. See step summary."
+          fi
+
+          if [[ ${#FAILED[@]} -gt 0 ]]; then
+            for item in "${FAILED[@]}"; do
+              echo "::error::Required check failed on main: $item"
+            done
+            echo ""
+            echo "Fix the failing checks on main before dispatching a release."
+            exit 1
+          fi
+
+          echo "Pre-flight OK: all definitive required checks passed."
+
+      - name: Checkout main
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Compute and validate
+        id: plan
+        run: |
+          set -euo pipefail
+          args=("--mode=plan")
+          if [[ -n "${INPUT_VERSION_OVERRIDE}" ]]; then
+            args+=("--version-override=${INPUT_VERSION_OVERRIDE}")
+          else
+            args+=("--bump-kind=${INPUT_BUMP_KIND}")
+            args+=("--version-type=${INPUT_VERSION_TYPE}")
+          fi
+          if [[ -n "${INPUT_EXPECTED_CURRENT}" ]]; then
+            args+=("--expected-current=${INPUT_EXPECTED_CURRENT}")
+          fi
+          ./tools/release/bump.sh "${args[@]}" | tee plan.txt
+          {
+            grep -E '^current_name=' plan.txt
+            grep -E '^new_name=' plan.txt
+            grep -E '^new_code=' plan.txt
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Tag collision check (local + remote)
+        env:
+          NEW_NAME: ${{ steps.plan.outputs.new_name }}
+        run: |
+          set -euo pipefail
+          if git rev-parse --verify "refs/tags/v${NEW_NAME}" >/dev/null 2>&1; then
+            echo "::error::Local tag v${NEW_NAME} already exists"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/v${NEW_NAME}" >/dev/null; then
+            echo "::error::Remote tag v${NEW_NAME} already exists"
+            exit 1
+          fi
+
+      - name: Write step summary
+        env:
+          CURRENT_NAME: ${{ steps.plan.outputs.current_name }}
+          NEW_NAME: ${{ steps.plan.outputs.new_name }}
+          NEW_CODE: ${{ steps.plan.outputs.new_code }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          {
+            echo "## Release plan"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Current | \`${CURRENT_NAME}\` |"
+            echo "| New | \`${NEW_NAME}\` (code ${NEW_CODE}) |"
+            echo "| Tag | \`v${NEW_NAME}\` |"
+            echo "| Dry run | \`${DRY_RUN}\` |"
+            echo ""
+            echo "### bump.sh output"
+            echo ""
+            echo '```'
+            cat plan.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  push-and-dispatch:
+    name: Push and dispatch
+    needs: compute-and-validate
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    env:
+      INPUT_BUMP_KIND: ${{ inputs.bump_kind }}
+      INPUT_VERSION_TYPE: ${{ inputs.version_type }}
+      INPUT_VERSION_OVERRIDE: ${{ inputs.version_override }}
+      NEW_NAME: ${{ needs.compute-and-validate.outputs.new_name }}
+      NEW_CODE: ${{ needs.compute-and-validate.outputs.new_code }}
+      CURRENT_NAME_AT_PLAN: ${{ needs.compute-and-validate.outputs.current_name }}
+    steps:
+      - name: Mint App token
+        id: app-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 #v3.1.1
+        with:
+          client-id: ${{ secrets.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - name: Resolve bot identity
+        id: bot
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: |
+          set -euo pipefail
+          user_id=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)
+          echo "user_name=${APP_SLUG}[bot]" >> "$GITHUB_OUTPUT"
+          echo "user_email=${user_id}+${APP_SLUG}[bot]@users.noreply.github.com" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout main with credentials
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Verify state still matches plan from Job 1
+        run: |
+          set -euo pipefail
+          ./tools/release/bump.sh --mode=check --expected-current="${CURRENT_NAME_AT_PLAN}"
+
+      - name: Re-check tag collision (state may have moved between jobs)
+        run: |
+          set -euo pipefail
+          if git rev-parse --verify "refs/tags/v${NEW_NAME}" >/dev/null 2>&1; then
+            echo "::error::Tag v${NEW_NAME} now exists (state moved between jobs)"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/v${NEW_NAME}" >/dev/null; then
+            echo "::error::Remote tag v${NEW_NAME} now exists (state moved between jobs)"
+            exit 1
+          fi
+
+      - name: Apply bump
+        run: |
+          set -euo pipefail
+          args=("--mode=write" "--expected-current=${CURRENT_NAME_AT_PLAN}")
+          if [[ -n "${INPUT_VERSION_OVERRIDE}" ]]; then
+            args+=("--version-override=${INPUT_VERSION_OVERRIDE}")
+          else
+            args+=("--bump-kind=${INPUT_BUMP_KIND}")
+            args+=("--version-type=${INPUT_VERSION_TYPE}")
+          fi
+          ./tools/release/bump.sh "${args[@]}"
+
+      - name: Verify post-write state
+        run: |
+          set -euo pipefail
+          ./tools/release/bump.sh --mode=check --expected-current="${NEW_NAME}"
+
+      - name: Configure git identity
+        env:
+          BOT_USER_NAME: ${{ steps.bot.outputs.user_name }}
+          BOT_USER_EMAIL: ${{ steps.bot.outputs.user_email }}
+        run: |
+          git config user.name "${BOT_USER_NAME}"
+          git config user.email "${BOT_USER_EMAIL}"
+
+      - name: Commit and tag
+        run: |
+          set -euo pipefail
+          git add version.properties VERSION
+          git commit -m "Release: ${NEW_NAME}"
+          git tag -a "v${NEW_NAME}" -m "Release v${NEW_NAME}"
+
+      - name: Atomic push (commit + tag)
+        run: |
+          set -euo pipefail
+          git push --atomic origin "HEAD:refs/heads/main" "refs/tags/v${NEW_NAME}"
+
+      - name: Write step summary
+        run: |
+          set -euo pipefail
+          {
+            echo "## Released"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Tag | \`v${NEW_NAME}\` |"
+            echo "| Version code | \`${NEW_CODE}\` |"
+            echo "| Bump commit | on \`main\` |"
+            echo ""
+            echo "The App-token push triggers [Tagged releases](../../actions/workflows/release-tag.yml) automatically."
+          } >> "$GITHUB_STEP_SUMMARY"
