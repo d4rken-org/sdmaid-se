@@ -86,6 +86,8 @@
         <item quantity="one">%d app was toggled</item>
         <item quantity="other">%d apps were toggled</item>
     </plurals>
+    <string name="appcontrol_settings_fastscroller_enabled_label">Fast scroller</string>
+    <string name="appcontrol_settings_fastscroller_enabled_description">Show the fast scroll index on the right of the app list.</string>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determine sizes</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Get a rough estimate of each app\'s size.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determine activity</string>
