@@ -16,25 +16,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AcUnit
+import androidx.compose.material.icons.twotone.Archive
 import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.PowerSettingsNew
+import androidx.compose.material.icons.twotone.SaveAlt
+import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.Share
-import androidx.compose.material.icons.twotone.Archive
-import androidx.compose.material.icons.twotone.SaveAlt
 import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -43,22 +51,29 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcontrol.R
+import eu.darken.sdmse.appcontrol.core.FilterSettings
+import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -66,6 +81,7 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.pkgs.features.InstallId
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -83,7 +99,7 @@ fun AppControlListScreenHost(
 
     var pendingExportIds by remember { mutableStateOf<Set<InstallId>>(emptySet()) }
     var pendingConfirm by remember { mutableStateOf<AppControlListViewModel.Event?>(null) }
-    var pendingSortCaveat by remember { mutableStateOf(false) }
+    var sizeSortCaveatVisible by rememberSaveable { mutableStateOf(false) }
 
     val viewActionLabel = stringResource(CommonR.string.general_view_action)
 
@@ -140,7 +156,7 @@ fun AppControlListScreenHost(
                     runCatching { context.startActivity(Intent.createChooser(intent, null)) }
                 }
 
-                AppControlListViewModel.Event.ShowSizeSortCaveat -> pendingSortCaveat = true
+                AppControlListViewModel.Event.ShowSizeSortCaveat -> sizeSortCaveatVisible = true
             }
         }
     }
@@ -148,12 +164,18 @@ fun AppControlListScreenHost(
     AppControlListScreen(
         stateSource = vm.state,
         snackbarHostState = snackbarHostState,
+        sizeSortCaveatVisible = sizeSortCaveatVisible,
         onNavigateUp = vm::navUp,
         onTapRow = vm::onTapRow,
         onSearchQueryChanged = vm::onSearchQueryChanged,
         onSortModeChanged = vm::onSortModeChanged,
         onSortDirectionToggle = vm::onSortDirectionToggle,
         onTagToggle = vm::onTagToggle,
+        onTagsCleared = vm::onTagsCleared,
+        onSizeSortCaveatAck = {
+            sizeSortCaveatVisible = false
+            vm.onAckSizeSortCaveat()
+        },
         onExcludeSelected = vm::onExcludeSelected,
         onToggleSelected = vm::onToggleRequested,
         onUninstallSelected = vm::onUninstallRequested,
@@ -259,21 +281,6 @@ fun AppControlListScreenHost(
             else -> Unit
         }
     }
-
-    if (pendingSortCaveat) {
-        AlertDialog(
-            onDismissRequest = { pendingSortCaveat = false },
-            text = { Text(stringResource(R.string.appcontrol_list_sortmode_size_caveat_msg)) },
-            confirmButton = {
-                TextButton(onClick = {
-                    pendingSortCaveat = false
-                    vm.onAckSizeSortCaveat()
-                }) {
-                    Text(stringResource(CommonR.string.general_gotit_action))
-                }
-            },
-        )
-    }
 }
 
 @Composable
@@ -281,12 +288,15 @@ internal fun AppControlListScreen(
     stateSource: StateFlow<AppControlListViewModel.State> =
         MutableStateFlow(AppControlListViewModel.State()),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    sizeSortCaveatVisible: Boolean = false,
     onNavigateUp: () -> Unit = {},
     onTapRow: (InstallId) -> Unit = {},
     onSearchQueryChanged: (String) -> Unit = {},
-    onSortModeChanged: (eu.darken.sdmse.appcontrol.core.SortSettings.Mode) -> Unit = {},
+    onSortModeChanged: (SortSettings.Mode) -> Unit = {},
     onSortDirectionToggle: () -> Unit = {},
-    onTagToggle: (eu.darken.sdmse.appcontrol.core.FilterSettings.Tag) -> Unit = {},
+    onTagToggle: (FilterSettings.Tag) -> Unit = {},
+    onTagsCleared: () -> Unit = {},
+    onSizeSortCaveatAck: () -> Unit = {},
     onExcludeSelected: (Set<InstallId>) -> Unit = {},
     onToggleSelected: (Set<InstallId>) -> Unit = {},
     onUninstallSelected: (Set<InstallId>) -> Unit = {},
@@ -307,6 +317,17 @@ internal fun AppControlListScreen(
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
     var overflowOpen by remember { mutableStateOf(false) }
+    var searchActive by rememberSaveable { mutableStateOf(false) }
+    var showFilterSheet by rememberSaveable { mutableStateOf(false) }
+
+    // Auto-open the search field if a query is restored (e.g. after process death) so the user
+    // can see what's filtering the list.
+    LaunchedEffect(state.options.searchQuery) {
+        if (state.options.searchQuery.isNotEmpty() && !searchActive) searchActive = true
+    }
+
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val filterBadgeCount = activeFilterCount(state.options)
 
     val subtitle = rows?.let { list ->
         if (state.progress == null) {
@@ -321,16 +342,55 @@ internal fun AppControlListScreen(
             if (selection.isEmpty()) {
                 TopAppBar(
                     title = {
-                        Column {
-                            Text(stringResource(CommonR.string.appcontrol_tool_name))
-                            if (subtitle != null) {
-                                Text(subtitle, style = MaterialTheme.typography.labelMedium)
+                        if (searchActive) {
+                            ToolbarSearchField(
+                                initial = state.options.searchQuery,
+                                onQueryChange = onSearchQueryChanged,
+                                onClose = {
+                                    onSearchQueryChanged("")
+                                    searchActive = false
+                                },
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                        } else {
+                            Column {
+                                Text(stringResource(CommonR.string.appcontrol_tool_name))
+                                if (subtitle != null) {
+                                    Text(subtitle, style = MaterialTheme.typography.labelMedium)
+                                }
                             }
                         }
                     },
                     navigationIcon = {
                         IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
+                            Icon(
+                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                contentDescription = stringResource(CommonR.string.general_navigate_up_action),
+                            )
+                        }
+                    },
+                    actions = {
+                        if (!searchActive) {
+                            IconButton(onClick = { searchActive = true }) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.Search,
+                                    contentDescription = stringResource(CommonR.string.general_search_action),
+                                )
+                            }
+                        }
+                        IconButton(onClick = { showFilterSheet = true }) {
+                            BadgedBox(
+                                badge = {
+                                    if (filterBadgeCount > 0) {
+                                        Badge { Text(filterBadgeCount.toString()) }
+                                    }
+                                },
+                            ) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.FilterList,
+                                    contentDescription = stringResource(R.string.appcontrol_list_filteroptions_label),
+                                )
+                            }
                         }
                     },
                 )
@@ -339,7 +399,10 @@ internal fun AppControlListScreen(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
+                            Icon(
+                                imageVector = Icons.TwoTone.Close,
+                                contentDescription = stringResource(CommonR.string.general_close_action),
+                            )
                         }
                     },
                     actions = {
@@ -369,7 +432,10 @@ internal fun AppControlListScreen(
                             )
                         }
                         IconButton(onClick = { overflowOpen = true }) {
-                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
+                            Icon(
+                                imageVector = Icons.TwoTone.MoreVert,
+                                contentDescription = stringResource(CommonR.string.general_options_label),
+                            )
                         }
                         DropdownMenu(expanded = overflowOpen, onDismissRequest = { overflowOpen = false }) {
                             if (state.allowActionToggle) {
@@ -435,72 +501,60 @@ internal fun AppControlListScreen(
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            AppControlListFilters(
-                options = state.options,
-                allowSortSize = state.allowSortSize,
-                allowSortScreenTime = state.allowSortScreenTime,
-                allowFilterActive = state.allowFilterActive,
-                onSearchQueryChanged = onSearchQueryChanged,
-                onSortModeChanged = onSortModeChanged,
-                onSortDirectionToggle = onSortDirectionToggle,
-                onTagToggle = onTagToggle,
-            )
-            Box(modifier = Modifier.fillMaxSize()) {
-                ProgressOverlay(
-                    data = state.progress,
-                    modifier = Modifier.fillMaxSize(),
-                ) {
-                    when {
-                        rows == null -> Box(modifier = Modifier.fillMaxSize())
+            ProgressOverlay(
+                data = state.progress,
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                when {
+                    rows == null -> Box(modifier = Modifier.fillMaxSize())
 
-                        rows.isEmpty() -> Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(32.dp),
-                            contentAlignment = Alignment.Center,
+                    rows.isEmpty() -> Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(32.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = stringResource(CommonR.string.general_empty_label),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+
+                    else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                        val context = LocalContext.current
+                        val spanCount = remember(maxWidth) { context.getSpanCount(widthDp = 410) }
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(spanCount),
+                            modifier = Modifier.fillMaxSize(),
+                            contentPadding = PaddingValues(vertical = 8.dp),
                         ) {
-                            Text(
-                                text = stringResource(CommonR.string.general_empty_label),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-
-                        else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-                            val context = LocalContext.current
-                            val spanCount = remember(maxWidth) { context.getSpanCount(widthDp = 410) }
-                            LazyVerticalGrid(
-                                columns = GridCells.Fixed(spanCount),
-                                modifier = Modifier.fillMaxSize(),
-                                contentPadding = PaddingValues(vertical = 8.dp),
-                            ) {
-                                items(rows, key = { it.installId.toString() }) { row ->
-                                    val isSelected = selection.contains(row.installId)
-                                    AppControlListRow(
-                                        row = row,
-                                        sortMode = state.options.listSort.mode,
-                                        selected = isSelected,
-                                        onClick = {
-                                            if (selection.isNotEmpty()) {
-                                                selection = if (isSelected) {
-                                                    selection - row.installId
-                                                } else {
-                                                    selection + row.installId
-                                                }
+                            items(rows, key = { it.installId.toString() }) { row ->
+                                val isSelected = selection.contains(row.installId)
+                                AppControlListRow(
+                                    row = row,
+                                    sortMode = state.options.listSort.mode,
+                                    selected = isSelected,
+                                    onClick = {
+                                        if (selection.isNotEmpty()) {
+                                            selection = if (isSelected) {
+                                                selection - row.installId
                                             } else {
-                                                onTapRow(row.installId)
+                                                selection + row.installId
                                             }
-                                        },
-                                        onLongClick = {
-                                            selection = selection + row.installId
-                                        },
-                                    )
-                                }
+                                        } else {
+                                            onTapRow(row.installId)
+                                        }
+                                    },
+                                    onLongClick = {
+                                        selection = selection + row.installId
+                                    },
+                                )
                             }
                         }
                     }
@@ -508,6 +562,69 @@ internal fun AppControlListScreen(
             }
         }
     }
+
+    if (showFilterSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showFilterSheet = false },
+            sheetState = sheetState,
+        ) {
+            AppControlFilterSheetContent(
+                options = state.options,
+                allowSortSize = state.allowSortSize,
+                allowSortScreenTime = state.allowSortScreenTime,
+                allowFilterActive = state.allowFilterActive,
+                sizeSortCaveatVisible = sizeSortCaveatVisible,
+                onSortModeChanged = onSortModeChanged,
+                onSortDirectionToggle = onSortDirectionToggle,
+                onTagToggle = onTagToggle,
+                onTagsCleared = onTagsCleared,
+                onSizeSortCaveatAck = onSizeSortCaveatAck,
+            )
+        }
+    }
+}
+
+@Composable
+private fun ToolbarSearchField(
+    initial: String,
+    onQueryChange: (String) -> Unit,
+    onClose: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var query by remember { mutableStateOf(initial) }
+    val focusRequester = remember { FocusRequester() }
+    LaunchedEffect(Unit) { focusRequester.requestFocus() }
+    LaunchedEffect(initial) {
+        if (initial != query) query = initial
+    }
+    LaunchedEffect(query) {
+        delay(300)
+        if (query != initial) onQueryChange(query)
+    }
+    OutlinedTextField(
+        value = query,
+        onValueChange = { query = it },
+        modifier = modifier.focusRequester(focusRequester),
+        placeholder = { Text(stringResource(CommonR.string.general_search_action)) },
+        singleLine = true,
+        trailingIcon = {
+            IconButton(onClick = {
+                if (query.isEmpty()) {
+                    onClose()
+                } else {
+                    query = ""
+                    onQueryChange("")
+                }
+            }) {
+                Icon(
+                    imageVector = Icons.TwoTone.Close,
+                    contentDescription = stringResource(CommonR.string.general_close_action),
+                )
+            }
+        },
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+        keyboardActions = KeyboardActions(onSearch = { onQueryChange(query) }),
+    )
 }
 
 @Composable

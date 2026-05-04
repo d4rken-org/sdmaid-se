@@ -71,6 +71,9 @@
     <string name="general_sort_size_desc">Largest first</string>
     <string name="general_tag_system">System</string>
     <string name="general_navigate_up_action">Navigate up</string>
+    <string name="general_filter_action">Filter</string>
+    <string name="general_filter_by_tags_label">Filter by tags</string>
+    <string name="general_show_all_action">Show all</string>
 
     <string name="general_result_success_message">Operation successful</string>
     <plurals name="general_result_x_space_freed">
