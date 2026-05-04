@@ -110,6 +110,20 @@ internal fun OnboardingSetupScreen(
                         style = MaterialTheme.typography.bodyLarge,
                     )
 
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.onboarding_setup_body4),
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.onboarding_setup_body5),
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+
                     Spacer(modifier = Modifier.height(24.dp))
 
                     Text(
