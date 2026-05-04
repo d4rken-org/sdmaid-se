@@ -55,7 +55,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldPlus
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -275,15 +275,17 @@ internal fun SqueezerListScreen(
                             selection = emptySet()
                         }) {
                             Icon(
-                                imageVector = SdmIcons.ShieldPlus,
+                                imageVector = SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
-                        IconButton(onClick = { selection = itemIds }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                            )
+                        if (selection.size < itemIds.size) {
+                            IconButton(onClick = { selection = itemIds }) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

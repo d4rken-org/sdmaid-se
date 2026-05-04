@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.ViewList
-import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Filter
@@ -51,6 +50,8 @@ import eu.darken.sdmse.analyzer.core.storage.SystemStorageScanner
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -290,13 +291,16 @@ internal fun ContentScreen(
                                 }
                             },
                             actions = {
-                                IconButton(onClick = {
-                                    val all = s.items.orEmpty()
-                                        .map { it.content.path }
-                                        .toSet()
-                                    selection = if (selection == all) emptySet() else all
-                                }) {
-                                    Icon(Icons.TwoTone.SelectAll, contentDescription = null)
+                                val all = remember(s.items) {
+                                    s.items.orEmpty().map { it.content.path }.toSet()
+                                }
+                                if (selection.size < all.size) {
+                                    IconButton(onClick = { selection = all }) {
+                                        Icon(
+                                            Icons.TwoTone.SelectAll,
+                                            contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                        )
+                                    }
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
                                     IconButton(onClick = { pendingDelete = selectedItems }) {
@@ -307,7 +311,7 @@ internal fun ContentScreen(
                                     onExcludeSelected(selectedItems)
                                     selection = emptySet()
                                 }) {
-                                    Icon(Icons.TwoTone.Block, contentDescription = null)
+                                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
                                     IconButton(onClick = {

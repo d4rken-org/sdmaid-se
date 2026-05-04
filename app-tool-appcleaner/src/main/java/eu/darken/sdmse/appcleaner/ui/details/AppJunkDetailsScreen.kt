@@ -14,9 +14,9 @@ import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -53,6 +53,8 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.ui.details.page.AppJunkPage
 import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -223,8 +225,10 @@ internal fun AppJunkDetailsScreen(
     }
 
     val currentJunk: AppJunk? = items.getOrNull(pagerState.currentPage)
-    LaunchedEffect(currentJunk?.identifier, currentJunk?.expendables) {
-        val livePaths = currentJunk?.expendables?.values?.flatten()?.map { it.path }?.toSet().orEmpty()
+    val livePaths = remember(currentJunk?.identifier, currentJunk?.expendables) {
+        currentJunk?.expendables?.values?.flatten()?.map { it.path }?.toSet().orEmpty()
+    }
+    LaunchedEffect(livePaths) {
         selection = selection intersect livePaths
     }
 
@@ -280,9 +284,17 @@ internal fun AppJunkDetailsScreen(
                             onExcludeSelectedFiles(junk.identifier, paths)
                         }) {
                             Icon(
-                                Icons.TwoTone.Block,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
+                        }
+                        if (selection.size < livePaths.size) {
+                            IconButton(onClick = { selection = livePaths }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

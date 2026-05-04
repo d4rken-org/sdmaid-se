@@ -24,7 +24,6 @@ import androidx.compose.material.icons.twotone.Archive
 import androidx.compose.material.icons.twotone.DoNotDisturb
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.SaveAlt
-import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material.icons.twotone.Shop
 import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
@@ -64,6 +63,7 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionRow
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.ShieldEdit
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -329,7 +329,7 @@ private fun ActionItemRow(
 
         is AppActionItem.Action.Exclude -> AppActionRow(
             icon = if (item.existingExclusionId == null) {
-                rememberVectorPainter(Icons.TwoTone.Shield)
+                rememberVectorPainter(SdmIcons.ShieldAdd)
             } else {
                 rememberVectorPainter(SdmIcons.ShieldEdit)
             },

@@ -27,7 +27,6 @@ import androidx.compose.material.icons.twotone.DeleteForever
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Restore
-import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -59,6 +58,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -198,7 +199,7 @@ internal fun SwiperStatusScreen(
                             onExcludeSelected(payload)
                         }) {
                             Icon(
-                                Icons.TwoTone.Shield,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }

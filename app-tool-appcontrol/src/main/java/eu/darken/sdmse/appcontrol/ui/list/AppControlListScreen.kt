@@ -22,7 +22,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AcUnit
 import androidx.compose.material.icons.twotone.Archive
-import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.FilterList
@@ -76,6 +75,8 @@ import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
@@ -421,15 +422,17 @@ internal fun AppControlListScreen(
                             onExcludeSelected(ids)
                         }) {
                             Icon(
-                                Icons.TwoTone.Block,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
-                        IconButton(onClick = { selection = rowIds }) {
-                            Icon(
-                                Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                            )
+                        if (selection.size < rowIds.size) {
+                            IconButton(onClick = { selection = rowIds }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                         IconButton(onClick = { overflowOpen = true }) {
                             Icon(

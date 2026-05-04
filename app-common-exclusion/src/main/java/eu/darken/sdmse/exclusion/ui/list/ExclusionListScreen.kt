@@ -18,7 +18,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
-import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
@@ -27,6 +26,7 @@ import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.SelectAll
+import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -332,11 +332,13 @@ internal fun ExclusionListScreen(
                                 contentDescription = stringResource(CommonR.string.general_remove_action),
                             )
                         }
-                        IconButton(onClick = { selection = selectableIds }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                            )
+                        if (selection.size < selectableIds.size) {
+                            IconButton(onClick = { selection = selectableIds }) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )
@@ -460,7 +462,7 @@ private fun ExclusionEmptyState(
         verticalArrangement = Arrangement.Center,
     ) {
         Icon(
-            imageVector = Icons.TwoTone.Block,
+            imageVector = Icons.TwoTone.Shield,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.size(72.dp),

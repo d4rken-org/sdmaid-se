@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -163,8 +164,10 @@ internal fun CorpseDetailsScreen(
 
     // Intersect selection with what still exists on the current page.
     val currentCorpse = items.getOrNull(pagerState.currentPage)
-    LaunchedEffect(currentCorpse?.identifier, currentCorpse?.content?.map { it.lookedUp }?.toSet()) {
-        val currentIds = currentCorpse?.content?.map { it.lookedUp }?.toSet() ?: emptySet()
+    val currentIds = remember(currentCorpse?.identifier, currentCorpse?.content) {
+        currentCorpse?.content?.map { it.lookedUp }?.toSet().orEmpty()
+    }
+    LaunchedEffect(currentIds) {
         selection = selection intersect currentIds
     }
 
@@ -218,6 +221,14 @@ internal fun CorpseDetailsScreen(
                                 Icons.TwoTone.Delete,
                                 contentDescription = stringResource(CommonR.string.general_delete_selected_action),
                             )
+                        }
+                        if (selection.size < currentIds.size) {
+                            IconButton(onClick = { selection = currentIds }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

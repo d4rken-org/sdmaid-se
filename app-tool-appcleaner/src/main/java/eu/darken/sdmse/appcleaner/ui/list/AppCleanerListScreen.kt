@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.SelectAll
@@ -48,6 +47,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.ui.list.items.AppCleanerListRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -234,15 +235,17 @@ internal fun AppCleanerListScreen(
                             onExcludeSelected(ids)
                         }) {
                             Icon(
-                                Icons.TwoTone.Block,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
-                        IconButton(onClick = { selection = rowIds }) {
-                            Icon(
-                                Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                            )
+                        if (selection.size < rowIds.size) {
+                            IconButton(onClick = { selection = rowIds }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

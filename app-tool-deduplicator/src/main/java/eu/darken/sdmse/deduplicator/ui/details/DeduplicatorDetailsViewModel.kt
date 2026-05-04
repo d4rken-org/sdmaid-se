@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.uix.resolveTarget
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
@@ -310,6 +311,11 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         val paths = liveDuplicates.filter { it.identifier in ids }.map { it.path }
         if (paths.isEmpty()) return@launch
         deduplicator.exclude(cluster.identifier, paths)
+        events.tryEmit(Event.SelectionExclusionsCreated(paths.size))
+    }
+
+    fun onShowExclusions() {
+        navTo(ExclusionsListRoute)
     }
 
     fun onUndoExclude(undo: Deduplicator.ExclusionUndo, restoreTarget: Duplicate.Cluster.Id) = launch {
@@ -343,6 +349,8 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             val undo: Deduplicator.ExclusionUndo,
             val restoreTarget: Duplicate.Cluster.Id,
         ) : Event
+
+        data class SelectionExclusionsCreated(val count: Int) : Event
     }
 
     companion object {

@@ -21,7 +21,6 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.SelectAll
-import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -48,6 +47,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -284,15 +285,17 @@ internal fun DeduplicatorListScreen(
                             onExcludeSelected(ids, rows ?: emptyList())
                         }) {
                             Icon(
-                                Icons.TwoTone.Shield,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
                         }
-                        IconButton(onClick = { selection = rowIds }) {
-                            Icon(
-                                Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                            )
+                        if (selection.size < rowIds.size) {
+                            IconButton(onClick = { selection = rowIds }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

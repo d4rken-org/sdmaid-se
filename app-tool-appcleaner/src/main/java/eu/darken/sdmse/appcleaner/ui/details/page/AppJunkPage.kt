@@ -19,7 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.DeleteSweep
 import androidx.compose.material.icons.twotone.ExpandLess
 import androidx.compose.material.icons.twotone.ExpandMore
-import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -52,6 +51,8 @@ import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -222,7 +223,7 @@ private fun AppJunkPageHeaderCard(
                     onClick = onExcludeJunk,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Icon(Icons.TwoTone.Shield, contentDescription = null)
+                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
                 }

@@ -14,7 +14,7 @@ import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Folder
-import androidx.compose.material.icons.twotone.Shield
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -43,6 +43,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -77,6 +79,7 @@ fun DeduplicatorDetailsScreenHost(
     val snackbarHostState = remember { SnackbarHostState() }
     val snackScope = rememberCoroutineScope()
     val undoActionLabel = stringResource(CommonR.string.general_undo_action)
+    val viewActionLabel = stringResource(CommonR.string.general_view_action)
 
     var pendingDeletion by remember { mutableStateOf<PendingDetailsDeletion?>(null) }
 
@@ -120,6 +123,22 @@ fun DeduplicatorDetailsScreenHost(
                     )
                     if (result == SnackbarResult.ActionPerformed) {
                         vm.onUndoExclude(event.undo, event.restoreTarget)
+                    }
+                }
+
+                is DeduplicatorDetailsViewModel.Event.SelectionExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = viewActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onShowExclusions()
                     }
                 }
             }
@@ -311,9 +330,17 @@ internal fun DeduplicatorDetailsScreen(
                             },
                         ) {
                             Icon(
-                                Icons.TwoTone.Shield,
+                                SdmIcons.ShieldAdd,
                                 contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
+                        }
+                        if (selection.size < maxSelection) {
+                            IconButton(onClick = { selection = liveDupeIds.take(maxSelection).toSet() }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )
