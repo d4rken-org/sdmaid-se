@@ -23,7 +23,6 @@ import androidx.compose.material.icons.twotone.DeleteSweep
 import androidx.compose.material.icons.twotone.ExpandLess
 import androidx.compose.material.icons.twotone.ExpandMore
 import androidx.compose.material.icons.twotone.Folder
-import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -47,12 +46,19 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumGroup
+import eu.darken.sdmse.deduplicator.ui.preview.previewCluster
+import eu.darken.sdmse.deduplicator.ui.preview.previewMediaGroup
+import eu.darken.sdmse.deduplicator.ui.preview.previewPHashGroup
 import kotlin.math.roundToLong
 
 @Composable
@@ -242,7 +248,7 @@ private fun ClusterHeaderRow(
                     Text(stringResource(CommonR.string.general_delete_action))
                 }
                 TextButton(onClick = onExclude) {
-                    Icon(Icons.TwoTone.Shield, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Icon(SdmIcons.ShieldAdd, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
                 }
@@ -552,3 +558,72 @@ private fun mediaMatchTypeLabel(duplicate: MediaDuplicate): String? = when {
 
 private fun Modifier.combinedClickableSafe(onClick: () -> Unit): Modifier =
     this.combinedClickable(onClick = onClick, onLongClick = {})
+
+@Preview2
+@Composable
+private fun ClusterContentChecksumPreview() {
+    PreviewWrapper {
+        ClusterContent(
+            cluster = previewCluster(groups = setOf(previewChecksumGroup())),
+            isDirectoryView = false,
+            collapsed = emptySet(),
+            selection = emptySet(),
+            onSelectionToggle = {},
+            onSelectionLongPress = {},
+            onCollapseToggle = {},
+            onClusterDelete = {},
+            onClusterExclude = {},
+            onGroupDelete = {},
+            onGroupView = { _, _ -> },
+            onDuplicateDelete = {},
+            onDuplicatePreview = {},
+            onDirectoryDeleteAll = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ClusterContentImagePreview() {
+    PreviewWrapper {
+        ClusterContent(
+            cluster = previewCluster(groups = setOf(previewPHashGroup(), previewMediaGroup())),
+            isDirectoryView = false,
+            collapsed = emptySet(),
+            selection = emptySet(),
+            onSelectionToggle = {},
+            onSelectionLongPress = {},
+            onCollapseToggle = {},
+            onClusterDelete = {},
+            onClusterExclude = {},
+            onGroupDelete = {},
+            onGroupView = { _, _ -> },
+            onDuplicateDelete = {},
+            onDuplicatePreview = {},
+            onDirectoryDeleteAll = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ClusterContentDirectoryPreview() {
+    PreviewWrapper {
+        ClusterContent(
+            cluster = previewCluster(groups = setOf(previewChecksumGroup())),
+            isDirectoryView = true,
+            collapsed = emptySet(),
+            selection = emptySet(),
+            onSelectionToggle = {},
+            onSelectionLongPress = {},
+            onCollapseToggle = {},
+            onClusterDelete = {},
+            onClusterExclude = {},
+            onGroupDelete = {},
+            onGroupView = { _, _ -> },
+            onDuplicateDelete = {},
+            onDuplicatePreview = {},
+            onDirectoryDeleteAll = {},
+        )
+    }
+}
