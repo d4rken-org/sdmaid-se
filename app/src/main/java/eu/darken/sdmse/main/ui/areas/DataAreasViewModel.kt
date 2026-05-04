@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
@@ -23,13 +24,17 @@ class DataAreasViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
+    private val isReloading = MutableStateFlow(false)
+
     val state: StateFlow<State> = combine(
         dataAreaManager.state,
         taskManager.state,
-    ) { areaState, taskState ->
+        isReloading,
+    ) { areaState, taskState, reloading ->
         State(
             areas = areaState.areas,
-            allowReload = taskState.isIdle,
+            allowReload = taskState.isIdle && !reloading,
+            isReloading = reloading,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -39,11 +44,18 @@ class DataAreasViewModel @Inject constructor(
     data class State(
         val areas: Set<DataArea>? = null,
         val allowReload: Boolean = false,
+        val isReloading: Boolean = false,
     )
 
     fun reloadDataAreas() = launch {
+        if (!isReloading.compareAndSet(expect = false, update = true)) return@launch
+
         log(TAG) { "reloadDataAreas()" }
-        dataAreaManager.reload()
+        try {
+            dataAreaManager.reloadAndAwait()
+        } finally {
+            isReloading.value = false
+        }
     }
 
     fun openDocumentation() {

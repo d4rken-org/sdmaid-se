@@ -1,5 +1,6 @@
 package eu.darken.sdmse.main.ui.areas
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -110,7 +111,17 @@ internal fun DataAreasScreen(
                     }
                 },
                 actions = {
-                    if (state.allowReload) {
+                    if (state.isReloading) {
+                        Box(
+                            modifier = Modifier.size(48.dp),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                strokeWidth = 3.dp,
+                            )
+                        }
+                    } else if (state.allowReload) {
                         IconButton(onClick = onReload) {
                             Icon(Icons.TwoTone.Refresh, contentDescription = null)
                         }
