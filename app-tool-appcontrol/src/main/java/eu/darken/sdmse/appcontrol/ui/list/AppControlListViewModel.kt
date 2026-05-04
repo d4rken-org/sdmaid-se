@@ -246,9 +246,9 @@ class AppControlListViewModel @Inject constructor(
         }
     }
 
-    fun onTagsCleared() = launch {
-        log(TAG) { "onTagsCleared()" }
-        settings.listFilter.update { it.copy(tags = emptySet()) }
+    fun onTagsReset() = launch {
+        log(TAG) { "onTagsReset()" }
+        settings.listFilter.update { FilterSettings() }
     }
 
     fun onRefresh(refreshPkgCache: Boolean = false) = launch {

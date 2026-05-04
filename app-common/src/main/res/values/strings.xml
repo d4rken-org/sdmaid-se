@@ -73,6 +73,9 @@
     <string name="general_navigate_up_action">Navigate up</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filter by tags</string>
+    <string name="general_filter_add_action">Add filter</string>
+    <string name="general_filter_remove_x_action">Remove %s filter</string>
+    <string name="general_filter_empty_row_hint">Tap + to filter</string>
     <string name="general_show_all_action">Show all</string>
 
     <string name="general_result_success_message">Operation successful</string>
