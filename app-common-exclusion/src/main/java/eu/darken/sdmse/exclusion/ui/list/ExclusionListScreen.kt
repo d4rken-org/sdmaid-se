@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Check
@@ -23,8 +24,10 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
+import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.SelectAll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -49,6 +52,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -166,6 +170,7 @@ fun ExclusionListScreenHost(
     ExclusionListScreen(
         stateSource = vm.state,
         snackbarHostState = snackbarHostState,
+        onNavigateUp = vm::navUp,
         onRowClick = vm::onRowClick,
         onMoreInfo = vm::openHelp,
         onImport = vm::requestImport,
@@ -194,6 +199,7 @@ fun ExclusionListScreenHost(
 internal fun ExclusionListScreen(
     stateSource: StateFlow<ExclusionListViewModel.State> = MutableStateFlow(ExclusionListViewModel.State()),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    onNavigateUp: () -> Unit = {},
     onRowClick: (ExclusionListViewModel.Row) -> Unit = {},
     onMoreInfo: () -> Unit = {},
     onImport: () -> Unit = {},
@@ -213,6 +219,7 @@ internal fun ExclusionListScreen(
     LaunchedEffect(currentIds) { selection = selection intersect currentIds }
 
     var overflowExpanded by remember { mutableStateOf(false) }
+    var infoOpen by rememberSaveable { mutableStateOf(false) }
 
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
@@ -222,7 +229,21 @@ internal fun ExclusionListScreen(
             if (selection.isEmpty()) {
                 TopAppBar(
                     title = { Text(stringResource(R.string.exclusion_manager_title)) },
+                    navigationIcon = {
+                        IconButton(onClick = onNavigateUp) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                contentDescription = stringResource(CommonR.string.general_navigate_up_action),
+                            )
+                        }
+                    },
                     actions = {
+                        IconButton(onClick = { infoOpen = true }) {
+                            Icon(
+                                imageVector = Icons.TwoTone.Info,
+                                contentDescription = stringResource(CommonR.string.general_info_label),
+                            )
+                        }
                         IconButton(onClick = onImport) {
                             Icon(
                                 imageVector = Icons.TwoTone.FileDownload,
@@ -230,7 +251,10 @@ internal fun ExclusionListScreen(
                             )
                         }
                         IconButton(onClick = { overflowExpanded = true }) {
-                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
+                            Icon(
+                                imageVector = Icons.TwoTone.MoreVert,
+                                contentDescription = stringResource(CommonR.string.general_options_label),
+                            )
                         }
                         DropdownMenu(
                             expanded = overflowExpanded,
@@ -279,7 +303,10 @@ internal fun ExclusionListScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
+                            Icon(
+                                imageVector = Icons.TwoTone.Close,
+                                contentDescription = stringResource(CommonR.string.general_close_action),
+                            )
                         }
                     },
                     actions = {
@@ -339,9 +366,6 @@ internal fun ExclusionListScreen(
                 )
 
                 else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    item(key = "info-card") {
-                        ExclusionInfoCard(onMoreInfo = onMoreInfo)
-                    }
                     items(rows, key = { it.stableId }) { row ->
                         val isSelected = selection.contains(row.stableId)
                         val onRowTap = {
@@ -384,6 +408,45 @@ internal fun ExclusionListScreen(
             }
         }
     }
+
+    if (infoOpen) {
+        ExclusionInfoDialog(
+            onMoreInfo = {
+                infoOpen = false
+                onMoreInfo()
+            },
+            onDismiss = { infoOpen = false },
+        )
+    }
+}
+
+@Composable
+private fun ExclusionInfoDialog(
+    onMoreInfo: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        icon = {
+            Icon(
+                imageVector = Icons.TwoTone.Info,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+        },
+        title = { Text(stringResource(R.string.exclusion_manager_title)) },
+        text = { Text(stringResource(R.string.exclusion_explanation_body1)) },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(CommonR.string.general_close_action))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onMoreInfo) {
+                Text(stringResource(CommonR.string.general_more_info_action))
+            }
+        },
+    )
 }
 
 @Composable
