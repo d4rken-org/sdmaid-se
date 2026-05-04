@@ -5,7 +5,6 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,12 +17,9 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
-import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.GridView
-import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
@@ -37,7 +33,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -54,8 +49,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -197,37 +196,27 @@ internal fun SqueezerListScreen(
 
     val totalSavings = media.sumOf { it.estimatedSavings ?: 0L }
     val selectedSavings = media.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
+    val subtitle = if (state.progress == null && media.isNotEmpty()) {
+        val countText = pluralStringResource(
+            CommonR.plurals.result_x_items,
+            media.size,
+            media.size,
+        )
+        if (totalSavings > 0) "$countText • ~" + Formatter.formatShortFileSize(context, totalSavings) else countText
+    } else {
+        null
+    }
+    val selectionSubtitle = selectedSavings
+        .takeIf { it > 0 }
+        ?.let { "~" + Formatter.formatShortFileSize(context, it) }
 
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(stringResource(CommonR.string.squeezer_tool_name))
-                            if (state.progress == null && media.isNotEmpty()) {
-                                val countText = pluralStringResource(
-                                    CommonR.plurals.result_x_items,
-                                    media.size,
-                                    media.size,
-                                )
-                                val subtitle = if (totalSavings > 0) {
-                                    "$countText • ~" + Formatter.formatShortFileSize(context, totalSavings)
-                                } else {
-                                    countText
-                                }
-                                Text(
-                                    text = subtitle,
-                                    style = MaterialTheme.typography.labelMedium,
-                                )
-                            }
-                        }
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(CommonR.string.squeezer_tool_name),
+                    subtitle = subtitle,
+                    onNavigateUp = onNavigateUp,
                     actions = {
                         if (state.progress == null && media.isNotEmpty()) {
                             IconButton(onClick = onToggleLayoutMode) {
@@ -243,26 +232,10 @@ internal fun SqueezerListScreen(
                     },
                 )
             } else {
-                TopAppBar(
-                    title = {
-                        val countText = pluralStringResource(
-                            CommonR.plurals.result_x_items,
-                            selection.size,
-                            selection.size,
-                        )
-                        Text(
-                            text = if (selectedSavings > 0) {
-                                "$countText • ~" + Formatter.formatShortFileSize(context, selectedSavings)
-                            } else {
-                                countText
-                            },
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    subtitle = selectionSubtitle,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
                         IconButton(onClick = { onCompressIds(selection) }) {
                             Icon(
@@ -270,23 +243,14 @@ internal fun SqueezerListScreen(
                                 contentDescription = stringResource(R.string.squeezer_compress_action),
                             )
                         }
-                        IconButton(onClick = {
+                        SdmExcludeAction(onClick = {
                             onExcludeIds(selection)
                             selection = emptySet()
-                        }) {
-                            Icon(
-                                imageVector = SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
-                        if (selection.size < itemIds.size) {
-                            IconButton(onClick = { selection = itemIds }) {
-                                Icon(
-                                    imageVector = Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
+                        })
+                        SdmSelectAllAction(
+                            visible = selection.size < itemIds.size,
+                            onClick = { selection = itemIds },
+                        )
                     },
                 )
             }
@@ -319,8 +283,12 @@ internal fun SqueezerListScreen(
                 data = state.progress,
                 modifier = Modifier.fillMaxSize(),
             ) {
-                when (state.layoutMode) {
-                    LayoutMode.LINEAR -> LazyColumn(modifier = Modifier.fillMaxSize()) {
+                when {
+                    state.media == null -> Box(modifier = Modifier.fillMaxSize())
+
+                    media.isEmpty() -> SdmEmptyState()
+
+                    state.layoutMode == LayoutMode.LINEAR -> LazyColumn(modifier = Modifier.fillMaxSize()) {
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListLinearRow(
                                 media = item,
@@ -346,10 +314,10 @@ internal fun SqueezerListScreen(
                         }
                     }
 
-                    LayoutMode.GRID -> LazyVerticalGrid(
+                    state.layoutMode == LayoutMode.GRID -> LazyVerticalGrid(
                         columns = GridCells.Adaptive(144.dp),
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(8.dp),
+                        contentPadding = SdmListDefaults.GridTileContentPadding,
                     ) {
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListGridCard(

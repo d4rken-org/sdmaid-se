@@ -12,15 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material.icons.twotone.Delete
-import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
@@ -30,7 +22,6 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -48,8 +39,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -191,33 +187,18 @@ internal fun FilterContentDetailsScreen(
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(stringResource(CommonR.string.systemcleaner_tool_name))
-                            Text(
-                                text = stringResource(CommonR.string.general_details_label),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(CommonR.string.systemcleaner_tool_name),
+                    subtitle = stringResource(CommonR.string.general_details_label),
+                    onNavigateUp = onNavigateUp,
                 )
             } else {
-                TopAppBar(
-                    title = { Text("${selection.size}") },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(onClick = {
-                            val filter = currentFilter ?: return@IconButton
+                        SdmDeleteAction(onClick = {
+                            val filter = currentFilter ?: return@SdmDeleteAction
                             val paths = selection
                             val name = if (paths.size == 1) {
                                 filter.items.firstOrNull { it.path == paths.first() }
@@ -230,31 +211,17 @@ internal fun FilterContentDetailsScreen(
                                 paths = paths,
                                 singleName = name,
                             )
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-                            )
-                        }
-                        IconButton(onClick = {
-                            val filter = currentFilter ?: return@IconButton
+                        })
+                        SdmExcludeAction(onClick = {
+                            val filter = currentFilter ?: return@SdmExcludeAction
                             val paths = selection
                             selection = emptySet()
                             onExcludeFiles(filter.identifier, paths)
-                        }) {
-                            Icon(
-                                SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
-                        if (selection.size < currentPaths.size) {
-                            IconButton(onClick = { selection = currentPaths }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
+                        })
+                        SdmSelectAllAction(
+                            visible = selection.size < currentPaths.size,
+                            onClick = { selection = currentPaths },
+                        )
                     },
                 )
             }
@@ -271,16 +238,7 @@ internal fun FilterContentDetailsScreen(
                 modifier = Modifier.fillMaxSize(),
             ) {
                 if (items.isEmpty()) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text(
-                            text = stringResource(CommonR.string.general_empty_label),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    SdmEmptyState()
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
                         ScrollableTabRow(
@@ -299,7 +257,7 @@ internal fun FilterContentDetailsScreen(
                         }
                         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                             val spanCount = remember(maxWidth) {
-                                context.getSpanCount(widthDp = 390)
+                                context.getSpanCount(widthDp = SdmListDefaults.DetailGridMinWidth.value.toInt())
                             }
                             val pageWidth = maxWidth / spanCount
                             HorizontalPager(

@@ -5,30 +5,21 @@ import android.net.Uri
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Check
-import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
-import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FloatingActionButton
@@ -43,8 +34,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -57,13 +46,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmLoadingState
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -227,16 +220,9 @@ internal fun ExclusionListScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = { Text(stringResource(R.string.exclusion_manager_title)) },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                                contentDescription = stringResource(CommonR.string.general_navigate_up_action),
-                            )
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(R.string.exclusion_manager_title),
+                    onNavigateUp = onNavigateUp,
                     actions = {
                         IconButton(onClick = { infoOpen = true }) {
                             Icon(
@@ -288,27 +274,9 @@ internal fun ExclusionListScreen(
                     },
                 )
             } else {
-                TopAppBar(
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    ),
-                    title = {
-                        Text(
-                            pluralStringResource(
-                                CommonR.plurals.general_x_selected_count,
-                                selection.size,
-                                selection.size,
-                            ),
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Close,
-                                contentDescription = stringResource(CommonR.string.general_close_action),
-                            )
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
                         IconButton(
                             onClick = {
@@ -321,25 +289,14 @@ internal fun ExclusionListScreen(
                                 contentDescription = stringResource(R.string.exclusion_export_action),
                             )
                         }
-                        IconButton(
-                            onClick = {
-                                onRemoveSelected(selection.toSet())
-                                selection = emptySet()
-                            },
-                        ) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_remove_action),
-                            )
-                        }
-                        if (selection.size < selectableIds.size) {
-                            IconButton(onClick = { selection = selectableIds }) {
-                                Icon(
-                                    imageVector = Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
+                        SdmDeleteAction(onClick = {
+                            onRemoveSelected(selection.toSet())
+                            selection = emptySet()
+                        })
+                        SdmSelectAllAction(
+                            visible = selection.size < selectableIds.size,
+                            onClick = { selection = selectableIds },
+                        )
                     },
                 )
             }
@@ -358,9 +315,7 @@ internal fun ExclusionListScreen(
                 .padding(paddingValues),
         ) {
             when {
-                rows == null -> CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.Center),
-                )
+                rows == null -> SdmLoadingState()
 
                 rows.isEmpty() -> ExclusionEmptyState(
                     onMoreInfo = onMoreInfo,
@@ -456,29 +411,20 @@ private fun ExclusionEmptyState(
     onMoreInfo: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier.padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Icon(
-            imageVector = Icons.TwoTone.Shield,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(72.dp),
-        )
-        Spacer(Modifier.height(16.dp))
-        Text(
-            text = stringResource(R.string.exclusion_add_new_hint),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-        )
-        Spacer(Modifier.height(8.dp))
-        TextButton(onClick = onMoreInfo) {
-            Text(stringResource(CommonR.string.general_more_info_action))
-        }
-    }
+    SdmEmptyState(
+        modifier = modifier,
+        title = stringResource(R.string.exclusion_add_new_hint),
+        actionLabel = stringResource(CommonR.string.general_more_info_action),
+        onAction = onMoreInfo,
+        visual = {
+            Icon(
+                imageVector = Icons.TwoTone.Shield,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(72.dp),
+            )
+        },
+    )
 }
 
 private fun Set<ExclusionId>.toggle(id: ExclusionId): Set<ExclusionId> =
@@ -507,4 +453,3 @@ private fun ExclusionListScreenLoadingPreview() {
         )
     }
 }
-

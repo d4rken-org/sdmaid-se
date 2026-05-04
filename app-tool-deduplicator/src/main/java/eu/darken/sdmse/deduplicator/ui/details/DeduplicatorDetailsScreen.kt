@@ -9,15 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
-import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Folder
-import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
@@ -26,7 +21,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -43,8 +37,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmLoadingState
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -262,21 +261,10 @@ internal fun DeduplicatorDetailsScreen(
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(stringResource(CommonR.string.deduplicator_tool_name))
-                            Text(
-                                text = stringResource(DeduplicatorR.string.deduplicator_details_cluster_title),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(CommonR.string.deduplicator_tool_name),
+                    subtitle = stringResource(DeduplicatorR.string.deduplicator_details_cluster_title),
+                    onNavigateUp = onNavigateUp,
                     actions = {
                         IconButton(onClick = onToggleDirectoryView) {
                             val icon = if (current?.isDirectoryView == true) {
@@ -297,15 +285,11 @@ internal fun DeduplicatorDetailsScreen(
                 )
             } else {
                 val clusterId = currentCluster?.identifier
-                TopAppBar(
-                    title = { Text("${selection.size}") },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(
+                        SdmDeleteAction(
                             enabled = clusterId != null,
                             onClick = {
                                 if (clusterId != null) {
@@ -313,13 +297,8 @@ internal fun DeduplicatorDetailsScreen(
                                     onDeleteSelectedDuplicates(clusterId, selectedIds)
                                 }
                             },
-                        ) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-                            )
-                        }
-                        IconButton(
+                        )
+                        SdmExcludeAction(
                             enabled = clusterId != null,
                             onClick = {
                                 if (clusterId != null) {
@@ -328,20 +307,11 @@ internal fun DeduplicatorDetailsScreen(
                                     onExcludeSelectedDuplicates(clusterId, selectedIds)
                                 }
                             },
-                        ) {
-                            Icon(
-                                SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
-                        if (selection.size < maxSelection) {
-                            IconButton(onClick = { selection = liveDupeIds.take(maxSelection).toSet() }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
+                        )
+                        SdmSelectAllAction(
+                            visible = selection.size < maxSelection,
+                            onClick = { selection = liveDupeIds.take(maxSelection).toSet() },
+                        )
                     },
                 )
             }
@@ -357,14 +327,10 @@ internal fun DeduplicatorDetailsScreen(
                 data = current?.progress,
                 modifier = Modifier.fillMaxSize(),
             ) {
-                if (items.isEmpty()) {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text(
-                            text = stringResource(CommonR.string.general_empty_label),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                if (current == null) {
+                    SdmLoadingState()
+                } else if (items.isEmpty()) {
+                    SdmEmptyState()
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
                         ScrollableTabRow(

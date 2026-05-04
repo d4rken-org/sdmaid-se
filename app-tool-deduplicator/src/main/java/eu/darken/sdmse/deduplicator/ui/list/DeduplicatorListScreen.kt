@@ -4,8 +4,6 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,22 +13,16 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.ViewList
-import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.GridView
-import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -38,7 +30,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
@@ -47,8 +38,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmLoadingState
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -234,20 +231,10 @@ internal fun DeduplicatorListScreen(
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(stringResource(CommonR.string.deduplicator_tool_name))
-                            if (subtitle != null) {
-                                Text(subtitle, style = MaterialTheme.typography.labelMedium)
-                            }
-                        }
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(CommonR.string.deduplicator_tool_name),
+                    subtitle = subtitle,
+                    onNavigateUp = onNavigateUp,
                     actions = {
                         IconButton(onClick = onToggleLayoutMode) {
                             val icon = when (layoutMode) {
@@ -262,41 +249,23 @@ internal fun DeduplicatorListScreen(
                     },
                 )
             } else {
-                TopAppBar(
-                    title = { Text("${selection.size}") },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(onClick = {
+                        SdmDeleteAction(onClick = {
                             val ids = selection
                             onDeleteSelected(ids, rows ?: emptyList())
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-                            )
-                        }
-                        IconButton(onClick = {
+                        })
+                        SdmExcludeAction(onClick = {
                             val ids = selection
                             selection = emptySet()
                             onExcludeSelected(ids, rows ?: emptyList())
-                        }) {
-                            Icon(
-                                SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
-                        if (selection.size < rowIds.size) {
-                            IconButton(onClick = { selection = rowIds }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
+                        })
+                        SdmSelectAllAction(
+                            visible = selection.size < rowIds.size,
+                            onClick = { selection = rowIds },
+                        )
                     },
                 )
             }
@@ -313,20 +282,9 @@ internal fun DeduplicatorListScreen(
                 modifier = Modifier.fillMaxSize(),
             ) {
                 when {
-                    rows == null -> Box(modifier = Modifier.fillMaxSize())
+                    rows == null -> SdmLoadingState()
 
-                    rows.isEmpty() -> Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(32.dp),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text(
-                            text = stringResource(CommonR.string.general_empty_label),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    rows.isEmpty() -> SdmEmptyState()
 
                     else -> {
                         when (layoutMode) {
@@ -374,7 +332,7 @@ private fun LinearList(
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(vertical = 8.dp),
+        contentPadding = SdmListDefaults.FullWidthContentPadding,
     ) {
         items(rows, key = { it.cluster.identifier.value }) { row ->
             val isSelected = selection.contains(row.cluster.identifier)
@@ -410,7 +368,7 @@ private fun GridList(
         LazyVerticalGrid(
             columns = GridCells.Fixed(spanCount),
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(8.dp),
+            contentPadding = SdmListDefaults.GridTileContentPadding,
             verticalArrangement = Arrangement.spacedBy(0.dp),
             horizontalArrangement = Arrangement.spacedBy(0.dp),
         ) {

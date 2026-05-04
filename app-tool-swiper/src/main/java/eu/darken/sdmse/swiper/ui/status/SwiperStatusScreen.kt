@@ -18,10 +18,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.CheckCircle
-import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.DeleteForever
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
@@ -39,7 +37,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -58,8 +55,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -134,13 +132,9 @@ internal fun SwiperStatusScreen(
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                TopAppBar(
-                    title = { Text(stringResource(R.string.swiper_status_title)) },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
-                    },
+                SdmTopAppBar(
+                    title = stringResource(R.string.swiper_status_title),
+                    onNavigateUp = onNavigateUp,
                     actions = {
                         if (state.finalizeAction != SwiperStatusViewModel.FinalizeAction.HIDDEN) {
                             FinalizeIconButton(
@@ -153,13 +147,9 @@ internal fun SwiperStatusScreen(
                     },
                 )
             } else {
-                TopAppBar(
-                    title = { Text("${selection.size}") },
-                    navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    },
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
                     actions = {
                         IconButton(onClick = {
                             val payload = selectedItems
@@ -193,16 +183,11 @@ internal fun SwiperStatusScreen(
                                 contentDescription = stringResource(R.string.swiper_status_action_reset_selected),
                             )
                         }
-                        IconButton(onClick = {
+                        SdmExcludeAction(onClick = {
                             val payload = selectedItems
                             selection = emptySet()
                             onExcludeSelected(payload)
-                        }) {
-                            Icon(
-                                SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
+                        })
                     },
                 )
             }
