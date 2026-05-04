@@ -1,10 +1,16 @@
 package eu.darken.sdmse.common.compose.icons
 
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 val SdmIcons.Numeric0Box: ImageVector
     get() {
@@ -46,4 +52,17 @@ val SdmIcons.Numeric0Box: ImageVector
             }
         }.build().also { _numeric0Box = it }
     }
+
+@Preview2
+@Composable
+private fun Numeric0BoxPreview() {
+    PreviewWrapper {
+        Icon(
+            imageVector = SdmIcons.Numeric0Box,
+            contentDescription = null,
+            modifier = Modifier.size(48.dp),
+        )
+    }
+}
+
 private var _numeric0Box: ImageVector? = null

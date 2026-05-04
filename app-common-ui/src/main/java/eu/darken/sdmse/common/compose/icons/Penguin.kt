@@ -1,10 +1,16 @@
 package eu.darken.sdmse.common.compose.icons
 
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 val SdmIcons.Penguin: ImageVector
     get() {
@@ -61,4 +67,17 @@ val SdmIcons.Penguin: ImageVector
             }
         }.build().also { _penguin = it }
     }
+
+@Preview2
+@Composable
+private fun PenguinPreview() {
+    PreviewWrapper {
+        Icon(
+            imageVector = SdmIcons.Penguin,
+            contentDescription = null,
+            modifier = Modifier.size(48.dp),
+        )
+    }
+}
+
 private var _penguin: ImageVector? = null
