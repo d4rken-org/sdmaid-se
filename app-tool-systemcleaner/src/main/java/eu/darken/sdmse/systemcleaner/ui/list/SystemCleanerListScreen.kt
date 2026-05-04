@@ -25,6 +25,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -44,6 +45,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -69,6 +72,8 @@ fun SystemCleanerListScreenHost(
 
     var pendingDeletion by remember { mutableStateOf<SystemCleanerListViewModel.Event.ConfirmDeletion?>(null) }
 
+    val viewActionLabel = stringResource(CommonR.string.general_view_action)
+
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
@@ -78,6 +83,21 @@ fun SystemCleanerListScreenHost(
                         message = event.result.primaryInfo.get(context),
                         duration = SnackbarDuration.Long,
                     )
+                }
+                is SystemCleanerListViewModel.Event.ExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = viewActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onShowExclusions()
+                    }
                 }
             }
         }
@@ -90,6 +110,7 @@ fun SystemCleanerListScreenHost(
         onRowClick = vm::onRowClick,
         onDetailsClick = vm::onDetailsClick,
         onDeleteSelected = vm::onDeleteSelected,
+        onExcludeSelected = vm::onExcludeSelected,
     )
 
     pendingDeletion?.let { pending ->
@@ -146,6 +167,7 @@ internal fun SystemCleanerListScreen(
     onRowClick: (SystemCleanerListViewModel.Row) -> Unit = {},
     onDetailsClick: (SystemCleanerListViewModel.Row) -> Unit = {},
     onDeleteSelected: (Set<FilterIdentifier>) -> Unit = {},
+    onExcludeSelected: (Set<FilterIdentifier>) -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -201,11 +223,23 @@ internal fun SystemCleanerListScreen(
                                 contentDescription = stringResource(CommonR.string.general_delete_selected_action),
                             )
                         }
-                        IconButton(onClick = { selection = rowIds }) {
+                        IconButton(onClick = {
+                            val ids = selection
+                            selection = emptySet()
+                            onExcludeSelected(ids)
+                        }) {
                             Icon(
-                                Icons.TwoTone.SelectAll,
-                                contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                SdmIcons.ShieldAdd,
+                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
                             )
+                        }
+                        if (selection.size < rowIds.size) {
+                            IconButton(onClick = { selection = rowIds }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
+                            }
                         }
                     },
                 )

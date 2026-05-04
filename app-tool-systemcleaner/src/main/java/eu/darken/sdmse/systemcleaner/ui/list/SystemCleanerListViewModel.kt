@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
@@ -91,6 +92,26 @@ class SystemCleanerListViewModel @Inject constructor(
         navTo(FilterContentDetailsRoute(filterIdentifier = only))
     }
 
+    fun onExcludeSelected(ids: Set<FilterIdentifier>) = launch {
+        log(TAG, INFO) { "onExcludeSelected(${ids.size})" }
+        if (ids.isEmpty()) return@launch
+        val data = systemCleaner.state.first().data ?: return@launch
+        var totalExclusions = 0
+        ids.forEach { id ->
+            val fc = data.filterContents.firstOrNull { it.identifier == id } ?: return@forEach
+            val paths = fc.items.map { it.path }.toSet()
+            if (paths.isEmpty()) return@forEach
+            val undo = systemCleaner.exclude(id, paths)
+            totalExclusions += undo.exclusionIds.size
+        }
+        if (totalExclusions == 0) return@launch
+        events.tryEmit(Event.ExclusionsCreated(totalExclusions))
+    }
+
+    fun onShowExclusions() {
+        navTo(ExclusionsListRoute)
+    }
+
     data class State(
         val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
@@ -107,6 +128,8 @@ class SystemCleanerListViewModel @Inject constructor(
         ) : Event
 
         data class TaskResult(val result: SystemCleanerProcessingTask.Result) : Event
+
+        data class ExclusionsCreated(val count: Int) : Event
     }
 
     companion object {

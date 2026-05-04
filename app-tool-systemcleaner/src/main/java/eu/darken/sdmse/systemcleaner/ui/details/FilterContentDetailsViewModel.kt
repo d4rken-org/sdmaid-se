@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.uix.resolveTarget
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
@@ -155,6 +156,11 @@ class FilterContentDetailsViewModel @Inject constructor(
         val validPaths = paths intersect livePaths
         if (validPaths.isEmpty()) return@launch
         systemCleaner.exclude(id, validPaths)
+        events.tryEmit(Event.SelectionExclusionsCreated(validPaths.size))
+    }
+
+    fun onShowExclusions() {
+        navTo(ExclusionsListRoute)
     }
 
     fun onUndoExclude(undo: SystemCleaner.ExclusionUndo, restoreTarget: FilterIdentifier) = launch {
@@ -184,6 +190,8 @@ class FilterContentDetailsViewModel @Inject constructor(
             val undo: SystemCleaner.ExclusionUndo,
             val restoreTarget: FilterIdentifier,
         ) : Event
+
+        data class SelectionExclusionsCreated(val count: Int) : Event
     }
 
     companion object {
