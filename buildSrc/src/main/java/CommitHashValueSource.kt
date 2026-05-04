@@ -10,11 +10,23 @@ abstract class CommitHashValueSource : ValueSource<String, ValueSourceParameters
     abstract val execOperations: ExecOperations
 
     override fun obtain(): String {
+        System.getenv("GITSHA")?.takeIf { it.isNotBlank() }?.let { return it.trim() }
+
         val output = ByteArrayOutputStream()
-        execOperations.exec {
-            commandLine("git", "rev-parse", "--short", "HEAD")
-            standardOutput = output
-        }
-        return String(output.toByteArray(), Charset.defaultCharset()).trim()
+        val error = ByteArrayOutputStream()
+        val ran = runCatching {
+            execOperations.exec {
+                commandLine("git", "rev-parse", "--short", "HEAD")
+                standardOutput = output
+                errorOutput = error
+                isIgnoreExitValue = true
+            }
+        }.isSuccess
+        if (!ran) return FALLBACK
+        return String(output.toByteArray(), Charset.defaultCharset()).trim().ifEmpty { FALLBACK }
+    }
+
+    private companion object {
+        const val FALLBACK = "unknown"
     }
 }
