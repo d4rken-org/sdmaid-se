@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -41,19 +42,23 @@ private const val MASCOT_ASPECT_RATIO = 1080f / 1920f
 private val NEW_YEAR_HAT = HatConfig(
     drawableRes = R.drawable.mascot_hat_newyears_crop,
     rotation = 30f,
-    widthPercent = 0.38f,
-    heightPercent = 0.38f,
+    widthPercent = 0.3971f,
+    heightPercent = 0.3971f,
     horizontalBias = 0.769f,
     verticalBias = 0.18f,
+    horizontalOffset = 2.dp,
+    verticalOffset = (-4).dp,
 )
 
 private val CHRISTMAS_HAT = HatConfig(
     drawableRes = R.drawable.mascot_hat_xmas_crop,
     rotation = 31f,
-    widthPercent = 0.36f,
-    heightPercent = 0.36f,
+    widthPercent = 0.38f,
+    heightPercent = 0.38f,
     horizontalBias = 0.73f,
     verticalBias = 0.25f,
+    horizontalOffset = 2.dp,
+    verticalOffset = (-4).dp,
 )
 
 @Composable
@@ -93,6 +98,8 @@ fun SdmMascot(
                     heightPercent = hat.heightPercent,
                     horizontalBias = hat.horizontalBias,
                     verticalBias = hat.verticalBias,
+                    horizontalOffset = hat.horizontalOffset,
+                    verticalOffset = hat.verticalOffset,
                 )
             }
         }
@@ -148,6 +155,8 @@ private data class HatConfig(
     val heightPercent: Float,
     val horizontalBias: Float,
     val verticalBias: Float,
+    val horizontalOffset: Dp = 0.dp,
+    val verticalOffset: Dp = 0.dp,
 )
 
 private fun isXmasSeason(now: LocalDate): Boolean {
@@ -208,6 +217,8 @@ private fun HatOverlay(
     heightPercent: Float,
     horizontalBias: Float,
     verticalBias: Float,
+    horizontalOffset: Dp,
+    verticalOffset: Dp,
 ) {
     Layout(
         content = {
@@ -231,8 +242,10 @@ private fun HatOverlay(
         val placeable = measurables.first().measure(hatConstraints)
 
         layout(constraints.maxWidth, constraints.maxHeight) {
-            val x = ((constraints.maxWidth - placeable.width) * horizontalBias).roundToInt()
-            val y = ((constraints.maxHeight - placeable.height) * verticalBias).roundToInt()
+            val x = ((constraints.maxWidth - placeable.width) * horizontalBias).roundToInt() +
+                horizontalOffset.roundToPx()
+            val y = ((constraints.maxHeight - placeable.height) * verticalBias).roundToInt() +
+                verticalOffset.roundToPx()
             placeable.place(x, y)
         }
     }
