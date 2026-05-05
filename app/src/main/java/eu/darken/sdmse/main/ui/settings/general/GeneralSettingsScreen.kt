@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.Help
 import androidx.compose.material.icons.twotone.AccessibilityNew
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.DarkMode
@@ -75,6 +76,7 @@ fun GeneralSettingsScreenHost(
         onOneClickSystemCleanerChanged = vm::setOneClickSystemCleaner,
         onOneClickAppCleanerChanged = vm::setOneClickAppCleaner,
         onOneClickDeduplicatorChanged = vm::setOneClickDeduplicator,
+        onResetGuidedTours = vm::resetGuidedTours,
     )
 }
 
@@ -98,6 +100,7 @@ internal fun GeneralSettingsScreen(
     onOneClickSystemCleanerChanged: (Boolean) -> Unit = {},
     onOneClickAppCleanerChanged: (Boolean) -> Unit = {},
     onOneClickDeduplicatorChanged: (Boolean) -> Unit = {},
+    onResetGuidedTours: () -> Unit = {},
 ) {
     var showThemeModeDialog by remember { mutableStateOf(false) }
     var showThemeStyleDialog by remember { mutableStateOf(false) }
@@ -309,6 +312,14 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.debug_mode_explanation),
                     checked = state.isDebugMode,
                     onCheckedChange = onDebugChanged,
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.AutoMirrored.TwoTone.Help,
+                    title = stringResource(R.string.general_settings_reset_guided_tours_label),
+                    subtitle = stringResource(R.string.general_settings_reset_guided_tours_summary),
+                    onClick = onResetGuidedTours,
                 )
             }
         }

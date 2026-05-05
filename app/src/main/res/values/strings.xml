@@ -304,4 +304,18 @@
 
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7 days</string>
     <!-- Shorter versions for side-by-side display -->
+
+    <string name="tour_dashboard_setup_title">Setup</string>
+    <string name="tour_dashboard_setup_body">Setup determines what SD Maid can do, based on permissions, device behavior, and Android restrictions.</string>
+    <string name="tour_dashboard_tools_title">Tool cards</string>
+    <string name="tour_dashboard_tools_body">Cards can be opened to see details. Scan and delete actions live on each card; details become available once results exist.</string>
+    <string name="tour_dashboard_main_action_title">One-tap action</string>
+    <string name="tour_dashboard_main_action_body">The big button on the bottom is the easy scan/delete path for automatic tools.</string>
+    <string name="tour_dashboard_manual_tools_title">Manual tools</string>
+    <string name="tour_dashboard_manual_tools_body">Some tools — like Swiper — need a guided workflow you walk through yourself. They live alongside the automatic ones; open them directly to start.</string>
+    <string name="tour_dashboard_settings_title">Settings</string>
+    <string name="tour_dashboard_settings_body">Defaults are conservative and safe. Settings let you customize behavior — every device behaves a little differently.</string>
+
+    <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
+    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen.</string>
 </resources>

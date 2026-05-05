@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import eu.darken.sdmse.main.core.tour.TourPreferences
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -62,6 +63,13 @@ class GeneralSettings @Inject constructor(
     val dashboardCardConfig = dataStore.createValue(
         key = "dashboard.cards.config",
         defaultValue = DashboardCardConfig(),
+        json = json,
+        fallbackToDefault = true,
+    )
+
+    val tourPreferences = dataStore.createValue(
+        key = "core.tours.preferences",
+        defaultValue = TourPreferences(),
         json = json,
         fallbackToDefault = true,
     )

@@ -55,12 +55,16 @@ data class ToolDashboardCardItem(
 }
 
 @Composable
-internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
+internal fun ToolDashboardCard(
+    item: ToolDashboardCardItem,
+    modifier: Modifier = Modifier,
+) {
     val toolName = stringResource(toolNameRes(item.toolType))
     val toolDescription = stringResource(toolDescriptionRes(item.toolType))
     val clickable = item.progress == null && item.onDelete != null
 
     DashboardCard(
+        modifier = modifier,
         onClick = item.onViewTool.takeIf { clickable },
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {

@@ -23,6 +23,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.stringResource
@@ -50,12 +51,16 @@ import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
 import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
+import eu.darken.sdmse.common.compose.tour.GuidedTourHost
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
+import eu.darken.sdmse.main.ui.tour.GuidedTourController
+import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -67,6 +72,7 @@ class MainActivity : ComponentActivity() {
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
+    @Inject lateinit var guidedTourController: GuidedTourController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         log(TAG) { "onCreate(restoringState=${savedInstanceState != null})" }
@@ -143,36 +149,53 @@ class MainActivity : ComponentActivity() {
             Bugs.leaveBreadCrumb("Navigated to ${backStack.lastOrNull()}")
         }
 
-        Box(modifier = Modifier.fillMaxSize()) {
-            NavDisplay(
-                backStack = backStack,
-                onBack = { navCtrl.up() },
-                transitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
-                popTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
-                predictivePopTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
-                entryDecorators = listOf(
-                    rememberSaveableStateHolderNavEntryDecorator(),
-                    rememberViewModelStoreNavEntryDecorator(),
-                ),
-                entryProvider = entryProvider<NavKey>(
-                    fallback = { unknownKey ->
-                        // Prevents IllegalStateException when a tool-settings row navigates
-                        // to a route whose Fragment screen hasn't been converted yet
-                        // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute,
-                        // ReportsRoute). Tracked as immediate follow-up in the rewrite plan.
-                        NavEntry(key = unknownKey) {
-                            UnknownDestinationScreen(
-                                routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),
-                                onNavigateUp = { navCtrl.up() },
-                            )
+        // Notify guided-tour controller of route changes (used for non-click-protected
+        // tours that auto-complete when the user navigates elsewhere).
+        LaunchedEffect(backStack.lastOrNull()) {
+            guidedTourController.onRouteChanged(backStack.lastOrNull())
+        }
+
+        val coroutineScope = rememberCoroutineScope()
+
+        CompositionLocalProvider(LocalGuidedTourController provides guidedTourController) {
+            GuidedTourHost(
+                session = guidedTourController.session,
+                onNext = { coroutineScope.launch { guidedTourController.next() } },
+                onPrevious = { coroutineScope.launch { guidedTourController.previous() } },
+                onSkipForNow = { coroutineScope.launch { guidedTourController.skipForNow() } },
+                onDontShowAgain = { coroutineScope.launch { guidedTourController.dismissForever() } },
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                NavDisplay(
+                    backStack = backStack,
+                    onBack = { navCtrl.up() },
+                    transitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                    popTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                    predictivePopTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                    entryDecorators = listOf(
+                        rememberSaveableStateHolderNavEntryDecorator(),
+                        rememberViewModelStoreNavEntryDecorator(),
+                    ),
+                    entryProvider = entryProvider<NavKey>(
+                        fallback = { unknownKey ->
+                            // Prevents IllegalStateException when a tool-settings row navigates
+                            // to a route whose Fragment screen hasn't been converted yet
+                            // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute,
+                            // ReportsRoute). Tracked as immediate follow-up in the rewrite plan.
+                            NavEntry(key = unknownKey) {
+                                UnknownDestinationScreen(
+                                    routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),
+                                    onNavigateUp = { navCtrl.up() },
+                                )
+                            }
+                        },
+                    ) {
+                        navigationEntries.forEach { entry ->
+                            entry.apply { setup() }
                         }
                     },
-                ) {
-                    navigationEntries.forEach { entry ->
-                        entry.apply { setup() }
-                    }
-                },
-            )
+                )
+            }
         }
     }
 

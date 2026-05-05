@@ -73,6 +73,12 @@ import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
+import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.tour.DashboardTour
+import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -227,7 +233,20 @@ internal fun DashboardScreen(
     val gridState = rememberLazyGridState()
     var isBottomBarVisible by rememberSaveable { mutableStateOf(true) }
 
-    LaunchedEffect(gridState) {
+    val tourController = LocalGuidedTourController.current
+    // Tour-aware screens watch this and freeze any transient chrome (auto-hiding bottom bar,
+    // dismiss-on-scroll banners, etc.) so tour targets stay visible when prepareTarget
+    // scrolls or when steps cycle through.
+    val tourSession by tourController.session.collectAsStateWithLifecycle()
+    val tourActive = tourSession != null
+
+    // Auto-hide the bottom bar on scroll, BUT freeze it visible whenever a tour is active.
+    // Re-keying on tourActive cancels the scroll listener for the duration of the tour.
+    LaunchedEffect(gridState, tourActive) {
+        if (tourActive) {
+            isBottomBarVisible = true
+            return@LaunchedEffect
+        }
         var previousPos = 0
         snapshotFlow { gridState.firstVisibleItemIndex * 10_000 + gridState.firstVisibleItemScrollOffset }
             .collect { currentPos ->
@@ -237,6 +256,24 @@ internal fun DashboardScreen(
                 }
                 previousPos = currentPos
             }
+    }
+
+    val items = listState?.items
+    val swiperIndex = remember(items) {
+        items?.indexOfFirst { it is SwiperDashboardCardItem }?.takeIf { it >= 0 }
+    }
+    val tourDef = remember(gridState, swiperIndex) {
+        DashboardTour.definition(
+            prepareManualTool = swiperIndex?.let { idx ->
+                { gridState.animateScrollToItem(idx) }
+            },
+        )
+    }
+    LaunchedEffect(bottomBarState?.isReady) {
+        if (bottomBarState?.isReady != true) return@LaunchedEffect
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        gridState.animateScrollToItem(0)
+        tourController.start(tourDef)
     }
 
     if (showOneClickOptions) {
@@ -262,11 +299,12 @@ internal fun DashboardScreen(
                 onMainActionLongClick = { showOneClickOptions = true },
                 onSettings = onSettings,
                 onUpgrade = onUpgrade,
+                mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
+                settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
-        val items = listState?.items
         if (items == null) {
             Box(
                 modifier = Modifier
@@ -277,6 +315,9 @@ internal fun DashboardScreen(
                 CircularProgressIndicator()
             }
         } else {
+            val firstToolStableId = remember(items) {
+                items.firstOrNull { it is ToolDashboardCardItem }?.stableId
+            }
             Box(modifier = Modifier.fillMaxSize()) {
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),
@@ -293,7 +334,16 @@ internal fun DashboardScreen(
                         items = items,
                         key = { it.stableId },
                     ) { item ->
-                        DashboardListCard(item)
+                        val tourModifier = when {
+                            item is SetupDashboardCardItem ->
+                                Modifier.guidedTourTarget(DashboardTour.SETUP_TARGET)
+                            item.stableId == firstToolStableId ->
+                                Modifier.guidedTourTarget(DashboardTour.TOOLS_TARGET)
+                            item is SwiperDashboardCardItem ->
+                                Modifier.guidedTourTarget(DashboardTour.MANUAL_TOOL_TARGET)
+                            else -> Modifier
+                        }
+                        DashboardListCard(item, modifier = tourModifier)
                     }
                 }
 
@@ -388,6 +438,8 @@ private fun BottomBar(
     onMainActionLongClick: () -> Unit,
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
+    mainActionModifier: Modifier = Modifier,
+    settingsModifier: Modifier = Modifier,
 ) {
     val fabOffsetY by animateDpAsState(
         targetValue = if (isVisible) 0.dp else DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT,
@@ -458,7 +510,10 @@ private fun BottomBar(
                         }
                     }
 
-                    IconButton(onClick = onSettings) {
+                    IconButton(
+                        onClick = onSettings,
+                        modifier = settingsModifier,
+                    ) {
                         Icon(
                             imageVector = Icons.TwoTone.Settings,
                             contentDescription = stringResource(CommonR.string.general_settings_title),
@@ -472,7 +527,8 @@ private fun BottomBar(
             MainActionFab(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
-                    .offset(y = fabOffsetY),
+                    .offset(y = fabOffsetY)
+                    .then(mainActionModifier),
                 actionState = it.actionState,
                 onClick = onMainAction,
                 onLongClick = onMainActionLongClick,

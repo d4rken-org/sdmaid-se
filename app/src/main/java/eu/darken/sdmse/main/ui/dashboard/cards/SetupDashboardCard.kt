@@ -40,9 +40,15 @@ data class SetupDashboardCardItem(
 }
 
 @Composable
-internal fun SetupDashboardCard(item: SetupDashboardCardItem) {
+internal fun SetupDashboardCard(
+    item: SetupDashboardCardItem,
+    modifier: Modifier = Modifier,
+) {
     val state = item.setupState
-    DashboardCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
+    DashboardCard(
+        modifier = modifier,
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+    ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 painter = painterResource(R.drawable.sdm_not_happy),

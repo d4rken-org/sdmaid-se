@@ -44,7 +44,10 @@ data class SwiperDashboardCardItem(
 }
 
 @Composable
-internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
+internal fun SwiperDashboardCard(
+    item: SwiperDashboardCardItem,
+    modifier: Modifier = Modifier,
+) {
     val context = LocalContext.current
     val subtitle = when {
         item.sessionsWithStats.isEmpty() -> stringResource(SwiperR.string.swiper_dashcard_description)
@@ -83,7 +86,7 @@ internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
         stringResource(CommonR.string.general_view_action)
     }
 
-    DashboardCard(onClick = item.onViewDetails) {
+    DashboardCard(modifier = modifier, onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = Icons.TwoTone.Swipe,

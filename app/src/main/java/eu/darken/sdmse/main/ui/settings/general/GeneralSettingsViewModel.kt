@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import eu.darken.sdmse.main.ui.tour.GuidedTourController
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
@@ -33,6 +34,7 @@ class GeneralSettingsViewModel @Inject constructor(
     private val motdSettings: MotdSettings,
     private val updateChecker: UpdateChecker,
     private val localeManager: LocaleManager,
+    private val guidedTourController: GuidedTourController,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     val state: StateFlow<State> = combine(
@@ -128,6 +130,10 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setOneClickDeduplicator(enabled: Boolean) = launch {
         generalSettings.oneClickDeduplicatorEnabled.value(enabled)
+    }
+
+    fun resetGuidedTours() = launch {
+        guidedTourController.reset()
     }
 
     @SuppressLint("NewApi")
