@@ -50,11 +50,13 @@ fun GuidedTourHost(
 ) {
     val current by session.collectAsState()
     val step = current?.currentStep
-    val targetRect = step?.let { registry.get(it.targetId) }
+    // Bounds are stored in root coords (see Modifier.guidedTourTarget) — only valid while the
+    // host is mounted at the Compose root. Renaming the local for clarity.
+    val targetRectInRoot = step?.let { registry.get(it.targetId) }
 
-    LaunchedEffect(current, step?.targetId, targetRect) {
+    LaunchedEffect(current, step?.targetId, targetRectInRoot) {
         if (current == null || step == null) return@LaunchedEffect
-        if (targetRect != null) return@LaunchedEffect
+        if (targetRectInRoot != null) return@LaunchedEffect
         delay(MISSING_TARGET_GRACE_MS)
         if (registry.get(step.targetId) == null) onNext()
     }
@@ -64,13 +66,13 @@ fun GuidedTourHost(
             content()
 
             val activeSession = current
-            if (activeSession != null && step != null && targetRect != null) {
+            if (activeSession != null && step != null && targetRectInRoot != null) {
                 // BackHandler is composed AFTER content() so it registers later and wins LIFO
                 // dispatch over any back handlers in the wrapped screens. Back press = soft skip;
                 // the in-bubble confirm only triggers from explicit X / Skip controls.
                 BackHandler(enabled = true, onBack = onSkipForNow)
                 TourOverlay(
-                    targetRect = targetRect,
+                    targetRectInRoot = targetRectInRoot,
                     clickProtection = activeSession.definition.clickProtection,
                     step = step,
                     session = activeSession,
@@ -86,7 +88,7 @@ fun GuidedTourHost(
 
 @Composable
 private fun TourOverlay(
-    targetRect: Rect,
+    targetRectInRoot: Rect,
     clickProtection: Boolean,
     step: TourStep,
     session: TourSession,
@@ -117,8 +119,8 @@ private fun TourOverlay(
     ) {
         drawRect(Color.Black.copy(alpha = 0.72f))
         // Punch a transparent rounded-rect hole around the target.
-        val cutoutTopLeft = Offset(targetRect.left - padding, targetRect.top - padding)
-        val cutoutSize = Size(targetRect.width + 2 * padding, targetRect.height + 2 * padding)
+        val cutoutTopLeft = Offset(targetRectInRoot.left - padding, targetRectInRoot.top - padding)
+        val cutoutSize = Size(targetRectInRoot.width + 2 * padding, targetRectInRoot.height + 2 * padding)
         drawRoundRect(
             color = Color.Transparent,
             topLeft = cutoutTopLeft,
@@ -139,7 +141,7 @@ private fun TourOverlay(
 
     TourBubble(
         step = step,
-        targetRect = targetRect,
+        targetRectInRoot = targetRectInRoot,
         session = session,
         onNext = onNext,
         onPrevious = onPrevious,

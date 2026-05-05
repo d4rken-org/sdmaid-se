@@ -9,6 +9,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -46,7 +47,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -63,15 +64,19 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 
-// The tail's vertical extent must stay in sync between the SpeechBubbleShape (which draws the
-// triangle outside the rounded-rect body) and the content padding (which reserves matching
-// space so text doesn't overlap the tail). Single source of truth.
-private val TAIL_HEIGHT = 10.dp
+// The tail's vertical extent must stay in sync between SpeechBubbleShape (which draws the tail
+// triangle outside the rounded-rect body) and SpeechBubbleSurface's content padding (which
+// reserves matching space so content doesn't overlap the tail). Single source of truth.
+private val TailHeight = 10.dp
+private val MaxBubbleWidth = 480.dp
+private val SideMargin = 16.dp
+private val TargetGap = 16.dp
+private val NarrowThreshold = 360.dp
 
 @Composable
 internal fun TourBubble(
     step: TourStep,
-    targetRect: Rect,
+    targetRectInRoot: Rect,
     session: TourSession,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
@@ -85,52 +90,63 @@ internal fun TourBubble(
         val maxHPx = with(density) { maxHeight.toPx() }
         val maxWPx = with(density) { maxWidth.toPx() }
 
-        val isNarrow = maxWidth < 360.dp
-        val placeBelow = targetRect.center.y < maxHPx / 2f
+        val isNarrow = maxWidth < NarrowThreshold
 
-        val sideMargin = 16.dp
-        val startPad = insets.calculateStartPadding(layoutDirection) + sideMargin
-        val endPad = insets.calculateEndPadding(layoutDirection) + sideMargin
+        val topInsetPx = with(density) { insets.calculateTopPadding().toPx() }
+        val bottomInsetPx = with(density) { insets.calculateBottomPadding().toPx() }
+        val gapPx = with(density) { TargetGap.toPx() }
+
+        // Pick above/below by usable space, not by target center. Keeps long bubbles from
+        // overflowing on tall targets that happen to sit just above the screen midpoint.
+        val availableBelowPx = maxHPx - targetRectInRoot.bottom - bottomInsetPx - gapPx
+        val availableAbovePx = targetRectInRoot.top - topInsetPx - gapPx
+        val placeBelow = availableBelowPx >= availableAbovePx
+
+        val startPad = insets.calculateStartPadding(layoutDirection) + SideMargin
+        val endPad = insets.calculateEndPadding(layoutDirection) + SideMargin
         val startPadPx = with(density) { startPad.toPx() }
         val endPadPx = with(density) { endPad.toPx() }
+        val maxBubbleWidthPx = with(density) { MaxBubbleWidth.toPx() }
 
-        // Cap the bubble's outer width so it doesn't stretch into giant rectangles on landscape
-        // phones and tablets. The bubble stays centered horizontally; the visible content area is
-        // the cap minus the inset+sidemargin padding on each side.
-        val maxBubbleOuter = 480.dp
-        val maxBubbleOuterPx = with(density) { maxBubbleOuter.toPx() }
-        val bubbleVisibleWidthPx = (
-            minOf(maxWPx, maxBubbleOuterPx) - startPadPx - endPadPx
-            ).coerceAtLeast(1f)
-        val bubbleLeftPx = (maxWPx - bubbleVisibleWidthPx) / 2f
-        val tailXBias = ((targetRect.center.x - bubbleLeftPx) / bubbleVisibleWidthPx)
+        // The Surface fills available width minus side padding, capped at MaxBubbleWidth.
+        // Compute the actual body width and its left edge, so the tail can target a real x.
+        val availableWidthPx = (maxWPx - startPadPx - endPadPx).coerceAtLeast(1f)
+        val bubbleBodyWidthPx = availableWidthPx.coerceAtMost(maxBubbleWidthPx)
+        val bubbleBodyLeftPx = startPadPx + (availableWidthPx - bubbleBodyWidthPx) / 2f
+        val tailXBias = ((targetRectInRoot.center.x - bubbleBodyLeftPx) / bubbleBodyWidthPx)
             .coerceIn(0f, 1f)
 
-        val bubbleMaxHeight = (maxHeight
-            - insets.calculateTopPadding()
-            - insets.calculateBottomPadding()
-            - 32.dp).coerceAtLeast(160.dp)
-
         val rawY = with(density) {
-            if (placeBelow) (targetRect.bottom + 16f).toDp()
-            else (maxHPx - targetRect.top + 16f).toDp()
+            if (placeBelow) (targetRectInRoot.bottom + gapPx).toDp()
+            else (maxHPx - targetRectInRoot.top + gapPx).toDp()
         }
         val clampedY = if (placeBelow) {
             rawY.coerceAtLeast(insets.calculateTopPadding())
         } else {
             rawY.coerceAtLeast(insets.calculateBottomPadding())
         }
+        // Far-side inset: keeps the bubble's *other* edge inside the safe area too.
+        val farTopPad = insets.calculateTopPadding() + SideMargin
+        val farBottomPad = insets.calculateBottomPadding() + SideMargin
+
+        // The bubble's max height is whatever is left between the cutout-side gap and the
+        // far-side safe inset, so bottom edges never run under the nav bar.
+        val bubbleMaxHeight = if (placeBelow) {
+            (maxHeight - clampedY - farBottomPad).coerceAtLeast(160.dp)
+        } else {
+            (maxHeight - clampedY - farTopPad).coerceAtLeast(160.dp)
+        }
 
         Box(
             modifier = Modifier
                 .align(if (placeBelow) Alignment.TopCenter else Alignment.BottomCenter)
                 .padding(
-                    top = if (placeBelow) clampedY else 0.dp,
-                    bottom = if (!placeBelow) clampedY else 0.dp,
+                    top = if (placeBelow) clampedY else farTopPad,
+                    bottom = if (!placeBelow) clampedY else farBottomPad,
                     start = startPad,
                     end = endPad,
                 )
-                .widthIn(max = maxBubbleOuter)
+                .widthIn(max = MaxBubbleWidth)
                 .heightIn(max = bubbleMaxHeight),
         ) {
             BubbleCard(
@@ -160,9 +176,53 @@ private fun BubbleCard(
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
 ) {
-    var showConfirm by rememberSaveable(session.definition.id.raw) { mutableStateOf(false) }
+    // Plain `remember` (not `rememberSaveable`): the confirm UI is purely ephemeral and
+    // resetting it on a new tour is the desired behavior. `rememberSaveable` would persist
+    // the boolean across process death without re-validating that the same tour is active.
+    var showConfirm by remember(session.definition.id.raw) { mutableStateOf(false) }
 
-    val tintedBubble = MaterialTheme.colorScheme.primary
+    SpeechBubbleSurface(placeBelow = placeBelow, tailXBias = tailXBias) {
+        AnimatedContent(
+            targetState = showConfirm,
+            transitionSpec = {
+                fadeIn(tween(160)) togetherWith fadeOut(tween(120))
+            },
+            contentAlignment = Alignment.TopStart,
+            label = "tour-bubble-content",
+        ) { confirming ->
+            if (confirming) {
+                ConfirmContent(
+                    onContinue = { showConfirm = false },
+                    onSkipForNow = onSkipForNow,
+                    onDontShowAgain = onDontShowAgain,
+                )
+            } else {
+                StepContent(
+                    step = step,
+                    session = session,
+                    isNarrow = isNarrow,
+                    onNext = onNext,
+                    onPrevious = onPrevious,
+                    onRequestExit = { showConfirm = true },
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Speech-bubble container: rounded surface with brand tint + border, a tail pointing toward the
+ * cutout, and the inset padding that reserves space for the tail. Owns the shape↔padding contract
+ * so callers don't have to.
+ */
+@Composable
+private fun SpeechBubbleSurface(
+    placeBelow: Boolean,
+    tailXBias: Float,
+    modifier: Modifier = Modifier,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    val tintedSurface = MaterialTheme.colorScheme.primary
         .copy(alpha = 0.06f)
         .compositeOver(MaterialTheme.colorScheme.surfaceContainerHigh)
     val borderColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.30f)
@@ -173,13 +233,14 @@ private fun BubbleCard(
             edge = tailEdge,
             xBias = tailXBias,
             width = 16.dp,
-            height = TAIL_HEIGHT,
+            height = TailHeight,
         ),
     )
 
     Surface(
+        modifier = modifier,
         shape = shape,
-        color = tintedBubble,
+        color = tintedSurface,
         contentColor = MaterialTheme.colorScheme.onSurface,
         tonalElevation = 6.dp,
         shadowElevation = 8.dp,
@@ -189,35 +250,11 @@ private fun BubbleCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    top = if (placeBelow) TAIL_HEIGHT else 0.dp,
-                    bottom = if (!placeBelow) TAIL_HEIGHT else 0.dp,
+                    top = if (placeBelow) TailHeight else 0.dp,
+                    bottom = if (!placeBelow) TailHeight else 0.dp,
                 ),
-        ) {
-            AnimatedContent(
-                targetState = showConfirm,
-                transitionSpec = {
-                    fadeIn(tween(160)) togetherWith fadeOut(tween(120))
-                },
-                label = "tour-bubble-content",
-            ) { confirming ->
-                if (confirming) {
-                    ConfirmContent(
-                        onContinue = { showConfirm = false },
-                        onSkipForNow = onSkipForNow,
-                        onDontShowAgain = onDontShowAgain,
-                    )
-                } else {
-                    StepContent(
-                        step = step,
-                        session = session,
-                        isNarrow = isNarrow,
-                        onNext = onNext,
-                        onPrevious = onPrevious,
-                        onRequestExit = { showConfirm = true },
-                    )
-                }
-            }
-        }
+            content = content,
+        )
     }
 }
 
@@ -239,14 +276,18 @@ private fun StepContent(
                 .fillMaxWidth()
                 .padding(start = mascotWidth + 4.dp, end = 16.dp, top = 14.dp, bottom = 14.dp),
         ) {
-            // Header: [◀] | dots | [▶ / ✓] — icon-only buttons so we don't have to translate
-            // navigation glyphs. Strings are still attached as content descriptions for a11y.
-            // Previous is hidden on the very first step (no earlier step to go back to).
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            // Header: three-cell layout via Box(fillMaxWidth) + alignment, so the dots are
+            // truly centered regardless of which navigation buttons are visible.
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp),
+            ) {
                 if (session.stepIndex > 0) {
                     Button(
                         onClick = onPrevious,
                         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                        modifier = Modifier.align(Alignment.CenterStart),
                     ) {
                         Icon(
                             imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
@@ -255,15 +296,15 @@ private fun StepContent(
                         )
                     }
                 }
-                Spacer(Modifier.weight(1f))
                 StepDots(
                     current = session.stepIndex,
                     total = session.definition.steps.size,
+                    modifier = Modifier.align(Alignment.Center),
                 )
-                Spacer(Modifier.weight(1f))
                 Button(
                     onClick = onNext,
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                    modifier = Modifier.align(Alignment.CenterEnd),
                 ) {
                     Icon(
                         imageVector = if (session.isLast) Icons.TwoTone.Check
@@ -299,7 +340,7 @@ private fun StepContent(
                 .width(mascotWidth),
         )
         // Close (X) overlay parked on the empty top of the mascot's animation container.
-        // Drawn last in the Box so it sits above the mascot in z-order.
+        // Drawn last in the Box so it sits above the mascot in z-order and wins hit-testing.
         IconButton(
             onClick = onRequestExit,
             modifier = Modifier
@@ -362,10 +403,15 @@ private fun ConfirmContent(
 }
 
 @Composable
-private fun StepDots(current: Int, total: Int) {
+private fun StepDots(
+    current: Int,
+    total: Int,
+    modifier: Modifier = Modifier,
+) {
     val activeColor = MaterialTheme.colorScheme.primary
     val idleColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
     Row(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {

@@ -76,8 +76,14 @@ class GuidedTourController @Inject constructor(
     suspend fun previous() = mutationMutex.withLock {
         val s = _session.value ?: return@withLock
         if (s.stepIndex <= 0) return@withLock
+        val previousStep = s.definition.steps[s.stepIndex - 1]
+        // Mirror next(): give the destination step a chance to scroll/expand its target
+        // before we publish the new index, so the host doesn't grace-skip an off-screen target.
+        previousStep.prepareTarget?.invoke()
+        val still = _session.value ?: return@withLock
+        if (still.definition.id != s.definition.id || still.stepIndex != s.stepIndex) return@withLock
         log(TAG, VERBOSE) { "previous(${s.definition.id.raw}): ${s.stepIndex} -> ${s.stepIndex - 1}" }
-        _session.value = s.copy(stepIndex = s.stepIndex - 1)
+        _session.value = still.copy(stepIndex = still.stepIndex - 1)
     }
 
     /** Exit the current session without persisting anything. The tour will re-trigger next time. */

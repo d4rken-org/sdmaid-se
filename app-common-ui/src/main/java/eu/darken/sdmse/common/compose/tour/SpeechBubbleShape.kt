@@ -52,21 +52,31 @@ internal class SpeechBubbleShape(
                 ),
             )
             if (tail != null && tailWidthPx > 0f && tailHeightPx > 0f) {
-                val minCenter = r + tailWidthPx / 2f
-                val maxCenter = size.width - r - tailWidthPx / 2f
-                val xCenter = (tail.xBias * size.width).coerceIn(minCenter, maxCenter)
+                // On extremely narrow bubbles (width < 2 * cornerRadius + tailWidth) `minCenter`
+                // would exceed `maxCenter` and `coerceIn` would throw. Clamp the half-tail to
+                // never exceed half the width, then fall back to centering if there is still no
+                // valid range.
+                val halfTail = (tailWidthPx / 2f).coerceAtMost(size.width / 2f)
+                val minCenter = r + halfTail
+                val maxCenter = size.width - r - halfTail
+                val preferred = tail.xBias.coerceIn(0f, 1f) * size.width
+                val xCenter = if (minCenter <= maxCenter) {
+                    preferred.coerceIn(minCenter, maxCenter)
+                } else {
+                    size.width / 2f
+                }
                 val tailPath = Path().apply {
                     when (tail.edge) {
                         Edge.TOP -> {
-                            moveTo(xCenter - tailWidthPx / 2f, rectTop)
+                            moveTo(xCenter - halfTail, rectTop)
                             lineTo(xCenter, 0f)
-                            lineTo(xCenter + tailWidthPx / 2f, rectTop)
+                            lineTo(xCenter + halfTail, rectTop)
                             close()
                         }
                         Edge.BOTTOM -> {
-                            moveTo(xCenter - tailWidthPx / 2f, rectBottom)
+                            moveTo(xCenter - halfTail, rectBottom)
                             lineTo(xCenter, size.height)
-                            lineTo(xCenter + tailWidthPx / 2f, rectBottom)
+                            lineTo(xCenter + halfTail, rectBottom)
                             close()
                         }
                     }
