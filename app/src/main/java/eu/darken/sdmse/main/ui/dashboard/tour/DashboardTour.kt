@@ -17,46 +17,67 @@ object DashboardTour {
     const val SETTINGS_TARGET = "dashboard.settings"
 
     /**
-     * Builds the tour definition. The screen passes a [prepareManualTool] hook to scroll the
-     * dashboard's lazy grid to the manual-tool target before the corresponding step is shown.
-     * If the manual tool isn't currently composed, the host's missing-target grace skip
-     * handles the omission.
+     * Builds the tour definition. The screen passes [includeSetup] / [includeManualTool] booleans
+     * derived from the dashboard's current items so steps whose target card is absent are dropped
+     * up-front. Without this filter the host would render an invisible overlay for the missing
+     * target's grace window (600 ms) and then auto-skip — visible to the user as the tour starting
+     * on a later step, or as Previous "closing" the tour briefly when it lands on the absent step.
+     *
+     * [prepareManualTool] is the dashboard's scroll-to-card hook for the manual-tool step.
      */
-    fun definition(prepareManualTool: (suspend () -> Unit)? = null): TourDefinition = TourDefinition(
+    fun definition(
+        includeSetup: Boolean = true,
+        includeManualTool: Boolean = true,
+        prepareManualTool: (suspend () -> Unit)? = null,
+    ): TourDefinition = TourDefinition(
         id = id,
         clickProtection = true,
-        steps = listOf(
-            TourStep(
-                stepId = "setup",
-                targetId = SETUP_TARGET,
-                title = R.string.tour_dashboard_setup_title.toCaString(),
-                body = R.string.tour_dashboard_setup_body.toCaString(),
-            ),
-            TourStep(
-                stepId = "tools",
-                targetId = TOOLS_TARGET,
-                title = R.string.tour_dashboard_tools_title.toCaString(),
-                body = R.string.tour_dashboard_tools_body.toCaString(),
-            ),
-            TourStep(
-                stepId = "mainAction",
-                targetId = MAIN_ACTION_TARGET,
-                title = R.string.tour_dashboard_main_action_title.toCaString(),
-                body = R.string.tour_dashboard_main_action_body.toCaString(),
-            ),
-            TourStep(
-                stepId = "manualTools",
-                targetId = MANUAL_TOOL_TARGET,
-                title = R.string.tour_dashboard_manual_tools_title.toCaString(),
-                body = R.string.tour_dashboard_manual_tools_body.toCaString(),
-                prepareTarget = prepareManualTool,
-            ),
-            TourStep(
-                stepId = "settings",
-                targetId = SETTINGS_TARGET,
-                title = R.string.tour_dashboard_settings_title.toCaString(),
-                body = R.string.tour_dashboard_settings_body.toCaString(),
-            ),
-        ),
+        steps = buildList {
+            if (includeSetup) {
+                add(
+                    TourStep(
+                        stepId = "setup",
+                        targetId = SETUP_TARGET,
+                        title = R.string.tour_dashboard_setup_title.toCaString(),
+                        body = R.string.tour_dashboard_setup_body.toCaString(),
+                    ),
+                )
+            }
+            add(
+                TourStep(
+                    stepId = "tools",
+                    targetId = TOOLS_TARGET,
+                    title = R.string.tour_dashboard_tools_title.toCaString(),
+                    body = R.string.tour_dashboard_tools_body.toCaString(),
+                ),
+            )
+            add(
+                TourStep(
+                    stepId = "mainAction",
+                    targetId = MAIN_ACTION_TARGET,
+                    title = R.string.tour_dashboard_main_action_title.toCaString(),
+                    body = R.string.tour_dashboard_main_action_body.toCaString(),
+                ),
+            )
+            if (includeManualTool) {
+                add(
+                    TourStep(
+                        stepId = "manualTools",
+                        targetId = MANUAL_TOOL_TARGET,
+                        title = R.string.tour_dashboard_manual_tools_title.toCaString(),
+                        body = R.string.tour_dashboard_manual_tools_body.toCaString(),
+                        prepareTarget = prepareManualTool,
+                    ),
+                )
+            }
+            add(
+                TourStep(
+                    stepId = "settings",
+                    targetId = SETTINGS_TARGET,
+                    title = R.string.tour_dashboard_settings_title.toCaString(),
+                    body = R.string.tour_dashboard_settings_body.toCaString(),
+                ),
+            )
+        },
     )
 }

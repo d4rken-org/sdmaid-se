@@ -259,11 +259,16 @@ internal fun DashboardScreen(
     }
 
     val items = listState?.items
+    val hasSetup = remember(items) {
+        items?.any { it is SetupDashboardCardItem } == true
+    }
     val swiperIndex = remember(items) {
         items?.indexOfFirst { it is SwiperDashboardCardItem }?.takeIf { it >= 0 }
     }
-    val tourDef = remember(gridState, swiperIndex) {
+    val tourDef = remember(gridState, hasSetup, swiperIndex) {
         DashboardTour.definition(
+            includeSetup = hasSetup,
+            includeManualTool = swiperIndex != null,
             prepareManualTool = swiperIndex?.let { idx ->
                 { gridState.animateScrollToItem(idx) }
             },
