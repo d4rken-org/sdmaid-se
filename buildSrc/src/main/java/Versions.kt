@@ -15,7 +15,7 @@ object Versions {
         }
 
         object Media3 {
-            const val core = "1.6.0"
+            const val core = "1.10.0"
         }
     }
 

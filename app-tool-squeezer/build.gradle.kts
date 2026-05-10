@@ -72,6 +72,8 @@ dependencies {
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
     implementation("androidx.media3:media3-transformer:${Versions.AndroidX.Media3.core}")
+    implementation("androidx.media3:media3-muxer:${Versions.AndroidX.Media3.core}")
+    implementation("androidx.media3:media3-container:${Versions.AndroidX.Media3.core}")
 
     addTesting()
     testImplementation(project(":app-common-test"))

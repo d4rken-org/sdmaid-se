@@ -134,7 +134,7 @@ class VideoTranscoder @Inject constructor(
 
                         val mediaItem = MediaItem.fromUri(Uri.fromFile(inputFile))
                         val editedItem = EditedMediaItem.Builder(mediaItem).build()
-                        val sequence = EditedMediaItemSequence(listOf(editedItem))
+                        val sequence = EditedMediaItemSequence.Builder(listOf(editedItem)).build()
                         val composition = Composition.Builder(sequence)
                             .setTransmuxAudio(true)
                             .build()
