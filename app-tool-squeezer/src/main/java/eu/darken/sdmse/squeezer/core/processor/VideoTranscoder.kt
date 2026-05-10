@@ -7,12 +7,14 @@ import android.os.HandlerThread
 import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.container.Mp4TimestampData
 import androidx.media3.transformer.Composition
 import androidx.media3.transformer.DefaultEncoderFactory
 import androidx.media3.transformer.EditedMediaItem
 import androidx.media3.transformer.EditedMediaItemSequence
 import androidx.media3.transformer.ExportException
 import androidx.media3.transformer.ExportResult
+import androidx.media3.transformer.InAppMp4Muxer
 import androidx.media3.transformer.ProgressHolder
 import androidx.media3.transformer.Transformer
 import androidx.media3.transformer.VideoEncoderSettings
@@ -31,6 +33,7 @@ import kotlin.coroutines.resumeWithException
 
 class VideoTranscoder @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val videoTimestampPreserver: VideoTimestampPreserver,
 ) {
 
     /**
@@ -48,6 +51,16 @@ class VideoTranscoder @Inject constructor(
         targetBitrateBps: Long,
         progressListener: ProgressListener? = null,
     ) {
+        // Capture the source mvhd timestamps so we can inject them into the muxer output
+        // (#2388). Best-effort: a failure here just disables date preservation, gallery sort
+        // then falls back to filesystem mtime which FileTransaction already preserves.
+        val sourceTimestamps: VideoTimestampPreserver.TimestampData? = try {
+            videoTimestampPreserver.extract(inputFile)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Timestamp extract failed for ${inputFile.path}: ${e.message}" }
+            null
+        }
+
         val handlerThread = HandlerThread("sdmaid-transformer").apply { start() }
 
         try {
@@ -85,6 +98,22 @@ class VideoTranscoder @Inject constructor(
                             .setRequestedVideoEncoderSettings(encoderSettings)
                             .build()
 
+                        // MetadataProvider runs at muxer close() time on the muxer thread.
+                        // Strip the default Mp4TimestampData (Media3 seeds it with "now") and
+                        // replace it with the source's mvhd values so gallery DATE_TAKEN sort
+                        // is preserved (#2388).
+                        val muxerFactory = InAppMp4Muxer.Factory { entries ->
+                            sourceTimestamps?.let { ts ->
+                                entries.removeAll { it is Mp4TimestampData }
+                                entries.add(
+                                    Mp4TimestampData(
+                                        ts.creationTimeMp4Seconds,
+                                        ts.modificationTimeMp4Seconds,
+                                    )
+                                )
+                            }
+                        }
+
                         // Audio policy: we pass the input through a Composition with
                         // setTransmuxAudio(true) to force deterministic audio passthrough
                         // regardless of Media3's muxer-support-conditional default. Without
@@ -94,6 +123,7 @@ class VideoTranscoder @Inject constructor(
                         // stable across Media3 versions.
                         val transformer = Transformer.Builder(context)
                             .setEncoderFactory(encoderFactory)
+                            .setMuxerFactory(muxerFactory)
                             .setLooper(handlerThread.looper)
                             .build()
                         transformerRef = transformer
