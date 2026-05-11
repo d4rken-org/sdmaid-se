@@ -3,7 +3,6 @@ package eu.darken.sdmse.analyzer.core.device
 import android.os.storage.StorageManager
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.asFile
@@ -90,21 +89,7 @@ class DeviceStorageScanner @Inject constructor(
                     volume.path?.path?.toCaString() ?: eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_secondary_title.toCaString()
                 )
 
-                var volumeId: UUID? = try {
-                    UUID.fromString(volume.fsUuid)
-                } catch (e: IllegalArgumentException) {
-                    null
-                }
-                if (volumeId == null && volume.fsUuid != null) {
-                    try {
-                        volumeId = UUID.fromString(
-                            "${StorageId.FAT_UUID_PREFIX}${volume.fsUuid!!.replace("-", "")}"
-                        )
-                    } catch (e: Exception) {
-                        log(TAG, WARN) { "Failed to construct UUID: ${e.asLog()}" }
-                    }
-                }
-
+                val volumeId = StorageId.parseVolumeUuid(volume.fsUuid)
                 if (volumeId == null) {
                     log(TAG, WARN) { "Failed to determine UUID of $volume" }
                     return@mapNotNull null
