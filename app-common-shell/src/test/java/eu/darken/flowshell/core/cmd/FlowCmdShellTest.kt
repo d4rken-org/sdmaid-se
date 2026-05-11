@@ -185,4 +185,22 @@ class FlowCmdShellTest : BaseTest() {
         (System.currentTimeMillis() - start) shouldBeGreaterThanOrEqual 1000
     }
 
+    @Test fun `exec command replacing shell blocks until replacement exits and does not throw`(): Unit = runBlocking {
+        // RootHostLauncher writes an `exec /proc/<pid>/exe ...` line to swap the shell with
+        // the root host process. The final `echo idEnd >&2` flush can race against the pipe
+        // being torn down, producing IOException("Stream closed"). execute() must absorb
+        // that race so the launcher stays blocked until the replacement process exits, and
+        // must not propagate the IOException — otherwise the binder connection callback
+        // never reaches the SharedResource consumer.
+        val start = System.currentTimeMillis()
+        val result = FlowCmd("exec sleep 1").execute()
+        val elapsed = System.currentTimeMillis() - start
+
+        // joinAll must have blocked until sleep exited (~1s) instead of returning early.
+        elapsed shouldBeGreaterThanOrEqual 900
+        // No end marker was emitted because sleep replaced the shell; we expose -1 instead
+        // of throwing so callers like RootHostLauncher can observe normal completion.
+        result.exitCode shouldBe FlowProcess.ExitCode(-1)
+    }
+
 }
