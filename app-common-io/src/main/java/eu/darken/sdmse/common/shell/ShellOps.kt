@@ -24,7 +24,13 @@ import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
+import eu.darken.sdmse.common.shell.ipc.ShellOpsStreamEvent
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -85,6 +91,32 @@ class ShellOps @Inject constructor(
             throw ShellOpsException(cmd = cmd, cause = e)
         }
     }
+
+    fun executeStream(cmd: ShellOpsCmd, mode: Mode): Flow<ShellOpsStreamEvent> = flow {
+        when (mode) {
+            Mode.NORMAL -> {
+                log(TAG, VERBOSE) { "executeStream(mode->NORMAL): $cmd" }
+                val result = cmd.toFlowCmd().execute()
+                result.output.forEach { emit(ShellOpsStreamEvent.Stdout(it)) }
+                result.errors.forEach { emit(ShellOpsStreamEvent.Stderr(it)) }
+                emit(ShellOpsStreamEvent.Exit(result.exitCode.value))
+            }
+            Mode.ROOT -> {
+                if (!rootManager.canUseRootNow()) throw RootUnavailableException()
+                log(TAG, VERBOSE) { "executeStream(mode->ROOT): $cmd" }
+                rootOps { client -> emitAll(client.executeStream(cmd)) }
+            }
+            Mode.ADB -> {
+                if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
+                log(TAG, VERBOSE) { "executeStream(mode->ADB): $cmd" }
+                adbOps { client -> emitAll(client.executeStream(cmd)) }
+            }
+        }
+    }.catch { cause ->
+        log(TAG, WARN) { "executeStream($cmd, $mode) failed: ${cause.asLog()}" }
+        if (cause is IOException) throw ShellOpsException(cmd = cmd, cause = cause)
+        throw cause
+    }.flowOn(dispatcherProvider.IO)
 
     private fun ShellOpsCmd.toFlowCmd() = FlowCmd(cmds)
 
