@@ -196,7 +196,9 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
                 is SetupEvents.ShowOurDetailsPage -> {
                     try {
-                        startActivity(event.intent)
+                        // Route via specialPermissionLauncher so setup refreshes on return,
+                        // i.e. after the user grants e.g. Huawei's TAF "App list" toggle.
+                        specialPermissionLauncher.launch(event.intent)
                     } catch (e: ActivityNotFoundException) {
                         log(TAG, ERROR) { "Failed to launch app settings for app ops restriction: ${e.asLog()}" }
                         e.asErrorDialogBuilder(requireActivity()).show()

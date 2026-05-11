@@ -10,13 +10,16 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.pkgs.PkgInventoryCheck
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -52,17 +55,31 @@ class InventorySetupModule @Inject constructor(
 
             val isAccessFaked = when {
                 missingPermission.isEmpty() -> {
-                    run {
-                        val pkgs = try {
-                            pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong()).map { it.packageName }
-                        } catch (e: Exception) {
-                            log(TAG, ERROR) { "Check for fake access failed: ${e.asLog()}" }
-                            null
-                        }
-                        when {
-                            pkgs == null -> false
-                            pkgs.isEmpty() -> true
-                            else -> !pkgs.contains(context.packageName)
+                    val pkgs = try {
+                        pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong()).map { it.packageName }
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "Check for fake access failed: ${e.asLog()}" }
+                        null
+                    }
+                    when (pkgs) {
+                        // Probe failed (binder, SecurityException, OEM PackageManager error). Don't
+                        // pretend setup is complete — tools would later throw a less actionable error.
+                        null -> true
+                        else -> {
+                            val result = PkgInventoryCheck.check(pkgs, context.packageName)
+                            val faked = result != PkgInventoryCheck.Result.Valid
+                            if (faked) {
+                                val sample = pkgs.take(PKG_LOG_SAMPLE_SIZE)
+                                log(TAG, WARN) {
+                                    "Inventory check returned $result for ${pkgs.size} pkgs (first $PKG_LOG_SAMPLE_SIZE: $sample)"
+                                }
+                                if (Bugs.isTrace) {
+                                    log(TAG, WARN) { "Inventory full list: $pkgs" }
+                                }
+                            } else {
+                                log(TAG) { "Inventory check returned $result for ${pkgs.size} pkgs" }
+                            }
+                            faked
                         }
                     }
                 }
@@ -118,5 +135,6 @@ class InventorySetupModule @Inject constructor(
     companion object {
         private val TAG = logTag("Setup", "Inventory", "Module")
         const val INFO_URL = "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory"
+        private const val PKG_LOG_SAMPLE_SIZE = 20
     }
 }

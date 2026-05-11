@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.InvalidPkgInventoryException
 import eu.darken.sdmse.common.pkgs.PkgDataSource
+import eu.darken.sdmse.common.pkgs.PkgInventoryCheck
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
@@ -77,18 +78,26 @@ class NormalPkgsSource @Inject constructor(
 
         // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
         val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong())
-        if (pkgInfos.isEmpty()) {
-            throw InvalidPkgInventoryException("Could not retrieve list of installed packages")
-        }
-        if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
-            throw InvalidPkgInventoryException("Returned package data didn't contain us")
-        }
-        if (pkgInfos.none { SANITY_PKGS.contains(it.packageName) }) {
-            log(TAG, WARN) { "coreList(): ${pkgInfos.size} pkgs returned, missing SANITY_PKGS $SANITY_PKGS" }
-            if (Bugs.isTrace) {
-                log(TAG, WARN) { "coreList(): First 10: ${pkgInfos.take(10).map { it.packageName }}" }
+        when (PkgInventoryCheck.check(pkgInfos.map { it.packageName }, BuildConfigWrap.APPLICATION_ID)) {
+            PkgInventoryCheck.Result.Empty -> {
+                throw InvalidPkgInventoryException("Could not retrieve list of installed packages")
             }
-            throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
+
+            PkgInventoryCheck.Result.MissingOwn -> {
+                throw InvalidPkgInventoryException("Returned package data didn't contain us")
+            }
+
+            PkgInventoryCheck.Result.MissingCore -> {
+                val pkgNames = pkgInfos.map { it.packageName }
+                log(TAG, WARN) {
+                    "coreList(): ${pkgInfos.size} pkgs returned, missing SANITY_PKGS ${PkgInventoryCheck.SANITY_PKGS}" +
+                        " (first $PKG_LOG_SAMPLE_SIZE: ${pkgNames.take(PKG_LOG_SAMPLE_SIZE)})"
+                }
+                if (Bugs.isTrace) log(TAG, WARN) { "coreList(): Full list: $pkgNames" }
+                throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
+            }
+
+            PkgInventoryCheck.Result.Valid -> Unit
         }
 
         val currentHandle = userManager.currentUser().handle
@@ -148,10 +157,7 @@ class NormalPkgsSource @Inject constructor(
     }
 
     companion object {
-        private val SANITY_PKGS = setOf(
-            "android",
-            "com.android.cts.ctsshim",
-        )
         private val TAG = logTag("Pkg", "Repo", "Source", "NormalPkgs")
+        private const val PKG_LOG_SAMPLE_SIZE = 20
     }
 }
