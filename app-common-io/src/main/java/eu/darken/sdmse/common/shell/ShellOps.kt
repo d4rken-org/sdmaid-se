@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.shell.ipc.ShellOpsClient
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.shell.ipc.ShellOpsResult
@@ -49,16 +49,14 @@ class ShellOps @Inject constructor(
 
     private suspend fun <T> adbOps(action: suspend (ShellOpsClient) -> T): T {
         if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
-        return keepResourcesAlive(adbManager.serviceClient) {
-            adbManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
-        }
+        adoptChildResource(adbManager.serviceClient)
+        return adbManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
     }
 
     private suspend fun <T> rootOps(action: suspend (ShellOpsClient) -> T): T {
         if (!rootManager.canUseRootNow()) throw RootUnavailableException()
-        return keepResourcesAlive(rootManager.serviceClient) {
-            rootManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
-        }
+        adoptChildResource(rootManager.serviceClient)
+        return rootManager.serviceClient.runModuleAction(ShellOpsClient::class.java) { action(it) }
     }
 
     suspend fun execute(cmd: ShellOpsCmd, mode: Mode): ShellOpsResult = withContext(dispatcherProvider.IO) {

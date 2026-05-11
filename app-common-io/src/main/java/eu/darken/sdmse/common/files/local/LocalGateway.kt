@@ -35,7 +35,7 @@ import eu.darken.sdmse.common.root.RootUnavailableException
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
-import eu.darken.sdmse.common.sharedresource.keepResourcesAlive
+import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -67,16 +67,14 @@ class LocalGateway @Inject constructor(
 
     private suspend fun <T> rootOps(action: suspend (FileOpsClient) -> T): T {
         if (!rootManager.canUseRootNow()) throw RootUnavailableException()
-        return keepResourcesAlive(rootManager.serviceClient) {
-            rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
-        }
+        adoptChildResource(rootManager.serviceClient)
+        return rootManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
     private suspend fun <T> adbOps(action: suspend (FileOpsClient) -> T): T {
         if (!adbManager.canUseAdbNow()) throw AdbUnavailableException()
-        return keepResourcesAlive(adbManager.serviceClient) {
-            adbManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
-        }
+        adoptChildResource(adbManager.serviceClient)
+        return adbManager.serviceClient.runModuleAction(FileOpsClient::class.java) { action(it) }
     }
 
     suspend fun hasRoot(): Boolean = rootManager.canUseRootNow()
