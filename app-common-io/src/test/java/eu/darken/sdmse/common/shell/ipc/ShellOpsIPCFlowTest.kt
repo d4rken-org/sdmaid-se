@@ -7,11 +7,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -179,6 +181,36 @@ class ShellOpsIPCFlowTest : BaseTest() {
             runBlocking {
                 val collected = events.asFlow().toRemoteInputStream(scope).toShellOpsEventFlow().toList()
                 collected shouldContainExactly events
+            }
+        } finally {
+            scope.cancel()
+        }
+    }
+
+    @Test
+    fun `consumer cancellation closes the RemoteInputStream and stops emission`() {
+        // When the client-side Flow collector cancels mid-stream (e.g. user backs out of
+        // a scan), toShellOpsEventFlow's finally block must close the RemoteInputStream
+        // so the host writer detects the broken pipe and the producer scope can wind down.
+        // The first event is sized > CHUNK_BYTE_LIMIT (64 KB) so it forces an immediate
+        // chunk flush — otherwise the byte-bounded chunker would buffer the small first
+        // event and the collector would see nothing before the cancellation timeout.
+        val firstLine = "x".repeat(40_000)
+        val source: Flow<ShellOpsStreamEvent> = flow {
+            emit(ShellOpsStreamEvent.Stdout(firstLine))
+            delay(2_000)
+            emit(ShellOpsStreamEvent.Stdout("should-not-arrive"))
+            emit(ShellOpsStreamEvent.Exit(0))
+        }
+        val scope = makeScope()
+        try {
+            runBlocking {
+                val seen = mutableListOf<ShellOpsStreamEvent>()
+                withTimeoutOrNull(500) {
+                    source.toRemoteInputStream(scope).toShellOpsEventFlow().collect { seen.add(it) }
+                }
+                seen.size shouldBe 1
+                (seen[0] as ShellOpsStreamEvent.Stdout).line.length shouldBe firstLine.length
             }
         } finally {
             scope.cancel()
