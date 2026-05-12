@@ -5,13 +5,15 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,10 +21,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.files.FileType
 
 @Composable
 internal fun ContentItemTile(
@@ -43,7 +48,19 @@ internal fun ContentItemTile(
         content.label.get(context)
     }
 
-    val secondary: String = content.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
+    val sizeText = content.size?.let { Formatter.formatShortFileSize(context, it) } ?: "?"
+    val secondary: String = when {
+        content.inaccessible -> sizeText
+        content.type == FileType.DIRECTORY -> if (content.size != null) {
+            val itemsFormatted = pluralStringResource(
+                CommonR.plurals.result_x_items,
+                content.children.size,
+                content.children.size,
+            )
+            "$sizeText ($itemsFormatted)"
+        } else "?"
+        else -> sizeText
+    }
 
     val parentSize = parent?.size
     val progressFraction: Float? = if (parentSize != null && parentSize > 0L) {
@@ -90,19 +107,26 @@ internal fun ContentItemTile(
                 maxLines = 2,
                 modifier = Modifier.padding(horizontal = 8.dp),
             )
-            Text(
-                text = secondary,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 8.dp),
-            )
-            if (progressFraction != null) {
-                LinearProgressIndicator(
-                    progress = { progressFraction },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 8.dp, vertical = 4.dp),
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                Text(
+                    text = secondary,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.weight(1f),
                 )
+                if (progressFraction != null) {
+                    CircularProgressIndicator(
+                        progress = { progressFraction },
+                        modifier = Modifier.size(16.dp),
+                        strokeWidth = 2.dp,
+                    )
+                }
             }
         }
     }
