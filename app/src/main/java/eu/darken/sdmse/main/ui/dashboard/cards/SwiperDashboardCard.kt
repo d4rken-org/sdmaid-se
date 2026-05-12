@@ -99,12 +99,11 @@ internal fun SwiperDashboardCard(
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.weight(1f),
             )
-            Spacer(modifier = Modifier.width(6.dp))
+            Spacer(modifier = Modifier.width(4.dp))
             NewBadge()
+            Spacer(modifier = Modifier.weight(1f))
             if (item.progress != null) {
-                Spacer(modifier = Modifier.width(8.dp))
                 CircularProgressIndicator(
                     modifier = Modifier.size(16.dp),
                     strokeWidth = 3.dp,
