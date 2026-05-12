@@ -22,11 +22,13 @@ import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -36,17 +38,23 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CorpseDetailsViewModel @Inject constructor(
-    private val handle: SavedStateHandle,
+    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val corpsePath: APath? = CorpseDetailsRoute.from(handle).corpsePath
+    private val routeFlow = MutableStateFlow<CorpseDetailsRoute?>(null)
     private var currentTarget: CorpseIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
     val events = SingleEventFlow<Event>()
+
+    fun bindRoute(route: CorpseDetailsRoute) {
+        if (routeFlow.value != null) return
+        log(TAG, INFO) { "bindRoute(${route.corpsePath})" }
+        routeFlow.value = route
+    }
 
     init {
         corpseFinder.state
@@ -72,27 +80,29 @@ class CorpseDetailsViewModel @Inject constructor(
             .launchIn(vmScope)
     }
 
-    val state: StateFlow<State> = combine(
-        corpseFinder.progress,
-        corpseFinder.state.map { it.data }.filterNotNull(),
-    ) { progress, data ->
-        val sortedCorpses = data.corpses
-            .sortedByDescending { it.size }
-            .toList()
+    val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
+        combine(
+            corpseFinder.progress,
+            corpseFinder.state.map { it.data }.filterNotNull(),
+        ) { progress, data ->
+            val sortedCorpses = data.corpses
+                .sortedByDescending { it.size }
+                .toList()
 
-        val availableTarget = resolveTarget(
-            items = sortedCorpses,
-            requestedTarget = currentTarget ?: corpsePath,
-            lastPosition = lastPosition,
-            identifierOf = { it.identifier },
-            onPositionTracked = { lastPosition = it },
-        )
+            val availableTarget = resolveTarget(
+                items = sortedCorpses,
+                requestedTarget = currentTarget ?: route.corpsePath,
+                lastPosition = lastPosition,
+                identifierOf = { it.identifier },
+                onPositionTracked = { lastPosition = it },
+            )
 
-        State(
-            items = sortedCorpses,
-            target = availableTarget,
-            progress = progress,
-        )
+            State(
+                items = sortedCorpses,
+                target = availableTarget,
+                progress = progress,
+            )
+        }
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },

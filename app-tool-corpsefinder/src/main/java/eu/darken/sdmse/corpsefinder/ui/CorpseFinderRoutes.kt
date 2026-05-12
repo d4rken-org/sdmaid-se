@@ -1,7 +1,5 @@
 package eu.darken.sdmse.corpsefinder.ui
 
-import androidx.lifecycle.SavedStateHandle
-import androidx.navigation.toRoute
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.serialization.APathSerializer
@@ -25,8 +23,4 @@ data class CorpseDetailsRoute(
 
     @Transient
     val corpsePath: APath? = corpsePathJson?.let { Json.decodeFromString(APathSerializer, it) }
-
-    companion object {
-        fun from(handle: SavedStateHandle) = handle.toRoute<CorpseDetailsRoute>()
-    }
 }

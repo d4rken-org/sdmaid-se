@@ -13,6 +13,6 @@ class AppCleanerNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
         entry<AppCleanerSettingsRoute> { AppCleanerSettingsScreenHost() }
         entry<AppCleanerListRoute> { AppCleanerListScreenHost() }
-        entry<AppJunkDetailsRoute> { AppJunkDetailsScreenHost() }
+        entry<AppJunkDetailsRoute> { route -> AppJunkDetailsScreenHost(route = route) }
     }
 }

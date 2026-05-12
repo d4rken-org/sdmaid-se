@@ -52,6 +52,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import eu.darken.sdmse.systemcleaner.ui.details.page.FilterContentPage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -67,10 +68,13 @@ internal data class PendingFilterDelete(
 
 @Composable
 fun FilterContentDetailsScreenHost(
+    route: FilterContentDetailsRoute,
     vm: FilterContentDetailsViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LaunchedEffect(route) { vm.bindRoute(route) }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }

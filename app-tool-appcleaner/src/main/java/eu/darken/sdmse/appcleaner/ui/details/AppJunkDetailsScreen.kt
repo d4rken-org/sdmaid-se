@@ -37,6 +37,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
+import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.appcleaner.ui.details.page.AppJunkPage
 import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.common.R as CommonR
@@ -65,10 +66,13 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun AppJunkDetailsScreenHost(
+    route: AppJunkDetailsRoute,
     vm: AppJunkDetailsViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LaunchedEffect(route) { vm.bindRoute(route) }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }

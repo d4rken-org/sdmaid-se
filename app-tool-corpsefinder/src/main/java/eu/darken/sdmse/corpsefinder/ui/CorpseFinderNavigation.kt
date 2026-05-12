@@ -13,6 +13,6 @@ class CorpseFinderNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
         entry<CorpseFinderSettingsRoute> { CorpseFinderSettingsScreenHost() }
         entry<CorpseFinderListRoute> { CorpseFinderListScreenHost() }
-        entry<CorpseDetailsRoute> { CorpseDetailsScreenHost() }
+        entry<CorpseDetailsRoute> { route -> CorpseDetailsScreenHost(route = route) }
     }
 }

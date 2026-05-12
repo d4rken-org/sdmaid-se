@@ -32,6 +32,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -42,14 +43,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppJunkDetailsViewModel @Inject constructor(
-    private val handle: SavedStateHandle,
+    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val initialIdentifier: InstallId? = AppJunkDetailsRoute.from(handle).identifier
+    private val routeFlow = MutableStateFlow<AppJunkDetailsRoute?>(null)
     private var currentTarget: InstallId? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
@@ -57,6 +58,12 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     private val collapsedByJunk =
         MutableStateFlow<Map<InstallId, Set<ExpendablesFilterIdentifier>>>(emptyMap())
+
+    fun bindRoute(route: AppJunkDetailsRoute) {
+        if (routeFlow.value != null) return
+        log(TAG, INFO) { "bindRoute(${route.identifier})" }
+        routeFlow.value = route
+    }
 
     init {
         appCleaner.state
@@ -82,32 +89,34 @@ class AppJunkDetailsViewModel @Inject constructor(
             .launchIn(vmScope)
     }
 
-    val state: StateFlow<State> = combine(
-        appCleaner.progress,
-        appCleaner.state.map { it.data }.filterNotNull(),
-        collapsedByJunk,
-    ) { progress, data, collapsed ->
-        // Drop fully-empty junks left over after path-only `appCleaner.exclude(installId, paths)`
-        // calls — backend doesn't filter them out, so without this the pager would show ghost
-        // zero-junk pages.
-        val visible = data.junks
-            .filter { !it.isEmpty() }
-            .sortedByDescending { it.size }
+    val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
+        combine(
+            appCleaner.progress,
+            appCleaner.state.map { it.data }.filterNotNull(),
+            collapsedByJunk,
+        ) { progress, data, collapsed ->
+            // Drop fully-empty junks left over after path-only `appCleaner.exclude(installId, paths)`
+            // calls — backend doesn't filter them out, so without this the pager would show ghost
+            // zero-junk pages.
+            val visible = data.junks
+                .filter { !it.isEmpty() }
+                .sortedByDescending { it.size }
 
-        val availableTarget = resolveTarget(
-            items = visible,
-            requestedTarget = currentTarget ?: initialIdentifier,
-            lastPosition = lastPosition,
-            identifierOf = { it.identifier },
-            onPositionTracked = { lastPosition = it },
-        )
+            val availableTarget = resolveTarget(
+                items = visible,
+                requestedTarget = currentTarget ?: route.identifier,
+                lastPosition = lastPosition,
+                identifierOf = { it.identifier },
+                onPositionTracked = { lastPosition = it },
+            )
 
-        State(
-            items = visible,
-            target = availableTarget,
-            progress = progress,
-            collapsedByJunk = collapsed,
-        )
+            State(
+                items = visible,
+                target = availableTarget,
+                progress = progress,
+                collapsedByJunk = collapsed,
+            )
+        }
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },

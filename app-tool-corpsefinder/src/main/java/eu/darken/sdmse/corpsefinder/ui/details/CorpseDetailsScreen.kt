@@ -55,6 +55,7 @@ import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.corpsefinder.ui.details.content.CorpseContent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -74,10 +75,13 @@ internal data class PendingDelete(
 
 @Composable
 fun CorpseDetailsScreenHost(
+    route: CorpseDetailsRoute,
     vm: CorpseDetailsViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LaunchedEffect(route) { vm.bindRoute(route) }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }

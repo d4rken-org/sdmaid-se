@@ -28,11 +28,13 @@ import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -42,18 +44,23 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FilterContentDetailsViewModel @Inject constructor(
-    private val handle: SavedStateHandle,
+    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val initialFilterIdentifier: FilterIdentifier? =
-        FilterContentDetailsRoute.from(handle).filterIdentifier
+    private val routeFlow = MutableStateFlow<FilterContentDetailsRoute?>(null)
     private var currentTarget: FilterIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
     val events = SingleEventFlow<Event>()
+
+    fun bindRoute(route: FilterContentDetailsRoute) {
+        if (routeFlow.value != null) return
+        log(TAG, INFO) { "bindRoute(${route.filterIdentifier})" }
+        routeFlow.value = route
+    }
 
     init {
         systemCleaner.state
@@ -79,25 +86,27 @@ class FilterContentDetailsViewModel @Inject constructor(
             .launchIn(vmScope)
     }
 
-    val state: StateFlow<State> = combine(
-        systemCleaner.progress,
-        systemCleaner.state.map { it.data }.filterNotNull(),
-    ) { progress, data ->
-        val sortedContents = data.filterContents.sortedByDescending { it.size }
+    val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
+        combine(
+            systemCleaner.progress,
+            systemCleaner.state.map { it.data }.filterNotNull(),
+        ) { progress, data ->
+            val sortedContents = data.filterContents.sortedByDescending { it.size }
 
-        val availableTarget = resolveTarget(
-            items = sortedContents,
-            requestedTarget = currentTarget ?: initialFilterIdentifier,
-            lastPosition = lastPosition,
-            identifierOf = { it.identifier },
-            onPositionTracked = { lastPosition = it },
-        )
+            val availableTarget = resolveTarget(
+                items = sortedContents,
+                requestedTarget = currentTarget ?: route.filterIdentifier,
+                lastPosition = lastPosition,
+                identifierOf = { it.identifier },
+                onPositionTracked = { lastPosition = it },
+            )
 
-        State(
-            items = sortedContents,
-            target = availableTarget,
-            progress = progress,
-        )
+            State(
+                items = sortedContents,
+                target = availableTarget,
+                progress = progress,
+            )
+        }
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },
