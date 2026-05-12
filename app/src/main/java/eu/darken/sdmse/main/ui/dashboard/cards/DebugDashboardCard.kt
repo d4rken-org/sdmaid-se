@@ -55,7 +55,7 @@ internal fun DebugDashboardCard(item: DebugDashboardCardItem) {
             Icon(
                 imageVector = SdmIcons.Bug,
                 contentDescription = null,
-                modifier = Modifier.size(24.dp),
+                modifier = Modifier.size(20.dp),
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
