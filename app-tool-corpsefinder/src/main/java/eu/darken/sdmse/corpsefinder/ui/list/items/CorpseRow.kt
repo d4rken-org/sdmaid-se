@@ -2,8 +2,10 @@ package eu.darken.sdmse.corpsefinder.ui.list.items
 
 import android.text.format.Formatter
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,8 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -62,19 +66,24 @@ fun CorpseRow(
         Formatter.formatShortFileSize(context, corpse.size)
     }
 
+    val riskAccent = when (corpse.riskLevel) {
+        RiskLevel.NORMAL -> MaterialTheme.colorScheme.outlineVariant
+        RiskLevel.KEEPER -> MaterialTheme.colorScheme.tertiary
+        RiskLevel.COMMON -> MaterialTheme.colorScheme.secondary
+    }
+
     Row(
         modifier = modifier
             .fillMaxWidth()
             .background(background)
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(
-            imageVector = corpse.filterType.icon,
-            contentDescription = stringResource(CommonR.string.general_details_label),
+        Box(
             modifier = Modifier
-                .size(24.dp)
+                .size(40.dp)
+                .border(width = 1.dp, color = riskAccent, shape = RoundedCornerShape(10.dp))
                 .then(
                     if (selectionActive) {
                         Modifier
@@ -85,9 +94,16 @@ fun CorpseRow(
                         )
                     }
                 ),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.width(16.dp))
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                imageVector = corpse.filterType.icon,
+                contentDescription = stringResource(CommonR.string.general_details_label),
+                modifier = Modifier.size(22.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Spacer(Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = primary,
@@ -101,22 +117,35 @@ fun CorpseRow(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    softWrap = false,
+                    overflow = TextOverflow.StartEllipsis,
                 )
             }
             Row(
-                modifier = Modifier.padding(top = 2.dp),
+                modifier = Modifier.padding(top = 4.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                Text(
-                    text = areaLabel,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                val chipRes = when (corpse.riskLevel) {
+                    RiskLevel.NORMAL -> null
+                    RiskLevel.KEEPER -> CorpseR.string.corpsefinder_risk_keeper_chip
+                    RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip
+                }
+                Row(
                     modifier = Modifier.weight(1f),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        text = areaLabel,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false),
+                    )
+                    if (chipRes != null) RiskPill(label = stringResource(chipRes), accent = riskAccent)
+                }
                 Icon(
                     imageVector = corpse.lookup.fileType.icon,
                     contentDescription = null,
@@ -129,23 +158,22 @@ fun CorpseRow(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            val hintRes = when (corpse.riskLevel) {
-                RiskLevel.NORMAL -> null
-                RiskLevel.KEEPER -> CorpseR.string.corpsefinder_corpse_hint_keeper
-                RiskLevel.COMMON -> CorpseR.string.corpsefinder_corpse_hint_common
-            }
-            if (hintRes != null) {
-                Text(
-                    text = stringResource(hintRes),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = when (corpse.riskLevel) {
-                        RiskLevel.KEEPER -> MaterialTheme.colorScheme.secondary
-                        else -> MaterialTheme.colorScheme.tertiary
-                    },
-                    modifier = Modifier.padding(top = 4.dp),
-                )
-            }
         }
+    }
+}
+
+@Composable
+private fun RiskPill(label: String, accent: Color) {
+    Surface(
+        color = accent.copy(alpha = 0.18f),
+        contentColor = accent,
+        shape = RoundedCornerShape(6.dp),
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelSmall,
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+        )
     }
 }
 
@@ -155,6 +183,36 @@ private fun CorpseRowPreview() {
     PreviewWrapper {
         CorpseRow(
             row = previewCorpseRow(),
+            selected = false,
+            selectionActive = false,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseRowKeeperPreview() {
+    PreviewWrapper {
+        CorpseRow(
+            row = previewCorpseRow(corpse = previewCorpse(riskLevel = RiskLevel.KEEPER)),
+            selected = false,
+            selectionActive = false,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseRowCommonPreview() {
+    PreviewWrapper {
+        CorpseRow(
+            row = previewCorpseRow(corpse = previewCorpse(riskLevel = RiskLevel.COMMON)),
             selected = false,
             selectionActive = false,
             onClick = {},

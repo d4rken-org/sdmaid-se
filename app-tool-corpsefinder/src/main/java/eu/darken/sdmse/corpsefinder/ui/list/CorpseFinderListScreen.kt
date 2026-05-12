@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Info
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -43,6 +47,7 @@ import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.ui.list.items.CorpseRow
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
@@ -157,6 +162,7 @@ internal fun CorpseFinderListScreen(
     val rows = state.rows
 
     var selection by remember { mutableStateOf<Set<CorpseIdentifier>>(emptySet()) }
+    var showMarkersInfo by remember { mutableStateOf(false) }
     val rowIds = rows?.map { it.identifier }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
         selection = selection intersect rowIds
@@ -178,6 +184,14 @@ internal fun CorpseFinderListScreen(
                     title = stringResource(CommonR.string.corpsefinder_tool_name),
                     subtitle = subtitle,
                     onNavigateUp = onNavigateUp,
+                    actions = {
+                        IconButton(onClick = { showMarkersInfo = true }) {
+                            Icon(
+                                imageVector = Icons.TwoTone.Info,
+                                contentDescription = stringResource(R.string.corpsefinder_markers_dialog_title),
+                            )
+                        }
+                    },
                 )
             } else {
                 SdmSelectionTopAppBar(
@@ -255,6 +269,10 @@ internal fun CorpseFinderListScreen(
                 }
             }
         }
+    }
+
+    if (showMarkersInfo) {
+        CorpseFinderMarkersDialog(onDismiss = { showMarkersInfo = false })
     }
 }
 

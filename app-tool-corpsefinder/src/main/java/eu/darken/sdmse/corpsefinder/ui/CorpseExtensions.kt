@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.FolderShared
 import androidx.compose.material.icons.twotone.Inventory2
 import androidx.compose.material.icons.twotone.LocalLibrary
+import androidx.compose.material.icons.twotone.PermMedia
 import androidx.compose.material.icons.twotone.SdStorage
 import androidx.compose.material.icons.twotone.SportsEsports
 import androidx.compose.material.icons.twotone.VisibilityOff
@@ -47,7 +48,7 @@ val <T : CorpseFilter> KClass<T>.labelRes: Int
 val <T : CorpseFilter> KClass<T>.icon: ImageVector
     get() = when (this) {
         SdcardCorpseFilter::class -> Icons.TwoTone.SdStorage
-        PublicMediaCorpseFilter::class -> Icons.TwoTone.SdStorage
+        PublicMediaCorpseFilter::class -> Icons.TwoTone.PermMedia
         PublicDataCorpseFilter::class -> Icons.TwoTone.SdStorage
         PublicObbCorpseFilter::class -> Icons.TwoTone.SportsEsports
         PrivateDataCorpseFilter::class -> Icons.TwoTone.VisibilityOff
