@@ -12,8 +12,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +28,7 @@ import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.common.pkgs.isArchived
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 internal fun AppDetailsHeaderCard(
@@ -42,50 +43,61 @@ internal fun AppDetailsHeaderCard(
         modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
         ) {
-            AsyncImage(
-                model = ImageRequest.Builder(context).data(pkgStat.pkg).build(),
-                contentDescription = null,
-                modifier = Modifier.size(48.dp),
-            )
-            Spacer(Modifier.size(12.dp))
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(2.dp),
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    text = pkgStat.pkg.label?.get(context) ?: pkgStat.pkg.packageName,
-                    style = MaterialTheme.typography.titleMedium,
+                AsyncImage(
+                    model = ImageRequest.Builder(context).data(pkgStat.pkg).build(),
+                    contentDescription = null,
+                    modifier = Modifier.size(48.dp),
                 )
-                Text(
-                    text = pkgStat.id.pkgId.name,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                val sizeText = Formatter.formatShortFileSize(context, pkgStat.totalSize)
-                val occupiesText = stringResource(
-                    R.string.analyzer_app_details_app_occupies_x_on_y,
-                    sizeText,
-                    storage.label.get(context),
-                )
-                val displayText = if (pkgStat.pkg.isArchived) {
-                    "$occupiesText ${stringResource(R.string.analyzer_app_details_app_is_archived)}"
-                } else {
-                    occupiesText
+                Spacer(Modifier.size(12.dp))
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    Text(
+                        text = pkgStat.pkg.label?.get(context) ?: pkgStat.pkg.packageName,
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    Text(
+                        text = pkgStat.id.pkgId.name,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    val sizeText = Formatter.formatShortFileSize(context, pkgStat.totalSize)
+                    val occupiesText = stringResource(
+                        R.string.analyzer_app_details_app_occupies_x_on_y,
+                        sizeText,
+                        storage.label.get(context),
+                    )
+                    val displayText = if (pkgStat.pkg.isArchived) {
+                        "$occupiesText ${stringResource(R.string.analyzer_app_details_app_is_archived)}"
+                    } else {
+                        occupiesText
+                    }
+                    Text(
+                        text = displayText,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(top = 6.dp),
+                    )
                 }
-                Text(
-                    text = displayText,
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(top = 6.dp),
-                )
             }
-            IconButton(onClick = onSettingsClick) {
-                Icon(Icons.TwoTone.Settings, contentDescription = null)
+            Spacer(Modifier.size(12.dp))
+            FilledTonalButton(onClick = onSettingsClick) {
+                Icon(
+                    imageVector = Icons.TwoTone.Settings,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(Modifier.size(8.dp))
+                Text(stringResource(CommonR.string.appcontrol_systemsettings_open_title))
             }
         }
     }
