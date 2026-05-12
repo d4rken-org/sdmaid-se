@@ -194,6 +194,19 @@ private fun FilterContentFileRow(
     val match = element.match
     val background = if (selected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
 
+    val sizeText = if (match.lookup.fileType == FileType.FILE) {
+        Formatter.formatShortFileSize(context, match.expectedGain)
+    } else {
+        null
+    }
+    val dateText = if (element.showDate) {
+        val formatter = remember { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
+        match.lookup.modifiedAt.toSystemTimezone().format(formatter)
+    } else {
+        null
+    }
+    val supporting = listOfNotNull(sizeText, dateText).joinToString(" · ")
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -202,7 +215,7 @@ private fun FilterContentFileRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        val thumbnailModifier = Modifier.size(40.dp)
+        val thumbnailModifier = Modifier.size(28.dp)
         if (onPreviewClick != null && !selectionActive) {
             FilePreviewImage(
                 lookup = match.lookup,
@@ -222,22 +235,13 @@ private fun FilterContentFileRow(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            if (element.showDate) {
-                val formatter = remember { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
+            if (supporting.isNotEmpty()) {
                 Text(
-                    text = match.lookup.modifiedAt.toSystemTimezone().format(formatter),
+                    text = supporting,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-        }
-        if (match.lookup.fileType == FileType.FILE) {
-            Spacer(Modifier.width(8.dp))
-            Text(
-                text = Formatter.formatShortFileSize(context, match.expectedGain),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
         }
     }
 }
