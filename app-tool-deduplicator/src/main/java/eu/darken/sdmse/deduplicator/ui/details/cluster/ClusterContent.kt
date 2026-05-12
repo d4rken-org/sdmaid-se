@@ -6,6 +6,8 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -63,6 +65,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.ui.common.MatchTypeChip
 import eu.darken.sdmse.deduplicator.ui.details.tour.DeduplicatorDetailsTour
 import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumGroup
 import eu.darken.sdmse.deduplicator.ui.preview.previewCluster
@@ -191,6 +194,7 @@ internal fun ClusterContent(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ClusterHeaderRow(
     cluster: Duplicate.Cluster,
@@ -204,7 +208,7 @@ private fun ClusterHeaderRow(
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 4.dp)
             .then(tourModifier),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)
@@ -222,43 +226,35 @@ private fun ClusterHeaderRow(
                 text = "$totalSize ($freeable)",
                 style = MaterialTheme.typography.titleMedium,
             )
-            Spacer(Modifier.height(8.dp))
             val checksumCount = cluster.groups.filterIsInstance<ChecksumDuplicate.Group>().sumOf { it.count }
             val similarCount = cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count } +
                 cluster.groups.filterIsInstance<MediaDuplicate.Group>().sumOf { it.count }
-            if (checksumCount > 0) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = SdmIcons.CodeEqualBox,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp),
-                        tint = MaterialTheme.colorScheme.primary,
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        text = "${stringResource(DeduplicatorR.string.deduplicator_matches_exact_label)}: ${
-                            pluralStringResource(CommonR.plurals.result_x_files, checksumCount, checksumCount)
-                        }",
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                }
-            }
-            if (similarCount > 0) {
-                Spacer(Modifier.height(4.dp))
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = SdmIcons.ApproximatelyEqualBox,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp),
-                        tint = MaterialTheme.colorScheme.secondary,
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        text = "${stringResource(DeduplicatorR.string.deduplicator_matches_similar_label)}: ${
-                            pluralStringResource(CommonR.plurals.result_x_files, similarCount, similarCount)
-                        }",
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
+            if (checksumCount > 0 || similarCount > 0) {
+                Spacer(Modifier.height(8.dp))
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    if (checksumCount > 0) {
+                        MatchTypeChip(
+                            icon = SdmIcons.CodeEqualBox,
+                            label = "${stringResource(DeduplicatorR.string.deduplicator_matches_exact_label)}: ${
+                                pluralStringResource(CommonR.plurals.result_x_files, checksumCount, checksumCount)
+                            }",
+                            containerColor = MaterialTheme.colorScheme.primaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                        )
+                    }
+                    if (similarCount > 0) {
+                        MatchTypeChip(
+                            icon = SdmIcons.ApproximatelyEqualBox,
+                            label = "${stringResource(DeduplicatorR.string.deduplicator_matches_similar_label)}: ${
+                                pluralStringResource(CommonR.plurals.result_x_files, similarCount, similarCount)
+                            }",
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        )
+                    }
                 }
             }
             Spacer(Modifier.height(16.dp))

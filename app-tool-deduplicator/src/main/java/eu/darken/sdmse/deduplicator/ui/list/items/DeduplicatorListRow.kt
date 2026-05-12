@@ -1,7 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,8 +27,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
@@ -43,6 +40,7 @@ import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.ui.common.MatchTypeChip
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 
 @Composable
@@ -214,7 +212,7 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
         if (Duplicate.Type.CHECKSUM in types) {
             MatchTypeChip(
                 icon = SdmIcons.CodeEqualBox,
-                labelRes = DeduplicatorR.string.deduplicator_detection_method_checksum_title,
+                label = stringResource(DeduplicatorR.string.deduplicator_detection_method_checksum_title),
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             )
@@ -222,7 +220,7 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
         if (Duplicate.Type.PHASH in types) {
             MatchTypeChip(
                 icon = SdmIcons.ApproximatelyEqualBox,
-                labelRes = DeduplicatorR.string.deduplicator_detection_method_phash_title,
+                label = stringResource(DeduplicatorR.string.deduplicator_detection_method_phash_title),
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
             )
@@ -230,39 +228,11 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
         if (Duplicate.Type.MEDIA in types) {
             MatchTypeChip(
                 icon = Icons.TwoTone.GraphicEq,
-                labelRes = DeduplicatorR.string.deduplicator_detection_method_media_title,
+                label = stringResource(DeduplicatorR.string.deduplicator_detection_method_media_title),
                 containerColor = MaterialTheme.colorScheme.tertiaryContainer,
                 contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
             )
         }
-    }
-}
-
-@Composable
-private fun MatchTypeChip(
-    icon: ImageVector,
-    labelRes: Int,
-    containerColor: Color,
-    contentColor: Color,
-) {
-    Row(
-        modifier = Modifier
-            .background(containerColor, RoundedCornerShape(8.dp))
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(14.dp),
-            tint = contentColor,
-        )
-        Spacer(Modifier.width(4.dp))
-        Text(
-            text = stringResource(labelRes),
-            style = MaterialTheme.typography.labelSmall,
-            color = contentColor,
-        )
     }
 }
 
