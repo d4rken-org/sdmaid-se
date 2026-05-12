@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -22,7 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
 import eu.darken.sdmse.common.R as CommonR
@@ -103,23 +103,20 @@ internal fun ContentItemRow(
                         style = MaterialTheme.typography.bodyLarge,
                         maxLines = 1,
                     )
-                    Text(
-                        text = secondary,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(
-                        text = stringResource(
-                            when (content.type) {
-                                FileType.DIRECTORY -> CommonR.string.file_type_directory
-                                FileType.FILE -> CommonR.string.file_type_file
-                                FileType.SYMBOLIC_LINK -> CommonR.string.file_type_symbolic_link
-                                FileType.UNKNOWN -> CommonR.string.file_type_unknown
-                            },
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = secondary,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Spacer(Modifier.width(6.dp))
+                        Icon(
+                            imageVector = content.type.icon,
+                            contentDescription = null,
+                            modifier = Modifier.size(14.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
             item.sizeRatio?.let { ratio ->
