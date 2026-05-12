@@ -12,13 +12,16 @@ import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.locale.LocaleManager
+import eu.darken.sdmse.common.theming.ThemeColor
 import eu.darken.sdmse.common.theming.ThemeMode
+import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import eu.darken.sdmse.main.core.themeState
 import eu.darken.sdmse.main.ui.tour.GuidedTourController
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
@@ -42,8 +45,7 @@ class GeneralSettingsViewModel @Inject constructor(
         flow { emit(updateChecker.isCheckSupported()) },
         generalSettings.enableDashboardOneClick.flow,
         generalSettings.shortcutOneClickEnabled.flow,
-        generalSettings.themeMode.flow,
-        generalSettings.themeStyle.flow,
+        generalSettings.themeState,
         generalSettings.usePreviews.flow,
         generalSettings.romTypeDetection.flow,
         generalSettings.isUpdateCheckEnabled.flow,
@@ -54,15 +56,16 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickSystemCleanerEnabled.flow,
         generalSettings.oneClickAppCleanerEnabled.flow,
         generalSettings.oneClickDeduplicatorEnabled.flow,
-    ) { isPro, isUpdateCheckSupported, oneClick, shortcut, themeMode, themeStyle, previews, romType, updateCheck, motd, debug, locales,
+    ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
         oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
             enableDashboardOneClick = oneClick,
             shortcutOneClickEnabled = shortcut,
-            themeMode = themeMode,
-            themeStyle = themeStyle,
+            themeMode = theme.mode,
+            themeStyle = theme.style,
+            themeColor = theme.color,
             usePreviews = previews,
             romTypeDetection = romType,
             isUpdateCheckEnabled = updateCheck,
@@ -94,6 +97,10 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeStyle(style: ThemeStyle) = launch {
         generalSettings.themeStyle.value(style)
+    }
+
+    fun setThemeColor(color: ThemeColor) = launch {
+        generalSettings.themeColor.value(color)
     }
 
     fun togglePreviews(enabled: Boolean) = launch {
@@ -153,6 +160,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val shortcutOneClickEnabled: Boolean = false,
         val themeMode: ThemeMode = ThemeMode.SYSTEM,
         val themeStyle: ThemeStyle = ThemeStyle.DEFAULT,
+        val themeColor: ThemeColor = ThemeColor.GREEN,
         val usePreviews: Boolean = true,
         val romTypeDetection: RomType = RomType.AUTO,
         val isUpdateCheckEnabled: Boolean = false,

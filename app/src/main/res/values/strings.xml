@@ -102,6 +102,11 @@
     <string name="ui_theme_style_mediumcontrast_label">Medium contrast</string>
     <string name="ui_theme_style_highcontrast_label">High contrast</string>
 
+    <string name="ui_theme_color_setting_label">Theme color</string>
+    <string name="ui_theme_color_setting_explanation">The color palette used for theming the app.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Colors are provided by Material You from your wallpaper.</string>
+    <string name="ui_theme_color_value_system">System colors</string>
+
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
 

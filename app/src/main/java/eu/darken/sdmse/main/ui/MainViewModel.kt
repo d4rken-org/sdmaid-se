@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.themeState
 import eu.darken.sdmse.main.ui.navigation.OnboardingWelcomeRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -22,7 +23,6 @@ import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
@@ -50,12 +50,8 @@ class MainViewModel @Inject constructor(
     val keepScreenOn: Flow<Boolean> = taskManager.state
         .map { !it.isIdle || BuildConfigWrap.DEBUG }
 
-    val themeState = combine(
-        generalSettings.themeMode.flow,
-        generalSettings.themeStyle.flow,
-    ) { mode, style ->
-        ThemeState(mode = mode, style = style)
-    }.stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
+    val themeState = generalSettings.themeState
+        .stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
 
     fun checkUpgrades() = launch {
         log(TAG) { "checkUpgrades()" }

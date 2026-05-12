@@ -10,11 +10,15 @@ import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.RomType
+import eu.darken.sdmse.common.theming.ThemeColor
 import eu.darken.sdmse.common.theming.ThemeMode
+import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
 import eu.darken.sdmse.main.core.tour.TourPreferences
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,6 +39,12 @@ class GeneralSettings @Inject constructor(
 
     val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, json)
     val themeStyle = dataStore.createValue("core.ui.theme.style", ThemeStyle.DEFAULT, json)
+    val themeColor = dataStore.createValue(
+        key = "core.ui.theme.color",
+        defaultValue = ThemeColor.GREEN,
+        json = json,
+        fallbackToDefault = true,
+    )
 
     val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
 
@@ -85,3 +95,10 @@ class GeneralSettings @Inject constructor(
         internal val TAG = logTag("Core", "Settings")
     }
 }
+
+val GeneralSettings.themeState: Flow<ThemeState>
+    get() = combine(
+        themeMode.flow,
+        themeStyle.flow,
+        themeColor.flow,
+    ) { mode, style, color -> ThemeState(mode = mode, style = style, color = color) }

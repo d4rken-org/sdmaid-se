@@ -8,6 +8,7 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.Help
 import androidx.compose.material.icons.twotone.AccessibilityNew
 import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.ColorLens
 import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.Image
@@ -42,7 +43,9 @@ import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.locale.toList
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.theming.ThemeColor
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.main.ui.navigation.DashboardCardConfigRoute
@@ -62,6 +65,7 @@ fun GeneralSettingsScreenHost(
         onNavigateUp = vm::navUp,
         onThemeModeChanged = vm::setThemeMode,
         onThemeStyleChanged = vm::setThemeStyle,
+        onThemeColorChanged = vm::setThemeColor,
         onOneClickChanged = vm::toggleOneClick,
         onShortcutOneClickChanged = vm::toggleShortcutOneClick,
         onPreviewsChanged = vm::togglePreviews,
@@ -86,6 +90,7 @@ internal fun GeneralSettingsScreen(
     onNavigateUp: () -> Unit = {},
     onThemeModeChanged: (ThemeMode) -> Unit = {},
     onThemeStyleChanged: (ThemeStyle) -> Unit = {},
+    onThemeColorChanged: (ThemeColor) -> Unit = {},
     onOneClickChanged: (Boolean) -> Unit = {},
     onShortcutOneClickChanged: (Boolean) -> Unit = {},
     onPreviewsChanged: (Boolean) -> Unit = {},
@@ -104,6 +109,7 @@ internal fun GeneralSettingsScreen(
 ) {
     var showThemeModeDialog by remember { mutableStateOf(false) }
     var showThemeStyleDialog by remember { mutableStateOf(false) }
+    var showThemeColorDialog by remember { mutableStateOf(false) }
     var showRomTypeDialog by remember { mutableStateOf(false) }
     var showOneClickTools by remember { mutableStateOf(false) }
 
@@ -126,6 +132,17 @@ internal fun GeneralSettingsScreen(
                 showThemeStyleDialog = false
             },
             onDismiss = { showThemeStyleDialog = false },
+        )
+    }
+
+    if (showThemeColorDialog) {
+        ThemeColorPickerDialog(
+            currentColor = state.themeColor,
+            onColorSelected = { color ->
+                onThemeColorChanged(color)
+                showThemeColorDialog = false
+            },
+            onDismiss = { showThemeColorDialog = false },
         )
     }
 
@@ -236,12 +253,37 @@ internal fun GeneralSettingsScreen(
                     ThemeStyle.HIGH_CONTRAST -> stringResource(R.string.ui_theme_style_highcontrast_label)
                 }
                 SettingsPreferenceItem(
-                    icon = Icons.TwoTone.Palette,
+                    icon = Icons.TwoTone.ColorLens,
                     title = stringResource(R.string.ui_theme_style_setting_label),
                     subtitle = stringResource(R.string.ui_theme_style_setting_explanation),
                     value = themeStyleLabel,
                     onClick = { showThemeStyleDialog = true },
                     requiresUpgrade = !state.isPro,
+                    onUpgrade = onThemeLockedClick,
+                )
+            }
+            item {
+                val context = LocalContext.current
+                val locked = !state.isPro
+                val materialYouActive = state.themeStyle == ThemeStyle.MATERIAL_YOU && hasApiLevel(31)
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.Palette,
+                    title = stringResource(R.string.ui_theme_color_setting_label),
+                    subtitle = if (materialYouActive) {
+                        stringResource(R.string.ui_theme_color_setting_disabled_materialyou)
+                    } else {
+                        stringResource(R.string.ui_theme_color_setting_explanation)
+                    },
+                    value = if (materialYouActive) {
+                        stringResource(R.string.ui_theme_color_value_system)
+                    } else {
+                        state.themeColor.label.get(context)
+                    },
+                    // Stay clickable when locked so the upgrade tap still works,
+                    // even if the row would otherwise be disabled by Material You.
+                    enabled = !materialYouActive || locked,
+                    onClick = { if (!materialYouActive) showThemeColorDialog = true },
+                    requiresUpgrade = locked,
                     onUpgrade = onThemeLockedClick,
                 )
             }

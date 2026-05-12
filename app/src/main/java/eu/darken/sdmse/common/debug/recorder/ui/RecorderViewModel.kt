@@ -21,9 +21,9 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.themeState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -58,12 +58,8 @@ class RecorderViewModel @Inject constructor(
     private val sessionFlow = sessionManager.sessions
         .map { sessions -> sessions.find { it.id == sessionId } }
 
-    val themeState: StateFlow<ThemeState> = combine(
-        generalSettings.themeMode.flow,
-        generalSettings.themeStyle.flow,
-    ) { mode, style ->
-        ThemeState(mode = mode, style = style)
-    }.stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
+    val themeState: StateFlow<ThemeState> = generalSettings.themeState
+        .stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
 
     val state: StateFlow<State> = sessionFlow
         .mapLatest { session ->

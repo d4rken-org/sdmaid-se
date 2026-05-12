@@ -1,24 +1,37 @@
 package eu.darken.sdmse.main.ui.settings.general
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.device.RomType
+import eu.darken.sdmse.common.theming.ThemeColor
+import eu.darken.sdmse.common.theming.ThemeColorProvider
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.R as CommonR
@@ -159,5 +172,72 @@ fun RomTypePickerDialog(
                 Text(stringResource(CommonR.string.general_cancel_action))
             }
         },
+    )
+}
+
+@Composable
+fun ThemeColorPickerDialog(
+    currentColor: ThemeColor,
+    onColorSelected: (ThemeColor) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.ui_theme_color_setting_label)) },
+        text = {
+            androidx.compose.foundation.layout.Column {
+                ThemeColor.entries.forEach { color ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onColorSelected(color) }
+                            .padding(vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        RadioButton(
+                            selected = color == currentColor,
+                            onClick = { onColorSelected(color) },
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        ColorSwatch(color)
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(text = color.label.get(context))
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(CommonR.string.general_cancel_action))
+            }
+        },
+    )
+}
+
+@Composable
+private fun ColorSwatch(color: ThemeColor) {
+    // Reading the swatch from ThemeColorProvider keeps the picker in sync
+    // with the actual palette — no parallel hex map to maintain.
+    val lightPrimary = ThemeColorProvider.getLightColorScheme(color, ThemeStyle.DEFAULT).primary
+    val darkPrimary = ThemeColorProvider.getDarkColorScheme(color, ThemeStyle.DEFAULT).primary
+    val borderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        ColorCircle(color = lightPrimary, borderColor = borderColor)
+        ColorCircle(color = darkPrimary, borderColor = borderColor)
+    }
+}
+
+@Composable
+private fun ColorCircle(color: Color, borderColor: Color) {
+    Box(
+        modifier = Modifier
+            .size(20.dp)
+            .clip(CircleShape)
+            .background(color)
+            .border(width = 1.dp, color = borderColor, shape = CircleShape),
     )
 }
