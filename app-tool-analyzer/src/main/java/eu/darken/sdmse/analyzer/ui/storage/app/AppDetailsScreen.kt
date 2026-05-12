@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Folder
+import androidx.compose.material.icons.twotone.FolderShared
+import androidx.compose.material.icons.twotone.Inventory
+import androidx.compose.material.icons.twotone.PermMedia
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -157,6 +161,7 @@ internal fun AppDetailsScreen(
                                     group = group,
                                     labelRes = R.string.analyzer_storage_content_app_code_label,
                                     descRes = R.string.analyzer_storage_content_app_code_description,
+                                    icon = Icons.TwoTone.Inventory,
                                     onClick = { onGroupClick(group, s.pkgStat) },
                                 )
                             }
@@ -167,6 +172,7 @@ internal fun AppDetailsScreen(
                                     group = group,
                                     labelRes = R.string.analyzer_storage_content_app_data_label,
                                     descRes = R.string.analyzer_storage_content_app_data_description,
+                                    icon = Icons.TwoTone.Folder,
                                     onClick = { onGroupClick(group, s.pkgStat) },
                                 )
                             }
@@ -177,6 +183,7 @@ internal fun AppDetailsScreen(
                                     group = group,
                                     labelRes = R.string.analyzer_storage_content_app_media_label,
                                     descRes = R.string.analyzer_storage_content_app_media_description,
+                                    icon = Icons.TwoTone.PermMedia,
                                     onClick = { onGroupClick(group, s.pkgStat) },
                                 )
                             }
@@ -187,6 +194,7 @@ internal fun AppDetailsScreen(
                                     group = group,
                                     labelRes = R.string.analyzer_storage_content_app_extra_label,
                                     descRes = R.string.analyzer_storage_content_app_extra_description,
+                                    icon = Icons.TwoTone.FolderShared,
                                     onClick = { onGroupClick(group, s.pkgStat) },
                                 )
                             }

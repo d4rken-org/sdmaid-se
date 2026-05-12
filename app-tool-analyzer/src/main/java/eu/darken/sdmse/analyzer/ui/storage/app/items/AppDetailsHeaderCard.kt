@@ -3,9 +3,13 @@ package eu.darken.sdmse.analyzer.ui.storage.app.items
 import android.text.format.Formatter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -49,13 +53,17 @@ internal fun AppDetailsHeaderCard(
                 .padding(16.dp),
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(IntrinsicSize.Min),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(context).data(pkgStat.pkg).build(),
                     contentDescription = null,
-                    modifier = Modifier.size(48.dp),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .aspectRatio(1f),
                 )
                 Spacer(Modifier.size(12.dp))
                 Column(
@@ -71,24 +79,26 @@ internal fun AppDetailsHeaderCard(
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
-                    val sizeText = Formatter.formatShortFileSize(context, pkgStat.totalSize)
-                    val occupiesText = stringResource(
-                        R.string.analyzer_app_details_app_occupies_x_on_y,
-                        sizeText,
-                        storage.label.get(context),
-                    )
-                    val displayText = if (pkgStat.pkg.isArchived) {
-                        "$occupiesText ${stringResource(R.string.analyzer_app_details_app_is_archived)}"
-                    } else {
-                        occupiesText
-                    }
-                    Text(
-                        text = displayText,
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(top = 6.dp),
-                    )
                 }
             }
+            val sizeText = Formatter.formatShortFileSize(context, pkgStat.totalSize)
+            val occupiesText = stringResource(
+                R.string.analyzer_app_details_app_occupies_x_on_y,
+                sizeText,
+                storage.label.get(context),
+            )
+            val displayText = if (pkgStat.pkg.isArchived) {
+                "$occupiesText ${stringResource(R.string.analyzer_app_details_app_is_archived)}"
+            } else {
+                occupiesText
+            }
+            Text(
+                text = displayText,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp),
+            )
             Spacer(Modifier.size(12.dp))
             FilledTonalButton(onClick = onSettingsClick) {
                 Icon(
