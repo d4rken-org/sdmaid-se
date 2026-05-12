@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,8 +16,8 @@ import androidx.compose.material.icons.twotone.SdCard
 import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -116,27 +115,39 @@ internal fun DeviceStorageItemCard(
                 }
             }
 
-            Spacer(Modifier.size(12.dp))
+            Spacer(Modifier.size(16.dp))
 
-            // Capacity bar with percent
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
+            // Large circular capacity indicator with progress info inside
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                contentAlignment = Alignment.Center,
             ) {
                 Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(end = 8.dp),
+                    modifier = Modifier.size(160.dp),
+                    contentAlignment = Alignment.Center,
                 ) {
-                    LinearProgressIndicator(
+                    CircularProgressIndicator(
                         progress = { (percentUsed / 100f).coerceIn(0f, 1f) },
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.matchParentSize(),
+                        strokeWidth = 12.dp,
                     )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Text(
+                            text = "$percentUsed%",
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Text(
+                            text = "$formattedUsed / $formattedTotal",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
-                Text(
-                    text = "$percentUsed%",
-                    style = MaterialTheme.typography.labelMedium,
-                )
             }
 
             // Trend chart (compact) + delta
@@ -166,27 +177,18 @@ internal fun DeviceStorageItemCard(
 
             Spacer(Modifier.size(12.dp))
 
-            // Available + capacity
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                val freeQuantity = ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1
-                Text(
-                    text = pluralStringResource(
-                        R.plurals.analyzer_space_available,
-                        freeQuantity,
-                        formattedFree,
-                    ),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = if (percentUsed > 95) MaterialTheme.colorScheme.error
-                    else MaterialTheme.colorScheme.onSurface,
-                )
-                Text(
-                    text = "$formattedUsed / $formattedTotal",
-                    style = MaterialTheme.typography.labelMedium,
-                )
-            }
+            // Available
+            val freeQuantity = ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1
+            Text(
+                text = pluralStringResource(
+                    R.plurals.analyzer_space_available,
+                    freeQuantity,
+                    formattedFree,
+                ),
+                style = MaterialTheme.typography.labelMedium,
+                color = if (percentUsed > 95) MaterialTheme.colorScheme.error
+                else MaterialTheme.colorScheme.onSurface,
+            )
         }
     }
 }
