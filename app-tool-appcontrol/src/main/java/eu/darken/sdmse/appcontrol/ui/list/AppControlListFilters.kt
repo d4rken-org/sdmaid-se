@@ -96,13 +96,15 @@ internal fun AppControlFilterRow(
                 contentDescription = stringResource(CommonR.string.general_filter_add_action),
             )
         }
-        BadgedBox(
+        IconButton(
+            onClick = onSort,
             modifier = sortModifier,
-            badge = {
-                if (sortNonDefault) Badge()
-            },
         ) {
-            IconButton(onClick = onSort) {
+            BadgedBox(
+                badge = {
+                    if (sortNonDefault) Badge()
+                },
+            ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.TwoTone.Sort,
                     contentDescription = stringResource(CommonR.string.general_sort_by_title),
