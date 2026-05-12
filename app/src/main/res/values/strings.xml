@@ -316,6 +316,9 @@
     <string name="tour_dashboard_settings_title">Settings</string>
     <string name="tour_dashboard_settings_body">Defaults are conservative and safe. Settings let you customize behavior — every device behaves a little differently.</string>
 
+    <string name="tour_setup_intro_title">Permissions</string>
+    <string name="tour_setup_intro_body">Each card below is a permission SD Maid can use. All are optional, but more permissions mean more features and more thorough scans. Without any, most tools will find little to clean.</string>
+
     <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
     <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen.</string>
 </resources>

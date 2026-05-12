@@ -50,12 +50,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
 import eu.darken.sdmse.setup.automation.AutomationSetupCard
 import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupCard
@@ -70,6 +72,7 @@ import eu.darken.sdmse.setup.shizuku.ShizukuSetupCard
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.storage.StorageSetupCard
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
+import eu.darken.sdmse.setup.tour.SetupTour
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCard
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
 import kotlinx.coroutines.launch
@@ -217,6 +220,8 @@ fun SetupScreenHost(
     }
 
     val uiState by vm.uiState.collectAsStateWithLifecycle()
+    val tourController = LocalGuidedTourController.current
+    val setupTourDef = remember { SetupTour.definition() }
 
     LaunchedEffect(uiState, screenOptions) {
         if (uiState is SetupUiState.Complete &&
@@ -225,8 +230,19 @@ fun SetupScreenHost(
         ) {
             hasNavigatedBack = true
             log(TAG) { "Setup is complete, navigating back." }
+            // If a permission flips externally while the tour overlay is up, the screen pops but
+            // `clickProtection = true` opts the session out of route-change auto-complete, leaving
+            // the bubble orphaned on the next screen. Skipping here releases it cleanly.
+            tourController.skipForNow()
             vm.navback()
         }
+    }
+
+    val isCardsState = uiState is SetupUiState.Cards
+    LaunchedEffect(isCardsState) {
+        if (!isCardsState) return@LaunchedEffect
+        if (!tourController.shouldStart(setupTourDef)) return@LaunchedEffect
+        tourController.start(setupTourDef)
     }
 
     SetupScreen(
@@ -286,6 +302,7 @@ internal fun SetupScreen(
     Scaffold(
         topBar = {
             TopAppBar(
+                modifier = Modifier.guidedTourTarget(SetupTour.HEADER_TARGET),
                 title = { Text(stringResource(CommonR.string.setup_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
