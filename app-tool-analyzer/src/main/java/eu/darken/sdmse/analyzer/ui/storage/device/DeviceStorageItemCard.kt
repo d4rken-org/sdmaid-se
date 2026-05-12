@@ -2,7 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,9 +15,9 @@ import androidx.compose.material.icons.twotone.Memory
 import androidx.compose.material.icons.twotone.SdCard
 import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -123,42 +123,8 @@ internal fun DeviceStorageItemCard(
 
             Spacer(Modifier.size(12.dp))
 
-            // Large circular capacity indicator with progress info inside
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                Box(
-                    modifier = Modifier.size(160.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    CircularProgressIndicator(
-                        progress = { (percentUsed / 100f).coerceIn(0f, 1f) },
-                        modifier = Modifier.matchParentSize(),
-                        strokeWidth = 12.dp,
-                    )
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Text(
-                            text = "$percentUsed%",
-                            style = MaterialTheme.typography.headlineLarge,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Text(
-                            text = "$formattedUsed / $formattedTotal",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
-            }
-
             // Trend chart (compact) + delta
             if (row.snapshots.isNotEmpty()) {
-                Spacer(Modifier.size(8.dp))
                 val labelColorArgb = MaterialTheme.colorScheme.onSurface.toArgb()
                 Column(
                     modifier = Modifier
@@ -184,21 +150,38 @@ internal fun DeviceStorageItemCard(
                         TrendDeltaText(snapshots = row.snapshots)
                     }
                 }
+                Spacer(Modifier.size(12.dp))
             }
 
-            Spacer(Modifier.size(12.dp))
-
-            // Available
-            val freeQuantity = ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1
-            Text(
-                text = pluralStringResource(
+            // Available + capacity (with folded percent)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                val freeQuantity = ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1
+                val availableText = pluralStringResource(
                     R.plurals.analyzer_space_available,
                     freeQuantity,
                     formattedFree,
-                ),
-                style = MaterialTheme.typography.labelMedium,
-                color = if (percentUsed > 95) MaterialTheme.colorScheme.error
-                else MaterialTheme.colorScheme.onSurface,
+                )
+                Text(
+                    text = "$availableText · $percentUsed%",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = if (percentUsed > 95) MaterialTheme.colorScheme.error
+                    else MaterialTheme.colorScheme.onSurface,
+                )
+                Text(
+                    text = "$formattedUsed / $formattedTotal",
+                    style = MaterialTheme.typography.labelMedium,
+                )
+            }
+
+            Spacer(Modifier.size(8.dp))
+
+            // Capacity bar
+            LinearProgressIndicator(
+                progress = { (percentUsed / 100f).coerceIn(0f, 1f) },
+                modifier = Modifier.fillMaxWidth(),
             )
         }
     }
