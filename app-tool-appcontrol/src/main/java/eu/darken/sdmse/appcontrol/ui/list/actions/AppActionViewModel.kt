@@ -54,6 +54,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -83,7 +84,10 @@ class AppActionViewModel @Inject constructor(
         installIdFlow.filterNotNull()
             .flatMapLatest { id ->
                 appControl.state
-                    .map { it.data?.apps?.firstOrNull { app -> app.installId == id } to id }
+                    // Wait for data to be loaded before deciding the app is gone — otherwise the
+                    // transient null state during a scan refresh would dismiss the sheet.
+                    .mapNotNull { it.data }
+                    .map { data -> data.apps.firstOrNull { app -> app.installId == id } to id }
             }
             .filter { (app, _) -> app == null }
             .take(1)
