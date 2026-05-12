@@ -1,11 +1,19 @@
 package eu.darken.sdmse.common.compose.icons
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Recycling
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
@@ -24,6 +32,11 @@ val SdmIcons.Bug: ImageVector
         ).apply {
             path(
                 fill = SolidColor(Color.Black),
+                fillAlpha = 0.3f,
+                stroke = SolidColor(Color.Black),
+                strokeLineWidth = 24f,
+                strokeLineCap = StrokeCap.Round,
+                strokeLineJoin = StrokeJoin.Round,
             ) {
                 moveTo(511.988f, 288.9f)
                 curveToRelative(-0.478f, 17.43f, -15.217f, 31.1f, -32.653f, 31.1f)
@@ -78,11 +91,27 @@ val SdmIcons.Bug: ImageVector
 @Composable
 private fun BugPreview() {
     PreviewWrapper {
-        Icon(
-            imageVector = SdmIcons.Bug,
-            contentDescription = null,
-            modifier = Modifier.size(48.dp),
-        )
+        Column {
+            Row {
+                Icon(imageVector = SdmIcons.Bug, contentDescription = null, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = SdmIcons.Bug, contentDescription = null, modifier = Modifier.size(32.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = SdmIcons.Bug, contentDescription = null, modifier = Modifier.size(48.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = SdmIcons.Bug, contentDescription = null, modifier = Modifier.size(96.dp))
+            }
+            Spacer(Modifier.width(16.dp))
+            Row {
+                Icon(imageVector = Icons.TwoTone.Recycling, contentDescription = null, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = Icons.TwoTone.Recycling, contentDescription = null, modifier = Modifier.size(32.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = Icons.TwoTone.Recycling, contentDescription = null, modifier = Modifier.size(48.dp))
+                Spacer(Modifier.width(16.dp))
+                Icon(imageVector = Icons.TwoTone.Recycling, contentDescription = null, modifier = Modifier.size(96.dp))
+            }
+        }
     }
 }
 
