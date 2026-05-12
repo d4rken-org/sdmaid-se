@@ -82,7 +82,7 @@ internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            DashboardFilledTonalActionButton(onClick = item.onDismiss) {
+            DashboardFlatActionButton(onClick = item.onDismiss) {
                 Text(text = stringResource(CommonR.string.general_dismiss_action))
             }
             Spacer(modifier = Modifier.width(8.dp))
