@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.material.icons.twotone.DeleteSweep
 import androidx.compose.material.icons.twotone.ExpandLess
 import androidx.compose.material.icons.twotone.ExpandMore
@@ -295,25 +296,31 @@ private fun AppJunkInaccessibleRow(
             .padding(horizontal = 16.dp, vertical = 4.dp)
             .clickable(onClick = onClick),
     ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.TwoTone.FormatListBulleted,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.width(16.dp))
                 Text(
                     text = stringResource(R.string.appcleaner_item_caches_inaccessible_title),
                     style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.weight(1f),
                 )
+                Spacer(Modifier.width(8.dp))
                 Text(
-                    text = stringResource(R.string.appcleaner_item_caches_inaccessible_body),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    text = Formatter.formatShortFileSize(context, cache.totalSize),
+                    style = MaterialTheme.typography.labelMedium,
                 )
             }
-            Spacer(Modifier.width(8.dp))
+            Spacer(Modifier.height(4.dp))
             Text(
-                text = Formatter.formatShortFileSize(context, cache.totalSize),
-                style = MaterialTheme.typography.labelMedium,
+                text = stringResource(R.string.appcleaner_item_caches_inaccessible_body),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }
