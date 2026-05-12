@@ -136,22 +136,33 @@ private fun FilterContentHeaderCard(
             }
 
             Spacer(Modifier.height(8.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        filterContent.items.size,
-                        filterContent.items.size,
-                    ),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.weight(1f),
-                )
-                Text(
-                    text = Formatter.formatFileSize(context, filterContent.size),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+            Row(verticalAlignment = Alignment.Top) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(CommonR.string.general_count_label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Text(
+                        text = pluralStringResource(
+                            CommonR.plurals.result_x_items,
+                            filterContent.items.size,
+                            filterContent.items.size,
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
+                Column(horizontalAlignment = Alignment.End) {
+                    Text(
+                        text = stringResource(CommonR.string.general_size_label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Text(
+                        text = Formatter.formatFileSize(context, filterContent.size),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
             }
 
             Spacer(Modifier.height(16.dp))
