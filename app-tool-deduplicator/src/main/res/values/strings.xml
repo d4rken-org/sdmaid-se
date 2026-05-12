@@ -78,4 +78,8 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
     <string name="deduplicator_view_mode_groups_label">Groups</string>
     <string name="deduplicator_view_mode_directories_label">Folders</string>
+    <string name="tour_deduplicator_details_cluster_title">Cluster of duplicates</string>
+    <string name="tour_deduplicator_details_cluster_body">These files all appear to be the same item or media content.</string>
+    <string name="tour_deduplicator_details_delete_mark_title">Marked for deletion</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Files with this icon will be deleted; the remaining file in the group is the one SD Maid keeps. You can change how the keeper is chosen in the deletion strategy settings.</string>
 </resources>

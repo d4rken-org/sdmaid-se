@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
@@ -47,6 +48,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
@@ -54,6 +56,8 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsViewModel.DeleteTarget
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterContent
+import eu.darken.sdmse.deduplicator.ui.details.cluster.buildClusterElements
+import eu.darken.sdmse.deduplicator.ui.details.tour.DeduplicatorDetailsTour
 import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionDialog
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -262,6 +266,58 @@ internal fun DeduplicatorDetailsScreen(
         if (allowDeleteAll) total else (total - 1).coerceAtLeast(0)
     }
 
+    val tourController = LocalGuidedTourController.current
+    // Pin tour targets at start: cluster contents can re-sort after a delete and we don't want
+    // the bubble to jump to a different row mid-tour.
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    var tourClusterId by remember { mutableStateOf<Duplicate.Cluster.Id?>(null) }
+    var tourDeleteMarkRowId by remember { mutableStateOf<Duplicate.Id?>(null) }
+    // Dedicated LazyListState for the toured cluster's LazyColumn so prepareDeleteMark can
+    // scroll the delete-marker row into view even if it's below the fold.
+    val tourListState = rememberLazyListState()
+    val tourDef = remember(items, tourClusterId, tourDeleteMarkRowId) {
+        DeduplicatorDetailsTour.definition(
+            prepareDeleteMark = {
+                val cluster = items.firstOrNull { it.identifier == tourClusterId } ?: return@definition
+                val markId = tourDeleteMarkRowId ?: return@definition
+                val elements = buildClusterElements(
+                    cluster = cluster,
+                    isDirectoryView = false,
+                    collapsed = emptySet(),
+                )
+                val idx = elements.indexOfFirst { el ->
+                    el is eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterElement.DuplicateRow &&
+                        el.duplicate.identifier == markId
+                }
+                if (idx >= 0) tourListState.animateScrollToItem(idx)
+            },
+        )
+    }
+    val tourEligible = items.isNotEmpty() && current?.isDirectoryView == false
+    LaunchedEffect(tourEligible) {
+        if (!tourEligible || tourStartAttempted) return@LaunchedEffect
+        // Anchor on the route target if one was supplied (deep link into a specific cluster);
+        // otherwise fall back to the first cluster. Avoids depending on pagerState.currentPage,
+        // which may not have settled when this effect runs.
+        val anchorClusterId = current?.target ?: items.firstOrNull()?.identifier
+        ?: return@LaunchedEffect
+        val cluster = items.firstOrNull { it.identifier == anchorClusterId } ?: return@LaunchedEffect
+        // Find a group that has a real keeper-vs-non-keeper split, so the row-level marker copy
+        // is accurate. Skip groups without a keeper (no marker shown) or with only one duplicate.
+        val groupWithMark = cluster.groups
+            .sortedByDescending { it.totalSize }
+            .firstOrNull { it.keeperIdentifier != null && it.duplicates.size >= 2 }
+            ?: return@LaunchedEffect
+        val keeperId = groupWithMark.keeperIdentifier ?: return@LaunchedEffect
+        val deleteRow = groupWithMark.duplicates.firstOrNull { it.identifier != keeperId }
+            ?: return@LaunchedEffect
+        tourStartAttempted = true
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourClusterId = cluster.identifier
+        tourDeleteMarkRowId = deleteRow.identifier
+        tourController.start(tourDef)
+    }
+
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
@@ -365,6 +421,7 @@ internal fun DeduplicatorDetailsScreen(
                         ) { page ->
                             val cluster = items.getOrNull(page) ?: return@HorizontalPager
                             val collapsedForCluster = current?.collapsedDirs?.get(cluster.identifier) ?: emptySet()
+                            val isTourCluster = cluster.identifier == tourClusterId
                             ClusterContent(
                                 cluster = cluster,
                                 isDirectoryView = current?.isDirectoryView == true,
@@ -392,6 +449,9 @@ internal fun DeduplicatorDetailsScreen(
                                 onDuplicateDelete = { id -> onDuplicateDelete(cluster.identifier, id) },
                                 onDuplicatePreview = onDuplicatePreview,
                                 onDirectoryDeleteAll = { dirGroup -> onDirectoryDeleteAll(cluster.identifier, dirGroup) },
+                                listState = if (isTourCluster) tourListState else rememberLazyListState(),
+                                applyClusterHeaderTourTarget = isTourCluster,
+                                tourDeleteMarkTarget = if (isTourCluster) tourDeleteMarkRowId else null,
                             )
                         }
                     }

@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.material.icons.Icons
@@ -54,12 +56,14 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.ui.details.tour.DeduplicatorDetailsTour
 import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumGroup
 import eu.darken.sdmse.deduplicator.ui.preview.previewCluster
 import eu.darken.sdmse.deduplicator.ui.preview.previewMediaGroup
@@ -83,6 +87,9 @@ internal fun ClusterContent(
     onDuplicatePreview: (Duplicate) -> Unit,
     onDirectoryDeleteAll: (DirectoryGroup) -> Unit,
     modifier: Modifier = Modifier,
+    listState: LazyListState = rememberLazyListState(),
+    applyClusterHeaderTourTarget: Boolean = false,
+    tourDeleteMarkTarget: Duplicate.Id? = null,
 ) {
     val elements = remember(cluster, isDirectoryView, collapsed) {
         buildClusterElements(cluster = cluster, isDirectoryView = isDirectoryView, collapsed = collapsed)
@@ -90,6 +97,7 @@ internal fun ClusterContent(
 
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
+        state = listState,
         contentPadding = PaddingValues(vertical = 8.dp),
     ) {
         items(elements, key = { it.key }) { element ->
@@ -98,6 +106,11 @@ internal fun ClusterContent(
                     cluster = element.cluster,
                     onDelete = onClusterDelete,
                     onExclude = onClusterExclude,
+                    tourModifier = if (applyClusterHeaderTourTarget) {
+                        Modifier.guidedTourTarget(DeduplicatorDetailsTour.CLUSTER_HEADER_TARGET)
+                    } else {
+                        Modifier
+                    },
                 )
 
                 is ClusterElement.DirectoryHeader -> DirectoryHeaderRow(
@@ -124,6 +137,11 @@ internal fun ClusterContent(
                         else onDuplicateDelete(element.duplicate.identifier)
                     },
                     onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
+                    deleteMarkModifier = if (element.duplicate.identifier == tourDeleteMarkTarget) {
+                        Modifier.guidedTourTarget(DeduplicatorDetailsTour.ROW_DELETE_MARK_TARGET)
+                    } else {
+                        Modifier
+                    },
                 )
 
                 is ClusterElement.PHashDuplicateRow -> ImageFileRow(
@@ -139,6 +157,11 @@ internal fun ClusterContent(
                     },
                     onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
                     onPreviewClick = { onDuplicatePreview(element.duplicate) },
+                    deleteMarkModifier = if (element.duplicate.identifier == tourDeleteMarkTarget) {
+                        Modifier.guidedTourTarget(DeduplicatorDetailsTour.ROW_DELETE_MARK_TARGET)
+                    } else {
+                        Modifier
+                    },
                 )
 
                 is ClusterElement.MediaDuplicateRow -> {
@@ -156,6 +179,11 @@ internal fun ClusterContent(
                         },
                         onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
                         onPreviewClick = { onDuplicatePreview(element.duplicate) },
+                        deleteMarkModifier = if (element.duplicate.identifier == tourDeleteMarkTarget) {
+                            Modifier.guidedTourTarget(DeduplicatorDetailsTour.ROW_DELETE_MARK_TARGET)
+                        } else {
+                            Modifier
+                        },
                     )
                 }
             }
@@ -168,12 +196,14 @@ private fun ClusterHeaderRow(
     cluster: Duplicate.Cluster,
     onDelete: () -> Unit,
     onExclude: () -> Unit,
+    tourModifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 4.dp),
+            .padding(horizontal = 8.dp, vertical = 4.dp)
+            .then(tourModifier),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -443,6 +473,7 @@ private fun ChecksumFileRow(
     selectionActive: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
+    deleteMarkModifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     val containerColor = if (selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
@@ -474,7 +505,7 @@ private fun ChecksumFileRow(
                     imageVector = Icons.TwoTone.DeleteSweep,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.size(20.dp),
+                    modifier = deleteMarkModifier.size(20.dp),
                 )
             }
         }
@@ -492,6 +523,7 @@ private fun ImageFileRow(
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     onPreviewClick: () -> Unit,
+    deleteMarkModifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     val containerColor = if (selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
@@ -548,7 +580,7 @@ private fun ImageFileRow(
                 imageVector = Icons.TwoTone.DeleteSweep,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.error,
-                modifier = Modifier.size(20.dp),
+                modifier = deleteMarkModifier.size(20.dp),
             )
         }
     }
