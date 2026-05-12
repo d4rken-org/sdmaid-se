@@ -25,6 +25,7 @@ import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -59,6 +60,7 @@ class CorpseDetailsViewModel @Inject constructor(
     init {
         corpseFinder.state
             .map { it.data }
+            .drop(1)
             .filter { !it.hasData }
             .take(1)
             .onEach { navUp() }
