@@ -105,10 +105,10 @@ fun AppCleanerListScreenHost(
     )
 
     pendingDeletion?.let { pending ->
-        val message = if (pending.isSingle) {
-            val id = pending.ids.first()
-            val row = vm.state.value.rows?.firstOrNull { it.identifier == id }
-            val name = row?.junk?.label?.get(context) ?: id.pkgId.name
+        val singleId = pending.ids.singleOrNull()
+        val message = if (singleId != null) {
+            val row = vm.state.value.rows?.firstOrNull { it.identifier == singleId }
+            val name = row?.junk?.label?.get(context) ?: singleId.pkgId.name
             stringResource(R.string.appcleaner_delete_confirmation_message_x, name)
         } else {
             pluralStringResource(
@@ -124,7 +124,7 @@ fun AppCleanerListScreenHost(
             onDismissRequest = { pendingDeletion = null },
             positive = SdmDialogAction(
                 label = stringResource(
-                    if (pending.isSingle) CommonR.string.general_delete_action
+                    if (singleId != null) CommonR.string.general_delete_action
                     else CommonR.string.general_delete_selected_action,
                 ),
                 onClick = {
@@ -137,18 +137,14 @@ fun AppCleanerListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { pendingDeletion = null },
             ),
-            neutral = if (pending.isSingle) {
-                SdmDialogAction(
-                    label = stringResource(CommonR.string.general_show_details_action),
-                    onClick = {
-                        val ids = pending.ids
-                        pendingDeletion = null
-                        vm.onShowDetailsFromDialog(ids)
-                    },
-                )
-            } else {
-                null
-            },
+            neutral = SdmDialogAction(
+                label = stringResource(CommonR.string.general_show_details_action),
+                onClick = {
+                    val ids = pending.ids
+                    pendingDeletion = null
+                    vm.onShowDetailsFromDialog(ids)
+                },
+            ),
         )
     }
 }

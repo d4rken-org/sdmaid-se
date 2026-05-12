@@ -64,7 +64,7 @@ class AppCleanerListViewModel @Inject constructor(
 
     fun onRowClick(row: Row) {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
-        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier), isSingle = true))
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
     }
 
     fun onDetailsClick(row: Row) {
@@ -75,7 +75,7 @@ class AppCleanerListViewModel @Inject constructor(
     fun onDeleteSelected(ids: Set<InstallId>) {
         log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
         if (ids.isEmpty()) return
-        events.tryEmit(Event.ConfirmDeletion(ids, isSingle = ids.size == 1))
+        events.tryEmit(Event.ConfirmDeletion(ids))
     }
 
     fun onDeleteConfirmed(ids: Set<InstallId>) = launch {
@@ -104,8 +104,8 @@ class AppCleanerListViewModel @Inject constructor(
     }
 
     fun onShowDetailsFromDialog(ids: Set<InstallId>) {
-        val only = ids.singleOrNull() ?: return
-        navTo(AppJunkDetailsRoute(identifier = only))
+        val target = ids.firstOrNull() ?: return
+        navTo(AppJunkDetailsRoute(identifier = target))
     }
 
     fun onShowExclusions() {
@@ -122,10 +122,7 @@ class AppCleanerListViewModel @Inject constructor(
     }
 
     sealed interface Event {
-        data class ConfirmDeletion(
-            val ids: Set<InstallId>,
-            val isSingle: Boolean,
-        ) : Event
+        data class ConfirmDeletion(val ids: Set<InstallId>) : Event
 
         data class TaskResult(val result: AppCleanerTask.Result) : Event
 

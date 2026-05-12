@@ -59,7 +59,7 @@ class SystemCleanerListViewModel @Inject constructor(
 
     fun onRowClick(row: Row) {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
-        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier), isSingle = true))
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
     }
 
     fun onDetailsClick(row: Row) {
@@ -70,7 +70,7 @@ class SystemCleanerListViewModel @Inject constructor(
     fun onDeleteSelected(ids: Set<FilterIdentifier>) {
         log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
         if (ids.isEmpty()) return
-        events.tryEmit(Event.ConfirmDeletion(ids, isSingle = ids.size == 1))
+        events.tryEmit(Event.ConfirmDeletion(ids))
     }
 
     fun onDeleteConfirmed(ids: Set<FilterIdentifier>) = launch {
@@ -88,8 +88,8 @@ class SystemCleanerListViewModel @Inject constructor(
     }
 
     fun onShowDetailsFromDialog(ids: Set<FilterIdentifier>) {
-        val only = ids.singleOrNull() ?: return
-        navTo(FilterContentDetailsRoute(filterIdentifier = only))
+        val target = ids.firstOrNull() ?: return
+        navTo(FilterContentDetailsRoute(filterIdentifier = target))
     }
 
     fun onExcludeSelected(ids: Set<FilterIdentifier>) = launch {
@@ -122,10 +122,7 @@ class SystemCleanerListViewModel @Inject constructor(
     }
 
     sealed interface Event {
-        data class ConfirmDeletion(
-            val ids: Set<FilterIdentifier>,
-            val isSingle: Boolean,
-        ) : Event
+        data class ConfirmDeletion(val ids: Set<FilterIdentifier>) : Event
 
         data class TaskResult(val result: SystemCleanerProcessingTask.Result) : Event
 

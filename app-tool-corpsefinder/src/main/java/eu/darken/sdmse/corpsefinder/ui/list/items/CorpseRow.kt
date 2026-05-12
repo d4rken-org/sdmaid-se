@@ -4,7 +4,6 @@ import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,8 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.FolderInfo
-import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -76,8 +72,19 @@ fun CorpseRow(
     ) {
         Icon(
             imageVector = corpse.filterType.icon,
-            contentDescription = null,
-            modifier = Modifier.size(24.dp),
+            contentDescription = stringResource(CommonR.string.general_details_label),
+            modifier = Modifier
+                .size(24.dp)
+                .then(
+                    if (selectionActive) {
+                        Modifier
+                    } else {
+                        Modifier.combinedClickable(
+                            onClick = onDetailsClick,
+                            onLongClick = onLongClick,
+                        )
+                    }
+                ),
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.width(16.dp))
@@ -136,17 +143,6 @@ fun CorpseRow(
                         else -> MaterialTheme.colorScheme.tertiary
                     },
                     modifier = Modifier.padding(top = 4.dp),
-                )
-            }
-        }
-        Box(modifier = Modifier.size(48.dp), contentAlignment = Alignment.Center) {
-            IconButton(
-                onClick = onDetailsClick,
-                enabled = !selectionActive,
-            ) {
-                Icon(
-                    imageVector = SdmIcons.FolderInfo,
-                    contentDescription = stringResource(CommonR.string.general_details_label),
                 )
             }
         }

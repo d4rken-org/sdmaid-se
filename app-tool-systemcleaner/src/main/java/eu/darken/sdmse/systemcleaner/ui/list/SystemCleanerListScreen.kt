@@ -104,10 +104,10 @@ fun SystemCleanerListScreenHost(
     )
 
     pendingDeletion?.let { pending ->
-        val message = if (pending.isSingle) {
-            val id = pending.ids.first()
-            val row = vm.state.value.rows?.firstOrNull { it.identifier == id }
-            val name = row?.content?.label?.get(context) ?: id
+        val singleId = pending.ids.singleOrNull()
+        val message = if (singleId != null) {
+            val row = vm.state.value.rows?.firstOrNull { it.identifier == singleId }
+            val name = row?.content?.label?.get(context) ?: singleId
             stringResource(CommonR.string.general_delete_confirmation_message_x, name)
         } else {
             pluralStringResource(
@@ -133,18 +133,14 @@ fun SystemCleanerListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { pendingDeletion = null },
             ),
-            neutral = if (pending.isSingle) {
-                SdmDialogAction(
-                    label = stringResource(CommonR.string.general_show_details_action),
-                    onClick = {
-                        val ids = pending.ids
-                        pendingDeletion = null
-                        vm.onShowDetailsFromDialog(ids)
-                    },
-                )
-            } else {
-                null
-            },
+            neutral = SdmDialogAction(
+                label = stringResource(CommonR.string.general_show_details_action),
+                onClick = {
+                    val ids = pending.ids
+                    pendingDeletion = null
+                    vm.onShowDetailsFromDialog(ids)
+                },
+            ),
         )
     }
 }

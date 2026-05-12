@@ -102,10 +102,10 @@ fun CorpseFinderListScreenHost(
     )
 
     confirmDeletion?.let { pending ->
-        val message = if (pending.isSingle) {
-            val id = pending.ids.first()
-            val row = vm.state.value.rows?.firstOrNull { it.identifier == id }
-            val name = row?.corpse?.lookup?.userReadableName?.get(context) ?: id.toString()
+        val singleId = pending.ids.singleOrNull()
+        val message = if (singleId != null) {
+            val row = vm.state.value.rows?.firstOrNull { it.identifier == singleId }
+            val name = row?.corpse?.lookup?.userReadableName?.get(context) ?: singleId.toString()
             stringResource(CommonR.string.general_delete_confirmation_message_x, name)
         } else {
             pluralStringResource(
@@ -131,18 +131,14 @@ fun CorpseFinderListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { confirmDeletion = null },
             ),
-            neutral = if (pending.isSingle) {
-                SdmDialogAction(
-                    label = stringResource(CommonR.string.general_show_details_action),
-                    onClick = {
-                        val ids = pending.ids
-                        confirmDeletion = null
-                        vm.onShowDetailsFromDialog(ids)
-                    },
-                )
-            } else {
-                null
-            },
+            neutral = SdmDialogAction(
+                label = stringResource(CommonR.string.general_show_details_action),
+                onClick = {
+                    val ids = pending.ids
+                    confirmDeletion = null
+                    vm.onShowDetailsFromDialog(ids)
+                },
+            ),
         )
     }
 }

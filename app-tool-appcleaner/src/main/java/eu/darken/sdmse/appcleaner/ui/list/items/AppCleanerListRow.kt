@@ -4,7 +4,6 @@ import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,8 +29,6 @@ import coil.request.ImageRequest
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.compose.icons.FolderInfo
-import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -73,11 +69,11 @@ fun AppCleanerListRow(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context).data(junk.pkg).build(),
-            contentDescription = null,
+            contentDescription = stringResource(CommonR.string.general_details_label),
             modifier = Modifier
                 .size(40.dp)
                 .combinedClickable(
-                    onClick = onClick,
+                    onClick = if (selectionActive) onClick else onDetailsClick,
                     onLongClick = {
                         runCatching { context.startActivity(junk.pkg.getSettingsIntent(context)) }
                             .onFailure { log(TAG, WARN) { "Settings intent failed for ${junk.pkg}: $it" } }
@@ -121,17 +117,6 @@ fun AppCleanerListRow(
                         tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-            }
-        }
-        Box(modifier = Modifier.size(48.dp), contentAlignment = Alignment.Center) {
-            IconButton(
-                onClick = onDetailsClick,
-                enabled = !selectionActive,
-            ) {
-                Icon(
-                    imageVector = SdmIcons.FolderInfo,
-                    contentDescription = stringResource(CommonR.string.general_details_label),
-                )
             }
         }
     }

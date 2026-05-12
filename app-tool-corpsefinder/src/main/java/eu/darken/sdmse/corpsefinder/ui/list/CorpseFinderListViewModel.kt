@@ -58,7 +58,7 @@ class CorpseFinderListViewModel @Inject constructor(
 
     fun onRowClick(row: Row) {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
-        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier), isSingle = true))
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
     }
 
     fun onDetailsClick(row: Row) {
@@ -69,7 +69,7 @@ class CorpseFinderListViewModel @Inject constructor(
     fun onDeleteSelected(ids: Set<CorpseIdentifier>) {
         log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
         if (ids.isEmpty()) return
-        events.tryEmit(Event.ConfirmDeletion(ids, isSingle = ids.size == 1))
+        events.tryEmit(Event.ConfirmDeletion(ids))
     }
 
     fun onDeleteConfirmed(ids: Set<CorpseIdentifier>) = launch {
@@ -97,8 +97,8 @@ class CorpseFinderListViewModel @Inject constructor(
     }
 
     fun onShowDetailsFromDialog(ids: Set<CorpseIdentifier>) {
-        val only = ids.singleOrNull() ?: return
-        navTo(CorpseDetailsRoute(corpsePath = only))
+        val target = ids.firstOrNull() ?: return
+        navTo(CorpseDetailsRoute(corpsePath = target))
     }
 
     data class State(
@@ -111,10 +111,7 @@ class CorpseFinderListViewModel @Inject constructor(
     }
 
     sealed interface Event {
-        data class ConfirmDeletion(
-            val ids: Set<CorpseIdentifier>,
-            val isSingle: Boolean,
-        ) : Event
+        data class ConfirmDeletion(val ids: Set<CorpseIdentifier>) : Event
 
         data class ExclusionsCreated(val count: Int) : Event
         data class TaskResult(val result: CorpseFinderDeleteTask.Result) : Event
