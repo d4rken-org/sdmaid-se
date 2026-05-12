@@ -62,6 +62,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 
 @Composable
@@ -203,8 +204,11 @@ internal fun AppJunkDetailsScreen(
     val pagerState = rememberPagerState(pageCount = { items.size })
     var selection by remember { mutableStateOf<Set<APath>>(emptySet()) }
 
+    // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
+    // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.
     LaunchedEffect(pagerState, items) {
         snapshotFlow { pagerState.currentPage }
+            .drop(1)
             .distinctUntilChanged()
             .collect { page ->
                 selection = emptySet()
