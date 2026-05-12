@@ -1,18 +1,15 @@
 package eu.darken.sdmse.systemcleaner.ui.details
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
@@ -21,7 +18,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -39,6 +35,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
@@ -325,30 +323,28 @@ internal fun FilterContentDetailsScreen(
             )
         }
 
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = message,
             onDismissRequest = { pendingDelete = null },
-            title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-            text = { Text(message) },
-            confirmButton = {
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    TextButton(onClick = { pendingDelete = null }) {
-                        Text(stringResource(CommonR.string.general_cancel_action))
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
+                    val filterId = pending.filterId
+                    val paths = pending.paths
+                    pendingDelete = null
+                    selection = emptySet()
+                    if (paths == null) {
+                        onDeleteFilter(filterId)
+                    } else {
+                        onDeleteFiles(filterId, paths)
                     }
-                    TextButton(onClick = {
-                        val filterId = pending.filterId
-                        val paths = pending.paths
-                        pendingDelete = null
-                        selection = emptySet()
-                        if (paths == null) {
-                            onDeleteFilter(filterId)
-                        } else {
-                            onDeleteFiles(filterId, paths)
-                        }
-                    }) {
-                        Text(stringResource(CommonR.string.general_delete_action))
-                    }
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDelete = null },
+            ),
         )
     }
 }

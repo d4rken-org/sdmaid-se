@@ -19,7 +19,6 @@ import androidx.compose.material.icons.twotone.Filter
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.SwipeRight
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -28,7 +27,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -50,6 +48,8 @@ import eu.darken.sdmse.analyzer.core.storage.SystemStorageScanner
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -172,15 +172,14 @@ fun ContentScreenHost(
     )
 
     if (showOtherDialog) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.analyzer_storage_content_type_system_other_label),
+            message = stringResource(R.string.analyzer_storage_content_type_system_other_desc),
             onDismissRequest = { showOtherDialog = false },
-            title = { Text(stringResource(R.string.analyzer_storage_content_type_system_other_label)) },
-            text = { Text(stringResource(R.string.analyzer_storage_content_type_system_other_desc)) },
-            confirmButton = {
-                TextButton(onClick = { showOtherDialog = false }) {
-                    Text(stringResource(CommonR.string.general_dismiss_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_dismiss_action),
+                onClick = { showOtherDialog = false },
+            ),
         )
     }
 }
@@ -401,32 +400,26 @@ internal fun ContentScreen(
     }
 
     pendingDelete?.let { items ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = pluralStringResource(
+                CommonR.plurals.general_delete_confirmation_message_selected_x_items,
+                items.size,
+                items.size,
+            ),
             onDismissRequest = { pendingDelete = null },
-            title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-            text = {
-                Text(
-                    pluralStringResource(
-                        CommonR.plurals.general_delete_confirmation_message_selected_x_items,
-                        items.size,
-                        items.size,
-                    ),
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     onDeleteSelected(items)
                     pendingDelete = null
                     selection = emptySet()
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDelete = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDelete = null },
+            ),
         )
     }
 }

@@ -25,7 +25,6 @@ import androidx.compose.material.icons.twotone.DeleteForever
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Restore
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -36,7 +35,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -55,6 +53,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
@@ -261,36 +261,31 @@ internal fun SwiperStatusScreen(
         // a later finalize attempt, defeating the gate.
         var understandChecked by remember { mutableStateOf(false) }
 
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.swiper_delete_confirmation_title),
             onDismissRequest = { confirmDelete = false },
-            title = { Text(stringResource(R.string.swiper_delete_confirmation_title)) },
-            text = {
-                DeleteConfirmationBody(
-                    deleteMsg = deleteMsg,
-                    undecidedNotice = undecidedNotice,
-                    hasSensitiveRoot = state.hasSensitiveRoot,
-                    deletionPreview = state.deletionPreview,
-                    understandChecked = understandChecked,
-                    onUnderstandToggle = { understandChecked = it },
-                )
-            },
-            confirmButton = {
-                TextButton(
-                    enabled = !state.hasSensitiveRoot || understandChecked,
-                    onClick = {
-                        confirmDelete = false
-                        onFinalize()
-                    },
-                ) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { confirmDelete = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
-        )
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                enabled = !state.hasSensitiveRoot || understandChecked,
+                onClick = {
+                    confirmDelete = false
+                    onFinalize()
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { confirmDelete = false },
+            ),
+        ) {
+            DeleteConfirmationBody(
+                deleteMsg = deleteMsg,
+                undecidedNotice = undecidedNotice,
+                hasSensitiveRoot = state.hasSensitiveRoot,
+                deletionPreview = state.deletionPreview,
+                understandChecked = understandChecked,
+                onUnderstandToggle = { understandChecked = it },
+            )
+        }
     }
 }
 

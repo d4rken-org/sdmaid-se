@@ -17,7 +17,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -28,7 +27,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -48,6 +46,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -136,25 +136,21 @@ fun SetupScreenHost(
     var showSafMissingAppDialog by remember { mutableStateOf(false) }
 
     if (showSafMissingAppDialog) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_error_label),
+            message = stringResource(R.string.setup_saf_missing_app_error),
             onDismissRequest = { showSafMissingAppDialog = false },
-            title = { Text(stringResource(CommonR.string.general_error_label)) },
-            text = { Text(stringResource(R.string.setup_saf_missing_app_error)) },
-            confirmButton = {
-                TextButton(onClick = { showSafMissingAppDialog = false }) {
-                    Text(stringResource(android.R.string.ok))
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        vm.openSafMissingAppHelpUrl()
-                        showSafMissingAppDialog = false
-                    },
-                ) {
-                    Text(stringResource(CommonR.string.general_help_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(android.R.string.ok),
+                onClick = { showSafMissingAppDialog = false },
+            ),
+            neutral = SdmDialogAction(
+                label = stringResource(CommonR.string.general_help_action),
+                onClick = {
+                    vm.openSafMissingAppHelpUrl()
+                    showSafMissingAppDialog = false
+                },
+            ),
         )
     }
 

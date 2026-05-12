@@ -16,7 +16,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Folder
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.Refresh
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -24,7 +23,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -41,6 +39,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.label
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.R as CommonR
@@ -71,24 +71,20 @@ internal fun DataAreasScreen(
     var showInfo by remember { mutableStateOf(false) }
 
     if (showInfo) {
-        AlertDialog(
+        SdmConfirmDialog(
+            message = stringResource(R.string.data_areas_description),
             onDismissRequest = { showInfo = false },
-            text = { Text(stringResource(R.string.data_areas_description)) },
-            confirmButton = {
-                TextButton(onClick = { showInfo = false }) {
-                    Text(stringResource(android.R.string.ok))
-                }
-            },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        onOpenDocumentation()
-                        showInfo = false
-                    },
-                ) {
-                    Text(stringResource(CommonR.string.general_more_info_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(android.R.string.ok),
+                onClick = { showInfo = false },
+            ),
+            neutral = SdmDialogAction(
+                label = stringResource(CommonR.string.general_more_info_action),
+                onClick = {
+                    onOpenDocumentation()
+                    showInfo = false
+                },
+            ),
         )
     }
 

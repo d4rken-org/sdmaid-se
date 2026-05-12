@@ -16,12 +16,10 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Warning
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +33,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 
@@ -51,106 +51,102 @@ fun PreviewDeletionDialog(
     val previews = mode.previews
     val singlePreview = previews.singleOrNull()
 
-    AlertDialog(
+    SdmConfirmDialog(
+        title = stringResource(CommonR.string.general_delete_confirmation_title),
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-        text = {
-            Column(modifier = Modifier.fillMaxWidth()) {
-                if (singlePreview != null) {
-                    FilePreviewImage(
-                        lookup = singlePreview,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .heightIn(max = 192.dp)
-                            .clip(RoundedCornerShape(12.dp))
-                            .clickable {
-                                onPreviewClick(PreviewOptions(paths = listOf(singlePreview.lookedUp)))
-                            },
-                    )
-                } else if (previews.isNotEmpty()) {
-                    val allPaths = previews.map { it.lookedUp }
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(5),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .heightIn(max = 192.dp)
-                            .wrapContentHeight(),
-                        contentPadding = PaddingValues(2.dp),
-                        verticalArrangement = Arrangement.spacedBy(2.dp),
-                        horizontalArrangement = Arrangement.spacedBy(2.dp),
-                    ) {
-                        items(previews, key = { it.path.toString() }) { lookup ->
-                            FilePreviewImage(
-                                lookup = lookup,
-                                modifier = Modifier
-                                    .size(56.dp)
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .clickable {
-                                        onPreviewClick(
-                                            PreviewOptions(
-                                                paths = allPaths,
-                                                position = previews.indexOf(lookup),
-                                            )
-                                        )
-                                    },
-                            )
-                        }
-                    }
-                }
-
-                if (mode.allowDeleteAll) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Icon(
-                            imageVector = Icons.TwoTone.Warning,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Text(
-                            text = stringResource(DeduplicatorR.string.deduplicator_delete_all_toggle_msg),
-                            style = MaterialTheme.typography.bodyMedium,
+        positive = SdmDialogAction(
+            label = stringResource(CommonR.string.general_delete_action),
+            onClick = { onConfirm(deleteAllChecked) },
+        ),
+        negative = SdmDialogAction(
+            label = stringResource(CommonR.string.general_cancel_action),
+            onClick = onDismiss,
+        ),
+        neutral = onShowDetails?.let {
+            SdmDialogAction(
+                label = stringResource(CommonR.string.general_show_details_action),
+                onClick = it,
+            )
+        },
+    ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            if (singlePreview != null) {
+                FilePreviewImage(
+                    lookup = singlePreview,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(max = 192.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable {
+                            onPreviewClick(PreviewOptions(paths = listOf(singlePreview.lookedUp)))
+                        },
+                )
+            } else if (previews.isNotEmpty()) {
+                val allPaths = previews.map { it.lookedUp }
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(5),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(max = 192.dp)
+                        .wrapContentHeight(),
+                    contentPadding = PaddingValues(2.dp),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    items(previews, key = { it.path.toString() }) { lookup ->
+                        FilePreviewImage(
+                            lookup = lookup,
                             modifier = Modifier
-                                .padding(start = 12.dp)
-                                .weight(1f),
-                        )
-                        Switch(
-                            checked = deleteAllChecked,
-                            onCheckedChange = { deleteAllChecked = it },
+                                .size(56.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                                .clickable {
+                                    onPreviewClick(
+                                        PreviewOptions(
+                                            paths = allPaths,
+                                            position = previews.indexOf(lookup),
+                                        )
+                                    )
+                                },
                         )
                     }
                 }
+            }
 
-                Text(
-                    text = formatMessage(mode = mode, deleteAll = deleteAllChecked, context = context),
-                    style = MaterialTheme.typography.bodyMedium,
+            if (mode.allowDeleteAll) {
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 12.dp),
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(deleteAllChecked) }) {
-                Text(stringResource(CommonR.string.general_delete_action))
-            }
-        },
-        dismissButton = {
-            Row {
-                if (onShowDetails != null) {
-                    TextButton(onClick = onShowDetails) {
-                        Text(stringResource(CommonR.string.general_show_details_action))
-                    }
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Warning,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Text(
+                        text = stringResource(DeduplicatorR.string.deduplicator_delete_all_toggle_msg),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier
+                            .padding(start = 12.dp)
+                            .weight(1f),
+                    )
+                    Switch(
+                        checked = deleteAllChecked,
+                        onCheckedChange = { deleteAllChecked = it },
+                    )
                 }
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
             }
-        },
-    )
+
+            Text(
+                text = formatMessage(mode = mode, deleteAll = deleteAllChecked, context = context),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp),
+            )
+        }
+    }
 }
 
 private fun formatMessage(

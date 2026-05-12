@@ -3,7 +3,6 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,13 +25,11 @@ import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.SaveAlt
 import androidx.compose.material.icons.twotone.Shop
 import androidx.compose.material.icons.twotone.Unarchive
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -60,6 +57,8 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoUsageRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.ShieldEdit
@@ -131,40 +130,53 @@ fun AppActionSheetHost(
     )
 
     pendingConfirm?.let { ev ->
+        val cancelAction = SdmDialogAction(
+            label = stringResource(CommonR.string.general_cancel_action),
+            onClick = { pendingConfirm = null },
+        )
         when (ev) {
-            is AppActionViewModel.Event.ConfirmUninstall -> ConfirmDialog(
+            is AppActionViewModel.Event.ConfirmUninstall -> SdmConfirmDialog(
                 title = stringResource(CommonR.string.general_delete_confirmation_title),
                 message = vm.state.value.appInfo
                     ?.let { stringResource(CommonR.string.general_delete_confirmation_message_x, it.label.get(context)) }
                     ?: "",
-                confirmLabel = stringResource(CommonR.string.general_delete_action),
-                onCancel = { pendingConfirm = null },
-                onConfirm = {
-                    pendingConfirm = null
-                    vm.onUninstallConfirmed()
-                },
+                onDismissRequest = { pendingConfirm = null },
+                positive = SdmDialogAction(
+                    label = stringResource(CommonR.string.general_delete_action),
+                    onClick = {
+                        pendingConfirm = null
+                        vm.onUninstallConfirmed()
+                    },
+                ),
+                negative = cancelAction,
             )
 
-            is AppActionViewModel.Event.ConfirmArchive -> ConfirmDialog(
+            is AppActionViewModel.Event.ConfirmArchive -> SdmConfirmDialog(
                 title = stringResource(R.string.appcontrol_archive_confirmation_title),
                 message = stringResource(R.string.appcontrol_archive_description),
-                confirmLabel = stringResource(R.string.appcontrol_archive_action),
-                onCancel = { pendingConfirm = null },
-                onConfirm = {
-                    pendingConfirm = null
-                    vm.onArchiveConfirmed()
-                },
+                onDismissRequest = { pendingConfirm = null },
+                positive = SdmDialogAction(
+                    label = stringResource(R.string.appcontrol_archive_action),
+                    onClick = {
+                        pendingConfirm = null
+                        vm.onArchiveConfirmed()
+                    },
+                ),
+                negative = cancelAction,
             )
 
-            is AppActionViewModel.Event.ConfirmRestore -> ConfirmDialog(
+            is AppActionViewModel.Event.ConfirmRestore -> SdmConfirmDialog(
                 title = stringResource(R.string.appcontrol_restore_confirmation_title),
                 message = stringResource(R.string.appcontrol_restore_description),
-                confirmLabel = stringResource(R.string.appcontrol_restore_action),
-                onCancel = { pendingConfirm = null },
-                onConfirm = {
-                    pendingConfirm = null
-                    vm.onRestoreConfirmed()
-                },
+                onDismissRequest = { pendingConfirm = null },
+                positive = SdmDialogAction(
+                    label = stringResource(R.string.appcontrol_restore_action),
+                    onClick = {
+                        pendingConfirm = null
+                        vm.onRestoreConfirmed()
+                    },
+                ),
+                negative = cancelAction,
             )
 
             else -> Unit
@@ -392,27 +404,3 @@ private fun itemKey(item: AppActionItem): String = when (item) {
     is AppActionItem.Action.Export -> "export"
 }
 
-@Composable
-private fun ConfirmDialog(
-    title: String,
-    message: String,
-    confirmLabel: String,
-    onCancel: () -> Unit,
-    onConfirm: () -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onCancel,
-        title = { Text(title) },
-        text = { Text(message) },
-        confirmButton = {
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                TextButton(onClick = onCancel) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-                TextButton(onClick = onConfirm) {
-                    Text(confirmLabel)
-                }
-            }
-        },
-    )
-}

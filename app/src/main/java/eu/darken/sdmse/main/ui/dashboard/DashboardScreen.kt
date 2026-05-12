@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,7 +23,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +35,6 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -70,6 +67,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.R as AppCleanerR
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.SdmMascot
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -770,14 +769,13 @@ private fun DashboardEventDialogs(
             onShowDetails = { onShowDeduplicator(); onDismiss() },
         )
 
-        DashboardDialogState.Todo -> AlertDialog(
+        DashboardDialogState.Todo -> SdmConfirmDialog(
+            message = stringResource(CommonR.string.general_todo_msg),
             onDismissRequest = onDismiss,
-            text = { Text(stringResource(CommonR.string.general_todo_msg)) },
-            confirmButton = {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(android.R.string.ok))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(android.R.string.ok),
+                onClick = onDismiss,
+            ),
         )
 
         DashboardDialogState.ShortRecordingWarning -> ShortRecordingDialog(
@@ -786,23 +784,21 @@ private fun DashboardEventDialogs(
             onDismiss = onDismiss,
         )
 
-        is DashboardDialogState.MainActionDelete -> AlertDialog(
+        is DashboardDialogState.MainActionDelete -> SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = stringResource(R.string.dashboard_delete_all_message),
             onDismissRequest = onDismiss,
-            title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-            text = { Text(stringResource(R.string.dashboard_delete_all_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     onConfirmMainAction(state.action)
                     onDismiss()
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = onDismiss,
+            ),
         )
 
         is DashboardDialogState.UnknownFolders -> {
@@ -812,15 +808,14 @@ private fun DashboardEventDialogs(
             } else {
                 "Found ${state.unknownPaths.size} unknown folder(s):\n\n${state.unknownPaths.joinToString("\n")}"
             }
-            AlertDialog(
+            SdmConfirmDialog(
+                title = "Unknown Folders",
+                message = "$header\n\n$body",
                 onDismissRequest = onDismiss,
-                title = { Text("Unknown Folders") },
-                text = { Text("$header\n\n$body") },
-                confirmButton = {
-                    TextButton(onClick = onDismiss) {
-                        Text(stringResource(android.R.string.ok))
-                    }
-                },
+                positive = SdmDialogAction(
+                    label = stringResource(android.R.string.ok),
+                    onClick = onDismiss,
+                ),
             )
         }
     }
@@ -833,27 +828,21 @@ private fun DeleteConfirmDialog(
     onDetails: () -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    SdmConfirmDialog(
+        title = stringResource(CommonR.string.general_delete_confirmation_title),
+        message = stringResource(messageRes),
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-        text = { Text(stringResource(messageRes)) },
-        confirmButton = {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                TextButton(onClick = onDetails) {
-                    Text(stringResource(CommonR.string.general_show_details_action))
-                }
-                Row {
-                    TextButton(onClick = onDismiss) {
-                        Text(stringResource(CommonR.string.general_cancel_action))
-                    }
-                    TextButton(onClick = onConfirm) {
-                        Text(stringResource(CommonR.string.general_delete_action))
-                    }
-                }
-            }
-        },
+        positive = SdmDialogAction(
+            label = stringResource(CommonR.string.general_delete_action),
+            onClick = onConfirm,
+        ),
+        negative = SdmDialogAction(
+            label = stringResource(CommonR.string.general_cancel_action),
+            onClick = onDismiss,
+        ),
+        neutral = SdmDialogAction(
+            label = stringResource(CommonR.string.general_show_details_action),
+            onClick = onDetails,
+        ),
     )
 }

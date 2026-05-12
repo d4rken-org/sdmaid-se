@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Delete
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,6 +32,8 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
@@ -151,45 +152,39 @@ internal fun DebugLogSessionsSheetContent(
     }
 
     pendingDeleteId?.let { id ->
-        AlertDialog(
+        SdmConfirmDialog(
+            message = stringResource(R.string.debug_debuglog_sessions_delete_confirmation_message),
             onDismissRequest = { pendingDeleteId = null },
-            text = {
-                Text(stringResource(R.string.debug_debuglog_sessions_delete_confirmation_message))
-            },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     onDeleteSession(id)
                     pendingDeleteId = null
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDeleteId = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDeleteId = null },
+            ),
         )
     }
 
     if (showClearAllConfirm) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.support_debuglog_folder_delete_confirmation_title),
+            message = stringResource(R.string.support_debuglog_folder_delete_confirmation_message),
             onDismissRequest = { showClearAllConfirm = false },
-            title = { Text(stringResource(R.string.support_debuglog_folder_delete_confirmation_title)) },
-            text = { Text(stringResource(R.string.support_debuglog_folder_delete_confirmation_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     onClearAll()
                     showClearAllConfirm = false
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showClearAllConfirm = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { showClearAllConfirm = false },
+            ),
         )
     }
 }

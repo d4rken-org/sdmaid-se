@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Email
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -18,7 +17,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -37,6 +35,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.SdmSeLinks
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
@@ -129,45 +129,39 @@ fun SupportContactFormScreenHost(
     }
 
     if (showPostSendPrompt) {
-        AlertDialog(
+        SdmConfirmDialog(
+            message = stringResource(R.string.support_contact_post_send_message),
             onDismissRequest = { showPostSendPrompt = false },
-            text = { Text(stringResource(R.string.support_contact_post_send_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_done_action),
+                onClick = {
                     showPostSendPrompt = false
                     vm.navUp()
-                }) {
-                    Text(stringResource(CommonR.string.general_done_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showPostSendPrompt = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { showPostSendPrompt = false },
+            ),
         )
     }
 
     pendingDeleteSessionId?.let { id ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = stringResource(CommonR.string.general_delete_confirmation_message_x, id.toString()),
             onDismissRequest = { pendingDeleteSessionId = null },
-            title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
-            text = {
-                Text(stringResource(CommonR.string.general_delete_confirmation_message_x, id.toString()))
-            },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     vm.deleteLogSession(id)
                     pendingDeleteSessionId = null
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDeleteSessionId = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDeleteSessionId = null },
+            ),
         )
     }
 

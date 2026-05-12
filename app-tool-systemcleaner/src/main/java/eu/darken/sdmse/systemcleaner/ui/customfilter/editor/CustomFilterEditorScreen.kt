@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Save
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -21,7 +20,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
@@ -41,6 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -99,45 +99,35 @@ fun CustomFilterEditorScreenHost(
     )
 
     pendingDialog?.let { active ->
+        val cancelAction = SdmDialogAction(
+            label = stringResource(CommonR.string.general_cancel_action),
+            onClick = { pendingDialog = null },
+        )
         when (active) {
-            EditorPendingDialog.Remove -> AlertDialog(
+            EditorPendingDialog.Remove -> SdmConfirmDialog(
+                message = stringResource(SystemCleanerR.string.systemcleaner_editor_remove_confirmation_message),
                 onDismissRequest = { pendingDialog = null },
-                text = {
-                    Text(stringResource(SystemCleanerR.string.systemcleaner_editor_remove_confirmation_message))
-                },
-                confirmButton = {
-                    TextButton(onClick = {
+                positive = SdmDialogAction(
+                    label = stringResource(CommonR.string.general_remove_action),
+                    onClick = {
                         pendingDialog = null
                         vm.remove(confirmed = true)
-                    }) {
-                        Text(stringResource(CommonR.string.general_remove_action))
-                    }
-                },
-                dismissButton = {
-                    TextButton(onClick = { pendingDialog = null }) {
-                        Text(stringResource(CommonR.string.general_cancel_action))
-                    }
-                },
+                    },
+                ),
+                negative = cancelAction,
             )
 
-            EditorPendingDialog.UnsavedChanges -> AlertDialog(
+            EditorPendingDialog.UnsavedChanges -> SdmConfirmDialog(
+                message = stringResource(CommonR.string.general_unsaved_confirmation_message),
                 onDismissRequest = { pendingDialog = null },
-                text = {
-                    Text(stringResource(CommonR.string.general_unsaved_confirmation_message))
-                },
-                confirmButton = {
-                    TextButton(onClick = {
+                positive = SdmDialogAction(
+                    label = stringResource(CommonR.string.general_discard_action),
+                    onClick = {
                         pendingDialog = null
                         vm.cancel(confirmed = true)
-                    }) {
-                        Text(stringResource(CommonR.string.general_discard_action))
-                    }
-                },
-                dismissButton = {
-                    TextButton(onClick = { pendingDialog = null }) {
-                        Text(stringResource(CommonR.string.general_cancel_action))
-                    }
-                },
+                    },
+                ),
+                negative = cancelAction,
             )
         }
     }
