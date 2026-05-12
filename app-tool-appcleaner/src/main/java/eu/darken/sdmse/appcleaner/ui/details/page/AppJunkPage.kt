@@ -61,7 +61,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.localized
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 
 private val TAG = logTag("AppCleaner", "Details", "Page")
@@ -436,14 +435,12 @@ private fun AppJunkFileRow(
                 overflow = TextOverflow.Ellipsis,
             )
         }
-        if (match.lookup.fileType == FileType.FILE) {
-            Spacer(Modifier.width(8.dp))
-            Text(
-                text = Formatter.formatShortFileSize(context, match.expectedGain),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = Formatter.formatShortFileSize(context, match.expectedGain),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

@@ -41,7 +41,6 @@ import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
@@ -205,11 +204,7 @@ private fun FilterContentFileRow(
     val match = element.match
     val background = if (selected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
 
-    val sizeText = if (match.lookup.fileType == FileType.FILE) {
-        Formatter.formatShortFileSize(context, match.expectedGain)
-    } else {
-        null
-    }
+    val sizeText = Formatter.formatShortFileSize(context, match.expectedGain)
     val dateText = if (element.showDate) {
         val formatter = remember { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
         match.lookup.modifiedAt.toSystemTimezone().format(formatter)

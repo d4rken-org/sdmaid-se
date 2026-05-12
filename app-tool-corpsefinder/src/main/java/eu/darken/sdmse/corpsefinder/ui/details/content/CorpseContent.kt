@@ -257,13 +257,11 @@ private fun CorpseFileRow(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            if (lookup.fileType == eu.darken.sdmse.common.files.FileType.FILE) {
-                Text(
-                    text = sizeText,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+            Text(
+                text = sizeText,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
