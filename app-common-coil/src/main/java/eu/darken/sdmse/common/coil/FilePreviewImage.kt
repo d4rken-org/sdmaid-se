@@ -1,8 +1,12 @@
 package eu.darken.sdmse.common.coil
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -22,9 +26,10 @@ import eu.darken.sdmse.common.R as CommonR
  * identically when decoding fails or the file has no preview.
  *
  * Items that can never have a real preview (directories, symlinks, unknown types, zero-size files)
- * are rendered as a Compose [Icon] with [fallbackTint] applied. This bypasses Coil's drawable
- * pipeline, where the vector's `android:tint="?attr/colorControlNormal"` does not resolve
- * reliably and can leave icons white on a light surface.
+ * are rendered as a Compose [Icon] with [fallbackTint] applied on a [fallbackBackground] tonal
+ * surface. This bypasses Coil's drawable pipeline (where the vector's
+ * `android:tint="?attr/colorControlNormal"` does not resolve reliably and can leave icons white
+ * on a light surface) and gives the placeholder enough contrast against light card containers.
  */
 @Composable
 fun FilePreviewImage(
@@ -34,6 +39,7 @@ fun FilePreviewImage(
     contentScale: ContentScale = ContentScale.Crop,
     colorFilter: ColorFilter? = null,
     fallbackTint: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    fallbackBackground: Color = MaterialTheme.colorScheme.surfaceVariant,
 ) {
     val fallbackRes = when (lookup.fileType) {
         FileType.DIRECTORY -> CommonR.drawable.ic_folder
@@ -44,12 +50,17 @@ fun FilePreviewImage(
 
     val canHavePreview = lookup.fileType == FileType.FILE && lookup.size > 0L
     if (!canHavePreview) {
-        Icon(
-            painter = painterResource(fallbackRes),
-            contentDescription = contentDescription,
-            modifier = modifier,
-            tint = fallbackTint,
-        )
+        Box(
+            modifier = modifier.background(fallbackBackground),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                painter = painterResource(fallbackRes),
+                contentDescription = contentDescription,
+                modifier = Modifier.fillMaxSize(0.5f),
+                tint = fallbackTint,
+            )
+        }
         return
     }
 
