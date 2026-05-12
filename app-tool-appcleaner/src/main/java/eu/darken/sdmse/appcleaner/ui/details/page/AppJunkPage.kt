@@ -44,6 +44,7 @@ import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.ui.descriptionRes
 import eu.darken.sdmse.appcleaner.ui.icon
@@ -146,6 +147,13 @@ private fun AppJunkPageHeaderCard(
     onExcludeJunk: () -> Unit,
 ) {
     val context = LocalContext.current
+    val showItemCount = remember(junk.expendables) {
+        junk.expendables
+            ?.filterValues { it.isNotEmpty() }
+            ?.keys
+            ?.any { it != DefaultCachesPublicFilter::class }
+            ?: false
+    }
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -170,48 +178,77 @@ private fun AppJunkPageHeaderCard(
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
-                if (junk.isSystemApp) {
-                    Icon(
-                        painter = painterResource(CommonR.drawable.ic_apps),
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                Spacer(Modifier.width(8.dp))
+                Column(horizontalAlignment = Alignment.End) {
+                    Text(
+                        text = stringResource(CommonR.string.general_size_label),
+                        style = MaterialTheme.typography.labelMedium,
+                    )
+                    Text(
+                        text = Formatter.formatFileSize(context, junk.size),
+                        style = MaterialTheme.typography.bodyMedium,
                     )
                 }
             }
 
-            junk.userProfile?.let { profile ->
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = profile.getHumanLabel().get(context),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+            if (junk.userProfile != null || junk.isSystemApp) {
+                Spacer(Modifier.height(8.dp))
+                Row(verticalAlignment = Alignment.Top) {
+                    junk.userProfile?.let { profile ->
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = profile.getHumanLabel().get(context),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                    if (junk.isSystemApp) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = stringResource(CommonR.string.general_type_label),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    text = stringResource(CommonR.string.general_tag_system),
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                                Spacer(Modifier.width(4.dp))
+                                Icon(
+                                    painter = painterResource(CommonR.drawable.ic_apps),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                )
+                            }
+                        }
+                    }
+                }
             }
 
             junk.acsError?.let { error ->
                 Spacer(Modifier.height(8.dp))
                 Text(
+                    text = stringResource(CommonR.string.general_error_label),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.error,
+                )
+                Text(
                     text = error.localized(context).description.get(context),
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.error,
                 )
             }
 
-            Spacer(Modifier.height(8.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            if (showItemCount) {
+                Spacer(Modifier.height(8.dp))
                 Text(
                     text = pluralStringResource(
                         CommonR.plurals.result_x_items,
                         junk.itemCount,
                         junk.itemCount,
                     ),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.weight(1f),
-                )
-                Text(
-                    text = Formatter.formatFileSize(context, junk.size),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -308,60 +345,62 @@ private fun AppJunkCategoryCard(
     onCollapseToggle: () -> Unit,
 ) {
     val context = LocalContext.current
+    val itemCountText = pluralStringResource(
+        CommonR.plurals.result_x_items,
+        matchCount,
+        matchCount,
+    )
+    val subtitle = "${Formatter.formatShortFileSize(context, totalSize)} ($itemCountText)"
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp)
             .clickable(onClick = onClick),
     ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Icon(
-                imageVector = category.icon,
-                contentDescription = null,
-                modifier = Modifier.size(32.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.width(16.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(category.labelRes),
-                    style = MaterialTheme.typography.titleSmall,
+        Column(modifier = Modifier.padding(vertical = 8.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Spacer(Modifier.width(16.dp))
+                Icon(
+                    imageVector = category.icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Text(
-                    text = stringResource(category.descriptionRes),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Row(
-                    modifier = Modifier.padding(top = 4.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
+                Spacer(Modifier.width(16.dp))
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = pluralStringResource(
-                            CommonR.plurals.result_x_items,
-                            matchCount,
-                            matchCount,
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        text = stringResource(category.labelRes),
+                        style = MaterialTheme.typography.bodyMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                     Text(
-                        text = Formatter.formatShortFileSize(context, totalSize),
+                        text = subtitle,
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+                IconButton(onClick = onCollapseToggle) {
+                    Icon(
+                        imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurface,
                     )
                 }
             }
-            IconButton(onClick = onCollapseToggle) {
-                Icon(
-                    imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                )
-            }
+            Text(
+                text = stringResource(category.descriptionRes),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 4.dp),
+            )
         }
     }
 }
