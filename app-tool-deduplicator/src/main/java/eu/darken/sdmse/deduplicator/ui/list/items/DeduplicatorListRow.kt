@@ -1,10 +1,13 @@
 package eu.darken.sdmse.deduplicator.ui.list.items
 
 import android.text.format.Formatter
+import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,9 +28,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
@@ -35,6 +41,7 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 
@@ -98,18 +105,18 @@ internal fun DeduplicatorLinearRow(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(Modifier.height(4.dp))
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = pluralStringResource(
-                            CommonR.plurals.result_x_items,
-                            cluster.count,
-                            cluster.count,
-                        ),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    MatchTypeChips(types = cluster.types)
+                Text(
+                    text = pluralStringResource(
+                        CommonR.plurals.result_x_items,
+                        cluster.count,
+                        cluster.count,
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                if (cluster.types.isNotEmpty()) {
+                    Spacer(Modifier.height(6.dp))
+                    MatchTypeChipRow(types = cluster.types)
                 }
             }
         }
@@ -180,53 +187,82 @@ internal fun DeduplicatorGridRow(
                 overflow = TextOverflow.Ellipsis,
             )
             Spacer(Modifier.height(4.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        cluster.count,
-                        cluster.count,
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.width(8.dp))
-                MatchTypeChips(types = cluster.types)
+            Text(
+                text = pluralStringResource(
+                    CommonR.plurals.result_x_items,
+                    cluster.count,
+                    cluster.count,
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (cluster.types.isNotEmpty()) {
+                Spacer(Modifier.height(6.dp))
+                MatchTypeChipRow(types = cluster.types)
             }
         }
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun MatchTypeChips(types: Set<Duplicate.Type>) {
-    Row(
+private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
+    FlowRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         if (Duplicate.Type.CHECKSUM in types) {
-            Icon(
-                imageVector = SdmIcons.CodeEqualBox,
-                contentDescription = null,
-                modifier = Modifier.size(14.dp),
-                tint = MaterialTheme.colorScheme.primary,
+            MatchTypeChip(
+                icon = SdmIcons.CodeEqualBox,
+                labelRes = DeduplicatorR.string.deduplicator_detection_method_checksum_title,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             )
         }
         if (Duplicate.Type.PHASH in types) {
-            Icon(
-                imageVector = SdmIcons.ApproximatelyEqualBox,
-                contentDescription = null,
-                modifier = Modifier.size(14.dp),
-                tint = MaterialTheme.colorScheme.secondary,
+            MatchTypeChip(
+                icon = SdmIcons.ApproximatelyEqualBox,
+                labelRes = DeduplicatorR.string.deduplicator_detection_method_phash_title,
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
             )
         }
         if (Duplicate.Type.MEDIA in types) {
-            Icon(
-                imageVector = Icons.TwoTone.GraphicEq,
-                contentDescription = null,
-                modifier = Modifier.size(14.dp),
-                tint = MaterialTheme.colorScheme.tertiary,
+            MatchTypeChip(
+                icon = Icons.TwoTone.GraphicEq,
+                labelRes = DeduplicatorR.string.deduplicator_detection_method_media_title,
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
             )
         }
+    }
+}
+
+@Composable
+private fun MatchTypeChip(
+    icon: ImageVector,
+    labelRes: Int,
+    containerColor: Color,
+    contentColor: Color,
+) {
+    Row(
+        modifier = Modifier
+            .background(containerColor, RoundedCornerShape(8.dp))
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(14.dp),
+            tint = contentColor,
+        )
+        Spacer(Modifier.width(4.dp))
+        Text(
+            text = stringResource(labelRes),
+            style = MaterialTheme.typography.labelSmall,
+            color = contentColor,
+        )
     }
 }
 
