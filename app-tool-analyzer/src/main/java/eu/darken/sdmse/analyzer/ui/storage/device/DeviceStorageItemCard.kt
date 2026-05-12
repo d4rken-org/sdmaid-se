@@ -64,10 +64,10 @@ internal fun DeviceStorageItemCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            // Header: hardware icon + label/identifier/description
+            // Header: hardware icon + label/identifier (icon centered between titles)
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.Top,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon(
                     imageVector = when (storage.hardware) {
@@ -76,9 +76,7 @@ internal fun DeviceStorageItemCard(
                         DeviceStorage.Hardware.USB -> Icons.TwoTone.Usb
                     },
                     contentDescription = null,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .padding(top = 2.dp),
+                    modifier = Modifier.size(24.dp),
                 )
                 Spacer(Modifier.size(12.dp))
                 Column(modifier = Modifier.weight(1f)) {
@@ -93,31 +91,37 @@ internal fun DeviceStorageItemCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
-                    Text(
-                        text = stringResource(
-                            when (storage.type) {
-                                DeviceStorage.Type.PRIMARY -> R.string.analyzer_storage_type_primary_description
-                                DeviceStorage.Type.SECONDARY -> R.string.analyzer_storage_type_secondary_description
-                                DeviceStorage.Type.PORTABLE -> R.string.analyzer_storage_type_tertiary_description
-                            },
-                        ),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(top = 4.dp),
-                    )
-                    if (storage.setupIncomplete) {
-                        Text(
-                            text = stringResource(R.string.analyzer_storage_content_type_app_setup_incomplete_hint),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.error,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(top = 4.dp),
-                        )
-                    }
                 }
             }
 
-            Spacer(Modifier.size(16.dp))
+            // Description spans the full card width, not just the title column
+            Text(
+                text = stringResource(
+                    when (storage.type) {
+                        DeviceStorage.Type.PRIMARY -> R.string.analyzer_storage_type_primary_description
+                        DeviceStorage.Type.SECONDARY -> R.string.analyzer_storage_type_secondary_description
+                        DeviceStorage.Type.PORTABLE -> R.string.analyzer_storage_type_tertiary_description
+                    },
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 4.dp),
+            )
+            if (storage.setupIncomplete) {
+                Text(
+                    text = stringResource(R.string.analyzer_storage_content_type_app_setup_incomplete_hint),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.error,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp),
+                )
+            }
+
+            Spacer(Modifier.size(12.dp))
 
             // Large circular capacity indicator with progress info inside
             Box(

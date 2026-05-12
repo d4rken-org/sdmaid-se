@@ -35,6 +35,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -233,16 +234,19 @@ private fun SpaceHistoryChart(
     snapshots: List<eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity>,
     reports: List<eu.darken.sdmse.stats.core.db.ReportEntity>,
 ) {
+    val labelColorArgb = MaterialTheme.colorScheme.onSurface.toArgb()
     AndroidView(
         modifier = modifier,
         factory = { context ->
             SpaceHistoryChartView(context).apply {
+                setLabelColor(labelColorArgb)
                 setOnMarkerTapListener { report, screenX, screenY ->
                     SpaceHistoryMarkerTooltip.show(this, report, screenX, screenY)
                 }
             }
         },
         update = { chart ->
+            chart.setLabelColor(labelColorArgb)
             // Data-identity guard: only push when the underlying list reference changes so
             // selectedMarkerIndex isn't reset on unrelated recompositions.
             val tag = chart.tag as? ChartDataTag
