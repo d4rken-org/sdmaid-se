@@ -17,19 +17,24 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.DeleteSweep
 import androidx.compose.material.icons.twotone.ExpandLess
 import androidx.compose.material.icons.twotone.ExpandMore
 import androidx.compose.material.icons.twotone.Folder
+import androidx.compose.material.icons.twotone.GraphicEq
+import androidx.compose.material.icons.twotone.Visibility
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -102,25 +107,11 @@ internal fun ClusterContent(
                     onDeleteAll = { onDirectoryDeleteAll(element.group) },
                 )
 
-                is ClusterElement.ChecksumGroupHeader -> ChecksumGroupHeaderRow(
+                is ClusterElement.GroupHeader -> GroupHeaderCard(
                     group = element.group,
                     willBeDeleted = element.willBeDeleted,
                     onDelete = { onGroupDelete(element.group.identifier) },
                     onView = { onGroupView(element.group, 0) },
-                )
-
-                is ClusterElement.PHashGroupHeader -> ImageGroupHeaderRow(
-                    group = element.group,
-                    willBeDeleted = element.willBeDeleted,
-                    onDelete = { onGroupDelete(element.group.identifier) },
-                    onView = { position -> onGroupView(element.group, position) },
-                )
-
-                is ClusterElement.MediaGroupHeader -> ImageGroupHeaderRow(
-                    group = element.group,
-                    willBeDeleted = element.willBeDeleted,
-                    onDelete = { onGroupDelete(element.group.identifier) },
-                    onView = { position -> onGroupView(element.group, position) },
                 )
 
                 is ClusterElement.ChecksumDuplicateRow -> ChecksumFileRow(
@@ -240,17 +231,27 @@ private fun ClusterHeaderRow(
                     )
                 }
             }
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(16.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                TextButton(onClick = onDelete) {
-                    Icon(Icons.TwoTone.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-                TextButton(onClick = onExclude) {
-                    Icon(SdmIcons.ShieldAdd, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(6.dp))
+                FilledTonalButton(
+                    onClick = onExclude,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
                     Text(stringResource(CommonR.string.general_exclude_action))
+                }
+                Button(
+                    onClick = onDelete,
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error,
+                        contentColor = MaterialTheme.colorScheme.onError,
+                    ),
+                ) {
+                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(CommonR.string.general_delete_action))
                 }
             }
         }
@@ -310,118 +311,125 @@ private fun DirectoryHeaderRow(
 }
 
 @Composable
-private fun ChecksumGroupHeaderRow(
-    group: ChecksumDuplicate.Group,
+private fun GroupHeaderCard(
+    group: Duplicate.Group,
     willBeDeleted: Boolean,
     onDelete: () -> Unit,
     onView: () -> Unit,
 ) {
     val context = LocalContext.current
+    val (methodIcon, methodLabelRes) = when (group.type) {
+        Duplicate.Type.CHECKSUM ->
+            SdmIcons.CodeEqualBox to DeduplicatorR.string.deduplicator_detection_method_checksum_title
+
+        Duplicate.Type.PHASH ->
+            SdmIcons.ApproximatelyEqualBox to DeduplicatorR.string.deduplicator_detection_method_phash_title
+
+        Duplicate.Type.MEDIA ->
+            Icons.TwoTone.GraphicEq to DeduplicatorR.string.deduplicator_detection_method_media_title
+    }
+    val overlayColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f)
+    val overlayContent = MaterialTheme.colorScheme.onSurfaceVariant
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 2.dp)
+            .padding(horizontal = 8.dp, vertical = 4.dp)
             .combinedClickableSafe(onClick = onView),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
     ) {
-        Row(
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically,
+                .aspectRatio(1f),
         ) {
             FilePreviewImage(
-                lookup = group.preview,
+                lookup = group.previewFile,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .size(64.dp)
-                    .clip(RoundedCornerShape(8.dp)),
+                modifier = Modifier.matchParentSize(),
             )
-            Spacer(Modifier.width(12.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = pluralStringResource(CommonR.plurals.result_x_files, group.count, group.count),
-                    style = MaterialTheme.typography.titleSmall,
-                )
-                Text(
-                    text = "${stringResource(DeduplicatorR.string.deduplicator_average_size_label)}: ${
-                        Formatter.formatFileSize(context, group.averageSize.roundToLong())
-                    }",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            if (willBeDeleted) {
-                Icon(
-                    imageVector = Icons.TwoTone.DeleteSweep,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.size(20.dp),
-                )
-                Spacer(Modifier.width(4.dp))
-            }
-            IconButton(onClick = onDelete) {
-                Icon(Icons.TwoTone.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
-            }
-        }
-    }
-}
-
-@Composable
-private fun ImageGroupHeaderRow(
-    group: Duplicate.Group,
-    willBeDeleted: Boolean,
-    onDelete: () -> Unit,
-    onView: (position: Int) -> Unit,
-) {
-    val context = LocalContext.current
-    val previews = remember(group) { group.duplicates.map { it.lookup }.toList() }
-    val firstPreview = previews.firstOrNull() ?: return
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 2.dp)
-            .combinedClickableSafe(onClick = { onView(0) }),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            FilePreviewImage(
-                lookup = firstPreview,
-                contentScale = ContentScale.Crop,
+            Row(
                 modifier = Modifier
-                    .size(72.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-            )
-            Spacer(Modifier.width(12.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = pluralStringResource(CommonR.plurals.result_x_files, group.count, group.count),
-                    style = MaterialTheme.typography.titleSmall,
-                )
-                Text(
-                    text = "${stringResource(DeduplicatorR.string.deduplicator_average_size_label)}: ${
-                        Formatter.formatFileSize(context, group.averageSize.roundToLong())
-                    }",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            if (willBeDeleted) {
+                    .align(Alignment.TopCenter)
+                    .fillMaxWidth()
+                    .background(overlayColor)
+                    .padding(start = 12.dp, end = 4.dp, top = 8.dp, bottom = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Icon(
-                    imageVector = Icons.TwoTone.DeleteSweep,
+                    imageVector = methodIcon,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.size(20.dp),
+                    modifier = Modifier.size(24.dp),
+                    tint = overlayContent,
                 )
-                Spacer(Modifier.width(4.dp))
+                Spacer(Modifier.width(8.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(DeduplicatorR.string.deduplicator_detection_method_label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = overlayContent,
+                    )
+                    Text(
+                        text = stringResource(methodLabelRes),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = overlayContent,
+                    )
+                }
+                IconButton(onClick = onView) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Visibility,
+                        contentDescription = stringResource(CommonR.string.general_view_action),
+                        tint = overlayContent,
+                    )
+                }
+                if (willBeDeleted) {
+                    Icon(
+                        imageVector = Icons.TwoTone.DeleteSweep,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(24.dp),
+                    )
+                    Spacer(Modifier.width(4.dp))
+                }
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Delete,
+                        contentDescription = stringResource(CommonR.string.general_delete_action),
+                        tint = MaterialTheme.colorScheme.error,
+                    )
+                }
             }
-            IconButton(onClick = onDelete) {
-                Icon(Icons.TwoTone.Delete, contentDescription = stringResource(CommonR.string.general_delete_action))
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .background(overlayColor)
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(CommonR.string.general_count_label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = overlayContent,
+                    )
+                    Text(
+                        text = pluralStringResource(CommonR.plurals.result_x_files, group.count, group.count),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = overlayContent,
+                    )
+                }
+                Column(horizontalAlignment = Alignment.End) {
+                    Text(
+                        text = stringResource(DeduplicatorR.string.deduplicator_average_size_label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = overlayContent,
+                    )
+                    Text(
+                        text = Formatter.formatFileSize(context, group.averageSize.roundToLong()),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = overlayContent,
+                    )
+                }
             }
         }
     }

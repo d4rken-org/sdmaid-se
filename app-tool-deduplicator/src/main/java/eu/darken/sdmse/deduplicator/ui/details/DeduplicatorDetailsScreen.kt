@@ -267,7 +267,7 @@ internal fun DeduplicatorDetailsScreen(
             if (selection.isEmpty()) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.deduplicator_tool_name),
-                    subtitle = stringResource(DeduplicatorR.string.deduplicator_details_cluster_title),
+                    subtitle = stringResource(CommonR.string.general_details_label),
                     onNavigateUp = onNavigateUp,
                     actions = {
                         IconButton(onClick = onToggleDirectoryView) {
