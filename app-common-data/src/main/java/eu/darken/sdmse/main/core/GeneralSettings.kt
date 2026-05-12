@@ -43,7 +43,10 @@ class GeneralSettings @Inject constructor(
         key = "core.ui.theme.color",
         defaultValue = ThemeColor.GREEN,
         json = json,
-        fallbackToDefault = true,
+        // Matches sibling apps: release builds silently fall back to GREEN when a stored
+        // palette value can't be decoded (e.g. a color was removed in a later version);
+        // debug builds throw so we notice the data drift during development.
+        fallbackToDefault = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE,
     )
 
     val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)

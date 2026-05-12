@@ -11,4 +11,8 @@ import kotlinx.serialization.Serializable
 enum class ThemeColor(override val label: CaString) : EnumPreference<ThemeColor> {
     @SerialName("GREEN") GREEN(R.string.ui_theme_color_green_label.toCaString()),
     @SerialName("SCHOLAR") SCHOLAR(R.string.ui_theme_color_scholar_label.toCaString()),
+    @SerialName("SUNSET") SUNSET(R.string.ui_theme_color_sunset_label.toCaString()),
+    @SerialName("AMOLED") AMOLED(R.string.ui_theme_color_amoled_label.toCaString()),
+    @SerialName("COBALT") COBALT(R.string.ui_theme_color_cobalt_label.toCaString()),
+    @SerialName("CINNABAR") CINNABAR(R.string.ui_theme_color_cinnabar_label.toCaString()),
 }

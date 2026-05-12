@@ -212,4 +212,8 @@
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="ui_theme_color_green_label">Green</string>
     <string name="ui_theme_color_scholar_label">Scholar</string>
+    <string name="ui_theme_color_sunset_label">Sunset</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <string name="ui_theme_color_cobalt_label">Cobalt</string>
+    <string name="ui_theme_color_cinnabar_label">Cinnabar</string>
 </resources>
