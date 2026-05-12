@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BarChart
 import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -105,13 +106,11 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
             horizontalArrangement = Arrangement.End,
         ) {
             DashboardFlatActionButton(onClick = item.onViewAction) {
-                if (item.showProRequirement) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Stars,
-                        contentDescription = null,
-                    )
-                    Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
-                }
+                Icon(
+                    imageVector = if (item.showProRequirement) Icons.TwoTone.Stars else Icons.TwoTone.Visibility,
+                    contentDescription = null,
+                )
+                Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
                 Text(text = stringResource(CommonR.string.general_view_action))
             }
         }
