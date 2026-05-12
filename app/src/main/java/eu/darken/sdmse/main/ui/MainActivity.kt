@@ -23,6 +23,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
@@ -36,7 +37,9 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.scene.SinglePaneSceneStrategy
 import androidx.navigation3.ui.NavDisplay
+import eu.darken.sdmse.common.navigation.ModalBottomSheetSceneStrategy
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
@@ -166,9 +169,13 @@ class MainActivity : ComponentActivity() {
                 onDontShowAgain = { coroutineScope.launch { guidedTourController.dismissForever() } },
                 modifier = Modifier.fillMaxSize(),
             ) {
+                val sceneStrategy = remember {
+                    ModalBottomSheetSceneStrategy<NavKey>().then(SinglePaneSceneStrategy())
+                }
                 NavDisplay(
                     backStack = backStack,
                     onBack = { navCtrl.up() },
+                    sceneStrategy = sceneStrategy,
                     transitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
                     popTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
                     predictivePopTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },

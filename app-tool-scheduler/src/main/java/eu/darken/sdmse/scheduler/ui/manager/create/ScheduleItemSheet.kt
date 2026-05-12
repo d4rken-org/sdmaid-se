@@ -19,17 +19,14 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,7 +44,6 @@ import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.scheduler.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
 import java.time.Duration
 
 @Composable
@@ -60,30 +56,14 @@ fun ScheduleItemSheetHost(
 
     LaunchedEffect(scheduleId) { vm.setScheduleId(scheduleId) }
 
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    val sheetScope = rememberCoroutineScope()
-
-    fun dismissSheet() {
-        sheetScope.launch {
-            sheetState.hide()
-        }.invokeOnCompletion {
-            if (!sheetState.isVisible) vm.navUp()
-        }
-    }
-
-    ModalBottomSheet(
-        onDismissRequest = ::dismissSheet,
-        sheetState = sheetState,
-    ) {
-        ScheduleItemSheet(
-            stateSource = vm.state,
-            onLabelChanged = vm::updateLabel,
-            onTimePicked = vm::updateTime,
-            onIncreaseDays = vm::increaseDays,
-            onDecreaseDays = vm::decreaseDays,
-            onSave = vm::saveSchedule,
-        )
-    }
+    ScheduleItemSheet(
+        stateSource = vm.state,
+        onLabelChanged = vm::updateLabel,
+        onTimePicked = vm::updateTime,
+        onIncreaseDays = vm::increaseDays,
+        onDecreaseDays = vm::decreaseDays,
+        onSave = vm::saveSchedule,
+    )
 }
 
 @Composable

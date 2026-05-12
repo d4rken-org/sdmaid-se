@@ -28,13 +28,11 @@ import androidx.compose.material.icons.twotone.Shop
 import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -122,31 +120,15 @@ fun AppActionSheetHost(
         }
     }
 
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    val sheetScope = rememberCoroutineScope()
-
-    fun dismissSheet() {
-        sheetScope.launch {
-            sheetState.hide()
-        }.invokeOnCompletion {
-            if (!sheetState.isVisible) vm.navUp()
-        }
-    }
-
-    ModalBottomSheet(
-        onDismissRequest = ::dismissSheet,
-        sheetState = sheetState,
-    ) {
-        AppActionSheet(
-            stateSource = vm.state,
-            snackbarHostState = snackbarHostState,
-            onActionTapped = vm::onActionTapped,
-            onIconLongPress = { appInfo ->
-                runCatching { context.startActivity(appInfo.pkg.getSettingsIntent(context)) }
-                    .onFailure { log(TAG, WARN) { "Settings intent failed: $it" } }
-            },
-        )
-    }
+    AppActionSheet(
+        stateSource = vm.state,
+        snackbarHostState = snackbarHostState,
+        onActionTapped = vm::onActionTapped,
+        onIconLongPress = { appInfo ->
+            runCatching { context.startActivity(appInfo.pkg.getSettingsIntent(context)) }
+                .onFailure { log(TAG, WARN) { "Settings intent failed: $it" } }
+        },
+    )
 
     pendingConfirm?.let { ev ->
         when (ev) {

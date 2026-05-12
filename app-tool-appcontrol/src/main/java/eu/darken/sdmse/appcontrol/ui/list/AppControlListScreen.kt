@@ -41,7 +41,6 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -53,7 +52,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -84,6 +82,7 @@ import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -360,7 +359,6 @@ internal fun AppControlListScreen(
         if (state.options.searchQuery.isNotEmpty() && !searchActive) searchActive = true
     }
 
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     val keyboardController = LocalSoftwareKeyboardController.current
     val openSheet: (Sheet) -> Unit = { sheet ->
         keyboardController?.hide()
@@ -630,10 +628,7 @@ internal fun AppControlListScreen(
     }
 
     when (activeSheet) {
-        Sheet.Sort -> ModalBottomSheet(
-            onDismissRequest = { activeSheet = null },
-            sheetState = sheetState,
-        ) {
+        Sheet.Sort -> SdmModalBottomSheet(onDismiss = { activeSheet = null }) {
             AppControlSortSheetContent(
                 sort = state.options.listSort,
                 allowSortSize = state.allowSortSize,
@@ -645,10 +640,7 @@ internal fun AppControlListScreen(
             )
         }
 
-        Sheet.Tags -> ModalBottomSheet(
-            onDismissRequest = { activeSheet = null },
-            sheetState = sheetState,
-        ) {
+        Sheet.Tags -> SdmModalBottomSheet(onDismiss = { activeSheet = null }) {
             AppControlTagsSheetContent(
                 tags = state.options.listFilter.tags,
                 allowFilterActive = state.allowFilterActive,

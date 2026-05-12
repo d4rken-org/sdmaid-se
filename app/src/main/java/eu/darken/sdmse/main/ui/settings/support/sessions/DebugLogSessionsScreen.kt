@@ -13,10 +13,8 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -56,7 +54,6 @@ fun DebugLogSessionsScreenHost(
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         vm.refresh()
@@ -75,18 +72,13 @@ fun DebugLogSessionsScreenHost(
         }
     }
 
-    ModalBottomSheet(
-        onDismissRequest = vm::navUp,
-        sheetState = sheetState,
-    ) {
-        DebugLogSessionsSheetContent(
-            stateSource = vm.state,
-            onOpenSession = vm::openSession,
-            onDeleteSession = vm::delete,
-            onClearAll = vm::deleteAll,
-            onStopRecording = { vm.stopRecording() },
-        )
-    }
+    DebugLogSessionsSheetContent(
+        stateSource = vm.state,
+        onOpenSession = vm::openSession,
+        onDeleteSession = vm::delete,
+        onClearAll = vm::deleteAll,
+        onStopRecording = { vm.stopRecording() },
+    )
 }
 
 @Composable

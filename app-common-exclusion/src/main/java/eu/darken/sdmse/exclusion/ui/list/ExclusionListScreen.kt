@@ -26,7 +26,6 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -34,7 +33,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -51,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
@@ -102,17 +101,6 @@ fun ExclusionListScreenHost(
     }
 
     var pendingTypePicker by remember { mutableStateOf(false) }
-    val typePickerSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    val typePickerScope = rememberCoroutineScope()
-
-    fun dismissTypePicker(then: () -> Unit = {}) {
-        typePickerScope.launch { typePickerSheetState.hide() }.invokeOnCompletion {
-            if (!typePickerSheetState.isVisible) {
-                pendingTypePicker = false
-                then()
-            }
-        }
-    }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -175,14 +163,11 @@ fun ExclusionListScreenHost(
     )
 
     if (pendingTypePicker) {
-        ModalBottomSheet(
-            onDismissRequest = { dismissTypePicker() },
-            sheetState = typePickerSheetState,
-        ) {
+        SdmModalBottomSheet(onDismiss = { pendingTypePicker = false }) { dismiss ->
             CreateExclusionTypeSheet(
-                onPickPackage = { dismissTypePicker { vm.openAppControl() } },
-                onPickPath = { dismissTypePicker { vm.openStoragePicker() } },
-                onPickSegment = { dismissTypePicker { vm.openSegmentEditor() } },
+                onPickPackage = { dismiss { vm.openAppControl() } },
+                onPickPath = { dismiss { vm.openStoragePicker() } },
+                onPickSegment = { dismiss { vm.openSegmentEditor() } },
             )
         }
     }

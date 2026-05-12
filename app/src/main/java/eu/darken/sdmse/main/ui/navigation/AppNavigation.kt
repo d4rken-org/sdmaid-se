@@ -10,6 +10,7 @@ import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import eu.darken.sdmse.common.debug.logviewer.ui.LogViewScreenHost
 import eu.darken.sdmse.common.navigation.NavigationEntry
+import eu.darken.sdmse.common.navigation.modalBottomSheetMetadata
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.main.ui.dashboard.DashboardScreenHost
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
@@ -53,6 +54,8 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<SupportRoute> { SupportScreenHost() }
         entry<DashboardCardConfigRoute> { DashboardCardConfigScreenHost() }
         entry<SupportFormRoute> { SupportContactFormScreenHost() }
-        entry<DebugLogSessionsRoute> { DebugLogSessionsScreenHost() }
+        entry<DebugLogSessionsRoute>(metadata = modalBottomSheetMetadata()) {
+            DebugLogSessionsScreenHost()
+        }
     }
 }
