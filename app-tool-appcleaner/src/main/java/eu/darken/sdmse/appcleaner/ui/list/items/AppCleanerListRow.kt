@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,6 +27,7 @@ import coil.request.ImageRequest
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SystemAppChip
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -98,6 +97,7 @@ fun AppCleanerListRow(
             Row(
                 modifier = Modifier.padding(top = 4.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = itemsText,
@@ -109,14 +109,7 @@ fun AppCleanerListRow(
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                if (junk.isSystemApp) {
-                    Icon(
-                        painter = painterResource(CommonR.drawable.ic_apps),
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                if (junk.isSystemApp) SystemAppChip()
             }
         }
     }

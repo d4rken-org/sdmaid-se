@@ -33,7 +33,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -52,6 +51,7 @@ import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.SystemAppChip
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -190,39 +190,24 @@ private fun AppJunkPageHeaderCard(
                 }
             }
 
-            if (junk.userProfile != null || junk.isSystemApp) {
+            val profile = junk.userProfile
+            if (profile != null || junk.isSystemApp) {
                 Spacer(Modifier.height(8.dp))
-                Row(verticalAlignment = Alignment.Top) {
-                    junk.userProfile?.let { profile ->
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = profile.getHumanLabel().get(context),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    if (profile != null) {
+                        Text(
+                            modifier = Modifier.weight(1f),
+                            text = profile.getHumanLabel().get(context),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    } else {
+                        Spacer(Modifier.weight(1f))
                     }
-                    if (junk.isSystemApp) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = stringResource(CommonR.string.general_type_label),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text(
-                                    text = stringResource(CommonR.string.general_tag_system),
-                                    style = MaterialTheme.typography.bodySmall,
-                                )
-                                Spacer(Modifier.width(4.dp))
-                                Icon(
-                                    painter = painterResource(CommonR.drawable.ic_apps),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(16.dp),
-                                )
-                            }
-                        }
-                    }
+                    if (junk.isSystemApp) SystemAppChip()
                 }
             }
 
