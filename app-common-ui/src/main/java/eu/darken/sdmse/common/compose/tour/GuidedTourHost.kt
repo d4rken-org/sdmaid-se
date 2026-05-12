@@ -37,6 +37,25 @@ import kotlinx.coroutines.flow.StateFlow
 
 internal const val MISSING_TARGET_GRACE_MS = 600L
 
+/**
+ * How the current step should lay itself out.
+ *
+ * [Anchored] is the normal case: a target rect is known, cutout + tail toward it. [Centerless]
+ * is used when the step has `targetId = null` (intro/outro copy) — uniform dim, centered bubble,
+ * no tail. [Pending] means the step has a target id but the registry hasn't seen its rect yet;
+ * the host waits `MISSING_TARGET_GRACE_MS` and auto-skips if it still hasn't arrived.
+ */
+internal sealed interface StepLayout {
+    data class Anchored(val rect: Rect) : StepLayout
+    data object Centerless : StepLayout
+    data object Pending : StepLayout
+}
+
+private fun resolveStepLayout(step: TourStep, registry: TourTargetRegistry): StepLayout {
+    val tid = step.targetId ?: return StepLayout.Centerless
+    return registry.get(tid)?.let { StepLayout.Anchored(it) } ?: StepLayout.Pending
+}
+
 @Composable
 fun GuidedTourHost(
     session: StateFlow<TourSession?>,
@@ -51,14 +70,15 @@ fun GuidedTourHost(
     val current by session.collectAsState()
     val step = current?.currentStep
     // Bounds are stored in root coords (see Modifier.guidedTourTarget) — only valid while the
-    // host is mounted at the Compose root. Renaming the local for clarity.
-    val targetRectInRoot = step?.let { registry.get(it.targetId) }
+    // host is mounted at the Compose root.
+    val layout = step?.let { resolveStepLayout(it, registry) }
 
-    LaunchedEffect(current, step?.targetId, targetRectInRoot) {
+    LaunchedEffect(current, step?.targetId, layout) {
         if (current == null || step == null) return@LaunchedEffect
-        if (targetRectInRoot != null) return@LaunchedEffect
+        if (layout !is StepLayout.Pending) return@LaunchedEffect
         delay(MISSING_TARGET_GRACE_MS)
-        if (registry.get(step.targetId) == null) onNext()
+        val tid = step.targetId ?: return@LaunchedEffect
+        if (registry.get(tid) == null) onNext()
     }
 
     CompositionLocalProvider(LocalTourTargetRegistry provides registry) {
@@ -66,13 +86,14 @@ fun GuidedTourHost(
             content()
 
             val activeSession = current
-            if (activeSession != null && step != null && targetRectInRoot != null) {
+            val renderable = layout as? StepLayout.Anchored ?: (layout as? StepLayout.Centerless)
+            if (activeSession != null && step != null && renderable != null) {
                 // BackHandler is composed AFTER content() so it registers later and wins LIFO
                 // dispatch over any back handlers in the wrapped screens. Back press = soft skip;
                 // the in-bubble confirm only triggers from explicit X / Skip controls.
                 BackHandler(enabled = true, onBack = onSkipForNow)
                 TourOverlay(
-                    targetRectInRoot = targetRectInRoot,
+                    layout = renderable,
                     clickProtection = activeSession.definition.clickProtection,
                     step = step,
                     session = activeSession,
@@ -88,7 +109,7 @@ fun GuidedTourHost(
 
 @Composable
 private fun TourOverlay(
-    targetRectInRoot: Rect,
+    layout: StepLayout,
     clickProtection: Boolean,
     step: TourStep,
     session: TourSession,
@@ -102,11 +123,18 @@ private fun TourOverlay(
     val cornerRadius = with(density) { 16.dp.toPx() }
     val strokeWidth = with(density) { 2.dp.toPx() }
     val accentColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)
+    val anchored = layout as? StepLayout.Anchored
 
     Canvas(
         modifier = Modifier
             .fillMaxSize()
-            .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+            // Offscreen compositing is only needed for the BlendMode.Clear cutout; centerless
+            // mode draws a single opaque rect, so we can skip it and save an allocated layer.
+            .then(
+                if (anchored != null) {
+                    Modifier.graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+                } else Modifier,
+            )
             .then(
                 if (clickProtection) {
                     Modifier.pointerInput(Unit) {
@@ -118,30 +146,33 @@ private fun TourOverlay(
             ),
     ) {
         drawRect(Color.Black.copy(alpha = 0.72f))
-        // Punch a transparent rounded-rect hole around the target.
-        val cutoutTopLeft = Offset(targetRectInRoot.left - padding, targetRectInRoot.top - padding)
-        val cutoutSize = Size(targetRectInRoot.width + 2 * padding, targetRectInRoot.height + 2 * padding)
-        drawRoundRect(
-            color = Color.Transparent,
-            topLeft = cutoutTopLeft,
-            size = cutoutSize,
-            cornerRadius = CornerRadius(cornerRadius),
-            blendMode = BlendMode.Clear,
-        )
-        // Accent stroke around the cutout — gives positive selection signal instead of just
-        // "less dimmed". Drawn after Clear with default SrcOver blend so the stroke is opaque.
-        drawRoundRect(
-            color = accentColor,
-            topLeft = Offset(cutoutTopLeft.x - strokeWidth / 2f, cutoutTopLeft.y - strokeWidth / 2f),
-            size = Size(cutoutSize.width + strokeWidth, cutoutSize.height + strokeWidth),
-            cornerRadius = CornerRadius(cornerRadius + strokeWidth / 2f),
-            style = Stroke(width = strokeWidth),
-        )
+        if (anchored != null) {
+            val rect = anchored.rect
+            // Punch a transparent rounded-rect hole around the target.
+            val cutoutTopLeft = Offset(rect.left - padding, rect.top - padding)
+            val cutoutSize = Size(rect.width + 2 * padding, rect.height + 2 * padding)
+            drawRoundRect(
+                color = Color.Transparent,
+                topLeft = cutoutTopLeft,
+                size = cutoutSize,
+                cornerRadius = CornerRadius(cornerRadius),
+                blendMode = BlendMode.Clear,
+            )
+            // Accent stroke around the cutout — gives positive selection signal instead of just
+            // "less dimmed". Drawn after Clear with default SrcOver blend so the stroke is opaque.
+            drawRoundRect(
+                color = accentColor,
+                topLeft = Offset(cutoutTopLeft.x - strokeWidth / 2f, cutoutTopLeft.y - strokeWidth / 2f),
+                size = Size(cutoutSize.width + strokeWidth, cutoutSize.height + strokeWidth),
+                cornerRadius = CornerRadius(cornerRadius + strokeWidth / 2f),
+                style = Stroke(width = strokeWidth),
+            )
+        }
     }
 
     TourBubble(
         step = step,
-        targetRectInRoot = targetRectInRoot,
+        layout = layout,
         session = session,
         onNext = onNext,
         onPrevious = onPrevious,
@@ -204,6 +235,56 @@ private fun GuidedTourHostPreviewActive() {
                     contentAlignment = Alignment.TopStart,
                 ) {
                     Text(text = "Highlighted target lives here", color = MaterialTheme.colorScheme.onSurface)
+                }
+            }
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun GuidedTourHostPreviewCenterless() {
+    PreviewWrapper {
+        val centerlessSession = TourSession(
+            definition = TourDefinition(
+                id = TourId("preview.host.tour.centerless"),
+                steps = listOf(
+                    TourStep(
+                        stepId = "overview",
+                        targetId = null,
+                        title = "Dashboard".toCaString(),
+                        body = (
+                            "This is the dashboard, your home for all of SD Maid's tools. " +
+                                "Each card is a tool — open one to use it."
+                            ).toCaString(),
+                    ),
+                    TourStep(stepId = "step1", body = "Body of step 2".toCaString()),
+                ),
+                clickProtection = true,
+            ),
+            stepIndex = 0,
+        )
+        val sessionFlow = remember { MutableStateFlow<TourSession?>(centerlessSession) }
+        Box(modifier = Modifier.fillMaxSize()) {
+            GuidedTourHost(
+                session = sessionFlow,
+                onNext = {},
+                onPrevious = {},
+                onSkipForNow = {},
+                onDontShowAgain = {},
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.surfaceContainer)
+                        .padding(16.dp),
+                    contentAlignment = Alignment.TopStart,
+                ) {
+                    Text(
+                        text = "Behind the dim — no cutout for centerless steps",
+                        color = MaterialTheme.colorScheme.onSurface,
+                    )
                 }
             }
         }

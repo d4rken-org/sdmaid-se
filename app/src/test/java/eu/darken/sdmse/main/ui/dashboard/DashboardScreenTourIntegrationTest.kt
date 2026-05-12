@@ -16,6 +16,7 @@ import eu.darken.sdmse.main.ui.tour.GuidedTourController
 import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
 import eu.darken.sdmse.setup.SetupManager
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -112,6 +113,38 @@ class DashboardScreenTourIntegrationTest {
         // confirms it landed on a single ToolDashboardCardItem (the first one).
         assertHas(registry, DashboardTour.TOOLS_TARGET)
     }
+
+    @Test
+    fun `tour does not auto-start when items list contains no tool cards`() {
+        val registry = TourTargetRegistry()
+        val state = DashboardViewModel.ListState(items = emptyList())
+        val controller = mockk<GuidedTourController>(relaxed = true).also {
+            coEvery { it.shouldStart(any()) } returns true
+            every { it.session } returns MutableStateFlow(null)
+        }
+        composeRule.setDashboardContent(registry, state, controller)
+        composeRule.waitForIdle()
+
+        // Verify the predicate gate is never reached — more deterministic than asserting on
+        // start(), which can be delayed past waitForIdle() by suspending effects.
+        coVerify(exactly = 0) { controller.shouldStart(any()) }
+    }
+
+    @Test
+    fun `tour does auto-start once a tool card is present`() {
+        val registry = TourTargetRegistry()
+        val state = DashboardViewModel.ListState(
+            items = listOf(toolItem(SDMTool.Type.CORPSEFINDER)),
+        )
+        val controller = mockk<GuidedTourController>(relaxed = true).also {
+            coEvery { it.shouldStart(any()) } returns true
+            every { it.session } returns MutableStateFlow(null)
+        }
+        composeRule.setDashboardContent(registry, state, controller)
+        composeRule.waitForIdle()
+
+        coVerify(exactly = 1) { controller.start(any()) }
+    }
 }
 
 private fun assertHas(registry: TourTargetRegistry, id: String) {
@@ -125,8 +158,9 @@ private fun assertHas(registry: TourTargetRegistry, id: String) {
 private fun ComposeContentTestRule.setDashboardContent(
     registry: TourTargetRegistry,
     listState: DashboardViewModel.ListState,
+    controller: GuidedTourController? = null,
 ) {
-    val controller = mockk<GuidedTourController>(relaxed = true).also {
+    val activeController = controller ?: mockk<GuidedTourController>(relaxed = true).also {
         // Force the auto-start LaunchedEffect to short-circuit before scrolling/starting,
         // so the test isolates target registration from tour-start side effects.
         coEvery { it.shouldStart(any()) } returns false
@@ -147,7 +181,7 @@ private fun ComposeContentTestRule.setDashboardContent(
         PreviewWrapper {
             CompositionLocalProvider(
                 LocalTourTargetRegistry provides registry,
-                LocalGuidedTourController provides controller,
+                LocalGuidedTourController provides activeController,
             ) {
                 DashboardScreen(
                     listState = listState,

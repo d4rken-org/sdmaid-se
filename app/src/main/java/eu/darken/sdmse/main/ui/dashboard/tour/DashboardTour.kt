@@ -23,16 +23,30 @@ object DashboardTour {
      * target's grace window (600 ms) and then auto-skip — visible to the user as the tour starting
      * on a later step, or as Previous "closing" the tour briefly when it lands on the absent step.
      *
-     * [prepareManualTool] is the dashboard's scroll-to-card hook for the manual-tool step.
+     * The leading "overview" step is centerless (no anchor) — it introduces the dashboard concept
+     * itself before subsequent steps focus on individual cards/controls.
+     *
+     * [prepareTools] / [prepareManualTool] are scroll-to-card hooks. They matter because the
+     * dashboard's `LazyVerticalGrid` only composes visible items — without scrolling, an
+     * off-screen target never registers and the step would grace-skip.
      */
     fun definition(
         includeSetup: Boolean = true,
         includeManualTool: Boolean = true,
+        prepareTools: (suspend () -> Unit)? = null,
         prepareManualTool: (suspend () -> Unit)? = null,
     ): TourDefinition = TourDefinition(
         id = id,
         clickProtection = true,
         steps = buildList {
+            add(
+                TourStep(
+                    stepId = "overview",
+                    targetId = null,
+                    title = R.string.tour_dashboard_overview_title.toCaString(),
+                    body = R.string.tour_dashboard_overview_body.toCaString(),
+                ),
+            )
             if (includeSetup) {
                 add(
                     TourStep(
@@ -49,6 +63,7 @@ object DashboardTour {
                     targetId = TOOLS_TARGET,
                     title = R.string.tour_dashboard_tools_title.toCaString(),
                     body = R.string.tour_dashboard_tools_body.toCaString(),
+                    prepareTarget = prepareTools,
                 ),
             )
             add(

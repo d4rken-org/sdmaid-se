@@ -57,6 +57,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.SdmMascot
@@ -76,7 +78,7 @@ private val NarrowThreshold = 360.dp
 @Composable
 internal fun TourBubble(
     step: TourStep,
-    targetRectInRoot: Rect,
+    layout: StepLayout,
     session: TourSession,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
@@ -87,89 +89,191 @@ internal fun TourBubble(
         val insets = WindowInsets.safeDrawing.asPaddingValues()
         val density = LocalDensity.current
         val layoutDirection = LocalLayoutDirection.current
-        val maxHPx = with(density) { maxHeight.toPx() }
-        val maxWPx = with(density) { maxWidth.toPx() }
 
         val isNarrow = maxWidth < NarrowThreshold
-
-        val topInsetPx = with(density) { insets.calculateTopPadding().toPx() }
-        val bottomInsetPx = with(density) { insets.calculateBottomPadding().toPx() }
-        val gapPx = with(density) { TargetGap.toPx() }
-
-        // Pick above/below by usable space, not by target center. Keeps long bubbles from
-        // overflowing on tall targets that happen to sit just above the screen midpoint.
-        val availableBelowPx = maxHPx - targetRectInRoot.bottom - bottomInsetPx - gapPx
-        val availableAbovePx = targetRectInRoot.top - topInsetPx - gapPx
-        val placeBelow = availableBelowPx >= availableAbovePx
-
         val startPad = insets.calculateStartPadding(layoutDirection) + SideMargin
         val endPad = insets.calculateEndPadding(layoutDirection) + SideMargin
-        val startPadPx = with(density) { startPad.toPx() }
-        val endPadPx = with(density) { endPad.toPx() }
-        val maxBubbleWidthPx = with(density) { MaxBubbleWidth.toPx() }
+        val topPad = insets.calculateTopPadding() + SideMargin
+        val bottomPad = insets.calculateBottomPadding() + SideMargin
 
-        // The Surface fills available width minus side padding, capped at MaxBubbleWidth.
-        // Compute the actual body width and its left edge, so the tail can target a real x.
-        val availableWidthPx = (maxWPx - startPadPx - endPadPx).coerceAtLeast(1f)
-        val bubbleBodyWidthPx = availableWidthPx.coerceAtMost(maxBubbleWidthPx)
-        val bubbleBodyLeftPx = startPadPx + (availableWidthPx - bubbleBodyWidthPx) / 2f
-        val tailXBias = ((targetRectInRoot.center.x - bubbleBodyLeftPx) / bubbleBodyWidthPx)
-            .coerceIn(0f, 1f)
-
-        val rawY = with(density) {
-            if (placeBelow) (targetRectInRoot.bottom + gapPx).toDp()
-            else (maxHPx - targetRectInRoot.top + gapPx).toDp()
-        }
-        val clampedY = if (placeBelow) {
-            rawY.coerceAtLeast(insets.calculateTopPadding())
-        } else {
-            rawY.coerceAtLeast(insets.calculateBottomPadding())
-        }
-        // Far-side inset: keeps the bubble's *other* edge inside the safe area too.
-        val farTopPad = insets.calculateTopPadding() + SideMargin
-        val farBottomPad = insets.calculateBottomPadding() + SideMargin
-
-        // The bubble's max height is whatever is left between the cutout-side gap and the
-        // far-side safe inset, so bottom edges never run under the nav bar.
-        val bubbleMaxHeight = if (placeBelow) {
-            (maxHeight - clampedY - farBottomPad).coerceAtLeast(160.dp)
-        } else {
-            (maxHeight - clampedY - farTopPad).coerceAtLeast(160.dp)
-        }
-
-        Box(
-            modifier = Modifier
-                .align(if (placeBelow) Alignment.TopCenter else Alignment.BottomCenter)
-                .padding(
-                    top = if (placeBelow) clampedY else farTopPad,
-                    bottom = if (!placeBelow) clampedY else farBottomPad,
-                    start = startPad,
-                    end = endPad,
-                )
-                .widthIn(max = MaxBubbleWidth)
-                .heightIn(max = bubbleMaxHeight),
-        ) {
-            BubbleCard(
+        when (layout) {
+            is StepLayout.Anchored -> AnchoredBubble(
+                rect = layout.rect,
                 step = step,
                 session = session,
-                placeBelow = placeBelow,
-                tailXBias = tailXBias,
                 isNarrow = isNarrow,
+                density = density,
+                insets = insets,
+                maxWidth = maxWidth,
+                maxHeight = maxHeight,
+                startPad = startPad,
+                endPad = endPad,
                 onNext = onNext,
                 onPrevious = onPrevious,
                 onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
             )
+
+            StepLayout.Centerless -> CenterlessBubble(
+                step = step,
+                session = session,
+                isNarrow = isNarrow,
+                maxHeight = maxHeight,
+                startPad = startPad,
+                endPad = endPad,
+                topPad = topPad,
+                bottomPad = bottomPad,
+                onNext = onNext,
+                onPrevious = onPrevious,
+                onSkipForNow = onSkipForNow,
+                onDontShowAgain = onDontShowAgain,
+            )
+
+            // Pending is filtered out by GuidedTourHost before this point.
+            StepLayout.Pending -> Unit
         }
     }
+}
+
+@Composable
+private fun BoxScope.AnchoredBubble(
+    rect: Rect,
+    step: TourStep,
+    session: TourSession,
+    isNarrow: Boolean,
+    density: Density,
+    insets: PaddingValues,
+    maxWidth: Dp,
+    maxHeight: Dp,
+    startPad: Dp,
+    endPad: Dp,
+    onNext: () -> Unit,
+    onPrevious: () -> Unit,
+    onSkipForNow: () -> Unit,
+    onDontShowAgain: () -> Unit,
+) {
+    val maxHPx = with(density) { maxHeight.toPx() }
+    val maxWPx = with(density) { maxWidth.toPx() }
+    val topInsetPx = with(density) { insets.calculateTopPadding().toPx() }
+    val bottomInsetPx = with(density) { insets.calculateBottomPadding().toPx() }
+    val gapPx = with(density) { TargetGap.toPx() }
+
+    // Pick above/below by usable space, not by target center. Keeps long bubbles from
+    // overflowing on tall targets that happen to sit just above the screen midpoint.
+    val availableBelowPx = maxHPx - rect.bottom - bottomInsetPx - gapPx
+    val availableAbovePx = rect.top - topInsetPx - gapPx
+    val placeBelow = availableBelowPx >= availableAbovePx
+
+    val startPadPx = with(density) { startPad.toPx() }
+    val endPadPx = with(density) { endPad.toPx() }
+    val maxBubbleWidthPx = with(density) { MaxBubbleWidth.toPx() }
+
+    // The Surface fills available width minus side padding, capped at MaxBubbleWidth.
+    // Compute the actual body width and its left edge, so the tail can target a real x.
+    val availableWidthPx = (maxWPx - startPadPx - endPadPx).coerceAtLeast(1f)
+    val bubbleBodyWidthPx = availableWidthPx.coerceAtMost(maxBubbleWidthPx)
+    val bubbleBodyLeftPx = startPadPx + (availableWidthPx - bubbleBodyWidthPx) / 2f
+    val tailXBias = ((rect.center.x - bubbleBodyLeftPx) / bubbleBodyWidthPx)
+        .coerceIn(0f, 1f)
+
+    val rawY = with(density) {
+        if (placeBelow) (rect.bottom + gapPx).toDp()
+        else (maxHPx - rect.top + gapPx).toDp()
+    }
+    val clampedY = if (placeBelow) {
+        rawY.coerceAtLeast(insets.calculateTopPadding())
+    } else {
+        rawY.coerceAtLeast(insets.calculateBottomPadding())
+    }
+    // Far-side inset: keeps the bubble's *other* edge inside the safe area too.
+    val farTopPad = insets.calculateTopPadding() + SideMargin
+    val farBottomPad = insets.calculateBottomPadding() + SideMargin
+
+    // The bubble's max height is whatever is left between the cutout-side gap and the
+    // far-side safe inset, so bottom edges never run under the nav bar.
+    val bubbleMaxHeight = if (placeBelow) {
+        (maxHeight - clampedY - farBottomPad).coerceAtLeast(160.dp)
+    } else {
+        (maxHeight - clampedY - farTopPad).coerceAtLeast(160.dp)
+    }
+
+    Box(
+        modifier = Modifier
+            .align(if (placeBelow) Alignment.TopCenter else Alignment.BottomCenter)
+            .padding(
+                top = if (placeBelow) clampedY else farTopPad,
+                bottom = if (!placeBelow) clampedY else farBottomPad,
+                start = startPad,
+                end = endPad,
+            )
+            .widthIn(max = MaxBubbleWidth)
+            .heightIn(max = bubbleMaxHeight),
+    ) {
+        BubbleCard(
+            step = step,
+            session = session,
+            tail = BubbleTail.OnEdge(
+                edge = if (placeBelow) SpeechBubbleShape.Edge.TOP else SpeechBubbleShape.Edge.BOTTOM,
+                xBias = tailXBias,
+            ),
+            isNarrow = isNarrow,
+            onNext = onNext,
+            onPrevious = onPrevious,
+            onSkipForNow = onSkipForNow,
+            onDontShowAgain = onDontShowAgain,
+        )
+    }
+}
+
+@Composable
+private fun BoxScope.CenterlessBubble(
+    step: TourStep,
+    session: TourSession,
+    isNarrow: Boolean,
+    maxHeight: Dp,
+    startPad: Dp,
+    endPad: Dp,
+    topPad: Dp,
+    bottomPad: Dp,
+    onNext: () -> Unit,
+    onPrevious: () -> Unit,
+    onSkipForNow: () -> Unit,
+    onDontShowAgain: () -> Unit,
+) {
+    // Cap height at the safe area; the body has its own vertical scroll for content that doesn't
+    // fit. Match the anchored 160.dp floor — multi-window / split-screen can leave available
+    // height below SideMargin * 2 and the bubble would otherwise collapse to an unusable sliver.
+    val bubbleMaxHeight = (maxHeight - topPad - bottomPad).coerceAtLeast(160.dp)
+    Box(
+        modifier = Modifier
+            .align(Alignment.Center)
+            .padding(start = startPad, end = endPad, top = topPad, bottom = bottomPad)
+            .widthIn(max = MaxBubbleWidth)
+            .heightIn(max = bubbleMaxHeight),
+    ) {
+        BubbleCard(
+            step = step,
+            session = session,
+            tail = BubbleTail.None,
+            isNarrow = isNarrow,
+            onNext = onNext,
+            onPrevious = onPrevious,
+            onSkipForNow = onSkipForNow,
+            onDontShowAgain = onDontShowAgain,
+        )
+    }
+}
+
+internal sealed interface BubbleTail {
+    data object None : BubbleTail
+    data class OnEdge(val edge: SpeechBubbleShape.Edge, val xBias: Float) : BubbleTail
 }
 
 @Composable
 private fun BubbleCard(
     step: TourStep,
     session: TourSession,
-    placeBelow: Boolean,
-    tailXBias: Float,
+    tail: BubbleTail,
     isNarrow: Boolean,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
@@ -181,7 +285,7 @@ private fun BubbleCard(
     // the boolean across process death without re-validating that the same tour is active.
     var showConfirm by remember(session.definition.id.raw) { mutableStateOf(false) }
 
-    SpeechBubbleSurface(placeBelow = placeBelow, tailXBias = tailXBias) {
+    SpeechBubbleSurface(tail = tail) {
         AnimatedContent(
             targetState = showConfirm,
             transitionSpec = {
@@ -211,14 +315,14 @@ private fun BubbleCard(
 }
 
 /**
- * Speech-bubble container: rounded surface with brand tint + border, a tail pointing toward the
- * cutout, and the inset padding that reserves space for the tail. Owns the shape↔padding contract
- * so callers don't have to.
+ * Speech-bubble container: rounded surface with brand tint + border, an optional tail pointing
+ * toward the cutout, and the inset padding that reserves space for the tail. Owns the
+ * shape↔padding contract so callers don't have to. With [BubbleTail.None], no tail is drawn and
+ * no tail-side padding is reserved (used for centerless intro/outro steps).
  */
 @Composable
 private fun SpeechBubbleSurface(
-    placeBelow: Boolean,
-    tailXBias: Float,
+    tail: BubbleTail,
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit,
 ) {
@@ -226,15 +330,17 @@ private fun SpeechBubbleSurface(
         .copy(alpha = 0.06f)
         .compositeOver(MaterialTheme.colorScheme.surfaceContainerHigh)
     val borderColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.30f)
-    val tailEdge = if (placeBelow) SpeechBubbleShape.Edge.TOP else SpeechBubbleShape.Edge.BOTTOM
-    val shape = SpeechBubbleShape(
-        cornerRadius = 20.dp,
-        tail = SpeechBubbleShape.TailSpec(
-            edge = tailEdge,
-            xBias = tailXBias,
+    val tailSpec = (tail as? BubbleTail.OnEdge)?.let {
+        SpeechBubbleShape.TailSpec(
+            edge = it.edge,
+            xBias = it.xBias,
             width = 16.dp,
             height = TailHeight,
-        ),
+        )
+    }
+    val shape = SpeechBubbleShape(
+        cornerRadius = 20.dp,
+        tail = tailSpec,
     )
 
     Surface(
@@ -250,8 +356,8 @@ private fun SpeechBubbleSurface(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    top = if (placeBelow) TailHeight else 0.dp,
-                    bottom = if (!placeBelow) TailHeight else 0.dp,
+                    top = if (tailSpec?.edge == SpeechBubbleShape.Edge.TOP) TailHeight else 0.dp,
+                    bottom = if (tailSpec?.edge == SpeechBubbleShape.Edge.BOTTOM) TailHeight else 0.dp,
                 ),
             content = content,
         )
@@ -539,8 +645,7 @@ private fun BubbleCardPreviewTailTop() {
             BubbleCard(
                 step = previewStep,
                 session = previewSession,
-                placeBelow = true,
-                tailXBias = 0.5f,
+                tail = BubbleTail.OnEdge(edge = SpeechBubbleShape.Edge.TOP, xBias = 0.5f),
                 isNarrow = false,
                 onNext = {},
                 onPrevious = {},
@@ -559,8 +664,26 @@ private fun BubbleCardPreviewTailBottom() {
             BubbleCard(
                 step = previewStep,
                 session = previewSession.copy(stepIndex = 1),
-                placeBelow = false,
-                tailXBias = 0.3f,
+                tail = BubbleTail.OnEdge(edge = SpeechBubbleShape.Edge.BOTTOM, xBias = 0.3f),
+                isNarrow = false,
+                onNext = {},
+                onPrevious = {},
+                onSkipForNow = {},
+                onDontShowAgain = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun BubbleCardPreviewCenterless() {
+    PreviewWrapper {
+        Box(modifier = Modifier.padding(16.dp)) {
+            BubbleCard(
+                step = previewStep,
+                session = previewSession,
+                tail = BubbleTail.None,
                 isNarrow = false,
                 onNext = {},
                 onPrevious = {},

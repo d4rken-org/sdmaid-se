@@ -72,7 +72,7 @@ class GuidedTourController @Inject constructor(
         _session.value = still.copy(stepIndex = still.stepIndex + 1)
     }
 
-    /** Go back one step. No-op when already at step 0. Doesn't re-run prepareTarget. */
+    /** Go back one step. No-op when already at step 0. Re-runs the destination step's prepareTarget. */
     suspend fun previous() = mutationMutex.withLock {
         val s = _session.value ?: return@withLock
         if (s.stepIndex <= 0) return@withLock

@@ -51,6 +51,19 @@ class GuidedTourHostTest {
         clickProtection = false,
     )
 
+    private val centerlessDef = TourDefinition(
+        id = TourId("test.centerless"),
+        steps = listOf(
+            TourStep(
+                stepId = "overview",
+                targetId = null,
+                body = "Body of overview".toCaString(),
+            ),
+            TourStep(stepId = "second", body = "Body of step 2".toCaString()),
+        ),
+        clickProtection = true,
+    )
+
     private val targetRect = Rect(left = 100f, top = 100f, right = 200f, bottom = 200f)
 
     @Test
@@ -227,6 +240,56 @@ class GuidedTourHostTest {
         }
         composeRule.onNodeWithTag("UNDER").performClick()
         underlyingClicks shouldBeGt 0
+    }
+
+    @Test
+    fun `centerless step renders body without any registered target`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(centerlessDef, 0))
+        composeRule.setHostContent(sessionFlow) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.onNodeWithText("Body of overview").assertExists()
+        composeRule.onNodeWithContentDescription("Next").assertExists()
+    }
+
+    @Test
+    fun `centerless step does not auto-skip past the grace window`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(centerlessDef, 0))
+        var nextCount = 0
+        composeRule.mainClock.autoAdvance = false
+        composeRule.setHostContent(sessionFlow, onNext = { nextCount++ }) {
+            Text("CONTENT_MARKER")
+        }
+        // Advance well past MISSING_TARGET_GRACE_MS — if grace-skip leaked, onNext would fire.
+        composeRule.mainClock.advanceTimeBy(MISSING_TARGET_GRACE_MS * 4)
+        composeRule.mainClock.autoAdvance = true
+        nextCount shouldBeEq 0
+        composeRule.onNodeWithText("Body of overview").assertExists()
+    }
+
+    @Test
+    fun `clickProtection blocks underlying clicks during centerless step`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(centerlessDef, 0))
+        var underlyingClicks = 0
+        var nextCount = 0
+        composeRule.setHostContent(
+            sessionFlow,
+            onNext = { nextCount++ },
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .align(Alignment.TopStart)
+                        .testTag("UNDER")
+                        .clickable { underlyingClicks++ },
+                )
+            }
+        }
+        composeRule.onNodeWithTag("UNDER").performClick()
+        underlyingClicks shouldBeEq 0
+        composeRule.onNodeWithContentDescription("Next").performClick()
+        nextCount shouldBeEq 1
     }
 
     // BackHandler priority is verified by manual QA on the FOSS debug build:

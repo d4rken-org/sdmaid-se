@@ -262,20 +262,33 @@ internal fun DashboardScreen(
     val hasSetup = remember(items) {
         items?.any { it is SetupDashboardCardItem } == true
     }
+    val firstToolIndex = remember(items) {
+        items?.indexOfFirst { it is ToolDashboardCardItem }?.takeIf { it >= 0 }
+    }
     val swiperIndex = remember(items) {
         items?.indexOfFirst { it is SwiperDashboardCardItem }?.takeIf { it >= 0 }
     }
-    val tourDef = remember(gridState, hasSetup, swiperIndex) {
+    val tourDef = remember(gridState, hasSetup, firstToolIndex, swiperIndex) {
         DashboardTour.definition(
             includeSetup = hasSetup,
             includeManualTool = swiperIndex != null,
+            // Scroll the LazyVerticalGrid to each step's target before it renders: with a tall
+            // setup card or compact device, the first tool card can be off-screen and otherwise
+            // wouldn't register a target rect (LazyGrid composes only visible items).
+            prepareTools = firstToolIndex?.let { idx ->
+                { gridState.animateScrollToItem(idx) }
+            },
             prepareManualTool = swiperIndex?.let { idx ->
                 { gridState.animateScrollToItem(idx) }
             },
         )
     }
-    LaunchedEffect(bottomBarState?.isReady) {
+    // Don't start the tour until at least one tool card exists: the tools step targets the
+    // first ToolDashboardCardItem and would otherwise grace-skip, leaving the overview followed
+    // by a visibly missing anchor step.
+    LaunchedEffect(bottomBarState?.isReady, firstToolIndex) {
         if (bottomBarState?.isReady != true) return@LaunchedEffect
+        if (firstToolIndex == null) return@LaunchedEffect
         if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
         gridState.animateScrollToItem(0)
         tourController.start(tourDef)

@@ -305,6 +305,8 @@
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7 days</string>
     <!-- Shorter versions for side-by-side display -->
 
+    <string name="tour_dashboard_overview_title">Dashboard</string>
+    <string name="tour_dashboard_overview_body">This is the dashboard, your home for all of SD Maid\'s tools. Each card here is a tool — open one to use it.</string>
     <string name="tour_dashboard_setup_title">Setup</string>
     <string name="tour_dashboard_setup_body">Setup determines what SD Maid can do, based on permissions, device behavior, and Android restrictions.</string>
     <string name="tour_dashboard_tools_title">Tool cards</string>
