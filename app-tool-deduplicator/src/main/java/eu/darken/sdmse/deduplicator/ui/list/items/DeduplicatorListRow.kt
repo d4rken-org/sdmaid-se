@@ -98,18 +98,20 @@ internal fun DeduplicatorLinearRow(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(Modifier.height(4.dp))
-                Text(
-                    text = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        cluster.count,
-                        cluster.count,
-                    ),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = pluralStringResource(
+                            CommonR.plurals.result_x_items,
+                            cluster.count,
+                            cluster.count,
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    MatchTypeChips(types = cluster.types)
+                }
             }
-            Spacer(Modifier.width(8.dp))
-            MatchTypeChips(types = cluster.types)
         }
 
         cluster.groups
@@ -165,31 +167,29 @@ internal fun DeduplicatorGridRow(
             )
         }
         Column(modifier = Modifier.padding(12.dp)) {
+            val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)
+            val freeable = context.resources.getQuantityString(
+                CommonR.plurals.x_space_can_be_freed,
+                1,
+                Formatter.formatShortFileSize(context, cluster.redundantSize),
+            )
+            Text(
+                text = "$totalSize ($freeable)",
+                style = MaterialTheme.typography.titleSmall,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Spacer(Modifier.height(4.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(modifier = Modifier.weight(1f)) {
-                    val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)
-                    val freeable = context.resources.getQuantityString(
-                        CommonR.plurals.x_space_can_be_freed,
-                        1,
-                        Formatter.formatShortFileSize(context, cluster.redundantSize),
-                    )
-                    Text(
-                        text = "$totalSize ($freeable)",
-                        style = MaterialTheme.typography.titleSmall,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = pluralStringResource(
-                            CommonR.plurals.result_x_items,
-                            cluster.count,
-                            cluster.count,
-                        ),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                Text(
+                    text = pluralStringResource(
+                        CommonR.plurals.result_x_items,
+                        cluster.count,
+                        cluster.count,
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
                 Spacer(Modifier.width(8.dp))
                 MatchTypeChips(types = cluster.types)
             }
@@ -199,12 +199,15 @@ internal fun DeduplicatorGridRow(
 
 @Composable
 private fun MatchTypeChips(types: Set<Duplicate.Type>) {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         if (Duplicate.Type.CHECKSUM in types) {
             Icon(
                 imageVector = SdmIcons.CodeEqualBox,
                 contentDescription = null,
-                modifier = Modifier.size(20.dp),
+                modifier = Modifier.size(14.dp),
                 tint = MaterialTheme.colorScheme.primary,
             )
         }
@@ -212,7 +215,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
             Icon(
                 imageVector = SdmIcons.ApproximatelyEqualBox,
                 contentDescription = null,
-                modifier = Modifier.size(20.dp),
+                modifier = Modifier.size(14.dp),
                 tint = MaterialTheme.colorScheme.secondary,
             )
         }
@@ -220,7 +223,7 @@ private fun MatchTypeChips(types: Set<Duplicate.Type>) {
             Icon(
                 imageVector = Icons.TwoTone.GraphicEq,
                 contentDescription = null,
-                modifier = Modifier.size(20.dp),
+                modifier = Modifier.size(14.dp),
                 tint = MaterialTheme.colorScheme.tertiary,
             )
         }
