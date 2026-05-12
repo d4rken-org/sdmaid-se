@@ -1,10 +1,7 @@
-package eu.darken.sdmse.main.ui.tour
+package eu.darken.sdmse.common.compose.tour
 
 import androidx.navigation3.runtime.NavKey
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.compose.tour.TourDefinition
-import eu.darken.sdmse.common.compose.tour.TourId
-import eu.darken.sdmse.common.compose.tour.TourStep
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.tour.TourPreferences

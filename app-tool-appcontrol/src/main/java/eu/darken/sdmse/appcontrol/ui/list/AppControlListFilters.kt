@@ -54,6 +54,8 @@ internal fun AppControlFilterRow(
     onAddTags: () -> Unit,
     onSort: () -> Unit,
     modifier: Modifier = Modifier,
+    addTagsModifier: Modifier = Modifier,
+    sortModifier: Modifier = Modifier,
 ) {
     val ordered = remember(activeTags, allowFilterActive) {
         FilterSettings.Tag.entries.filter { it in activeTags && (it != FilterSettings.Tag.ACTIVE || allowFilterActive) }
@@ -85,13 +87,17 @@ internal fun AppControlFilterRow(
                 items(ordered, key = { it.name }) { tag -> ActiveTagChip(tag = tag, onRemove = { onTagRemove(tag) }) }
             }
         }
-        IconButton(onClick = onAddTags) {
+        IconButton(
+            onClick = onAddTags,
+            modifier = addTagsModifier,
+        ) {
             Icon(
                 imageVector = Icons.TwoTone.Add,
                 contentDescription = stringResource(CommonR.string.general_filter_add_action),
             )
         }
         BadgedBox(
+            modifier = sortModifier,
             badge = {
                 if (sortNonDefault) Badge()
             },

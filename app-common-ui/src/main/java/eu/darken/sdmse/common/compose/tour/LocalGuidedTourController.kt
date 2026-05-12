@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.tour
+package eu.darken.sdmse.common.compose.tour
 
 import androidx.compose.runtime.staticCompositionLocalOf
 

@@ -120,4 +120,12 @@
     <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Manage installed apps</string>
+    <string name="tour_appcontrol_search_title">Search</string>
+    <string name="tour_appcontrol_search_body">Look up an app by name. Useful on devices with many installed apps.</string>
+    <string name="tour_appcontrol_filter_title">Filters</string>
+    <string name="tour_appcontrol_filter_body">Narrow the list by user/system apps, enabled state, recent activity, and more. Active filters show up as chips here.</string>
+    <string name="tour_appcontrol_sort_title">Sort</string>
+    <string name="tour_appcontrol_sort_body">Order apps by name, install date, last update, size, or screen time. Tap the same option to flip the direction.</string>
+    <string name="tour_appcontrol_app_row_title">App actions</string>
+    <string name="tour_appcontrol_app_row_body">Tap an app to open its details. Long-press to start a selection — once apps are selected, the top bar reveals bulk actions like uninstall, disable, freeze, archive, and export. Some require Shizuku or root.</string>
 </resources>

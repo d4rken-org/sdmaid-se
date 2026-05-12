@@ -61,8 +61,8 @@ import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
-import eu.darken.sdmse.main.ui.tour.GuidedTourController
-import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

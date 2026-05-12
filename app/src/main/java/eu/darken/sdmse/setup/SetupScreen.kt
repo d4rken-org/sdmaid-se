@@ -57,7 +57,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.permissions.Permission
-import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.setup.automation.AutomationSetupCard
 import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupCard

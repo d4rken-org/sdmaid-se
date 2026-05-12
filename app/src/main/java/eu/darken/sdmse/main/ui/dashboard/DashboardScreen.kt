@@ -78,7 +78,7 @@ import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.tour.DashboardTour
-import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler

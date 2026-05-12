@@ -22,7 +22,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
 import eu.darken.sdmse.main.core.themeState
-import eu.darken.sdmse.main.ui.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map

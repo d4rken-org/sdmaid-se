@@ -1,8 +1,6 @@
-package eu.darken.sdmse.main.ui.tour
+package eu.darken.sdmse.common.compose.tour
 
 import androidx.navigation3.runtime.NavKey
-import eu.darken.sdmse.common.compose.tour.TourDefinition
-import eu.darken.sdmse.common.compose.tour.TourSession
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE

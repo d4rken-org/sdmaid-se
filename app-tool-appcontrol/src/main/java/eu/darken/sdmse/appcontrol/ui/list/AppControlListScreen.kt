@@ -81,11 +81,14 @@ import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
+import eu.darken.sdmse.appcontrol.ui.list.tour.AppControlListTour
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -388,6 +391,31 @@ internal fun AppControlListScreen(
         }
     }
 
+    val tourController = LocalGuidedTourController.current
+    val tourSession by tourController.session.collectAsStateWithLifecycle()
+    val tourActive = tourSession != null
+    val tourDef = remember { AppControlListTour.definition() }
+    // Track whether we already tried to start the tour in this composition: rows can oscillate
+    // (load → refresh → reload) and we don't want to retrigger a tour the user already dismissed.
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // Pin the first-row target ID at the moment the tour starts so the bubble doesn't jump if
+    // rows reorder mid-tour (e.g., a background install changes ordering).
+    var tourFirstRowId by remember { mutableStateOf<InstallId?>(null) }
+    val rowsReady = !rows.isNullOrEmpty()
+    LaunchedEffect(rowsReady) {
+        if (!rowsReady || tourStartAttempted) return@LaunchedEffect
+        tourStartAttempted = true
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourFirstRowId = rows?.firstOrNull()?.installId
+        tourController.start(tourDef)
+    }
+    // Force the collapsing chip toolbar back into view at tour start so the filter/sort
+    // targets are guaranteed visible. clickProtection blocks input from reaching the list
+    // during the tour, so a one-time write is enough.
+    LaunchedEffect(tourActive) {
+        if (tourActive) topBarState.heightOffset = 0f
+    }
+
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
@@ -424,7 +452,10 @@ internal fun AppControlListScreen(
                             },
                             actions = {
                                 if (!searchActive) {
-                                    IconButton(onClick = { searchActive = true }) {
+                                    IconButton(
+                                        onClick = { searchActive = true },
+                                        modifier = Modifier.guidedTourTarget(AppControlListTour.SEARCH_TARGET),
+                                    ) {
                                         Icon(
                                             imageVector = Icons.TwoTone.Search,
                                             contentDescription = stringResource(CommonR.string.general_search_action),
@@ -450,6 +481,8 @@ internal fun AppControlListScreen(
                                 onTagRemove = onTagToggle,
                                 onAddTags = { openSheet(Sheet.Tags) },
                                 onSort = { openSheet(Sheet.Sort) },
+                                addTagsModifier = Modifier.guidedTourTarget(AppControlListTour.FILTER_TARGET),
+                                sortModifier = Modifier.guidedTourTarget(AppControlListTour.SORT_TARGET),
                             )
                         }
                     }
@@ -600,7 +633,13 @@ internal fun AppControlListScreen(
                         ) {
                             items(rows, key = { it.installId.toString() }) { row ->
                                 val isSelected = selection.contains(row.installId)
+                                val rowModifier = if (row.installId == tourFirstRowId) {
+                                    Modifier.guidedTourTarget(AppControlListTour.APP_ROW_TARGET)
+                                } else {
+                                    Modifier
+                                }
                                 AppControlListRow(
+                                    modifier = rowModifier,
                                     row = row,
                                     sortMode = state.options.listSort.mode,
                                     selected = isSelected,

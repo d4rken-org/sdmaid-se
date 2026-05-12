@@ -12,8 +12,8 @@ import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.tour.DashboardTour
-import eu.darken.sdmse.main.ui.tour.GuidedTourController
-import eu.darken.sdmse.main.ui.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.setup.SetupManager
 import io.mockk.coEvery
 import io.mockk.coVerify
