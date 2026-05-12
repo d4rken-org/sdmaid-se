@@ -54,7 +54,7 @@ internal fun AppControlDashboardCard(item: AppControlDashboardCardItem) {
                 contentDescription = null,
             )
             Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
-            Text(text = stringResource(CommonR.string.general_view_action))
+            Text(text = stringResource(CommonR.string.general_open_action))
         }
     }
 }

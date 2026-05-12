@@ -83,7 +83,7 @@ internal fun SwiperDashboardCard(
     val actionText = if (item.sessionsWithStats.isEmpty()) {
         stringResource(SwiperR.string.swiper_start_action)
     } else {
-        stringResource(CommonR.string.general_view_action)
+        stringResource(CommonR.string.general_open_action)
     }
 
     DashboardCard(modifier = modifier, onClick = item.onViewDetails) {
