@@ -17,6 +17,7 @@ import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
@@ -35,6 +36,7 @@ class CorpseFinderListViewModel @Inject constructor(
     init {
         corpseFinder.state
             .map { it.data }
+            .drop(1)
             .filter { !it.hasData }
             .take(1)
             .onEach { navUp() }

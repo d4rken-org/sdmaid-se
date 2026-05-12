@@ -25,6 +25,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.launchIn
@@ -45,6 +46,7 @@ class SqueezerListViewModel @Inject constructor(
     init {
         squeezer.state
             .map { it.data }
+            .drop(1)
             .filterNotNull()
             .filter { !it.hasData }
             .take(1)

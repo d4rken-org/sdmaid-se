@@ -18,6 +18,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
@@ -36,6 +37,7 @@ class SystemCleanerListViewModel @Inject constructor(
     init {
         systemCleaner.state
             .map { it.data }
+            .drop(1)
             .filter { !it.hasData }
             .take(1)
             .onEach { navUp() }
