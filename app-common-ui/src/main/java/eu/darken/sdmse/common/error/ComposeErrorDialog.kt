@@ -21,6 +21,12 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.navigation.NavigationController
 
+/**
+ * Pluggable customizer for error dialogs. Set this to handle app-specific error types
+ * (e.g., IncompleteSetupException, WriteException) with custom localized errors.
+ */
+var errorDialogCustomizer: ((Throwable, Activity) -> LocalizedError?)? = null
+
 @Composable
 fun ComposeErrorDialog(
     throwable: Throwable,
