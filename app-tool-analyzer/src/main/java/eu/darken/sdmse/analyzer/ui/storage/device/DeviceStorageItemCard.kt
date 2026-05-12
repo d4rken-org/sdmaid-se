@@ -14,15 +14,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Memory
 import androidx.compose.material.icons.twotone.SdCard
 import androidx.compose.material.icons.twotone.Usb
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -55,11 +56,12 @@ internal fun DeviceStorageItemCard(
     val formattedTotal = Formatter.formatShortFileSize(context, storage.spaceCapacity)
     val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
 
-    Card(
+    ElevatedCard(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             // Header: hardware icon + label/identifier/description
@@ -153,6 +155,7 @@ internal fun DeviceStorageItemCard(
             // Trend chart (compact) + delta
             if (row.snapshots.isNotEmpty()) {
                 Spacer(Modifier.size(8.dp))
+                val labelColorArgb = MaterialTheme.colorScheme.onSurface.toArgb()
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -162,9 +165,13 @@ internal fun DeviceStorageItemCard(
                         factory = { ctx ->
                             SpaceHistoryChartView(ctx).apply {
                                 isCompact = true
+                                setLabelColor(labelColorArgb)
                             }
                         },
-                        update = { it.setData(row.snapshots) },
+                        update = {
+                            it.setLabelColor(labelColorArgb)
+                            it.setData(row.snapshots)
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(80.dp),

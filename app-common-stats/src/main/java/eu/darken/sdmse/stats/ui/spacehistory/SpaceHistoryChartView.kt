@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -55,11 +56,13 @@ class SpaceHistoryChartView @JvmOverloads constructor(
     private val labelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
         textAlign = Paint.Align.RIGHT
+        typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
     }
 
     private val xLabelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
         textAlign = Paint.Align.LEFT
+        typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
     }
 
     private val markerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -102,11 +105,6 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         }
         updateColors()
         updateTextSizes()
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        updateColors()
     }
 
     fun setOnMarkerTapListener(listener: OnMarkerTapListener?) {
@@ -197,8 +195,8 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         super.onDraw(canvas)
         if (snapshots.isEmpty()) return
 
-        val yLabelWidth = if (isCompact) context.dpToPx(44f).toFloat() else context.dpToPx(60f).toFloat()
-        val xLabelHeight = if (isCompact) context.dpToPx(14f).toFloat() else context.dpToPx(20f).toFloat()
+        val yLabelWidth = if (isCompact) context.dpToPx(48f).toFloat() else context.dpToPx(60f).toFloat()
+        val xLabelHeight = if (isCompact) context.dpToPx(18f).toFloat() else context.dpToPx(22f).toFloat()
         val topPadding = if (isCompact) context.dpToPx(4f).toFloat() else context.dpToPx(8f).toFloat()
 
         val chartLeft = paddingLeft + yLabelWidth
@@ -432,9 +430,15 @@ class SpaceHistoryChartView @JvmOverloads constructor(
     private fun formatBytes(value: Long): String = ByteFormatter.formatSize(context, value).first
 
     private fun updateTextSizes() {
-        val textSize = if (isCompact) context.spToPx(9f) else context.spToPx(11f)
+        val textSize = if (isCompact) context.spToPx(11f) else context.spToPx(12f)
         labelPaint.textSize = textSize
         xLabelPaint.textSize = textSize
+    }
+
+    fun setLabelColor(@androidx.annotation.ColorInt color: Int) {
+        labelPaint.color = color
+        xLabelPaint.color = color
+        invalidate()
     }
 
     private fun updateColors() {
