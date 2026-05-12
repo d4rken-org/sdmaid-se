@@ -2,7 +2,6 @@ package eu.darken.sdmse.corpsefinder.ui.list.items
 
 import android.text.format.Formatter
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,10 +65,10 @@ fun CorpseRow(
         Formatter.formatShortFileSize(context, corpse.size)
     }
 
-    val riskAccent = when (corpse.riskLevel) {
-        RiskLevel.NORMAL -> MaterialTheme.colorScheme.outlineVariant
-        RiskLevel.KEEPER -> MaterialTheme.colorScheme.tertiary
-        RiskLevel.COMMON -> MaterialTheme.colorScheme.secondary
+    val riskBadge = when (corpse.riskLevel) {
+        RiskLevel.NORMAL -> null
+        RiskLevel.KEEPER -> CorpseR.string.corpsefinder_risk_keeper_chip to MaterialTheme.colorScheme.tertiary
+        RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip to MaterialTheme.colorScheme.secondary
     }
 
     Row(
@@ -83,7 +82,10 @@ fun CorpseRow(
         Box(
             modifier = Modifier
                 .size(40.dp)
-                .border(width = 1.dp, color = riskAccent, shape = RoundedCornerShape(10.dp))
+                .background(
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(10.dp),
+                )
                 .then(
                     if (selectionActive) {
                         Modifier
@@ -126,11 +128,6 @@ fun CorpseRow(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                val chipRes = when (corpse.riskLevel) {
-                    RiskLevel.NORMAL -> null
-                    RiskLevel.KEEPER -> CorpseR.string.corpsefinder_risk_keeper_chip
-                    RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip
-                }
                 Row(
                     modifier = Modifier.weight(1f),
                     verticalAlignment = Alignment.CenterVertically,
@@ -144,7 +141,9 @@ fun CorpseRow(
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(1f, fill = false),
                     )
-                    if (chipRes != null) RiskPill(label = stringResource(chipRes), accent = riskAccent)
+                    riskBadge?.let { (labelRes, accent) ->
+                        RiskPill(label = stringResource(labelRes), accent = accent)
+                    }
                 }
                 Icon(
                     imageVector = corpse.lookup.fileType.icon,

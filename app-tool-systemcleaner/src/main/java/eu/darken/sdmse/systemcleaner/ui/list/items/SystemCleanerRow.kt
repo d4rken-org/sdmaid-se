@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -58,11 +60,13 @@ fun SystemCleanerRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(
-            imageVector = content.icon,
-            contentDescription = stringResource(CommonR.string.general_details_label),
+        Box(
             modifier = Modifier
-                .size(32.dp)
+                .size(40.dp)
+                .background(
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(10.dp),
+                )
                 .then(
                     if (selectionActive) {
                         Modifier
@@ -73,9 +77,16 @@ fun SystemCleanerRow(
                         )
                     }
                 ),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.width(16.dp))
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                imageVector = content.icon,
+                contentDescription = stringResource(CommonR.string.general_details_label),
+                modifier = Modifier.size(22.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Spacer(Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = content.label.get(context),

@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -66,11 +68,13 @@ fun AppCleanerListRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        AsyncImage(
-            model = ImageRequest.Builder(context).data(junk.pkg).build(),
-            contentDescription = stringResource(CommonR.string.general_details_label),
+        Box(
             modifier = Modifier
                 .size(40.dp)
+                .background(
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(10.dp),
+                )
                 .combinedClickable(
                     onClick = if (selectionActive) onClick else onDetailsClick,
                     onLongClick = {
@@ -78,8 +82,15 @@ fun AppCleanerListRow(
                             .onFailure { log(TAG, WARN) { "Settings intent failed for ${junk.pkg}: $it" } }
                     },
                 ),
-        )
-        Spacer(Modifier.width(16.dp))
+            contentAlignment = Alignment.Center,
+        ) {
+            AsyncImage(
+                model = ImageRequest.Builder(context).data(junk.pkg).build(),
+                contentDescription = stringResource(CommonR.string.general_details_label),
+                modifier = Modifier.size(30.dp),
+            )
+        }
+        Spacer(Modifier.width(14.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = junk.label.get(context),
