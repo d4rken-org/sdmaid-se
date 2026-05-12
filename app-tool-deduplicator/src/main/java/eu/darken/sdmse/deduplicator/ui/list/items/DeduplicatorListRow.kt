@@ -235,6 +235,8 @@ private fun DuplicateSubRow(
     onPreviewClick: () -> Unit,
 ) {
     val context = LocalContext.current
+    val name = duplicate.path.userReadableName.get(context)
+    val parentPath = duplicate.path.userReadablePath.get(context).removeSuffix(name)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -255,33 +257,41 @@ private fun DuplicateSubRow(
         }
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = duplicate.path.userReadableName.get(context),
+                text = name,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            Text(
-                text = duplicate.path.userReadablePath.get(context),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
-        Spacer(Modifier.width(8.dp))
-        Text(
-            text = Formatter.formatShortFileSize(context, duplicate.size),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        if (willBeDeleted) {
-            Spacer(Modifier.width(8.dp))
-            Icon(
-                imageVector = Icons.TwoTone.DeleteSweep,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.error,
-                modifier = Modifier.size(20.dp),
-            )
+            if (parentPath.isNotEmpty()) {
+                Text(
+                    text = parentPath,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    softWrap = false,
+                    overflow = TextOverflow.StartEllipsis,
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = Formatter.formatShortFileSize(context, duplicate.size),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                if (willBeDeleted) {
+                    Spacer(Modifier.width(8.dp))
+                    Icon(
+                        imageVector = Icons.TwoTone.DeleteSweep,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(20.dp),
+                    )
+                }
+            }
         }
     }
 }
