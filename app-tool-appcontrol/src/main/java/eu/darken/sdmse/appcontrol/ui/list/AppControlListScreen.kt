@@ -18,8 +18,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AcUnit
@@ -38,7 +36,6 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -60,15 +57,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -84,6 +78,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -91,7 +86,6 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.pkgs.features.InstallId
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -441,8 +435,8 @@ internal fun AppControlListScreen(
                         TopAppBar(
                             title = {
                                 if (searchActive) {
-                                    ToolbarSearchField(
-                                        initial = state.options.searchQuery,
+                                    SdmSearchBar(
+                                        query = state.options.searchQuery,
                                         onQueryChange = onSearchQueryChanged,
                                         onClose = {
                                             onSearchQueryChanged("")
@@ -710,47 +704,4 @@ internal fun AppControlListScreen(
 }
 
 private enum class Sheet { Sort, Tags }
-
-@Composable
-private fun ToolbarSearchField(
-    initial: String,
-    onQueryChange: (String) -> Unit,
-    onClose: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    var query by remember { mutableStateOf(initial) }
-    val focusRequester = remember { FocusRequester() }
-    LaunchedEffect(Unit) { focusRequester.requestFocus() }
-    LaunchedEffect(initial) {
-        if (initial != query) query = initial
-    }
-    LaunchedEffect(query) {
-        delay(300)
-        if (query != initial) onQueryChange(query)
-    }
-    OutlinedTextField(
-        value = query,
-        onValueChange = { query = it },
-        modifier = modifier.focusRequester(focusRequester),
-        placeholder = { Text(stringResource(CommonR.string.general_search_action)) },
-        singleLine = true,
-        trailingIcon = {
-            IconButton(onClick = {
-                if (query.isEmpty()) {
-                    onClose()
-                } else {
-                    query = ""
-                    onQueryChange("")
-                }
-            }) {
-                Icon(
-                    imageVector = Icons.TwoTone.Close,
-                    contentDescription = stringResource(CommonR.string.general_close_action),
-                )
-            }
-        },
-        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-        keyboardActions = KeyboardActions(onSearch = { onQueryChange(query) }),
-    )
-}
 
