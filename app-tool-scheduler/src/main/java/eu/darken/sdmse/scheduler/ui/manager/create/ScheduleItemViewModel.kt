@@ -81,7 +81,7 @@ class ScheduleItemViewModel @Inject constructor(
     fun decreaseDays() {
         draft.update { current ->
             current?.copy(
-                repeatInterval = current.repeatInterval.minusDays(1).coerceAtLeast(Duration.ofDays(1)),
+                repeatInterval = current.repeatInterval.minusDays(1).coerceAtLeast(MIN_REPEAT),
             )
         }
     }
@@ -89,9 +89,14 @@ class ScheduleItemViewModel @Inject constructor(
     fun increaseDays() {
         draft.update { current ->
             current?.copy(
-                repeatInterval = current.repeatInterval.plusDays(1).coerceAtMost(Duration.ofDays(21)),
+                repeatInterval = current.repeatInterval.plusDays(1).coerceAtMost(MAX_REPEAT),
             )
         }
+    }
+
+    fun setRepeatDays(days: Int) {
+        val clamped = days.coerceIn(MIN_REPEAT.toDays().toInt(), MAX_REPEAT.toDays().toInt())
+        draft.update { current -> current?.copy(repeatInterval = Duration.ofDays(clamped.toLong())) }
     }
 
     fun saveSchedule() = launch {
@@ -149,5 +154,7 @@ class ScheduleItemViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Scheduler", "Schedule", "ViewModel")
+        private val MIN_REPEAT: Duration = Duration.ofDays(1)
+        private val MAX_REPEAT: Duration = Duration.ofDays(21)
     }
 }
