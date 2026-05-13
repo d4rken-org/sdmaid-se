@@ -1,13 +1,15 @@
 package eu.darken.sdmse.swiper.ui.swipe.items
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Delete
@@ -19,9 +21,11 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -41,19 +45,20 @@ internal fun SwiperActionBar(
     onSkipLongPress: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surface,
-        shadowElevation = 8.dp,
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 32.dp)
+            .padding(top = 8.dp, bottom = 24.dp),
+        verticalAlignment = Alignment.Top,
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+        // Outer left: DELETE by default, KEEP when swapped.
+        LabeledAction(
+            label = stringResource(
+                if (swapDirections) R.string.swiper_keep_action
+                else CommonR.string.general_delete_action
+            ),
         ) {
-            // Outer left: DELETE by default, KEEP when swapped.
             FloatingActionButton(
                 onClick = if (swapDirections) onKeep else onDelete,
                 containerColor = if (swapDirections) {
@@ -67,34 +72,37 @@ internal fun SwiperActionBar(
                     MaterialTheme.colorScheme.onErrorContainer
                 },
             ) {
-                if (swapDirections) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Favorite,
-                        contentDescription = stringResource(R.string.swiper_keep_action),
-                    )
-                } else {
-                    Icon(
-                        imageVector = Icons.TwoTone.Delete,
-                        contentDescription = stringResource(CommonR.string.general_delete_action),
-                    )
-                }
+                Icon(
+                    imageVector = if (swapDirections) Icons.TwoTone.Favorite else Icons.TwoTone.Delete,
+                    contentDescription = null,
+                )
             }
+        }
 
-            AnimatedVisibility(visible = canUndo) {
-                SmallFloatingActionButton(
-                    onClick = onUndo,
-                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                ) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Restore,
-                        contentDescription = stringResource(CommonR.string.general_undo_action),
-                    )
-                }
+        Spacer(modifier = Modifier.weight(1f))
+
+        // Undo slot is always reserved so Skip stays put when Undo isn't available.
+        LabeledAction(
+            label = stringResource(CommonR.string.general_undo_action),
+            modifier = Modifier.alpha(if (canUndo) 1f else 0f),
+        ) {
+            SmallFloatingActionButton(
+                onClick = { if (canUndo) onUndo() },
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.Restore,
+                    contentDescription = null,
+                )
             }
+        }
 
-            // Skip (mini) — needs both onClick AND onLongClick, so render a custom Surface
-            // shaped/styled like a SmallFloatingActionButton.
+        Spacer(modifier = Modifier.width(8.dp))
+
+        // Skip (mini) — needs both onClick AND onLongClick, so render a custom Surface
+        // shaped/styled like a SmallFloatingActionButton.
+        LabeledAction(label = stringResource(R.string.swiper_skip_action)) {
             Surface(
                 shape = CircleShape,
                 color = MaterialTheme.colorScheme.tertiaryContainer,
@@ -111,12 +119,21 @@ internal fun SwiperActionBar(
                 Box(contentAlignment = Alignment.Center) {
                     SwipeIcon(
                         painter = painterResource(R.drawable.ic_baseline_skip_next_24),
-                        contentDescription = stringResource(R.string.swiper_skip_action),
+                        contentDescription = null,
                     )
                 }
             }
+        }
 
-            // Outer right: KEEP by default, DELETE when swapped.
+        Spacer(modifier = Modifier.weight(1f))
+
+        // Outer right: KEEP by default, DELETE when swapped.
+        LabeledAction(
+            label = stringResource(
+                if (swapDirections) CommonR.string.general_delete_action
+                else R.string.swiper_keep_action
+            ),
+        ) {
             FloatingActionButton(
                 onClick = if (swapDirections) onDelete else onKeep,
                 containerColor = if (swapDirections) {
@@ -130,19 +147,31 @@ internal fun SwiperActionBar(
                     MaterialTheme.colorScheme.onPrimaryContainer
                 },
             ) {
-                if (swapDirections) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Delete,
-                        contentDescription = stringResource(CommonR.string.general_delete_action),
-                    )
-                } else {
-                    Icon(
-                        imageVector = Icons.TwoTone.Favorite,
-                        contentDescription = stringResource(R.string.swiper_keep_action),
-                    )
-                }
+                Icon(
+                    imageVector = if (swapDirections) Icons.TwoTone.Delete else Icons.TwoTone.Favorite,
+                    contentDescription = null,
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun LabeledAction(
+    label: String,
+    modifier: Modifier = Modifier,
+    button: @Composable () -> Unit,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        button()
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelSmall,
+        )
     }
 }
 
