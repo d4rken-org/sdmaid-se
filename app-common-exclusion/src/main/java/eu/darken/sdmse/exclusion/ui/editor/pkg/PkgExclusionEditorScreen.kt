@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -35,13 +36,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.icons.Asterisk
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -51,6 +57,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
+import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -255,16 +262,19 @@ private fun ReadyContent(
                 Spacer(Modifier.size(8.dp))
                 TagToggle(
                     label = stringResource(R.string.exclusion_tags_alltools),
+                    icon = SdmIcons.Asterisk,
                     checked = ready.current.tags.contains(Exclusion.Tag.GENERAL),
                     onToggle = { onToggleTag(Exclusion.Tag.GENERAL) },
                 )
                 TagToggle(
                     label = stringResource(CommonR.string.corpsefinder_tool_name),
+                    icon = SDMTool.Type.CORPSEFINDER.icon,
                     checked = ready.current.tags.contains(Exclusion.Tag.CORPSEFINDER),
                     onToggle = { onToggleTag(Exclusion.Tag.CORPSEFINDER) },
                 )
                 TagToggle(
                     label = stringResource(CommonR.string.appcleaner_tool_name),
+                    icon = SDMTool.Type.APPCLEANER.icon,
                     checked = ready.current.tags.contains(Exclusion.Tag.APPCLEANER),
                     onToggle = { onToggleTag(Exclusion.Tag.APPCLEANER) },
                 )
@@ -281,17 +291,29 @@ private fun ReadyContent(
 @Composable
 private fun TagToggle(
     label: String,
+    icon: ImageVector,
     checked: Boolean,
     onToggle: () -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .toggleable(
+                value = checked,
+                onValueChange = { onToggle() },
+                role = Role.Checkbox,
+            )
             .padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Checkbox(checked = checked, onCheckedChange = { onToggle() })
+        Checkbox(checked = checked, onCheckedChange = null)
         Spacer(Modifier.width(8.dp))
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(24.dp),
+        )
+        Spacer(Modifier.width(16.dp))
         Text(text = label, style = MaterialTheme.typography.bodyMedium)
     }
 }
