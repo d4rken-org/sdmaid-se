@@ -88,6 +88,7 @@ internal fun SwiperSwipeCard(
 ) {
     val offsetX = remember { Animatable(0f) }
     val offsetY = remember { Animatable(0f) }
+    val chromeAlpha = remember { Animatable(0f) }
     var cardSize by remember { mutableStateOf(IntSize.Zero) }
     var isCommitting by remember { mutableStateOf(false) }
     val animationScope = rememberCoroutineScope()
@@ -104,6 +105,8 @@ internal fun SwiperSwipeCard(
         offsetX.snapTo(0f)
         offsetY.snapTo(0f)
         isCommitting = false
+        chromeAlpha.snapTo(0f)
+        chromeAlpha.animateTo(1f, tween(durationMillis = 300))
     }
 
     val width = cardSize.width.toFloat().coerceAtLeast(1f)
@@ -225,7 +228,8 @@ internal fun SwiperSwipeCard(
                     ),
                     modifier = Modifier
                         .align(Alignment.TopStart)
-                        .padding(8.dp),
+                        .padding(8.dp)
+                        .graphicsLayer { alpha = chromeAlpha.value },
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.TwoTone.OpenInNew,
@@ -239,7 +243,8 @@ internal fun SwiperSwipeCard(
                     ),
                     modifier = Modifier
                         .align(Alignment.TopEnd)
-                        .padding(8.dp),
+                        .padding(8.dp)
+                        .graphicsLayer { alpha = chromeAlpha.value },
                 ) {
                     Icon(
                         imageVector = Icons.TwoTone.ZoomOutMap,
@@ -247,7 +252,7 @@ internal fun SwiperSwipeCard(
                     )
                 }
 
-                FileTypeChip(
+                SwiperFileTypeChip(
                     item = item,
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -261,7 +266,8 @@ internal fun SwiperSwipeCard(
                         totalItems = totalItems,
                         modifier = Modifier
                             .align(Alignment.BottomCenter)
-                            .fillMaxWidth(),
+                            .fillMaxWidth()
+                            .graphicsLayer { alpha = chromeAlpha.value },
                     )
                 }
 
@@ -270,22 +276,25 @@ internal fun SwiperSwipeCard(
                 val keepDirection = if (swapDirections) StampDirection.KEEP_RIGHT else StampDirection.KEEP_LEFT
                 val deleteDirection = if (swapDirections) StampDirection.DELETE_LEFT else StampDirection.DELETE_RIGHT
 
-                // Existing decision indicator (faded stamp at 0.3 alpha)
+                // Existing decision indicator (faded stamp at 0.3 alpha, fades in with chrome)
                 val existing = when (item.decision) {
                     SwipeDecision.KEEP -> keepDirection to 0.3f
                     SwipeDecision.DELETE -> deleteDirection to 0.3f
                     else -> null
                 }
 
+                val existingKeep = if (existing?.first == keepDirection) existing.second * chromeAlpha.value else 0f
+                val existingDelete = if (existing?.first == deleteDirection) existing.second * chromeAlpha.value else 0f
+
                 Stamp(
                     direction = keepDirection,
                     text = stringResource(stampStringId(StampKind.KEEP, stampSeeds.keep)),
-                    progress = keepProgress.coerceAtLeast(if (existing?.first == keepDirection) existing.second else 0f),
+                    progress = keepProgress.coerceAtLeast(existingKeep),
                 )
                 Stamp(
                     direction = deleteDirection,
                     text = stringResource(stampStringId(StampKind.DELETE, stampSeeds.delete)),
-                    progress = deleteProgress.coerceAtLeast(if (existing?.first == deleteDirection) existing.second else 0f),
+                    progress = deleteProgress.coerceAtLeast(existingDelete),
                 )
                 Stamp(
                     direction = StampDirection.SKIP_BOTTOM,
@@ -361,28 +370,6 @@ private fun FileInfoOverlay(
                 style = MaterialTheme.typography.bodyMedium,
             )
         }
-    }
-}
-
-@Composable
-private fun FileTypeChip(
-    item: SwipeItem,
-    modifier: Modifier = Modifier,
-) {
-    val ext = item.lookup.name.substringAfterLast('.', "").lowercase()
-    val display = if (ext.isEmpty()) "FILE" else ext.take(6).uppercase()
-    Surface(
-        shape = RoundedCornerShape(topStart = 8.dp, bottomEnd = 4.dp, topEnd = 0.dp, bottomStart = 0.dp),
-        color = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        modifier = modifier,
-    ) {
-        Text(
-            text = display,
-            style = MaterialTheme.typography.labelSmall,
-            maxLines = 1,
-            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
-        )
     }
 }
 
