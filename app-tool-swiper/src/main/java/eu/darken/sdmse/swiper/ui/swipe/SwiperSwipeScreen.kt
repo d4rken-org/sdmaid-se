@@ -229,7 +229,6 @@ internal fun SwiperSwipeScreen(
                     if (nextItem != null) {
                         SwiperSwipeBackCard(
                             item = nextItem,
-                            showDetails = current.showDetails,
                             modifier = Modifier.fillMaxSize(),
                         )
                     }
