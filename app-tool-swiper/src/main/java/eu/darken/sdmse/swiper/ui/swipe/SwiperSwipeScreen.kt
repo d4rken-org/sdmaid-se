@@ -2,8 +2,10 @@ package eu.darken.sdmse.swiper.ui.swipe
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
@@ -33,6 +35,7 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
@@ -125,7 +128,19 @@ internal fun SwiperSwipeScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(state?.sessionLabel ?: stringResource(R.string.swiper_label))
+                    Column {
+                        Text(stringResource(R.string.swiper_label))
+                        val subtitle = state?.sessionLabel
+                            ?: state?.sessionPosition?.let {
+                                stringResource(R.string.swiper_session_default_label, it)
+                            }
+                        if (subtitle != null) {
+                            Text(
+                                text = subtitle,
+                                style = MaterialTheme.typography.labelMedium,
+                            )
+                        }
+                    }
                 },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
@@ -142,7 +157,7 @@ internal fun SwiperSwipeScreen(
                             contentDescription = stringResource(CommonR.string.general_help_action),
                         )
                     }
-                    IconButton(onClick = onNavigateToStatus) {
+                    TextButton(onClick = onNavigateToStatus) {
                         BadgedBox(
                             badge = {
                                 val undecided = state?.undecidedCount ?: 0
@@ -153,9 +168,11 @@ internal fun SwiperSwipeScreen(
                         ) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.TwoTone.ListAlt,
-                                contentDescription = stringResource(R.string.swiper_review_action),
+                                contentDescription = null,
                             )
                         }
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(stringResource(R.string.swiper_review_action))
                     }
                 },
             )
