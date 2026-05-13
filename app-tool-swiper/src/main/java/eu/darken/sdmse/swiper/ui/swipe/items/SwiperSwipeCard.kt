@@ -265,18 +265,17 @@ internal fun SwiperSwipeCard(
                     )
                 }
 
+                // Stamps sit on the trailing edge of the swipe direction so they stay visible
+                // as the card moves off-screen (e.g. swiping right → stamp on the left).
+                val keepDirection = if (swapDirections) StampDirection.KEEP_RIGHT else StampDirection.KEEP_LEFT
+                val deleteDirection = if (swapDirections) StampDirection.DELETE_LEFT else StampDirection.DELETE_RIGHT
+
                 // Existing decision indicator (faded stamp at 0.3 alpha)
                 val existing = when (item.decision) {
-                    SwipeDecision.KEEP -> Pair(StampDirection.KEEP_RIGHT, 0.3f).takeIf { !swapDirections }
-                        ?: Pair(StampDirection.KEEP_LEFT, 0.3f)
-                    SwipeDecision.DELETE -> Pair(StampDirection.DELETE_LEFT, 0.3f).takeIf { !swapDirections }
-                        ?: Pair(StampDirection.DELETE_RIGHT, 0.3f)
+                    SwipeDecision.KEEP -> keepDirection to 0.3f
+                    SwipeDecision.DELETE -> deleteDirection to 0.3f
                     else -> null
                 }
-
-                // Live drag stamps
-                val keepDirection = if (swapDirections) StampDirection.KEEP_LEFT else StampDirection.KEEP_RIGHT
-                val deleteDirection = if (swapDirections) StampDirection.DELETE_RIGHT else StampDirection.DELETE_LEFT
 
                 Stamp(
                     direction = keepDirection,
