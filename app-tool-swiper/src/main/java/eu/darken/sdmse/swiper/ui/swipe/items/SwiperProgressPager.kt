@@ -25,6 +25,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -80,10 +81,11 @@ internal fun SwiperProgressPager(
             itemsIndexed(items, key = { _, item -> item.id }) { index, item ->
                 val distance = abs(index - centerOffset).coerceIn(0f, 2f)
                 val proximity = (1f - distance).coerceIn(0f, 1f)
-                val scale = 0.8f + proximity * 0.2f
-                val alpha = 0.5f + proximity * 0.5f
+                val scale = 0.85f + proximity * 0.15f
+                val alpha = 0.75f + proximity * 0.25f
                 ProgressThumb(
                     item = item,
+                    position = index + 1,
                     isCurrent = index == currentIndex,
                     onClick = { onItemClick(index) },
                     modifier = Modifier
@@ -103,15 +105,21 @@ internal fun SwiperProgressPager(
 @Composable
 private fun ProgressThumb(
     item: SwipeItem,
+    position: Int,
     isCurrent: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val border = if (isCurrent) BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null
+    val containerColor =
+        if (isCurrent) MaterialTheme.colorScheme.primaryContainer
+        else MaterialTheme.colorScheme.surfaceContainerHigh
+    val border =
+        if (isCurrent) BorderStroke(3.dp, MaterialTheme.colorScheme.primary)
+        else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
     Card(
         modifier = modifier.clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
         border = border,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
     ) {
@@ -121,6 +129,19 @@ private fun ProgressThumb(
                 contentScale = ContentScale.Crop,
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
+            )
+            Text(
+                text = "#$position",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(2.dp)
+                    .background(
+                        MaterialTheme.colorScheme.surface.copy(alpha = 0.85f),
+                        RoundedCornerShape(4.dp),
+                    )
+                    .padding(horizontal = 4.dp, vertical = 1.dp),
             )
             when (item.decision) {
                 SwipeDecision.KEEP -> DecisionDot(
@@ -142,17 +163,23 @@ private fun ProgressThumb(
                 else -> Unit
             }
             if (isCurrent) {
-                Icon(
-                    imageVector = Icons.TwoTone.Visibility,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
+                Box(
                     modifier = Modifier
                         .align(Alignment.Center)
-                        .size(18.dp)
-                        .graphicsLayer {
-                            shadowElevation = 8f
-                        },
-                )
+                        .size(28.dp)
+                        .background(
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.85f),
+                            CircleShape,
+                        ),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Visibility,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                        modifier = Modifier.size(18.dp),
+                    )
+                }
             }
         }
     }
