@@ -262,6 +262,7 @@ internal fun CorpseFinderListScreen(
                                         selection = selection + row.identifier
                                     },
                                     onDetailsClick = { onDetailsClick(row) },
+                                    onRiskChipClick = { showMarkersInfo = true },
                                 )
                             }
                         }

@@ -48,6 +48,7 @@ fun CorpseRow(
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     onDetailsClick: () -> Unit,
+    onRiskChipClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val corpse = row.corpse
@@ -142,7 +143,11 @@ fun CorpseRow(
                         modifier = Modifier.weight(1f, fill = false),
                     )
                     riskBadge?.let { (labelRes, accent) ->
-                        RiskPill(label = stringResource(labelRes), accent = accent)
+                        RiskPill(
+                            label = stringResource(labelRes),
+                            accent = accent,
+                            onClick = onRiskChipClick,
+                        )
                     }
                 }
                 Icon(
@@ -162,8 +167,9 @@ fun CorpseRow(
 }
 
 @Composable
-private fun RiskPill(label: String, accent: Color) {
+private fun RiskPill(label: String, accent: Color, onClick: () -> Unit) {
     Surface(
+        onClick = onClick,
         color = accent.copy(alpha = 0.18f),
         contentColor = accent,
         shape = RoundedCornerShape(6.dp),
