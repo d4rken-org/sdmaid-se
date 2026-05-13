@@ -19,8 +19,9 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Restore
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -80,7 +81,9 @@ fun SwiperStatusRow(
         Box(
             modifier = Modifier
                 .fillMaxHeight()
+                .padding(vertical = 4.dp)
                 .width(4.dp)
+                .clip(RoundedCornerShape(topEnd = 4.dp, bottomEnd = 4.dp))
                 .background(stripeColor),
         )
         Spacer(Modifier.width(12.dp))
@@ -167,23 +170,42 @@ private fun QuickActions(
 ) {
     if (decision == SwipeDecision.UNDECIDED) {
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            IconButton(onClick = onQuickKeep, enabled = enabled) {
+            FilledTonalIconButton(
+                onClick = onQuickKeep,
+                enabled = enabled,
+                colors = IconButtonDefaults.filledTonalIconButtonColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    contentColor = MaterialTheme.colorScheme.primary,
+                ),
+            ) {
                 Icon(
                     imageVector = Icons.TwoTone.Favorite,
                     contentDescription = stringResource(R.string.swiper_keep_action),
-                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
-            IconButton(onClick = onQuickDelete, enabled = enabled) {
+            FilledTonalIconButton(
+                onClick = onQuickDelete,
+                enabled = enabled,
+                colors = IconButtonDefaults.filledTonalIconButtonColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    contentColor = MaterialTheme.colorScheme.error,
+                ),
+            ) {
                 Icon(
                     imageVector = Icons.TwoTone.Delete,
                     contentDescription = stringResource(CommonR.string.general_delete_action),
-                    tint = MaterialTheme.colorScheme.error,
                 )
             }
         }
     } else {
-        IconButton(onClick = onReset, enabled = enabled) {
+        FilledTonalIconButton(
+            onClick = onReset,
+            enabled = enabled,
+            colors = IconButtonDefaults.filledTonalIconButtonColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            ),
+        ) {
             Icon(
                 imageVector = Icons.TwoTone.Restore,
                 contentDescription = stringResource(CommonR.string.general_reset_action),
