@@ -18,8 +18,8 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.PermissionDetails
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
-import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
+import eu.darken.sdmse.common.pkgs.loadIconFromArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
 
@@ -69,7 +69,7 @@ data class LibraryPkg(
     }
 
     override val icon: ((Context) -> Drawable)? = { context ->
-        context.packageManager.getIcon2(id)
+        packageInfo.loadIconFromArchive(context.packageManager)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_baseline_local_library_24)!!
     }
 
