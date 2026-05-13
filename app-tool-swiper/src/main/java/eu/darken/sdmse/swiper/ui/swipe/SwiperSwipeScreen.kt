@@ -191,7 +191,10 @@ internal fun SwiperSwipeScreen(
             return@Scaffold
         }
 
-        Column(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(paddingValues),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             SwiperStatsCard(state = current)
             SwiperProgressPager(
                 items = current.items,
