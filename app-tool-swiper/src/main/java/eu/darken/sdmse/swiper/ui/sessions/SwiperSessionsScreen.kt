@@ -103,6 +103,7 @@ internal fun SwiperSessionsScreen(
     var pendingSort by remember { mutableStateOf<PendingSort?>(null) }
     var pendingDiscard by remember { mutableStateOf<String?>(null) }
     var pendingScanWarn by remember { mutableStateOf<PendingScanWarn?>(null) }
+    var showRiskyInfo by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -176,6 +177,7 @@ internal fun SwiperSessionsScreen(
                     onCancel = onCancelScan,
                     onFilter = { pendingFilter = PendingFilter(sessionId, entry.session.fileTypeFilter) },
                     onSortOrder = { pendingSort = PendingSort(sessionId, entry.session.sortOrder) },
+                    onRiskyInfo = { showRiskyInfo = true },
                 )
             }
         }
@@ -258,6 +260,19 @@ internal fun SwiperSessionsScreen(
             dismissButton = {
                 TextButton(onClick = { pendingDiscard = null }) {
                     Text(stringResource(CommonR.string.general_cancel_action))
+                }
+            },
+        )
+    }
+
+    if (showRiskyInfo) {
+        AlertDialog(
+            onDismissRequest = { showRiskyInfo = false },
+            title = { Text(stringResource(R.string.swiper_session_risky_label)) },
+            text = { Text(stringResource(R.string.swiper_session_risky_info_message)) },
+            confirmButton = {
+                TextButton(onClick = { showRiskyInfo = false }) {
+                    Text(stringResource(CommonR.string.general_close_action))
                 }
             },
         )

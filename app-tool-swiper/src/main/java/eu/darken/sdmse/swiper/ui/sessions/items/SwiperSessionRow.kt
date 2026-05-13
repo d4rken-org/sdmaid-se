@@ -68,6 +68,7 @@ fun SwiperSessionRow(
     onCancel: () -> Unit,
     onFilter: () -> Unit,
     onSortOrder: () -> Unit,
+    onRiskyInfo: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val session = sessionWithStats.session
@@ -165,7 +166,7 @@ fun SwiperSessionRow(
                     )
                 }
                 AssistChip(
-                    onClick = {},
+                    onClick = onRiskyInfo,
                     label = { Text(stringResource(R.string.swiper_session_risky_label)) },
                     leadingIcon = {
                         Icon(

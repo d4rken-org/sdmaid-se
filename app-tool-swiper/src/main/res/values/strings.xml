@@ -46,6 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Scanning %1$s includes every file on this storage — photos, documents, downloads, app media, and more. Continue?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Continue anyway</string>
     <string name="swiper_session_risky_label">Whole-storage scan</string>
+    <string name="swiper_session_risky_info_message">This session targets the root of a storage volume, so every file on that storage is in scope — photos, documents, downloads, app media, and more.\n\nWhole-storage scans can return many items, including files you may not have meant to review. Apply a file-type filter to narrow the scan.</string>
     <string name="swiper_delete_x_action">Delete %1$d</string>
     <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
     <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>
