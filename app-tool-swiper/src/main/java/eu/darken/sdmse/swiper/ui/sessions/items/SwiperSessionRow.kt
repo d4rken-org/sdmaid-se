@@ -12,11 +12,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
+import androidx.compose.material.icons.automirrored.twotone.Sort
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.FilterList
-import androidx.compose.material.icons.automirrored.twotone.Sort
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.twotone.Warning
@@ -27,6 +30,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -34,6 +38,8 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -205,6 +211,40 @@ fun SwiperSessionRow(
 
             if (isScanned && !noMatchingFiles) {
                 Spacer(Modifier.height(12.dp))
+                Text(
+                    text = stringResource(R.string.swiper_session_status_label),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(4.dp))
+                SessionStatRow(
+                    icon = Icons.TwoTone.Favorite,
+                    text = pluralStringResource(
+                        R.plurals.swiper_session_status_to_keep,
+                        sessionWithStats.keepCount,
+                        sessionWithStats.keepCount,
+                    ),
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                SessionStatRow(
+                    icon = Icons.TwoTone.Delete,
+                    text = pluralStringResource(
+                        R.plurals.swiper_session_status_to_delete,
+                        sessionWithStats.deleteCount,
+                        sessionWithStats.deleteCount,
+                    ),
+                    color = MaterialTheme.colorScheme.error,
+                )
+                SessionStatRow(
+                    icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                    text = pluralStringResource(
+                        R.plurals.swiper_session_status_undecided,
+                        sessionWithStats.undecidedCount,
+                        sessionWithStats.undecidedCount,
+                    ),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(12.dp))
                 val decidedItems = sessionWithStats.keepCount + sessionWithStats.deleteCount
                 val total = session.totalItems
                 val percent = if (total > 0) decidedItems * 100 / total else 100
@@ -214,39 +254,7 @@ fun SwiperSessionRow(
                         modifier = Modifier.weight(1f),
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text(text = "$percent%", style = MaterialTheme.typography.labelSmall)
-                }
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.swiper_session_status_label),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.swiper_session_status_to_keep,
-                            sessionWithStats.keepCount,
-                            sessionWithStats.keepCount,
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                    )
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.swiper_session_status_to_delete,
-                            sessionWithStats.deleteCount,
-                            sessionWithStats.deleteCount,
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                    )
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.swiper_session_status_undecided,
-                            sessionWithStats.undecidedCount,
-                            sessionWithStats.undecidedCount,
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                    )
+                    Text(text = "$percent%", style = MaterialTheme.typography.labelMedium)
                 }
             }
 
@@ -255,30 +263,36 @@ fun SwiperSessionRow(
             Spacer(Modifier.height(12.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 if (showFilterSort) {
                     val filterActive = !filter.isEmpty
-                    AssistChip(
+                    IconButton(
                         onClick = onFilter,
-                        leadingIcon = { Icon(Icons.TwoTone.FilterList, contentDescription = null) },
-                        label = { Text(stringResource(R.string.swiper_file_type_filter_title)) },
-                        colors = AssistChipDefaults.assistChipColors(
-                            labelColor = if (filterActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                            leadingIconContentColor = if (filterActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+                        colors = IconButtonDefaults.iconButtonColors(
+                            contentColor = if (filterActive) MaterialTheme.colorScheme.primary
+                            else MaterialTheme.colorScheme.onSurfaceVariant,
                         ),
-                    )
+                    ) {
+                        Icon(
+                            Icons.TwoTone.FilterList,
+                            contentDescription = stringResource(R.string.swiper_file_type_filter_title),
+                        )
+                    }
                     val sortActive = session.sortOrder != SortOrder.DEFAULT
-                    AssistChip(
+                    IconButton(
                         onClick = onSortOrder,
-                        leadingIcon = { Icon(Icons.AutoMirrored.TwoTone.Sort, contentDescription = null) },
-                        label = { Text(stringResource(CommonR.string.general_sort_by_title)) },
-                        colors = AssistChipDefaults.assistChipColors(
-                            labelColor = if (sortActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                            leadingIconContentColor = if (sortActive) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+                        colors = IconButtonDefaults.iconButtonColors(
+                            contentColor = if (sortActive) MaterialTheme.colorScheme.primary
+                            else MaterialTheme.colorScheme.onSurfaceVariant,
                         ),
-                    )
+                    ) {
+                        Icon(
+                            Icons.AutoMirrored.TwoTone.Sort,
+                            contentDescription = stringResource(CommonR.string.general_sort_by_title),
+                        )
+                    }
                 }
                 Spacer(Modifier.weight(1f))
                 Box(contentAlignment = Alignment.Center) {
@@ -298,6 +312,33 @@ fun SwiperSessionRow(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun SessionStatRow(
+    icon: ImageVector,
+    text: String,
+    color: Color,
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 2.dp),
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = color,
+            modifier = Modifier.size(16.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodySmall,
+            color = color,
+        )
     }
 }
 
