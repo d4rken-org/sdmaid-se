@@ -473,6 +473,8 @@ private fun ChecksumFileRow(
 ) {
     val context = LocalContext.current
     val containerColor = if (selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
+    val name = duplicate.path.userReadableName.get(context)
+    val parentPath = duplicate.path.userReadablePath.get(context).removeSuffix(name)
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -483,18 +485,20 @@ private fun ChecksumFileRow(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = duplicate.path.userReadableName.get(context),
+                    text = name,
                     style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 1,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Text(
-                    text = duplicate.path.userReadablePath.get(context),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                if (parentPath.isNotEmpty()) {
+                    Text(
+                        text = parentPath,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
             }
             if (willBeDeleted) {
                 Icon(
@@ -523,6 +527,8 @@ private fun ImageFileRow(
 ) {
     val context = LocalContext.current
     val containerColor = if (selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface
+    val name = duplicate.path.userReadableName.get(context)
+    val parentPath = duplicate.path.userReadablePath.get(context).removeSuffix(name)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -542,18 +548,20 @@ private fun ImageFileRow(
         Spacer(Modifier.width(12.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = duplicate.path.userReadableName.get(context),
+                text = name,
                 style = MaterialTheme.typography.bodyMedium,
-                maxLines = 1,
+                maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            Text(
-                text = duplicate.path.userReadablePath.get(context),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
+            if (parentPath.isNotEmpty()) {
+                Text(
+                    text = parentPath,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
             val similarityText = String.format("%.2f%%", similarity * 100)
             val secondaryText = if (matchType != null) "$similarityText ($matchType)" else similarityText
             Text(
