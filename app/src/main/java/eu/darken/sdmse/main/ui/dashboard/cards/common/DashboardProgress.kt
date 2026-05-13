@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -111,7 +112,7 @@ internal fun DashboardProgress(progress: Progress.Data) {
                         )
                         Text(
                             text = "${(count.current * 100 / count.max).toInt()}%",
-                            style = MaterialTheme.typography.labelSmall,
+                            style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp),
                             modifier = Modifier.align(Alignment.Center),
                         )
                     } else {
