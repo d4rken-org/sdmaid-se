@@ -27,6 +27,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
+import eu.darken.sdmse.deduplicator.core.tasks.isSingleDuplicateDelete
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.ui.details.cluster.DirectoryGroup
 import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode
@@ -86,6 +87,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             .onEach { task ->
                 val result = task.result as? DeduplicatorTask.Result ?: return@onEach
                 if (handledResults.add(task.id)) {
+                    if (task.task.isSingleDuplicateDelete) return@onEach
                     events.tryEmit(Event.TaskResult(result))
                 }
             }

@@ -110,7 +110,7 @@ fun DeduplicatorDetailsScreenHost(
                 is DeduplicatorDetailsViewModel.Event.TaskResult -> snackScope.launch {
                     snackbarHostState.showSnackbar(
                         message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Long,
+                        duration = SnackbarDuration.Short,
                     )
                 }
 

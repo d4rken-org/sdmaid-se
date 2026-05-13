@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
@@ -66,3 +67,10 @@ data class DeduplicatorDeleteTask(
             }
     }
 }
+
+val SDMTool.Task.isSingleDuplicateDelete: Boolean
+    get() {
+        if (this !is DeduplicatorDeleteTask) return false
+        val mode = this.mode
+        return mode is DeduplicatorDeleteTask.TargetMode.Duplicates && mode.targets.size == 1
+    }
