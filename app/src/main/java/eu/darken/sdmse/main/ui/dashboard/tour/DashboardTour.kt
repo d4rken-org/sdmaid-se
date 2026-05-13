@@ -26,13 +26,16 @@ object DashboardTour {
      * The leading "overview" step is centerless (no anchor) — it introduces the dashboard concept
      * itself before subsequent steps focus on individual cards/controls.
      *
-     * [prepareTools] / [prepareManualTool] are scroll-to-card hooks. They matter because the
-     * dashboard's `LazyVerticalGrid` only composes visible items — without scrolling, an
-     * off-screen target never registers and the step would grace-skip.
+     * [prepareSetup] / [prepareTools] / [prepareManualTool] are scroll-to-card hooks. They matter
+     * because the dashboard's `LazyVerticalGrid` only composes visible items — without scrolling,
+     * an off-screen target never registers and the step would grace-skip. Setup also needs a hook
+     * for the Previous-navigation case: once Tools has scrolled the grid past the setup card,
+     * stepping back to Setup would otherwise leave that card off-screen above the viewport.
      */
     fun definition(
         includeSetup: Boolean = true,
         includeManualTool: Boolean = true,
+        prepareSetup: (suspend () -> Unit)? = null,
         prepareTools: (suspend () -> Unit)? = null,
         prepareManualTool: (suspend () -> Unit)? = null,
     ): TourDefinition = TourDefinition(
@@ -54,6 +57,7 @@ object DashboardTour {
                         targetId = SETUP_TARGET,
                         title = R.string.tour_dashboard_setup_title.toCaString(),
                         body = R.string.tour_dashboard_setup_body.toCaString(),
+                        prepareTarget = prepareSetup,
                     ),
                 )
             }
