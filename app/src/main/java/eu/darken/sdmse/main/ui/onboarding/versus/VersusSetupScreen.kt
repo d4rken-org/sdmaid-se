@@ -116,6 +116,7 @@ internal fun VersusSetupScreen(
                     Text(
                         text = stringResource(R.string.onboarding_versus_body1),
                         style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.fillMaxWidth(),
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -123,6 +124,7 @@ internal fun VersusSetupScreen(
                     Text(
                         text = stringResource(R.string.onboarding_versus_body3),
                         style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.fillMaxWidth(),
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -130,6 +132,7 @@ internal fun VersusSetupScreen(
                     Text(
                         text = stringResource(R.string.onboarding_versus_body2),
                         style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.fillMaxWidth(),
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -137,7 +140,9 @@ internal fun VersusSetupScreen(
                     Text(
                         text = stringResource(R.string.onboarding_versus_body4),
                         style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(bottom = 32.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 32.dp),
                     )
                 }
             }
