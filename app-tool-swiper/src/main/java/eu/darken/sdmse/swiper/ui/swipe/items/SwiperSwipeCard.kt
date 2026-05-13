@@ -62,6 +62,9 @@ import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.ui.swipe.SwipeOutcome
 import eu.darken.sdmse.swiper.ui.swipe.decideSwipe
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import kotlin.random.Random
 import kotlinx.coroutines.launch
 
@@ -215,11 +218,39 @@ internal fun SwiperSwipeCard(
                     modifier = Modifier.fillMaxSize(),
                 )
 
-                CardActionRow(
-                    onPreviewClick = onPreviewClick,
-                    onOpenExternallyClick = onOpenExternallyClick,
+                FilledTonalIconButton(
+                    onClick = onOpenExternallyClick,
+                    colors = IconButtonDefaults.filledTonalIconButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f),
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(8.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.TwoTone.OpenInNew,
+                        contentDescription = stringResource(R.string.swiper_open_externally_action),
+                    )
+                }
+                FilledTonalIconButton(
+                    onClick = onPreviewClick,
+                    colors = IconButtonDefaults.filledTonalIconButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f),
+                    ),
                     modifier = Modifier
                         .align(Alignment.TopEnd)
+                        .padding(8.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.ZoomOutMap,
+                        contentDescription = stringResource(CommonR.string.general_view_action),
+                    )
+                }
+
+                FileTypeChip(
+                    item = item,
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
                         .padding(8.dp),
                 )
 
@@ -233,13 +264,6 @@ internal fun SwiperSwipeCard(
                             .fillMaxWidth(),
                     )
                 }
-
-                FileTypeChip(
-                    item = item,
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(12.dp),
-                )
 
                 // Existing decision indicator (faded stamp at 0.3 alpha)
                 val existing = when (item.decision) {
@@ -280,39 +304,6 @@ internal fun SwiperSwipeCard(
 }
 
 @Composable
-private fun CardActionRow(
-    onPreviewClick: () -> Unit,
-    onOpenExternallyClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Row(modifier = modifier) {
-        FilledTonalIconButton(
-            onClick = onPreviewClick,
-            colors = IconButtonDefaults.filledTonalIconButtonColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f),
-            ),
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.ZoomOutMap,
-                contentDescription = stringResource(CommonR.string.general_view_action),
-            )
-        }
-        Spacer(modifier = Modifier.size(8.dp))
-        FilledTonalIconButton(
-            onClick = onOpenExternallyClick,
-            colors = IconButtonDefaults.filledTonalIconButtonColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f),
-            ),
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.TwoTone.OpenInNew,
-                contentDescription = stringResource(R.string.swiper_open_externally_action),
-            )
-        }
-    }
-}
-
-@Composable
 private fun FileInfoOverlay(
     item: SwipeItem,
     sessionPosition: Int,
@@ -320,6 +311,15 @@ private fun FileInfoOverlay(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val fullPath = item.lookup.userReadablePath.get(context)
+    val pathOnly = fullPath.removeSuffix(item.lookup.name)
+    val dateFormatter = remember {
+        DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+    }
+    val date = remember(item.id) {
+        item.lookup.modifiedAt.atZone(ZoneId.systemDefault()).format(dateFormatter)
+    }
+    val size = Formatter.formatFileSize(context, item.lookup.size)
     Box(
         modifier = modifier
             .background(
@@ -330,36 +330,37 @@ private fun FileInfoOverlay(
             .padding(horizontal = 16.dp, vertical = 12.dp),
     ) {
         Column {
-            Text(
-                text = item.lookup.name,
-                color = Color.White,
-                style = MaterialTheme.typography.titleSmall,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Text(
-                text = item.lookup.userReadablePath.get(context),
-                color = Color.White.copy(alpha = 0.85f),
-                style = MaterialTheme.typography.bodySmall,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Spacer(modifier = Modifier.height(2.dp))
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = Formatter.formatFileSize(context, item.lookup.size),
-                    color = Color.White.copy(alpha = 0.85f),
-                    style = MaterialTheme.typography.labelSmall,
+                    text = item.lookup.name,
+                    color = Color.White,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
                 )
                 if (totalItems > 0) {
                     Spacer(modifier = Modifier.size(8.dp))
                     Text(
                         text = stringResource(R.string.swiper_item_position, sessionPosition, totalItems),
                         color = Color.White.copy(alpha = 0.85f),
-                        style = MaterialTheme.typography.labelSmall,
+                        style = MaterialTheme.typography.labelMedium,
                     )
                 }
             }
+            Text(
+                text = pathOnly,
+                color = Color.White.copy(alpha = 0.85f),
+                style = MaterialTheme.typography.bodyMedium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Spacer(modifier = Modifier.height(2.dp))
+            Text(
+                text = "$size • $date",
+                color = Color.White.copy(alpha = 0.85f),
+                style = MaterialTheme.typography.bodyMedium,
+            )
         }
     }
 }
@@ -372,15 +373,16 @@ private fun FileTypeChip(
     val ext = item.lookup.name.substringAfterLast('.', "").lowercase()
     val display = if (ext.isEmpty()) "FILE" else ext.take(6).uppercase()
     Surface(
-        shape = RoundedCornerShape(8.dp),
-        color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.85f),
-        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        shape = RoundedCornerShape(topStart = 8.dp, bottomEnd = 4.dp, topEnd = 0.dp, bottomStart = 0.dp),
+        color = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface,
         modifier = modifier,
     ) {
         Text(
             text = display,
-            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+            style = MaterialTheme.typography.labelSmall,
+            maxLines = 1,
+            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
         )
     }
 }
