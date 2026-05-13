@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,12 +31,17 @@ class GuidedTourController @Inject constructor(
     @Volatile private var currentTopRoute: NavKey? = null
     @Volatile private var routeAtStart: NavKey? = null
 
+    // Singleton-scoped, so this resets on app restart — which is exactly what "skip for now" means:
+    // suppress the tour for the current process lifetime, not persistently.
+    private val skippedThisSession: MutableSet<String> = ConcurrentHashMap.newKeySet()
+
     private val mutationMutex = Mutex()
 
     suspend fun shouldStart(definition: TourDefinition): Boolean {
         if (_session.value != null) return false
-        val prefs = generalSettings.tourPreferences.value()
         val raw = definition.id.raw
+        if (raw in skippedThisSession) return false
+        val prefs = generalSettings.tourPreferences.value()
         return raw !in prefs.completed && raw !in prefs.dismissed
     }
 
@@ -84,10 +90,14 @@ class GuidedTourController @Inject constructor(
         _session.value = still.copy(stepIndex = still.stepIndex - 1)
     }
 
-    /** Exit the current session without persisting anything. The tour will re-trigger next time. */
+    /**
+     * Exit the current session and suppress this tour for the rest of the app process.
+     * The skip is in-memory only, so after the app is restarted the tour becomes eligible again.
+     */
     suspend fun skipForNow() = mutationMutex.withLock {
         val s = _session.value ?: return@withLock
         log(TAG) { "skipForNow(${s.definition.id.raw})" }
+        skippedThisSession += s.definition.id.raw
         _session.value = null
         routeAtStart = null
     }
@@ -113,6 +123,7 @@ class GuidedTourController @Inject constructor(
 
     suspend fun reset() = mutationMutex.withLock {
         log(TAG) { "reset()" }
+        skippedThisSession.clear()
         generalSettings.tourPreferences.value(TourPreferences())
     }
 

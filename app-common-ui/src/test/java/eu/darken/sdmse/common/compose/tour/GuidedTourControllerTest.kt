@@ -168,13 +168,29 @@ class GuidedTourControllerTest : BaseTest() {
     }
 
     @Test
-    fun `skipForNow leaves the tour eligible to start again`() = runTest {
+    fun `skipForNow suppresses the tour for the rest of the session without persisting`() = runTest {
         val ctrl = controller()
         ctrl.start(basicDefinition)
         ctrl.skipForNow()
-        ctrl.shouldStart(basicDefinition) shouldBe true
+        // No persistence — a freshly constructed controller (simulating an app restart) treats the
+        // tour as eligible again.
+        prefsFlow.value.dismissed shouldBe emptySet()
+        prefsFlow.value.completed shouldBe emptySet()
+        controller().shouldStart(basicDefinition) shouldBe true
+        // Same controller (current process) keeps the skip in memory.
+        ctrl.shouldStart(basicDefinition) shouldBe false
         ctrl.start(basicDefinition)
-        ctrl.session.value!!.stepIndex shouldBe 0
+        ctrl.session.value shouldBe null
+    }
+
+    @Test
+    fun `reset clears in-memory skip so the tour is eligible again`() = runTest {
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        ctrl.skipForNow()
+        ctrl.shouldStart(basicDefinition) shouldBe false
+        ctrl.reset()
+        ctrl.shouldStart(basicDefinition) shouldBe true
     }
 
     @Test
