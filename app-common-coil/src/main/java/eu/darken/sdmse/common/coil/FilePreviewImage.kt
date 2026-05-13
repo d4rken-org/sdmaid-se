@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
@@ -22,14 +22,15 @@ import eu.darken.sdmse.common.R as CommonR
 /**
  * Compose counterpart to the legacy `ImageView.loadFilePreview()` helper.
  *
- * Loads a preview for [lookup] via Coil with a file-type fallback / error icon, so rows behave
- * identically when decoding fails or the file has no preview.
+ * Loads a preview for [lookup] via Coil and falls back to a tonal-surface placeholder (a tinted
+ * [Icon] on a [fallbackBackground] box) whenever a real bitmap can't be shown:
  *
- * Items that can never have a real preview (directories, symlinks, unknown types, zero-size files)
- * are rendered as a Compose [Icon] with [fallbackTint] applied on a [fallbackBackground] tonal
- * surface. This bypasses Coil's drawable pipeline (where the vector's
- * `android:tint="?attr/colorControlNormal"` does not resolve reliably and can leave icons white
- * on a light surface) and gives the placeholder enough contrast against light card containers.
+ * - Items that can never have a preview (directories, symlinks, unknown types, zero-size files)
+ *   short-circuit and render the placeholder directly.
+ * - Items that go through Coil reuse the same placeholder for the `loading` and `error` slots, so
+ *   binaries Coil can't decode look identical to a directory tile instead of rendering the raw
+ *   vector drawable through Coil's pipeline (where `android:tint="?attr/colorControlNormal"` does
+ *   not resolve and the icon ends up oversized / untinted on light surfaces).
  */
 @Composable
 fun FilePreviewImage(
@@ -48,10 +49,9 @@ fun FilePreviewImage(
         FileType.UNKNOWN -> CommonR.drawable.file_question
     }
 
-    val canHavePreview = lookup.fileType == FileType.FILE && lookup.size > 0L
-    if (!canHavePreview) {
+    val fallback: @Composable (Modifier) -> Unit = { boxModifier ->
         Box(
-            modifier = modifier.background(fallbackBackground),
+            modifier = boxModifier.background(fallbackBackground),
             contentAlignment = Alignment.Center,
         ) {
             Icon(
@@ -61,21 +61,26 @@ fun FilePreviewImage(
                 tint = fallbackTint,
             )
         }
+    }
+
+    val canHavePreview = lookup.fileType == FileType.FILE && lookup.size > 0L
+    if (!canHavePreview) {
+        fallback(modifier)
         return
     }
 
     val context = LocalContext.current
     val request = ImageRequest.Builder(context)
         .data(lookup)
-        .fallback(fallbackRes)
-        .error(fallbackRes)
         .build()
 
-    AsyncImage(
+    SubcomposeAsyncImage(
         model = request,
         contentDescription = contentDescription,
         modifier = modifier,
         contentScale = contentScale,
         colorFilter = colorFilter,
+        loading = { fallback(Modifier.fillMaxSize()) },
+        error = { fallback(Modifier.fillMaxSize()) },
     )
 }
