@@ -1,6 +1,9 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
+import android.annotation.SuppressLint
+import android.content.Context
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
@@ -20,6 +23,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.drop
@@ -31,9 +35,11 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
+@SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class AppCleanerListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
     private val appCleaner: AppCleaner,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
@@ -51,18 +57,42 @@ class AppCleanerListViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
+    private val searchQuery = MutableStateFlow("")
+
     val state: StateFlow<State> = combine(
         appCleaner.state.map { it.data },
         appCleaner.progress,
-    ) { data, progress ->
-        val rows = data?.junks
-            ?.sortedByDescending { it.size }
-            ?.map { Row(junk = it) }
-        State(rows = rows, progress = progress)
+        searchQuery,
+    ) { data, progress, rawQuery ->
+        val all = data?.junks?.sortedByDescending { it.size }
+        val normalized = AppCleanerSearchMatcher.normalizeQuery(rawQuery)
+        val filtered = if (normalized.isEmpty()) {
+            all
+        } else {
+            all?.filter { junk ->
+                AppCleanerSearchMatcher.matches(
+                    label = junk.label.get(context),
+                    packageName = junk.pkg.packageName,
+                    normalizedQuery = normalized,
+                )
+            }
+        }
+        State(
+            rows = filtered?.map { Row(junk = it) },
+            progress = progress,
+            searchQuery = rawQuery,
+            isSearchFilterActive = normalized.isNotEmpty(),
+            totalCount = all?.size ?: 0,
+        )
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },
     )
+
+    fun onSearchQueryChanged(query: String) {
+        log(TAG) { "onSearchQueryChanged($query)" }
+        searchQuery.value = query
+    }
 
     fun onRowClick(row: Row) {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
@@ -117,6 +147,9 @@ class AppCleanerListViewModel @Inject constructor(
     data class State(
         val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
+        val searchQuery: String = "",
+        val isSearchFilterActive: Boolean = false,
+        val totalCount: Int = 0,
     )
 
     data class Row(val junk: AppJunk) {

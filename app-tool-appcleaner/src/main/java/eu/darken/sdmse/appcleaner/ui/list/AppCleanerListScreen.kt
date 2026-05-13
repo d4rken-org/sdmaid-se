@@ -3,16 +3,28 @@ package eu.darken.sdmse.appcleaner.ui.list
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,9 +48,9 @@ import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
+import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
-import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -102,6 +114,7 @@ fun AppCleanerListScreenHost(
         onDetailsClick = vm::onDetailsClick,
         onDeleteSelected = vm::onDeleteSelected,
         onExcludeSelected = vm::onExcludeSelected,
+        onSearchQueryChanged = vm::onSearchQueryChanged,
     )
 
     pendingDeletion?.let { pending ->
@@ -159,6 +172,7 @@ internal fun AppCleanerListScreen(
     onDetailsClick: (AppCleanerListViewModel.Row) -> Unit = {},
     onDeleteSelected: (Set<InstallId>) -> Unit = {},
     onExcludeSelected: (Set<InstallId>) -> Unit = {},
+    onSearchQueryChanged: (String) -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -169,6 +183,33 @@ internal fun AppCleanerListScreen(
         selection = selection intersect rowIds
     }
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+
+    var searchActive by remember { mutableStateOf(false) }
+    LaunchedEffect(state.isSearchFilterActive) {
+        if (state.isSearchFilterActive && !searchActive) searchActive = true
+    }
+    BackHandler(enabled = searchActive && selection.isEmpty()) {
+        onSearchQueryChanged("")
+        searchActive = false
+    }
+    // The IME's window-level back handler grabs the first back press while the search field has
+    // focus, which prevents the BackHandler above from firing. Watch the IME insets and treat the
+    // first IME-hide after the field opened (and got the IME up) as a request to collapse search,
+    // so a single back press both hides the keyboard and closes the search bar.
+    val isImeVisible = WindowInsets.isImeVisible
+    var searchImeWasShown by remember { mutableStateOf(false) }
+    LaunchedEffect(searchActive, isImeVisible) {
+        if (!searchActive) {
+            searchImeWasShown = false
+            return@LaunchedEffect
+        }
+        if (isImeVisible) {
+            searchImeWasShown = true
+        } else if (searchImeWasShown && selection.isEmpty()) {
+            onSearchQueryChanged("")
+            searchActive = false
+        }
+    }
 
     val subtitle = rows?.let { list ->
         if (state.progress == null) {
@@ -181,10 +222,45 @@ internal fun AppCleanerListScreen(
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
-                SdmTopAppBar(
-                    title = stringResource(CommonR.string.appcleaner_tool_name),
-                    subtitle = subtitle,
-                    onNavigateUp = onNavigateUp,
+                TopAppBar(
+                    title = {
+                        if (searchActive) {
+                            SdmSearchBar(
+                                query = state.searchQuery,
+                                onQueryChange = onSearchQueryChanged,
+                                onClose = {
+                                    onSearchQueryChanged("")
+                                    searchActive = false
+                                },
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                        } else {
+                            Column {
+                                Text(stringResource(CommonR.string.appcleaner_tool_name))
+                                if (subtitle != null) {
+                                    Text(subtitle, style = MaterialTheme.typography.labelMedium)
+                                }
+                            }
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onNavigateUp) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                contentDescription = stringResource(CommonR.string.general_navigate_up_action),
+                            )
+                        }
+                    },
+                    actions = {
+                        if (!searchActive) {
+                            IconButton(onClick = { searchActive = true }) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.Search,
+                                    contentDescription = stringResource(CommonR.string.general_search_action),
+                                )
+                            }
+                        }
+                    },
                 )
             } else {
                 SdmSelectionTopAppBar(
@@ -222,7 +298,11 @@ internal fun AppCleanerListScreen(
                 when {
                     rows == null -> SdmLoadingState()
 
-                    rows.isEmpty() -> SdmEmptyState()
+                    rows.isEmpty() -> if (state.isSearchFilterActive && state.totalCount > 0) {
+                        SdmEmptyState(title = stringResource(CommonR.string.general_search_no_matches))
+                    } else {
+                        SdmEmptyState()
+                    }
 
                     else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                         val context = LocalContext.current
@@ -281,6 +361,23 @@ private fun AppCleanerListScreenEmptyPreview() {
     PreviewWrapper {
         AppCleanerListScreen(
             stateSource = MutableStateFlow(AppCleanerListViewModel.State(rows = emptyList())),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppCleanerListScreenNoMatchesPreview() {
+    PreviewWrapper {
+        AppCleanerListScreen(
+            stateSource = MutableStateFlow(
+                AppCleanerListViewModel.State(
+                    rows = emptyList(),
+                    searchQuery = "xyz",
+                    isSearchFilterActive = true,
+                    totalCount = 12,
+                ),
+            ),
         )
     }
 }
