@@ -86,4 +86,35 @@ class DashboardTourTest : BaseTest() {
         withHook shouldBe listOf("tools")
         called shouldBe false // the hook is referenced, not invoked
     }
+
+    @Test
+    fun `prepareSetup is wired only on the setup step`() {
+        var called = false
+        val hook: suspend () -> Unit = { called = true }
+        val def = DashboardTour.definition(
+            prepareSetup = hook,
+            prepareTools = null,
+            prepareManualTool = null,
+        )
+
+        val withHook = def.steps.filter { it.prepareTarget != null }.map { it.stepId }
+        withHook shouldBe listOf("setup")
+        called shouldBe false // the hook is referenced, not invoked
+    }
+
+    @Test
+    fun `prepareSetup is dropped when setup step is excluded`() {
+        var called = false
+        val hook: suspend () -> Unit = { called = true }
+        val def = DashboardTour.definition(
+            includeSetup = false,
+            prepareSetup = hook,
+            prepareTools = null,
+            prepareManualTool = null,
+        )
+
+        def.steps.any { it.stepId == "setup" } shouldBe false
+        def.steps.any { it.prepareTarget != null } shouldBe false
+        called shouldBe false
+    }
 }

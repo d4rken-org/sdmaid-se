@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
@@ -40,6 +42,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -73,6 +76,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
+import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
@@ -237,12 +241,14 @@ internal fun DashboardScreen(
     // dismiss-on-scroll banners, etc.) so tour targets stay visible when prepareTarget
     // scrolls or when steps cycle through.
     val tourSession by tourController.session.collectAsStateWithLifecycle()
-    val tourActive = tourSession != null
+    // Narrow to *this* screen's tour. A global tour spawned from elsewhere shouldn't be allowed
+    // to inflate dashboard bottom padding or otherwise change layout here.
+    val dashboardTourActive = tourSession?.definition?.id == DashboardTour.id
 
     // Auto-hide the bottom bar on scroll, BUT freeze it visible whenever a tour is active.
-    // Re-keying on tourActive cancels the scroll listener for the duration of the tour.
-    LaunchedEffect(gridState, tourActive) {
-        if (tourActive) {
+    // Re-keying on dashboardTourActive cancels the scroll listener for the duration of the tour.
+    LaunchedEffect(gridState, dashboardTourActive) {
+        if (dashboardTourActive) {
             isBottomBarVisible = true
             return@LaunchedEffect
         }
@@ -261,24 +267,31 @@ internal fun DashboardScreen(
     val hasSetup = remember(items) {
         items?.any { it is SetupDashboardCardItem } == true
     }
+    val hasSwiper = remember(items) {
+        items?.any { it is SwiperDashboardCardItem } == true
+    }
     val firstToolIndex = remember(items) {
         items?.indexOfFirst { it is ToolDashboardCardItem }?.takeIf { it >= 0 }
     }
-    val swiperIndex = remember(items) {
-        items?.indexOfFirst { it is SwiperDashboardCardItem }?.takeIf { it >= 0 }
-    }
-    val tourDef = remember(gridState, hasSetup, firstToolIndex, swiperIndex) {
+    // Prepare callbacks resolve indices at *invocation* time rather than capturing them when
+    // the tour starts. Otherwise an item-list refresh mid-tour (a new card appears or order
+    // shifts) could leave the lambdas scrolling to a stale index.
+    val itemsState = rememberUpdatedState(items)
+    val tourDef = remember(gridState, hasSetup, hasSwiper) {
         DashboardTour.definition(
             includeSetup = hasSetup,
-            includeManualTool = swiperIndex != null,
+            includeManualTool = hasSwiper,
             // Scroll the LazyVerticalGrid to each step's target before it renders: with a tall
-            // setup card or compact device, the first tool card can be off-screen and otherwise
+            // setup card or compact device, the target card can be off-screen and otherwise
             // wouldn't register a target rect (LazyGrid composes only visible items).
-            prepareTools = firstToolIndex?.let { idx ->
-                { gridState.animateScrollToItem(idx) }
+            prepareSetup = {
+                scrollToFirstMatching(gridState, itemsState.value) { it is SetupDashboardCardItem }
             },
-            prepareManualTool = swiperIndex?.let { idx ->
-                { gridState.animateScrollToItem(idx) }
+            prepareTools = {
+                scrollToFirstMatching(gridState, itemsState.value) { it is ToolDashboardCardItem }
+            },
+            prepareManualTool = {
+                scrollToFirstMatching(gridState, itemsState.value) { it is SwiperDashboardCardItem }
             },
         )
     }
@@ -335,7 +348,17 @@ internal fun DashboardScreen(
             val firstToolStableId = remember(items) {
                 items.firstOrNull { it is ToolDashboardCardItem }?.stableId
             }
-            Box(modifier = Modifier.fillMaxSize()) {
+            BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                // While the dashboard tour is active, inflate the grid's bottom contentPadding to
+                // (at least) the viewport height. Without that headroom, animateScrollToItem on
+                // cards near the end of the list (Swiper, in particular) clamps at max scroll and
+                // leaves the target stranded mid-viewport — the bubble then chooses to render
+                // above it, squashing the cutout against the screen edge.
+                val bottomContentPadding = if (dashboardTourActive) {
+                    maxOf(DASHBOARD_BOTTOM_CONTENT_PADDING, maxHeight)
+                } else {
+                    DASHBOARD_BOTTOM_CONTENT_PADDING
+                }
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),
                     state = gridState,
@@ -344,7 +367,7 @@ internal fun DashboardScreen(
                         start = 8.dp,
                         end = 8.dp,
                         top = paddingValues.calculateTopPadding(),
-                        bottom = 128.dp,
+                        bottom = bottomContentPadding,
                     ),
                 ) {
                     items(
@@ -375,6 +398,22 @@ internal fun DashboardScreen(
 @Composable
 private fun MascotOverlay() {
     SdmMascot(modifier = Modifier.fillMaxSize())
+}
+
+private val DASHBOARD_BOTTOM_CONTENT_PADDING = 128.dp
+
+/**
+ * Scroll the grid so the first item matching [predicate] anchors to the top. Index is resolved
+ * here, at invocation time, so item-list refreshes between tour-start and prepareTarget don't
+ * leave the tour scrolling to a stale index.
+ */
+private suspend fun scrollToFirstMatching(
+    gridState: LazyGridState,
+    items: List<DashboardItem>?,
+    predicate: (DashboardItem) -> Boolean,
+) {
+    val index = items?.indexOfFirst(predicate)?.takeIf { it >= 0 } ?: return
+    gridState.animateScrollToItem(index)
 }
 
 private val DASHBOARD_BOTTOM_BAR_HEIGHT = 60.dp
