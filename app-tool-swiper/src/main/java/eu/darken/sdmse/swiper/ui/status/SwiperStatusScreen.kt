@@ -37,6 +37,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -129,6 +130,10 @@ internal fun SwiperStatusScreen(
 
     val selectedItems = items.filter { selection.contains(it.id) }
 
+    val statsCollapsed by remember {
+        derivedStateOf { listState.firstVisibleItemIndex > 0 }
+    }
+
     Scaffold(
         topBar = {
             if (selection.isEmpty()) {
@@ -136,7 +141,9 @@ internal fun SwiperStatusScreen(
                     title = stringResource(R.string.swiper_status_title),
                     onNavigateUp = onNavigateUp,
                     actions = {
-                        if (state.finalizeAction != SwiperStatusViewModel.FinalizeAction.HIDDEN) {
+                        if (statsCollapsed &&
+                            state.finalizeAction != SwiperStatusViewModel.FinalizeAction.HIDDEN
+                        ) {
                             FinalizeIconButton(
                                 state = state,
                                 onClick = {
@@ -193,47 +200,46 @@ internal fun SwiperStatusScreen(
             }
         },
     ) { paddingValues ->
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
+            state = listState,
+            contentPadding = PaddingValues(bottom = 8.dp),
         ) {
-            StatsSection(
-                state = state,
-                onFinalizeClick = {
-                    dispatchFinalize(state, onFinalize, onDone, openConfirm = { confirmDelete = true })
-                },
-                onUndecidedClick = {
-                    val firstUndecided = items.indexOfFirst { it.decision == SwipeDecision.UNDECIDED }
-                    if (firstUndecided >= 0) {
-                        scope.launch { listState.animateScrollToItem(firstUndecided) }
-                    }
-                },
-            )
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                state = listState,
-                contentPadding = PaddingValues(bottom = 8.dp),
-            ) {
-                items(items, key = { it.id }) { item ->
-                    val isSelected = selection.contains(item.id)
-                    SwiperStatusRow(
-                        item = item,
-                        selected = isSelected,
-                        selectionActive = selection.isNotEmpty(),
-                        onClick = {
-                            if (selection.isNotEmpty()) {
-                                selection = if (isSelected) selection - item.id else selection + item.id
-                            } else {
-                                onItemClick(item.id)
-                            }
-                        },
-                        onLongClick = { selection = selection + item.id },
-                        onReset = { onReset(item.id) },
-                        onQuickKeep = { onQuickKeep(item.id) },
-                        onQuickDelete = { onQuickDelete(item.id) },
-                    )
-                }
+            item(key = "stats") {
+                StatsSection(
+                    state = state,
+                    onFinalizeClick = {
+                        dispatchFinalize(state, onFinalize, onDone, openConfirm = { confirmDelete = true })
+                    },
+                    onUndecidedClick = {
+                        val firstUndecided = items.indexOfFirst { it.decision == SwipeDecision.UNDECIDED }
+                        if (firstUndecided >= 0) {
+                            // +1 to account for the stats header at index 0.
+                            scope.launch { listState.animateScrollToItem(firstUndecided + 1) }
+                        }
+                    },
+                )
+            }
+            items(items, key = { it.id }) { item ->
+                val isSelected = selection.contains(item.id)
+                SwiperStatusRow(
+                    item = item,
+                    selected = isSelected,
+                    selectionActive = selection.isNotEmpty(),
+                    onClick = {
+                        if (selection.isNotEmpty()) {
+                            selection = if (isSelected) selection - item.id else selection + item.id
+                        } else {
+                            onItemClick(item.id)
+                        }
+                    },
+                    onLongClick = { selection = selection + item.id },
+                    onReset = { onReset(item.id) },
+                    onQuickKeep = { onQuickKeep(item.id) },
+                    onQuickDelete = { onQuickDelete(item.id) },
+                )
             }
         }
     }
