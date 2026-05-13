@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Duration
 
 class ScheduleItemViewModelTest : BaseTest() {
 
@@ -120,5 +121,35 @@ class ScheduleItemViewModelTest : BaseTest() {
         vm.updateTime(hour = 9, minute = 0)
         advanceUntilIdle()
         vm.state.first().canSave shouldBe true
+    }
+
+    @Test
+    fun `setRepeatDays applies value in normal range`() = runTest2 {
+        val (vm, _, _) = harness(initial = emptySet())
+        vm.setScheduleId("brand-new")
+        advanceUntilIdle()
+        vm.setRepeatDays(7)
+        advanceUntilIdle()
+        vm.state.first().repeatInterval shouldBe Duration.ofDays(7)
+    }
+
+    @Test
+    fun `setRepeatDays clamps below 1 to 1`() = runTest2 {
+        val (vm, _, _) = harness(initial = emptySet())
+        vm.setScheduleId("brand-new")
+        advanceUntilIdle()
+        vm.setRepeatDays(0)
+        advanceUntilIdle()
+        vm.state.first().repeatInterval shouldBe Duration.ofDays(1)
+    }
+
+    @Test
+    fun `setRepeatDays clamps above 21 to 21`() = runTest2 {
+        val (vm, _, _) = harness(initial = emptySet())
+        vm.setScheduleId("brand-new")
+        advanceUntilIdle()
+        vm.setRepeatDays(99)
+        advanceUntilIdle()
+        vm.state.first().repeatInterval shouldBe Duration.ofDays(21)
     }
 }

@@ -9,19 +9,21 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.AccessTime
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Remove
 import androidx.compose.material3.Button
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -33,6 +35,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -62,6 +66,7 @@ fun ScheduleItemSheetHost(
         onTimePicked = vm::updateTime,
         onIncreaseDays = vm::increaseDays,
         onDecreaseDays = vm::decreaseDays,
+        onRepeatDaysChanged = vm::setRepeatDays,
         onSave = vm::saveSchedule,
     )
 }
@@ -73,10 +78,28 @@ internal fun ScheduleItemSheet(
     onTimePicked: (Int, Int) -> Unit = { _, _ -> },
     onIncreaseDays: () -> Unit = {},
     onDecreaseDays: () -> Unit = {},
+    onRepeatDaysChanged: (Int) -> Unit = {},
     onSave: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = ScheduleItemViewModel.State())
     var showTimePicker by remember { mutableStateOf(false) }
+
+    var timeText by remember { mutableStateOf(formatTime(state.hour, state.minute)) }
+    LaunchedEffect(state.hour, state.minute) {
+        val parsed = parseTime(timeText)
+        if (parsed?.first != state.hour || parsed?.second != state.minute) {
+            timeText = formatTime(state.hour, state.minute)
+        }
+    }
+
+    var daysText by remember { mutableStateOf(state.repeatInterval.toDays().toString()) }
+    LaunchedEffect(state.repeatInterval) {
+        val stateDays = state.repeatInterval.toDays().toInt()
+        val typed = daysText.toIntOrNull()
+        if (typed != null && typed != stateDays) {
+            daysText = stateDays.toString()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -90,8 +113,7 @@ internal fun ScheduleItemSheet(
             onValueChange = onLabelChanged,
             label = { Text(stringResource(R.string.scheduler_schedule_name_label)) },
             singleLine = true,
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-            keyboardActions = KeyboardActions(onDone = { showTimePicker = true }),
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
             modifier = Modifier.fillMaxWidth(),
         )
 
@@ -101,15 +123,32 @@ internal fun ScheduleItemSheet(
             modifier = Modifier.fillMaxWidth(),
         ) {
             OutlinedTextField(
-                value = formatTime(state.hour, state.minute),
-                onValueChange = {},
-                readOnly = true,
+                value = timeText,
+                onValueChange = { newText ->
+                    timeText = newText
+                    parseTime(newText)?.let { (h, m) -> onTimePicked(h, m) }
+                },
                 label = { Text(stringResource(R.string.scheduler_schedule_time_label)) },
                 singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done,
+                ),
+                keyboardActions = KeyboardActions(onDone = {
+                    // Re-sync the field text from the parsed state, so a partial entry collapses to
+                    // the last valid value when the user dismisses the keyboard.
+                    timeText = formatTime(state.hour, state.minute)
+                }),
                 modifier = Modifier.weight(1f),
             )
             Spacer(modifier = Modifier.width(8.dp))
-            TextButton(onClick = { showTimePicker = true }) {
+            FilledTonalButton(onClick = { showTimePicker = true }) {
+                Icon(
+                    imageVector = Icons.TwoTone.AccessTime,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(modifier = Modifier.size(8.dp))
                 Text(stringResource(CommonR.string.general_edit_action))
             }
         }
@@ -133,6 +172,25 @@ internal fun ScheduleItemSheet(
             IconButton(onClick = onDecreaseDays) {
                 Icon(Icons.TwoTone.Remove, contentDescription = "−1")
             }
+            OutlinedTextField(
+                value = daysText,
+                onValueChange = { newText ->
+                    if (newText.isEmpty() || newText.matches(DAYS_INPUT_REGEX)) {
+                        daysText = newText
+                        newText.toIntOrNull()?.let(onRepeatDaysChanged)
+                    }
+                },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done,
+                ),
+                keyboardActions = KeyboardActions(onDone = {
+                    daysText = state.repeatInterval.toDays().toString()
+                }),
+                textStyle = MaterialTheme.typography.bodyLarge.copy(textAlign = TextAlign.Center),
+                modifier = Modifier.width(72.dp),
+            )
             IconButton(onClick = onIncreaseDays) {
                 Icon(Icons.TwoTone.Add, contentDescription = "+1")
             }
@@ -166,6 +224,17 @@ internal fun ScheduleItemSheet(
 private fun formatTime(hour: Int?, minute: Int?): String {
     if (hour == null || minute == null) return ""
     return "%02d:%02d".format(hour, minute)
+}
+
+private val TIME_INPUT_REGEX = Regex("^(\\d{1,2}):(\\d{2})$")
+private val DAYS_INPUT_REGEX = Regex("^\\d{1,2}$")
+
+private fun parseTime(text: String): Pair<Int, Int>? {
+    val match = TIME_INPUT_REGEX.matchEntire(text.trim()) ?: return null
+    val h = match.groupValues[1].toIntOrNull() ?: return null
+    val m = match.groupValues[2].toIntOrNull() ?: return null
+    if (h !in 0..23 || m !in 0..59) return null
+    return h to m
 }
 
 @Preview2
