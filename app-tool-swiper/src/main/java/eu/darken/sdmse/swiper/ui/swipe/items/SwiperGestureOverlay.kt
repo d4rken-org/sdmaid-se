@@ -11,12 +11,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Restore
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -33,7 +42,7 @@ internal fun SwiperGestureOverlay(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.7f))
+            .background(Color.Black.copy(alpha = 0.8f))
             .clickable(onClick = onDismiss),
     ) {
         Column(
@@ -44,9 +53,9 @@ internal fun SwiperGestureOverlay(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             DirectionLabel(
+                painter = painterResource(R.drawable.ic_baseline_skip_next_24),
                 text = stringResource(R.string.swiper_gesture_overlay_up_skip),
                 modifier = Modifier.fillMaxWidth(),
-                align = TextAlign.Center,
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -54,12 +63,12 @@ internal fun SwiperGestureOverlay(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 DirectionLabel(
+                    imageVector = if (swapDirections) Icons.TwoTone.Favorite else Icons.TwoTone.Delete,
                     text = if (swapDirections) {
                         stringResource(R.string.swiper_gesture_overlay_left_keep)
                     } else {
                         stringResource(R.string.swiper_gesture_overlay_left_delete)
                     },
-                    align = TextAlign.Start,
                 )
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
@@ -68,23 +77,23 @@ internal fun SwiperGestureOverlay(
                         textAlign = TextAlign.Center,
                     )
                     Spacer(modifier = Modifier.height(12.dp))
-                    OutlinedButton(onClick = onDismiss) {
+                    FilledTonalButton(onClick = onDismiss) {
                         Text(stringResource(R.string.swiper_gesture_overlay_dismiss_action))
                     }
                 }
                 DirectionLabel(
+                    imageVector = if (swapDirections) Icons.TwoTone.Delete else Icons.TwoTone.Favorite,
                     text = if (swapDirections) {
                         stringResource(R.string.swiper_gesture_overlay_right_delete)
                     } else {
                         stringResource(R.string.swiper_gesture_overlay_right_keep)
                     },
-                    align = TextAlign.End,
                 )
             }
             DirectionLabel(
+                imageVector = Icons.TwoTone.Restore,
                 text = stringResource(R.string.swiper_gesture_overlay_down_undo),
                 modifier = Modifier.fillMaxWidth(),
-                align = TextAlign.Center,
             )
         }
     }
@@ -93,15 +102,35 @@ internal fun SwiperGestureOverlay(
 @Composable
 private fun DirectionLabel(
     text: String,
-    align: TextAlign,
     modifier: Modifier = Modifier,
+    imageVector: ImageVector? = null,
+    painter: Painter? = null,
 ) {
-    Text(
-        text = text,
-        color = Color.White,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 18.sp,
-        textAlign = align,
+    Column(
         modifier = modifier,
-    )
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        when {
+            imageVector != null -> Icon(
+                imageVector = imageVector,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(32.dp),
+            )
+            painter != null -> Icon(
+                painter = painter,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(32.dp),
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = text,
+            color = Color.White,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 18.sp,
+            textAlign = TextAlign.Center,
+        )
+    }
 }

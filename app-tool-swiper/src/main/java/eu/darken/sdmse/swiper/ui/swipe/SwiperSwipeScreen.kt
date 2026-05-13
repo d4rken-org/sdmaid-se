@@ -121,121 +121,124 @@ internal fun SwiperSwipeScreen(
     var showHelpDialog by remember { mutableStateOf(false) }
     var excludeRequest by remember { mutableStateOf<SwipeItem?>(null) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(state?.sessionLabel ?: stringResource(R.string.swiper_label))
-                },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(
-                            imageVector = Icons.TwoTone.Close,
-                            contentDescription = stringResource(CommonR.string.general_close_action),
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { showHelpDialog = true }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
-                            contentDescription = stringResource(CommonR.string.general_help_action),
-                        )
-                    }
-                    IconButton(onClick = onNavigateToStatus) {
-                        BadgedBox(
-                            badge = {
-                                val undecided = state?.undecidedCount ?: 0
-                                if (undecided > 0) {
-                                    Badge { Text(text = undecided.toString()) }
-                                }
-                            },
-                        ) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(state?.sessionLabel ?: stringResource(R.string.swiper_label))
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onNavigateUp) {
                             Icon(
-                                imageVector = Icons.AutoMirrored.TwoTone.ListAlt,
-                                contentDescription = stringResource(R.string.swiper_review_action),
+                                imageVector = Icons.TwoTone.Close,
+                                contentDescription = stringResource(CommonR.string.general_close_action),
                             )
                         }
-                    }
-                },
-            )
-        },
-        bottomBar = {
-            val current = state
-            if (current != null) {
-                SwiperActionBar(
-                    canUndo = current.canUndo,
-                    swapDirections = current.swapDirections,
-                    hasCurrentItem = current.currentItem != null,
-                    onDelete = {
-                        current.currentItem?.let { onSetDecision(it.id, SwipeDecision.DELETE) }
                     },
-                    onKeep = {
-                        current.currentItem?.let { onSetDecision(it.id, SwipeDecision.KEEP) }
-                    },
-                    onUndo = onUndo,
-                    onSkip = onSkip,
-                    onSkipLongPress = {
-                        excludeRequest = current.currentItem
+                    actions = {
+                        IconButton(onClick = { showHelpDialog = true }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
+                                contentDescription = stringResource(CommonR.string.general_help_action),
+                            )
+                        }
+                        IconButton(onClick = onNavigateToStatus) {
+                            BadgedBox(
+                                badge = {
+                                    val undecided = state?.undecidedCount ?: 0
+                                    if (undecided > 0) {
+                                        Badge { Text(text = undecided.toString()) }
+                                    }
+                                },
+                            ) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.TwoTone.ListAlt,
+                                    contentDescription = stringResource(R.string.swiper_review_action),
+                                )
+                            }
+                        }
                     },
                 )
-            }
-        },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-    ) { paddingValues ->
-        val current = state
-        if (current == null) {
-            Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
-            return@Scaffold
-        }
-
-        Column(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
-            SwiperStatsCard(state = current)
-            SwiperProgressPager(
-                items = current.items,
-                currentIndex = current.currentIndex,
-                onItemClick = onSetCurrentIndex,
-            )
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(1f),
-                contentAlignment = Alignment.Center,
-            ) {
-                val nextItem = current.nextItem?.takeIf { it.id != current.currentItem?.id }
-                if (nextItem != null) {
-                    SwiperSwipeBackCard(
-                        item = nextItem,
-                        showDetails = current.showDetails,
-                        modifier = Modifier.fillMaxSize(),
-                    )
-                }
-                val front = current.currentItem
-                if (front != null) {
-                    SwiperSwipeCard(
-                        item = front,
+            },
+            bottomBar = {
+                val current = state
+                if (current != null) {
+                    SwiperActionBar(
                         canUndo = current.canUndo,
                         swapDirections = current.swapDirections,
-                        showDetails = current.showDetails,
-                        sessionPosition = current.currentItemOriginalIndex?.plus(1) ?: (current.currentIndex + 1),
-                        totalItems = current.totalItems,
-                        onSwipeKeep = { onSetDecision(front.id, SwipeDecision.KEEP) },
-                        onSwipeDelete = { onSetDecision(front.id, SwipeDecision.DELETE) },
-                        onSwipeSkip = onSkip,
-                        onSwipeUndo = onUndo,
-                        onPreviewClick = { onOpenPreview(front) },
-                        onOpenExternallyClick = { onOpenExternally(front) },
-                        modifier = Modifier.fillMaxSize(),
+                        hasCurrentItem = current.currentItem != null,
+                        onDelete = {
+                            current.currentItem?.let { onSetDecision(it.id, SwipeDecision.DELETE) }
+                        },
+                        onKeep = {
+                            current.currentItem?.let { onSetDecision(it.id, SwipeDecision.KEEP) }
+                        },
+                        onUndo = onUndo,
+                        onSkip = onSkip,
+                        onSkipLongPress = {
+                            excludeRequest = current.currentItem
+                        },
                     )
+                }
+            },
+            snackbarHost = { SnackbarHost(snackbarHostState) },
+        ) { paddingValues ->
+            val current = state
+            if (current == null) {
+                Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+                return@Scaffold
+            }
+
+            Column(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+                SwiperStatsCard(state = current)
+                SwiperProgressPager(
+                    items = current.items,
+                    currentIndex = current.currentIndex,
+                    onItemClick = onSetCurrentIndex,
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .weight(1f),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    val nextItem = current.nextItem?.takeIf { it.id != current.currentItem?.id }
+                    if (nextItem != null) {
+                        SwiperSwipeBackCard(
+                            item = nextItem,
+                            showDetails = current.showDetails,
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    }
+                    val front = current.currentItem
+                    if (front != null) {
+                        SwiperSwipeCard(
+                            item = front,
+                            canUndo = current.canUndo,
+                            swapDirections = current.swapDirections,
+                            showDetails = current.showDetails,
+                            sessionPosition = current.currentItemOriginalIndex?.plus(1) ?: (current.currentIndex + 1),
+                            totalItems = current.totalItems,
+                            onSwipeKeep = { onSetDecision(front.id, SwipeDecision.KEEP) },
+                            onSwipeDelete = { onSetDecision(front.id, SwipeDecision.DELETE) },
+                            onSwipeSkip = onSkip,
+                            onSwipeUndo = onUndo,
+                            onPreviewClick = { onOpenPreview(front) },
+                            onOpenExternallyClick = { onOpenExternally(front) },
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    }
                 }
             }
         }
 
-        if (current.showGestureOverlay && current.currentItem != null) {
+        val overlayState = state
+        if (overlayState?.showGestureOverlay == true && overlayState.currentItem != null) {
             SwiperGestureOverlay(
-                swapDirections = current.swapDirections,
+                swapDirections = overlayState.swapDirections,
                 onDismiss = onDismissGestureOverlay,
             )
         }
