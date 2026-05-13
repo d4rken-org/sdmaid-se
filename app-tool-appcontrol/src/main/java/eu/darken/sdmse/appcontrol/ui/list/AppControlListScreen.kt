@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,13 +17,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AcUnit
 import androidx.compose.material.icons.twotone.Archive
+import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.MoreVert
@@ -73,6 +78,10 @@ import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
 import eu.darken.sdmse.appcontrol.ui.list.tour.AppControlListTour
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.FastScrollSection
+import eu.darken.sdmse.common.compose.SdmFastScroller
+import eu.darken.sdmse.common.compose.SdmFastScrollerDefaultMinItems
+import eu.darken.sdmse.common.compose.SdmFastScrollerLaneWidth
 import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
@@ -188,6 +197,7 @@ fun AppControlListScreenHost(
         onRestoreSelected = vm::onRestoreRequested,
         onExportSelected = vm::onExportRequested,
         onShareSelected = vm::onShareList,
+        onToggleFastScroller = vm::onToggleFastScroller,
     )
 
     pendingConfirm?.let { ev ->
@@ -328,6 +338,7 @@ internal fun AppControlListScreen(
     onRestoreSelected: (Set<InstallId>) -> Unit = {},
     onExportSelected: (Set<InstallId>) -> Unit = {},
     onShareSelected: (Set<InstallId>) -> Unit = {},
+    onToggleFastScroller: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -339,9 +350,12 @@ internal fun AppControlListScreen(
     }
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
-    var overflowOpen by remember { mutableStateOf(false) }
+    var selectionOverflowOpen by remember { mutableStateOf(false) }
+    var normalOverflowOpen by remember { mutableStateOf(false) }
     var searchActive by rememberSaveable { mutableStateOf(false) }
     var activeSheet by rememberSaveable { mutableStateOf<Sheet?>(null) }
+
+    val gridState = rememberLazyGridState()
 
     BackHandler(enabled = searchActive && selection.isEmpty() && activeSheet == null) {
         onSearchQueryChanged("")
@@ -472,6 +486,31 @@ internal fun AppControlListScreen(
                                             contentDescription = stringResource(CommonR.string.general_search_action),
                                         )
                                     }
+                                    IconButton(onClick = { normalOverflowOpen = true }) {
+                                        Icon(
+                                            imageVector = Icons.TwoTone.MoreVert,
+                                            contentDescription = stringResource(CommonR.string.general_options_label),
+                                        )
+                                    }
+                                    DropdownMenu(
+                                        expanded = normalOverflowOpen,
+                                        onDismissRequest = { normalOverflowOpen = false },
+                                    ) {
+                                        DropdownMenuItem(
+                                            text = { Text(stringResource(R.string.appcontrol_list_fastscroller_action)) },
+                                            leadingIcon = {
+                                                if (state.fastScrollerEnabled) {
+                                                    Icon(Icons.TwoTone.Check, contentDescription = null)
+                                                } else {
+                                                    Spacer(Modifier.size(24.dp))
+                                                }
+                                            },
+                                            onClick = {
+                                                normalOverflowOpen = false
+                                                onToggleFastScroller()
+                                            },
+                                        )
+                                    }
                                 }
                             },
                         )
@@ -537,19 +576,19 @@ internal fun AppControlListScreen(
                                 )
                             }
                         }
-                        IconButton(onClick = { overflowOpen = true }) {
+                        IconButton(onClick = { selectionOverflowOpen = true }) {
                             Icon(
                                 imageVector = Icons.TwoTone.MoreVert,
                                 contentDescription = stringResource(CommonR.string.general_options_label),
                             )
                         }
-                        DropdownMenu(expanded = overflowOpen, onDismissRequest = { overflowOpen = false }) {
+                        DropdownMenu(expanded = selectionOverflowOpen, onDismissRequest = { selectionOverflowOpen = false }) {
                             if (state.allowActionToggle) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_toggle_app_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.AcUnit, contentDescription = null) },
                                     onClick = {
-                                        overflowOpen = false
+                                        selectionOverflowOpen = false
                                         onToggleSelected(selection)
                                     },
                                 )
@@ -559,7 +598,7 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_force_stop_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.PowerSettingsNew, contentDescription = null) },
                                     onClick = {
-                                        overflowOpen = false
+                                        selectionOverflowOpen = false
                                         onForceStopSelected(selection)
                                     },
                                 )
@@ -569,7 +608,7 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_archive_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Archive, contentDescription = null) },
                                     onClick = {
-                                        overflowOpen = false
+                                        selectionOverflowOpen = false
                                         onArchiveSelected(selection)
                                     },
                                 )
@@ -579,7 +618,7 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_restore_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Unarchive, contentDescription = null) },
                                     onClick = {
-                                        overflowOpen = false
+                                        selectionOverflowOpen = false
                                         onRestoreSelected(selection)
                                     },
                                 )
@@ -588,7 +627,7 @@ internal fun AppControlListScreen(
                                 text = { Text(stringResource(R.string.appcontrol_export_app_selection_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.SaveAlt, contentDescription = null) },
                                 onClick = {
-                                    overflowOpen = false
+                                    selectionOverflowOpen = false
                                     onExportSelected(selection)
                                 },
                             )
@@ -596,7 +635,7 @@ internal fun AppControlListScreen(
                                 text = { Text(stringResource(R.string.appcontrol_share_list_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.Share, contentDescription = null) },
                                 onClick = {
-                                    overflowOpen = false
+                                    selectionOverflowOpen = false
                                     onShareSelected(selection)
                                 },
                             )
@@ -635,12 +674,25 @@ internal fun AppControlListScreen(
                     else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                         val context = LocalContext.current
                         val spanCount = remember(maxWidth) { context.getSpanCount(widthDp = 410) }
+                        val sections = remember(rows, state.options.listSort.mode) {
+                            buildFastScrollerSections(rows, state.options.listSort.mode)
+                        }
+                        // Only carve out gutter space when the scroller will actually render —
+                        // SdmFastScroller hides itself below SdmFastScrollerDefaultMinItems,
+                        // so matching the predicate here avoids dead end-padding on short lists.
+                        val fastScrollerVisible = state.fastScrollerEnabled &&
+                            rows.size >= SdmFastScrollerDefaultMinItems
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(spanCount),
+                            state = gridState,
                             modifier = Modifier
                                 .fillMaxSize()
                                 .nestedScroll(scrollBehavior.nestedScrollConnection),
-                            contentPadding = PaddingValues(vertical = 8.dp),
+                            contentPadding = PaddingValues(
+                                top = 8.dp,
+                                bottom = 8.dp,
+                                end = if (fastScrollerVisible) SdmFastScrollerLaneWidth else 0.dp,
+                            ),
                         ) {
                             items(rows, key = { it.installId.toString() }) { row ->
                                 val isSelected = selection.contains(row.installId)
@@ -670,6 +722,15 @@ internal fun AppControlListScreen(
                                     },
                                 )
                             }
+                        }
+                        if (fastScrollerVisible) {
+                            SdmFastScroller(
+                                state = gridState,
+                                modifier = Modifier
+                                    .align(Alignment.CenterEnd)
+                                    .fillMaxHeight(),
+                                sections = sections,
+                            )
                         }
                     }
                 }
@@ -704,4 +765,28 @@ internal fun AppControlListScreen(
 }
 
 private enum class Sheet { Sort, Tags }
+
+internal fun buildFastScrollerSections(
+    rows: List<AppControlListViewModel.Row>,
+    sortMode: SortSettings.Mode,
+): List<FastScrollSection> {
+    val keyOf: (AppControlListViewModel.Row) -> String? = when (sortMode) {
+        SortSettings.Mode.NAME -> { row -> row.sectionKeyName }
+        SortSettings.Mode.PACKAGENAME -> { row -> row.sectionKeyPkg }
+        // SIZE / dates / SCREEN_TIME have null-prone source data (estimated sizes, epoch dates,
+        // negative durations for missing screen time). Skip section labels for those — the thumb
+        // alone is still useful.
+        else -> { _ -> null }
+    }
+    val sections = mutableListOf<FastScrollSection>()
+    var previous: String? = null
+    rows.forEachIndexed { index, row ->
+        val key = keyOf(row) ?: return@forEachIndexed
+        if (key != previous) {
+            sections += FastScrollSection(itemIndex = index, label = key)
+            previous = key
+        }
+    }
+    return sections
+}
 
