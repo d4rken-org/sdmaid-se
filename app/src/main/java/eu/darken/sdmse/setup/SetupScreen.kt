@@ -50,7 +50,6 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -298,7 +297,6 @@ internal fun SetupScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                modifier = Modifier.guidedTourTarget(SetupTour.HEADER_TARGET),
                 title = { Text(stringResource(CommonR.string.setup_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {

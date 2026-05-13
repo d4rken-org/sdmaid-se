@@ -10,15 +10,13 @@ object SetupTour {
 
     val id: TourId = TourId("tour.setup")
 
-    const val HEADER_TARGET = "setup.header"
-
     fun definition(): TourDefinition = TourDefinition(
         id = id,
         clickProtection = true,
         steps = listOf(
             TourStep(
                 stepId = "intro",
-                targetId = HEADER_TARGET,
+                targetId = null,
                 title = R.string.tour_setup_intro_title.toCaString(),
                 body = R.string.tour_setup_intro_body.toCaString(),
             ),
