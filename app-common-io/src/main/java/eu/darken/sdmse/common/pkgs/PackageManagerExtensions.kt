@@ -44,6 +44,11 @@ fun PackageManager.getIcon2(
     ?.applicationInfo
     ?.let { if (it.icon != 0) it.loadIcon(this) else null }
 
+// Resolves icon via applicationInfo.sourceDir, bypassing PM name lookup that fails for hidden pkgs.
+fun PackageInfo.loadIconFromArchive(pm: PackageManager): Drawable? = applicationInfo
+    ?.takeIf { it.icon != 0 }
+    ?.loadIcon(pm)
+
 fun PackageManager.getPackageInfosAsUser(
     packageName: String,
     flags: Long,

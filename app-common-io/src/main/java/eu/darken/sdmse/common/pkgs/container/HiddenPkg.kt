@@ -10,8 +10,8 @@ import eu.darken.sdmse.common.ca.cache
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
-import eu.darken.sdmse.common.pkgs.getIcon2
 import eu.darken.sdmse.common.pkgs.getLabel2
+import eu.darken.sdmse.common.pkgs.loadIconFromArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
 
@@ -27,7 +27,7 @@ data class HiddenPkg(
     }.cache()
 
     override val icon: ((Context) -> Drawable)? = { context ->
-        context.packageManager.getIcon2(id)
+        packageInfo.loadIconFromArchive(context.packageManager)
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
     }
 
