@@ -121,7 +121,13 @@ class AppControlListViewModel @Inject constructor(
             allowSortSize = allowSortSize,
             allowSortScreenTime = acState.canInfoScreenTime,
         )
-    }.safeStateIn(initialValue = State(), onError = { State() })
+    }
+        .combine(settings.listFastScrollerEnabled.flow) { base, fastScrollerEnabled ->
+            // Outer combine: toggling the fast scroller setting must not invalidate the row
+            // pipeline above (which would flash the loading overlay).
+            base.copy(fastScrollerEnabled = fastScrollerEnabled)
+        }
+        .safeStateIn(initialValue = State(), onError = { State() })
 
     private fun filterSortRows(apps: Collection<AppInfo>, options: DisplayOptions): List<Row> {
         val query = options.searchQuery.lowercase()
@@ -155,7 +161,18 @@ class AppControlListViewModel @Inject constructor(
                 },
             )
             .let { if (sort.reversed) it.reversed() else it }
-            .map { Row(appInfo = it) }
+            .map { app ->
+                Row(
+                    appInfo = app,
+                    sectionKeyName = sectionKeyOf(normalizedLabel(app)),
+                    sectionKeyPkg = sectionKeyOf(normalizedPackageName(app)),
+                )
+            }
+    }
+
+    private fun sectionKeyOf(value: String): String {
+        val firstChar = value.firstOrNull() ?: return "?"
+        return firstChar.uppercaseChar().toString()
     }
 
     private fun normalizedLabel(app: AppInfo): String = labelCache.getOrPut(app.id) {
@@ -249,6 +266,11 @@ class AppControlListViewModel @Inject constructor(
     fun onTagsReset() = launch {
         log(TAG) { "onTagsReset()" }
         settings.listFilter.update { FilterSettings() }
+    }
+
+    fun onToggleFastScroller() = launch {
+        log(TAG) { "onToggleFastScroller()" }
+        settings.listFastScrollerEnabled.update { current -> !current }
     }
 
     fun onRefresh(refreshPkgCache: Boolean = false) = launch {
@@ -446,9 +468,14 @@ class AppControlListViewModel @Inject constructor(
         val allowSortSize: Boolean = false,
         val allowSortScreenTime: Boolean = false,
         val allowFilterActive: Boolean = false,
+        val fastScrollerEnabled: Boolean = false,
     )
 
-    data class Row(val appInfo: AppInfo) {
+    data class Row(
+        val appInfo: AppInfo,
+        val sectionKeyName: String = "",
+        val sectionKeyPkg: String = "",
+    ) {
         val installId: InstallId get() = appInfo.installId
     }
 
