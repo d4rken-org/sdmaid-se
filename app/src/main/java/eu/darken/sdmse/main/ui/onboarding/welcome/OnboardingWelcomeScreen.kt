@@ -109,6 +109,7 @@ internal fun OnboardingWelcomeScreen(
                     Text(
                         text = stringResource(R.string.onboarding_welcome_body1),
                         style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.fillMaxWidth(),
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -116,6 +117,7 @@ internal fun OnboardingWelcomeScreen(
                     Text(
                         text = stringResource(R.string.onboarding_welcome_body2),
                         style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.fillMaxWidth(),
                     )
 
                     if (isBeta) {
@@ -124,6 +126,7 @@ internal fun OnboardingWelcomeScreen(
                             text = stringResource(R.string.onboarding_welcome_body_beta),
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.fillMaxWidth(),
                         )
                     }
                 }
