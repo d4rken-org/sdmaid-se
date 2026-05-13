@@ -303,7 +303,6 @@ internal fun ExclusionListScreen(
                 rows == null -> SdmLoadingState()
 
                 rows.isEmpty() -> ExclusionEmptyState(
-                    onMoreInfo = onMoreInfo,
                     modifier = Modifier.fillMaxSize(),
                 )
 
@@ -393,14 +392,11 @@ private fun ExclusionInfoDialog(
 
 @Composable
 private fun ExclusionEmptyState(
-    onMoreInfo: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     SdmEmptyState(
         modifier = modifier,
         title = stringResource(R.string.exclusion_add_new_hint),
-        actionLabel = stringResource(CommonR.string.general_more_info_action),
-        onAction = onMoreInfo,
         visual = {
             Icon(
                 imageVector = Icons.TwoTone.Shield,
