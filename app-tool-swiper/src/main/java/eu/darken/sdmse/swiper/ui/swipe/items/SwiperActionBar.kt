@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -54,92 +56,112 @@ internal fun SwiperActionBar(
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             // Outer left: DELETE by default, KEEP when swapped.
-            FloatingActionButton(
-                onClick = if (swapDirections) onKeep else onDelete,
-                containerColor = if (swapDirections) {
-                    MaterialTheme.colorScheme.primaryContainer
+            LabeledAction(
+                label = if (swapDirections) {
+                    stringResource(R.string.swiper_keep_action)
                 } else {
-                    MaterialTheme.colorScheme.errorContainer
-                },
-                contentColor = if (swapDirections) {
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                } else {
-                    MaterialTheme.colorScheme.onErrorContainer
+                    stringResource(CommonR.string.general_delete_action)
                 },
             ) {
-                if (swapDirections) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Favorite,
-                        contentDescription = stringResource(R.string.swiper_keep_action),
-                    )
-                } else {
-                    Icon(
-                        imageVector = Icons.TwoTone.Delete,
-                        contentDescription = stringResource(CommonR.string.general_delete_action),
-                    )
+                FloatingActionButton(
+                    onClick = if (swapDirections) onKeep else onDelete,
+                    containerColor = if (swapDirections) {
+                        MaterialTheme.colorScheme.primaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.errorContainer
+                    },
+                    contentColor = if (swapDirections) {
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.onErrorContainer
+                    },
+                ) {
+                    if (swapDirections) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Favorite,
+                            contentDescription = stringResource(R.string.swiper_keep_action),
+                        )
+                    } else {
+                        Icon(
+                            imageVector = Icons.TwoTone.Delete,
+                            contentDescription = stringResource(CommonR.string.general_delete_action),
+                        )
+                    }
                 }
             }
 
             AnimatedVisibility(visible = canUndo) {
-                SmallFloatingActionButton(
-                    onClick = onUndo,
-                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                ) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Restore,
-                        contentDescription = stringResource(CommonR.string.general_undo_action),
-                    )
+                LabeledAction(label = stringResource(CommonR.string.general_undo_action)) {
+                    SmallFloatingActionButton(
+                        onClick = onUndo,
+                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                    ) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Restore,
+                            contentDescription = stringResource(CommonR.string.general_undo_action),
+                        )
+                    }
                 }
             }
 
             // Skip (mini) — needs both onClick AND onLongClick, so render a custom Surface
             // shaped/styled like a SmallFloatingActionButton.
-            Surface(
-                shape = CircleShape,
-                color = MaterialTheme.colorScheme.tertiaryContainer,
-                contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                shadowElevation = 6.dp,
-                modifier = Modifier
-                    .size(40.dp)
-                    .combinedClickable(
-                        enabled = hasCurrentItem,
-                        onClick = onSkip,
-                        onLongClick = onSkipLongPress,
-                    ),
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    SwipeIcon(
-                        painter = painterResource(R.drawable.ic_baseline_skip_next_24),
-                        contentDescription = stringResource(R.string.swiper_skip_action),
-                    )
+            LabeledAction(label = stringResource(R.string.swiper_skip_action)) {
+                Surface(
+                    shape = CircleShape,
+                    color = MaterialTheme.colorScheme.tertiaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                    shadowElevation = 6.dp,
+                    modifier = Modifier
+                        .size(40.dp)
+                        .combinedClickable(
+                            enabled = hasCurrentItem,
+                            onClick = onSkip,
+                            onLongClick = onSkipLongPress,
+                        ),
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        SwipeIcon(
+                            painter = painterResource(R.drawable.ic_baseline_skip_next_24),
+                            contentDescription = stringResource(R.string.swiper_skip_action),
+                        )
+                    }
                 }
             }
 
             // Outer right: KEEP by default, DELETE when swapped.
-            FloatingActionButton(
-                onClick = if (swapDirections) onDelete else onKeep,
-                containerColor = if (swapDirections) {
-                    MaterialTheme.colorScheme.errorContainer
+            LabeledAction(
+                label = if (swapDirections) {
+                    stringResource(CommonR.string.general_delete_action)
                 } else {
-                    MaterialTheme.colorScheme.primaryContainer
-                },
-                contentColor = if (swapDirections) {
-                    MaterialTheme.colorScheme.onErrorContainer
-                } else {
-                    MaterialTheme.colorScheme.onPrimaryContainer
+                    stringResource(R.string.swiper_keep_action)
                 },
             ) {
-                if (swapDirections) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Delete,
-                        contentDescription = stringResource(CommonR.string.general_delete_action),
-                    )
-                } else {
-                    Icon(
-                        imageVector = Icons.TwoTone.Favorite,
-                        contentDescription = stringResource(R.string.swiper_keep_action),
-                    )
+                FloatingActionButton(
+                    onClick = if (swapDirections) onDelete else onKeep,
+                    containerColor = if (swapDirections) {
+                        MaterialTheme.colorScheme.errorContainer
+                    } else {
+                        MaterialTheme.colorScheme.primaryContainer
+                    },
+                    contentColor = if (swapDirections) {
+                        MaterialTheme.colorScheme.onErrorContainer
+                    } else {
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    },
+                ) {
+                    if (swapDirections) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Delete,
+                            contentDescription = stringResource(CommonR.string.general_delete_action),
+                        )
+                    } else {
+                        Icon(
+                            imageVector = Icons.TwoTone.Favorite,
+                            contentDescription = stringResource(R.string.swiper_keep_action),
+                        )
+                    }
                 }
             }
         }
@@ -156,4 +178,24 @@ private fun SwipeIcon(
         contentDescription = contentDescription,
         tint = LocalContentColor.current,
     )
+}
+
+@Composable
+private fun LabeledAction(
+    label: String,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        content()
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurface,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+    }
 }
