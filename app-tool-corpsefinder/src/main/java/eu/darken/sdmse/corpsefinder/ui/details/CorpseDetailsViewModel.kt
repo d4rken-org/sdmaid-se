@@ -8,9 +8,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.SingleEventFlow
-import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.common.uix.PagedDetailsViewModel
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -21,20 +20,14 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.main.core.taskmanager.getLatestTask
-import kotlinx.coroutines.flow.MutableStateFlow
+import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
-import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,43 +36,18 @@ class CorpseDetailsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
-) : ViewModel4(dispatcherProvider, tag = TAG) {
-
-    private val routeFlow = MutableStateFlow<CorpseDetailsRoute?>(null)
-    private var currentTarget: CorpseIdentifier? by handle.mutableState("target")
-    private var lastPosition: Int? by handle.mutableState("position")
+) : PagedDetailsViewModel<CorpseDetailsRoute, CorpseIdentifier>(handle, dispatcherProvider, tag = TAG) {
 
     val events = SingleEventFlow<Event>()
 
-    fun bindRoute(route: CorpseDetailsRoute) {
-        if (routeFlow.value != null) return
-        log(TAG, INFO) { "bindRoute(${route.corpsePath})" }
-        routeFlow.value = route
-    }
+    override fun bindRouteLogValue(route: CorpseDetailsRoute): Any? = route.corpsePath
 
     init {
-        corpseFinder.state
-            .map { it.data }
-            .drop(1)
-            .filter { !it.hasData }
-            .take(1)
-            .onEach { navUp() }
-            .launchIn(vmScope)
+        autoNavUpOnEmpty(corpseFinder.state.map { it.data.hasData })
 
-        val start = Instant.now()
-        val handledResults = mutableSetOf<String>()
-        taskSubmitter.state
-            .map { it.getLatestTask(SDMTool.Type.CORPSEFINDER) }
-            .filterNotNull()
-            .filter { it.completedAt!! > start }
-            .onEach { task ->
-                val result = task.result as? CorpseFinderTask.Result ?: return@onEach
-                if (!handledResults.contains(task.id)) {
-                    handledResults.add(task.id)
-                    events.tryEmit(Event.TaskResult(result))
-                }
-            }
-            .launchIn(vmScope)
+        taskSubmitter.uniqueTaskResults<CorpseFinderTask.Result>(SDMTool.Type.CORPSEFINDER)
+            .onEach { events.tryEmit(Event.TaskResult(it)) }
+            .launchInViewModel()
     }
 
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->

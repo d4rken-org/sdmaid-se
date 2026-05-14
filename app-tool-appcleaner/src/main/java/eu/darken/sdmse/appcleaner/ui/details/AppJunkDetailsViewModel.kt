@@ -14,32 +14,26 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.SingleEventFlow
-import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.common.uix.PagedDetailsViewModel
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.update
-import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -49,46 +43,19 @@ class AppJunkDetailsViewModel @Inject constructor(
     private val appCleaner: AppCleaner,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
-) : ViewModel4(dispatcherProvider, tag = TAG) {
-
-    private val routeFlow = MutableStateFlow<AppJunkDetailsRoute?>(null)
-    private var currentTarget: InstallId? by handle.mutableState("target")
-    private var lastPosition: Int? by handle.mutableState("position")
+) : PagedDetailsViewModel<AppJunkDetailsRoute, InstallId>(handle, dispatcherProvider, tag = TAG) {
 
     val events = SingleEventFlow<Event>()
 
     private val collapsedByJunk =
         MutableStateFlow<Map<InstallId, Set<ExpendablesFilterIdentifier>>>(emptyMap())
 
-    fun bindRoute(route: AppJunkDetailsRoute) {
-        if (routeFlow.value != null) return
-        log(TAG, INFO) { "bindRoute(${route.identifier})" }
-        routeFlow.value = route
-    }
-
     init {
-        appCleaner.state
-            .map { it.data }
-            .drop(1)
-            .filter { !it.hasData }
-            .take(1)
-            .onEach { navUp() }
-            .launchIn(vmScope)
+        autoNavUpOnEmpty(appCleaner.state.map { it.data.hasData })
 
-        val start = Instant.now()
-        val handledResults = mutableSetOf<String>()
-        taskSubmitter.state
-            .map { it.getLatestTask(SDMTool.Type.APPCLEANER) }
-            .filterNotNull()
-            .filter { it.completedAt!! > start }
-            .onEach { task ->
-                val result = task.result as? AppCleanerTask.Result ?: return@onEach
-                if (!handledResults.contains(task.id)) {
-                    handledResults.add(task.id)
-                    events.tryEmit(Event.TaskResult(result))
-                }
-            }
-            .launchIn(vmScope)
+        taskSubmitter.uniqueTaskResults<AppCleanerTask.Result>(SDMTool.Type.APPCLEANER)
+            .onEach { events.tryEmit(Event.TaskResult(it)) }
+            .launchInViewModel()
     }
 
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
