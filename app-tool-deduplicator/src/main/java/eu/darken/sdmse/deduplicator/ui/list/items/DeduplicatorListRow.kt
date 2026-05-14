@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.list.items
 
 import android.text.format.Formatter
+import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,10 +49,12 @@ internal fun DeduplicatorLinearRow(
     row: DeduplicatorListRow,
     selected: Boolean,
     selectionActive: Boolean,
+    selectedDupes: Set<Duplicate.Id>,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     onPreviewClick: () -> Unit,
     onDuplicateClick: (Duplicate) -> Unit,
+    onDuplicateLongClick: (Duplicate) -> Unit,
     onDuplicatePreviewClick: (Duplicate) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -126,7 +129,10 @@ internal fun DeduplicatorLinearRow(
                 DuplicateSubRow(
                     duplicate = dupe,
                     willBeDeleted = willBeDeleted,
+                    selected = dupe.identifier in selectedDupes,
+                    selectionActive = selectionActive,
                     onClick = { onDuplicateClick(dupe) },
+                    onLongClick = { onDuplicateLongClick(dupe) },
                     onPreviewClick = { onDuplicatePreviewClick(dupe) },
                 )
             }
@@ -240,16 +246,25 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
 private fun DuplicateSubRow(
     duplicate: Duplicate,
     willBeDeleted: Boolean,
+    selected: Boolean,
+    selectionActive: Boolean,
     onClick: () -> Unit,
+    onLongClick: () -> Unit,
     onPreviewClick: () -> Unit,
 ) {
     val context = LocalContext.current
     val name = duplicate.path.userReadableName.get(context)
     val parentPath = duplicate.path.userReadablePath.get(context).removeSuffix(name)
+    val rowModifier = if (selected) {
+        Modifier.background(MaterialTheme.colorScheme.secondaryContainer)
+    } else {
+        Modifier
+    }
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .combinedClickable(onClick = onClick, onLongClick = {})
+            .then(rowModifier)
+            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
             .padding(horizontal = 12.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -260,7 +275,10 @@ private fun DuplicateSubRow(
                 modifier = Modifier
                     .size(36.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .combinedClickable(onClick = onPreviewClick, onLongClick = {}),
+                    .combinedClickable(
+                        onClick = if (selectionActive) onClick else onPreviewClick,
+                        onLongClick = onLongClick,
+                    ),
             )
             Spacer(Modifier.width(8.dp))
         }

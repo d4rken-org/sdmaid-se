@@ -41,6 +41,7 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Delete all but one copy in each selected set of duplicate files?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Delete all files in each selected set of duplicate files? No file is left over!</string>
     <string name="deduplicator_delete_all_toggle_msg">Delete all copies. No file is left over!</string>
+    <string name="deduplicator_selection_keep_one_required">At least one file per duplicate set must remain. Enable \"Make \'Delete all\' possible\" in settings to override.</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
     <string name="deduplicator_matches_exact_label">Exact copies</string>

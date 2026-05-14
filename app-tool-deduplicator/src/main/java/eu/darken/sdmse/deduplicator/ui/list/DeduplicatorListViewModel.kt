@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
@@ -77,7 +78,8 @@ class DeduplicatorListViewModel @Inject constructor(
         deduplicator.state.map { it.data }.filterNotNull(),
         deduplicator.progress,
         settings.layoutMode.flow,
-    ) { data, progress, layoutMode ->
+        settings.allowDeleteAll.flow,
+    ) { data, progress, layoutMode, allowDeleteAll ->
         val rows = data.clusters
             .sortedByDescending { it.averageSize }
             .map { cluster ->
@@ -98,7 +100,7 @@ class DeduplicatorListViewModel @Inject constructor(
                 }
                 DeduplicatorListRow(cluster = cluster, deleteTargetIds = deleteTargetIds)
             }
-        State(rows = rows, progress = progress, layoutMode = layoutMode)
+        State(rows = rows, progress = progress, layoutMode = layoutMode, allowDeleteAll = allowDeleteAll)
     }.safeStateIn(
         initialValue = null,
         onError = { null },
@@ -113,6 +115,7 @@ class DeduplicatorListViewModel @Inject constructor(
         val rows: List<DeduplicatorListRow>,
         val progress: Progress.Data? = null,
         val layoutMode: LayoutMode,
+        val allowDeleteAll: Boolean = false,
     )
 
     fun showDetails(id: Duplicate.Cluster.Id) {
@@ -165,7 +168,12 @@ class DeduplicatorListViewModel @Inject constructor(
         log(TAG, INFO) { "deleteDuplicate(${dupe.identifier}) confirmed=$confirmed" }
 
         if (!confirmed) {
-            events.tryEmit(Event.ConfirmDupeDeletion(cluster, listOf(dupe)))
+            events.tryEmit(
+                Event.ConfirmDupeDeletion(
+                    duplicates = listOf(dupe),
+                    detailsClusterId = cluster.identifier,
+                )
+            )
             return@launch
         }
 
@@ -176,6 +184,55 @@ class DeduplicatorListViewModel @Inject constructor(
 
         val mode = DeduplicatorDeleteTask.TargetMode.Duplicates(targets = setOf(dupe.identifier))
         taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+    }
+
+    fun deleteDuplicates(ids: Set<Duplicate.Id>, confirmed: Boolean = false) = launch {
+        if (ids.isEmpty()) return@launch
+        log(TAG, INFO) { "deleteDuplicates(${ids.size}) confirmed=$confirmed" }
+
+        if (!confirmed) {
+            val data = deduplicator.state.first { it.data?.hasData == true }.data ?: return@launch
+            val matched = data.clusters.flatMap { cluster ->
+                cluster.groups
+                    .flatMap { it.duplicates }
+                    .filter { it.identifier in ids }
+                    .map { cluster.identifier to it }
+            }
+            if (matched.isEmpty()) return@launch
+            val involvedClusters = matched.map { it.first }.toSet()
+            events.tryEmit(
+                Event.ConfirmDupeDeletion(
+                    duplicates = matched.map { it.second },
+                    detailsClusterId = involvedClusters.singleOrNull(),
+                )
+            )
+            return@launch
+        }
+
+        if (!upgradeRepo.isPro()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
+
+        val mode = DeduplicatorDeleteTask.TargetMode.Duplicates(targets = ids)
+        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+    }
+
+    fun excludeDuplicates(ids: Set<Duplicate.Id>) = launch {
+        if (ids.isEmpty()) return@launch
+        log(TAG, INFO) { "excludeDuplicates(${ids.size})" }
+        val data = deduplicator.state.first { it.data?.hasData == true }.data ?: return@launch
+        var totalPaths = 0
+        data.clusters.forEach { cluster ->
+            val paths = cluster.groups
+                .flatMap { it.duplicates }
+                .filter { it.identifier in ids }
+                .map { it.path }
+            if (paths.isEmpty()) return@forEach
+            deduplicator.exclude(cluster.identifier, paths)
+            totalPaths += paths.size
+        }
+        if (totalPaths > 0) events.tryEmit(Event.ExclusionsCreated(count = totalPaths))
     }
 
     fun excludeClusters(clusters: Collection<Duplicate.Cluster>) = launch {
@@ -201,8 +258,8 @@ class DeduplicatorListViewModel @Inject constructor(
         ) : Event
 
         data class ConfirmDupeDeletion(
-            val cluster: Duplicate.Cluster,
             val duplicates: Collection<Duplicate>,
+            val detailsClusterId: Duplicate.Cluster.Id?,
         ) : Event
 
         data class TaskResult(val result: DeduplicatorTask.Result) : Event
