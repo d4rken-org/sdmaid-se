@@ -137,31 +137,31 @@ class DashboardViewModel @Inject constructor(
     @ApplicationContext private val context: android.content.Context,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
-    private val taskManager: TaskManager,
-    private val setupManager: SetupManager,
-    private val corpseFinder: CorpseFinder,
-    private val systemCleaner: SystemCleaner,
-    private val appCleaner: AppCleaner,
-    appControl: AppControl,
-    analyzer: Analyzer,
+    internal val taskManager: TaskManager,
+    internal val setupManager: SetupManager,
+    internal val corpseFinder: CorpseFinder,
+    internal val systemCleaner: SystemCleaner,
+    internal val appCleaner: AppCleaner,
+    internal val appControl: AppControl,
+    internal val analyzer: Analyzer,
     debugCardProvider: DebugCardProvider,
-    private val deduplicator: Deduplicator,
-    private val squeezer: Squeezer,
+    internal val deduplicator: Deduplicator,
+    internal val squeezer: Squeezer,
     private val squeezerSettings: SqueezerSettings,
     swiper: Swiper,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
-    private val webpageTool: WebpageTool,
+    internal val webpageTool: WebpageTool,
     schedulerManager: SchedulerManager,
-    private val updateService: UpdateService,
+    internal val updateService: UpdateService,
     private val sessionManager: DebugLogSessionManager,
-    private val motdRepo: MotdRepo,
+    internal val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
     anniversaryProvider: AnniversaryProvider,
-    statsRepo: StatsRepo,
-    private val statsSettings: StatsSettings,
-    private val spaceHistoryRepo: SpaceHistoryRepo,
+    internal val statsRepo: StatsRepo,
+    internal val statsSettings: StatsSettings,
+    internal val spaceHistoryRepo: SpaceHistoryRepo,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     init {
@@ -174,37 +174,9 @@ class DashboardViewModel @Inject constructor(
 
     val events = SingleEventFlow<DashboardEvents>()
 
-    private val updateInfo: Flow<UpdateDashboardCardItem?> = updateService.availableUpdate
-        .map { update ->
-            if (update == null) {
-                log(TAG, INFO) { "No update available" }
-                return@map null
-            }
+    private val updateInfo: Flow<UpdateDashboardCardItem?> = buildUpdateInfo()
 
-            try {
-                return@map UpdateDashboardCardItem(
-                    update = update,
-                    onDismiss = {
-                        launch {
-                            updateService.dismissUpdate(update)
-                            updateService.refresh()
-                        }
-                    },
-                    onViewUpdate = {
-                        launch { updateService.viewUpdate(update) }
-                    },
-                    onUpdate = {
-                        launch { updateService.startUpdate(update) }
-                    }
-                )
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Update check failed: ${e.asLog()}" }
-                return@map null
-            }
-        }
-        .onStart { emit(null) }
-
-    private val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
+    internal val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
         .map {
             @Suppress("USELESS_CAST")
             it as UpgradeRepo.Info?
@@ -212,191 +184,23 @@ class DashboardViewModel @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(vmScope)
 
-    private val easterEggTriggered = MutableStateFlow(false)
+    internal val easterEggTriggered = MutableStateFlow(false)
 
-    private val titleCardItem = combine(
-        upgradeInfo,
-        taskManager.state,
-    ) { upgradeInfo, taskState ->
-        TitleDashboardCardItem(
-            upgradeInfo = upgradeInfo,
-            webpageTool = webpageTool,
-            isWorking = !taskState.isIdle,
-            onRibbonClicked = { webpageTool.open(SdmSeLinks.ISSUES) },
-            onMascotTriggered = { easterEggTriggered.value = it }
-        )
-    }
+    private val titleCardItem = buildTitleCardItem()
 
-    private val corpseFinderItem: Flow<ToolDashboardCardItem> = combine(
-        (corpseFinder.state as Flow<CorpseFinder.State?>).onStart { emit(null) },
-        taskManager.state.map { it.getLatestResult(SDMTool.Type.CORPSEFINDER) },
-    ) { state, lastResult ->
-        ToolDashboardCardItem(
-            toolType = SDMTool.Type.CORPSEFINDER,
-            isInitializing = state == null,
-            result = lastResult,
-            progress = state?.progress,
-            showProRequirement = false,
-            onScan = {
-                launch { submitTask(CorpseFinderScanTask()) }
-            },
-            onDelete = {
-                events.tryEmit(DashboardEvents.CorpseFinderDeleteConfirmation(CorpseFinderDeleteTask()))
-                Unit
-            }.takeIf { state?.data?.hasData == true },
-            onCancel = {
-                launch { taskManager.cancel(SDMTool.Type.CORPSEFINDER) }
-            },
-            onViewTool = { showCorpseFinder() },
-            onViewDetails = {
-                navTo(CorpseDetailsRoute())
-            },
-        )
-    }
+    private val corpseFinderItem: Flow<ToolDashboardCardItem> = buildCorpseFinderItem()
 
-    private val systemCleanerItem: Flow<ToolDashboardCardItem> = combine(
-        (systemCleaner.state as Flow<SystemCleaner.State?>).onStart { emit(null) },
-        taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
-    ) { state, lastResult ->
-        ToolDashboardCardItem(
-            toolType = SDMTool.Type.SYSTEMCLEANER,
-            isInitializing = state == null,
-            result = lastResult,
-            progress = state?.progress,
-            showProRequirement = false,
-            onScan = {
-                launch { submitTask(SystemCleanerScanTask()) }
-            },
-            onDelete = {
-                events.tryEmit(DashboardEvents.SystemCleanerDeleteConfirmation(SystemCleanerProcessingTask()))
-                Unit
-            }.takeIf { state?.data?.hasData == true },
-            onCancel = {
-                launch { taskManager.cancel(SDMTool.Type.SYSTEMCLEANER) }
-            },
-            onViewTool = { showSystemCleaner() },
-            onViewDetails = {
-                navTo(FilterContentDetailsRoute())
-            },
-        )
-    }
+    private val systemCleanerItem: Flow<ToolDashboardCardItem> = buildSystemCleanerItem()
 
-    private val appCleanerItem: Flow<ToolDashboardCardItem> = combine(
-        (appCleaner.state as Flow<AppCleaner.State?>).onStart { emit(null) },
-        taskManager.state.map { it.getLatestResult(SDMTool.Type.APPCLEANER) },
-        upgradeInfo.map { it?.isPro ?: false },
-    ) { state, lastResult, isPro ->
-        ToolDashboardCardItem(
-            toolType = SDMTool.Type.APPCLEANER,
-            isInitializing = state == null,
-            result = lastResult,
-            progress = state?.progress,
-            showProRequirement = !isPro,
-            onScan = {
-                launch { submitTask(AppCleanerScanTask()) }
-            },
-            onDelete = {
-                events.tryEmit(DashboardEvents.AppCleanerDeleteConfirmation(AppCleanerProcessingTask()))
-                Unit
-            }.takeIf { state?.data?.hasData == true },
-            onCancel = {
-                launch { taskManager.cancel(SDMTool.Type.APPCLEANER) }
-            },
-            onViewTool = { showAppCleaner() },
-            onViewDetails = {
-                navTo(AppJunkDetailsRoute())
-            },
-        )
-    }
+    private val appCleanerItem: Flow<ToolDashboardCardItem> = buildAppCleanerItem()
 
-    private val deduplicatorItem: Flow<ToolDashboardCardItem?> = combine(
-        (deduplicator.state as Flow<Deduplicator.State?>).onStart { emit(null) },
-        taskManager.state.map { it.getLatestResult(SDMTool.Type.DEDUPLICATOR) },
-        upgradeInfo.map { it?.isPro ?: false },
-    ) { state, lastResult, isPro ->
-        ToolDashboardCardItem(
-            toolType = SDMTool.Type.DEDUPLICATOR,
-            isInitializing = state == null,
-            result = lastResult,
-            progress = state?.progress,
-            showProRequirement = !isPro,
-            onScan = {
-                launch { submitTask(DeduplicatorScanTask()) }
-            },
-            onDelete = {
-                launch {
-                    val event = DashboardEvents.DeduplicatorDeleteConfirmation(
-                        task = DeduplicatorDeleteTask(),
-                        clusters = deduplicator.state.first().data?.clusters?.sortedByDescending { it.averageSize }
-                    )
-                    events.tryEmit(event)
-                }
-            }.takeIf { state?.data?.hasData == true },
-            onCancel = {
-                launch { taskManager.cancel(SDMTool.Type.DEDUPLICATOR) }
-            },
-            onViewTool = { showDeduplicator() },
-            onViewDetails = {
-                navTo(DeduplicatorDetailsRoute())
-            },
-        )
-    }
+    private val deduplicatorItem: Flow<ToolDashboardCardItem?> = buildDeduplicatorItem()
 
-    private val squeezerItem: Flow<SqueezerDashboardCardItem?> = (squeezer.state as Flow<Squeezer.State?>)
-        .onStart { emit(null) }
-        .mapLatest { state ->
-            SqueezerDashboardCardItem(
-                isInitializing = state == null,
-                isNew = true,
-                data = state?.data,
-                progress = state?.progress,
-                onViewDetails = {
-                    navTo(SqueezerSetupRoute)
-                },
-            )
-        }
+    private val squeezerItem: Flow<SqueezerDashboardCardItem?> = buildSqueezerItem()
 
-    private val appControlItem: Flow<AppControlDashboardCardItem?> = (appControl.state as Flow<AppControl.State?>)
-        .onStart { emit(null) }
-        .mapLatest { state ->
-            AppControlDashboardCardItem(
-                isInitializing = state == null,
-                data = state?.data,
-                progress = state?.progress,
-                onViewDetails = {
-                    navTo(AppControlListRoute)
-                }
-            )
-        }
+    private val appControlItem: Flow<AppControlDashboardCardItem?> = buildAppControlItem()
 
-    private val analyzerItem: Flow<AnalyzerDashboardCardItem?> = combine(
-        analyzer.data,
-        analyzer.progress,
-        intervalFlow(1.hours).flatMapLatest {
-            spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
-        },
-    ) { data, progress, snapshots ->
-        val combinedDelta = snapshots
-            .groupBy { it.storageId }
-            .values
-            .filter { it.size >= 2 }
-            .sumOf { group ->
-                val sorted = group.sortedBy { it.recordedAt }
-                val firstUsed = sorted.first().let { it.spaceCapacity - it.spaceFree }
-                val lastUsed = sorted.last().let { it.spaceCapacity - it.spaceFree }
-                lastUsed - firstUsed
-            }
-            .takeIf { snapshots.groupBy { s -> s.storageId }.values.any { it.size >= 2 } }
-
-        AnalyzerDashboardCardItem(
-            data = data,
-            progress = progress,
-            combinedDelta = combinedDelta,
-            onViewDetails = {
-                navTo(DeviceStorageRoute)
-            },
-        )
-    }
+    private val analyzerItem: Flow<AnalyzerDashboardCardItem?> = buildAnalyzerItem()
 
     private val schedulerItem: Flow<SchedulerDashboardCardItem?> = combine(
         schedulerManager.state,
@@ -425,54 +229,9 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    private val motdItem: Flow<MotdDashboardCardItem?> = motdRepo.motd
-        .map {
-            if (it == null) return@map null
-            MotdDashboardCardItem(
-                state = it,
-                onPrimary = {
-                    launch {
-                        it.motd.primaryLink?.let { webpageTool.open(it) }
-                    }
-                },
-                onTranslate = {
-                    launch {
-                        webpageTool.open(it.translationUrl)
-                    }
-                },
-                onDismiss = {
-                    launch { motdRepo.dismiss(it.id) }
-                }
-            )
-        }
+    private val motdItem: Flow<MotdDashboardCardItem?> = buildMotdItem()
 
-    private val setupCardItem: Flow<SetupDashboardCardItem?> = setupManager.state
-        .flatMapLatest { setupState ->
-            if (setupState.isDone || setupState.isDismissed) return@flatMapLatest flowOf(null)
-
-            val item = SetupDashboardCardItem(
-                setupState = setupState,
-                onDismiss = {
-                    setupManager.setDismissed(true)
-                    events.tryEmit(DashboardEvents.SetupDismissHint)
-                },
-                onContinue = { navTo(SetupRoute()) }
-            )
-
-            if (setupState.isIncomplete) return@flatMapLatest flowOf(item)
-
-            if (!setupState.isLoading) return@flatMapLatest flowOf(null)
-
-            intervalFlow(1.seconds).map {
-                val now = Instant.now()
-                val loadingStart = setupState.startedLoadingAt ?: now
-                if (Duration.between(loadingStart, now) >= Duration.ofSeconds(5)) {
-                    item
-                } else {
-                    null
-                }
-            }
-        }
+    private val setupCardItem: Flow<SetupDashboardCardItem?> = buildSetupCardItem()
 
     private val reviewItem: Flow<ReviewDashboardCardItem?> = reviewTool.state.map { state ->
         if (!state.shouldAskForReview) return@map null
@@ -487,31 +246,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val statsItem: Flow<StatsDashboardCardItem?> = combine(
-        statsRepo.state,
-        upgradeInfo.map { it?.isPro ?: false },
-        statsSettings.retentionReports.flow,
-        statsSettings.retentionPaths.flow,
-        statsSettings.retentionSnapshots.flow,
-    ) { state, isPro, retentionReports, retentionPaths, retentionSnapshots ->
-        // Hide card if all retention settings are disabled
-        if (retentionReports == Duration.ZERO && retentionPaths == Duration.ZERO && retentionSnapshots == Duration.ZERO) {
-            return@combine null
-        }
-        // Also hide if there's no data
-        if (state.isEmpty) return@combine null
-        StatsDashboardCardItem(
-            state = state,
-            showProRequirement = !isPro,
-            onViewAction = {
-                if (isPro) {
-                    navTo(ReportsRoute)
-                } else {
-                    navTo(UpgradeRoute())
-                }
-            }
-        )
-    }
+    private val statsItem: Flow<StatsDashboardCardItem?> = buildStatsItem()
 
     private val anniversaryItem: Flow<AnniversaryDashboardCardItem?> = anniversaryProvider.item
 
@@ -944,7 +679,7 @@ class DashboardViewModel @Inject constructor(
         setupManager.setDismissed(false)
     }
 
-    private suspend fun submitTask(task: SDMTool.Task) {
+    internal suspend fun submitTask(task: SDMTool.Task) {
         log(TAG, VERBOSE) { "Submitting $task" }
         val result = taskManager.submit(task)
         log(TAG, VERBOSE) { "Task result for $task was $result" }
