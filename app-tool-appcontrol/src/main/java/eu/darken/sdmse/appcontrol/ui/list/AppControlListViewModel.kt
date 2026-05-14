@@ -21,6 +21,7 @@ import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -485,9 +486,9 @@ class AppControlListViewModel @Inject constructor(
         data class ConfirmForceStop(val ids: Set<InstallId>) : Event
         data class ConfirmArchive(val ids: Set<InstallId>) : Event
         data class ConfirmRestore(val ids: Set<InstallId>) : Event
-        data class ExclusionsCreated(val count: Int) : Event
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
         data class ExportSelectPath(val ids: Set<InstallId>, val intent: Intent) : Event
-        data class ShowResult(val result: AppControlTask.Result) : Event
+        data class ShowResult(override val result: AppControlTask.Result) : Event, ToolListEvent.ShowTaskResult
         data class ShareList(val text: String) : Event
         data object ShowSizeSortCaveat : Event
     }

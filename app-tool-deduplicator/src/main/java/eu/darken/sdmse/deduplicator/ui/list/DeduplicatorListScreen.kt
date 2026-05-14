@@ -21,7 +21,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -50,6 +49,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -146,50 +146,34 @@ fun DeduplicatorListScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
 
     var deletion by remember { mutableStateOf<ListDeletionRequest?>(null) }
 
-    LaunchedEffect(vm) {
-        vm.events.collect { event ->
-            when (event) {
-                is DeduplicatorListViewModel.Event.ConfirmDeletion -> {
-                    deletion = ListDeletionRequest.Clusters(
-                        clusters = event.clusters.toList(),
-                        allowDeleteAll = event.allowDeleteAll,
-                    )
-                }
+    ToolListEventHandler(
+        events = vm.events,
+        snackbarHostState = snackbarHostState,
+        onShowExclusions = { vm.navTo(ExclusionsListRoute) },
+        taskResultDuration = SnackbarDuration.Short,
+    ) { event ->
+        when (event) {
+            is DeduplicatorListViewModel.Event.ConfirmDeletion -> {
+                deletion = ListDeletionRequest.Clusters(
+                    clusters = event.clusters.toList(),
+                    allowDeleteAll = event.allowDeleteAll,
+                )
+            }
 
-                is DeduplicatorListViewModel.Event.ConfirmDupeDeletion -> {
-                    if (event.duplicates.isEmpty()) return@collect
+            is DeduplicatorListViewModel.Event.ConfirmDupeDeletion -> {
+                if (event.duplicates.isNotEmpty()) {
                     deletion = ListDeletionRequest.Duplicates(
                         duplicates = event.duplicates.toList(),
                         detailsClusterId = event.detailsClusterId,
                     )
                 }
-
-                is DeduplicatorListViewModel.Event.TaskResult -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Short,
-                    )
-                }
-
-                is DeduplicatorListViewModel.Event.ExclusionsCreated -> snackScope.launch {
-                    val result = snackbarHostState.showSnackbar(
-                        message = context.resources.getQuantityString(
-                            CommonR.plurals.exclusion_x_new_exclusions,
-                            event.count,
-                            event.count,
-                        ),
-                        actionLabel = context.getString(CommonR.string.general_view_action),
-                        duration = SnackbarDuration.Long,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) vm.navTo(ExclusionsListRoute)
-                }
             }
+
+            else -> Unit
         }
     }
 

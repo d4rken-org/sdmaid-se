@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -262,8 +263,8 @@ class DeduplicatorListViewModel @Inject constructor(
             val detailsClusterId: Duplicate.Cluster.Id?,
         ) : Event
 
-        data class TaskResult(val result: DeduplicatorTask.Result) : Event
-        data class ExclusionsCreated(val count: Int) : Event
+        data class TaskResult(override val result: DeduplicatorTask.Result) : Event, ToolListEvent.ShowTaskResult
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
     }
 
     companion object {

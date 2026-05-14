@@ -9,16 +9,13 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -40,6 +37,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -47,7 +45,6 @@ import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.ui.list.items.SystemCleanerRow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 @Composable
 fun SystemCleanerListScreenHost(
@@ -58,39 +55,15 @@ fun SystemCleanerListScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
 
     var pendingDeletion by remember { mutableStateOf<SystemCleanerListViewModel.Event.ConfirmDeletion?>(null) }
 
-    val viewActionLabel = stringResource(CommonR.string.general_view_action)
-
-    LaunchedEffect(vm) {
-        vm.events.collect { event ->
-            when (event) {
-                is SystemCleanerListViewModel.Event.ConfirmDeletion -> pendingDeletion = event
-                is SystemCleanerListViewModel.Event.TaskResult -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Long,
-                    )
-                }
-                is SystemCleanerListViewModel.Event.ExclusionsCreated -> snackScope.launch {
-                    val message = context.resources.getQuantityString(
-                        CommonR.plurals.exclusion_x_new_exclusions,
-                        event.count,
-                        event.count,
-                    )
-                    val result = snackbarHostState.showSnackbar(
-                        message = message,
-                        actionLabel = viewActionLabel,
-                        duration = SnackbarDuration.Long,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) {
-                        vm.onShowExclusions()
-                    }
-                }
-            }
-        }
+    ToolListEventHandler(
+        events = vm.events,
+        snackbarHostState = snackbarHostState,
+        onShowExclusions = vm::onShowExclusions,
+    ) { event ->
+        if (event is SystemCleanerListViewModel.Event.ConfirmDeletion) pendingDeletion = event
     }
 
     SystemCleanerListScreen(

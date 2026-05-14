@@ -1,6 +1,7 @@
 package eu.darken.sdmse.squeezer.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -89,9 +90,9 @@ class SqueezerListViewModel @Inject constructor(
             val quality: Int,
         ) : Event
 
-        data class ExclusionsCreated(val count: Int) : Event
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
 
-        data class TaskResult(val result: SqueezerTask.Result) : Event
+        data class TaskResult(override val result: SqueezerTask.Result) : Event, ToolListEvent.ShowTaskResult
     }
 
     fun compressAll() = launch {
