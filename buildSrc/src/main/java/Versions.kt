@@ -33,4 +33,8 @@ object Versions {
     object Desugar {
         const val core = "2.1.5"
     }
+
+    object Robolectric {
+        const val core = "4.16.1"
+    }
 }

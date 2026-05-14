@@ -1,24 +1,14 @@
 package eu.darken.sdmse.common.compose.settings
 
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class SettingsSwitchItemGatedTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class SettingsSwitchItemGatedTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `gated row tap invokes onUpgrade and never onCheckedChange`() {

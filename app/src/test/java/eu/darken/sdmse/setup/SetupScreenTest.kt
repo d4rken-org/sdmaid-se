@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -37,20 +36,11 @@ import io.mockk.mockk
 import java.io.File
 import java.time.Instant
 import org.junit.Assert.assertTrue
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 import eu.darken.sdmse.common.R as CommonR
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class SetupScreenTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class SetupScreenTest : BaseComposeRobolectricTest() {
 
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()

@@ -13,24 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class SdmFastScrollerTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class SdmFastScrollerTest : BaseComposeRobolectricTest() {
 
     private val cd = "Fast scroller"
 
