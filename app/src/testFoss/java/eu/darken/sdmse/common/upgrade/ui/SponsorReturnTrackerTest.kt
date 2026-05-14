@@ -1,8 +1,7 @@
 package eu.darken.sdmse.common.upgrade.ui
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Test
 
 class SponsorReturnTrackerTest {
 
@@ -10,11 +9,11 @@ class SponsorReturnTrackerTest {
     fun `resume only counts after background transition`() {
         val tracker = SponsorReturnTracker()
 
-        assertFalse(tracker.consumeResumeReturn())
+        tracker.consumeResumeReturn() shouldBe false
 
         tracker.onStop()
 
-        assertTrue(tracker.consumeResumeReturn())
-        assertFalse(tracker.consumeResumeReturn())
+        tracker.consumeResumeReturn() shouldBe true
+        tracker.consumeResumeReturn() shouldBe false
     }
 }

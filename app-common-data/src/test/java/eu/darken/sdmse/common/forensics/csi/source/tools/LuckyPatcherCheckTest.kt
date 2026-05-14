@@ -14,15 +14,15 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 class LuckyPatcherCheckTest : BaseTest() {
 
     @MockK lateinit var pkgRepo: PkgRepo
     private val handle = UserHandle2(0)
-    @Before fun setup() {
+    @BeforeEach fun setup() {
         MockKAnnotations.init(this)
         coEvery { pkgRepo.query(any(), any()) } returns emptySet()
     }

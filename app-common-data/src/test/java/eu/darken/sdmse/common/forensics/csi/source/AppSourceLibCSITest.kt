@@ -15,8 +15,8 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.AfterEach
 
 class AppSourceLibCSITest : BaseCSITest() {
@@ -32,7 +32,7 @@ class AppSourceLibCSITest : BaseCSITest() {
         appSourcesArea.path,
     )
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         super.setup()
 
         every { areaManager.state } returns flowOf(

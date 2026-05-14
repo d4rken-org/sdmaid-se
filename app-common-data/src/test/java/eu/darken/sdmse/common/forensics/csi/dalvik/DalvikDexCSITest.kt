@@ -25,8 +25,8 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class CSIDalvikDexTest : BaseCSITest() {
 
@@ -103,7 +103,7 @@ class CSIDalvikDexTest : BaseCSITest() {
         every { userHandle } returns UserHandle2(-1)
     }
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         super.setup()
         every { areaManager.state } returns flowOf(
             DataAreaManager.State(

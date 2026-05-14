@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 class ManualMarkerTest : BaseTest() {

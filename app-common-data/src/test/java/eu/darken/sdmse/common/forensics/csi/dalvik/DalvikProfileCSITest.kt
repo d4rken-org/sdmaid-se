@@ -14,8 +14,8 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class DalvikProfileCSITest : BaseCSITest() {
 
@@ -40,7 +40,7 @@ class DalvikProfileCSITest : BaseCSITest() {
         areaProfile2.path
     )
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         super.setup()
 
         every { areaManager.state } returns flowOf(
