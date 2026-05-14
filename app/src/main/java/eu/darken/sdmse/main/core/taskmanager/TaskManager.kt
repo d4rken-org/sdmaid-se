@@ -68,6 +68,7 @@ class TaskManager @Inject constructor(
         val resourceLock: KeepAlive? = null,
         val result: SDMTool.Task.Result? = null,
         val error: Exception? = null,
+        val notifyOnFinish: Boolean = true,
     ) {
         val toolType: SDMTool.Type
             get() = tool.type
@@ -87,6 +88,7 @@ class TaskManager @Inject constructor(
             completedAt = completedAt,
             result = result,
             error = error,
+            notifyOnFinish = notifyOnFinish,
         )
 
         override fun toString(): String {
@@ -205,8 +207,8 @@ class TaskManager @Inject constructor(
         result
     }
 
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
-        log(TAG, INFO) { "submit(): $task" }
+    override suspend fun submit(task: SDMTool.Task, notifyOnFinish: Boolean): SDMTool.Task.Result {
+        log(TAG, INFO) { "submit(): $task (notifyOnFinish=$notifyOnFinish)" }
         val taskId = rngString
 
         val job = appScope.launch(
@@ -258,6 +260,7 @@ class TaskManager @Inject constructor(
                     tool = tool,
                     job = job,
                     resourceLock = keepAlive,
+                    notifyOnFinish = notifyOnFinish,
                 )
 
                 this[entry.id] = entry

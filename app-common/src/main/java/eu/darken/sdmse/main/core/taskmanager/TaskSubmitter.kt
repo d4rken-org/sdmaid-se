@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import java.time.Instant
 
 interface TaskSubmitter {
-    suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result
+    suspend fun submit(task: SDMTool.Task, notifyOnFinish: Boolean = true): SDMTool.Task.Result
     fun cancel(type: SDMTool.Type)
     val state: Flow<State>
 
@@ -29,6 +29,7 @@ interface TaskSubmitter {
         val completedAt: Instant? = null,
         val result: SDMTool.Task.Result? = null,
         val error: Exception? = null,
+        val notifyOnFinish: Boolean = true,
     ) {
         val isComplete: Boolean = completedAt != null
         val isCancelling: Boolean = cancelledAt != null && completedAt == null
