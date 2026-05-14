@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,12 +21,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
@@ -43,22 +42,12 @@ internal fun SqueezerListLinearRow(
     onPreviewTap: () -> Unit,
 ) {
     val context = LocalContext.current
-    val backgroundColor = if (isSelected) {
-        MaterialTheme.colorScheme.secondaryContainer
-    } else {
-        Color.Transparent
-    }
 
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-            .combinedClickable(
-                onClick = onTap,
-                onLongClick = onLongPress,
-            )
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    SelectableListRow(
+        modifier = modifier,
+        selected = isSelected,
+        onClick = onTap,
+        onLongClick = onLongPress,
     ) {
         Box(
             modifier = Modifier

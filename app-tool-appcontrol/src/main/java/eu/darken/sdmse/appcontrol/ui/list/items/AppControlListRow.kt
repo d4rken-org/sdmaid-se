@@ -1,11 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.background
-import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,9 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,6 +23,7 @@ import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListViewModel
 import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.formatDuration
 import eu.darken.sdmse.common.toSystemTimezone
 import java.time.format.DateTimeFormatter
@@ -45,15 +40,12 @@ fun AppControlListRow(
 ) {
     val context = LocalContext.current
     val appInfo = row.appInfo
-    val background = if (selected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
 
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(background)
-            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    SelectableListRow(
+        modifier = modifier,
+        selected = selected,
+        onClick = onClick,
+        onLongClick = onLongClick,
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context).data(appInfo.pkg).build(),
