@@ -28,8 +28,8 @@ import io.mockk.mockk
 import io.mockk.mockkObject
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class AppSourceMainCSITest : BaseCSITest() {
 
@@ -44,7 +44,7 @@ class AppSourceMainCSITest : BaseCSITest() {
         appSourcesArea.path,
     )
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         super.setup()
 
         mockkObject(BuildWrap)
@@ -76,7 +76,7 @@ class AppSourceMainCSITest : BaseCSITest() {
         )
     )
 
-    override fun `test jurisdiction`() = runTest {
+    @Test override fun `test jurisdiction`() = runTest {
         getProcessor().assertJurisdiction(DataArea.Type.APP_APP)
     }
 

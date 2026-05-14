@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 
