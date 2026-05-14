@@ -1,14 +1,11 @@
 package eu.darken.sdmse.corpsefinder.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.background
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,6 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SelectableListRow
+import eu.darken.sdmse.common.compose.SelectableListRowIconBox
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -52,7 +51,6 @@ fun CorpseRow(
 ) {
     val context = LocalContext.current
     val corpse = row.corpse
-    val background = if (selected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
 
     val primary = corpse.lookup.userReadableName.get(context)
     val secondary = corpse.lookup.userReadablePath.get(context).removeSuffix(primary)
@@ -72,32 +70,16 @@ fun CorpseRow(
         RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip to MaterialTheme.colorScheme.secondary
     }
 
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(background)
-            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 16.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    SelectableListRow(
+        modifier = modifier,
+        selected = selected,
+        onClick = onClick,
+        onLongClick = onLongClick,
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
     ) {
-        Box(
-            modifier = Modifier
-                .size(40.dp)
-                .background(
-                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                    shape = RoundedCornerShape(10.dp),
-                )
-                .then(
-                    if (selectionActive) {
-                        Modifier
-                    } else {
-                        Modifier.combinedClickable(
-                            onClick = onDetailsClick,
-                            onLongClick = onLongClick,
-                        )
-                    }
-                ),
-            contentAlignment = Alignment.Center,
+        SelectableListRowIconBox(
+            onClick = if (selectionActive) null else onDetailsClick,
+            onLongClick = if (selectionActive) null else onLongClick,
         ) {
             Icon(
                 imageVector = corpse.filterType.icon,

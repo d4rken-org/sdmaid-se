@@ -1,24 +1,18 @@
 package eu.darken.sdmse.appcleaner.ui.list.items
 
 import android.text.format.Formatter
-import androidx.compose.foundation.background
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -29,6 +23,8 @@ import coil.request.ImageRequest
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SelectableListRow
+import eu.darken.sdmse.common.compose.SelectableListRowIconBox
 import eu.darken.sdmse.common.compose.SystemAppChip
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -51,7 +47,6 @@ fun AppCleanerListRow(
 ) {
     val context = LocalContext.current
     val junk = row.junk
-    val background = if (selected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
 
     val itemsText = pluralStringResource(
         CommonR.plurals.result_x_items,
@@ -60,29 +55,18 @@ fun AppCleanerListRow(
     )
     val sizeText = Formatter.formatShortFileSize(context, junk.size)
 
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(background)
-            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    SelectableListRow(
+        modifier = modifier,
+        selected = selected,
+        onClick = onClick,
+        onLongClick = onLongClick,
     ) {
-        Box(
-            modifier = Modifier
-                .size(40.dp)
-                .background(
-                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                    shape = RoundedCornerShape(10.dp),
-                )
-                .combinedClickable(
-                    onClick = if (selectionActive) onClick else onDetailsClick,
-                    onLongClick = {
-                        runCatching { context.startActivity(junk.pkg.getSettingsIntent(context)) }
-                            .onFailure { log(TAG, WARN) { "Settings intent failed for ${junk.pkg}: $it" } }
-                    },
-                ),
-            contentAlignment = Alignment.Center,
+        SelectableListRowIconBox(
+            onClick = if (selectionActive) onClick else onDetailsClick,
+            onLongClick = {
+                runCatching { context.startActivity(junk.pkg.getSettingsIntent(context)) }
+                    .onFailure { log(TAG, WARN) { "Settings intent failed for ${junk.pkg}: $it" } }
+            },
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(context).data(junk.pkg).build(),
