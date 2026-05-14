@@ -77,36 +77,42 @@ private sealed interface ListDeletionRequest {
 }
 
 private data class MixedSelection(
-    val clusters: Set<Duplicate.Cluster.Id> = emptySet(),
     val dupes: Map<Duplicate.Cluster.Id, Set<Duplicate.Id>> = emptyMap(),
 ) {
-    val isEmpty: Boolean get() = clusters.isEmpty() && dupes.values.all { it.isEmpty() }
-    val itemCount: Int get() = clusters.size + dupes.values.sumOf { it.size }
-    val dupesFlat: Set<Duplicate.Id> get() = dupes.values.flatten().toSet()
+    val isEmpty: Boolean get() = dupes.values.all { it.isEmpty() }
+    val fileCount: Int get() = dupes.values.sumOf { it.size }
+    val flat: Set<Duplicate.Id> get() = dupes.values.flatten().toSet()
 
     companion object {
         val Empty = MixedSelection()
     }
 }
 
-private fun MixedSelection.fileCount(
-    rowsById: Map<Duplicate.Cluster.Id, DeduplicatorListViewModel.DeduplicatorListRow>,
-): Int {
-    val clusterFiles = clusters.sumOf { rowsById[it]?.deleteTargetIds?.size ?: 0 }
-    val dupeFiles = dupes.values.sumOf { it.size }
-    return clusterFiles + dupeFiles
+private fun capFor(totalInCluster: Int, allowDeleteAll: Boolean): Int =
+    if (allowDeleteAll) totalInCluster else (totalInCluster - 1).coerceAtLeast(0)
+
+private fun MixedSelection.addClusterTargets(
+    clusterId: Duplicate.Cluster.Id,
+    targets: Set<Duplicate.Id>,
+    cap: Int,
+): MixedSelection {
+    if (targets.isEmpty() || cap <= 0) return this
+    val existing = dupes[clusterId] ?: emptySet()
+    val merged = (existing + targets).toList().take(cap).toSet()
+    return if (merged == existing) this else copy(dupes = dupes + (clusterId to merged))
 }
 
-private fun MixedSelection.addCluster(id: Duplicate.Cluster.Id): MixedSelection {
-    if (id in clusters) return this
-    return copy(clusters = clusters + id, dupes = dupes - id)
-}
-
-private fun MixedSelection.toggleCluster(id: Duplicate.Cluster.Id): MixedSelection {
-    return if (id in clusters) {
-        copy(clusters = clusters - id)
+private fun MixedSelection.toggleClusterTargets(
+    clusterId: Duplicate.Cluster.Id,
+    targets: Set<Duplicate.Id>,
+    cap: Int,
+): MixedSelection {
+    val existing = dupes[clusterId] ?: emptySet()
+    val allCovered = targets.isNotEmpty() && existing.containsAll(targets)
+    return if (allCovered) {
+        copy(dupes = dupes - clusterId)
     } else {
-        copy(clusters = clusters + id, dupes = dupes - id)
+        addClusterTargets(clusterId, targets, cap)
     }
 }
 
@@ -120,23 +126,17 @@ private data class DupeChangeResult(
 private fun MixedSelection.changeDupe(
     clusterId: Duplicate.Cluster.Id,
     dupeId: Duplicate.Id,
-    deleteTargetIds: Set<Duplicate.Id>,
-    totalInCluster: Int,
-    allowDeleteAll: Boolean,
+    cap: Int,
     mode: DupeChange,
 ): DupeChangeResult {
-    val wasCluster = clusterId in clusters
-    val baseValues = if (wasCluster) deleteTargetIds else dupes[clusterId] ?: emptySet()
+    val existing = dupes[clusterId] ?: emptySet()
     val nextPer = when (mode) {
-        DupeChange.Add -> baseValues + dupeId
-        DupeChange.Toggle -> if (dupeId in baseValues) baseValues - dupeId else baseValues + dupeId
+        DupeChange.Add -> existing + dupeId
+        DupeChange.Toggle -> if (dupeId in existing) existing - dupeId else existing + dupeId
     }
-    val cap = if (allowDeleteAll) totalInCluster else (totalInCluster - 1).coerceAtLeast(0)
     if (nextPer.size > cap) return DupeChangeResult(this, capExceeded = true)
-    val baseDupes = if (wasCluster) dupes - clusterId else dupes
-    val nextDupes = if (nextPer.isEmpty()) baseDupes - clusterId else baseDupes + (clusterId to nextPer)
-    val nextClusters = if (wasCluster) clusters - clusterId else clusters
-    return DupeChangeResult(copy(clusters = nextClusters, dupes = nextDupes), capExceeded = false)
+    val nextDupes = if (nextPer.isEmpty()) dupes - clusterId else dupes + (clusterId to nextPer)
+    return DupeChangeResult(copy(dupes = nextDupes), capExceeded = false)
 }
 
 @Composable
@@ -201,10 +201,6 @@ fun DeduplicatorListScreenHost(
         onClusterPreview = { cluster -> vm.previewCluster(cluster) },
         onDuplicateClick = { cluster, dupe -> vm.deleteDuplicate(cluster, dupe) },
         onDuplicatePreview = { cluster, dupe -> vm.previewDuplicate(cluster, dupe) },
-        onExcludeClusters = { ids, rows ->
-            val clusters = rows.filter { it.cluster.identifier in ids }.map { it.cluster }
-            vm.excludeClusters(clusters)
-        },
         onDeleteDuplicates = { ids -> vm.deleteDuplicates(ids) },
         onExcludeDuplicates = { ids -> vm.excludeDuplicates(ids) },
         onToggleLayoutMode = vm::toggleLayoutMode,
@@ -269,12 +265,10 @@ internal fun DeduplicatorListScreen(
     onClusterPreview: (Duplicate.Cluster) -> Unit = {},
     onDuplicateClick: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
     onDuplicatePreview: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
-    onExcludeClusters: (Set<Duplicate.Cluster.Id>, List<DeduplicatorListViewModel.DeduplicatorListRow>) -> Unit = { _, _ -> },
     onDeleteDuplicates: (Set<Duplicate.Id>) -> Unit = {},
     onExcludeDuplicates: (Set<Duplicate.Id>) -> Unit = {},
     onToggleLayoutMode: () -> Unit = {},
 ) {
-    val context = LocalContext.current
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state?.rows
     val layoutMode = state?.layoutMode ?: LayoutMode.GRID
@@ -290,12 +284,11 @@ internal fun DeduplicatorListScreen(
 
     LaunchedEffect(clusterIds, allDupeIds) {
         // Prune stale selection entries when clusters or duplicates disappear after delete/exclude.
-        val prunedClusters = selection.clusters intersect clusterIds
         val prunedDupes = selection.dupes
             .filterKeys { it in clusterIds }
             .mapValues { (_, dupeIds) -> dupeIds intersect allDupeIds }
             .filterValues { it.isNotEmpty() }
-        val pruned = MixedSelection(clusters = prunedClusters, dupes = prunedDupes)
+        val pruned = MixedSelection(dupes = prunedDupes)
         if (pruned != selection) selection = pruned
     }
     BackHandler(enabled = !selection.isEmpty) { selection = MixedSelection.Empty }
@@ -336,36 +329,28 @@ internal fun DeduplicatorListScreen(
                     },
                 )
             } else {
-                val fileCount = selection.fileCount(rowsById)
-                val selectionSubtitle = pluralStringResource(CommonR.plurals.result_x_files, fileCount, fileCount)
+                val safeTargetUnion = rows.orEmpty().flatMap { it.deleteTargetIds }.toSet()
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.itemCount,
-                    subtitle = selectionSubtitle,
+                    selectedCount = selection.fileCount,
                     onClearSelection = { selection = MixedSelection.Empty },
                     actions = {
                         SdmDeleteAction(onClick = {
-                            val clusterFileIds = selection.clusters
-                                .flatMap { rowsById[it]?.deleteTargetIds ?: emptySet() }
-                            val ids = clusterFileIds.toSet() + selection.dupesFlat
+                            val ids = selection.flat
                             if (ids.isNotEmpty()) onDeleteDuplicates(ids)
                         })
                         SdmExcludeAction(onClick = {
-                            val clustersToExclude = selection.clusters
-                            val dupeIdsToExclude = selection.dupesFlat
+                            val ids = selection.flat
                             selection = MixedSelection.Empty
-                            if (clustersToExclude.isNotEmpty()) {
-                                onExcludeClusters(clustersToExclude, rows ?: emptyList())
-                            }
-                            if (dupeIdsToExclude.isNotEmpty()) {
-                                onExcludeDuplicates(dupeIdsToExclude)
-                            }
+                            if (ids.isNotEmpty()) onExcludeDuplicates(ids)
                         })
-                        val allSelected = clusterIds.isNotEmpty()
-                            && selection.clusters.containsAll(clusterIds)
-                            && selection.dupes.isEmpty()
                         SdmSelectAllAction(
-                            visible = clusterIds.isNotEmpty() && !allSelected,
-                            onClick = { selection = MixedSelection(clusters = clusterIds, dupes = emptyMap()) },
+                            visible = safeTargetUnion.isNotEmpty() && !selection.flat.containsAll(safeTargetUnion),
+                            onClick = {
+                                val nextDupes = rows.orEmpty()
+                                    .associate { it.cluster.identifier to it.deleteTargetIds }
+                                    .filterValues { it.isNotEmpty() }
+                                selection = MixedSelection(dupes = nextDupes)
+                            },
                         )
                     },
                 )
@@ -388,25 +373,28 @@ internal fun DeduplicatorListScreen(
                     rows.isEmpty() -> SdmEmptyState()
 
                     else -> {
-                        val onClusterLongPress: (Duplicate.Cluster.Id) -> Unit = { id ->
-                            selection = selection.addCluster(id)
+                        val onClusterLongPress: (Duplicate.Cluster) -> Unit = { cluster ->
+                            val row = rowsById[cluster.identifier]
+                            val targets = row?.deleteTargetIds ?: emptySet()
+                            val cap = capFor(cluster.count, allowDeleteAll)
+                            selection = selection.addClusterTargets(cluster.identifier, targets, cap)
                         }
                         val onClusterTap: (Duplicate.Cluster) -> Unit = { cluster ->
                             if (selection.isEmpty) {
                                 onClusterClick(cluster)
                             } else {
-                                selection = selection.toggleCluster(cluster.identifier)
+                                val row = rowsById[cluster.identifier]
+                                val targets = row?.deleteTargetIds ?: emptySet()
+                                val cap = capFor(cluster.count, allowDeleteAll)
+                                selection = selection.toggleClusterTargets(cluster.identifier, targets, cap)
                             }
                         }
                         val applyDupeChange: (Duplicate.Cluster, Duplicate, DupeChange) -> Unit = { cluster, dupe, mode ->
-                            val row = rowsById[cluster.identifier]
-                            val deleteTargets = row?.deleteTargetIds ?: emptySet()
+                            val cap = capFor(cluster.count, allowDeleteAll)
                             val result = selection.changeDupe(
                                 clusterId = cluster.identifier,
                                 dupeId = dupe.identifier,
-                                deleteTargetIds = deleteTargets,
-                                totalInCluster = cluster.count,
-                                allowDeleteAll = allowDeleteAll,
+                                cap = cap,
                                 mode = mode,
                             )
                             if (result.capExceeded) {
@@ -457,7 +445,7 @@ private fun LinearList(
     rows: List<DeduplicatorListViewModel.DeduplicatorListRow>,
     selection: MixedSelection,
     onClusterTap: (Duplicate.Cluster) -> Unit,
-    onClusterLongPress: (Duplicate.Cluster.Id) -> Unit,
+    onClusterLongPress: (Duplicate.Cluster) -> Unit,
     onClusterPreview: (Duplicate.Cluster) -> Unit,
     onDuplicateTap: (Duplicate.Cluster, Duplicate) -> Unit,
     onDuplicateLongPress: (Duplicate.Cluster, Duplicate) -> Unit,
@@ -469,18 +457,14 @@ private fun LinearList(
         contentPadding = SdmListDefaults.FullWidthContentPadding,
     ) {
         items(rows, key = { it.cluster.identifier.value }) { row ->
-            val isClusterSelected = row.cluster.identifier in selection.clusters
-            val selectedDupes = when {
-                isClusterSelected -> row.deleteTargetIds
-                else -> selection.dupes[row.cluster.identifier] ?: emptySet()
-            }
+            val selectedDupes = selection.dupes[row.cluster.identifier] ?: emptySet()
             DeduplicatorLinearRow(
                 row = row,
-                selected = isClusterSelected,
+                selected = false,
                 selectionActive = selectionActive,
                 selectedDupes = selectedDupes,
                 onClick = { onClusterTap(row.cluster) },
-                onLongClick = { onClusterLongPress(row.cluster.identifier) },
+                onLongClick = { onClusterLongPress(row.cluster) },
                 onPreviewClick = { onClusterPreview(row.cluster) },
                 onDuplicateClick = { dupe -> onDuplicateTap(row.cluster, dupe) },
                 onDuplicateLongClick = { dupe -> onDuplicateLongPress(row.cluster, dupe) },
@@ -495,7 +479,7 @@ private fun GridList(
     rows: List<DeduplicatorListViewModel.DeduplicatorListRow>,
     selection: MixedSelection,
     onClusterTap: (Duplicate.Cluster) -> Unit,
-    onClusterLongPress: (Duplicate.Cluster.Id) -> Unit,
+    onClusterLongPress: (Duplicate.Cluster) -> Unit,
     onClusterPreview: (Duplicate.Cluster) -> Unit,
 ) {
     val selectionActive = !selection.isEmpty
@@ -510,14 +494,13 @@ private fun GridList(
             horizontalArrangement = Arrangement.spacedBy(0.dp),
         ) {
             items(rows, key = { it.cluster.identifier.value }) { row ->
-                val isSelected = row.cluster.identifier in selection.clusters
-                    || (selection.dupes[row.cluster.identifier]?.isNotEmpty() == true)
+                val isSelected = selection.dupes[row.cluster.identifier]?.isNotEmpty() == true
                 DeduplicatorGridRow(
                     row = row,
                     selected = isSelected,
                     selectionActive = selectionActive,
                     onClick = { onClusterTap(row.cluster) },
-                    onLongClick = { onClusterLongPress(row.cluster.identifier) },
+                    onLongClick = { onClusterLongPress(row.cluster) },
                     onPreviewClick = { onClusterPreview(row.cluster) },
                 )
             }
