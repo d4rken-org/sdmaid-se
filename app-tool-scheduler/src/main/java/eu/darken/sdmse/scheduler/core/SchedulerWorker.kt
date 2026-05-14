@@ -166,7 +166,9 @@ class SchedulerWorker @AssistedInject constructor(
             workerScope.async {
                 try {
                     log(TAG) { "Launching $task" }
-                    val result = taskSubmitter.submit(task)
+                    // Scheduler aggregates results into its own notification (SchedulerNotifications.notifyResult),
+                    // so opt out of the per-task background completion notification.
+                    val result = taskSubmitter.submit(task, notifyOnFinish = false)
                     log(TAG) { "Finished $task -> $result" }
                     SchedulerNotifications.Results(task, result = result)
                 } catch (e: Exception) {

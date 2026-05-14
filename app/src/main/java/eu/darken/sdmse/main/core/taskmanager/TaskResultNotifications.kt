@@ -25,47 +25,62 @@ class TaskResultNotifications @Inject constructor(
     notificationManager: NotificationManager,
 ) {
 
-    private val builder: NotificationCompat.Builder
+    private val openPendingIntent: PendingIntent
 
     init {
         NotificationChannel(
             CHANNEL_ID,
-            context.getString(R.string.tasks_activity_notification_channel_label),
+            context.getString(R.string.tasks_result_notification_channel_label),
             NotificationManager.IMPORTANCE_DEFAULT
         ).run { notificationManager.createNotificationChannel(this) }
 
         val openIntent = Intent(context, MainActivity::class.java)
-        val openPi = PendingIntent.getActivity(
+        openPendingIntent = PendingIntent.getActivity(
             context,
             0,
             openIntent,
             PendingIntentCompat.FLAG_IMMUTABLE
         )
-
-        builder = NotificationCompat.Builder(context, CHANNEL_ID).apply {
-            setChannelId(CHANNEL_ID)
-            setContentIntent(openPi)
-            priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.ic_notification_maid_happy_24)
-            setOngoing(true)
-            setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
-            setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
-            setSubText(context.getString(R.string.tasks_result_subtext))
-        }
     }
 
-    fun getBuilder(result: SDMTool.Task.Result): NotificationCompat.Builder = builder.apply {
-        setContentTitle(context.getString(result.type.labelRes))
+    fun getNotification(task: TaskSubmitter.ManagedTask): Notification {
+        val body = task.result?.primaryInfo?.get(context)
+            ?: context.getString(R.string.tasks_result_failed_msg)
 
-        setContentText(result.primaryInfo.get(context))
-        log(TAG, VERBOSE) { "updatingNotification(): $result" }
+        log(TAG, VERBOSE) { "getNotification(): $task" }
+
+        // Fresh builder per call: a singleton builder would let two concurrent posts interleave
+        // title/body state and stale fields (style, actions, …) would leak between notifications.
+        return NotificationCompat.Builder(context, CHANNEL_ID)
+            .setChannelId(CHANNEL_ID)
+            .setContentIntent(openPendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setSmallIcon(R.drawable.ic_notification_maid_happy_24)
+            .setOngoing(false)
+            .setAutoCancel(true)
+            .setSubText(context.getString(R.string.tasks_result_subtext))
+            .setContentTitle(context.getString(task.toolType.labelRes))
+            .setContentText(body)
+            .build()
     }
-
-    fun getNotification(result: SDMTool.Task.Result): Notification = getBuilder(result).build()
 
     companion object {
         val TAG = logTag("TaskManager", "Notifications", "Result")
         private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.taskmanager.result"
-        internal const val NOTIFICATION_ID_BASE = 1000
+        private const val NOTIFICATION_ID_BASE = 2000
+
+        // Explicit per-type ID mapping — do NOT use SDMTool.Type.ordinal: enum reorders
+        // would silently move the IDs and risk collisions with other ranges.
+        // Scheduler owns 1000-1100 (state) and 1200+ (result); this range stays clear.
+        fun notificationIdFor(type: SDMTool.Type): Int = NOTIFICATION_ID_BASE + when (type) {
+            SDMTool.Type.CORPSEFINDER -> 0
+            SDMTool.Type.SYSTEMCLEANER -> 1
+            SDMTool.Type.APPCLEANER -> 2
+            SDMTool.Type.APPCONTROL -> 3
+            SDMTool.Type.ANALYZER -> 4
+            SDMTool.Type.DEDUPLICATOR -> 5
+            SDMTool.Type.SQUEEZER -> 6
+            SDMTool.Type.SWIPER -> 7
+        }
     }
 }

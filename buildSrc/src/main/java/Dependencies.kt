@@ -153,6 +153,7 @@ fun DependencyHandlerScope.addAndroidUI() {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-process:2.9.4")
 
     implementation("com.google.android.material:material:1.13.0")
 }
