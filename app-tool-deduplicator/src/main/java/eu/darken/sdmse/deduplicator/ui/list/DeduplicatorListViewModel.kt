@@ -78,7 +78,8 @@ class DeduplicatorListViewModel @Inject constructor(
         deduplicator.state.map { it.data }.filterNotNull(),
         deduplicator.progress,
         settings.layoutMode.flow,
-    ) { data, progress, layoutMode ->
+        settings.allowDeleteAll.flow,
+    ) { data, progress, layoutMode, allowDeleteAll ->
         val rows = data.clusters
             .sortedByDescending { it.averageSize }
             .map { cluster ->
@@ -99,7 +100,7 @@ class DeduplicatorListViewModel @Inject constructor(
                 }
                 DeduplicatorListRow(cluster = cluster, deleteTargetIds = deleteTargetIds)
             }
-        State(rows = rows, progress = progress, layoutMode = layoutMode)
+        State(rows = rows, progress = progress, layoutMode = layoutMode, allowDeleteAll = allowDeleteAll)
     }.safeStateIn(
         initialValue = null,
         onError = { null },
@@ -114,6 +115,7 @@ class DeduplicatorListViewModel @Inject constructor(
         val rows: List<DeduplicatorListRow>,
         val progress: Progress.Data? = null,
         val layoutMode: LayoutMode,
+        val allowDeleteAll: Boolean = false,
     )
 
     fun showDetails(id: Duplicate.Cluster.Id) {
