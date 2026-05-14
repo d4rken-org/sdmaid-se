@@ -13,16 +13,13 @@ import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -44,6 +41,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -53,7 +51,6 @@ import eu.darken.sdmse.corpsefinder.ui.list.items.CorpseRow
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 @Composable
 fun CorpseFinderListScreenHost(
@@ -64,36 +61,15 @@ fun CorpseFinderListScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
 
     var confirmDeletion by remember { mutableStateOf<CorpseFinderListViewModel.Event.ConfirmDeletion?>(null) }
 
-    LaunchedEffect(vm) {
-        vm.events.collect { event ->
-            when (event) {
-                is CorpseFinderListViewModel.Event.ConfirmDeletion -> confirmDeletion = event
-
-                is CorpseFinderListViewModel.Event.ExclusionsCreated -> snackScope.launch {
-                    val result = snackbarHostState.showSnackbar(
-                        message = context.resources.getQuantityString(
-                            CommonR.plurals.exclusion_x_new_exclusions,
-                            event.count,
-                            event.count,
-                        ),
-                        actionLabel = context.getString(CommonR.string.general_view_action),
-                        duration = SnackbarDuration.Long,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) vm.navTo(ExclusionsListRoute)
-                }
-
-                is CorpseFinderListViewModel.Event.TaskResult -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Long,
-                    )
-                }
-            }
-        }
+    ToolListEventHandler(
+        events = vm.events,
+        snackbarHostState = snackbarHostState,
+        onShowExclusions = { vm.navTo(ExclusionsListRoute) },
+    ) { event ->
+        if (event is CorpseFinderListViewModel.Event.ConfirmDeletion) confirmDeletion = event
     }
 
     CorpseFinderListScreen(

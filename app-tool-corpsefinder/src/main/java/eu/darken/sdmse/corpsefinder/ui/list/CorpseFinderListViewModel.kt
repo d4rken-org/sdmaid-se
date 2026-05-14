@@ -1,6 +1,7 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -115,8 +116,8 @@ class CorpseFinderListViewModel @Inject constructor(
     sealed interface Event {
         data class ConfirmDeletion(val ids: Set<CorpseIdentifier>) : Event
 
-        data class ExclusionsCreated(val count: Int) : Event
-        data class TaskResult(val result: CorpseFinderDeleteTask.Result) : Event
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
+        data class TaskResult(override val result: CorpseFinderDeleteTask.Result) : Event, ToolListEvent.ShowTaskResult
     }
 
     companion object {

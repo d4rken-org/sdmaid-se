@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -126,9 +127,9 @@ class SystemCleanerListViewModel @Inject constructor(
     sealed interface Event {
         data class ConfirmDeletion(val ids: Set<FilterIdentifier>) : Event
 
-        data class TaskResult(val result: SystemCleanerProcessingTask.Result) : Event
+        data class TaskResult(override val result: SystemCleanerProcessingTask.Result) : Event, ToolListEvent.ShowTaskResult
 
-        data class ExclusionsCreated(val count: Int) : Event
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
     }
 
     companion object {

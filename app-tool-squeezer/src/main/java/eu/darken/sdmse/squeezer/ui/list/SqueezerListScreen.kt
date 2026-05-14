@@ -27,10 +27,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -38,7 +36,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,6 +55,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.LayoutMode
@@ -70,7 +68,6 @@ import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListGridCard
 import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListLinearRow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 private data class PendingConfirmation(
     val items: List<CompressibleMedia>,
@@ -89,46 +86,21 @@ fun SqueezerListScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
 
     var pendingConfirmation by remember { mutableStateOf<PendingConfirmation?>(null) }
     var comparisonRequest by remember { mutableStateOf<ComparisonRequest?>(null) }
 
-    LaunchedEffect(vm) {
-        vm.events.collect { event ->
-            when (event) {
-                is SqueezerListViewModel.Event.ConfirmCompression -> {
-                    pendingConfirmation = PendingConfirmation(
-                        items = event.items,
-                        quality = event.quality,
-                    )
-                }
-
-                is SqueezerListViewModel.Event.ExclusionsCreated -> snackScope.launch {
-                    val message = context.resources.getQuantityString(
-                        CommonR.plurals.exclusion_x_new_exclusions,
-                        event.count,
-                        event.count,
-                    )
-                    val result = snackbarHostState.showSnackbar(
-                        message = message,
-                        actionLabel = context.getString(CommonR.string.general_view_action),
-                        duration = SnackbarDuration.Long,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) {
-                        vm.openExclusionsList()
-                    }
-                }
-
-                is SqueezerListViewModel.Event.TaskResult -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Long,
-                    )
-                }
-            }
+    ToolListEventHandler(
+        events = vm.events,
+        snackbarHostState = snackbarHostState,
+        onShowExclusions = vm::openExclusionsList,
+    ) { event ->
+        if (event is SqueezerListViewModel.Event.ConfirmCompression) {
+            pendingConfirmation = PendingConfirmation(
+                items = event.items,
+                quality = event.quality,
+            )
         }
     }
 

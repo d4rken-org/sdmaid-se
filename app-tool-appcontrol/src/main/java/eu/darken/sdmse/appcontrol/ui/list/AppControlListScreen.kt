@@ -45,7 +45,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -56,7 +55,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -89,6 +87,7 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -97,7 +96,6 @@ import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 @Composable
 fun AppControlListScreenHost(
@@ -108,13 +106,10 @@ fun AppControlListScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val snackScope = rememberCoroutineScope()
 
     var pendingExportIds by remember { mutableStateOf<Set<InstallId>>(emptySet()) }
     var pendingConfirm by remember { mutableStateOf<AppControlListViewModel.Event?>(null) }
     var sizeSortCaveatVisible by rememberSaveable { mutableStateOf(false) }
-
-    val viewActionLabel = stringResource(CommonR.string.general_view_action)
 
     val exportLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode != android.app.Activity.RESULT_OK) return@rememberLauncherForActivityResult
@@ -123,54 +118,36 @@ fun AppControlListScreenHost(
         if (ids.isNotEmpty()) vm.onExportPathPicked(ids, result.data?.data)
     }
 
-    LaunchedEffect(vm) {
-        vm.events.collect { event ->
-            when (event) {
-                is AppControlListViewModel.Event.ConfirmToggle,
-                is AppControlListViewModel.Event.ConfirmUninstall,
-                is AppControlListViewModel.Event.ConfirmForceStop,
-                is AppControlListViewModel.Event.ConfirmArchive,
-                is AppControlListViewModel.Event.ConfirmRestore -> pendingConfirm = event
+    ToolListEventHandler(
+        events = vm.events,
+        snackbarHostState = snackbarHostState,
+        onShowExclusions = vm::onShowExclusionsList,
+        taskResultDuration = SnackbarDuration.Short,
+    ) { event ->
+        when (event) {
+            is AppControlListViewModel.Event.ConfirmToggle,
+            is AppControlListViewModel.Event.ConfirmUninstall,
+            is AppControlListViewModel.Event.ConfirmForceStop,
+            is AppControlListViewModel.Event.ConfirmArchive,
+            is AppControlListViewModel.Event.ConfirmRestore -> pendingConfirm = event
 
-                is AppControlListViewModel.Event.ExclusionsCreated -> snackScope.launch {
-                    val message = context.resources.getQuantityString(
-                        CommonR.plurals.exclusion_x_new_exclusions,
-                        event.count,
-                        event.count,
-                    )
-                    val result = snackbarHostState.showSnackbar(
-                        message = message,
-                        actionLabel = viewActionLabel,
-                        duration = SnackbarDuration.Long,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) {
-                        vm.onShowExclusionsList()
-                    }
-                }
-
-                is AppControlListViewModel.Event.ExportSelectPath -> {
-                    pendingExportIds = event.ids
-                    runCatching { exportLauncher.launch(event.intent) }
-                        .onFailure { pendingExportIds = emptySet() }
-                }
-
-                is AppControlListViewModel.Event.ShowResult -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = event.result.primaryInfo.get(context),
-                        duration = SnackbarDuration.Short,
-                    )
-                }
-
-                is AppControlListViewModel.Event.ShareList -> {
-                    val intent = Intent(Intent.ACTION_SEND).apply {
-                        type = "text/plain"
-                        putExtra(Intent.EXTRA_TEXT, event.text)
-                    }
-                    runCatching { context.startActivity(Intent.createChooser(intent, null)) }
-                }
-
-                AppControlListViewModel.Event.ShowSizeSortCaveat -> sizeSortCaveatVisible = true
+            is AppControlListViewModel.Event.ExportSelectPath -> {
+                pendingExportIds = event.ids
+                runCatching { exportLauncher.launch(event.intent) }
+                    .onFailure { pendingExportIds = emptySet() }
             }
+
+            is AppControlListViewModel.Event.ShareList -> {
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, event.text)
+                }
+                runCatching { context.startActivity(Intent.createChooser(intent, null)) }
+            }
+
+            AppControlListViewModel.Event.ShowSizeSortCaveat -> sizeSortCaveatVisible = true
+
+            else -> Unit
         }
     }
 

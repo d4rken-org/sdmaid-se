@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -159,9 +160,9 @@ class AppCleanerListViewModel @Inject constructor(
     sealed interface Event {
         data class ConfirmDeletion(val ids: Set<InstallId>) : Event
 
-        data class TaskResult(val result: AppCleanerTask.Result) : Event
+        data class TaskResult(override val result: AppCleanerTask.Result) : Event, ToolListEvent.ShowTaskResult
 
-        data class ExclusionsCreated(val count: Int) : Event
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
     }
 
     companion object {
