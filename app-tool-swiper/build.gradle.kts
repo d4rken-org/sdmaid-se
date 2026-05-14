@@ -69,6 +69,5 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
-    testImplementation("org.robolectric:robolectric:4.16")
     testImplementation("androidx.room:room-testing:2.8.4")
 }
