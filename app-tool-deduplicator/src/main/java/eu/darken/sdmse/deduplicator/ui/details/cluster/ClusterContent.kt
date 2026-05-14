@@ -65,7 +65,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
-import eu.darken.sdmse.deduplicator.ui.common.MatchTypeChip
+import eu.darken.sdmse.common.compose.SdmInfoChip
 import eu.darken.sdmse.deduplicator.ui.details.tour.DeduplicatorDetailsTour
 import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumGroup
 import eu.darken.sdmse.deduplicator.ui.preview.previewCluster
@@ -236,7 +236,7 @@ private fun ClusterHeaderRow(
                     verticalArrangement = Arrangement.spacedBy(6.dp),
                 ) {
                     if (checksumCount > 0) {
-                        MatchTypeChip(
+                        SdmInfoChip(
                             icon = SdmIcons.CodeEqualBox,
                             label = "${stringResource(DeduplicatorR.string.deduplicator_matches_exact_label)}: ${
                                 pluralStringResource(CommonR.plurals.result_x_files, checksumCount, checksumCount)
@@ -246,7 +246,7 @@ private fun ClusterHeaderRow(
                         )
                     }
                     if (similarCount > 0) {
-                        MatchTypeChip(
+                        SdmInfoChip(
                             icon = SdmIcons.ApproximatelyEqualBox,
                             label = "${stringResource(DeduplicatorR.string.deduplicator_matches_similar_label)}: ${
                                 pluralStringResource(CommonR.plurals.result_x_files, similarCount, similarCount)

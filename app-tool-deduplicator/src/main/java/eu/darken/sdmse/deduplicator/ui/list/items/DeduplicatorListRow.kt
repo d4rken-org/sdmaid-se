@@ -40,7 +40,7 @@ import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.deduplicator.ui.common.MatchTypeChip
+import eu.darken.sdmse.common.compose.SdmInfoChip
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 
 @Composable
@@ -210,7 +210,7 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         if (Duplicate.Type.CHECKSUM in types) {
-            MatchTypeChip(
+            SdmInfoChip(
                 icon = SdmIcons.CodeEqualBox,
                 label = stringResource(DeduplicatorR.string.deduplicator_detection_method_checksum_title),
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -218,7 +218,7 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
             )
         }
         if (Duplicate.Type.PHASH in types) {
-            MatchTypeChip(
+            SdmInfoChip(
                 icon = SdmIcons.ApproximatelyEqualBox,
                 label = stringResource(DeduplicatorR.string.deduplicator_detection_method_phash_title),
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
@@ -226,7 +226,7 @@ private fun MatchTypeChipRow(types: Set<Duplicate.Type>) {
             )
         }
         if (Duplicate.Type.MEDIA in types) {
-            MatchTypeChip(
+            SdmInfoChip(
                 icon = Icons.TwoTone.GraphicEq,
                 label = stringResource(DeduplicatorR.string.deduplicator_detection_method_media_title),
                 containerColor = MaterialTheme.colorScheme.tertiaryContainer,
