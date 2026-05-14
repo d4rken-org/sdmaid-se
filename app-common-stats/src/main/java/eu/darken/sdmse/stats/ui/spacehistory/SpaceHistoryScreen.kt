@@ -16,7 +16,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
@@ -26,7 +25,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -44,6 +42,8 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -168,23 +168,21 @@ internal fun SpaceHistoryScreen(
     }
 
     pendingDeleteStorageId?.let { storageId ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.stats_space_history_delete_storage_title),
+            message = stringResource(R.string.stats_space_history_delete_storage_desc),
             onDismissRequest = { pendingDeleteStorageId = null },
-            title = { Text(stringResource(R.string.stats_space_history_delete_storage_title)) },
-            text = { Text(stringResource(R.string.stats_space_history_delete_storage_desc)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     onDeleteStorage(storageId)
                     pendingDeleteStorageId = null
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDeleteStorageId = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDeleteStorageId = null },
+            ),
         )
     }
 }

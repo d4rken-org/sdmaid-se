@@ -39,6 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -217,64 +219,55 @@ internal fun SwiperSessionsScreen(
     }
 
     pendingScanWarn?.let { req ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.swiper_sensitive_root_warning_title),
+            message = stringResource(
+                R.string.swiper_sensitive_root_warning_message,
+                req.displayLabel,
+            ),
             onDismissRequest = { pendingScanWarn = null },
-            title = { Text(stringResource(R.string.swiper_sensitive_root_warning_title)) },
-            text = {
-                Text(
-                    stringResource(
-                        R.string.swiper_sensitive_root_warning_message,
-                        req.displayLabel,
-                    ),
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(R.string.swiper_sensitive_root_warning_continue_action),
+                onClick = {
                     pendingScanWarn = null
                     onScan(req.sessionId)
-                }) {
-                    Text(stringResource(R.string.swiper_sensitive_root_warning_continue_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingScanWarn = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingScanWarn = null },
+            ),
         )
     }
 
     pendingDiscard?.let { sessionId ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.swiper_discard_session_confirmation_title),
+            message = stringResource(R.string.swiper_discard_session_confirmation_message),
             onDismissRequest = { pendingDiscard = null },
-            title = { Text(stringResource(R.string.swiper_discard_session_confirmation_title)) },
-            text = { Text(stringResource(R.string.swiper_discard_session_confirmation_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_remove_action),
+                onClick = {
                     pendingDiscard = null
                     onDiscard(sessionId)
-                }) {
-                    Text(stringResource(CommonR.string.general_remove_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDiscard = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDiscard = null },
+            ),
         )
     }
 
     if (showRiskyInfo) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.swiper_session_risky_label),
+            message = stringResource(R.string.swiper_session_risky_info_message),
             onDismissRequest = { showRiskyInfo = false },
-            title = { Text(stringResource(R.string.swiper_session_risky_label)) },
-            text = { Text(stringResource(R.string.swiper_session_risky_info_message)) },
-            confirmButton = {
-                TextButton(onClick = { showRiskyInfo = false }) {
-                    Text(stringResource(CommonR.string.general_close_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_close_action),
+                onClick = { showRiskyInfo = false },
+            ),
         )
     }
 }

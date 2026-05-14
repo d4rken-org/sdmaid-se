@@ -10,14 +10,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.StackedBarChart
 import androidx.compose.material.icons.twotone.Stars
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -33,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -71,15 +71,14 @@ fun ReportsScreenHost(
     )
 
     reportError?.let { msg ->
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_error_label),
+            message = msg,
             onDismissRequest = { reportError = null },
-            title = { Text(stringResource(CommonR.string.general_error_label)) },
-            text = { Text(msg) },
-            confirmButton = {
-                TextButton(onClick = { reportError = null }) {
-                    Text(stringResource(CommonR.string.general_dismiss_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_dismiss_action),
+                onClick = { reportError = null },
+            ),
         )
     }
 }

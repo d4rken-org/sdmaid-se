@@ -18,7 +18,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Save
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
@@ -27,7 +26,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -46,6 +44,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.Asterisk
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
@@ -94,38 +94,38 @@ fun PathExclusionEditorScreenHost(
     )
 
     if (pendingRemove) {
-        AlertDialog(
+        SdmConfirmDialog(
+            message = stringResource(R.string.exclusion_editor_remove_confirmation_message),
             onDismissRequest = { pendingRemove = false },
-            text = { Text(stringResource(R.string.exclusion_editor_remove_confirmation_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_remove_action),
+                onClick = {
                     pendingRemove = false
                     vm.remove(confirmed = true)
-                }) { Text(stringResource(CommonR.string.general_remove_action)) }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingRemove = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingRemove = false },
+            ),
         )
     }
 
     if (pendingCancel) {
-        AlertDialog(
+        SdmConfirmDialog(
+            message = stringResource(CommonR.string.general_unsaved_confirmation_message),
             onDismissRequest = { pendingCancel = false },
-            text = { Text(stringResource(CommonR.string.general_unsaved_confirmation_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_discard_action),
+                onClick = {
                     pendingCancel = false
                     vm.cancel(confirmed = true)
-                }) { Text(stringResource(CommonR.string.general_discard_action)) }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingCancel = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingCancel = false },
+            ),
         )
     }
 }

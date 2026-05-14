@@ -32,7 +32,6 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Email
 import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material.icons.twotone.Info
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -68,6 +67,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import kotlinx.coroutines.flow.Flow
@@ -153,23 +154,21 @@ internal fun RecorderScreen(
     }
 
     if (pendingDelete) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_action),
+            message = stringResource(R.string.debug_debuglog_sessions_delete_confirmation_message),
             onDismissRequest = { pendingDelete = false },
-            title = { Text(stringResource(CommonR.string.general_delete_action)) },
-            text = { Text(stringResource(R.string.debug_debuglog_sessions_delete_confirmation_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
                     pendingDelete = false
                     onDelete()
-                }) {
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { pendingDelete = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDelete = false },
+            ),
         )
     }
 }

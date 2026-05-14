@@ -7,12 +7,10 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Assessment
 import androidx.compose.material.icons.twotone.BarChart
 import androidx.compose.material.icons.twotone.SettingsBackupRestore
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,6 +26,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.dialogs.AgeInputDialog
@@ -109,21 +109,21 @@ internal fun StatsSettingsScreen(
     }
 
     if (showResetAllDialog) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.stats_settings_reset_all_label),
+            message = stringResource(R.string.stats_settings_reset_all_desc),
             onDismissRequest = { showResetAllDialog = false },
-            title = { Text(stringResource(R.string.stats_settings_reset_all_label)) },
-            text = { Text(stringResource(R.string.stats_settings_reset_all_desc)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_reset_action),
+                onClick = {
                     onResetAllConfirmed()
                     showResetAllDialog = false
-                }) { Text(stringResource(CommonR.string.general_reset_action)) }
-            },
-            dismissButton = {
-                TextButton(onClick = { showResetAllDialog = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { showResetAllDialog = false },
+            ),
         )
     }
 
