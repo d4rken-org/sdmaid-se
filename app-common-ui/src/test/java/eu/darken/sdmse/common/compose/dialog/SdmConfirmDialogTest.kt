@@ -7,7 +7,6 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -15,19 +14,10 @@ import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class SdmConfirmDialogTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class SdmConfirmDialogTest : BaseComposeRobolectricTest() {
 
     private val title = "Confirm delete"
     private val message = "Are you sure?"

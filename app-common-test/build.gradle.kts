@@ -49,4 +49,11 @@ dependencies {
     implementation("io.kotest:kotest-runner-junit5:5.9.1")
     implementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     implementation("io.kotest:kotest-property-jvm:5.9.1")
+
+    // Compose UI test machinery is exposed via `api` so subclasses of
+    // BaseComposeRobolectricTest can compile against ComposeContentTestRule
+    // without each consumer module re-declaring the dependency.
+    api(platform("androidx.compose:compose-bom:${Versions.AndroidX.Compose.bom}"))
+    api("androidx.compose.ui:ui-test-junit4-android")
+    api("org.robolectric:robolectric:${Versions.Robolectric.core}")
 }

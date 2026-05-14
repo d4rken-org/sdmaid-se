@@ -13,7 +13,6 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
@@ -23,19 +22,10 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class GuidedTourHostTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class GuidedTourHostTest : BaseComposeRobolectricTest() {
 
     private val protectedDef = TourDefinition(
         id = TourId("test.protected"),

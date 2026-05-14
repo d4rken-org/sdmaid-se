@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
@@ -14,19 +13,10 @@ import androidx.compose.ui.semantics.SemanticsActions
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import org.junit.Assert.assertTrue
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class FossUpgradeScreenTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
 
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()

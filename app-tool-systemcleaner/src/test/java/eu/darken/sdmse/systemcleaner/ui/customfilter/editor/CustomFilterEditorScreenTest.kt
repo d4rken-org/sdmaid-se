@@ -3,26 +3,16 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import kotlinx.coroutines.flow.MutableStateFlow
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class CustomFilterEditorScreenTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class CustomFilterEditorScreenTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `loading state shows progress indicator and no save button`() {

@@ -3,7 +3,6 @@ package eu.darken.sdmse.main.ui.dashboard
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.LocalTourTargetRegistry
 import eu.darken.sdmse.common.compose.tour.TourTargetRegistry
@@ -20,19 +19,10 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class DashboardScreenTourIntegrationTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class DashboardScreenTourIntegrationTest : BaseComposeRobolectricTest() {
 
     private val setupItem = SetupDashboardCardItem(
         setupState = SetupManager.State(

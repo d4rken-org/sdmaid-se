@@ -2,24 +2,14 @@ package eu.darken.sdmse.main.ui.settings.general
 
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
-import testhelpers.TestApplication
+import testhelpers.compose.BaseComposeRobolectricTest
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = TestApplication::class)
-class GeneralSettingsScreenTourRowTest {
-
-    @get:Rule
-    val composeRule = createComposeRule()
+class GeneralSettingsScreenTourRowTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `Reset guided tours row is visible and click invokes the lambda`() {
