@@ -10,12 +10,10 @@ import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
 import androidx.compose.material.icons.twotone.RotateRight
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,6 +28,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import android.text.format.Formatter
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
@@ -87,21 +87,21 @@ internal fun SqueezerSettingsScreen(
     }
 
     if (showClearDialog) {
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(R.string.squeezer_history_clear_title),
+            message = stringResource(R.string.squeezer_history_clear_message),
             onDismissRequest = { showClearDialog = false },
-            title = { Text(stringResource(R.string.squeezer_history_clear_title)) },
-            text = { Text(stringResource(R.string.squeezer_history_clear_message)) },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_reset_action),
+                onClick = {
                     onClearHistoryConfirmed()
                     showClearDialog = false
-                }) { Text(stringResource(CommonR.string.general_reset_action)) }
-            },
-            dismissButton = {
-                TextButton(onClick = { showClearDialog = false }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { showClearDialog = false },
+            ),
         )
     }
 

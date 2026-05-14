@@ -39,6 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R as ExclusionR
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -292,30 +294,24 @@ internal fun SwiperSwipeScreen(
 
     excludeRequest?.let { item ->
         val context = LocalContext.current
-        AlertDialog(
+        SdmConfirmDialog(
+            title = stringResource(ExclusionR.string.exclusion_create_action),
+            message = stringResource(
+                R.string.swiper_exclude_confirmation_message,
+                item.lookup.userReadablePath.get(context),
+            ),
             onDismissRequest = { excludeRequest = null },
-            title = { Text(stringResource(ExclusionR.string.exclusion_create_action)) },
-            text = {
-                Text(
-                    stringResource(
-                        R.string.swiper_exclude_confirmation_message,
-                        item.lookup.userReadablePath.get(context),
-                    ),
-                )
-            },
-            confirmButton = {
-                TextButton(onClick = {
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_exclude_action),
+                onClick = {
                     onExcludeAndRemove(item)
                     excludeRequest = null
-                }) {
-                    Text(stringResource(CommonR.string.general_exclude_action))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { excludeRequest = null }) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-            },
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { excludeRequest = null },
+            ),
         )
     }
 }

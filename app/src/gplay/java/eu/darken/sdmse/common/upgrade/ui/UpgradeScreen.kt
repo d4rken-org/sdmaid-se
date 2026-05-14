@@ -12,7 +12,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Payments
 import androidx.compose.material.icons.twotone.WarningAmber
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +33,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -66,14 +67,13 @@ fun UpgradeScreenHost(
         val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
         val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
         val message = "$purchaseMsg\n\n$troubleshootingMsg\n\n$syncHint\n\n$multiAccountHint"
-        AlertDialog(
+        SdmConfirmDialog(
+            message = message,
             onDismissRequest = { showRestoreFailed = false },
-            text = { Text(message) },
-            confirmButton = {
-                TextButton(onClick = { showRestoreFailed = false }) {
-                    Text(stringResource(CommonR.string.general_dismiss_action))
-                }
-            },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_dismiss_action),
+                onClick = { showRestoreFailed = false },
+            ),
         )
     }
 
