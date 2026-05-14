@@ -11,12 +11,11 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
-import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.common.uix.PagedDetailsViewModel
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -33,21 +32,17 @@ import eu.darken.sdmse.deduplicator.ui.details.cluster.DirectoryGroup
 import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.update
 import eu.darken.sdmse.common.flow.combine
-import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -59,45 +54,25 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
     private val upgradeRepo: UpgradeRepo,
     private val viewIntentTool: ViewIntentTool,
-) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
-
-    private val routeFlow = MutableStateFlow<DeduplicatorDetailsRoute?>(null)
-    private var currentTarget: Duplicate.Cluster.Id? by handle.mutableState("target")
-    private var lastPosition: Int? by handle.mutableState("position")
+) : PagedDetailsViewModel<DeduplicatorDetailsRoute, Duplicate.Cluster.Id>(
+    handle = handle,
+    dispatcherProvider = dispatcherProvider,
+    tag = TAG,
+) {
 
     private val collapsedDirsFlow = MutableStateFlow<Map<Duplicate.Cluster.Id, Set<DirectoryGroup.Id>>>(emptyMap())
 
     val events = SingleEventFlow<Event>()
 
     init {
-        deduplicator.state
-            .map { it.data }
-            .drop(1)
-            .filter { !it.hasData }
-            .take(1)
-            .onEach { navUp() }
-            .launchInViewModel()
+        autoNavUpOnEmpty(deduplicator.state.map { it.data.hasData })
 
-        val start = Instant.now()
-        val handledResults = mutableSetOf<String>()
-        taskSubmitter.state
-            .map { it.getLatestTask(SDMTool.Type.DEDUPLICATOR) }
-            .filterNotNull()
-            .filter { it.completedAt!! > start }
-            .onEach { task ->
-                val result = task.result as? DeduplicatorTask.Result ?: return@onEach
-                if (handledResults.add(task.id)) {
-                    if (task.task.isSingleDuplicateDelete) return@onEach
-                    events.tryEmit(Event.TaskResult(result))
-                }
-            }
+        taskSubmitter.uniqueTaskResults<DeduplicatorTask.Result>(
+            toolType = SDMTool.Type.DEDUPLICATOR,
+            accept = { !it.task.isSingleDuplicateDelete },
+        )
+            .onEach { events.tryEmit(Event.TaskResult(it)) }
             .launchInViewModel()
-    }
-
-    fun bindRoute(route: DeduplicatorDetailsRoute) {
-        if (routeFlow.value != null) return
-        log(TAG, INFO) { "bindRoute(${route.identifier})" }
-        routeFlow.value = route
     }
 
     val state: StateFlow<State?> = routeFlow.filterNotNull().flatMapLatest { route ->

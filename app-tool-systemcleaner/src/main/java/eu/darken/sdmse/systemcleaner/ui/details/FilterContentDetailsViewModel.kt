@@ -8,16 +8,15 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.SingleEventFlow
-import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.common.uix.PagedDetailsViewModel
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
@@ -28,19 +27,13 @@ import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
-import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -49,43 +42,16 @@ class FilterContentDetailsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
-) : ViewModel4(dispatcherProvider, tag = TAG) {
-
-    private val routeFlow = MutableStateFlow<FilterContentDetailsRoute?>(null)
-    private var currentTarget: FilterIdentifier? by handle.mutableState("target")
-    private var lastPosition: Int? by handle.mutableState("position")
+) : PagedDetailsViewModel<FilterContentDetailsRoute, FilterIdentifier>(handle, dispatcherProvider, tag = TAG) {
 
     val events = SingleEventFlow<Event>()
 
-    fun bindRoute(route: FilterContentDetailsRoute) {
-        if (routeFlow.value != null) return
-        log(TAG, INFO) { "bindRoute(${route.filterIdentifier})" }
-        routeFlow.value = route
-    }
-
     init {
-        systemCleaner.state
-            .map { it.data }
-            .drop(1)
-            .filter { !it.hasData }
-            .take(1)
-            .onEach { navUp() }
-            .launchIn(vmScope)
+        autoNavUpOnEmpty(systemCleaner.state.map { it.data.hasData })
 
-        val start = Instant.now()
-        val handledResults = mutableSetOf<String>()
-        taskSubmitter.state
-            .map { it.getLatestTask(SDMTool.Type.SYSTEMCLEANER) }
-            .filterNotNull()
-            .filter { it.completedAt!! > start }
-            .onEach { task ->
-                val result = task.result as? SystemCleanerTask.Result ?: return@onEach
-                if (!handledResults.contains(task.id)) {
-                    handledResults.add(task.id)
-                    events.tryEmit(Event.TaskResult(result))
-                }
-            }
-            .launchIn(vmScope)
+        taskSubmitter.uniqueTaskResults<SystemCleanerTask.Result>(SDMTool.Type.SYSTEMCLEANER)
+            .onEach { events.tryEmit(Event.TaskResult(it)) }
+            .launchInViewModel()
     }
 
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
