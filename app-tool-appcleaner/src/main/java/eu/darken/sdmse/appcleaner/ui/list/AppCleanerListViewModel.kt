@@ -6,7 +6,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
-import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
@@ -47,10 +46,12 @@ class AppCleanerListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // navUp only when a non-null Data drains to empty junks — null is the loading state
+        // (set during performScan before results land) and must not trigger navigation.
         appCleaner.state
             .map { it.data }
             .drop(1)
-            .filter { !it.hasData }
+            .filter { it?.junks?.isEmpty() == true }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)
@@ -132,8 +133,8 @@ class AppCleanerListViewModel @Inject constructor(
         val data = appCleaner.state.first().data ?: return@launch
         val validIds = ids.filter { id -> data.junks.any { it.identifier == id } }.toSet()
         if (validIds.isEmpty()) return@launch
-        appCleaner.exclude(validIds)
-        events.tryEmit(Event.ExclusionsCreated(validIds.size))
+        val undo = appCleaner.exclude(validIds)
+        events.tryEmit(Event.ExclusionsCreated(undo.exclusionIds.size))
     }
 
     fun onShowDetailsFromDialog(ids: Set<InstallId>) {

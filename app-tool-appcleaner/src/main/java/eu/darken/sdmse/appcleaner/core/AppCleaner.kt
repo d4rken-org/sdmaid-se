@@ -170,7 +170,7 @@ class AppCleaner @Inject constructor(
         scanner.initialize()
 
         val results = scanner.withProgress(this) {
-            scan()
+            scan(pkgFilter = task.pkgIdFilter)
         }
 
         log(TAG) { "Warming up fields..." }
