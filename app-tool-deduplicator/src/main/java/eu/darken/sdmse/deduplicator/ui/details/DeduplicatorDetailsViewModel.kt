@@ -40,6 +40,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import eu.darken.sdmse.common.flow.combine
@@ -65,7 +66,9 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     init {
-        autoNavUpOnEmpty(deduplicator.state.map { it.data.hasData })
+        // `mapNotNull { it.data }` skips the null transitions that performScan publishes at
+        // the start of a refresh, so navUp fires only on real "drain to empty", not loading.
+        autoNavUpOnEmpty(deduplicator.state.mapNotNull { it.data }.map { it.hasData })
 
         taskSubmitter.uniqueTaskResults<DeduplicatorTask.Result>(
             toolType = SDMTool.Type.DEDUPLICATOR,

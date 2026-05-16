@@ -119,26 +119,48 @@ class CorpseFinder @Inject constructor(
                     is CorpseFinderScanTask -> performScan(task)
                     is CorpseFinderDeleteTask -> deleteCorpses(task)
                     is UninstallWatcherTask -> {
-                        performScan(CorpseFinderScanTask(pkgIdFilter = setOf(task.target)))
-
-                        val targets = internalData.value!!.corpses
-                            .filter { it.ownerInfo.getOwner(task.target) != null }
+                        // Watcher uses runScan + deleteCorpses(snapshot=...) so it never
+                        // mutates internalData wholesale. The user's open CorpseFinder view —
+                        // including a non-empty list of unrelated corpses — survives the
+                        // background event. The reconciliation block below handles the
+                        // autoDelete case by removing only the deleted paths from the user's
+                        // visible state.
+                        val watcherCorpses = runScan(
+                            CorpseFinderScanTask(pkgIdFilter = setOf(task.target))
+                        )
+                        val targets = watcherCorpses
                             .map { it.identifier }
                             .onEach { log(TAG) { "Uninstall watcher found target $it" } }
                             .toSet()
 
                         log(TAG) { "Watcher auto delete enabled=${task.autoDelete}" }
 
-                        val internalDeleteResult = if (task.autoDelete) {
-                            deleteCorpses(CorpseFinderDeleteTask(targetCorpses = targets)).also {
-                                val watcherResult = ExternalWatcherResult.Deletion(
-                                    appName = pkgOps.getLabel(task.target)?.toCaString(),
-                                    pkgId = task.target,
-                                    deletedItems = it.affectedCount,
-                                    freedSpace = it.affectedSpace,
-                                )
-                                watcherNotifications.notifyOfDeletion(watcherResult)
+                        val internalDeleteResult = if (task.autoDelete && targets.isNotEmpty()) {
+                            val watcherSnapshot = Data(corpses = watcherCorpses)
+                            val deleteResult = deleteCorpses(
+                                task = CorpseFinderDeleteTask(targetCorpses = targets),
+                                snapshot = watcherSnapshot,
+                            )
+
+                            // Reconcile: remove any deleted paths from the user's visible
+                            // internalData if they happened to be present there. If the user
+                            // had no scan results (internalData == null) we leave it alone —
+                            // the watcher isn't a substitute for a user-driven scan.
+                            internalData.value?.let { userVisible ->
+                                val survivors = userVisible.corpses.filterNot {
+                                    it.lookup.lookedUp in deleteResult.affectedPaths
+                                }
+                                internalData.value = userVisible.copy(corpses = survivors)
                             }
+
+                            val watcherResult = ExternalWatcherResult.Deletion(
+                                appName = pkgOps.getLabel(task.target)?.toCaString(),
+                                pkgId = task.target,
+                                deletedItems = deleteResult.affectedCount,
+                                freedSpace = deleteResult.affectedSpace,
+                            )
+                            watcherNotifications.notifyOfDeletion(watcherResult)
+                            deleteResult
                         } else {
                             if (targets.isNotEmpty()) {
                                 val watcherResult = ExternalWatcherResult.Scan(
@@ -178,9 +200,15 @@ class CorpseFinder @Inject constructor(
                     }
                 }
             }
-            internalData.value = internalData.value?.copy(
-                lastResult = result,
-            )
+            // `lastResult` advertises the user-visible "last action" — UninstallWatcherTask is
+            // a background event and must not overwrite that field. Otherwise the dashboard
+            // would replace the user's "X corpses found" / "X items deleted" with the watcher's
+            // success info as if the watcher were the user's last action.
+            if (task !is UninstallWatcherTask) {
+                internalData.value = internalData.value?.copy(
+                    lastResult = result,
+                )
+            }
             log(TAG, INFO) { "submit($task) finished: $result" }
             result
         } catch (e: CancellationException) {
@@ -194,10 +222,27 @@ class CorpseFinder @Inject constructor(
         task: CorpseFinderScanTask = CorpseFinderScanTask()
     ): CorpseFinderScanTask.Result {
         log(TAG) { "performScan(): $task" }
+        // User-driven scan path: clears the user-visible state, runs the scan, publishes the
+        // result. The watcher must NOT take this path — it uses `runScan` directly so
+        // background events don't disturb the user's open CorpseFinder view.
+        internalData.value = null
+        val results = runScan(task)
+        internalData.value = Data(corpses = results)
+        return CorpseFinderScanTask.Success(
+            itemCount = results.size,
+            recoverableSpace = results.sumOf { it.size },
+        )
+    }
+
+    /**
+     * Pure scan: runs all enabled filter factories, applies exclusions / multi-user / pkgIdFilter,
+     * and returns the resulting corpses. Does NOT mutate [internalData]. The caller decides
+     * whether to publish the result, ignore it, or merge it into existing state.
+     */
+    private suspend fun runScan(task: CorpseFinderScanTask): List<Corpse> {
+        log(TAG) { "runScan(): $task" }
 
         inventorySetupCheck.checkOrThrow()
-
-        internalData.value = null
 
         val filters = filterFactories
             .filter { it.isEnabled() }
@@ -244,6 +289,17 @@ class CorpseFinder @Inject constructor(
 
                 return@filter true
             }
+            .filter { corpse ->
+                // Honour task.pkgIdFilter — corpses whose owners include any of the target
+                // packages are kept; everything else is discarded. Empty filter means "no
+                // filter" (legacy: all corpses pass). Behaviour note: this is INCLUSIVE on
+                // multi-owner corpses (kept if ANY owner matches), which differs from the
+                // legacy watcher path that used `ownerInfo.getOwner(target)` (singleOrNull) —
+                // multi-owner corpses where the target package was just one of several owners
+                // are now correctly kept.
+                if (task.pkgIdFilter.isEmpty()) return@filter true
+                corpse.ownerInfo.owners.any { it.pkgId in task.pkgIdFilter }
+            }
 
         results.forEach { log(TAG, INFO) { "Result: $it" } }
 
@@ -251,51 +307,72 @@ class CorpseFinder @Inject constructor(
         results.forEach { it.size }
         log(TAG) { "Field warm up done." }
 
-        internalData.value = Data(
-            corpses = results
-        )
-
-        return CorpseFinderScanTask.Success(
-            itemCount = results.size,
-            recoverableSpace = results.sumOf { it.size },
-        )
+        return results
     }
 
+    /**
+     * Delete corpses (or specific content paths within corpses) from disk and update state.
+     *
+     * [snapshot] is the [Data] view to look up identifiers against. Pass `null` (default) to
+     * use [internalData] — the standard user-driven path that also publishes the updated
+     * state back to the flow. Pass an explicit snapshot when operating on a side-channel set
+     * of corpses (e.g. the uninstall watcher, which operates on a filtered scan result it
+     * never wants to expose to the user via [internalData]). When [snapshot] is non-null the
+     * caller is responsible for reconciling [internalData] with the deletion outcome.
+     */
     private suspend fun deleteCorpses(
-        task: CorpseFinderDeleteTask = CorpseFinderDeleteTask()
+        task: CorpseFinderDeleteTask = CorpseFinderDeleteTask(),
+        snapshot: Data? = null,
     ): CorpseFinderDeleteTask.Success {
-        log(TAG) { "deleteCorpses(): $task" }
+        log(TAG) { "deleteCorpses(): $task (externalSnapshot=${snapshot != null})" }
 
         val deletedCorpses = mutableSetOf<Corpse>()
         val deletedContents = mutableMapOf<Corpse, Set<APath>>()
-        val snapshot = internalData.value ?: throw IllegalStateException("Data is null")
+        val usingExternalSnapshot = snapshot != null
+        val activeSnapshot = snapshot
+            ?: internalData.value
+            ?: throw IllegalStateException("Data is null")
 
-        val targetCorpses = task.targetCorpses ?: snapshot.corpses.map { it.identifier }
+        val targetCorpses = task.targetCorpses ?: activeSnapshot.corpses.map { it.identifier }
         targetCorpses.forEach { targetCorpse ->
-            val corpse = snapshot.corpses.single { it.identifier == targetCorpse }
+            val corpse = activeSnapshot.corpses.single { it.identifier == targetCorpse }
 
             if (!task.targetContent.isNullOrEmpty()) {
-                val deleted = mutableSetOf<APath>()
-
-                task.targetContent
-                    .filterDistinctRoots()
-                    .forEach { targetContent ->
-                        updateProgressPrimary(caString {
-                            it.getString(
-                                eu.darken.sdmse.common.R.string.general_progress_deleting_x,
-                                targetContent.userReadableName.get(it)
-                            )
-                        })
-                        log(TAG) { "Deleting $targetContent..." }
-                        updateProgressSecondary(targetContent.userReadablePath)
-                        try {
-                            targetContent.delete(gatewaySwitch, recursive = true)
-                            log(TAG) { "Deleted $targetContent!" }
-                            deleted.add(targetContent)
-                        } catch (e: WriteException) {
-                            log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
+                // Per-corpse safety filter: only attempt to delete paths that this corpse
+                // actually owns. The predicate mirrors the post-delete state-update at the
+                // bottom of this method — `targetContent` path P "belongs to" the corpse if it
+                // matches one of corpse.content directly OR is an ancestor of any such item
+                // (so a directory selection still recursively covers its child entries).
+                //
+                // filterDistinctRoots() runs AFTER this per-corpse filter so that a directory
+                // path picked for corpse A doesn't collapse a separately-selected file path
+                // owned by corpse B.
+                val ownedTargets = task.targetContent
+                    .filter { candidate ->
+                        corpse.content.any { contentItem ->
+                            candidate.isAncestorOf(contentItem) || candidate.matches(contentItem)
                         }
                     }
+                    .filterDistinctRoots()
+
+                val deleted = mutableSetOf<APath>()
+                ownedTargets.forEach { targetContent ->
+                    updateProgressPrimary(caString {
+                        it.getString(
+                            eu.darken.sdmse.common.R.string.general_progress_deleting_x,
+                            targetContent.userReadableName.get(it)
+                        )
+                    })
+                    log(TAG) { "Deleting $targetContent..." }
+                    updateProgressSecondary(targetContent.userReadablePath)
+                    try {
+                        targetContent.delete(gatewaySwitch, recursive = true)
+                        log(TAG) { "Deleted $targetContent!" }
+                        deleted.add(targetContent)
+                    } catch (e: WriteException) {
+                        log(TAG, WARN) { "Deletion failed for $targetContent: $e" }
+                    }
+                }
 
                 deletedContents[corpse] = deleted
             } else {
@@ -322,25 +399,33 @@ class CorpseFinder @Inject constructor(
 
         var deletedContentSize = 0L
 
-        internalData.value = snapshot.copy(
-            corpses = snapshot.corpses
-                .mapNotNull { corpse ->
-                    when {
-                        deletedCorpses.contains(corpse) -> null
-                        deletedContents.containsKey(corpse) -> corpse.copy(
-                            content = corpse.content.filter { contentItem ->
-                                val isDeleted = deletedContents[corpse]!!.any { deleted ->
-                                    deleted.isAncestorOf(contentItem) || deleted.matches(contentItem)
-                                }
-                                if (isDeleted) deletedContentSize += contentItem.size
-                                !isDeleted
+        // Compute the updated snapshot (corpses minus the deleted ones, content trimmed).
+        // affectedSpace counts the side-effect on disk regardless of whether the snapshot was
+        // ours-to-publish.
+        val updatedCorpses = activeSnapshot.corpses
+            .mapNotNull { corpse ->
+                when {
+                    deletedCorpses.contains(corpse) -> null
+                    deletedContents.containsKey(corpse) -> corpse.copy(
+                        content = corpse.content.filter { contentItem ->
+                            val isDeleted = deletedContents[corpse]!!.any { deleted ->
+                                deleted.isAncestorOf(contentItem) || deleted.matches(contentItem)
                             }
-                        )
+                            if (isDeleted) deletedContentSize += contentItem.size
+                            !isDeleted
+                        }
+                    )
 
-                        else -> corpse
-                    }
+                    else -> corpse
                 }
-        )
+            }
+
+        // Only publish back to internalData when we sourced FROM internalData; with an external
+        // snapshot the caller owns the reconciliation (e.g. the watcher needs to merge the
+        // deletion into the user's full corpse list, not replace it).
+        if (!usingExternalSnapshot) {
+            internalData.value = activeSnapshot.copy(corpses = updatedCorpses)
+        }
 
         return CorpseFinderDeleteTask.Success(
             affectedSpace = deletedCorpses.sumOf { it.size } + deletedContentSize,

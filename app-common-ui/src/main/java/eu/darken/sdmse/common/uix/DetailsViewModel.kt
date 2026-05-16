@@ -73,6 +73,15 @@ abstract class PagedDetailsViewModel<TRoute, TId>(
     /**
      * Navigate up the first time [hasData] reports `false` after the initial emission.
      * The initial value is dropped so launching the screen before data loads doesn't trigger navUp.
+     *
+     * Callers typically pass `tool.state.map { it.data?.corpses?.isNotEmpty() == true }` — i.e.
+     * `hasData` is `true` only when [Data] is non-null AND non-empty. The legacy
+     * `Data?.hasData` extension (`this?.corpses?.isNotEmpty() ?: false`) maps to the same shape,
+     * but be wary of passing a flow that maps `null` to `false`: when [performScan] sets
+     * internalData briefly to `null` at the start of a refresh, that emission would fire
+     * navUp during loading. Pass a flow that distinguishes "loading" (suppress) from
+     * "drained" (fire) — see callers using `map { it.data?.corpses?.isEmpty() == false }`
+     * for the canonical shape.
      */
     protected fun autoNavUpOnEmpty(hasData: Flow<Boolean>) {
         hasData
