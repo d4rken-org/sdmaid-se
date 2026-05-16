@@ -34,6 +34,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import java.time.Instant
@@ -50,7 +51,7 @@ class DeduplicatorListViewModel @Inject constructor(
 
     init {
         deduplicator.state
-            .map { it.data }
+            .mapNotNull { it.data }
             .drop(1)
             .filter { !it.hasData }
             .take(1)
@@ -240,8 +241,8 @@ class DeduplicatorListViewModel @Inject constructor(
         log(TAG, INFO) { "excludeClusters(${clusters.size})" }
         val sanitized = clusters.distinctBy { it.identifier }
         if (sanitized.isEmpty()) return@launch
-        deduplicator.exclude(sanitized.map { it.identifier }.toSet())
-        events.tryEmit(Event.ExclusionsCreated(count = sanitized.sumOf { it.count }))
+        val undo = deduplicator.exclude(sanitized.map { it.identifier }.toSet())
+        events.tryEmit(Event.ExclusionsCreated(count = undo.exclusionIds.size))
     }
 
     fun toggleLayoutMode() = launch {
