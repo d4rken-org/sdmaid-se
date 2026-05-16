@@ -94,6 +94,14 @@ class OneUILabels14Plus @Inject constructor(
         .append { aospLabels14Plus.getClearCacheStatic(acsContext) }
         .toSet()
 
+    fun getMobileDataAntiDynamic(
+        @Suppress("UNUSED_PARAMETER") acsContext: AutomationExplorer.Context
+    ): Set<String> = emptySet()
+
+    fun getMobileDataAntiLabels(
+        @Suppress("UNUSED_PARAMETER") acsContext: AutomationExplorer.Context
+    ): Set<String> = emptySet()
+
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "OneUI", "Labels", "14Plus")
         val SETTINGS_PKG = "com.android.settings".toPkgId()

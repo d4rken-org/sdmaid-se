@@ -31,6 +31,8 @@ class OneUISpecsTest : BaseAppCleanerSpecTest<OneUISpecs, OneUILabels>() {
         every { labels.getStorageEntryLabels(any()) } returns setOf("Storage")
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
         every { labels.getClearCacheLabels(any()) } returns setOf("Clear cache")
+        every { labels.getMobileDataAntiDynamic(any()) } returns emptySet()
+        every { labels.getMobileDataAntiLabels(any()) } returns emptySet()
     }
 
     // ============================================================

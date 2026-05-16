@@ -70,7 +70,11 @@ class OneUISpecs @Inject constructor(
                 oneUILabels.getStorageEntryDynamic(this) + oneUILabels.getStorageEntryLabels(this)
             log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
-            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
+            val antiLabels =
+                oneUILabels.getMobileDataAntiDynamic(this) + oneUILabels.getMobileDataAntiLabels(this)
+            log(TAG) { "antiLabels=${antiLabels.toVisualStrings()}" }
+
+            val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg, antiLabels)
 
             val step = AutomationStep(
                 source = TAG,
