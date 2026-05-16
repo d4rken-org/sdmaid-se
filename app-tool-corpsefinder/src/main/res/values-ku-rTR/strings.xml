@@ -19,7 +19,6 @@
     <string name="corpsefinder_filter_artprofiles_label">پرۆفایلەکانی ART</string>
     <string name="corpsefinder_filter_applib_label">کتێبخانەکانی ئەپ</string>
     <string name="corpsefinder_filter_appsource_label">سەرچاوەکانی ئەپ</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_owners_label">خاوەنەکان</string>
     <string name="corpsefinder_owner_unknown">خاوەنی نەناسراو</string>
 </resources>
