@@ -121,6 +121,10 @@ fun SqueezerSetupScreenHost(
     SqueezerSetupScreen(
         stateSource = vm.state,
         snackbarHostState = snackbarHostState,
+        // Debug builds allow extreme low-quality values to exercise the compressor. Read once
+        // here (Host scope) so the inner `internal` Screen has no compile-time dependency on
+        // BuildConfigWrap — keeping the Screen JVM-unit-testable without a generated BuildConfig.
+        minQuality = if (BuildConfigWrap.DEBUG) 1 else MIN_QUALITY_RELEASE,
         onNavigateUp = vm::navUp,
         onPathsClick = vm::openPathPicker,
         onQualityChange = vm::updateQuality,
@@ -142,6 +146,7 @@ fun SqueezerSetupScreenHost(
 internal fun SqueezerSetupScreen(
     stateSource: StateFlow<SqueezerSetupViewModel.State> = MutableStateFlow(SqueezerSetupViewModel.State()),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    minQuality: Int = MIN_QUALITY_RELEASE,
     onNavigateUp: () -> Unit = {},
     onPathsClick: () -> Unit = {},
     onQualityChange: (Int) -> Unit = {},
@@ -189,6 +194,7 @@ internal fun SqueezerSetupScreen(
                     Spacer(Modifier.height(16.dp))
                     QualityCard(
                         quality = state.quality,
+                        minQuality = minQuality,
                         estimatedSavingsPercent = state.estimatedSavingsPercent,
                         isLoadingExample = state.isLoadingExample,
                         onQualityChange = onQualityChange,
@@ -310,12 +316,12 @@ private fun PathsCard(
 @Composable
 private fun QualityCard(
     quality: Int,
+    minQuality: Int,
     estimatedSavingsPercent: Int?,
     isLoadingExample: Boolean,
     onQualityChange: (Int) -> Unit,
     onShowExample: () -> Unit,
 ) {
-    val minQuality = if (BuildConfigWrap.DEBUG) 1 else 20
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -451,6 +457,10 @@ private fun AgeCard(
         }
     }
 }
+
+// Lower bound the quality slider exposes on release builds. Debug builds use 1 to exercise
+// the compressor at extreme settings.
+private const val MIN_QUALITY_RELEASE = 20
 
 @Preview2
 @Composable

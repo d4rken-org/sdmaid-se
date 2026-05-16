@@ -137,8 +137,12 @@ class SqueezerListViewModel @Inject constructor(
 
     fun exclude(ids: Set<CompressibleMedia.Id>) = launch {
         log(TAG, INFO) { "exclude(): ${ids.size}" }
-        squeezer.exclude(ids)
-        events.tryEmit(Event.ExclusionsCreated(ids.size))
+        // Use the saved-exclusion count rather than the requested-ids count so the snackbar
+        // matches what was actually persisted. ExclusionManager.save() drops duplicates that
+        // are already excluded, and `Squeezer.exclude` itself drops ids no longer in the
+        // current data snapshot.
+        val savedIds = squeezer.exclude(ids)
+        events.tryEmit(Event.ExclusionsCreated(savedIds.size))
     }
 
     fun toggleLayoutMode() = launch {
