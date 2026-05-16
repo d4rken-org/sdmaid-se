@@ -27,6 +27,7 @@ import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import javax.inject.Inject
 
@@ -91,14 +92,12 @@ class SwiperSwipeViewModel @Inject constructor(
             showDetails: Boolean,
             undoStack: List<UndoEntry>,
             hasShownOverlay: Boolean ->
-            // Clear stale override when session was reset to 0 (e.g., after deletion)
-            val currentIndex = when {
-                session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
-                    currentIndexOverride.value = null
-                    0
-                }
-                else -> indexOverride ?: session?.currentIndex ?: 0
-            }.coerceIn(0, maxOf(0, items.size - 1))
+            // Override (set by bindRoute / setCurrentIndex) takes precedence over the session's
+            // persistent currentIndex. After a partial delete the session resets to 0 but the
+            // override may point past the now-shorter items list — coerceIn handles that without
+            // needing an in-combine mutation of an upstream input.
+            val currentIndex = (indexOverride ?: session?.currentIndex ?: 0)
+                .coerceIn(0, maxOf(0, items.size - 1))
             val keepItems = items.filter { it.decision == SwipeDecision.KEEP }
             val deleteItems = items.filter { it.decision == SwipeDecision.DELETE }
             val undecidedItems = items.filter { it.decision == SwipeDecision.UNDECIDED }
@@ -128,16 +127,38 @@ class SwiperSwipeViewModel @Inject constructor(
         }
     }.safeStateIn(initialValue = null) { null }
 
+    /**
+     * One-shot snapshot of the data this VM's business-logic methods need. Reads directly from
+     * the source flows instead of `state.value`, so it doesn't depend on whether a downstream
+     * collector is keeping safeStateIn's WhileSubscribed upstream alive.
+     */
+    private data class ActionSnapshot(
+        val sessionId: String,
+        val items: List<SwipeItem>,
+        val currentIndex: Int,
+    ) {
+        val currentItem: SwipeItem? get() = items.getOrNull(currentIndex)
+    }
+
+    private suspend fun snapshotForAction(): ActionSnapshot? {
+        val sid = sessionId ?: return null
+        val session = swiper.getSession(sid).first()
+        val items = swiper.getItemsForSession(sid).first()
+        val currentIndex = (currentIndexOverride.value ?: session?.currentIndex ?: 0)
+            .coerceIn(0, maxOf(0, items.size - 1))
+        return ActionSnapshot(sessionId = sid, items = items, currentIndex = currentIndex)
+    }
+
     fun setDecision(itemId: Long, decision: SwipeDecision) = launch {
         log(TAG, INFO) { "setDecision(itemId=$itemId, decision=$decision)" }
 
-        val currentState = state.value
-        val currentItem = currentState?.currentItem
+        val snap = snapshotForAction()
+        val currentItem = snap?.currentItem
         if (currentItem != null && currentItem.id == itemId) {
             val entry = UndoEntry(
                 itemId = itemId,
                 previousDecision = currentItem.decision,
-                previousIndex = currentState.currentIndex,
+                previousIndex = snap.currentIndex,
             )
             undoHistory.value = (undoHistory.value + entry).takeLast(50)
         }
@@ -152,14 +173,14 @@ class SwiperSwipeViewModel @Inject constructor(
     fun skip() = launch {
         log(TAG, INFO) { "skip()" }
 
-        val currentState = state.value ?: return@launch
-        val currentItem = currentState.currentItem
+        val snap = snapshotForAction() ?: return@launch
+        val currentItem = snap.currentItem
 
         if (currentItem != null) {
             val entry = UndoEntry(
                 itemId = currentItem.id,
                 previousDecision = currentItem.decision,
-                previousIndex = currentState.currentIndex,
+                previousIndex = snap.currentIndex,
             )
             undoHistory.value = (undoHistory.value + entry).takeLast(50)
         }
@@ -188,20 +209,16 @@ class SwiperSwipeViewModel @Inject constructor(
     }
 
     private suspend fun advanceOrNavigate() {
-        val currentState = state.value ?: return
-        val items = currentState.items
-        val currentIdx = currentState.currentIndex
-        val currentItemId = currentState.currentItem?.id
-        val sid = sessionId ?: return
+        val snap = snapshotForAction() ?: return
 
-        if (items.isEmpty()) {
+        if (snap.items.isEmpty()) {
             log(TAG, INFO) { "advanceOrNavigate: No items remain, discarding session" }
-            swiper.discardSession(sid)
+            swiper.discardSession(snap.sessionId)
             navToSessions()
             return
         }
 
-        val nextUndecidedIndex = findNextUndecidedIndex(items, currentIdx, currentItemId)
+        val nextUndecidedIndex = findNextUndecidedIndex(snap.items, snap.currentIndex, snap.currentItem?.id)
 
         if (nextUndecidedIndex != null) {
             setCurrentIndex(nextUndecidedIndex)

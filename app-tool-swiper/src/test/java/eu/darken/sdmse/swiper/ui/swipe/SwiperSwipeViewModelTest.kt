@@ -198,36 +198,32 @@ class SwiperSwipeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `bindRoute with startIndex applies it as override when session has a non-zero current index`() = runTest2 {
-        // The production combine clears the override when session.currentIndex == 0 (treated as
-        // "session was reset after delete, override is stale"). For the override to be applied,
-        // session.currentIndex must already be > 0 (i.e. user navigated from a mid-session position).
+    fun `bindRoute with startIndex applies it as override regardless of session current index`() = runTest2 {
+        // The override (set by bindRoute on a non-default startIndex) wins over the session's
+        // persistent currentIndex. Pin this for both the fresh-session case (currentIndex = 0,
+        // previously broken by the eager stale-override guard) and the mid-session case
+        // (currentIndex > 0).
         val items = (1..5).map { item(it.toLong()) }
-        val h = harness(
-            session = session(currentIndex = 1),
-            items = items,
-            startIndex = 3,
-        )
-        advanceUntilIdle()
 
-        h.vm.state.first()!!.currentIndex shouldBe 3
+        val fresh = harness(session = session(currentIndex = 0), items = items, startIndex = 3)
+        advanceUntilIdle()
+        fresh.vm.state.first()!!.currentIndex shouldBe 3
+
+        val midSession = harness(session = session(currentIndex = 1), items = items, startIndex = 3)
+        advanceUntilIdle()
+        midSession.vm.state.first()!!.currentIndex shouldBe 3
     }
 
     @Test
-    fun `bindRoute with startIndex is cleared when session has zero current index - stale override guard`() = runTest2 {
-        // Regression guard for the "stale override" branch in SwiperSwipeViewModel.state. If
-        // session.currentIndex == 0 (the session was reset after a delete), the override carried in
-        // via the back-stack navigation must be cleared — otherwise the user would land on an item
-        // index that no longer maps to a real position.
-        val items = (1..5).map { item(it.toLong()) }
-        val h = harness(
-            session = session(currentIndex = 0),
-            items = items,
-            startIndex = 3,
-        )
+    fun `state currentIndex coerces an out-of-range override to the last item`() = runTest2 {
+        // Override may outlive a partial delete that shortened the items list — coercion clamps it
+        // to the new last valid index. This is the responsibility we kept after dropping the eager
+        // override-clearing logic (which used to reset to 0 in this scenario).
+        val items = (1..3).map { item(it.toLong()) }
+        val h = harness(session = session(currentIndex = 1), items = items, startIndex = 99)
         advanceUntilIdle()
 
-        h.vm.state.first()!!.currentIndex shouldBe 0
+        h.vm.state.first()!!.currentIndex shouldBe 2
     }
 
     @Test
@@ -463,22 +459,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.first()!!.progressPercent shouldBe 50
-    }
-
-    @Test
-    fun `state currentIndex is coerced into items range`() = runTest2 {
-        // Start with a startIndex past the end — coercion clamps it. Use a non-zero session
-        // currentIndex so the stale-override guard doesn't fire and reset the override to 0.
-        val items = listOf(item(1), item(2), item(3))
-        val h = harness(
-            session = session(currentIndex = 1),
-            items = items,
-            startIndex = 99,
-        )
-        advanceUntilIdle()
-
-        // Coerced to items.size - 1 = 2.
-        h.vm.state.first()!!.currentIndex shouldBe 2
     }
 
     @Test

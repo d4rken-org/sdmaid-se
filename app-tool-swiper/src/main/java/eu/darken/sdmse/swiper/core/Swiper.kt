@@ -287,8 +287,10 @@ class Swiper @Inject constructor(
         val remainingCount = failedCount + undecidedCount
 
         return if (remainingCount == 0) {
-            // Session complete - cleanup
-            sessionDao.updateState(task.sessionId, SessionState.COMPLETED.name, Instant.now().toEpochMilli())
+            // Session complete - delete the row directly. The COMPLETED state has no observers
+            // (the only consumers are getActiveSession / getAllActiveSessions, which filter
+            // state != COMPLETED — same effect as the row being gone) and was previously written
+            // a microsecond before delete(), so the intermediate state was never observable.
             sessionDao.delete(task.sessionId)
             clearCacheForSession(task.sessionId)
             log(TAG, INFO) { "Session ${task.sessionId} completed and cleaned up" }

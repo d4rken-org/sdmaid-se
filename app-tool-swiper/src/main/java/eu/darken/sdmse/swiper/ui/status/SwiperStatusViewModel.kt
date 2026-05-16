@@ -116,12 +116,16 @@ class SwiperStatusViewModel @Inject constructor(
         swiper.updateDecision(itemId, SwipeDecision.DELETE)
     }
 
-    fun navigateToItem(itemId: Long) {
+    fun navigateToItem(itemId: Long) = launch {
         log(TAG, INFO) { "navigateToItem($itemId)" }
-        val sid = sessionId ?: return
-        val currentItems = state.value.items
-        val currentPosition = currentItems.indexOfFirst { it.id == itemId }
-        if (currentPosition < 0) return
+        val sid = sessionId ?: return@launch
+        // Read items directly from the source flow instead of state.value.items — the latter is
+        // governed by safeStateIn's WhileSubscribed and is only populated while a downstream
+        // collector (i.e., the Compose screen) is active. Reading the source flow keeps this
+        // method working regardless of subscriber state.
+        val items = swiper.getItemsForSession(sid).first()
+        val currentPosition = items.indexOfFirst { it.id == itemId }
+        if (currentPosition < 0) return@launch
         navTo(
             destination = SwiperSwipeRoute(sessionId = sid, startIndex = currentPosition),
             popUpTo = SwiperStatusRoute(sid),
@@ -134,6 +138,9 @@ class SwiperStatusViewModel @Inject constructor(
         val sid = sessionId ?: return@launch
         taskSubmitter.submit(SwiperDeleteTask(sessionId = sid))
 
+        // Room's Flow.first() runs a fresh query against the latest DB state — taskSubmitter.submit
+        // returned only after the suspend DAO calls inside performDelete committed, so we see the
+        // post-delete state here. Don't "optimize" this into reading state.value or a cached snapshot.
         val sessionStillExists = swiper.getSession(sid).first() != null
         if (!sessionStillExists) {
             navToSessions()
