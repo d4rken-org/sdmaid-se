@@ -144,7 +144,7 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Czas ekranu: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ostatnia aktualizacja: %s</string>
     <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
-    <string name="shortcut_appcontrol_short">Kontrola aplikacji</string>
+    <string name="shortcut_appcontrol_short">Aplikacje</string>
     <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
     <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>

@@ -36,7 +36,7 @@
     <string name="analyzer_storage_content_type_system_label">Données système</string>
     <string name="analyzer_storage_content_type_system_description">Applications système et données système. Applis et données d’autres utilisateurs, si plusieurs comptes utilisateur sont configurés sur cet appareil.</string>
     <string name="analyzer_storage_content_type_system_other_label">Autres</string>
-    <string name="analyzer_storage_content_type_system_info">Fichiers qui ne correspondent pas aux catégories Applications ou Fichiers utilisateur. Navigation uniquement — la suppression n’est pas prise en charge. Certaines zones peuvent être incomplètes en raison de restrictions d’accès.</string>
+    <string name="analyzer_storage_content_type_system_info">Fichiers qui ne correspondent pas aux catégories Applis ou Fichiers utilisateur. Navigation seulement, la suppression n’est pas prise en charge. Certaines zones peuvent être incomplètes en raison de restrictions d’accès.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fichiers système et autres données auxquels SD Maid n’a pas pu accéder ou catégoriser. Le système d’exploitation restreint l’affichage du contenu de certaines zones.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l’appli</string>
     <string name="analyzer_storage_content_app_code_description">Fichiers, bibliothèques et ressources de l’appli. Cet espace peut être libéré en la désinstallant ou en l’archivant (proposé sur les versions d’Android les plus récentes).</string>

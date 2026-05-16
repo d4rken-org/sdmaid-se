@@ -75,10 +75,10 @@
     <string name="general_sort_by_title">Trier par</string>
     <string name="general_sort_options_label">Options de tri</string>
     <string name="general_sort_reverse_action">Mode de tri inversé</string>
-    <string name="general_sort_oldest_first">Plus anciens en premier</string>
-    <string name="general_sort_newest_first">Plus récents en premier</string>
+    <string name="general_sort_oldest_first">Dates plus anciennes en premier</string>
+    <string name="general_sort_newest_first">Dates plus récentes en premier</string>
     <string name="general_sort_name_asc">Nom (A → Z)</string>
-    <string name="general_sort_size_desc">Plus grands en premier</string>
+    <string name="general_sort_size_desc">Plus grandes tailles en premier</string>
     <string name="general_tag_filter_label">Filtrer par étiquettes</string>
     <string name="general_tag_system">Système</string>
     <string name="general_result_success_message">L’opération est réussie</string>

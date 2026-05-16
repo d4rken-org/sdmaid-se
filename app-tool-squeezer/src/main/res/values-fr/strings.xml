@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Compresser les images et vidéos pour réduire l\'espace utilisé.</string>
+    <string name="squeezer_explanation_short">Compresser les images et vidéos pour réduire l’espace utilisé.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d élément a été trouvé</item>
-        <item quantity="other">%d éléments ont été trouvés</item>
+        <item quantity="one">%d élément a été trouvé</item>
+        <item quantity="other">%d éléments ont été trouvés</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s en moins</item>
         <item quantity="other">~%s en moins</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d élément compressé</item>
-        <item quantity="other">%d éléments compressés</item>
+        <item quantity="one">%d élément a été compressé</item>
+        <item quantity="other">%d éléments ont été compressés</item>
     </plurals>
     <plurals name="squeezer_result_x_items_failed">
         <item quantity="one">%d en échec</item>
         <item quantity="other">%d en échec</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d fichier ignoré (non accessible)</item>
-        <item quantity="other">%d fichiers ignorés (non accessibles)</item>
+        <item quantity="one">%d fichier ignoré (non accessible)</item>
+        <item quantity="other">%d fichiers ignorés (non accessibles)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d élément sélectionné</item>
-        <item quantity="other">%d éléments sélectionnés</item>
+        <item quantity="one">%d élément choisi</item>
+        <item quantity="other">%d éléments choisis</item>
     </plurals>
     <string name="squeezer_search_locations_title">Emplacements de recherche</string>
     <string name="squeezer_search_locations_default_summary">Dossiers de l’appareil photo (par défaut)</string>
@@ -58,7 +58,7 @@
     <string name="squeezer_preview_dialog_title">Confirmer la compression</string>
     <string name="squeezer_preview_total_size">Taille totale</string>
     <string name="squeezer_preview_estimated_savings">Économies probables</string>
-    <string name="squeezer_compress_confirmation_title">Compresser les éléments sélectionnés ?</string>
+    <string name="squeezer_compress_confirmation_title">Compresser les éléments choisis ?</string>
     <string name="squeezer_compress_confirmation_message">Les fichiers originaux seront remplacés par les versions compressées. Cette action est irréversible.</string>
     <string name="squeezer_history_title">Historique de compression</string>
     <plurals name="squeezer_history_summary">
@@ -72,17 +72,17 @@
     <string name="squeezer_onboarding_message">La compression des images réduit la taille des fichiers en supprimant certains détails visuels. Ce processus est irréversible ; la qualité originale ne peut pas être restaurée.\n\nVoici un aperçu du rendu final de vos images :</string>
     <string name="squeezer_onboarding_original_label">Originale</string>
     <string name="squeezer_onboarding_compressed_label">Après compression</string>
-    <string name="squeezer_onboarding_video_original_label">Image vidéo</string>
+    <string name="squeezer_onboarding_video_original_label">Image de la vidéo</string>
     <string name="squeezer_onboarding_video_compressed_label">Aperçu (approximatif)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">La qualité réelle de la vidéo peut différer</string>
     <string name="squeezer_onboarding_quality_label">Qualité : %d %%</string>
     <string name="squeezer_compare_action">Afficher la comparaison</string>
     <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
-    <string name="squeezer_result_empty_message">Aucun média compressible n\'a été trouvé.</string>
-    <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité pour économiser l\'espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
+    <string name="squeezer_result_empty_message">Aucun média compressible n’a été trouvé.</string>
+    <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
     <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d emplacement ne peut pas être utilisé pour la compression et a été supprimé. La compression nécessite un accès direct au stockage interne.</item>
-        <item quantity="other">%d emplacements ne peuvent pas être utilisés pour la compression et ont été supprimés. La compression nécessite un accès direct au stockage interne.</item>
+        <item quantity="one">%d emplacement ne peut pas être utilisé pour la compression et a été supprimé. La compression nécessite un accès direct à la mémoire interne.</item>
+        <item quantity="other">%d emplacements ne peuvent pas être utilisés pour la compression et ont été supprimés. La compression nécessite un accès direct à la mémoire interne.</item>
     </plurals>
     <string name="squeezer_setup_explanation">La compression des médias réduit la taille des images et des vidéos afin de libérer l\'espace de stockage. Cela réduit irrémédiablement la qualité. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
     <string name="squeezer_setup_paths_title">Emplacements de recherche</string>
