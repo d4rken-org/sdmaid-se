@@ -27,6 +27,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -43,7 +44,9 @@ class CorpseDetailsViewModel @Inject constructor(
     override fun bindRouteLogValue(route: CorpseDetailsRoute): Any? = route.corpsePath
 
     init {
-        autoNavUpOnEmpty(corpseFinder.state.map { it.data.hasData })
+        // `mapNotNull { it.data }` skips the null transitions that performScan publishes at
+        // the start of a refresh, so navUp fires only on real "drain to empty", not loading.
+        autoNavUpOnEmpty(corpseFinder.state.mapNotNull { it.data }.map { it.hasData })
 
         taskSubmitter.uniqueTaskResults<CorpseFinderTask.Result>(SDMTool.Type.CORPSEFINDER)
             .onEach { events.tryEmit(Event.TaskResult(it)) }

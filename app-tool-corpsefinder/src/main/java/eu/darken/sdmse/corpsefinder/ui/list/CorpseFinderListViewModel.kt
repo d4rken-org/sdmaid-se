@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
-import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -35,10 +34,12 @@ class CorpseFinderListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // navUp only when a non-null Data drains to empty corpses — null is the loading state
+        // (set during performScan before results land) and must not trigger navigation.
         corpseFinder.state
             .map { it.data }
             .drop(1)
-            .filter { !it.hasData }
+            .filter { it?.corpses?.isEmpty() == true }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)
@@ -95,8 +96,8 @@ class CorpseFinderListViewModel @Inject constructor(
         val snapshot = corpseFinder.state.first().data ?: return@launch
         val validIds = ids.filter { id -> snapshot.corpses.any { it.identifier == id } }.toSet()
         if (validIds.isEmpty()) return@launch
-        corpseFinder.exclude(validIds)
-        events.tryEmit(Event.ExclusionsCreated(validIds.size))
+        val undo = corpseFinder.exclude(validIds)
+        events.tryEmit(Event.ExclusionsCreated(undo.exclusionIds.size))
     }
 
     fun onShowDetailsFromDialog(ids: Set<CorpseIdentifier>) {

@@ -33,6 +33,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -47,7 +48,9 @@ class FilterContentDetailsViewModel @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     init {
-        autoNavUpOnEmpty(systemCleaner.state.map { it.data.hasData })
+        // `mapNotNull { it.data }` skips the null transitions that performScan publishes at
+        // the start of a refresh, so navUp fires only on real "drain to empty", not loading.
+        autoNavUpOnEmpty(systemCleaner.state.mapNotNull { it.data }.map { it.hasData })
 
         taskSubmitter.uniqueTaskResults<SystemCleanerTask.Result>(SDMTool.Type.SYSTEMCLEANER)
             .onEach { events.tryEmit(Event.TaskResult(it)) }
