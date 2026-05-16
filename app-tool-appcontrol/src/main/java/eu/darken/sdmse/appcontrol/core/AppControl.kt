@@ -171,7 +171,7 @@ class AppControl @Inject constructor(
         internalData.value = Data(
             apps = appInfos,
             hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
-            hasInfoActive = task.loadInfoSize && curState.canInfoSize,
+            hasInfoActive = task.loadInfoActive && curState.canInfoActive,
             hasInfoSize = task.loadInfoSize && curState.canInfoSize,
             hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
         )
