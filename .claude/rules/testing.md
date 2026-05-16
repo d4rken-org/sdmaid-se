@@ -118,6 +118,72 @@ Wrap content in `PreviewWrapper` (same as `@Preview2` does) so the test renders 
 
 Static / object mocks (`mockkStatic`, `mockkObject`) installed in a test method must be cleaned up by that same test — there is no shared `unmockkAll()` hook.
 
+### ViewModel render-state harness (`safeStateIn`)
+
+`ViewModel4.safeStateIn(...)` is `.stateIn(scope, SharingStarted.WhileSubscribed(5000), initialValue)`. The upstream flow only collects when there's at least one downstream subscriber.
+
+In tests this matters: reading `vm.state.value` returns the **initialValue** (not the upstream-derived value), and `vm.state.first()` races with the upstream chain — both make every state assertion see `State()` defaults regardless of what the mocked upstream emits.
+
+Keep state subscribed for the test scope's lifetime via `TestScope.backgroundScope`, which is auto-cancelled at `runTest` completion without blocking the test body:
+
+```kotlin
+// Make harness an extension on TestScope so it can launch the keep-alive.
+private fun TestScope.harness(...): Harness {
+    // ... mock setup ...
+    val vm = SomeViewModel(...)
+    if (bind) vm.bindRoute(...)
+
+    backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) {
+        vm.state.collect { /* keep WhileSubscribed alive */ }
+    }
+    return Harness(vm, ...)
+}
+```
+
+Don't use `vmScope.launch { state.collect { } }` from inside `runTest2` — it never completes and trips runTest's "uncompleted coroutines" timeout. `backgroundScope` is the supported escape hatch for exactly this case.
+
+### Stubbing `DataStoreValue<T>`
+
+`DataStoreValue.value()` (read) and `.value(T)` (write) are **extension functions** in `DataStoreValue.kt`, not member methods, so MockK can't stub them directly. The read extension is `flow.first()` and the write extension is `update { value }` — stub or verify on those instead:
+
+```kotlin
+private fun <T : Any> mockSetting(value: T): DataStoreValue<T> =
+    mockk<DataStoreValue<T>>(relaxed = true).apply {
+        every { flow } returns flowOf(value)
+        // .value() reads via flow.first() — no extra stub needed.
+        // .value(T) writes via update {...} — relaxed mock answers; verify with:
+        // coVerify { update(any()) }
+    }
+```
+
+For one-line setting reads where only `.flow` matters, use the existing `mockDataStoreValue(value)` helper from `app-common-test`.
+
+### Stubbing `ExclusionManager.save`
+
+`ExclusionManager.save(exclusion: Exclusion)` is an **extension** that calls the real `save(toSave: Set<Exclusion>): Collection<Exclusion>` on the manager. Mock the real method and capture a `Set<Exclusion>`:
+
+```kotlin
+val captured = slot<Set<Exclusion>>()
+coEvery { exclusionManager.save(capture(captured)) } returns emptyList()
+// After action:
+val excl = captured.captured.single()
+excl.shouldBeInstanceOf<PathExclusion>()
+```
+
+### Stubbing `NavigationController.consumeResults`
+
+Picker results arrive via `navCtrl.consumeResults(PickerResultKey(...))` which subscribers `launchIn` on in their `init`. For tests, return a hot flow you control — a `MutableSharedFlow<PickerResult>(replay = 1)` so emissions don't get dropped if the VM hasn't subscribed yet:
+
+```kotlin
+val pickerResults = MutableSharedFlow<PickerResult>(replay = 1, extraBufferCapacity = 1)
+val navCtrl = mockk<NavigationController>(relaxed = true).apply {
+    every { consumeResults<PickerResult>(any()) } returns pickerResults
+}
+// Later in test body:
+pickerResults.tryEmit(PickerResult(selectedPaths = paths))
+advanceUntilIdle()
+```
+
 ## Testing Libraries
 
 - **Assertions**: Use Kotest matchers (`io.kotest.matchers.shouldBe`, `shouldThrow`, etc.)
