@@ -105,7 +105,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
         }
 
         // Mock storage finder
-        coEvery { storageEntryFinder.storageFinderAOSP(any(), any()) } returns mockk()
+        coEvery { storageEntryFinder.storageFinderAOSP(any(), any(), any()) } returns mockk()
 
         // Setup default label mocks
         mockLabelDefaults()

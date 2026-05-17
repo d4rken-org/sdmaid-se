@@ -164,10 +164,8 @@ class Analyzer @Inject constructor(
     private suspend fun scanStorageContents(task: StorageScanTask): DeviceStorageScanTask.Result {
         log(TAG, VERBOSE) { "scanStorageContents(): $task" }
 
-        if (!appInventorySetupModule.isComplete()) {
-            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
-            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
-        }
+        // Inventory completeness is checked per-category inside StorageScanner so that media/system
+        // scans still succeed when the app inventory is unavailable (e.g. Huawei TAF sandbox).
 
         val target = storageDevices.value.singleOrNull { it.id == task.target }
             ?: throw IllegalStateException("Couldn't find ${task.target}")

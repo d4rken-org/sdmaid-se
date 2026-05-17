@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.shell.ipc.ShellOpsStreamEvent
 import eu.darken.sdmse.common.user.UserManager2
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -61,12 +62,21 @@ class ShellLookUpPkgsSource @Inject constructor(
 
         userManager.allUsers()
             .mapNotNull { user ->
-                val result = shellOps.execute(
+                val output = mutableListOf<String>()
+                var exitCode = -1
+                shellOps.executeStream(
                     ShellOpsCmd("pm list packages -f -u --user ${user.handle.handleId}"),
                     mode,
-                )
-                if (!result.isSuccess) return@mapNotNull null
-                user to result.output
+                ).collect { event ->
+                    when (event) {
+                        is ShellOpsStreamEvent.Stdout -> output.add(event.line)
+                        is ShellOpsStreamEvent.Exit -> exitCode = event.exitCode
+                        is ShellOpsStreamEvent.Stderr -> Unit
+                        is ShellOpsStreamEvent.Error -> Unit
+                    }
+                }
+                if (exitCode != 0) return@mapNotNull null
+                user to output.toList()
             }
             .map { (user, lines) ->
                 log(TAG, VERBOSE) { "${lines.size} entries for $user" }

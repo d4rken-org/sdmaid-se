@@ -9,6 +9,10 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.IpcClientModule
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 
 class ShellOpsClient @AssistedInject constructor(
@@ -25,6 +29,19 @@ class ShellOpsClient @AssistedInject constructor(
             log(TAG, ERROR) { "execute($cmd) failed: ${it.asLog()}" }
         }
     }
+
+    fun executeStream(cmd: ShellOpsCmd): Flow<ShellOpsStreamEvent> = flow {
+        val remote = connection.executeStream(cmd)
+        remote.toShellOpsEventFlow().collect { event ->
+            when (event) {
+                is ShellOpsStreamEvent.Error -> throw Exception(event.message)
+                else -> emit(event)
+            }
+        }
+    }.catch { cause ->
+        log(TAG, ERROR) { "executeStream($cmd) failed: ${cause.asLog()}" }
+        throw cause.refineException()
+    }.flowOn(dispatcherProvider.IO)
 
     @AssistedFactory
     interface Factory {

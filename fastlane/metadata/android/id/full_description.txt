@@ -3,13 +3,13 @@
 Tiada yang sempurna dan itu termasuk Android.
 
 * Aplikasi yang baru saja dihapus meninggalkan beberapa jejak.
-* Log, laporan error, dan file lain yang tidak Anda inginkan terus-menerus dibuat.
-* Penyimpanan Anda mengumpulkan file dan folder yang tidak Anda kenali.
+* Log, laporan kesalahan, dan berkas-berkas lain yang tidak Anda inginkan terus-menerus dibuat.
+* Penyimpanan Anda mengumpulkan berkas dan folder yang tidak Anda kenali.
 * Foto duplikat di galeri Anda.
 
 Mari kita tidak lanjutkan... Biarkan SD Maid 2/SE membantu Anda!
 
-SD Maid 2/SE adalah pengelola aplikasi dan file yang mengetahui aplikasi mana yang membuat file di perangkat Anda. Ini membandingkan file dengan aplikasi yang terpasang untuk membantu Anda membebaskan ruang penyimpanan dengan aman.
+SD Maid 2/SE adalah aplikasi dan pengelola file yang dapat mendeteksi aplikasi mana saja yang telah membuat file di perangkat Anda. Ini membandingkan file dengan aplikasi yang terpasang untuk membantu Anda membebaskan ruang penyimpanan dengan aman.
 
 ✨ Bersihkan sisa setelah Anda menghapus aplikasi
 
@@ -17,9 +17,9 @@ Jika aplikasi membuat file di luar folder khususnya, file-file itu bisa tetap ti
 
 🔍 Pindai perangkat Anda secara cerdas
 
-Filter untuk folder kosong, file sementara, aplikasi terpasang, dan lainnya. Anda bahkan bisa membuat kriteria pencarian sendiri. Alat "SystemCleaner" secara otomatis mencari dan menghapus file berdasarkan berbagai kriteria.
+Filter untuk folder kosong, file sementara, aplikasi terpasang, dan lainnya. Anda bahkan bisa membuat kriteria pencarian sendiri. Alat "PembersihSistem" secara otomatis mencari dan menghapus file berdasarkan berbagai kriteria.
 
-🧹 Hapus file tak terpakai dan cache tersembunyi
+🧹 Hapus file yang tidak diperlukan dan cache tersembunyi
 
 Thumbnail, tempat sampah, cache offline, dan lainnya: Jika aplikasi tidak membersihkan diri sendiri, aplikasi ini akan melakukannya untuk Anda. Alat "AppCleaner" menemukan aplikasi dengan file tak terpakai.
 
@@ -33,11 +33,11 @@ Manajemen penyimpanan bisa rumit dengan aplikasi, media, sistem, dan file lain y
 
 📷 Temukan data duplikat
 
-Unduhan duplikat, foto dari media sosial, atau gambar serupa dari adegan yang sama: Lama-kelamaan, salinannya bisa menumpuk. Alat "Penghapus Duplikat" menemukan file yang sama persis atau mirip, serta membantu Anda menghapus salinan berlebih.
+Unduhan ganda, foto yang dikirim melalui media sosial, atau sekadar foto serupa dari pemandangan yang sama: Seiring waktu, salinan-salinan tersebut bisa menumpuk. Alat "Penghapus Duplikat" menemukan file yang sama persis atau mirip, serta membantu Anda menghapus salinan berlebih.
 
-👆 Rapikan dengan sapuan
+👆 Rapikan dengan sekali usap
 
-Pilih folder dan tinjau file satu per satu dengan sapuan sederhana untuk menyimpan, menghapus, atau melewati. Alat "Swiper" memungkinkan Anda meninjau semua keputusan sebelum apa pun dihapus, dan Anda dapat menyimpan sesi untuk dilanjutkan nanti.
+Pilih sebuah folder, lalu telusuri file satu per satu dengan menggeser layar secara sederhana untuk menyimpan, menghapus, atau melewati. Alat "Swiper" memungkinkan Anda meninjau semua keputusan sebelum apa pun dihapus, dan Anda dapat menyimpan sesi untuk dilanjutkan nanti.
 
 🗜️ Hemat ruang tanpa menghapus foto
 

@@ -109,7 +109,7 @@ open class SharedResource<T : Any>(
 
                 if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() Checking for source job..." }
                 if (sourceJob != null) {
-                    lifecycleLog { "[$sId|$lId]-get() Source job already exists" }
+                    if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|$lId]-get() Source job already exists" }
                     return@withContext
                 }
 
@@ -153,7 +153,9 @@ open class SharedResource<T : Any>(
 
         var value: T? = sourceValue
         var error: Throwable? = sourceError
-        lifecycleLog { "[$sId|$lId]-get() Waiting for source value... (current value=$value, error=$error)" }
+        if (value == null && error == null) {
+            lifecycleLog { "[$sId|$lId]-get() Waiting for source value... (current value=$value, error=$error)" }
+        }
         while (value == null && error == null) {
             value = sourceValue?.also {
                 if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() sourceValue loop, got $it" }
@@ -302,11 +304,19 @@ open class SharedResource<T : Any>(
      * But the backupmodule, while open, keeps the root shell alive.
      */
     suspend fun addChild(child: SharedResource<*>) = coreLock.withLock("addChild-${child.resourceId}") {
-        if (children.contains(child)) {
+        val existing = children[child]
+        if (existing != null && !existing.isClosed) {
             if (Bugs.isTrace) {
                 log(iTag, VERBOSE) { "[$sId|_]-addChild() Already keeping child alive: $child" }
             }
             return@withLock
+        }
+        if (existing != null) {
+            // Stale child entry — drop it and fall through to re-adopt
+            if (Bugs.isTrace) {
+                log(iTag, VERBOSE) { "[$sId|_]-addChild() Replacing stale closed child: $child" }
+            }
+            children.remove(child)
         }
 
         if (isClosed) {

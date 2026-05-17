@@ -17,7 +17,7 @@
     <string name="systemcleaner_filter_advertisements_label">Berkas iklan</string>
     <string name="systemcleaner_filter_advertisements_summary">Berkas yang dibuat untuk atau oleh iklan.</string>
     <string name="systemcleaner_filter_anr_label">Kesalahan ANR</string>
-    <string name="systemcleaner_filter_anr_summary">Jejak dari kejadian \'aplikasi tidak merespon\'.</string>
+    <string name="systemcleaner_filter_anr_summary">Jejak dari kejadian ‘aplikasi tidak merespons’.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Folder kosong</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Seluruh folder kosong di dalam perangkat. Folder bertingkat mungkin memerlukan beberapa tahap.</string>
     <string name="systemcleaner_filter_screenshots_label">Tangkapan layar</string>
@@ -29,7 +29,7 @@
     <string name="systemcleaner_filter_superfluosapks_label">Berkas APK tidak digunakan</string>
     <string name="systemcleaner_filter_superfluosapks_summary">File konfigurasi yang tidak lagi digunakan oleh versi aplikasi yang terpasang.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Sertakan versi yang sama</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Juga targetkan berkas APK yang sesuai dengan versi yang terpasang. Nonaktifkan untuk hanya menghapus versi lama.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Juga targetkan berkas APK yang sesuai dengan versi yang terpasang. Nonaktifkan opsi ini jika hanya ingin menghapus versi yang lebih lama.</string>
     <string name="systemcleaner_filter_lostdir_label">Folder LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Berkas sementara yang dibuat sewaktu mengirim data antar perangkat Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Berkas Linux</string>
@@ -43,7 +43,7 @@
     <string name="systemcleaner_filter_tempfiles_label">File sementara sistem</string>
     <string name="systemcleaner_filter_tempfiles_summary">File sementara yang terkait dengan sistem, biasanya berupa cache jangka pendek untuk operasi yang sedang berjalan.</string>
     <string name="systemcleaner_filter_analytics_label">Berkas analitik</string>
-    <string name="systemcleaner_filter_analytics_summary">Data berhubungan dengan analitik dan pelacak bug.</string>
+    <string name="systemcleaner_filter_analytics_summary">Data yang berkaitan dengan analitik dan pelacakan bug.</string>
     <string name="systemcleaner_filter_downloadcache_label">Cache unduhan</string>
     <string name="systemcleaner_filter_downloadcache_summary">Folder cache sistem yang digunakan untuk berbagai hal (misalnya pembaruan sistem).</string>
     <string name="systemcleaner_filter_localtmp_label">Berkas sementara lokal</string>
@@ -52,7 +52,7 @@
     <string name="systemcleaner_filter_datalogger_summary">Berkas log spesifik layanan sistem.</string>
     <string name="systemcleaner_filter_logdropbox_label">Tempat berkas log</string>
     <string name="systemcleaner_filter_logdropbox_summary">Tempat sistem untuk menyimpan berkas log.</string>
-    <string name="systemcleaner_filter_recenttasks_label">Tugas terkini</string>
+    <string name="systemcleaner_filter_recenttasks_label">Tugas terbaru</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data yang berhubungan dengan riwayat tugas pada pengalih tugas sistem.</string>
     <string name="systemcleaner_filter_tombstones_label">Sisa kerusakan sistem</string>
     <string name="systemcleaner_filter_tombstones_summary">Jika sebuah proses mengalami crash (misalnya permainan), maka berkasnya dibuat disini.</string>

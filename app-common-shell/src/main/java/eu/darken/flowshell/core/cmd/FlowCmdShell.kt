@@ -18,6 +18,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.dropWhile
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
@@ -129,6 +132,19 @@ class FlowCmdShell(
                     .onCompletion { if (isDebug) log(_tag, VERBOSE) { "Error monitor finished ($id)" } }
                     .launchIn(this + Dispatchers.IO)
 
+                // `sharedOutput`/`sharedErrors` are `shareIn(Eagerly)` SharedFlows — they
+                // do NOT propagate upstream completion to subscribers. If the shell
+                // process dies (typically because cmd contained `exec ...` which
+                // replaced the shell), `takeWhile` would suspend forever waiting for an
+                // idEnd marker that will never arrive. Watch for the underlying process
+                // exiting and cancel the harvesters so joinAll() can return.
+                val deathWatcher = launch(this.coroutineContext + Dispatchers.IO) {
+                    session.exitCode.filterNotNull().first()
+                    if (isDebug) log(_tag, VERBOSE) { "Shell session died, cancelling harvesters ($id)" }
+                    outputJob.cancel()
+                    errorJob.cancel()
+                }
+
                 listOf(outputReady, errorReady).awaitAll()
 
                 if (isDebug) log(_tag, VERBOSE) { "Harvesters are ready, writing commands... ($id)" }
@@ -142,15 +158,33 @@ class FlowCmdShell(
                 if (isDebug) log(_tag, VERBOSE) { "Commands are written, waiting... ($id)" }
 
                 listOf(outputJob, errorJob).joinAll()
+                deathWatcher.cancel()
 
                 if (isDebug) log(_tag, VERBOSE) { "Determining exitcode ($id)" }
-                val rawExitCodeRow = output.removeAt(output.lastIndex)
 
-                val exitCode = rawExitCodeRow
-                    .split(" ")
-                    .let { it[1].toIntOrNull() }
-                    ?.let { FlowProcess.ExitCode(it) }
-                    ?: throw IllegalArgumentException("Failed to determine exitcode from $rawExitCodeRow")
+                val lastLine = output.lastOrNull()
+                val sawEndMarker = lastLine != null && lastLine.startsWith(idEnd)
+                val exitCode = when {
+                    sawEndMarker -> {
+                        output.removeAt(output.lastIndex)
+                        lastLine.split(" ")
+                            .let { it.getOrNull(1)?.toIntOrNull() }
+                            ?.let { FlowProcess.ExitCode(it) }
+                            ?: throw IllegalArgumentException("Failed to determine exitcode from $lastLine")
+                    }
+
+                    cmd.instructions.any { EXEC_REGEX.containsMatchIn(it) } -> {
+                        // The caller asked the shell to `exec ...` something that replaces
+                        // the shell process — no idEnd marker will ever be echoed. Surface
+                        // a sentinel exit code so callers observe completion cleanly.
+                        if (isDebug) log(_tag, VERBOSE) { "No end marker after exec-replacement ($id)" }
+                        FlowProcess.ExitCode(-1)
+                    }
+
+                    else -> throw IllegalStateException(
+                        "Command $cmd ended without exit-code marker; shell session likely died externally"
+                    )
+                }
 
                 FlowCmd.Result(
                     original = cmd,
@@ -164,5 +198,11 @@ class FlowCmdShell(
 
     companion object {
         private val TAG = "${FlowShellDebug.tag}:FlowCmdShell"
+
+        // Detects a top-level `exec ...` directive (anchored after optional whitespace and
+        // env var assignments). Used to recognise commands where the shell intentionally
+        // replaces itself with another process — no `echo idEnd` will be emitted in that
+        // case, so execute() must surface completion as ExitCode(-1) instead of throwing.
+        private val EXEC_REGEX = Regex("""(^|;|&&|\|\|)\s*(\w+=\S+\s+)*exec\s""")
     }
 }

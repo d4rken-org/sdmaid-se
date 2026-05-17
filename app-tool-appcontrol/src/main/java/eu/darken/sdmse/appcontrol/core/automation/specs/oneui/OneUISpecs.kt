@@ -120,7 +120,7 @@ class OneUISpecs @Inject constructor(
                 val target = findNode {
                     when (Bugs.isDryRun) {
                         true -> it.textMatchesAny(cancelLbl)
-                        false -> it.textMatchesAny(okLbl)
+                        false -> it.textMatchesAny(okLbl + forceStopLabels)
                     }
                 } ?: return@action false
                 val mapped = findClickableParent(includeSelf = true, node = target) ?: return@action false
@@ -130,7 +130,7 @@ class OneUISpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop for $pkg",
-                label = eu.darken.sdmse.automation.R.string.automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
+                label = eu.darken.sdmse.automation.R.string.automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl + forceStopLabels),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

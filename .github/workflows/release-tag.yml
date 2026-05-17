@@ -14,9 +14,27 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
 jobs:
+  validate-tag:
+    name: Validate tag
+    if: github.event_name == 'push'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Validate tag against version files
+        run: bash tools/release/bump.sh --mode=check --expected-tag="${{ github.ref_name }}"
+
   release-github:
     name: Create GitHub release
+    needs: validate-tag
+    if: always() && (needs.validate-tag.result == 'success' || github.event_name == 'workflow_dispatch')
     permissions:
       contents: write
       actions: write
@@ -92,6 +110,8 @@ jobs:
 
   release-gplay:
     name: Create Google Play release
+    needs: validate-tag
+    if: always() && (needs.validate-tag.result == 'success' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-22.04
     environment: gplay-production
     env:

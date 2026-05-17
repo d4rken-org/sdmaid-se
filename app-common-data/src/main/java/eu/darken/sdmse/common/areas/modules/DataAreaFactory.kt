@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.closeAll
 import eu.darken.sdmse.common.shell.ShellOps
 import javax.inject.Inject
@@ -26,40 +27,43 @@ class DataAreaFactory @Inject constructor(
 
     suspend fun build(): Collection<DataArea> {
         log(TAG) { "build()" }
-        val leases = setOf(pkgOps, gatewaySwitch, shellOps).map { it.sharedResource.get() }
+        val leases = mutableListOf<KeepAlive>()
+        try {
+            setOf(pkgOps, gatewaySwitch, shellOps).forEach { leases.add(it.sharedResource.get()) }
 
-        val firstPass = areaModules.map { it.firstPass() }.flatten()
-        log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
+            val firstPass = areaModules.map { it.firstPass() }.flatten()
+            log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
 
-        val secondPass = areaModules.map { it.secondPass(firstPass) }.flatten()
-        log(TAG, VERBOSE) { "build(): Second pass:\n${secondPass.joinToString("\n")}" }
+            val secondPass = areaModules.map { it.secondPass(firstPass) }.flatten()
+            log(TAG, VERBOSE) { "build(): Second pass:\n${secondPass.joinToString("\n")}" }
 
-        leases.closeAll()
+            val newAreas = (firstPass + secondPass).toSet()
+            if (firstPass.size + secondPass.size != newAreas.size) {
+                log(TAG, WARN) { "build(): Cleaned areas: ${newAreas.joinToString("\n")}" }
+            }
 
-        val newAreas = (firstPass + secondPass).toSet()
-        if (firstPass.size + secondPass.size != newAreas.size) {
-            log(TAG, WARN) { "build(): Cleaned areas: ${newAreas.joinToString("\n")}" }
+            if (BuildConfigWrap.BUILD_TYPE != RELEASE && firstPass.size + secondPass.size != newAreas.size) {
+                log(TAG, WARN) { "First pass: $firstPass" }
+                log(TAG, WARN) { "Second pass: $secondPass" }
+                log(TAG, WARN) { "Final areas: $newAreas" }
+                throw IllegalStateException("Duplicate data areas")
+            }
+
+            if (BuildConfigWrap.BUILD_TYPE != RELEASE && newAreas.map { it.path }.toSet().size != newAreas.size) {
+                log(TAG, WARN) { "Final areas: $newAreas" }
+                throw IllegalStateException("Duplicate data areas with overlapping paths")
+            }
+
+            if (newAreas.isEmpty()) {
+                log(TAG, ERROR) { "No accessible data areas detected!" }
+            } else {
+                log(TAG, INFO) { "Accessible data areas:\n${newAreas.joinToString("\n")}" }
+            }
+
+            return newAreas
+        } finally {
+            leases.closeAll()
         }
-
-        if (BuildConfigWrap.BUILD_TYPE != RELEASE && firstPass.size + secondPass.size != newAreas.size) {
-            log(TAG, WARN) { "First pass: $firstPass" }
-            log(TAG, WARN) { "Second pass: $secondPass" }
-            log(TAG, WARN) { "Final areas: $newAreas" }
-            throw IllegalStateException("Duplicate data areas")
-        }
-
-        if (BuildConfigWrap.BUILD_TYPE != RELEASE && newAreas.map { it.path }.toSet().size != newAreas.size) {
-            log(TAG, WARN) { "Final areas: $newAreas" }
-            throw IllegalStateException("Duplicate data areas with overlapping paths")
-        }
-
-        if (newAreas.isEmpty()) {
-            log(TAG, ERROR) { "No accessible data areas detected!" }
-        } else {
-            log(TAG, INFO) { "Accessible data areas:\n${newAreas.joinToString("\n")}" }
-        }
-
-        return newAreas
     }
 
     companion object {

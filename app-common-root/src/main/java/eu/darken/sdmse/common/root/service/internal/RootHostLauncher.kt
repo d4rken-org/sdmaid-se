@@ -25,6 +25,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
@@ -50,6 +51,7 @@ class RootHostLauncher @Inject constructor(
         log(iTag, INFO) { "createConnection($serviceClass, $hostClass, $useMountMaster, $options)" }
 
         val pairingCode = UUID.randomUUID().toString()
+        val connected = AtomicBoolean(false)
 
         val ipcReceiver = object : RootConnectionReceiver(pairingCode) {
             override fun onConnect(connection: RootConnection) {
@@ -63,6 +65,7 @@ class RootHostLauncher @Inject constructor(
                 }
 
                 log(iTag, INFO) { "onServiceConnected(...) got our interface: $userConnection" }
+                connected.set(true)
                 trySendBlocking(ConnectionWrapper(userConnection, connection))
             }
 
@@ -93,52 +96,56 @@ class RootHostLauncher @Inject constructor(
             }
         }
 
+        val initArgs = RootHostInitArgs(
+            pairingCode = pairingCode,
+            packageName = context.packageName,
+            waitForDebugger = options.isTrace && Debug.isDebuggerConnected(),
+            isDebug = options.isDebug,
+            isTrace = options.isTrace,
+            isDryRun = options.isDryRun,
+            recorderPath = options.recorderPath
+        )
+
+        val cmdBuilder = RootHostCmdBuilder(context, hostClass)
+
+        // Attempt 1: direct exec. May either block until the root host process exits
+        // (success path, with onConnect having fired in the meantime) or fail fast on
+        // a broken pipe / unsupported exec. Use `connected` rather than the throw/
+        // return result to decide whether the host actually bound.
         try {
-            val initArgs = RootHostInitArgs(
-                pairingCode = pairingCode,
-                packageName = context.packageName,
-                waitForDebugger = options.isTrace && Debug.isDebuggerConnected(),
-                isDebug = options.isDebug,
-                isTrace = options.isTrace,
-                isDryRun = options.isDryRun,
-                recorderPath = options.recorderPath
-            )
+            val cmd = cmdBuilder.build(withRelocation = false, initialOptions = initArgs)
+            log(iTag) { "Launching root host with command: $cmd" }
+            cmd.execute(rootSession).also {
+                log(iTag) { "Session (no-relocation) ended: $it" }
+            }
+        } catch (e: Exception) {
+            if (e is CancellationException) throw e
+            log(iTag, WARN) { "Launch without relocation failed: ${e.asLog()}" }
+        }
 
-            val cmdBuilder = RootHostCmdBuilder(context, hostClass)
-            var retryWithRelocation = false
-
+        // Attempt 2: relocation. Only needed when the direct exec didn't actually
+        // bring up the binder (some Android versions/SELinux policies refuse to
+        // execute /proc/<pid>/exe in-place).
+        if (!connected.get()) {
+            log(iTag, INFO) { "No binder yet, retrying root host launch with relocation" }
             try {
-                val cmd = cmdBuilder.build(withRelocation = false, initialOptions = initArgs)
-                log(iTag) { "Launching root host with command: $cmd" }
-                // Doesn't return until root host has quit
+                val cmd = cmdBuilder.build(withRelocation = true, initialOptions = initArgs)
+                log(iTag) { "Launching root host (relocation) with command: $cmd" }
                 cmd.execute(rootSession).also {
-                    log(iTag) { "Session (WITH-relocation) has ended: $it" }
+                    log(iTag) { "Session (relocation) ended: $it" }
                 }
             } catch (e: Exception) {
                 if (e is CancellationException) throw e
-                log(iTag, WARN) { "Launch without relocation failed: ${e.asLog()}" }
-                retryWithRelocation = true
+                log(iTag, WARN) { "Launch WITH relocation failed too: ${e.asLog()}" }
             }
+        }
 
-            if (retryWithRelocation) {
-                try {
-                    val cmd = cmdBuilder.build(withRelocation = true, initialOptions = initArgs)
-                    log(iTag) { "Launching root host (relocation) with command: $cmd" }
-                    // Doesn't return until root host has quit
-                    cmd.execute(rootSession).also {
-                        log(iTag) { "Session (without-relocation) has ended: $it" }
-                    }
-                } catch (e: Exception) {
-                    log(iTag, WARN) { "Launch WITH relocation failed too: ${e.asLog()}" }
-                    throw e
-                }
-            }
-        } catch (e: Exception) {
-            if (e is CancellationException) {
-                log(iTag) { "Root host launcher was cancelled: ${e.asLog()}" }
-            } else {
-                log(iTag, WARN) { "All launch attempts failed: ${e.asLog()}" }
-            }
+        // If neither attempt produced a binder connection, fail the callbackFlow so
+        // downstream SharedResource consumers (e.g. RootManager.isRooted via
+        // AutomationSetupModule.state) stop waiting on the Loading state forever.
+        if (!connected.get()) {
+            log(iTag, WARN) { "All launch attempts finished without a binder connection" }
+            close(RootException("Root host did not bind after exec/relocation attempts"))
         }
 
         log(iTag, VERBOSE) { "Reached awaitClose" }

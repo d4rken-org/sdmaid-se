@@ -155,6 +155,7 @@ class StorageEntryFinder @Inject constructor(
     suspend fun storageFinderAOSP(
         labels: Collection<String>,
         pkg: Installed,
+        antiLabels: Collection<String> = emptySet(),
     ): suspend StepContext.() -> ACSNodeInfo? {
         val matchStorage = createSizeMatcher(pkg) ?: { _: ACSNodeInfo -> false }
         return {
@@ -165,7 +166,7 @@ class StorageEntryFinder @Inject constructor(
                     // Label match: prefer TextViews but also accept other node types (Compose)
                     node.textMatchesAny(labels) -> 0
                     // Size match: only on TextViews to avoid false positives
-                    node.isTextView() && matchStorage(node) -> 1
+                    node.isTextView() && matchStorage(node) && !node.hasRowTitleIn(antiLabels) -> 1
                     else -> null
                 }
             }
@@ -174,7 +175,7 @@ class StorageEntryFinder @Inject constructor(
                 if (!node.isTextView()) return@storageFilter null
                 when {
                     node.idContains("android:id/title") && node.textMatchesAny(labels) -> 0
-                    node.idContains("android:id/summary") && matchStorage(node) -> 1
+                    node.idContains("android:id/summary") && matchStorage(node) && !node.hasRowTitleIn(antiLabels) -> 1
                     else -> null
                 }
             }
@@ -273,4 +274,22 @@ class StorageEntryFinder @Inject constructor(
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
     }
+}
+
+private val ANTI_LABEL_TAG = logTag("AppCleaner", "Automation", "StorageEntryFinder", "AntiLabel")
+
+internal fun ACSNodeInfo.hasRowTitleIn(antiLabels: Collection<String>): Boolean {
+    if (antiLabels.isEmpty()) return false
+    val row = this.findParentOrNull(maxNesting = 6) { it.isClickable } ?: return false
+    val match = row.crawl().firstOrNull { walked ->
+        val n = walked.node
+        n.idContains("android:id/title") && n.textMatchesAny(antiLabels)
+    }
+    if (match != null) {
+        log(ANTI_LABEL_TAG, WARN) {
+            "Anti-label rejected size-match: $this (row title=${match.node.text})"
+        }
+        return true
+    }
+    return false
 }

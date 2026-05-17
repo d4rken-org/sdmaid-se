@@ -33,6 +33,16 @@ open class OneUILabels @Inject constructor(
         else -> labels14Plus.getClearCacheLabels(acsContext)
     }
 
+    fun getMobileDataAntiDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getMobileDataAntiDynamic(acsContext)
+        else -> labels14Plus.getMobileDataAntiDynamic(acsContext)
+    }
+
+    fun getMobileDataAntiLabels(acsContext: AutomationExplorer.Context): Set<String> = when {
+        hasApiLevel(29) -> labels29Plus.getMobileDataAntiLabels(acsContext)
+        else -> labels14Plus.getMobileDataAntiLabels(acsContext)
+    }
+
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "OneUI", "Labels")
     }

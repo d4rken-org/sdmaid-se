@@ -134,6 +134,44 @@ class OneUILabels29Plus @Inject constructor(
         .append { oneUILabels14Plus.getClearCacheLabels(acsContext) }
         .toSet()
 
+    fun getMobileDataAntiDynamic(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(
+        SETTINGS_PKG,
+        setOf(
+            // AOSP App Info "Mobile data" row title
+            "data_usage_app_summary_title",
+            // AOSP older / alternate key
+            "app_data_usage",
+        )
+    )
+
+    fun getMobileDataAntiLabels(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getLocales()
+        .map { it.language }
+        .mapNotNull { lang ->
+            when {
+                "en".toLang() == lang -> setOf("Mobile data", "Wi-Fi data", "Mobile data usage", "Data usage")
+                "vi".toLang() == lang -> setOf("Dữ liệu di động", "Dữ liệu Wi-Fi", "Sử dụng dữ liệu")
+                "fr".toLang() == lang -> setOf("Données mobiles", "Données Wi-Fi", "Consommation des données")
+                "de".toLang() == lang -> setOf("Mobile Daten", "WLAN-Daten", "Datennutzung")
+                "es".toLang() == lang -> setOf("Datos móviles", "Datos Wi-Fi", "Uso de datos")
+                "pt".toLang() == lang -> setOf("Dados móveis", "Dados Wi-Fi", "Uso de dados")
+                "it".toLang() == lang -> setOf("Dati mobili", "Dati Wi-Fi", "Utilizzo dati")
+                "ru".toLang() == lang -> setOf("Мобильные данные", "Данные Wi-Fi", "Передача данных")
+                "pl".toLang() == lang -> setOf("Dane mobilne", "Dane Wi-Fi", "Wykorzystanie danych")
+                "nl".toLang() == lang -> setOf("Mobiele gegevens", "Wi-Fi-gegevens", "Datagebruik")
+                "tr".toLang() == lang -> setOf("Mobil veri", "Wi-Fi verisi", "Veri kullanımı")
+                "ja".toLang() == lang -> setOf("モバイルデータ", "Wi-Fiデータ", "データ使用量")
+                "ko".toLang() == lang -> setOf("모바일 데이터", "Wi-Fi 데이터", "데이터 사용량")
+                "zh".toLang() == lang -> setOf("移动数据", "Wi-Fi 数据", "数据使用")
+                else -> null
+            }
+        }
+        .flatten()
+        .toSet()
+
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "OneUI", "Labels", "29Plus")
         val SETTINGS_PKG = "com.android.settings".toPkgId()

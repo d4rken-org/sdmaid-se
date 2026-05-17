@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələri silinsinmi?</string>
+    <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələr silinsin?</string>
     <string name="dashboard_settings_category">İdarəetmə paneli</string>
     <string name="dashboard_motd_title">Tərtibatçıdan bir mesaj</string>
-    <string name="dashboard_settings_oneclick_title">Bir toxunma rejimi</string>
-    <string name="dashboard_settings_oneclick_summary">Əsas panelin hərəkət düyməsinə bir toxunma ilə bütün alətlər üçün skan və silinməni başladın, əlavə təsdiqsiz.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Bir toxunma alətləri</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Bir toxunma əməliyyatlarına hansı alətlər daxil edilməlidir?</string>
-    <string name="dashboard_card_config_title">Məlumat paneli kartları</string>
+    <string name="dashboard_settings_oneclick_title">Tək toxunuş rejimi</string>
+    <string name="dashboard_settings_oneclick_summary">Əsas paneldəki düyməyə tək bir toxunuş edərək əlavə təsdiqetmə olmadan bütün alətlər üçün skan və silinməni başladın.</string>
+    <string name="dashboard_settings_oneclick_tools_title">Tək toxunuş alətləri</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Tək toxunuş əməliyyatlarına hansı alətlər daxil edilməlidir?</string>
+    <string name="dashboard_card_config_title">İdarəetmə paneli kartları</string>
     <string name="dashboard_card_config_desc">Hansı kartların göstəriləcəyini və onların ardıcıllığını tənzimləyin</string>
-    <string name="dashboard_card_config_header_title">Yerdəyişmə üçün sürükləyin, göstərmək/gizlətmək üçün keçid edin</string>
-    <string name="debug_debuglog_file_label">Qeydə alınmış xəta aşkarlama faylı</string>
+    <string name="dashboard_card_config_header_title">Yerdəyişmə üçün sürüşdürün, göstərmək/gizlətmək üçün klikləyin</string>
+    <string name="debug_debuglog_file_label">Qeydə alınmış jurnal faylı</string>
     <string name="debug_debuglog_recording_progress">Xəta aşkarlama funksiyası (debug log) işləyir</string>
     <string name="debug_debuglog_record_action">Xəta aşkarlama funksiyasını işə sal</string>
     <string name="debug_debuglog_stop_action">Qeydi dayandır</string>
-    <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (yəni fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
-    <string name="debug_debuglog_screen_title">Sazlama qeydi</string>
+    <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (məs. fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
+    <string name="debug_debuglog_screen_title">Sazlama jurnalı</string>
+    
     <string name="debug_debuglog_screen_session_path_label">Sessiya yolu</string>
-    <string name="debug_debuglog_screen_log_files_label">Qeyd faylları</string>
+    <string name="debug_debuglog_screen_log_files_label">Jurnal faylları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">%1$d fayl hazırdır (%2$s)</item>
         <item quantity="other">%1$d fayl hazırdır (%2$s)</item>
@@ -39,6 +40,7 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Uğursuz: sıxışdırma xətası</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Bu sazlama jurnalı sessiyasını silmək istəyirsiniz?</string>
     <string name="support_contact_post_send_message">Mesaj uğurla göndərildi?</string>
+    
     <string name="tasks_activity_notification_channel_label">Aktiv tapşırıqlar</string>
     <string name="tasks_activity_working_notification_title">SD Maid işləyir</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -49,6 +51,7 @@
         <item quantity="one">%d növbədəki tapşırıq</item>
         <item quantity="other">%d növbəyə alınmış tapşırıqlar</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">Tapşırıq nəticələri</string>
     <string name="tasks_result_subtext">Tapşırıq nəticəsi</string>
     <string name="tasks_timeout_error_label">Tapşırığın vaxtı bitdi</string>
     <string name="tasks_timeout_error_desc">Tapşırıq çox uzun çəkdi və dayandırıldı. Zəhmət olmasa, yenidən cəhd edin.</string>
@@ -65,6 +68,10 @@
     <string name="onboarding_versus_continue_action">Davam et</string>
     <string name="onboarding_privacy_title">Gizlilik</string>
     <string name="onboarding_privacy_body1">SD Maid-də reklamlar yoxdur və istifadəçi məlumatlarını satmır.</string>
+    
+    
+    
+    
     <string name="onboarding_setup_title">Quraşdır</string>
     <string name="onboarding_setup_body1">SD Maid bütün əlçatan məlumat sahələrinində axtarış edəcəkdir.</string>
     <string name="onboarding_setup_body2">Nəyə daxil olmaq mümkün olduğu cihazınıza, Android versiyanıza və verilən icazələrə bağlıdır.</string>
@@ -155,6 +162,7 @@
     <string name="setup_incomplete_card_title">Quraşdırma tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha yaxşı nəticələr əldə etmək üçün SD Maid-in quraşdırılmasını tamamlayın.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid, quraşdırma problemlərini həll etməyə çalışır.</string>
+    
     <string name="setup_incomplete_card_continue_action">Quraşdırma davam et</string>
     <string name="setup_forcedshow_summary">Quraşdırma ekranını artıq tamamlanmış elementlərlə birlikdə yenidən göstər.</string>
     <string name="setup_checking_card_body">Funksionallığın və quraşdırmanın tamamlanmasının təsdiqlənməsi.</string>
@@ -217,6 +225,8 @@
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_mode_label">Araşdırma rejimi</string>
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
+    
+    
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
     <string name="debug_card_trace_mode_label">İzləmə rejimini aktivləşdir</string>
@@ -231,6 +241,9 @@
     <string name="data_area_sdcard_label">SD kart</string>
     <string name="data_areas_label">Məlumat sahələri</string>
     <string name="data_areas_description">Məlumat sahələri cihazınızda SD Maid-in daxil ola biləcəyi yerləri təmsil edir. Android versiyanıza və verilən icazələrə əsasən müxtəlif məlumat sahələri mövcud ola bilər.</string>
+    
+    
+    
     <string name="updates_dashcard_title">Yeniləmə mövcuddur</string>
     <string name="updates_dashcard_body">Yeniləmə mövcuddur. Sizdə %1$s var və ən son versiya %2$s-dir.</string>
     <string name="translation_encourage_title">SD Maid tərcümə edin</string>
@@ -242,6 +255,7 @@
     <string name="updatecheck_setting_enabled_label">Yeniləmə yoxlaması</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-in daha yeni versiya mövcud olduğunu bildirmək üçün yeniləmələri yoxlamasına icazə ver.</string>
     <string name="device_settings_category">Cihaz</string>
+    
     <string name="review_app_review_action">Baxış</string>
     <string name="review_app_dismiss_action">Bəlkə sonra</string>
     <string name="review_app_body">SD Maid üçün rəy yazmaq istərdinizmi? ❤️</string>

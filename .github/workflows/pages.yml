@@ -3,6 +3,14 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [ main ]
+    paths:
+      - _config.yml
+      - _layouts/**
+      - README.md
+      - CHANGELOG.md
+      - PRIVACY_POLICY.md
+      - CNAME
+      - .github/workflows/pages.yml
   workflow_dispatch:
 
 permissions:

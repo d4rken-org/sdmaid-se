@@ -450,6 +450,8 @@ class SharedResourceTest : BaseTest() {
                 parentScope = this + Dispatchers.IO,
                 stopTimeout = Duration.ZERO,
                 source = flow {
+                    // Force a real wait so the cold-start "Waiting for source value..." path fires
+                    delay(50)
                     emit(Unit)
                     awaitCancellation()
                 },
@@ -482,6 +484,74 @@ class SharedResourceTest : BaseTest() {
         } finally {
             Logging.remove(capture)
         }
+    }
+
+    @Test fun `warm cache-hit get() does not log Source-job-already-exists or Waiting`() = runTest2(autoCancel = true) {
+        Bugs.isTrace = false
+
+        val captured = mutableListOf<String>()
+        val capture = object : Logging.Logger {
+            override fun log(
+                priority: Logging.Priority,
+                tag: String,
+                message: String,
+                metaData: Map<String, Any>?
+            ) {
+                if (tag.endsWith(":SR")) captured.add(message)
+            }
+        }
+        Logging.install(capture)
+        try {
+            val sr = SharedResource(
+                tag = "warm",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ofSeconds(5),
+                source = flow {
+                    emit(Unit)
+                    awaitCancellation()
+                },
+                verboseLifecycle = true,
+            )
+
+            // First acquisition — cold start, populates the cache
+            val firstLease = sr.get()
+            // Clear logs from the cold-start path
+            captured.clear()
+
+            // Second acquisition — cache hit, must not log either lifecycle breadcrumb
+            val secondLease = sr.get()
+            captured.any { it.contains("Source job already exists") } shouldBe false
+            captured.any { it.contains("Waiting for source value") } shouldBe false
+
+            secondLease.close()
+            firstLease.close()
+        } finally {
+            Logging.remove(capture)
+        }
+    }
+
+    @Test fun `addChild refreshes a stale closed child`() = runTest2(autoCancel = true) {
+        val parent = SharedResource.createKeepAlive("parent", this + Dispatchers.IO, Duration.ZERO)
+        // Keep parent alive across the whole test
+        val parentLease = parent.get()
+
+        val child = SharedResource.createKeepAlive("child", this + Dispatchers.IO, Duration.ZERO)
+
+        // Adopt: parent acquires a keep-alive lease on child
+        parent.addChild(child)
+        child.isClosed shouldBe false
+
+        // Force child to complete: close all direct leases on it. Parent holds the only lease via addChild.
+        child.close()
+        child.isClosed shouldBe true
+
+        // Re-adopt after the child source completed
+        parent.addChild(child)
+
+        // The child must be alive again — proves the stale entry was refreshed, not silently kept
+        child.isClosed shouldBe false
+
+        parentLease.close()
     }
 
     @Test fun `racing global close`(): Unit = runBlocking {

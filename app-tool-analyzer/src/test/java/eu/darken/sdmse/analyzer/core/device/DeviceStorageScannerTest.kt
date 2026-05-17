@@ -158,4 +158,21 @@ class DeviceStorageScannerTest : BaseTest() {
         val synthesised = StorageId.parseVolumeUuid("EFFD-F4D5")
         synthesised!!.toString().startsWith(StorageId.FAT_UUID_PREFIX) shouldBe true
     }
+
+    @Test
+    fun `exotic 16-hex fsUuid is accepted and falls back to File API (reproduces #2418)`() = runTest {
+        // Huawei Mate 40 Pro / Android 12 / NTFS-style SD card serial.
+        val fsUuid = "1C32C2D032C2AE58"
+        val path = mockFile(totalSpace = 250_000_000_000L, freeSpace = 100_000_000_000L)
+        every { storageManager2.volumes } returns listOf(mockVolume(fsUuid = fsUuid, path = path))
+        // System doesn't know the synthesised UUID, so stats calls fail and File API is used.
+        coEvery { statsManager.getTotalBytes(match { it.internalId == fsUuid }) } throws IllegalStateException("unknown volume")
+        coEvery { statsManager.getFreeBytes(match { it.internalId == fsUuid }) } throws IllegalStateException("unknown volume")
+
+        val secondary = createScanner().scan().secondary()
+
+        secondary shouldNotBe null
+        secondary!!.spaceCapacity shouldBe 250_000_000_000L
+        secondary.spaceFree shouldBe 100_000_000_000L
+    }
 }
