@@ -5,6 +5,8 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
@@ -78,6 +80,70 @@ class CustomFilterEditorScreenTest : BaseComposeRobolectricTest() {
         }
         composeRule.onAllNodesWithContentDescription("Remove").assertCountEquals(0)
         composeRule.onAllNodesWithContentDescription("Save").assertCountEquals(0)
+    }
+
+    @Test
+    fun `tapping Save invokes onSave when canSave is true`() {
+        var saveClicks = 0
+        val basePath = SegmentCriterium(
+            segments = listOf("Downloads"),
+            mode = SegmentCriterium.Mode.Contain(allowPartial = true),
+        )
+        val state = CustomFilterEditorViewModel.State(
+            original = CustomFilterConfig(identifier = "abc", label = "old", pathCriteria = setOf(basePath)),
+            current = CustomFilterConfig(identifier = "abc", label = "new", pathCriteria = setOf(basePath)),
+        )
+        composeRule.setEditorContent {
+            CustomFilterEditorScreen(
+                stateSource = MutableStateFlow(state),
+                onSave = { saveClicks++ },
+            )
+        }
+
+        composeRule.onNodeWithContentDescription("Save").performClick()
+
+        if (saveClicks != 1) throw AssertionError("Expected onSave to fire once, got $saveClicks")
+    }
+
+    @Test
+    fun `tapping Remove invokes onRemove when canRemove is true`() {
+        var removeClicks = 0
+        val basePath = SegmentCriterium(
+            segments = listOf("Downloads"),
+            mode = SegmentCriterium.Mode.Contain(allowPartial = true),
+        )
+        val state = CustomFilterEditorViewModel.State(
+            original = CustomFilterConfig(identifier = "abc", label = "old", pathCriteria = setOf(basePath)),
+            current = CustomFilterConfig(identifier = "abc", label = "old", pathCriteria = setOf(basePath)),
+        )
+        composeRule.setEditorContent {
+            CustomFilterEditorScreen(
+                stateSource = MutableStateFlow(state),
+                onRemove = { removeClicks++ },
+            )
+        }
+
+        composeRule.onNodeWithContentDescription("Remove").performClick()
+
+        if (removeClicks != 1) throw AssertionError("Expected onRemove to fire once, got $removeClicks")
+    }
+
+    @Test
+    fun `current config label renders as toolbar subtitle when non-blank for new filter too`() {
+        // Documents that the subtitle gating is on `current.label.isNotBlank()`, regardless
+        // of whether this is an edit-existing (original != null) or new (original == null) flow.
+        val state = CustomFilterEditorViewModel.State(
+            original = null,
+            current = CustomFilterConfig(identifier = "new-filter", label = "Typed name"),
+        )
+        composeRule.setEditorContent {
+            CustomFilterEditorScreen(stateSource = MutableStateFlow(state))
+        }
+
+        // The label appears as the toolbar subtitle.
+        composeRule.onAllNodesWithText("Typed name").fetchSemanticsNodes().size.let {
+            if (it == 0) throw AssertionError("Expected typed label visible as subtitle for new filter")
+        }
     }
 }
 
