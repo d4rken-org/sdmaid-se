@@ -13,6 +13,8 @@ import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationNotEnabledException
 import eu.darken.sdmse.automation.core.errors.AutomationNotRunningException
 import eu.darken.sdmse.common.SystemSettingsProvider
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -24,8 +26,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.useRes
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.common.user.ourInstall
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupHelper
 import kotlinx.coroutines.CoroutineScope
@@ -53,6 +62,11 @@ class AutomationManager @Inject constructor(
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
     private val animationTool: AnimationTool,
+    private val shellOps: ShellOps,
+    private val adbManager: AdbManager,
+    private val rootManager: RootManager,
+    private val pkgOps: PkgOps,
+    private val userManager: UserManager2,
 ) : AutomationSubmitter {
 
     init {
@@ -100,13 +114,60 @@ class AutomationManager @Inject constructor(
     }
 
     private suspend fun setAutomationServices(services: Set<ComponentName>) {
+        val value = services.joinToString(":") { it.flattenToString() }
+
         settingsProvider.put(
             SystemSettingsProvider.Type.SECURE,
             Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES,
-            services.joinToString(":") { it.flattenToString() }
+            value
         )
-        val after = getAutomationServices()
-        log(TAG) { "setAutomationServices($services) -> $after" }
+        val afterDirect = getAutomationServices()
+        log(TAG) { "setAutomationServices($services) -> $afterDirect (direct)" }
+
+        if (writeMatchesIntent(intent = services, actual = afterDirect)) return
+
+        log(TAG, WARN) {
+            "setAutomationServices(): Direct write did not stick (intent=$services, actual=$afterDirect). Trying shell fallback..."
+        }
+        setAutomationServicesViaShell(services, value)
+    }
+
+    private fun writeMatchesIntent(intent: Set<ComponentName>, actual: Set<ComponentName>): Boolean =
+        if (intent.isEmpty()) actual.isEmpty() else actual.containsAll(intent)
+
+    private suspend fun setAutomationServicesViaShell(services: Set<ComponentName>, value: String) {
+        val mode = when {
+            adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
+            rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
+            else -> null
+        }
+        if (mode == null) {
+            log(TAG, WARN) { "setAutomationServicesViaShell(): No shell available, giving up" }
+            return
+        }
+
+        try {
+            pkgOps.setAppOps(
+                userManager.ourInstall(),
+                PkgOps.AppOpsKey.ACCESS_RESTRICTED_SETTINGS,
+                PkgOps.AppOpsValue.ALLOW,
+            )
+            log(TAG) { "setAutomationServicesViaShell(): ACCESS_RESTRICTED_SETTINGS=allow OK" }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "setAutomationServicesViaShell(): ACCESS_RESTRICTED_SETTINGS set failed: ${e.asLog()}" }
+        }
+
+        val cmd = "settings put secure ${Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES} \"$value\""
+        val result = try {
+            shellOps.execute(ShellOpsCmd(cmd), mode)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "setAutomationServicesViaShell(): shell write failed: ${e.asLog()}" }
+            return
+        }
+        log(TAG) { "setAutomationServicesViaShell(): mode=$mode result=$result" }
+
+        val afterShell = getAutomationServices()
+        log(TAG, INFO) { "setAutomationServices($services) -> $afterShell (shell)" }
     }
 
     suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
