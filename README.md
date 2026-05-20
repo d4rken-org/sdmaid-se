@@ -5,6 +5,7 @@
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/sdmaid-se?include_prereleases)](https://github.com/d4rken-org/sdmaid-se/releases/latest)
 [![RB Status](https://shields.rbtlog.dev/simple/eu.darken.sdmse)](https://shields.rbtlog.dev/eu.darken.sdmse)
 [![Crowdin](https://badges.crowdin.net/sdmaid-se/localized.svg)](https://crowdin.com/project/sdmaid-se)
+[![Discord](https://img.shields.io/badge/Discord-SDMaid-5865F2?logo=discord&logoColor=white)](https://discord.gg/8Fjy6PTfXu)
 [![Code tests & eval](https://img.shields.io/github/actions/workflow/status/d4rken-org/sdmaid-se/code-checks.yml?logo=githubactions&label=Code%20tests
 )](https://github.com/d4rken-org/sdmaid-se/actions)
 [![Github Downloads](https://img.shields.io/github/downloads/d4rken-org/sdmaid-se/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/d4rken-org/sdmaid-se/main/README.md#download)
