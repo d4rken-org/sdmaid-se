@@ -7,6 +7,7 @@ data class MediaCategory(
     override val storageId: StorageId,
     override val groups: Collection<ContentGroup>,
     val spaceUsedOverride: Long? = null,
+    val isReadOnly: Boolean = false,
 ) : ContentCategory {
 
     override val spaceUsed: Long

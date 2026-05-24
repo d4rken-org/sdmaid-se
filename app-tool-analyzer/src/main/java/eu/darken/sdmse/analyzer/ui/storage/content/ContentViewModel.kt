@@ -10,6 +10,8 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
+import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
@@ -94,8 +96,13 @@ class ContentViewModel @Inject constructor(
 
     private fun Analyzer.Data.isSystemGroup(route: ContentRoute): Boolean {
         return categories[route.storageId]
-            ?.filterIsInstance<SystemCategory>()
-            ?.any { category -> category.groups.any { it.id == route.groupId } }
+            ?.any { it is SystemCategory && it.ownsGroup(route.groupId) }
+            ?: false
+    }
+
+    private fun Analyzer.Data.isReadOnlyGroup(route: ContentRoute): Boolean {
+        return categories[route.storageId]
+            ?.any { it.ownsGroup(route.groupId) && it.isContentReadOnly }
             ?: false
     }
 
@@ -116,7 +123,8 @@ class ContentViewModel @Inject constructor(
                     emit(State.NotFound)
                     return@combineTransform
                 }
-                val isReadOnly = data.isSystemGroup(route)
+                val isReadOnly = data.isReadOnlyGroup(route)
+                val isSystemGroup = data.isSystemGroup(route)
                 val pkgStat = route.installId?.let { installId ->
                     data.categories[route.storageId]
                         ?.filterIsInstance<AppCategory>()?.singleOrNull()
@@ -140,7 +148,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isReadOnly && currentLevel == null,
+                        showSystemInfoBanner = isSystemGroup && currentLevel == null,
                     ),
                 )
 
@@ -165,7 +173,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isReadOnly && currentLevel == null,
+                        showSystemInfoBanner = isSystemGroup && currentLevel == null,
                     ),
                 )
             }
@@ -217,8 +225,8 @@ class ContentViewModel @Inject constructor(
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onDeleteSelected(): ${items.size}" }
         val data = analyzer.data.first()
-        if (data.isSystemGroup(route)) {
-            log(TAG, WARN) { "delete(): Blocked — system content is read-only" }
+        if (data.isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "delete(): Blocked — content is read-only" }
             return@launch
         }
         val targets = items.map { it.path }.toSet()
@@ -245,8 +253,8 @@ class ContentViewModel @Inject constructor(
     fun onCreateFilter(items: Set<ContentItem>) = launch {
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onCreateFilter(): ${items.size}" }
-        if (analyzer.data.first().isSystemGroup(route)) {
-            log(TAG, WARN) { "createFilter(): Blocked — system content is read-only" }
+        if (analyzer.data.first().isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "createFilter(): Blocked — content is read-only" }
             return@launch
         }
         if (!upgradeRepo.isPro()) {
@@ -263,8 +271,8 @@ class ContentViewModel @Inject constructor(
     fun onCreateSwiperSession(items: Set<ContentItem>) = launch {
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onCreateSwiperSession(): ${items.size}" }
-        if (analyzer.data.first().isSystemGroup(route)) {
-            log(TAG, WARN) { "createSwiperSession(): Blocked — system content is read-only" }
+        if (analyzer.data.first().isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "createSwiperSession(): Blocked — content is read-only" }
             return@launch
         }
         val paths = items

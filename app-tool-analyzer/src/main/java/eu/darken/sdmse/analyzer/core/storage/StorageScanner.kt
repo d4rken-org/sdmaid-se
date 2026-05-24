@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
@@ -141,9 +142,14 @@ class StorageScanner @Inject constructor(
 
                 updateProgressSecondary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_storage)
 
-                val folders = storageDir?.lookedUp
+                val storageChildren = storageDir?.lookedUp
                     ?.listFiles(gatewaySwitch)
                     ?.filter { storage.type == DeviceStorage.Type.PORTABLE || it.name != "Android" }
+                    ?: emptySet()
+
+                val hasCompleteInventory = inventorySetupModule.isComplete()
+                val folders = storageChildren
+                    .takeIf { hasCompleteInventory }
                     ?.mapNotNull { fileForensics.findOwners(it) }
                     ?.filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PORTABLE).contains(it.areaInfo.type) }
                     ?.onEach { log(TAG) { "Top level dir: $it" } }
@@ -155,7 +161,7 @@ class StorageScanner @Inject constructor(
 
                 updateProgressSecondary("Scanning media files")
                 val media = storageDir
-                    ?.let { scanForMedia(storage, it) }
+                    ?.let { scanForMedia(storage, it, storageChildren, hasCompleteInventory) }
                     ?: MediaCategory(storage.id, emptySet())
 
                 updateProgressSecondary("Scanning system data")
@@ -239,9 +245,46 @@ class StorageScanner @Inject constructor(
         }
     }
 
-    private suspend fun scanForMedia(storage: DeviceStorage, mediaDir: APathLookup<*>): MediaCategory {
+    private suspend fun scanForMedia(
+        storage: DeviceStorage,
+        mediaDir: APathLookup<*>,
+        storageChildren: Collection<APath>,
+        hasCompleteInventory: Boolean,
+    ): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_userfiles)
+
+        if (!hasCompleteInventory) {
+            log(TAG, WARN) { "Inventory setup is incomplete, sizing media folders without owner forensics." }
+            updateProgressCount(Progress.Count.Percent(storageChildren.size))
+
+            val topLevelContents: Collection<ContentItem> = storageChildren.mapNotNull { path ->
+                updateProgressSecondary(path.userReadablePath)
+
+                try {
+                    path.sizeContentItem(gatewaySwitch)
+                } catch (e: ReadException) {
+                    log(TAG, ERROR) { "Failed to size top-level dir $path: ${e.asLog()}" }
+                    null
+                } finally {
+                    increaseProgress()
+                }
+            }
+
+            val rootItem = topLevelContents.plus(ContentItem.fromLookup(mediaDir)).toNestedContent().single()
+
+            val group = ContentGroup(
+                label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_media_label.toCaString(),
+                contents = setOf(rootItem),
+            )
+
+            return MediaCategory(
+                storageId = storage.id,
+                groups = setOf(group),
+                isReadOnly = true,
+            )
+        }
+
         updateProgressCount(Progress.Count.Percent(topLevelDirs.size))
 
         val topLevelContents: Collection<ContentItem> = topLevelDirs.mapNotNull { ownerInfo ->
@@ -285,7 +328,10 @@ class StorageScanner @Inject constructor(
             return null
         }
 
-        val unaccountedFor = storage.spaceUsed - (appCategory?.spaceUsed ?: 0L) - mediaCategory.spaceUsed
+        // In the degraded scan media folders are du-sized (no owner forensics), which can overcount and push this
+        // below zero. Clamp so the system category never reports a negative size.
+        val unaccountedFor = (storage.spaceUsed - (appCategory?.spaceUsed ?: 0L) - mediaCategory.spaceUsed)
+            .coerceAtLeast(0L)
 
         val contentItems = setOf(
             ContentItem.fromInaccessible(LocalPath.build("system")),
