@@ -34,7 +34,7 @@ class InventorySetupCardVH(parent: ViewGroup) :
                 )
             )
             text = when {
-                state.isAccessFaked -> getString(R.string.setup_permission_error_label)
+                state.isAccessFaked -> getString(R.string.setup_inventory_invalid_label)
                 else -> getString(R.string.setup_permission_granted_label)
             }
 
