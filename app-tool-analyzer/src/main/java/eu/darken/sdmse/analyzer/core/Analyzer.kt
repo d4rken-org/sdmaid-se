@@ -18,6 +18,8 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
+import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
 import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
@@ -216,11 +218,15 @@ class Analyzer @Inject constructor(
     private suspend fun deleteContent(task: ContentDeleteTask): ContentDeleteTask.Result {
         log(TAG, VERBOSE) { "deleteContent(): $task" }
 
-        val targetCategory = storageCategories.value[task.storageId]
-            ?.singleOrNull { category -> category.groups.any { it.id == task.groupId } }
-        if (targetCategory is MediaCategory && targetCategory.isReadOnly) {
-            log(TAG, WARN) { "deleteContent(): Blocked — media content is read-only" }
-            throw UnsupportedOperationException("Deletion is not supported for read-only media content")
+        val oldCategory: ContentCategory = storageCategories.value[task.storageId]
+            ?.singleOrNull { it.ownsGroup(task.groupId) }
+            ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
+        val oldGroup = oldCategory.groups.single { it.id == task.groupId }
+
+        if (oldCategory.isContentReadOnly) {
+            val what = if (oldCategory is SystemCategory) "system content" else "read-only media content"
+            log(TAG, WARN) { "deleteContent(): Blocked — $what is read-only" }
+            throw UnsupportedOperationException("Deletion is not supported for $what")
         }
 
         updateProgressPrimary {
@@ -239,14 +245,6 @@ class Analyzer @Inject constructor(
                 (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
 
-        // TODO this seems convoluted, can we come up with a better data pattern?
-        var _oldGroup: ContentGroup? = null
-        val oldCategory: ContentCategory = storageCategories.value[task.storageId]!!.singleOrNull { category ->
-            category.groups.singleOrNull { it.id == task.groupId }
-                ?.also { _oldGroup = it }
-                ?.let { true } ?: false
-        } ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
-        val oldGroup = _oldGroup!!
         var freedSpace = 0L
         val newContents = oldGroup.contents
             .toFlatContent()
