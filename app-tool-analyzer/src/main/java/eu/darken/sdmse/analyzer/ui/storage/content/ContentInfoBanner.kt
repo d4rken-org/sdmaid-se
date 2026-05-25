@@ -8,15 +8,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 internal fun ContentInfoBanner(
     modifier: Modifier = Modifier,
+    text: CaString,
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -25,7 +28,7 @@ internal fun ContentInfoBanner(
         ),
     ) {
         Text(
-            text = stringResource(R.string.analyzer_storage_content_type_system_info),
+            text = text.get(LocalContext.current),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(16.dp),
@@ -37,6 +40,6 @@ internal fun ContentInfoBanner(
 @Composable
 private fun ContentInfoBannerPreview() {
     PreviewWrapper {
-        ContentInfoBanner()
+        ContentInfoBanner(text = R.string.analyzer_storage_content_type_system_info.toCaString())
     }
 }

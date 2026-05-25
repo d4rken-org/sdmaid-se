@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Intent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
@@ -17,6 +18,7 @@ import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -137,6 +139,15 @@ class ContentViewModel @Inject constructor(
                     pkgStat?.label == null -> null
                     else -> contentGroup.label
                 }
+                val infoBanner: CaString? = when {
+                    // System content: top-level banner only, mirroring the system category presentation.
+                    isSystemGroup -> R.string.analyzer_storage_content_type_system_info.toCaString()
+                        .takeIf { currentLevel == null }
+                    // Degraded read-only media: keep the banner visible while browsing too, since the group is a
+                    // single storage-root item the user must open before seeing any folders.
+                    isReadOnly -> R.string.analyzer_storage_content_type_media_readonly_info.toCaString()
+                    else -> null
+                }
 
                 // Loading frame: no items yet (progress stamped by the outer combine).
                 emit(
@@ -148,7 +159,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isSystemGroup && currentLevel == null,
+                        infoBanner = infoBanner,
                     ),
                 )
 
@@ -173,7 +184,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isSystemGroup && currentLevel == null,
+                        infoBanner = infoBanner,
                     ),
                 )
             }
@@ -321,7 +332,7 @@ class ContentViewModel @Inject constructor(
             val layoutMode: LayoutMode,
             val progress: Progress.Data?,
             val isReadOnly: Boolean,
-            val showSystemInfoBanner: Boolean,
+            val infoBanner: CaString?,
         ) : State
         data object NotFound : State
     }
