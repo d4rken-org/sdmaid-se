@@ -2,7 +2,6 @@ package eu.darken.sdmse.automation.core
 
 import android.content.ComponentName
 import android.content.Context
-import android.os.Build
 import android.provider.Settings
 import dagger.Binds
 import dagger.Module
@@ -62,7 +61,7 @@ class AutomationManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
-    private val automationSettings: AutomationSettings,
+    private val acsWriteReliability: AcsWriteReliability,
     private val animationTool: AnimationTool,
     private val shellOps: ShellOps,
     private val adbManager: AdbManager,
@@ -115,35 +114,18 @@ class AutomationManager @Inject constructor(
             ?: emptySet()
     }
 
-    private fun writeMatchesIntent(intent: Set<ComponentName>, actual: Set<ComponentName>): Boolean =
-        if (intent.isEmpty()) actual.isEmpty() else actual.containsAll(intent)
-
     private suspend fun shellMode(): ShellOps.Mode? = when {
         adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
         rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
         else -> null
     }
 
-    /**
-     * True when writing ENABLED_ACCESSIBILITY_SERVICES from our own process is known to be unreliable
-     * on the current OS build (see [AutomationSettings.acsDirectWriteUnreliableFingerprint]).
-     */
-    private suspend fun avoidDirectAcsWrite(): Boolean =
-        automationSettings.acsDirectWriteUnreliableFingerprint.value() == Build.FINGERPRINT
-
-    private suspend fun markDirectWriteUnreliable() {
-        if (avoidDirectAcsWrite()) return
-        log(TAG, WARN) { "markDirectWriteUnreliable(): Direct ACS write flagged unreliable for ${Build.FINGERPRINT}" }
-        automationSettings.acsDirectWriteUnreliableFingerprint.value(Build.FINGERPRINT)
-    }
-
     /** Writes the service list via our own process. Returns the post-write readback. */
     private suspend fun writeServicesDirect(services: Set<ComponentName>): Set<ComponentName> {
-        val value = services.joinToString(":") { it.flattenToString() }
         settingsProvider.put(
             SystemSettingsProvider.Type.SECURE,
             Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES,
-            value
+            AcsActivator.flattenServices(services)
         )
         val after = getAutomationServices()
         log(TAG) { "writeServicesDirect($services) -> $after" }
@@ -156,8 +138,6 @@ class AutomationManager @Inject constructor(
      * from our own process. Returns whether the intended list actually persisted.
      */
     private suspend fun writeServicesViaShell(services: Set<ComponentName>, mode: ShellOps.Mode): Boolean {
-        val value = services.joinToString(":") { it.flattenToString() }
-
         try {
             pkgOps.setAppOps(
                 userManager.ourInstall(),
@@ -169,7 +149,7 @@ class AutomationManager @Inject constructor(
             log(TAG, WARN) { "writeServicesViaShell(): ACCESS_RESTRICTED_SETTINGS set failed: ${e.asLog()}" }
         }
 
-        val cmd = "settings put secure ${Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES} \"$value\""
+        val cmd = AcsActivator.enabledServicesPutCmd(AcsActivator.flattenServices(services))
         val result = try {
             shellOps.execute(ShellOpsCmd(cmd), mode)
         } catch (e: Exception) {
@@ -182,7 +162,7 @@ class AutomationManager @Inject constructor(
         }
 
         val after = getAutomationServices()
-        val persisted = writeMatchesIntent(intent = services, actual = after)
+        val persisted = AcsActivator.writeMatchesIntent(intent = services, actual = after)
         log(TAG, INFO) { "writeServicesViaShell($services) -> $after (mode=$mode, persisted=$persisted)" }
         return persisted
     }
@@ -193,7 +173,7 @@ class AutomationManager @Inject constructor(
      */
     private suspend fun writeServices(services: Set<ComponentName>) {
         val mode = shellMode()
-        if (avoidDirectAcsWrite() && mode != null) {
+        if (acsWriteReliability.shouldAvoidDirectWrite() && mode != null) {
             writeServicesViaShell(services, mode)
         } else {
             writeServicesDirect(services)
@@ -210,46 +190,16 @@ class AutomationManager @Inject constructor(
             null
         }
 
-    /**
-     * Enables our service (writing [intended], the full desired list incl. any third-party services) and
-     * waits for it to actually bind. Direct write is the primary path; the shell is a bounded fallback,
-     * triggered both when the direct write is reverted (Mode A) and when it persists but never binds
-     * (Mode B). At most one direct + one shell attempt. Returns the bound handle, or null on failure.
-     */
-    private suspend fun enableAndWaitForBind(intended: Set<ComponentName>): AutomationServiceHandle? {
-        val mode = shellMode()
+    private val acsActivator = AcsActivator(object : AcsActivator.Io {
+        override suspend fun shellMode(): ShellOps.Mode? = this@AutomationManager.shellMode()
+        override suspend fun isAvoidDirectWrite(): Boolean = acsWriteReliability.shouldAvoidDirectWrite()
+        override suspend fun markDirectWriteUnreliable() = acsWriteReliability.markDirectWriteUnreliable()
+        override suspend fun writeDirect(services: Set<ComponentName>) = writeServicesDirect(services)
+        override suspend fun writeShell(services: Set<ComponentName>, mode: ShellOps.Mode) =
+            writeServicesViaShell(services, mode)
 
-        if (avoidDirectAcsWrite()) {
-            log(TAG, WARN) { "enableAndWaitForBind(): Direct write known-unreliable, using shell directly" }
-            if (mode == null) {
-                log(TAG, WARN) { "enableAndWaitForBind(): No privileged shell available, cannot enable" }
-                return null
-            }
-            return if (writeServicesViaShell(intended, mode)) waitForServiceBound(BIND_TIMEOUT_MS) else null
-        }
-
-        val afterDirect = writeServicesDirect(intended)
-        if (!writeMatchesIntent(intent = intended, actual = afterDirect)) {
-            // Mode A: the write was reverted (often wiping unrelated third-party services too).
-            log(TAG, WARN) {
-                "enableAndWaitForBind(): Direct write was reverted (intended=$intended, actual=$afterDirect)"
-            }
-            markDirectWriteUnreliable()
-            if (mode == null) return null
-            return if (writeServicesViaShell(intended, mode)) waitForServiceBound(BIND_TIMEOUT_MS) else null
-        }
-
-        waitForServiceBound(BIND_TIMEOUT_MS)?.let { return it }
-
-        // Mode B: the value persisted but the service never bound. Try the shell once.
-        log(TAG, WARN) { "enableAndWaitForBind(): Direct write persisted but service didn't bind, trying shell" }
-        if (mode == null) return null
-        if (!writeServicesViaShell(intended, mode)) return null
-        return waitForServiceBound(BIND_TIMEOUT_MS)?.also {
-            // Only now is it proven that the shell path was necessary on this build.
-            markDirectWriteUnreliable()
-        }
-    }
+        override suspend fun awaitBound(timeoutMs: Long) = waitForServiceBound(timeoutMs)
+    })
 
     suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
 
@@ -302,9 +252,9 @@ class AutomationManager @Inject constructor(
             delay(3000)
         }
 
-        val service = enableAndWaitForBind(intended)
+        val service = acsActivator.enable(intended)
         if (service == null) {
-            if (avoidDirectAcsWrite() && shellMode() == null) {
+            if (acsWriteReliability.shouldAvoidDirectWrite() && shellMode() == null) {
                 log(TAG, WARN) { "startService(): Direct write disabled for this build and no privileged shell available." }
                 throw AutomationNotEnabledException()
             }
@@ -331,8 +281,17 @@ class AutomationManager @Inject constructor(
         writeServices(newServices)
 
         log(TAG, VERBOSE) { "stopService(): Waiting for service to stop" }
-        serviceHolder.filter { it == null }.first()
-        log(TAG, INFO) { "stopService(): Service stopped!" }
+        val stopped = withTimeoutOrNull(STOP_TIMEOUT_MS) {
+            serviceHolder.filter { it == null }.first()
+            true
+        } != null
+        if (stopped) {
+            log(TAG, INFO) { "stopService(): Service stopped!" }
+        } else {
+            // A failed disable write (e.g. shell-first build with the shell unavailable) must not hang
+            // the awaitClose/runBlocking forever waiting for an unbind that won't happen.
+            log(TAG, WARN) { "stopService(): Timed out waiting for the service to unbind" }
+        }
     }
 
     private val serviceLauncher = callbackFlow {
@@ -404,7 +363,7 @@ class AutomationManager @Inject constructor(
     companion object {
         val TAG: String = logTag("Automation", "Manager")
 
-        private const val BIND_TIMEOUT_MS = 10 * 1000L
+        private const val STOP_TIMEOUT_MS = 10 * 1000L
 
         internal fun parseAccessibilityTargets(vararg settings: String?): Set<ComponentName> =
             settings.filterNotNull()
