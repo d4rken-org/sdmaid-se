@@ -115,4 +115,32 @@ class MacFilesFilterTest : SystemCleanerFilterTest() {
         neg(DataArea.Type.PUBLIC_DATA, "some.pkg/._rollkuchen#,'Ä", Flag.Dir)
         confirm(create())
     }
+
+    @Test fun `matches file and directory artifacts in a single filter pass`() = runTest {
+        mockDefaults()
+        // Both sieves must fire within one filter instance: files via fileSieve, dirs via directorySieve
+        neg(DataArea.Type.SDCARD, "folder", Flag.Dir)
+
+        pos(DataArea.Type.SDCARD, "._something", Flag.File)
+        pos(DataArea.Type.SDCARD, "folder/.DS_Store", Flag.File)
+        pos(DataArea.Type.SDCARD, ".Trashes", Flag.Dir)
+        pos(DataArea.Type.SDCARD, ".fseventsd", Flag.Dir)
+
+        neg(DataArea.Type.SDCARD, "folder/.Trashes", Flag.Dir)
+        neg(DataArea.Type.SDCARD, ".Trashes", Flag.File)
+        confirm(create())
+    }
+
+    @Test fun `volume directory artifacts are restricted to SDCARD and PORTABLE`() = runTest {
+        mockDefaults()
+        // Pin the SDCARD/PORTABLE-only restriction so it can't silently widen to PUBLIC_MEDIA
+        pos(DataArea.Type.SDCARD, ".Trashes", Flag.Dir)
+        pos(DataArea.Type.PORTABLE, ".Trashes", Flag.Dir)
+
+        neg(DataArea.Type.PUBLIC_MEDIA, ".Trashes", Flag.Dir)
+        neg(DataArea.Type.PUBLIC_MEDIA, ".Spotlight-V100", Flag.Dir)
+        neg(DataArea.Type.PUBLIC_MEDIA, ".fseventsd", Flag.Dir)
+        neg(DataArea.Type.PUBLIC_MEDIA, ".TemporaryItems", Flag.Dir)
+        confirm(create())
+    }
 }
