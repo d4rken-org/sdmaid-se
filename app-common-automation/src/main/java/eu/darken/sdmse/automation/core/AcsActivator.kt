@@ -78,10 +78,24 @@ class AcsActivator(
         }
     }
 
+    /** How a service-list write should be performed (used for disable / re-toggle). */
+    enum class WriteStrategy { DIRECT, SHELL, SKIP }
+
     companion object {
         private val TAG = logTag("Automation", "AcsActivator")
 
         private const val DEFAULT_BIND_TIMEOUT_MS = 10 * 1000L
+
+        /**
+         * On a build flagged as direct-write-unreliable we must NEVER write via our own process (it can
+         * silently wipe unrelated third-party services). So when no privileged shell is available there,
+         * the only safe option is to [WriteStrategy.SKIP] the write rather than fall back to a direct one.
+         */
+        internal fun writeStrategy(avoidDirectWrite: Boolean, hasShell: Boolean): WriteStrategy = when {
+            !avoidDirectWrite -> WriteStrategy.DIRECT
+            hasShell -> WriteStrategy.SHELL
+            else -> WriteStrategy.SKIP
+        }
 
         /** A write achieves the intent when every intended component is present (extras are fine). */
         internal fun writeMatchesIntent(intent: Set<ComponentName>, actual: Set<ComponentName>): Boolean =

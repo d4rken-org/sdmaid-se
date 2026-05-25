@@ -226,4 +226,17 @@ class AcsActivatorTest : BaseTest() {
         val flat = AcsActivator.flattenServices(setOf(ourComp, thirdParty))
         flat.split(":").toSet() shouldBe setOf(ourComp.flattenToString(), thirdParty.flattenToString())
     }
+
+    @Test fun `writeStrategy - reliable build writes directly regardless of shell`() {
+        AcsActivator.writeStrategy(avoidDirectWrite = false, hasShell = false) shouldBe AcsActivator.WriteStrategy.DIRECT
+        AcsActivator.writeStrategy(avoidDirectWrite = false, hasShell = true) shouldBe AcsActivator.WriteStrategy.DIRECT
+    }
+
+    @Test fun `writeStrategy - flagged build with shell uses shell`() {
+        AcsActivator.writeStrategy(avoidDirectWrite = true, hasShell = true) shouldBe AcsActivator.WriteStrategy.SHELL
+    }
+
+    @Test fun `writeStrategy - flagged build without shell SKIPS (never destructive direct write)`() {
+        AcsActivator.writeStrategy(avoidDirectWrite = true, hasShell = false) shouldBe AcsActivator.WriteStrategy.SKIP
+    }
 }

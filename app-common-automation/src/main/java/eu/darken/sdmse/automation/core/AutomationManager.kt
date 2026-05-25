@@ -169,14 +169,30 @@ class AutomationManager @Inject constructor(
 
     /**
      * Strategy-aware write used for disable / re-toggle, where binding is NOT the success signal.
-     * Prefers the shell when direct writes are known unreliable on this build.
+     * On a build flagged direct-write-unreliable we never direct-write (it can wipe third-party
+     * services); if no shell is available there we skip rather than fall back to a destructive write.
+     *
+     * @return true if a write was actually performed.
      */
-    private suspend fun writeServices(services: Set<ComponentName>) {
+    private suspend fun writeServices(services: Set<ComponentName>): Boolean {
         val mode = shellMode()
-        if (acsWriteReliability.shouldAvoidDirectWrite() && mode != null) {
-            writeServicesViaShell(services, mode)
-        } else {
-            writeServicesDirect(services)
+        return when (AcsActivator.writeStrategy(acsWriteReliability.shouldAvoidDirectWrite(), mode != null)) {
+            AcsActivator.WriteStrategy.DIRECT -> {
+                writeServicesDirect(services)
+                true
+            }
+
+            AcsActivator.WriteStrategy.SHELL -> {
+                writeServicesViaShell(services, mode!!)
+                true
+            }
+
+            AcsActivator.WriteStrategy.SKIP -> {
+                log(TAG, WARN) {
+                    "writeServices(): avoid-direct build with no shell; skipping write to avoid destructive direct mutation"
+                }
+                false
+            }
         }
     }
 
@@ -247,9 +263,10 @@ class AutomationManager @Inject constructor(
 
         if (currentServices.contains(ourServiceComp)) {
             log(TAG, WARN) { "startService(): Service isn't running but we are already enabled? Let's re-toggle" }
-            writeServices(currentServices - ourServiceComp)
-            // Give the system some time
-            delay(3000)
+            if (writeServices(currentServices - ourServiceComp)) {
+                // Give the system some time to process the toggle-off
+                delay(3000)
+            }
         }
 
         val service = acsActivator.enable(intended)
@@ -278,7 +295,12 @@ class AutomationManager @Inject constructor(
             log(TAG, WARN) { "stopService(): We were not part of the active service components: $currentServices" }
         }
 
-        writeServices(newServices)
+        if (!writeServices(newServices)) {
+            // avoid-direct build with no shell: skipping is safer than a destructive direct write.
+            // Our service stays enabled; don't wait for an unbind that won't happen.
+            log(TAG, WARN) { "stopService(): Disable write skipped, leaving service enabled" }
+            return
+        }
 
         log(TAG, VERBOSE) { "stopService(): Waiting for service to stop" }
         val stopped = withTimeoutOrNull(STOP_TIMEOUT_MS) {
