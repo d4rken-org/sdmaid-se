@@ -216,6 +216,13 @@ class Analyzer @Inject constructor(
     private suspend fun deleteContent(task: ContentDeleteTask): ContentDeleteTask.Result {
         log(TAG, VERBOSE) { "deleteContent(): $task" }
 
+        val targetCategory = storageCategories.value[task.storageId]
+            ?.singleOrNull { category -> category.groups.any { it.id == task.groupId } }
+        if (targetCategory is MediaCategory && targetCategory.isReadOnly) {
+            log(TAG, WARN) { "deleteContent(): Blocked — media content is read-only" }
+            throw UnsupportedOperationException("Deletion is not supported for read-only media content")
+        }
+
         updateProgressPrimary {
             it.getString(
                 eu.darken.sdmse.common.R.string.general_progress_deleting_x,
