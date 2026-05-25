@@ -26,6 +26,16 @@ class AutomationSettings @Inject constructor(
     val animationPendingRestoreState =
         dataStore.createValue<AnimationState?>("animation.pending.restore.state", null, json)
 
+    /**
+     * Build.FINGERPRINT of an OS build on which writing ENABLED_ACCESSIBILITY_SERVICES from our own
+     * process is known to be unreliable (silently reverted, or persisted but the service never binds).
+     * Empty when the direct write is considered reliable. Keyed to the fingerprint so a ROM update
+     * (which changes the fingerprint) automatically re-probes the direct path.
+     * Observed on WAIPU TV (Android 14).
+     */
+    val acsDirectWriteUnreliableFingerprint =
+        dataStore.createValue("acs.directwrite.unreliable.fingerprint", "")
+
     companion object {
         internal val TAG = logTag("Automation", "Settings")
     }

@@ -13,6 +13,8 @@ import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationNotEnabledException
 import eu.darken.sdmse.automation.core.errors.AutomationNotRunningException
 import eu.darken.sdmse.common.SystemSettingsProvider
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -24,8 +26,15 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.useRes
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
+import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.common.user.ourInstall
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupHelper
 import kotlinx.coroutines.CoroutineScope
@@ -52,7 +61,13 @@ class AutomationManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
+    private val acsWriteReliability: AcsWriteReliability,
     private val animationTool: AnimationTool,
+    private val shellOps: ShellOps,
+    private val adbManager: AdbManager,
+    private val rootManager: RootManager,
+    private val pkgOps: PkgOps,
+    private val userManager: UserManager2,
 ) : AutomationSubmitter {
 
     init {
@@ -99,15 +114,108 @@ class AutomationManager @Inject constructor(
             ?: emptySet()
     }
 
-    private suspend fun setAutomationServices(services: Set<ComponentName>) {
+    private suspend fun shellMode(): ShellOps.Mode? = when {
+        adbManager.canUseAdbNow() -> ShellOps.Mode.ADB
+        rootManager.canUseRootNow() -> ShellOps.Mode.ROOT
+        else -> null
+    }
+
+    /** Writes the service list via our own process. Returns the post-write readback. */
+    private suspend fun writeServicesDirect(services: Set<ComponentName>): Set<ComponentName> {
         settingsProvider.put(
             SystemSettingsProvider.Type.SECURE,
             Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES,
-            services.joinToString(":") { it.flattenToString() }
+            AcsActivator.flattenServices(services)
         )
         val after = getAutomationServices()
-        log(TAG) { "setAutomationServices($services) -> $after" }
+        log(TAG) { "writeServicesDirect($services) -> $after" }
+        return after
     }
+
+    /**
+     * Writes the service list via the privileged shell (Shizuku/ADB or root, uid 2000 / root). This is
+     * not subject to the "untrusted app touched a protected setting" rollback some ROMs apply to writes
+     * from our own process. Returns whether the intended list actually persisted.
+     */
+    private suspend fun writeServicesViaShell(services: Set<ComponentName>, mode: ShellOps.Mode): Boolean {
+        try {
+            pkgOps.setAppOps(
+                userManager.ourInstall(),
+                PkgOps.AppOpsKey.ACCESS_RESTRICTED_SETTINGS,
+                PkgOps.AppOpsValue.ALLOW,
+            )
+            log(TAG) { "writeServicesViaShell(): ACCESS_RESTRICTED_SETTINGS=allow OK" }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "writeServicesViaShell(): ACCESS_RESTRICTED_SETTINGS set failed: ${e.asLog()}" }
+        }
+
+        val cmd = AcsActivator.enabledServicesPutCmd(AcsActivator.flattenServices(services))
+        val result = try {
+            shellOps.execute(ShellOpsCmd(cmd), mode)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "writeServicesViaShell(): shell write failed: ${e.asLog()}" }
+            return false
+        }
+        if (!result.isSuccess) {
+            log(TAG, WARN) { "writeServicesViaShell(): shell write unsuccessful: $result" }
+            return false
+        }
+
+        val after = getAutomationServices()
+        val persisted = AcsActivator.writeMatchesIntent(intent = services, actual = after)
+        log(TAG, INFO) { "writeServicesViaShell($services) -> $after (mode=$mode, persisted=$persisted)" }
+        return persisted
+    }
+
+    /**
+     * Strategy-aware write used for disable / re-toggle, where binding is NOT the success signal.
+     * On a build flagged direct-write-unreliable we never direct-write (it can wipe third-party
+     * services); if no shell is available there we skip rather than fall back to a destructive write.
+     *
+     * @return true if a write was actually performed.
+     */
+    private suspend fun writeServices(services: Set<ComponentName>): Boolean {
+        val mode = shellMode()
+        return when (AcsActivator.writeStrategy(acsWriteReliability.shouldAvoidDirectWrite(), mode != null)) {
+            AcsActivator.WriteStrategy.DIRECT -> {
+                writeServicesDirect(services)
+                true
+            }
+
+            AcsActivator.WriteStrategy.SHELL -> {
+                writeServicesViaShell(services, mode!!)
+                true
+            }
+
+            AcsActivator.WriteStrategy.SKIP -> {
+                log(TAG, WARN) {
+                    "writeServices(): avoid-direct build with no shell; skipping write to avoid destructive direct mutation"
+                }
+                false
+            }
+        }
+    }
+
+    private suspend fun waitForServiceBound(timeoutMs: Long): AutomationServiceHandle? =
+        withTimeoutOrNull(timeoutMs) {
+            while (currentCoroutineContext().isActive) {
+                serviceHolder.value?.let { return@withTimeoutOrNull it }
+                log(TAG, VERBOSE) { "waitForServiceBound(): Waiting for service to start" }
+                delay(500)
+            }
+            null
+        }
+
+    private val acsActivator = AcsActivator(object : AcsActivator.Io {
+        override suspend fun shellMode(): ShellOps.Mode? = this@AutomationManager.shellMode()
+        override suspend fun isAvoidDirectWrite(): Boolean = acsWriteReliability.shouldAvoidDirectWrite()
+        override suspend fun markDirectWriteUnreliable() = acsWriteReliability.markDirectWriteUnreliable()
+        override suspend fun writeDirect(services: Set<ComponentName>) = writeServicesDirect(services)
+        override suspend fun writeShell(services: Set<ComponentName>, mode: ShellOps.Mode) =
+            writeServicesViaShell(services, mode)
+
+        override suspend fun awaitBound(timeoutMs: Long) = waitForServiceBound(timeoutMs)
+    })
 
     suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
 
@@ -135,11 +243,9 @@ class AutomationManager @Inject constructor(
 
     private suspend fun startService(): AutomationServiceHandle {
         log(TAG, VERBOSE) { "startService()" }
-        var service = serviceHolder.value
-
-        if (service != null) {
+        serviceHolder.value?.let {
             log(TAG) { "startService(): ACS is already running" }
-            return service
+            return it
         }
 
         if (!setupHelper.hasSecureSettings()) {
@@ -152,31 +258,28 @@ class AutomationManager @Inject constructor(
         val currentServices = getAutomationServices()
         log(TAG) { "startService(): Before writing ACS settings: $currentServices" }
 
+        // Snapshot of the full desired list, preserving any third-party services already enabled.
+        val intended = currentServices + ourServiceComp
+
         if (currentServices.contains(ourServiceComp)) {
             log(TAG, WARN) { "startService(): Service isn't running but we are already enabled? Let's re-toggle" }
-            setAutomationServices(currentServices.minus(ourServiceComp))
-
-            // Give the system some time
-            delay(3000)
-
-            val afterToggleOff = getAutomationServices()
-            if (afterToggleOff.contains(ourServiceComp)) throw IllegalStateException("Failed to remove our ACS service")
-
-            setAutomationServices(afterToggleOff.plus(ourServiceComp))
-        } else {
-            val newAcsValue = currentServices.plus(ourServiceComp)
-            setAutomationServices(newAcsValue)
+            if (writeServices(currentServices - ourServiceComp)) {
+                // Give the system some time to process the toggle-off
+                delay(3000)
+            }
         }
 
-        while (currentCoroutineContext().isActive) {
-            service = serviceHolder.value
-            if (service != null) break
-            log(TAG, VERBOSE) { "startService(): Waiting for service to start" }
-            delay(500)
+        val service = acsActivator.enable(intended)
+        if (service == null) {
+            if (acsWriteReliability.shouldAvoidDirectWrite() && shellMode() == null) {
+                log(TAG, WARN) { "startService(): Direct write disabled for this build and no privileged shell available." }
+                throw AutomationNotEnabledException()
+            }
+            throw AutomationNotRunningException()
         }
 
         log(TAG, INFO) { "startService(): Service started!" }
-        return service!!
+        return service
     }
 
     private suspend fun stopService() {
@@ -192,11 +295,25 @@ class AutomationManager @Inject constructor(
             log(TAG, WARN) { "stopService(): We were not part of the active service components: $currentServices" }
         }
 
-        setAutomationServices(newServices)
+        if (!writeServices(newServices)) {
+            // avoid-direct build with no shell: skipping is safer than a destructive direct write.
+            // Our service stays enabled; don't wait for an unbind that won't happen.
+            log(TAG, WARN) { "stopService(): Disable write skipped, leaving service enabled" }
+            return
+        }
 
         log(TAG, VERBOSE) { "stopService(): Waiting for service to stop" }
-        serviceHolder.filter { it == null }.first()
-        log(TAG, INFO) { "stopService(): Service stopped!" }
+        val stopped = withTimeoutOrNull(STOP_TIMEOUT_MS) {
+            serviceHolder.filter { it == null }.first()
+            true
+        } != null
+        if (stopped) {
+            log(TAG, INFO) { "stopService(): Service stopped!" }
+        } else {
+            // A failed disable write (e.g. shell-first build with the shell unavailable) must not hang
+            // the awaitClose/runBlocking forever waiting for an unbind that won't happen.
+            log(TAG, WARN) { "stopService(): Timed out waiting for the service to unbind" }
+        }
     }
 
     private val serviceLauncher = callbackFlow {
@@ -211,13 +328,13 @@ class AutomationManager @Inject constructor(
         val canToggle = setupHelper.hasSecureSettings()
         log(TAG) { "serviceLauncher: canToggle=$canToggle" }
 
+        // startService() owns its own bounded waits (direct + optional shell fallback) and throws on
+        // failure, so it must NOT be wrapped in an outer timeout that could cancel the fallback midway.
         val service = if (canToggle) {
-            withTimeoutOrNull(10 * 1000L) { startService() }
+            startService()
         } else {
-            serviceHolder.value
+            serviceHolder.value ?: throw AutomationNotRunningException()
         }
-
-        if (service == null) throw AutomationNotRunningException()
 
         val wrapper = ServiceWrapper(service = service)
 
@@ -267,6 +384,8 @@ class AutomationManager @Inject constructor(
 
     companion object {
         val TAG: String = logTag("Automation", "Manager")
+
+        private const val STOP_TIMEOUT_MS = 10 * 1000L
 
         internal fun parseAccessibilityTargets(vararg settings: String?): Set<ComponentName> =
             settings.filterNotNull()
