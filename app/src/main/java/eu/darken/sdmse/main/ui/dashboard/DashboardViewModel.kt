@@ -396,7 +396,7 @@ class DashboardViewModel @Inject constructor(
                     }
                 }
             )
-            if (isRecording) items.add(1, item) else items.add(item)
+            items.add(item)
         }
 
         debugItem?.let { items.add(it) }
