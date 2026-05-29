@@ -40,12 +40,9 @@ class RecorderActivity : Activity2() {
         }
 
         enableEdgeToEdge()
-        vm.navEvents.observe2 {
-            when (it) {
-                null -> finish()
-                else -> throw IllegalArgumentException("Unknown nav event: $it")
-            }
-        }
+        // This is a terminal, single-screen activity: the only navigation the
+        // ViewModel ever requests is popNavStack(), so any nav event means "close".
+        vm.navEvents.observe2 { finish() }
         vm.errorEvents.observe2 { it.asErrorDialogBuilder(this).show() }
 
         ui = DebugRecorderActivityBinding.inflate(layoutInflater)
