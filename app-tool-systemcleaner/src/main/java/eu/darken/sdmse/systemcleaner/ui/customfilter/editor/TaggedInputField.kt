@@ -31,13 +31,13 @@ import eu.darken.sdmse.common.sieve.SieveCriterium
 
 @Composable
 internal fun TaggedInputField(
+    modifier: Modifier = Modifier,
     type: TagType,
     hint: String,
     tags: List<SieveCriterium>,
     onAdd: (SieveCriterium) -> Unit,
     onRemove: (SieveCriterium) -> Unit,
     onModeChange: (old: SieveCriterium, new: SieveCriterium) -> Unit,
-    modifier: Modifier = Modifier,
     onFocusChange: ((Boolean) -> Unit)? = null,
 ) {
     var typedText by remember { mutableStateOf("") }

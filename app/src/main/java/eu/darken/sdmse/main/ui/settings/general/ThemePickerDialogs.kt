@@ -186,7 +186,11 @@ fun ThemeColorPickerDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.ui_theme_color_setting_label)) },
         text = {
-            androidx.compose.foundation.layout.Column {
+            androidx.compose.foundation.layout.Column(
+                modifier = Modifier
+                    .heightIn(max = 360.dp)
+                    .verticalScroll(rememberScrollState()),
+            ) {
                 ThemeColor.entries.forEach { color ->
                     Row(
                         modifier = Modifier

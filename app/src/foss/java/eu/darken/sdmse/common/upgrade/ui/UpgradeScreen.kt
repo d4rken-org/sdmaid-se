@@ -25,12 +25,15 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun UpgradeScreenHost(
+    route: UpgradeRoute = UpgradeRoute(),
     vm: UpgradeViewModel = hiltViewModel(),
 ) {
+    LaunchedEffect(route) { vm.bindRoute(route) }
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 

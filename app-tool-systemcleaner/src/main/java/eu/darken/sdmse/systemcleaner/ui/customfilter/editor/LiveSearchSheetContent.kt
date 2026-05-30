@@ -28,8 +28,8 @@ import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 
 @Composable
 internal fun LiveSearchSheetContent(
-    state: CustomFilterEditorViewModel.LiveSearchState,
     modifier: Modifier = Modifier,
+    state: CustomFilterEditorViewModel.LiveSearchState,
 ) {
     val context = LocalContext.current
 

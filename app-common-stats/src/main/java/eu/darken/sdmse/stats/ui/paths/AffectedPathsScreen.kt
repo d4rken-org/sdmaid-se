@@ -110,10 +110,11 @@ internal fun AffectedPathsScreen(
                 item(key = "header") {
                     AffectedPathsHeaderItem(
                         report = s.report,
-                        rowCount = s.rows.size,
                     )
                 }
-                items(s.rows, key = { it.affectedPath.path.path }) { row ->
+                // Composite key: the same path can appear with different actions (DELETED vs
+                // COMPRESSED); keying on path alone would throw "two items with the same key".
+                items(s.rows, key = { "${it.affectedPath.path.path}:${it.affectedPath.action.name}" }) { row ->
                     AffectedPathRow(row = row)
                 }
             }

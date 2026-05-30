@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.KeyboardArrowRight
+import androidx.compose.material.icons.twotone.Inventory
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -23,15 +24,19 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentGroup
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 internal fun AppDetailsGroupRow(
+    modifier: Modifier = Modifier,
     group: ContentGroup,
     @StringRes labelRes: Int,
     @StringRes descRes: Int,
     icon: ImageVector,
-    modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -77,5 +82,19 @@ internal fun AppDetailsGroupRow(
             Spacer(Modifier.size(8.dp))
             Icon(Icons.AutoMirrored.TwoTone.KeyboardArrowRight, contentDescription = null)
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppDetailsGroupRowPreview() {
+    PreviewWrapper {
+        AppDetailsGroupRow(
+            group = previewContentGroup(label = "App code"),
+            labelRes = R.string.analyzer_storage_content_app_code_label,
+            descRes = R.string.analyzer_storage_content_app_code_description,
+            icon = Icons.TwoTone.Inventory,
+            onClick = {},
+        )
     }
 }

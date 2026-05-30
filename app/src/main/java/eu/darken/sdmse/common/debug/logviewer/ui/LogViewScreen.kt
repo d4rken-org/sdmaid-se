@@ -16,11 +16,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import kotlinx.coroutines.flow.Flow
@@ -47,8 +51,9 @@ internal fun LogViewScreen(
     val logLines = logSource.collectAsStateWithLifecycle(initialValue = emptyList())
     val listState = rememberLazyListState()
 
-    // Auto-scroll to bottom when new lines arrive
-    LaunchedEffect(logLines.value.size) {
+    // Auto-scroll to bottom when new lines arrive. Key on the last line, not size: the buffer is
+    // capped at 50, so size stops changing and a size-keyed effect would freeze after 50 lines.
+    LaunchedEffect(logLines.value.lastOrNull()) {
         if (logLines.value.isNotEmpty()) {
             listState.animateScrollToItem(logLines.value.lastIndex)
         }
@@ -57,7 +62,7 @@ internal fun LogViewScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Log Viewer") },
+                title = { Text(stringResource(R.string.debug_logview_screen_title)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
@@ -83,5 +88,22 @@ internal fun LogViewScreen(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun LogViewScreenPreview() {
+    PreviewWrapper {
+        LogViewScreen(
+            logSource = flowOf(
+                listOf(
+                    "D | Example log line",
+                    "W | Another line",
+                    "E | Error line",
+                )
+            ),
+            onNavigateUp = {},
+        )
     }
 }

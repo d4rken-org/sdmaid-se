@@ -161,7 +161,6 @@ fun DeduplicatorDetailsScreenHost(
         onGroupDelete = { clusterId, groupId -> vm.deleteGroup(clusterId, groupId) },
         onGroupView = { group, position -> vm.previewGroup(group, position) },
         onDuplicatePreview = { dupe -> vm.previewDuplicate(dupe) },
-        onDuplicateOpen = { dupe -> vm.openDuplicate(dupe) },
         onDuplicateDelete = { clusterId, dupeId -> vm.deleteDuplicates(clusterId, listOf(dupeId)) },
         onDirectoryDeleteAll = { clusterId, dirGroup ->
             vm.deleteDuplicates(clusterId, dirGroup.duplicates.map { it.identifier })
@@ -198,6 +197,10 @@ fun DeduplicatorDetailsScreenHost(
             },
             onDismiss = { pendingDeletion = null },
             onPreviewClick = { options -> vm.navTo(eu.darken.sdmse.common.previews.PreviewRoute(options = options)) },
+            // Single-duplicate delete dialog offers "Open" (open in external app) — legacy parity.
+            onOpen = (pending.event.mode as? eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode.Duplicates)
+                ?.duplicates?.singleOrNull()
+                ?.let { dupe -> { pendingDeletion = null; vm.openDuplicate(dupe) } },
         )
     }
 }
@@ -215,7 +218,6 @@ internal fun DeduplicatorDetailsScreen(
     onGroupDelete: (Duplicate.Cluster.Id, Duplicate.Group.Id) -> Unit = { _, _ -> },
     onGroupView: (Duplicate.Group, Int) -> Unit = { _, _ -> },
     onDuplicatePreview: (Duplicate) -> Unit = {},
-    onDuplicateOpen: (Duplicate) -> Unit = {},
     onDuplicateDelete: (Duplicate.Cluster.Id, Duplicate.Id) -> Unit = { _, _ -> },
     onDirectoryDeleteAll: (Duplicate.Cluster.Id, eu.darken.sdmse.deduplicator.ui.details.cluster.DirectoryGroup) -> Unit = { _, _ -> },
     onDeleteSelectedDuplicates: (Duplicate.Cluster.Id, Set<Duplicate.Id>) -> Unit = { _, _ -> },

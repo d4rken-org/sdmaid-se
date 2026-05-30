@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.picker.items
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.picker.PickerViewModel
 
 @Composable
@@ -47,6 +50,25 @@ fun PickerSelectedRow(
         )
         IconButton(onClick = onRemove) {
             Icon(Icons.TwoTone.Close, contentDescription = null)
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun PickerSelectedRowPreview() {
+    PreviewWrapper {
+        Column {
+            PickerSelectedRow(
+                row = previewSelectedRow(),
+                onRemove = {},
+            )
+            PickerSelectedRow(
+                row = previewSelectedRow(
+                    pathSegments = arrayOf("storage", "emulated", "0", "DCIM", "Camera"),
+                ),
+                onRemove = {},
+            )
         }
     }
 }

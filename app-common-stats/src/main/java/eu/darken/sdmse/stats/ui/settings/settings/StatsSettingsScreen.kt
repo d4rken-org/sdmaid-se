@@ -36,6 +36,8 @@ import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.formatAge
 import eu.darken.sdmse.common.stats.R
 import java.time.Duration
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
@@ -44,10 +46,9 @@ fun StatsSettingsScreenHost(
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
-    val state by vm.state.collectAsStateWithLifecycle()
 
     StatsSettingsScreen(
-        state = state,
+        stateSource = vm.state,
         onNavigateUp = vm::navUp,
         onViewStatsClick = vm::onViewStatsClick,
         onRetentionReportsSaved = vm::setRetentionReports,
@@ -60,7 +61,8 @@ fun StatsSettingsScreenHost(
 
 @Composable
 internal fun StatsSettingsScreen(
-    state: StatsSettingsViewModel.State = StatsSettingsViewModel.State(),
+    stateSource: StateFlow<StatsSettingsViewModel.State> =
+        MutableStateFlow(StatsSettingsViewModel.State()),
     onNavigateUp: () -> Unit = {},
     onViewStatsClick: () -> Unit = {},
     onRetentionReportsSaved: (Duration) -> Unit = {},
@@ -69,6 +71,7 @@ internal fun StatsSettingsScreen(
     onRetentionPathsReset: () -> Unit = {},
     onResetAllConfirmed: () -> Unit = {},
 ) {
+    val state by stateSource.collectAsStateWithLifecycle()
     var showReportsAgeDialog by remember { mutableStateOf(false) }
     var showPathsAgeDialog by remember { mutableStateOf(false) }
     var showResetAllDialog by remember { mutableStateOf(false) }
@@ -209,10 +212,12 @@ internal fun StatsSettingsScreen(
 private fun StatsSettingsScreenPreview() {
     PreviewWrapper {
         StatsSettingsScreen(
-            state = StatsSettingsViewModel.State(
-                reportsCount = 42,
-                totalSpaceFreed = 12 * 1024L * 1024L,
-                itemsProcessed = 2048L,
+            stateSource = MutableStateFlow(
+                StatsSettingsViewModel.State(
+                    reportsCount = 42,
+                    totalSpaceFreed = 12 * 1024L * 1024L,
+                    itemsProcessed = 2048L,
+                ),
             ),
         )
     }

@@ -36,8 +36,8 @@ import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.ui.settings.cards.items.DashboardCardConfigDragHandle
 import eu.darken.sdmse.main.ui.settings.cards.items.DashboardCardConfigHeader
 import eu.darken.sdmse.main.ui.settings.cards.items.DashboardCardConfigRow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 
@@ -59,14 +59,14 @@ fun DashboardCardConfigScreenHost(
 
 @Composable
 internal fun DashboardCardConfigScreen(
-    stateSource: StateFlow<DashboardCardConfigViewModel.State> =
+    stateSource: Flow<DashboardCardConfigViewModel.State> =
         MutableStateFlow(DashboardCardConfigViewModel.State()),
     onNavigateUp: () -> Unit = {},
     onToggleVisibility: (DashboardCardType) -> Unit = {},
     onReorder: (List<DashboardCardType>) -> Unit = {},
     onReset: () -> Unit = {},
 ) {
-    val state by stateSource.collectAsStateWithLifecycle()
+    val state by stateSource.collectAsStateWithLifecycle(initialValue = DashboardCardConfigViewModel.State())
     var showMenu by remember { mutableStateOf(false) }
 
     // Local order mirror. Updated instantly during drag (so the LazyColumn reacts).

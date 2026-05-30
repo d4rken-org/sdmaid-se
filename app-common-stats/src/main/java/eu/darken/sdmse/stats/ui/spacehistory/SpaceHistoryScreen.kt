@@ -1,10 +1,10 @@
 package eu.darken.sdmse.stats.ui.spacehistory
 
 import android.text.format.Formatter
-import androidx.compose.foundation.gestures.detectTapGestures
+import android.widget.PopupWindow
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,12 +29,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -210,20 +210,14 @@ private fun StorageChip(
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {
-    Box(
-        modifier = Modifier.pointerInput(label) {
-            detectTapGestures(
-                onTap = { onClick() },
-                onLongPress = { onLongClick() },
-            )
-        },
-    ) {
-        FilterChip(
-            selected = selected,
-            onClick = {},
-            label = { Text(label) },
-        )
-    }
+    // combinedClickable (not a bare pointerInput) so accessibility services get a real onClick
+    // semantic — a FilterChip with an empty onClick + pointerInput is invisible to TalkBack tap.
+    FilterChip(
+        modifier = Modifier.combinedClickable(onClick = onClick, onLongClick = onLongClick),
+        selected = selected,
+        onClick = onClick,
+        label = { Text(label) },
+    )
 }
 
 @Composable
@@ -233,13 +227,23 @@ private fun SpaceHistoryChart(
     reports: List<eu.darken.sdmse.stats.core.db.ReportEntity>,
 ) {
     val labelColorArgb = MaterialTheme.colorScheme.onSurface.toArgb()
+    // Track the live tooltip popup so it can be dismissed when the chart leaves composition
+    // (back-press / navigation) — the legacy Fragment dismissed it in onDestroyView().
+    val activePopup = remember { mutableStateOf<PopupWindow?>(null) }
+    DisposableEffect(Unit) {
+        onDispose {
+            activePopup.value?.dismiss()
+            activePopup.value = null
+        }
+    }
     AndroidView(
         modifier = modifier,
         factory = { context ->
             SpaceHistoryChartView(context).apply {
                 setLabelColor(labelColorArgb)
                 setOnMarkerTapListener { report, screenX, screenY ->
-                    SpaceHistoryMarkerTooltip.show(this, report, screenX, screenY)
+                    activePopup.value?.dismiss()
+                    activePopup.value = SpaceHistoryMarkerTooltip.show(this, report, screenX, screenY)
                 }
             }
         },

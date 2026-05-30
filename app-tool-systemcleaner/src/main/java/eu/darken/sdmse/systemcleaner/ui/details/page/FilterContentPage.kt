@@ -49,6 +49,7 @@ import java.time.format.FormatStyle
 
 @Composable
 internal fun FilterContentPage(
+    modifier: Modifier = Modifier,
     filterContent: FilterContent,
     selection: Set<APath>,
     onSelectionChange: (Set<APath>) -> Unit,
@@ -56,7 +57,6 @@ internal fun FilterContentPage(
     onExcludeFilterRequest: () -> Unit,
     onFileTap: (FilterContentElement.FileRow) -> Unit,
     onPreviewFile: (APath) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     val elements = remember(filterContent) { buildFilterContentElements(filterContent) }
 

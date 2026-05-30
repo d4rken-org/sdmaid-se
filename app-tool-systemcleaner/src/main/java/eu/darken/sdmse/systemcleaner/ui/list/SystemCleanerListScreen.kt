@@ -106,14 +106,16 @@ fun SystemCleanerListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { pendingDeletion = null },
             ),
-            neutral = SdmDialogAction(
+            // Single-item only: onShowDetailsFromDialog opens just the first filter, so offering
+            // it for a multi-select delete would silently ignore the rest (legacy parity).
+            neutral = if (pending.ids.size == 1) SdmDialogAction(
                 label = stringResource(CommonR.string.general_show_details_action),
                 onClick = {
                     val ids = pending.ids
                     pendingDeletion = null
                     vm.onShowDetailsFromDialog(ids)
                 },
-            ),
+            ) else null,
         )
     }
 }
@@ -162,6 +164,7 @@ internal fun SystemCleanerListScreen(
                     actions = {
                         SdmDeleteAction(onClick = {
                             val ids = selection
+                            selection = emptySet()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {

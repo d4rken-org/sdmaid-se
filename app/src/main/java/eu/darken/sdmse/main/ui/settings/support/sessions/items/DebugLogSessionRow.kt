@@ -38,11 +38,11 @@ import java.time.Instant
 
 @Composable
 fun DebugLogSessionRow(
+    modifier: Modifier = Modifier,
     session: DebugLogSession,
     onClick: () -> Unit,
     onDelete: () -> Unit,
     onStop: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
 

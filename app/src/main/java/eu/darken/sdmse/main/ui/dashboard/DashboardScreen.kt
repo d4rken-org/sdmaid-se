@@ -309,7 +309,10 @@ internal fun DashboardScreen(
                 val bottomContentPadding = if (dashboardTourActive) {
                     maxOf(DASHBOARD_BOTTOM_CONTENT_PADDING, maxHeight)
                 } else {
-                    DASHBOARD_BOTTOM_CONTENT_PADDING
+                    // Clear both the bottom bar slot AND the system nav-bar inset; on 3-button-nav
+                    // devices the Scaffold's bottom padding can exceed the fixed constant and clip
+                    // the last card.
+                    DASHBOARD_BOTTOM_CONTENT_PADDING.coerceAtLeast(paddingValues.calculateBottomPadding())
                 }
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),

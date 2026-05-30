@@ -10,12 +10,12 @@ import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormVi
 
 @Composable
 fun ContactFormDescriptionCard(
+    modifier: Modifier = Modifier,
     description: String,
     wordCount: Int,
     minWords: Int,
     category: Category,
     onDescriptionChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     val hintRes = when (category) {
         Category.BUG -> R.string.support_contact_description_bug_hint

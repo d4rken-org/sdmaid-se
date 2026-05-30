@@ -27,9 +27,9 @@ import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormVi
 
 @Composable
 fun ContactFormCategoryCard(
+    modifier: Modifier = Modifier,
     selected: Category,
     onChange: (Category) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier

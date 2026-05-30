@@ -30,6 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.SdmSeLinks
@@ -59,7 +61,9 @@ fun SupportScreenHost(
     var showRecorderConsent by remember { mutableStateOf(false) }
     var showShortRecordingWarning by remember { mutableStateOf(false) }
 
-    LaunchedEffect(Unit) {
+    // Refresh on every resume (legacy onResume parity), so the debug-log session list is current
+    // after returning from RecorderActivity or an external change — not just on first composition.
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         vm.refreshSessions()
     }
 
@@ -119,9 +123,9 @@ fun SupportScreenHost(
             }
         },
         onDebugLogFolderClick = { vm.navTo(DebugLogSessionsRoute) },
-        onDocumentationClick = { vm.openUrl("https://github.com/d4rken-org/sdmaid-se/wiki") },
-        onIssueTrackerClick = { vm.openUrl("https://github.com/d4rken-org/sdmaid-se/issues") },
-        onDiscordClick = { vm.openUrl("https://discord.gg/8Fjy6PTfXu") },
+        onDocumentationClick = { vm.openUrl(SdmSeLinks.WIKI) },
+        onIssueTrackerClick = { vm.openUrl(SdmSeLinks.ISSUES) },
+        onDiscordClick = { vm.openUrl(SdmSeLinks.DISCORD) },
     )
 }
 

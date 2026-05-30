@@ -41,7 +41,6 @@ import java.time.format.FormatStyle
 fun AffectedPkgsHeaderItem(
     modifier: Modifier = Modifier,
     report: Report,
-    rowCount: Int,
 ) {
     val context = LocalContext.current
     val formattedDate = remember(report.startAt) {
@@ -127,7 +126,6 @@ private fun AffectedPkgsHeaderItemPreview() {
                 affectedCount = 42,
                 affectedSpace = 12_345_678L,
             ),
-            rowCount = 42,
         )
     }
 }
@@ -144,7 +142,6 @@ private fun AffectedPkgsHeaderItemNoSizePreview() {
                 affectedCount = 12,
                 affectedSpace = null,
             ),
-            rowCount = 12,
         )
     }
 }

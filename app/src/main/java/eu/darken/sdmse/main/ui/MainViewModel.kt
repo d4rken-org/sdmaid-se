@@ -21,7 +21,6 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -44,8 +43,6 @@ class MainViewModel @Inject constructor(
     } else {
         OnboardingWelcomeRoute
     }
-
-    val state: Flow<State> = MutableStateFlow(State())
 
     val keepScreenOn: Flow<Boolean> = taskManager.state
         .map { !it.isIdle || BuildConfigWrap.DEBUG }
@@ -77,10 +74,6 @@ class MainViewModel @Inject constructor(
                 errorEvents.tryEmit(error)
             }
     }
-
-    data class State(
-        val ready: Boolean = false,
-    )
 
     companion object {
         private val TAG = logTag("MainActivity", "ViewModel")

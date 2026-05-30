@@ -23,19 +23,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentItem
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.labelRes
 
 @Composable
 internal fun ContentItemRow(
+    modifier: Modifier = Modifier,
     item: Item,
     isSelected: Boolean,
     isSelectionMode: Boolean,
-    modifier: Modifier = Modifier,
     onTap: () -> Unit = {},
     onLongPress: () -> Unit = {},
 ) {
@@ -112,9 +117,15 @@ internal fun ContentItemRow(
                         Spacer(Modifier.width(6.dp))
                         Icon(
                             imageVector = content.type.icon,
-                            contentDescription = null,
+                            contentDescription = stringResource(content.type.labelRes),
                             modifier = Modifier.size(14.dp),
                             tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Spacer(Modifier.width(4.dp))
+                        Text(
+                            text = stringResource(content.type.labelRes),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
                 }
@@ -128,5 +139,26 @@ internal fun ContentItemRow(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentItemRowPreview() {
+    PreviewWrapper {
+        ContentItemRow(
+            item = Item(
+                parent = null,
+                content = previewContentItem(
+                    segments = arrayOf("storage", "emulated", "0", "Download", "report.pdf"),
+                    type = FileType.FILE,
+                    size = 8L * 1024 * 1024,
+                    withLookup = false,
+                ),
+                sizeRatio = 0.5f,
+            ),
+            isSelected = false,
+            isSelectionMode = false,
+        )
     }
 }

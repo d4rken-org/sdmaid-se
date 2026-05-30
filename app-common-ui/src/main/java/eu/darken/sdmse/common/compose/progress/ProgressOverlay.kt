@@ -1,12 +1,12 @@
 package eu.darken.sdmse.common.compose.progress
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.EaseOutCubic
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -47,11 +48,18 @@ fun ProgressOverlay(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
+    // Fade the content out as the overlay fades in (over the same window) instead of snapping it to
+    // alpha 0, so there's no hard flicker when the overlay appears/disappears.
+    val contentAlpha by animateFloatAsState(
+        targetValue = if (data != null) 0f else 1f,
+        animationSpec = tween(ENTRANCE_DURATION_MS),
+        label = "progressContentAlpha",
+    )
     Box(modifier = modifier) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .alpha(if (data != null) 0f else 1f),
+                .alpha(contentAlpha),
         ) {
             content()
         }
@@ -60,8 +68,10 @@ fun ProgressOverlay(
             modifier = Modifier.fillMaxSize(),
             enter = fadeIn(animationSpec = tween(ENTRANCE_DURATION_MS, easing = EaseOutCubic)) +
                 scaleIn(animationSpec = tween(ENTRANCE_DURATION_MS, easing = EaseOutCubic), initialScale = 0.94f),
-            exit = fadeOut(animationSpec = tween(ENTRANCE_DURATION_MS)) +
-                scaleOut(animationSpec = tween(ENTRANCE_DURATION_MS), targetScale = 0.94f),
+            // No exit animation (matches legacy View.GONE): an exit transition keeps the panel — and
+            // its pointer-swallowing input — composed for ~180ms after data becomes null, blocking
+            // taps on the now-revealed content and briefly rendering empty Progress.Data().
+            exit = ExitTransition.None,
         ) {
             val current = data ?: Progress.Data()
             ProgressOverlayPanel(data = current)
@@ -142,7 +152,8 @@ private fun DeterminateIndicator(
     maxValue: Long,
     text: String?,
 ) {
-    val useIndeterminate = currentValue == 0L || maxValue == 0L
+    // Only indeterminate when the total is unknown; current==0 with a known max is a valid 0% start.
+    val useIndeterminate = maxValue == 0L
     Box(modifier = Modifier.wrapContentSize(), contentAlignment = Alignment.Center) {
         if (useIndeterminate) {
             CircularProgressIndicator(modifier = Modifier.size(56.dp))

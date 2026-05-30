@@ -69,9 +69,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import java.io.File
 import java.time.Duration
 import eu.darken.sdmse.common.R as CommonR
@@ -83,7 +86,7 @@ fun RecorderScreenHost(
     onLaunchShare: (Intent) -> Unit,
     onClose: () -> Unit,
 ) {
-    ErrorEventHandler(vm.errorEvents)
+    ErrorEventHandler(vm)
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -203,7 +206,7 @@ private fun RecorderHeroCard() {
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = "Export debug information for troubleshooting",
+            text = stringResource(R.string.debug_debuglog_screen_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
@@ -568,16 +571,34 @@ private fun RecorderActionBar(
     }
 }
 
-@Suppress("unused")
-internal fun shareLaunchHandler(
-    onLaunch: (Intent) -> Unit,
-    onError: (Throwable) -> Unit,
-): (Intent) -> Unit = { intent ->
-    try {
-        onLaunch(intent)
-    } catch (e: ActivityNotFoundException) {
-        onError(e)
-    } catch (e: SecurityException) {
-        onError(e)
+@Preview2
+@Composable
+private fun RecorderScreenPreview() {
+    PreviewWrapper {
+        RecorderScreen(
+            stateSource = flowOf(
+                RecorderViewModel.State(
+                    logDir = File("/storage/emulated/0/Android/data/eu.darken.sdmse/files/debug/logs"),
+                    logEntries = listOf(
+                        RecorderViewModel.LogFileEntry(
+                            path = File("/storage/emulated/0/.../sdmse_log_001.log"),
+                            size = 1_048_576L,
+                        ),
+                        RecorderViewModel.LogFileEntry(
+                            path = File("/storage/emulated/0/.../sdmse_log_002.log"),
+                            size = 524_288L,
+                        ),
+                    ),
+                    compressedFile = File("/storage/emulated/0/.../sdmse_logs.zip"),
+                    compressedSize = 262_144L,
+                    recordingDuration = Duration.ofSeconds(95),
+                )
+            ),
+            onShare = {},
+            onClose = {},
+            onDelete = {},
+            onPrivacyPolicy = {},
+        )
     }
 }
+

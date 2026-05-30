@@ -1,6 +1,5 @@
 package eu.darken.sdmse.scheduler.ui.manager
 
-import android.content.ActivityNotFoundException
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -79,7 +78,7 @@ fun SchedulerManagerScreenHost(
                     runCatching { context.startActivity(event.intent) }
                         .onFailure { error ->
                             log(TAG, WARN) { "Battery optimization intent failed: $error" }
-                            vm.onBatteryIntentFailed(error as? ActivityNotFoundException ?: error)
+                            vm.onBatteryIntentFailed(error)
                         }
                 }
             }

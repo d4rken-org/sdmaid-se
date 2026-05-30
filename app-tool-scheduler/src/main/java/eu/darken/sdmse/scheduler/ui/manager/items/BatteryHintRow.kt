@@ -30,9 +30,9 @@ import eu.darken.sdmse.scheduler.R
 
 @Composable
 internal fun BatteryHintRow(
+    modifier: Modifier = Modifier,
     onFix: () -> Unit,
     onDismiss: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),

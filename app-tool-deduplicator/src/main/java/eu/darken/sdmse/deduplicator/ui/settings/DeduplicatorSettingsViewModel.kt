@@ -13,12 +13,10 @@ import eu.darken.sdmse.common.picker.PickerResultKey
 import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.uix.ViewModel4
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -26,7 +24,6 @@ import javax.inject.Inject
 @HiltViewModel
 class DeduplicatorSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    upgradeRepo: UpgradeRepo,
     private val settings: DeduplicatorSettings,
     navCtrl: NavigationController,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
@@ -66,13 +63,11 @@ class DeduplicatorSettingsViewModel @Inject constructor(
         SleuthFlags(checksum, phash, media)
     }
 
-    val state: StateFlow<State> = combine(
-        upgradeRepo.upgradeInfo.map { it.isPro },
+    val state: StateFlow<State> = kotlinx.coroutines.flow.combine(
         topFlagsFlow,
         sleuthFlagsFlow,
-    ) { isPro, top, sleuth ->
+    ) { top, sleuth ->
         State(
-            isPro = isPro,
             scanPaths = top.scanPaths,
             allowDeleteAll = top.allowDeleteAll,
             minSizeBytes = top.minSizeBytes,
@@ -132,7 +127,6 @@ class DeduplicatorSettingsViewModel @Inject constructor(
     fun setSleuthMediaEnabled(value: Boolean) = launch { settings.isSleuthMediaEnabled.value(value) }
 
     data class State(
-        val isPro: Boolean = false,
         val scanPaths: List<APath> = emptyList(),
         val allowDeleteAll: Boolean = false,
         val minSizeBytes: Long = DeduplicatorSettings.MIN_FILE_SIZE,

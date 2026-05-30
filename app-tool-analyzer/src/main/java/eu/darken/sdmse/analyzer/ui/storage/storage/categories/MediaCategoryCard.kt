@@ -25,14 +25,19 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentGroup
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentViewModel
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import kotlin.math.roundToInt
 
 @Composable
 internal fun MediaCategoryCard(
-    row: StorageContentViewModel.Row.Media,
     modifier: Modifier = Modifier,
+    row: StorageContentViewModel.Row.Media,
     onClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -86,5 +91,23 @@ internal fun MediaCategoryCard(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun MediaCategoryCardPreview() {
+    val storage = previewDeviceStorage()
+    PreviewWrapper {
+        MediaCategoryCard(
+            row = StorageContentViewModel.Row.Media(
+                storage = storage,
+                category = MediaCategory(
+                    storageId = storage.id,
+                    groups = listOf(previewContentGroup(label = "Media")),
+                ),
+            ),
+            onClick = {},
+        )
     }
 }

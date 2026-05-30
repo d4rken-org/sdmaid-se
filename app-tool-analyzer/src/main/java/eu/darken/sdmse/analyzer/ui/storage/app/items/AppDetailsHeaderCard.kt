@@ -31,14 +31,19 @@ import coil.request.ImageRequest
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewInstalled
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewPkgStat
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 internal fun AppDetailsHeaderCard(
+    modifier: Modifier = Modifier,
     storage: DeviceStorage,
     pkgStat: AppCategory.PkgStat,
-    modifier: Modifier = Modifier,
     onSettingsClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -110,5 +115,19 @@ internal fun AppDetailsHeaderCard(
                 Text(stringResource(CommonR.string.appcontrol_systemsettings_open_title))
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppDetailsHeaderCardPreview() {
+    PreviewWrapper {
+        AppDetailsHeaderCard(
+            storage = previewDeviceStorage(),
+            pkgStat = previewPkgStat(
+                pkg = previewInstalled(pkgName = "com.example.app", label = "Example App"),
+            ),
+            onSettingsClick = {},
+        )
     }
 }

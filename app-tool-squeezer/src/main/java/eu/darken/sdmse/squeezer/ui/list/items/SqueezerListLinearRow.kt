@@ -27,10 +27,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.SelectableListRow
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
+import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
 
 @Composable
 internal fun SqueezerListLinearRow(
@@ -112,6 +116,29 @@ internal fun SqueezerListLinearRow(
                 },
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.primary,
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun SqueezerListLinearRowPreview() {
+    PreviewWrapper {
+        Column {
+            SqueezerListLinearRow(
+                media = previewCompressibleImage(),
+                isSelected = false,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+            SqueezerListLinearRow(
+                media = previewCompressibleVideo(),
+                isSelected = true,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
             )
         }
     }
