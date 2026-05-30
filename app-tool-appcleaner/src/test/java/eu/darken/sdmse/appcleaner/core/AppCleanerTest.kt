@@ -18,6 +18,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -89,6 +91,11 @@ class AppCleanerTest : BaseTest() {
         override val isComplete: Boolean = complete
     }
 
+    private fun mockUpgradeRepo(pro: Boolean): UpgradeRepo {
+        val info = mockk<UpgradeRepo.Info>().apply { every { isPro } returns pro }
+        return mockk<UpgradeRepo>(relaxed = true) { every { upgradeInfo } returns flowOf(info) }
+    }
+
     private fun setupCleaner(
         inventoryComplete: Boolean = true,
         usageStatsComplete: Boolean = true,
@@ -96,6 +103,7 @@ class AppCleanerTest : BaseTest() {
         useAdb: Boolean = false,
         scanResults: List<AppJunk> = emptyList(),
         savedExclusions: Collection<Exclusion> = emptyList(),
+        isPro: Boolean = true,
     ): Setup {
         val fileForensics = mockk<FileForensics>().apply {
             every { sharedResource } returns SharedResource.createKeepAlive("ff", keepAliveScope)
@@ -149,6 +157,7 @@ class AppCleanerTest : BaseTest() {
             shellOps = shellOps,
             filterFactories = emptySet(),
             appInventorySetupModule = inventorySetup,
+            upgradeRepo = mockUpgradeRepo(isPro),
         )
         return Setup(cleaner, scanner, exclusionManager, inventorySetup)
     }
@@ -473,6 +482,30 @@ class AppCleanerTest : BaseTest() {
         result.affectedPaths shouldBe emptySet()
     }
 
+    // ─────────────────────────── Pro gating ───────────────────────────
+
+    @Test
+    fun `submit ProcessingTask is denied with UpgradeRequiredException when not Pro`() = runTest2 {
+        val setup = setupCleaner(isPro = false)
+        // The gate throws before any processing work. If it didn't fire, performProcessing would
+        // reach the inaccessibleDeleterProvider (which error()s here) and throw a different type —
+        // so an UpgradeRequiredException proves the gate short-circuited at the boundary.
+        shouldThrow<UpgradeRequiredException> {
+            setup.cleaner.submit(AppCleanerProcessingTask())
+        }
+    }
+
+    @Test
+    fun `submit ScanTask still succeeds when not Pro`() = runTest2 {
+        // Scanning is free; only deletion/processing is Pro-gated.
+        val a = appJunk("com.example.a")
+        val setup = setupCleaner(isPro = false, scanResults = listOf(a))
+
+        val result = setup.cleaner.submit(AppCleanerScanTask())
+
+        result.shouldBeInstanceOf<AppCleanerScanTask.Success>()
+    }
+
     /**
      * Re-build a cleaner with the same mocks but a different InaccessibleDeleter. Used by chained-
      * task tests where the OneClick/Scheduler path actually walks the deletion code.
@@ -520,6 +553,7 @@ class AppCleanerTest : BaseTest() {
             shellOps = shellOps,
             filterFactories = emptySet(),
             appInventorySetupModule = inventorySetup,
+            upgradeRepo = mockUpgradeRepo(pro = true),
         )
         return Setup(cleaner, setup.scanner, setup.exclusionManager, inventorySetup)
     }

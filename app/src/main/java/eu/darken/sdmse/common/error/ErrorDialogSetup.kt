@@ -5,6 +5,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import eu.darken.sdmse.setup.IncompleteSetupException
@@ -44,6 +46,11 @@ private fun IncompleteSetupException.toLocalizedError(): LocalizedError = Locali
 fun installErrorDialogCustomizer() {
     errorDialogCustomizer = { error, activity ->
         when {
+            error is UpgradeRequiredException -> error.getLocalizedError().copy(
+                fixActionLabel = eu.darken.sdmse.common.R.string.general_upgrade_action.toCaString(),
+                fixActionRoute = UpgradeRoute(),
+            )
+
             error is IncompleteSetupException -> error.toLocalizedError()
             error is WriteException && error.path != null -> {
                 error.localized(activity).copy(

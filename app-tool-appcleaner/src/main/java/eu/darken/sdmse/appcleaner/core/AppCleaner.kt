@@ -39,6 +39,9 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
+import eu.darken.sdmse.common.upgrade.isProSettled
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
@@ -60,6 +63,14 @@ import eu.darken.sdmse.setup.SetupBinding
 import javax.inject.Provider
 import javax.inject.Singleton
 
+private val AppCleanerTask.requiresPro: Boolean
+    get() = when (this) {
+        is AppCleanerScanTask -> false
+        is AppCleanerProcessingTask -> true
+        is AppCleanerSchedulerTask -> true
+        is AppCleanerOneClickTask -> true
+    }
+
 @Singleton
 class AppCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -75,6 +86,7 @@ class AppCleaner @Inject constructor(
     private val shellOps: ShellOps,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
+    private val upgradeRepo: UpgradeRepo,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -107,8 +119,21 @@ class AppCleaner @Inject constructor(
     }.replayingShare(appScope)
 
     private val toolLock = Mutex()
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         task as AppCleanerTask
+
+        // Pro gate at the API boundary: defense-in-depth so a UI mistake can't run a Pro-only task
+        // for free. Checked before acquiring toolLock so the (possibly waiting) Pro check never
+        // holds the lock and blocks other submits.
+        if (task.requiresPro && !upgradeRepo.isProSettled()) {
+            log(TAG, WARN) { "submit() denied, Pro upgrade required: $task" }
+            throw UpgradeRequiredException(type)
+        }
+
+        return performTask(task)
+    }
+
+    private suspend fun performTask(task: AppCleanerTask): SDMTool.Task.Result = toolLock.withLock {
         log(TAG) { "submit(): Starting...$task" }
         updateProgress { Progress.Data() }
         try {
