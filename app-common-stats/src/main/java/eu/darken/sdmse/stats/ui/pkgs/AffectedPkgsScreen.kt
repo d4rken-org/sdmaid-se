@@ -110,7 +110,6 @@ internal fun AffectedPkgsScreen(
                 item(key = "header") {
                     AffectedPkgsHeaderItem(
                         report = s.report,
-                        rowCount = s.rows.size,
                     )
                 }
                 items(s.rows, key = { it.affectedPkg.pkgId.name + ":" + it.affectedPkg.action.name }) { row ->

@@ -143,7 +143,7 @@ internal fun DataAreasScreen(
                     .fillMaxSize()
                     .padding(paddingValues),
             ) {
-                items(areas.toList()) { area ->
+                items(areas.toList(), key = { it.path.path }) { area ->
                     DataAreaRow(area = area)
                     HorizontalDivider()
                 }

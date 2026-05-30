@@ -302,7 +302,12 @@ class PickerViewModel @Inject constructor(
      */
     fun cancel(confirmed: Boolean = false) {
         log(TAG) { "cancel(confirmed=$confirmed)" }
-        if (!confirmed && state.value.hasChanges) {
+        // Read hasChanges from the in-memory sources, not state.value: the WhileSubscribed(5000)
+        // StateFlow can briefly hold the initial State(hasChanges=false) after a background gap,
+        // which would silently skip the discard-confirmation. Mirrors save()'s direct reads.
+        val req = requestFlow.value
+        val hasChanges = req != null && selectedItems.value.map { it.lookedUp } != req.selectedPaths
+        if (!confirmed && hasChanges) {
             events.tryEmit(Event.ExitConfirmation)
             return
         }

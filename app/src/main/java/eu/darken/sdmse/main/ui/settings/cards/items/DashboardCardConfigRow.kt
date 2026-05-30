@@ -27,11 +27,11 @@ import eu.darken.sdmse.common.ui.R as UiR
 
 @Composable
 fun DashboardCardConfigRow(
+    modifier: Modifier = Modifier,
     type: DashboardCardType,
     isVisible: Boolean,
     onToggleVisibility: () -> Unit,
     dragHandle: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier

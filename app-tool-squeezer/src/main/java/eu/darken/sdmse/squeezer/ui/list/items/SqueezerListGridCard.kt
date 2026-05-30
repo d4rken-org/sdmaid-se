@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,9 +30,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
+import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
 
 @Composable
 internal fun SqueezerListGridCard(
@@ -118,6 +123,31 @@ internal fun SqueezerListGridCard(
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun SqueezerListGridCardPreview() {
+    PreviewWrapper {
+        Row {
+            SqueezerListGridCard(
+                modifier = Modifier.weight(1f),
+                media = previewCompressibleImage(),
+                isSelected = false,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+            SqueezerListGridCard(
+                modifier = Modifier.weight(1f),
+                media = previewCompressibleVideo(),
+                isSelected = true,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
         }
     }
 }

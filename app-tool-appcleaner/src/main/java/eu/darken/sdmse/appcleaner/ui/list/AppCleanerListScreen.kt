@@ -123,14 +123,15 @@ fun AppCleanerListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { pendingDeletion = null },
             ),
-            neutral = SdmDialogAction(
+            // Single-item only: onShowDetailsFromDialog navigates to just the first app, so showing
+            // it for a multi-select delete would silently drop the rest (legacy parity).
+            neutral = if (singleId != null) SdmDialogAction(
                 label = stringResource(CommonR.string.general_show_details_action),
                 onClick = {
-                    val ids = pending.ids
                     pendingDeletion = null
-                    vm.onShowDetailsFromDialog(ids)
+                    vm.onShowDetailsFromDialog(setOf(singleId))
                 },
-            ),
+            ) else null,
         )
     }
 }
@@ -242,6 +243,7 @@ internal fun AppCleanerListScreen(
                     actions = {
                         SdmDeleteAction(onClick = {
                             val ids = selection
+                            selection = emptySet()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {

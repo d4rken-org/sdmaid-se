@@ -22,7 +22,7 @@ class DataAreasViewModel @Inject constructor(
     private val dataAreaManager: DataAreaManager,
     private val taskManager: TaskManager,
     private val webpageTool: WebpageTool,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     private val isReloading = MutableStateFlow(false)
 

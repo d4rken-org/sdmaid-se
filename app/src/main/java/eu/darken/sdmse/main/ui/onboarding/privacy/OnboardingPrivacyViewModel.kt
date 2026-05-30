@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel4
@@ -54,12 +54,13 @@ class OnboardingPrivacyViewModel @Inject constructor(
 
     fun toggleMotd() {
         log(TAG) { "toggleMotd()" }
-        motdSettings.isMotdEnabled.valueBlocking = !motdSettings.isMotdEnabled.valueBlocking
+        // Use the suspend value() on vmScope instead of valueBlocking (runBlocking on the main thread).
+        launch { motdSettings.isMotdEnabled.value(!motdSettings.isMotdEnabled.value()) }
     }
 
     fun toggleUpdateCheck() {
         log(TAG) { "toggleUpdateCheck()" }
-        generalSettings.isUpdateCheckEnabled.valueBlocking = !generalSettings.isUpdateCheckEnabled.valueBlocking
+        launch { generalSettings.isUpdateCheckEnabled.value(!generalSettings.isUpdateCheckEnabled.value()) }
     }
 
     data class State(

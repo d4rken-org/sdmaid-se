@@ -28,6 +28,7 @@ private const val MAX_TEXT_LENGTH = 5000
  */
 @Composable
 internal fun ContactFormTextFieldCard(
+    modifier: Modifier = Modifier,
     value: String,
     labelRes: Int,
     hint: String,
@@ -35,7 +36,6 @@ internal fun ContactFormTextFieldCard(
     minWords: Int,
     minLines: Int,
     onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     val colors = MaterialTheme.colorScheme
     val counterColor = when {

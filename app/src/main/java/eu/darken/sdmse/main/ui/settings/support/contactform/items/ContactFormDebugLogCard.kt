@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BugReport
-import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material3.Button
@@ -39,12 +38,12 @@ import java.io.File
 
 @Composable
 fun ContactFormDebugLogCard(
+    modifier: Modifier = Modifier,
     pickerState: LogPickerState,
     onSelectSession: (SessionId) -> Unit,
     onDeleteSession: (SessionId) -> Unit,
     onStartRecording: () -> Unit,
     onStopRecording: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier

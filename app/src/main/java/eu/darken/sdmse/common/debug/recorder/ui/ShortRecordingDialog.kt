@@ -5,6 +5,8 @@ import androidx.compose.ui.res.stringResource
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun ShortRecordingDialog(
@@ -34,4 +36,16 @@ fun ShortRecordingDialog(
             },
         ),
     )
+}
+
+@Preview2
+@Composable
+private fun ShortRecordingDialogPreview() {
+    PreviewWrapper {
+        ShortRecordingDialog(
+            onContinue = {},
+            onStopAnyway = {},
+            onDismiss = {},
+        )
+    }
 }

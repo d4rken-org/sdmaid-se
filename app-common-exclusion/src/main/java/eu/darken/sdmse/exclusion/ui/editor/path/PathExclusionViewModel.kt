@@ -50,15 +50,6 @@ class PathExclusionViewModel @Inject constructor(
     private val lookupFlow = MutableStateFlow<APathLookup<*>?>(null)
     private val fatalFlow = MutableStateFlow(false)
 
-    init {
-        navCtrl.consumeResults(PickerResultKey(PICKER_REQUEST_KEY))
-            .onEach { result ->
-                log(TAG) { "Picker returned ${result.selectedPaths.size} paths" }
-                result.selectedPaths.firstOrNull()?.let { updatePath(it) }
-            }
-            .launchIn(vmScope)
-    }
-
     fun setArgs(exclusionId: String?, initial: PathExclusionEditorOptions?) {
         if (routeFlow.value != null) return
         if (exclusionId == null && initial == null) {
@@ -89,6 +80,16 @@ class PathExclusionViewModel @Inject constructor(
         originalFlow.value = orig
         currentFlow.value = initial
         lookupFlow.value = safeLookup(initial.path)
+
+        // Subscribe to picker results only AFTER hydration: consumeResults() is replay-1, so a result
+        // already waiting (set before the VM existed) would otherwise fire while currentFlow is still
+        // null, making updatePath() silently no-op.
+        navCtrl.consumeResults(PickerResultKey(PICKER_REQUEST_KEY))
+            .onEach { result ->
+                log(TAG) { "Picker returned ${result.selectedPaths.size} paths" }
+                result.selectedPaths.firstOrNull()?.let { updatePath(it) }
+            }
+            .launchIn(vmScope)
     }
 
     private suspend fun safeLookup(path: APath): APathLookup<*>? = try {

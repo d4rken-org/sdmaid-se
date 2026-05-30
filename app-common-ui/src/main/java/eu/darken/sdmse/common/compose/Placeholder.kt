@@ -8,7 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun Placeholder(text: String = "Compose is working") {
@@ -19,10 +20,10 @@ fun Placeholder(text: String = "Compose is working") {
     }
 }
 
-@Preview(showBackground = true)
+@Preview2
 @Composable
 private fun PlaceholderPreview() {
-    MaterialTheme {
+    PreviewWrapper {
         Placeholder()
     }
 }

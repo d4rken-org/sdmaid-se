@@ -245,6 +245,18 @@ class DeduplicatorListViewModel @Inject constructor(
         events.tryEmit(Event.ExclusionsCreated(count = undo.exclusionIds.size))
     }
 
+    /**
+     * Cluster-level exclusion for the selection-mode "exclude selected" action — matches legacy,
+     * which excluded whole clusters (and removed them from the list) rather than pruning individual
+     * duplicate paths (which leaves the cluster partially populated and still visible).
+     */
+    fun excludeClusterIds(clusterIds: Set<Duplicate.Cluster.Id>) = launch {
+        if (clusterIds.isEmpty()) return@launch
+        log(TAG, INFO) { "excludeClusterIds(${clusterIds.size})" }
+        val undo = deduplicator.exclude(clusterIds)
+        events.tryEmit(Event.ExclusionsCreated(count = undo.exclusionIds.size))
+    }
+
     fun toggleLayoutMode() = launch {
         log(TAG, INFO) { "toggleLayoutMode()" }
         when (settings.layoutMode.value()) {

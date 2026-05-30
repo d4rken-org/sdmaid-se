@@ -125,6 +125,17 @@ class StorageContentViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Auto-exit when the target storage is gone (State.NotFound). Always navigates up — unlike
+     * [onNavigateBack], which keeps the user on-screen to cancel an in-flight scan. Cancelling a
+     * scan never restores a missing storage, so staying would strand the user on a blank screen.
+     */
+    fun exitOnNotFound() = launch {
+        log(TAG) { "exitOnNotFound()" }
+        taskSubmitter.cancel(SDMTool.Type.ANALYZER)
+        navUp()
+    }
+
     fun onCategoryClick(row: Row) = launch {
         val storageId = routeFlow.value?.storageId ?: return@launch
         when (row) {

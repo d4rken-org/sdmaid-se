@@ -311,7 +311,10 @@ class SwiperSwipeViewModel @Inject constructor(
         val showGestureOverlay: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
-        val nextItem: SwipeItem? = items.getOrNull(currentIndex + 1) ?: items.firstOrNull { it != currentItem }
+        // Strict next item only (legacy parity). The previous `?: firstOrNull { it != current }`
+        // fallback showed an arbitrary earlier (often already-decided) card as the back-card when
+        // the current item was last — misrepresenting what will actually be processed next.
+        val nextItem: SwipeItem? = items.getOrNull(currentIndex + 1)
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label

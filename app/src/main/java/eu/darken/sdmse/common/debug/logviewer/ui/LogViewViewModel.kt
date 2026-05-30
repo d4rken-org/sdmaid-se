@@ -26,7 +26,9 @@ class LogViewViewModel @Inject constructor(
 
     val log: Flow<List<String>> = logViewLogger.lines
         .map { line ->
-            currentLog.add(line.message)
+            // Prefix the priority (e.g. "D | …") so DEBUG/WARN/ERROR lines are distinguishable
+            // (legacy LogViewerAdapter parity).
+            currentLog.add("${line.priority.shortLabel} | ${line.message}")
             if (currentLog.size > 50) currentLog.removeFirst()
             currentLog.toList()
         }

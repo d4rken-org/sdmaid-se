@@ -9,21 +9,26 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.Save
+import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -74,6 +79,7 @@ fun PickerScreenHost(
 
     PickerScreen(
         stateSource = vm.state,
+        onNavigateUp = vm::goBack,
         onCancel = vm::cancel,
         onSave = vm::save,
         onHome = vm::home,
@@ -102,9 +108,11 @@ fun PickerScreenHost(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun PickerScreen(
     stateSource: StateFlow<PickerViewModel.State> = MutableStateFlow(PickerViewModel.State()),
+    onNavigateUp: () -> Unit = {},
     onCancel: () -> Unit = {},
     onSave: () -> Unit = {},
     onHome: () -> Unit = {},
@@ -118,7 +126,24 @@ internal fun PickerScreen(
 
     val navigatable = state.current != null
 
-    Scaffold(
+    val sheetScaffoldState = rememberBottomSheetScaffoldState()
+    val hasSelection = state.selected.isNotEmpty()
+    LaunchedEffect(hasSelection) {
+        // Auto-expand the selected-paths sheet on the first selection; collapse to peek when empty
+        // (legacy BottomSheetBehavior parity).
+        if (hasSelection) sheetScaffoldState.bottomSheetState.expand()
+        else sheetScaffoldState.bottomSheetState.partialExpand()
+    }
+
+    BottomSheetScaffold(
+        scaffoldState = sheetScaffoldState,
+        sheetPeekHeight = 72.dp,
+        sheetContent = {
+            SelectedPathsPanel(
+                selected = state.selected,
+                onRemoveSelected = onRemoveSelected,
+            )
+        },
         topBar = {
             TopAppBar(
                 title = {
@@ -133,7 +158,9 @@ internal fun PickerScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onCancel) {
+                    // Inside a folder the arrow steps up one level (goBack); at the area root it
+                    // shows Close and cancels the picker — matching the legacy nav-icon behavior.
+                    IconButton(onClick = if (navigatable) onNavigateUp else onCancel) {
                         if (navigatable) {
                             Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
                         } else {
@@ -167,22 +194,27 @@ internal fun PickerScreen(
             )
         },
     ) { paddingValues ->
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            Box(modifier = Modifier.weight(1f)) {
-                if (state.progress != null) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        CircularProgressIndicator()
-                    }
-                } else {
-                    LazyColumn(modifier = Modifier.fillMaxSize()) {
-                        items(state.items, key = { it.id }) { row ->
+            if (state.progress != null) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    CircularProgressIndicator()
+                }
+            } else {
+                // Adaptive grid: one column on phones (identical to the legacy list, dividers kept),
+                // multiple columns on wide/tablet layouts (legacy GridLayoutManager getSpanCount parity).
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(minSize = 360.dp),
+                    modifier = Modifier.fillMaxSize(),
+                ) {
+                    items(state.items, key = { it.id }) { row ->
+                        Column {
                             PickerItemRow(
                                 row = row,
                                 onClick = { onRowClick(row) },
@@ -193,11 +225,6 @@ internal fun PickerScreen(
                     }
                 }
             }
-
-            SelectedPathsPanel(
-                selected = state.selected,
-                onRemoveSelected = onRemoveSelected,
-            )
         }
     }
 }

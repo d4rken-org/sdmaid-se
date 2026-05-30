@@ -25,14 +25,19 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentGroup
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentViewModel
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import kotlin.math.roundToInt
 
 @Composable
 internal fun SystemCategoryCard(
-    row: StorageContentViewModel.Row.System,
     modifier: Modifier = Modifier,
+    row: StorageContentViewModel.Row.System,
     onClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -90,5 +95,24 @@ internal fun SystemCategoryCard(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SystemCategoryCardPreview() {
+    val storage = previewDeviceStorage()
+    PreviewWrapper {
+        SystemCategoryCard(
+            row = StorageContentViewModel.Row.System(
+                storage = storage,
+                category = SystemCategory(
+                    storageId = storage.id,
+                    groups = listOf(previewContentGroup(label = "System")),
+                    isBrowsable = true,
+                ),
+            ),
+            onClick = {},
+        )
     }
 }

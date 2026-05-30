@@ -116,7 +116,8 @@ fun ExclusionListScreenHost(
                             count,
                         ),
                         actionLabel = context.getString(CommonR.string.general_undo_action),
-                        duration = SnackbarDuration.Long,
+                        // Indefinite (legacy used LENGTH_INDEFINITE): give unlimited time to undo a removal.
+                        duration = SnackbarDuration.Indefinite,
                     )
                     if (result == SnackbarResult.ActionPerformed) {
                         vm.restore(event.exclusions)
@@ -231,15 +232,15 @@ internal fun ExclusionListScreen(
                             expanded = overflowExpanded,
                             onDismissRequest = { overflowExpanded = false },
                         ) {
-                            if (state.showDefaults) {
-                                DropdownMenuItem(
-                                    text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
-                                    onClick = {
-                                        overflowExpanded = false
-                                        onResetDefaults()
-                                    },
-                                )
-                            }
+                            // Always shown (legacy parity): "Reset defaults" is independent of "Show
+                            // defaults". Gating it behind showDefaults made it unreachable by default.
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
+                                onClick = {
+                                    overflowExpanded = false
+                                    onResetDefaults()
+                                },
+                            )
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.exclusion_show_defaults_action)) },
                                 onClick = {

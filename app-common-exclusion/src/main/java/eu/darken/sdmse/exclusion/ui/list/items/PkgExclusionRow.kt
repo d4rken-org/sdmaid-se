@@ -1,16 +1,19 @@
 package eu.darken.sdmse.exclusion.ui.list.items
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -33,12 +36,20 @@ fun PkgExclusionRow(
         onLongClick = onLongClick,
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
     ) {
-        row.pkg?.let {
-            AsyncImage(
-                modifier = Modifier.size(32.dp),
-                model = it,
-                contentDescription = null,
-            )
+        Box(modifier = Modifier.size(32.dp), contentAlignment = Alignment.Center) {
+            if (row.pkg != null) {
+                AsyncImage(
+                    modifier = Modifier.size(32.dp),
+                    model = row.pkg,
+                    contentDescription = null,
+                )
+            } else {
+                Icon(
+                    imageVector = Icons.TwoTone.Apps,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
         Spacer(Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {

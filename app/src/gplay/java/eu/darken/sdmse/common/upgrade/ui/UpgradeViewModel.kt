@@ -19,9 +19,12 @@ import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
@@ -36,19 +39,31 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    private val route = UpgradeRoute.from(handle)
+    // Route is bound from the Host via bindRoute(); SavedStateHandle.toRoute<>() crashes under Nav3.
+    private val routeFlow = MutableStateFlow<UpgradeRoute?>(null)
     private var hasShownRepoError: Boolean = false
     private var hasShownServiceUnavailableError: Boolean = false
     val events = SingleEventFlow<UpgradeEvents>()
 
+    fun bindRoute(route: UpgradeRoute) {
+        if (routeFlow.value != null) return
+        routeFlow.value = route
+    }
+
     init {
-        if (!route.forced) {
-            upgradeRepo.upgradeInfo
-                .filter { it.isPro }
-                .take(1)
-                .onEach { navUp() }
-                .launchInViewModel()
-        }
+        routeFlow
+            .filterNotNull()
+            .take(1)
+            .onEach { route ->
+                if (!route.forced) {
+                    upgradeRepo.upgradeInfo
+                        .filter { it.isPro }
+                        .take(1)
+                        .onEach { navUp() }
+                        .launchInViewModel()
+                }
+            }
+            .launchInViewModel()
     }
 
     internal val state: StateFlow<GplayUpgradeUiState> = combine(
@@ -93,6 +108,9 @@ class UpgradeViewModel @Inject constructor(
         )
     }.safeStateIn(
         initialValue = GplayUpgradeUiState.Loading,
+        // Lazily (not WhileSubscribed): keep the billing SKU queries cached for the VM lifetime so
+        // backgrounding >5s and returning doesn't drop the offer cards back to Loading and re-query.
+        started = SharingStarted.Lazily,
         onError = { error -> GplayUpgradeUiState.Unavailable(error) },
     )
 

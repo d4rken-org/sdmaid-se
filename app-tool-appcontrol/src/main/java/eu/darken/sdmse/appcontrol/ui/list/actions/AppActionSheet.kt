@@ -264,11 +264,14 @@ internal fun AppActionSheet(
                             ActionItemRow(item, appInfo, onActionTapped)
                         }
                     }
-                    SnackbarHost(snackbarHostState)
                     Spacer(Modifier.height(8.dp))
                 }
             }
         }
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier.align(Alignment.BottomCenter),
+        )
     }
 }
 

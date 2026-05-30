@@ -71,10 +71,11 @@ class SwiperSessionsViewModel @Inject constructor(
         refreshingSessionId,
         dataAreaManager.state,
     ) { sessionsWithStats, progress, paths, isPro, scanningId, cancellingId, refreshingId, areaState ->
-        val riskySessionIds = sessionsWithStats
-            .filter { it.session.sourcePaths.any { p -> p.isSensitiveRootIn(areaState.areas) } }
-            .map { it.session.sessionId }
-            .toSet()
+        val riskySessionPaths = sessionsWithStats
+            .associate { entry ->
+                entry.session.sessionId to entry.session.sourcePaths.filter { p -> p.isSensitiveRootIn(areaState.areas) }
+            }
+            .filterValues { it.isNotEmpty() }
         State(
             sessionsWithStats = sessionsWithStats,
             selectedPaths = paths,
@@ -84,7 +85,8 @@ class SwiperSessionsViewModel @Inject constructor(
             scanningSessionId = scanningId,
             cancellingSessionId = cancellingId,
             refreshingSessionId = refreshingId,
-            riskySessionIds = riskySessionIds,
+            riskySessionIds = riskySessionPaths.keys,
+            riskySessionPaths = riskySessionPaths,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -186,6 +188,7 @@ class SwiperSessionsViewModel @Inject constructor(
         val cancellingSessionId: String? = null,
         val refreshingSessionId: String? = null,
         val riskySessionIds: Set<String> = emptySet(),
+        val riskySessionPaths: Map<String, List<APath>> = emptyMap(),
     ) {
         val canCreateNewSession: Boolean = isPro || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
         val freeVersionLimit: Int = SwiperSettings.FREE_VERSION_LIMIT

@@ -32,7 +32,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryChartView
 import kotlin.math.absoluteValue
@@ -40,8 +43,8 @@ import kotlin.math.roundToInt
 
 @Composable
 internal fun DeviceStorageItemCard(
-    row: DeviceStorageViewModel.Row,
     modifier: Modifier = Modifier,
+    row: DeviceStorageViewModel.Row,
     onClick: () -> Unit = {},
     onTrendClick: () -> Unit = {},
 ) {
@@ -210,4 +213,20 @@ private fun TrendDeltaText(snapshots: List<SpaceSnapshotEntity>) {
         color = color,
         modifier = Modifier.padding(top = 4.dp),
     )
+}
+
+@Preview2
+@Composable
+private fun DeviceStorageItemCardPreview() {
+    PreviewWrapper {
+        DeviceStorageItemCard(
+            row = DeviceStorageViewModel.Row(
+                storage = previewDeviceStorage(),
+                snapshots = emptyList(),
+                isPro = true,
+            ),
+            onClick = {},
+            onTrendClick = {},
+        )
+    }
 }

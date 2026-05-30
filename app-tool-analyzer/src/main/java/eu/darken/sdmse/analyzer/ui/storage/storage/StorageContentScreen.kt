@@ -5,6 +5,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -57,6 +59,7 @@ fun StorageContentScreenHost(
         stateSource = vm.state,
         onCategoryClick = vm::onCategoryClick,
         onNavigateBack = vm::onNavigateBack,
+        onExitNotFound = vm::exitOnNotFound,
         onRefresh = vm::refresh,
     )
 }
@@ -66,6 +69,7 @@ internal fun StorageContentScreen(
     stateSource: Flow<StorageContentViewModel.State> = MutableStateFlow(StorageContentViewModel.State.Loading),
     onCategoryClick: (StorageContentViewModel.Row) -> Unit = {},
     onNavigateBack: () -> Unit = {},
+    onExitNotFound: () -> Unit = {},
     onRefresh: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = StorageContentViewModel.State.Loading)
@@ -75,7 +79,7 @@ internal fun StorageContentScreen(
 
     when (val s = state) {
         StorageContentViewModel.State.NotFound -> {
-            LaunchedEffect(Unit) { onNavigateBack() }
+            LaunchedEffect(Unit) { onExitNotFound() }
             Scaffold(
                 topBar = {
                     TopAppBar(
@@ -116,7 +120,15 @@ internal fun StorageContentScreen(
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text(stringResource(R.string.analyzer_storage_content_title)) },
+                        title = {
+                            Column {
+                                Text(stringResource(R.string.analyzer_storage_content_title))
+                                Text(
+                                    text = s.storage.label.get(context),
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
+                        },
                         navigationIcon = {
                             IconButton(onClick = onNavigateBack) {
                                 Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)

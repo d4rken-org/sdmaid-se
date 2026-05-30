@@ -73,8 +73,10 @@ class SettingsViewModel @Inject constructor(
     }
 
     data class State(
-        val isPro: Boolean = false,
-        val setupDone: Boolean = false,
+        // Nullable = "not yet known"; avoids a one-frame flash of the FOSS sponsor row / setup tint
+        // for Pro / set-up users before the first upstream emission under WhileSubscribed.
+        val isPro: Boolean? = null,
+        val setupDone: Boolean? = null,
     )
 
     companion object {

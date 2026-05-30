@@ -15,7 +15,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.ui.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
@@ -34,7 +36,7 @@ fun UnknownDestinationScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Coming soon") },
+                title = { Text(stringResource(R.string.navigation_unknown_destination_title)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
@@ -52,7 +54,7 @@ fun UnknownDestinationScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = "This screen is still being migrated to the new UI.",
+                text = stringResource(R.string.navigation_unknown_destination_message),
                 style = MaterialTheme.typography.titleMedium,
             )
             Text(

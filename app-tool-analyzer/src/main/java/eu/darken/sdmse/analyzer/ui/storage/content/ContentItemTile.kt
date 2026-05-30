@@ -24,17 +24,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentItem
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.FileType
 
 @Composable
 internal fun ContentItemTile(
+    modifier: Modifier = Modifier,
     item: Item,
     isSelected: Boolean,
     isSelectionMode: Boolean,
-    modifier: Modifier = Modifier,
     onTap: () -> Unit = {},
     onLongPress: () -> Unit = {},
 ) {
@@ -129,5 +132,26 @@ internal fun ContentItemTile(
                 }
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentItemTilePreview() {
+    PreviewWrapper {
+        ContentItemTile(
+            item = Item(
+                parent = null,
+                content = previewContentItem(
+                    segments = arrayOf("storage", "emulated", "0", "DCIM", "vacation.jpg"),
+                    type = FileType.FILE,
+                    size = 3L * 1024 * 1024,
+                    withLookup = false,
+                ),
+                sizeRatio = 0.4f,
+            ),
+            isSelected = false,
+            isSelectionMode = false,
+        )
     }
 }

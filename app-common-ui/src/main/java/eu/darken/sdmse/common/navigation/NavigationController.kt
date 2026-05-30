@@ -21,9 +21,26 @@ class NavigationController @Inject constructor() {
     private val resultFlowsLock = Any()
     private val resultFlows = mutableMapOf<String, MutableStateFlow<Any?>>()
 
+    // Deep-link / shortcut handling can call goTo() from MainActivity.onResume(), which on a
+    // cold start fires before the LaunchedEffect that calls setup(). Queue such calls and drain
+    // them once the back stack is wired up, instead of crashing with "not initialized".
+    private val pendingActions = mutableListOf<GoToAction>()
+
+    private data class GoToAction(
+        val destination: NavigationDestination,
+        val popUpTo: NavigationDestination?,
+        val inclusive: Boolean,
+    )
+
     fun setup(backStack: NavBackStack<NavKey>) {
         log(TAG) { "setup()" }
         _backStack = backStack
+        if (pendingActions.isNotEmpty()) {
+            val drain = pendingActions.toList()
+            pendingActions.clear()
+            log(TAG) { "Draining ${drain.size} queued navigation action(s)" }
+            drain.forEach { goTo(it.destination, it.popUpTo, it.inclusive) }
+        }
     }
 
     fun up(): Boolean {
@@ -43,6 +60,12 @@ class NavigationController @Inject constructor() {
         inclusive: Boolean = false,
     ) {
         log(TAG) { "goTo($destination, popUpTo=$popUpTo, inclusive=$inclusive)" }
+
+        if (_backStack == null) {
+            log(TAG) { "goTo($destination) queued — controller not initialized yet" }
+            pendingActions.add(GoToAction(destination, popUpTo, inclusive))
+            return
+        }
 
         if (popUpTo != null) {
             while (backStack.isNotEmpty() && backStack.last() != popUpTo) {

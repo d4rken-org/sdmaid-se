@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 internal fun ContentInfoBanner(
@@ -28,5 +30,13 @@ internal fun ContentInfoBanner(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(16.dp),
         )
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentInfoBannerPreview() {
+    PreviewWrapper {
+        ContentInfoBanner()
     }
 }

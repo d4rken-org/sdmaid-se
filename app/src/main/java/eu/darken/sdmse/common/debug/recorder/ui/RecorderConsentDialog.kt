@@ -3,9 +3,11 @@ package eu.darken.sdmse.common.debug.recorder.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun RecorderConsentDialog(
@@ -30,7 +32,24 @@ fun RecorderConsentDialog(
         ),
         neutral = SdmDialogAction(
             label = stringResource(R.string.settings_privacy_policy_label),
-            onClick = onOpenPrivacyPolicy,
+            // Dismiss too: SdmConfirmDialog doesn't auto-dismiss on neutral (the legacy
+            // MaterialAlertDialog did), so the dialog would otherwise stay open behind the browser.
+            onClick = {
+                onOpenPrivacyPolicy()
+                onDismiss()
+            },
         ),
     )
+}
+
+@Preview2
+@Composable
+private fun RecorderConsentDialogPreview() {
+    PreviewWrapper {
+        RecorderConsentDialog(
+            onStartRecording = {},
+            onOpenPrivacyPolicy = {},
+            onDismiss = {},
+        )
+    }
 }

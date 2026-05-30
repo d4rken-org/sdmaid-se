@@ -157,6 +157,15 @@ internal fun SqueezerSettingsScreen(
                     onCheckedChange = onIncludeWebpChanged,
                 )
             }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.NewReleases,
+                    title = stringResource(R.string.squeezer_exif_marker_title),
+                    subtitle = stringResource(R.string.squeezer_exif_marker_description),
+                    checked = state.writeExifMarker,
+                    onCheckedChange = onWriteExifMarkerChanged,
+                )
+            }
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_video_settings_category_label)) }
             item {
                 SettingsSwitchItem(
@@ -184,15 +193,6 @@ internal fun SqueezerSettingsScreen(
                     subtitle = stringResource(R.string.squeezer_skip_compressed_description),
                     checked = state.skipPreviouslyCompressed,
                     onCheckedChange = onSkipPreviouslyCompressedChanged,
-                )
-            }
-            item {
-                SettingsSwitchItem(
-                    icon = Icons.TwoTone.NewReleases,
-                    title = stringResource(R.string.squeezer_exif_marker_title),
-                    subtitle = stringResource(R.string.squeezer_exif_marker_description),
-                    checked = state.writeExifMarker,
-                    onCheckedChange = onWriteExifMarkerChanged,
                 )
             }
             item {

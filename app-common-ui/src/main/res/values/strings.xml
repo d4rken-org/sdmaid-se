@@ -19,4 +19,6 @@
     <string name="tour_confirm_continue">Continue tour</string>
     <string name="tour_confirm_skip_for_now">Skip for now</string>
     <string name="tour_confirm_dont_show_again">Don\'t show again</string>
+    <string name="navigation_unknown_destination_title">Coming soon</string>
+    <string name="navigation_unknown_destination_message">This screen is still being migrated to the new UI.</string>
 </resources>
