@@ -5,22 +5,65 @@ import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.hashing.Hasher
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHashBits
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import okio.ByteString
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import javax.inject.Provider
 import java.time.Instant
 
 class DeduplicatorTest : BaseTest() {
+
+    // Long-lived scope for the Deduplicator under test (its sharedResource + init collector need one).
+    private val gateScope = CoroutineScope(SupervisorJob() + Dispatchers.Unconfined)
+
+    @AfterEach
+    fun cancelGateScope() {
+        gateScope.coroutineContext[Job]?.cancel()
+    }
+
+    private fun buildDeduplicator(isPro: Boolean): Deduplicator {
+        val info = mockk<UpgradeRepo.Info>()
+        every { info.isPro } returns isPro
+        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true)
+        every { upgradeRepo.upgradeInfo } returns flowOf(info)
+        return Deduplicator(
+            appScope = gateScope,
+            gatewaySwitch = mockk(relaxed = true),
+            fileForensics = mockk(relaxed = true),
+            exclusionManager = mockk(relaxed = true),
+            scanner = Provider { error("scanner must not run when the Pro gate denies") },
+            deleter = Provider { error("deleter must not run when the Pro gate denies") },
+            settings = mockk<DeduplicatorSettings>().apply {
+                every { arbiterConfig } returns mockk { every { flow } returns emptyFlow() }
+            },
+            arbiter = mockk(relaxed = true),
+            upgradeRepo = upgradeRepo,
+        )
+    }
+
     val cksDupe1 = ChecksumDuplicate(
         lookup = LocalPathLookup(
             lookedUp = LocalPath(File("aaa")),
@@ -296,5 +339,25 @@ class DeduplicatorTest : BaseTest() {
         val resultCluster = result.clusters.single()
         resultCluster.groups.single().identifier shouldBe Duplicate.Group.Id("g1")
         resultCluster.favoriteGroupIdentifier shouldBe Duplicate.Group.Id("g1")
+    }
+
+    // ─────────────────────────── Pro gating ───────────────────────────
+
+    @Test
+    fun `submit DeleteTask is denied with UpgradeRequiredException when not Pro`() = runTest {
+        // The scanner/deleter providers error() if touched, so an UpgradeRequiredException proves
+        // the gate short-circuited at the boundary before any deletion work.
+        val dedup = buildDeduplicator(isPro = false)
+        shouldThrow<UpgradeRequiredException> {
+            dedup.submit(DeduplicatorDeleteTask())
+        }
+    }
+
+    @Test
+    fun `submit OneClickTask is denied with UpgradeRequiredException when not Pro`() = runTest {
+        val dedup = buildDeduplicator(isPro = false)
+        shouldThrow<UpgradeRequiredException> {
+            dedup.submit(DeduplicatorOneClickTask())
+        }
     }
 }

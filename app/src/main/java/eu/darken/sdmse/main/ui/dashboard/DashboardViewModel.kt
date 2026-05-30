@@ -396,7 +396,7 @@ class DashboardViewModel @Inject constructor(
                     }
                 }
             )
-            if (isRecording) items.add(1, item) else items.add(item)
+            items.add(item)
         }
 
         debugItem?.let { items.add(it) }
@@ -593,11 +593,17 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.SCAN -> submitTask(DeduplicatorScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null) {
+                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null && upgradeRepo.isPro()) {
                     submitTask(DeduplicatorDeleteTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> submitTask(DeduplicatorOneClickTask())
+                BottomBarState.Action.ONECLICK -> {
+                    if (upgradeRepo.isPro()) {
+                        submitTask(DeduplicatorOneClickTask())
+                    } else if (deduplicator.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
+                        navTo(UpgradeRoute())
+                    }
+                }
             }
         }
     }
