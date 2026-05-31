@@ -125,6 +125,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import java.time.Duration
 import java.time.Instant
@@ -174,6 +175,30 @@ class DashboardViewModel @Inject constructor(
 
     val events = SingleEventFlow<DashboardEvents>()
 
+    // The dashboard list is an all-or-nothing combine of many sources: it stays on the loading
+    // spinner until every source has emitted once. Several sources re-run async work (Room, DataStore,
+    // a filesystem scan) on every ViewModel recreation because they're shared with stopTimeout=0 /
+    // replayExpiration=0, so a single slow source could wedge the whole screen permanently on a warm
+    // Activity recreation. These helpers guarantee each combine input has an immediate first value and
+    // tag it for diagnostics so a stalling upstream is identifiable from VERBOSE logs.
+    private fun descLite(value: Any?): String = when (value) {
+        null -> "null"
+        is Collection<*> -> "size=${value.size}"
+        else -> value::class.simpleName ?: "?"
+    }
+
+    /** Inject [fallback] as the immediate first value (outer onStart) while the inner handlers log the
+     *  real upstream only — a missing "upstream emit" on reproduction pinpoints the staller. */
+    private fun <T> Flow<T>.listStateSource(name: String, fallback: T): Flow<T> = this
+        .onEach { log(TAG, VERBOSE) { "listState.$name upstream emit: ${descLite(it)}" } }
+        .onStart { log(TAG, VERBOSE) { "listState.$name upstream start" } }
+        .onStart { emit(fallback) }
+
+    /** Diagnostic-only tag for sources that already have a guaranteed-immediate first value. */
+    private fun <T> Flow<T>.listStateDiag(name: String): Flow<T> = this
+        .onEach { log(TAG, VERBOSE) { "listState.$name upstream emit: ${descLite(it)}" } }
+        .onStart { log(TAG, VERBOSE) { "listState.$name upstream start" } }
+
     private val updateInfo: Flow<UpdateDashboardCardItem?> = buildUpdateInfo()
 
     internal val upgradeInfo: Flow<UpgradeRepo.Info?> = upgradeRepo.upgradeInfo
@@ -181,6 +206,10 @@ class DashboardViewModel @Inject constructor(
             @Suppress("USELESS_CAST")
             it as UpgradeRepo.Info?
         }
+        // Emit null immediately so the dashboard's all-or-nothing combine (and every upgrade-gated
+        // card + the bottom bar) never blocks waiting for upgrade state to resolve on a warm restart.
+        // Consumers already null-guard (it?.isPro ?: false, nullable Info? in items).
+        .onStart { emit(null) }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .replayingShare(vmScope)
 
@@ -270,33 +299,33 @@ class DashboardViewModel @Inject constructor(
     ) { _, config -> config }
 
     val listState: StateFlow<ListState?> = eu.darken.sdmse.common.flow.combine(
-        sessionManager.sessions,
+        sessionManager.sessions.listStateSource("sessions", emptyList()),
         debugCardProvider.create(
             vm = this,
             onNavigate = { navTo(it as eu.darken.sdmse.common.navigation.NavigationDestination) },
             onError = { errorEvents.tryEmit(it) },
             onShowEvent = { events.tryEmit(it) },
-        ),
-        titleCardItem,
-        upgradeInfo,
-        updateInfo,
-        setupCardItem,
-        dataAreaItem,
-        corpseFinderItem,
-        systemCleanerItem,
-        appCleanerItem,
-        deduplicatorItem,
-        squeezerItem,
-        appControlItem,
-        analyzerItem,
-        schedulerItem,
-        motdItem,
-        reviewItem,
-        anniversaryItem,
-        statsItem,
-        swiperItem,
-        easterEggTriggered,
-        cardConfigWithRefresh,
+        ).listStateSource("debug", null),
+        titleCardItem.listStateDiag("title"),
+        upgradeInfo.listStateDiag("upgrade"),
+        updateInfo.listStateSource("update", null),
+        setupCardItem.listStateSource("setup", null),
+        dataAreaItem.listStateSource("dataArea", null),
+        corpseFinderItem.listStateDiag("corpse"),
+        systemCleanerItem.listStateDiag("system"),
+        appCleanerItem.listStateDiag("app"),
+        deduplicatorItem.listStateSource("dedup", null),
+        squeezerItem.listStateSource("squeezer", null),
+        appControlItem.listStateSource("appControl", null),
+        analyzerItem.listStateSource("analyzer", null),
+        schedulerItem.listStateSource("scheduler", null),
+        motdItem.listStateSource("motd", null),
+        reviewItem.listStateSource("review", null),
+        anniversaryItem.listStateSource("anniversary", null),
+        statsItem.listStateSource("stats", null),
+        swiperItem.listStateSource("swiper", null),
+        easterEggTriggered.listStateDiag("easterEgg"),
+        cardConfigWithRefresh.listStateSource("cardConfig", DashboardCardConfig(cards = emptyList())),
     ) { sessions: List<DebugLogSession>,
         debugItem: DebugDashboardCardItem?,
         titleInfo: TitleDashboardCardItem,
