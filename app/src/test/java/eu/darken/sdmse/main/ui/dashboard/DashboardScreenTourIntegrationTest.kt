@@ -163,8 +163,7 @@ private fun ComposeContentTestRule.setDashboardContent(
         actionState = DashboardViewModel.BottomBarState.Action.SCAN,
         activeTasks = 0,
         queuedTasks = 0,
-        totalItems = 0,
-        totalSize = 0L,
+        heroSummary = null,
         upgradeInfo = null,
     )
     setContent {

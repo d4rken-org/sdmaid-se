@@ -101,6 +101,7 @@ import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
+import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
@@ -120,12 +121,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -422,8 +426,7 @@ class DashboardViewModel @Inject constructor(
         val actionState: Action,
         val activeTasks: Int,
         val queuedTasks: Int,
-        val totalItems: Int,
-        val totalSize: Long,
+        val heroSummary: HeroSummary?,
         val upgradeInfo: UpgradeRepo.Info?,
     ) {
         enum class Action {
@@ -433,6 +436,30 @@ class DashboardViewModel @Inject constructor(
             WORKING,
             WORKING_CANCELABLE
         }
+    }
+
+    /**
+     * The one-tap-actionable cleanup summary surfaced by the hero card. Reflects exactly what the
+     * main action ([mainAction] with [BottomBarState.Action.DELETE]) will free: each tool is
+     * included only when its one-click toggle is enabled, it has data, and — for AppCleaner — the
+     * user is Pro. Deduplicator contributes its freeable [Deduplicator.Data.redundantSize] and a
+     * cluster count (kept out of [itemCount], which counts discrete files only).
+     */
+    data class HeroSummary(
+        val mode: Mode,
+        val totalSize: Long,
+        val itemCount: Int,
+        val tools: List<ToolSlice>,
+    ) {
+        /** FREEABLE = "X will be freed" (post-scan); FREED = "X freed" (post-delete/one-click). */
+        enum class Mode { FREEABLE, FREED }
+
+        data class ToolSlice(
+            val type: SDMTool.Type,
+            val size: Long,
+            /** Discrete file count for CorpseFinder/SystemCleaner/AppCleaner; cluster count for Deduplicator. */
+            val count: Int,
+        )
     }
 
     data class OneClickOptionsState(
@@ -459,50 +486,131 @@ class DashboardViewModel @Inject constructor(
         onError = { OneClickOptionsState() },
     )
 
+    /** Aggregated "freed" result of the most recent main-action deletion/one-click; null otherwise. */
+    private val freedResult = MutableStateFlow<HeroSummary?>(null)
+
+    /** In-flight main-action cleanup branches; the freed hero stays hidden until this reaches 0. */
+    private val pendingMainCleanup = MutableStateFlow(0)
+
     val bottomBarState: StateFlow<BottomBarState?> = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
         corpseFinder.state,
         systemCleaner.state,
         appCleaner.state,
+        deduplicator.state,
         generalSettings.enableDashboardOneClick.flow,
+        oneClickOptionsState,
+        freedResult,
+        pendingMainCleanup,
         listState.map { state -> state?.items?.any { it is MainActionItem } == true },
     ) { upgradeInfo,
         taskState,
         corpseState,
         filterState,
         junkState,
+        dedupeState,
         oneClickMode,
+        oneClickOptions,
+        freed,
+        pendingCleanup,
         listIsReady ->
 
         val actionState: BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
             !taskState.isIdle -> BottomBarState.Action.WORKING
+            // Deduplicator is intentionally excluded from the DELETE trigger (it has its own
+            // cluster-selection delete flow); a dedupe-only result therefore won't summon the hero.
             corpseState.data.hasData || filterState.data.hasData || junkState.data.hasData -> BottomBarState.Action.DELETE
             oneClickMode -> BottomBarState.Action.ONECLICK
             else -> BottomBarState.Action.SCAN
         }
         val activeTasks = taskState.tasks.filter { it.isActive }.size
         val queuedTasks = taskState.tasks.filter { it.isQueued }.size
-        val totalItems =
-            (corpseState.data?.totalCount ?: 0) + (filterState.data?.totalCount ?: 0) + (junkState.data?.totalCount
-                ?: 0)
-        val totalSize =
-            (corpseState.data?.totalSize ?: 0L) + (filterState.data?.totalSize ?: 0L) + (junkState.data?.totalSize
-                ?: 0L)
+        // Post-scan "will be freed" takes priority; otherwise, once the action has settled, show the
+        // "freed" result of the last main-action deletion/one-click. While working, both stay hidden
+        // and the bar carries progress.
+        val freeable = if (actionState == BottomBarState.Action.DELETE) {
+            buildHeroSummary(
+                corpse = corpseState.data,
+                system = filterState.data,
+                app = junkState.data,
+                dedupe = dedupeState.data,
+                oneClick = oneClickOptions,
+                isPro = upgradeInfo?.isPro == true,
+            )
+        } else {
+            null
+        }
+        val heroSummary = freeable ?: freed?.takeIf { taskState.isIdle && pendingCleanup == 0 }
         BottomBarState(
             isReady = listIsReady,
             actionState = actionState,
             activeTasks = activeTasks,
             queuedTasks = queuedTasks,
-            totalItems = totalItems,
-            totalSize = totalSize,
+            heroSummary = heroSummary,
             upgradeInfo = upgradeInfo,
         )
     }.safeStateIn(
         initialValue = null,
         onError = { null },
     )
+
+    private val heroDismissed = MutableStateFlow(false)
+
+    /** Whether the user dismissed the hero for the current results. In-memory; resets on a fresh scan. */
+    val isHeroDismissed: StateFlow<Boolean> = heroDismissed
+
+    init {
+        // A freshly completed *scan* clears any stale "freed" result and revives a dismissed hero.
+        // We must only react to a *strictly newer* scan time: TaskManager keeps one task per tool,
+        // so a delete prunes that tool's scan result and would otherwise make this "change" to an
+        // older/absent scan time and wrongly clear the freed hero we just produced.
+        launch {
+            var latestSeenScan: Instant? = null
+            taskManager.state
+                .mapNotNull { state ->
+                    state.tasks
+                        .filter { task ->
+                            task.isComplete && when (task.result) {
+                                is CorpseFinderScanTask.Success,
+                                is SystemCleanerScanTask.Success,
+                                is AppCleanerScanTask.Success,
+                                is DeduplicatorScanTask.Success -> true
+                                else -> false
+                            }
+                        }
+                        .maxByOrNull { it.completedAt!! }
+                        ?.completedAt
+                }
+                .collect { scanCompletedAt ->
+                    val prev = latestSeenScan
+                    if (prev == null || scanCompletedAt.isAfter(prev)) {
+                        latestSeenScan = scanCompletedAt
+                        freedResult.value = null
+                        heroDismissed.value = false
+                    }
+                }
+        }
+        // A freshly produced "freed" result also revives a dismissed hero so the outcome is shown.
+        launch {
+            freedResult
+                .map { it != null }
+                .distinctUntilChanged()
+                .collect { hasFreed -> if (hasFreed) heroDismissed.value = false }
+        }
+    }
+
+    fun dismissHero() {
+        log(TAG) { "dismissHero()" }
+        heroDismissed.value = true
+    }
+
+    /** Re-shows a hero the user dismissed (via the compact summary chip in the bar). */
+    fun restoreHero() {
+        log(TAG) { "restoreHero()" }
+        heroDismissed.value = false
+    }
 
     fun setCorpseFinderOneClickEnabled(enabled: Boolean) = launch {
         generalSettings.oneClickCorpseFinderEnabled.value(enabled)
@@ -520,12 +628,29 @@ class DashboardViewModel @Inject constructor(
         generalSettings.oneClickDeduplicatorEnabled.value(enabled)
     }
 
+    // Runs one main-action tool branch and, for cleanups, decrements the pending counter when it
+    // settles — so the freed hero only appears once *all* branches are done (no partial flash).
+    private fun launchMainBranch(isCleanup: Boolean, block: suspend () -> Unit) = launch {
+        try {
+            block()
+        } finally {
+            if (isCleanup) pendingMainCleanup.update { (it - 1).coerceAtLeast(0) }
+        }
+    }
+
     fun mainAction(actionState: BottomBarState.Action) {
         log(TAG) { "mainAction(actionState=$actionState)" }
-        launch {
+        // Start a fresh "freed" tally for this deletion/one-click. The hero stays hidden until every
+        // branch has settled (pendingMainCleanup == 0) so a partial per-tool result can't flash.
+        val isCleanup = actionState == BottomBarState.Action.DELETE || actionState == BottomBarState.Action.ONECLICK
+        if (isCleanup) {
+            freedResult.value = null
+            pendingMainCleanup.value = 4 // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
+        }
+        launchMainBranch(isCleanup) {
             if (!generalSettings.oneClickCorpseFinderEnabled.value()) {
                 log(VERBOSE) { "CorpseFinder is disabled one-click mode." }
-                return@launch
+                return@launchMainBranch
             }
 
             when (actionState) {
@@ -533,16 +658,19 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (corpseFinder.state.first().data != null) {
-                    submitTask(CorpseFinderDeleteTask())
+                    accumulateFreed(SDMTool.Type.CORPSEFINDER, submitTask(CorpseFinderDeleteTask()))
                 }
 
-                BottomBarState.Action.ONECLICK -> submitTask(CorpseFinderOneClickTask())
+                BottomBarState.Action.ONECLICK -> accumulateFreed(
+                    SDMTool.Type.CORPSEFINDER,
+                    submitTask(CorpseFinderOneClickTask()),
+                )
             }
         }
-        launch {
+        launchMainBranch(isCleanup) {
             if (!generalSettings.oneClickSystemCleanerEnabled.value()) {
                 log(VERBOSE) { "SystemCleaner is disabled one-click mode." }
-                return@launch
+                return@launchMainBranch
             }
 
             when (actionState) {
@@ -550,16 +678,19 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (systemCleaner.state.first().data != null) {
-                    submitTask(SystemCleanerProcessingTask())
+                    accumulateFreed(SDMTool.Type.SYSTEMCLEANER, submitTask(SystemCleanerProcessingTask()))
                 }
 
-                BottomBarState.Action.ONECLICK -> submitTask(SystemCleanerOneClickTask())
+                BottomBarState.Action.ONECLICK -> accumulateFreed(
+                    SDMTool.Type.SYSTEMCLEANER,
+                    submitTask(SystemCleanerOneClickTask()),
+                )
             }
         }
-        launch {
+        launchMainBranch(isCleanup) {
             if (!generalSettings.oneClickAppCleanerEnabled.value()) {
                 log(VERBOSE) { "AppCleaner is disabled one-click mode." }
-                return@launch
+                return@launchMainBranch
             }
 
             when (actionState) {
@@ -568,7 +699,7 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.state.first().data != null && upgradeRepo.isPro()) {
-                        submitTask(AppCleanerProcessingTask())
+                        accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerProcessingTask()))
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         navTo(UpgradeRoute())
                     }
@@ -576,17 +707,17 @@ class DashboardViewModel @Inject constructor(
 
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isPro()) {
-                        submitTask(AppCleanerOneClickTask())
+                        accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerOneClickTask()))
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         navTo(UpgradeRoute())
                     }
                 }
             }
         }
-        launch {
+        launchMainBranch(isCleanup) {
             if (!generalSettings.oneClickDeduplicatorEnabled.value()) {
                 log(VERBOSE) { "Deduplicator is disabled one-click mode." }
-                return@launch
+                return@launchMainBranch
             }
 
             when (actionState) {
@@ -594,10 +725,13 @@ class DashboardViewModel @Inject constructor(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null) {
-                    submitTask(DeduplicatorDeleteTask())
+                    accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorDeleteTask()))
                 }
 
-                BottomBarState.Action.ONECLICK -> submitTask(DeduplicatorOneClickTask())
+                BottomBarState.Action.ONECLICK -> accumulateFreed(
+                    SDMTool.Type.DEDUPLICATOR,
+                    submitTask(DeduplicatorOneClickTask()),
+                )
             }
         }
     }
@@ -642,6 +776,18 @@ class DashboardViewModel @Inject constructor(
         navTo(DeduplicatorListRoute)
     }
 
+    /** Opens a tool's findings list — used by the hero card's per-tool chips. */
+    fun showTool(type: SDMTool.Type) {
+        log(TAG, INFO) { "showTool($type)" }
+        when (type) {
+            SDMTool.Type.CORPSEFINDER -> showCorpseFinder()
+            SDMTool.Type.SYSTEMCLEANER -> showSystemCleaner()
+            SDMTool.Type.APPCLEANER -> showAppCleaner()
+            SDMTool.Type.DEDUPLICATOR -> showDeduplicator()
+            else -> log(TAG, WARN) { "showTool() ignoring unsupported type: $type" }
+        }
+    }
+
     fun showSwiper() {
         log(TAG, INFO) { "showSwiper()" }
         navTo(SwiperSessionsRoute)
@@ -679,7 +825,7 @@ class DashboardViewModel @Inject constructor(
         setupManager.setDismissed(false)
     }
 
-    internal suspend fun submitTask(task: SDMTool.Task) {
+    internal suspend fun submitTask(task: SDMTool.Task): SDMTool.Task.Result {
         log(TAG, VERBOSE) { "Submitting $task" }
         val result = taskManager.submit(task)
         log(TAG, VERBOSE) { "Task result for $task was $result" }
@@ -717,9 +863,64 @@ class DashboardViewModel @Inject constructor(
                 is SqueezerProcessTask.Success -> events.tryEmit(DashboardEvents.TaskResult(result))
             }
         }
+        return result
+    }
+
+    /** Folds a deletion/one-click result into [freedResult] so the hero can show what was freed. */
+    private fun accumulateFreed(type: SDMTool.Type, result: SDMTool.Task.Result) {
+        val space = (result as? ReportDetails.AffectedSpace)?.affectedSpace ?: 0L
+        val count = (result as? ReportDetails.AffectedCount)?.affectedCount ?: 0
+        if (space <= 0L && count <= 0) return
+        freedResult.update { current ->
+            val slices = (current?.tools.orEmpty()).filterNot { it.type == type } +
+                HeroSummary.ToolSlice(type, space, count)
+            HeroSummary(
+                mode = HeroSummary.Mode.FREED,
+                totalSize = slices.sumOf { it.size },
+                itemCount = slices.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
+                tools = slices,
+            )
+        }
     }
 
     companion object {
         private val TAG = logTag("Dashboard", "ViewModel")
+
+        /**
+         * Builds the action-truthful hero summary: only tools the main DELETE action will actually
+         * free (one-click toggle on, has data, AppCleaner additionally requires Pro). Returns null
+         * when nothing is one-tap-actionable for this user/config, even if raw scan data exists.
+         */
+        internal fun buildHeroSummary(
+            corpse: CorpseFinder.Data?,
+            system: SystemCleaner.Data?,
+            app: AppCleaner.Data?,
+            dedupe: Deduplicator.Data?,
+            oneClick: OneClickOptionsState,
+            isPro: Boolean,
+        ): HeroSummary? {
+            val tools = buildList {
+                corpse?.takeIf { oneClick.corpseFinderEnabled && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, it.totalSize, it.totalCount))
+                }
+                system?.takeIf { oneClick.systemCleanerEnabled && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, it.totalSize, it.totalCount))
+                }
+                app?.takeIf { oneClick.appCleanerEnabled && isPro && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
+                }
+                dedupe?.takeIf { oneClick.deduplicatorEnabled && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.clusters.size))
+                }
+            }
+            if (tools.isEmpty()) return null
+            return HeroSummary(
+                mode = HeroSummary.Mode.FREEABLE,
+                totalSize = tools.sumOf { it.size },
+                // Deduplicator's unit is clusters, not discrete files — keep it out of the item headline.
+                itemCount = tools.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
+                tools = tools,
+            )
+        }
     }
 }

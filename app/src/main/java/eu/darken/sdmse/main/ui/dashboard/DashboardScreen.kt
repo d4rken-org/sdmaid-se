@@ -41,6 +41,7 @@ import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
@@ -65,6 +66,7 @@ fun DashboardScreenHost(
     val listState by vm.listState.collectAsStateWithLifecycle()
     val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
     val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle()
+    val isHeroDismissed by vm.isHeroDismissed.collectAsStateWithLifecycle()
 
     var dialogState by remember { mutableStateOf<DashboardDialogState?>(null) }
 
@@ -151,7 +153,9 @@ fun DashboardScreenHost(
         listState = listState,
         bottomBarState = bottomBarState,
         oneClickOptionsState = oneClickOptionsState,
+        isHeroDismissed = isHeroDismissed,
         snackbarHostState = snackbarHostState,
+        onDismissHero = vm::dismissHero,
         onMainAction = {
             when (val actionState = bottomBarState?.actionState ?: return@DashboardScreen) {
                 DashboardViewModel.BottomBarState.Action.DELETE -> {
@@ -161,6 +165,8 @@ fun DashboardScreenHost(
                 else -> vm.mainAction(actionState)
             }
         },
+        onToolClick = vm::showTool,
+        onRestoreHero = vm::restoreHero,
         onSettings = { vm.navTo(SettingsRoute) },
         onUpgrade = { vm.navTo(UpgradeRoute()) },
         onCorpseFinderOneClickChanged = vm::setCorpseFinderOneClickEnabled,
@@ -175,10 +181,14 @@ internal fun DashboardScreen(
     listState: DashboardViewModel.ListState? = null,
     bottomBarState: DashboardViewModel.BottomBarState? = null,
     oneClickOptionsState: DashboardViewModel.OneClickOptionsState = DashboardViewModel.OneClickOptionsState(),
+    isHeroDismissed: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
+    onToolClick: (SDMTool.Type) -> Unit = {},
+    onRestoreHero: () -> Unit = {},
     onSettings: () -> Unit = {},
     onUpgrade: () -> Unit = {},
+    onDismissHero: () -> Unit = {},
     onCorpseFinderOneClickChanged: (Boolean) -> Unit = {},
     onSystemCleanerOneClickChanged: (Boolean) -> Unit = {},
     onAppCleanerOneClickChanged: (Boolean) -> Unit = {},
@@ -277,10 +287,16 @@ internal fun DashboardScreen(
             BottomBar(
                 state = bottomBarState,
                 isVisible = isBottomBarVisible,
+                // Suppress the hero while a tour is active so it can't cover or fight tour targets.
+                heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive,
                 onMainAction = onMainAction,
                 onMainActionLongClick = { showOneClickOptions = true },
                 onSettings = onSettings,
                 onUpgrade = onUpgrade,
+                onDismissHero = onDismissHero,
+                onToolClick = onToolClick,
+                onRestoreHero = onRestoreHero,
+                isHeroDismissed = isHeroDismissed,
                 mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
                 settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )
@@ -306,10 +322,13 @@ internal fun DashboardScreen(
                 // cards near the end of the list (Swiper, in particular) clamps at max scroll and
                 // leaves the target stranded mid-viewport — the bubble then chooses to render
                 // above it, squashing the cutout against the screen edge.
+                // Clear the bottom chrome — which now grows when the hero card is shown — by
+                // consuming the Scaffold's measured bottom inset, with a floor for breathing room.
+                val chromeBottom = maxOf(paddingValues.calculateBottomPadding(), DASHBOARD_BOTTOM_CONTENT_PADDING)
                 val bottomContentPadding = if (dashboardTourActive) {
-                    maxOf(DASHBOARD_BOTTOM_CONTENT_PADDING, maxHeight)
+                    maxOf(chromeBottom, maxHeight)
                 } else {
-                    DASHBOARD_BOTTOM_CONTENT_PADDING
+                    chromeBottom
                 }
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),

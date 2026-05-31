@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.compose
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -27,12 +29,14 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 /**
- * Static, non-clickable label chip with a leading icon.
+ * Label chip with a leading icon. Static by default; pass [onClick] to make the whole chip a button
+ * (shaped ripple + button semantics).
  *
  * Use for visual tagging (e.g. system-app marker, match type). The icon is decorative
- * by default — pass [iconContentDescription] if the icon carries meaning beyond [label].
+ * by default — pass [iconContentDescription] if the icon carries meaning beyond [label] (and, for a
+ * clickable chip, so the button's accessible name includes that meaning).
  *
- * For interactive filter chips, use Material3 `FilterChip` / `InputChip` instead.
+ * For interactive *filter/selection* chips, use Material3 `FilterChip` / `InputChip` instead.
  */
 @Composable
 fun SdmInfoChip(
@@ -45,6 +49,7 @@ fun SdmInfoChip(
     textStyle: TextStyle = MaterialTheme.typography.labelSmall,
     contentPadding: PaddingValues = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
     iconContentDescription: String? = null,
+    onClick: (() -> Unit)? = null,
 ) = SdmInfoChipInternal(
     modifier = modifier,
     label = label,
@@ -52,6 +57,7 @@ fun SdmInfoChip(
     contentColor = contentColor,
     textStyle = textStyle,
     contentPadding = contentPadding,
+    onClick = onClick,
     iconSlot = {
         Icon(
             imageVector = icon,
@@ -76,6 +82,7 @@ fun SdmInfoChip(
     textStyle: TextStyle = MaterialTheme.typography.labelSmall,
     contentPadding: PaddingValues = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
     iconContentDescription: String? = null,
+    onClick: (() -> Unit)? = null,
 ) = SdmInfoChipInternal(
     modifier = modifier,
     label = label,
@@ -83,6 +90,7 @@ fun SdmInfoChip(
     contentColor = contentColor,
     textStyle = textStyle,
     contentPadding = contentPadding,
+    onClick = onClick,
     iconSlot = {
         Icon(
             painter = icon,
@@ -101,6 +109,7 @@ private fun SdmInfoChipInternal(
     contentColor: Color,
     textStyle: TextStyle,
     contentPadding: PaddingValues,
+    onClick: (() -> Unit)?,
     iconSlot: @Composable () -> Unit,
 ) {
     Surface(
@@ -109,8 +118,16 @@ private fun SdmInfoChipInternal(
         contentColor = contentColor,
         shape = RoundedCornerShape(8.dp),
     ) {
+        // Clickability lives on the inner row (clipped by the Surface shape) rather than the
+        // Surface(onClick) overload — the latter dropped the chip when nested in the hero's
+        // alpha/offset graphicsLayer on-device.
+        val rowModifier = if (onClick != null) {
+            Modifier.clickable(role = Role.Button, onClick = onClick)
+        } else {
+            Modifier
+        }
         Row(
-            modifier = Modifier.padding(contentPadding),
+            modifier = rowModifier.padding(contentPadding),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             iconSlot()
