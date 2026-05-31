@@ -54,4 +54,10 @@ class UpgradeRepoGplayTest : BaseTest() {
         info.upgradedAt shouldBe Instant.parse("2023-12-10T00:00:00Z")
         info.type
     }
+
+    @Test fun `grace period is 7 days`() {
+        // Guards against the unit error where 7 * 24 * 60 * 1000 (2.8h) was used instead of 7 days,
+        // which dropped paying users to non-Pro within hours of a transient empty/failed billing response.
+        UpgradeRepoGplay.GRACE_PERIOD_MS shouldBe 604_800_000L
+    }
 }
