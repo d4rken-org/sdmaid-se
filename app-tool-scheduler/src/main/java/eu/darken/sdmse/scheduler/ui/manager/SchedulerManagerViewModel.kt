@@ -181,11 +181,6 @@ class SchedulerManagerViewModel @Inject constructor(
         events.emit(Event.EditCommands(id, live.commandsAfterSchedule.joinToString("\n")))
     }
 
-    fun requestBatteryOptimizationSettings() {
-        log(TAG) { "requestBatteryOptimizationSettings()" }
-        events.tryEmit(Event.ShowBatteryOptimizationSettings(batteryHelper.createIntent()))
-    }
-
     fun onBatteryIntentFailed(throwable: Throwable) {
         log(TAG, WARN) { "onBatteryIntentFailed: $throwable" }
         errorEvents.tryEmit(throwable)

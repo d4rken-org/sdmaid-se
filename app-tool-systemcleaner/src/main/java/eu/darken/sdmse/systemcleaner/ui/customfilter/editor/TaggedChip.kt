@@ -16,10 +16,10 @@ import eu.darken.sdmse.common.sieve.SieveCriterium
 
 @Composable
 internal fun TaggedChip(
+    modifier: Modifier = Modifier,
     criterium: SieveCriterium,
     onRemove: () -> Unit,
     onLongClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     InputChip(
         selected = false,

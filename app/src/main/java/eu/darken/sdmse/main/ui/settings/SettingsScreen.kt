@@ -31,9 +31,9 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -64,7 +64,6 @@ import eu.darken.sdmse.stats.ui.StatsSettingsRoute
 import eu.darken.sdmse.swiper.ui.SwiperSettingsRoute
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
-import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsScreenHost(
@@ -74,11 +73,10 @@ fun SettingsScreenHost(
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
     val state by vm.state.collectAsStateWithLifecycle()
 
-    scope.launch {
+    LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
                 is SettingEvents.ShowVersionInfo -> {
@@ -259,7 +257,7 @@ internal fun SettingsScreen(
                 )
             }
             item {
-                val setupTint: Color? = if (state.setupDone) null else MaterialTheme.colorScheme.tertiary
+                val setupTint: Color? = if (state.setupDone == false) MaterialTheme.colorScheme.tertiary else null
                 SettingsPreferenceItem(
                     icon = Icons.TwoTone.PhoneAndroid,
                     iconTint = setupTint,
@@ -272,7 +270,7 @@ internal fun SettingsScreen(
             // Other category
             item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label)) }
 
-            if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.isPro) {
+            if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && state.isPro == false) {
                 item {
                     SettingsPreferenceItem(
                         icon = Icons.TwoTone.Stars,

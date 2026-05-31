@@ -112,14 +112,16 @@ fun CorpseFinderListScreenHost(
                 label = stringResource(CommonR.string.general_cancel_action),
                 onClick = { confirmDeletion = null },
             ),
-            neutral = SdmDialogAction(
+            // "Show details" only makes sense for a single corpse — onShowDetailsFromDialog opens
+            // just the first id, so showing it for multi-select would silently drop the rest.
+            neutral = if (pending.ids.size == 1) SdmDialogAction(
                 label = stringResource(CommonR.string.general_show_details_action),
                 onClick = {
                     val ids = pending.ids
                     confirmDeletion = null
                     vm.onShowDetailsFromDialog(ids)
                 },
-            ),
+            ) else null,
         )
     }
 }
@@ -176,6 +178,7 @@ internal fun CorpseFinderListScreen(
                     actions = {
                         SdmDeleteAction(onClick = {
                             val ids = selection
+                            selection = emptySet()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {

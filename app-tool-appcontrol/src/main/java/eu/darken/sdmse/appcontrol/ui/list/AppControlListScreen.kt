@@ -31,6 +31,7 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.PowerSettingsNew
+import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material.icons.twotone.SaveAlt
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material.icons.twotone.SelectAll
@@ -175,6 +176,7 @@ fun AppControlListScreenHost(
         onExportSelected = vm::onExportRequested,
         onShareSelected = vm::onShareList,
         onToggleFastScroller = vm::onToggleFastScroller,
+        onRefresh = { vm.onRefresh(refreshPkgCache = true) },
     )
 
     pendingConfirm?.let { ev ->
@@ -316,6 +318,7 @@ internal fun AppControlListScreen(
     onExportSelected: (Set<InstallId>) -> Unit = {},
     onShareSelected: (Set<InstallId>) -> Unit = {},
     onToggleFastScroller: () -> Unit = {},
+    onRefresh: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -474,6 +477,14 @@ internal fun AppControlListScreen(
                                         onDismissRequest = { normalOverflowOpen = false },
                                     ) {
                                         DropdownMenuItem(
+                                            text = { Text(stringResource(CommonR.string.general_refresh_action)) },
+                                            leadingIcon = { Icon(Icons.TwoTone.Refresh, contentDescription = null) },
+                                            onClick = {
+                                                normalOverflowOpen = false
+                                                onRefresh()
+                                            },
+                                        )
+                                        DropdownMenuItem(
                                             text = { Text(stringResource(R.string.appcontrol_list_fastscroller_action)) },
                                             leadingIcon = {
                                                 if (state.fastScrollerEnabled) {
@@ -528,6 +539,7 @@ internal fun AppControlListScreen(
                     actions = {
                         IconButton(onClick = {
                             val ids = selection
+                            selection = emptySet()
                             onUninstallSelected(ids)
                         }) {
                             Icon(
@@ -565,8 +577,10 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_toggle_app_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.AcUnit, contentDescription = null) },
                                     onClick = {
+                                        val ids = selection
                                         selectionOverflowOpen = false
-                                        onToggleSelected(selection)
+                                        selection = emptySet()
+                                        onToggleSelected(ids)
                                     },
                                 )
                             }
@@ -575,8 +589,10 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_force_stop_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.PowerSettingsNew, contentDescription = null) },
                                     onClick = {
+                                        val ids = selection
                                         selectionOverflowOpen = false
-                                        onForceStopSelected(selection)
+                                        selection = emptySet()
+                                        onForceStopSelected(ids)
                                     },
                                 )
                             }
@@ -585,8 +601,10 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_archive_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Archive, contentDescription = null) },
                                     onClick = {
+                                        val ids = selection
                                         selectionOverflowOpen = false
-                                        onArchiveSelected(selection)
+                                        selection = emptySet()
+                                        onArchiveSelected(ids)
                                     },
                                 )
                             }
@@ -595,8 +613,10 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_restore_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Unarchive, contentDescription = null) },
                                     onClick = {
+                                        val ids = selection
                                         selectionOverflowOpen = false
-                                        onRestoreSelected(selection)
+                                        selection = emptySet()
+                                        onRestoreSelected(ids)
                                     },
                                 )
                             }
@@ -604,16 +624,20 @@ internal fun AppControlListScreen(
                                 text = { Text(stringResource(R.string.appcontrol_export_app_selection_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.SaveAlt, contentDescription = null) },
                                 onClick = {
+                                    val ids = selection
                                     selectionOverflowOpen = false
-                                    onExportSelected(selection)
+                                    selection = emptySet()
+                                    onExportSelected(ids)
                                 },
                             )
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.appcontrol_share_list_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.Share, contentDescription = null) },
                                 onClick = {
+                                    val ids = selection
                                     selectionOverflowOpen = false
-                                    onShareSelected(selection)
+                                    selection = emptySet()
+                                    onShareSelected(ids)
                                 },
                             )
                         }

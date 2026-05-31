@@ -250,6 +250,7 @@ internal fun AppJunkDetailsScreen(
                         SdmDeleteAction(onClick = {
                             val junk = currentJunk ?: return@SdmDeleteAction
                             val paths = selection
+                            selection = emptySet()
                             onRequestDelete(
                                 DeleteSpec.SelectedFiles(
                                     installId = junk.identifier,

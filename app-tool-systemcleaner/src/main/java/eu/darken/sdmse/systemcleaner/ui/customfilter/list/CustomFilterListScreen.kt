@@ -19,6 +19,7 @@ import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.HelpOutline
@@ -130,9 +131,10 @@ fun CustomFilterListScreenHost(
                                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             }
                             context.startActivity(intent)
-                        } catch (_: ActivityNotFoundException) {
-                            // Swallow — matches existing Fragment's asErrorDialogBuilder behavior
-                            // (user already has a snackbar, dialog would stack on top).
+                        } catch (e: ActivityNotFoundException) {
+                            // Surface via the error dialog (legacy used asErrorDialogBuilder) — no
+                            // app to view the exported file should not silently do nothing.
+                            vm.errorEvents.tryEmit(e)
                         }
                     }
                 }
@@ -212,6 +214,14 @@ internal fun CustomFilterListScreen(
                                 onEditRow(row)
                             }) {
                                 Icon(Icons.TwoTone.Edit, contentDescription = null)
+                            }
+                        }
+                        if (selection.size < state.rows.size) {
+                            IconButton(onClick = { selection = state.rows.map { it.id }.toSet() }) {
+                                Icon(
+                                    Icons.TwoTone.SelectAll,
+                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                                )
                             }
                         }
                         IconButton(onClick = {

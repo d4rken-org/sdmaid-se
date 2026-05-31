@@ -65,10 +65,10 @@ class SetupViewModel @Inject constructor(
     private val deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
-    private val route = SetupRoute.from(handle)
-
+    // Options are driven from the Host via setScreenOptions() (the SetupRoute entry forwards the
+    // route object). Do NOT read SavedStateHandle.toRoute<>() here — it crashes under Nav3.
     private val screenOptionsFlow: MutableStateFlow<SetupScreenOptions> =
-        MutableStateFlow(route.options ?: SetupScreenOptions())
+        MutableStateFlow(SetupScreenOptions())
     val screenOptions: SetupScreenOptions get() = screenOptionsFlow.value
 
     fun setScreenOptions(options: SetupScreenOptions) {
@@ -77,7 +77,7 @@ class SetupViewModel @Inject constructor(
     }
 
     init {
-        log(TAG) { "Setup route parsed: options=${route.options}" }
+        log(TAG) { "Setup init: options=${screenOptionsFlow.value}" }
         setupManager.setDismissed(false)
     }
 
@@ -268,7 +268,10 @@ class SetupViewModel @Inject constructor(
                     }
                 }
                 .sortedBy { item ->
-                    if (options.showCompleted && item.state is SetupModule.State.Current && !item.state.isComplete) {
+                    // Loading-state cards must also be promoted under showCompleted (legacy parity);
+                    // the `isComplete` extension already returns false for non-Current states, so no
+                    // `is State.Current` guard is needed (it would wrongly drop Loading cards).
+                    if (options.showCompleted && !item.state.isComplete) {
                         Int.MIN_VALUE
                     } else if (item is RootSetupCardItem && item.state.isInstalled && item.state.useRoot == null) {
                         Int.MIN_VALUE
@@ -282,25 +285,6 @@ class SetupViewModel @Inject constructor(
     }
         .setupCommonEventHandlers(TAG) { "listItems" }
         .stateIn(vmScope, SharingStarted.Eagerly, null)
-
-    val listItems: StateFlow<List<SetupCardItem>> = itemsStateFlow
-        .filterNotNull()
-        .safeStateIn(
-            initialValue = emptyList(),
-            onError = { emptyList() },
-        )
-
-    val isSetupComplete: StateFlow<Boolean> = combine(
-        itemsStateFlow,
-        screenOptionsFlow,
-    ) { items, options ->
-        items != null && items.isEmpty() && !options.showCompleted
-    }
-        .distinctUntilChanged()
-        .safeStateIn(
-            initialValue = false,
-            onError = { false },
-        )
 
     internal val uiState: StateFlow<SetupUiState> = combine(
         itemsStateFlow,

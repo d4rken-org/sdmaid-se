@@ -199,7 +199,9 @@ private fun ProgressIndicator(
         is Progress.Count.Counter, is Progress.Count.Percent -> {
             val current = count.current
             val max = count.max
-            val useIndeterminate = current == 0L || max == 0L
+            // current==0 with a known max is a valid START state (determinate ring at 0%), not
+            // indeterminate. Only fall back to the spinner when the total (max) is unknown.
+            val useIndeterminate = max == 0L
             Box(modifier = modifier, contentAlignment = Alignment.Center) {
                 if (useIndeterminate) {
                     CircularProgressIndicator(modifier = Modifier.fillMaxSize())

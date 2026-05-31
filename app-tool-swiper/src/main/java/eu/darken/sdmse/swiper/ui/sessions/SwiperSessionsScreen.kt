@@ -33,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -44,6 +45,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.FileTypeCategory
@@ -59,7 +61,7 @@ import kotlinx.coroutines.flow.StateFlow
 private data class PendingRename(val sessionId: String, val currentLabel: String?)
 private data class PendingFilter(val sessionId: String, val current: FileTypeFilter)
 private data class PendingSort(val sessionId: String, val current: SortOrder)
-private data class PendingScanWarn(val sessionId: String, val displayLabel: String)
+private data class PendingScanWarn(val sessionId: String, val sensitivePaths: List<APath>)
 
 @Composable
 fun SwiperSessionsScreenHost(
@@ -129,11 +131,14 @@ internal fun SwiperSessionsScreen(
             )
         },
         floatingActionButton = {
+            // Free-tier users at the session limit have canCreateNewSession=false; the FAB collapses
+            // to icon-only AND must not trigger the picker (legacy disabled the FAB outright).
             ExtendedFloatingActionButton(
-                onClick = onOpenPicker,
+                onClick = { if (state.canCreateNewSession) onOpenPicker() },
                 icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
                 text = { Text(stringResource(R.string.swiper_select_folders_action)) },
                 expanded = state.canCreateNewSession,
+                modifier = Modifier.alpha(if (state.canCreateNewSession) 1f else 0.38f),
             )
         },
     ) { paddingValues ->
@@ -168,7 +173,7 @@ internal fun SwiperSessionsScreen(
                     isRisky = state.isSessionRisky(sessionId),
                     onScan = {
                         if (state.isSessionRisky(sessionId)) {
-                            pendingScanWarn = PendingScanWarn(sessionId, displayLabel)
+                            pendingScanWarn = PendingScanWarn(sessionId, state.riskySessionPaths[sessionId].orEmpty())
                         } else {
                             onScan(sessionId)
                         }
@@ -219,11 +224,14 @@ internal fun SwiperSessionsScreen(
     }
 
     pendingScanWarn?.let { req ->
+        // Name the actual sensitive storage path(s), not the session label — the warning string's
+        // %1$s placeholder is for the risky location (legacy parity).
+        val pathsLabel = req.sensitivePaths.joinToString("\n") { it.userReadablePath.get(context) }
         SdmConfirmDialog(
             title = stringResource(R.string.swiper_sensitive_root_warning_title),
             message = stringResource(
                 R.string.swiper_sensitive_root_warning_message,
-                req.displayLabel,
+                pathsLabel,
             ),
             onDismissRequest = { pendingScanWarn = null },
             positive = SdmDialogAction(

@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.picker.PickerResultKey
 import eu.darken.sdmse.common.picker.PickerRoute
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import io.kotest.matchers.shouldBe
@@ -45,10 +44,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
             every { this@apply.flow } returns flow
             coEvery { update(any()) } returns DataStoreValue.Updated(old = initial, new = initial)
         }
-
-    private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
-        every { this@apply.isPro } returns isPro
-    }
 
     private class Values(
         val allowDeleteAll: DataStoreValue<Boolean>,
@@ -85,7 +80,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
     }
 
     private fun harness(
-        isPro: Boolean = false,
         allowDeleteAll: Boolean = false,
         skipUncommon: Boolean = true,
         minSizeBytes: Long = DeduplicatorSettings.MIN_FILE_SIZE,
@@ -112,9 +106,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
             every { this@apply.isSleuthMediaEnabled } returns values.isSleuthMediaEnabled
             every { this@apply.scanPaths } returns values.scanPaths
         }
-        val upgradeRepo = mockk<UpgradeRepo>().apply {
-            every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
-        }
         val pickerResults = MutableStateFlow<PickerResult?>(null)
         val capturedKey = slot<ResultKey<PickerResult>>()
         val navCtrl = mockk<NavigationController>(relaxed = true).apply {
@@ -124,7 +115,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
         }
         val vm = DeduplicatorSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
-            upgradeRepo = upgradeRepo,
             settings = settings,
             navCtrl = navCtrl,
         )
@@ -140,7 +130,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
         val h = harness()
 
         val state = h.vm.state.first()
-        state.isPro shouldBe false
         state.scanPaths shouldBe emptyList()
         state.allowDeleteAll shouldBe false
         state.minSizeBytes shouldBe DeduplicatorSettings.MIN_FILE_SIZE
@@ -153,7 +142,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
     @Test
     fun `state reflects non-default DataStore values`() = runTest2 {
         val h = harness(
-            isPro = true,
             allowDeleteAll = true,
             skipUncommon = false,
             minSizeBytes = 4 * 1024 * 1024L,
@@ -163,7 +151,6 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
         )
 
         val state = h.vm.state.first()
-        state.isPro shouldBe true
         state.allowDeleteAll shouldBe true
         state.skipUncommon shouldBe false
         state.minSizeBytes shouldBe 4 * 1024 * 1024L

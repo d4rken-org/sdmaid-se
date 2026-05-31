@@ -53,6 +53,7 @@ private val AREA_TYPES = listOf(
 
 @Composable
 internal fun CustomFilterEditorBody(
+    modifier: Modifier = Modifier,
     config: CustomFilterConfig,
     contentBottomPadding: androidx.compose.ui.unit.Dp,
     onLabelChange: (String) -> Unit,
@@ -72,7 +73,6 @@ internal fun CustomFilterEditorBody(
     onUpdateAgeMin: (Duration?) -> Unit,
     onUpdateAgeMax: (Duration?) -> Unit,
     onTaggedFieldFocused: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
 

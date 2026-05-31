@@ -19,6 +19,9 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
+import eu.darken.sdmse.common.upgrade.isProSettled
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
@@ -48,6 +51,13 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
+private val DeduplicatorTask.requiresPro: Boolean
+    get() = when (this) {
+        is DeduplicatorScanTask -> false
+        is DeduplicatorDeleteTask -> true
+        is DeduplicatorOneClickTask -> true
+    }
+
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -58,6 +68,7 @@ class Deduplicator @Inject constructor(
     private val deleter: Provider<DuplicatesDeleter>,
     private val settings: DeduplicatorSettings,
     private val arbiter: DuplicatesArbiter,
+    private val upgradeRepo: UpgradeRepo,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -98,8 +109,21 @@ class Deduplicator @Inject constructor(
             }
             .launchIn(appScope)
     }
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         task as DeduplicatorTask
+
+        // Pro gate at the API boundary: defense-in-depth so a UI mistake can't run a Pro-only task
+        // for free. Checked before acquiring toolLock so the (possibly waiting) Pro check never
+        // holds the lock and blocks other submits.
+        if (task.requiresPro && !upgradeRepo.isProSettled()) {
+            log(TAG, WARN) { "submit($task) denied: Pro upgrade required" }
+            throw UpgradeRequiredException(type)
+        }
+
+        return performTask(task)
+    }
+
+    private suspend fun performTask(task: DeduplicatorTask): SDMTool.Task.Result = toolLock.withLock {
         log(TAG, INFO) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
 

@@ -186,7 +186,7 @@ fun DeduplicatorListScreenHost(
         onDuplicateClick = { cluster, dupe -> vm.deleteDuplicate(cluster, dupe) },
         onDuplicatePreview = { cluster, dupe -> vm.previewDuplicate(cluster, dupe) },
         onDeleteDuplicates = { ids -> vm.deleteDuplicates(ids) },
-        onExcludeDuplicates = { ids -> vm.excludeDuplicates(ids) },
+        onExcludeClusters = { clusterIds -> vm.excludeClusterIds(clusterIds) },
         onToggleLayoutMode = vm::toggleLayoutMode,
     )
 
@@ -250,7 +250,7 @@ internal fun DeduplicatorListScreen(
     onDuplicateClick: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
     onDuplicatePreview: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
     onDeleteDuplicates: (Set<Duplicate.Id>) -> Unit = {},
-    onExcludeDuplicates: (Set<Duplicate.Id>) -> Unit = {},
+    onExcludeClusters: (Set<Duplicate.Cluster.Id>) -> Unit = {},
     onToggleLayoutMode: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
@@ -300,7 +300,9 @@ internal fun DeduplicatorListScreen(
                     subtitle = subtitle,
                     onNavigateUp = onNavigateUp,
                     actions = {
-                        IconButton(onClick = onToggleLayoutMode) {
+                        // Hidden during an active scan/delete (legacy parity) — toggling mid-task
+                        // would race a settings write against the in-flight operation.
+                        IconButton(onClick = onToggleLayoutMode, enabled = state?.progress == null) {
                             val icon = when (layoutMode) {
                                 LayoutMode.LINEAR -> Icons.TwoTone.GridView
                                 LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
@@ -323,9 +325,11 @@ internal fun DeduplicatorListScreen(
                             if (ids.isNotEmpty()) onDeleteDuplicates(ids)
                         })
                         SdmExcludeAction(onClick = {
-                            val ids = selection.flat
+                            // Cluster-level exclusion (legacy parity) — excludes whole clusters that
+                            // have a selected duplicate, so they disappear from the list.
+                            val clusterIds = selection.dupes.keys
                             selection = MixedSelection.Empty
-                            if (ids.isNotEmpty()) onExcludeDuplicates(ids)
+                            if (clusterIds.isNotEmpty()) onExcludeClusters(clusterIds)
                         })
                         SdmSelectAllAction(
                             visible = safeTargetUnion.isNotEmpty() && !selection.flat.containsAll(safeTargetUnion),

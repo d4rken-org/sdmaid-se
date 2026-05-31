@@ -45,6 +45,9 @@ fun PreviewDeletionDialog(
     onDismiss: () -> Unit,
     onPreviewClick: (PreviewOptions) -> Unit,
     onShowDetails: (() -> Unit)? = null,
+    // Open-in-external-app for a single duplicate (legacy parity). Shares the neutral slot;
+    // onShowDetails (used by other flows) takes precedence when both are supplied.
+    onOpen: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
     var deleteAllChecked by rememberSaveable(mode::class, mode.allowDeleteAll) { mutableStateOf(false) }
@@ -65,6 +68,11 @@ fun PreviewDeletionDialog(
         neutral = onShowDetails?.let {
             SdmDialogAction(
                 label = stringResource(CommonR.string.general_show_details_action),
+                onClick = it,
+            )
+        } ?: onOpen?.let {
+            SdmDialogAction(
+                label = stringResource(CommonR.string.general_open_action),
                 onClick = it,
             )
         },

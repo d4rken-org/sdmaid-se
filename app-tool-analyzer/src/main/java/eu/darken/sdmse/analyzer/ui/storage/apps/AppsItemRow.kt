@@ -23,11 +23,15 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import eu.darken.sdmse.analyzer.ui.storage.apps.AppsViewModel.Row
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewInstalled
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewPkgStat
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 internal fun AppsItemRow(
-    row: Row,
     modifier: Modifier = Modifier,
+    row: Row,
     onClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -81,5 +85,21 @@ internal fun AppsItemRow(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppsItemRowPreview() {
+    PreviewWrapper {
+        AppsItemRow(
+            row = Row(
+                pkgStat = previewPkgStat(
+                    pkg = previewInstalled(pkgName = "com.example.gallery", label = "Gallery"),
+                ),
+                sizeRatio = 0.7f,
+            ),
+            onClick = {},
+        )
     }
 }

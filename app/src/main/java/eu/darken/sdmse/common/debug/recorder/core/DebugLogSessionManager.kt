@@ -53,15 +53,17 @@ class DebugLogSessionManager @Inject constructor(
         refreshTrigger.onStart { emit(Unit) },
     ) { recorderState, zipping, failedZips, _ ->
         withContext(dispatcherProvider.IO) {
-            val (sessions, orphans) = fsMutex.withLock {
-                val activeRecordingDir = recorderState.currentLogDir
-                val logDirs = recorderModule.getLogDirectories()
-                val scanned = scanSessions(logDirs, activeRecordingDir)
-                val orphans = findOrphans(scanned, zipping, pendingAutoZips)
-                val overlaid = applyOverlays(scanned, zipping, failedZips)
-                overlaid to orphans
-            }
-            // Schedule auto-zips outside the lock to avoid reentrancy
+            // The scan is READ-ONLY and deliberately runs WITHOUT fsMutex. A reader must never be
+            // blocked by a long-running zip (which holds fsMutex for the whole compression) —
+            // holding fsMutex here previously let an in-progress zip wedge the dashboard on its
+            // loading spinner indefinitely. scanSessions() is told which sessions are zipping so its
+            // stale-temp cleanup never deletes a .zip.tmp that a zip is actively writing.
+            val activeRecordingDir = recorderState.currentLogDir
+            val logDirs = recorderModule.getLogDirectories()
+            val scanned = scanSessions(logDirs, activeRecordingDir, zipping)
+            val orphans = findOrphans(scanned, zipping, pendingAutoZips)
+            val overlaid = applyOverlays(scanned, zipping, failedZips)
+
             if (orphans.isNotEmpty()) {
                 orphans.forEach { (sessionId, _) -> pendingAutoZips.add(sessionId) }
                 appScope.launch {
@@ -71,7 +73,7 @@ class DebugLogSessionManager @Inject constructor(
                     }
                 }
             }
-            sessions
+            overlaid
         }
     }.replayingShare(appScope)
 
@@ -154,7 +156,7 @@ class DebugLogSessionManager @Inject constructor(
     }
 
     suspend fun zipSession(sessionId: SessionId): File = fsMutex.withLock {
-        // Do NOT call sessions.first() here — it acquires fsMutex in its producer, which would deadlock.
+        // Read recorder state directly instead of sessions.first() to avoid triggering a re-scan.
         val activeDir = recorderModule.getCurrentLogDir()
         if (activeDir != null) {
             require(SessionId.derive(activeDir) != sessionId) { "Cannot zip an active recording session" }
@@ -168,7 +170,14 @@ class DebugLogSessionManager @Inject constructor(
         }
         requireNotNull(dir) { "No log directory found for session $sessionId" }
         failedZipIds.update { it - sessionId }
-        withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
+        // Mark as zipping so the lock-free scan's stale-temp cleanup won't delete this zip's
+        // in-progress .zip.tmp while it's being written.
+        zippingIds.update { it + sessionId }
+        try {
+            withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
+        } finally {
+            zippingIds.update { it - sessionId }
+        }
     }
 
     suspend fun getZipUri(sessionId: SessionId): Uri {
@@ -289,14 +298,18 @@ class DebugLogSessionManager @Inject constructor(
         fun scanSessions(
             logDirectories: List<File>,
             activeRecordingDir: File?,
+            currentlyZipping: Set<SessionId> = emptySet(),
         ): List<DebugLogSession> {
             val sessions = mutableListOf<DebugLogSession>()
 
             logDirectories.forEach { parent ->
                 val children = parent.listFiles() ?: return@forEach
 
-                // Clean up stale temp files from interrupted zip operations
+                // Clean up stale temp files from interrupted zip operations — but never a .zip.tmp
+                // that a zip is actively writing right now (the scan runs lock-free alongside zips).
                 children.filter { it.extension == "tmp" && it.name.endsWith(".zip.tmp") }.forEach { tmp ->
+                    val tmpSessionId = SessionId.derive(File(parent, tmp.name.removeSuffix(".zip.tmp")))
+                    if (tmpSessionId in currentlyZipping) return@forEach
                     tmp.delete()
                     log(TAG) { "Deleted stale temp file: ${tmp.name}" }
                 }

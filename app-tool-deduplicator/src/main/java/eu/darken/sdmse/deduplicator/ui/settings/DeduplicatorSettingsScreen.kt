@@ -4,17 +4,12 @@ import android.text.format.Formatter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.PlayCircleOutline
 import androidx.compose.material.icons.twotone.Psychology
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +24,7 @@ import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.Numeric0Box
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
@@ -106,13 +102,9 @@ internal fun DeduplicatorSettingsScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(CommonR.string.deduplicator_tool_name)) },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
-                },
+            SdmTopAppBar(
+                title = stringResource(CommonR.string.deduplicator_tool_name),
+                onNavigateUp = onNavigateUp,
             )
         },
     ) { paddingValues ->

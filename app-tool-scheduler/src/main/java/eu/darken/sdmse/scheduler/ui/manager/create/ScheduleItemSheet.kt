@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -96,7 +97,9 @@ internal fun ScheduleItemSheet(
     LaunchedEffect(state.repeatInterval) {
         val stateDays = state.repeatInterval.toDays().toInt()
         val typed = daysText.toIntOrNull()
-        if (typed != null && typed != stateDays) {
+        // Re-populate when the field is empty (typed == null) too — otherwise clearing the field and
+        // then using the +/- buttons leaves the input blank while the underlying state changes.
+        if (typed == null || typed != stateDays) {
             daysText = stateDays.toString()
         }
     }
@@ -117,7 +120,7 @@ internal fun ScheduleItemSheet(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        Spacer(modifier = Modifier.padding(vertical = 8.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth(),
@@ -153,7 +156,7 @@ internal fun ScheduleItemSheet(
             }
         }
 
-        Spacer(modifier = Modifier.padding(vertical = 8.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth(),
@@ -196,7 +199,7 @@ internal fun ScheduleItemSheet(
             }
         }
 
-        Spacer(modifier = Modifier.padding(vertical = 16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.End,
@@ -205,7 +208,7 @@ internal fun ScheduleItemSheet(
                 Text(stringResource(CommonR.string.general_save_action))
             }
         }
-        Spacer(modifier = Modifier.padding(vertical = 8.dp))
+        Spacer(modifier = Modifier.height(8.dp))
     }
 
     if (showTimePicker) {

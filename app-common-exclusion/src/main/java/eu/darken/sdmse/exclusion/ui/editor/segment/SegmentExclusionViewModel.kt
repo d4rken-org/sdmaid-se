@@ -125,9 +125,13 @@ class SegmentExclusionViewModel @Inject constructor(
     fun save() = launch {
         val snap = state.value as? State.Ready ?: return@launch
         log(TAG) { "save()" }
-        originalFlow.value?.id?.let {
-            log(TAG) { "save(): Segments (ID) changed, removing previous: $it" }
-            exclusionManager.remove(it)
+        // Only remove the original when its ID actually changed (the ID is derived from segments
+        // only). If just tags changed, the ID is identical — an unconditional remove would do a
+        // pointless delete+re-add. Mirrors PathExclusionViewModel.
+        val origId = originalFlow.value?.id
+        if (origId != null && origId != snap.current.id) {
+            log(TAG) { "save(): Segments (ID) changed, removing previous: $origId" }
+            exclusionManager.remove(origId)
         }
         exclusionManager.save(snap.current)
         navUp()

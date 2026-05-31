@@ -373,6 +373,8 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         val themeStateSnapshot = ThemeState(
             mode = generalSettings.themeMode.value(),
             style = generalSettings.themeStyle.value(),
+            // Include the user's chosen palette — omitting it pinned the overlay to the GREEN default.
+            color = generalSettings.themeColor.value(),
         )
         controlView = withContext(dispatcher.Main) {
             val themedContext = ContextThemeWrapper(

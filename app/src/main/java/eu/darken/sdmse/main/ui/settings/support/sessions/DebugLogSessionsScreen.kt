@@ -153,6 +153,7 @@ internal fun DebugLogSessionsSheetContent(
 
     pendingDeleteId?.let { id ->
         SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
             message = stringResource(R.string.debug_debuglog_sessions_delete_confirmation_message),
             onDismissRequest = { pendingDeleteId = null },
             positive = SdmDialogAction(

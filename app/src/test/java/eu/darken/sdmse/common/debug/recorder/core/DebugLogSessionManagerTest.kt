@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.debug.recorder.core
 
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -8,10 +10,16 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -20,6 +28,8 @@ import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import java.time.Instant
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 class DebugLogSessionManagerTest : BaseTest() {
 
@@ -685,6 +695,88 @@ class DebugLogSessionManagerTest : BaseTest() {
             DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
             tmpFile.exists() shouldBe false
+        }
+
+        @Test
+        fun `scanSessions keeps tmp file of a session currently zipping`() {
+            // The lock-free scan must NOT delete a .zip.tmp that a zip is actively writing right now,
+            // otherwise it would corrupt the in-progress zip.
+            createSessionDir("session1", coreLogContent = "data")
+            val tmpFile = File(logParent, "session1.zip.tmp").apply { writeBytes(ByteArray(10)) }
+
+            DebugLogSessionManager.scanSessions(
+                listOf(logParent),
+                activeRecordingDir = null,
+                currentlyZipping = setOf(sessionId("session1")),
+            )
+
+            tmpFile.exists() shouldBe true
+        }
+
+        @Test
+        fun `scanSessions still deletes tmp of a session that is not zipping`() {
+            createSessionDir("session1")
+            createZipFile("session1")
+            val tmpFile = File(logParent, "session1.zip.tmp").apply { writeBytes(ByteArray(10)) }
+
+            DebugLogSessionManager.scanSessions(
+                listOf(logParent),
+                activeRecordingDir = null,
+                currentlyZipping = setOf(sessionId("other")),
+            )
+
+            tmpFile.exists() shouldBe false
+        }
+    }
+
+    @Nested
+    inner class DeadlockRegression {
+
+        /** Real dispatchers so the zip genuinely holds fsMutex on a background thread while the scan runs. */
+        private val realDispatchers = object : DispatcherProvider {
+            override val Default = Dispatchers.Default
+            override val Main = Dispatchers.Default
+            override val MainImmediate = Dispatchers.Default
+            override val Unconfined = Dispatchers.Unconfined
+            override val IO = Dispatchers.IO
+        }
+
+        @Test
+        fun `sessions scan completes while a long zip holds the lock`() {
+            // Regression for the dashboard "stuck on loading spinner" deadlock: the read-only sessions
+            // scan must not acquire fsMutex, so a long-running zip (which holds fsMutex) can't block it.
+            createSessionDir("ready")
+            createZipFile("ready")
+            val zippingDir = createSessionDir("zipping", coreLogContent = "data")
+
+            val zipHoldsLock = CountDownLatch(1)
+            val releaseZip = CountDownLatch(1)
+            every { debugLogZipper.zip(zippingDir) } answers {
+                zipHoldsLock.countDown()
+                releaseZip.await() // hold fsMutex until the test releases it
+                File(zippingDir.parentFile, "zipping.zip").apply { writeBytes(ByteArray(10)) }
+            }
+            coEvery { recorderModule.requestStopRecorder() } returns RecorderModule.StopResult.Stopped(
+                sessionId = sessionId("zipping"),
+                logDir = zippingDir,
+            )
+
+            val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+            try {
+                val manager = DebugLogSessionManager(scope, realDispatchers, recorderModule, debugLogZipper)
+                runBlocking {
+                    // Triggers zipSessionAsync -> acquires fsMutex and blocks inside zip().
+                    manager.requestStopRecording()
+                    zipHoldsLock.await(5, TimeUnit.SECONDS) shouldBe true
+
+                    // Before the fix this hangs forever (scan waits on fsMutex held by the zip).
+                    val sessions = withTimeout(5_000) { manager.sessions.first() }
+                    sessions.map { it.id } shouldContain sessionId("ready")
+                }
+            } finally {
+                releaseZip.countDown()
+                scope.cancel()
+            }
         }
     }
 }

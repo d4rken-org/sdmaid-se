@@ -86,6 +86,9 @@ fun buildAppCleanerTask(spec: DeleteSpec, junk: AppJunk): AppCleanerProcessingTa
             AppCleanerProcessingTask(
                 targetPkgs = setOf(spec.installId),
                 targetFilters = setOf(spec.category),
+                // Intentionally null (NOT the per-path list): AppCleaner.performProcessing resolves a
+                // non-null targetContents via `allMatches.single { tc.matches(it.path) }`, which throws
+                // when a category path matches 0 or >1 entries. Category deletes scope by filter only.
                 targetContents = null,
                 includeInaccessible = false,
             )

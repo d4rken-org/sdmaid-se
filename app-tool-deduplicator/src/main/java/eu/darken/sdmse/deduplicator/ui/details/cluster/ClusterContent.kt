@@ -571,20 +571,22 @@ private fun ImageFileRow(
             )
         }
         Spacer(Modifier.width(8.dp))
-        Text(
-            text = "${stringResource(DeduplicatorR.string.deduplicator_file_size_label)}: ${
-                Formatter.formatShortFileSize(context, duplicate.size)
-            }",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        if (willBeDeleted) {
-            Spacer(Modifier.width(8.dp))
-            Icon(
-                imageVector = Icons.TwoTone.DeleteSweep,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.error,
-                modifier = deleteMarkModifier.size(20.dp),
+        // Trailing column: delete marker pinned above the file size, both right-aligned, so the
+        // size's right edge stays consistent across rows (deleted rows no longer shift it left).
+        Column(horizontalAlignment = Alignment.End) {
+            if (willBeDeleted) {
+                Icon(
+                    imageVector = Icons.TwoTone.DeleteSweep,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.error,
+                    modifier = deleteMarkModifier.size(20.dp),
+                )
+                Spacer(Modifier.height(4.dp))
+            }
+            Text(
+                text = Formatter.formatShortFileSize(context, duplicate.size),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }

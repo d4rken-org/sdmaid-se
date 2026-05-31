@@ -30,7 +30,7 @@ internal fun previewLocalPathLookup(
     target = null,
 )
 
-internal fun previewAreaInfo(): AreaInfo {
+private fun previewAreaInfo(): AreaInfo {
     val root = LocalPath.build("storage", "emulated", "0", "Android", "data")
     return AreaInfo(
         file = root,
@@ -45,7 +45,7 @@ internal fun previewAreaInfo(): AreaInfo {
     )
 }
 
-internal fun previewOwnerInfo(
+private fun previewOwnerInfo(
     owners: Set<Owner> = setOf(
         Owner(pkgId = Pkg.Id(name = "com.example.app"), userHandle = UserHandle2(handleId = 0)),
     ),

@@ -25,7 +25,7 @@ internal object SpaceHistoryMarkerTooltip {
 
     private val timeFormatter = DateTimeFormatter.ofPattern("h:mm a", Locale.getDefault())
 
-    fun show(chart: SpaceHistoryChartView, report: ReportEntity, screenX: Int, screenY: Int) {
+    fun show(chart: SpaceHistoryChartView, report: ReportEntity, screenX: Int, screenY: Int): PopupWindow {
         val context = chart.context
 
         val time = report.endAt.atZone(ZoneId.systemDefault()).format(timeFormatter)
@@ -70,10 +70,13 @@ internal object SpaceHistoryMarkerTooltip {
                 if (w == 0 || h == 0) return true
                 composeView.viewTreeObserver.removeOnPreDrawListener(this)
                 popup.update(screenX - w / 2, screenY - h - margin, w, h)
-                return false
+                // Listener already removed above — return true so this draw pass isn't dropped
+                // (returning false would cancel the frame and cause a visible jank artifact).
+                return true
             }
         })
 
         popup.showAtLocation(chart, Gravity.NO_GRAVITY, screenX, screenY)
+        return popup
     }
 }

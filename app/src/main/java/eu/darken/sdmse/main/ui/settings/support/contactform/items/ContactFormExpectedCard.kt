@@ -9,11 +9,11 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun ContactFormExpectedCard(
+    modifier: Modifier = Modifier,
     expected: String,
     wordCount: Int,
     minWords: Int,
     onExpectedChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     ContactFormTextFieldCard(
         value = expected,

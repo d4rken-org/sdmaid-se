@@ -46,6 +46,7 @@ import java.time.format.FormatStyle
 
 @Composable
 internal fun ScheduleRow(
+    modifier: Modifier = Modifier,
     schedule: Schedule,
     showCommands: Boolean,
     onEdit: () -> Unit,
@@ -55,9 +56,10 @@ internal fun ScheduleRow(
     onToggleSystemCleaner: () -> Unit,
     onToggleAppCleaner: () -> Unit,
     onEditCommands: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
-    val now = remember(schedule.id) { Instant.now() }
+    // Not remembered: a cached `now` frozen at first composition makes the recomputed ETA (when the
+    // schedule's hour/interval changes) anchor to a stale timestamp. Instant.now() is trivially cheap.
+    val now = Instant.now()
     val formatter = remember { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
     val days = schedule.repeatInterval.toDays().toInt()
     val daysText = pluralStringResource(R.plurals.scheduler_schedule_repeat_x_days, days, days)

@@ -22,5 +22,9 @@ data class CorpseDetailsRoute(
     )
 
     @Transient
-    val corpsePath: APath? = corpsePathJson?.let { Json.decodeFromString(APathSerializer, it) }
+    val corpsePath: APath? = corpsePathJson?.let {
+        // Defensive: a malformed/legacy-schema JSON string must not crash the nav framework at
+        // route construction. The VM falls back to lastPosition when corpsePath is null.
+        runCatching { Json.decodeFromString(APathSerializer, it) }.getOrNull()
+    }
 }

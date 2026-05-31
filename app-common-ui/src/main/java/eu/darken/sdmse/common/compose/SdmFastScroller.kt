@@ -3,6 +3,8 @@ package eu.darken.sdmse.common.compose
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
@@ -215,13 +217,16 @@ private fun SdmFastScrollerImpl(
         // to start in RTL, and the offset's sign would then point the wrong way, so guard with
         // a layout direction check.
         val bubbleOffsetPx = with(density) { (SdmFastScrollerLaneWidth + BubbleEndPadding).roundToPx() }
+        // In RTL, Alignment.TopEnd resolves to the left edge, so the bubble must offset rightward
+        // (positive x) to float into the content area instead of further off-screen.
+        val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
         AnimatedVisibility(
             visible = activeSection != null,
             enter = fadeIn(),
             exit = fadeOut(),
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .offset { IntOffset(x = -bubbleOffsetPx, y = thumbY) },
+                .offset { IntOffset(x = if (isRtl) bubbleOffsetPx else -bubbleOffsetPx, y = thumbY) },
         ) {
             Box(
                 modifier = Modifier

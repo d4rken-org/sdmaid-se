@@ -50,6 +50,8 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -415,7 +417,12 @@ private fun SetupCardDispatch(
         is UsageStatsSetupCardItem -> UsageStatsSetupCard(item, modifier)
         is AutomationSetupCardItem -> AutomationSetupCard(item, modifier)
         is InventorySetupCardItem -> InventorySetupCard(item, modifier)
-        else -> log(TAG, WARN) { "Unhandled card item type: ${item::class.java.simpleName}" }
+        else -> {
+            // Loud in debug so a newly-added SetupCardItem without a branch is caught immediately;
+            // a safe log in release avoids dropping the whole setup screen for one unknown card.
+            log(TAG, ERROR) { "Unhandled card item type: ${item::class.java.simpleName}" }
+            if (BuildConfigWrap.DEBUG) error("Unhandled SetupCardItem: ${item::class.java.simpleName}")
+        }
     }
 }
 

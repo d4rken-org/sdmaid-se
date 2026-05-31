@@ -45,7 +45,7 @@ class AppNavigation @Inject constructor() : NavigationEntry {
 
         entry<DataAreasRoute> { DataAreasScreenHost() }
         entry<LogViewRoute> { LogViewScreenHost() }
-        entry<UpgradeRoute> { UpgradeScreenHost() }
+        entry<UpgradeRoute> { route -> UpgradeScreenHost(route = route) }
         entry<SetupRoute> { route -> SetupScreenHost(route = route) }
 
         entry<SettingsRoute> { SettingsScreenHost() }

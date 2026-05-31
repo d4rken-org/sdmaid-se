@@ -100,7 +100,9 @@ fun SqueezerComparisonDialog(
         var originalFile by remember(media) { mutableStateOf<File?>(null) }
         var compressedFile by remember(media, quality) { mutableStateOf<File?>(null) }
         var failed by remember(media, quality) { mutableStateOf(false) }
-        var tempDir by remember(media, quality) { mutableStateOf<File?>(null) }
+        // Track EVERY dir created during this dialog's lifetime: tempDir is re-keyed on quality, so
+        // a single tempDir snapshot at dispose only cleans the last one and orphans the rest.
+        val createdDirs = remember { mutableListOf<File>() }
 
         LaunchedEffect(media, quality) {
             failed = false
@@ -109,7 +111,7 @@ fun SqueezerComparisonDialog(
 
             val unique = "preview_${System.currentTimeMillis()}_${media.identifier.value.hashCode()}"
             val dir = File(context.cacheDir, "squeezer_preview/$unique")
-            tempDir = dir
+            createdDirs.add(dir)
 
             withContext(Dispatchers.IO) {
                 try {
@@ -175,10 +177,10 @@ fun SqueezerComparisonDialog(
 
         DisposableEffect(Unit) {
             onDispose {
-                val toClean = tempDir
-                if (toClean != null) {
+                val toClean = createdDirs.toList()
+                if (toClean.isNotEmpty()) {
                     thread(start = true, name = "squeezer-preview-cleanup") {
-                        runCatching { toClean.deleteRecursively() }
+                        toClean.forEach { runCatching { it.deleteRecursively() } }
                     }
                 }
             }

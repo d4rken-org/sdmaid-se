@@ -345,13 +345,7 @@ private fun MainActionFab(
     }
 
     Surface(
-        modifier = modifier
-            .size(DASHBOARD_FAB_SIZE)
-            .combinedClickable(
-                enabled = actionState != DashboardViewModel.BottomBarState.Action.WORKING,
-                onClick = onClick,
-                onLongClick = onLongClick,
-            ),
+        modifier = modifier.size(DASHBOARD_FAB_SIZE),
         color = containerColor,
         contentColor = contentColor,
         shape = RoundedCornerShape(DASHBOARD_FAB_CORNER_RADIUS),
@@ -359,7 +353,16 @@ private fun MainActionFab(
         // visual top/bottom symmetry of the notch.
         shadowElevation = 4.dp,
     ) {
-        Box(contentAlignment = Alignment.Center) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .combinedClickable(
+                    enabled = actionState != DashboardViewModel.BottomBarState.Action.WORKING,
+                    onClick = onClick,
+                    onLongClick = onLongClick,
+                ),
+            contentAlignment = Alignment.Center,
+        ) {
             when (actionState) {
                 DashboardViewModel.BottomBarState.Action.SCAN -> Icon(
                     painter = painterResource(UiR.drawable.ic_layer_search_24),

@@ -11,7 +11,9 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -23,19 +25,31 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoFoss,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    private val route = UpgradeRoute.from(handle)
+    // Route is bound from the Host via bindRoute(); SavedStateHandle.toRoute<>() crashes under Nav3.
+    private val routeFlow = MutableStateFlow<UpgradeRoute?>(null)
+
+    fun bindRoute(route: UpgradeRoute) {
+        if (routeFlow.value != null) return
+        routeFlow.value = route
+    }
 
     val snackbarEvents = SingleEventFlow<Int>()
     val toastEvents = SingleEventFlow<Int>()
 
     init {
-        if (!route.forced) {
-            upgradeRepo.upgradeInfo
-                .filter { it.isPro }
-                .take(1)
-                .onEach { navUp() }
-                .launchInViewModel()
-        }
+        routeFlow
+            .filterNotNull()
+            .take(1)
+            .onEach { route ->
+                if (!route.forced) {
+                    upgradeRepo.upgradeInfo
+                        .filter { it.isPro }
+                        .take(1)
+                        .onEach { navUp() }
+                        .launchInViewModel()
+                }
+            }
+            .launchInViewModel()
 
         upgradeRepo.upgradeInfo
             .filter { !it.isPro && it.error != null }
