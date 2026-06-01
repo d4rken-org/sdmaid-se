@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_explanation_short">រក​ដ័តា​សែសែ​នៅ​ឧបករណ៍​របស់​អ្នក។</string>
+    <string name="deduplicator_explanation_short">ស្វែងរកទិន្នន័យស្ទួននៅលើឧបករណ៍របស់អ្នក។</string>
     <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="other">លុប​ច័ន្នំ​សែសែ​ចំនួន %d</item>
+        <item quantity="other">ទិន្នន័យស្ទួន %d ត្រូវបានលុប</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="other">រក​ក្នុង​សែសែ​ចំនួន %d</item>
+        <item quantity="other">ទិន្នន័យស្ទួន %d ឈុតត្រូវរកឃើញ</item>
     </plurals>
-    <string name="deduplicator_protection_deleteall_allowed_title">អាច​∠លុបតែងហអ់∡​បាន</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">ធ្វើឱ្យ \"លុបទាំងអស់\" ដែលអាចទៅរួច</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">បង្ហាញ​ជម្រើស​ដែល​អាច​លុប​កំពិល័​តែងហអ់​នៅ​ក្នុង​សែសែ​នឹង​មិន​មាន​កំពិល័​នើស។</string>
-    <string name="deduplicator_search_locations_title">តំបង់​ស័ក់</string>
-    <string name="deduplicator_search_locations_all_summary">តំបង់​ត័ម់តំបង់​ដែល​អាច​ចូល​បាន</string>
+    <string name="deduplicator_search_locations_title">ស្វែងរកទីតាំង</string>
+    <string name="deduplicator_search_locations_all_summary">តំបន់ដែលអាចអាក់សេសទាំងអស់</string>
     <string name="deduplicator_keep_prefer_paths_title">ចង់​រក្សាទុក​នៅ</string>
-    <string name="deduplicator_keep_prefer_paths_summary">នៅ​ពេល​សម្រច​ចំនួន​សែសែ​ដែល​ត្រូវ​រក្សាទុក ផ្តល់​រក្សា​កំពិល័​នៅ​តំបង់​នេះ។</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">មិន​មាន​តំបង់​ដែល​ត័ម់​ស័ក់</string>
-    <string name="deduplicator_skip_minsize_title">ទម្ហើន​តែច​ប្រៀម្បុន់</string>
-    <string name="deduplicator_skip_minsize_description">លឹចថ្នក​កំពិល័​ដែល​ព័ត័​តែច​ប្រៀម្បុន់។</string>
-    <string name="deduplicator_skip_uncommon_title">លឹចថ្នក​ប្រើ​ប្រាស់​ប្រើ​កម្មវិធី​សាមាញ្ញ​ឤឲតៃ</string>
-    <string name="deduplicator_skip_uncommon_description">រួម​បញ្ចូល​សឺីដាង​សឺីដាង ទ័កសារ នឹង​សម្ឤារ់​តែច​តែច​សាមាញ្ញ។</string>
-    <string name="deduplicator_detection_method_label">វិធី​ស័ក់​ត័ម់</string>
-    <string name="deduplicator_detection_method_checksum_title">ឡើ​ចន្ល​ម៉ួល​ប៉័ដ</string>
+    <string name="deduplicator_keep_prefer_paths_summary">នៅពេលសម្រេចចិត្តថាត្រូវរក្សាទុកស្ទួនមួយណា ចូលចិត្តរក្សាទុកឯកសារនៅទីតាំងទាំងនេះ។</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">គ្មានទីតាំងដែលបានកំណត់រចនាសម្ព័ន្ធទេ</string>
+    <string name="deduplicator_skip_minsize_title">ទំហំ​អប្បបរមា</string>
+    <string name="deduplicator_skip_minsize_description">រំលងឯកសារដែលតូចជាងទំហំអប្បបរមា។</string>
+    <string name="deduplicator_skip_uncommon_title">រំលងប្រភេទឯកសារមិនធម្មតា</string>
+    <string name="deduplicator_skip_uncommon_description">រួមបញ្ចូលតែឯកសារមេឌាធម្មតា ឯកសារ និងបណ្ណសារប៉ុណ្ណោះ។</string>
+    <string name="deduplicator_detection_method_label">វិធីសាស្ត្រអង្កេត</string>
+    <string name="deduplicator_detection_method_checksum_title">ឆេកសាំមាតិកា</string>
     <string name="deduplicator_detection_method_checksum_summary">កំណត់​សែសែ​ដោយ​ការ​ឡើ​ចន្ល​ម៉ួល​ប៉័ដ​សម្រួល​កំពិល័។ កំពិល័​ដែល​មាន​ចន្ល​​ម៉ួល​ប៉័ដ​ដឹក​គ្នា​មាន​និយម​ដឹក​គ្នា។</string>
     <string name="deduplicator_detection_method_phash_title">ឡើ​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​</string>
     <string name="deduplicator_detection_method_phash_summary">រក​កំពិល័​ដែល​​ស័ក់ញ្ញ​ដោយ​ការ​វិជ័យ​ព័ត័​ នឹង​ប្រើប្រាស់​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​។ ⚠️ ការស័ក់​ដោយ​᠀អិន​អាច​មាន​កំហុស​ប៉ុន្តែ​ត្រូវការ​បញ្ជាក់​ដែល​ត្រូវ​ការ​បញ្ជាក់​ដោយ​ដែលឯបនើ។</string>
