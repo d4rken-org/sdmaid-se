@@ -9,6 +9,7 @@ import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -432,6 +433,15 @@ private fun androidx.compose.foundation.layout.BoxScope.Stamp(
         StampDirection.SKIP_BOTTOM -> Alignment.BottomCenter
         StampDirection.UNDO_TOP -> Alignment.TopCenter
     }
+    // Keep stamps clear of the surrounding chrome: the round corner buttons sit at the top
+    // (≈48dp tall incl. padding) and the file-info overlay occupies the bottom (~90dp).
+    val padding = when (direction) {
+        StampDirection.KEEP_RIGHT, StampDirection.DELETE_RIGHT,
+        StampDirection.KEEP_LEFT, StampDirection.DELETE_LEFT,
+        StampDirection.UNDO_TOP,
+            -> PaddingValues(start = 24.dp, top = 72.dp, end = 24.dp, bottom = 24.dp)
+        StampDirection.SKIP_BOTTOM -> PaddingValues(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 100.dp)
+    }
     Surface(
         shape = RoundedCornerShape(8.dp),
         color = Color.Transparent,
@@ -439,7 +449,7 @@ private fun androidx.compose.foundation.layout.BoxScope.Stamp(
         contentColor = color,
         modifier = Modifier
             .align(align)
-            .padding(24.dp)
+            .padding(padding)
             .graphicsLayer {
                 this.alpha = alpha
                 scaleX = scale
