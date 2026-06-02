@@ -7,37 +7,40 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.KeyboardArrowRight
+import androidx.compose.material.icons.twotone.Lock
 import androidx.compose.material.icons.twotone.Memory
 import androidx.compose.material.icons.twotone.SdCard
 import androidx.compose.material.icons.twotone.Usb
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.stats.R as StatsR
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
-import eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryChartView
+import java.time.Duration
+import java.time.Instant
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -87,13 +90,15 @@ internal fun DeviceStorageItemCard(
                         text = storage.label.get(context),
                         style = MaterialTheme.typography.titleMedium,
                     )
-                    storage.id.internalId?.takeIf { it.isNotBlank() }?.let { id ->
-                        Text(
-                            text = id,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    // Hardware id (e.g. the volume UUID) when present; otherwise a generic label,
+                    // since the built-in storage has no UUID to show.
+                    val identifier = storage.id.internalId?.takeIf { it.isNotBlank() }
+                        ?: stringResource(R.string.analyzer_storage_identifier_internal)
+                    Text(
+                        text = identifier,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
             }
 
@@ -126,37 +131,7 @@ internal fun DeviceStorageItemCard(
 
             Spacer(Modifier.size(12.dp))
 
-            // Trend chart (compact) + delta
-            if (row.snapshots.isNotEmpty()) {
-                val labelColorArgb = MaterialTheme.colorScheme.onSurface.toArgb()
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable(onClick = onTrendClick),
-                ) {
-                    AndroidView(
-                        factory = { ctx ->
-                            SpaceHistoryChartView(ctx).apply {
-                                isCompact = true
-                                setLabelColor(labelColorArgb)
-                            }
-                        },
-                        update = {
-                            it.setLabelColor(labelColorArgb)
-                            it.setData(row.snapshots)
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(80.dp),
-                    )
-                    if (row.snapshots.size >= 2) {
-                        TrendDeltaText(snapshots = row.snapshots)
-                    }
-                }
-                Spacer(Modifier.size(12.dp))
-            }
-
-            // Available + capacity (with folded percent)
+            // Capacity: available + total text, with the bar directly beneath its own numbers.
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -181,17 +156,54 @@ internal fun DeviceStorageItemCard(
 
             Spacer(Modifier.size(8.dp))
 
-            // Capacity bar
             LinearProgressIndicator(
                 progress = { (percentUsed / 100f).coerceIn(0f, 1f) },
                 modifier = Modifier.fillMaxWidth(),
             )
+
+            // Trend zone at the bottom: a divider, then the delta sentence + the explicit
+            // "Storage Trend" button on one row. The button is the only path into the history
+            // screen. Free users get a lock badge so the upgrade jump is expected, not a surprise.
+            if (row.snapshots.size >= 2) {
+                Spacer(Modifier.size(12.dp))
+                HorizontalDivider(
+                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f),
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    TrendDeltaText(
+                        modifier = Modifier.weight(1f),
+                        snapshots = row.snapshots,
+                    )
+                    TextButton(onClick = onTrendClick) {
+                        if (!row.isPro) {
+                            Icon(
+                                imageVector = Icons.TwoTone.Lock,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                            )
+                            Spacer(Modifier.size(4.dp))
+                        }
+                        Text(text = stringResource(StatsR.string.stats_storage_trend_action))
+                        Icon(
+                            imageVector = Icons.AutoMirrored.TwoTone.KeyboardArrowRight,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp),
+                        )
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-private fun TrendDeltaText(snapshots: List<SpaceSnapshotEntity>) {
+private fun TrendDeltaText(
+    modifier: Modifier = Modifier,
+    snapshots: List<SpaceSnapshotEntity>,
+) {
     val context = LocalContext.current
     val oldest = snapshots.first().let { it.spaceCapacity - it.spaceFree }
     val newest = snapshots.last().let { it.spaceCapacity - it.spaceFree }
@@ -211,19 +223,66 @@ private fun TrendDeltaText(snapshots: List<SpaceSnapshotEntity>) {
         text = stringResource(R.string.analyzer_storage_trend_delta_in_7d, signed),
         style = MaterialTheme.typography.labelSmall,
         color = color,
-        modifier = Modifier.padding(top = 4.dp),
+        modifier = modifier,
     )
+}
+
+private fun previewSnapshots(): List<SpaceSnapshotEntity> {
+    val capacity = 128L * 1024 * 1024 * 1024
+    val base = Instant.parse("2026-05-25T12:00:00Z")
+    val freeGb = listOf(48L, 47L, 45L, 46L, 44L, 43L, 42L)
+    return freeGb.mapIndexed { index, gb ->
+        SpaceSnapshotEntity(
+            id = index.toLong(),
+            storageId = "preview",
+            recordedAt = base.plus(Duration.ofDays(index.toLong())),
+            spaceFree = gb * 1024 * 1024 * 1024,
+            spaceCapacity = capacity,
+        )
+    }
 }
 
 @Preview2
 @Composable
-private fun DeviceStorageItemCardPreview() {
+private fun DeviceStorageItemCardProPreview() {
+    PreviewWrapper {
+        DeviceStorageItemCard(
+            row = DeviceStorageViewModel.Row(
+                storage = previewDeviceStorage(),
+                snapshots = previewSnapshots(),
+                isPro = true,
+            ),
+            onClick = {},
+            onTrendClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun DeviceStorageItemCardFreePreview() {
+    PreviewWrapper {
+        DeviceStorageItemCard(
+            row = DeviceStorageViewModel.Row(
+                storage = previewDeviceStorage(),
+                snapshots = previewSnapshots(),
+                isPro = false,
+            ),
+            onClick = {},
+            onTrendClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun DeviceStorageItemCardNoHistoryPreview() {
     PreviewWrapper {
         DeviceStorageItemCard(
             row = DeviceStorageViewModel.Row(
                 storage = previewDeviceStorage(),
                 snapshots = emptyList(),
-                isPro = true,
+                isPro = false,
             ),
             onClick = {},
             onTrendClick = {},
