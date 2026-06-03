@@ -15,7 +15,6 @@ import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -41,6 +40,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R as ExclusionR
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -146,20 +146,18 @@ internal fun SwiperSwipeScreen(
                         }
                     },
                     navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Close,
-                                contentDescription = stringResource(CommonR.string.general_close_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Close,
+                            label = stringResource(CommonR.string.general_close_action),
+                            onClick = onNavigateUp,
+                        )
                     },
                     actions = {
-                        IconButton(onClick = { showHelpDialog = true }) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.TwoTone.HelpOutline,
-                                contentDescription = stringResource(CommonR.string.general_help_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                            label = stringResource(CommonR.string.general_help_action),
+                            onClick = { showHelpDialog = true },
+                        )
                         TextButton(onClick = onNavigateToStatus) {
                             BadgedBox(
                                 badge = {

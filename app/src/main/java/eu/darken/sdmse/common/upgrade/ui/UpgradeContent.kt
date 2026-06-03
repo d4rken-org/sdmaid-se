@@ -26,7 +26,6 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -49,6 +48,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 
 internal object UpgradeScreenTags {
     const val LOADING = "upgrade_loading"
@@ -77,9 +78,11 @@ internal fun UpgradeScreenScaffold(
             CenterAlignedTopAppBar(
                 title = { Text(stringResource(titleRes)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
                 scrollBehavior = scrollBehavior,
             )

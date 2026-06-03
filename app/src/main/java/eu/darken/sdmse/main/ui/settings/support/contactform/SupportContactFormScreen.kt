@@ -12,7 +12,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Email
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -37,6 +36,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
@@ -210,9 +210,11 @@ internal fun SupportContactFormScreen(
             TopAppBar(
                 title = { Text(stringResource(R.string.support_contact_label)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
             )
         },

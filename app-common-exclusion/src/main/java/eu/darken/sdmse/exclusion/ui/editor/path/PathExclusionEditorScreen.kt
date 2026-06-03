@@ -22,7 +22,6 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -46,6 +45,7 @@ import coil.compose.AsyncImage
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.icons.Asterisk
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
@@ -146,27 +146,27 @@ internal fun PathExclusionEditorScreen(
             TopAppBar(
                 title = { Text(stringResource(R.string.exclusion_type_path)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateBack,
+                    )
                 },
                 actions = {
                     val ready = state as? PathExclusionViewModel.State.Ready
                     if (ready?.canRemove == true) {
-                        IconButton(onClick = onRemove) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_remove_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(CommonR.string.general_remove_action),
+                            onClick = onRemove,
+                        )
                     }
                     if (ready?.canSave == true) {
-                        IconButton(onClick = onSave) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Save,
-                                contentDescription = stringResource(CommonR.string.general_save_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Save,
+                            label = stringResource(CommonR.string.general_save_action),
+                            onClick = onSave,
+                        )
                     }
                 },
             )

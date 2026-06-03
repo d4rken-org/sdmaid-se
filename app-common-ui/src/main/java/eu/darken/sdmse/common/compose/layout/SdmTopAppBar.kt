@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -39,12 +37,11 @@ fun SdmTopAppBar(
         },
         navigationIcon = {
             if (onNavigateUp != null) {
-                IconButton(onClick = onNavigateUp) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                        contentDescription = stringResource(CommonR.string.general_navigate_up_action),
-                    )
-                }
+                SdmTooltipIconButton(
+                    icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                    label = stringResource(CommonR.string.general_navigate_up_action),
+                    onClick = onNavigateUp,
+                )
             }
         },
         actions = actions,

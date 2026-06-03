@@ -15,8 +15,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material.icons.twotone.GridView
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -45,6 +43,7 @@ import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -302,16 +301,16 @@ internal fun DeduplicatorListScreen(
                     actions = {
                         // Hidden during an active scan/delete (legacy parity) — toggling mid-task
                         // would race a settings write against the in-flight operation.
-                        IconButton(onClick = onToggleLayoutMode, enabled = state?.progress == null) {
-                            val icon = when (layoutMode) {
-                                LayoutMode.LINEAR -> Icons.TwoTone.GridView
-                                LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
-                            }
-                            Icon(
-                                icon,
-                                contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
-                            )
+                        val icon = when (layoutMode) {
+                            LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                            LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
                         }
+                        SdmTooltipIconButton(
+                            icon = icon,
+                            label = stringResource(CommonR.string.general_toggle_layout_mode),
+                            onClick = onToggleLayoutMode,
+                            enabled = state?.progress == null,
+                        )
                     },
                 )
             } else {

@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.SelectAll
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,16 +19,13 @@ fun SdmDeleteAction(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
-    IconButton(
+    SdmTooltipIconButton(
+        icon = Icons.TwoTone.Delete,
+        label = stringResource(CommonR.string.general_delete_selected_action),
+        onClick = onClick,
         modifier = modifier,
         enabled = enabled,
-        onClick = onClick,
-    ) {
-        Icon(
-            imageVector = Icons.TwoTone.Delete,
-            contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-        )
-    }
+    )
 }
 
 @Composable
@@ -39,16 +34,13 @@ fun SdmExcludeAction(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
-    IconButton(
+    SdmTooltipIconButton(
+        icon = SdmIcons.ShieldAdd,
+        label = stringResource(CommonR.string.general_exclude_selected_action),
+        onClick = onClick,
         modifier = modifier,
         enabled = enabled,
-        onClick = onClick,
-    ) {
-        Icon(
-            imageVector = SdmIcons.ShieldAdd,
-            contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-        )
-    }
+    )
 }
 
 @Composable
@@ -59,15 +51,12 @@ fun SdmSelectAllAction(
 ) {
     if (!visible) return
 
-    IconButton(
-        modifier = modifier,
+    SdmTooltipIconButton(
+        icon = Icons.TwoTone.SelectAll,
+        label = stringResource(CommonR.string.general_list_select_all_action),
         onClick = onClick,
-    ) {
-        Icon(
-            imageVector = Icons.TwoTone.SelectAll,
-            contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-        )
-    }
+        modifier = modifier,
+    )
 }
 
 @Preview2

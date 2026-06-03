@@ -9,8 +9,6 @@ import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -127,9 +126,11 @@ internal fun ArbiterConfigScreen(
                 title = stringResource(R.string.deduplicator_arbiter_title),
                 onNavigateUp = onNavigateUp,
                 actions = {
-                    IconButton(onClick = { showOverflow = true }) {
-                        Icon(Icons.TwoTone.MoreVert, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.TwoTone.MoreVert,
+                        label = stringResource(CommonR.string.general_options_label),
+                        onClick = { showOverflow = true },
+                    )
                     DropdownMenu(
                         expanded = showOverflow,
                         onDismissRequest = { showOverflow = false },

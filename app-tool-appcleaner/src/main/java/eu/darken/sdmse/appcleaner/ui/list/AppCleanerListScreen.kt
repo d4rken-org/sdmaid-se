@@ -15,8 +15,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Search
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -48,6 +46,7 @@ import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -218,21 +217,19 @@ internal fun AppCleanerListScreen(
                         }
                     },
                     navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                                contentDescription = stringResource(CommonR.string.general_navigate_up_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                            label = stringResource(CommonR.string.general_navigate_up_action),
+                            onClick = onNavigateUp,
+                        )
                     },
                     actions = {
                         if (!searchActive) {
-                            IconButton(onClick = { searchActive = true }) {
-                                Icon(
-                                    imageVector = Icons.TwoTone.Search,
-                                    contentDescription = stringResource(CommonR.string.general_search_action),
-                                )
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.TwoTone.Search,
+                                label = stringResource(CommonR.string.general_search_action),
+                                onClick = { searchActive = true },
+                            )
                         }
                     },
                 )

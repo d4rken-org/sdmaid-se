@@ -26,7 +26,6 @@ import androidx.compose.material.icons.twotone.HelpOutline
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -51,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -182,65 +182,72 @@ internal fun CustomFilterListScreen(
                 TopAppBar(
                     title = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
                     navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                            label = stringResource(CommonR.string.general_navigate_up_action),
+                            onClick = onNavigateUp,
+                        )
                     },
                     actions = {
-                        IconButton(onClick = onImport) {
-                            Icon(
-                                Icons.TwoTone.FileUpload,
-                                contentDescription = stringResource(R.string.systemcleaner_customfilter_import_action),
-                            )
-                        }
-                        IconButton(onClick = onHelp) {
-                            Icon(Icons.TwoTone.HelpOutline, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.FileUpload,
+                            label = stringResource(R.string.systemcleaner_customfilter_import_action),
+                            onClick = onImport,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.HelpOutline,
+                            label = stringResource(CommonR.string.general_help_action),
+                            onClick = onHelp,
+                        )
                     },
                 )
             } else {
                 TopAppBar(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Close,
+                            label = stringResource(CommonR.string.general_close_action),
+                            onClick = { selection = emptySet() },
+                        )
                     },
                     actions = {
                         if (selection.size == 1) {
-                            IconButton(onClick = {
-                                val row = selectedRows.first()
-                                selection = emptySet()
-                                onEditRow(row)
-                            }) {
-                                Icon(Icons.TwoTone.Edit, contentDescription = null)
-                            }
-                        }
-                        if (selection.size < state.rows.size) {
-                            IconButton(onClick = { selection = state.rows.map { it.id }.toSet() }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
-                        IconButton(onClick = {
-                            val rows = selectedRows.toList()
-                            selection = emptySet()
-                            onExportSelected(rows)
-                        }) {
-                            Icon(
-                                Icons.TwoTone.FileDownload,
-                                contentDescription = stringResource(R.string.systemcleaner_customfilter_export_action),
+                            SdmTooltipIconButton(
+                                icon = Icons.TwoTone.Edit,
+                                label = stringResource(CommonR.string.general_edit_action),
+                                onClick = {
+                                    val row = selectedRows.first()
+                                    selection = emptySet()
+                                    onEditRow(row)
+                                },
                             )
                         }
-                        IconButton(onClick = {
-                            val rows = selectedRows.toList()
-                            selection = emptySet()
-                            onRemoveSelected(rows)
-                        }) {
-                            Icon(Icons.TwoTone.Delete, contentDescription = null)
+                        if (selection.size < state.rows.size) {
+                            SdmTooltipIconButton(
+                                icon = Icons.TwoTone.SelectAll,
+                                label = stringResource(CommonR.string.general_list_select_all_action),
+                                onClick = { selection = state.rows.map { it.id }.toSet() },
+                            )
                         }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.FileDownload,
+                            label = stringResource(R.string.systemcleaner_customfilter_export_action),
+                            onClick = {
+                                val rows = selectedRows.toList()
+                                selection = emptySet()
+                                onExportSelected(rows)
+                            },
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(CommonR.string.general_delete_action),
+                            onClick = {
+                                val rows = selectedRows.toList()
+                                selection = emptySet()
+                                onRemoveSelected(rows)
+                            },
+                        )
                     },
                 )
             }

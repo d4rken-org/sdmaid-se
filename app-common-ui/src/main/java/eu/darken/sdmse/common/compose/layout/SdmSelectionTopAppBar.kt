@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -52,12 +50,11 @@ fun SdmSelectionTopAppBar(
             }
         },
         navigationIcon = {
-            IconButton(onClick = onClearSelection) {
-                Icon(
-                    imageVector = Icons.TwoTone.Close,
-                    contentDescription = stringResource(CommonR.string.general_close_action),
-                )
-            }
+            SdmTooltipIconButton(
+                icon = Icons.TwoTone.Close,
+                label = stringResource(CommonR.string.general_close_action),
+                onClick = onClearSelection,
+            )
         },
         actions = actions,
     )

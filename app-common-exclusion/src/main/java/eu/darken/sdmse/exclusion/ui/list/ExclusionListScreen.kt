@@ -24,7 +24,6 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -55,6 +54,7 @@ import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -210,24 +210,21 @@ internal fun ExclusionListScreen(
                     title = stringResource(R.string.exclusion_manager_title),
                     onNavigateUp = onNavigateUp,
                     actions = {
-                        IconButton(onClick = { infoOpen = true }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Info,
-                                contentDescription = stringResource(CommonR.string.general_info_label),
-                            )
-                        }
-                        IconButton(onClick = onImport) {
-                            Icon(
-                                imageVector = Icons.TwoTone.FileDownload,
-                                contentDescription = stringResource(R.string.exclusion_import_action),
-                            )
-                        }
-                        IconButton(onClick = { overflowExpanded = true }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.MoreVert,
-                                contentDescription = stringResource(CommonR.string.general_options_label),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Info,
+                            label = stringResource(CommonR.string.general_info_label),
+                            onClick = { infoOpen = true },
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.FileDownload,
+                            label = stringResource(R.string.exclusion_import_action),
+                            onClick = onImport,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.MoreVert,
+                            label = stringResource(CommonR.string.general_options_label),
+                            onClick = { overflowExpanded = true },
+                        )
                         DropdownMenu(
                             expanded = overflowExpanded,
                             onDismissRequest = { overflowExpanded = false },
@@ -264,17 +261,14 @@ internal fun ExclusionListScreen(
                     selectedCount = selection.size,
                     onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.FileUpload,
+                            label = stringResource(R.string.exclusion_export_action),
                             onClick = {
                                 onExportSelected(selection.toSet())
                                 selection = emptySet()
                             },
-                        ) {
-                            Icon(
-                                imageVector = Icons.TwoTone.FileUpload,
-                                contentDescription = stringResource(R.string.exclusion_export_action),
-                            )
-                        }
+                        )
                         SdmDeleteAction(onClick = {
                             onRemoveSelected(selection.toSet())
                             selection = emptySet()

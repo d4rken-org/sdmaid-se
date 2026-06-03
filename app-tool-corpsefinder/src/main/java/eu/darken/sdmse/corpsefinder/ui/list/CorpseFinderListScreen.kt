@@ -10,8 +10,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Info
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -37,6 +35,7 @@ import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -163,12 +162,11 @@ internal fun CorpseFinderListScreen(
                     subtitle = subtitle,
                     onNavigateUp = onNavigateUp,
                     actions = {
-                        IconButton(onClick = { showMarkersInfo = true }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Info,
-                                contentDescription = stringResource(R.string.corpsefinder_markers_dialog_title),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Info,
+                            label = stringResource(R.string.corpsefinder_markers_dialog_title),
+                            onClick = { showMarkersInfo = true },
+                        )
                     },
                 )
             } else {

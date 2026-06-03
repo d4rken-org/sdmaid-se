@@ -20,8 +20,6 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -48,6 +46,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -301,19 +300,15 @@ internal fun SetupScreen(
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.setup_title)) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        if (isOnboarding) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Close,
-                                contentDescription = null,
-                            )
+                    SdmTooltipIconButton(
+                        icon = if (isOnboarding) Icons.TwoTone.Close else Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = if (isOnboarding) {
+                            stringResource(CommonR.string.general_close_action)
                         } else {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                                contentDescription = null,
-                            )
-                        }
-                    }
+                            stringResource(CommonR.string.general_navigate_up_action)
+                        },
+                        onClick = onBack,
+                    )
                 },
                 actions = {
                     SetupMenu(
@@ -343,12 +338,11 @@ private fun SetupMenu(
     onShowAreas: () -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    IconButton(onClick = { expanded = true }) {
-        Icon(
-            imageVector = Icons.TwoTone.MoreVert,
-            contentDescription = null,
-        )
-    }
+    SdmTooltipIconButton(
+        icon = Icons.TwoTone.MoreVert,
+        label = stringResource(CommonR.string.general_options_label),
+        onClick = { expanded = true },
+    )
     DropdownMenu(
         expanded = expanded,
         onDismissRequest = { expanded = false },

@@ -30,7 +30,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -54,6 +53,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SdmInfoChip
+import eu.darken.sdmse.common.compose.layout.SdmTooltipAnchor
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.easterEggProgressMsg
@@ -308,23 +309,21 @@ private fun BarContent(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (state?.upgradeInfo?.isPro != true) {
-                IconButton(onClick = onUpgrade) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Stars,
-                        contentDescription = stringResource(R.string.upgrades_dashcard_upgrade_action),
-                    )
-                }
-            }
-
-            IconButton(
-                onClick = onSettings,
-                modifier = settingsModifier,
-            ) {
-                Icon(
-                    imageVector = Icons.TwoTone.Settings,
-                    contentDescription = stringResource(CommonR.string.general_settings_title),
+                SdmTooltipIconButton(
+                    icon = Icons.TwoTone.Stars,
+                    label = stringResource(R.string.upgrades_dashcard_upgrade_action),
+                    onClick = onUpgrade,
+                    anchor = SdmTooltipAnchor.ABOVE,
                 )
             }
+
+            SdmTooltipIconButton(
+                icon = Icons.TwoTone.Settings,
+                label = stringResource(CommonR.string.general_settings_title),
+                onClick = onSettings,
+                modifier = settingsModifier,
+                anchor = SdmTooltipAnchor.ABOVE,
+            )
         }
     }
 }
