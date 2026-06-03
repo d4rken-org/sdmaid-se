@@ -15,8 +15,6 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
@@ -41,6 +39,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -210,28 +209,28 @@ internal fun CustomFilterEditorScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onClose) {
-                        Icon(Icons.TwoTone.Close, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.TwoTone.Close,
+                        label = stringResource(CommonR.string.general_close_action),
+                        onClick = onClose,
+                    )
                 },
                 actions = {
                     val canSave = state?.canSave == true
                     val canRemove = state?.canRemove == true
                     if (canSave) {
-                        IconButton(onClick = onSave) {
-                            Icon(
-                                Icons.TwoTone.Save,
-                                contentDescription = stringResource(CommonR.string.general_save_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Save,
+                            label = stringResource(CommonR.string.general_save_action),
+                            onClick = onSave,
+                        )
                     }
                     if (canRemove) {
-                        IconButton(onClick = onRemove) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_remove_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(CommonR.string.general_remove_action),
+                            onClick = onRemove,
+                        )
                     }
                 },
             )

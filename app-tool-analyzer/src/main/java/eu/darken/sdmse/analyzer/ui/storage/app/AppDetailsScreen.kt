@@ -13,8 +13,6 @@ import androidx.compose.material.icons.twotone.FolderShared
 import androidx.compose.material.icons.twotone.Inventory
 import androidx.compose.material.icons.twotone.PermMedia
 import androidx.compose.material.icons.twotone.Refresh
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +30,7 @@ import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsGroupRow
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderCard
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -78,9 +77,11 @@ internal fun AppDetailsScreen(
                     TopAppBar(
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateUp) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateUp,
+                            )
                         },
                     )
                 },
@@ -93,9 +94,11 @@ internal fun AppDetailsScreen(
                     TopAppBar(
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateUp) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateUp,
+                            )
                         },
                     )
                 },
@@ -123,15 +126,19 @@ internal fun AppDetailsScreen(
                             }
                         },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateUp) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateUp,
+                            )
                         },
                         actions = {
                             if (s.progress == null) {
-                                IconButton(onClick = onRefresh) {
-                                    Icon(Icons.TwoTone.Refresh, contentDescription = null)
-                                }
+                                SdmTooltipIconButton(
+                                    icon = Icons.TwoTone.Refresh,
+                                    label = stringResource(eu.darken.sdmse.common.R.string.general_refresh_action),
+                                    onClick = onRefresh,
+                                )
                             }
                         },
                     )

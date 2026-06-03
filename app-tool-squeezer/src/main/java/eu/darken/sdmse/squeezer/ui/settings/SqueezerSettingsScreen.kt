@@ -10,8 +10,6 @@ import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
 import androidx.compose.material.icons.twotone.RotateRight
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -30,6 +28,7 @@ import android.text.format.Formatter
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
@@ -127,9 +126,11 @@ internal fun SqueezerSettingsScreen(
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.squeezer_tool_name)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
             )
         },

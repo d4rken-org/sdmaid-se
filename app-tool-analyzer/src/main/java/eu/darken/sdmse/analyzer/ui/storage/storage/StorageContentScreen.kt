@@ -17,7 +17,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -36,6 +35,7 @@ import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryCard
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -85,9 +85,11 @@ internal fun StorageContentScreen(
                     TopAppBar(
                         title = { Text(stringResource(R.string.analyzer_storage_content_title)) },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
                         },
                     )
                 },
@@ -100,9 +102,11 @@ internal fun StorageContentScreen(
                     TopAppBar(
                         title = { Text(stringResource(R.string.analyzer_storage_content_title)) },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
                         },
                     )
                 },
@@ -130,9 +134,11 @@ internal fun StorageContentScreen(
                             }
                         },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(eu.darken.sdmse.common.R.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
                         },
                     )
                 },

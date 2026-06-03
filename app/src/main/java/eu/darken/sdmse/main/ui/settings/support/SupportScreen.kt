@@ -11,8 +11,6 @@ import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.PermIdentity
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -38,6 +36,7 @@ import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.compose.icons.Discord
 import eu.darken.sdmse.common.compose.icons.Github
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
@@ -152,9 +151,11 @@ internal fun SupportScreen(
             TopAppBar(
                 title = { Text(stringResource(R.string.settings_support_label)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
             )
         },

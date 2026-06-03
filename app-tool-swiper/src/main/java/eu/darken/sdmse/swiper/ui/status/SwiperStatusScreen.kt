@@ -31,7 +31,6 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -58,6 +57,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -158,38 +158,35 @@ internal fun SwiperStatusScreen(
                     selectedCount = selection.size,
                     onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(onClick = {
-                            val payload = selectedItems
-                            selection = emptySet()
-                            onKeepSelected(payload)
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Favorite,
-                                contentDescription = stringResource(R.string.swiper_status_action_keep_selected),
-                                tint = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                        IconButton(onClick = {
-                            val payload = selectedItems
-                            selection = emptySet()
-                            onDeleteSelected(payload)
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(R.string.swiper_status_action_delete_selected),
-                                tint = MaterialTheme.colorScheme.error,
-                            )
-                        }
-                        IconButton(onClick = {
-                            val payload = selectedItems
-                            selection = emptySet()
-                            onResetSelected(payload)
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Restore,
-                                contentDescription = stringResource(R.string.swiper_status_action_reset_selected),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Favorite,
+                            label = stringResource(R.string.swiper_status_action_keep_selected),
+                            onClick = {
+                                val payload = selectedItems
+                                selection = emptySet()
+                                onKeepSelected(payload)
+                            },
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(R.string.swiper_status_action_delete_selected),
+                            onClick = {
+                                val payload = selectedItems
+                                selection = emptySet()
+                                onDeleteSelected(payload)
+                            },
+                            tint = MaterialTheme.colorScheme.error,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Restore,
+                            label = stringResource(R.string.swiper_status_action_reset_selected),
+                            onClick = {
+                                val payload = selectedItems
+                                selection = emptySet()
+                                onResetSelected(payload)
+                            },
+                        )
                         SdmExcludeAction(onClick = {
                             val payload = selectedItems
                             selection = emptySet()
@@ -402,21 +399,34 @@ private fun FinalizeIconButton(
         SwiperStatusViewModel.FinalizeAction.DONE -> Icons.TwoTone.Favorite
         SwiperStatusViewModel.FinalizeAction.HIDDEN -> return
     }
+    val label = when (state.finalizeAction) {
+        SwiperStatusViewModel.FinalizeAction.DELETE -> {
+            if (state.undecidedCount > 0) {
+                stringResource(R.string.swiper_delete_x_action, state.deleteCount)
+            } else {
+                stringResource(CommonR.string.general_delete_action)
+            }
+        }
+
+        SwiperStatusViewModel.FinalizeAction.APPLY -> stringResource(CommonR.string.general_apply_action)
+        SwiperStatusViewModel.FinalizeAction.DONE -> stringResource(CommonR.string.general_done_action)
+        SwiperStatusViewModel.FinalizeAction.HIDDEN -> return
+    }
     val enabled = when (state.finalizeAction) {
         SwiperStatusViewModel.FinalizeAction.DONE -> state.canDone
         else -> state.canFinalize
     }
-    IconButton(onClick = onClick, enabled = enabled) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = if (state.finalizeAction == SwiperStatusViewModel.FinalizeAction.DELETE) {
-                MaterialTheme.colorScheme.error
-            } else {
-                MaterialTheme.colorScheme.onSurface
-            },
-        )
-    }
+    SdmTooltipIconButton(
+        icon = icon,
+        label = label,
+        onClick = onClick,
+        enabled = enabled,
+        tint = if (state.finalizeAction == SwiperStatusViewModel.FinalizeAction.DELETE) {
+            MaterialTheme.colorScheme.error
+        } else {
+            MaterialTheme.colorScheme.onSurface
+        },
+    )
 }
 
 @Composable

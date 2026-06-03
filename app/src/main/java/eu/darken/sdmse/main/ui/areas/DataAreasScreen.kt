@@ -19,7 +19,6 @@ import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -41,6 +40,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.label
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.R as CommonR
@@ -102,9 +102,11 @@ internal fun DataAreasScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
                 actions = {
                     if (state.isReloading) {
@@ -118,13 +120,17 @@ internal fun DataAreasScreen(
                             )
                         }
                     } else if (state.allowReload) {
-                        IconButton(onClick = onReload) {
-                            Icon(Icons.TwoTone.Refresh, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Refresh,
+                            label = stringResource(CommonR.string.general_refresh_action),
+                            onClick = onReload,
+                        )
                     }
-                    IconButton(onClick = { showInfo = true }) {
-                        Icon(Icons.TwoTone.Info, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.TwoTone.Info,
+                        label = stringResource(CommonR.string.general_info_label),
+                        onClick = { showInfo = true },
+                    )
                 },
             )
         },

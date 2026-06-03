@@ -24,7 +24,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -51,6 +50,7 @@ import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -191,15 +191,14 @@ internal fun SqueezerListScreen(
                     onNavigateUp = onNavigateUp,
                     actions = {
                         if (state.progress == null && media.isNotEmpty()) {
-                            IconButton(onClick = onToggleLayoutMode) {
-                                Icon(
-                                    imageVector = when (state.layoutMode) {
-                                        LayoutMode.LINEAR -> Icons.TwoTone.GridView
-                                        LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ListAlt
-                                    },
-                                    contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
-                                )
-                            }
+                            SdmTooltipIconButton(
+                                icon = when (state.layoutMode) {
+                                    LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                                    LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ListAlt
+                                },
+                                label = stringResource(CommonR.string.general_toggle_layout_mode),
+                                onClick = onToggleLayoutMode,
+                            )
                         }
                     },
                 )
@@ -209,12 +208,11 @@ internal fun SqueezerListScreen(
                     subtitle = selectionSubtitle,
                     onClearSelection = { selection = emptySet() },
                     actions = {
-                        IconButton(onClick = { onCompressIds(selection) }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Compress,
-                                contentDescription = stringResource(R.string.squeezer_compress_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Compress,
+                            label = stringResource(R.string.squeezer_compress_action),
+                            onClick = { onCompressIds(selection) },
+                        )
                         SdmExcludeAction(onClick = {
                             onExcludeIds(selection)
                             selection = emptySet()

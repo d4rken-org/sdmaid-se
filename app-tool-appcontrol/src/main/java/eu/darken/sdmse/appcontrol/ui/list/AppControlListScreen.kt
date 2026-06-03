@@ -40,7 +40,6 @@ import androidx.compose.material.icons.twotone.Unarchive
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -87,6 +86,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.layout.SdmSearchBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
@@ -448,30 +448,25 @@ internal fun AppControlListScreen(
                                 }
                             },
                             navigationIcon = {
-                                IconButton(onClick = onNavigateUp) {
-                                    Icon(
-                                        imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                                        contentDescription = stringResource(CommonR.string.general_navigate_up_action),
-                                    )
-                                }
+                                SdmTooltipIconButton(
+                                    icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                    label = stringResource(CommonR.string.general_navigate_up_action),
+                                    onClick = onNavigateUp,
+                                )
                             },
                             actions = {
                                 if (!searchActive) {
-                                    IconButton(
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Search,
+                                        label = stringResource(CommonR.string.general_search_action),
                                         onClick = { searchActive = true },
                                         modifier = Modifier.guidedTourTarget(AppControlListTour.SEARCH_TARGET),
-                                    ) {
-                                        Icon(
-                                            imageVector = Icons.TwoTone.Search,
-                                            contentDescription = stringResource(CommonR.string.general_search_action),
-                                        )
-                                    }
-                                    IconButton(onClick = { normalOverflowOpen = true }) {
-                                        Icon(
-                                            imageVector = Icons.TwoTone.MoreVert,
-                                            contentDescription = stringResource(CommonR.string.general_options_label),
-                                        )
-                                    }
+                                    )
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.MoreVert,
+                                        label = stringResource(CommonR.string.general_options_label),
+                                        onClick = { normalOverflowOpen = true },
+                                    )
                                     DropdownMenu(
                                         expanded = normalOverflowOpen,
                                         onDismissRequest = { normalOverflowOpen = false },
@@ -529,48 +524,43 @@ internal fun AppControlListScreen(
                 TopAppBar(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.Close,
-                                contentDescription = stringResource(CommonR.string.general_close_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Close,
+                            label = stringResource(CommonR.string.general_close_action),
+                            onClick = { selection = emptySet() },
+                        )
                     },
                     actions = {
-                        IconButton(onClick = {
-                            val ids = selection
-                            selection = emptySet()
-                            onUninstallSelected(ids)
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-                            )
-                        }
-                        IconButton(onClick = {
-                            val ids = selection
-                            selection = emptySet()
-                            onExcludeSelected(ids)
-                        }) {
-                            Icon(
-                                SdmIcons.ShieldAdd,
-                                contentDescription = stringResource(CommonR.string.general_exclude_selected_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(CommonR.string.general_delete_selected_action),
+                            onClick = {
+                                val ids = selection
+                                selection = emptySet()
+                                onUninstallSelected(ids)
+                            },
+                        )
+                        SdmTooltipIconButton(
+                            icon = SdmIcons.ShieldAdd,
+                            label = stringResource(CommonR.string.general_exclude_selected_action),
+                            onClick = {
+                                val ids = selection
+                                selection = emptySet()
+                                onExcludeSelected(ids)
+                            },
+                        )
                         if (selection.size < rowIds.size) {
-                            IconButton(onClick = { selection = rowIds }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                )
-                            }
-                        }
-                        IconButton(onClick = { selectionOverflowOpen = true }) {
-                            Icon(
-                                imageVector = Icons.TwoTone.MoreVert,
-                                contentDescription = stringResource(CommonR.string.general_options_label),
+                            SdmTooltipIconButton(
+                                icon = Icons.TwoTone.SelectAll,
+                                label = stringResource(CommonR.string.general_list_select_all_action),
+                                onClick = { selection = rowIds },
                             )
                         }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.MoreVert,
+                            label = stringResource(CommonR.string.general_options_label),
+                            onClick = { selectionOverflowOpen = true },
+                        )
                         DropdownMenu(expanded = selectionOverflowOpen, onDismissRequest = { selectionOverflowOpen = false }) {
                             if (state.allowActionToggle) {
                                 DropdownMenuItem(

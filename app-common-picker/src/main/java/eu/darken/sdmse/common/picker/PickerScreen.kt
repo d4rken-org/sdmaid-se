@@ -24,8 +24,6 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -46,6 +44,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.picker.items.PickerItemRow
@@ -160,22 +159,28 @@ internal fun PickerScreen(
                 navigationIcon = {
                     // Inside a folder the arrow steps up one level (goBack); at the area root it
                     // shows Close and cancels the picker — matching the legacy nav-icon behavior.
-                    IconButton(onClick = if (navigatable) onNavigateUp else onCancel) {
-                        if (navigatable) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
+                    SdmTooltipIconButton(
+                        icon = if (navigatable) Icons.AutoMirrored.TwoTone.ArrowBack else Icons.TwoTone.Close,
+                        label = if (navigatable) {
+                            stringResource(CommonR.string.general_navigate_up_action)
                         } else {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
-                    }
+                            stringResource(CommonR.string.general_close_action)
+                        },
+                        onClick = if (navigatable) onNavigateUp else onCancel,
+                    )
                 },
                 actions = {
                     if (state.progress == null) {
-                        IconButton(onClick = onSave) {
-                            Icon(Icons.TwoTone.Save, contentDescription = stringResource(CommonR.string.general_save_action))
-                        }
-                        IconButton(onClick = { overflowOpen = true }) {
-                            Icon(Icons.TwoTone.MoreVert, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Save,
+                            label = stringResource(CommonR.string.general_save_action),
+                            onClick = onSave,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.MoreVert,
+                            label = stringResource(CommonR.string.general_options_label),
+                            onClick = { overflowOpen = true },
+                        )
                         DropdownMenu(
                             expanded = overflowOpen,
                             onDismissRequest = { overflowOpen = false },

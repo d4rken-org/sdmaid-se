@@ -14,8 +14,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Search
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -41,6 +39,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.ui.AppsRoute
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -125,26 +124,29 @@ internal fun AppsScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                    }
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                        label = stringResource(CommonR.string.general_navigate_up_action),
+                        onClick = onNavigateUp,
+                    )
                 },
                 actions = {
                     if (searchActive) {
-                        IconButton(onClick = {
-                            searchText = ""
-                            onUpdateSearchQuery("")
-                            searchActive = false
-                        }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Close,
+                            label = stringResource(CommonR.string.general_close_action),
+                            onClick = {
+                                searchText = ""
+                                onUpdateSearchQuery("")
+                                searchActive = false
+                            },
+                        )
                     } else {
-                        IconButton(onClick = { searchActive = true }) {
-                            Icon(
-                                Icons.TwoTone.Search,
-                                contentDescription = stringResource(CommonR.string.general_search_action),
-                            )
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Search,
+                            label = stringResource(CommonR.string.general_search_action),
+                            onClick = { searchActive = true },
+                        )
                     }
                 },
             )

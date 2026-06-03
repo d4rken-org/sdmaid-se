@@ -19,8 +19,6 @@ import androidx.compose.material.icons.twotone.Filter
 import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.SwipeRight
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -52,6 +50,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -218,9 +217,11 @@ internal fun ContentScreen(
                     TopAppBar(
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(CommonR.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
                         },
                     )
                 },
@@ -233,9 +234,11 @@ internal fun ContentScreen(
                     TopAppBar(
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = onNavigateBack) {
-                                Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                            }
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(CommonR.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
                         },
                     )
                 },
@@ -285,49 +288,55 @@ internal fun ContentScreen(
                                 )
                             },
                             navigationIcon = {
-                                IconButton(onClick = { selection = emptySet() }) {
-                                    Icon(Icons.TwoTone.Close, contentDescription = null)
-                                }
+                                SdmTooltipIconButton(
+                                    icon = Icons.TwoTone.Close,
+                                    label = stringResource(CommonR.string.general_close_action),
+                                    onClick = { selection = emptySet() },
+                                )
                             },
                             actions = {
                                 val all = remember(s.items) {
                                     s.items.orEmpty().map { it.content.path }.toSet()
                                 }
                                 if (selection.size < all.size) {
-                                    IconButton(onClick = { selection = all }) {
-                                        Icon(
-                                            Icons.TwoTone.SelectAll,
-                                            contentDescription = stringResource(CommonR.string.general_list_select_all_action),
-                                        )
-                                    }
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.SelectAll,
+                                        label = stringResource(CommonR.string.general_list_select_all_action),
+                                        onClick = { selection = all },
+                                    )
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
-                                    IconButton(onClick = { pendingDelete = selectedItems }) {
-                                        Icon(Icons.TwoTone.Delete, contentDescription = null)
-                                    }
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Delete,
+                                        label = stringResource(CommonR.string.general_delete_action),
+                                        onClick = { pendingDelete = selectedItems },
+                                    )
                                 }
-                                IconButton(onClick = {
-                                    onExcludeSelected(selectedItems)
-                                    selection = emptySet()
-                                }) {
-                                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
-                                }
+                                SdmTooltipIconButton(
+                                    icon = SdmIcons.ShieldAdd,
+                                    label = stringResource(CommonR.string.general_exclude_action),
+                                    onClick = {
+                                        onExcludeSelected(selectedItems)
+                                        selection = emptySet()
+                                    },
+                                )
                                 if (!s.isReadOnly && noneInaccessible) {
-                                    IconButton(onClick = {
-                                        onCreateFilter(selectedItems)
-                                        selection = emptySet()
-                                    }) {
-                                        Icon(Icons.TwoTone.Filter, contentDescription = null)
-                                    }
-                                    IconButton(onClick = {
-                                        onCreateSwiperSession(selectedItems)
-                                        selection = emptySet()
-                                    }) {
-                                        Icon(
-                                            Icons.TwoTone.SwipeRight,
-                                            contentDescription = stringResource(R.string.analyzer_content_create_swiper_session_action),
-                                        )
-                                    }
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Filter,
+                                        label = stringResource(CommonR.string.general_filter_action),
+                                        onClick = {
+                                            onCreateFilter(selectedItems)
+                                            selection = emptySet()
+                                        },
+                                    )
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.SwipeRight,
+                                        label = stringResource(R.string.analyzer_content_create_swiper_session_action),
+                                        onClick = {
+                                            onCreateSwiperSession(selectedItems)
+                                            selection = emptySet()
+                                        },
+                                    )
                                 }
                             },
                         )
@@ -347,20 +356,21 @@ internal fun ContentScreen(
                                 }
                             },
                             navigationIcon = {
-                                IconButton(onClick = onNavigateBack) {
-                                    Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                                }
+                                SdmTooltipIconButton(
+                                    icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                    label = stringResource(CommonR.string.general_navigate_up_action),
+                                    onClick = onNavigateBack,
+                                )
                             },
                             actions = {
-                                IconButton(onClick = onLayoutModeToggle) {
-                                    Icon(
-                                        imageVector = when (s.layoutMode) {
-                                            LayoutMode.LINEAR -> Icons.TwoTone.GridView
-                                            LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
-                                        },
-                                        contentDescription = stringResource(CommonR.string.general_toggle_layout_mode),
-                                    )
-                                }
+                                SdmTooltipIconButton(
+                                    icon = when (s.layoutMode) {
+                                        LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                                        LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
+                                    },
+                                    label = stringResource(CommonR.string.general_toggle_layout_mode),
+                                    onClick = onLayoutModeToggle,
+                                )
                             },
                         )
                     }

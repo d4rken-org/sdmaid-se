@@ -15,8 +15,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.SelectAll
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
@@ -46,6 +44,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -193,48 +192,50 @@ internal fun CorpseDetailsScreen(
                         }
                     },
                     navigationIcon = {
-                        IconButton(onClick = onNavigateUp) {
-                            Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                            label = stringResource(CommonR.string.general_navigate_up_action),
+                            onClick = onNavigateUp,
+                        )
                     },
                 )
             } else {
                 TopAppBar(
                     title = { Text("${selection.size}") },
                     navigationIcon = {
-                        IconButton(onClick = { selection = emptySet() }) {
-                            Icon(Icons.TwoTone.Close, contentDescription = null)
-                        }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Close,
+                            label = stringResource(CommonR.string.general_close_action),
+                            onClick = { selection = emptySet() },
+                        )
                     },
                     actions = {
-                        IconButton(onClick = {
-                            val corpse = currentCorpse ?: return@IconButton
-                            val paths = selection
-                            val name = if (paths.size == 1) {
-                                corpse.content
-                                    .firstOrNull { it.lookedUp == paths.first() }
-                                    ?.userReadablePath?.get(context)
-                            } else {
-                                null
-                            }
-                            pendingDelete = PendingDelete(
-                                corpseId = corpse.identifier,
-                                paths = paths,
-                                singleName = name,
-                            )
-                        }) {
-                            Icon(
-                                Icons.TwoTone.Delete,
-                                contentDescription = stringResource(CommonR.string.general_delete_selected_action),
-                            )
-                        }
-                        if (selection.size < currentIds.size) {
-                            IconButton(onClick = { selection = currentIds }) {
-                                Icon(
-                                    Icons.TwoTone.SelectAll,
-                                    contentDescription = stringResource(CommonR.string.general_list_select_all_action),
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Delete,
+                            label = stringResource(CommonR.string.general_delete_selected_action),
+                            onClick = {
+                                val corpse = currentCorpse ?: return@SdmTooltipIconButton
+                                val paths = selection
+                                val name = if (paths.size == 1) {
+                                    corpse.content
+                                        .firstOrNull { it.lookedUp == paths.first() }
+                                        ?.userReadablePath?.get(context)
+                                } else {
+                                    null
+                                }
+                                pendingDelete = PendingDelete(
+                                    corpseId = corpse.identifier,
+                                    paths = paths,
+                                    singleName = name,
                                 )
-                            }
+                            },
+                        )
+                        if (selection.size < currentIds.size) {
+                            SdmTooltipIconButton(
+                                icon = Icons.TwoTone.SelectAll,
+                                label = stringResource(CommonR.string.general_list_select_all_action),
+                                onClick = { selection = currentIds },
+                            )
                         }
                     },
                 )

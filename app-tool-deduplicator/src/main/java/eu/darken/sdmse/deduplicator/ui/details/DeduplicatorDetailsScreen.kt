@@ -12,8 +12,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.material.icons.twotone.Folder
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
@@ -44,6 +42,7 @@ import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -328,21 +327,23 @@ internal fun DeduplicatorDetailsScreen(
                     subtitle = stringResource(CommonR.string.general_details_label),
                     onNavigateUp = onNavigateUp,
                     actions = {
-                        IconButton(onClick = onToggleDirectoryView) {
-                            val icon = if (current?.isDirectoryView == true) {
-                                Icons.AutoMirrored.TwoTone.FormatListBulleted
-                            } else {
-                                Icons.TwoTone.Folder
-                            }
-                            val label = stringResource(
-                                if (current?.isDirectoryView == true) {
-                                    DeduplicatorR.string.deduplicator_view_mode_groups_label
-                                } else {
-                                    DeduplicatorR.string.deduplicator_view_mode_directories_label
-                                }
-                            )
-                            Icon(icon, contentDescription = label)
+                        val icon = if (current?.isDirectoryView == true) {
+                            Icons.AutoMirrored.TwoTone.FormatListBulleted
+                        } else {
+                            Icons.TwoTone.Folder
                         }
+                        val label = stringResource(
+                            if (current?.isDirectoryView == true) {
+                                DeduplicatorR.string.deduplicator_view_mode_groups_label
+                            } else {
+                                DeduplicatorR.string.deduplicator_view_mode_directories_label
+                            }
+                        )
+                        SdmTooltipIconButton(
+                            icon = icon,
+                            label = label,
+                            onClick = onToggleDirectoryView,
+                        )
                     },
                 )
             } else {
