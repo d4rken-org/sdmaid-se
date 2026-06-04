@@ -244,6 +244,26 @@ class FlowProcessTest : BaseTest() {
         startCount shouldBe 2
     }
 
+    @Test fun `teardown force-destroys a process whose kill routine is a no-op`() = runTest {
+        lateinit var proc: Process
+        val flow = FlowProcess(
+            launch = { ProcessBuilder("sleep", "30").start().also { proc = it } },
+            kill = { /* no-op: simulate a kill that fails to actually terminate the process */ },
+            terminationTimeoutMs = 300,
+            forceTerminationTimeoutMs = 2000,
+        )
+
+        val start = System.currentTimeMillis()
+        // first() opens then closes the flow, running the bounded teardown in awaitClose.
+        flow.session.first()
+        val elapsed = System.currentTimeMillis() - start
+
+        // kill() did nothing, so the graceful waitFor(300ms) elapses and destroyForcibly() reaps it.
+        proc.isAlive shouldBe false
+        elapsed shouldBeGreaterThanOrEqual 300 // we waited the bounded grace period
+        elapsed shouldBeLessThan 3000          // ...but teardown didn't hang
+    }
+
     @Test fun `session is killed via pid`() = runTest {
         var opened = false
         var killed = false

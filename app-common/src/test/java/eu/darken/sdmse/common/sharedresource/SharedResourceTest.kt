@@ -8,16 +8,23 @@ import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import okio.IOException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -461,6 +468,14 @@ class SharedResourceTest : BaseTest() {
             val lease = srVerbose.get()
             lease.close()
 
+            // The source teardown (and its onCompletion breadcrumb) now runs asynchronously off-lock,
+            // so wait for it before asserting. Runs on real Dispatchers.IO, hence the real-time wait.
+            withContext(Dispatchers.IO) {
+                withTimeoutOrNull(2_000) {
+                    while (captured.none { it.contains("onCompletion due to") }) delay(10)
+                }
+            }
+
             // Lifecycle breadcrumbs should fire even though Bugs.isTrace == false
             captured.any { it.contains("Launching source job") } shouldBe true
             captured.any { it.contains("Starting source") } shouldBe true
@@ -591,5 +606,177 @@ class SharedResourceTest : BaseTest() {
             sr.close()
             sr.isClosed shouldBe true
         }
+    }
+
+    @Test fun `get() does not block on a slow-closing generation`(): Unit = runBlocking {
+        val releaseTeardown = CompletableDeferred<Unit>()
+        var sourceStarts = 0
+        val sr = SharedResource(
+            tag = "slowclose",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                val generation = ++sourceStarts
+                send(generation)
+                awaitClose {
+                    // The first generation's teardown is deliberately wedged (like a root host that
+                    // refuses to disconnect). It must NOT hold up acquiring a fresh generation.
+                    if (generation == 1) runBlocking { releaseTeardown.await() }
+                }
+            },
+        )
+
+        val r1 = sr.get()
+        r1.item shouldBe 1
+        r1.close() // detaches gen-1; its teardown is now wedged in awaitClose
+
+        // A new get() must start gen-2 and return promptly instead of waiting on gen-1's stuck close.
+        val r2 = withTimeout(5_000) { sr.get() }
+        r2.item shouldBe 2
+        r2.close()
+
+        releaseTeardown.complete(Unit) // let gen-1 finish so the scope can wind down
+    }
+
+    @Test fun `get() cancelled before first value releases its provisional lease`(): Unit = runBlocking {
+        val gate = CompletableDeferred<Unit>()
+        val sr = SharedResource(
+            tag = "cancelgate",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                gate.await() // never produces a value until released
+                send(Unit)
+                awaitClose { }
+            },
+        )
+
+        val getter = launch(Dispatchers.IO) { sr.get() }
+        // Wait until the source generation is active (provisional lease registered).
+        withTimeout(5_000) { while (sr.isClosed) delay(10) }
+
+        getter.cancelAndJoin() // cancel before any value arrives
+
+        // The provisional lease must have been released, so the resource detaches on its own.
+        withTimeout(5_000) { while (!sr.isClosed) delay(10) }
+        sr.isClosed shouldBe true
+
+        gate.complete(Unit)
+    }
+
+    @Test fun `a stale generation cannot clobber the active one`(): Unit = runBlocking {
+        val releaseGen1 = CompletableDeferred<Unit>()
+        var sourceStarts = 0
+        val sr = SharedResource(
+            tag = "noclobber",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                val generation = ++sourceStarts
+                send(if (generation == 1) "A" else "B")
+                awaitClose {
+                    // gen-1's teardown is wedged until we release it, so its onCompletion fires
+                    // *after* gen-2 is already the active generation.
+                    if (generation == 1) runBlocking { releaseGen1.await() }
+                }
+            },
+        )
+
+        sr.get().apply { item shouldBe "A" }.close() // detaches gen-1 (teardown wedged)
+        val r2 = withTimeout(5_000) { sr.get() }
+        r2.item shouldBe "B"
+
+        // Let the stale gen-1 finish tearing down; its onEach/onCompletion must not touch gen-2.
+        releaseGen1.complete(Unit)
+        delay(250)
+
+        // gen-2 is still healthy: a fresh get() reuses it and returns "B" without an error.
+        val r3 = sr.get()
+        r3.item shouldBe "B"
+        r2.close()
+        r3.close()
+    }
+
+    @Test fun `source failure is thrown promptly despite a wedged stale teardown`(): Unit = runBlocking {
+        val releaseGen1 = CompletableDeferred<Unit>()
+        var sourceStarts = 0
+        val sr = SharedResource<String>(
+            tag = "failfast",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                val generation = ++sourceStarts
+                if (generation == 1) {
+                    send("A")
+                    awaitClose { runBlocking { releaseGen1.await() } }
+                } else {
+                    throw IllegalStateException("gen-2 boom")
+                }
+            },
+        )
+
+        sr.get().close() // detaches gen-1 (teardown wedged)
+
+        // gen-2's source fails; get() must surface that promptly rather than waiting on gen-1.
+        val error = withTimeout(5_000) { shouldThrow<IllegalStateException> { sr.get() } }
+        error.message shouldBe "gen-2 boom"
+
+        releaseGen1.complete(Unit)
+    }
+
+    @Test fun `a fresh lease cycle completes while a stale teardown is wedged`(): Unit = runBlocking {
+        val releaseGen1 = CompletableDeferred<Unit>()
+        var sourceStarts = 0
+        val sr = SharedResource(
+            tag = "wedged",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                val generation = ++sourceStarts
+                send(generation)
+                awaitClose { if (generation == 1) runBlocking { releaseGen1.await() } }
+            },
+        )
+
+        sr.get().close() // gen-1 detached, teardown wedged
+
+        // A full acquire + release of gen-2 (incl. its own detach via leaseCheck/doLeaseCheck) must
+        // complete promptly — the wedged gen-1 teardown must not hold coreLock or leaseCheckLock.
+        withTimeout(5_000) {
+            val r = sr.get()
+            r.item shouldBe 2
+            r.close()
+            while (!sr.isClosed) delay(10)
+        }
+        sr.isClosed shouldBe true
+
+        releaseGen1.complete(Unit)
+    }
+
+    @Test fun `close() releases a get() parked on a generation with a wedged teardown`(): Unit = runBlocking {
+        val releaseTeardown = CompletableDeferred<Unit>()
+        val sr = SharedResource<Int>(
+            tag = "wedgedclose",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                // Never produces a value, and its teardown wedges until released — so the only way a
+                // parked get() can return is if detach completes `ready`, NOT the source completion.
+                awaitClose { runBlocking { releaseTeardown.await() } }
+            },
+        )
+
+        // A getter parks on the generation's `ready` (source never emits); it holds a lease.
+        val getter = async(Dispatchers.IO) { runCatching { sr.get() } }
+        withTimeout(5_000) { while (sr.isClosed) delay(10) } // wait until the generation is active
+
+        // close() force-closes the lease and detaches. The parked getter must be released promptly,
+        // without waiting for the wedged awaitClose teardown.
+        sr.close()
+
+        val result = withTimeout(5_000) { getter.await() }
+        result.isFailure shouldBe true
+
+        releaseTeardown.complete(Unit) // let the off-lock teardown finish so the scope can wind down
     }
 }
