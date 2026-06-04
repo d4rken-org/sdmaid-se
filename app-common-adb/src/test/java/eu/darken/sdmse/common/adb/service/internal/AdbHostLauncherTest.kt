@@ -1,12 +1,15 @@
 package eu.darken.sdmse.common.adb.service.internal
 
 import android.os.IBinder
+import eu.darken.sdmse.common.adb.AdbException
 import eu.darken.sdmse.common.adb.service.AdbHostOptions
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.collect
@@ -48,20 +51,27 @@ class AdbHostLauncherTest {
         val version: Int = 11,
         val bindError: Throwable? = null,
     ) : ShizukuUserServiceFactory {
+        /** Captured so a test can simulate an unexpected onServiceDisconnected. */
+        var disconnectCallback: (() -> Unit)? = null
+
         override fun apiVersion(): Int = version
         override fun <Host : AdbConnection> create(
             hostClass: KClass<Host>,
             options: AdbHostOptions,
             onConnected: (IBinder?) -> Unit,
-        ): ShizukuUserService = if (bindError != null) {
-            object : ShizukuUserService by service {
-                override fun bind() {
-                    events += "bind"
-                    throw bindError
+            onDisconnected: () -> Unit,
+        ): ShizukuUserService {
+            disconnectCallback = onDisconnected
+            return if (bindError != null) {
+                object : ShizukuUserService by service {
+                    override fun bind() {
+                        events += "bind"
+                        throw bindError
+                    }
                 }
+            } else {
+                service
             }
-        } else {
-            service
         }
     }
 
@@ -111,6 +121,28 @@ class AdbHostLauncherTest {
         job.cancelAndJoin() // runTest advances virtual time through the bounded await
 
         events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
+    }
+
+    @Test fun `unexpected disconnect closes the connection and still tears down`() = runTest {
+        val factory = FakeFactory(FakeService())
+        val l = launcher(factory)
+
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        advanceUntilIdle() // reach awaitClose (bound)
+
+        factory.disconnectCallback!!.invoke() // simulate an unexpected onServiceDisconnected
+        advanceUntilIdle()
+
+        caught.await().shouldBeInstanceOf<AdbException>() // flow closed instead of leaking a dead connection
+        events shouldContainInOrder listOf("bind", "unbind") // finally still unbound
+        job.cancelAndJoin()
     }
 
     @Test fun `a failing bind does not attempt unbind`() = runTest {

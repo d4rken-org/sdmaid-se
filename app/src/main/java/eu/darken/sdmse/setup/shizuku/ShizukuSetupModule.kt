@@ -47,6 +47,12 @@ class ShizukuSetupModule @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(rngString)
 
+    // Last known concrete Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
+    // immediately instead of regressing to Loading and flickering the setup card while the availability
+    // probe re-runs (a cold AdbHost bind can take ~10s). Only ever holds a real Result, never Loading.
+    @Volatile
+    private var lastResult: Result? = null
+
     private val permissionRequester = shizukuManager.shizukuBinder
         .onEach {
             if (adbSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
@@ -86,7 +92,18 @@ class ShizukuSetupModule @Inject constructor(
         }
     }
         .flatMapLatest { it }
-        .onStart { emit(Loading()) }
+        .onEach { if (it is Result) lastResult = it }
+        .onStart {
+            // Don't regress to Loading if we already know the result: emit the last known state so the
+            // dashboard setup card doesn't flicker while the probe re-runs in the background. Guard
+            // against a useShizuku change that happened while we had no subscribers.
+            val cached = lastResult
+            if (cached != null && cached.useShizuku == adbSettings.useShizuku.value()) {
+                emit(cached)
+            } else {
+                emit(Loading())
+            }
+        }
         .onEach { log(TAG) { "New Shizuku setup state: $it" } }
         .replayingShare(appScope)
 
@@ -97,6 +114,8 @@ class ShizukuSetupModule @Inject constructor(
 
     suspend fun toggleUseShizuku(useShizuku: Boolean?) {
         log(TAG) { "toggleUseShizuku(useShizuku=$useShizuku)" }
+        // Drop any cached state so we don't replay a stale Result for the previous setting.
+        lastResult = null
         val couldUseShizuku = shizukuManager.useShizuku.first()
         if (useShizuku == true && shizukuManager.isGranted() == false) {
             val grantResult = coroutineScope {

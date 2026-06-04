@@ -30,6 +30,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -45,6 +46,7 @@ class AdbServiceClient @Inject constructor(
 ) : SharedResource<AdbServiceClient.Connection>(
     tag = TAG,
     parentScope = coroutineScope,
+    stopTimeout = ADB_HOST_KEEPALIVE,
     verboseLifecycle = true,
     source = callbackFlow {
         log(TAG) { "Instantiating ADB launcher..." }
@@ -109,6 +111,13 @@ class AdbServiceClient @Inject constructor(
     )
 
     companion object {
+
+        // Keep the privileged ADB host bound briefly after the last lease is released so in-session
+        // re-acquisition (screen-bouncing between dashboard and tools, back-to-back privileged ops)
+        // reuses the warm host instead of paying the multi-second Shizuku/ADB cold-start. Bounded on
+        // purpose: a uid-2000 host should not linger in the background for long. Teardown still happens
+        // (and is prompt/safe); this only delays its start.
+        private val ADB_HOST_KEEPALIVE: Duration = Duration.ofSeconds(30)
 
         fun AdbHostLauncher.createServiceHostConnection(
             options: AdbHostOptions,
