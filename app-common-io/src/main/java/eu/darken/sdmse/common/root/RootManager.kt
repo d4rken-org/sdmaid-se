@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.root.service.RootServiceClient
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.channels.awaitClose
@@ -101,6 +102,8 @@ class RootManager @Inject constructor(
 
             val newState = try {
                 serviceClient.get().use { it.item.ipc.checkBase() != null }
+            } catch (e: CancellationException) {
+                throw e // don't cache a cancelled probe as "not rooted"
             } catch (e: Exception) {
                 log(TAG, WARN) { "Error while checking for root: $e" }
                 false

@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
 import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,6 +42,13 @@ class RootSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
+
+    // Last known concrete Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
+    // immediately instead of regressing to Loading and flickering the setup card while the availability
+    // probe re-runs (acquiring the root host can cold-bind a su session). Only ever holds a real Result.
+    @Volatile
+    private var lastResult: Result? = null
+
     override val state: Flow<SetupModule.State> = combine(refreshTrigger, rootSettings.useRoot.flow) { _, useRoot ->
         val baseState = Result(
             useRoot = useRoot,
@@ -58,6 +66,8 @@ class RootSetupModule @Inject constructor(
                 baseState.copy(
                     ourService = try {
                         connection.ipc.checkBase() != null
+                    } catch (e: CancellationException) {
+                        throw e
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Error while checking for root: $e" }
                         false
@@ -66,7 +76,18 @@ class RootSetupModule @Inject constructor(
             }
     }
         .flatMapLatest { it }
-        .onStart { emit(Loading()) }
+        .onEach { if (it is Result) lastResult = it }
+        .onStart {
+            // Don't regress to Loading if we already know the result: emit the last known state so the
+            // dashboard setup card doesn't flicker while the probe re-runs. Guard against a useRoot
+            // change that happened while we had no subscribers.
+            val cached = lastResult
+            if (cached != null && cached.useRoot == rootSettings.useRoot.value()) {
+                emit(cached)
+            } else {
+                emit(Loading())
+            }
+        }
         .onEach { log(TAG) { "New Root setup state: $it" } }
         .replayingShare(appScope)
 
@@ -77,6 +98,8 @@ class RootSetupModule @Inject constructor(
 
     suspend fun toggleUseRoot(useRoot: Boolean?) {
         log(TAG) { "toggleUseRoot(useRoot=$useRoot)" }
+        // Drop any cached state so we don't replay a stale Result for the previous setting.
+        lastResult = null
         rootSettings.useRoot.value(useRoot)
 
         if (useRoot == true) {
