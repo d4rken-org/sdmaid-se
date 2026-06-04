@@ -191,7 +191,9 @@ internal fun ExclusionListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
     val currentIds = rows?.map { it.stableId }?.toSet() ?: emptySet()
-    val selectableIds = rows?.filter { !it.isDefault }?.map { it.stableId }?.toSet() ?: emptySet()
+    // Defaults are selectable/deletable too (legacy parity): removal persists, and they can be brought
+    // back via the Undo snackbar or "Reset defaults". So "Select all" covers every row.
+    val selectableIds = currentIds
 
     var selection by remember { mutableStateOf<Set<ExclusionId>>(emptySet()) }
     // Prune stale IDs when the underlying list changes.
@@ -312,7 +314,7 @@ internal fun ExclusionListScreen(
                             }
                         }
                         val onRowLongPress = {
-                            if (!row.isDefault) selection = selection.toggle(row.stableId)
+                            selection = selection.toggle(row.stableId)
                         }
                         when (row) {
                             is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
