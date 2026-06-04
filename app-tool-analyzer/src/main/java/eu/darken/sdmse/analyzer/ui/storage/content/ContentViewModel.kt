@@ -15,6 +15,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -153,7 +154,7 @@ class ContentViewModel @Inject constructor(
                         Item(
                             parent = currentLevel,
                             content = content,
-                            sizeRatio = computeSizeRatio(content.size, maxSiblingSize),
+                            sizeRatio = computeSizeBarRatio(content.size, maxSiblingSize),
                         )
                     }
 
@@ -292,11 +293,6 @@ class ContentViewModel @Inject constructor(
             LayoutMode.LINEAR -> analyzerSettings.contentLayoutMode.value(LayoutMode.GRID)
             LayoutMode.GRID -> analyzerSettings.contentLayoutMode.value(LayoutMode.LINEAR)
         }
-    }
-
-    private fun computeSizeRatio(size: Long?, maxSiblingSize: Long?): Float? {
-        if (size == null || maxSiblingSize == null || maxSiblingSize <= 0L) return null
-        return (size.toFloat() / maxSiblingSize.toFloat()).coerceIn(0f, 1f)
     }
 
     data class Item(

@@ -1,29 +1,33 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.text.format.Formatter
-import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
 import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentItem
@@ -68,77 +72,78 @@ internal fun ContentItemRow(
         else -> sizeText
     }
 
-    val cardColor = if (isSelected) {
-        CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)
-    } else {
-        CardDefaults.cardColors()
-    }
+    val selectionColor = MaterialTheme.colorScheme.secondaryContainer
+    val barColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f)
+    val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
+    val ratio = item.sizeRatio?.coerceIn(0f, 1f)
 
-    Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .combinedClickable(onClick = onTap, onLongClick = onLongPress),
-        colors = cardColor,
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-    ) {
-        Column {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                val lookup = content.lookup
-                if (lookup != null) {
-                    FilePreviewImage(
-                        lookup = lookup,
-                        modifier = Modifier.size(40.dp),
-                    )
-                } else {
-                    Icon(
-                        imageVector = content.type.icon,
-                        contentDescription = null,
-                        modifier = Modifier.size(40.dp),
-                    )
-                }
-                Spacer(Modifier.size(12.dp))
-                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(
-                        text = primary,
-                        style = MaterialTheme.typography.bodyLarge,
-                        maxLines = 1,
-                    )
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = secondary,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Spacer(Modifier.width(6.dp))
-                        Icon(
-                            imageVector = content.type.icon,
-                            contentDescription = stringResource(content.type.labelRes),
-                            modifier = Modifier.size(14.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Spacer(Modifier.width(4.dp))
-                        Text(
-                            text = stringResource(content.type.labelRes),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+    Column(modifier = modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp)
+                .combinedClickable(onClick = onTap, onLongClick = onLongPress)
+                .drawBehind {
+                    if (isSelected) {
+                        drawRect(color = selectionColor)
+                    }
+                    if (ratio != null && ratio > 0f) {
+                        val barWidth = size.width * ratio
+                        val x = if (isRtl) size.width - barWidth else 0f
+                        drawRect(
+                            color = barColor,
+                            topLeft = Offset(x, 0f),
+                            size = Size(width = barWidth, height = size.height),
                         )
                     }
                 }
-            }
-            item.sizeRatio?.let { ratio ->
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(ratio.coerceIn(0f, 1f))
-                        .height(2.dp)
-                        .background(MaterialTheme.colorScheme.secondary),
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            val lookup = content.lookup
+            if (lookup != null && content.type == FileType.FILE && (content.size ?: 0L) > 0L) {
+                FilePreviewImage(
+                    lookup = lookup,
+                    modifier = Modifier.size(24.dp),
+                )
+            } else {
+                Icon(
+                    imageVector = content.type.icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = primary,
+                    style = MaterialTheme.typography.titleSmall,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = secondary,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            Spacer(Modifier.width(8.dp))
+            Text(
+                text = stringResource(content.type.labelRes),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.End,
+                modifier = Modifier
+                    .align(Alignment.Bottom)
+                    .widthIn(max = 100.dp),
+            )
         }
+        HorizontalDivider()
     }
 }
 
@@ -156,6 +161,55 @@ private fun ContentItemRowPreview() {
                     withLookup = false,
                 ),
                 sizeRatio = 0.5f,
+            ),
+            isSelected = false,
+            isSelectionMode = false,
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentItemRowSelectedFullBarPreview() {
+    PreviewWrapper {
+        ContentItemRow(
+            item = Item(
+                parent = null,
+                content = previewContentItem(
+                    segments = arrayOf("storage", "emulated", "0", "Movies"),
+                    type = FileType.DIRECTORY,
+                    size = 64L * 1024 * 1024,
+                    children = setOf(
+                        previewContentItem(segments = arrayOf("storage", "emulated", "0", "Movies", "a.mp4"), withLookup = false),
+                        previewContentItem(segments = arrayOf("storage", "emulated", "0", "Movies", "b.mp4"), withLookup = false),
+                    ),
+                    withLookup = false,
+                ),
+                sizeRatio = 1f,
+            ),
+            isSelected = true,
+            isSelectionMode = true,
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentItemRowLongNamePreview() {
+    PreviewWrapper {
+        ContentItemRow(
+            item = Item(
+                parent = null,
+                content = previewContentItem(
+                    segments = arrayOf(
+                        "storage", "emulated", "0",
+                        "eu.darken.sdmse.test.sd-area-access-local-3bffb8bc-8481-492b-acdf-65f700dc15ae",
+                    ),
+                    type = FileType.FILE,
+                    size = 0L,
+                    withLookup = false,
+                ),
+                sizeRatio = 0f,
             ),
             isSelected = false,
             isSelectionMode = false,

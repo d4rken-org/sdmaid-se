@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -50,6 +53,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -384,23 +388,38 @@ internal fun ContentScreen(
                         .padding(paddingValues),
                 ) {
                     if (s.progress == null && s.items != null) {
-                        LazyVerticalGrid(
-                            columns = GridCells.Fixed(spanCount),
-                            modifier = Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            if (s.showSystemInfoBanner) {
-                                item(
-                                    key = "info-banner",
-                                    span = { GridItemSpan(maxLineSpan) },
-                                ) {
-                                    ContentInfoBanner()
+                        val onToggleSelection: (APath) -> Unit = { itemPath ->
+                            selection = if (itemPath in selection) selection - itemPath else selection + itemPath
+                        }
+                        when (s.layoutMode) {
+                            LayoutMode.LINEAR -> LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = SdmListDefaults.FullWidthContentPadding,
+                            ) {
+                                if (s.showSystemInfoBanner) {
+                                    item(key = "info-banner") {
+                                        ContentInfoBanner(modifier = Modifier.padding(horizontal = 16.dp))
+                                    }
                                 }
+                                contentRows(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
                             }
-                            items(s.items, s.layoutMode, selection, isSelectionMode, onItemClick) { itemPath ->
-                                selection = if (itemPath in selection) selection - itemPath else selection + itemPath
+
+                            LayoutMode.GRID -> LazyVerticalGrid(
+                                columns = GridCells.Fixed(spanCount),
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp),
+                            ) {
+                                if (s.showSystemInfoBanner) {
+                                    item(
+                                        key = "info-banner",
+                                        span = { GridItemSpan(maxLineSpan) },
+                                    ) {
+                                        ContentInfoBanner()
+                                    }
+                                }
+                                contentTiles(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
                             }
                         }
                     }
@@ -434,9 +453,8 @@ internal fun ContentScreen(
     }
 }
 
-private fun androidx.compose.foundation.lazy.grid.LazyGridScope.items(
+private fun LazyListScope.contentRows(
     items: List<ContentViewModel.Item>,
-    layoutMode: LayoutMode,
     selection: Set<APath>,
     isSelectionMode: Boolean,
     onItemClick: (ContentViewModel.Item) -> Unit,
@@ -447,36 +465,39 @@ private fun androidx.compose.foundation.lazy.grid.LazyGridScope.items(
         key = { idx -> items[idx].content.path.path.hashCode() },
     ) { idx ->
         val item = items[idx]
-        val isSelected = item.content.path in selection
-        when (layoutMode) {
-            LayoutMode.LINEAR -> ContentItemRow(
-                item = item,
-                isSelected = isSelected,
-                isSelectionMode = isSelectionMode,
-                onTap = {
-                    if (isSelectionMode) {
-                        onToggleSelection(item.content.path)
-                    } else {
-                        onItemClick(item)
-                    }
-                },
-                onLongPress = { onToggleSelection(item.content.path) },
-            )
+        ContentItemRow(
+            item = item,
+            isSelected = item.content.path in selection,
+            isSelectionMode = isSelectionMode,
+            onTap = {
+                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+            },
+            onLongPress = { onToggleSelection(item.content.path) },
+        )
+    }
+}
 
-            LayoutMode.GRID -> ContentItemTile(
-                item = item,
-                isSelected = isSelected,
-                isSelectionMode = isSelectionMode,
-                onTap = {
-                    if (isSelectionMode) {
-                        onToggleSelection(item.content.path)
-                    } else {
-                        onItemClick(item)
-                    }
-                },
-                onLongPress = { onToggleSelection(item.content.path) },
-            )
-        }
+private fun LazyGridScope.contentTiles(
+    items: List<ContentViewModel.Item>,
+    selection: Set<APath>,
+    isSelectionMode: Boolean,
+    onItemClick: (ContentViewModel.Item) -> Unit,
+    onToggleSelection: (APath) -> Unit,
+) {
+    items(
+        count = items.size,
+        key = { idx -> items[idx].content.path.path.hashCode() },
+    ) { idx ->
+        val item = items[idx]
+        ContentItemTile(
+            item = item,
+            isSelected = item.content.path in selection,
+            isSelectionMode = isSelectionMode,
+            onTap = {
+                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+            },
+            onLongPress = { onToggleSelection(item.content.path) },
+        )
     }
 }
 
