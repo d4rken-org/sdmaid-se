@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.getInterface
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
@@ -30,6 +31,7 @@ class AdbHostLauncher @Inject constructor(
     private val serviceFactory: ShizukuUserServiceFactory,
 ) {
 
+    @OptIn(DelicateCoroutinesApi::class) // isClosedForSend, to skip the close() on intentional teardown
     fun <Service : IInterface, Host : AdbConnection> createConnection(
         serviceClass: KClass<Service>,
         hostClass: KClass<Host>,
@@ -69,6 +71,16 @@ class AdbHostLauncher @Inject constructor(
                 log(TAG) { "onServiceConnected(...) -> $userConnection" }
                 @Suppress("UNCHECKED_CAST")
                 trySendBlocking(ConnectionWrapper(userConnection, baseConnection as Host))
+            },
+            onDisconnected = {
+                // Fires on an UNEXPECTED disconnect (Shizuku/host died outside our own unbind). Close the
+                // flow so the SharedResource generation tears down and the next get() re-binds, instead of
+                // handing out a dead connection during the keep-alive window. On intentional teardown the
+                // channel is already closed (isClosedForSend), so this is a no-op.
+                if (!isClosedForSend) {
+                    log(TAG, WARN) { "Shizuku user service disconnected unexpectedly, closing connection" }
+                    close(AdbException("Shizuku user service disconnected"))
+                }
             },
         )
 

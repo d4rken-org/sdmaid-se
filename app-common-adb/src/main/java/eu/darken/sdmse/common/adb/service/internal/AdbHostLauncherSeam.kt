@@ -40,6 +40,7 @@ interface ShizukuUserServiceFactory {
         hostClass: KClass<Host>,
         options: AdbHostOptions,
         onConnected: (IBinder?) -> Unit,
+        onDisconnected: () -> Unit,
     ): ShizukuUserService
 }
 
@@ -51,6 +52,7 @@ internal class DefaultShizukuUserServiceFactory @Inject constructor() : ShizukuU
         hostClass: KClass<Host>,
         options: AdbHostOptions,
         onConnected: (IBinder?) -> Unit,
+        onDisconnected: () -> Unit,
     ): ShizukuUserService {
         val serviceArgs = UserServiceArgs(
             ComponentName(BuildConfigWrap.APPLICATION_ID, hostClass.qualifiedName!!)
@@ -66,6 +68,7 @@ internal class DefaultShizukuUserServiceFactory @Inject constructor() : ShizukuU
             override fun onServiceConnected(name: ComponentName?, binder: IBinder?) = onConnected(binder)
             override fun onServiceDisconnected(name: ComponentName?) {
                 disconnected.complete(Unit)
+                onDisconnected()
             }
         }
 

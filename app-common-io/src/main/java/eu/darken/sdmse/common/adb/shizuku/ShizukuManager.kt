@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
@@ -132,9 +133,15 @@ class ShizukuManager @Inject constructor(
 
 
     suspend fun isOurServiceAvailable(): Boolean = withContext(dispatcherProvider.IO) {
+        if (isGranted() != true) {
+            log(TAG, VERBOSE) { "isOurServiceAvailable(): Shizuku permission not granted" }
+            return@withContext false
+        }
         try {
             log(TAG, VERBOSE) { "isOurServiceAvailable(): Requesting service client" }
             serviceClient.get().use { it.item.ipc.checkBase() != null }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "isOurServiceAvailable(): Error during checkBase(): $e" }
             false
