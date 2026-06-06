@@ -2,6 +2,8 @@
     <string name="dashboard_delete_all_message">Delete results in all tools?</string>
     <string name="dashboard_hero_will_be_freed_x_items">Will be freed · %1$s</string>
     <string name="dashboard_hero_freed_x_items">Freed · %1$s</string>
+    <string name="dashboard_hero_freeable_hint">Tap a category to review</string>
+    <string name="dashboard_hero_freed_hint">Tap a category to see what was removed</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">A message from the developer</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>

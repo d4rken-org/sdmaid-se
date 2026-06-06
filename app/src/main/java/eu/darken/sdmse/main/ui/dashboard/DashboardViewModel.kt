@@ -101,10 +101,12 @@ import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
+import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
+import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 import eu.darken.sdmse.stats.ui.ReportsRoute
 import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
@@ -518,6 +520,13 @@ class DashboardViewModel @Inject constructor(
     /** Aggregated "freed" result of the most recent main-action deletion/one-click; null otherwise. */
     private val freedResult = MutableStateFlow<HeroSummary?>(null)
 
+    /**
+     * Batch start of the current cleanup, stamped in [mainAction] before any branch runs. Used to
+     * resolve each freed-hero chip to *this* cleanup's per-tool report (reports completed at/after
+     * this instant), instead of a stale earlier one. [Instant.EPOCH] until the first cleanup.
+     */
+    private var freedResultSince: Instant = Instant.EPOCH
+
     /** In-flight main-action cleanup branches; the freed hero stays hidden until this reaches 0. */
     private val pendingMainCleanup = MutableStateFlow(0)
 
@@ -674,6 +683,8 @@ class DashboardViewModel @Inject constructor(
         val isCleanup = actionState == BottomBarState.Action.DELETE || actionState == BottomBarState.Action.ONECLICK
         if (isCleanup) {
             freedResult.value = null
+            // Stamp before any branch runs so it's <= every resulting report's end_at.
+            freedResultSince = Instant.now()
             pendingMainCleanup.value = 4 // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
         }
         launchMainBranch(isCleanup) {
@@ -808,7 +819,20 @@ class DashboardViewModel @Inject constructor(
         navTo(DeduplicatorListRoute)
     }
 
-    /** Opens a tool's findings list — used by the hero card's per-tool chips. */
+    /**
+     * Hero-chip tap. Routes by the *rendered* card mode (passed up from the card, not re-read from
+     * state): a "will be freed" chip opens the live findings list to review; a "freed" chip opens
+     * what that tool actually removed (its report), since the live list is now empty.
+     */
+    fun onHeroToolClick(mode: HeroSummary.Mode, type: SDMTool.Type) {
+        log(TAG, INFO) { "onHeroToolClick($mode, $type)" }
+        when (mode) {
+            HeroSummary.Mode.FREED -> showToolReport(type)
+            HeroSummary.Mode.FREEABLE -> showTool(type)
+        }
+    }
+
+    /** Opens a tool's findings list — used by the hero card's per-tool chips (pre-deletion). */
     fun showTool(type: SDMTool.Type) {
         log(TAG, INFO) { "showTool($type)" }
         when (type) {
@@ -817,6 +841,20 @@ class DashboardViewModel @Inject constructor(
             SDMTool.Type.APPCLEANER -> showAppCleaner()
             SDMTool.Type.DEDUPLICATOR -> showDeduplicator()
             else -> log(TAG, WARN) { "showTool() ignoring unsupported type: $type" }
+        }
+    }
+
+    /**
+     * Opens the report for what [type] just removed (post-deletion freed-hero chip). Resolves *this*
+     * cleanup's report via [freedResultSince]; falls back to the reports list when the report isn't
+     * persisted yet (sub-second tap) or the deletion failed.
+     */
+    fun showToolReport(type: SDMTool.Type) = launch {
+        log(TAG, INFO) { "showToolReport($type)" }
+        val report = statsRepo.getReportForToolSince(type, freedResultSince)
+        when (report?.status) {
+            Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> navTo(AffectedFilesRoute(report.reportId))
+            else -> navTo(ReportsRoute)
         }
     }
 

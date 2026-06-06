@@ -183,8 +183,8 @@ class MainActivity : ComponentActivity() {
                         fallback = { unknownKey ->
                             // Prevents IllegalStateException when a tool-settings row navigates
                             // to a route whose Fragment screen hasn't been converted yet
-                            // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute,
-                            // ReportsRoute). Tracked as immediate follow-up in the rewrite plan.
+                            // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute).
+                            // Tracked as immediate follow-up in the rewrite plan.
                             NavEntry(key = unknownKey) {
                                 UnknownDestinationScreen(
                                     routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),

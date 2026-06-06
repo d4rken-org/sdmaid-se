@@ -10,6 +10,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.test.performTouchInput
 import androidx.test.core.app.ApplicationProvider
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -109,8 +110,9 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `activating a tool chip invokes onToolClick with that tool`() {
-        var clicked: SDMTool.Type? = null
+    fun `activating a tool chip invokes onToolClick with the rendered mode and tool`() {
+        var clickedMode: DashboardViewModel.HeroSummary.Mode? = null
+        var clickedType: SDMTool.Type? = null
         composeRule.setContent {
             PreviewWrapper {
                 BottomBar(
@@ -122,7 +124,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                     onSettings = {},
                     onUpgrade = {},
                     onDismissHero = {},
-                    onToolClick = { clicked = it },
+                    onToolClick = { mode, type -> clickedMode = mode; clickedType = type },
                 )
             }
         }
@@ -134,7 +136,63 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithContentDescription(corpseName)
             .assertHasClickAction()
             .performSemanticsAction(SemanticsActions.OnClick)
-        composeRule.runOnIdle { assertEquals(SDMTool.Type.CORPSEFINDER, clicked) }
+        composeRule.runOnIdle {
+            assertEquals(DashboardViewModel.HeroSummary.Mode.FREEABLE, clickedMode)
+            assertEquals(SDMTool.Type.CORPSEFINDER, clickedType)
+        }
+    }
+
+    @Test
+    fun `freed-mode chip click reports the freed mode`() {
+        var clickedMode: DashboardViewModel.HeroSummary.Mode? = null
+        val freed = DashboardViewModel.HeroSummary(
+            mode = DashboardViewModel.HeroSummary.Mode.FREED,
+            totalSize = 1L * 1024 * 1024 * 1024,
+            itemCount = 12,
+            tools = listOf(
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+            ),
+        )
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(freed),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                    onToolClick = { mode, _ -> clickedMode = mode },
+                )
+            }
+        }
+        val corpseName = context.getString(CommonR.string.corpsefinder_tool_name)
+        composeRule.onNodeWithContentDescription(corpseName)
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { assertEquals(DashboardViewModel.HeroSummary.Mode.FREED, clickedMode) }
+    }
+
+    @Test
+    fun `freeable hero shows the review hint, freed hero shows the removed hint`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(summary()),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_freeable_hint)).assertExists()
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_freed_hint)).assertDoesNotExist()
     }
 
     @Test

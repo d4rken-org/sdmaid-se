@@ -83,7 +83,7 @@ internal fun BottomBar(
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
     onDismissHero: () -> Unit,
-    onToolClick: (SDMTool.Type) -> Unit = {},
+    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
     isHeroDismissed: Boolean = false,
     mainActionModifier: Modifier = Modifier,

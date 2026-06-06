@@ -165,7 +165,7 @@ fun DashboardScreenHost(
                 else -> vm.mainAction(actionState)
             }
         },
-        onToolClick = vm::showTool,
+        onToolClick = vm::onHeroToolClick,
         onRestoreHero = vm::restoreHero,
         onSettings = { vm.navTo(SettingsRoute) },
         onUpgrade = { vm.navTo(UpgradeRoute()) },
@@ -184,7 +184,7 @@ internal fun DashboardScreen(
     isHeroDismissed: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
-    onToolClick: (SDMTool.Type) -> Unit = {},
+    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
     onSettings: () -> Unit = {},
     onUpgrade: () -> Unit = {},
