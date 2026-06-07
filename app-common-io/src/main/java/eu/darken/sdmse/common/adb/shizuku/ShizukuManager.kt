@@ -51,7 +51,10 @@ class ShizukuManager @Inject constructor(
         .replayingShare(appScope)
 
     val shizukuBinder: Flow<ShizukuBaseServiceBinder?> = settings.useShizuku.flow
-        .flatMapLatest { if (it == true) shizukuWrapper.baseServiceBinder else flowOf(null) }
+        // Only touch the Shizuku binder if the user opted in AND Shizuku is actually installed.
+        // Otherwise (e.g. useShizuku left enabled after uninstalling Shizuku) every subscription would
+        // probe the absent service and spam "binder haven't been received" on each resume.
+        .flatMapLatest { if (it == true && isInstalled()) shizukuWrapper.baseServiceBinder else flowOf(null) }
         .catch { e ->
             log(TAG, WARN) { "Shizuku binder access failed: ${e.asLog()}" }
             emit(null)
@@ -98,21 +101,17 @@ class ShizukuManager @Inject constructor(
     val shizukuPkgId: Pkg.Id
         get() = PKG_ID
 
-    private var isInstalledCache: Boolean? = null
-    private val isInstalledLock = Mutex()
-
-    suspend fun isInstalled(): Boolean = isInstalledLock.withLock {
-        isInstalledCache?.let { return@withLock it }
-
-        try {
+    // Not cached: a stale "not installed" result would keep the binder gate (see shizukuBinder) closed
+    // even after Shizuku gets installed, until the next process restart. The package lookup is cheap.
+    suspend fun isInstalled(): Boolean {
+        val installed = try {
             context.packageManager.getPackageInfo(PKG_ID.name, 0)
             true
         } catch (_: PackageManager.NameNotFoundException) {
             false
-        }.also {
-            isInstalledCache = it
-            log(TAG) { "isInstalled(): $it" }
         }
+        log(TAG) { "isInstalled(): $installed" }
+        return installed
     }
 
     suspend fun isGranted(): Boolean? = shizukuWrapper.isGranted()
