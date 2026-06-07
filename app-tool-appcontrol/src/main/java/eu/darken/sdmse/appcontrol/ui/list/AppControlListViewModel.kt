@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.formatDuration
@@ -267,6 +268,11 @@ class AppControlListViewModel @Inject constructor(
                     )
                 }
                 ?.toList()
+
+            log(TAG, INFO) {
+                "Filtered ${cur.data?.apps?.size} → ${appInfos?.size} apps " +
+                    "(tags=${listFilter.tags}, sort=${listSort.mode}, query='$queryNormalized')"
+            }
 
             delay(250)
 
