@@ -265,8 +265,13 @@
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug mode is enabled</string>
-    <string name="debug_card_trace_mode_label">Enable trace mode</string>
-    <string name="debug_card_dryrun_mode_label">Dry-run mode (disable deletion)</string>
+    <string name="debug_card_description">Developer diagnostics and runtime overrides. This card only appears while debug mode is enabled.</string>
+    <string name="debug_card_section_diagnostics">Diagnostics</string>
+    <string name="debug_card_section_reload">Reload</string>
+    <string name="debug_card_trace_mode_title">Trace logging</string>
+    <string name="debug_card_trace_mode_desc">Verbose step-by-step logs. Slows the app down noticeably.</string>
+    <string name="debug_card_dryrun_mode_title">Dry-run mode</string>
+    <string name="debug_card_dryrun_mode_desc">Simulate cleanup — files are scanned but nothing is deleted.</string>
     <string name="debug_card_areas_reload_action">Reload data areas</string>
     <string name="debug_card_pkgs_reload_action">Reload apps</string>
     <string name="debug_card_root_test_action">Test root</string>
