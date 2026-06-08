@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
@@ -90,10 +91,21 @@ fun PickerItemRow(
             )
         }
         if (item.selectable) {
-            Checkbox(
-                checked = item.selected,
-                onCheckedChange = { onToggleSelect() },
-            )
+            // Enlarge the tap target around the checkbox so taps landing slightly beside it still
+            // toggle selection instead of falling through to the row's open-folder click. The
+            // checkbox itself is passive (onCheckedChange = null) — the Box owns the click.
+            Box(
+                modifier = Modifier
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .clickable(onClick = onToggleSelect),
+                contentAlignment = Alignment.Center,
+            ) {
+                Checkbox(
+                    checked = item.selected,
+                    onCheckedChange = null,
+                )
+            }
         }
     }
 }

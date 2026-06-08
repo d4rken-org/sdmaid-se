@@ -198,29 +198,40 @@ class PickerViewModel @Inject constructor(
         handle[KEY_NAV_PATH] = nav?.mapTo(ArrayList()) { it.lookup.lookedUp } ?: arrayListOf()
     }
 
-    private val internalState = combineTransform(
+    /**
+     * Directory listing stage: the *expensive* part (gateway lookups). Keyed only on request /
+     * data-area / navigation — deliberately NOT on [selectedItems], so toggling a selection never
+     * re-lists the folder. Items are selection-agnostic; the selected flag is overlaid downstream.
+     */
+    private sealed interface DirListing {
+        val current: PickerItem?
+
+        data class Loading(override val current: PickerItem?) : DirListing
+        data class Loaded(
+            override val current: PickerItem?,
+            val items: List<PickerItem>,
+        ) : DirListing
+    }
+
+    private val dirListing = combineTransform(
         requestFlow.filterNotNull(),
         dataAreaManager.state,
         navigationState,
-        selectedItems,
-    ) { req, areaState, navState, selected ->
-        emit(State())
-
+    ) { req, areaState, navState ->
         val current: PickerItem? = navState?.lastOrNull()
-        val items: List<PickerRow> = when {
+        emit(DirListing.Loading(current))
+
+        val items: List<PickerItem> = when {
             current == null -> areaState.areas
                 .sortedBy { it.type }
                 .filter { req.allowedAreas.isEmpty() || req.allowedAreas.contains(it.type) }
                 .map { area ->
-                    val lookup = area.path.lookup(gatewaySwitch)
-                    PickerRow(
-                        item = PickerItem(
-                            dataArea = area,
-                            lookup = lookup,
-                            parent = null,
-                            selected = selected.any { it.lookedUp == area.path },
-                            selectable = true,
-                        ),
+                    PickerItem(
+                        dataArea = area,
+                        lookup = area.path.lookup(gatewaySwitch),
+                        parent = null,
+                        selected = false,
+                        selectable = true,
                     )
                 }
 
@@ -236,29 +247,58 @@ class PickerViewModel @Inject constructor(
                     val area = areaState.areas
                         .sortedByDescending { it.path.segments.size }
                         .first { it.path.isAncestorOf(lookup.lookedUp) }
-                    PickerRow(
-                        item = PickerItem(
-                            dataArea = area,
-                            lookup = lookup,
-                            parent = current,
-                            selected = selected.any { it.lookedUp == lookup.lookedUp },
-                            selectable = true,
-                        ),
+                    PickerItem(
+                        dataArea = area,
+                        lookup = lookup,
+                        parent = current,
+                        selected = false,
+                        selectable = true,
                     )
                 }
         }
 
-        val selectedRows = selected.reversed().map { SelectedRow(lookup = it) }
+        emit(DirListing.Loaded(current, items))
+    }.replayingShare(vmScope)
 
-        emit(
-            State(
-                current = current,
-                items = items,
-                selected = selectedRows,
-                hasChanges = selected.map { it.lookedUp } != req.selectedPaths,
-                progress = null,
-            ),
-        )
+    private val internalState = combineTransform(
+        requestFlow.filterNotNull(),
+        dirListing,
+        selectedItems,
+    ) { req, listing, selected ->
+        // Selection overlay stage: purely in-memory. Chips and hasChanges are derived here so a
+        // selection toggle re-runs only this cheap block — no I/O, no blank/loading frame — which
+        // is what was making both the list and the selected-paths sheet flicker.
+        val selectedRows = selected.reversed().map { SelectedRow(lookup = it) }
+        val hasChanges = selected.map { it.lookedUp } != req.selectedPaths
+
+        when (listing) {
+            // Keep the chips/hasChanges populated while the grid reloads so a real folder
+            // navigation only spins the list, it doesn't blank the selected-paths sheet.
+            is DirListing.Loading -> emit(
+                State(
+                    current = listing.current,
+                    items = emptyList(),
+                    selected = selectedRows,
+                    hasChanges = hasChanges,
+                    progress = Progress.Data(),
+                ),
+            )
+
+            is DirListing.Loaded -> {
+                val items = listing.items.map { item ->
+                    PickerRow(item.copy(selected = selected.any { it.lookedUp == item.lookup.lookedUp }))
+                }
+                emit(
+                    State(
+                        current = listing.current,
+                        items = items,
+                        selected = selectedRows,
+                        hasChanges = hasChanges,
+                        progress = null,
+                    ),
+                )
+            }
+        }
     }.replayingShare(vmScope)
 
     val state: StateFlow<State> = internalState.stateIn(
@@ -284,8 +324,11 @@ class PickerViewModel @Inject constructor(
 
     fun selectAll() = launch {
         log(TAG) { "selectAll()" }
-        val toSelect = internalState.first().items
-            .map { it.item.lookup }
+        // Read from the directory listing (not state) so we never act on a transient loading frame
+        // and end up selecting nothing.
+        val loaded = dirListing.first { it is DirListing.Loaded } as DirListing.Loaded
+        val toSelect = loaded.items
+            .map { it.lookup }
             .sortedByDescending { it.lookedUp.segments.size }
         select(toSelect)
     }

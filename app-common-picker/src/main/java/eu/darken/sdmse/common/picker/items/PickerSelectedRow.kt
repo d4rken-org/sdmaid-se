@@ -33,7 +33,7 @@ fun PickerSelectedRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(start = 16.dp, end = 8.dp, top = 2.dp, bottom = 2.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
@@ -48,8 +48,16 @@ fun PickerSelectedRow(
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.weight(1f),
         )
-        IconButton(onClick = onRemove) {
-            Icon(Icons.TwoTone.Close, contentDescription = null)
+        // Shrink the remove button below the default 48dp touch target to keep rows compact.
+        IconButton(
+            onClick = onRemove,
+            modifier = Modifier.size(36.dp),
+        ) {
+            Icon(
+                Icons.TwoTone.Close,
+                contentDescription = null,
+                modifier = Modifier.size(20.dp),
+            )
         }
     }
 }

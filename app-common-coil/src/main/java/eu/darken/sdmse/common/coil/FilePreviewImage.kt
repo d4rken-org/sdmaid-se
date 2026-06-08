@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -70,9 +71,13 @@ fun FilePreviewImage(
     }
 
     val context = LocalContext.current
-    val request = ImageRequest.Builder(context)
-        .data(lookup)
-        .build()
+    // remember the request per-lookup so row recompositions (e.g. a selection toggle elsewhere in
+    // the row) don't rebuild it and re-trigger Coil's loading slot, which would flash the thumbnail.
+    val request = remember(lookup) {
+        ImageRequest.Builder(context)
+            .data(lookup)
+            .build()
+    }
 
     SubcomposeAsyncImage(
         model = request,
