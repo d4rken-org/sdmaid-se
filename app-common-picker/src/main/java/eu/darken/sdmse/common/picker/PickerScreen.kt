@@ -185,10 +185,14 @@ internal fun PickerScreen(
                             expanded = overflowOpen,
                             onDismissRequest = { overflowOpen = false },
                         ) {
-                            DropdownMenuItem(
-                                text = { Text(stringResource(UiR.string.picker_home_action)) },
-                                onClick = { overflowOpen = false; onHome() },
-                            )
+                            if (navigatable) {
+                                // Only offer "jump to data-area root" when we're actually inside a
+                                // folder — at the root it would be a no-op.
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(UiR.string.picker_home_action)) },
+                                    onClick = { overflowOpen = false; onHome() },
+                                )
+                            }
                             DropdownMenuItem(
                                 text = { Text(stringResource(CommonR.string.general_list_select_all_action)) },
                                 onClick = { overflowOpen = false; onSelectAll() },
