@@ -49,7 +49,7 @@ internal fun DashboardHeroCard(
     // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed.
     val (containerColor, contentColor) = when (summary.mode) {
         DashboardViewModel.HeroSummary.Mode.FREEABLE ->
-            MaterialTheme.colorScheme.errorContainer to MaterialTheme.colorScheme.onErrorContainer
+            MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
 
         DashboardViewModel.HeroSummary.Mode.FREED ->
             MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
