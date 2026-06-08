@@ -89,4 +89,30 @@ class ExclusionListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText("1 selected").assertExists()
     }
+
+    @Test
+    fun `restore defaults option is hidden when defaults are not modified`() {
+        composeRule.setListScreen(
+            ExclusionListViewModel.State(
+                rows = listOf(pkgRow(label = "User App", pkgName = "com.user.app", isDefault = false)),
+                defaultsModified = false,
+            ),
+        )
+
+        composeRule.onNodeWithContentDescription("Options").performClick()
+        composeRule.onNodeWithText("Restore default exclusions").assertDoesNotExist()
+    }
+
+    @Test
+    fun `restore defaults option is shown when defaults are modified`() {
+        composeRule.setListScreen(
+            ExclusionListViewModel.State(
+                rows = listOf(pkgRow(label = "User App", pkgName = "com.user.app", isDefault = false)),
+                defaultsModified = true,
+            ),
+        )
+
+        composeRule.onNodeWithContentDescription("Options").performClick()
+        composeRule.onNodeWithText("Restore default exclusions").assertExists()
+    }
 }

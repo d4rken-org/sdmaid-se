@@ -231,15 +231,18 @@ internal fun ExclusionListScreen(
                             expanded = overflowExpanded,
                             onDismissRequest = { overflowExpanded = false },
                         ) {
-                            // Always shown (legacy parity): "Reset defaults" is independent of "Show
-                            // defaults". Gating it behind showDefaults made it unreachable by default.
-                            DropdownMenuItem(
-                                text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
-                                onClick = {
-                                    overflowExpanded = false
-                                    onResetDefaults()
-                                },
-                            )
+                            // Only shown when the built-in defaults have actually been modified (a
+                            // default removed or shadowed by a user exclusion); otherwise restoring
+                            // is a no-op. Independent of the "Show defaults" toggle below.
+                            if (state.defaultsModified) {
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(R.string.exclusion_reset_default_exclusions)) },
+                                    onClick = {
+                                        overflowExpanded = false
+                                        onResetDefaults()
+                                    },
+                                )
+                            }
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.exclusion_show_defaults_action)) },
                                 onClick = {

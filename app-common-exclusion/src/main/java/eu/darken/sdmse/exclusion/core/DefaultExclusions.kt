@@ -21,6 +21,16 @@ import javax.inject.Inject
 class DefaultExclusions @Inject constructor(
     private val exclusionSettings: ExclusionSettings,
 ) {
+
+    // IDs of the built-in defaults. IDs ignore tags/settings, so this is also the identity used to
+    // detect whether a default is still effective (not removed and not shadowed by a user exclusion).
+    val defaultIds: Set<ExclusionId> = DATA.map { it.id }.toSet()
+
+    init {
+        // Two defaults sharing an ID would collapse for detection/removal/restore.
+        require(DATA.size == defaultIds.size) { "Duplicate default exclusion IDs: $DATA" }
+    }
+
     // Due to a bug before v0.23.3-beta0, some of the user exclusions can be inside the removedDefaultExclusions
     // These are just the strings IDs though and shouldn't cause any issue
     // Downstream we don't combine removed defaults and user exclusions
@@ -34,14 +44,16 @@ class DefaultExclusions @Inject constructor(
     }
 
     suspend fun remove(ids: Set<ExclusionId>) {
-        log(TAG) { "remove($ids)" }
-        exclusionSettings.removedDefaultExclusions.update { it + ids }
+        val known = ids.filter(defaultIds::contains).toSet()
+        log(TAG) { "remove($ids) -> known default IDs: $known" }
+        if (known.isEmpty()) return
+        exclusionSettings.removedDefaultExclusions.update { it + known }
     }
 
     companion object {
         private val TAG = logTag("Exclusion", "Defaults")
 
-        private val DATA = mutableSetOf(
+        private val DATA = setOf(
             DefaultExclusion(
                 "https://github.com/d4rken-org/sdmaid-se/issues/618",
                 PkgExclusion("com.starfinanz.mobile.android.pushtan".toPkgId(), setOf(Exclusion.Tag.APPCLEANER)),

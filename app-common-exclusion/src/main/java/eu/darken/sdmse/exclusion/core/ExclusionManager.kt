@@ -19,6 +19,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,6 +31,10 @@ class ExclusionManager @Inject constructor(
     private val exclusionStorage: ExclusionStorage,
     private val defaultExclusions: DefaultExclusions,
 ) {
+
+    // Serializes mutations across the two backing stores (user storage + defaults DataStore) so a
+    // concurrent save/remove/restore can't interleave and leave them incoherent.
+    private val mutex = Mutex()
 
     // TODO Think about making this a SharedResource?
     private val userExclusions = DynamicStateFlow(parentScope = appScope + dispatcherProvider.IO) {
@@ -66,7 +72,7 @@ class ExclusionManager @Inject constructor(
             replay = 1
         )
 
-    suspend fun save(toSave: Set<Exclusion>): Collection<Exclusion> {
+    suspend fun save(toSave: Set<Exclusion>): Collection<Exclusion> = mutex.withLock {
         log(TAG) { "save(): $toSave" }
         val newOrUpdated = mutableSetOf<Exclusion>()
         userExclusions.updateBlocking {
@@ -81,10 +87,10 @@ class ExclusionManager @Inject constructor(
                 .plus(newExclusions).toSet()
                 .also { exclusionStorage.save(it) }
         }
-        return newOrUpdated
+        newOrUpdated
     }
 
-    suspend fun remove(ids: Set<ExclusionId>) {
+    suspend fun remove(ids: Set<ExclusionId>) = mutex.withLock {
         log(TAG, INFO) { "remove($ids)..." }
 
         val userTargets = userExclusions.flow.first().filter { ids.contains(it.id) }.toSet()
@@ -97,15 +103,38 @@ class ExclusionManager @Inject constructor(
             }
         }
 
+        // Only the default IDs actually targeted by this call — otherwise removing a user exclusion
+        // would pollute the removed-defaults set with that user ID (the pre-v0.23.3-beta0 bug).
         val defaultTargets = defaultExclusions.exclusions.first()
+            .filter { ids.contains(it.id) }
+            .map { it.id }
+            .toSet()
         if (defaultTargets.isNotEmpty()) {
-            log(TAG) { "remove(): Removing defaults exclusion: $defaultTargets" }
-            defaultExclusions.remove(ids)
+            log(TAG) { "remove(): Removing default exclusions: $defaultTargets" }
+            defaultExclusions.remove(defaultTargets)
         }
 
-        if (userTargets.isEmpty() && defaultTargets.isEmpty()) {
-            log(TAG, WARN) { "remove(): Unknown IDs, can't remove $ids" }
+        val unknown = ids - userTargets.map { it.id }.toSet() - defaultTargets
+        if (unknown.isNotEmpty()) {
+            log(TAG, WARN) { "remove(): Unknown IDs, can't remove $unknown" }
         }
+    }
+
+    /**
+     * Restores the built-in default exclusions to their pristine state: un-removes any deleted
+     * defaults AND drops user exclusions that shadow a built-in default (same ID, different tags).
+     */
+    suspend fun restoreDefaults() = mutex.withLock {
+        log(TAG, INFO) { "restoreDefaults()" }
+        val ids = defaultExclusions.defaultIds
+        val shadowing = userExclusions.flow.first().filter { ids.contains(it.id) }.toSet()
+        if (shadowing.isNotEmpty()) {
+            log(TAG) { "restoreDefaults(): Dropping shadowing user exclusions: $shadowing" }
+            userExclusions.updateBlocking {
+                (this - shadowing).also { exclusionStorage.save(it) }
+            }
+        }
+        defaultExclusions.reset()
     }
 
     companion object {

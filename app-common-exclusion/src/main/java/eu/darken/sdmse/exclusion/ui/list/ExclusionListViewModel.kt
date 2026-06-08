@@ -149,7 +149,15 @@ class ExclusionListViewModel @Inject constructor(
                 }
                 .thenBy { it.label },
         )
-        State(rows = sorted, showDefaults = showDefaults)
+
+        // A built-in default is "modified" when it's no longer an effective DefaultExclusion holder,
+        // i.e. it was removed OR shadowed by a user exclusion with the same ID. Both are already
+        // filtered out of exclusionManager.exclusions, so a missing default ID means modified.
+        val defaultsModified = defaultExclusions.defaultIds.any { id ->
+            holders.none { it is DefaultExclusion && it.id == id }
+        }
+
+        State(rows = sorted, showDefaults = showDefaults, defaultsModified = defaultsModified)
     }
         .safeStateIn(
             initialValue = State(),
@@ -183,7 +191,7 @@ class ExclusionListViewModel @Inject constructor(
 
     fun resetDefaultExclusions() = launch {
         log(TAG) { "resetDefaultExclusions()" }
-        defaultExclusions.reset()
+        exclusionManager.restoreDefaults()
     }
 
     fun openHelp() = launch {
@@ -310,6 +318,7 @@ class ExclusionListViewModel @Inject constructor(
     data class State(
         val rows: List<Row>? = null,
         val showDefaults: Boolean = false,
+        val defaultsModified: Boolean = false,
     )
 
     sealed interface Row {
