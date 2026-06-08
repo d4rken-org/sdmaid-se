@@ -18,9 +18,6 @@ data class UpgradeRoute(
 }
 
 @Serializable
-data object LogViewRoute : NavigationDestination
-
-@Serializable
 data object DataAreasRoute : NavigationDestination
 
 @Serializable

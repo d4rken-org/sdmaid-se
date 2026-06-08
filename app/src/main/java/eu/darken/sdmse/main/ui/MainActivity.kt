@@ -12,6 +12,7 @@ import androidx.compose.animation.togetherWith
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeDrawing
@@ -41,6 +42,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logviewer.ui.FloatingLogPanelHost
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -131,7 +133,13 @@ class MainActivity : ComponentActivity() {
                         vm.checkErrors()
                     }
 
-                    Navigation()
+                    // The floating debug log panel is a sibling overlay above the nav graph (but
+                    // below dialogs/popups, which render in their own windows). Empty areas of the
+                    // overlay don't intercept touches, so the app underneath stays interactive.
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        Navigation()
+                        FloatingLogPanelHost()
+                    }
                 }
             }
         }

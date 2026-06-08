@@ -8,13 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import eu.darken.sdmse.common.debug.logviewer.ui.LogViewScreenHost
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.modalBottomSheetMetadata
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.main.ui.dashboard.DashboardScreenHost
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
-import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.ui.UpgradeScreenHost
 import eu.darken.sdmse.main.ui.areas.DataAreasScreenHost
@@ -44,7 +42,6 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<OnboardingSetupRoute> { OnboardingSetupScreenHost() }
 
         entry<DataAreasRoute> { DataAreasScreenHost() }
-        entry<LogViewRoute> { LogViewScreenHost() }
         entry<UpgradeRoute> { route -> UpgradeScreenHost(route = route) }
         entry<SetupRoute> { route -> SetupScreenHost(route = route) }
 

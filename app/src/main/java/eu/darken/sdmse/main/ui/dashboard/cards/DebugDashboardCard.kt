@@ -51,7 +51,8 @@ data class DebugDashboardCardItem(
     val onTestRoot: () -> Unit,
     val shizukuTestResult: DebugCardProvider.ShizukuTestResult?,
     val onTestShizuku: () -> Unit,
-    val onViewLog: () -> Unit,
+    val isLogPanelVisible: Boolean,
+    val onToggleLogPanel: (Boolean) -> Unit,
     val onAcsDebug: () -> Unit,
     val acsTask: AutomationTask?,
     val onCheckUnknownFolders: () -> Unit,
@@ -108,6 +109,17 @@ internal fun DebugDashboardCard(item: DebugDashboardCardItem) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Floating log panel toggle sits above dry-run for quick access.
+        DebugToggleRow(
+            text = "Floating log panel",
+            description = "Draggable live log overlay",
+            checked = item.isLogPanelVisible,
+            onCheckedChange = item.onToggleLogPanel,
+            highlight = item.isLogPanelVisible,
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         // Runtime override kept up top: dry-run is a safety-relevant toggle.
         DebugToggleRow(
             text = stringResource(R.string.debug_card_dryrun_mode_title),
@@ -160,10 +172,6 @@ internal fun DebugDashboardCard(item: DebugDashboardCardItem) {
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedButton(onClick = item.onRunTest, modifier = Modifier.fillMaxWidth()) {
                 Text(text = "Run tests")
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-            OutlinedButton(onClick = item.onViewLog, modifier = Modifier.fillMaxWidth()) {
-                Text(text = "View log")
             }
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedButton(onClick = item.onAcsDebug, modifier = Modifier.fillMaxWidth()) {
@@ -227,7 +235,8 @@ private fun DebugDashboardCardPreview() {
                 onTestRoot = {},
                 shizukuTestResult = null,
                 onTestShizuku = {},
-                onViewLog = {},
+                isLogPanelVisible = false,
+                onToggleLogPanel = {},
                 onAcsDebug = {},
                 acsTask = null,
                 onCheckUnknownFolders = {},

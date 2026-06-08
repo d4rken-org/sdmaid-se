@@ -24,7 +24,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
@@ -77,11 +76,12 @@ class DebugCardProvider @Inject constructor(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
         debugSettings.isTraceMode.flow.distinctUntilChanged(),
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
+        debugSettings.floatingLogVisible.flow.distinctUntilChanged(),
         rootTestState,
         shizukuTestState,
         automation.currentTask,
         isCheckingFolders,
-    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask, checkingFolders ->
+    ) { isDebug, isTrace, isDryRun, isLogVisible, rootState, shizukuState, acsTask, checkingFolders ->
         if (!isDebug) return@combine null
         DebugDashboardCardItem(
             isDryRunEnabled = isDryRun,
@@ -96,8 +96,9 @@ class DebugCardProvider @Inject constructor(
                     pkgRepo.refresh()
                 }
             },
-            onViewLog = {
-                onNavigate(LogViewRoute)
+            isLogPanelVisible = isLogVisible,
+            onToggleLogPanel = { enabled ->
+                vm.launch { debugSettings.floatingLogVisible.value(enabled) }
             },
             rootTestResult = rootState,
             onTestRoot = {
