@@ -35,7 +35,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
+import eu.darken.sdmse.common.coil.canAttemptFilePreview
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -222,13 +223,15 @@ private fun FilterContentFileRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         val thumbnailModifier = Modifier.size(28.dp)
-        if (onPreviewClick != null && !selectionActive) {
-            FilePreviewImage(
+        // Only make the thumbnail a preview tap-target when a preview can be attempted (a non-empty
+        // file); folders and empty items are never preview targets.
+        if (onPreviewClick != null && !selectionActive && match.lookup.canAttemptFilePreview()) {
+            FileListThumbnail(
                 lookup = match.lookup,
                 modifier = thumbnailModifier.combinedClickable(onClick = onPreviewClick),
             )
         } else {
-            FilePreviewImage(
+            FileListThumbnail(
                 lookup = match.lookup,
                 modifier = thumbnailModifier,
             )

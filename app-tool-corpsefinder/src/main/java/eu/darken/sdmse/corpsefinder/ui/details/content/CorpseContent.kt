@@ -34,7 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.icon
@@ -245,7 +245,7 @@ private fun CorpseFileRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        FilePreviewImage(
+        FileListThumbnail(
             lookup = lookup,
             modifier = Modifier.size(20.dp),
         )

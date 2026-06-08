@@ -84,7 +84,7 @@ fun CorpseRow(
             Icon(
                 imageVector = corpse.filterType.icon,
                 contentDescription = stringResource(CommonR.string.general_details_label),
-                modifier = Modifier.size(22.dp),
+                modifier = Modifier.size(28.dp),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }

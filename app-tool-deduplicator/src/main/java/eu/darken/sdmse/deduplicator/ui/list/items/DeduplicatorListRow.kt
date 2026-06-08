@@ -35,6 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
@@ -269,7 +270,7 @@ private fun DuplicateSubRow(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (duplicate.type != Duplicate.Type.CHECKSUM) {
-            FilePreviewImage(
+            FileListThumbnail(
                 lookup = duplicate.lookup,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

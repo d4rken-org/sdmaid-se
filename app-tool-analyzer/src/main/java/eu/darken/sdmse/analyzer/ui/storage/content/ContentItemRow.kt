@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel.Item
 import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentItem
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -102,7 +102,7 @@ internal fun ContentItemRow(
         ) {
             val lookup = content.lookup
             if (lookup != null && content.type == FileType.FILE && (content.size ?: 0L) > 0L) {
-                FilePreviewImage(
+                FileListThumbnail(
                     lookup = lookup,
                     modifier = Modifier.size(24.dp),
                 )

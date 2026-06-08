@@ -70,6 +70,25 @@ internal fun previewPickerChildRow(selected: Boolean = false): PickerViewModel.P
     )
 }
 
+internal fun previewPickerFileChildRow(selected: Boolean = false): PickerViewModel.PickerRow {
+    val root = previewPickerItem(
+        lookup = previewLocalPathLookup(pathSegments = arrayOf("storage", "emulated", "0")),
+        parent = null,
+    )
+    return PickerViewModel.PickerRow(
+        item = previewPickerItem(
+            // A zero-size file renders the transparent type-icon fallback (Coil is inert in previews).
+            lookup = previewLocalPathLookup(
+                pathSegments = arrayOf("storage", "emulated", "0", "notes.txt"),
+                fileType = FileType.FILE,
+                size = 0L,
+            ),
+            parent = root,
+            selected = selected,
+        ),
+    )
+}
+
 internal fun previewSelectedRow(
     pathSegments: Array<String> = arrayOf("storage", "emulated", "0", "Download"),
 ): PickerViewModel.SelectedRow = PickerViewModel.SelectedRow(

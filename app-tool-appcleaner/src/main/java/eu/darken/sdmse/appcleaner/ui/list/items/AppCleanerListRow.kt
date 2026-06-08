@@ -71,7 +71,7 @@ fun AppCleanerListRow(
             AsyncImage(
                 model = ImageRequest.Builder(context).data(junk.pkg).build(),
                 contentDescription = stringResource(CommonR.string.general_details_label),
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier.size(40.dp),
             )
         }
         Spacer(Modifier.width(14.dp))

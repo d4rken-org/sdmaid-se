@@ -34,7 +34,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
@@ -87,7 +87,7 @@ fun SwiperStatusRow(
                 .background(stripeColor),
         )
         Spacer(Modifier.width(12.dp))
-        FilePreviewImage(
+        FileListThumbnail(
             lookup = item.lookup,
             modifier = Modifier
                 .size(48.dp)
