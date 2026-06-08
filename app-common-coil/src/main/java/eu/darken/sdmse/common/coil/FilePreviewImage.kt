@@ -16,22 +16,41 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
+import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.R as CommonR
 
 /**
+ * Whether a Coil preview can be *attempted* for [this] item — i.e. a non-empty file. A real bitmap is
+ * still not guaranteed (unsupported types / disabled previews fall back to a type icon).
+ */
+fun APathLookup<*>.canAttemptFilePreview(): Boolean = fileType == FileType.FILE && size > 0L
+
+/** Visual used by [FilePreviewImage] when no real preview bitmap can be shown. */
+enum class FilePreviewFallback {
+    /** Tinted glyph centered on a tonal [MaterialTheme.colorScheme.surfaceVariant] square — for large square preview tiles. */
+    Tile,
+
+    /** Full-size tinted [FileType] icon on a transparent background — for list-row leading icons. */
+    ListIcon,
+}
+
+/**
  * Compose counterpart to the legacy `ImageView.loadFilePreview()` helper.
  *
- * Loads a preview for [lookup] via Coil and falls back to a tonal-surface placeholder (a tinted
- * [Icon] on a [fallbackBackground] box) whenever a real bitmap can't be shown:
+ * Loads a preview for [lookup] via Coil; when a real bitmap can't be shown it renders a placeholder
+ * whose style is chosen by [fallback]:
  *
- * - Items that can never have a preview (directories, symlinks, unknown types, zero-size files)
- *   short-circuit and render the placeholder directly.
- * - Items that go through Coil reuse the same placeholder for the `loading` and `error` slots, so
- *   binaries Coil can't decode look identical to a directory tile instead of rendering the raw
- *   vector drawable through Coil's pipeline (where `android:tint="?attr/colorControlNormal"` does
- *   not resolve and the icon ends up oversized / untinted on light surfaces).
+ * - [FilePreviewFallback.Tile] (default): a tinted glyph on a tonal square — the look wanted by large
+ *   square preview surfaces (grid tiles, swipe cards, dedup clusters).
+ * - [FilePreviewFallback.ListIcon]: a full-size tinted type icon on a transparent background — the look
+ *   wanted by list-row leading icons. Use [FileListThumbnail] instead of passing this directly.
+ *
+ * In `ListIcon` mode the request also opts out of [PathPreviewFetcher]'s drawable fallback
+ * ([PathPreviewFetcher.PARAM_NO_DRAWABLE_FALLBACK]) so files Coil can't decode (unsupported types,
+ * previews disabled, decode errors) hit the error slot and render the transparent type icon too,
+ * instead of the raw — and in dark mode untinted — vector from Coil's drawable pipeline.
  */
 @Composable
 fun FilePreviewImage(
@@ -40,42 +59,64 @@ fun FilePreviewImage(
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.Crop,
     colorFilter: ColorFilter? = null,
+    fallback: FilePreviewFallback = FilePreviewFallback.Tile,
     fallbackTint: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     fallbackBackground: Color = MaterialTheme.colorScheme.surfaceVariant,
 ) {
-    val fallbackRes = when (lookup.fileType) {
-        FileType.DIRECTORY -> CommonR.drawable.ic_folder
-        FileType.SYMBOLIC_LINK -> CommonR.drawable.ic_file_link
-        FileType.FILE -> CommonR.drawable.ic_file
-        FileType.UNKNOWN -> CommonR.drawable.file_question
-    }
+    // The call-site modifier carries the size and any clip/click; it stays on the container Box so it
+    // never lands on the Icon itself.
+    val fallbackContent: @Composable (Modifier) -> Unit = { boxModifier ->
+        when (fallback) {
+            FilePreviewFallback.Tile -> {
+                val fallbackRes = when (lookup.fileType) {
+                    FileType.DIRECTORY -> CommonR.drawable.ic_folder
+                    FileType.SYMBOLIC_LINK -> CommonR.drawable.ic_file_link
+                    FileType.FILE -> CommonR.drawable.ic_file
+                    FileType.UNKNOWN -> CommonR.drawable.file_question
+                }
+                Box(
+                    modifier = boxModifier.background(fallbackBackground),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        painter = painterResource(fallbackRes),
+                        contentDescription = contentDescription,
+                        modifier = Modifier.fillMaxSize(0.5f),
+                        tint = fallbackTint,
+                    )
+                }
+            }
 
-    val fallback: @Composable (Modifier) -> Unit = { boxModifier ->
-        Box(
-            modifier = boxModifier.background(fallbackBackground),
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                painter = painterResource(fallbackRes),
-                contentDescription = contentDescription,
-                modifier = Modifier.fillMaxSize(0.5f),
-                tint = fallbackTint,
-            )
+            FilePreviewFallback.ListIcon -> Box(
+                modifier = boxModifier,
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    imageVector = lookup.fileType.icon,
+                    contentDescription = contentDescription,
+                    modifier = Modifier.fillMaxSize(),
+                    tint = fallbackTint,
+                )
+            }
         }
     }
 
-    val canHavePreview = lookup.fileType == FileType.FILE && lookup.size > 0L
-    if (!canHavePreview) {
-        fallback(modifier)
+    if (!lookup.canAttemptFilePreview()) {
+        fallbackContent(modifier)
         return
     }
 
     val context = LocalContext.current
     // remember the request per-lookup so row recompositions (e.g. a selection toggle elsewhere in
     // the row) don't rebuild it and re-trigger Coil's loading slot, which would flash the thumbnail.
-    val request = remember(lookup) {
+    val request = remember(lookup, fallback) {
         ImageRequest.Builder(context)
             .data(lookup)
+            .apply {
+                if (fallback == FilePreviewFallback.ListIcon) {
+                    setParameter(PathPreviewFetcher.PARAM_NO_DRAWABLE_FALLBACK, true)
+                }
+            }
             .build()
     }
 
@@ -85,7 +126,37 @@ fun FilePreviewImage(
         modifier = modifier,
         contentScale = contentScale,
         colorFilter = colorFilter,
-        loading = { fallback(Modifier.fillMaxSize()) },
-        error = { fallback(Modifier.fillMaxSize()) },
+        loading = {
+            // Tile shows the tonal placeholder while loading; ListIcon stays transparent to avoid a
+            // type-icon flash before the real bitmap resolves.
+            when (fallback) {
+                FilePreviewFallback.Tile -> fallbackContent(Modifier.fillMaxSize())
+                FilePreviewFallback.ListIcon -> Box(Modifier.fillMaxSize())
+            }
+        },
+        error = { fallbackContent(Modifier.fillMaxSize()) },
     )
 }
+
+/**
+ * List-row leading thumbnail: a real Coil preview when one exists, otherwise a full-size tinted
+ * [FileType] icon on a transparent background (never the tonal [FilePreviewFallback.Tile] square).
+ *
+ * Use [FilePreviewImage] directly with the default [FilePreviewFallback.Tile] for large square
+ * preview surfaces (grid tiles, swipe cards, dedup cluster previews).
+ */
+@Composable
+fun FileListThumbnail(
+    lookup: APathLookup<*>,
+    modifier: Modifier = Modifier,
+    contentDescription: String? = null,
+    contentScale: ContentScale = ContentScale.Crop,
+    iconTint: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+) = FilePreviewImage(
+    lookup = lookup,
+    modifier = modifier,
+    contentDescription = contentDescription,
+    contentScale = contentScale,
+    fallback = FilePreviewFallback.ListIcon,
+    fallbackTint = iconTint,
+)

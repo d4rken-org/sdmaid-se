@@ -6,7 +6,7 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -63,7 +63,7 @@ internal fun SqueezerListLinearRow(
                 ),
             contentAlignment = Alignment.Center,
         ) {
-            FilePreviewImage(lookup = media.lookup, modifier = Modifier.fillMaxWidth())
+            FileListThumbnail(lookup = media.lookup, modifier = Modifier.fillMaxSize())
             if (media is CompressibleVideo) {
                 Icon(
                     imageVector = Icons.TwoTone.PlayArrow,

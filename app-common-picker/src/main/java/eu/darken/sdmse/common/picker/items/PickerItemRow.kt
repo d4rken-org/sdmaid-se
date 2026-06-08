@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.areas.label
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.FileType
@@ -64,9 +64,9 @@ fun PickerItemRow(
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         } else {
-            // Non-root items show a Coil file/folder preview (legacy ImageView.loadFilePreview parity),
-            // falling back to a type icon for directories / undecodable files.
-            FilePreviewImage(
+            // Non-root items show a Coil file preview when available, falling back to a full-size
+            // type icon on transparent for folders and files Coil can't preview.
+            FileListThumbnail(
                 lookup = item.lookup,
                 modifier = Modifier
                     .size(32.dp)
@@ -127,6 +127,11 @@ private fun PickerItemRowPreview() {
             )
             PickerItemRow(
                 row = previewPickerChildRow(selected = true),
+                onClick = {},
+                onToggleSelect = {},
+            )
+            PickerItemRow(
+                row = previewPickerFileChildRow(),
                 onClick = {},
                 onToggleSelect = {},
             )

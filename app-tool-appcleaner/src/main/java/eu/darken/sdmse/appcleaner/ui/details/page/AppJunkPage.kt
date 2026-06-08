@@ -51,7 +51,7 @@ import eu.darken.sdmse.appcleaner.ui.icon
 import eu.darken.sdmse.appcleaner.ui.labelRes
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
-import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.SystemAppChip
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
@@ -414,7 +414,7 @@ private fun AppJunkFileRow(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        FilePreviewImage(
+        FileListThumbnail(
             lookup = match.lookup,
             modifier = Modifier.size(40.dp),
         )

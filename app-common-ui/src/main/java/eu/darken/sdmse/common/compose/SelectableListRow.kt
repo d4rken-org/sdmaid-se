@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material3.Icon
@@ -60,10 +59,11 @@ fun SelectableListRow(
 }
 
 /**
- * 40dp leading icon container used by tool list rows.
+ * 40dp leading icon slot used by tool list rows.
  *
- * Renders a rounded [MaterialTheme.colorScheme.surfaceContainerHigh] box.
- * If [onClick] is provided, the box itself becomes a separate tap target
+ * Reserves a fixed 40dp width so leading icons line up across tools and centers [content] on a
+ * transparent background — the icon is shown directly, not framed in a tonal tile.
+ * If [onClick] is provided, the slot itself becomes a separate tap target
  * (e.g. for "open details" while the surrounding row toggles selection).
  * Pass `null` for both handlers when the icon should not be independently clickable.
  *
@@ -89,10 +89,6 @@ fun SelectableListRowIconBox(
     Box(
         modifier = modifier
             .size(40.dp)
-            .background(
-                color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                shape = RoundedCornerShape(10.dp),
-            )
             .then(clickModifier),
         contentAlignment = Alignment.Center,
         content = content,
