@@ -6,7 +6,7 @@
     <string name="dashboard_settings_oneclick_title">Tap-bakarreko modua</string>
     <string name="dashboard_settings_oneclick_summary">Has zaitez tresna guztiak eskaneatzen eta ezabatzen paneleko ekintza-botoian ukitu bat emanez, baieztapen gehigarririk gabe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tap-bakarreko erramintak</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Zer tresna sartu beharko lirateke tap-bakarreko eragiketetan?</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Zer tresna sartu beharko lirateke Tap-bakarreko eragiketetan?</string>
     <string name="dashboard_card_config_title">Paneleko txartelak</string>
     <string name="dashboard_card_config_desc">Konfiguratu zein txartel agertzen diren eta haien ordena</string>
     <string name="dashboard_card_config_header_title">Arrastatu berrordenatzeko, txandakatu erakusteko/ezkutatzeko</string>
