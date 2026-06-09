@@ -60,8 +60,11 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
         activityContainer.apply {
             isGone = item.progress == null && item.result == null
             setOnClickListener { item.onViewTool() }
-            isFocusable = item.result != null && item.progress == null
-            isClickable = item.result != null && item.progress == null
+            // Only allow opening the tool's live list when there's data to show.
+            // After a clean the result text persists but the live data is empty, so
+            // navigating would open a list that immediately closes itself (flicker).
+            isFocusable = item.result != null && item.progress == null && item.onDelete != null
+            isClickable = item.result != null && item.progress == null && item.onDelete != null
         }
         val resultPrimary = item.result?.primaryInfo?.get(context)
         val resultSecondary = item.result?.secondaryInfo?.get(context)?.takeUnless { it.isBlank() }
