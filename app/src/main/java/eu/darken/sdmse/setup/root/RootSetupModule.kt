@@ -58,7 +58,6 @@ class RootSetupModule @Inject constructor(
         if (useRoot != true) return@combine flowOf(baseState)
 
         rootManager.binder
-            .onStart { emit(null) }
             .map { connection ->
                 if (connection == null) return@map baseState
 
@@ -74,6 +73,12 @@ class RootSetupModule @Inject constructor(
                     },
                 ) as SetupModule.State
             }
+            // Stay in Loading while the availability probe cold-binds the su session, instead of emitting
+            // a settled incomplete Result. A synthetic null here used to map to baseState (ourService=false),
+            // briefly flagging setup as incomplete and flashing the dashboard setup card on every launch.
+            // A genuine acquisition failure still surfaces: binder emits null via its catch block (real
+            // failure), which is mapped to baseState above.
+            .onStart { emit(Loading()) }
     }
         .flatMapLatest { it }
         .onEach { if (it is Result) lastResult = it }
