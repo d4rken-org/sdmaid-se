@@ -13,12 +13,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.material.icons.twotone.Folder
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -32,7 +30,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
@@ -40,6 +37,7 @@ import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
+import eu.darken.sdmse.common.compose.layout.SdmScrollableTabStrip
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
@@ -396,26 +394,19 @@ internal fun DeduplicatorDetailsScreen(
                     SdmEmptyState()
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
-                        ScrollableTabRow(
+                        SdmScrollableTabStrip(
                             selectedTabIndex = pagerState.currentPage.coerceIn(0, items.lastIndex),
-                            edgePadding = 0.dp,
-                        ) {
-                            items.forEachIndexed { index, cluster ->
-                                Tab(
-                                    selected = pagerState.currentPage == index,
-                                    onClick = {
-                                        coroutineScope.launch { pagerState.animateScrollToPage(index) }
-                                    },
-                                    text = {
-                                        Text(
-                                            text = stringResource(
-                                                DeduplicatorR.string.deduplicator_cluster_x_label,
-                                                "#${index + 1}"
-                                            )
-                                        )
-                                    },
+                            tabCount = items.size,
+                            onTabSelected = { index ->
+                                coroutineScope.launch { pagerState.animateScrollToPage(index) }
+                            },
+                        ) { index ->
+                            Text(
+                                text = stringResource(
+                                    DeduplicatorR.string.deduplicator_cluster_x_label,
+                                    "#${index + 1}",
                                 )
-                            }
+                            )
                         }
                         HorizontalPager(
                             state = pagerState,

@@ -17,12 +17,10 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -44,6 +42,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmScrollableTabStrip
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -265,19 +264,14 @@ internal fun CorpseDetailsScreen(
                     }
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
-                        ScrollableTabRow(
+                        SdmScrollableTabStrip(
                             selectedTabIndex = pagerState.currentPage.coerceIn(0, items.lastIndex),
-                            edgePadding = 0.dp,
-                        ) {
-                            items.forEachIndexed { index, corpse ->
-                                Tab(
-                                    selected = pagerState.currentPage == index,
-                                    onClick = {
-                                        coroutineScope.launch { pagerState.animateScrollToPage(index) }
-                                    },
-                                    text = { Text(corpse.lookup.name) },
-                                )
-                            }
+                            tabCount = items.size,
+                            onTabSelected = { index ->
+                                coroutineScope.launch { pagerState.animateScrollToPage(index) }
+                            },
+                        ) { index ->
+                            Text(items[index].lookup.name)
                         }
                         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                             val spanCount = remember(maxWidth) {

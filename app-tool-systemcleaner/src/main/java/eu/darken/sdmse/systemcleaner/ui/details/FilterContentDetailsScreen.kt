@@ -11,12 +11,10 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,6 +39,7 @@ import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmScrollableTabStrip
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
@@ -247,19 +246,14 @@ internal fun FilterContentDetailsScreen(
                     SdmEmptyState()
                 } else {
                     Column(modifier = Modifier.fillMaxSize()) {
-                        ScrollableTabRow(
+                        SdmScrollableTabStrip(
                             selectedTabIndex = pagerState.currentPage.coerceIn(0, items.lastIndex),
-                            edgePadding = 0.dp,
-                        ) {
-                            items.forEachIndexed { index, filterContent ->
-                                Tab(
-                                    selected = pagerState.currentPage == index,
-                                    onClick = {
-                                        coroutineScope.launch { pagerState.animateScrollToPage(index) }
-                                    },
-                                    text = { Text(filterContent.label.get(context)) },
-                                )
-                            }
+                            tabCount = items.size,
+                            onTabSelected = { index ->
+                                coroutineScope.launch { pagerState.animateScrollToPage(index) }
+                            },
+                        ) { index ->
+                            Text(items[index].label.get(context))
                         }
                         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                             val spanCount = remember(maxWidth) {
