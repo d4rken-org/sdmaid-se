@@ -19,6 +19,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
@@ -108,6 +109,48 @@ class RootSetupModuleTest : BaseTest() {
         second.latestValues.first().shouldBeInstanceOf<RootSetupModule.Loading>()
 
         runBlocking { second.cancelAndJoin() }
+    }
+
+    @Test fun `cold-start probe stays Loading and never emits a transient incomplete Result`() {
+        // Acquiring the root host cold-binds a su session, so the binder only emits the connection
+        // after a delay. The module must report Loading during that window - never a settled
+        // Result(ourService=false), which previously flagged setup as incomplete and flashed the
+        // dashboard setup card on every launch.
+        every { rootManager.binder } returns flow {
+            delay(100)
+            emit(connection)
+        }
+        val mod = module()
+
+        val collector = mod.state.test(tag = "cold", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+
+        // No incomplete Result may appear before the probe resolves.
+        collector.latestValues
+            .filterIsInstance<RootSetupModule.Result>()
+            .forEach { it.isComplete shouldBe true }
+
+        val result = collector.latestValues.last().shouldBeInstanceOf<RootSetupModule.Result>()
+        result.ourService shouldBe true
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `genuine acquisition failure still surfaces an incomplete Result`() {
+        // binder emits null (via its catch block) when root acquisition genuinely fails. That must
+        // map to an incomplete Result so the setup screen shows the real problem - not be swallowed
+        // by the Loading anti-flicker handling.
+        every { rootManager.binder } returns flowOf(null)
+        val mod = module()
+
+        val collector = mod.state.test(tag = "failure", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+
+        val result = collector.latestValues.last().shouldBeInstanceOf<RootSetupModule.Result>()
+        result.ourService shouldBe false
+        result.isComplete shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test fun `refresh triggers a fresh probe`() {
