@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.main.core.DashboardCardConfig
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
@@ -22,20 +23,27 @@ import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
+import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import io.kotest.assertions.withClue
 import io.kotest.matchers.nulls.shouldNotBeNull
+import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.test.TestScope
@@ -44,6 +52,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 
 /**
  * Regression guard for the dashboard "stuck on the loading spinner" bug: the [DashboardViewModel.listState]
@@ -58,7 +67,11 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
 
     /** Build a DashboardViewModel with every source stubbed to a safe collectable flow.
      *  [stall] optionally replaces one wrapped source with a never-emitting flow. */
-    private fun TestScope.harness(stall: String? = null): DashboardViewModel {
+    private fun TestScope.harness(
+        stall: String? = null,
+        history: Flow<List<SpaceSnapshotEntity>> = emptyFlow(),
+        cardConfig: Flow<DashboardCardConfig> = emptyFlow(),
+    ): DashboardViewModel {
         fun <T> srcOr(name: String, default: Flow<T>): Flow<T> = if (stall == name) stalled() else default
 
         val taskManager = mockk<TaskManager>(relaxed = true).apply {
@@ -98,11 +111,11 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         }
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
             every { dashboardCardConfig } returns mockk(relaxed = true) {
-                every { flow } returns emptyFlow()
+                every { flow } returns cardConfig
             }
         }
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
-            every { getAllHistory(any()) } returns emptyFlow()
+            every { getAllHistory(any()) } returns history
         }
 
         val vm = DashboardViewModel(
@@ -150,6 +163,36 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         val vm = harness()
         advanceUntilIdle()
         vm.listState.value.shouldNotBeNull()
+    }
+
+    @Test
+    fun `analyzer card shows trend shimmer until history resolves`() = runTest2 {
+        val history = MutableSharedFlow<List<SpaceSnapshotEntity>>(replay = 1)
+        val vm = harness(
+            history = history,
+            cardConfig = flowOf(DashboardCardConfig()),
+        )
+        advanceUntilIdle()
+
+        val loading = vm.listState.value
+            .shouldNotBeNull()
+            .items.filterIsInstance<AnalyzerDashboardCardItem>().single()
+        loading.isLoadingTrend shouldBe true
+        loading.combinedDelta shouldBe null
+
+        val t0 = Instant.parse("2026-06-01T00:00:00Z")
+        history.emit(
+            listOf(
+                SpaceSnapshotEntity(storageId = "a", recordedAt = t0, spaceFree = 900, spaceCapacity = 1000),
+                SpaceSnapshotEntity(storageId = "a", recordedAt = t0.plusSeconds(60), spaceFree = 800, spaceCapacity = 1000),
+            )
+        )
+        // throttleLatest(500) delays on a real-time dispatcher (TestDispatcherProvider is Unconfined),
+        // so await the resolved state instead of advancing virtual time.
+        val loaded = vm.listState
+            .mapNotNull { it?.items?.filterIsInstance<AnalyzerDashboardCardItem>()?.singleOrNull() }
+            .first { !it.isLoadingTrend }
+        loaded.combinedDelta shouldBe 100L
     }
 
     @Test

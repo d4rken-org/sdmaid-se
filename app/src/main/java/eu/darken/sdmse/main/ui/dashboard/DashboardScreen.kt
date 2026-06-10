@@ -354,7 +354,11 @@ internal fun DashboardScreen(
                                 Modifier.guidedTourTarget(DashboardTour.MANUAL_TOOL_TARGET)
                             else -> Modifier
                         }
-                        DashboardListCard(item, modifier = tourModifier)
+                        // Wrapper Box because DashboardListCard doesn't forward the modifier to
+                        // every card type; this guarantees all late-arriving cards animate in.
+                        Box(modifier = Modifier.animateItem().then(tourModifier)) {
+                            DashboardListCard(item)
+                        }
                     }
                 }
 
