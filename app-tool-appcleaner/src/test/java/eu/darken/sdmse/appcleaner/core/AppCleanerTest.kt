@@ -269,6 +269,18 @@ class AppCleanerTest : BaseTest() {
         AppCleanerProcessingTask(targetPkgs = setOf(anyPkg))
     }
 
+    @Test
+    fun `discardScanData clears the scan results`() = runTest2 {
+        val a = appJunk("com.example.a")
+        val setup = setupCleaner(scanResults = listOf(a))
+        setup.cleaner.submit(AppCleanerScanTask())
+        setup.cleaner.dataFromState()!!.junks.toList() shouldBe listOf(a)
+
+        setup.cleaner.discardScanData()
+
+        setup.cleaner.dataFromState() shouldBe null
+    }
+
     // ─────────────────────────── exclude / undoExclude ───────────────────────────
 
     @Test

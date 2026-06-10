@@ -171,6 +171,7 @@ fun DashboardScreenHost(
         },
         onToolClick = vm::onHeroToolClick,
         onRestoreHero = vm::restoreHero,
+        onDiscardResults = vm::discardResults,
         onSettings = { vm.navTo(SettingsRoute) },
         onUpgrade = { vm.navTo(UpgradeRoute()) },
         onCorpseFinderOneClickChanged = vm::setCorpseFinderOneClickEnabled,
@@ -190,6 +191,7 @@ internal fun DashboardScreen(
     onMainAction: () -> Unit = {},
     onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
+    onDiscardResults: () -> Unit = {},
     onSettings: () -> Unit = {},
     onUpgrade: () -> Unit = {},
     onDismissHero: () -> Unit = {},
@@ -313,6 +315,7 @@ internal fun DashboardScreen(
                 onDismissHero = onDismissHero,
                 onToolClick = onToolClick,
                 onRestoreHero = onRestoreHero,
+                onDiscardResults = onDiscardResults,
                 isHeroDismissed = isHeroDismissed,
                 mainActionModifier = Modifier
                     .guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET)
