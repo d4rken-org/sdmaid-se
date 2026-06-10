@@ -7,3 +7,6 @@ suspend fun SetupModule.isComplete() = state.filterIsInstance<SetupModule.State.
 
 val SetupModule.State.isComplete: Boolean
     get() = this is SetupModule.State.Current && this.isComplete
+
+val SetupModule.State.isCurrentAndIncomplete: Boolean
+    get() = this is SetupModule.State.Current && !this.isComplete

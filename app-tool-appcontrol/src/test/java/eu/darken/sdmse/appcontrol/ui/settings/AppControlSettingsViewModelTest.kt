@@ -226,7 +226,8 @@ class AppControlSettingsViewModelTest : BaseTest() {
     // ─────────────────────────── badge navigation ───────────────────────────
 
     @Test
-    fun `onSizingBadgeClick routes to setup with USAGE_STATS filter`() = runTest2 {
+    fun `onSizingBadgeClick routes to setup with USAGE_STATS and STORAGE filter`() = runTest2 {
+        // canInfoSize requires both usage stats and storage setup, so the badge must offer both.
         val h = harness()
 
         h.vm.onSizingBadgeClick()
@@ -236,7 +237,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
         event.shouldBeInstanceOf<NavEvent.GoTo>()
         val route = event.destination
         route.shouldBeInstanceOf<SetupRoute>()
-        route.options?.typeFilter shouldBe setOf(SetupModule.Type.USAGE_STATS)
+        route.options?.typeFilter shouldBe setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.STORAGE)
     }
 
     @Test

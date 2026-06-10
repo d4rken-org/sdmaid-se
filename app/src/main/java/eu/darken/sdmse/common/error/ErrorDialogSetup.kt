@@ -38,8 +38,10 @@ private fun IncompleteSetupException.toLocalizedError(): LocalizedError = Locali
         """.trimIndent()
     },
     fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString(),
+    // Not an onboarding flow: leaving the setup screen must return to the screen that
+    // raised the error, not wipe the back stack and land on the dashboard.
     fixActionRoute = SetupRoute(
-        options = SetupScreenOptions(isOnboarding = true, typeFilter = setupTypes),
+        options = SetupScreenOptions(typeFilter = setupTypes),
     ),
 )
 
