@@ -12,6 +12,7 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
 
 /**
  * The hero headline must equal exactly what the one-tap DELETE action will free — see
@@ -132,5 +133,61 @@ class DashboardHeroSummaryTest : BaseTest() {
             oneClick = oneClick(),
             isPro = false,
         ).shouldBeNull()
+    }
+
+    @Test
+    fun `timestamp is the latest scan among the included tools`() {
+        val older = Instant.parse("2026-06-10T10:00:00Z")
+        val newer = Instant.parse("2026-06-10T11:00:00Z")
+        val result = DashboardViewModel.buildHeroSummary(
+            corpse = corpse(100, 3),
+            system = system(200, 5),
+            app = null,
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = true,
+            scanTimes = mapOf(
+                SDMTool.Type.CORPSEFINDER to older,
+                SDMTool.Type.SYSTEMCLEANER to newer,
+            ),
+        )!!
+
+        result.timestamp shouldBe newer
+    }
+
+    @Test
+    fun `a newer scan of an excluded tool does not affect the timestamp`() {
+        val shown = Instant.parse("2026-06-10T10:00:00Z")
+        val excludedButNewer = Instant.parse("2026-06-10T11:00:00Z")
+        val result = DashboardViewModel.buildHeroSummary(
+            corpse = corpse(100, 3),
+            system = null,
+            // Not Pro: AppCleaner is excluded from the summary despite having data and a newer scan.
+            app = app(300, 7),
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = false,
+            scanTimes = mapOf(
+                SDMTool.Type.CORPSEFINDER to shown,
+                SDMTool.Type.APPCLEANER to excludedButNewer,
+            ),
+        )!!
+
+        result.tools.map { it.type } shouldBe listOf(SDMTool.Type.CORPSEFINDER)
+        result.timestamp shouldBe shown
+    }
+
+    @Test
+    fun `timestamp is null without scan times`() {
+        val result = DashboardViewModel.buildHeroSummary(
+            corpse = corpse(100, 3),
+            system = null,
+            app = null,
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = true,
+        )!!
+
+        result.timestamp.shouldBeNull()
     }
 }
