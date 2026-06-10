@@ -1,7 +1,7 @@
 <resources>
     <string name="dashboard_delete_all_message">Delete results in all tools?</string>
-    <string name="dashboard_hero_freeable_eyebrow">Space to free</string>
-    <string name="dashboard_hero_freed_eyebrow">Space freed</string>
+    <string name="dashboard_hero_freeable_headline">%1$s can be freed</string>
+    <string name="dashboard_hero_freed_headline">%1$s freed</string>
     <string name="dashboard_hero_freeable_x_items">%1$s can be removed</string>
     <string name="dashboard_hero_freed_x_items">%1$s removed</string>
     <string name="dashboard_hero_freeable_hint">Tap the button below to free space. Tap a category to check first.</string>
