@@ -400,6 +400,20 @@ class CorpseFinderTest : BaseTest() {
         )
     }
 
+    @Test
+    fun `discardScanData clears the scan results`() = runTest2 {
+        val a = corpse("a", 100)
+        val setup = setupFinder(
+            filterFactories = setOf(fakeFactory(enabled = true, produces = listOf(a))),
+        )
+        setup.finder.submit(CorpseFinderScanTask())
+        setup.finder.dataFromState()!!.corpses.map { it.identifier } shouldBe listOf(a.identifier)
+
+        setup.finder.discardScanData()
+
+        setup.finder.dataFromState() shouldBe null
+    }
+
     // ─────────────────────────── task contract ───────────────────────────
 
     @Test

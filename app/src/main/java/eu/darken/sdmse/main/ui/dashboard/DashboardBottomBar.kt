@@ -63,6 +63,7 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.SDMTool
+import java.time.Instant
 
 // Playful overshoot for the hero's late arrival (ease-out-back).
 private val HeroOvershoot = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
@@ -88,6 +89,7 @@ internal fun BottomBar(
     onDismissHero: () -> Unit,
     onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
+    onDiscardResults: () -> Unit = {},
     isHeroDismissed: Boolean = false,
     mainActionModifier: Modifier = Modifier,
     settingsModifier: Modifier = Modifier,
@@ -221,7 +223,12 @@ internal fun BottomBar(
                         },
                     ),
                 summary = heroSummary,
+                now = state?.now ?: Instant.EPOCH,
                 onDismiss = onDismissHero,
+                // Discarding only makes sense while there's still pending data; a FREED summary is
+                // already just an after-the-fact report the X can hide.
+                onDiscard = onDiscardResults
+                    .takeIf { heroSummary.mode == DashboardViewModel.HeroSummary.Mode.FREEABLE },
                 onToolClick = onToolClick,
             )
         }
