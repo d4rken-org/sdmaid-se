@@ -674,6 +674,12 @@ class DashboardViewModel @Inject constructor(
             systemCleaner.discardScanData()
             appCleaner.discardScanData()
             deduplicator.discardScanData()
+            // The dashboard tool cards show the last *task result*, not the tools' data; forget
+            // those too or the cards keep advertising freeable space that no longer exists.
+            taskManager.forgetCompleted(SDMTool.Type.CORPSEFINDER)
+            taskManager.forgetCompleted(SDMTool.Type.SYSTEMCLEANER)
+            taskManager.forgetCompleted(SDMTool.Type.APPCLEANER)
+            taskManager.forgetCompleted(SDMTool.Type.DEDUPLICATOR)
             heroDismissed.value = false
         } finally {
             discarding.value = false

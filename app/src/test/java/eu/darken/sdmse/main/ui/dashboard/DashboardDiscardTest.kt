@@ -47,6 +47,7 @@ internal class DashboardDiscardTest : BaseTest() {
 
     private class Harness(
         val vm: DashboardViewModel,
+        val taskManager: TaskManager,
         val corpseFinder: CorpseFinder,
         val systemCleaner: SystemCleaner,
         val appCleaner: AppCleaner,
@@ -112,7 +113,7 @@ internal class DashboardDiscardTest : BaseTest() {
                 every { getAllHistory(any()) } returns emptyFlow()
             },
         )
-        return Harness(vm, corpseFinder, systemCleaner, appCleaner, deduplicator)
+        return Harness(vm, taskManager, corpseFinder, systemCleaner, appCleaner, deduplicator)
     }
 
     private fun mockDuration(): DataStoreValue<java.time.Duration> = mockk(relaxed = true) {
@@ -130,6 +131,19 @@ internal class DashboardDiscardTest : BaseTest() {
         coVerify(exactly = 1) { h.systemCleaner.discardScanData() }
         coVerify(exactly = 1) { h.appCleaner.discardScanData() }
         coVerify(exactly = 1) { h.deduplicator.discardScanData() }
+    }
+
+    @Test
+    fun `discardResults forgets stale task results so tool cards reset too`() = runTest2 {
+        val h = harness()
+
+        h.vm.discardResults()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskManager.forgetCompleted(SDMTool.Type.CORPSEFINDER) }
+        coVerify(exactly = 1) { h.taskManager.forgetCompleted(SDMTool.Type.SYSTEMCLEANER) }
+        coVerify(exactly = 1) { h.taskManager.forgetCompleted(SDMTool.Type.APPCLEANER) }
+        coVerify(exactly = 1) { h.taskManager.forgetCompleted(SDMTool.Type.DEDUPLICATOR) }
     }
 
     @Test
@@ -166,5 +180,6 @@ internal class DashboardDiscardTest : BaseTest() {
         coVerify(exactly = 0) { h.systemCleaner.discardScanData() }
         coVerify(exactly = 0) { h.appCleaner.discardScanData() }
         coVerify(exactly = 0) { h.deduplicator.discardScanData() }
+        coVerify(exactly = 0) { h.taskManager.forgetCompleted(any()) }
     }
 }

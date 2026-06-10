@@ -279,6 +279,14 @@ class TaskManager @Inject constructor(
         return endTask.result ?: throw endTask.error!!
     }
 
+    /** Drops completed task entries for [type], removing their results from [state]. */
+    suspend fun forgetCompleted(type: SDMTool.Type) {
+        log(TAG, INFO) { "forgetCompleted($type)" }
+        updateTasks {
+            values.removeAll { it.toolType == type && it.isComplete }
+        }
+    }
+
     override fun cancel(type: SDMTool.Type) {
         appScope.launch {
             log(TAG, INFO) { "cancel($type)" }
