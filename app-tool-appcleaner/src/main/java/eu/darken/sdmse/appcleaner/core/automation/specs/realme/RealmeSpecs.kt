@@ -22,6 +22,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.interferenceAware
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
@@ -140,7 +141,13 @@ class RealmeSpecs @Inject constructor(
                 source = TAG,
                 descriptionInternal = "Clear cache for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                windowCheck = windowCheck { _, root -> root.pkgId == SETTINGS_PKG },
+                windowCheck = windowCheck(
+                    interferenceAware(
+                        expectedPkgs = setOf(SETTINGS_PKG),
+                        targetPkg = pkg.id,
+                        ipcFunnel = ipcFunnel,
+                    ) { _, root -> root.pkgId == SETTINGS_PKG }
+                ),
                 nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }

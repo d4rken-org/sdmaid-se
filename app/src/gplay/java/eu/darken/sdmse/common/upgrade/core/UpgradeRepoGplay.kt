@@ -26,6 +26,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -58,7 +59,7 @@ class UpgradeRepoGplay @Inject constructor(
                     Info(billingData = data)
                 }
 
-                (now - lastProStateAt) < 7 * 24 * 60 * 1000L -> { // 7 days
+                (now - lastProStateAt) < GRACE_PERIOD_MS -> {
                     log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                     Info(gracePeriod = true, billingData = null)
                 }
@@ -74,7 +75,7 @@ class UpgradeRepoGplay @Inject constructor(
             val now = System.currentTimeMillis()
             val lastProStateAt = billingCache.lastProStateAt.value()
             log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
-            if ((now - lastProStateAt) < 7 * 24 * 60 * 1000L) { // 7 days
+            if ((now - lastProStateAt) < GRACE_PERIOD_MS) {
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just got an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
@@ -150,6 +151,8 @@ class UpgradeRepoGplay @Inject constructor(
         private const val STORE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         private const val UPGRADE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         private const val BETA_SITE = "https://play.google.com/apps/testing/eu.darken.sdmse"
+        // Keep paying users Pro through transient empty/failed Play Billing responses
+        val GRACE_PERIOD_MS = Duration.ofDays(7).toMillis()
         val TAG: String = logTag("Upgrade", "Gplay", "Repo")
     }
 }

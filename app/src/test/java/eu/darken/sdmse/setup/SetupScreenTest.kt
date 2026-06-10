@@ -133,7 +133,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                 ),
             )
         }
-        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_error_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_invalid_label)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_open_system_settings_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(0)
     }

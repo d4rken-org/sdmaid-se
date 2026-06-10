@@ -69,7 +69,7 @@ internal fun InventorySetupCard(
                 )
                 Text(
                     text = stringResource(
-                        if (isError) R.string.setup_permission_error_label
+                        if (isError) R.string.setup_inventory_invalid_label
                         else R.string.setup_permission_granted_label,
                     ),
                     style = MaterialTheme.typography.labelLarge,

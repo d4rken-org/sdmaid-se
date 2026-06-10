@@ -3,6 +3,7 @@
 package eu.darken.sdmse.automation.core.specs
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
@@ -79,13 +80,58 @@ fun SpecGenerator.windowCheckDefaultSettings(
     windowPkgId: Pkg.Id,
     ipcFunnel: IPCFunnel,
     pkgInfo: Installed
-): suspend StepContext.() -> ACSNodeInfo = {
-    if (stepAttempts >= 1 && pkgInfo.hasNoSettings) {
-        throw NoSettingsWindowException("${pkgInfo.packageName} has no settings window.")
-    }
-    windowCheck { _, root ->
+): suspend StepContext.() -> ACSNodeInfo {
+    val condition = interferenceAware(
+        expectedPkgs = setOf(windowPkgId),
+        targetPkg = pkgInfo.id,
+        ipcFunnel = ipcFunnel,
+    ) { _, root ->
         root.pkgId == windowPkgId && checkIdentifiers(ipcFunnel, pkgInfo)(root)
-    }()
+    }
+    return {
+        if (stepAttempts >= 1 && pkgInfo.hasNoSettings) {
+            throw NoSettingsWindowException("${pkgInfo.packageName} has no settings window.")
+        }
+        windowCheck(condition)()
+    }
+}
+
+/**
+ * Wraps a window-check [condition] with [SettingsInterferenceDetector]: whenever the condition
+ * does NOT match, the current window is checked for a foreign app (e.g. an app-locker) blocking
+ * the [expectedPkgs] settings screen. One detector is created per call, so it accumulates sightings
+ * across the stepper's inner retry loop. [targetPkg] is the app being processed.
+ */
+fun SpecGenerator.interferenceAware(
+    expectedPkgs: Set<Pkg.Id>,
+    targetPkg: Pkg.Id,
+    ipcFunnel: IPCFunnel,
+    condition: suspend StepContext.(event: AutomationEvent?, root: ACSNodeInfo) -> Boolean,
+): suspend StepContext.(event: AutomationEvent?, root: ACSNodeInfo) -> Boolean {
+    val detector = SettingsInterferenceDetector(
+        expectedPkgs = expectedPkgs,
+        targetPkg = targetPkg,
+        resolveLabel = { pkg -> ipcFunnel.use { packageManager.getLabel2(pkg) } },
+        isSystemApp = { pkg ->
+            ipcFunnel.use {
+                try {
+                    val info = packageManager.getApplicationInfo(pkg.name, 0)
+                    info.flags and ApplicationInfo.FLAG_SYSTEM != 0 ||
+                            info.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP != 0
+                } catch (_: PackageManager.NameNotFoundException) {
+                    // Unknown app - treat as non-system so generic detection can still fire.
+                    false
+                }
+            }
+        },
+    )
+    return { event, root ->
+        // Detection runs before the predicate so an interfering window is caught even if the
+        // predicate would otherwise throw (e.g. NoSettingsWindowException). On a matching or benign
+        // root the detector just resets, so evaluating it first is safe.
+        detector.evaluate(root, androidContext.packageName)
+        condition(event, root)
+    }
 }
 
 suspend fun SpecGenerator.checkIdentifiers(

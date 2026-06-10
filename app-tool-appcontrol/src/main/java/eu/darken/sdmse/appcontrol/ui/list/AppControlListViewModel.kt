@@ -173,7 +173,7 @@ class AppControlListViewModel @Inject constructor(
         val tags = options.listFilter.tags
         val sort = options.listSort
 
-        return apps
+        val rows = apps
             .asSequence()
             .filter { app ->
                 if (query.isEmpty()) return@filter true
@@ -207,6 +207,12 @@ class AppControlListViewModel @Inject constructor(
                     sectionKeyPkg = sectionKeyOf(normalizedPackageName(app)),
                 )
             }
+
+        log(TAG, INFO) {
+            "Filtered ${apps.size} → ${rows.size} apps (tags=$tags, sort=${sort.mode}, query='$query')"
+        }
+
+        return rows
     }
 
     private fun sectionKeyOf(value: String): String {

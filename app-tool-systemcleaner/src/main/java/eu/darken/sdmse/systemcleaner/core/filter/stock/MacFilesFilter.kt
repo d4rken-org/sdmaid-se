@@ -18,7 +18,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.sieve.NameCriterium
+import eu.darken.sdmse.common.sieve.SegmentCriterium
+import eu.darken.sdmse.common.sieve.TypeCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -44,29 +47,40 @@ class MacFilesFilter @Inject constructor(
         DataArea.Type.PORTABLE,
     )
 
-    private lateinit var sieve: SystemCrawlerSieve
+    private lateinit var fileSieve: SystemCrawlerSieve
+    private lateinit var directorySieve: SystemCrawlerSieve
 
     override suspend fun initialize() {
-        val config = SystemCrawlerSieve.Config(
+        val fileConfig = SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.FILE),
             areaTypes = targetAreas(),
             nameCriteria = setOf(
                 NameCriterium("._", mode = NameCriterium.Mode.Start()),
-                NameCriterium(".Trashes", mode = NameCriterium.Mode.Equal()),
-                NameCriterium("._.Trashes", mode = NameCriterium.Mode.Equal()),
-                NameCriterium(".spotlight", mode = NameCriterium.Mode.Equal()),
-                NameCriterium(".Spotlight-V100", mode = NameCriterium.Mode.Equal()),
                 NameCriterium(".DS_Store", mode = NameCriterium.Mode.Equal()),
-                NameCriterium(".fseventsd", mode = NameCriterium.Mode.Equal()),
-                NameCriterium(".TemporaryItems", mode = NameCriterium.Mode.Equal()),
             ),
         )
-        sieve = sieveFactory.create(config)
-        log(TAG) { "initialized() with $config" }
+        val directoryConfig = SystemCrawlerSieve.Config(
+            targetTypes = setOf(TypeCriterium.DIRECTORY),
+            areaTypes = setOf(
+                DataArea.Type.SDCARD,
+                DataArea.Type.PORTABLE,
+            ),
+            pfpCriteria = setOf(
+                SegmentCriterium(segs(".Trashes"), mode = SegmentCriterium.Mode.Equal()),
+                SegmentCriterium(segs(".spotlight"), mode = SegmentCriterium.Mode.Equal()),
+                SegmentCriterium(segs(".Spotlight-V100"), mode = SegmentCriterium.Mode.Equal()),
+                SegmentCriterium(segs(".fseventsd"), mode = SegmentCriterium.Mode.Equal()),
+                SegmentCriterium(segs(".TemporaryItems"), mode = SegmentCriterium.Mode.Equal()),
+            ),
+        )
+        fileSieve = sieveFactory.create(fileConfig)
+        directorySieve = sieveFactory.create(directoryConfig)
+        log(TAG) { "initialized() with $fileConfig and $directoryConfig" }
     }
 
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        return sieve.match(item).toDeletion()
+        return fileSieve.match(item).toDeletion() ?: directorySieve.match(item).toDeletion()
     }
 
     override suspend fun process(
@@ -93,6 +107,6 @@ class MacFilesFilter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("SystemCleaner", "Filter", "LostDir")
+        private val TAG = logTag("SystemCleaner", "Filter", "MacFiles")
     }
 }

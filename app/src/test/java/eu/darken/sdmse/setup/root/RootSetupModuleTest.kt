@@ -1,35 +1,178 @@
 package eu.darken.sdmse.setup.root
 
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.RootSettings
+import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.root.service.RootServiceConnection
+import eu.darken.sdmse.setup.SetupModule
+import io.kotest.matchers.ints.shouldBeGreaterThan
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.coEvery
+import io.mockk.every
+import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.runBlocking
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
+import testhelpers.flow.test
 
-class RootSetupModuleTest {
+class RootSetupModuleTest : BaseTest() {
 
-    @Test
-    fun `completion depends on user choice and service readiness`() {
-        assertFalse(RootSetupModule.Result(useRoot = null).isComplete)
-        assertTrue(RootSetupModule.Result(useRoot = false).isComplete)
-        assertFalse(
-            RootSetupModule.Result(
-                useRoot = true,
-                isInstalled = true,
-                ourService = false,
-            ).isComplete,
-        )
-        assertTrue(
-            RootSetupModule.Result(
-                useRoot = true,
-                isInstalled = false,
-                ourService = false,
-            ).isComplete,
-        )
-        assertTrue(
-            RootSetupModule.Result(
-                useRoot = true,
-                isInstalled = true,
-                ourService = true,
-            ).isComplete,
-        )
+    private val rootSettings: RootSettings = mockk()
+    private val rootManager: RootManager = mockk()
+    private val dataAreaManager: DataAreaManager = mockk(relaxed = true)
+
+    private val useRootValue: DataStoreValue<Boolean?> = mockk()
+    private lateinit var useRootFlow: MutableStateFlow<Boolean?>
+    private val connection: RootServiceClient.Connection = mockk()
+    private val ipc: RootServiceConnection = mockk()
+    private lateinit var scope: CoroutineScope
+    private var probeCount = 0
+
+    @BeforeEach
+    fun setup() {
+        probeCount = 0
+        useRootFlow = MutableStateFlow(true)
+        scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
+
+        every { rootSettings.useRoot } returns useRootValue
+        every { useRootValue.flow } returns useRootFlow
+
+        coEvery { rootManager.isInstalled() } returns true
+        every { rootManager.binder } returns flowOf(connection)
+        every { connection.ipc } returns ipc
+        every { ipc.checkBase() } answers { probeCount++; "ok" }
+    }
+
+    @AfterEach
+    fun teardown() {
+        scope.cancel()
+    }
+
+    private fun module() = RootSetupModule(scope, rootSettings, rootManager, dataAreaManager)
+
+    @Test fun `first subscription emits Loading then Result`() {
+        val mod = module()
+
+        val collector = mod.state.test(tag = "first", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+
+        collector.latestValues.first().shouldBeInstanceOf<RootSetupModule.Loading>()
+        val result = collector.latestValues.last().shouldBeInstanceOf<RootSetupModule.Result>()
+        result.ourService shouldBe true
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `re-subscription emits cached Result instead of Loading`() {
+        val mod = module()
+
+        val first = mod.state.test(tag = "first", scope = scope)
+        first.await { values, _ -> values.any { it is RootSetupModule.Result } }
+        runBlocking { first.cancelAndJoin() }
+        runBlocking { delay(50) }
+
+        val second = mod.state.test(tag = "second", scope = scope)
+        second.await { values, _ -> values.isNotEmpty() }
+
+        second.latestValues.first().shouldBeInstanceOf<RootSetupModule.Result>()
+
+        runBlocking { second.cancelAndJoin() }
+    }
+
+    @Test fun `setting change while unsubscribed does not replay stale cache`() {
+        val mod = module()
+
+        val first = mod.state.test(tag = "first", scope = scope)
+        first.await { values, _ -> values.any { it is RootSetupModule.Result } }
+        runBlocking { first.cancelAndJoin() }
+        runBlocking { delay(50) }
+
+        // User turns root off while nothing observes the module.
+        useRootFlow.value = false
+
+        val second = mod.state.test(tag = "second", scope = scope)
+        second.await { values, _ -> values.isNotEmpty() }
+
+        second.latestValues.first().shouldBeInstanceOf<RootSetupModule.Loading>()
+
+        runBlocking { second.cancelAndJoin() }
+    }
+
+    @Test fun `cold-start probe stays Loading and never emits a transient incomplete Result`() {
+        // Acquiring the root host cold-binds a su session, so the binder only emits the connection
+        // after a delay. The module must report Loading during that window - never a settled
+        // Result(ourService=false), which previously flagged setup as incomplete and flashed the
+        // dashboard setup card on every launch.
+        every { rootManager.binder } returns flow {
+            delay(100)
+            emit(connection)
+        }
+        val mod = module()
+
+        val collector = mod.state.test(tag = "cold", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+
+        // No incomplete Result may appear before the probe resolves.
+        collector.latestValues
+            .filterIsInstance<RootSetupModule.Result>()
+            .forEach { it.isComplete shouldBe true }
+
+        val result = collector.latestValues.last().shouldBeInstanceOf<RootSetupModule.Result>()
+        result.ourService shouldBe true
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `genuine acquisition failure still surfaces an incomplete Result`() {
+        // binder emits null (via its catch block) when root acquisition genuinely fails. That must
+        // map to an incomplete Result so the setup screen shows the real problem - not be swallowed
+        // by the Loading anti-flicker handling.
+        every { rootManager.binder } returns flowOf(null)
+        val mod = module()
+
+        val collector = mod.state.test(tag = "failure", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+
+        val result = collector.latestValues.last().shouldBeInstanceOf<RootSetupModule.Result>()
+        result.ourService shouldBe false
+        result.isComplete shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `refresh triggers a fresh probe`() {
+        val mod = module()
+
+        val collector = mod.state.test(tag = "refresh", scope = scope)
+        collector.await { values, _ -> values.any { it is RootSetupModule.Result } }
+        val before = probeCount
+
+        runBlocking { mod.refresh() }
+        collector.await { _, _ -> probeCount > before }
+
+        probeCount shouldBeGreaterThan before
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `completion depends on user choice and service readiness`() {
+        RootSetupModule.Result(useRoot = null).isComplete shouldBe false
+        RootSetupModule.Result(useRoot = false).isComplete shouldBe true
+        RootSetupModule.Result(useRoot = true, isInstalled = true, ourService = false).isComplete shouldBe false
+        RootSetupModule.Result(useRoot = true, isInstalled = false, ourService = false).isComplete shouldBe true
+        RootSetupModule.Result(useRoot = true, isInstalled = true, ourService = true).isComplete shouldBe true
     }
 }

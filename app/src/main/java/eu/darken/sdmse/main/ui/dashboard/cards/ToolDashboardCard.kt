@@ -99,7 +99,10 @@ internal fun ToolDashboardCard(
             Spacer(modifier = Modifier.height(16.dp))
             ProgressContainer(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = item.onViewTool.takeIf { item.result != null && item.progress == null },
+                // Only allow opening the tool's live list when there's data to show.
+                // After a clean the result text persists but the live data is empty, so
+                // navigating would open a list that immediately closes itself (flicker).
+                onClick = item.onViewTool.takeIf { item.result != null && item.progress == null && item.onDelete != null },
                 progress = item.progress,
                 resultPrimary = item.result?.primaryInfo?.asComposable(),
                 resultSecondary = item.result?.secondaryInfo?.asComposable()?.takeUnless { it.isBlank() },

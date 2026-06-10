@@ -509,6 +509,7 @@ class PkgOps @Inject constructor(
     enum class AppOpsKey(val raw: String) {
         GET_USAGE_STATS("GET_USAGE_STATS"),
         MANAGE_EXTERNAL_STORAGE("MANAGE_EXTERNAL_STORAGE"),
+        ACCESS_RESTRICTED_SETTINGS("ACCESS_RESTRICTED_SETTINGS"),
         ;
     }
 

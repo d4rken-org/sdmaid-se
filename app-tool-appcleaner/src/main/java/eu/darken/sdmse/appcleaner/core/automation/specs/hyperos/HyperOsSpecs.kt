@@ -43,6 +43,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.checkIdentifiers
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.interferenceAware
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
@@ -113,33 +114,33 @@ class HyperOsSpecs @Inject constructor(
 
         var windowPkg: Pkg.Id? = null
 
-        val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
-            if (stepAttempts >= 1 && pkg.hasNoSettings) {
-                throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
-            }
-            // Wait for correct base window
-            host.events
-                .filter { it.pkgId == SETTINGS_PKG_HYPEROS || it.pkgId == SETTINGS_PKG_AOSP }
-                .mapNotNull { host.windowRoot() }
-                .first { root ->
-                    when {
-                        root.pkgId == SETTINGS_PKG_HYPEROS && checkIdentifiers(ipcFunnel, pkg)(root) -> {
-                            windowPkg = SETTINGS_PKG_HYPEROS
-                            true
-                        }
+        val windowCheck = windowCheck(
+            interferenceAware(
+                expectedPkgs = setOf(SETTINGS_PKG_HYPEROS, SETTINGS_PKG_AOSP),
+                targetPkg = pkg.id,
+                ipcFunnel = ipcFunnel,
+            ) { _, root ->
+                if (stepAttempts >= 1 && pkg.hasNoSettings) {
+                    throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
+                }
+                when {
+                    root.pkgId == SETTINGS_PKG_HYPEROS && checkIdentifiers(ipcFunnel, pkg)(root) -> {
+                        windowPkg = SETTINGS_PKG_HYPEROS
+                        true
+                    }
 
-                        root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
-                            windowPkg = SETTINGS_PKG_AOSP
-                            true
-                        }
+                    root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
+                        windowPkg = SETTINGS_PKG_AOSP
+                        true
+                    }
 
-                        else -> {
-                            log(TAG) { "Unknown window: ${root.pkgId}" }
-                            false
-                        }
+                    else -> {
+                        log(TAG) { "Unknown window: ${root.pkgId}" }
+                        false
                     }
                 }
-        }
+            }
+        )
 
         val step = AutomationStep(
             source = TAG,

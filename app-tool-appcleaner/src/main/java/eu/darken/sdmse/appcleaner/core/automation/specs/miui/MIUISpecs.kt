@@ -42,6 +42,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.checkIdentifiers
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.interferenceAware
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
@@ -110,31 +111,37 @@ class MIUISpecs @Inject constructor(
 
         var windowPkg: Pkg.Id? = null
 
-        val windowCheck = windowCheck { event, root ->
-            if (stepAttempts >= 1 && pkg.hasNoSettings) {
-                throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
-            }
-            // Some MIUI14 devices send the change event for the system settings app
-            val isCorrectWindow = root.pkgId == SETTINGS_PKG_MIUI || root.pkgId == SETTINGS_PKG_AOSP
-                    || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
-            if (!isCorrectWindow) return@windowCheck false
-            when {
-                root.pkgId == SETTINGS_PKG_MIUI && checkIdentifiers(ipcFunnel, pkg)(root) -> {
-                    windowPkg = SETTINGS_PKG_MIUI
-                    true
+        val windowCheck = windowCheck(
+            interferenceAware(
+                expectedPkgs = setOf(SETTINGS_PKG_MIUI, SETTINGS_PKG_AOSP),
+                targetPkg = pkg.id,
+                ipcFunnel = ipcFunnel,
+            ) { event, root ->
+                if (stepAttempts >= 1 && pkg.hasNoSettings) {
+                    throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
                 }
+                // Some MIUI14 devices send the change event for the system settings app
+                val isCorrectWindow = root.pkgId == SETTINGS_PKG_MIUI || root.pkgId == SETTINGS_PKG_AOSP
+                        || event?.pkgId == SETTINGS_PKG_MIUI || event?.pkgId == SETTINGS_PKG_AOSP
+                if (!isCorrectWindow) return@interferenceAware false
+                when {
+                    root.pkgId == SETTINGS_PKG_MIUI && checkIdentifiers(ipcFunnel, pkg)(root) -> {
+                        windowPkg = SETTINGS_PKG_MIUI
+                        true
+                    }
 
-                root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
-                    windowPkg = SETTINGS_PKG_AOSP
-                    true
-                }
+                    root.pkgId == SETTINGS_PKG_AOSP && checkIdentifiers(ipcFunnel, pkg)(root) -> {
+                        windowPkg = SETTINGS_PKG_AOSP
+                        true
+                    }
 
-                else -> {
-                    log(TAG) { "Unknown window: ${root.pkgId}" }
-                    false
+                    else -> {
+                        log(TAG) { "Unknown window: ${root.pkgId}" }
+                        false
+                    }
                 }
             }
-        }
+        )
 
         val step = AutomationStep(
             source = TAG,
