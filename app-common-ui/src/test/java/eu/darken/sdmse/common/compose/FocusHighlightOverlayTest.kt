@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -17,25 +18,27 @@ import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
 /**
- * Smoke coverage for [FocusRingIndication]: PreviewWrapper applies SdmSeTheme, which installs
- * the combined ripple + focus-ring indication via LocalIndication. Verifies the combined
- * delegate node doesn't break clicking, focusing, or drawing.
+ * Smoke coverage for [FocusHighlightOverlay]: PreviewWrapper applies SdmSeTheme, which mounts
+ * the overlay around all content. Verifies the wrapper stays layout/interaction-neutral:
+ * content clicks, focuses, and renders without issue while focus bounds are being observed.
  */
-class FocusRingIndicationTest : BaseComposeRobolectricTest() {
+class FocusHighlightOverlayTest : BaseComposeRobolectricTest() {
 
     @Test
-    fun `clickable under focus ring indication still clicks and focuses`() {
+    fun `content under focus highlight overlay still clicks and focuses`() {
         var clicks = 0
         val requester = FocusRequester()
         composeRule.setContent {
             PreviewWrapper {
-                Box(
-                    modifier = Modifier
-                        .size(60.dp)
-                        .focusRequester(requester)
-                        .clickable { clicks++ }
-                        .testTag("TARGET"),
-                )
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Box(
+                        modifier = Modifier
+                            .size(60.dp)
+                            .focusRequester(requester)
+                            .clickable { clicks++ }
+                            .testTag("TARGET"),
+                    )
+                }
             }
         }
         composeRule.runOnIdle { requester.requestFocus() }
