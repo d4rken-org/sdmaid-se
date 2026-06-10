@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -36,6 +37,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -383,15 +387,38 @@ private fun CardsContent(
     paddingValues: PaddingValues,
     items: List<SetupCardItem>,
 ) {
+    // D-pad focus keeper: answering a card removes it from the list, killing the focused node —
+    // focus would silently reset to the toolbar (where center = exit setup). When the card that
+    // held focus disappears, pull focus back into the list; the group redirects to the best
+    // remaining card. Tracking the focused key (instead of list focus state) is deliberate:
+    // by the time the key list changes, the dying node has already reported focus loss.
+    val listFocus = remember { FocusRequester() }
+    var focusedType by remember { mutableStateOf<SetupModule.Type?>(null) }
+    val itemTypes = items.map { it.state.type }
+    LaunchedEffect(itemTypes) {
+        val focused = focusedType ?: return@LaunchedEffect
+        if (focused !in itemTypes) {
+            focusedType = null
+            if (itemTypes.isNotEmpty()) runCatching { listFocus.requestFocus() }
+        }
+    }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues),
+            .padding(paddingValues)
+            .focusRequester(listFocus)
+            .focusGroup(),
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(items, key = { it.state.type }) { item ->
-            SetupCardDispatch(item, modifier = Modifier.fillMaxWidth())
+            SetupCardDispatch(
+                item,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .onFocusChanged { if (it.hasFocus) focusedType = item.state.type },
+            )
         }
     }
 }

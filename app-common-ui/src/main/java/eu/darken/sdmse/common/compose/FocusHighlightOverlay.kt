@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.compose
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,13 +19,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.InputMode
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -45,79 +46,88 @@ class FocusHighlightController {
 val LocalFocusHighlightController = staticCompositionLocalOf<FocusHighlightController?> { null }
 
 /**
- * Draws a high-contrast ring around whichever descendant currently holds focus, but only while
- * the input mode is [InputMode.Keyboard] (D-pad on TV, hardware keyboards). Touch interaction
- * never shows the ring — including programmatic focus requests like onboarding's auto-focused
- * Continue button — and the mode is observed reactively, so the ring appears/disappears as the
- * user switches between remote and touch.
+ * Draws a high-contrast ring around whichever descendant of this node currently holds focus, but
+ * only while the input mode is [InputMode.Keyboard] (D-pad on TV, hardware keyboards). Touch
+ * interaction never shows the ring — including programmatic focus requests like onboarding's
+ * auto-focused Continue button — and the mode is observed reactively, so the ring
+ * appears/disappears as the user switches between remote and touch.
  *
- * Mounted once in SdmSeTheme around the app content. Drawing happens at this overlay's level
- * (above all content, including the guided-tour scrim), so it works for every focusable —
- * Material3 components included, which bypass LocalIndication and would never show a custom
+ * Drawing happens after this node's content, i.e. above all children. Because the ring is based
+ * on [onFocusedBoundsChanged] (not indication), it works for every focusable — Material3
+ * components included, which bypass LocalIndication and would never show a custom
  * Indication-based treatment.
+ *
+ * Apply to a window-root container: [FocusHighlightOverlay] does this for the main content via
+ * SdmSeTheme; dialogs need their own application (separate windows) — see SdmAlertDialog.
  */
-@Composable
-fun FocusHighlightOverlay(
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
-) {
+fun Modifier.focusHighlightRing(
+    controller: FocusHighlightController? = null,
+): Modifier = composed {
     val inputModeManager = LocalInputModeManager.current
-    val controller = remember { FocusHighlightController() }
-    var overlayCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    var selfCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     var focusedCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     // The same LayoutCoordinates instance can be reported again after a reposition; bump a
     // counter so the draw pass re-reads bounds even when the state reference doesn't change.
     var positionTick by remember { mutableIntStateOf(0) }
     val ringColor = MaterialTheme.colorScheme.primary
 
-    Box(
-        modifier
-            .onGloballyPositioned { overlayCoords = it }
-            .onFocusedBoundsChanged {
-                focusedCoords = it
-                positionTick++
-            },
-    ) {
+    this
+        .onGloballyPositioned { selfCoords = it }
+        .onFocusedBoundsChanged {
+            focusedCoords = it
+            positionTick++
+        }
+        .drawWithContent {
+            drawContent()
+
+            if (inputModeManager.inputMode != InputMode.Keyboard) return@drawWithContent
+            if (controller?.suppressed == true) return@drawWithContent
+            @Suppress("UNUSED_EXPRESSION") positionTick
+            val self = selfCoords?.takeIf { it.isAttached } ?: return@drawWithContent
+            val focused = focusedCoords?.takeIf { it.isAttached } ?: return@drawWithContent
+            // clipBounds=true: a focused item half-scrolled out of its container gets its
+            // ring confined to the visible part instead of floating over other content.
+            val bounds = self.localBoundingBoxOf(focused, clipBounds = true)
+            if (bounds.isEmpty) return@drawWithContent
+
+            val pad = RING_PADDING.toPx()
+            val stroke = RING_WIDTH.toPx()
+            val glow = GLOW_WIDTH.toPx()
+            val topLeft = Offset(bounds.left - pad, bounds.top - pad)
+            val ringSize = Size(bounds.width + 2 * pad, bounds.height + 2 * pad)
+            val corner = CornerRadius(RING_CORNER_RADIUS.toPx())
+
+            // Soft halo behind the ring for 10-foot visibility, then the crisp ring itself.
+            drawRoundRect(
+                color = ringColor.copy(alpha = 0.35f),
+                topLeft = topLeft,
+                size = ringSize,
+                cornerRadius = corner,
+                style = Stroke(width = glow),
+            )
+            drawRoundRect(
+                color = ringColor,
+                topLeft = topLeft,
+                size = ringSize,
+                cornerRadius = corner,
+                style = Stroke(width = stroke),
+            )
+        }
+}
+
+/**
+ * Mounted once in SdmSeTheme around the app content: applies [focusHighlightRing] to the main
+ * window and provides the [FocusHighlightController] that lets the guided tour suppress the ring.
+ */
+@Composable
+fun FocusHighlightOverlay(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    val controller = remember { FocusHighlightController() }
+    Box(modifier.focusHighlightRing(controller)) {
         CompositionLocalProvider(LocalFocusHighlightController provides controller) {
             content()
-        }
-
-        val showRing = inputModeManager.inputMode == InputMode.Keyboard &&
-            focusedCoords != null &&
-            !controller.suppressed
-        if (showRing) {
-            Canvas(Modifier.matchParentSize()) {
-                @Suppress("UNUSED_EXPRESSION") positionTick
-                val overlay = overlayCoords?.takeIf { it.isAttached } ?: return@Canvas
-                val focused = focusedCoords?.takeIf { it.isAttached } ?: return@Canvas
-                // clipBounds=true: a focused item half-scrolled out of its container gets its
-                // ring confined to the visible part instead of floating over other content.
-                val bounds = overlay.localBoundingBoxOf(focused, clipBounds = true)
-                if (bounds.isEmpty) return@Canvas
-
-                val pad = RING_PADDING.toPx()
-                val stroke = RING_WIDTH.toPx()
-                val glow = GLOW_WIDTH.toPx()
-                val topLeft = Offset(bounds.left - pad, bounds.top - pad)
-                val ringSize = Size(bounds.width + 2 * pad, bounds.height + 2 * pad)
-                val corner = CornerRadius(RING_CORNER_RADIUS.toPx())
-
-                // Soft halo behind the ring for 10-foot visibility, then the crisp ring itself.
-                drawRoundRect(
-                    color = ringColor.copy(alpha = 0.35f),
-                    topLeft = topLeft,
-                    size = ringSize,
-                    cornerRadius = corner,
-                    style = Stroke(width = glow),
-                )
-                drawRoundRect(
-                    color = ringColor,
-                    topLeft = topLeft,
-                    size = ringSize,
-                    cornerRadius = corner,
-                    style = Stroke(width = stroke),
-                )
-            }
         }
     }
 }

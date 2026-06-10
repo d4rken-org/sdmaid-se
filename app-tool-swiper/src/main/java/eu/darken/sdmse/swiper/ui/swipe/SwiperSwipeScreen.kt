@@ -10,7 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
 import androidx.compose.material.icons.twotone.Close
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CircularProgressIndicator
@@ -271,7 +271,7 @@ internal fun SwiperSwipeScreen(
         val rightAction =
             if (swap) stringResource(CommonR.string.general_delete_action)
             else stringResource(R.string.swiper_keep_action)
-        AlertDialog(
+        SdmAlertDialog(
             onDismissRequest = { showHelpDialog = false },
             icon = {
                 Icon(

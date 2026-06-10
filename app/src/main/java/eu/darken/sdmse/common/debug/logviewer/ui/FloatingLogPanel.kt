@@ -35,7 +35,7 @@ import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material.icons.twotone.Share
 import androidx.compose.material.icons.twotone.Tune
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
@@ -515,7 +515,7 @@ private fun LogLevelDialog(
     onSelect: (Logging.Priority) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.debug_logview_level_action)) },
         text = {

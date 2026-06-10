@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -29,7 +29,7 @@ internal fun ChipModeSwitcherDialog(
         modes.indexOfFirst { it.first::class.isInstance(criterium.mode) }.coerceAtLeast(0)
     }
 
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(modeSwitcherTitleRes(criterium))) },
         text = {

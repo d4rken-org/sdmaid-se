@@ -91,6 +91,7 @@ internal fun BottomBar(
     isHeroDismissed: Boolean = false,
     mainActionModifier: Modifier = Modifier,
     settingsModifier: Modifier = Modifier,
+    upgradeModifier: Modifier = Modifier,
 ) {
     val heroSummary = state?.heroSummary
     val showHero = heroVisible && heroSummary != null
@@ -192,6 +193,7 @@ internal fun BottomBar(
                 onRestoreHero = onRestoreHero.takeIf { isHeroDismissed },
                 contentBottomPadding = navBottom,
                 settingsModifier = settingsModifier,
+                upgradeModifier = upgradeModifier,
             )
         }
 
@@ -250,6 +252,7 @@ private fun BarContent(
     onRestoreHero: (() -> Unit)? = null,
     contentBottomPadding: Dp = 0.dp,
     settingsModifier: Modifier = Modifier,
+    upgradeModifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     // The surface extends behind the nav inset; keep the controls in the visible bar band by
@@ -320,6 +323,7 @@ private fun BarContent(
                     icon = Icons.TwoTone.Stars,
                     label = stringResource(R.string.upgrades_dashcard_upgrade_action),
                     onClick = onUpgrade,
+                    modifier = upgradeModifier,
                     anchor = SdmTooltipAnchor.ABOVE,
                 )
             }

@@ -19,7 +19,7 @@ import androidx.compose.material.icons.twotone.FileUpload
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material.icons.twotone.Shield
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FloatingActionButton
@@ -366,7 +366,7 @@ private fun ExclusionInfoDialog(
     onMoreInfo: () -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         icon = {
             Icon(

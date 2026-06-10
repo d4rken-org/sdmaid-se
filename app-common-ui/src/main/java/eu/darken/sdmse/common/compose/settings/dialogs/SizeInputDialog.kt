@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
@@ -52,7 +52,7 @@ fun SizeInputDialog(
     var error by remember { mutableStateOf<String?>(null) }
     var saveEnabled by remember { mutableStateOf(true) }
 
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(titleRes)) },
         text = {

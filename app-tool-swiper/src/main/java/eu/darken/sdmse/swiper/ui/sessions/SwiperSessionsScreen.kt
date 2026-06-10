@@ -14,7 +14,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
@@ -301,7 +301,7 @@ private fun RenameSessionDialog(
     var text by remember { mutableStateOf(current ?: "") }
     val isChanged = text.trim() != (current ?: "")
     val isNotEmpty = text.isNotBlank()
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.swiper_session_rename_title)) },
         text = {
@@ -344,7 +344,7 @@ private fun FileTypeFilterDialog(
         mutableStateOf(current.customExtensions.sorted().joinToString(", "))
     }
 
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.swiper_file_type_filter_title)) },
         text = {
@@ -425,7 +425,7 @@ private fun SortOrderDialog(
     onSelect: (SortOrder) -> Unit,
 ) {
     val context = LocalContext.current
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(CommonR.string.general_sort_by_title)) },
         text = {

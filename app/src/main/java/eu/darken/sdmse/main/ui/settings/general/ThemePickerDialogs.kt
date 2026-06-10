@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -42,7 +42,7 @@ fun ThemeModePickerDialog(
     onModeSelected: (ThemeMode) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.ui_theme_mode_setting_label)) },
         text = {
@@ -86,7 +86,7 @@ fun ThemeStylePickerDialog(
     onStyleSelected: (ThemeStyle) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.ui_theme_style_setting_label)) },
         text = {
@@ -132,7 +132,7 @@ fun RomTypePickerDialog(
     onDismiss: () -> Unit,
 ) {
     val context = LocalContext.current
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_romtype_detection_label)) },
         text = {
@@ -182,7 +182,7 @@ fun ThemeColorPickerDialog(
     onDismiss: () -> Unit,
 ) {
     val context = LocalContext.current
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.ui_theme_color_setting_label)) },
         text = {

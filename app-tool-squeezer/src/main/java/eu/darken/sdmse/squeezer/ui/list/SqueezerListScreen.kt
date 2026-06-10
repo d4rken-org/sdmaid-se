@@ -20,7 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.GridView
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
@@ -338,7 +338,7 @@ private fun SqueezerPreviewCompressionDialog(
         items.all { it is CompressibleImage } || items.all { it is CompressibleVideo }
         )
 
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.squeezer_preview_dialog_title)) },
         text = {

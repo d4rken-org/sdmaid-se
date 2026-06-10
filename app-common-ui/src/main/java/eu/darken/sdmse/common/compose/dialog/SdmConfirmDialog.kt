@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.compose.dialog
 
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -47,7 +47,7 @@ fun SdmConfirmDialog(
     neutral: SdmDialogAction? = null,
     content: @Composable () -> Unit,
 ) {
-    AlertDialog(
+    SdmAlertDialog(
         modifier = modifier,
         onDismissRequest = onDismissRequest,
         title = title?.let { { Text(it) } },

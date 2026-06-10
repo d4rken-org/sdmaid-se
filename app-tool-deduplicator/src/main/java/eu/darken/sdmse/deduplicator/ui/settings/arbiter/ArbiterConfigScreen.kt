@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.MoreVert
-import androidx.compose.material3.AlertDialog
+import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.RadioButton
@@ -189,7 +189,7 @@ private fun ModeSelectionDialog(
     onSelected: (ArbiterCriterium.Mode) -> Unit,
 ) {
     val currentMode = criterium.criteriumMode()
-    AlertDialog(
+    SdmAlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.deduplicator_arbiter_select_mode_title)) },
         text = {

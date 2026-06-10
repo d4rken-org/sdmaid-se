@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
+import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,6 +30,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -282,6 +286,15 @@ internal fun DashboardScreen(
         )
     }
 
+    // Escape hatch for D-pad users: the grid is a fillMaxSize focus group that fully contains the
+    // bottom chrome's rects, so it never qualifies as a directional candidate from the FAB or the
+    // bar buttons — without an explicit bridge, focus gets trapped in the bottom chrome. UP from
+    // any chrome control redirects into the grid group, which forwards to the best visible card.
+    val gridFocusRequester = remember { FocusRequester() }
+    val escapeUpToGrid = Modifier.focusProperties {
+        up = gridFocusRequester
+    }
+
     Scaffold(
         bottomBar = {
             BottomBar(
@@ -297,8 +310,13 @@ internal fun DashboardScreen(
                 onToolClick = onToolClick,
                 onRestoreHero = onRestoreHero,
                 isHeroDismissed = isHeroDismissed,
-                mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
-                settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
+                mainActionModifier = Modifier
+                    .guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET)
+                    .then(escapeUpToGrid),
+                settingsModifier = Modifier
+                    .guidedTourTarget(DashboardTour.SETTINGS_TARGET)
+                    .then(escapeUpToGrid),
+                upgradeModifier = escapeUpToGrid,
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -333,7 +351,10 @@ internal fun DashboardScreen(
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),
                     state = gridState,
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .focusRequester(gridFocusRequester)
+                        .focusGroup()
+                        .fillMaxSize(),
                     contentPadding = PaddingValues(
                         start = 8.dp,
                         end = 8.dp,
