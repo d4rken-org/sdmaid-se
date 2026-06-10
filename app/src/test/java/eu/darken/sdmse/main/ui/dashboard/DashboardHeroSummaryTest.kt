@@ -123,6 +123,23 @@ class DashboardHeroSummaryTest : BaseTest() {
     }
 
     @Test
+    fun `Deduplicator is excluded when not Pro`() {
+        // The DELETE branch of mainAction only deletes dedupe data for Pro users, so a non-Pro
+        // hero must not count it towards "will be freed".
+        val result = DashboardViewModel.buildHeroSummary(
+            corpse = corpse(100, 3),
+            system = null,
+            app = null,
+            dedupe = dedupe(redundant = 500, clusterCount = 4),
+            oneClick = oneClick(dedupe = true),
+            isPro = false,
+        )!!
+
+        result.totalSize shouldBe 100L
+        result.tools.map { it.type } shouldBe listOf(SDMTool.Type.CORPSEFINDER)
+    }
+
+    @Test
     fun `returns null when nothing is one-tap-actionable for this user`() {
         // AppCleaner has data but the user is not Pro, and it is the only tool with data.
         DashboardViewModel.buildHeroSummary(

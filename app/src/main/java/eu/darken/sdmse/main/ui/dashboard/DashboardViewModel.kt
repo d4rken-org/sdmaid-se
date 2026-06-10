@@ -475,9 +475,10 @@ class DashboardViewModel @Inject constructor(
     /**
      * The one-tap-actionable cleanup summary surfaced by the hero card. Reflects exactly what the
      * main action ([mainAction] with [BottomBarState.Action.DELETE]) will free: each tool is
-     * included only when its one-click toggle is enabled, it has data, and — for AppCleaner — the
-     * user is Pro. Deduplicator contributes its freeable [Deduplicator.Data.redundantSize] and a
-     * cluster count (kept out of [itemCount], which counts discrete files only).
+     * included only when its one-click toggle is enabled, it has data, and — for AppCleaner and
+     * Deduplicator — the user is Pro. Deduplicator contributes its freeable
+     * [Deduplicator.Data.redundantSize] and a cluster count (kept out of [itemCount], which counts
+     * discrete files only).
      */
     data class HeroSummary(
         val mode: Mode,
@@ -568,15 +569,16 @@ class DashboardViewModel @Inject constructor(
         isDiscarding,
         now ->
 
-        val actionState: BottomBarState.Action = when {
-            taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
-            !taskState.isIdle -> BottomBarState.Action.WORKING
-            // Deduplicator is intentionally excluded from the DELETE trigger (it has its own
-            // cluster-selection delete flow); a dedupe-only result therefore won't summon the hero.
-            corpseState.data.hasData || filterState.data.hasData || junkState.data.hasData -> BottomBarState.Action.DELETE
-            oneClickMode -> BottomBarState.Action.ONECLICK
-            else -> BottomBarState.Action.SCAN
-        }
+        val actionState = resolveMainAction(
+            taskState = taskState,
+            corpse = corpseState.data,
+            system = filterState.data,
+            app = junkState.data,
+            dedupe = dedupeState.data,
+            oneClick = oneClickOptions,
+            isPro = upgradeInfo?.isPro == true,
+            oneClickMode = oneClickMode,
+        )
         val activeTasks = taskState.tasks.filter { it.isActive }.size
         val queuedTasks = taskState.tasks.filter { it.isQueued }.size
         // Post-scan "will be freed" takes priority; otherwise, once the action has settled, show the
@@ -994,9 +996,35 @@ class DashboardViewModel @Inject constructor(
         private val TAG = logTag("Dashboard", "ViewModel")
 
         /**
+         * Resolves what the main dashboard button does. CorpseFinder/SystemCleaner/AppCleaner data
+         * arms DELETE unconditionally (AppCleaner upsells non-Pro users instead of deleting).
+         * Deduplicator arms DELETE only when it is opted into one-click AND the user is Pro —
+         * exactly the conditions under which [mainAction]'s DELETE branch will actually submit a
+         * deletion task for it; its primary delete flow remains in-tool cluster selection.
+         */
+        internal fun resolveMainAction(
+            taskState: TaskSubmitter.State,
+            corpse: CorpseFinder.Data?,
+            system: SystemCleaner.Data?,
+            app: AppCleaner.Data?,
+            dedupe: Deduplicator.Data?,
+            oneClick: OneClickOptionsState,
+            isPro: Boolean,
+            oneClickMode: Boolean,
+        ): BottomBarState.Action = when {
+            taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
+            !taskState.isIdle -> BottomBarState.Action.WORKING
+            corpse.hasData || system.hasData || app.hasData -> BottomBarState.Action.DELETE
+            dedupe.hasData && oneClick.deduplicatorEnabled && isPro -> BottomBarState.Action.DELETE
+            oneClickMode -> BottomBarState.Action.ONECLICK
+            else -> BottomBarState.Action.SCAN
+        }
+
+        /**
          * Builds the action-truthful hero summary: only tools the main DELETE action will actually
-         * free (one-click toggle on, has data, AppCleaner additionally requires Pro). Returns null
-         * when nothing is one-tap-actionable for this user/config, even if raw scan data exists.
+         * free (one-click toggle on, has data, AppCleaner and Deduplicator additionally require
+         * Pro). Returns null when nothing is one-tap-actionable for this user/config, even if raw
+         * scan data exists.
          */
         internal fun buildHeroSummary(
             corpse: CorpseFinder.Data?,
@@ -1017,7 +1045,7 @@ class DashboardViewModel @Inject constructor(
                 app?.takeIf { oneClick.appCleanerEnabled && isPro && it.hasData }?.let {
                     add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
                 }
-                dedupe?.takeIf { oneClick.deduplicatorEnabled && it.hasData }?.let {
+                dedupe?.takeIf { oneClick.deduplicatorEnabled && isPro && it.hasData }?.let {
                     add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.clusters.size))
                 }
             }
