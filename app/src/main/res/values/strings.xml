@@ -4,7 +4,7 @@
     <string name="dashboard_hero_freed_headline">%1$s freed</string>
     <string name="dashboard_hero_freeable_x_items">%1$s can be removed</string>
     <string name="dashboard_hero_freed_x_items">%1$s removed</string>
-    <string name="dashboard_hero_freeable_hint">Tap the button below to free space. Tap a category to check first.</string>
+    <string name="dashboard_hero_freeable_hint">Tap the button to free space. Tap a category to check first.</string>
     <string name="dashboard_hero_freed_hint">Tap a category for details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanned %1$s</string>

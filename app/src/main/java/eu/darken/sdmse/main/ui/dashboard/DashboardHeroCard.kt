@@ -39,13 +39,13 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SdmInfoChip
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.SDMTool
 import java.time.Instant
+import eu.darken.sdmse.common.R as CommonR
 
 /**
  * Floating hero card surfacing the one-tap-actionable cleanup result. Drapes over the FAB via
@@ -164,7 +164,7 @@ private fun HeroBody(
 
         // The body is sized for the worst case (two chip rows + two-line hint); in smaller
         // configurations the slack collects here so chips + hint stay anchored above the footer.
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(16.dp))
 
         FlowRow(
             modifier = Modifier
@@ -194,9 +194,9 @@ private fun HeroBody(
             DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_hint
         }
         Text(
-            modifier = Modifier.padding(top = 6.dp, end = 12.dp),
+            modifier = Modifier.padding(top = 4.dp, end = 12.dp),
             text = stringResource(hintRes),
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.labelSmall,
             color = LocalContentColor.current.copy(alpha = 0.8f),
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
@@ -217,13 +217,12 @@ private fun HeroFooter(
     onDiscard: (() -> Unit)?,
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .padding(start = 24.dp, bottom = 8.dp, end = 24.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
-            modifier = Modifier
-                .weight(1f)
-                .padding(start = 20.dp),
+            modifier = Modifier.weight(1f),
             contentAlignment = Alignment.CenterStart,
         ) {
             summary.timestamp?.let { timestamp ->
@@ -258,9 +257,7 @@ private fun HeroFooter(
         // Keeps both cells clear of the notch walls; extra width covers the convex shoulder fillets.
         Spacer(modifier = Modifier.width(DASHBOARD_CUTOUT_WIDTH + 16.dp))
         Box(
-            modifier = Modifier
-                .weight(1f)
-                .padding(end = 8.dp),
+            modifier = Modifier.weight(1f),
             contentAlignment = Alignment.CenterEnd,
         ) {
             if (onDiscard != null) {
@@ -313,6 +310,7 @@ private fun DashboardHeroCardFreeablePreview() {
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(DASHBOARD_HERO_CARD_HEIGHT)
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREEABLE),
             onDiscard = {},
@@ -327,6 +325,7 @@ private fun DashboardHeroCardFreedPreview() {
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(DASHBOARD_HERO_CARD_HEIGHT)
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREED),
         )
@@ -342,6 +341,7 @@ private fun DashboardHeroCardFreeableAllToolsPreview() {
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(DASHBOARD_HERO_CARD_HEIGHT)
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = previewSummary(
                 mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
