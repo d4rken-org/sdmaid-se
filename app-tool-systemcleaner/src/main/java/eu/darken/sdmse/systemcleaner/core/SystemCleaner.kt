@@ -91,6 +91,13 @@ class SystemCleaner @Inject constructor(
     }.replayingShare(appScope)
 
     private val toolLock = Mutex()
+
+    /** Drops the current scan results (and only those — progress, settings and task history are unaffected). */
+    suspend fun discardScanData() = toolLock.withLock {
+        log(TAG) { "discardScanData()" }
+        internalData.value = null
+    }
+
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as SystemCleanerTask
         log(TAG) { "submit($task) starting..." }

@@ -103,6 +103,18 @@ class SystemCleanerScanTest : BaseTest() {
     }
 
     @Test
+    fun `discardScanData clears the scan results`() = runTest2 {
+        val fc = fakeFilterContent(identifier = "f1", items = listOf(fakeMatch(name = "a", size = 100L)))
+        val cleaner = SystemCleanerHarness(keepAliveScope).build(crawlerResults = listOf(fc))
+        cleaner.submit(SystemCleanerScanTask())
+        cleaner.dataFromState()!!.filterContents.map { it.identifier } shouldBe listOf("f1")
+
+        cleaner.discardScanData()
+
+        cleaner.dataFromState() shouldBe null
+    }
+
+    @Test
     fun `submit SchedulerTask chains scan and processing and returns SchedulerTask Success`() = runTest2 {
         val match = fakeMatch(name = "scheduled", size = 100L)
         val fc = fakeFilterContent(identifier = "f1", items = listOf(match))

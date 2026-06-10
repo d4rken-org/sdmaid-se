@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Context
+import android.text.format.DateUtils
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
@@ -18,12 +19,13 @@ import eu.darken.sdmse.main.core.SDMTool
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
+import java.time.Instant
 
 class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
-    private fun summary() = DashboardViewModel.HeroSummary(
+    private fun summary(timestamp: Instant? = null) = DashboardViewModel.HeroSummary(
         mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
         totalSize = 2L * 1024 * 1024 * 1024,
         itemCount = 37,
@@ -31,15 +33,20 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
             DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1L * 1024 * 1024 * 1024, 25),
         ),
+        timestamp = timestamp,
     )
 
-    private fun deleteState(hero: DashboardViewModel.HeroSummary?) = DashboardViewModel.BottomBarState(
+    private fun deleteState(
+        hero: DashboardViewModel.HeroSummary?,
+        now: Instant = Instant.EPOCH,
+    ) = DashboardViewModel.BottomBarState(
         isReady = true,
         actionState = DashboardViewModel.BottomBarState.Action.DELETE,
         activeTasks = 0,
         queuedTasks = 0,
         heroSummary = hero,
         upgradeInfo = null,
+        now = now,
     )
 
     @Test
@@ -240,6 +247,107 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             .assertHasClickAction()
             .performSemanticsAction(SemanticsActions.OnClick)
         composeRule.runOnIdle { assertEquals(1, restored) }
+    }
+
+    @Test
+    fun `freeable hero shows the discard button and tapping it invokes the callback`() {
+        var discarded = 0
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(summary()),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                    onDiscardResults = { discarded++ },
+                )
+            }
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_discard_action))
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { assertEquals(1, discarded) }
+    }
+
+    @Test
+    fun `freed-mode hero has no discard button`() {
+        val freed = DashboardViewModel.HeroSummary(
+            mode = DashboardViewModel.HeroSummary.Mode.FREED,
+            totalSize = 1L * 1024 * 1024 * 1024,
+            itemCount = 12,
+            tools = listOf(
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+            ),
+        )
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(freed),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                    onDiscardResults = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_discard_action)).assertDoesNotExist()
+    }
+
+    @Test
+    fun `hero footer renders the relative result age`() {
+        val now = Instant.parse("2026-06-10T12:00:00Z")
+        val scannedAt = now.minusSeconds(5 * 60)
+        // Same call the card makes — locale-proof expectation.
+        val expected = DateUtils.getRelativeTimeSpanString(
+            scannedAt.toEpochMilli(),
+            now.toEpochMilli(),
+            DateUtils.MINUTE_IN_MILLIS,
+        ).toString()
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(summary(timestamp = scannedAt), now = now),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(expected).assertExists()
+        composeRule.onNodeWithContentDescription(
+            context.getString(R.string.dashboard_hero_scanned_timestamp_description, expected),
+        ).assertExists()
+    }
+
+    @Test
+    fun `hero footer shows no timestamp when the summary has none`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(summary(timestamp = null)),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText("ago", substring = true).assertDoesNotExist()
     }
 
     @Test

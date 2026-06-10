@@ -98,6 +98,12 @@ class Deduplicator @Inject constructor(
 
     private val toolLock = Mutex()
 
+    /** Drops the current scan results (and only those — progress, settings and task history are unaffected). */
+    suspend fun discardScanData() = toolLock.withLock {
+        log(TAG) { "discardScanData()" }
+        internalData.value = null
+    }
+
     init {
         settings.arbiterConfig.flow
             .drop(1)

@@ -71,6 +71,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
 import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
@@ -136,6 +137,7 @@ import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.hours
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
@@ -458,6 +460,8 @@ class DashboardViewModel @Inject constructor(
         val queuedTasks: Int,
         val heroSummary: HeroSummary?,
         val upgradeInfo: UpgradeRepo.Info?,
+        /** Minute-ticked wall clock so the hero's relative timestamp doesn't go stale on screen. */
+        val now: Instant = Instant.EPOCH,
     ) {
         enum class Action {
             SCAN,
@@ -480,6 +484,8 @@ class DashboardViewModel @Inject constructor(
         val totalSize: Long,
         val itemCount: Int,
         val tools: List<ToolSlice>,
+        /** When the displayed data came to be: latest scan of the included tools (FREEABLE) or deletion end (FREED). */
+        val timestamp: Instant? = null,
     ) {
         /** FREEABLE = "X will be freed" (post-scan); FREED = "X freed" (post-delete/one-click). */
         enum class Mode { FREEABLE, FREED }
@@ -529,6 +535,11 @@ class DashboardViewModel @Inject constructor(
     /** In-flight main-action cleanup branches; the freed hero stays hidden until this reaches 0. */
     private val pendingMainCleanup = MutableStateFlow(0)
 
+    /** While [discardResults] clears the tools one by one, suppress the hero so it never shows partial data. */
+    private val discarding = MutableStateFlow(false)
+
+    private val nowTicks: Flow<Instant> = intervalFlow(1.minutes).map { Instant.now() }
+
     val bottomBarState: StateFlow<BottomBarState?> = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
@@ -541,6 +552,8 @@ class DashboardViewModel @Inject constructor(
         freedResult,
         pendingMainCleanup,
         listState.map { state -> state?.items?.any { it is MainActionItem } == true },
+        discarding,
+        nowTicks,
     ) { upgradeInfo,
         taskState,
         corpseState,
@@ -551,7 +564,9 @@ class DashboardViewModel @Inject constructor(
         oneClickOptions,
         freed,
         pendingCleanup,
-        listIsReady ->
+        listIsReady,
+        isDiscarding,
+        now ->
 
         val actionState: BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
@@ -575,11 +590,13 @@ class DashboardViewModel @Inject constructor(
                 dedupe = dedupeState.data,
                 oneClick = oneClickOptions,
                 isPro = upgradeInfo?.isPro == true,
+                scanTimes = taskState.latestScanTimes(),
             )
         } else {
             null
         }
-        val heroSummary = freeable ?: freed?.takeIf { taskState.isIdle && pendingCleanup == 0 }
+        val heroSummary = (freeable ?: freed?.takeIf { taskState.isIdle && pendingCleanup == 0 })
+            .takeIf { !isDiscarding }
         BottomBarState(
             isReady = listIsReady,
             actionState = actionState,
@@ -587,6 +604,7 @@ class DashboardViewModel @Inject constructor(
             queuedTasks = queuedTasks,
             heroSummary = heroSummary,
             upgradeInfo = upgradeInfo,
+            now = now,
         )
     }.safeStateIn(
         initialValue = null,
@@ -606,20 +624,7 @@ class DashboardViewModel @Inject constructor(
         launch {
             var latestSeenScan: Instant? = null
             taskManager.state
-                .mapNotNull { state ->
-                    state.tasks
-                        .filter { task ->
-                            task.isComplete && when (task.result) {
-                                is CorpseFinderScanTask.Success,
-                                is SystemCleanerScanTask.Success,
-                                is AppCleanerScanTask.Success,
-                                is DeduplicatorScanTask.Success -> true
-                                else -> false
-                            }
-                        }
-                        .maxByOrNull { it.completedAt!! }
-                        ?.completedAt
-                }
+                .mapNotNull { state -> state.latestScanTimes().values.maxOrNull() }
                 .collect { scanCompletedAt ->
                     val prev = latestSeenScan
                     if (prev == null || scanCompletedAt.isAfter(prev)) {
@@ -647,6 +652,32 @@ class DashboardViewModel @Inject constructor(
     fun restoreHero() {
         log(TAG) { "restoreHero()" }
         heroDismissed.value = false
+    }
+
+    /**
+     * Drops all pending scan results, returning the dashboard to its pristine SCAN state. Unlike
+     * [dismissHero] (which only hides the card), this clears the tools' data, so the main action
+     * no longer threatens deletion. Recoverable by simply rescanning, hence no confirmation step.
+     */
+    fun discardResults() = launch {
+        log(TAG, INFO) { "discardResults()" }
+        if (!taskManager.state.first().isIdle) {
+            // A task snuck in between the button click and us; don't queue up behind the tool
+            // locks just to wipe results the user hasn't even seen yet.
+            log(TAG, WARN) { "discardResults(): tasks are running, aborting" }
+            return@launch
+        }
+        discarding.value = true
+        try {
+            freedResult.value = null
+            corpseFinder.discardScanData()
+            systemCleaner.discardScanData()
+            appCleaner.discardScanData()
+            deduplicator.discardScanData()
+            heroDismissed.value = false
+        } finally {
+            discarding.value = false
+        }
     }
 
     fun setCorpseFinderOneClickEnabled(enabled: Boolean) = launch {
@@ -948,6 +979,7 @@ class DashboardViewModel @Inject constructor(
                 totalSize = slices.sumOf { it.size },
                 itemCount = slices.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
                 tools = slices,
+                timestamp = Instant.now(),
             )
         }
     }
@@ -967,6 +999,7 @@ class DashboardViewModel @Inject constructor(
             dedupe: Deduplicator.Data?,
             oneClick: OneClickOptionsState,
             isPro: Boolean,
+            scanTimes: Map<SDMTool.Type, Instant> = emptyMap(),
         ): HeroSummary? {
             val tools = buildList {
                 corpse?.takeIf { oneClick.corpseFinderEnabled && it.hasData }?.let {
@@ -989,7 +1022,28 @@ class DashboardViewModel @Inject constructor(
                 // Deduplicator's unit is clusters, not discrete files — keep it out of the item headline.
                 itemCount = tools.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
                 tools = tools,
+                // Only the *included* tools' scans: a newer scan of an absent tool must not make
+                // this summary's data look fresher than it is.
+                timestamp = tools.mapNotNull { scanTimes[it.type] }.maxOrNull(),
             )
         }
     }
 }
+
+/**
+ * Latest successful scan completion per tool, considering only the hero/main-action scan results.
+ * Single source of truth for "what counts as a dashboard scan" — used both to revive a dismissed
+ * hero on fresh scans and to stamp [DashboardViewModel.HeroSummary.timestamp].
+ */
+internal fun TaskSubmitter.State.latestScanTimes(): Map<SDMTool.Type, Instant> = tasks
+    .filter { task ->
+        task.isComplete && when (task.result) {
+            is CorpseFinderScanTask.Success,
+            is SystemCleanerScanTask.Success,
+            is AppCleanerScanTask.Success,
+            is DeduplicatorScanTask.Success -> true
+            else -> false
+        }
+    }
+    .groupBy { it.toolType }
+    .mapValues { (_, tasks) -> tasks.maxOf { it.completedAt!! } }
