@@ -102,6 +102,7 @@ internal fun DashboardHeroCard(
                         DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_hint
                     }
                     Text(
+                        modifier = Modifier.padding(top = 6.dp),
                         text = stringResource(hintRes),
                         style = MaterialTheme.typography.bodySmall,
                         color = LocalContentColor.current.copy(alpha = 0.8f),
@@ -120,7 +121,7 @@ internal fun DashboardHeroCard(
             FlowRow(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp, end = 12.dp),
+                    .padding(top = 2.dp, end = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
