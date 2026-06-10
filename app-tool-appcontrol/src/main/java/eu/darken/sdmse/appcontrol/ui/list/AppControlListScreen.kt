@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -386,6 +387,15 @@ internal fun AppControlListScreen(
         if (selection.isNotEmpty()) topBarState.heightOffset = 0f
     }
 
+    // While a task is executing (scan or action), the list content is covered by the progress
+    // overlay — filter/sort/search/refresh would act on data that's about to be replaced, so
+    // those controls are hidden until the task finishes.
+    val isBusy = state.progress != null
+    // Reset the offset while hidden so the filter row reappears fully expanded.
+    LaunchedEffect(isBusy) {
+        if (isBusy) topBarState.heightOffset = 0f
+    }
+
     val sortNonDefault = state.options.listSort != SortSettings()
 
     val subtitle = rows?.let { list ->
@@ -455,7 +465,7 @@ internal fun AppControlListScreen(
                                 )
                             },
                             actions = {
-                                if (!searchActive) {
+                                if (!searchActive && !isBusy) {
                                     SdmTooltipIconButton(
                                         icon = Icons.TwoTone.Search,
                                         label = stringResource(CommonR.string.general_search_action),
@@ -500,23 +510,25 @@ internal fun AppControlListScreen(
                         val visibleHeight = with(density) {
                             (filterRowHeightPx.toFloat() + topBarState.heightOffset).coerceAtLeast(0f).toDp()
                         }
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(visibleHeight)
-                                .clipToBounds(),
-                        ) {
-                            AppControlFilterRow(
-                                modifier = Modifier.offset { IntOffset(0, topBarState.heightOffset.toInt()) },
-                                activeTags = state.options.listFilter.tags,
-                                sortNonDefault = sortNonDefault,
-                                allowFilterActive = state.allowFilterActive,
-                                onTagRemove = onTagToggle,
-                                onAddTags = { openSheet(Sheet.Tags) },
-                                onSort = { openSheet(Sheet.Sort) },
-                                addTagsModifier = Modifier.guidedTourTarget(AppControlListTour.FILTER_TARGET),
-                                sortModifier = Modifier.guidedTourTarget(AppControlListTour.SORT_TARGET),
-                            )
+                        AnimatedVisibility(visible = !isBusy) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(visibleHeight)
+                                    .clipToBounds(),
+                            ) {
+                                AppControlFilterRow(
+                                    modifier = Modifier.offset { IntOffset(0, topBarState.heightOffset.toInt()) },
+                                    activeTags = state.options.listFilter.tags,
+                                    sortNonDefault = sortNonDefault,
+                                    allowFilterActive = state.allowFilterActive,
+                                    onTagRemove = onTagToggle,
+                                    onAddTags = { openSheet(Sheet.Tags) },
+                                    onSort = { openSheet(Sheet.Sort) },
+                                    addTagsModifier = Modifier.guidedTourTarget(AppControlListTour.FILTER_TARGET),
+                                    sortModifier = Modifier.guidedTourTarget(AppControlListTour.SORT_TARGET),
+                                )
+                            }
                         }
                     }
                 }

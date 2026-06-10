@@ -3,12 +3,15 @@ package eu.darken.sdmse.appcontrol.ui.list
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -184,6 +187,44 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText("User").assertExists()
         composeRule.onNodeWithText("Enabled").assertExists()
+    }
+
+    @Test
+    fun `filter row and top bar actions are hidden while a task is executing`() {
+        val filterOptions = AppControlListViewModel.DisplayOptions(
+            listFilter = FilterSettings(
+                tags = setOf(FilterSettings.Tag.USER, FilterSettings.Tag.ENABLED),
+            ),
+        )
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                progress = Progress.Data(),
+                options = filterOptions,
+            ),
+        )
+
+        // Filter chips are gone while the progress overlay covers the list.
+        composeRule.onAllNodesWithText("User").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Enabled").assertCountEquals(0)
+        // Search and overflow actions are gone too — refresh/filter/sort would act on stale data.
+        composeRule.onAllNodesWithContentDescription("Search").assertCountEquals(0)
+        composeRule.onAllNodesWithContentDescription("Options").assertCountEquals(0)
+    }
+
+    @Test
+    fun `filter row and top bar actions are visible when no task is executing`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                options = AppControlListViewModel.DisplayOptions(
+                    listFilter = FilterSettings(tags = setOf(FilterSettings.Tag.USER)),
+                ),
+            ),
+        )
+
+        composeRule.onNodeWithText("User").assertExists()
+        composeRule.onNodeWithContentDescription("Search").assertExists()
     }
 
     private infix fun <T> T.shouldBeEqual(other: T) {
