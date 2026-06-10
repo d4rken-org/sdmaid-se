@@ -322,7 +322,7 @@ class DashboardViewModel @Inject constructor(
         deduplicatorItem.listStateSource("dedup", null),
         squeezerItem.listStateSource("squeezer", null),
         appControlItem.listStateSource("appControl", null),
-        analyzerItem.listStateSource("analyzer", null),
+        analyzerItem.listStateDiag("analyzer"),
         schedulerItem.listStateSource("scheduler", null),
         motdItem.listStateSource("motd", null),
         reviewItem.listStateSource("review", null),

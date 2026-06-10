@@ -1,6 +1,8 @@
 package eu.darken.sdmse.main.ui.dashboard.cards
 
 import android.text.format.Formatter
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -23,6 +25,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.common.compose.shimmer.ShimmerLine
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
@@ -34,6 +37,7 @@ data class AnalyzerDashboardCardItem(
     val data: Analyzer.Data?,
     val progress: Progress.Data?,
     val combinedDelta: Long? = null,
+    val isLoadingTrend: Boolean = false,
     val onViewDetails: () -> Unit,
 ) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
@@ -62,23 +66,32 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
             style = MaterialTheme.typography.bodySmall,
         )
 
-        item.combinedDelta?.let { delta ->
-            Spacer(modifier = Modifier.height(4.dp))
-            val absDelta = Formatter.formatShortFileSize(LocalContext.current, delta.absoluteValue)
-            val signedDelta = when {
-                delta > 0 -> "+$absDelta"
-                delta < 0 -> "-$absDelta"
-                else -> absDelta
+        // AnimatedVisibility so a resolved-but-absent trend (fresh installs) collapses smoothly
+        // instead of snapping the card height after the shimmer.
+        AnimatedVisibility(visible = item.isLoadingTrend || item.combinedDelta != null) {
+            Column {
+                Spacer(modifier = Modifier.height(4.dp))
+                val delta = item.combinedDelta
+                if (delta == null) {
+                    ShimmerLine(height = 14.dp)
+                } else {
+                    val absDelta = Formatter.formatShortFileSize(LocalContext.current, delta.absoluteValue)
+                    val signedDelta = when {
+                        delta > 0 -> "+$absDelta"
+                        delta < 0 -> "-$absDelta"
+                        else -> absDelta
+                    }
+                    Text(
+                        text = stringResource(AnalyzerR.string.analyzer_storage_trend_delta_in_7d, signedDelta),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = when {
+                            delta > 0 -> MaterialTheme.colorScheme.error
+                            delta < 0 -> MaterialTheme.colorScheme.primary
+                            else -> MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                    )
+                }
             }
-            Text(
-                text = stringResource(AnalyzerR.string.analyzer_storage_trend_delta_in_7d, signedDelta),
-                style = MaterialTheme.typography.bodySmall,
-                color = when {
-                    delta > 0 -> MaterialTheme.colorScheme.error
-                    delta < 0 -> MaterialTheme.colorScheme.primary
-                    else -> MaterialTheme.colorScheme.onSurfaceVariant
-                },
-            )
         }
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -106,6 +119,21 @@ private fun AnalyzerDashboardCardPreview() {
                 data = null,
                 progress = null,
                 combinedDelta = 512L * 1024L * 1024L,
+                onViewDetails = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AnalyzerDashboardCardLoadingPreview() {
+    PreviewWrapper {
+        AnalyzerDashboardCard(
+            item = AnalyzerDashboardCardItem(
+                data = null,
+                progress = null,
+                isLoadingTrend = true,
                 onViewDetails = {},
             ),
         )

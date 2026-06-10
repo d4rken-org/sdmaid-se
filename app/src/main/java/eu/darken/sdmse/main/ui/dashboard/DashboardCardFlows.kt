@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
+import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.flow.intervalFlow
@@ -41,6 +42,7 @@ import eu.darken.sdmse.main.ui.dashboard.cards.UpdateDashboardCardItem
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
+import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.ui.ReportsRoute
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -250,32 +252,37 @@ internal fun DashboardViewModel.buildAppControlItem(): Flow<AppControlDashboardC
         }
 
 internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardItem?> = combine(
-    analyzer.data,
-    analyzer.progress,
-    intervalFlow(1.hours).flatMapLatest {
-        spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
-    },
+    // Each input emits an immediate fallback so the card shell renders in the first grid frame;
+    // the trend slot shimmers (isLoadingTrend) until the Room history query resolves.
+    (analyzer.data as Flow<Analyzer.Data?>).onStart { emit(null) },
+    analyzer.progress.onStart { emit(null) },
+    intervalFlow(1.hours)
+        .flatMapLatest { spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7)) }
+        .onStart<List<SpaceSnapshotEntity>?> { emit(null) },
 ) { data, progress, snapshots ->
-    val combinedDelta = snapshots
-        .groupBy { it.storageId }
-        .values
-        .filter { it.size >= 2 }
-        .sumOf { group ->
-            val sorted = group.sortedBy { it.recordedAt }
-            val firstUsed = sorted.first().let { it.spaceCapacity - it.spaceFree }
-            val lastUsed = sorted.last().let { it.spaceCapacity - it.spaceFree }
-            lastUsed - firstUsed
-        }
-        .takeIf { snapshots.groupBy { s -> s.storageId }.values.any { it.size >= 2 } }
-
     AnalyzerDashboardCardItem(
         data = data,
         progress = progress,
-        combinedDelta = combinedDelta,
+        combinedDelta = snapshots?.let { calculateCombinedDelta(it) },
+        isLoadingTrend = snapshots == null,
         onViewDetails = {
             navTo(DeviceStorageRoute)
         },
     )
+}
+
+internal fun calculateCombinedDelta(snapshots: List<SpaceSnapshotEntity>): Long? {
+    val trendGroups = snapshots
+        .groupBy { it.storageId }
+        .values
+        .filter { it.size >= 2 }
+    if (trendGroups.isEmpty()) return null
+    return trendGroups.sumOf { group ->
+        val sorted = group.sortedBy { it.recordedAt }
+        val firstUsed = sorted.first().let { it.spaceCapacity - it.spaceFree }
+        val lastUsed = sorted.last().let { it.spaceCapacity - it.spaceFree }
+        lastUsed - firstUsed
+    }
 }
 
 internal fun DashboardViewModel.buildSetupCardItem(): Flow<SetupDashboardCardItem?> = setupManager.state
