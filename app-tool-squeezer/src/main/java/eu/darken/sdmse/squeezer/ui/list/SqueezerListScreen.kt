@@ -29,7 +29,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -45,6 +44,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
@@ -380,21 +381,24 @@ private fun SqueezerPreviewCompressionDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { onCompress(quality) }) {
-                Text(stringResource(R.string.squeezer_compress_action))
-            }
-        },
-        dismissButton = {
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(CommonR.string.general_cancel_action))
-                }
-                if (canCompare) {
-                    TextButton(onClick = onViewComparison) {
-                        Text(stringResource(R.string.squeezer_compare_action))
-                    }
-                }
-            }
+            SdmDialogButtonBar(
+                positive = SdmDialogAction(
+                    label = stringResource(R.string.squeezer_compress_action),
+                    onClick = { onCompress(quality) },
+                ),
+                negative = SdmDialogAction(
+                    label = stringResource(CommonR.string.general_cancel_action),
+                    onClick = onDismiss,
+                ),
+                neutral = if (canCompare) {
+                    SdmDialogAction(
+                        label = stringResource(R.string.squeezer_compare_action),
+                        onClick = onViewComparison,
+                    )
+                } else {
+                    null
+                },
+            )
         },
     )
 }

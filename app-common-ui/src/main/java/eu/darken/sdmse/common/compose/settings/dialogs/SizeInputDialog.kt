@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.compose.settings.dialogs
 import android.text.format.Formatter
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,7 +11,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +21,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.SizeParser
@@ -101,22 +101,21 @@ fun SizeInputDialog(
             }
         },
         confirmButton = {
-            TextButton(
-                enabled = saveEnabled,
-                onClick = {
-                    onSave(sliderKb.toLong() * KB_MULTIPLIER)
-                },
-            ) { Text(stringResource(R.string.general_save_action)) }
-        },
-        dismissButton = {
-            Row {
-                TextButton(onClick = onReset) {
-                    Text(stringResource(R.string.general_reset_action))
-                }
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(R.string.general_cancel_action))
-                }
-            }
+            SdmDialogButtonBar(
+                positive = SdmDialogAction(
+                    label = stringResource(R.string.general_save_action),
+                    enabled = saveEnabled,
+                    onClick = { onSave(sliderKb.toLong() * KB_MULTIPLIER) },
+                ),
+                negative = SdmDialogAction(
+                    label = stringResource(R.string.general_cancel_action),
+                    onClick = onDismiss,
+                ),
+                neutral = SdmDialogAction(
+                    label = stringResource(R.string.general_reset_action),
+                    onClick = onReset,
+                ),
+            )
         },
     )
 }
