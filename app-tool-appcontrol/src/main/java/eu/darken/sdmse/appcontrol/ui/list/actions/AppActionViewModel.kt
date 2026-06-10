@@ -1,7 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list.actions
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
@@ -258,26 +259,24 @@ class AppActionViewModel @Inject constructor(
             .onFailure { errorEvents.emitBlocking(it) }
     }
 
-    private fun openUsageScreen() {
-        val wellBeing = Intent().apply {
-            component = ComponentName(
-                "com.google.android.apps.wellbeing",
-                "com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity",
-            )
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    private fun openUsageScreen() = launch {
+        val appInfo = currentAppInfoOrNull() ?: return@launch
+        val usageIntent = if (hasApiLevel(29)) {
+            Intent(Settings.ACTION_APP_USAGE_SETTINGS).apply {
+                putExtra(Intent.EXTRA_PACKAGE_NAME, appInfo.pkg.packageName)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        } else {
+            null
         }
         try {
-            context.startActivity(wellBeing)
-        } catch (_: android.content.ActivityNotFoundException) {
-            // Wellbeing not installed; fall back to per-app system settings.
-            launch {
-                val appInfo = currentAppInfoOrNull() ?: return@launch
-                val fallback = appInfo.createSystemSettingsIntent(context)
-                runCatching { context.startActivity(fallback) }
-                    .onFailure { errorEvents.emit(it) }
-            }
-        } catch (e: Exception) {
-            errorEvents.emitBlocking(e)
+            if (usageIntent == null) throw ActivityNotFoundException()
+            context.startActivity(usageIntent)
+        } catch (_: ActivityNotFoundException) {
+            // No per-app usage screen available; fall back to per-app system settings.
+            val fallback = appInfo.createSystemSettingsIntent(context)
+            runCatching { context.startActivity(fallback) }
+                .onFailure { errorEvents.emit(it) }
         }
     }
 
