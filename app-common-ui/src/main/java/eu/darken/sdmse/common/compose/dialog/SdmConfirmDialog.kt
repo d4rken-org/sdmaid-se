@@ -1,16 +1,10 @@
 package eu.darken.sdmse.common.compose.dialog
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -59,40 +53,11 @@ fun SdmConfirmDialog(
         title = title?.let { { Text(it) } },
         text = content,
         confirmButton = {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = if (neutral != null) {
-                    Arrangement.SpaceBetween
-                } else {
-                    Arrangement.End
-                },
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                if (neutral != null) {
-                    TextButton(
-                        onClick = neutral.onClick,
-                        enabled = neutral.enabled,
-                    ) {
-                        Text(neutral.label)
-                    }
-                }
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    if (negative != null) {
-                        TextButton(
-                            onClick = negative.onClick,
-                            enabled = negative.enabled,
-                        ) {
-                            Text(negative.label)
-                        }
-                    }
-                    TextButton(
-                        onClick = positive.onClick,
-                        enabled = positive.enabled,
-                    ) {
-                        Text(positive.label)
-                    }
-                }
-            }
+            SdmDialogButtonBar(
+                positive = positive,
+                negative = negative,
+                neutral = neutral,
+            )
         },
     )
 }

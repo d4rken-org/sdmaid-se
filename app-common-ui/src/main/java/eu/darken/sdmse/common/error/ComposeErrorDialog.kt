@@ -1,25 +1,22 @@
 package eu.darken.sdmse.common.error
 
 import android.app.Activity
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
 import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.navigation.NavigationDestination
 
 /**
  * Pluggable customizer for error dialogs. Set this to handle app-specific error types
@@ -42,6 +39,14 @@ fun ComposeErrorDialog(
     val hasFix = localizedError.fixActionRoute != null || localizedError.fixAction != null
     val hasInfo = localizedError.infoActionRoute != null || localizedError.infoAction != null
 
+    fun dispatchAndDismiss(route: NavigationDestination?, action: ((Activity) -> Unit)?) {
+        when {
+            route != null -> navController?.goTo(route)
+            action != null && activity != null -> action(activity)
+        }
+        onDismiss()
+    }
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
@@ -62,54 +67,37 @@ fun ComposeErrorDialog(
             }
         },
         confirmButton = {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                if (hasInfo) {
-                    TextButton(
-                        onClick = {
-                            val route = localizedError.infoActionRoute
-                            val action = localizedError.infoAction
-                            when {
-                                route != null -> navController?.goTo(route)
-                                action != null && activity != null -> action(activity)
-                            }
-                            onDismiss()
-                        },
-                    ) {
-                        Text(
-                            localizedError.infoActionLabel?.get(context)
-                                ?: stringResource(R.string.general_show_details_action)
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-
-                if (hasFix) {
-                    TextButton(onClick = onDismiss) {
-                        Text(stringResource(R.string.general_cancel_action))
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    TextButton(
-                        onClick = {
-                            val route = localizedError.fixActionRoute
-                            val action = localizedError.fixAction
-                            when {
-                                route != null -> navController?.goTo(route)
-                                action != null && activity != null -> action(activity)
-                            }
-                            onDismiss()
-                        },
-                    ) {
-                        Text(
-                            localizedError.fixActionLabel?.get(context)
-                                ?: stringResource(android.R.string.ok)
-                        )
-                    }
+            SdmDialogButtonBar(
+                positive = if (hasFix) {
+                    SdmDialogAction(
+                        label = localizedError.fixActionLabel?.get(context)
+                            ?: stringResource(android.R.string.ok),
+                        onClick = { dispatchAndDismiss(localizedError.fixActionRoute, localizedError.fixAction) },
+                    )
                 } else {
-                    TextButton(onClick = onDismiss) {
-                        Text(stringResource(android.R.string.ok))
-                    }
-                }
-            }
+                    SdmDialogAction(
+                        label = stringResource(android.R.string.ok),
+                        onClick = onDismiss,
+                    )
+                },
+                negative = if (hasFix) {
+                    SdmDialogAction(
+                        label = stringResource(R.string.general_cancel_action),
+                        onClick = onDismiss,
+                    )
+                } else {
+                    null
+                },
+                neutral = if (hasInfo) {
+                    SdmDialogAction(
+                        label = localizedError.infoActionLabel?.get(context)
+                            ?: stringResource(R.string.general_show_details_action),
+                        onClick = { dispatchAndDismiss(localizedError.infoActionRoute, localizedError.infoAction) },
+                    )
+                } else {
+                    null
+                },
+            )
         },
     )
 }
