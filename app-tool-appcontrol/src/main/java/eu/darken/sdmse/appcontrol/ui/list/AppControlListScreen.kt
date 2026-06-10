@@ -70,6 +70,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
@@ -105,6 +107,12 @@ fun AppControlListScreenHost(
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        // Re-check permission-backed setup state (usage access, storage) — it may have changed
+        // in system settings or the setup screen while this screen wasn't in front.
+        vm.onScreenResume()
+    }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -745,8 +753,7 @@ internal fun AppControlListScreen(
         Sheet.Sort -> SdmModalBottomSheet(onDismiss = { activeSheet = null }) {
             AppControlSortSheetContent(
                 sort = state.options.listSort,
-                allowSortSize = state.allowSortSize,
-                allowSortScreenTime = state.allowSortScreenTime,
+                sizeSortModuleEnabled = state.sizeSortModuleEnabled,
                 sizeSortCaveatVisible = sizeSortCaveatVisible,
                 onSortModeChanged = onSortModeChanged,
                 onSortDirectionToggle = onSortDirectionToggle,

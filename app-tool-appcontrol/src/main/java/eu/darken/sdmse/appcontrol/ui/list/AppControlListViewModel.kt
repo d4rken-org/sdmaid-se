@@ -25,6 +25,7 @@ import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
@@ -45,11 +46,15 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupBinding
+import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -65,6 +70,8 @@ class AppControlListViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val upgradeRepo: UpgradeRepo,
     private val taskManager: TaskSubmitter,
+    @SetupBinding(SetupModule.Type.USAGE_STATS) private val usageStatsSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
@@ -77,6 +84,35 @@ class AppControlListViewModel @Inject constructor(
             if (initState.data != null) return@launch
             taskManager.submit(buildScanTask())
         }
+        // Reset a persisted sort whose required setup has been revoked (e.g. usage access
+        // permission removed while sorted by screen time), otherwise the stale mode wedges
+        // the list in an all-N/A state with no UI path out.
+        appControl.state
+            .onEach { acState ->
+                val sort = settings.listSort.value()
+                if ((requiredSetupFor(sort.mode) intersect acState.missingSetup).isNotEmpty()) {
+                    log(TAG, INFO) { "Resetting sort ${sort.mode}, missing setup: ${acState.missingSetup}" }
+                    settings.listSort.value(SortSettings())
+                }
+            }
+            .launchInViewModel()
+    }
+
+    private fun requiredSetupFor(mode: SortSettings.Mode): Set<SetupModule.Type> = when (mode) {
+        SortSettings.Mode.SIZE -> setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.STORAGE)
+        SortSettings.Mode.SCREEN_TIME -> setOf(SetupModule.Type.USAGE_STATS)
+        else -> emptySet()
+    }
+
+    fun onScreenResume() = launch {
+        // Permission state is cached in the setup modules and can go stale if usage access or
+        // storage permissions change while this screen isn't in front (system settings, setup
+        // screen, adb). Without this, the setup-required gate decides on outdated state: it can
+        // show a dialog for an already-granted permission, whose setup screen then instantly
+        // auto-closes ("everything complete") — a confusing dead-end loop.
+        log(TAG) { "onScreenResume(): refreshing setup modules" }
+        usageStatsSetupModule.refresh()
+        storageSetupModule.refresh()
     }
 
     val events = SingleEventFlow<Event>()
@@ -97,30 +133,32 @@ class AppControlListViewModel @Inject constructor(
         appControl.progress,
         displayOptions,
     ) { acState, progress, options ->
-        // If size sort was selected but the current scan didn't load size info, fall back to
-        // default sort so the list isn't empty/wrong.
-        val effectiveOptions = if (options.listSort.mode == SortSettings.Mode.SIZE && !acState.canInfoSize) {
-            options.copy(listSort = SortSettings())
-        } else {
-            options
+        // If the selected sort's backing data wasn't loaded by the current scan (missing or
+        // revoked permission, stale scan), order rows by the default sort instead of garbage
+        // null values. Only row ordering falls back — the displayed options keep the requested
+        // sort, so the sort sheet doesn't flap while the post-selection rescan is running.
+        // Permanently impossible sorts are reset in the persisted settings (see init).
+        val sortDataMissing = when (options.listSort.mode) {
+            SortSettings.Mode.SIZE -> acState.data?.hasInfoSize != true
+            SortSettings.Mode.SCREEN_TIME -> acState.data?.hasInfoScreenTime != true
+            else -> false
         }
+        val orderingOptions = if (sortDataMissing) options.copy(listSort = SortSettings()) else options
 
         val allowFilterActive = acState.canInfoActive && settings.moduleActivityEnabled.value()
-        val allowSortSize = acState.canInfoSize && settings.moduleSizingEnabled.value()
 
-        val rows = acState.data?.apps?.let { apps -> filterSortRows(apps, effectiveOptions) }
+        val rows = acState.data?.apps?.let { apps -> filterSortRows(apps, orderingOptions) }
 
         State(
             rows = rows,
             progress = progress,
-            options = effectiveOptions,
+            options = options,
             allowActionToggle = acState.canToggle,
             allowActionForceStop = acState.canForceStop,
             allowActionArchive = acState.canArchive,
             allowActionRestore = acState.canRestore,
             allowFilterActive = allowFilterActive,
-            allowSortSize = allowSortSize,
-            allowSortScreenTime = acState.canInfoScreenTime,
+            sizeSortModuleEnabled = settings.moduleSizingEnabled.value(),
         )
     }
         .combine(settings.listFastScrollerEnabled.flow) { base, fastScrollerEnabled ->
@@ -201,6 +239,18 @@ class AppControlListViewModel @Inject constructor(
 
     fun onSortModeChanged(mode: SortSettings.Mode) = launch {
         log(TAG) { "onSortModeChanged($mode)" }
+        if (mode == SortSettings.Mode.SIZE && !settings.moduleSizingEnabled.value()) {
+            log(TAG, WARN) { "Ignoring SIZE sort, sizing module is disabled" }
+            return@launch
+        }
+
+        val missing = requiredSetupFor(mode) intersect appControl.state.first().missingSetup
+        if (missing.isNotEmpty()) {
+            log(TAG, INFO) { "Sort mode $mode requires missing setup: $missing" }
+            errorEvents.emit(IncompleteSetupException(missing))
+            return@launch
+        }
+
         settings.listSort.update { it.copy(mode = mode) }
         when (mode) {
             SortSettings.Mode.SIZE -> {
@@ -466,8 +516,7 @@ class AppControlListViewModel @Inject constructor(
         val allowActionForceStop: Boolean = false,
         val allowActionArchive: Boolean = false,
         val allowActionRestore: Boolean = false,
-        val allowSortSize: Boolean = false,
-        val allowSortScreenTime: Boolean = false,
+        val sizeSortModuleEnabled: Boolean = false,
         val allowFilterActive: Boolean = false,
         val fastScrollerEnabled: Boolean = false,
     )

@@ -84,6 +84,8 @@ class AppControlTest : BaseTest() {
         useAdb: Boolean = false,
         archiveEnabled: Boolean = false,
         appsReturnedByScan: Set<AppInfo> = emptySet(),
+        usageStatsSetupModuleOverride: SetupModule? = null,
+        storageSetupModuleOverride: SetupModule? = null,
     ): Setup {
         val appScan = mockk<AppScan>().apply {
             every { sharedResource } returns SharedResource.createKeepAlive("appScan", keepAliveScope)
@@ -93,13 +95,15 @@ class AppControlTest : BaseTest() {
 
         // Production: canInfoActive = usageStatsSetupModule.isComplete OR useRoot OR useAdb.
         // Drive it through the setup module so the production combine still wires up the same way.
-        val usageStatsSetupModule = fakeSetupModule(SetupModule.Type.USAGE_STATS, canInfoActive)
+        val usageStatsSetupModule = usageStatsSetupModuleOverride
+            ?: fakeSetupModule(SetupModule.Type.USAGE_STATS, canInfoActive)
         // canInfoSize = usageStatsSetupModule.isComplete AND storageSetupModule.isComplete.
         // Both must be true for canInfoSize=true. usage is already set above; storage must match
         // canInfoSize to control the AND product. When `canInfoSize` is requested true but the
         // usage flag is false, the AND fails and canInfoSize ends up false — that's intentional;
         // we tighten the test fixture to match the production formula.
-        val storageSetupModule = fakeSetupModule(SetupModule.Type.STORAGE, canInfoSize)
+        val storageSetupModule = storageSetupModuleOverride
+            ?: fakeSetupModule(SetupModule.Type.STORAGE, canInfoSize)
         val appInventorySetupModule = fakeSetupModule(SetupModule.Type.INVENTORY, complete = true)
 
         val automationSubmitter = mockk<AutomationSubmitter>().apply {
@@ -303,5 +307,56 @@ class AppControlTest : BaseTest() {
 
         // canInfoActive=false → AND collapses to false.
         includeActiveSlot.captured shouldBe false
+    }
+
+    // ─────────────────────────── missingSetup derivation ───────────────────────────
+
+    private fun loadingSetupModule(type: SetupModule.Type): SetupModule = mockk<SetupModule>().apply {
+        every { state } returns flowOf(
+            object : SetupModule.State.Loading {
+                override val type = type
+                override val startAt: Instant = Instant.EPOCH
+            },
+        )
+        coJustRun { refresh() }
+    }
+
+    @Test
+    fun `missingSetup is empty when all modules are complete`() = runTest2 {
+        val setup = setupAppControl(canInfoActive = true, canInfoSize = true)
+
+        setup.appControl.state.first().missingSetup shouldBe emptySet()
+    }
+
+    @Test
+    fun `missingSetup lists incomplete Current modules`() = runTest2 {
+        val setup = setupAppControl(
+            usageStatsSetupModuleOverride = fakeSetupModule(SetupModule.Type.USAGE_STATS, complete = false),
+            storageSetupModuleOverride = fakeSetupModule(SetupModule.Type.STORAGE, complete = true),
+        )
+
+        setup.appControl.state.first().missingSetup shouldBe setOf(SetupModule.Type.USAGE_STATS)
+
+        val both = setupAppControl(
+            usageStatsSetupModuleOverride = fakeSetupModule(SetupModule.Type.USAGE_STATS, complete = false),
+            storageSetupModuleOverride = fakeSetupModule(SetupModule.Type.STORAGE, complete = false),
+        )
+
+        both.appControl.state.first().missingSetup shouldBe setOf(
+            SetupModule.Type.USAGE_STATS,
+            SetupModule.Type.STORAGE,
+        )
+    }
+
+    @Test
+    fun `missingSetup ignores modules that are still Loading`() = runTest2 {
+        // Loading must not count as missing, otherwise the UI would flash setup-required
+        // dialogs during startup before the module state has resolved.
+        val setup = setupAppControl(
+            usageStatsSetupModuleOverride = loadingSetupModule(SetupModule.Type.USAGE_STATS),
+            storageSetupModuleOverride = fakeSetupModule(SetupModule.Type.STORAGE, complete = false),
+        )
+
+        setup.appControl.state.first().missingSetup shouldBe setOf(SetupModule.Type.STORAGE)
     }
 }

@@ -31,6 +31,8 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupModule
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -117,6 +119,7 @@ class AppControlListViewModelTest : BaseTest() {
         canInfoSize: Boolean = true,
         canInfoScreenTime: Boolean = true,
         canIncludeMultiUser: Boolean = false,
+        missingSetup: Set<SetupModule.Type> = emptySet(),
     ): AppControl.State = AppControl.State(
         data = data,
         progress = progress,
@@ -128,6 +131,7 @@ class AppControlListViewModelTest : BaseTest() {
         canInfoSize = canInfoSize,
         canInfoScreenTime = canInfoScreenTime,
         canIncludeMultiUser = canIncludeMultiUser,
+        missingSetup = missingSetup,
     )
 
     private fun <T> rwDataStoreValue(initial: T, flow: Flow<T> = flowOf(initial)): DataStoreValue<T> =
@@ -135,6 +139,26 @@ class AppControlListViewModelTest : BaseTest() {
             every { this@apply.flow } returns flow
             coEvery { update(any()) } returns DataStoreValue.Updated(old = initial, new = initial)
         }
+
+    /**
+     * Mutable fake: `update {}` applies the transformer to a backing MutableStateFlow, so
+     * `value()` reads after writes (e.g. buildScanTask reading listSort post-persist) see the
+     * new value instead of the static initial.
+     */
+    private fun <T> mutableDataStoreValue(initial: T): Pair<DataStoreValue<T>, MutableStateFlow<T>> {
+        val backing = MutableStateFlow(initial)
+        val value = mockk<DataStoreValue<T>>().apply {
+            every { this@apply.flow } returns backing
+            coEvery { update(any()) } answers {
+                val old = backing.value
+                @Suppress("UNCHECKED_CAST")
+                val new = (firstArg() as (T) -> T).invoke(old)
+                backing.value = new
+                DataStoreValue.Updated(old = old, new = new)
+            }
+        }
+        return value to backing
+    }
 
     private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
         every { this@apply.isPro } returns isPro
@@ -150,7 +174,10 @@ class AppControlListViewModelTest : BaseTest() {
         val exclusionManager: ExclusionManager,
         val upgradeRepo: UpgradeRepo,
         val settings: AppControlSettings,
+        val usageStatsSetupModule: SetupModule,
+        val storageSetupModule: SetupModule,
         val listSort: DataStoreValue<SortSettings>,
+        val listSortBacking: MutableStateFlow<SortSettings>,
         val listFilter: DataStoreValue<FilterSettings>,
         val ackSizeSortCaveat: DataStoreValue<Boolean>,
         val listFastScrollerEnabled: DataStoreValue<Boolean>,
@@ -214,6 +241,7 @@ class AppControlListViewModelTest : BaseTest() {
         canInfoActive: Boolean = true,
         canInfoSize: Boolean = true,
         canInfoScreenTime: Boolean = true,
+        missingSetup: Set<SetupModule.Type> = emptySet(),
     ): Harness {
         val stateFlow = MutableStateFlow(
             appControlState(
@@ -226,6 +254,7 @@ class AppControlListViewModelTest : BaseTest() {
                 canInfoActive = canInfoActive,
                 canInfoSize = canInfoSize,
                 canInfoScreenTime = canInfoScreenTime,
+                missingSetup = missingSetup,
             ),
         )
         val progressFlow = MutableStateFlow(progress)
@@ -234,7 +263,7 @@ class AppControlListViewModelTest : BaseTest() {
             every { this@apply.progress } returns progressFlow
         }
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
-        val listSort = rwDataStoreValue(sort)
+        val (listSort, listSortBacking) = mutableDataStoreValue(sort)
         val listFilter = rwDataStoreValue(filter)
         val ackSizeSortCaveatStore = rwDataStoreValue(ackSizeSortCaveatValue)
         val listFastScrollerEnabledStore = rwDataStoreValue(fastScrollerEnabled)
@@ -255,6 +284,8 @@ class AppControlListViewModelTest : BaseTest() {
             every { this@apply.upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
         val context = mockk<Context>(relaxed = true)
+        val usageStatsSetupModule = mockk<SetupModule>(relaxed = true)
+        val storageSetupModule = mockk<SetupModule>(relaxed = true)
 
         val vm = AppControlListViewModel(
             handle = SavedStateHandle(),
@@ -265,6 +296,8 @@ class AppControlListViewModelTest : BaseTest() {
             exclusionManager = exclusionManager,
             upgradeRepo = upgradeRepo,
             taskManager = taskSubmitter,
+            usageStatsSetupModule = usageStatsSetupModule,
+            storageSetupModule = storageSetupModule,
         )
         return Harness(
             vm = vm,
@@ -273,7 +306,10 @@ class AppControlListViewModelTest : BaseTest() {
             exclusionManager = exclusionManager,
             upgradeRepo = upgradeRepo,
             settings = settings,
+            usageStatsSetupModule = usageStatsSetupModule,
+            storageSetupModule = storageSetupModule,
             listSort = listSort,
+            listSortBacking = listSortBacking,
             listFilter = listFilter,
             ackSizeSortCaveat = ackSizeSortCaveatStore,
             listFastScrollerEnabled = listFastScrollerEnabledStore,
@@ -501,9 +537,10 @@ class AppControlListViewModelTest : BaseTest() {
 
     @Test
     fun `sort by SIZE falls back to default sort when size info is missing`() = runTest2 {
-        // Regression: when sort.mode is SIZE but canInfoSize is false on the AppControl state,
-        // the VM substitutes SortSettings() (LAST_UPDATE, reversed=true) so the rows aren't
-        // sorted by garbage 0L values.
+        // Regression: when sort.mode is SIZE but the current scan didn't load size info
+        // (data.hasInfoSize=false), row ORDERING falls back to SortSettings() (LAST_UPDATE,
+        // reversed=true) so rows aren't sorted by garbage 0L values. The displayed options keep
+        // the requested sort — the sheet radio must not flap while a rescan is in flight.
         val newer = appInfo("com.newer.app", updatedAt = Instant.ofEpochSecond(2_000_000_000L))
         val older = appInfo("com.older.app", updatedAt = Instant.ofEpochSecond(1_000_000_000L))
         val h = harness(
@@ -514,8 +551,8 @@ class AppControlListViewModelTest : BaseTest() {
         )
 
         val state = h.vm.state.first()
-        // Effective sort fell back to LAST_UPDATE reversed=true → newer first.
-        state.options.listSort shouldBe SortSettings()
+        state.options.listSort shouldBe SortSettings(mode = SortSettings.Mode.SIZE, reversed = false)
+        // Ordering fell back to LAST_UPDATE reversed=true → newer first.
         state.rows!!.map { it.appInfo.pkg.packageName } shouldBe listOf("com.newer.app", "com.older.app")
     }
 
@@ -888,9 +925,7 @@ class AppControlListViewModelTest : BaseTest() {
         state.allowActionForceStop shouldBe false
         state.allowActionArchive shouldBe true
         state.allowActionRestore shouldBe true
-        state.allowSortScreenTime shouldBe false
         state.allowFilterActive shouldBe false
-        state.allowSortSize shouldBe false
     }
 
     @Test
@@ -917,23 +952,140 @@ class AppControlListViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `state allowSortSize requires both canInfoSize and moduleSizingEnabled`() = runTest2 {
-        val onlyCap = harness(
+    fun `state sizeSortModuleEnabled mirrors the module setting only`() = runTest2 {
+        // Permission state must NOT disable the size sort row anymore — tapping it with missing
+        // setup shows the setup dialog instead. Only the explicit module toggle disables it.
+        val moduleOff = harness(
             canInfoSize = true,
             sizingEnabled = false,
         )
-        onlyCap.vm.state.first().allowSortSize shouldBe false
+        moduleOff.vm.state.first().sizeSortModuleEnabled shouldBe false
 
-        val onlyEnabled = harness(
+        val moduleOnNoPermission = harness(
             canInfoSize = false,
             sizingEnabled = true,
         )
-        onlyEnabled.vm.state.first().allowSortSize shouldBe false
+        moduleOnNoPermission.vm.state.first().sizeSortModuleEnabled shouldBe true
+    }
 
-        val both = harness(
-            canInfoSize = true,
-            sizingEnabled = true,
+    // ─────────────────────────── setup-gated sort modes ───────────────────────────
+
+    @Test
+    fun `selecting SCREEN_TIME with missing usage setup emits IncompleteSetupException and does not persist`() = runTest2 {
+        val h = harness(missingSetup = setOf(SetupModule.Type.USAGE_STATS))
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) {
+            h.vm.errorEvents.collect { errors.add(it) }
+        }
+
+        h.vm.onSortModeChanged(SortSettings.Mode.SCREEN_TIME)
+        advanceUntilIdle()
+
+        val error = errors.single()
+        error.shouldBeInstanceOf<IncompleteSetupException>()
+        error.setupTypes shouldBe setOf(SetupModule.Type.USAGE_STATS)
+        h.listSortBacking.value shouldBe SortSettings()
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `selecting SIZE with only storage missing emits exactly the missing subset`() = runTest2 {
+        val h = harness(missingSetup = setOf(SetupModule.Type.STORAGE))
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) {
+            h.vm.errorEvents.collect { errors.add(it) }
+        }
+
+        h.vm.onSortModeChanged(SortSettings.Mode.SIZE)
+        advanceUntilIdle()
+
+        val error = errors.single()
+        error.shouldBeInstanceOf<IncompleteSetupException>()
+        error.setupTypes shouldBe setOf(SetupModule.Type.STORAGE)
+        h.listSortBacking.value shouldBe SortSettings()
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `selecting SIZE while sizing module is disabled is a no-op`() = runTest2 {
+        // Defence-in-depth: the row is disabled in the sheet, but a direct call must neither
+        // persist the sort nor show a setup dialog (the module being off is a user choice).
+        val h = harness(
+            sizingEnabled = false,
+            missingSetup = setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.STORAGE),
         )
-        both.vm.state.first().allowSortSize shouldBe true
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) {
+            h.vm.errorEvents.collect { errors.add(it) }
+        }
+
+        h.vm.onSortModeChanged(SortSettings.Mode.SIZE)
+        advanceUntilIdle()
+
+        errors shouldBe emptyList()
+        h.listSortBacking.value shouldBe SortSettings()
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `selecting SCREEN_TIME with setup complete persists sort and submits scan loading usage`() = runTest2 {
+        // Order matters: the sort must be persisted BEFORE refresh(), because buildScanTask()
+        // reads the persisted mode to decide loadInfoScreenTime.
+        val h = harness(missingSetup = emptySet())
+
+        h.vm.onSortModeChanged(SortSettings.Mode.SCREEN_TIME)
+        advanceUntilIdle()
+
+        h.listSortBacking.value.mode shouldBe SortSettings.Mode.SCREEN_TIME
+        val task = slot<AppControlScanTask>()
+        coVerify(exactly = 1) { h.taskSubmitter.submit(capture(task)) }
+        task.captured.loadInfoScreenTime shouldBe true
+    }
+
+    @Test
+    fun `onScreenResume refreshes permission-backed setup modules`() = runTest2 {
+        // Setup-module permission state is cached; resuming the screen must re-check it so the
+        // setup-required gate doesn't decide on stale state (e.g. permission granted in system
+        // settings while this screen was in the background).
+        val h = harness()
+
+        h.vm.onScreenResume()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.usageStatsSetupModule.refresh() }
+        coVerify(exactly = 1) { h.storageSetupModule.refresh() }
+    }
+
+    @Test
+    fun `persisted sort is reset when its required setup becomes missing`() = runTest2 {
+        // E.g. usage access revoked while sorted by screen time: without the reset the list
+        // stays wedged on a sort mode whose data can never load.
+        val h = harness(
+            sort = SortSettings(mode = SortSettings.Mode.SCREEN_TIME),
+            missingSetup = setOf(SetupModule.Type.USAGE_STATS),
+        )
+        advanceUntilIdle()
+
+        h.listSortBacking.value shouldBe SortSettings()
+    }
+
+    @Test
+    fun `persisted SCREEN_TIME sort orders rows by default sort when scan lacks usage data`() = runTest2 {
+        // canInfoScreenTime=true (permission fine) but the current scan didn't load usage —
+        // ordering must not use garbage null durations. Displayed options keep the requested
+        // sort so the UI doesn't flap during the rescan that onSortModeChanged triggers.
+        val newer = appInfo("com.newer.app", updatedAt = Instant.ofEpochSecond(2_000_000_000L))
+        val older = appInfo("com.older.app", updatedAt = Instant.ofEpochSecond(1_000_000_000L))
+        val h = harness(
+            data = dataOf(newer, older),
+            sort = SortSettings(mode = SortSettings.Mode.SCREEN_TIME, reversed = false),
+            canInfoScreenTime = true,
+        )
+
+        val state = h.vm.state.first()
+        state.options.listSort shouldBe SortSettings(mode = SortSettings.Mode.SCREEN_TIME, reversed = false)
+        state.rows!!.map { it.appInfo.pkg.packageName } shouldBe listOf("com.newer.app", "com.older.app")
     }
 }

@@ -86,7 +86,14 @@ class AppControlSettingsViewModel @Inject constructor(
     }
 
     fun onSizingBadgeClick() {
-        navTo(SetupRoute(options = SetupScreenOptions(showCompleted = true, typeFilter = setOf(SetupModule.Type.USAGE_STATS))))
+        navTo(
+            SetupRoute(
+                options = SetupScreenOptions(
+                    showCompleted = true,
+                    typeFilter = setOf(SetupModule.Type.USAGE_STATS, SetupModule.Type.STORAGE),
+                ),
+            ),
+        )
     }
 
     fun onActivityBadgeClick() {

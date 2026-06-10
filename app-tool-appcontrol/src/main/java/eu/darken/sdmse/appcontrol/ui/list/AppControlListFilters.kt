@@ -138,8 +138,7 @@ private fun ActiveTagChip(
 @Composable
 internal fun AppControlSortSheetContent(
     sort: SortSettings,
-    allowSortSize: Boolean,
-    allowSortScreenTime: Boolean,
+    sizeSortModuleEnabled: Boolean,
     sizeSortCaveatVisible: Boolean,
     onSortModeChanged: (SortSettings.Mode) -> Unit,
     onSortDirectionToggle: () -> Unit,
@@ -160,9 +159,11 @@ internal fun AppControlSortSheetContent(
 
         Column(modifier = Modifier.fillMaxWidth()) {
             SortSettings.Mode.entries.forEach { entry ->
+                // SIZE stays disabled only while the sizing module is turned off in settings
+                // (a user choice). Permission-gated modes stay tappable — the ViewModel shows
+                // the setup-required dialog instead of applying the sort.
                 val enabled = when (entry) {
-                    SortSettings.Mode.SIZE -> allowSortSize
-                    SortSettings.Mode.SCREEN_TIME -> allowSortScreenTime
+                    SortSettings.Mode.SIZE -> sizeSortModuleEnabled
                     else -> true
                 }
                 SortRow(
