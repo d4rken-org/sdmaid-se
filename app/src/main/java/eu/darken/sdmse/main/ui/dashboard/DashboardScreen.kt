@@ -290,9 +290,13 @@ internal fun DashboardScreen(
     // bottom chrome's rects, so it never qualifies as a directional candidate from the FAB or the
     // bar buttons — without an explicit bridge, focus gets trapped in the bottom chrome. UP from
     // any chrome control redirects into the grid group, which forwards to the best visible card.
+    // Only wired once the grid is composed (items != null); otherwise `up` would point at an
+    // unattached requester and log a focus warning on every press during the loading state.
     val gridFocusRequester = remember { FocusRequester() }
-    val escapeUpToGrid = Modifier.focusProperties {
-        up = gridFocusRequester
+    val escapeUpToGrid = if (items != null) {
+        Modifier.focusProperties { up = gridFocusRequester }
+    } else {
+        Modifier
     }
 
     Scaffold(
