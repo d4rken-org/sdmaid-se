@@ -33,7 +33,9 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
@@ -60,7 +62,6 @@ internal fun DashboardHeroCard(
     onDiscard: (() -> Unit)? = null,
     onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
 ) {
-    val context = LocalContext.current
     // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed.
     val (containerColor, contentColor) = when (summary.mode) {
         DashboardViewModel.HeroSummary.Mode.FREEABLE ->
@@ -111,20 +112,28 @@ private fun HeroBody(
             verticalAlignment = Alignment.Top,
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                // Eyebrow gives the big size its meaning before it's read ("Space to free · 49 MB").
-                val eyebrowRes = when (summary.mode) {
-                    DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_eyebrow
-                    DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_eyebrow
+                // One sentence with the size inline ("3.7 GB can be freed") — the smaller label
+                // text is spanned around the headline-sized number. Split on the placeholder so
+                // translations may put label text before and/or after the size.
+                val headlineRes = when (summary.mode) {
+                    DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_headline
+                    DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_headline
                 }
+                val template = stringResource(headlineRes)
+                val sizeText = ByteFormatter.formatSize(context, summary.totalSize).first
+                val labelSpan = MaterialTheme.typography.titleSmall.toSpanStyle()
+                    .copy(color = LocalContentColor.current.copy(alpha = 0.8f))
                 Text(
-                    text = stringResource(eyebrowRes),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = LocalContentColor.current.copy(alpha = 0.8f),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    text = ByteFormatter.formatSize(context, summary.totalSize).first,
+                    text = buildAnnotatedString {
+                        val sizeAt = template.indexOf(SIZE_ARG)
+                        if (sizeAt == -1) {
+                            append(sizeText)
+                        } else {
+                            withStyle(labelSpan) { append(template.take(sizeAt)) }
+                            append(sizeText)
+                            withStyle(labelSpan) { append(template.substring(sizeAt + SIZE_ARG.length)) }
+                        }
+                    },
                     style = MaterialTheme.typography.headlineMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -144,18 +153,6 @@ private fun HeroBody(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                val hintRes = when (summary.mode) {
-                    DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_hint
-                    DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_hint
-                }
-                Text(
-                    modifier = Modifier.padding(top = 6.dp),
-                    text = stringResource(hintRes),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = LocalContentColor.current.copy(alpha = 0.8f),
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
             }
             IconButton(onClick = onDismiss) {
                 Icon(
@@ -164,6 +161,10 @@ private fun HeroBody(
                 )
             }
         }
+
+        // The body is sized for the worst case (two chip rows + two-line hint); in smaller
+        // configurations the slack collects here so chips + hint stay anchored above the footer.
+        Spacer(modifier = Modifier.weight(1f))
 
         FlowRow(
             modifier = Modifier
@@ -185,6 +186,21 @@ private fun HeroBody(
                 )
             }
         }
+
+        // Last, right above the footer strip: the hint references its direct neighbours — "the
+        // button below" and the category chips above.
+        val hintRes = when (summary.mode) {
+            DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_hint
+            DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_hint
+        }
+        Text(
+            modifier = Modifier.padding(top = 6.dp, end = 12.dp),
+            text = stringResource(hintRes),
+            style = MaterialTheme.typography.bodySmall,
+            color = LocalContentColor.current.copy(alpha = 0.8f),
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
 
@@ -264,6 +280,8 @@ private fun HeroFooter(
         }
     }
 }
+
+private const val SIZE_ARG = "%1\$s"
 
 private fun SDMTool.Type.toolName(): Int? = when (this) {
     SDMTool.Type.CORPSEFINDER -> CommonR.string.corpsefinder_tool_name
