@@ -63,6 +63,7 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
@@ -405,8 +406,12 @@ private fun StepContent(
     // Pull D-pad/keyboard focus into the bubble whenever the step view (re)appears — this is
     // what arms the focus trap on the surrounding focusGroup. Without it, TV focus stays in
     // the scrimmed background and the tour cannot be advanced at all.
+    // Also keyed on the input mode: if the tour starts while in touch mode (screen opened via
+    // tap), clickables aren't focusable and the initial request fails silently — the first
+    // remote key press flips the mode to Keyboard and this re-runs to claim focus properly.
+    val inputModeManager = LocalInputModeManager.current
     val nextFocus = remember { FocusRequester() }
-    LaunchedEffect(step.stepId) {
+    LaunchedEffect(step.stepId, inputModeManager.inputMode) {
         runCatching { nextFocus.requestFocus() }
     }
 
@@ -522,9 +527,11 @@ private fun ConfirmContent(
     onDontShowAgain: () -> Unit,
 ) {
     // Mirror of StepContent's focus pull: when the confirm view swaps in via AnimatedContent,
-    // re-anchor D-pad focus on the safe default so the trap keeps holding.
+    // re-anchor D-pad focus on the safe default so the trap keeps holding. Keyed on input mode
+    // for the same touch-mode-start reason as StepContent.
+    val inputModeManager = LocalInputModeManager.current
     val continueFocus = remember { FocusRequester() }
-    LaunchedEffect(Unit) {
+    LaunchedEffect(inputModeManager.inputMode) {
         runCatching { continueFocus.requestFocus() }
     }
 
