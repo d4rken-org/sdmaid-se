@@ -7,6 +7,8 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.focusGroup
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -30,6 +32,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -45,13 +48,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
@@ -84,6 +93,7 @@ internal fun TourBubble(
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onFocusWithinChanged: (Boolean) -> Unit = {},
 ) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val insets = WindowInsets.safeDrawing.asPaddingValues()
@@ -112,6 +122,7 @@ internal fun TourBubble(
                 onPrevious = onPrevious,
                 onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
+                onFocusWithinChanged = onFocusWithinChanged,
             )
 
             StepLayout.Centerless -> CenterlessBubble(
@@ -127,6 +138,7 @@ internal fun TourBubble(
                 onPrevious = onPrevious,
                 onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
+                onFocusWithinChanged = onFocusWithinChanged,
             )
 
             // Pending is filtered out by GuidedTourHost before this point.
@@ -151,6 +163,7 @@ private fun BoxScope.AnchoredBubble(
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onFocusWithinChanged: (Boolean) -> Unit,
 ) {
     val maxHPx = with(density) { maxHeight.toPx() }
     val maxWPx = with(density) { maxWidth.toPx() }
@@ -221,6 +234,7 @@ private fun BoxScope.AnchoredBubble(
             onPrevious = onPrevious,
             onSkipForNow = onSkipForNow,
             onDontShowAgain = onDontShowAgain,
+            onFocusWithinChanged = onFocusWithinChanged,
         )
     }
 }
@@ -239,6 +253,7 @@ private fun BoxScope.CenterlessBubble(
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onFocusWithinChanged: (Boolean) -> Unit,
 ) {
     // Cap height at the safe area; the body has its own vertical scroll for content that doesn't
     // fit. Match the anchored 160.dp floor — multi-window / split-screen can leave available
@@ -260,6 +275,7 @@ private fun BoxScope.CenterlessBubble(
             onPrevious = onPrevious,
             onSkipForNow = onSkipForNow,
             onDontShowAgain = onDontShowAgain,
+            onFocusWithinChanged = onFocusWithinChanged,
         )
     }
 }
@@ -279,13 +295,23 @@ private fun BubbleCard(
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onFocusWithinChanged: (Boolean) -> Unit = {},
 ) {
     // Plain `remember` (not `rememberSaveable`): the confirm UI is purely ephemeral and
     // resetting it on a new tour is the desired behavior. `rememberSaveable` would persist
     // the boolean across process death without re-validating that the same tour is active.
     var showConfirm by remember(session.definition.id.raw) { mutableStateOf(false) }
 
-    SpeechBubbleSurface(tail = tail) {
+    SpeechBubbleSurface(
+        tail = tail,
+        // Focus trap for D-pad/keyboard: once focus is inside the bubble it cycles among the
+        // bubble's own controls and cannot wander into the scrimmed background. Entry happens
+        // via the explicit focus requests in StepContent/ConfirmContent.
+        modifier = Modifier
+            .onFocusChanged { onFocusWithinChanged(it.hasFocus) }
+            .focusProperties { onExit = { cancelFocusChange() } }
+            .focusGroup(),
+    ) {
         AnimatedContent(
             targetState = showConfirm,
             transitionSpec = {
@@ -376,6 +402,14 @@ private fun StepContent(
     val context = LocalContext.current
     val mascotWidth = if (isNarrow) 80.dp else 96.dp
 
+    // Pull D-pad/keyboard focus into the bubble whenever the step view (re)appears — this is
+    // what arms the focus trap on the surrounding focusGroup. Without it, TV focus stays in
+    // the scrimmed background and the tour cannot be advanced at all.
+    val nextFocus = remember { FocusRequester() }
+    LaunchedEffect(step.stepId) {
+        runCatching { nextFocus.requestFocus() }
+    }
+
     Box(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
@@ -410,7 +444,9 @@ private fun StepContent(
                 Button(
                     onClick = onNext,
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
-                    modifier = Modifier.align(Alignment.CenterEnd),
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .focusRequester(nextFocus),
                 ) {
                     Icon(
                         imageVector = if (session.isLast) Icons.TwoTone.Check
@@ -424,7 +460,22 @@ private fun StepContent(
                 }
             }
             Spacer(Modifier.height(8.dp))
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            // Focusable so long step text can be scrolled with the D-pad from inside the focus
+            // trap (scrollables handle arrow keys when focused). Tinted while focused since
+            // plain focusable() has no indication of its own.
+            var bodyFocused by remember { mutableStateOf(false) }
+            Column(
+                modifier = Modifier
+                    .onFocusChanged { bodyFocused = it.isFocused }
+                    .background(
+                        color = if (bodyFocused) {
+                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+                        } else Color.Transparent,
+                        shape = RoundedCornerShape(8.dp),
+                    )
+                    .verticalScroll(rememberScrollState())
+                    .focusable(),
+            ) {
                 step.title?.let { title ->
                     Text(
                         text = title.get(context),
@@ -470,6 +521,13 @@ private fun ConfirmContent(
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
 ) {
+    // Mirror of StepContent's focus pull: when the confirm view swaps in via AnimatedContent,
+    // re-anchor D-pad focus on the safe default so the trap keeps holding.
+    val continueFocus = remember { FocusRequester() }
+    LaunchedEffect(Unit) {
+        runCatching { continueFocus.requestFocus() }
+    }
+
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
             text = stringResource(UiR.string.tour_confirm_title),
@@ -484,7 +542,9 @@ private fun ConfirmContent(
         Spacer(Modifier.height(16.dp))
         Button(
             onClick = onContinue,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusRequester(continueFocus),
         ) {
             Text(text = stringResource(UiR.string.tour_confirm_continue))
         }

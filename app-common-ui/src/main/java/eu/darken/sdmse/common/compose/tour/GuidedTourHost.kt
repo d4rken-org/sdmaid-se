@@ -1,6 +1,12 @@
 package eu.darken.sdmse.common.compose.tour
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,9 +19,14 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -81,8 +92,29 @@ fun GuidedTourHost(
         if (registry.get(tid) == null) onNext()
     }
 
+    // True while any node inside the tour bubble holds focus. Scopes the key shield below:
+    // bubble buttons must keep working, everything else must not react to the D-pad.
+    var bubbleHasFocus by remember { mutableStateOf(false) }
+    val keyShieldActive = current?.definition?.clickProtection == true
+
     CompositionLocalProvider(LocalTourTargetRegistry provides registry) {
-        Box(modifier) {
+        Box(
+            modifier.onPreviewKeyEvent { event ->
+                // clickProtection only consumes pointer events; on TV the D-pad would still reach
+                // (and activate!) focusable content under the scrim. Swallow navigation/confirm
+                // keys at the root (an ancestor of all content) unless focus is in the bubble.
+                // Keyed on the session, not the resolved layout, so the Pending grace window is
+                // covered too. BACK stays untouched (skip-for-now via BackHandler).
+                if (!keyShieldActive || bubbleHasFocus) return@onPreviewKeyEvent false
+                when (event.key) {
+                    Key.DirectionUp, Key.DirectionDown, Key.DirectionLeft, Key.DirectionRight,
+                    Key.DirectionCenter, Key.Enter, Key.NumPadEnter,
+                        -> true
+
+                    else -> false
+                }
+            },
+        ) {
             content()
 
             val activeSession = current
@@ -101,6 +133,7 @@ fun GuidedTourHost(
                     onPrevious = onPrevious,
                     onSkipForNow = onSkipForNow,
                     onDontShowAgain = onDontShowAgain,
+                    onBubbleFocusChanged = { bubbleHasFocus = it },
                 )
             }
         }
@@ -117,13 +150,30 @@ private fun TourOverlay(
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onBubbleFocusChanged: (Boolean) -> Unit = {},
 ) {
     val density = LocalDensity.current
     val padding = with(density) { 8.dp.toPx() }
     val cornerRadius = with(density) { 16.dp.toPx() }
-    val strokeWidth = with(density) { 2.dp.toPx() }
-    val accentColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)
+    val strokeWidth = with(density) { 3.dp.toPx() }
+    val maxGlowWidth = with(density) { 10.dp.toPx() }
+    val accentColor = MaterialTheme.colorScheme.primary
     val anchored = layout as? StepLayout.Anchored
+
+    // Breathing glow around the cutout ring. A static ring tested as too subtle at TV viewing
+    // distance — motion is what pulls the eye on a 10-foot UI. Only runs while a step is anchored.
+    val glowPulse = if (anchored != null) {
+        val transition = rememberInfiniteTransition(label = "tour-ring")
+        transition.animateFloat(
+            initialValue = 0f,
+            targetValue = 1f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(durationMillis = 900, easing = FastOutSlowInEasing),
+                repeatMode = RepeatMode.Reverse,
+            ),
+            label = "tour-ring-glow",
+        )
+    } else null
 
     Canvas(
         modifier = Modifier
@@ -158,6 +208,19 @@ private fun TourOverlay(
                 cornerRadius = CornerRadius(cornerRadius),
                 blendMode = BlendMode.Clear,
             )
+            // Breathing outer glow: expands and fades as the pulse progresses, drawing the eye
+            // toward the cutout at TV viewing distance.
+            val pulse = glowPulse?.value ?: 0f
+            if (pulse > 0f) {
+                val glowWidth = strokeWidth + maxGlowWidth * pulse
+                drawRoundRect(
+                    color = accentColor.copy(alpha = 0.45f * (1f - pulse * 0.7f)),
+                    topLeft = Offset(cutoutTopLeft.x - glowWidth / 2f, cutoutTopLeft.y - glowWidth / 2f),
+                    size = Size(cutoutSize.width + glowWidth, cutoutSize.height + glowWidth),
+                    cornerRadius = CornerRadius(cornerRadius + glowWidth / 2f),
+                    style = Stroke(width = glowWidth),
+                )
+            }
             // Accent stroke around the cutout — gives positive selection signal instead of just
             // "less dimmed". Drawn after Clear with default SrcOver blend so the stroke is opaque.
             drawRoundRect(
@@ -178,6 +241,7 @@ private fun TourOverlay(
         onPrevious = onPrevious,
         onSkipForNow = onSkipForNow,
         onDontShowAgain = onDontShowAgain,
+        onFocusWithinChanged = onBubbleFocusChanged,
     )
 }
 

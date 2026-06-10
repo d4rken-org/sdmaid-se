@@ -10,14 +10,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.input.key.KeyEvent as ComposeKeyEvent
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performKeyPress
+import android.view.KeyEvent as NativeKeyEvent
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -282,6 +287,105 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         nextCount shouldBeEq 1
     }
 
+    @Test
+    fun `D-pad focus is pulled into the bubble when a step is shown`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        composeRule.setHostContent(sessionFlow, preregister = mapOf("first" to targetRect)) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .align(Alignment.TopStart)
+                        .testTag("UNDER")
+                        .clickable {},
+                )
+            }
+        }
+        composeRule.onNodeWithContentDescription("Next").assertIsFocused()
+    }
+
+    @Test
+    fun `DPAD_CENTER activates Next, never the background clickable`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var underlyingClicks = 0
+        var nextCount = 0
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onNext = { nextCount++ },
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .align(Alignment.TopStart)
+                        .testTag("UNDER")
+                        .clickable { underlyingClicks++ },
+                )
+            }
+        }
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_CENTER)
+        nextCount shouldBeEq 1
+        underlyingClicks shouldBeEq 0
+    }
+
+    @Test
+    fun `focus stays trapped in the bubble across D-pad navigation`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var underlyingClicks = 0
+        composeRule.setHostContent(sessionFlow, preregister = mapOf("first" to targetRect)) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .align(Alignment.TopStart)
+                        .testTag("UNDER")
+                        .clickable { underlyingClicks++ },
+                )
+            }
+        }
+        // Try hard to escape toward the background clickable in the top-start corner.
+        repeat(3) { composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP) }
+        repeat(3) { composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_LEFT) }
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_CENTER)
+        underlyingClicks shouldBeEq 0
+    }
+
+    @Test
+    fun `confirm view re-anchors focus on Continue tour`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        composeRule.setHostContent(sessionFlow, preregister = mapOf("first" to targetRect)) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.onNodeWithContentDescription("Skip").performClick()
+        composeRule.onNodeWithText("Continue tour").assertIsFocused()
+    }
+
+    @Test
+    fun `D-pad keys are shielded during the pending-target grace window`() {
+        // Step has a targetId that is never registered: layout stays Pending, no bubble exists.
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var underlyingClicks = 0
+        composeRule.mainClock.autoAdvance = false
+        composeRule.setHostContent(sessionFlow) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .align(Alignment.TopStart)
+                        .testTag("UNDER")
+                        .clickable { underlyingClicks++ },
+                )
+            }
+        }
+        composeRule.mainClock.advanceTimeBy(100)
+        // Background must not be reachable/activatable while the target is unresolved.
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_DOWN)
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_CENTER)
+        composeRule.mainClock.autoAdvance = true
+        underlyingClicks shouldBeEq 0
+    }
+
     // BackHandler priority is verified by manual QA on the FOSS debug build:
     //   - Pressing back during an active tour invokes the host's onSkipForNow.
     //   - When no session is active, back falls through to NavDisplay/screen BackHandlers.
@@ -318,6 +422,11 @@ private fun ComposeContentTestRule.setHostContent(
             )
         }
     }
+}
+
+private fun ComposeContentTestRule.pressKey(keyCode: Int) {
+    onRoot().performKeyPress(ComposeKeyEvent(NativeKeyEvent(NativeKeyEvent.ACTION_DOWN, keyCode)))
+    onRoot().performKeyPress(ComposeKeyEvent(NativeKeyEvent(NativeKeyEvent.ACTION_UP, keyCode)))
 }
 
 private infix fun Int.shouldBeEq(other: Int) {
