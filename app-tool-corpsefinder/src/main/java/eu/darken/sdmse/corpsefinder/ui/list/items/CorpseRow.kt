@@ -1,6 +1,7 @@
 package eu.darken.sdmse.corpsefinder.ui.list.items
 
 import android.text.format.Formatter
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
@@ -150,8 +152,9 @@ fun CorpseRow(
 
 @Composable
 private fun RiskPill(label: String, accent: Color, onClick: () -> Unit) {
+    // Clickability lives on the inner Text instead of the Surface(onClick) overload — the latter
+    // enforces a 48dp minimum interactive size that inflates the pill's layout bounds.
     Surface(
-        onClick = onClick,
         color = accent.copy(alpha = 0.18f),
         contentColor = accent,
         shape = RoundedCornerShape(6.dp),
@@ -159,7 +162,9 @@ private fun RiskPill(label: String, accent: Color, onClick: () -> Unit) {
         Text(
             text = label,
             style = MaterialTheme.typography.labelSmall,
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+            modifier = Modifier
+                .clickable(role = Role.Button, onClick = onClick)
+                .padding(horizontal = 8.dp, vertical = 2.dp),
         )
     }
 }
