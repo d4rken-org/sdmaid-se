@@ -48,10 +48,11 @@ internal val DASHBOARD_CUTOUT_OUTER_RADIUS = 6.dp
 internal val DASHBOARD_HERO_BAR_GAP = 12.dp
 
 /**
- * Body height of the hero card above its bottom cradle notch. Sized for the worst case: headline +
- * caption + the tap-hint line + a [FlowRow] of tool chips wrapping to two rows (all four tools).
+ * Body height of the hero card above its bottom cradle notch. Sized for the worst case: eyebrow +
+ * headline + caption + the tap-hint wrapping to two lines + a [FlowRow] of tool chips wrapping to
+ * two rows (all four tools).
  */
-internal val DASHBOARD_HERO_CONTENT_HEIGHT = 140.dp
+internal val DASHBOARD_HERO_CONTENT_HEIGHT = 172.dp
 internal val DASHBOARD_HERO_CARD_HEIGHT = DASHBOARD_HERO_CONTENT_HEIGHT + DASHBOARD_CUTOUT_DEPTH
 internal val DASHBOARD_HERO_HORIZONTAL_MARGIN = 12.dp
 

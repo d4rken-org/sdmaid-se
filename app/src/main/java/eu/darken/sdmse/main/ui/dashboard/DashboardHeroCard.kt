@@ -76,6 +76,18 @@ internal fun DashboardHeroCard(
                 verticalAlignment = Alignment.Top,
             ) {
                 Column(modifier = Modifier.weight(1f)) {
+                    // Eyebrow gives the big size its meaning before it's read ("Space to free · 49 MB").
+                    val eyebrowRes = when (summary.mode) {
+                        DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_eyebrow
+                        DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_eyebrow
+                    }
+                    Text(
+                        text = stringResource(eyebrowRes),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = LocalContentColor.current.copy(alpha = 0.8f),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
                     Text(
                         text = ByteFormatter.formatSize(context, summary.totalSize).first,
                         style = MaterialTheme.typography.headlineMedium,
@@ -88,7 +100,7 @@ internal fun DashboardHeroCard(
                         summary.itemCount,
                     )
                     val captionRes = when (summary.mode) {
-                        DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_will_be_freed_x_items
+                        DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_x_items
                         DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_x_items
                     }
                     Text(
@@ -106,7 +118,7 @@ internal fun DashboardHeroCard(
                         text = stringResource(hintRes),
                         style = MaterialTheme.typography.bodySmall,
                         color = LocalContentColor.current.copy(alpha = 0.8f),
-                        maxLines = 1,
+                        maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
@@ -190,17 +202,18 @@ private fun DashboardHeroCardFreedPreview() {
     }
 }
 
-// Worst case: all four tools (chips wrap to a second row) + the hint line — validates card height.
+// Worst case: all four tools (chips wrap to a second row) + the two-line freeable hint — validates
+// card height.
 @Preview2
 @Composable
-private fun DashboardHeroCardFreedAllToolsPreview() {
+private fun DashboardHeroCardFreeableAllToolsPreview() {
     PreviewWrapper {
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = previewSummary(
-                mode = DashboardViewModel.HeroSummary.Mode.FREED,
+                mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
                 tools = listOf(
                     DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
                     DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),

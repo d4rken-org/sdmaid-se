@@ -58,7 +58,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                 )
             }
         }
-        composeRule.onNodeWithText("Will be freed", substring = true).assertExists()
+        composeRule.onNodeWithText("can be removed", substring = true).assertExists()
     }
 
     @Test
@@ -106,7 +106,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                 )
             }
         }
-        composeRule.onNodeWithText("Freed", substring = true).assertExists()
+        composeRule.onNodeWithText("items removed", substring = true).assertExists()
     }
 
     @Test
@@ -211,7 +211,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                 )
             }
         }
-        composeRule.onNodeWithText("Will be freed", substring = true).assertDoesNotExist()
+        composeRule.onNodeWithText("can be removed", substring = true).assertDoesNotExist()
     }
 
     @Test
@@ -260,7 +260,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             }
         }
         // Drag the hero straight down, well past the dismiss threshold (~35% of card height).
-        composeRule.onNodeWithText("Will be freed", substring = true).performTouchInput {
+        composeRule.onNodeWithText("can be removed", substring = true).performTouchInput {
             down(center)
             moveBy(Offset(0f, 1000f))
             up()
