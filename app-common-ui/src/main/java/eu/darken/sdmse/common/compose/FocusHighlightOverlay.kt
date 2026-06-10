@@ -11,11 +11,14 @@ import androidx.compose.foundation.onFocusedBoundsChanged
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -28,6 +31,18 @@ import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+
+/**
+ * Lets descendants temporarily suppress the focus ring — e.g. the guided tour hides it while
+ * D-pad focus is still in the scrimmed background (pending-target window), where a bright ring
+ * above the scrim would highlight a control the user is deliberately shielded from.
+ */
+@Stable
+class FocusHighlightController {
+    var suppressed by mutableStateOf(false)
+}
+
+val LocalFocusHighlightController = staticCompositionLocalOf<FocusHighlightController?> { null }
 
 /**
  * Draws a high-contrast ring around whichever descendant currently holds focus, but only while
@@ -47,6 +62,7 @@ fun FocusHighlightOverlay(
     content: @Composable () -> Unit,
 ) {
     val inputModeManager = LocalInputModeManager.current
+    val controller = remember { FocusHighlightController() }
     var overlayCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     var focusedCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
     // The same LayoutCoordinates instance can be reported again after a reposition; bump a
@@ -62,14 +78,21 @@ fun FocusHighlightOverlay(
                 positionTick++
             },
     ) {
-        content()
+        CompositionLocalProvider(LocalFocusHighlightController provides controller) {
+            content()
+        }
 
-        if (inputModeManager.inputMode == InputMode.Keyboard && focusedCoords != null) {
+        val showRing = inputModeManager.inputMode == InputMode.Keyboard &&
+            focusedCoords != null &&
+            !controller.suppressed
+        if (showRing) {
             Canvas(Modifier.matchParentSize()) {
                 @Suppress("UNUSED_EXPRESSION") positionTick
                 val overlay = overlayCoords?.takeIf { it.isAttached } ?: return@Canvas
                 val focused = focusedCoords?.takeIf { it.isAttached } ?: return@Canvas
-                val bounds = overlay.localBoundingBoxOf(focused, clipBounds = false)
+                // clipBounds=true: a focused item half-scrolled out of its container gets its
+                // ring confined to the visible part instead of floating over other content.
+                val bounds = overlay.localBoundingBoxOf(focused, clipBounds = true)
                 if (bounds.isEmpty) return@Canvas
 
                 val pad = RING_PADDING.toPx()

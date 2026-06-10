@@ -16,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -40,6 +41,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.LocalFocusHighlightController
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import kotlinx.coroutines.delay
@@ -96,6 +98,16 @@ fun GuidedTourHost(
     // bubble buttons must keep working, everything else must not react to the D-pad.
     var bubbleHasFocus by remember { mutableStateOf(false) }
     val keyShieldActive = current?.definition?.clickProtection == true
+
+    // While keys are shielded and focus hasn't been pulled into the bubble yet (notably the
+    // pending-target grace window), the app-wide focus ring would highlight a background
+    // control above the scrim — a control the user is deliberately blocked from. Hide it.
+    val focusHighlight = LocalFocusHighlightController.current
+    val suppressFocusRing = keyShieldActive && !bubbleHasFocus
+    DisposableEffect(focusHighlight, suppressFocusRing) {
+        focusHighlight?.suppressed = suppressFocusRing
+        onDispose { focusHighlight?.suppressed = false }
+    }
 
     CompositionLocalProvider(LocalTourTargetRegistry provides registry) {
         Box(
