@@ -65,6 +65,10 @@ fun SdmConfirmDialog(
 data class SdmDialogAction(
     val label: String,
     val enabled: Boolean = true,
+    // Claim initial D-pad/keyboard focus for this action. Without an explicit flag the bar
+    // defaults to the SAFE action (negative if present, else positive) — only set this on
+    // benign positives (e.g. "Record", "Save"), never on destructive ones (Delete/Remove).
+    val initialFocus: Boolean = false,
     val onClick: () -> Unit,
 )
 

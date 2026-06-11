@@ -21,6 +21,9 @@ fun RecorderConsentDialog(
         onDismissRequest = onDismiss,
         positive = SdmDialogAction(
             label = stringResource(R.string.debug_debuglog_record_action),
+            // Recording is the benign primary path here — claim D-pad focus from the default
+            // (cancel) so a remote user can start recording with a single OK press.
+            initialFocus = true,
             onClick = {
                 onStartRecording()
                 onDismiss()
