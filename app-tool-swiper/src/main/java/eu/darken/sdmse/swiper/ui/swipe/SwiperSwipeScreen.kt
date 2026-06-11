@@ -16,7 +16,7 @@ import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -127,7 +127,7 @@ internal fun SwiperSwipeScreen(
     var excludeRequest by remember { mutableStateOf<SwipeItem?>(null) }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Scaffold(
+        SdmScaffold(
             topBar = {
                 TopAppBar(
                     title = {
@@ -206,7 +206,7 @@ internal fun SwiperSwipeScreen(
                 Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
                 }
-                return@Scaffold
+                return@SdmScaffold
             }
 
             Column(

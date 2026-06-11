@@ -11,7 +11,7 @@ import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.PermIdentity
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -146,7 +146,7 @@ internal fun SupportScreen(
     val folderStats by folderStatsSource.collectAsStateWithLifecycle(initialValue = SupportViewModel.DebugLogFolderStats())
     val context = LocalContext.current
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.settings_support_label)) },

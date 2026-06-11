@@ -6,7 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.SwapHoriz
 import androidx.compose.material.icons.twotone.Vibration
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -46,7 +46,7 @@ internal fun SwiperSettingsScreen(
     onShowDetailsChanged: (Boolean) -> Unit = {},
     onHapticFeedbackChanged: (Boolean) -> Unit = {},
 ) {
-    Scaffold(
+    SdmScaffold(
         topBar = {
             SdmTopAppBar(
                 title = stringResource(R.string.swiper_label),

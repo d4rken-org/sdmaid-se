@@ -10,7 +10,7 @@ import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
 import androidx.compose.material.icons.twotone.RotateRight
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -121,7 +121,7 @@ internal fun SqueezerSettingsScreen(
         )
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.squeezer_tool_name)) },

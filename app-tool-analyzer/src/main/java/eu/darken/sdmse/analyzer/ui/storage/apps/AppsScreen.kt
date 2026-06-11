@@ -16,7 +16,7 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -86,7 +86,7 @@ internal fun AppsScreen(
         searchActive = false
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = {

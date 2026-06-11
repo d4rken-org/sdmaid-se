@@ -18,7 +18,7 @@ import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -80,7 +80,7 @@ internal fun StorageContentScreen(
     when (val s = state) {
         StorageContentViewModel.State.NotFound -> {
             LaunchedEffect(Unit) { onExitNotFound() }
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { Text(stringResource(R.string.analyzer_storage_content_title)) },
@@ -97,7 +97,7 @@ internal fun StorageContentScreen(
         }
 
         StorageContentViewModel.State.Loading -> {
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { Text(stringResource(R.string.analyzer_storage_content_title)) },
@@ -121,7 +121,7 @@ internal fun StorageContentScreen(
         }
 
         is StorageContentViewModel.State.Ready -> {
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = {

@@ -32,7 +32,7 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -134,7 +134,7 @@ internal fun SwiperStatusScreen(
         derivedStateOf { listState.firstVisibleItemIndex > 0 }
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             if (selection.isEmpty()) {
                 SdmTopAppBar(

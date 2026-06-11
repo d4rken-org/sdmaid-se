@@ -12,7 +12,7 @@ import androidx.compose.material.icons.twotone.StackedBarChart
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -95,7 +95,7 @@ internal fun ReportsScreen(
         pluralStringResource(CommonR.plurals.result_x_items, count, count)
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = {

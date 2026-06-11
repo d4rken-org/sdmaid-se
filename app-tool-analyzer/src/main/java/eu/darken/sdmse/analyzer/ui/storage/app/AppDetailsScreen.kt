@@ -14,7 +14,7 @@ import androidx.compose.material.icons.twotone.Inventory
 import androidx.compose.material.icons.twotone.PermMedia
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -72,7 +72,7 @@ internal fun AppDetailsScreen(
     when (val s = state) {
         AppDetailsViewModel.State.NotFound -> {
             LaunchedEffect(Unit) { onNavigateUp() }
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { },
@@ -89,7 +89,7 @@ internal fun AppDetailsScreen(
         }
 
         AppDetailsViewModel.State.Loading -> {
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { },
@@ -113,7 +113,7 @@ internal fun AppDetailsScreen(
         }
 
         is AppDetailsViewModel.State.Ready -> {
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = {

@@ -10,7 +10,7 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -95,7 +95,7 @@ internal fun DashboardCardConfigScreen(
         }
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.dashboard_card_config_title)) },

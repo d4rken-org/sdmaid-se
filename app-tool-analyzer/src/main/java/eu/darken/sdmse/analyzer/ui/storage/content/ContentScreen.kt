@@ -23,7 +23,7 @@ import androidx.compose.material.icons.twotone.GridView
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.SwipeRight
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
@@ -216,7 +216,7 @@ internal fun ContentScreen(
     when (val s = state) {
         ContentViewModel.State.NotFound -> {
             LaunchedEffect(Unit) { onNavigateBack() }
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { },
@@ -233,7 +233,7 @@ internal fun ContentScreen(
         }
 
         ContentViewModel.State.Loading -> {
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     TopAppBar(
                         title = { },
@@ -278,7 +278,7 @@ internal fun ContentScreen(
                 max(context.getSpanCount(widthDp = 144), 3)
             } else 1
 
-            Scaffold(
+            SdmScaffold(
                 topBar = {
                     if (isSelectionMode) {
                         TopAppBar(
