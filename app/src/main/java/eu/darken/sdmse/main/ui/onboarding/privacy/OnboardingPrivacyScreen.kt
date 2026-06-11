@@ -22,7 +22,7 @@ import androidx.compose.material.icons.twotone.NotificationImportant
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -84,7 +84,7 @@ internal fun OnboardingPrivacyScreen(
     val continueButtonFocusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) { isVisible = true }
 
-    Scaffold { paddingValues ->
+    SdmScaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()

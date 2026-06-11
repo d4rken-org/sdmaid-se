@@ -22,7 +22,7 @@ import androidx.compose.material.icons.twotone.PlayCircleOutline
 import androidx.compose.material.icons.twotone.RotateRight
 import androidx.compose.material.icons.twotone.SignalCellularOff
 import androidx.compose.material.icons.twotone.VisibilityOff
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -182,7 +182,7 @@ internal fun AppCleanerSettingsScreen(
         )
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.appcleaner_tool_name)) },

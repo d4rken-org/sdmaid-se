@@ -21,7 +21,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -85,7 +85,7 @@ internal fun SpaceHistoryScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     var pendingDeleteStorageId by remember { mutableStateOf<String?>(null) }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.stats_space_history_title)) },

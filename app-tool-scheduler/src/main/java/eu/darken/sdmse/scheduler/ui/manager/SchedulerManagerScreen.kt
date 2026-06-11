@@ -14,7 +14,7 @@ import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -135,7 +135,7 @@ internal fun SchedulerManagerScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = SchedulerManagerViewModel.State())
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.scheduler_label)) },

@@ -10,7 +10,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -120,7 +120,7 @@ internal fun ArbiterConfigScreen(
         }
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             SdmTopAppBar(
                 title = stringResource(R.string.deduplicator_arbiter_title),

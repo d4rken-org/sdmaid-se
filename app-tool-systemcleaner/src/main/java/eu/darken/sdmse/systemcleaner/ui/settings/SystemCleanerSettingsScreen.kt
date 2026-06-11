@@ -20,7 +20,7 @@ import androidx.compose.material.icons.twotone.StackedBarChart
 import androidx.compose.material.icons.twotone.TaskAlt
 import androidx.compose.material.icons.twotone.ThumbUp
 import androidx.compose.material.icons.twotone.Usb
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -149,7 +149,7 @@ internal fun SystemCleanerSettingsScreen(
 
     val rootGate = SettingGate.SetupRequired
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.systemcleaner_tool_name)) },

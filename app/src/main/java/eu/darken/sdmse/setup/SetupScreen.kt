@@ -21,7 +21,7 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
@@ -299,7 +299,7 @@ internal fun SetupScreen(
 ) {
     BackHandler(enabled = isOnboarding, onBack = onBack)
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.setup_title)) },

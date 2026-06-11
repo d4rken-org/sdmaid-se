@@ -42,7 +42,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -439,7 +439,7 @@ internal fun AppControlListScreen(
         if (tourActive) topBarState.heightOffset = 0f
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             if (selection.isEmpty()) {
                 Surface(color = TopAppBarDefaults.topAppBarColors().containerColor) {

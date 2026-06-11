@@ -21,7 +21,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -109,7 +109,7 @@ internal fun SwiperSessionsScreen(
     var pendingScanWarn by remember { mutableStateOf<PendingScanWarn?>(null) }
     var showRiskyInfo by remember { mutableStateOf(false) }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = {

@@ -7,7 +7,7 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.DirectionsRun
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.MonitorWeight
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -59,7 +59,7 @@ internal fun AppControlSettingsScreen(
 ) {
     val multiUserSummary = stringResource(CommonR.string.general_include_multiuser_summary)
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.appcontrol_tool_name)) },

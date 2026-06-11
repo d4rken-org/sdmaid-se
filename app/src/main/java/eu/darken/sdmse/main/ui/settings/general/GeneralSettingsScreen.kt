@@ -19,7 +19,7 @@ import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.automirrored.twotone.ViewList
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -167,7 +167,7 @@ internal fun GeneralSettingsScreen(
         )
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.general_settings_label)) },

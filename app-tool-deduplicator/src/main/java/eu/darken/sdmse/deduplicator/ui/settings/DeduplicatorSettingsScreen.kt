@@ -9,7 +9,7 @@ import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.PlayCircleOutline
 import androidx.compose.material.icons.twotone.Psychology
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -100,7 +100,7 @@ internal fun DeduplicatorSettingsScreen(
         state.scanPaths.joinToString("\n") { it.userReadablePath.get(context) }
     }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             SdmTopAppBar(
                 title = stringResource(CommonR.string.deduplicator_tool_name),

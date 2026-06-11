@@ -21,7 +21,7 @@ import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Update
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -141,7 +141,7 @@ internal fun SettingsScreen(
     onStatsClick: () -> Unit = {},
     onSchedulerClick: () -> Unit = {},
 ) {
-    Scaffold(
+    SdmScaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.general_settings_title)) },

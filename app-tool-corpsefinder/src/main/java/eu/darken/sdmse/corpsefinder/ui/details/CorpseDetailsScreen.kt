@@ -16,7 +16,7 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -177,7 +177,7 @@ internal fun CorpseDetailsScreen(
 
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
-    Scaffold(
+    SdmScaffold(
         topBar = {
             if (selection.isEmpty()) {
                 TopAppBar(

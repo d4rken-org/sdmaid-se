@@ -41,7 +41,7 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -117,7 +117,7 @@ internal fun RecorderScreen(
     val state by stateSource.collectAsStateWithLifecycle(initialValue = RecorderViewModel.State())
     var pendingDelete by remember { mutableStateOf(false) }
 
-    Scaffold(
+    SdmScaffold(
         contentWindowInsets = WindowInsets.safeDrawing,
         bottomBar = {
             RecorderActionBar(

@@ -14,7 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -68,7 +68,7 @@ internal fun OnboardingWelcomeScreen(
     val continueButtonFocusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) { isVisible = true }
 
-    Scaffold { paddingValues ->
+    SdmScaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
