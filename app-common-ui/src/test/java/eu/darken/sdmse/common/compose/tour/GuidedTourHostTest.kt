@@ -1,11 +1,15 @@
 package eu.darken.sdmse.common.compose.tour
 
+import androidx.activity.OnBackPressedDispatcherOwner
+import androidx.activity.compose.BackHandler
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -386,14 +390,136 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         underlyingClicks shouldBeEq 0
     }
 
-    // BackHandler priority is verified by manual QA on the FOSS debug build:
-    //   - Pressing back during an active tour invokes the host's onSkipForNow.
-    //   - When no session is active, back falls through to NavDisplay/screen BackHandlers.
-    // We don't test it here because the Compose-activity BackHandler hooks deep into the host
-    // activity's OnBackPressedDispatcher in ways that don't reliably stand up under Robolectric
-    // + a custom LocalOnBackPressedDispatcherOwner without instrumentation. The host code uses
-    // the standard composition idiom (BackHandler is composed AFTER content() in the same Box,
-    // so it registers its callback later and wins LIFO dispatch).
+    // Back presses are dispatched through the REAL OnBackPressedDispatcherOwner captured from
+    // inside the composition (the test activity). A custom LocalOnBackPressedDispatcherOwner
+    // was unreliable under Robolectric; the real owner dispatches fine.
+
+    @Test
+    fun `back at a later step invokes onPrevious, never onSkipForNow`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 1))
+        var previousCount = 0
+        var skipCount = 0
+        var backOwner: OnBackPressedDispatcherOwner? = null
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("second" to targetRect),
+            onPrevious = { previousCount++ },
+            onSkipForNow = { skipCount++ },
+            onBackOwner = { backOwner = it },
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.pressBack(backOwner)
+        previousCount shouldBeEq 1
+        skipCount shouldBeEq 0
+        composeRule.onAllNodesWithText("Skip the tour?").assertCountEquals(0)
+    }
+
+    @Test
+    fun `back at the first step opens the exit confirm without firing callbacks`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var previousCount = 0
+        var skipCount = 0
+        var dismissCount = 0
+        var backOwner: OnBackPressedDispatcherOwner? = null
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onPrevious = { previousCount++ },
+            onSkipForNow = { skipCount++ },
+            onDontShowAgain = { dismissCount++ },
+            onBackOwner = { backOwner = it },
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.pressBack(backOwner)
+        composeRule.onNodeWithText("Skip the tour?").assertExists()
+        composeRule.onNodeWithText("Continue tour").assertIsFocused()
+        previousCount shouldBeEq 0
+        skipCount shouldBeEq 0
+        dismissCount shouldBeEq 0
+    }
+
+    @Test
+    fun `back while the confirm is showing returns to the step view and refocuses Next`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var skipCount = 0
+        var backOwner: OnBackPressedDispatcherOwner? = null
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onSkipForNow = { skipCount++ },
+            onBackOwner = { backOwner = it },
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.onNodeWithContentDescription("Skip").performClick()
+        composeRule.onNodeWithText("Skip the tour?").assertExists()
+        composeRule.pressBack(backOwner)
+        composeRule.onAllNodesWithText("Skip the tour?").assertCountEquals(0)
+        composeRule.onNodeWithText("Body of step 1").assertExists()
+        composeRule.onNodeWithContentDescription("Next").assertIsFocused()
+        skipCount shouldBeEq 0
+    }
+
+    @Test
+    fun `tour BackHandler wins LIFO dispatch over a back handler in the wrapped content`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var underlyingBacks = 0
+        var backOwner: OnBackPressedDispatcherOwner? = null
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onBackOwner = { backOwner = it },
+        ) {
+            BackHandler { underlyingBacks++ }
+            Text("CONTENT_MARKER")
+        }
+        composeRule.pressBack(backOwner)
+        composeRule.onNodeWithText("Skip the tour?").assertExists()
+        underlyingBacks shouldBeEq 0
+    }
+
+    @Test
+    fun `back during the pending grace window is consumed, not passed to content`() {
+        // Step 0 with an unregistered target: layout stays Pending, no bubble exists. Back must
+        // neither cancel the tour nor reach back handlers beneath the host.
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var underlyingBacks = 0
+        var skipCount = 0
+        var backOwner: OnBackPressedDispatcherOwner? = null
+        composeRule.mainClock.autoAdvance = false
+        composeRule.setHostContent(
+            sessionFlow,
+            onSkipForNow = { skipCount++ },
+            onBackOwner = { backOwner = it },
+        ) {
+            BackHandler { underlyingBacks++ }
+            Text("CONTENT_MARKER")
+        }
+        composeRule.mainClock.advanceTimeBy(100)
+        composeRule.pressBack(backOwner)
+        composeRule.mainClock.autoAdvance = true
+        underlyingBacks shouldBeEq 0
+        skipCount shouldBeEq 0
+    }
+
+    @Test
+    fun `step change while the confirm is showing resets to the step view`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect, "second" to targetRect),
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.onNodeWithContentDescription("Skip").performClick()
+        composeRule.onNodeWithText("Skip the tour?").assertExists()
+        sessionFlow.value = TourSession(protectedDef, 1)
+        composeRule.waitForIdle()
+        composeRule.onAllNodesWithText("Skip the tour?").assertCountEquals(0)
+        composeRule.onNodeWithText("Body of step 2").assertExists()
+    }
 }
 
 private fun ComposeContentTestRule.setHostContent(
@@ -403,12 +529,16 @@ private fun ComposeContentTestRule.setHostContent(
     onPrevious: () -> Unit = {},
     onSkipForNow: () -> Unit = {},
     onDontShowAgain: () -> Unit = {},
+    onBackOwner: (OnBackPressedDispatcherOwner) -> Unit = {},
     content: @Composable () -> Unit,
 ) {
     // Pre-seed a registry the host will use directly (skips real layout).
     val registry = TourTargetRegistry()
     preregister.forEach { (id, rect) -> registry.put(id, rect, owner = id) }
     setContent {
+        LocalOnBackPressedDispatcherOwner.current?.let { owner ->
+            SideEffect { onBackOwner(owner) }
+        }
         PreviewWrapper {
             GuidedTourHost(
                 session = session,
@@ -422,6 +552,12 @@ private fun ComposeContentTestRule.setHostContent(
             )
         }
     }
+}
+
+private fun ComposeContentTestRule.pressBack(owner: OnBackPressedDispatcherOwner?) {
+    val o = owner ?: error("no OnBackPressedDispatcherOwner captured from the composition")
+    runOnUiThread { o.onBackPressedDispatcher.onBackPressed() }
+    waitForIdle()
 }
 
 private fun ComposeContentTestRule.pressKey(keyCode: Int) {

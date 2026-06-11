@@ -90,6 +90,8 @@ internal fun TourBubble(
     step: TourStep,
     layout: StepLayout,
     session: TourSession,
+    showConfirm: Boolean,
+    onShowConfirmChange: (Boolean) -> Unit,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
@@ -112,6 +114,8 @@ internal fun TourBubble(
                 rect = layout.rect,
                 step = step,
                 session = session,
+                showConfirm = showConfirm,
+                onShowConfirmChange = onShowConfirmChange,
                 isNarrow = isNarrow,
                 density = density,
                 insets = insets,
@@ -129,6 +133,8 @@ internal fun TourBubble(
             StepLayout.Centerless -> CenterlessBubble(
                 step = step,
                 session = session,
+                showConfirm = showConfirm,
+                onShowConfirmChange = onShowConfirmChange,
                 isNarrow = isNarrow,
                 maxHeight = maxHeight,
                 startPad = startPad,
@@ -153,6 +159,8 @@ private fun BoxScope.AnchoredBubble(
     rect: Rect,
     step: TourStep,
     session: TourSession,
+    showConfirm: Boolean,
+    onShowConfirmChange: (Boolean) -> Unit,
     isNarrow: Boolean,
     density: Density,
     insets: PaddingValues,
@@ -231,6 +239,8 @@ private fun BoxScope.AnchoredBubble(
                 xBias = tailXBias,
             ),
             isNarrow = isNarrow,
+            showConfirm = showConfirm,
+            onShowConfirmChange = onShowConfirmChange,
             onNext = onNext,
             onPrevious = onPrevious,
             onSkipForNow = onSkipForNow,
@@ -244,6 +254,8 @@ private fun BoxScope.AnchoredBubble(
 private fun BoxScope.CenterlessBubble(
     step: TourStep,
     session: TourSession,
+    showConfirm: Boolean,
+    onShowConfirmChange: (Boolean) -> Unit,
     isNarrow: Boolean,
     maxHeight: Dp,
     startPad: Dp,
@@ -272,6 +284,8 @@ private fun BoxScope.CenterlessBubble(
             session = session,
             tail = BubbleTail.None,
             isNarrow = isNarrow,
+            showConfirm = showConfirm,
+            onShowConfirmChange = onShowConfirmChange,
             onNext = onNext,
             onPrevious = onPrevious,
             onSkipForNow = onSkipForNow,
@@ -297,12 +311,11 @@ private fun BubbleCard(
     onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
     onFocusWithinChanged: (Boolean) -> Unit = {},
+    // Confirm state is hoisted to GuidedTourHost so its BackHandler can drive the same exit
+    // confirm: back at the first step opens it, back while it's showing dismisses it.
+    showConfirm: Boolean = false,
+    onShowConfirmChange: (Boolean) -> Unit = {},
 ) {
-    // Plain `remember` (not `rememberSaveable`): the confirm UI is purely ephemeral and
-    // resetting it on a new tour is the desired behavior. `rememberSaveable` would persist
-    // the boolean across process death without re-validating that the same tour is active.
-    var showConfirm by remember(session.definition.id.raw) { mutableStateOf(false) }
-
     SpeechBubbleSurface(
         tail = tail,
         // Focus trap for D-pad/keyboard: once focus is inside the bubble it cycles among the
@@ -323,7 +336,7 @@ private fun BubbleCard(
         ) { confirming ->
             if (confirming) {
                 ConfirmContent(
-                    onContinue = { showConfirm = false },
+                    onContinue = { onShowConfirmChange(false) },
                     onSkipForNow = onSkipForNow,
                     onDontShowAgain = onDontShowAgain,
                 )
@@ -334,7 +347,7 @@ private fun BubbleCard(
                     isNarrow = isNarrow,
                     onNext = onNext,
                     onPrevious = onPrevious,
-                    onRequestExit = { showConfirm = true },
+                    onRequestExit = { onShowConfirmChange(true) },
                 )
             }
         }
