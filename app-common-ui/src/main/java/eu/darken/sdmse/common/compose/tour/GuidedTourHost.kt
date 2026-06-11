@@ -94,6 +94,11 @@ fun GuidedTourHost(
         if (registry.get(tid) == null) onNext()
     }
 
+    // Confirm-exit UI state, hoisted here so the BackHandler below can drive it. Keyed per tour
+    // AND step: a step change while the confirm is showing (e.g. a grace-skip advancing past a
+    // vanished target) must reset back to the step view, never leak the confirm into a new step.
+    var showExitConfirm by remember(current?.definition?.id?.raw, current?.stepIndex) { mutableStateOf(false) }
+
     // True while any node inside the tour bubble holds focus. Scopes the key shield below:
     // bubble buttons must keep working, everything else must not react to the D-pad.
     var bubbleHasFocus by remember { mutableStateOf(false) }
@@ -116,7 +121,7 @@ fun GuidedTourHost(
                 // (and activate!) focusable content under the scrim. Swallow navigation/confirm
                 // keys at the root (an ancestor of all content) unless focus is in the bubble.
                 // Keyed on the session, not the resolved layout, so the Pending grace window is
-                // covered too. BACK stays untouched (skip-for-now via BackHandler).
+                // covered too. BACK stays untouched (previous step / exit confirm via BackHandler).
                 if (!keyShieldActive || bubbleHasFocus) return@onPreviewKeyEvent false
                 when (event.key) {
                     Key.DirectionUp, Key.DirectionDown, Key.DirectionLeft, Key.DirectionRight,
@@ -131,16 +136,30 @@ fun GuidedTourHost(
 
             val activeSession = current
             val renderable = layout as? StepLayout.Anchored ?: (layout as? StepLayout.Centerless)
-            if (activeSession != null && step != null && renderable != null) {
+            if (activeSession != null && step != null) {
                 // BackHandler is composed AFTER content() so it registers later and wins LIFO
-                // dispatch over any back handlers in the wrapped screens. Back press = soft skip;
-                // the in-bubble confirm only triggers from explicit X / Skip controls.
-                BackHandler(enabled = true, onBack = onSkipForNow)
+                // dispatch over any back handlers in the wrapped screens. Back steps backwards
+                // through the tour (TV remote muscle memory); at the first step it opens the same
+                // exit confirm as the X button. Back never cancels the tour directly. Composed for
+                // ANY active session — including the Pending grace window, where back at step 0 is
+                // consumed silently (no bubble exists to show the confirm in).
+                BackHandler(enabled = true) {
+                    when {
+                        showExitConfirm -> showExitConfirm = false
+                        activeSession.stepIndex > 0 -> onPrevious()
+                        renderable != null -> showExitConfirm = true
+                        else -> Unit
+                    }
+                }
+            }
+            if (activeSession != null && step != null && renderable != null) {
                 TourOverlay(
                     layout = renderable,
                     clickProtection = activeSession.definition.clickProtection,
                     step = step,
                     session = activeSession,
+                    showConfirm = showExitConfirm,
+                    onShowConfirmChange = { showExitConfirm = it },
                     onNext = onNext,
                     onPrevious = onPrevious,
                     onSkipForNow = onSkipForNow,
@@ -158,6 +177,8 @@ private fun TourOverlay(
     clickProtection: Boolean,
     step: TourStep,
     session: TourSession,
+    showConfirm: Boolean,
+    onShowConfirmChange: (Boolean) -> Unit,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
     onSkipForNow: () -> Unit,
@@ -249,6 +270,8 @@ private fun TourOverlay(
         step = step,
         layout = layout,
         session = session,
+        showConfirm = showConfirm,
+        onShowConfirmChange = onShowConfirmChange,
         onNext = onNext,
         onPrevious = onPrevious,
         onSkipForNow = onSkipForNow,
