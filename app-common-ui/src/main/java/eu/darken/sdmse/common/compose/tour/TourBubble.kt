@@ -454,11 +454,13 @@ private fun StepContent(
                         )
                     }
                 }
-                StepDots(
-                    current = session.stepIndex,
-                    total = session.definition.steps.size,
-                    modifier = Modifier.align(Alignment.Center),
-                )
+                if (session.definition.steps.size > 1) {
+                    StepDots(
+                        current = session.stepIndex,
+                        total = session.definition.steps.size,
+                        modifier = Modifier.align(Alignment.Center),
+                    )
+                }
                 Button(
                     onClick = onNext,
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
@@ -682,6 +684,27 @@ private fun StepContentPreviewLastStep() {
         StepContent(
             step = previewStep,
             session = previewSession.copy(stepIndex = 3),
+            isNarrow = false,
+            onNext = {},
+            onPrevious = {},
+            onRequestExit = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun StepContentPreviewSingleStep() {
+    PreviewWrapper {
+        StepContent(
+            step = previewStep,
+            session = TourSession(
+                definition = TourDefinition(
+                    id = TourId("preview.tour.single"),
+                    steps = listOf(previewStep),
+                ),
+                stepIndex = 0,
+            ),
             isNarrow = false,
             onNext = {},
             onPrevious = {},
