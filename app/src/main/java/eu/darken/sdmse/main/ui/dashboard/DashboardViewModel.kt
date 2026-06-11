@@ -35,6 +35,7 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
+import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.main.ui.dashboard.cards.DebugRecorderDashboardCardItem
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -170,7 +171,12 @@ class DashboardViewModel @Inject constructor(
     internal val statsRepo: StatsRepo,
     internal val statsSettings: StatsSettings,
     internal val spaceHistoryRepo: SpaceHistoryRepo,
+    deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
+
+    // TV-style devices navigate via D-pad focus, which scrolls the grid — auto-hiding chrome on
+    // scroll would hide controls the user is about to focus. Static per process, no flow needed.
+    val isTvDevice: Boolean by lazy { deviceDetective.isTvLikeDevice() }
 
     init {
         launch {

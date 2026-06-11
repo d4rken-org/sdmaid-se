@@ -112,6 +112,7 @@ internal class DashboardDiscardTest : BaseTest() {
             spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
                 every { getAllHistory(any()) } returns emptyFlow()
             },
+            deviceDetective = mockk(relaxed = true),
         )
         return Harness(vm, taskManager, corpseFinder, systemCleaner, appCleaner, deduplicator)
     }

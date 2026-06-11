@@ -138,6 +138,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
             statsRepo = statsRepo,
             statsSettings = statsSettings,
             spaceHistoryRepo = spaceHistoryRepo,
+            deviceDetective = mockk(relaxed = true),
         )
     }
 

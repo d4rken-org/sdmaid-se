@@ -31,7 +31,6 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -157,6 +156,7 @@ fun DashboardScreenHost(
     DashboardScreen(
         listState = listState,
         bottomBarState = bottomBarState,
+        isTv = vm.isTvDevice,
         oneClickOptionsState = oneClickOptionsState,
         isHeroDismissed = isHeroDismissed,
         snackbarHostState = snackbarHostState,
@@ -186,6 +186,7 @@ fun DashboardScreenHost(
 internal fun DashboardScreen(
     listState: DashboardViewModel.ListState? = null,
     bottomBarState: BottomBarState? = null,
+    isTv: Boolean = false,
     oneClickOptionsState: OneClickOptionsState = OneClickOptionsState(),
     isHeroDismissed: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
@@ -214,10 +215,13 @@ internal fun DashboardScreen(
     // to inflate dashboard bottom padding or otherwise change layout here.
     val dashboardTourActive = tourSession?.definition?.id == DashboardTour.id
 
-    // Auto-hide the bottom bar on scroll, BUT freeze it visible whenever a tour is active.
-    // Re-keying on dashboardTourActive cancels the scroll listener for the duration of the tour.
-    LaunchedEffect(gridState, dashboardTourActive) {
-        if (dashboardTourActive) {
+    // Auto-hide the bottom bar on scroll, BUT pin it visible whenever a tour is active or this is
+    // a TV-style device: D-pad navigation scrolls the grid via bringIntoView, which would trip the
+    // hide heuristic — merely navigating down the list would hide the controls being navigated to.
+    // Re-keying on chromePinned cancels the scroll listener while pinned.
+    val chromePinned = isTv || dashboardTourActive
+    LaunchedEffect(gridState, chromePinned) {
+        if (chromePinned) {
             isBottomBarVisible = true
             return@LaunchedEffect
         }
@@ -231,6 +235,9 @@ internal fun DashboardScreen(
                 previousPos = currentPos
             }
     }
+    // Effective visibility: pinning wins even before the effect above runs (e.g. a restored
+    // hidden state on a TV) so animation and focus gating never disagree with the pin.
+    val chromeVisible = chromePinned || isBottomBarVisible
 
     val items = listState?.items
     val hasSetup = remember(items) {
@@ -296,17 +303,13 @@ internal fun DashboardScreen(
     // Only wired once the grid is composed (items != null); otherwise `up` would point at an
     // unattached requester and log a focus warning on every press during the loading state.
     val gridFocusRequester = remember { FocusRequester() }
-    val escapeUpToGrid = if (items != null) {
-        Modifier.focusProperties { up = gridFocusRequester }
-    } else {
-        Modifier
-    }
 
     Scaffold(
         bottomBar = {
             BottomBar(
                 state = bottomBarState,
-                isVisible = isBottomBarVisible,
+                isVisible = chromeVisible,
+                focusEscape = gridFocusRequester.takeIf { items != null },
                 // Suppress the hero while a tour is active so it can't cover or fight tour targets.
                 heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive,
                 onMainAction = onMainAction,
@@ -318,13 +321,8 @@ internal fun DashboardScreen(
                 onRestoreHero = onRestoreHero,
                 onDiscardResults = onDiscardResults,
                 isHeroDismissed = isHeroDismissed,
-                mainActionModifier = Modifier
-                    .guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET)
-                    .then(escapeUpToGrid),
-                settingsModifier = Modifier
-                    .guidedTourTarget(DashboardTour.SETTINGS_TARGET)
-                    .then(escapeUpToGrid),
-                upgradeModifier = escapeUpToGrid,
+                mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
+                settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
