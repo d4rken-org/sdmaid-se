@@ -16,7 +16,7 @@ import java.time.Instant
 
 /**
  * The hero headline must equal exactly what the one-tap DELETE action will free — see
- * [DashboardViewModel.buildHeroSummary].
+ * [DashboardMainActionEngine.buildHeroSummary].
  */
 class DashboardHeroSummaryTest : BaseTest() {
 
@@ -48,7 +48,7 @@ class DashboardHeroSummaryTest : BaseTest() {
         system: Boolean = true,
         app: Boolean = true,
         dedupe: Boolean = false,
-    ) = DashboardViewModel.OneClickOptionsState(
+    ) = OneClickOptionsState(
         corpseFinderEnabled = corpse,
         systemCleanerEnabled = system,
         appCleanerEnabled = app,
@@ -57,7 +57,7 @@ class DashboardHeroSummaryTest : BaseTest() {
 
     @Test
     fun `sums the three default tools when enabled, with data, and Pro`() {
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = system(200, 5),
             app = app(300, 7),
@@ -77,7 +77,7 @@ class DashboardHeroSummaryTest : BaseTest() {
 
     @Test
     fun `AppCleaner is excluded when not Pro`() {
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             app = app(300, 7),
@@ -93,7 +93,7 @@ class DashboardHeroSummaryTest : BaseTest() {
 
     @Test
     fun `a tool with its one-click toggle off is excluded`() {
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = system(200, 5),
             app = null,
@@ -107,7 +107,7 @@ class DashboardHeroSummaryTest : BaseTest() {
 
     @Test
     fun `Deduplicator uses redundant size and clusters are kept out of the item count`() {
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             app = null,
@@ -126,7 +126,7 @@ class DashboardHeroSummaryTest : BaseTest() {
     fun `Deduplicator is excluded when not Pro`() {
         // The DELETE branch of mainAction only deletes dedupe data for Pro users, so a non-Pro
         // hero must not count it towards "will be freed".
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             app = null,
@@ -142,7 +142,7 @@ class DashboardHeroSummaryTest : BaseTest() {
     @Test
     fun `returns null when nothing is one-tap-actionable for this user`() {
         // AppCleaner has data but the user is not Pro, and it is the only tool with data.
-        DashboardViewModel.buildHeroSummary(
+        DashboardMainActionEngine.buildHeroSummary(
             corpse = null,
             system = null,
             app = app(300, 7),
@@ -156,7 +156,7 @@ class DashboardHeroSummaryTest : BaseTest() {
     fun `timestamp is the latest scan among the included tools`() {
         val older = Instant.parse("2026-06-10T10:00:00Z")
         val newer = Instant.parse("2026-06-10T11:00:00Z")
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = system(200, 5),
             app = null,
@@ -176,7 +176,7 @@ class DashboardHeroSummaryTest : BaseTest() {
     fun `a newer scan of an excluded tool does not affect the timestamp`() {
         val shown = Instant.parse("2026-06-10T10:00:00Z")
         val excludedButNewer = Instant.parse("2026-06-10T11:00:00Z")
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             // Not Pro: AppCleaner is excluded from the summary despite having data and a newer scan.
@@ -196,7 +196,7 @@ class DashboardHeroSummaryTest : BaseTest() {
 
     @Test
     fun `timestamp is null without scan times`() {
-        val result = DashboardViewModel.buildHeroSummary(
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             app = null,

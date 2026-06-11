@@ -46,6 +46,7 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.dashboard.bottom.BottomBar
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
@@ -162,7 +163,7 @@ fun DashboardScreenHost(
         onDismissHero = vm::dismissHero,
         onMainAction = {
             when (val actionState = bottomBarState?.actionState ?: return@DashboardScreen) {
-                DashboardViewModel.BottomBarState.Action.DELETE -> {
+                BottomBarState.Action.DELETE -> {
                     dialogState = DashboardDialogState.MainActionDelete(actionState)
                 }
 
@@ -184,12 +185,12 @@ fun DashboardScreenHost(
 @Composable
 internal fun DashboardScreen(
     listState: DashboardViewModel.ListState? = null,
-    bottomBarState: DashboardViewModel.BottomBarState? = null,
-    oneClickOptionsState: DashboardViewModel.OneClickOptionsState = DashboardViewModel.OneClickOptionsState(),
+    bottomBarState: BottomBarState? = null,
+    oneClickOptionsState: OneClickOptionsState = OneClickOptionsState(),
     isHeroDismissed: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
-    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     onSettings: () -> Unit = {},

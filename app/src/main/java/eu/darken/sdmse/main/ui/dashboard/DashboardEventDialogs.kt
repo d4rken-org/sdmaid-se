@@ -24,7 +24,7 @@ internal sealed interface DashboardDialogState {
     data object Todo : DashboardDialogState
     data object ShortRecordingWarning : DashboardDialogState
     data class MainActionDelete(
-        val action: DashboardViewModel.BottomBarState.Action,
+        val action: BottomBarState.Action,
     ) : DashboardDialogState
 
     data class UnknownFolders(
@@ -48,7 +48,7 @@ internal fun DashboardEventDialogs(
     onShowDeduplicator: () -> Unit,
     onPreviewDeduplicator: (eu.darken.sdmse.common.previews.PreviewOptions) -> Unit,
     onStopShortRecording: () -> Unit,
-    onConfirmMainAction: (DashboardViewModel.BottomBarState.Action) -> Unit,
+    onConfirmMainAction: (BottomBarState.Action) -> Unit,
 ) {
     when (state) {
         null -> Unit

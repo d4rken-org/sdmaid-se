@@ -71,16 +71,30 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         stall: String? = null,
         history: Flow<List<SpaceSnapshotEntity>> = emptyFlow(),
         cardConfig: Flow<DashboardCardConfig> = emptyFlow(),
+        emittingToolStates: Boolean = false,
     ): DashboardViewModel {
         fun <T> srcOr(name: String, default: Flow<T>): Flow<T> = if (stall == name) stalled() else default
 
         val taskManager = mockk<TaskManager>(relaxed = true).apply {
             every { state } returns MutableStateFlow(TaskSubmitter.State())
         }
-        val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply { every { state } returns emptyFlow() }
-        val systemCleaner = mockk<SystemCleaner>(relaxed = true).apply { every { state } returns emptyFlow() }
-        val appCleaner = mockk<AppCleaner>(relaxed = true).apply { every { state } returns emptyFlow() }
-        val deduplicator = mockk<Deduplicator>(relaxed = true).apply { every { state } returns emptyFlow() }
+        // The bottom bar combine has no fallbacks; give it live (data-less) tool states when needed.
+        val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply {
+            every { state } returns
+                if (emittingToolStates) MutableStateFlow(mockk<CorpseFinder.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+        }
+        val systemCleaner = mockk<SystemCleaner>(relaxed = true).apply {
+            every { state } returns
+                if (emittingToolStates) MutableStateFlow(mockk<SystemCleaner.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+        }
+        val appCleaner = mockk<AppCleaner>(relaxed = true).apply {
+            every { state } returns
+                if (emittingToolStates) MutableStateFlow(mockk<AppCleaner.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+        }
+        val deduplicator = mockk<Deduplicator>(relaxed = true).apply {
+            every { state } returns
+                if (emittingToolStates) MutableStateFlow(mockk<Deduplicator.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+        }
         val squeezer = mockk<Squeezer>(relaxed = true).apply { every { state } returns emptyFlow() }
         val appControl = mockk<AppControl>(relaxed = true).apply { every { state } returns emptyFlow() }
         val analyzer = mockk<Analyzer>(relaxed = true).apply {
@@ -112,6 +126,9 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
             every { dashboardCardConfig } returns mockk(relaxed = true) {
                 every { flow } returns cardConfig
+            }
+            every { enableDashboardOneClick } returns mockk(relaxed = true) {
+                every { flow } returns MutableStateFlow(false)
             }
         }
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
@@ -193,6 +210,18 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             .mapNotNull { it?.items?.filterIsInstance<AnalyzerDashboardCardItem>()?.singleOrNull() }
             .first { !it.isLoadingTrend }
         loaded.combinedDelta shouldBe 100L
+    }
+
+    @Test
+    fun `bottom bar emits even when upgrade info never emits`() = runTest2 {
+        // upgradeRepo.upgradeInfo is emptyFlow() in the harness; the VM's shared upgradeInfo
+        // injects an immediate null so the bottom bar must not stall waiting for billing.
+        val vm = harness(emittingToolStates = true)
+
+        val bar = vm.bottomBarState.mapNotNull { it }.first()
+
+        bar.upgradeInfo shouldBe null
+        bar.actionState shouldBe BottomBarState.Action.SCAN
     }
 
     @Test

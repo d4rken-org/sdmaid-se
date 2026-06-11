@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import io.kotest.matchers.shouldBe

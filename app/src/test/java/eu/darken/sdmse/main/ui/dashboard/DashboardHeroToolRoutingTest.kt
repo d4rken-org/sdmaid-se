@@ -37,6 +37,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -49,6 +50,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 import java.util.UUID
 
 /**
@@ -96,6 +98,12 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
             every { dashboardCardConfig } returns mockk(relaxed = true) {
                 every { flow } returns emptyFlow()
             }
+            // Only CorpseFinder participates in mainAction so cleanup stamping can run without
+            // the Pro-gated branches needing live upgrade state.
+            every { oneClickCorpseFinderEnabled } returns mockBool(true)
+            every { oneClickSystemCleanerEnabled } returns mockBool(false)
+            every { oneClickAppCleanerEnabled } returns mockBool(false)
+            every { oneClickDeduplicatorEnabled } returns mockBool(false)
         }
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
             every { getAllHistory(any()) } returns emptyFlow()
@@ -137,6 +145,10 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         every { flow } returns MutableStateFlow(java.time.Duration.ZERO)
     }
 
+    private fun mockBool(value: Boolean): DataStoreValue<Boolean> = mockk(relaxed = true) {
+        every { flow } returns MutableStateFlow(value)
+    }
+
     private class CollectedNav(val list: MutableList<NavEvent>, private val job: Job) {
         fun cancel() = job.cancel()
     }
@@ -153,7 +165,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         val vm = harness(statsRepo)
         val nav = collectNav(vm)
 
-        vm.onHeroToolClick(DashboardViewModel.HeroSummary.Mode.FREEABLE, SDMTool.Type.CORPSEFINDER)
+        vm.onHeroToolClick(HeroSummary.Mode.FREEABLE, SDMTool.Type.CORPSEFINDER)
         advanceUntilIdle()
 
         nav.list shouldBe listOf(NavEvent.GoTo(CorpseFinderListRoute))
@@ -173,7 +185,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         val vm = harness(statsRepo)
         val nav = collectNav(vm)
 
-        vm.onHeroToolClick(DashboardViewModel.HeroSummary.Mode.FREED, SDMTool.Type.CORPSEFINDER)
+        vm.onHeroToolClick(HeroSummary.Mode.FREED, SDMTool.Type.CORPSEFINDER)
         advanceUntilIdle()
 
         nav.list shouldBe listOf<NavEvent>(NavEvent.GoTo(AffectedFilesRoute(id)))
@@ -189,9 +201,32 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         val vm = harness(statsRepo)
         val nav = collectNav(vm)
 
-        vm.onHeroToolClick(DashboardViewModel.HeroSummary.Mode.FREED, SDMTool.Type.SYSTEMCLEANER)
+        vm.onHeroToolClick(HeroSummary.Mode.FREED, SDMTool.Type.SYSTEMCLEANER)
         advanceUntilIdle()
 
+        nav.list shouldBe listOf<NavEvent>(NavEvent.GoTo(ReportsRoute))
+        nav.cancel()
+    }
+
+    @Test
+    fun `freed chip resolves the report against this cleanup's start time`() = runTest2 {
+        val sinceSlot = slot<Instant>()
+        val statsRepo = mockk<StatsRepo>(relaxed = true).apply {
+            every { state } returns emptyFlow()
+            coEvery { getReportForToolSince(any(), capture(sinceSlot)) } returns null
+        }
+        val vm = harness(statsRepo)
+        val nav = collectNav(vm)
+
+        val beforeCleanup = Instant.now()
+        vm.mainAction(BottomBarState.Action.ONECLICK)
+        advanceUntilIdle()
+
+        vm.onHeroToolClick(HeroSummary.Mode.FREED, SDMTool.Type.CORPSEFINDER)
+        advanceUntilIdle()
+
+        // The lookup must use this cleanup's batch start, not EPOCH or a stale earlier stamp.
+        (sinceSlot.captured >= beforeCleanup) shouldBe true
         nav.list shouldBe listOf<NavEvent>(NavEvent.GoTo(ReportsRoute))
         nav.cancel()
     }
@@ -207,7 +242,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         val vm = harness(statsRepo)
         val nav = collectNav(vm)
 
-        vm.onHeroToolClick(DashboardViewModel.HeroSummary.Mode.FREED, SDMTool.Type.CORPSEFINDER)
+        vm.onHeroToolClick(HeroSummary.Mode.FREED, SDMTool.Type.CORPSEFINDER)
         advanceUntilIdle()
 
         nav.list shouldBe listOf<NavEvent>(NavEvent.GoTo(ReportsRoute))

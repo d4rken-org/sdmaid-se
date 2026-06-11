@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import android.content.Context
 import android.text.format.DateUtils
@@ -15,6 +15,8 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.main.ui.dashboard.BottomBarState
+import eu.darken.sdmse.main.ui.dashboard.HeroSummary
 import eu.darken.sdmse.main.core.SDMTool
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -25,23 +27,23 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
-    private fun summary(timestamp: Instant? = null) = DashboardViewModel.HeroSummary(
-        mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
+    private fun summary(timestamp: Instant? = null) = HeroSummary(
+        mode = HeroSummary.Mode.FREEABLE,
         totalSize = 2L * 1024 * 1024 * 1024,
         itemCount = 37,
         tools = listOf(
-            DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
-            DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1L * 1024 * 1024 * 1024, 25),
+            HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+            HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1L * 1024 * 1024 * 1024, 25),
         ),
         timestamp = timestamp,
     )
 
     private fun deleteState(
-        hero: DashboardViewModel.HeroSummary?,
+        hero: HeroSummary?,
         now: Instant = Instant.EPOCH,
-    ) = DashboardViewModel.BottomBarState(
+    ) = BottomBarState(
         isReady = true,
-        actionState = DashboardViewModel.BottomBarState.Action.DELETE,
+        actionState = BottomBarState.Action.DELETE,
         activeTasks = 0,
         queuedTasks = 0,
         heroSummary = hero,
@@ -91,12 +93,12 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `freed-mode hero shows the freed caption`() {
-        val freed = DashboardViewModel.HeroSummary(
-            mode = DashboardViewModel.HeroSummary.Mode.FREED,
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
             totalSize = 1L * 1024 * 1024 * 1024,
             itemCount = 12,
             tools = listOf(
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
             ),
         )
         composeRule.setContent {
@@ -118,7 +120,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `activating a tool chip invokes onToolClick with the rendered mode and tool`() {
-        var clickedMode: DashboardViewModel.HeroSummary.Mode? = null
+        var clickedMode: HeroSummary.Mode? = null
         var clickedType: SDMTool.Type? = null
         composeRule.setContent {
             PreviewWrapper {
@@ -144,20 +146,20 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             .assertHasClickAction()
             .performSemanticsAction(SemanticsActions.OnClick)
         composeRule.runOnIdle {
-            assertEquals(DashboardViewModel.HeroSummary.Mode.FREEABLE, clickedMode)
+            assertEquals(HeroSummary.Mode.FREEABLE, clickedMode)
             assertEquals(SDMTool.Type.CORPSEFINDER, clickedType)
         }
     }
 
     @Test
     fun `freed-mode chip click reports the freed mode`() {
-        var clickedMode: DashboardViewModel.HeroSummary.Mode? = null
-        val freed = DashboardViewModel.HeroSummary(
-            mode = DashboardViewModel.HeroSummary.Mode.FREED,
+        var clickedMode: HeroSummary.Mode? = null
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
             totalSize = 1L * 1024 * 1024 * 1024,
             itemCount = 12,
             tools = listOf(
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
             ),
         )
         composeRule.setContent {
@@ -179,7 +181,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithContentDescription(corpseName)
             .assertHasClickAction()
             .performSemanticsAction(SemanticsActions.OnClick)
-        composeRule.runOnIdle { assertEquals(DashboardViewModel.HeroSummary.Mode.FREED, clickedMode) }
+        composeRule.runOnIdle { assertEquals(HeroSummary.Mode.FREED, clickedMode) }
     }
 
     @Test
@@ -275,12 +277,12 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `freed-mode hero has no discard button`() {
-        val freed = DashboardViewModel.HeroSummary(
-            mode = DashboardViewModel.HeroSummary.Mode.FREED,
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
             totalSize = 1L * 1024 * 1024 * 1024,
             itemCount = 12,
             tools = listOf(
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
             ),
         )
         composeRule.setContent {

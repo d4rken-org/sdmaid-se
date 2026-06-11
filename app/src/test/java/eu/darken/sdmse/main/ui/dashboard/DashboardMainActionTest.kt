@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 /**
- * Contract of [DashboardViewModel.resolveMainAction]: which results arm the main button's DELETE
+ * Contract of [DashboardMainActionEngine.resolveMainAction]: which results arm the main button's DELETE
  * action (and thereby summon the hero card). Deduplicator only counts when it is opted into
  * one-click and the user is Pro — matching what the DELETE branch of mainAction will actually free.
  */
@@ -27,7 +27,7 @@ class DashboardMainActionTest : BaseTest() {
         every { clusters } returns setOf(mockk<Duplicate.Cluster>())
     }
 
-    private fun oneClick(dedupe: Boolean = false) = DashboardViewModel.OneClickOptionsState(
+    private fun oneClick(dedupe: Boolean = false) = OneClickOptionsState(
         deduplicatorEnabled = dedupe,
     )
 
@@ -35,10 +35,10 @@ class DashboardMainActionTest : BaseTest() {
         taskState: TaskSubmitter.State = idle,
         corpse: CorpseFinder.Data? = null,
         dedupe: Deduplicator.Data? = null,
-        oneClick: DashboardViewModel.OneClickOptionsState = oneClick(),
+        oneClick: OneClickOptionsState = oneClick(),
         isPro: Boolean = true,
         oneClickMode: Boolean = false,
-    ) = DashboardViewModel.resolveMainAction(
+    ) = DashboardMainActionEngine.resolveMainAction(
         taskState = taskState,
         corpse = corpse,
         system = null,
@@ -51,13 +51,13 @@ class DashboardMainActionTest : BaseTest() {
 
     @Test
     fun `no data resolves to SCAN, or ONECLICK when one-click mode is on`() {
-        resolve() shouldBe DashboardViewModel.BottomBarState.Action.SCAN
-        resolve(oneClickMode = true) shouldBe DashboardViewModel.BottomBarState.Action.ONECLICK
+        resolve() shouldBe BottomBarState.Action.SCAN
+        resolve(oneClickMode = true) shouldBe BottomBarState.Action.ONECLICK
     }
 
     @Test
     fun `default tool data arms DELETE`() {
-        resolve(corpse = corpse()) shouldBe DashboardViewModel.BottomBarState.Action.DELETE
+        resolve(corpse = corpse()) shouldBe BottomBarState.Action.DELETE
     }
 
     @Test
@@ -66,7 +66,7 @@ class DashboardMainActionTest : BaseTest() {
             dedupe = dedupe(),
             oneClick = oneClick(dedupe = true),
             isPro = true,
-        ) shouldBe DashboardViewModel.BottomBarState.Action.DELETE
+        ) shouldBe BottomBarState.Action.DELETE
     }
 
     @Test
@@ -75,7 +75,7 @@ class DashboardMainActionTest : BaseTest() {
             dedupe = dedupe(),
             oneClick = oneClick(dedupe = false),
             isPro = true,
-        ) shouldBe DashboardViewModel.BottomBarState.Action.SCAN
+        ) shouldBe BottomBarState.Action.SCAN
     }
 
     @Test
@@ -86,7 +86,7 @@ class DashboardMainActionTest : BaseTest() {
             dedupe = dedupe(),
             oneClick = oneClick(dedupe = true),
             isPro = false,
-        ) shouldBe DashboardViewModel.BottomBarState.Action.SCAN
+        ) shouldBe BottomBarState.Action.SCAN
     }
 
     @Test
@@ -98,7 +98,7 @@ class DashboardMainActionTest : BaseTest() {
         resolve(
             taskState = cancellable,
             corpse = corpse(),
-        ) shouldBe DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE
+        ) shouldBe BottomBarState.Action.WORKING_CANCELABLE
 
         val working = mockk<TaskSubmitter.State> {
             every { hasCancellable } returns false
@@ -107,6 +107,6 @@ class DashboardMainActionTest : BaseTest() {
         resolve(
             taskState = working,
             corpse = corpse(),
-        ) shouldBe DashboardViewModel.BottomBarState.Action.WORKING
+        ) shouldBe BottomBarState.Action.WORKING
     }
 }

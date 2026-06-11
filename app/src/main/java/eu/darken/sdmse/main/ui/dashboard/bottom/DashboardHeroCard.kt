@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import android.text.format.DateUtils
 import androidx.annotation.StringRes
@@ -45,6 +45,7 @@ import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.dashboard.HeroSummary
 import eu.darken.sdmse.main.ui.dashboard.cards.toolNameRes
 import java.time.Instant
 import eu.darken.sdmse.common.R as CommonR
@@ -58,18 +59,18 @@ import eu.darken.sdmse.common.R as CommonR
 @Composable
 internal fun DashboardHeroCard(
     modifier: Modifier = Modifier,
-    summary: DashboardViewModel.HeroSummary,
+    summary: HeroSummary,
     now: Instant = Instant.now(),
     onDismiss: () -> Unit = {},
     onDiscard: (() -> Unit)? = null,
-    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
 ) {
     // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed.
     val (containerColor, contentColor) = when (summary.mode) {
-        DashboardViewModel.HeroSummary.Mode.FREEABLE ->
+        HeroSummary.Mode.FREEABLE ->
             MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
 
-        DashboardViewModel.HeroSummary.Mode.FREED ->
+        HeroSummary.Mode.FREED ->
             MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
     }
     Surface(
@@ -103,9 +104,9 @@ internal fun DashboardHeroCard(
 @Composable
 private fun HeroBody(
     modifier: Modifier = Modifier,
-    summary: DashboardViewModel.HeroSummary,
+    summary: HeroSummary,
     onDismiss: () -> Unit,
-    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit,
+    onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit,
 ) {
     val context = LocalContext.current
     val modeRes = summary.mode.resources
@@ -201,7 +202,7 @@ private fun HeroBody(
 @Composable
 private fun HeroFooter(
     modifier: Modifier = Modifier,
-    summary: DashboardViewModel.HeroSummary,
+    summary: HeroSummary,
     now: Instant,
     onDiscard: (() -> Unit)?,
 ) {
@@ -270,16 +271,16 @@ private data class HeroModeResources(
     @StringRes val timestampDescription: Int,
 )
 
-private val DashboardViewModel.HeroSummary.Mode.resources: HeroModeResources
+private val HeroSummary.Mode.resources: HeroModeResources
     get() = when (this) {
-        DashboardViewModel.HeroSummary.Mode.FREEABLE -> HeroModeResources(
+        HeroSummary.Mode.FREEABLE -> HeroModeResources(
             headline = R.string.dashboard_hero_freeable_headline,
             caption = R.string.dashboard_hero_freeable_x_items,
             hint = R.string.dashboard_hero_freeable_hint,
             timestampDescription = R.string.dashboard_hero_scanned_timestamp_description,
         )
 
-        DashboardViewModel.HeroSummary.Mode.FREED -> HeroModeResources(
+        HeroSummary.Mode.FREED -> HeroModeResources(
             headline = R.string.dashboard_hero_freed_headline,
             caption = R.string.dashboard_hero_freed_x_items,
             hint = R.string.dashboard_hero_freed_hint,
@@ -288,13 +289,13 @@ private val DashboardViewModel.HeroSummary.Mode.resources: HeroModeResources
     }
 
 private fun previewSummary(
-    mode: DashboardViewModel.HeroSummary.Mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
-    tools: List<DashboardViewModel.HeroSummary.ToolSlice> = listOf(
-        DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
-        DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
-        DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
+    mode: HeroSummary.Mode = HeroSummary.Mode.FREEABLE,
+    tools: List<HeroSummary.ToolSlice> = listOf(
+        HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
+        HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
+        HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
     ),
-) = DashboardViewModel.HeroSummary(
+) = HeroSummary(
     mode = mode,
     totalSize = tools.sumOf { it.size },
     itemCount = tools.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
@@ -304,7 +305,7 @@ private fun previewSummary(
 
 @Composable
 private fun HeroCardPreview(
-    summary: DashboardViewModel.HeroSummary,
+    summary: HeroSummary,
     onDiscard: (() -> Unit)? = null,
 ) {
     PreviewWrapper {
@@ -323,7 +324,7 @@ private fun HeroCardPreview(
 @Composable
 private fun DashboardHeroCardFreeablePreview() {
     HeroCardPreview(
-        summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREEABLE),
+        summary = previewSummary(mode = HeroSummary.Mode.FREEABLE),
         onDiscard = {},
     )
 }
@@ -331,7 +332,7 @@ private fun DashboardHeroCardFreeablePreview() {
 @Preview2
 @Composable
 private fun DashboardHeroCardFreedPreview() {
-    HeroCardPreview(summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREED))
+    HeroCardPreview(summary = previewSummary(mode = HeroSummary.Mode.FREED))
 }
 
 // Worst case: all four tools (chips wrap to a second row) + the two-line freeable hint — validates
@@ -341,12 +342,12 @@ private fun DashboardHeroCardFreedPreview() {
 private fun DashboardHeroCardFreeableAllToolsPreview() {
     HeroCardPreview(
         summary = previewSummary(
-            mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
+            mode = HeroSummary.Mode.FREEABLE,
             tools = listOf(
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
-                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 1_024L * 1_024L * 512L, 3),
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
+                HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
+                HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
+                HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 1_024L * 1_024L * 512L, 3),
             ),
         ),
         onDiscard = {},

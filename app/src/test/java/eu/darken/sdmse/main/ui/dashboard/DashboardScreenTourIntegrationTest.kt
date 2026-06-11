@@ -158,9 +158,9 @@ private fun ComposeContentTestRule.setDashboardContent(
         // not an unresolved mockk default that crashes the cast.
         every { it.session } returns MutableStateFlow(null)
     }
-    val bottomBarState = DashboardViewModel.BottomBarState(
+    val bottomBarState = BottomBarState(
         isReady = true,
-        actionState = DashboardViewModel.BottomBarState.Action.SCAN,
+        actionState = BottomBarState.Action.SCAN,
         activeTasks = 0,
         queuedTasks = 0,
         heroSummary = null,

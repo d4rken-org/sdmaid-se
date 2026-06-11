@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -62,6 +62,8 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.main.ui.dashboard.BottomBarState
+import eu.darken.sdmse.main.ui.dashboard.HeroSummary
 import eu.darken.sdmse.main.core.SDMTool
 import java.time.Instant
 
@@ -79,7 +81,7 @@ private val HeroOvershoot = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
 @Composable
 internal fun BottomBar(
     modifier: Modifier = Modifier,
-    state: DashboardViewModel.BottomBarState?,
+    state: BottomBarState?,
     isVisible: Boolean,
     heroVisible: Boolean,
     onMainAction: () -> Unit,
@@ -87,7 +89,7 @@ internal fun BottomBar(
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
     onDismissHero: () -> Unit,
-    onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
     onRestoreHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     isHeroDismissed: Boolean = false,
@@ -230,7 +232,7 @@ internal fun BottomBar(
                 // Discarding only makes sense while there's still pending data; a FREED summary is
                 // already just an after-the-fact report the X can hide.
                 onDiscard = onDiscardResults
-                    .takeIf { heroSummary.mode == DashboardViewModel.HeroSummary.Mode.FREEABLE },
+                    .takeIf { heroSummary.mode == HeroSummary.Mode.FREEABLE },
                 onToolClick = onToolClick,
             )
         }
@@ -252,8 +254,8 @@ internal fun BottomBar(
 @Composable
 private fun BarContent(
     modifier: Modifier = Modifier,
-    state: DashboardViewModel.BottomBarState?,
-    compactSummary: DashboardViewModel.HeroSummary?,
+    state: BottomBarState?,
+    compactSummary: HeroSummary?,
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
     onRestoreHero: (() -> Unit)? = null,
@@ -349,16 +351,16 @@ private fun BarContent(
 @Composable
 private fun MainActionFab(
     modifier: Modifier = Modifier,
-    actionState: DashboardViewModel.BottomBarState.Action,
+    actionState: BottomBarState.Action,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {
     val (containerColor, contentColor) = when (actionState) {
-        DashboardViewModel.BottomBarState.Action.SCAN -> MaterialTheme.colorScheme.primaryContainer to MaterialTheme.colorScheme.onPrimaryContainer
-        DashboardViewModel.BottomBarState.Action.DELETE -> MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
-        DashboardViewModel.BottomBarState.Action.ONECLICK -> MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
-        DashboardViewModel.BottomBarState.Action.WORKING -> MaterialTheme.colorScheme.secondaryContainer to MaterialTheme.colorScheme.onSecondaryContainer
-        DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE -> MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
+        BottomBarState.Action.SCAN -> MaterialTheme.colorScheme.primaryContainer to MaterialTheme.colorScheme.onPrimaryContainer
+        BottomBarState.Action.DELETE -> MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
+        BottomBarState.Action.ONECLICK -> MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
+        BottomBarState.Action.WORKING -> MaterialTheme.colorScheme.secondaryContainer to MaterialTheme.colorScheme.onSecondaryContainer
+        BottomBarState.Action.WORKING_CANCELABLE -> MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
     }
 
     Surface(
@@ -374,31 +376,31 @@ private fun MainActionFab(
             modifier = Modifier
                 .fillMaxSize()
                 .combinedClickable(
-                    enabled = actionState != DashboardViewModel.BottomBarState.Action.WORKING,
+                    enabled = actionState != BottomBarState.Action.WORKING,
                     onClick = onClick,
                     onLongClick = onLongClick,
                 ),
             contentAlignment = Alignment.Center,
         ) {
             when (actionState) {
-                DashboardViewModel.BottomBarState.Action.SCAN -> Icon(
+                BottomBarState.Action.SCAN -> Icon(
                     painter = painterResource(UiR.drawable.ic_layer_search_24),
                     contentDescription = stringResource(CommonR.string.general_scan_action),
                 )
 
-                DashboardViewModel.BottomBarState.Action.DELETE -> Icon(
+                BottomBarState.Action.DELETE -> Icon(
                     painter = painterResource(UiR.drawable.ic_baseline_delete_sweep_24),
                     contentDescription = stringResource(CommonR.string.general_delete_action),
                 )
 
-                DashboardViewModel.BottomBarState.Action.ONECLICK -> Icon(
+                BottomBarState.Action.ONECLICK -> Icon(
                     painter = painterResource(UiR.drawable.ic_delete_alert_24),
                     contentDescription = stringResource(R.string.dashboard_settings_oneclick_tools_title),
                 )
 
-                DashboardViewModel.BottomBarState.Action.WORKING -> Unit
+                BottomBarState.Action.WORKING -> Unit
 
-                DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE -> Icon(
+                BottomBarState.Action.WORKING_CANCELABLE -> Icon(
                     painter = painterResource(UiR.drawable.ic_cancel),
                     contentDescription = stringResource(CommonR.string.general_cancel_action),
                 )
@@ -408,9 +410,9 @@ private fun MainActionFab(
 }
 
 private fun previewBottomBarState(
-    action: DashboardViewModel.BottomBarState.Action,
-    heroSummary: DashboardViewModel.HeroSummary? = null,
-): DashboardViewModel.BottomBarState = DashboardViewModel.BottomBarState(
+    action: BottomBarState.Action,
+    heroSummary: HeroSummary? = null,
+): BottomBarState = BottomBarState(
     isReady = true,
     actionState = action,
     activeTasks = 0,
@@ -419,13 +421,13 @@ private fun previewBottomBarState(
     upgradeInfo = null,
 )
 
-private fun previewHeroSummary() = DashboardViewModel.HeroSummary(
-    mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
+private fun previewHeroSummary() = HeroSummary(
+    mode = HeroSummary.Mode.FREEABLE,
     totalSize = 1_024L * 1_024L * 1_024L * 2L,
     itemCount = 37,
     tools = listOf(
-        DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
-        DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 1_024L, 25),
+        HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
+        HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 1_024L, 25),
     ),
 )
 
@@ -439,7 +441,7 @@ private fun DashboardBottomBarPreviewHero() {
                 .height(260.dp),
         ) {
             BottomBar(
-                state = previewBottomBarState(DashboardViewModel.BottomBarState.Action.DELETE, previewHeroSummary()),
+                state = previewBottomBarState(BottomBarState.Action.DELETE, previewHeroSummary()),
                 isVisible = true,
                 heroVisible = true,
                 onMainAction = {},
@@ -462,7 +464,7 @@ private fun DashboardBottomBarPreviewScan() {
                 .height(140.dp),
         ) {
             BottomBar(
-                state = previewBottomBarState(DashboardViewModel.BottomBarState.Action.SCAN),
+                state = previewBottomBarState(BottomBarState.Action.SCAN),
                 isVisible = true,
                 heroVisible = false,
                 onMainAction = {},
