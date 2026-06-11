@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
-// Shared geometry for the dashboard bottom chrome (bar + cradled FAB + hero card).
+// Shared geometry for the dashboard bottom dock (bar + cradled FAB + hero card).
 // The hero card's bottom notch is the *exact same* cutout as the bar's top notch, mirrored, so the
 // FAB nestles identically into both with a uniform gap.
 
@@ -26,7 +26,7 @@ internal val DASHBOARD_FAB_CORNER_RADIUS = 16.dp
  */
 internal val DASHBOARD_FAB_BOTTOM_INSET = 38.dp
 
-/** Reserved chrome height when no hero is shown; must clear the FAB's top (38 + 56 = 94) + breathing room. */
+/** Reserved dock height when no hero is shown; must clear the FAB's top (38 + 56 = 94) + breathing room. */
 internal val DASHBOARD_FAB_SLOT_HEIGHT = 98.dp
 
 // The single cutout definition, shared by the bar (top edge) and the hero (bottom edge, mirrored).
@@ -56,8 +56,8 @@ internal val DASHBOARD_HERO_CONTENT_HEIGHT = 156.dp
 internal val DASHBOARD_HERO_CARD_HEIGHT = DASHBOARD_HERO_CONTENT_HEIGHT + DASHBOARD_CUTOUT_DEPTH
 internal val DASHBOARD_HERO_HORIZONTAL_MARGIN = 12.dp
 
-/** Reserved chrome height when the hero is shown: bar + gap + hero card (the FAB cradles between). */
-internal val DASHBOARD_CHROME_HEIGHT_WITH_HERO =
+/** Reserved dock height when the hero is shown: bar + gap + hero card (the FAB cradles between). */
+internal val DASHBOARD_DOCK_HEIGHT_WITH_HERO =
     DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP + DASHBOARD_HERO_CARD_HEIGHT
 
 /**

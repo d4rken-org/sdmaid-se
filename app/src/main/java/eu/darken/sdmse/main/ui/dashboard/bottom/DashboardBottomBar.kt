@@ -74,7 +74,7 @@ import java.time.Instant
 private val HeroOvershoot = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
 
 /**
- * The dashboard bottom chrome: a primary-coloured bar, the cradled main-action FAB, and — when the
+ * The dashboard bottom dock: a primary-coloured bar, the cradled main-action FAB, and — when the
  * latest main-action produced a result — a floating [DashboardHeroCard] above them.
  *
  * Each piece is bottom-anchored and animates **independently** so they cascade: on show the bar
@@ -104,11 +104,11 @@ internal fun BottomBar(
     val heroSummary = state?.heroSummary
     val showHero = heroVisible && heroSummary != null
 
-    // Hidden chrome only slides off-screen via offset() — it stays composed for the exit
+    // Hidden dock only slides off-screen via offset() — it stays composed for the exit
     // animation, so it must be made unreachable explicitly: gate D-pad/keyboard focus for each
     // layer's subtree on visibility (the hero additionally on showHero, so a dismissed card isn't
     // focusable mid-exit). [focusEscape] routes UP into the dashboard grid — the grid's focus
-    // group fully contains the chrome's rects and is never a directional candidate on its own.
+    // group fully contains the dock's rects and is never a directional candidate on its own.
     val barFocus = Modifier.focusProperties {
         canFocus = isVisible
         focusEscape?.let { up = it }
@@ -118,7 +118,7 @@ internal fun BottomBar(
         focusEscape?.let { up = it }
     }
 
-    // Deliberately NOT safeDrawing: that includes the IME inset, and the chrome is sized
+    // Deliberately NOT safeDrawing: that includes the IME inset, and the dock is sized
     // bar-height + navBottom. Composing while an IME inset is (still) reported — e.g. launching
     // with the keyboard up from the launcher — would stretch the bar to keyboard height.
     val navBottom = WindowInsets.systemBars.union(WindowInsets.displayCutout)
@@ -128,10 +128,10 @@ internal fun BottomBar(
 
     // Reserved layout height drives the Scaffold's content padding. Elements are bottom-anchored, so
     // growing this only reflows the list above — it never moves the bar/FAB.
-    val chromeHeight by animateDpAsState(
-        targetValue = if (showHero) DASHBOARD_CHROME_HEIGHT_WITH_HERO else DASHBOARD_FAB_SLOT_HEIGHT,
+    val dockHeight by animateDpAsState(
+        targetValue = if (showHero) DASHBOARD_DOCK_HEIGHT_WITH_HERO else DASHBOARD_FAB_SLOT_HEIGHT,
         animationSpec = tween(durationMillis = 300),
-        label = "dashboardChromeHeight",
+        label = "dashboardDockHeight",
     )
 
     // The bar sits flush with the screen's bottom edge (its surface fills the nav-inset area), so its
@@ -195,7 +195,7 @@ internal fun BottomBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(chromeHeight + navBottom)
+            .height(dockHeight + navBottom)
             .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal))
             .then(a11yGate),
     ) {

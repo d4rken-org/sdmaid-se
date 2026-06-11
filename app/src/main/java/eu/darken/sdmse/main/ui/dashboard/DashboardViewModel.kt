@@ -174,7 +174,7 @@ class DashboardViewModel @Inject constructor(
     deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
-    // TV-style devices navigate via D-pad focus, which scrolls the grid — auto-hiding chrome on
+    // TV-style devices navigate via D-pad focus, which scrolls the grid — auto-hiding dock on
     // scroll would hide controls the user is about to focus. Static per process, no flow needed.
     val isTvDevice: Boolean by lazy { deviceDetective.isTvLikeDevice() }
 

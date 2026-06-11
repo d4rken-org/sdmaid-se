@@ -10,7 +10,7 @@ import testhelpers.BaseTest
  * Guards the fix for the "empty notch" bug: the bar must only carve out the FAB cutout when the FAB
  * is actually present (i.e. when the dashboard is ready). See [dashboardBarShape].
  */
-class DashboardChromeGeometryTest : BaseTest() {
+class DashboardDockGeometryTest : BaseTest() {
 
     @Test
     fun `ready bar carves the FAB cutout`() {

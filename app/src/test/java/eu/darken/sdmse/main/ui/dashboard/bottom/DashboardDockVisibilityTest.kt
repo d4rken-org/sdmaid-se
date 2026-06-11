@@ -14,11 +14,11 @@ import testhelpers.compose.BaseComposeRobolectricTest
 import eu.darken.sdmse.common.R as CommonR
 
 /**
- * Hidden chrome slides off-screen via offset() but stays composed for its exit animation — these
+ * Hidden dock slides off-screen via offset() but stays composed for its exit animation — these
  * tests pin down that it is unreachable while hidden: absent from the accessibility tree (which
- * also covers TalkBack) and not focusable, while visible chrome stays fully interactive.
+ * also covers TalkBack) and not focusable, while visible dock stays fully interactive.
  */
-class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
+class DashboardDockVisibilityTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
@@ -40,7 +40,7 @@ class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
         upgradeInfo = null,
     )
 
-    private fun setChrome(isVisible: Boolean) {
+    private fun setDock(isVisible: Boolean) {
         composeRule.setContent {
             PreviewWrapper {
                 BottomBar(
@@ -58,8 +58,8 @@ class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `hidden chrome is absent from the accessibility tree`() {
-        setChrome(isVisible = false)
+    fun `hidden dock is absent from the accessibility tree`() {
+        setDock(isVisible = false)
 
         composeRule.onNodeWithContentDescription(context.getString(CommonR.string.general_settings_title))
             .assertDoesNotExist()
@@ -70,8 +70,8 @@ class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `visible chrome exposes its controls`() {
-        setChrome(isVisible = true)
+    fun `visible dock exposes its controls`() {
+        setDock(isVisible = true)
 
         composeRule.onNodeWithContentDescription(context.getString(CommonR.string.general_settings_title))
             .assertExists()
@@ -83,7 +83,7 @@ class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `visible bar controls accept focus`() {
-        setChrome(isVisible = true)
+        setDock(isVisible = true)
 
         composeRule.onNodeWithContentDescription(context.getString(CommonR.string.general_settings_title))
             .requestFocus()
@@ -92,7 +92,7 @@ class DashboardChromeVisibilityTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `visible hero controls accept focus`() {
-        setChrome(isVisible = true)
+        setDock(isVisible = true)
 
         composeRule.onNodeWithContentDescription(context.getString(CommonR.string.general_dismiss_action))
             .requestFocus()

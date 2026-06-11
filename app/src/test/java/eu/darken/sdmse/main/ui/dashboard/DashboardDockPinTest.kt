@@ -27,18 +27,18 @@ import eu.darken.sdmse.common.R as CommonR
 
 /**
  * On TV-style devices the grid scrolls as a side effect of D-pad focus movement — auto-hiding the
- * bottom chrome on scroll would hide the very controls being navigated to. These tests pin down
- * that the chrome survives scrolling when [DashboardScreen]'s isTv flag is set, while the touch
+ * bottom dock on scroll would hide the very controls being navigated to. These tests pin down
+ * that the dock survives scrolling when [DashboardScreen]'s isTv flag is set, while the touch
  * hide-on-scroll behavior stays intact otherwise.
  */
 // Short viewport so the card list reliably overflows and scrolling is real, not a no-op.
 @Config(qualifiers = "w320dp-h320dp")
-class DashboardChromePinTest : BaseComposeRobolectricTest() {
+class DashboardDockPinTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
     // Tool cards only exist for the four cleaning tools; the setup card on top guarantees the
-    // grid overflows the test viewport, so "scrolling hides the chrome" can't pass vacuously.
+    // grid overflows the test viewport, so "scrolling hides the dock" can't pass vacuously.
     private val cardItems = listOf(
         SetupDashboardCardItem(
             setupState = SetupManager.State(
@@ -103,7 +103,7 @@ class DashboardChromePinTest : BaseComposeRobolectricTest() {
 
     // Scrolls forward to a MIDDLE card: scrolling to the last card overshoots and the grid clamps
     // back to max scroll, which the hide heuristic correctly reads as an upward scroll and
-    // re-shows the chrome — exactly the on-device behavior, but not what this test is probing.
+    // re-shows the dock — exactly the on-device behavior, but not what this test is probing.
     private fun scrollDown() {
         val grid = composeRule.onNode(hasScrollToIndexAction())
         // Guard against a vacuous pass: if everything fits the viewport, no scroll would happen
@@ -115,7 +115,7 @@ class DashboardChromePinTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `scrolling down hides the chrome on touch devices`() {
+    fun `scrolling down hides the dock on touch devices`() {
         setDashboard(isTv = false)
         settingsNode().assertExists()
 
@@ -125,7 +125,7 @@ class DashboardChromePinTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `chrome stays pinned on tv devices despite scrolling`() {
+    fun `dock stays pinned on tv devices despite scrolling`() {
         setDashboard(isTv = true)
         settingsNode().assertExists()
 
