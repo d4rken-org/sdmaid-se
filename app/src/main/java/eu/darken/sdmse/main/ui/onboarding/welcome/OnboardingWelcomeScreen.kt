@@ -96,15 +96,13 @@ internal fun OnboardingWelcomeScreen(
                         modifier = Modifier.height(256.dp),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
-
                     Text(
                         text = stringResource(R.string.onboarding_welcome_title),
                         style = MaterialTheme.typography.headlineMedium,
                         textAlign = TextAlign.Center,
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_welcome_body1),
@@ -112,7 +110,7 @@ internal fun OnboardingWelcomeScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_welcome_body2),
@@ -121,7 +119,7 @@ internal fun OnboardingWelcomeScreen(
                     )
 
                     if (isBeta) {
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
                         Text(
                             text = stringResource(R.string.onboarding_welcome_body_beta),
                             style = MaterialTheme.typography.bodyLarge,
@@ -155,6 +153,6 @@ internal fun OnboardingWelcomeScreen(
 @Composable
 private fun OnboardingWelcomeScreenPreview() {
     PreviewWrapper {
-        OnboardingWelcomeScreen()
+        OnboardingWelcomeScreen(isBeta = true)
     }
 }

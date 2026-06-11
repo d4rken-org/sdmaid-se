@@ -69,7 +69,7 @@ fun Modifier.focusHighlightRing(
     // The same LayoutCoordinates instance can be reported again after a reposition; bump a
     // counter so the draw pass re-reads bounds even when the state reference doesn't change.
     var positionTick by remember { mutableIntStateOf(0) }
-    val ringColor = MaterialTheme.colorScheme.primary
+    val ringColor = MaterialTheme.colorScheme.tertiary
 
     this
         .onGloballyPositioned { selfCoords = it }

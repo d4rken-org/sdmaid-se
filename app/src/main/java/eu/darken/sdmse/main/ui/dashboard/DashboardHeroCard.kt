@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import android.text.format.DateUtils
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,6 +45,7 @@ import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.dashboard.cards.toolNameRes
 import java.time.Instant
 import eu.darken.sdmse.common.R as CommonR
 
@@ -106,6 +108,7 @@ private fun HeroBody(
     onToolClick: (DashboardViewModel.HeroSummary.Mode, SDMTool.Type) -> Unit,
 ) {
     val context = LocalContext.current
+    val modeRes = summary.mode.resources
     Column(modifier = modifier) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -115,14 +118,10 @@ private fun HeroBody(
                 // One sentence with the size inline ("3.7 GB can be freed") — the smaller label
                 // text is spanned around the headline-sized number. Split on the placeholder so
                 // translations may put label text before and/or after the size.
-                val headlineRes = when (summary.mode) {
-                    DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_headline
-                    DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_headline
-                }
-                val template = stringResource(headlineRes)
+                val template = stringResource(modeRes.headline)
                 val sizeText = ByteFormatter.formatSize(context, summary.totalSize).first
                 val labelSpan = MaterialTheme.typography.titleSmall.toSpanStyle()
-                    .copy(color = LocalContentColor.current.copy(alpha = 0.8f))
+                    .copy(color = LocalContentColor.current.copy(alpha = MUTED_ALPHA))
                 Text(
                     text = buildAnnotatedString {
                         val sizeAt = template.indexOf(SIZE_ARG)
@@ -143,12 +142,8 @@ private fun HeroBody(
                     summary.itemCount,
                     summary.itemCount,
                 )
-                val captionRes = when (summary.mode) {
-                    DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_x_items
-                    DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_x_items
-                }
                 Text(
-                    text = stringResource(captionRes, itemsText),
+                    text = stringResource(modeRes.caption, itemsText),
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -164,12 +159,10 @@ private fun HeroBody(
 
         // The body is sized for the worst case (two chip rows + two-line hint); in smaller
         // configurations the slack collects here so chips + hint stay anchored above the footer.
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         FlowRow(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 2.dp, end = 12.dp),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
@@ -181,7 +174,7 @@ private fun HeroBody(
                     containerColor = MaterialTheme.colorScheme.surface,
                     contentColor = contentColorFor(MaterialTheme.colorScheme.surface),
                     // Tool name doubles as the clickable chip's accessible name (merged with the size).
-                    iconContentDescription = slice.type.toolName()?.let { stringResource(it) },
+                    iconContentDescription = stringResource(toolNameRes(slice.type)),
                     onClick = { onToolClick(summary.mode, slice.type) },
                 )
             }
@@ -189,15 +182,11 @@ private fun HeroBody(
 
         // Last, right above the footer strip: the hint references its direct neighbours — "the
         // button below" and the category chips above.
-        val hintRes = when (summary.mode) {
-            DashboardViewModel.HeroSummary.Mode.FREEABLE -> R.string.dashboard_hero_freeable_hint
-            DashboardViewModel.HeroSummary.Mode.FREED -> R.string.dashboard_hero_freed_hint
-        }
         Text(
-            modifier = Modifier.padding(top = 4.dp, end = 12.dp),
-            text = stringResource(hintRes),
+            modifier = Modifier.padding(top = 4.dp),
+            text = stringResource(modeRes.hint),
             style = MaterialTheme.typography.labelSmall,
-            color = LocalContentColor.current.copy(alpha = 0.8f),
+            color = LocalContentColor.current.copy(alpha = MUTED_ALPHA),
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
         )
@@ -234,21 +223,13 @@ private fun HeroFooter(
                         DateUtils.MINUTE_IN_MILLIS,
                     ).toString()
                 }
-                val timestampDescription = stringResource(
-                    when (summary.mode) {
-                        DashboardViewModel.HeroSummary.Mode.FREEABLE ->
-                            R.string.dashboard_hero_scanned_timestamp_description
-
-                        DashboardViewModel.HeroSummary.Mode.FREED ->
-                            R.string.dashboard_hero_freed_timestamp_description
-                    },
-                    relativeTime,
-                )
+                val timestampDescription =
+                    stringResource(summary.mode.resources.timestampDescription, relativeTime)
                 Text(
                     modifier = Modifier.semantics { contentDescription = timestampDescription },
                     text = relativeTime,
                     style = MaterialTheme.typography.bodySmall,
-                    color = LocalContentColor.current.copy(alpha = 0.8f),
+                    color = LocalContentColor.current.copy(alpha = MUTED_ALPHA),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
@@ -279,14 +260,32 @@ private fun HeroFooter(
 }
 
 private const val SIZE_ARG = "%1\$s"
+private const val MUTED_ALPHA = 0.8f
 
-private fun SDMTool.Type.toolName(): Int? = when (this) {
-    SDMTool.Type.CORPSEFINDER -> CommonR.string.corpsefinder_tool_name
-    SDMTool.Type.SYSTEMCLEANER -> CommonR.string.systemcleaner_tool_name
-    SDMTool.Type.APPCLEANER -> CommonR.string.appcleaner_tool_name
-    SDMTool.Type.DEDUPLICATOR -> CommonR.string.deduplicator_tool_name
-    else -> null
-}
+/** Per-mode string resources, kept together so each mode is defined in one place. */
+private data class HeroModeResources(
+    @StringRes val headline: Int,
+    @StringRes val caption: Int,
+    @StringRes val hint: Int,
+    @StringRes val timestampDescription: Int,
+)
+
+private val DashboardViewModel.HeroSummary.Mode.resources: HeroModeResources
+    get() = when (this) {
+        DashboardViewModel.HeroSummary.Mode.FREEABLE -> HeroModeResources(
+            headline = R.string.dashboard_hero_freeable_headline,
+            caption = R.string.dashboard_hero_freeable_x_items,
+            hint = R.string.dashboard_hero_freeable_hint,
+            timestampDescription = R.string.dashboard_hero_scanned_timestamp_description,
+        )
+
+        DashboardViewModel.HeroSummary.Mode.FREED -> HeroModeResources(
+            headline = R.string.dashboard_hero_freed_headline,
+            caption = R.string.dashboard_hero_freed_x_items,
+            hint = R.string.dashboard_hero_freed_hint,
+            timestampDescription = R.string.dashboard_hero_freed_timestamp_description,
+        )
+    }
 
 private fun previewSummary(
     mode: DashboardViewModel.HeroSummary.Mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
@@ -303,33 +302,36 @@ private fun previewSummary(
     timestamp = Instant.now().minusSeconds(5 * 60),
 )
 
-@Preview2
 @Composable
-private fun DashboardHeroCardFreeablePreview() {
+private fun HeroCardPreview(
+    summary: DashboardViewModel.HeroSummary,
+    onDiscard: (() -> Unit)? = null,
+) {
     PreviewWrapper {
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(DASHBOARD_HERO_CARD_HEIGHT)
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
-            summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREEABLE),
-            onDiscard = {},
+            summary = summary,
+            onDiscard = onDiscard,
         )
     }
 }
 
 @Preview2
 @Composable
+private fun DashboardHeroCardFreeablePreview() {
+    HeroCardPreview(
+        summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREEABLE),
+        onDiscard = {},
+    )
+}
+
+@Preview2
+@Composable
 private fun DashboardHeroCardFreedPreview() {
-    PreviewWrapper {
-        DashboardHeroCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(DASHBOARD_HERO_CARD_HEIGHT)
-                .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
-            summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREED),
-        )
-    }
+    HeroCardPreview(summary = previewSummary(mode = DashboardViewModel.HeroSummary.Mode.FREED))
 }
 
 // Worst case: all four tools (chips wrap to a second row) + the two-line freeable hint — validates
@@ -337,22 +339,16 @@ private fun DashboardHeroCardFreedPreview() {
 @Preview2
 @Composable
 private fun DashboardHeroCardFreeableAllToolsPreview() {
-    PreviewWrapper {
-        DashboardHeroCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(DASHBOARD_HERO_CARD_HEIGHT)
-                .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
-            summary = previewSummary(
-                mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
-                tools = listOf(
-                    DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
-                    DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
-                    DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
-                    DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 1_024L * 1_024L * 512L, 3),
-                ),
+    HeroCardPreview(
+        summary = previewSummary(
+            mode = DashboardViewModel.HeroSummary.Mode.FREEABLE,
+            tools = listOf(
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1_024L * 1_024L * 1_024L, 12),
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1_024L * 1_024L * 700L, 14),
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 1_024L * 1_024L * 1_024L, 5),
+                DashboardViewModel.HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 1_024L * 1_024L * 512L, 3),
             ),
-            onDiscard = {},
-        )
-    }
+        ),
+        onDiscard = {},
+    )
 }

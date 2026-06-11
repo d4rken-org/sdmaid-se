@@ -5,7 +5,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -79,7 +79,8 @@ internal fun OnboardingPrivacyScreen(
     onToggleMotd: () -> Unit = {},
     onToggleUpdateCheck: () -> Unit = {},
 ) {
-    var isVisible by remember { mutableStateOf(false) }
+    val inPreview = LocalInspectionMode.current
+    var isVisible by remember { mutableStateOf(inPreview) }
     val continueButtonFocusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) { isVisible = true }
 
@@ -121,7 +122,7 @@ internal fun OnboardingPrivacyScreen(
                         modifier = Modifier.padding(horizontal = 32.dp),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_privacy_body1),
@@ -129,7 +130,7 @@ internal fun OnboardingPrivacyScreen(
                         modifier = Modifier.padding(horizontal = 32.dp),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
                     Button(
                         onClick = onPrivacyPolicy,
@@ -137,7 +138,7 @@ internal fun OnboardingPrivacyScreen(
                         Text(stringResource(R.string.settings_privacy_policy_label))
                     }
 
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
 
                     if (state.isUpdateCheckSupported) {
                         ToggleRow(

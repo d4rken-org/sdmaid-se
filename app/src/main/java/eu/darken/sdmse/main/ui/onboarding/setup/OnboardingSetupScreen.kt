@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -54,7 +55,8 @@ fun OnboardingSetupScreenHost(
 internal fun OnboardingSetupScreen(
     onContinue: () -> Unit = {},
 ) {
-    var isVisible by remember { mutableStateOf(false) }
+    val inPreview = LocalInspectionMode.current
+    var isVisible by remember { mutableStateOf(inPreview) }
     val continueButtonFocusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) { isVisible = true }
 
@@ -104,7 +106,6 @@ internal fun OnboardingSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_setup_body2),
@@ -112,7 +113,6 @@ internal fun OnboardingSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_setup_body4),
@@ -120,7 +120,6 @@ internal fun OnboardingSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_setup_body5),
@@ -128,7 +127,7 @@ internal fun OnboardingSetupScreen(
                         modifier = Modifier.fillMaxWidth(),
                     )
 
-                    Spacer(modifier = Modifier.height(24.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_setup_body3),
