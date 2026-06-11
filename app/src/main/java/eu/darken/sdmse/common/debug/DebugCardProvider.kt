@@ -14,9 +14,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -85,7 +83,10 @@ class DebugCardProvider @Inject constructor(
         if (!isDebug) return@combine null
         DebugDashboardCardItem(
             isDryRunEnabled = isDryRun,
-            onDryRunEnabled = { debugSettings.isDryRunMode.valueBlocking = it },
+            onDryRunEnabled = {
+                debugSettings.isDryRunMode.valueBlocking = it
+                log(TAG, INFO) { "DryRun mode enabled: $it" }
+            },
             isTraceEnabled = isTrace,
             onTraceEnabled = { debugSettings.isTraceMode.valueBlocking = it },
             onReloadAreas = {
@@ -194,7 +195,11 @@ class DebugCardProvider @Inject constructor(
         )
     }
 
-    private suspend fun checkUnknownFolders(vm: ViewModel2, onError: (Throwable) -> Unit, onShowEvent: (DashboardEvents) -> Unit) {
+    private suspend fun checkUnknownFolders(
+        vm: ViewModel2,
+        onError: (Throwable) -> Unit,
+        onShowEvent: (DashboardEvents) -> Unit
+    ) {
         isCheckingFolders.value = true
         try {
             val unknownPaths = mutableListOf<String>()
@@ -266,7 +271,10 @@ class DebugCardProvider @Inject constructor(
                 }
             }
 
-            log(TAG, INFO) { "Unknown folders check: scanned=$scannedCount, skipped=$skippedCount, unknown=${unknownPaths.size}" }
+            log(
+                TAG,
+                INFO
+            ) { "Unknown folders check: scanned=$scannedCount, skipped=$skippedCount, unknown=${unknownPaths.size}" }
             if (unknownPaths.size > 200) {
                 log(TAG, WARN) { "Full unknown list (${unknownPaths.size}):\n${unknownPaths.joinToString("\n")}" }
             }

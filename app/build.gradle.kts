@@ -82,21 +82,21 @@ android {
             )
         }
         create("beta") {
-            lint {
-                abortOnError = true
-                fatal.add("StopShip")
-            }
             isMinifyEnabled = true
             isShrinkResources = true
         }
         release {
-            lint {
-                abortOnError = true
-                fatal.add("StopShip")
-            }
             isMinifyEnabled = true
             isShrinkResources = true
         }
+    }
+
+    lint {
+        abortOnError = true
+        fatal.add("StopShip")
+        // AGP has no per-buildType lint config; beta builds tolerate translations ahead of source strings
+        val isBetaBuild = gradle.startParameter.taskNames.any { it.contains("beta", ignoreCase = true) }
+        if (isBetaBuild) warning.add("ExtraTranslation") else fatal.add("ExtraTranslation")
     }
 
     buildFeatures {
