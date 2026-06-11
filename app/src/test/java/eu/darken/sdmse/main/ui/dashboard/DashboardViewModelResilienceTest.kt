@@ -164,6 +164,7 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             statsRepo = statsRepo,
             statsSettings = statsSettings,
             spaceHistoryRepo = spaceHistoryRepo,
+            deviceDetective = mockk(relaxed = true),
         )
 
         // Keep listState subscribed for the test scope's lifetime (safeStateIn uses WhileSubscribed).

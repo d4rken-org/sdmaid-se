@@ -44,9 +44,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -93,12 +96,27 @@ internal fun BottomBar(
     onRestoreHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     isHeroDismissed: Boolean = false,
+    focusEscape: FocusRequester? = null,
     mainActionModifier: Modifier = Modifier,
     settingsModifier: Modifier = Modifier,
     upgradeModifier: Modifier = Modifier,
 ) {
     val heroSummary = state?.heroSummary
     val showHero = heroVisible && heroSummary != null
+
+    // Hidden chrome only slides off-screen via offset() — it stays composed for the exit
+    // animation, so it must be made unreachable explicitly: gate D-pad/keyboard focus for each
+    // layer's subtree on visibility (the hero additionally on showHero, so a dismissed card isn't
+    // focusable mid-exit). [focusEscape] routes UP into the dashboard grid — the grid's focus
+    // group fully contains the chrome's rects and is never a directional candidate on its own.
+    val barFocus = Modifier.focusProperties {
+        canFocus = isVisible
+        focusEscape?.let { up = it }
+    }
+    val heroFocus = Modifier.focusProperties {
+        canFocus = isVisible && showHero
+        focusEscape?.let { up = it }
+    }
 
     // Deliberately NOT safeDrawing: that includes the IME inset, and the chrome is sized
     // bar-height + navBottom. Composing while an IME inset is (still) reported — e.g. launching
@@ -170,18 +188,24 @@ internal fun BottomBar(
     val fabPresent = state?.isReady == true
     val barShape = dashboardBarShape(isReady = fabPresent)
 
+    // While hidden, the bar/FAB remain composed below the screen — drop them from the
+    // accessibility tree too, so TalkBack can't reach off-screen controls focus gating misses.
+    val a11yGate = if (isVisible) Modifier else Modifier.clearAndSetSemantics { }
+
     Box(
         modifier = modifier
             .fillMaxWidth()
             .height(chromeHeight + navBottom)
-            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal)),
+            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal))
+            .then(a11yGate),
     ) {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
                 .offset(y = barOffsetY)
-                .height(DASHBOARD_BAR_HEIGHT + navBottom),
+                .height(DASHBOARD_BAR_HEIGHT + navBottom)
+                .then(barFocus),
             color = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary,
             shape = barShape,
@@ -207,6 +231,7 @@ internal fun BottomBar(
             DashboardHeroCard(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
+                    .then(heroFocus)
                     .offset(y = heroOffsetY)
                     .graphicsLayer {
                         translationY = heroDragPx
@@ -242,6 +267,7 @@ internal fun BottomBar(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .offset(y = fabOffsetY)
+                    .then(barFocus)
                     .then(mainActionModifier),
                 actionState = it.actionState,
                 onClick = onMainAction,

@@ -24,7 +24,12 @@ class DeviceDetective @Inject constructor(
         log(TAG, VERBOSE) { "Loaded." }
     }
 
-    private fun isAndroidTV(): Boolean {
+    /**
+     * Leanback/TV-style device (Android TV, Google TV, TV boxes). UI policy checks (e.g. D-pad
+     * focus handling) should use this instead of [getROMType]: ROM detection deliberately maps
+     * some TV boxes back to [RomType.AOSP] even though they present a TV UI.
+     */
+    fun isTvLikeDevice(): Boolean {
         val uiManager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
         if (uiManager.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION) return true
 
@@ -57,7 +62,7 @@ class DeviceDetective @Inject constructor(
     }
 
     fun getROMType(): RomType = when {
-        isAndroidTV() -> when {
+        isTvLikeDevice() -> when {
             // #1826, it's a "tv box" but runs a phone-style ROM
             manufactor("UGOOS") -> RomType.AOSP
             else -> RomType.ANDROID_TV

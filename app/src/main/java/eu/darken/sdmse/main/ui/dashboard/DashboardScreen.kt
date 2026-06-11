@@ -164,6 +164,7 @@ fun DashboardScreenHost(
     DashboardScreen(
         listState = listState,
         bottomBarState = bottomBarState,
+        isTv = vm.isTvDevice,
         oneClickOptionsState = oneClickOptionsState,
         isHeroDismissed = isHeroDismissed,
         snackbarHostState = snackbarHostState,
@@ -193,6 +194,7 @@ fun DashboardScreenHost(
 internal fun DashboardScreen(
     listState: DashboardViewModel.ListState? = null,
     bottomBarState: BottomBarState? = null,
+    isTv: Boolean = false,
     oneClickOptionsState: OneClickOptionsState = OneClickOptionsState(),
     isHeroDismissed: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
@@ -221,10 +223,13 @@ internal fun DashboardScreen(
     // to inflate dashboard bottom padding or otherwise change layout here.
     val dashboardTourActive = tourSession?.definition?.id == DashboardTour.id
 
-    // Auto-hide the bottom bar on scroll, BUT freeze it visible whenever a tour is active.
-    // Re-keying on dashboardTourActive cancels the scroll listener for the duration of the tour.
-    LaunchedEffect(gridState, dashboardTourActive) {
-        if (dashboardTourActive) {
+    // Auto-hide the bottom bar on scroll, BUT pin it visible whenever a tour is active or this is
+    // a TV-style device: D-pad navigation scrolls the grid via bringIntoView, which would trip the
+    // hide heuristic — merely navigating down the list would hide the controls being navigated to.
+    // Re-keying on chromePinned cancels the scroll listener while pinned.
+    val chromePinned = isTv || dashboardTourActive
+    LaunchedEffect(gridState, chromePinned) {
+        if (chromePinned) {
             isBottomBarVisible = true
             return@LaunchedEffect
         }
@@ -238,6 +243,9 @@ internal fun DashboardScreen(
                 previousPos = currentPos
             }
     }
+    // Effective visibility: pinning wins even before the effect above runs (e.g. a restored
+    // hidden state on a TV) so animation and focus gating never disagree with the pin.
+    val chromeVisible = chromePinned || isBottomBarVisible
 
     val items = listState?.items
     val hasSetup = remember(items) {
@@ -305,19 +313,13 @@ internal fun DashboardScreen(
     val gridFocusRequester = remember { FocusRequester() }
     val chromeFocusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
-    val escapeUpToGrid = if (items != null) {
-        Modifier.focusProperties { up = gridFocusRequester }
-    } else {
-        Modifier
-    }
     // Wrap-around, the other half of the cycle: DOWN from the bar buttons — the bottom-most
-    // focusables on screen — jumps back into the grid instead of dead-ending. The FAB keeps the
-    // plain UP bridge only, so DOWN from it still falls through to the bar controls below it.
+    // focusables on screen — jumps back into the grid instead of dead-ending. Only `down` is set
+    // here: the UP bridge comes from the chrome-layer focus gate inside BottomBar (focusEscape),
+    // which also covers the FAB and hero controls. The FAB has no `down` wrap on purpose, so DOWN
+    // from it still falls through to the bar controls below it.
     val barEdgeBridge = if (items != null) {
-        Modifier.focusProperties {
-            up = gridFocusRequester
-            down = gridFocusRequester
-        }
+        Modifier.focusProperties { down = gridFocusRequester }
     } else {
         Modifier
     }
@@ -332,7 +334,8 @@ internal fun DashboardScreen(
                     .focusRequester(chromeFocusRequester)
                     .focusGroup(),
                 state = bottomBarState,
-                isVisible = isBottomBarVisible,
+                isVisible = chromeVisible,
+                focusEscape = gridFocusRequester.takeIf { items != null },
                 // Suppress the hero while a tour is active so it can't cover or fight tour targets.
                 heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive,
                 onMainAction = onMainAction,
@@ -344,9 +347,7 @@ internal fun DashboardScreen(
                 onRestoreHero = onRestoreHero,
                 onDiscardResults = onDiscardResults,
                 isHeroDismissed = isHeroDismissed,
-                mainActionModifier = Modifier
-                    .guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET)
-                    .then(escapeUpToGrid),
+                mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
                 settingsModifier = Modifier
                     .guidedTourTarget(DashboardTour.SETTINGS_TARGET)
                     .then(barEdgeBridge),
@@ -392,13 +393,14 @@ internal fun DashboardScreen(
                         // card above (the true top row — mid-list the lazy grid keeps scrolling),
                         // so jump to the bottom chrome. Can't use focusProperties.onExit for this:
                         // with nothing focusable above the grid the search never crosses the group
-                        // boundary, so the exit callback never fires. Gated on bar visibility so a
-                        // hidden (offscreen but still composed) chrome can't swallow focus.
+                        // boundary, so the exit callback never fires. Gated on the effective chrome
+                        // visibility so a hidden (offscreen but still composed) chrome can't
+                        // swallow focus; on TV the chrome is pinned, so the wrap is always live.
                         .onKeyEvent { event ->
                             when {
                                 event.type != KeyEventType.KeyDown || event.key != Key.DirectionUp -> false
                                 focusManager.moveFocus(FocusDirection.Up) -> true
-                                isBottomBarVisible -> {
+                                chromeVisible -> {
                                     chromeFocusRequester.requestFocus()
                                     true
                                 }
