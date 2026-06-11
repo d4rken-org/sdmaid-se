@@ -30,10 +30,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -296,8 +303,21 @@ internal fun DashboardScreen(
     // Only wired once the grid is composed (items != null); otherwise `up` would point at an
     // unattached requester and log a focus warning on every press during the loading state.
     val gridFocusRequester = remember { FocusRequester() }
+    val chromeFocusRequester = remember { FocusRequester() }
+    val focusManager = LocalFocusManager.current
     val escapeUpToGrid = if (items != null) {
         Modifier.focusProperties { up = gridFocusRequester }
+    } else {
+        Modifier
+    }
+    // Wrap-around, the other half of the cycle: DOWN from the bar buttons — the bottom-most
+    // focusables on screen — jumps back into the grid instead of dead-ending. The FAB keeps the
+    // plain UP bridge only, so DOWN from it still falls through to the bar controls below it.
+    val barEdgeBridge = if (items != null) {
+        Modifier.focusProperties {
+            up = gridFocusRequester
+            down = gridFocusRequester
+        }
     } else {
         Modifier
     }
@@ -305,6 +325,12 @@ internal fun DashboardScreen(
     Scaffold(
         bottomBar = {
             BottomBar(
+                // Focus group so the grid's UP wrap can target "the chrome" as a whole: the
+                // requester enters the group and lands on whichever control is actually present
+                // (the FAB is absent before ready and inert while WORKING).
+                modifier = Modifier
+                    .focusRequester(chromeFocusRequester)
+                    .focusGroup(),
                 state = bottomBarState,
                 isVisible = isBottomBarVisible,
                 // Suppress the hero while a tour is active so it can't cover or fight tour targets.
@@ -323,8 +349,8 @@ internal fun DashboardScreen(
                     .then(escapeUpToGrid),
                 settingsModifier = Modifier
                     .guidedTourTarget(DashboardTour.SETTINGS_TARGET)
-                    .then(escapeUpToGrid),
-                upgradeModifier = escapeUpToGrid,
+                    .then(barEdgeBridge),
+                upgradeModifier = barEdgeBridge,
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -362,6 +388,23 @@ internal fun DashboardScreen(
                     modifier = Modifier
                         .focusRequester(gridFocusRequester)
                         .focusGroup()
+                        // Wrap-around: perform the UP move ourselves; when it fails there is no
+                        // card above (the true top row — mid-list the lazy grid keeps scrolling),
+                        // so jump to the bottom chrome. Can't use focusProperties.onExit for this:
+                        // with nothing focusable above the grid the search never crosses the group
+                        // boundary, so the exit callback never fires. Gated on bar visibility so a
+                        // hidden (offscreen but still composed) chrome can't swallow focus.
+                        .onKeyEvent { event ->
+                            when {
+                                event.type != KeyEventType.KeyDown || event.key != Key.DirectionUp -> false
+                                focusManager.moveFocus(FocusDirection.Up) -> true
+                                isBottomBarVisible -> {
+                                    chromeFocusRequester.requestFocus()
+                                    true
+                                }
+                                else -> true
+                            }
+                        }
                         .fillMaxSize(),
                     contentPadding = PaddingValues(
                         start = 8.dp,
