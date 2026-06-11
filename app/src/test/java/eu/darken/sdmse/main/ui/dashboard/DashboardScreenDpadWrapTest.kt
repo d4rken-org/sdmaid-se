@@ -26,16 +26,19 @@ import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalTourTargetRegistry
 import eu.darken.sdmse.common.compose.tour.TourTargetRegistry
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
+import eu.darken.sdmse.setup.SetupManager
+import eu.darken.sdmse.setup.SetupModule
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
-import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
 /**
- * D-pad wrap-around on the dashboard: UP at the topmost grid card jumps to the bottom chrome,
+ * D-pad wrap-around on the dashboard: UP at the topmost grid card jumps to the bottom dock,
  * DOWN from the bar buttons jumps back into the grid. Mid-list UP must keep navigating cards.
  */
 class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
@@ -78,7 +81,7 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
     )
 
     @Test
-    fun `UP at the topmost card wraps focus into the bottom chrome`() {
+    fun `UP at the topmost card wraps focus into the bottom dock`() {
         composeRule.setDashboardContent(
             listState = DashboardViewModel.ListState(items = defaultItems()),
             bottomBarState = bottomBarState(),
@@ -88,7 +91,7 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
 
         composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
 
-        // Entering the chrome group picks the main-action FAB when it is present and active.
+        // Entering the dock group picks the main-action FAB when it is present and active.
         composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
     }
 
@@ -121,7 +124,7 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `wrap still lands on a chrome control while the FAB is inert in WORKING state`() {
+    fun `wrap still lands on a dock control while the FAB is inert in WORKING state`() {
         composeRule.setDashboardContent(
             listState = DashboardViewModel.ListState(items = defaultItems()),
             bottomBarState = bottomBarState(action = BottomBarState.Action.WORKING),
@@ -153,9 +156,126 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
 
         composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
 
-        // With the hero card shown, entering the chrome lands on the hero's tool chip (it has a
+        // With the hero card shown, entering the dock lands on the hero's tool chip (it has a
         // content description, the grid card title is plain text — the matcher can't false-match).
         composeRule.assertFocusedWithin(hasContentDescription(firstToolTitle))
+    }
+
+    @Test
+    fun `LEFT at the horizontal edge jumps to the bottom dock`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(secondToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_LEFT)
+
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+    }
+
+    @Test
+    fun `RIGHT at the horizontal edge jumps to the bottom dock`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(secondToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_RIGHT)
+
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+    }
+
+    @Test
+    fun `LEFT cycles from a card to the dock and back to the same card`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(secondToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_LEFT)
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+
+        // No dock control sits left of the FAB, so another LEFT hops back into the grid —
+        // restoring the card we left, not the topmost one.
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_LEFT)
+        composeRule.assertFocusedWithin(hasText(secondToolTitle))
+    }
+
+    @Test
+    fun `return restores the remembered card even when a different card is spatially closer`() {
+        // Three cards, the MIDDLE one remembered: a spatial-search return (the bug observed on
+        // TV) would land on the bottom card nearest the FAB, and a default group enter would
+        // land on the top card. Only a genuine restore brings back the middle one.
+        val items = listOf(
+            toolItem(SDMTool.Type.CORPSEFINDER),
+            toolItem(SDMTool.Type.SYSTEMCLEANER),
+            toolItem(SDMTool.Type.APPCLEANER),
+        )
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = items),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(secondToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_RIGHT)
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(secondToolTitle))
+    }
+
+    @Test
+    fun `UP from the dock returns to the previously focused card`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(secondToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_RIGHT)
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(secondToolTitle))
+    }
+
+    @Test
+    fun `focus entering the incomplete-setup card lands on Continue, Dismiss stays reachable`() {
+        val continueLabel = context.getString(R.string.setup_incomplete_card_continue_action)
+        val dismissLabel = context.getString(CommonR.string.general_dismiss_action)
+        val incompleteModule = object : SetupModule.State.Current {
+            override val type: SetupModule.Type = SetupModule.Type.STORAGE
+            override val isComplete: Boolean = false
+        }
+        val setupItem = SetupDashboardCardItem(
+            setupState = SetupManager.State(
+                moduleStates = listOf(incompleteModule),
+                isDismissed = false,
+                isHealerWorking = false,
+            ),
+            onDismiss = {},
+            onContinue = {},
+        )
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = listOf(setupItem) + defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithText(firstToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.onNodeWithText(continueLabel).assertIsFocused()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_LEFT)
+        composeRule.onNodeWithText(dismissLabel).assertIsFocused()
     }
 }
 

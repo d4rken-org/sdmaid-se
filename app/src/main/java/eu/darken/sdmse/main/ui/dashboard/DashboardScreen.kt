@@ -34,6 +34,7 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
@@ -215,7 +216,7 @@ internal fun DashboardScreen(
     var isBottomBarVisible by rememberSaveable { mutableStateOf(true) }
 
     val tourController = LocalGuidedTourController.current
-    // Tour-aware screens watch this and freeze any transient chrome (auto-hiding bottom bar,
+    // Tour-aware screens watch this and freeze any transient dock (auto-hiding bottom bar,
     // dismiss-on-scroll banners, etc.) so tour targets stay visible when prepareTarget
     // scrolls or when steps cycle through.
     val tourSession by tourController.session.collectAsStateWithLifecycle()
@@ -226,10 +227,10 @@ internal fun DashboardScreen(
     // Auto-hide the bottom bar on scroll, BUT pin it visible whenever a tour is active or this is
     // a TV-style device: D-pad navigation scrolls the grid via bringIntoView, which would trip the
     // hide heuristic — merely navigating down the list would hide the controls being navigated to.
-    // Re-keying on chromePinned cancels the scroll listener while pinned.
-    val chromePinned = isTv || dashboardTourActive
-    LaunchedEffect(gridState, chromePinned) {
-        if (chromePinned) {
+    // Re-keying on dockPinned cancels the scroll listener while pinned.
+    val dockPinned = isTv || dashboardTourActive
+    LaunchedEffect(gridState, dockPinned) {
+        if (dockPinned) {
             isBottomBarVisible = true
             return@LaunchedEffect
         }
@@ -245,7 +246,7 @@ internal fun DashboardScreen(
     }
     // Effective visibility: pinning wins even before the effect above runs (e.g. a restored
     // hidden state on a TV) so animation and focus gating never disagree with the pin.
-    val chromeVisible = chromePinned || isBottomBarVisible
+    val dockVisible = dockPinned || isBottomBarVisible
 
     val items = listState?.items
     val hasSetup = remember(items) {
@@ -304,38 +305,70 @@ internal fun DashboardScreen(
         )
     }
 
-    // Escape hatch for D-pad users: the grid is a fillMaxSize focus group that fully contains the
-    // bottom chrome's rects, so it never qualifies as a directional candidate from the FAB or the
-    // bar buttons — without an explicit bridge, focus gets trapped in the bottom chrome. UP from
-    // any chrome control redirects into the grid group, which forwards to the best visible card.
-    // Only wired once the grid is composed (items != null); otherwise `up` would point at an
-    // unattached requester and log a focus warning on every press during the loading state.
+    // D-pad bridges between the grid and the bottom dock. The grid is a fillMaxSize focus group
+    // that fully contains the dock's rects, so neither side reliably qualifies as a directional
+    // candidate of the other — all crossings are made explicit via these requesters: the grid's
+    // key handler jumps to the dock at grid edges, the dock's key handler returns to the grid
+    // (restoring the remembered card) on UP or at dock edges.
     val gridFocusRequester = remember { FocusRequester() }
-    val chromeFocusRequester = remember { FocusRequester() }
+    val dockFocusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
-    // Wrap-around, the other half of the cycle: DOWN from the bar buttons — the bottom-most
-    // focusables on screen — jumps back into the grid instead of dead-ending. Only `down` is set
-    // here: the UP bridge comes from the chrome-layer focus gate inside BottomBar (focusEscape),
-    // which also covers the FAB and hero controls. The FAB has no `down` wrap on purpose, so DOWN
-    // from it still falls through to the bar controls below it.
-    val barEdgeBridge = if (items != null) {
-        Modifier.focusProperties { down = gridFocusRequester }
-    } else {
-        Modifier
+    // Focus memory for dock→grid returns, tracked explicitly: each grid item carries its own
+    // FocusRequester and reports gaining focus via onFocusEvent. The framework alternatives
+    // don't deliver here: Modifier.focusRestorer() never fires for requester-based or spatial
+    // entries, and FocusRequester.saveFocusedChild()/restoreFocusedChild() saves but fails to
+    // restore for this hierarchy (hash lookup misses even when called back-to-back).
+    val cardFocusRequesters = remember { mutableMapOf<Long, FocusRequester>() }
+    var lastFocusedCardId by remember { mutableStateOf<Long?>(null) }
+    // Restore the card the user left from; fresh entries (nothing tracked yet) or a card that
+    // left composition (requestFocus throws on an unattached requester) fall back to the
+    // default group enter.
+    val returnToGrid: () -> Unit = {
+        val restored = lastFocusedCardId
+            ?.let { cardFocusRequesters[it] }
+            ?.let { runCatching { it.requestFocus() }.isSuccess }
+            ?: false
+        if (!restored) gridFocusRequester.requestFocus()
     }
 
     Scaffold(
         bottomBar = {
             BottomBar(
-                // Focus group so the grid's UP wrap can target "the chrome" as a whole: the
+                // Focus group so the grid's UP wrap can target "the dock" as a whole: the
                 // requester enters the group and lands on whichever control is actually present
                 // (the FAB is absent before ready and inert while WORKING).
                 modifier = Modifier
-                    .focusRequester(chromeFocusRequester)
-                    .focusGroup(),
+                    .focusRequester(dockFocusRequester)
+                    // Directional moves that would leave the dock spatially (overlapping grid
+                    // cards can qualify as "left of the FAB") are cancelled; the onKeyEvent below
+                    // then sees the failed move and performs the restoring return instead.
+                    .focusProperties {
+                        onExit = {
+                            if (requestedFocusDirection != FocusDirection.Enter && items != null) {
+                                cancelFocusChange()
+                            }
+                        }
+                    }
+                    .focusGroup()
+                    // The single return path from the dock to the grid: UP returns immediately
+                    // (from any dock control — the historical escape-hatch semantics), DOWN and
+                    // LEFT/RIGHT first move within the dock and return once they hit its edge —
+                    // left-left bounces between a list row and the bar. Every return restores the
+                    // remembered card via returnToGrid.
+                    .onKeyEvent { event ->
+                        if (event.type != KeyEventType.KeyDown) return@onKeyEvent false
+                        val wantsReturn = when (event.key) {
+                            Key.DirectionUp -> true
+                            Key.DirectionDown -> !focusManager.moveFocus(FocusDirection.Down)
+                            Key.DirectionLeft -> !focusManager.moveFocus(FocusDirection.Left)
+                            Key.DirectionRight -> !focusManager.moveFocus(FocusDirection.Right)
+                            else -> return@onKeyEvent false
+                        }
+                        if (wantsReturn && items != null) returnToGrid()
+                        true
+                    },
                 state = bottomBarState,
-                isVisible = chromeVisible,
-                focusEscape = gridFocusRequester.takeIf { items != null },
+                isVisible = dockVisible,
                 // Suppress the hero while a tour is active so it can't cover or fight tour targets.
                 heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive,
                 onMainAction = onMainAction,
@@ -348,10 +381,7 @@ internal fun DashboardScreen(
                 onDiscardResults = onDiscardResults,
                 isHeroDismissed = isHeroDismissed,
                 mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
-                settingsModifier = Modifier
-                    .guidedTourTarget(DashboardTour.SETTINGS_TARGET)
-                    .then(barEdgeBridge),
-                upgradeModifier = barEdgeBridge,
+                settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -375,13 +405,13 @@ internal fun DashboardScreen(
                 // cards near the end of the list (Swiper, in particular) clamps at max scroll and
                 // leaves the target stranded mid-viewport — the bubble then chooses to render
                 // above it, squashing the cutout against the screen edge.
-                // Clear the bottom chrome — which now grows when the hero card is shown — by
+                // Clear the bottom dock — which now grows when the hero card is shown — by
                 // consuming the Scaffold's measured bottom inset, with a floor for breathing room.
-                val chromeBottom = maxOf(paddingValues.calculateBottomPadding(), DASHBOARD_BOTTOM_CONTENT_PADDING)
+                val dockBottom = maxOf(paddingValues.calculateBottomPadding(), DASHBOARD_BOTTOM_CONTENT_PADDING)
                 val bottomContentPadding = if (dashboardTourActive) {
-                    maxOf(chromeBottom, maxHeight)
+                    maxOf(dockBottom, maxHeight)
                 } else {
-                    chromeBottom
+                    dockBottom
                 }
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(390.dp),
@@ -389,19 +419,26 @@ internal fun DashboardScreen(
                     modifier = Modifier
                         .focusRequester(gridFocusRequester)
                         .focusGroup()
-                        // Wrap-around: perform the UP move ourselves; when it fails there is no
-                        // card above (the true top row — mid-list the lazy grid keeps scrolling),
-                        // so jump to the bottom chrome. Can't use focusProperties.onExit for this:
-                        // with nothing focusable above the grid the search never crosses the group
-                        // boundary, so the exit callback never fires. Gated on the effective chrome
-                        // visibility so a hidden (offscreen but still composed) chrome can't
-                        // swallow focus; on TV the chrome is pinned, so the wrap is always live.
+                        // Edge-to-dock jumps: perform the move ourselves; when it fails the
+                        // cursor sits at a real grid edge — UP at the top row, LEFT/RIGHT at the
+                        // horizontal edges, DOWN below the last row (mid-grid the lazy grid keeps
+                        // scrolling or hops columns) — so jump to the dock instead of
+                        // dead-ending. Gated on the effective dock visibility so a hidden
+                        // (offscreen but still composed) dock can't swallow focus; on TV the dock
+                        // is pinned, so the jump is always live.
                         .onKeyEvent { event ->
+                            if (event.type != KeyEventType.KeyDown) return@onKeyEvent false
+                            val direction = when (event.key) {
+                                Key.DirectionUp -> FocusDirection.Up
+                                Key.DirectionDown -> FocusDirection.Down
+                                Key.DirectionLeft -> FocusDirection.Left
+                                Key.DirectionRight -> FocusDirection.Right
+                                else -> return@onKeyEvent false
+                            }
                             when {
-                                event.type != KeyEventType.KeyDown || event.key != Key.DirectionUp -> false
-                                focusManager.moveFocus(FocusDirection.Up) -> true
-                                chromeVisible -> {
-                                    chromeFocusRequester.requestFocus()
+                                focusManager.moveFocus(direction) -> true
+                                dockVisible -> {
+                                    dockFocusRequester.requestFocus()
                                     true
                                 }
                                 else -> true
@@ -430,7 +467,16 @@ internal fun DashboardScreen(
                         }
                         // Wrapper Box because DashboardListCard doesn't forward the modifier to
                         // every card type; this guarantees all late-arriving cards animate in.
-                        Box(modifier = Modifier.animateItem().then(tourModifier)) {
+                        // The per-item requester targets the card's focusable for dock→grid
+                        // returns; onFocusEvent keeps the focus memory current (it fires for any
+                        // focus gained within the item, including via plain spatial navigation).
+                        Box(
+                            modifier = Modifier
+                                .animateItem()
+                                .then(tourModifier)
+                                .focusRequester(cardFocusRequesters.getOrPut(item.stableId) { FocusRequester() })
+                                .onFocusEvent { if (it.hasFocus) lastFocusedCardId = item.stableId },
+                        ) {
                             DashboardListCard(item)
                         }
                     }
