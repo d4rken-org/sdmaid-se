@@ -1,8 +1,11 @@
 package eu.darken.sdmse.common.compose.dialog
 
+import android.view.KeyEvent as NativeKeyEvent
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.KeyEvent as ComposeKeyEvent
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.test.SemanticsNodeInteraction
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
@@ -11,6 +14,8 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performKeyPress
+import androidx.compose.ui.test.requestFocus
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -272,6 +277,45 @@ class SdmConfirmDialogTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText(neutralLabel).assertIsNotEnabled()
         composeRule.onNodeWithText(neutralLabel).performClick()
         composeRule.runOnIdle { assertEquals(0, neutralClicks) }
+    }
+
+    @Test
+    fun `confirm key held from before the dialog opened does not click on release`() {
+        var positiveClicks = 0
+
+        composeRule.setContent {
+            PreviewWrapper {
+                SdmConfirmDialog(
+                    title = title,
+                    message = message,
+                    onDismissRequest = {},
+                    positive = SdmDialogAction(label = positiveLabel) { positiveClicks++ },
+                )
+            }
+        }
+
+        val button = composeRule.onNodeWithText(positiveLabel)
+        button.requestFocus()
+        composeRule.waitForIdle()
+
+        // A D-pad long press that opened this dialog is still held: the dialog window only ever
+        // sees framework auto-repeats (repeatCount > 0) followed by the release.
+        button.performDpadCenter(action = NativeKeyEvent.ACTION_DOWN, repeat = 1)
+        button.performDpadCenter(action = NativeKeyEvent.ACTION_UP)
+        composeRule.runOnIdle { assertEquals(0, positiveClicks) }
+
+        // A fresh press afterwards must still click.
+        button.performDpadCenter(action = NativeKeyEvent.ACTION_DOWN)
+        button.performDpadCenter(action = NativeKeyEvent.ACTION_UP)
+        composeRule.runOnIdle { assertEquals(1, positiveClicks) }
+    }
+
+    private fun SemanticsNodeInteraction.performDpadCenter(action: Int, repeat: Int = 0) {
+        performKeyPress(
+            ComposeKeyEvent(
+                NativeKeyEvent(0L, 0L, action, NativeKeyEvent.KEYCODE_DPAD_CENTER, repeat),
+            ),
+        )
     }
 
     @Test
