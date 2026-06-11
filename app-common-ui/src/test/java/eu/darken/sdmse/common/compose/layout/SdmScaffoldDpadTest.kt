@@ -108,6 +108,44 @@ class SdmScaffoldDpadTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `DOWN from the top bar with empty content reaches the FAB`() {
+        // Exclusion-manager scenario: fresh screen shows an empty state (nothing focusable in
+        // content) and the FAB is the only way to create an entry — the bridge must fall back
+        // to geometric search instead of swallowing the key.
+        composeRule.setScaffoldContent(rowCount = 0, showFab = true)
+        composeRule.onNodeWithContentDescription(BACK_LABEL).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_DOWN)
+
+        composeRule.assertFocusedWithin(hasContentDescription(FAB_LABEL))
+    }
+
+    @Test
+    fun `UP from the FAB with empty content reaches the top bar`() {
+        composeRule.setScaffoldContent(rowCount = 0, showFab = true)
+        composeRule.onNodeWithContentDescription(FAB_LABEL).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+
+        composeRule.assertFocusedWithin(hasContentDescription(BACK_LABEL))
+    }
+
+    @Test
+    fun `UP from a snackbar action with empty content reaches the top bar`() {
+        // E.g. removing the last list entry shows an indefinite Undo snackbar over an
+        // empty screen — focus must still be able to leave the snackbar.
+        composeRule.setScaffoldContent(rowCount = 0, showSnackbar = true)
+        composeRule.onNodeWithText(SNACKBAR_ACTION).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+
+        composeRule.assertFocusedWithin(hasContentDescription(BACK_LABEL))
+    }
+
+    @Test
     fun `content appearing after a loading state is reachable from the top bar`() {
         val rowCount = androidx.compose.runtime.mutableIntStateOf(0)
         composeRule.setContent {
