@@ -1,6 +1,8 @@
 package eu.darken.sdmse.main.ui.dashboard.cards
 
+import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,12 +15,18 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -45,8 +53,20 @@ internal fun SetupDashboardCard(
     modifier: Modifier = Modifier,
 ) {
     val state = item.setupState
+    val showContinue = !state.isHealerWorking || state.isIncomplete
+    // D-pad entry into this card should land on the primary Continue action, not the Dismiss
+    // button that happens to come first in the row. Only wired while Continue is composed —
+    // an unattached requester would swallow the focus enter.
+    val continueFocusRequester = remember { FocusRequester() }
+    val enterOnContinue = if (showContinue) {
+        Modifier
+            .focusProperties { onEnter = { continueFocusRequester.requestFocus() } }
+            .focusGroup()
+    } else {
+        Modifier
+    }
     DashboardCard(
-        modifier = modifier,
+        modifier = modifier.then(enterOnContinue),
         containerColor = MaterialTheme.colorScheme.primaryContainer,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -96,9 +116,11 @@ internal fun SetupDashboardCard(
                     Text(text = stringResource(CommonR.string.general_dismiss_action))
                 }
             }
-            if (!state.isHealerWorking || state.isIncomplete) {
+            if (showContinue) {
                 DashboardFilledActionButton(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .focusRequester(continueFocusRequester),
                     onClick = item.onContinue,
                 ) {
                     Icon(
@@ -106,6 +128,9 @@ internal fun SetupDashboardCard(
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
+                    // Long translations must not wrap the label to a second line and grow the
+                    // button taller than Dismiss: shrink the font to fit instead, with ellipsis
+                    // as the backstop below the minimum size.
                     Text(
                         text = stringResource(
                             if (state.isIncomplete) {
@@ -113,6 +138,13 @@ internal fun SetupDashboardCard(
                             } else {
                                 CommonR.string.general_view_action
                             },
+                        ),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        autoSize = TextAutoSize.StepBased(
+                            minFontSize = 10.sp,
+                            maxFontSize = 14.sp,
+                            stepSize = 0.25.sp,
                         ),
                     )
                 }
