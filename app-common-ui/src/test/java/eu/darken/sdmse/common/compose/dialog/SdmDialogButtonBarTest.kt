@@ -8,7 +8,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsNotFocused
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -183,5 +185,47 @@ class SdmDialogButtonBarTest : BaseComposeRobolectricTest() {
             assertEquals(0, negativeClicks)
             assertEquals(1, neutralClicks)
         }
+    }
+
+    @Test
+    fun `initial focus defaults to the negative action when present`() {
+        setBar(containerWidth = 400)
+
+        composeRule.onNodeWithText(negativeLabel).assertIsFocused()
+    }
+
+    @Test
+    fun `initial focus falls back to the positive action without a negative`() {
+        setBar(containerWidth = 400, negative = null)
+
+        composeRule.onNodeWithText(positiveLabel).assertIsFocused()
+    }
+
+    @Test
+    fun `initialFocus flag overrides the safe default`() {
+        setBar(
+            containerWidth = 400,
+            positive = SdmDialogAction(label = positiveLabel, initialFocus = true, onClick = {}),
+        )
+
+        composeRule.onNodeWithText(positiveLabel).assertIsFocused()
+        composeRule.onNodeWithText(negativeLabel).assertIsNotFocused()
+    }
+
+    @Test
+    fun `initialFocus flag can target the neutral action`() {
+        setBar(
+            containerWidth = 400,
+            neutral = SdmDialogAction(label = neutralLabel, initialFocus = true, onClick = {}),
+        )
+
+        composeRule.onNodeWithText(neutralLabel).assertIsFocused()
+    }
+
+    @Test
+    fun `initial focus applies in stacked mode too`() {
+        setBar(containerWidth = 120)
+
+        composeRule.onNodeWithText(negativeLabel).assertIsFocused()
     }
 }

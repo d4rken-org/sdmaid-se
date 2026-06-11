@@ -6,8 +6,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
@@ -24,6 +29,11 @@ private val VerticalSpacing = 12.dp
  * layout is used: neutral on the leading edge, negative+positive on the trailing edge.
  * Otherwise the bar switches to a vertical, end-aligned stack: positive on top, then negative,
  * then neutral (Material stacked-button convention).
+ *
+ * Initial D-pad/keyboard focus is deterministic: an action flagged [SdmDialogAction.initialFocus]
+ * wins (first in positive/negative/neutral order), otherwise the negative (cancel) when present,
+ * else the positive. Without this the framework picks spatially, i.e. whatever button happens to
+ * sit leftmost — for destructive confirms the safe default must be the cancel action.
  */
 @Composable
 fun SdmDialogButtonBar(
@@ -32,14 +42,26 @@ fun SdmDialogButtonBar(
     negative: SdmDialogAction? = null,
     neutral: SdmDialogAction? = null,
 ) {
+    val focusTarget = listOfNotNull(positive, negative, neutral).firstOrNull { it.initialFocus }
+        ?: negative
+        ?: positive
+    val focusRequester = remember { FocusRequester() }
+    // Keyed on the input mode, NOT the actions: action instances are recreated on recomposition
+    // and would re-yank focus from wherever the user moved it. In touch mode the request fails
+    // silently (buttons aren't touch-focusable); the first remote/keyboard key flips the mode
+    // and re-runs this to claim focus properly.
+    val inputModeManager = LocalInputModeManager.current
+    LaunchedEffect(inputModeManager.inputMode) {
+        runCatching { focusRequester.requestFocus() }
+    }
     Layout(
         modifier = modifier.fillMaxWidth(),
         content = {
             // Composition order positive, negative, neutral matches M3's traversal convention
             // (confirm action first) and the visual top-to-bottom order in vertical mode.
-            ActionButton(positive)
-            if (negative != null) ActionButton(negative)
-            if (neutral != null) ActionButton(neutral)
+            ActionButton(positive, if (positive === focusTarget) focusRequester else null)
+            if (negative != null) ActionButton(negative, if (negative === focusTarget) focusRequester else null)
+            if (neutral != null) ActionButton(neutral, if (neutral === focusTarget) focusRequester else null)
         },
     ) { measurables, constraints ->
         val gapH = HorizontalSpacing.roundToPx()
@@ -89,8 +111,9 @@ fun SdmDialogButtonBar(
 }
 
 @Composable
-private fun ActionButton(action: SdmDialogAction) {
+private fun ActionButton(action: SdmDialogAction, focusRequester: FocusRequester? = null) {
     TextButton(
+        modifier = if (focusRequester != null) Modifier.focusRequester(focusRequester) else Modifier,
         onClick = action.onClick,
         enabled = action.enabled,
     ) {
