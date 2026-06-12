@@ -24,6 +24,7 @@ fun SettingsSwitchItem(
     enabled: Boolean = true,
     requiresUpgrade: Boolean = false,
     onUpgrade: () -> Unit = {},
+    focusKey: String? = null,
 ) {
     SettingsBaseItem(
         icon = icon,
@@ -31,6 +32,7 @@ fun SettingsSwitchItem(
         title = title,
         onClick = if (requiresUpgrade) onUpgrade else { { onCheckedChange(!checked) } },
         modifier = modifier,
+        focusKey = focusKey,
         subtitle = subtitle,
         enabled = enabled,
         requiresUpgrade = requiresUpgrade,

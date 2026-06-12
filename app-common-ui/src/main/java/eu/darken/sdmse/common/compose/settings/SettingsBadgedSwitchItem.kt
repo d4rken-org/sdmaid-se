@@ -56,6 +56,7 @@ fun SettingsBadgedSwitchItem(
     enabled: Boolean = true,
     requiresUpgrade: Boolean = false,
     onUpgrade: () -> Unit = {},
+    focusKey: String? = null,
 ) {
     if (requiresUpgrade || gate == null) {
         SettingsSwitchItem(
@@ -69,6 +70,7 @@ fun SettingsBadgedSwitchItem(
             enabled = enabled,
             requiresUpgrade = requiresUpgrade,
             onUpgrade = onUpgrade,
+            focusKey = focusKey,
         )
         return
     }
@@ -86,6 +88,7 @@ fun SettingsBadgedSwitchItem(
         modifier = modifier,
         subtitle = subtitle,
         enabled = true,
+        focusKey = focusKey,
         trailingContent = {
             Box(
                 modifier = Modifier

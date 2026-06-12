@@ -28,6 +28,7 @@ fun SettingsPreferenceItem(
     requiresUpgrade: Boolean = false,
     onUpgrade: () -> Unit = {},
     onLongClick: (() -> Unit)? = null,
+    focusKey: String? = null,
 ) {
     val contentAlpha = if (enabled) 1f else 0.5f
 
@@ -38,6 +39,7 @@ fun SettingsPreferenceItem(
         title = title,
         onClick = if (requiresUpgrade) onUpgrade else onClick,
         onLongClick = onLongClick,
+        focusKey = focusKey,
         modifier = modifier,
         subtitle = subtitle,
         enabled = enabled,
