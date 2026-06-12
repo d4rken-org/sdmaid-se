@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.getAndUpdate
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -56,12 +58,16 @@ class DebugLogSessionManager @Inject constructor(
             // The scan is READ-ONLY and deliberately runs WITHOUT fsMutex. A reader must never be
             // blocked by a long-running zip (which holds fsMutex for the whole compression) —
             // holding fsMutex here previously let an in-progress zip wedge the dashboard on its
-            // loading spinner indefinitely. scanSessions() is told which sessions are zipping so its
-            // stale-temp cleanup never deletes a .zip.tmp that a zip is actively writing.
+            // loading spinner indefinitely. The stale-temp cleanup and orphan detection read the
+            // LIVE zippingIds/failedZipIds instead of this combine emission's captured values: a
+            // scan queued before a zip claimed its id would otherwise run with a stale set and
+            // delete the .zip.tmp that zip is actively writing (or schedule a duplicate zip).
+            // The captured values are only used for the display overlays, where a stale frame is
+            // corrected by the refresh() the zip triggers on completion.
             val activeRecordingDir = recorderState.currentLogDir
             val logDirs = recorderModule.getLogDirectories()
-            val scanned = scanSessions(logDirs, activeRecordingDir, zipping)
-            val orphans = findOrphans(scanned, zipping, pendingAutoZips)
+            val scanned = scanSessions(logDirs, activeRecordingDir) { zippingIds.value }
+            val orphans = findOrphans(scanned, zippingIds.value, pendingAutoZips, failedZipIds.value)
             val overlaid = applyOverlays(scanned, zipping, failedZips)
 
             if (orphans.isNotEmpty()) {
@@ -90,7 +96,9 @@ class DebugLogSessionManager @Inject constructor(
                 logDir = session.logDir,
                 diskSize = session.diskSize,
             )
-            session.id in failedZips -> DebugLogSession.Failed(
+            // A valid zip found on disk wins over a stale failure overlay: a successful retry
+            // must not keep presenting the session as Failed.
+            session.id in failedZips && session !is DebugLogSession.Finished -> DebugLogSession.Failed(
                 id = session.id,
                 createdAt = session.createdAt,
                 logDir = session.logDir,
@@ -101,13 +109,33 @@ class DebugLogSessionManager @Inject constructor(
         }
     }
 
+    /** Atomically claim the per-session zip slot; returns false if another zip owns it. */
+    private fun tryClaimZip(sessionId: SessionId): Boolean =
+        sessionId !in zippingIds.getAndUpdate { it + sessionId }
+
+    /** Claim the per-session zip slot, suspending until any in-flight zip releases it. */
+    private suspend fun claimZip(sessionId: SessionId) {
+        while (!tryClaimZip(sessionId)) {
+            log(TAG) { "Waiting for in-flight zip of $sessionId before claiming" }
+            zippingIds.first { sessionId !in it }
+        }
+    }
+
     private fun zipSessionAsync(sessionId: SessionId, logDir: File) {
-        zippingIds.update { it + sessionId }
+        // Stale scans can request a zip for a session that's already being zipped (e.g. the
+        // orphan auto-zip racing requestStopRecording's own zip). Only one job may own the
+        // claim — a duplicate would otherwise release the shared zippingIds entry early and
+        // expose the surviving zip's .zip.tmp to the stale-temp cleanup.
+        if (!tryClaimZip(sessionId)) {
+            log(TAG) { "Skipping duplicate zip for $sessionId, already in flight" }
+            return
+        }
         appScope.launch(dispatcherProvider.IO) {
             try {
                 fsMutex.withLock {
                     debugLogZipper.zip(logDir)
                 }
+                failedZipIds.update { it - sessionId }
                 log(TAG, INFO) { "Zipping complete for $sessionId" }
             } catch (e: CancellationException) {
                 throw e
@@ -155,26 +183,39 @@ class DebugLogSessionManager @Inject constructor(
         return Pair(null, null)
     }
 
-    suspend fun zipSession(sessionId: SessionId): File = fsMutex.withLock {
-        // Read recorder state directly instead of sessions.first() to avoid triggering a re-scan.
-        val activeDir = recorderModule.getCurrentLogDir()
-        if (activeDir != null) {
-            require(SessionId.derive(activeDir) != sessionId) { "Cannot zip an active recording session" }
-        }
-
-        val (dir, existingZip) = findSessionFiles(sessionId)
-        if (existingZip != null && existingZip.length() > 0) {
-            if (dir == null || existingZip.lastModified() >= dir.lastModified()) {
-                return@withLock existingZip
-            }
-        }
-        requireNotNull(dir) { "No log directory found for session $sessionId" }
-        failedZipIds.update { it - sessionId }
-        // Mark as zipping so the lock-free scan's stale-temp cleanup won't delete this zip's
-        // in-progress .zip.tmp while it's being written.
-        zippingIds.update { it + sessionId }
+    suspend fun zipSession(sessionId: SessionId): File {
+        // Claim BEFORE fsMutex (same order as zipSessionAsync, avoiding lock inversion): the claim
+        // keeps the lock-free scan's stale-temp cleanup away from this zip's in-progress .zip.tmp.
+        claimZip(sessionId)
         try {
-            withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
+            return fsMutex.withLock {
+                // Read recorder state directly instead of sessions.first() to avoid triggering a re-scan.
+                val activeDir = recorderModule.getCurrentLogDir()
+                if (activeDir != null) {
+                    require(SessionId.derive(activeDir) != sessionId) { "Cannot zip an active recording session" }
+                }
+
+                val (dir, existingZip) = findSessionFiles(sessionId)
+                if (existingZip != null && existingZip.length() > 0) {
+                    if (dir == null || existingZip.lastModified() >= dir.lastModified()) {
+                        failedZipIds.update { it - sessionId }
+                        return@withLock existingZip
+                    }
+                }
+                requireNotNull(dir) { "No log directory found for session $sessionId" }
+                // The failure marker only clears on proven success — clearing it upfront would
+                // re-qualify the session as an auto-zip orphan if this retry fails too.
+                val zip = try {
+                    withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    failedZipIds.update { it + sessionId }
+                    throw e
+                }
+                failedZipIds.update { it - sessionId }
+                zip
+            }
         } finally {
             zippingIds.update { it - sessionId }
         }
@@ -289,16 +330,20 @@ class DebugLogSessionManager @Inject constructor(
             scannedSessions: List<DebugLogSession>,
             currentlyZipping: Set<SessionId>,
             pendingAutoZips: Set<SessionId>,
+            failedZips: Set<SessionId>,
         ): List<Pair<SessionId, File>> {
+            // failedZips sessions are excluded so a failing zip isn't endlessly re-attempted on
+            // every scan (self-sustaining retry/IO loop). One auto-zip attempt per process; the
+            // user can retry via Share, which goes through zipSession().
             return scannedSessions.filterIsInstance<DebugLogSession.Zipping>()
-                .filter { it.id !in currentlyZipping && it.id !in pendingAutoZips }
+                .filter { it.id !in currentlyZipping && it.id !in pendingAutoZips && it.id !in failedZips }
                 .map { it.id to it.logDir }
         }
 
         fun scanSessions(
             logDirectories: List<File>,
             activeRecordingDir: File?,
-            currentlyZipping: Set<SessionId> = emptySet(),
+            currentlyZipping: () -> Set<SessionId> = { emptySet() },
         ): List<DebugLogSession> {
             val sessions = mutableListOf<DebugLogSession>()
 
@@ -307,9 +352,13 @@ class DebugLogSessionManager @Inject constructor(
 
                 // Clean up stale temp files from interrupted zip operations — but never a .zip.tmp
                 // that a zip is actively writing right now (the scan runs lock-free alongside zips).
+                // currentlyZipping is a live provider read immediately before each delete: a scan
+                // queued before the zip claimed its id would otherwise act on a stale snapshot and
+                // delete the tmp file mid-write. Claims are registered before the zip creates its
+                // tmp file, so an in-flight tmp's id is always visible here.
                 children.filter { it.extension == "tmp" && it.name.endsWith(".zip.tmp") }.forEach { tmp ->
                     val tmpSessionId = SessionId.derive(File(parent, tmp.name.removeSuffix(".zip.tmp")))
-                    if (tmpSessionId in currentlyZipping) return@forEach
+                    if (tmpSessionId in currentlyZipping()) return@forEach
                     tmp.delete()
                     log(TAG) { "Deleted stale temp file: ${tmp.name}" }
                 }

@@ -119,6 +119,38 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `UP from the dock falls through to geometric search while the grid is loading`() {
+        // Regression for the "frozen dashboard" on TV: with listState == null (loading spinner)
+        // the dock used to consume every directional key without any target, black-holing the
+        // remote on the focused control. Unconsumed keys must fall through to default geometric
+        // focus search, which here moves focus from Settings up to the Scan FAB.
+        composeRule.setDashboardContent(
+            listState = null,
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+    }
+
+    @Test
+    fun `UP from the dock falls through to geometric search when the grid is empty`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = emptyList()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+    }
+
+    @Test
     fun `UP mid-list moves within the grid instead of wrapping`() {
         composeRule.setDashboardContent(
             listState = DashboardViewModel.ListState(items = defaultItems()),
@@ -408,7 +440,7 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
 }
 
 private fun ComposeContentTestRule.setDashboardContent(
-    listState: DashboardViewModel.ListState,
+    listState: DashboardViewModel.ListState?,
     bottomBarState: BottomBarState,
 ) {
     val controller = mockk<GuidedTourController>(relaxed = true).also {
