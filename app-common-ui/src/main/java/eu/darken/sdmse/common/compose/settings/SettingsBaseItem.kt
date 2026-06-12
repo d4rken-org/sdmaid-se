@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.focus.dpadFocusMemoryItem
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
@@ -40,11 +41,15 @@ fun SettingsBaseItem(
     enabled: Boolean = true,
     requiresUpgrade: Boolean = false,
     onLongClick: (() -> Unit)? = null,
+    focusKey: String? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
+            // Before combinedClickable so the requester/observer attach to the row's focus
+            // target. Keyed by title unless the caller overrides (rows with dynamic titles).
+            .dpadFocusMemoryItem(focusKey ?: title)
             .combinedClickable(
                 enabled = enabled,
                 onClick = onClick,

@@ -217,6 +217,9 @@ internal fun SupportScreen(
                     ),
                     subtitle = stringResource(R.string.support_debuglog_desc),
                     onClick = { onDebugLogClick(isRecording) },
+                    // Title flips with the recording state — a stable key keeps focus memory
+                    // working across the toggle.
+                    focusKey = "support.debuglog.toggle",
                 )
             }
             item {

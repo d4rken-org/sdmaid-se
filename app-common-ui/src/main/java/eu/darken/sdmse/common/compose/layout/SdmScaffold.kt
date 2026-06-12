@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -27,6 +28,8 @@ import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
+import eu.darken.sdmse.common.compose.focus.LocalDpadFocusMemory
+import eu.darken.sdmse.common.compose.focus.rememberDpadFocusMemory
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
@@ -79,6 +82,10 @@ fun SdmScaffold(
     content: @Composable (PaddingValues) -> Unit,
 ) {
     val contentFocus = remember { FocusRequester() }
+    // Saveable D-pad focus memory for the content slot: [focusRestorer] below only covers
+    // within-lifetime re-entry from chrome; this survives NavEntry disposal so the remembered
+    // row regains focus when returning from a pushed sub-screen (see DpadFocusMemory).
+    val focusMemory = rememberDpadFocusMemory()
 
     Scaffold(
         modifier = modifier,
@@ -111,7 +118,11 @@ fun SdmScaffold(
                 .focusRequester(contentFocus)
                 .focusRestorer()
                 .focusGroup(),
-        ) { content(paddingValues) }
+        ) {
+            CompositionLocalProvider(LocalDpadFocusMemory provides focusMemory) {
+                content(paddingValues)
+            }
+        }
     }
 }
 
