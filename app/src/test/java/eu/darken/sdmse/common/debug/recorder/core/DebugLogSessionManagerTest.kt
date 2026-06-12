@@ -10,6 +10,7 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -27,6 +28,7 @@ import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
+import java.io.IOException
 import java.time.Instant
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
@@ -363,7 +365,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             createSessionDir("session1", coreLogContent = "data")
             val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
-            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet())
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet(), emptySet())
 
             orphans shouldHaveSize 1
             orphans.first().first shouldBe sessionId("session1")
@@ -374,7 +376,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             createSessionDir("session1", coreLogContent = "data")
             val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
-            val orphans = DebugLogSessionManager.findOrphans(sessions, setOf(sessionId("session1")), emptySet())
+            val orphans = DebugLogSessionManager.findOrphans(sessions, setOf(sessionId("session1")), emptySet(), emptySet())
 
             orphans shouldHaveSize 0
         }
@@ -384,7 +386,18 @@ class DebugLogSessionManagerTest : BaseTest() {
             createSessionDir("session1", coreLogContent = "data")
             val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
-            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), setOf(sessionId("session1")))
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), setOf(sessionId("session1")), emptySet())
+
+            orphans shouldHaveSize 0
+        }
+
+        @Test
+        fun `excludes sessions whose zip already failed`() {
+            // A failed zip must not be endlessly re-attempted on every scan (retry/IO loop).
+            createSessionDir("session1", coreLogContent = "data")
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet(), setOf(sessionId("session1")))
 
             orphans shouldHaveSize 0
         }
@@ -397,7 +410,7 @@ class DebugLogSessionManagerTest : BaseTest() {
 
             val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
-            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet())
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet(), emptySet())
 
             orphans shouldHaveSize 0
         }
@@ -707,7 +720,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             DebugLogSessionManager.scanSessions(
                 listOf(logParent),
                 activeRecordingDir = null,
-                currentlyZipping = setOf(sessionId("session1")),
+                currentlyZipping = { setOf(sessionId("session1")) },
             )
 
             tmpFile.exists() shouldBe true
@@ -722,10 +735,118 @@ class DebugLogSessionManagerTest : BaseTest() {
             DebugLogSessionManager.scanSessions(
                 listOf(logParent),
                 activeRecordingDir = null,
-                currentlyZipping = setOf(sessionId("other")),
+                currentlyZipping = { setOf(sessionId("other")) },
             )
 
             tmpFile.exists() shouldBe false
+        }
+
+        @Test
+        fun `cleanup reads the zipping set live at deletion time, not a stale snapshot`() {
+            // Regression for the TV zip race: scans queued before a zip claims its id used to
+            // operate on a captured snapshot and delete the .zip.tmp the zip was writing. The
+            // provider must be consulted when the cleanup actually runs.
+            createSessionDir("session1", coreLogContent = "data")
+            val tmpFile = File(logParent, "session1.zip.tmp").apply { writeBytes(ByteArray(10)) }
+
+            // Simulates a claim landing after the scan was queued but before cleanup runs:
+            // empty at "scan creation", populated by the time the provider is read.
+            var liveZipping = emptySet<SessionId>()
+            val provider = { liveZipping }
+            liveZipping = setOf(sessionId("session1"))
+
+            DebugLogSessionManager.scanSessions(
+                listOf(logParent),
+                activeRecordingDir = null,
+                currentlyZipping = provider,
+            )
+
+            tmpFile.exists() shouldBe true
+        }
+    }
+
+    @Nested
+    inner class FailureLifecycle {
+
+        @Test
+        fun `failed auto-zip is not retried on subsequent scans`() = runTest {
+            createSessionDir("session1", coreLogContent = "data")
+            every { debugLogZipper.zip(any()) } throws IOException("zip failed")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            // First scan auto-zips the orphan, the zip fails, the failure-triggered rescan
+            // must NOT re-attempt it (previously: self-sustaining retry/IO loop).
+            val sessions = manager.sessions.first { sessions -> sessions.any { it is DebugLogSession.Failed } }
+            sessions shouldHaveSize 1
+
+            manager.refresh()
+            manager.sessions.first()
+            testScheduler.advanceUntilIdle()
+
+            verify(exactly = 1) { debugLogZipper.zip(any()) }
+        }
+
+        @Test
+        fun `zipSession failure marks the session failed and prevents auto-retry`() = runTest {
+            createSessionDir("session1", coreLogContent = "data")
+            every { debugLogZipper.zip(any()) } throws IOException("zip failed")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IOException> {
+                manager.zipSession(sessionId("session1"))
+            }
+
+            // The orphan dir is excluded from auto-zip by the failure marker and shown as Failed.
+            val sessions = manager.sessions.first()
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Failed>()
+            session.reason shouldBe DebugLogSession.Failed.Reason.ZIP_FAILED
+
+            testScheduler.advanceUntilIdle()
+            verify(exactly = 1) { debugLogZipper.zip(any()) }
+        }
+
+        @Test
+        fun `successful manual retry clears the failure marker`() = runTest {
+            createSessionDir("session1", coreLogContent = "data")
+            every { debugLogZipper.zip(any()) } throws IOException("zip failed")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IOException> { manager.zipSession(sessionId("session1")) }
+
+            mockZipperCreatesFile()
+            val zip = manager.zipSession(sessionId("session1"))
+            zip.exists() shouldBe true
+
+            val sessions = manager.sessions.first()
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+        }
+
+        @Test
+        fun `valid zip on disk wins over a stale failure overlay`() = runTest {
+            createSessionDir("session1", coreLogContent = "data")
+            every { debugLogZipper.zip(any()) } throws IOException("zip failed")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IOException> { manager.zipSession(sessionId("session1")) }
+            manager.sessions.first().first().shouldBeInstanceOf<DebugLogSession.Failed>()
+
+            // A valid zip appears on disk (e.g. produced by a parallel path) while the in-memory
+            // failure marker is still set — the scan result must present it as Finished.
+            createZipFile("session1")
+            manager.refresh()
+            val sessions = manager.sessions.first { sessions -> sessions.any { it is DebugLogSession.Finished } }
+            sessions shouldHaveSize 1
         }
     }
 
