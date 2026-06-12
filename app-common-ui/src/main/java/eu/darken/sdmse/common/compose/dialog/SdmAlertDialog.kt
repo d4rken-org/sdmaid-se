@@ -9,6 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEvent
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onPreviewKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.window.DialogProperties
 import eu.darken.sdmse.common.compose.focusHighlightRing
@@ -42,7 +48,14 @@ fun SdmAlertDialog(
     AlertDialog(
         onDismissRequest = onDismissRequest,
         confirmButton = confirmButton,
-        modifier = modifier.focusHighlightRing(),
+        // A confirm key still held from BEFORE this dialog opened (e.g. the D-pad long press that
+        // triggered it) auto-repeats into the newly focused dialog window. Compose's clickable
+        // registers a repeat key-down as a fresh press, so releasing the key would click the
+        // initially focused button and instantly dismiss the dialog. Framework Views ignore
+        // repeat downs (repeatCount > 0) for click handling; mirror that for the whole dialog.
+        modifier = modifier
+            .onPreviewKeyEvent { it.isRepeatedConfirmKeyDown }
+            .focusHighlightRing(),
         dismissButton = dismissButton,
         icon = icon,
         title = title,
@@ -56,6 +69,14 @@ fun SdmAlertDialog(
         properties = properties,
     )
 }
+
+private val KeyEvent.isRepeatedConfirmKeyDown: Boolean
+    get() = type == KeyEventType.KeyDown &&
+        nativeKeyEvent.repeatCount > 0 &&
+        when (key) {
+            Key.DirectionCenter, Key.Enter, Key.NumPadEnter -> true
+            else -> false
+        }
 
 @Preview2
 @Composable
