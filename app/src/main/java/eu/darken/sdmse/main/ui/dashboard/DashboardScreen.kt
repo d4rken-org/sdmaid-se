@@ -359,10 +359,12 @@ internal fun DashboardScreen(
                     .focusRequester(dockFocusRequester)
                     // Directional moves that would leave the dock spatially (overlapping grid
                     // cards can qualify as "left of the FAB") are cancelled; the onKeyEvent below
-                    // then sees the failed move and performs the restoring return instead.
+                    // then sees the failed move and performs the restoring return instead. Only
+                    // while the grid actually has cards — with a loading/empty grid the dock must
+                    // not trap focus (the onKeyEvent below leaves those keys unconsumed too).
                     .focusProperties {
                         onExit = {
-                            if (requestedFocusDirection != FocusDirection.Enter && items != null) {
+                            if (requestedFocusDirection != FocusDirection.Enter && items?.isNotEmpty() == true) {
                                 cancelFocusChange()
                             }
                         }
@@ -386,8 +388,18 @@ internal fun DashboardScreen(
                             Key.DirectionRight -> !focusManager.moveFocus(FocusDirection.Right)
                             else -> return@onKeyEvent false
                         }
-                        if (wantsReturn && items != null) returnToGrid()
-                        true
+                        when {
+                            !wantsReturn -> true
+                            // Grid has cards to return to: restore the remembered card and consume.
+                            items?.isNotEmpty() == true -> {
+                                returnToGrid()
+                                true
+                            }
+                            // Loading/empty grid: don't swallow the key — fall through to default
+                            // geometric focus search so the dock never becomes a focus trap while
+                            // listState is null (spinner) or the list is empty.
+                            else -> false
+                        }
                     },
                 state = bottomBarState,
                 isVisible = dockVisible,
