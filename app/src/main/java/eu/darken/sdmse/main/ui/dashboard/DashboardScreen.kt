@@ -331,7 +331,25 @@ internal fun DashboardScreen(
         if (!restored) gridFocusRequester.requestFocus()
     }
 
+    // Suppress the hero while a tour is active so it can't cover or fight tour targets.
+    val heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive
+
+    // Dismissing or discarding the hero with DPAD_CENTER removes the focused node from
+    // composition and focus evaporates — the next key press would restart from the default.
+    // Tracked at the screen root because the hero's own focus-event node leaves composition
+    // together with the focused control and can't report the loss itself. Re-anchor on the dock.
+    var screenHasFocus by remember { mutableStateOf(false) }
+    var wasHeroVisible by remember { mutableStateOf(heroVisible) }
+    LaunchedEffect(heroVisible) {
+        val heroJustLeft = wasHeroVisible && !heroVisible
+        wasHeroVisible = heroVisible
+        if (heroJustLeft && !screenHasFocus) {
+            runCatching { dockFocusRequester.requestFocus() }
+        }
+    }
+
     Scaffold(
+        modifier = Modifier.onFocusEvent { screenHasFocus = it.hasFocus },
         bottomBar = {
             BottomBar(
                 // Focus group so the grid's UP wrap can target "the dock" as a whole: the
@@ -350,15 +368,19 @@ internal fun DashboardScreen(
                         }
                     }
                     .focusGroup()
-                    // The single return path from the dock to the grid: UP returns immediately
-                    // (from any dock control — the historical escape-hatch semantics), DOWN and
-                    // LEFT/RIGHT first move within the dock and return once they hit its edge —
-                    // left-left bounces between a list row and the bar. Every return restores the
-                    // remembered card via returnToGrid.
+                    // The single return path from the dock to the grid. DOWN and LEFT/RIGHT
+                    // first move within the dock and return once they hit its edge — left-left
+                    // bounces between a list row and the bar. UP is hero-gated: with the hero
+                    // shown it climbs the dock spatially first (bar → Discard → Dismiss → grid),
+                    // making the hero's top-right controls reachable; without a hero it stays
+                    // the instant one-press escape (the visible state justifies the modal
+                    // behavior — an extra FAB hop for geometric purity would not). Every return
+                    // restores the remembered card via returnToGrid.
                     .onKeyEvent { event ->
                         if (event.type != KeyEventType.KeyDown) return@onKeyEvent false
                         val wantsReturn = when (event.key) {
-                            Key.DirectionUp -> true
+                            Key.DirectionUp ->
+                                if (heroVisible) !focusManager.moveFocus(FocusDirection.Up) else true
                             Key.DirectionDown -> !focusManager.moveFocus(FocusDirection.Down)
                             Key.DirectionLeft -> !focusManager.moveFocus(FocusDirection.Left)
                             Key.DirectionRight -> !focusManager.moveFocus(FocusDirection.Right)
@@ -369,8 +391,7 @@ internal fun DashboardScreen(
                     },
                 state = bottomBarState,
                 isVisible = dockVisible,
-                // Suppress the hero while a tour is active so it can't cover or fight tour targets.
-                heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive,
+                heroVisible = heroVisible,
                 onMainAction = onMainAction,
                 onMainActionLongClick = { showOneClickOptions = true },
                 onSettings = onSettings,

@@ -42,9 +42,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
@@ -96,7 +96,6 @@ internal fun BottomBar(
     onRestoreHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     isHeroDismissed: Boolean = false,
-    focusEscape: FocusRequester? = null,
     mainActionModifier: Modifier = Modifier,
     settingsModifier: Modifier = Modifier,
     upgradeModifier: Modifier = Modifier,
@@ -107,15 +106,17 @@ internal fun BottomBar(
     // Hidden dock only slides off-screen via offset() — it stays composed for the exit
     // animation, so it must be made unreachable explicitly: gate D-pad/keyboard focus for each
     // layer's subtree on visibility (the hero additionally on showHero, so a dismissed card isn't
-    // focusable mid-exit). [focusEscape] routes UP into the dashboard grid — the grid's focus
-    // group fully contains the dock's rects and is never a directional candidate on its own.
+    // focusable mid-exit). Grid↔dock D-pad crossings are handled by the caller's key handlers on
+    // the dock's focus group (see DashboardScreen); the only bridge here is the UP rung from the
+    // bar/FAB into the hero's entry control (Discard, or the Dismiss X), which would otherwise be
+    // unreachable — spatial search skips the hero's top-right controls.
+    val heroEntryFocusRequester = remember { FocusRequester() }
     val barFocus = Modifier.focusProperties {
         canFocus = isVisible
-        focusEscape?.let { up = it }
+        if (showHero) up = heroEntryFocusRequester
     }
     val heroFocus = Modifier.focusProperties {
         canFocus = isVisible && showHero
-        focusEscape?.let { up = it }
     }
 
     // Deliberately NOT safeDrawing: that includes the IME inset, and the dock is sized
@@ -259,6 +260,7 @@ internal fun BottomBar(
                 onDiscard = onDiscardResults
                     .takeIf { heroSummary.mode == HeroSummary.Mode.FREEABLE },
                 onToolClick = onToolClick,
+                entryFocusRequester = heroEntryFocusRequester,
             )
         }
 

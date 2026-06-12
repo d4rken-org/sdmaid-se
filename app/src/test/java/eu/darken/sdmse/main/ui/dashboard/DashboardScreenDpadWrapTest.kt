@@ -3,9 +3,15 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.content.Context
 import android.view.KeyEvent as NativeKeyEvent
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.input.key.KeyEvent as ComposeKeyEvent
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.hasAnyAncestor
 import androidx.compose.ui.test.hasAnyDescendant
@@ -25,6 +31,7 @@ import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalTourTargetRegistry
 import eu.darken.sdmse.common.compose.tour.TourTargetRegistry
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
@@ -47,6 +54,8 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
     private val settingsLabel get() = context.getString(CommonR.string.general_settings_title)
     private val upgradeLabel get() = context.getString(R.string.upgrades_dashcard_upgrade_action)
     private val scanLabel get() = context.getString(CommonR.string.general_scan_action)
+    private val dismissLabel get() = context.getString(CommonR.string.general_dismiss_action)
+    private val discardLabel get() = context.getString(CommonR.string.general_discard_action)
     private val firstToolTitle get() = context.getString(CommonR.string.corpsefinder_tool_name)
     private val secondToolTitle get() = context.getString(CommonR.string.systemcleaner_tool_name)
 
@@ -245,6 +254,125 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
 
         composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
         composeRule.assertFocusedWithin(hasText(secondToolTitle))
+    }
+
+    private fun heroSummary(mode: HeroSummary.Mode = HeroSummary.Mode.FREEABLE) = HeroSummary(
+        mode = mode,
+        totalSize = 1024L * 1024L,
+        itemCount = 3,
+        tools = listOf(
+            HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1024L * 1024L, 3),
+        ),
+    )
+
+    @Test
+    fun `UP climbs the hero card from settings via Discard and Dismiss to the grid`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(heroSummary = heroSummary()),
+        )
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(discardLabel))
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasContentDescription(dismissLabel))
+
+        // Nothing above the Dismiss X inside the dock — UP returns to the grid.
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(firstToolTitle))
+    }
+
+    @Test
+    fun `UP from a hero tool chip goes to the Dismiss X`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(heroSummary = heroSummary()),
+        )
+        composeRule.onNodeWithContentDescription(firstToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasContentDescription(dismissLabel))
+    }
+
+    @Test
+    fun `UP reaches Dismiss when the FREED hero has no Discard button`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(heroSummary = heroSummary(mode = HeroSummary.Mode.FREED)),
+        )
+        composeRule.onAllNodesWithText(discardLabel).assertCountEquals(0)
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasContentDescription(dismissLabel))
+    }
+
+    @Test
+    fun `UP climbs the hero for Pro users without the upgrade button`() {
+        val proInfo = mockk<UpgradeRepo.Info> { every { isPro } returns true }
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(heroSummary = heroSummary()).copy(upgradeInfo = proInfo),
+        )
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(discardLabel))
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasContentDescription(dismissLabel))
+    }
+
+    @Test
+    fun `UP from the dock without a hero stays the one-press escape to the grid`() {
+        composeRule.setDashboardContent(
+            listState = DashboardViewModel.ListState(items = defaultItems()),
+            bottomBarState = bottomBarState(),
+        )
+        composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(firstToolTitle))
+    }
+
+    @Test
+    fun `dismissing the hero with DPAD_CENTER re-anchors focus on the dock`() {
+        val controller = mockk<GuidedTourController>(relaxed = true).also {
+            coEvery { it.shouldStart(any()) } returns false
+            every { it.session } returns MutableStateFlow(null)
+        }
+        composeRule.setContent {
+            PreviewWrapper {
+                CompositionLocalProvider(
+                    LocalTourTargetRegistry provides TourTargetRegistry(),
+                    LocalGuidedTourController provides controller,
+                ) {
+                    var dismissed by remember { mutableStateOf(false) }
+                    DashboardScreen(
+                        listState = DashboardViewModel.ListState(items = defaultItems()),
+                        bottomBarState = bottomBarState(heroSummary = heroSummary()),
+                        isHeroDismissed = dismissed,
+                        onDismissHero = { dismissed = true },
+                    )
+                }
+            }
+        }
+        composeRule.waitForIdle()
+        composeRule.onNodeWithContentDescription(dismissLabel).requestFocus()
+        composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_CENTER)
+
+        // The focused node left composition with the hero; focus must be re-anchored on the
+        // dock (the FAB) instead of evaporating.
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
     }
 
     @Test

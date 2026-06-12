@@ -27,6 +27,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -64,7 +67,13 @@ internal fun DashboardHeroCard(
     onDismiss: () -> Unit = {},
     onDiscard: (() -> Unit)? = null,
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    entryFocusRequester: FocusRequester? = null,
 ) {
+    // Explicit D-pad ladder through the card — spatial search is unreliable here (the Dismiss X
+    // sits top-right outside most beams and picks vary by screen size): [entryFocusRequester]
+    // (UP from the bar/FAB) lands on Discard when present, else on the X; UP from Discard and
+    // the tool chips goes to the X; UP from the X falls out of the dock (back to the grid).
+    val dismissFocusRequester = remember { FocusRequester() }
     // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed.
     val (containerColor, contentColor) = when (summary.mode) {
         HeroSummary.Mode.FREEABLE ->
@@ -88,6 +97,8 @@ internal fun DashboardHeroCard(
                 summary = summary,
                 onDismiss = onDismiss,
                 onToolClick = onToolClick,
+                dismissFocusRequester = dismissFocusRequester,
+                dismissEntryRequester = entryFocusRequester.takeIf { onDiscard == null },
             )
             HeroFooter(
                 modifier = Modifier
@@ -96,6 +107,8 @@ internal fun DashboardHeroCard(
                 summary = summary,
                 now = now,
                 onDiscard = onDiscard,
+                dismissFocusRequester = dismissFocusRequester,
+                discardEntryRequester = entryFocusRequester.takeIf { onDiscard != null },
             )
         }
     }
@@ -107,6 +120,8 @@ private fun HeroBody(
     summary: HeroSummary,
     onDismiss: () -> Unit,
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit,
+    dismissFocusRequester: FocusRequester = FocusRequester(),
+    dismissEntryRequester: FocusRequester? = null,
 ) {
     val context = LocalContext.current
     val modeRes = summary.mode.resources
@@ -150,7 +165,12 @@ private fun HeroBody(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            IconButton(onClick = onDismiss) {
+            IconButton(
+                onClick = onDismiss,
+                modifier = Modifier
+                    .focusRequester(dismissFocusRequester)
+                    .then(dismissEntryRequester?.let { Modifier.focusRequester(it) } ?: Modifier),
+            ) {
                 Icon(
                     imageVector = Icons.TwoTone.Close,
                     contentDescription = stringResource(CommonR.string.general_dismiss_action),
@@ -169,6 +189,7 @@ private fun HeroBody(
         ) {
             summary.tools.forEach { slice ->
                 SdmInfoChip(
+                    modifier = Modifier.focusProperties { up = dismissFocusRequester },
                     icon = slice.type.icon,
                     label = ByteFormatter.formatSize(context, slice.size).first,
                     // Neutral pills so they stay legible on either the error- or tertiary-tinted card.
@@ -205,6 +226,8 @@ private fun HeroFooter(
     summary: HeroSummary,
     now: Instant,
     onDiscard: (() -> Unit)?,
+    dismissFocusRequester: FocusRequester = FocusRequester(),
+    discardEntryRequester: FocusRequester? = null,
 ) {
     Row(
         modifier = modifier
@@ -244,7 +267,10 @@ private fun HeroFooter(
         ) {
             if (onDiscard != null) {
                 TextButton(
-                    modifier = Modifier.height(DASHBOARD_CUTOUT_DEPTH),
+                    modifier = Modifier
+                        .height(DASHBOARD_CUTOUT_DEPTH)
+                        .focusProperties { up = dismissFocusRequester }
+                        .then(discardEntryRequester?.let { Modifier.focusRequester(it) } ?: Modifier),
                     onClick = onDiscard,
                     colors = ButtonDefaults.textButtonColors(contentColor = LocalContentColor.current),
                     contentPadding = PaddingValues(horizontal = 12.dp),
