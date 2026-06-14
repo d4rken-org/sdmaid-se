@@ -57,10 +57,13 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.squeezer.R
+import eu.darken.sdmse.squeezer.ui.list.tour.SqueezerListTour
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
@@ -165,6 +168,21 @@ internal fun SqueezerListScreen(
         selection = selection intersect itemIds
     }
 
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { SqueezerListTour.definition() }
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // The compress-all FAB is present once a scan has produced media (and no selection is active,
+    // which is the case at tour start).
+    val tourReady = state.progress == null && media.isNotEmpty()
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
+
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
     val totalSavings = media.sumOf { it.estimatedSavings ?: 0L }
@@ -230,6 +248,7 @@ internal fun SqueezerListScreen(
             if (state.progress == null && media.isNotEmpty() && selection.isEmpty()) {
                 ExtendedFloatingActionButton(
                     onClick = onCompressAll,
+                    modifier = Modifier.guidedTourTarget(SqueezerListTour.COMPRESS_ALL_TARGET),
                     icon = {
                         Icon(
                             imageVector = Icons.TwoTone.Compress,
