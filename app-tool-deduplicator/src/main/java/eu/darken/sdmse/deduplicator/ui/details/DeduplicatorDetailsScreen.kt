@@ -296,24 +296,31 @@ internal fun DeduplicatorDetailsScreen(
     LaunchedEffect(tourEligible) {
         if (!tourEligible || tourStartAttempted) return@LaunchedEffect
         // Anchor on the route target if one was supplied (deep link into a specific cluster);
-        // otherwise fall back to the first cluster. Avoids depending on pagerState.currentPage,
-        // which may not have settled when this effect runs.
-        val anchorClusterId = current?.target ?: items.firstOrNull()?.identifier
-        ?: return@LaunchedEffect
-        val cluster = items.firstOrNull { it.identifier == anchorClusterId } ?: return@LaunchedEffect
-        // Find a group that has a real keeper-vs-non-keeper split, so the row-level marker copy
-        // is accurate. Skip groups without a keeper (no marker shown) or with only one duplicate.
-        val groupWithMark = cluster.groups
+        // otherwise fall back to the first cluster.
+        val anchorClusterId = current?.target ?: items.firstOrNull()?.identifier ?: return@LaunchedEffect
+        val anchorIndex = items.indexOfFirst { it.identifier == anchorClusterId }
+        if (anchorIndex < 0) return@LaunchedEffect
+        // shouldStart() is false both when this tour is done/dismissed (permanent) and when another
+        // tour is still active (transient). Don't set tourStartAttempted until it passes, so a
+        // transient block can't permanently suppress this tour for the composition.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        val cluster = items[anchorIndex]
+        // Step 1 (cluster header) registers its target only on the pinned page. Deep links land on
+        // a non-zero page the separate scroll effect is still settling — drive the scroll here and
+        // await it so the header is composed before we start, instead of grace-skipping step 1.
+        if (pagerState.currentPage != anchorIndex || pagerState.isScrollInProgress) {
+            pagerState.scrollToPage(anchorIndex)
+        }
+        // Always pin the cluster — the header target is applied only to the pinned page. The
+        // delete-mark row is opportunistic: when no group has a keeper-vs-non-keeper split there is
+        // nothing to point at, so step 2 simply grace-skips (it no longer suppresses the whole tour).
+        val deleteRow = cluster.groups
             .sortedByDescending { it.totalSize }
             .firstOrNull { it.keeperIdentifier != null && it.duplicates.size >= 2 }
-            ?: return@LaunchedEffect
-        val keeperId = groupWithMark.keeperIdentifier ?: return@LaunchedEffect
-        val deleteRow = groupWithMark.duplicates.firstOrNull { it.identifier != keeperId }
-            ?: return@LaunchedEffect
-        tourStartAttempted = true
-        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+            ?.let { group -> group.duplicates.firstOrNull { it.identifier != group.keeperIdentifier } }
         tourClusterId = cluster.identifier
-        tourDeleteMarkRowId = deleteRow.identifier
+        tourDeleteMarkRowId = deleteRow?.identifier
+        tourStartAttempted = true
         tourController.start(tourDef)
     }
 
