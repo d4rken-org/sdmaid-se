@@ -36,6 +36,8 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -50,6 +52,7 @@ import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.CommandsEditDialog
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRow
+import eu.darken.sdmse.scheduler.ui.manager.tour.SchedulerManagerTour
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -135,6 +138,20 @@ internal fun SchedulerManagerScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = SchedulerManagerViewModel.State())
 
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { SchedulerManagerTour.definition() }
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // The add FAB is the only always-present anchor (a fresh manager has no schedule rows).
+    val tourReady = !state.isLoading
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
+
     SdmScaffold(
         topBar = {
             TopAppBar(
@@ -163,7 +180,10 @@ internal fun SchedulerManagerScreen(
             )
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = onCreateNew) {
+            FloatingActionButton(
+                onClick = onCreateNew,
+                modifier = Modifier.guidedTourTarget(SchedulerManagerTour.ADD_TARGET),
+            ) {
                 Icon(
                     Icons.TwoTone.Add,
                     contentDescription = stringResource(R.string.scheduler_new_schedule_action),
