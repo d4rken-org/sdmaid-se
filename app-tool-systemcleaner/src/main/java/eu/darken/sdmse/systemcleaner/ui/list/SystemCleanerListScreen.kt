@@ -2,12 +2,11 @@ package eu.darken.sdmse.systemcleaner.ui.list
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -38,11 +37,14 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.ui.list.items.SystemCleanerRow
+import eu.darken.sdmse.systemcleaner.ui.list.tour.SystemCleanerListTour
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -141,6 +143,20 @@ internal fun SystemCleanerListScreen(
     }
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { SystemCleanerListTour.definition() }
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // Anchor step 2 on the first filter row; a populated result always has at least one.
+    val tourReady = state.progress == null && !rows.isNullOrEmpty()
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
+
     val subtitle = rows?.let { list ->
         if (state.progress == null) {
             pluralStringResource(CommonR.plurals.result_x_items, list.size, list.size)
@@ -196,19 +212,28 @@ internal fun SystemCleanerListScreen(
 
                     rows.isEmpty() -> SdmEmptyState()
 
-                    else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                    else -> {
+                        // No BoxWithConstraints: its maxWidth was only a remember key and unused in
+                        // the span calc. The SubcomposeLayout it introduces also stops
+                        // Modifier.guidedTourTarget on lazy items from registering their bounds, so
+                        // the filter-row tour step grace-skipped. Compute the span from the context
+                        // directly, matching the working Analyzer screen.
                         val context = LocalContext.current
-                        val spanCount = remember(maxWidth) {
-                            context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt())
-                        }
                         LazyVerticalGrid(
-                            columns = GridCells.Fixed(spanCount),
+                            columns = GridCells.Fixed(
+                                context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt()),
+                            ),
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = SdmListDefaults.GridContentPadding,
                         ) {
-                            items(rows, key = { it.identifier }) { row ->
+                            itemsIndexed(rows, key = { _, it -> it.identifier }) { index, row ->
                                 val isSelected = selection.contains(row.identifier)
                                 SystemCleanerRow(
+                                    modifier = if (index == 0) {
+                                        Modifier.guidedTourTarget(SystemCleanerListTour.FILTER_ROW_TARGET)
+                                    } else {
+                                        Modifier
+                                    },
                                     row = row,
                                     selected = isSelected,
                                     selectionActive = selection.isNotEmpty(),
