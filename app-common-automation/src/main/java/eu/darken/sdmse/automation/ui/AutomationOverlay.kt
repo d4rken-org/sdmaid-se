@@ -137,31 +137,29 @@ private fun ControlCard(
             )
         }
 
-        val primaryText = progress.primary.get(ctx)
-        if (primaryText.isNotEmpty()) {
-            Text(
-                text = primaryText,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 16.dp),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
+        // Always reserve a fixed-height text region (1 primary + 3 secondary lines) so the
+        // bottom-anchored card doesn't resize and "jump" as the progress text changes.
+        Text(
+            text = progress.primary.get(ctx),
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            minLines = 1,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
 
-        val secondaryText = progress.secondary.get(ctx)
-        if (secondaryText.isNotEmpty()) {
-            Text(
-                text = secondaryText,
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
+        Text(
+            text = progress.secondary.get(ctx),
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            minLines = 3,
+            maxLines = 3,
+            overflow = TextOverflow.Ellipsis,
+        )
 
         Button(
             onClick = onCancel,
