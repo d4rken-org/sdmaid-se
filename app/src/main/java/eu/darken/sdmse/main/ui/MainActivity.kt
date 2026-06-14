@@ -173,6 +173,7 @@ class MainActivity : ComponentActivity() {
                 onPrevious = { coroutineScope.launch { guidedTourController.previous() } },
                 onSkipForNow = { coroutineScope.launch { guidedTourController.skipForNow() } },
                 onDontShowAgain = { coroutineScope.launch { guidedTourController.dismissForever() } },
+                onStepRendered = { guidedTourController.markStepRendered(it) },
                 modifier = Modifier.fillMaxSize(),
             ) {
                 val isTv = remember { deviceDetective.isTvLikeDevice() }

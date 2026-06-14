@@ -242,6 +242,44 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `onStepRendered fires when an anchored step becomes visible`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var rendered = 0
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onStepRendered = { rendered++ },
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        rendered shouldBeGt 0
+    }
+
+    @Test
+    fun `onStepRendered fires for a centerless step`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(centerlessDef, 0))
+        var rendered = 0
+        composeRule.setHostContent(sessionFlow, onStepRendered = { rendered++ }) {
+            Text("CONTENT_MARKER")
+        }
+        rendered shouldBeGt 0
+    }
+
+    @Test
+    fun `onStepRendered does not fire while the target is still pending`() {
+        // protectedDef step 0 target "first" is never registered → layout stays Pending.
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var rendered = 0
+        composeRule.mainClock.autoAdvance = false
+        composeRule.setHostContent(sessionFlow, onStepRendered = { rendered++ }) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.mainClock.advanceTimeBy(100)
+        composeRule.mainClock.autoAdvance = true
+        rendered shouldBeEq 0
+    }
+
+    @Test
     fun `centerless step renders body without any registered target`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(centerlessDef, 0))
         composeRule.setHostContent(sessionFlow) {
@@ -529,6 +567,7 @@ private fun ComposeContentTestRule.setHostContent(
     onPrevious: () -> Unit = {},
     onSkipForNow: () -> Unit = {},
     onDontShowAgain: () -> Unit = {},
+    onStepRendered: (TourId) -> Unit = {},
     onBackOwner: (OnBackPressedDispatcherOwner) -> Unit = {},
     content: @Composable () -> Unit,
 ) {
@@ -548,6 +587,7 @@ private fun ComposeContentTestRule.setHostContent(
                 onDontShowAgain = onDontShowAgain,
                 modifier = Modifier.fillMaxSize(),
                 registry = registry,
+                onStepRendered = onStepRendered,
                 content = content,
             )
         }

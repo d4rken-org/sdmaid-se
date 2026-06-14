@@ -78,6 +78,7 @@ fun GuidedTourHost(
     onDontShowAgain: () -> Unit,
     modifier: Modifier = Modifier,
     registry: TourTargetRegistry = remember { TourTargetRegistry() },
+    onStepRendered: (TourId) -> Unit = {},
     content: @Composable () -> Unit,
 ) {
     val current by session.collectAsState()
@@ -85,6 +86,14 @@ fun GuidedTourHost(
     // Bounds are stored in root coords (see Modifier.guidedTourTarget) — only valid while the
     // host is mounted at the Compose root.
     val layout = step?.let { resolveStepLayout(it, registry) }
+
+    // Tell the controller a step actually became visible. A tour that grace-skips every step
+    // (no target ever registers) must not be persisted as "completed" — see completeLocked().
+    val stepRendered = layout is StepLayout.Anchored || layout is StepLayout.Centerless
+    val activeTourId = current?.definition?.id
+    LaunchedEffect(activeTourId?.raw, step?.stepId, stepRendered) {
+        if (stepRendered && activeTourId != null) onStepRendered(activeTourId)
+    }
 
     LaunchedEffect(current, step?.targetId, layout) {
         if (current == null || step == null) return@LaunchedEffect

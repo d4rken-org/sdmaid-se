@@ -4,6 +4,7 @@ import androidx.navigation3.runtime.NavKey
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -31,6 +32,11 @@ class GuidedTourController @Inject constructor(
     @Volatile private var currentTopRoute: NavKey? = null
     @Volatile private var routeAtStart: NavKey? = null
 
+    // Whether the active session has had at least one step actually rendered (anchored or
+    // centerless). Reset on start, flipped by the host via [markStepRendered]. Guards against
+    // persisting "completed" for a tour that fell through entirely on missing-target grace-skips.
+    @Volatile private var sessionStepRendered: Boolean = false
+
     // Singleton-scoped, so this resets on app restart — which is exactly what "skip for now" means:
     // suppress the tour for the current process lifetime, not persistently.
     private val skippedThisSession: MutableSet<String> = ConcurrentHashMap.newKeySet()
@@ -56,6 +62,7 @@ class GuidedTourController @Inject constructor(
             log(TAG) { "start(${definition.id.raw}): no steps, ignoring" }
             return@withLock
         }
+        sessionStepRendered = false
         firstStep.prepareTarget?.invoke()
         log(TAG) { "start(${definition.id.raw})" }
         _session.value = TourSession(definition, stepIndex = 0)
@@ -113,8 +120,29 @@ class GuidedTourController @Inject constructor(
 
     suspend fun complete() = mutationMutex.withLock { completeLocked() }
 
+    /**
+     * Signal from the host that the session for [tourId] has shown at least one step (anchored or
+     * centerless). Lets [completeLocked] tell "user walked the whole tour" apart from "every step
+     * grace-skipped because its target never registered". The id guard rejects a late callback
+     * from a previous session that already ended (e.g. tour A's render arriving after tour B start).
+     */
+    fun markStepRendered(tourId: TourId) {
+        if (_session.value?.definition?.id == tourId) sessionStepRendered = true
+    }
+
     private suspend fun completeLocked() {
         val s = _session.value ?: return
+        if (!sessionStepRendered) {
+            // The whole tour fell through on missing-target grace-skips without a single step ever
+            // being shown (anchors not registered yet, wrong target ids, or a transient layout
+            // race). Persisting "completed" would burn the tour forever for something the user
+            // never saw — treat it as skip-for-now instead, so it stays eligible after a restart.
+            log(TAG, WARN) { "complete(${s.definition.id.raw}): no step ever rendered, skipping instead" }
+            skippedThisSession += s.definition.id.raw
+            _session.value = null
+            routeAtStart = null
+            return
+        }
         log(TAG) { "complete(${s.definition.id.raw})" }
         persistCompleted(s.definition.id.raw)
         _session.value = null

@@ -113,12 +113,28 @@ class GuidedTourControllerTest : BaseTest() {
     fun `next from last step completes tour and persists completed`() = runTest {
         val ctrl = controller()
         ctrl.start(basicDefinition)
+        ctrl.markStepRendered(basicDefinition.id) // host showed a step — a real walkthrough, persists
         ctrl.next()
         ctrl.next()
         ctrl.next() // last → complete
         ctrl.session.value shouldBe null
         prefsFlow.value.completed shouldBe setOf(basicDefinition.id.raw)
         prefsFlow.value.dismissed shouldBe emptySet()
+    }
+
+    @Test
+    fun `next to end without any rendered step skips instead of persisting`() = runTest {
+        val ctrl = controller()
+        ctrl.start(basicDefinition) // no markStepRendered: every step grace-skipped, nothing shown
+        ctrl.next()
+        ctrl.next()
+        ctrl.next() // last → would complete, but nothing rendered → skip-for-now
+        ctrl.session.value shouldBe null
+        prefsFlow.value.completed shouldBe emptySet()
+        prefsFlow.value.dismissed shouldBe emptySet()
+        // Suppressed in-memory for this process, but eligible again after an app restart.
+        ctrl.shouldStart(basicDefinition) shouldBe false
+        controller().shouldStart(basicDefinition) shouldBe true
     }
 
     @Test
@@ -197,9 +213,32 @@ class GuidedTourControllerTest : BaseTest() {
     fun `complete persists to completed and clears session`() = runTest {
         val ctrl = controller()
         ctrl.start(basicDefinition)
+        ctrl.markStepRendered(basicDefinition.id)
         ctrl.complete()
         ctrl.session.value shouldBe null
         prefsFlow.value.completed shouldBe setOf(basicDefinition.id.raw)
+    }
+
+    @Test
+    fun `complete with no rendered step does not persist and stays eligible after restart`() = runTest {
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        ctrl.complete() // nothing ever rendered → must not burn the tour
+        ctrl.session.value shouldBe null
+        prefsFlow.value.completed shouldBe emptySet()
+        prefsFlow.value.dismissed shouldBe emptySet()
+        controller().shouldStart(basicDefinition) shouldBe true
+    }
+
+    @Test
+    fun `markStepRendered ignores a tour id that is not the active session`() = runTest {
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        // A late render callback for a different (already-ended) tour must not mark this session.
+        ctrl.markStepRendered(TourId("some.other.tour"))
+        ctrl.complete()
+        prefsFlow.value.completed shouldBe emptySet()
+        controller().shouldStart(basicDefinition) shouldBe true
     }
 
     @Test
@@ -220,6 +259,7 @@ class GuidedTourControllerTest : BaseTest() {
         // Simulate MainActivity emitting the current route BEFORE the dashboard auto-starts the tour.
         ctrl.onRouteChanged(routeA)
         ctrl.start(unprotectedDefinition)
+        ctrl.markStepRendered(unprotectedDefinition.id) // a step was shown before navigating away
         ctrl.session.value shouldBe TourSessionAt(unprotectedDefinition, 0)
         // User navigates away → the controller must auto-complete (regression for the stale-seed bug).
         ctrl.onRouteChanged(routeB)
