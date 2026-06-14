@@ -147,8 +147,6 @@
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
     <string name="issue_tracker_label">Issue tracker</string>
-    <string name="support_installid_label">Install ID</string>
-    <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
     <string name="support_debuglog_folder_label">Debug log folder</string>

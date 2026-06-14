@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentasie</string>
     <string name="issue_tracker_description">\'n Openbare probleem tracker vir fout verslae en kenmerk versoeke.</string>
     <string name="issue_tracker_label">Probleem tracker</string>
-    <string name="support_installid_label">Installasie ID</string>
-    <string name="support_installid_desc">Outomatiese fout verslae is anoniem. Deel jou installasie ID as die ontwikkelaar jou fout verslae moet vind.</string>
     <string name="support_debuglog_label">Ontfout log</string>
     <string name="support_debuglog_desc">Neem alles wat die toepassing doen op in \'n teks lêer wat jy kan deel.</string>
     <string name="support_debuglog_folder_label">Ontfoutingslog-vouer</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktiveer toets opsies en meer uitvoerige uitset. Toepassing sal stadiger loop en anders presteer.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Ontfoutingsmodus is geaktiveer</string>
-    <string name="debug_card_trace_mode_label">Aktiveer speurmodus</string>
-    <string name="debug_card_dryrun_mode_label">Droëloop-modus (deaktiveer uitvee)</string>
     <string name="debug_card_areas_reload_action">Herlaai data-areas</string>
     <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
     <string name="debug_card_root_test_action">Toets root</string>

@@ -93,8 +93,6 @@
     <string name="documentation_label">ເອກະສານ</string>
     <string name="issue_tracker_description">ຕົວຕິດຕາມບັນຫາສາທາລະນະສໍາລັບການລາຍງານຂໍ້ຜິດພາດ ແລະ ການຮ້ອງຂໍ feature.</string>
     <string name="issue_tracker_label">ຕົວຕິດຕາມບັນຫາ</string>
-    <string name="support_installid_label">ID ຕິດຕັ້ງ</string>
-    <string name="support_installid_desc">ບົດລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດແມ່ນບໍ່ເປີດເຜີຍຊື່. ແບ່ງປັນ ID ຕິດຕັ້ງຂອງທ່ານຖ້າ developer ຕ້ອງການຊອກຫາບົດລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="support_debuglog_label">ບັນທຶກ debug</string>
     <string name="support_debuglog_desc">ບັນທຶກທຸກສິ່ງທີ່ແອັບກໍາລັງເຮັດໃສ່ໄຟລ໌ຂໍ້ຄວາມທີ່ທ່ານສາມາດແບ່ງປັນໄດ້.</string>
     <string name="support_debuglog_folder_label">ໂຟນເດີບັນທຶກ debug</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">ເປີດໃຊ້ທາງເລືອກທົດສອບ ແລະ ຜົນລັບທີ່ລະອຽດເພີ່ມເຕີມ. ແອັບຈະທໍາງານຊ້າລງ ແລະ ທໍາງານແຕກຕ່າງໄປ.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ໂຫມດ debug ເປີດໃຊ້ແລ້ວ</string>
-    <string name="debug_card_trace_mode_label">ເປີດໃຊ້ໂຫມດຕິດຕາມ</string>
-    <string name="debug_card_dryrun_mode_label">ໂຫມດ dry-run (ປິດໃຊ້ການລຶບ)</string>
     <string name="debug_card_areas_reload_action">ໂຫລດຂໍ້ມູນພື້ນທີ່ໃໝ່</string>
     <string name="debug_card_pkgs_reload_action">ໂຫລດ apps ໃໝ່</string>
     <string name="debug_card_root_test_action">ທົດສອບ root</string>

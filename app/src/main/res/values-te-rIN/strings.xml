@@ -96,8 +96,6 @@
     <string name="documentation_label">డాక్యూమెంటేషన్</string>
     <string name="issue_tracker_description">బగ్ రిపోర్ట్స్ మరియు ఫీచర్ రిక్వెస్టుల కోసం పబ్లిక్ ఇమేజ్ ట్రాకర్.</string>
     <string name="issue_tracker_label">ఇస్లూ ట్రాకర్</string>
-    <string name="support_installid_label">ఇన్స్టాల్ ID</string>
-    <string name="support_installid_desc">ఆటోమ్యాటిక్ ఎరర్ రిపోర్ట్స్ అనానిమస్. డెవలపర్ మీ ఎరర్ రిపోర్ట్సై కనుగొనవలసిన పక్షం మీ ఇన్స్టాల్ IDని శేర్ చేయండి.</string>
     <string name="support_debuglog_label">డిబగ్ లాగ్</string>
     <string name="support_debuglog_desc">ఎప్లికేషన్ చేస్తున్న ప్రత్యేక పనిని మీరు శేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రెకార్డ్ చేయండి.</string>
     <string name="support_debuglog_folder_label">డీబగ్ లాగ్ ఫోల్డర్</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">టెస్ట్ ఆప్షన్లు మరియు కూడా విస్తృత అవుట్‌పుట్‌ను ప్రారంభించండి. యాప్ మందగా కార్యాచరణ చేస్తుంది మరియు వేరేవిధంగా పరివర్తన చేస్తుంది.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">డీబగ్ మోడ్ ఎనేబుల్ చేయబడింది</string>
-    <string name="debug_card_trace_mode_label">ట్రేస్ మోడ్ ఎనేబుల్ చేయండి</string>
-    <string name="debug_card_dryrun_mode_label">డ్రై-రన్ మోడ్ (తొలగింపును నిలిపివేయి)</string>
     <string name="debug_card_areas_reload_action">డేటా ప్రాంతాలను రీలోడ్ చేయండి</string>
     <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
     <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>

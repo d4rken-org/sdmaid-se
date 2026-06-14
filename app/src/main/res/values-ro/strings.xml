@@ -99,8 +99,6 @@
     <string name="documentation_label">Documentație</string>
     <string name="issue_tracker_description">Un instrument public de urmărire a problemelor pentru rapoartele de erori și solicitările de funcții.</string>
     <string name="issue_tracker_label">Detector de probleme</string>
-    <string name="support_installid_label">ID instalare</string>
-    <string name="support_installid_desc">Rapoarte de erori automatic sunt anonime. Partajează-ți ID-ul de instalare dacă dezvoltatorul are nevoie pentru a căuta rapoartele tale de erori.</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
     <string name="support_debuglog_desc">Înregistrează tot ce face aplicația într-un fișier text pe care îl poți partaja.</string>
     <string name="support_debuglog_folder_label">Dosarul jurnalului de depanare</string>
@@ -224,8 +222,6 @@
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modul depanare este activat</string>
-    <string name="debug_card_trace_mode_label">Activați modul de urmărire</string>
-    <string name="debug_card_dryrun_mode_label">Modul de funcționare uscată (dezactivare ștergere)</string>
     <string name="debug_card_areas_reload_action">Reîncărcați zonele de date</string>
     <string name="debug_card_pkgs_reload_action">Reîncărcați aplicațiile</string>
     <string name="debug_card_root_test_action">Testați root</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">ਦਸਤਾਵੇਜ਼</string>
     <string name="issue_tracker_description">ਬੱਗ ਰਿਪੋਰਟਾਂ ਅਤੇ ਫੀਚਰ ਬੇਨਤੀਆਂ ਲਈ ਇੱਕ ਜਨਤਕ ਮੁੱਦਾ ਟਰੈਕਰ।</string>
     <string name="issue_tracker_label">ਮੁੱਦਾ ਟਰੈਕਰ</string>
-    <string name="support_installid_label">ਇੰਸਟਾਲ ID</string>
-    <string name="support_installid_desc">ਆਟੋਮੈਟਿਕ ਐਰਰ ਰਿਪੋਰਟਾਂ ਗੁਮਨਾਮ ਹਨ। ਜੇ ਡਿਵੈਲਪਰ ਨੂੰ ਤੁਹਾਡੀਆਂ ਐਰਰ ਰਿਪੋਰਟਾਂ ਲੱਭਣੀਆਂ ਹਨ ਤਾਂ ਆਪਣਾ ਇੰਸਟਾਲ ID ਸਾਂਝਾ ਕਰੋ।</string>
     <string name="support_debuglog_label">ਡੀਬੱਗ ਲੌਗ</string>
     <string name="support_debuglog_desc">ਐਪ ਜੋ ਵੀ ਕਰ ਰਿਹਾ ਹੈ ਉਸ ਸਭ ਨੂੰ ਇੱਕ ਟੈਕਸਟ ਫਾਈਲ ਵਿੱਚ ਰਿਕਾਰਡ ਕਰੋ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਸਾਂਝਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="support_debuglog_folder_label">ਡੀਬੱਗ ਲੌਗ ਫੋਲਡਰ</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">ਟੈਸਟ ਵਿਕਲਪਾਂ ਅਤੇ ਵਧੇਰੇ ਵਿਸਤ੍ਰਿਤ ਆਉਟਪੁੱਟ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਐਪ ਹੌਲੀ ਚੱਲੇਗੀ ਅਤੇ ਵੱਖਰੇ ਢੰਗ ਨਾਲ ਪ੍ਰਦਰਸ਼ਨ ਕਰੇਗੀ।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ਡੀਬੱਗ ਮੋਡ ਚਾਲੂ ਹੈ</string>
-    <string name="debug_card_trace_mode_label">ਟ੍ਰੇਸ ਮੋਡ ਚਾਲੂ ਕਰੋ</string>
-    <string name="debug_card_dryrun_mode_label">ਡ੍ਰਾਈ-ਰਨ ਮੋਡ (ਮਿਟਾਉਣਾ ਬੰਦ ਕਰੋ)</string>
     <string name="debug_card_areas_reload_action">ਡਾਟਾ ਖੇਤਰ ਦੁਬਾਰਾ ਲੋਡ ਕਰੋ</string>
     <string name="debug_card_pkgs_reload_action">ਐਪਾਂ ਦੁਬਾਰਾ ਲੋਡ ਕਰੋ</string>
     <string name="debug_card_root_test_action">Root ਟੈਸਟ ਕਰੋ</string>

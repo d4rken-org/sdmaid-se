@@ -93,8 +93,6 @@
     <string name="documentation_label">文件</string>
     <string name="issue_tracker_description">一個公用問題追蹤器，用於錯誤報告和功能要求。</string>
     <string name="issue_tracker_label">問題追蹤器</string>
-    <string name="support_installid_label">安裝 ID</string>
-    <string name="support_installid_desc">自動錯誤報告是匿名的。如果開發人員需要尋找您的錯誤報告，請分享您的安裝 ID。</string>
     <string name="support_debuglog_label">偵錯記錄</string>
     <string name="support_debuglog_desc">將應用程式正在做的所有事情記錄到一個文字檔案中，您可以分享它。</string>
     <string name="support_debuglog_folder_label">偵錯記錄資料夾</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">啟用測試選項和更多詳細資訊輸出，應用程式會降低速度並以不同方式執行。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">偵錯模式已啟用</string>
-    <string name="debug_card_trace_mode_label">啟用追蹤模式</string>
-    <string name="debug_card_dryrun_mode_label">模擬執行模式（停用刪除）</string>
     <string name="debug_card_areas_reload_action">重新載入資料區域</string>
     <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
     <string name="debug_card_root_test_action">測試 Root</string>

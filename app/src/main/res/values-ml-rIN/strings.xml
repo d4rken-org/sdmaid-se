@@ -96,8 +96,6 @@
     <string name="documentation_label">ഡോക്യുമെന്റേഷൻ</string>
     <string name="issue_tracker_description">ബഗ് റിപ്പോർട്ടുകൾക്കും ഫീച്ചർ അഭ്യർത്ഥനകൾക്കുമുള്ള പൊതു ഇഷ്യൂ ട്രാക്കർ.</string>
     <string name="issue_tracker_label">ഇഷ്യൂ ട്രാക്കർ</string>
-    <string name="support_installid_label">ഇൻസ്റ്റാൾ ID</string>
-    <string name="support_installid_desc">ഓട്ടോമാറ്റിക് എറർ റിപ്പോർട്ടുകൾ അജ്ഞാതമാണ്. ഡെവലപ്പറിന് നിങ്ങളുടെ എറർ റിപ്പോർട്ടുകൾ കണ്ടെത്തേണ്ടതുണ്ടെങ്കിൽ നിങ്ങളുടെ ഇൻസ്റ്റാൾ ID പങ്കിടുക.</string>
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
     <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്ന എല്ലാം നിങ്ങൾക്ക് പങ്കിടാനാകുന്ന ടെക്സ്റ്റ് ഫയലിലേക്ക് രേഖപ്പെടുത്തുക.</string>
     <string name="support_debuglog_folder_label">ഡീബഗ് ലോഗ് ഫോൾഡർ</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">ടെസ്റ്റ് ഓപ്ഷനുകളും കൂടുതൽ വിശദമായ ഔട്ട്പുട്ടും പ്രവർത്തനക്ഷമമാക്കുക. ആപ്പ് മന്ദഗതിയിൽ പ്രവർത്തിക്കുകയും വ്യത്യസ്തമായി പ്രവർത്തിക്കുകയും ചെയ്യും.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ഡീബഗ് മോഡ് പ്രാപ്തമാണ്</string>
-    <string name="debug_card_trace_mode_label">ട്രേസ് മോഡ് പ്രാപ്തമാക്കുക</string>
-    <string name="debug_card_dryrun_mode_label">ഡ്രൈ-റൺ മോഡ് (ഇല്ലാതാക്കൽ പ്രവർത്തനരഹിതമാക്കുക)</string>
     <string name="debug_card_areas_reload_action">ഡാറ്റ പ്രദേശങ്ങൾ വീണ്ടും ലോഡ് ചെയ്യുക</string>
     <string name="debug_card_pkgs_reload_action">ആപ്പുകൾ വീണ്ടും ലോഡ് ചെയ്യുക</string>
     <string name="debug_card_root_test_action">രൂട് പരീക്ഷിക്കുക</string>

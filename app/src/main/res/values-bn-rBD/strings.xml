@@ -96,8 +96,6 @@
     <string name="documentation_label">নথিপত্রাদি</string>
     <string name="issue_tracker_description">বাগ রিপোর্ট এবং ফিচার রিকোয়েস্টের জন্য একটি সর্বজনীন সমস্যা ট্র্যাকার।</string>
     <string name="issue_tracker_label">সমস্যা শনাক্তকারী</string>
-    <string name="support_installid_label">ইনস্টল আইডি</string>
-    <string name="support_installid_desc">স্বয়ংক্রিয় ত্রুটি রিপোর্ট বেনামী হয়। আপনার ইন্সটল আইডি শেয়ার করুন যদি ডেভেলপার আপনার বাগ রিপোর্ট খুঁজে বের করতে চায়।</string>
     <string name="support_debuglog_label">ডিবাগ লগ</string>
     <string name="support_debuglog_desc">অ্যাপটি কী করছে তা একটি টেক্সট ফাইলে রেকর্ড করুন যাতে আপনি শেয়ার করতে পারেন।</string>
     <string name="support_debuglog_folder_label">লগ ফোল্ডার ডিবাগ করুন</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">পরীক্ষার বিকল্প এবং আরও verbose আউটপুট চালু করুন। অ্যাপ ধীর গতিতে চলবে এবং ভিন্নভাবে কাজ করবে।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ডিবাগ মোড সক্রিয় করা আছে</string>
-    <string name="debug_card_trace_mode_label">ট্রেস মোড সক্ষম করুন</string>
-    <string name="debug_card_dryrun_mode_label">ড্রাই-রান মোড (মুছে ফেলা বন্ধ করুন)</string>
     <string name="debug_card_areas_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>
     <string name="debug_card_pkgs_reload_action">অ্যাপগুলি পুনরায় লোড করুন</string>
     <string name="debug_card_root_test_action">রুট পরীক্ষা করুন</string>

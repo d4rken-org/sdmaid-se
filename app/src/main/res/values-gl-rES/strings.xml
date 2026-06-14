@@ -96,8 +96,6 @@
     <string name="documentation_label">Documentación</string>
     <string name="issue_tracker_description">Un seguidor público de problemas para informes de erros e solicitudes de funcionalidades.</string>
     <string name="issue_tracker_label">Seguidor de problemas</string>
-    <string name="support_installid_label">ID de instalación</string>
-    <string name="support_installid_desc">Os informes automáticos de erros son anónimos. Comparte o teu ID de instalación se o desenvolvedor necesita atopar os teus informes de erros.</string>
     <string name="support_debuglog_label">Rexistro de depuración</string>
     <string name="support_debuglog_desc">Grava todo o que fai a aplicación nun ficheiro de texto que podes compartir.</string>
     <string name="support_debuglog_folder_label">Cartafol de rexistro de depuración</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Habilitar opcións de proba e saída máis detallada. A aplicación executarase máis lentamente e funcionará de forma diferente.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">O modo de depuración está activado</string>
-    <string name="debug_card_trace_mode_label">Activar modo de rastrexo</string>
-    <string name="debug_card_dryrun_mode_label">Modo de proba (desactivar eliminación)</string>
     <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
     <string name="debug_card_pkgs_reload_action">Recargar aplicacións</string>
     <string name="debug_card_root_test_action">Probar root</string>

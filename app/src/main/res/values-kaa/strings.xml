@@ -96,8 +96,6 @@
     <string name="documentation_label">Hújjetshilik</string>
     <string name="issue_tracker_description">Qate haqqında bayanat hám jaŋa funkciya soranıshlar üşin ashıq problem báşqarıwshı.</string>
     <string name="issue_tracker_label">Qosımsha mashqalası gúzetshisi</string>
-    <string name="support_installid_label">Ornatıw identifikatorı</string>
-    <string name="support_installid_desc">Avtomatik qate bayanamaları anonimlıq. Eger programmer sizin qate bayanamalarınızı tabıw qalamsa ornatlash ID nı bólis.</string>
     <string name="support_debuglog_label">Buzılıwlardı ońlaw jurnalı</string>
     <string name="support_debuglog_desc">Programmaniń barlıq islerinen siz bólise alatugiń teks faylına jazıp al.</string>
     <string name="support_debuglog_folder_label">Debaglash jurnaly papkasy</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Сынау опцияларын һәм толық шығарысты қосу. Қолданба баяу ишлейді һәм басқаша таң этеді.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debaglash rejimi qosylǵan</string>
-    <string name="debug_card_trace_mode_label">Iz rejimin qosıw</string>
-    <string name="debug_card_dryrun_mode_label">Synaq rejimi (o\'shiriwdi o\'shiriw)</string>
     <string name="debug_card_areas_reload_action">Maǵlıwmat aymaqlaryn qayta ju\'klew</string>
     <string name="debug_card_pkgs_reload_action">Qollanbalardı qayta ju\'klew</string>
     <string name="debug_card_root_test_action">Root tekseriwi</string>

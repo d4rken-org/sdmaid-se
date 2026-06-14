@@ -44,7 +44,6 @@
     <string name="settings_support_label">پشتیوانی</string>
     <string name="documentation_label">بەڵگەنامە</string>
     <string name="issue_tracker_label">شوێنپێگری کێشەکان</string>
-    <string name="support_installid_label">ناسنامەی دامەزراندن</string>
     <string name="support_debuglog_label">لۆگی دیباگ</string>
     <string name="discord_label">Discord</string>
     <string name="changelog_label">لۆگی گۆڕانکاری</string>

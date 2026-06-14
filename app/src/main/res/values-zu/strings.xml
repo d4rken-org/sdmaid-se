@@ -96,8 +96,6 @@
     <string name="documentation_label">Imibhalo</string>
     <string name="issue_tracker_description">Isixhumanisi esivulekile sezinkinga sokubika amaphutha nezicelo zeziqu.</string>
     <string name="issue_tracker_label">Isixhumanisi sezinkinga</string>
-    <string name="support_installid_label">I-ID yokufaka</string>
-    <string name="support_installid_desc">Imibiko yeziphazamiso ezizenzakalelayo ayinabizo. Yabelana nge-ID yakho yokufaka uma umthuthukisi edinga ukuthola imibiko yakho yeziphazamiso.</string>
     <string name="support_debuglog_label">Ilogi lokuphephisa iziphazamiso</string>
     <string name="support_debuglog_desc">Rekhoda konke uhlelo olukwenzayo kufayela lombhalo ongawabelana ngalo.</string>
     <string name="support_debuglog_folder_label">Ifolda yomvala wokulungisa</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Nika amandla izinketho zokuhlola nokukhipha okuningi. Uhlelo lokusebenza luzosebenza kancane futhi lusebenze ngendlela ehlukile.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
-    <string name="debug_card_trace_mode_label">Vula imodi yokulandelela</string>
-    <string name="debug_card_dryrun_mode_label">Imodi yokuhlola (khubaza ukususa)</string>
     <string name="debug_card_areas_reload_action">Layisha kabusha izindawo zedatha</string>
     <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
     <string name="debug_card_root_test_action">Hlola i-root</string>

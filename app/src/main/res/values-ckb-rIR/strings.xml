@@ -96,8 +96,6 @@
     <string name="documentation_label">بەڵگەنامە</string>
     <string name="issue_tracker_description">شوێنپێی گشتی کێشەکان بۆ راپۆرتی هەڵە و داواکاری تایبەتمەندی.</string>
     <string name="issue_tracker_label">شوێنپێی کێشەکان</string>
-    <string name="support_installid_label">ناسنامەی دامەزراندن</string>
-    <string name="support_installid_desc">راپۆرتەکانی هەڵەی خۆکاری نهێنین. ناسنامەی دامەزراندنەکەت بڵاوە ئەگەر پێشپێرەر پێویستی بێت بە راپۆرتەکانی هەڵەت.</string>
     <string name="support_debuglog_label">لۆگی چاککردنەوە</string>
     <string name="support_debuglog_desc">تۆمارکردنی هەموو ئەوەی ئەپەکە دەیکات لە فایلی دەق کە دەتوانیت بیبڵاویتەوە.</string>
     <string name="support_debuglog_folder_label">فۆڵدەری لۆگی دەبوگ</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">بژاردەکانی تاقیکردنەوە و دەرکەوتنی زیاتری وردبین چالاک بکە. ئەپەکە خاوتر کار دەکات و بە شێوەی جیاواز کار دەکات.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">مۆدی دەبوگ چالاککراوە</string>
-    <string name="debug_card_trace_mode_label">چالاککردنی مۆدی ترێس</string>
-    <string name="debug_card_dryrun_mode_label">مۆدی خاو (ناچالاککردنی سێبردن)</string>
     <string name="debug_card_areas_reload_action">دوبارە بارکردنی ناوچەکانی داتا</string>
     <string name="debug_card_pkgs_reload_action">دوبارە بارکردنی بەرنامەکان</string>
     <string name="debug_card_root_test_action">تاقیکردنەوەی ڕووت</string>

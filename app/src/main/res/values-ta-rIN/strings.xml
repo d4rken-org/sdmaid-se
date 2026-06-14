@@ -96,8 +96,6 @@
     <string name="documentation_label">ஆவணம்</string>
     <string name="issue_tracker_description">Bug reports மற்றும் feature requests க்கான ஒரு பொது issue tracker.</string>
     <string name="issue_tracker_label">சிக்கல் திரக்கர்</string>
-    <string name="support_installid_label">நிறுவல் ID</string>
-    <string name="support_installid_desc">தானியங்கி பிழை அறிக்கைகள் அடயாளம் இல்லாதவை. Developer உங்கள் பிழை அறிக்கைகளை கண்டபிடிக்க வேண்டுமானால் உங்கள் install ID ஐ பகிர்ந்து கொள்ளவும்.</string>
     <string name="support_debuglog_label">Debug பதிவு</string>
     <string name="support_debuglog_desc">பயன்பாடு செய்யும் எல்லாத்தையும் நீங்கள் பகிருவதற்கு கூடிய ஒரு text file இல் பதிவு செய்வது.</string>
     <string name="support_debuglog_folder_label">பிழைத்திருத்த பதிவு கோப்புறை</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">சோதனை விருப்பங்களை இயக்கி மேலும் விரிவான வெளியீட்டைப் பெறுங்கள். அப்ஸ் மெதுவாகவும் வேறுவிதமாகவும் இயங்கும்.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">பிழைத்திருத்த பயன்முறை இயக்கப்பட்டுள்ளது</string>
-    <string name="debug_card_trace_mode_label">தடமறிதல் பயன்முறையை இயக்கு</string>
-    <string name="debug_card_dryrun_mode_label">சோதனை ஓட்ட பயன்முறை (நீக்குதலை முடக்கு)</string>
     <string name="debug_card_areas_reload_action">தரவு பகுதிகளை மீளேற்று</string>
     <string name="debug_card_pkgs_reload_action">செயலிகளை மீளேற்று</string>
     <string name="debug_card_root_test_action">Root சோதனை</string>

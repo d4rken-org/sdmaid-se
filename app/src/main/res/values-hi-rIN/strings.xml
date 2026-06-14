@@ -96,8 +96,6 @@
     <string name="documentation_label">दस्तावेजीकरण</string>
     <string name="issue_tracker_description">बग रिपोर्ट और सुविधा अनुरोधों के लिए एक सार्वजनिक निर्गम ट्रैकर है।</string>
     <string name="issue_tracker_label">निर्गम ट्रैकर</string>
-    <string name="support_installid_label">स्थापित ID</string>
-    <string name="support_installid_desc">स्वचालित त्रुटि रिपोर्ट अज्ञातकृत हैं। यदि निर्माणकर्ता को आपकी त्रुटि रिपोर्ट ढूंढ़ने की आवश्यकता है, तो अपनी स्थापित ID साझा करें।</string>
     <string name="support_debuglog_label">डीबग लॉग</string>
     <string name="support_debuglog_desc">ऐप जो कुछ भी कर रहा है उसे एक टेक्स्ट फ़ाइल में रिकॉर्ड करें जिसे आप साझा कर सकते हैं।</string>
     <string name="support_debuglog_folder_label">डिबग लॉग फ़ोल्डर</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">परीक्षण विकल्प और अधिक वर्बोज़ आउटपुट सक्षम करें। ऐप धीमी गति से चलेगा और अलग तरह से प्रदर्शन करेगा।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">डिबग मोड सक्षम है</string>
-    <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>
-    <string name="debug_card_dryrun_mode_label">ड्राई-रन मोड (हटाना अक्षम करें)</string>
     <string name="debug_card_areas_reload_action">डेटा क्षेत्र पुनः लोड करें</string>
     <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
     <string name="debug_card_root_test_action">Root परीक्षण</string>

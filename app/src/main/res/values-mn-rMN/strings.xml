@@ -96,8 +96,6 @@
     <string name="documentation_label">Баримт бичиг</string>
     <string name="issue_tracker_description">Алдааны мэдэгдэл, шинэ боломжийн хүсэлтийн нийтийн хянагч.</string>
     <string name="issue_tracker_label">Асуудлын хянагч</string>
-    <string name="support_installid_label">Суулгалтын ID</string>
-    <string name="support_installid_desc">Автомат алдааны тайлан нэргүй байдаг. Хөгжүүлэгч таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-г хуваалцана уу.</string>
     <string name="support_debuglog_label">Дебаг лог</string>
     <string name="support_debuglog_desc">Аппликешний бүх үйлдлийг хуваалцах боломжтой текст файлд бичих.</string>
     <string name="support_debuglog_folder_label">Дибаг логын хавтас</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Туршилтын сонголтууд болон илүү дэлгэрэнгүй гаралтыг идэвхжүүлэх. Апп удаан ажиллаж, өөр арга замаар ажиллана.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Дебаг горим идэвхжсэн</string>
-    <string name="debug_card_trace_mode_label">Мөрдлөгийн горим идэвхжүүлэх</string>
-    <string name="debug_card_dryrun_mode_label">Туршилтын горим (устгалтыг идэвхгүй болгох)</string>
     <string name="debug_card_areas_reload_action">Өгөгдлийн бүсүүдийг дахин ачаалах</string>
     <string name="debug_card_pkgs_reload_action">Аппликешнүүдийг дахин ачаалах</string>
     <string name="debug_card_root_test_action">Root шалгах</string>

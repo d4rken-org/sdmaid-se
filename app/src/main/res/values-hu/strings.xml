@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentáció</string>
     <string name="issue_tracker_description">Nyilvános problémakövető hibajelentésekhez és funkciókérésekhez.</string>
     <string name="issue_tracker_label">Problémakövető</string>
-    <string name="support_installid_label">Telepítési azonosító</string>
-    <string name="support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg telepítési azonosítóját, ha a fejlesztőnek meg kell találnia a hibajelentéseket.</string>
     <string name="support_debuglog_label">Hibakeresési napló</string>
     <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
     <string name="support_debuglog_folder_label">Hibakeresési napló mappa</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Tesztbeállítások és részletesebb kimenet engedélyezése. Az alkalmazás lassabban fog futni, és másként fog működni.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
-    <string name="debug_card_trace_mode_label">Nyomkövetési mód engedélyezése</string>
-    <string name="debug_card_dryrun_mode_label">Próbaüzem (törlés letiltása)</string>
     <string name="debug_card_areas_reload_action">Adatterületek újratöltése</string>
     <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
     <string name="debug_card_root_test_action">Root tesztelése</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">دستاویزات</string>
     <string name="issue_tracker_description">بگ رپورٹس اور فیچر کی درخواستوں کے لیے عوامی ایشو ٹریکر۔</string>
     <string name="issue_tracker_label">ایشو ٹریکر</string>
-    <string name="support_installid_label">انسٹال ID</string>
-    <string name="support_installid_desc">خودکار ایرر رپورٹس گمنام ہیں۔ اگر ڈویلپر کو آپ کی ایرر رپورٹس تلاش کرنی ہوں تو اپنا انسٹال ID شیئر کریں۔</string>
     <string name="support_debuglog_label">ڈیبگ لاگ</string>
     <string name="support_debuglog_desc">ایپ جو کچھ بھی کر رہی ہے اس کا تمام ریکارڈ ایک ٹیکسٹ فائل میں محفوظ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
     <string name="support_debuglog_folder_label">ڈیبگ لاگ فولڈر</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">ٹیسٹ آپشنز اور زیادہ تفصیلی آؤٹ پٹ فعال کریں۔ ایپ سست چلے گا اور مختلف عمل کرے گا۔</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ڈیبگ موڈ فعال ہے</string>
-    <string name="debug_card_trace_mode_label">ٹریس موڈ فعال کریں</string>
-    <string name="debug_card_dryrun_mode_label">ڈرائی رن موڈ (حذف غیر فعال)</string>
     <string name="debug_card_areas_reload_action">ڈیٹا ایریاز دوبارہ لوڈ کریں</string>
     <string name="debug_card_pkgs_reload_action">ایپس دوبارہ لوڈ کریں</string>
     <string name="debug_card_root_test_action">روٹ ٹیسٹ</string>

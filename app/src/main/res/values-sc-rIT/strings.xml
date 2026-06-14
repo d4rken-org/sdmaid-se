@@ -96,8 +96,6 @@
     <string name="documentation_label">Documentaçione</string>
     <string name="issue_tracker_description">Unu tracer púbblicu de problemas pro sinnaladas de errores e richiesta de funtzionalidades.</string>
     <string name="issue_tracker_label">Tracer de problemas</string>
-    <string name="support_installid_label">ID de installaçione</string>
-    <string name="support_installid_desc">Sas sinnaladas automàticas de errores sunt anònimas. Cumpartzi s\'ID de installaçione tuo si su isviluppadore tenede bisongiu de agàtare sas sinnaladas de errores tuos.</string>
     <string name="support_debuglog_label">Log de debug</string>
     <string name="support_debuglog_desc">Registra totu su chi s\'aplicaçione est faghende in un\'archiviu de testu chi podes cumpartire.</string>
     <string name="support_debuglog_folder_label">Cartella de registru de debug</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Abilitare optziones de test e produtzione prus verbosa. S\'aplicatzione at a funtzionare prus a su largu e si at a comportare in manera diferente.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Su modu de debug est ativadu</string>
-    <string name="debug_card_trace_mode_label">Ativa su modu de trassa</string>
-    <string name="debug_card_dryrun_mode_label">Modu de prova (disativa sa cantzelladura)</string>
     <string name="debug_card_areas_reload_action">Torra a carrigare is àreas de datos</string>
     <string name="debug_card_pkgs_reload_action">Torra a carrigare is aplicatziones</string>
     <string name="debug_card_root_test_action">Prova root</string>

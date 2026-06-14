@@ -96,8 +96,6 @@
     <string name="documentation_label">დოკუმენტაცია</string>
     <string name="issue_tracker_description">საჯარო საკითხების ტრეკერი შეცდომების შესახებ მოხსენებებისა და მახასიათებლების მოთხოვნებისთვის.</string>
     <string name="issue_tracker_label">შეცდომის ტრეკერი</string>
-    <string name="support_installid_label">დააინსტალირების ID</string>
-    <string name="support_installid_desc">შეცდომების ავტომატური ანგარიშები ანონიმურია. გააზიარეთ თქვენი ინსტალაციის ID, თუ დეველოპერს სჭირდება თქვენი შეცდომის შესახებ ანგარიშების პოვნა.</string>
     <string name="support_debuglog_label">გამართვის ჟურნალი</string>
     <string name="support_debuglog_desc">ჩაწერეთ ყველაფერი, რასაც აპლიკაცია აკეთებს ტექსტურ ფაილში, რომლის გაზიარებაც შეგიძლიათ.</string>
     <string name="support_debuglog_folder_label">გამართვის ჟურნალის საქაღალდე</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">ჩართეთ ტესტის ვარიანტები და უფრო ვრცელი გამომავალი. აპლიკაცია უფრო ნელა იმუშავებს და განსხვავებულად მუშაობს.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">გამართვის რეჟიმი ჩართულია</string>
-    <string name="debug_card_trace_mode_label">ტრეისის რეჟიმის ჩართვა</string>
-    <string name="debug_card_dryrun_mode_label">საცდელი რეჟიმი (წაშლის გათიშვა)</string>
     <string name="debug_card_areas_reload_action">მონაცემთა ზონების გადატვირთვა</string>
     <string name="debug_card_pkgs_reload_action">აპების გადატვირთვა</string>
     <string name="debug_card_root_test_action">Root-ის ტესტი</string>

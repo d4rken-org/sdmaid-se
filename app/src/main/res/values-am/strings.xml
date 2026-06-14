@@ -96,8 +96,6 @@
     <string name="documentation_label">ሰነዶች</string>
     <string name="issue_tracker_description">ለሳህተት ሪፖርቶችና ባህሪ ጥያቄዎች የሕዝብ ቁጥጥር ሰሌዳ።</string>
     <string name="issue_tracker_label">ችግር ተከታዩ</string>
-    <string name="support_installid_label">የመጫን መለያ</string>
-    <string name="support_installid_desc">ራሳዊ የስህተት ሪፖርቶች ስውር ናቸው። ገንቢው የስህተት ሪፖርቶችዎን ማግኘት ከፈለገ የመጫን መለያዎን ያጋሩ።</string>
     <string name="support_debuglog_label">የመለያ ምዝግብ ማስታወሻ</string>
     <string name="support_debuglog_desc">መተግበሪያው እያደረገው ያለውን ሁሉ ወደ ሊካፈሉት የሚችሉ የጽሑፍ ፋይል ይቅዱ።</string>
     <string name="support_debuglog_folder_label">የመለያ ምዝግብ ማስታወሻ ማህደር</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">የሙከራ አማራጮችን እና ተጨማሪ ዝርዝር ውጤት ያነቃል። መተግበሪያው ቀርፎ ይሮጣል እና በተለያየ መንገድ ይሰራል።</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">የመለያ ሁነታ ነቅቷል</string>
-    <string name="debug_card_trace_mode_label">የመከታተያ ሁነታ አንቃ</string>
-    <string name="debug_card_dryrun_mode_label">ደረቅ-ሩጫ ሁነታ (መሰረዝ አሰናክል)</string>
     <string name="debug_card_areas_reload_action">የውሂብ ቦታዎችን እንደገና ጫን</string>
     <string name="debug_card_pkgs_reload_action">መተግበሪያዎችን እንደገና ጫን</string>
     <string name="debug_card_root_test_action">Root ፈትን</string>

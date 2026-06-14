@@ -102,8 +102,6 @@
     <string name="documentation_label">Документация</string>
     <string name="issue_tracker_description">Публичный трекер для сообщений об ошибках и запросов новых возможностей.</string>
     <string name="issue_tracker_label">Трекер проблем приложения</string>
-    <string name="support_installid_label">Идентификатор установки</string>
-    <string name="support_installid_desc">Автоматические отчеты об ошибках анонимны. Поделитесь своим идентификатором установки, если разработчику необходимо найти Ваши отчеты об ошибках.</string>
     <string name="support_debuglog_label">Журнал отладки</string>
     <string name="support_debuglog_desc">Запись всех действий приложения в текстовый файл, которым можно поделиться.</string>
     <string name="support_debuglog_folder_label">Папка журнала отладки</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Включить тестовые опции и более подробный вывод данных. Приложение будет работать медленнее, производительность может варьироваться.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Включён режим отладки</string>
-    <string name="debug_card_trace_mode_label">Включить режим трассировки</string>
-    <string name="debug_card_dryrun_mode_label">Режим сухого запуска (отключить удаление)</string>
     <string name="debug_card_areas_reload_action">Перезагрузить области данных</string>
     <string name="debug_card_pkgs_reload_action">Перезагрузка приложений</string>
     <string name="debug_card_root_test_action">Проверка root</string>

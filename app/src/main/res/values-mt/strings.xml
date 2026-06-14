@@ -78,8 +78,6 @@
     <string name="documentation_label">Dokumentazzjoni</string>
     <string name="issue_tracker_description">Tracker pubbliku ta\' problemi għal rapporti ta\' bugs u talbiet għal funzjonijiet.</string>
     <string name="issue_tracker_label">Tracker tal-problemi</string>
-    <string name="support_installid_label">ID tal-Installazzjoni</string>
-    <string name="support_installid_desc">Ir-rapporti awtomatiċi ta\' żbalji huma anonimi. Aqsam l-ID tal-installazzjoni tiegħek jekk l-iżviluppatur jeħtieġ isib ir-rapporti tiegħek.</string>
     <string name="support_debuglog_label">Log tad-debugging</string>
     <string name="support_debuglog_desc">Irrekordja dak kollu li l-app qed tagħmel f\'fajl ta\' test li tista\' taqsmu.</string>
     <string name="discord_label">Discord</string>

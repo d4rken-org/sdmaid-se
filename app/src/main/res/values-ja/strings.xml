@@ -93,8 +93,6 @@
     <string name="documentation_label">ドキュメント</string>
     <string name="issue_tracker_description">バグの報告や機能追加の要望を行なうフォームです。</string>
     <string name="issue_tracker_label">Issue tracker</string>
-    <string name="support_installid_label">インストールID</string>
-    <string name="support_installid_desc">自動送信されるエラーレポートは匿名です。開発者がユーザーのエラーレポートを特定する必要がある場合はインストール IDを共有してください。</string>
     <string name="support_debuglog_label">デバッグログ</string>
     <string name="support_debuglog_desc">アプリの動作をすべてテキストファイルに記録し、共有する事ができます。</string>
     <string name="support_debuglog_folder_label">デバッグログフォルダ</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">テストオプションを有効にし、より詳細に出力します。アプリの動作が遅くなり、異なる動作をします。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">デバッグモードが有効です</string>
-    <string name="debug_card_trace_mode_label">トレースモードを有効にする</string>
-    <string name="debug_card_dryrun_mode_label">ドライランモード（削除を無効化）</string>
     <string name="debug_card_areas_reload_action">データ領域を再読み込み</string>
     <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
     <string name="debug_card_root_test_action">Rootをテスト</string>

@@ -99,8 +99,6 @@
     <string name="documentation_label">Dokumentacija</string>
     <string name="issue_tracker_description">Javni sustav praćenja problema koji služi za slanje izvješća o greškama i zahtjeva značajki.</string>
     <string name="issue_tracker_label">Praćenje problema</string>
-    <string name="support_installid_label">ID instalacije</string>
-    <string name="support_installid_desc">Automatska izvješća o greškama su anonimna. Podijelite svoj ID instalacije ako razvojni programer treba pronaći vaša izvješća o greškama.</string>
     <string name="support_debuglog_label">Zapisnik za otklanjanje pogrešaka</string>
     <string name="support_debuglog_desc">Snimite sve što aplikacija radi u tekstualnu datoteku koju možete dijeliti.</string>
     <string name="support_debuglog_folder_label">Mapa zapisnika za otklanjanje pogrešaka</string>
@@ -224,8 +222,6 @@
     <string name="debug_mode_explanation">Omogućite testne opcije i opširniji opis pogrešaka. Aplikacija će raditi sporije i drugačije.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Način otklanjanja pogrešaka je omogućen</string>
-    <string name="debug_card_trace_mode_label">Omogući način praćenja</string>
-    <string name="debug_card_dryrun_mode_label">Probni način rada (onemogući brisanje)</string>
     <string name="debug_card_areas_reload_action">Ponovno učitaj područja podataka</string>
     <string name="debug_card_pkgs_reload_action">Ponovno učitaj aplikacije</string>
     <string name="debug_card_root_test_action">Testiraj root</string>

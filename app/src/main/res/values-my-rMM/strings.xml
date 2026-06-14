@@ -93,8 +93,6 @@
     <string name="documentation_label">စာရွက်စာတန်းများ</string>
     <string name="issue_tracker_description">Bug report များနှင့် feature တောင်းဆိုမှုများအတွက် အများပြည်သူ issue tracker။</string>
     <string name="issue_tracker_label">ပြဿနာခွဲခြင်းကိရိယာ</string>
-    <string name="support_installid_label">တပ်ဆင်မှု ID</string>
-    <string name="support_installid_desc">အလိုအလျှောက် အမှား report များသည် အမည်မသိဖြစ်သည်။ Developer သည် သင့် အမှား report များကို ရှာဖွေရန် လိုအပ်ပါက သင့် တပ်ဆင်မှု ID ကို မျှဝေပါ။</string>
     <string name="support_debuglog_label">ဒီဘတ်ဂ်မှတ်တမ်း</string>
     <string name="support_debuglog_desc">အက်ပ်လုပ်နေသမျှကို သင်မျှဝေနိုင်သော စာသား ဖိုင်တွင် မှတ်တမ်းတင်ပါ။</string>
     <string name="support_debuglog_folder_label">Debug မှတ်တမ်း ဖိုလ်ဒါ</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">စမ်းသပ်ရွေးချယ်မှုများနှင့် ပိုမိုအသေးစိတ်ဖြစ်သော ရလဒ်များကို ဖွင့်ပါ။ အက်ပ်သည် ပိုနှေးကာ မတူညီစွာ လုပ်ဆောင်မည်။</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug မုံဒ်ကို အသုံးပြုထားသည်</string>
-    <string name="debug_card_trace_mode_label">Trace မုံဒ်ကို အသုံးပြုခြင်း</string>
-    <string name="debug_card_dryrun_mode_label">Dry-run မုံဒ် (ဖျက်မှုအားပိတ်ခြင်း)</string>
     <string name="debug_card_areas_reload_action">ဒေတာ အလယ်အလတ်များကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
     <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
     <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>

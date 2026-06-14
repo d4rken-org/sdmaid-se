@@ -102,8 +102,6 @@
     <string name="documentation_label">Dokumentacja</string>
     <string name="issue_tracker_description">Publiczne narzędzie do śledzenia zgłoszeń błędów i próśb o nowe funkcje.</string>
     <string name="issue_tracker_label">Narzędzie do śledzenia problemów</string>
-    <string name="support_installid_label">ID instalacji</string>
-    <string name="support_installid_desc">Automatyczne raporty błędów są anonimowe. Podaj swoje ID instalacji, jeśli programista musi znaleźć twój raport błędów.</string>
     <string name="support_debuglog_label">Dziennik debugowania</string>
     <string name="support_debuglog_desc">Zapisuj wszystko, co aplikacja robi, do pliku tekstowego, który można udostępnić.</string>
     <string name="support_debuglog_folder_label">Folder dziennika debugowania</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Włącz opcje testowania i bardziej szczegółowy wynik. Aplikacja będzie działać wolniej i zachowywać się inaczej.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Tryb debugowania jest włączony</string>
-    <string name="debug_card_trace_mode_label">Włącz tryb śledzenia</string>
-    <string name="debug_card_dryrun_mode_label">Tryb testowy (wyłącz usuwanie)</string>
     <string name="debug_card_areas_reload_action">Przeładuj obszary danych</string>
     <string name="debug_card_pkgs_reload_action">Przeładuj aplikacje</string>
     <string name="debug_card_root_test_action">Test roota</string>

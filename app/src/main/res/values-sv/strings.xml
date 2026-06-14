@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">En offentlig problemspårare för felrapporter och funktionsförfrågningar.</string>
     <string name="issue_tracker_label">Problemspårare</string>
-    <string name="support_installid_label">Installations-ID</string>
-    <string name="support_installid_desc">Automatiska felrapporter är anonyma. Dela ditt installations-ID om utvecklaren behöver hitta dina felrapporter.</string>
     <string name="support_debuglog_label">Felsökningslogg</string>
     <string name="support_debuglog_desc">Spela in allt appen gör i en textfil som du kan dela.</string>
     <string name="support_debuglog_folder_label">Felsökningsloggmapp</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktivera testalternativ och mer detaljerad utdata. Appen kommer att köra långsammare och fungera annorlunda.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Felsökningsläge är aktiverat</string>
-    <string name="debug_card_trace_mode_label">Aktivera spårningsläge</string>
-    <string name="debug_card_dryrun_mode_label">Torrkörning (inaktivera borttagning)</string>
     <string name="debug_card_areas_reload_action">Ladda om dataområden</string>
     <string name="debug_card_pkgs_reload_action">Ladda om appar</string>
     <string name="debug_card_root_test_action">Testa root</string>

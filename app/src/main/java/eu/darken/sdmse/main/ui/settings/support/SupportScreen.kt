@@ -10,12 +10,7 @@ import androidx.compose.material.icons.automirrored.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.FolderOpen
-import androidx.compose.material.icons.twotone.PermIdentity
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -55,7 +50,6 @@ fun SupportScreenHost(
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
-    val snackbarHostState = remember { SnackbarHostState() }
 
     var showRecorderConsent by remember { mutableStateOf(false) }
     var showShortRecordingWarning by remember { mutableStateOf(false) }
@@ -66,20 +60,9 @@ fun SupportScreenHost(
         vm.refreshSessions()
     }
 
-    LaunchedEffect(vm, context, snackbarHostState) {
+    LaunchedEffect(vm, context) {
         vm.events.collect { event ->
             when (event) {
-                is SupportViewModel.SupportEvents.ShowInstallId -> {
-                    val result = snackbarHostState.showSnackbar(
-                        message = event.installId,
-                        actionLabel = context.getString(CommonR.string.general_copy_action),
-                        duration = SnackbarDuration.Indefinite,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) {
-                        vm.copyToClipboard(event.installId)
-                    }
-                }
-
                 is SupportViewModel.SupportEvents.LaunchRecorderActivity -> {
                     context.startActivity(event.intent)
                 }
@@ -110,10 +93,8 @@ fun SupportScreenHost(
     SupportScreen(
         isRecordingSource = vm.isRecording,
         folderStatsSource = vm.debugLogFolderStats,
-        snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onContactClick = { vm.navTo(SupportFormRoute) },
-        onInstallIdClick = vm::copyInstallID,
         onDebugLogClick = { isRecording ->
             if (isRecording) {
                 vm.stopDebugLog()
@@ -132,10 +113,8 @@ fun SupportScreenHost(
 internal fun SupportScreen(
     isRecordingSource: kotlinx.coroutines.flow.Flow<Boolean> = kotlinx.coroutines.flow.flowOf(false),
     folderStatsSource: kotlinx.coroutines.flow.Flow<SupportViewModel.DebugLogFolderStats> = kotlinx.coroutines.flow.flowOf(SupportViewModel.DebugLogFolderStats()),
-    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit = {},
     onContactClick: () -> Unit = {},
-    onInstallIdClick: () -> Unit = {},
     onDebugLogClick: (Boolean) -> Unit = {},
     onDebugLogFolderClick: () -> Unit = {},
     onDocumentationClick: () -> Unit = {},
@@ -159,7 +138,6 @@ internal fun SupportScreen(
                 },
             )
         },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -200,14 +178,6 @@ internal fun SupportScreen(
             // Other
             item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label)) }
 
-            item {
-                SettingsPreferenceItem(
-                    icon = Icons.TwoTone.PermIdentity,
-                    title = stringResource(R.string.support_installid_label),
-                    subtitle = stringResource(R.string.support_installid_desc),
-                    onClick = onInstallIdClick,
-                )
-            }
             item {
                 SettingsPreferenceItem(
                     icon = if (isRecording) Icons.TwoTone.Cancel else Icons.TwoTone.BugReport,

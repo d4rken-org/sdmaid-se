@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentim</string>
     <string name="issue_tracker_description">Një gjurmues i çështjeve publike për raportet e gabimeve dhe kërkesat për veçori.</string>
     <string name="issue_tracker_label">Gjurmuesi i problemit</string>
-    <string name="support_installid_label">Instalo ID</string>
-    <string name="support_installid_desc">Raportet automatike të gabimeve janë anonime. Ndani ID-në tuaj të instalimit nëse zhvilluesi duhet të gjejë raportet tuaja të gabimit.</string>
     <string name="support_debuglog_label">Regjistër diagnostikimesh</string>
     <string name="support_debuglog_desc">Regjistroni gjithçka që bën aplikacioni në një skedar teksti që mund të ndani.</string>
     <string name="support_debuglog_folder_label">Dosja e regjistrit të korrigjimit</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktivizo opsionet e testimit dhe daljen më të hollësishme. Aplikacioni do të funksionojë më ngadalë dhe do të funksionojë ndryshe.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mënyra e korrigjimit është aktivizuar</string>
-    <string name="debug_card_trace_mode_label">Aktivizo mënyrën e gjurmimit</string>
-    <string name="debug_card_dryrun_mode_label">Mënyrë provë (çaktivizo fshirjen)</string>
     <string name="debug_card_areas_reload_action">Ringarko zonat e të dhênave</string>
     <string name="debug_card_pkgs_reload_action">Ringarko aplikacionet</string>
     <string name="debug_card_root_test_action">Testo root</string>

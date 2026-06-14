@@ -102,8 +102,6 @@
     <string name="documentation_label">Dokumentacija</string>
     <string name="issue_tracker_description">Viešas problemų sekėjas klaidų ataskaitoms ir funkcijų prašymams.</string>
     <string name="issue_tracker_label">Problemų sekėjas</string>
-    <string name="support_installid_label">Diegimo ID</string>
-    <string name="support_installid_desc">Automatinės klaidų ataskaitos yra anonimiškos. Pasidalykite savo diegimo ID, jei kūrėjui reikia rasti jūsų klaidų ataskaitas.</string>
     <string name="support_debuglog_label">Derinimo žurnalas</string>
     <string name="support_debuglog_desc">Įrašykite viską, ką daro programa, į teksto failą, kuriuo galite pasidalyti.</string>
     <string name="support_debuglog_folder_label">Derinimo žurnalo aplankas</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Įgalinkite testavimo parinktis ir daugiau verbalinės išvesties. Programėlė veiks lėčiau ir veiks kitaip.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Derinimo režimas įjungtas</string>
-    <string name="debug_card_trace_mode_label">Įjungti stebėjimo režimą</string>
-    <string name="debug_card_dryrun_mode_label">Bandymo režimas (išjungti šalinimą)</string>
     <string name="debug_card_areas_reload_action">Iš naujo įkelti duomenų sritis</string>
     <string name="debug_card_pkgs_reload_action">Iš naujo įkelti programas</string>
     <string name="debug_card_root_test_action">Patikrinti root</string>

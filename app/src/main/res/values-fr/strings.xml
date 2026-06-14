@@ -96,8 +96,6 @@
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">Un système public de suivi des problèmes et des demandes de fonctions.</string>
     <string name="issue_tracker_label">Suivi des problèmes</string>
-    <string name="support_installid_label">Identifiant d’installation</string>
-    <string name="support_installid_desc">Les relevés d’erreur automatiques sont anonymes. Partagez votre identifiant d’installation si le développeur a besoin de trouver vos relevés d’erreur.</string>
     <string name="support_debuglog_label">Journal de débogage</string>
     <string name="support_debuglog_desc">Enregistrer tout ce que l’appli fait dans un fichier texte que vous pouvez partager.</string>
     <string name="support_debuglog_folder_label">Dossier du journal de débogage</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Activer des options de test et une sortie plus détaillée. L’appli fonctionnera plus lentement et différemment.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Le mode de débogage est activé</string>
-    <string name="debug_card_trace_mode_label">Activer le mode de traçage</string>
-    <string name="debug_card_dryrun_mode_label">Mode simulation (désactiver la suppression)</string>
     <string name="debug_card_areas_reload_action">Recharger les zones de données</string>
     <string name="debug_card_pkgs_reload_action">Recharger les applis</string>
     <string name="debug_card_root_test_action">Tester l’accès superutilisateur</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">ප්‍රලේඛනය</string>
     <string name="issue_tracker_description">දෝෂ වාර්තා සහ විශේෂාංග ඉල්ලීම් සඳහා පොදු ගැටලු ට්‍රැකර්.</string>
     <string name="issue_tracker_label">ගැටලු ට්‍රැකර්</string>
-    <string name="support_installid_label">ස්ථාපන හැඳු.</string>
-    <string name="support_installid_desc">ස්වයංක්‍රීය දෝෂ වාර්තා නිර්නාමික ය. සංවර්ධකයාට ඔබේ දෝෂ වාර්තා සොයා ගැනීමට අවශ්‍ය නම් ඔබේ ස්ථාපන හැඳුනුම්පත බෙදාගන්න.</string>
     <string name="support_debuglog_label">දෝෂ නිරාකරණ ලොගය</string>
     <string name="support_debuglog_desc">යෙදුම කරන සියල්ල ඔබට බෙදාගත හැකි පෙළ ගොනුවකට වාර්තා කරන්න.</string>
     <string name="support_debuglog_folder_label">නිදොස්කරණ ලොග ෆෝල්ඩරය</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">පරීක්ෂණ විකල්ප සහ වැඩි විස්තරාත්මක පිටපත් සක්‍රිය කරන්න. යෙදුම අහිමියින් න්රියාත්මක වෛ අතර වෙනසාකාරයක් ක්‍රියා කළ ඉම.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">නිදොස්කරණ ප්‍රකාරය සක්‍රියයි</string>
-    <string name="debug_card_trace_mode_label">ලුහුබැඳීමේ ප්‍රකාරය සක්‍රිය කරන්න</string>
-    <string name="debug_card_dryrun_mode_label">පරීක්‍ෂණ ප්‍රකාරය (මැකීම අක්‍රිය)</string>
     <string name="debug_card_areas_reload_action">දත්ත ප්‍රදේශ නැවත පූරණය කරන්න</string>
     <string name="debug_card_pkgs_reload_action">යෙදුම් නැවත පූරණය කරන්න</string>
     <string name="debug_card_root_test_action">Root පරීක්‍ෂාව</string>

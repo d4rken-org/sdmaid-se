@@ -93,8 +93,6 @@
     <string name="documentation_label">문서</string>
     <string name="issue_tracker_description">버그 제보 및 기능 추가 요청을 할 수 있는 공개 이슈 트래커입니다.</string>
     <string name="issue_tracker_label">이슈 트래커</string>
-    <string name="support_installid_label">설치 ID</string>
-    <string name="support_installid_desc">자동 오류 보고는 익명입니다. 개발자에게 오류 보고서를 보내야 할 경우 설치 ID를 공유하세요.</string>
     <string name="support_debuglog_label">디버그 로그</string>
     <string name="support_debuglog_desc">앱에서 하고 있는 모든 작업을 텍스트 파일에 저장합니다.</string>
     <string name="support_debuglog_folder_label">디버그 로그 폴더</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">실험적 설정을 활성화하고 더 자세한 정보를 출력합니다. 앱이 느려지거나 다르게 작동할 수 있습니다.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">디버그 모드가 활성화됨</string>
-    <string name="debug_card_trace_mode_label">추적 모드 활성화</string>
-    <string name="debug_card_dryrun_mode_label">테스트 모드 (삭제 비활성화)</string>
     <string name="debug_card_areas_reload_action">데이터 영역 새로고침</string>
     <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
     <string name="debug_card_root_test_action">루트 테스트</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">مستندات</string>
     <string name="issue_tracker_description">یک ردیاب عمومی مشکلات برای گزارش اشکالات و درخواست‌های ویژگی‌های جدید.</string>
     <string name="issue_tracker_label">رهگیری مشکل</string>
-    <string name="support_installid_label">شناسه نصب</string>
-    <string name="support_installid_desc">گزارش‌های خطای خودکار به صورت ناشناس هستند. در صورت نیاز توسعه‌دهنده به یافتن گزارش‌های خطای شما، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="support_debuglog_label">گزارش خطاء</string>
     <string name="support_debuglog_desc">ضبط همه چیزهایی که برنامه انجام می‌دهد در یک فایل متنی که می‌توانید به اشتراک بگذارید.</string>
     <string name="support_debuglog_folder_label">پوشه گزارش اشکال‌زدایی</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">گزینه‌های آزمایشی را فعال کرده و خروجی با جزئیات بیشتر را تنظیم کنید. برنامه کندتر اجرا خواهد شد و عملکرد متفاوتی خواهد داشت.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">حالت اشکال‌زدایی فعال است</string>
-    <string name="debug_card_trace_mode_label">فعال کردن حالت ردیابی</string>
-    <string name="debug_card_dryrun_mode_label">حالت آزمایشی (غیرفعال کردن حذف)</string>
     <string name="debug_card_areas_reload_action">بارگذاری دوباره ناحیه‌های داده</string>
     <string name="debug_card_pkgs_reload_action">بارگذاری دوباره برنامه‌ها</string>
     <string name="debug_card_root_test_action">تست روت</string>

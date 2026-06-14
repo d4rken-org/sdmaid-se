@@ -96,8 +96,6 @@
     <string name="documentation_label">Documentatie</string>
     <string name="issue_tracker_description">Een openbare probleemtracker voor foutmeldingen en functie verzoeken.</string>
     <string name="issue_tracker_label">Probleemtracker</string>
-    <string name="support_installid_label">Installeer ID</string>
-    <string name="support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel je installatie-ID als de ontwikkelaar je foutmeldingen moet vinden.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Noteer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
     <string name="support_debuglog_folder_label">Map voor foutopsporingslogboeken</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
-    <string name="debug_card_trace_mode_label">Traceermodus inschakelen</string>
-    <string name="debug_card_dryrun_mode_label">Droogloopsmodus (verwijdering uitschakelen)</string>
     <string name="debug_card_areas_reload_action">Gegevensgebieden opnieuw laden</string>
     <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
     <string name="debug_card_root_test_action">Root testen</string>

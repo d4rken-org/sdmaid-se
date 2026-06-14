@@ -96,8 +96,6 @@
     <string name="documentation_label">ଡକ୍ୟୁମେଣ୍ଟେସନ୍</string>
     <string name="issue_tracker_description">ବଗ୍ ରିପୋର୍ଟ ଏବଂ ବୈଶିଷ୍ଟ୍ୟ ଅନୁରୋଧ ପାଇଁ ଏକ ସାର୍ବଜନୀନ ଇସୁ ଟ୍ରାକର।</string>
     <string name="issue_tracker_label">ଇସୁ ଟ୍ରାକର</string>
-    <string name="support_installid_label">ଇନଷ୍ଟଲ ID</string>
-    <string name="support_installid_desc">ସ୍ୱଚାଳିତ ତ୍ରୁଟି ରିପୋର୍ଟଗୁଡିକ ଅଜ୍ଞାତ ଅଟେ। ଯଦି ଡେଭେଲପର ଆପଣଙ୍କ ତ୍ରୁଟି ରିପୋର୍ଟ ଖୋଜିବା ଆବଶ୍ୟକ କରନ୍ତି ତେବେ ଆପଣଙ୍କ ଇନଷ୍ଟଲ ID ଶେୟାର କରନ୍ତୁ।</string>
     <string name="support_debuglog_label">ଡିବଗ ଲଗ</string>
     <string name="support_debuglog_desc">ଆପ୍ ଯାହା କରୁଛି ସବୁକିଛି ଏକ ଟେକ୍ସଟ ଫାଇଲରେ ରେକର୍ଡ କରନ୍ତୁ ଯାହା ଆପଣ ଶେୟାର କରିପାରିବେ।</string>
     <string name="support_debuglog_folder_label">ଡିବଗ୍ ଲଗ୍ ଫୋଲ୍ଡର</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">ପରୀକ୍ଷା ବିକଳ୍ପ ଏବଂ ଅଧିକ ବିସ୍ତୃତ ଆଉଟପୁଟ୍ ସକ୍ଷମ କରନ୍ତୁ। ଆପ୍ ଧୀର ଗତିରେ ଚାଲିବ ଏବଂ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିବ।</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ଡିବଗ୍ ମୋଡ୍ ସକ୍ଷମ ହୋଇଛି</string>
-    <string name="debug_card_trace_mode_label">ଟ୍ରେସ୍ ମୋଡ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
-    <string name="debug_card_dryrun_mode_label">ଡ୍ରାଇ-ରନ୍ ମୋଡ୍ (ଡିଲିଟ୍ ଅକ୍ଷମ କରନ୍ତୁ)</string>
     <string name="debug_card_areas_reload_action">ଡାଟା ଏରିଆ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="debug_card_pkgs_reload_action">ଆପ୍ସ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="debug_card_root_test_action">Root ପରୀକ୍ଷା କରନ୍ତୁ</string>

@@ -99,8 +99,6 @@
     <string name="documentation_label">Dokumentācija</string>
     <string name="issue_tracker_description">Publiskais problēmu izsekotājs kļūdu ziņojumiem un funkciju pieprasījumiem.</string>
     <string name="issue_tracker_label">Problēmu izsekotājs</string>
-    <string name="support_installid_label">Instalācijas ID</string>
-    <string name="support_installid_desc">Automātiskie kļūdu ziņojumi ir anonīmi. Dalieties ar savu instalācijas ID, ja izstrādātājam nepieciešams atrast jūsu kļūdu ziņojumus.</string>
     <string name="support_debuglog_label">Atkļūdošanas žurnāls</string>
     <string name="support_debuglog_desc">Ierakstiet visu, ko lietotne dara, teksta failā, ko varat kopīgot.</string>
     <string name="support_debuglog_folder_label">Atkļūdošanas žurnālu mape</string>
@@ -224,8 +222,6 @@
     <string name="debug_mode_explanation">Ieslēgt testa opcijas un detalizētāku izvadi. Lietotne strādās lēnāk un darbosies atšķirīgi.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Atkļūdošanas režīms ir ieslēgts</string>
-    <string name="debug_card_trace_mode_label">Ieslēgt izsekošanas režīmu</string>
-    <string name="debug_card_dryrun_mode_label">Izmēģinājuma režīms (atspējot dzēšanu)</string>
     <string name="debug_card_areas_reload_action">Pārlādēt datu zonas</string>
     <string name="debug_card_pkgs_reload_action">Pārlādēt lietotnes</string>
     <string name="debug_card_root_test_action">Testēt root</string>

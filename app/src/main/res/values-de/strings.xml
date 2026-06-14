@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">Ein öffentlicher Tracker für Fehlerberichte und Funktionsanfragen.</string>
     <string name="issue_tracker_label">Problem-Tracker</string>
-    <string name="support_installid_label">Installations-ID</string>
-    <string name="support_installid_desc">Automatische Fehlermeldungen sind anonym. Teile Deine Installations-ID mit dem Entwickler, wenn Fehlerberichte gefunden werden müssen.</string>
     <string name="support_debuglog_label">Debug-Protokoll</string>
     <string name="support_debuglog_desc">Zeichne alles, was die App macht, in einer Textdatei auf, die Du teilen kannst.</string>
     <string name="support_debuglog_folder_label">Debug-Protokollordner</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktiviert Testoptionen und eine ausführlichere Test-Log-Ausgabe. Die App wird langsamer laufen und kann sich anders verhalten.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug-Modus ist aktiviert</string>
-    <string name="debug_card_trace_mode_label">Trace-Modus aktivieren</string>
-    <string name="debug_card_dryrun_mode_label">Testlauf-Modus (Löschen deaktivieren)</string>
     <string name="debug_card_areas_reload_action">Datenbereiche neu laden</string>
     <string name="debug_card_pkgs_reload_action">Apps neu laden</string>
     <string name="debug_card_root_test_action">Root testen</string>

@@ -108,8 +108,6 @@
     <string name="documentation_label">المستندات</string>
     <string name="issue_tracker_description">أداة تعقب المشكلات العامة لتقارير الأخطاء وطلبات الميزات.</string>
     <string name="issue_tracker_label">متعقب الأخطاء</string>
-    <string name="support_installid_label">معرف التثبيت</string>
-    <string name="support_installid_desc">تقارير الخطأ التلقائية مجهولة المصدر. شارك معرف التثبيت الخاص بك إذا احتاج المطور إلى العثور على تقارير الأخطاء الخاصة بك.</string>
     <string name="support_debuglog_label">سجل التطوير</string>
     <string name="support_debuglog_desc">سجل كل ما يفعله التطبيق في ملف نصي يمكنك مشاركته.</string>
     <string name="support_debuglog_folder_label">مجلد سجل التصحيح</string>
@@ -239,8 +237,6 @@
     <string name="debug_mode_explanation">تمكين خيارات الاختبار والمزيد من الإخراج المطول. سيعمل التطبيق بشكل أبطأ ويعمل بشكل مختلف.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">وضع التصحيح مفعّل</string>
-    <string name="debug_card_trace_mode_label">تفعيل وضع التتبع</string>
-    <string name="debug_card_dryrun_mode_label">وضع التشغيل التجريبي (تعطيل الحذف)</string>
     <string name="debug_card_areas_reload_action">إعادة تحميل مناطق البيانات</string>
     <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
     <string name="debug_card_root_test_action">اختبار الجذر</string>

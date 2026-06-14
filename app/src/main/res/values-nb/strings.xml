@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentasjon</string>
     <string name="issue_tracker_description">En offentlig problemsporing for feilrapporter og funksjonsforespørsler.</string>
     <string name="issue_tracker_label">Problemsporer</string>
-    <string name="support_installid_label">Installasjons-ID</string>
-    <string name="support_installid_desc">Automatiske feilrapporter er anonyme. Del din installasjons-ID hvis utvikleren trenger å finne feilrapportene dine.</string>
     <string name="support_debuglog_label">Feilsøkingslogg</string>
     <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
     <string name="support_debuglog_folder_label">Feilsøkingsloggmappe</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktiver test-alternativer og mer detaljerte data. Appen vil kjøre saktere og yte annerledes.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Feilsøkingsmodus er aktivert</string>
-    <string name="debug_card_trace_mode_label">Aktiver sporingsmodus</string>
-    <string name="debug_card_dryrun_mode_label">Testkjøring (deaktiver sletting)</string>
     <string name="debug_card_areas_reload_action">Last inn dataområder på nytt</string>
     <string name="debug_card_pkgs_reload_action">Last inn apper på nytt</string>
     <string name="debug_card_root_test_action">Test root</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">Skjöl</string>
     <string name="issue_tracker_description">Opinber vandamálaskoðun fyrir villutilkynningar og beiðnir um eiginleika.</string>
     <string name="issue_tracker_label">Vandamálaskoðun</string>
-    <string name="support_installid_label">Uppsetningar-ID</string>
-    <string name="support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningar-ID þínu ef þróunaraðilinn þarf að finna villuskýrslur þínar.</string>
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
     <string name="support_debuglog_folder_label">Villuleitarskráamappa</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Virkja prófunarvalkosti og ítarlegri úttak. Forritið mun keyra hægar og virka öðruvísi.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Villuleitarstilling er virk</string>
-    <string name="debug_card_trace_mode_label">Virkja rakningarstillingu</string>
-    <string name="debug_card_dryrun_mode_label">Prufukeyrsla (slökkva á eyðingu)</string>
     <string name="debug_card_areas_reload_action">Endurhlaða gagnasvæði</string>
     <string name="debug_card_pkgs_reload_action">Endurhlaða forrit</string>
     <string name="debug_card_root_test_action">Prófa root</string>

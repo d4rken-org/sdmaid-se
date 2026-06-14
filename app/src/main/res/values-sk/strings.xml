@@ -102,8 +102,6 @@
     <string name="documentation_label">Dokumentácia</string>
     <string name="issue_tracker_description">Verejný nástroj na sledovanie problémov so správami o chybách a požiadavkami na funkcie.</string>
     <string name="issue_tracker_label">Nástroj na sledovanie problémov</string>
-    <string name="support_installid_label">ID inštalácie</string>
-    <string name="support_installid_desc">Automatické hlásenia o chybách sú anonymné. Zdieľajte svoje ID inštalácie, ak vývojár potrebuje nájsť vaše chybové hlásenia.</string>
     <string name="support_debuglog_label">Denník ladenia</string>
     <string name="support_debuglog_desc">Zaznamenajte všetko, čo aplikácia robí, do textového súboru, ktorý môžete zdieľať.</string>
     <string name="support_debuglog_folder_label">Priečinok denníkov ladenia</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Povoľte možnosti testovania a podrobnejší výstup. Aplikácia pobeží pomalšie a bude fungovať inak.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Režim ladenia je povolený</string>
-    <string name="debug_card_trace_mode_label">Povoliť režim trasovanie</string>
-    <string name="debug_card_dryrun_mode_label">Režim suchého behu (zakázať mazanie)</string>
     <string name="debug_card_areas_reload_action">Znovu načítať dátové oblasti</string>
     <string name="debug_card_pkgs_reload_action">Znovu načítať aplikácie</string>
     <string name="debug_card_root_test_action">Otestovať root</string>

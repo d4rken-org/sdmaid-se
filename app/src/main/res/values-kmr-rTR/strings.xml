@@ -48,7 +48,6 @@
     <string name="settings_support_label">Piştgirî</string>
     <string name="documentation_label">Belgekirîn</string>
     <string name="issue_tracker_label">Şopînerê pirsgirêkan</string>
-    <string name="support_installid_label">ID\'ya sazkirinê</string>
     <string name="support_debuglog_label">Log\'a debug</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Cihek ji bo rûniştinê û pirsîn.</string>

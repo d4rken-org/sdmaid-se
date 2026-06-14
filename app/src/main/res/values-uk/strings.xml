@@ -102,8 +102,6 @@
     <string name="documentation_label">Документація</string>
     <string name="issue_tracker_description">Загальнодоступний трекер для повідомлень про помилки та запитів на покращення.</string>
     <string name="issue_tracker_label">Відстеження проблем</string>
-    <string name="support_installid_label">Ідентифікатор встановлення</string>
-    <string name="support_installid_desc">Автоматичні звіти про помилки є анонімними. Поділіться своїм ідентифікатором встановлення, щоб розробник міг знайти ваші звіти про помилки.</string>
     <string name="support_debuglog_label">Журнал налагодження</string>
     <string name="support_debuglog_desc">Записуйте все, що робить додаток, у текстовий файл, яким ви можете поділитися.</string>
     <string name="support_debuglog_folder_label">Папка журналу налагодження</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Увімкнути опції тестування та більш розгорнутий висновок. Додаток працюватиме повільніше та працюватиме по-іншому.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим налагодження увімкнено</string>
-    <string name="debug_card_trace_mode_label">Увімкнути режим відстеження</string>
-    <string name="debug_card_dryrun_mode_label">Режим пробного запуску (виключення видалення)</string>
     <string name="debug_card_areas_reload_action">Перезавантажити області даних</string>
     <string name="debug_card_pkgs_reload_action">Перезавантажити додатки</string>
     <string name="debug_card_root_test_action">Тест root</string>

@@ -93,8 +93,6 @@
     <string name="documentation_label">Dokumentasi</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri.</string>
     <string name="issue_tracker_label">Penjejak isu</string>
-    <string name="support_installid_label">Pasang ID</string>
-    <string name="support_installid_desc">Laporan ralat automatik adalah tanpa nama. Kongsi ID pemasangan anda jika pembangun perlu mencari laporan ralat anda.</string>
     <string name="support_debuglog_label">Log nyahpepijat</string>
     <string name="support_debuglog_desc">Rakam semua yang aplikasi lakukan ke dalam fail teks yang boleh anda kongsi.</string>
     <string name="support_debuglog_folder_label">Folder log nyahpepijat</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
-    <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>
-    <string name="debug_card_dryrun_mode_label">Mod larian kering (nyahaktif pemadaman)</string>
     <string name="debug_card_areas_reload_action">Muat semula kawasan data</string>
     <string name="debug_card_pkgs_reload_action">Muat semula aplikasi</string>
     <string name="debug_card_root_test_action">Uji root</string>

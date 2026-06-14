@@ -102,8 +102,6 @@
     <string name="documentation_label">Дакументацыя</string>
     <string name="issue_tracker_description">Публічны журнал для справаздач аб памылках і запытаў новых функцый.</string>
     <string name="issue_tracker_label">Журнал памылак</string>
-    <string name="support_installid_label">Ідэнтыфікатар усталёўкі</string>
-    <string name="support_installid_desc">Аўтаматычныя справаздачы аб памылках ананімныя. Падзяліцеся сваім ідэнтыфікатарам усталёўкі, калі ў распрацоўшчыка ўзнікне неабходнасць пошуку вашых справаздач аб памылках.</string>
     <string name="support_debuglog_label">Журнал адладкі</string>
     <string name="support_debuglog_desc">Вядзе запіс усяго, што адбываецца ў праграме, у тэкставы файл, якім вы можаце падзяліцца.</string>
     <string name="support_debuglog_folder_label">Папка журнала адладкі</string>
@@ -229,8 +227,6 @@
     <string name="debug_mode_explanation">Уключыць эксперыментальныя параметры і больш падрабязны вывад даных. Праграма будзе працаваць павольней, і яе прадукцыйнасць можа змяніцца.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Уключаны рэжым адладкі</string>
-    <string name="debug_card_trace_mode_label">Уключыць рэжым адладкі</string>
-    <string name="debug_card_dryrun_mode_label">Тэставы рэжым (адключэнне выдалення)</string>
     <string name="debug_card_areas_reload_action">Перазагрузіць вобласці даных</string>
     <string name="debug_card_pkgs_reload_action">Перазагрузіць праграмы</string>
     <string name="debug_card_root_test_action">Праверыць каранёвы доступ</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">Документација</string>
     <string name="issue_tracker_description">Јавен следач на проблеми за пријави на грешки и барања за функции.</string>
     <string name="issue_tracker_label">Следач на проблеми</string>
-    <string name="support_installid_label">ID на инсталација</string>
-    <string name="support_installid_desc">Автоматските извештаи за грешки се анонимни. Споделете го вашиот ID на инсталација ако развивачот треба да ги најде вашите извештаи за грешки.</string>
     <string name="support_debuglog_label">Дневник за дебагирање</string>
     <string name="support_debuglog_desc">Снимајте сè што апликацијата прави во текстуална датотека што може да ја споделите.</string>
     <string name="support_debuglog_folder_label">Папка за дневник за дебагирање</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Овозможи тест опции и поопширен излез. Апликацијата ќе работи побавно и поинаку.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режимот за дебагирање е овозможен</string>
-    <string name="debug_card_trace_mode_label">Овозможи режим за следење</string>
-    <string name="debug_card_dryrun_mode_label">Режим за проба (оневозможи бришење)</string>
     <string name="debug_card_areas_reload_action">Повторно вчитај области со податоци</string>
     <string name="debug_card_pkgs_reload_action">Повторно вчитај апликации</string>
     <string name="debug_card_root_test_action">Тестирај root</string>

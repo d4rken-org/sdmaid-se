@@ -96,8 +96,6 @@
     <string name="documentation_label">Nyaraka</string>
     <string name="issue_tracker_description">Kifuatiliaji cha umma cha matatizo kwa ripoti za makosa na maombi ya vipengele.</string>
     <string name="issue_tracker_label">Kifuatiliaji cha matatizo</string>
-    <string name="support_installid_label">ID ya Usakinishaji</string>
-    <string name="support_installid_desc">Ripoti za makosa za kiotomatiki ni za siri. Shiriki ID yako ya usakinishaji ikiwa msanidi programu anahitaji kupata ripoti zako za makosa.</string>
     <string name="support_debuglog_label">Rekodi ya utatuzi</string>
     <string name="support_debuglog_desc">Rekodi kila kitu programu inachofanya katika faili ya maandishi unayoweza kushiriki.</string>
     <string name="support_debuglog_folder_label">Folda ya rekodi ya marekebisho</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Wezesha chaguo za majaribio na matokeo zaidi ya kina. Programu itaendesha polepole na kutenda tofauti.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Hali ya marekebisho imewashwa</string>
-    <string name="debug_card_trace_mode_label">Wezesha hali ya ufuatiliaji</string>
-    <string name="debug_card_dryrun_mode_label">Hali ya majaribio (zima ufutaji)</string>
     <string name="debug_card_areas_reload_action">Pakia upya maeneo ya data</string>
     <string name="debug_card_pkgs_reload_action">Pakia upya programu</string>
     <string name="debug_card_root_test_action">Jaribu root</string>

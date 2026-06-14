@@ -93,8 +93,6 @@
     <string name="documentation_label">Tài liệu</string>
     <string name="issue_tracker_description">Theo dõi vấn đề công khai cho các báo cáo lỗi và yêu cầu tính năng.</string>
     <string name="issue_tracker_label">Theo dõi vấn đề</string>
-    <string name="support_installid_label">ID cài đặt</string>
-    <string name="support_installid_desc">Báo cáo lỗi tự động là ẩn danh. Chia sẻ ID cài đặt của bạn nếu nhà phát triển cần tìm báo cáo lỗi của bạn.</string>
     <string name="support_debuglog_label">Nhật ký gỡ lỗi</string>
     <string name="support_debuglog_desc">Ghi lại mọi thứ mà ứng dụng đang thực hiện vào một tệp văn bản mà bạn có thể chia sẻ.</string>
     <string name="support_debuglog_folder_label">Thư mục nhật ký gỡ lỗi</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Chế độ gỡ lỗi đã được kích hoạt</string>
-    <string name="debug_card_trace_mode_label">Bật chế độ dò tìm dấu vết</string>
-    <string name="debug_card_dryrun_mode_label">Chế độ chạy thử (tắt chức năng xóa)</string>
     <string name="debug_card_areas_reload_action">Tải lại các vùng dữ liệu</string>
     <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
     <string name="debug_card_root_test_action">Kiểm tra root</string>

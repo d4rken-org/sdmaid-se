@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentaatio</string>
     <string name="issue_tracker_description">Julkinen ongelmaseuranta virheraportteja ja ominaisuuspyyntöjä varten.</string>
     <string name="issue_tracker_label">Ongelmaseuranta</string>
-    <string name="support_installid_label">Asennustunnus</string>
-    <string name="support_installid_desc">Automaattiset virheraportit ovat nimettömiä. Jaa asennustunnuksesi jos kehittäjän tarvitsee löytää virheraporttisi.</string>
     <string name="support_debuglog_label">Virheenkorjausloki</string>
     <string name="support_debuglog_desc">Tallenna kaikki mitä sovellus tekee tekstitiedostoon jonka voit jakaa.</string>
     <string name="support_debuglog_folder_label">Virheenkorjauslokin kansio</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Ota käyttöön testiasetukset ja yksityiskohtaisempi tuloste. Sovellus toimii hitaammin ja käyttäytyy eri tavalla.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Virheenkorjaustila on käytössä</string>
-    <string name="debug_card_trace_mode_label">Ota jäljitystila käyttöön</string>
-    <string name="debug_card_dryrun_mode_label">Testiajon tila (poistaminen pois käytöstä)</string>
     <string name="debug_card_areas_reload_action">Lataa tietoalueet uudelleen</string>
     <string name="debug_card_pkgs_reload_action">Lataa sovellukset uudelleen</string>
     <string name="debug_card_root_test_action">Testaa pääkäyttäjä</string>

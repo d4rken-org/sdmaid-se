@@ -93,8 +93,6 @@
     <string name="documentation_label">文档</string>
     <string name="issue_tracker_description">一个公开问题跟踪器，用于报告错误和提出功能请求。</string>
     <string name="issue_tracker_label">问题跟踪器</string>
-    <string name="support_installid_label">安装 ID</string>
-    <string name="support_installid_desc">自动错误报告是匿名的。如果开发者需要查找您的错误报告，请分享您的安装 ID。</string>
     <string name="support_debuglog_label">调试日志</string>
     <string name="support_debuglog_desc">记录应用正在执行的所有操作，并将其记录到文本文件中，以便共享。</string>
     <string name="support_debuglog_folder_label">调试日志文件夹</string>
@@ -214,8 +212,6 @@
     <string name="debug_mode_explanation">启用测试功能和更详细的日志输出后，应用的运行速度和性能都会减慢。</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">调试模式已启用</string>
-    <string name="debug_card_trace_mode_label">启用跟踪模式</string>
-    <string name="debug_card_dryrun_mode_label">模拟运行模式（禁用删除）</string>
     <string name="debug_card_areas_reload_action">重载数据区域</string>
     <string name="debug_card_pkgs_reload_action">重载应用</string>
     <string name="debug_card_root_test_action">测试 Root</string>

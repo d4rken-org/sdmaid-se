@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumentation</string>
     <string name="issue_tracker_description">En offentlig problemsporing til fejlrapporter og funktionsanmodninger.</string>
     <string name="issue_tracker_label">Issue tracker</string>
-    <string name="support_installid_label">Installations-ID</string>
-    <string name="support_installid_desc">Automatiske fejlrapporter er anonyme. Del dit installations-ID, hvis udvikleren skal finde dine rapporter.</string>
     <string name="support_debuglog_label">Fejlfindingslog</string>
     <string name="support_debuglog_desc">Optag alt, appen gør, til en tekstfil, som du kan dele.</string>
     <string name="support_debuglog_folder_label">Fejlfindingslogmappe</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
-    <string name="debug_card_trace_mode_label">Aktivér sporingstilstand</string>
-    <string name="debug_card_dryrun_mode_label">Testtilstand (deaktivér sletning)</string>
     <string name="debug_card_areas_reload_action">Genindlæs dataområder</string>
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
     <string name="debug_card_root_test_action">Test root</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">Documentació</string>
     <string name="issue_tracker_description">Un gestor de problemes públics per als informes d\'errors i les sol·licituds de funcions.</string>
     <string name="issue_tracker_label">Gestor de problemes</string>
-    <string name="support_installid_label">ID d\'instal·lació</string>
-    <string name="support_installid_desc">Els informes d\'error automàtics són anònims. Compartiu el vostre ID d\'instal·lació si el desenvolupador necessita trobar els vostres informes d\'error.</string>
     <string name="support_debuglog_label">Registre de depuració</string>
     <string name="support_debuglog_desc">Grava tot el que fa l\'aplicació en un fitxer de text que podeu compartir.</string>
     <string name="support_debuglog_folder_label">Carpeta de registre de depuració</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Activa les opcions de prova i una sortida més detallada. L\'aplicació funcionarà més lentament i funcionarà de manera diferent.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">El mode de depuració està habilitat</string>
-    <string name="debug_card_trace_mode_label">Habilita el mode de seguiment</string>
-    <string name="debug_card_dryrun_mode_label">Mode d\'execució en sec (deshabilita l\'eliminació)</string>
     <string name="debug_card_areas_reload_action">Recarrega les àrees de dades</string>
     <string name="debug_card_pkgs_reload_action">Recarrega les aplicacions</string>
     <string name="debug_card_root_test_action">Prova el «root»</string>

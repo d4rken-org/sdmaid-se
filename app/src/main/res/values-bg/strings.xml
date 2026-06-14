@@ -96,8 +96,6 @@
     <string name="documentation_label">Документация</string>
     <string name="issue_tracker_description">Публичен проследяващ проблеми за доклади за грешки и заявки за функции.</string>
     <string name="issue_tracker_label">Проследяване на проблеми</string>
-    <string name="support_installid_label">Инсталационен ID</string>
-    <string name="support_installid_desc">Автоматичните доклади за грешки са анонимни. Споделете инсталационния си ID, ако разработчикът трябва да намери вашите доклади за грешки.</string>
     <string name="support_debuglog_label">Дебъг лог</string>
     <string name="support_debuglog_desc">Записвайте всичко, което прави приложението, в текстов файл, който можете да споделите.</string>
     <string name="support_debuglog_folder_label">Папка за дебъг логове</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Активирайте тестови опции и по-подробен изход. Приложението ще работи по-бавно и ще се държи различно.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режимът за отстраняване на грешки е активиран</string>
-    <string name="debug_card_trace_mode_label">Активиране на режим за проследяване</string>
-    <string name="debug_card_dryrun_mode_label">Пробен режим (без изтриване)</string>
     <string name="debug_card_areas_reload_action">Презареждане на областите с данни</string>
     <string name="debug_card_pkgs_reload_action">Презареждане на приложенията</string>
     <string name="debug_card_root_test_action">Тест root</string>

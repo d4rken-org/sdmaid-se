@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.ClipboardHelper
-import eu.darken.sdmse.common.SDMId
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,16 +23,13 @@ import javax.inject.Inject
 class SupportViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     dispatcherProvider: DispatcherProvider,
-    private val sdmId: SDMId,
     private val sessionManager: DebugLogSessionManager,
     private val webpageTool: WebpageTool,
-    private val clipboardHelper: ClipboardHelper,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     sealed interface SupportEvents {
         data object ShowShortRecordingWarning : SupportEvents
         data class LaunchRecorderActivity(val intent: Intent) : SupportEvents
-        data class ShowInstallId(val installId: String) : SupportEvents
     }
 
     val events = SingleEventFlow<SupportEvents>()
@@ -54,14 +49,6 @@ class SupportViewModel @Inject constructor(
                 totalSizeBytes = sessions.sumOf { it.diskSize },
             )
         }
-
-    fun copyInstallID() = launch {
-        events.emit(SupportEvents.ShowInstallId(sdmId.id))
-    }
-
-    fun copyToClipboard(text: String) {
-        clipboardHelper.copyToClipboard(text)
-    }
 
     fun startDebugLog() = launch {
         log(TAG) { "startDebugLog()" }

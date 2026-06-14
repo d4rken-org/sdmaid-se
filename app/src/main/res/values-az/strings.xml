@@ -103,8 +103,6 @@
     <string name="documentation_label">Sənədləşmə</string>
     <string name="issue_tracker_description">Xəta hesabatları və funksiya sorğuları üçün ictimai problem izləyicisi.</string>
     <string name="issue_tracker_label">Problem axtarıcı</string>
-    <string name="support_installid_label">İD quraşdır</string>
-    <string name="support_installid_desc">Avtomatik xəta hesabatları anonimdir. Tərtibatçının xəta hesabatlarınızı tapmasına ehtiyacı varsa quraşdırma ID-nizi paylaşın.</string>
     <string name="support_debuglog_label">Xəta aşkarlama funksiyası</string>
     <string name="support_debuglog_desc">Tətbiqin etdiyi hər şeyi paylaşa biləcəyiniz mətn faylına qeyd edin.</string>
     <string name="support_debuglog_folder_label">Sazlama jurnalı qovluğu</string>
@@ -229,8 +227,6 @@
     
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
-    <string name="debug_card_trace_mode_label">İzləmə rejimini aktivləşdir</string>
-    <string name="debug_card_dryrun_mode_label">Sınaq rejimi (silməni deaktiv et)</string>
     <string name="debug_card_areas_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_card_pkgs_reload_action">Tətbiqləri yenidən yüklə</string>
     <string name="debug_card_root_test_action">Root yoxla</string>

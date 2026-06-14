@@ -102,8 +102,6 @@
     <string name="documentation_label">תיעוד</string>
     <string name="issue_tracker_description">מעקב בעיות פומבי לדיווחי באגים ובקשת יכולות חדשות.</string>
     <string name="issue_tracker_label">מעקב בעיות</string>
-    <string name="support_installid_label">מזהה התקנה</string>
-    <string name="support_installid_desc">דוחות שגיאות אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאה שלך.</string>
     <string name="support_debuglog_label">יומן באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה לקובץ טקסט שאתה יכול לשתף.</string>
     <string name="support_debuglog_folder_label">תיקיית יומני ניפוי שגיאות</string>
@@ -230,8 +228,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
-    <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>
-    <string name="debug_card_dryrun_mode_label">מצב ניסיון (בטל מחיקה)</string>
     <string name="debug_card_areas_reload_action">טען מחדש אזורי נתונים</string>
     <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
     <string name="debug_card_root_test_action">בדוק root</string>

@@ -96,8 +96,6 @@
     <string name="documentation_label">Dokumendid</string>
     <string name="issue_tracker_description">Avalik murede kogumik vigade teavitamiseks ja uute funktsioonide palumiseks.</string>
     <string name="issue_tracker_label">Murede kogumik</string>
-    <string name="support_installid_label">Paigalduse tunnus</string>
-    <string name="support_installid_desc">Automaatsed veateated on anonüümsed. Jagage paigalduse tunnust juhuks, kui arendaja peab otsima teie veateateid.</string>
     <string name="support_debuglog_label">Silumislogi</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavaks tekstifailiks.</string>
     <string name="support_debuglog_folder_label">Silumislogi kaust</string>
@@ -219,8 +217,6 @@
     <string name="debug_mode_explanation">Lubage katsetatavad valikud ja täpsem ülevaade toimuvast. Rakendus toimetab aeglasemalt ja teisiti.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Silumisrežiim on kasutusel</string>
-    <string name="debug_card_trace_mode_label">Luba jälitamisrežiim</string>
-    <string name="debug_card_dryrun_mode_label">Proovirežiim (säilitab kustutatava)</string>
     <string name="debug_card_areas_reload_action">Laadi andmed uuesti</string>
     <string name="debug_card_pkgs_reload_action">Laadi rakendused uuesti</string>
     <string name="debug_card_root_test_action">Katseta juurpääsu</string>

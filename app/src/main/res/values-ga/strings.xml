@@ -60,8 +60,6 @@
     <string name="documentation_label">Doiciméadacht</string>
     <string name="issue_tracker_description">Rianaileoir saincheisteanna poiblí le haghaidh tuairisci fabht agus iarraíodh gné.</string>
     <string name="issue_tracker_label">Rianaileoir saincheisteanna</string>
-    <string name="support_installid_label">ID Suiteála</string>
-    <string name="support_installid_desc">Tá tuairisci earráide uathoibríocha gan ainm. Roinn do ID suiteála má théann an forbróir ag teastail dé do thuairisci earráide a aiméir.</string>
     <string name="support_debuglog_label">Loga dífhabhtaithe</string>
     <string name="support_debuglog_desc">Taifead gach rud atá an aip á dhéanamh i gcomhad téacs ar féidir leat a roinnt.</string>
     <string name="discord_label">Discord</string>
@@ -216,8 +214,6 @@
     <string name="settings_acknowledgements_category_licenses_title">Ceadúnais</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Bogearraí a úsáideann SD Maid.</string>
     <string name="debug_card_title">Tá modh dífhabhtaithe cumasaithe</string>
-    <string name="debug_card_trace_mode_label">Cumasaigh modh rianaithe</string>
-    <string name="debug_card_dryrun_mode_label">Modh trialach (díchumasaigh scriosadh)</string>
     <string name="debug_card_areas_reload_action">Athlódáil limistéir sonraí</string>
     <string name="debug_card_pkgs_reload_action">Athlódáil aipeanna</string>
     <string name="debug_card_root_test_action">Tástáil root</string>
