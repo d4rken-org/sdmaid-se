@@ -41,6 +41,7 @@ import eu.darken.sdmse.common.navigation.ModalBottomSheetSceneStrategy
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logviewer.ui.FloatingLogPanelHost
 import eu.darken.sdmse.common.debug.logging.log
@@ -74,6 +75,7 @@ class MainActivity : ComponentActivity() {
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
     @Inject lateinit var guidedTourController: GuidedTourController
+    @Inject lateinit var deviceDetective: DeviceDetective
 
     override fun onCreate(savedInstanceState: Bundle?) {
         log(TAG) { "onCreate(restoringState=${savedInstanceState != null})" }
@@ -173,8 +175,9 @@ class MainActivity : ComponentActivity() {
                 onDontShowAgain = { coroutineScope.launch { guidedTourController.dismissForever() } },
                 modifier = Modifier.fillMaxSize(),
             ) {
-                val sceneStrategy = remember {
-                    ModalBottomSheetSceneStrategy<NavKey>().then(SinglePaneSceneStrategy())
+                val isTv = remember { deviceDetective.isTvLikeDevice() }
+                val sceneStrategy = remember(isTv) {
+                    ModalBottomSheetSceneStrategy<NavKey>(isTv = isTv).then(SinglePaneSceneStrategy())
                 }
                 NavDisplay(
                     backStack = backStack,

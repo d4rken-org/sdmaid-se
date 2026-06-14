@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.navigation
 
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -36,7 +37,7 @@ fun modalBottomSheetMetadata(): Map<String, Any> = mapOf(MODAL_BOTTOM_SHEET_META
  * bottom sheets layered on top of the previous entry.
  *
  * Wire it into [androidx.navigation3.ui.NavDisplay] via
- * `sceneStrategy = remember { ModalBottomSheetSceneStrategy<NavKey>().then(SinglePaneSceneStrategy()) }`.
+ * `sceneStrategy = remember { ModalBottomSheetSceneStrategy<NavKey>(isTv).then(SinglePaneSceneStrategy()) }`.
  *
  * Programmatic dismissal: when the host calls `vm.navUp()` (e.g. after a Save action), the
  * entry is popped from the back stack and the sheet disappears without animating. That matches
@@ -44,8 +45,16 @@ fun modalBottomSheetMetadata(): Map<String, Any> = mapOf(MODAL_BOTTOM_SHEET_META
  * the [OverlayScene] kept composed — is already on screen behind the sheet. The empty-flash
  * bug, where the previous screen needed to recompose during dismissal, is what this strategy
  * fixes.
+ *
+ * @param isTv on TV-like devices the sheet's drag/nested-scroll gestures are disabled, turning
+ * it into a fixed panel. Without this, D-pad focus moving into a non-scrollable sheet list emits
+ * a `bringIntoView` scroll that the sheet's nested-scroll connection consumes by sliding the whole
+ * sheet up, pushing its footer off the bottom edge. There is no touchscreen on TV, so nothing is
+ * lost; phones keep swipe-to-dismiss.
  */
-class ModalBottomSheetSceneStrategy<T : Any> : SceneStrategy<T> {
+class ModalBottomSheetSceneStrategy<T : Any>(
+    private val isTv: Boolean = false,
+) : SceneStrategy<T> {
 
     override fun SceneStrategyScope<T>.calculateScene(entries: List<NavEntry<T>>): Scene<T>? {
         val top = entries.lastOrNull() ?: return null
@@ -57,6 +66,7 @@ class ModalBottomSheetSceneStrategy<T : Any> : SceneStrategy<T> {
             previousEntries = previous,
             overlaidEntries = previous,
             onBack = onBack,
+            gesturesEnabled = !isTv,
         )
     }
 }
@@ -67,6 +77,7 @@ private class ModalBottomSheetScene<T : Any>(
     override val previousEntries: List<NavEntry<T>>,
     override val overlaidEntries: List<NavEntry<T>>,
     private val onBack: () -> Unit,
+    private val gesturesEnabled: Boolean,
 ) : OverlayScene<T> {
 
     override val entries: List<NavEntry<T>> = listOf(entry)
@@ -74,9 +85,18 @@ private class ModalBottomSheetScene<T : Any>(
     @OptIn(ExperimentalMaterial3Api::class)
     override val content: @Composable () -> Unit = {
         val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+        // With gestures off (TV) the handle is a dead focus stop that also implies a drag the
+        // sheet no longer accepts — drop it so the sheet reads as a fixed panel. BACK dismisses.
+        val dragHandle: (@Composable () -> Unit)? = if (gesturesEnabled) {
+            { BottomSheetDefaults.DragHandle() }
+        } else {
+            null
+        }
         ModalBottomSheet(
             onDismissRequest = onBack,
             sheetState = sheetState,
+            sheetGesturesEnabled = gesturesEnabled,
+            dragHandle = dragHandle,
         ) {
             entry.Content()
         }
@@ -91,7 +111,8 @@ private class ModalBottomSheetScene<T : Any>(
         return key == other.key &&
             entry == other.entry &&
             previousEntries == other.previousEntries &&
-            overlaidEntries == other.overlaidEntries
+            overlaidEntries == other.overlaidEntries &&
+            gesturesEnabled == other.gesturesEnabled
     }
 
     override fun hashCode(): Int {
@@ -99,6 +120,7 @@ private class ModalBottomSheetScene<T : Any>(
         result = 31 * result + entry.hashCode()
         result = 31 * result + previousEntries.hashCode()
         result = 31 * result + overlaidEntries.hashCode()
+        result = 31 * result + gesturesEnabled.hashCode()
         return result
     }
 }

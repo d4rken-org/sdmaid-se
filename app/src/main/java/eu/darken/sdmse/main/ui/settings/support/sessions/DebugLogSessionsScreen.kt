@@ -122,6 +122,10 @@ internal fun DebugLogSessionsSheetContent(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
+                    // fill=false: list shrinks to fit the sheet's remaining height (short TV
+                    // screens) instead of pushing the footer button off-screen, but still
+                    // wraps when only a few sessions exist.
+                    .weight(1f, fill = false)
                     .heightIn(max = 400.dp),
             ) {
                 items(state.sessions, key = { it.id.value }) { session ->
