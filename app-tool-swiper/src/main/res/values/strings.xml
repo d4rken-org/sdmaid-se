@@ -156,4 +156,10 @@
     <string name="swiper_session_no_matching_files">No matching files found</string>
     <string name="swiper_open_externally_action">Open in external app</string>
 
+    <!-- Guided tour -->
+    <string name="tour_swiper_actions_title">Decide with the buttons</string>
+    <string name="tour_swiper_actions_body">Rather not swipe? Keep or delete the current file from here. Skip leaves it undecided for later — and long-pressing Skip excludes a file from future scans. Undo reverts your last choice.</string>
+    <string name="tour_swiper_review_title">Nothing is deleted yet</string>
+    <string name="tour_swiper_review_body">Your keep and delete choices are only staged. Open Review to go over them and apply the deletions when you\'re ready.</string>
+
 </resources>

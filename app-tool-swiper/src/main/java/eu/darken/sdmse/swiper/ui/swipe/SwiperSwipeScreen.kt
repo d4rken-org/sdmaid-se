@@ -41,6 +41,8 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R as ExclusionR
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -56,6 +58,7 @@ import eu.darken.sdmse.swiper.ui.swipe.items.SwiperProgressPager
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperStatsCard
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperSwipeBackCard
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperSwipeCard
+import eu.darken.sdmse.swiper.ui.swipe.tour.SwiperSwipeTour
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -126,6 +129,21 @@ internal fun SwiperSwipeScreen(
     var showHelpDialog by remember { mutableStateOf(false) }
     var excludeRequest by remember { mutableStateOf<SwipeItem?>(null) }
 
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { SwiperSwipeTour.definition() }
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // Start only once the first-run gesture overlay is dismissed and a card is in view, so the
+    // gesture overlay and this tour never show at the same time.
+    val tourReady = state?.let { it.showGestureOverlay == false && it.currentItem != null } == true
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         SdmScaffold(
             topBar = {
@@ -158,7 +176,10 @@ internal fun SwiperSwipeScreen(
                             label = stringResource(CommonR.string.general_help_action),
                             onClick = { showHelpDialog = true },
                         )
-                        TextButton(onClick = onNavigateToStatus) {
+                        TextButton(
+                            onClick = onNavigateToStatus,
+                            modifier = Modifier.guidedTourTarget(SwiperSwipeTour.REVIEW_TARGET),
+                        ) {
                             BadgedBox(
                                 badge = {
                                     val undecided = state?.undecidedCount ?: 0
@@ -182,6 +203,7 @@ internal fun SwiperSwipeScreen(
                 val current = state
                 if (current != null) {
                     SwiperActionBar(
+                        modifier = Modifier.guidedTourTarget(SwiperSwipeTour.ACTIONS_TARGET),
                         canUndo = current.canUndo,
                         swapDirections = current.swapDirections,
                         hasCurrentItem = current.currentItem != null,
