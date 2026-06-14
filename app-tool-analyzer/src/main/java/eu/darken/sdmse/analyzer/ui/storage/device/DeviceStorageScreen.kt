@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Refresh
@@ -22,6 +22,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -29,11 +33,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.analyzer.ui.storage.device.tour.AnalyzerStorageTour
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -66,6 +73,21 @@ internal fun DeviceStorageScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = DeviceStorageViewModel.State())
     val context = LocalContext.current
+
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { AnalyzerStorageTour.definition() }
+    // Rows can oscillate (scan → refresh → rescan); only attempt the tour once per composition.
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // Anchor step 2 on the first storage card. A finished scan always yields at least one storage.
+    val tourReady = state.progress == null && state.storages.isNotEmpty()
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
 
     SdmScaffold(
         topBar = {
@@ -116,8 +138,13 @@ internal fun DeviceStorageScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                items(state.storages, key = { it.storage.id.hashCode() }) { row ->
+                itemsIndexed(state.storages, key = { _, it -> it.storage.id.hashCode() }) { index, row ->
                     DeviceStorageItemCard(
+                        modifier = if (index == 0) {
+                            Modifier.guidedTourTarget(AnalyzerStorageTour.STORAGE_CARD_TARGET)
+                        } else {
+                            Modifier
+                        },
                         row = row,
                         onClick = { onStorageClick(row) },
                         onTrendClick = { onTrendClick(row) },
