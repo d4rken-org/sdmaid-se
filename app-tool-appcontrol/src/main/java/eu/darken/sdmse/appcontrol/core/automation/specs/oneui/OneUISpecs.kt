@@ -8,6 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
@@ -117,8 +118,11 @@ class OneUISpecs @Inject constructor(
             }
 
             val action: suspend StepContext.() -> Boolean = action@{
+                // Require a clickable button: the dialog title carries the same "force stop" text
+                // as the button (and appears first in crawl order), so matching on text alone
+                // selects the non-clickable title and the step stalls.
                 val target = findNode {
-                    when (Bugs.isDryRun) {
+                    it.isClickyButton() && when (Bugs.isDryRun) {
                         true -> it.textMatchesAny(cancelLbl)
                         false -> it.textMatchesAny(okLbl + forceStopLabels)
                     }
