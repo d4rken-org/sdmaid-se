@@ -2,12 +2,11 @@ package eu.darken.sdmse.corpsefinder.ui.list
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Info
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -41,12 +40,15 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.ui.list.items.CorpseRow
+import eu.darken.sdmse.corpsefinder.ui.list.tour.CorpseFinderListTour
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -146,6 +148,20 @@ internal fun CorpseFinderListScreen(
     }
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
+    val tourController = LocalGuidedTourController.current
+    val tourDef = remember { CorpseFinderListTour.definition() }
+    var tourStartAttempted by remember { mutableStateOf(false) }
+    // Anchor step 2 on the first corpse row; a populated result always has at least one.
+    val tourReady = state.progress == null && !rows.isNullOrEmpty()
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
+        tourController.start(tourDef)
+    }
+
     val subtitle = rows?.let { list ->
         if (state.progress == null) {
             pluralStringResource(CommonR.plurals.result_x_items, list.size, list.size)
@@ -208,19 +224,27 @@ internal fun CorpseFinderListScreen(
 
                     rows.isEmpty() -> SdmEmptyState()
 
-                    else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                    else -> {
+                        // No BoxWithConstraints: its maxWidth was only a remember key, and the
+                        // SubcomposeLayout it introduced stopped Modifier.guidedTourTarget on lazy
+                        // items from registering (the tour row step would grace-skip). Read the span
+                        // from the context directly, matching the working SystemCleaner/Analyzer screens.
                         val context = LocalContext.current
-                        val spanCount = remember(maxWidth) {
-                            context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt())
-                        }
                         LazyVerticalGrid(
-                            columns = GridCells.Fixed(spanCount),
+                            columns = GridCells.Fixed(
+                                context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt()),
+                            ),
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = SdmListDefaults.GridContentPadding,
                         ) {
-                            items(rows, key = { it.identifier.toString() }) { row ->
+                            itemsIndexed(rows, key = { _, it -> it.identifier.toString() }) { index, row ->
                                 val isSelected = selection.contains(row.identifier)
                                 CorpseRow(
+                                    modifier = if (index == 0) {
+                                        Modifier.guidedTourTarget(CorpseFinderListTour.CORPSE_ROW_TARGET)
+                                    } else {
+                                        Modifier
+                                    },
                                     row = row,
                                     selected = isSelected,
                                     selectionActive = selection.isNotEmpty(),

@@ -59,4 +59,10 @@
     <string name="corpsefinder_markers_dialog_title">About these markers</string>
     <string name="corpsefinder_markers_dialog_normal_label">No marker</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standard remnant. Generally safe to remove — these files belong to apps that are no longer installed.</string>
+
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_title">Leftovers from uninstalled apps</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder finds data left behind by apps you\'ve already uninstalled. It no longer belongs to anything installed, so removing it is safe and frees up space.</string>
+    <string name="tour_corpsefinder_row_title">What was found</string>
+    <string name="tour_corpsefinder_row_body">Each item is leftover data and the app it came from. The marker shows how confident SD Maid is that it\'s safe to remove — tap the ⓘ at the top to learn what the markers mean.</string>
 </resources>
