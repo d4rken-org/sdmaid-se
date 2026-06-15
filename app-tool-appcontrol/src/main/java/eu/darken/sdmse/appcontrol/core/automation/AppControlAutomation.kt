@@ -53,7 +53,9 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import javax.inject.Provider
 
 class AppControlAutomation @AssistedInject constructor(
@@ -222,14 +224,22 @@ class AppControlAutomation @AssistedInject constructor(
                 }
             }
         } finally {
-            delay(250)
+            // Run cleanup even when cancelled, otherwise a user cancel skips the back-navigation
+            // and leaves the user stranded on the system settings screen.
+            withContext(NonCancellable) {
+                delay(250)
 
-            finishAutomation(
-                userCancelled = cancelledByUser,
-            returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
-                deviceDetective = deviceDetective,
-            )
+                finishAutomation(
+                    userCancelled = cancelledByUser,
+                    returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
+                    deviceDetective = deviceDetective,
+                )
+            }
         }
+
+        // Make the "user cancel => full stop" contract explicit instead of relying on the
+        // cancelled job tripping a suspension point above.
+        if (cancelledByUser) throw UserCancelledAutomationException()
 
         return ForceStopAutomationTask.Result(
             successful = successful,

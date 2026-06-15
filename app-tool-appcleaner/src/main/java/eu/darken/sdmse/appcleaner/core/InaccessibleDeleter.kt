@@ -40,6 +40,7 @@ import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
@@ -171,7 +172,17 @@ class InaccessibleDeleter @Inject constructor(
             } else {
                 // Force-stop apps before clearing cache if enabled
                 if (settings.forceStopBeforeClearing.value()) {
-                    forceStopApps(automationCandidates.map { it.identifier })
+                    try {
+                        forceStopApps(automationCandidates.map { it.identifier })
+                    } catch (e: UserCancelledAutomationException) {
+                        log(TAG, WARN) { "User cancelled during force-stop; skipping cache clear." }
+                        // Honor the cancel as a full stop: don't proceed to clear cache.
+                        successTargets.forEach { failedTargets.remove(it) }
+                        return InaccDelResult(
+                            succesful = successTargets.toSet(),
+                            failed = failedTargets,
+                        )
+                    }
                 }
 
                 val successLive = mutableSetOf<InstallId>()
@@ -225,6 +236,8 @@ class InaccessibleDeleter @Inject constructor(
                     pkgOps.forceStop(installId)
                     log(TAG, VERBOSE) { "Force-stopped $installId" }
                 } catch (e: Exception) {
+                    // Don't swallow cancellation of our own scope (e.g. user cancelled the task).
+                    currentCoroutineContext().ensureActive()
                     log(TAG, WARN) { "Failed to force-stop $installId: ${e.asLog()}" }
                 } finally {
                     increaseProgress()
@@ -236,7 +249,13 @@ class InaccessibleDeleter @Inject constructor(
             val task = ForceStopAutomationTask(targets)
             try {
                 automationManager.submit(task)
+            } catch (e: UserCancelledAutomationException) {
+                // User cancelled => full stop. Propagate so the caller aborts before clearing cache.
+                throw e
             } catch (e: Exception) {
+                // Don't swallow cancellation of our own scope.
+                currentCoroutineContext().ensureActive()
+                // Force-stop is best-effort: log other failures and continue to clear cache.
                 log(TAG, WARN) { "Force-stop automation failed: ${e.asLog()}" }
             }
         } else {
