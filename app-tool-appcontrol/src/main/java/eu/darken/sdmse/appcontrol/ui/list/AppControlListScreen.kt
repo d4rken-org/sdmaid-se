@@ -6,7 +6,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -424,11 +423,17 @@ internal fun AppControlListScreen(
     // Pin the first-row target ID at the moment the tour starts so the bubble doesn't jump if
     // rows reorder mid-tour (e.g., a background install changes ordering).
     var tourFirstRowId by remember { mutableStateOf<InstallId?>(null) }
-    val rowsReady = !rows.isNullOrEmpty()
-    LaunchedEffect(rowsReady) {
-        if (!rowsReady || tourStartAttempted) return@LaunchedEffect
-        tourStartAttempted = true
+    // Gate on !isBusy as well as rows being present: the search icon (if !searchActive && !isBusy)
+    // and the filter/sort chips (AnimatedVisibility visible = !isBusy) aren't composed while a load
+    // is in progress. rowsReady can flip true while progress is still non-null, so starting on
+    // rowsReady alone left steps 0-2 with no registered target and they grace-skipped.
+    val tourReady = !rows.isNullOrEmpty() && !isBusy
+    LaunchedEffect(tourReady) {
+        if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
+        // only after it passes so a transient block can't permanently suppress this tour.
         if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        tourStartAttempted = true
         tourFirstRowId = rows?.firstOrNull()?.installId
         tourController.start(tourDef)
     }
@@ -682,9 +687,12 @@ internal fun AppControlListScreen(
                         )
                     }
 
-                    else -> BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                    else -> {
+                        // No BoxWithConstraints: maxWidth was only a remember key (the span ignores
+                        // it). Its SubcomposeLayout also stops Modifier.guidedTourTarget on lazy
+                        // items from registering, which made the app-row tour step grace-skip.
                         val context = LocalContext.current
-                        val spanCount = remember(maxWidth) { context.getSpanCount(widthDp = 410) }
+                        val spanCount = context.getSpanCount(widthDp = 410)
                         val sections = remember(rows, state.options.listSort.mode) {
                             buildFastScrollerSections(rows, state.options.listSort.mode)
                         }
