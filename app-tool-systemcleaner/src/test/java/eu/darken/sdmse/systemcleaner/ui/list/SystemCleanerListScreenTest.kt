@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.longClick
@@ -10,18 +11,27 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
 import eu.darken.sdmse.systemcleaner.ui.preview.previewSystemCleanerRow
+import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
 class SystemCleanerListScreenTest : BaseComposeRobolectricTest() {
 
+    // The list screen reads LocalGuidedTourController; supply a relaxed mock (shouldStart() defaults
+    // to false, so no tour starts) — these tests stay focused on the list UI.
+    private val mockTourController: GuidedTourController = mockk(relaxed = true)
+
     private fun ComposeContentTestRule.setListScreen(state: SystemCleanerListViewModel.State) {
         setContent {
-            PreviewWrapper {
-                SystemCleanerListScreen(stateSource = MutableStateFlow(state))
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    SystemCleanerListScreen(stateSource = MutableStateFlow(state))
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithText
@@ -7,13 +8,20 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 import eu.darken.sdmse.corpsefinder.ui.preview.previewLocalPathLookup
+import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
 class CorpseFinderListScreenTest : BaseComposeRobolectricTest() {
+
+    // The list screen reads LocalGuidedTourController; supply a relaxed mock (shouldStart() defaults
+    // to false, so no tour starts) — these tests stay focused on the list UI.
+    private val mockTourController: GuidedTourController = mockk(relaxed = true)
 
     private fun row(name: String, size: Long = 1024L): CorpseFinderListViewModel.Row =
         CorpseFinderListViewModel.Row(
@@ -28,8 +36,10 @@ class CorpseFinderListScreenTest : BaseComposeRobolectricTest() {
 
     private fun ComposeContentTestRule.setListScreen(state: CorpseFinderListViewModel.State) {
         setContent {
-            PreviewWrapper {
-                CorpseFinderListScreen(stateSource = MutableStateFlow(state))
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    CorpseFinderListScreen(stateSource = MutableStateFlow(state))
+                }
             }
         }
     }
@@ -90,13 +100,15 @@ class CorpseFinderListScreenTest : BaseComposeRobolectricTest() {
         val second = row("second.dat")
         val clicked = mutableListOf<CorpseFinderListViewModel.Row>()
         composeRule.setContent {
-            PreviewWrapper {
-                CorpseFinderListScreen(
-                    stateSource = MutableStateFlow(
-                        CorpseFinderListViewModel.State(rows = listOf(first, second)),
-                    ),
-                    onRowClick = { clicked.add(it) },
-                )
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    CorpseFinderListScreen(
+                        stateSource = MutableStateFlow(
+                            CorpseFinderListViewModel.State(rows = listOf(first, second)),
+                        ),
+                        onRowClick = { clicked.add(it) },
+                    )
+                }
             }
         }
 

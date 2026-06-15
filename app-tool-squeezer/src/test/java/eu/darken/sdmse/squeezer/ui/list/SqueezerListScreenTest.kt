@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.list
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithText
@@ -7,6 +8,9 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.tour.GuidedTourController
+import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
+import io.mockk.mockk
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -19,6 +23,10 @@ import testhelpers.compose.BaseComposeRobolectricTest
 import java.time.Instant
 
 class SqueezerListScreenTest : BaseComposeRobolectricTest() {
+
+    // The list screen reads LocalGuidedTourController; supply a relaxed mock (shouldStart() defaults
+    // to false, so no tour starts) — these tests stay focused on the list UI.
+    private val mockTourController: GuidedTourController = mockk(relaxed = true)
 
     private fun image(name: String, size: Long = 1024L): CompressibleImage = CompressibleImage(
         lookup = LocalPathLookup(
@@ -33,8 +41,10 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
     private fun ComposeContentTestRule.setListScreen(state: SqueezerListViewModel.State) {
         setContent {
-            PreviewWrapper {
-                SqueezerListScreen(stateSource = MutableStateFlow(state))
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    SqueezerListScreen(stateSource = MutableStateFlow(state))
+                }
             }
         }
     }
@@ -78,11 +88,13 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         val a = image("only.jpg")
         var compressed: Set<CompressibleMedia.Id>? = null
         composeRule.setContent {
-            PreviewWrapper {
-                SqueezerListScreen(
-                    stateSource = MutableStateFlow(SqueezerListViewModel.State(media = listOf(a))),
-                    onCompressIds = { compressed = it },
-                )
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    SqueezerListScreen(
+                        stateSource = MutableStateFlow(SqueezerListViewModel.State(media = listOf(a))),
+                        onCompressIds = { compressed = it },
+                    )
+                }
             }
         }
 
@@ -116,13 +128,15 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
     fun `Compress all FAB triggers onCompressAll callback`() {
         var clicked = 0
         composeRule.setContent {
-            PreviewWrapper {
-                SqueezerListScreen(
-                    stateSource = MutableStateFlow(
-                        SqueezerListViewModel.State(media = listOf(image("a.jpg"))),
-                    ),
-                    onCompressAll = { clicked++ },
-                )
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    SqueezerListScreen(
+                        stateSource = MutableStateFlow(
+                            SqueezerListViewModel.State(media = listOf(image("a.jpg"))),
+                        ),
+                        onCompressAll = { clicked++ },
+                    )
+                }
             }
         }
 
