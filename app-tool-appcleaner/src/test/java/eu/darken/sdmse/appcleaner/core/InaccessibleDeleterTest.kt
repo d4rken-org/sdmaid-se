@@ -4,7 +4,9 @@ import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
+import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
+import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.pkgs.NoSettingsDetector
@@ -31,6 +33,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -386,5 +389,107 @@ class InaccessibleDeleterTest : BaseTest() {
         result.succesful.size shouldBe 0
         // Empty-batch guard: no submission even though useAutomation=true
         coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    /**
+     * Drives the automation-based force-stop branch: no root/ADB, automation setup complete,
+     * and force-stop-before-clearing enabled.
+     */
+    private fun enableAutomationForceStop() {
+        every { rootManager.useRoot } returns flowOf(false)
+        every { adbManager.useAdb } returns flowOf(false)
+        every { automationSetupModule.state } returns flowOf(
+            mockk<SetupModule.State.Current> { every { isComplete } returns true }
+        )
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(true)
+    }
+
+    @Test
+    fun `user cancel during force-stop aborts before clearing cache and keeps prior successes`() = runTest {
+        val junkMain = createAppJunk("com.example.main", cacheSize = 100000)
+        val junkZero = createAppJunk("com.example.empty", cacheSize = 80000)
+        val snapshot = createSnapshot(junkMain, junkZero)
+
+        enableAutomationForceStop()
+        coEvery { inaccessibleCacheProvider.determineCache(junkMain.pkg) } returns nonZeroCache(junkMain)
+        // junkZero already emptied out -> counts as success before force-stop runs
+        coEvery { inaccessibleCacheProvider.determineCache(junkZero.pkg) } returns InaccessibleCache(
+            identifier = junkZero.identifier,
+            isSystemApp = false,
+            itemCount = 0,
+            totalSize = 0L,
+            publicSize = 0L,
+            theoreticalPaths = emptySet(),
+        )
+
+        coEvery { automationManager.submit(match { it is ForceStopAutomationTask }) } throws UserCancelledAutomationException()
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        // User cancel == full stop: cache clearing must NOT be attempted.
+        coVerify(exactly = 0) { automationManager.submit(match { it is ClearCacheTask }) }
+        // The actual force-stop target was not cleared.
+        result.succesful shouldNotContain junkMain.identifier
+        // A success that happened before the cancel is still reported (partial result).
+        result.succesful shouldContain junkZero.identifier
+    }
+
+    @Test
+    fun `non-cancel force-stop failure still proceeds to clear cache`() = runTest {
+        val junk = createAppJunk("com.example.main", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        enableAutomationForceStop()
+        coEvery { inaccessibleCacheProvider.determineCache(junk.pkg) } returns nonZeroCache(junk)
+
+        coEvery { automationManager.submit(match { it is ForceStopAutomationTask }) } throws RuntimeException("force-stop boom")
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } returns ClearCacheTask.Result(
+            successful = setOf(junk.identifier),
+            failed = emptyMap(),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        // Force-stop is best-effort: a failure must not block cache clearing.
+        coVerify(exactly = 1) { automationManager.submit(match { it is ClearCacheTask }) }
+        result.succesful shouldContain junk.identifier
+    }
+
+    @Test
+    fun `force-stop internal cancellation with active scope still clears cache`() = runTest {
+        val junk = createAppJunk("com.example.main", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        enableAutomationForceStop()
+        coEvery { inaccessibleCacheProvider.determineCache(junk.pkg) } returns nonZeroCache(junk)
+
+        // Simulates retry-exhaustion: the automation processor's own job is cancelled, surfacing as a
+        // plain CancellationException while OUR coroutine scope is still active. Must be treated as a
+        // best-effort failure (continue), NOT as a user cancel (abort).
+        coEvery { automationManager.submit(match { it is ForceStopAutomationTask }) } throws CancellationException("automation job cancelled")
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } returns ClearCacheTask.Result(
+            successful = setOf(junk.identifier),
+            failed = emptyMap(),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        coVerify(exactly = 1) { automationManager.submit(match { it is ClearCacheTask }) }
+        result.succesful shouldContain junk.identifier
     }
 }
