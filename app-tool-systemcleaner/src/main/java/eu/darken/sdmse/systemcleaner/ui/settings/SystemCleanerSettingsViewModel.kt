@@ -1,11 +1,15 @@
 package eu.darken.sdmse.systemcleaner.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.access.AccessState
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import eu.darken.sdmse.common.compose.settings.privilegedGateState
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.setup.SetupModule
@@ -23,6 +27,7 @@ class SystemCleanerSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     upgradeRepo: UpgradeRepo,
     systemCleaner: SystemCleaner,
+    rootManager: RootManager,
     private val settings: SystemCleanerSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
@@ -88,16 +93,19 @@ class SystemCleanerSettingsViewModel @Inject constructor(
         SpecificFilters(anr, localTmp, downloadCache, dataLogger, logDropbox, recentTasks, tombstones, usageStats, packageCache)
     }
 
-    val state: StateFlow<State> = kotlinx.coroutines.flow.combine(
+    val state: StateFlow<State> = combine(
         systemCleaner.state,
         upgradeRepo.upgradeInfo.map { it.isPro },
         settings.filterScreenshotsAge.flow,
         genericFilterFlow,
         specificFilterFlow,
-    ) { cleanerState, isPro, screenshotsAge, generic, specific ->
+        rootManager.accessState,
+    ) { cleanerState, isPro, screenshotsAge, generic, specific, rootAccess ->
         State(
             isPro = isPro,
             areSystemFilterAvailable = cleanerState.areSystemFilterAvailable,
+            rootAccess = rootAccess,
+            systemFilterGate = privilegedGateState(cleanerState.areSystemFilterAvailable, listOf(rootAccess)),
             screenshotsAge = screenshotsAge,
             filterLogFiles = generic.logFiles,
             filterAdvertisements = generic.advertisements,
@@ -175,6 +183,8 @@ class SystemCleanerSettingsViewModel @Inject constructor(
     data class State(
         val isPro: Boolean = false,
         val areSystemFilterAvailable: Boolean = false,
+        val rootAccess: AccessState = AccessState.Undecided,
+        val systemFilterGate: FeatureGateState = FeatureGateState.SETUP,
         val screenshotsAge: Duration = SystemCleanerSettings.SCREENSHOTS_AGE_DEFAULT,
         val filterLogFiles: Boolean = true,
         val filterAdvertisements: Boolean = true,

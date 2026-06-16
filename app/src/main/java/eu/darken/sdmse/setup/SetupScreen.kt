@@ -239,8 +239,13 @@ fun SetupScreenHost(
     }
 
     val isCardsState = uiState is SetupUiState.Cards
-    LaunchedEffect(isCardsState) {
+    // Only replay the intro tour for a full setup open (onboarding or the dashboard "continue
+    // setup" entry). A targeted open from a gated row carries a typeFilter and should go straight
+    // to the relevant card without the onboarding tour.
+    val isTargetedOpen = screenOptions.typeFilter != null
+    LaunchedEffect(isCardsState, isTargetedOpen) {
         if (!isCardsState) return@LaunchedEffect
+        if (isTargetedOpen) return@LaunchedEffect
         if (!tourController.shouldStart(setupTourDef)) return@LaunchedEffect
         tourController.start(setupTourDef)
     }

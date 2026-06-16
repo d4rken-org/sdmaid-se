@@ -227,9 +227,9 @@
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Should SD Maid use root access if it is available? Root access can be used to check additional system folders and private application data.</string>
     <string name="setup_root_state_ready_label">Root access is ready.</string>
-    <string name="setup_root_state_waiting_label">Waiting for root access.</string>
-    <string name="setup_root_enable_root_use_label">Use root access if available</string>
-    <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
+    <string name="setup_root_state_waiting_label">Root access is not available.</string>
+    <string name="setup_root_enable_root_use_label">Try to use root access</string>
+    <string name="setup_root_disable_root_use_label">I didn\'t root my device</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
 
     <string name="setup_shizuku_card_title">Shizuku</string>
@@ -238,7 +238,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link is ready.</string>
     <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Use Shizuku if available</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Try to use Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use Shizuku</string>
 
     <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>

@@ -2,8 +2,10 @@ package eu.darken.sdmse.appcleaner.ui.settings
 
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.root.RootManager
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -83,6 +85,7 @@ class AppCleanerSettingsViewModelTest : BaseTest() {
 
     private fun harness(
         appState: AppCleaner.State = appState(),
+        rootAccess: AccessState = AccessState.Undecided,
         includeInaccessible: Boolean = true,
         forceStop: Boolean = false,
         includeSystem: Boolean = false,
@@ -175,9 +178,13 @@ class AppCleanerSettingsViewModelTest : BaseTest() {
         val appCleaner = mockk<AppCleaner>().apply {
             every { state } returns flowOf(appState)
         }
+        val rootManager = mockk<RootManager>().apply {
+            every { accessState } returns flowOf(rootAccess)
+        }
         val vm = AppCleanerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             appCleaner = appCleaner,
+            rootManager = rootManager,
             settings = settings,
         )
         return Harness(vm, settings, values)

@@ -159,7 +159,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `root card shows waiting label with question mark when root is enabled but not installed`() {
+    fun `root card shows definitive not-available label when root probe failed`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -178,8 +178,10 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             )
         }
 
-        val waitingText = context.getString(R.string.setup_root_state_waiting_label) + " ?"
-        composeRule.onAllNodesWithText(waitingText).assertCountEquals(1)
+        // The settled probe-failure state is definitive — no "?" guesswork is appended.
+        val notAvailableText = context.getString(R.string.setup_root_state_waiting_label)
+        composeRule.onAllNodesWithText(notAvailableText).assertCountEquals(1)
+        composeRule.onAllNodesWithText("$notAvailableText ?").assertCountEquals(0)
     }
 
     @Test

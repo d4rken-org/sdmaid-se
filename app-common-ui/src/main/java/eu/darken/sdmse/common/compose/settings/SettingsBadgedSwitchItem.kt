@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Block
 import androidx.compose.material.icons.twotone.Build
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.Icon
@@ -13,6 +14,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -25,12 +27,17 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
  * Opaque "this row is gated" marker. Each value carries the visual cue (badge icon + tint)
  * the row should show. Consumers decide what happens on badge click via [onBadgeClick].
  *
+ * - [SetupRequired]: an actionable call-to-action (red wrench) — tapping should open setup.
+ * - [Unavailable]: an honest dead-end (muted block icon, dimmed row) — no setup path remains,
+ *   so tapping should only explain why (e.g. a snackbar), never navigate to a futile setup.
+ *
  * Pro-gated rows no longer use this mechanism — they render an inline [UpgradeBadge] next
  * to the title instead. Use `requiresUpgrade` + `onUpgrade` on [SettingsSwitchItem] or
  * [SettingsPreferenceItem] for those.
  */
 sealed class SettingGate(val badgeIcon: ImageVector) {
     data object SetupRequired : SettingGate(Icons.TwoTone.Build)
+    data object Unavailable : SettingGate(Icons.TwoTone.Block)
 }
 
 /**
@@ -75,17 +82,28 @@ fun SettingsBadgedSwitchItem(
         return
     }
 
-    // Keep the row itself `enabled = true` so the badge click fires; the legacy
-    // BadgedCheckboxPreference achieved the same by stacking a clickable overlay on
-    // top of a disabled checkbox. The visual "disabled" cue is applied only to the
-    // trailing Switch — row title/subtitle stay at full alpha so the badge affordance
-    // is legible.
+    // Keep the row itself `enabled = true` so the badge click fires (the legacy
+    // BadgedCheckboxPreference stacked a clickable overlay on a disabled checkbox).
+    // SetupRequired is an actionable CTA: full alpha + red wrench. Unavailable is an honest
+    // dead-end: the whole row is dimmed (still clickable, so the tap can show an explanation)
+    // and the badge is a muted block icon rather than an alarming red wrench.
+    val isBlocked = gate is SettingGate.Unavailable
+    val badgeTint = if (isBlocked) {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    } else {
+        MaterialTheme.colorScheme.error
+    }
+    val badgeDescription = if (isBlocked) {
+        stringResource(CommonR.string.general_unavailable_label)
+    } else {
+        stringResource(CommonR.string.general_set_up_action)
+    }
     SettingsBaseItem(
         icon = icon,
         iconPainter = iconPainter,
         title = title,
         onClick = onBadgeClick,
-        modifier = modifier,
+        modifier = if (isBlocked) modifier.alpha(0.6f) else modifier,
         subtitle = subtitle,
         enabled = true,
         focusKey = focusKey,
@@ -103,8 +121,8 @@ fun SettingsBadgedSwitchItem(
                 )
                 Icon(
                     imageVector = gate.badgeIcon,
-                    contentDescription = stringResource(CommonR.string.general_set_up_action),
-                    tint = MaterialTheme.colorScheme.error,
+                    contentDescription = badgeDescription,
+                    tint = badgeTint,
                     modifier = Modifier.size(20.dp),
                 )
             }
@@ -139,6 +157,22 @@ private fun SettingsBadgedSwitchItemSetupRequiredPreview() {
             onCheckedChange = {},
             onBadgeClick = {},
             gate = SettingGate.SetupRequired,
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SettingsBadgedSwitchItemUnavailablePreview() {
+    PreviewWrapper {
+        SettingsBadgedSwitchItem(
+            icon = Icons.TwoTone.Settings,
+            title = "Unavailable",
+            subtitle = "Dimmed dead-end; tap explains why",
+            checked = false,
+            onCheckedChange = {},
+            onBadgeClick = {},
+            gate = SettingGate.Unavailable,
         )
     }
 }

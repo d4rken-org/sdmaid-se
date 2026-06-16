@@ -51,11 +51,14 @@ internal fun RootSetupCard(
         )
         if (item.state.useRoot == true) {
             val ready = item.state.ourService
-            val baseText = stringResource(
+            // The probe has settled by the time we render a Result (Loading shows a spinner card
+            // instead), so ourService == false is a definitive "not available" — not "waiting".
+            // We never claim the device isn't rooted: root detection is unreliable, so we only
+            // report our own probe outcome.
+            val stateText = stringResource(
                 if (ready) R.string.setup_root_state_ready_label
                 else R.string.setup_root_state_waiting_label,
             )
-            val stateText = if (!item.state.isInstalled) "$baseText ?" else baseText
             Text(
                 text = stateText,
                 style = MaterialTheme.typography.labelMedium,

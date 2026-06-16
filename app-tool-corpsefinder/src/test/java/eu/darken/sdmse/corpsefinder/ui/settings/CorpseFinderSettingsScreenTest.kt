@@ -10,6 +10,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -95,6 +96,7 @@ class CorpseFinderSettingsScreenTest : BaseComposeRobolectricTest() {
                     state = CorpseFinderSettingsViewModel.State(
                         filterPrivateDataEnabled = true,
                         isFilterPrivateDataAvailable = true,
+                        rootFilterGate = FeatureGateState.AVAILABLE,
                     ),
                     onFilterPrivateDataChanged = { filterToggled = it },
                     onRootFilterBadgeClick = { badgeClicked++ },

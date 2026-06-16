@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.adb.shizuku
 import android.content.Context
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -168,6 +169,26 @@ class ShizukuManager @Inject constructor(
             initialValue = null
         )
         .filterNotNull()
+
+    /**
+     * Probe-aware status for UI gating. Mirrors [useShizuku] but exposes the distinct
+     * decided/checking/active/unavailable/declined states the gate UI needs.
+     * [AccessState.Unavailable] also covers "Shizuku not installed / not granted / too old".
+     */
+    val accessState: Flow<AccessState> = settings.useShizuku.flow
+        .flatMapLatest { setting ->
+            when (setting) {
+                null -> flowOf(AccessState.Undecided)
+                false -> flowOf(AccessState.Declined)
+                true -> combine(
+                    shizukuBinder.map { }.onStart { emit(Unit) },
+                    permissionGrantEvents.map { }.onStart { emit(Unit) },
+                ) { _, _ -> if (isShizukud()) AccessState.Active else AccessState.Unavailable }
+                    .onStart { emit(AccessState.Checking) }
+            }
+        }
+        .setupCommonEventHandlers(TAG) { "accessState" }
+        .replayingShare(appScope)
 
     companion object {
         private val TAG = logTag("ADB", "Shizuku", "Manager")

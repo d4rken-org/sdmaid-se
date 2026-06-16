@@ -5,11 +5,16 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.access.AccessState
+import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import eu.darken.sdmse.common.compose.settings.privilegedGateState
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.setup.SetupModule
@@ -26,6 +31,8 @@ class AppControlSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     appControl: AppControl,
     upgradeRepo: UpgradeRepo,
+    rootManager: RootManager,
+    shizukuManager: ShizukuManager,
     private val settings: AppControlSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
@@ -55,7 +62,9 @@ class AppControlSettingsViewModel @Inject constructor(
         settings.moduleSizingEnabled.flow,
         settings.moduleActivityEnabled.flow,
         settings.includeMultiUserEnabled.flow,
-    ) { appState, isPro, sizingEnabled, activityEnabled, multiUserEnabled ->
+        rootManager.accessState,
+        shizukuManager.accessState,
+    ) { appState, isPro, sizingEnabled, activityEnabled, multiUserEnabled, rootAccess, shizukuAccess ->
         State(
             isPro = isPro,
             sizingEnabled = sizingEnabled,
@@ -64,6 +73,17 @@ class AppControlSettingsViewModel @Inject constructor(
             canInfoSize = appState.canInfoSize,
             canInfoActive = appState.canInfoActive,
             canIncludeMultiUser = appState.canIncludeMultiUser,
+            multiUserAccess = rootAccess,
+            multiUserShizukuAccess = shizukuAccess,
+            // Non-pro keeps the upgrade affordance (no gate here); pro users see the honest
+            // root/Shizuku gate. AVAILABLE is driven by canIncludeMultiUser (the same flag the
+            // scan uses) so the gate can't diverge from the capability; accessState only decides
+            // SETUP vs BLOCKED when it's off.
+            multiUserGate = if (isPro) {
+                privilegedGateState(appState.canIncludeMultiUser, listOf(rootAccess, shizukuAccess))
+            } else {
+                FeatureGateState.AVAILABLE
+            },
         )
     }.safeStateIn(
         initialValue = State(),
@@ -124,6 +144,9 @@ class AppControlSettingsViewModel @Inject constructor(
         val canInfoSize: Boolean = false,
         val canInfoActive: Boolean = false,
         val canIncludeMultiUser: Boolean = false,
+        val multiUserAccess: AccessState = AccessState.Undecided,
+        val multiUserShizukuAccess: AccessState = AccessState.Undecided,
+        val multiUserGate: FeatureGateState = FeatureGateState.SETUP,
     )
 
     companion object {

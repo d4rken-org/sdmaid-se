@@ -5,6 +5,9 @@ import android.content.Context
 import android.content.pm.PackageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.access.AccessState
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import eu.darken.sdmse.common.compose.settings.privilegedGateState
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -13,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.toggleSelfComponent
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
@@ -36,6 +40,7 @@ class CorpseFinderSettingsViewModel @Inject constructor(
     private val settings: CorpseFinderSettings,
     upgradeRepo: UpgradeRepo,
     corpseFinder: CorpseFinder,
+    rootManager: RootManager,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
@@ -92,9 +97,12 @@ class CorpseFinderSettingsViewModel @Inject constructor(
         settings.includeRiskKeeper.flow,
         settings.includeRiskCommon.flow,
         filterTogglesFlow,
-    ) { cfState, isPro, watcher, autoDelete, keeper, common, filters ->
+        rootManager.accessState,
+    ) { cfState, isPro, watcher, autoDelete, keeper, common, filters, rootAccess ->
         State(
             isPro = isPro,
+            rootAccess = rootAccess,
+            rootFilterGate = privilegedGateState(cfState.isFilterPrivateDataAvailable, listOf(rootAccess)),
             isWatcherEnabled = watcher,
             isWatcherAutoDeleteEnabled = autoDelete,
             includeRiskKeeper = keeper,
@@ -171,6 +179,8 @@ class CorpseFinderSettingsViewModel @Inject constructor(
 
     data class State(
         val isPro: Boolean = false,
+        val rootAccess: AccessState = AccessState.Undecided,
+        val rootFilterGate: FeatureGateState = FeatureGateState.SETUP,
         val isWatcherEnabled: Boolean = false,
         val isWatcherAutoDeleteEnabled: Boolean = true,
         val includeRiskKeeper: Boolean = false,

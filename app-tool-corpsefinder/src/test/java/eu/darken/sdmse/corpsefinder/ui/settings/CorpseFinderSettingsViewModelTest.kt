@@ -2,8 +2,10 @@ package eu.darken.sdmse.corpsefinder.ui.settings
 
 import android.content.Context
 import android.content.pm.PackageManager
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
@@ -94,6 +96,7 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
         filterAppSource: Boolean = false,
         filterAppSourcePrivate: Boolean = false,
         filterAppSourceAsec: Boolean = false,
+        rootAccess: AccessState = AccessState.Undecided,
         cfState: CorpseFinder.State = cfState(),
     ): Harness {
         val context = mockk<Context>().apply {
@@ -141,6 +144,9 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
+        val rootManager = mockk<RootManager>().apply {
+            every { accessState } returns flowOf(rootAccess)
+        }
         val vm = CorpseFinderSettingsViewModel(
             context = context,
             packageManager = packageManager,
@@ -148,6 +154,7 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
             settings = settings,
             upgradeRepo = upgradeRepo,
             corpseFinder = corpseFinder,
+            rootManager = rootManager,
         )
         return Harness(vm, context, packageManager, settings, values, watcherFlow)
     }

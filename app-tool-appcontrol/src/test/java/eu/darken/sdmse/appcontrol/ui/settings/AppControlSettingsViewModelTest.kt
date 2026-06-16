@@ -4,8 +4,11 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.access.AccessState
+import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -82,6 +85,8 @@ class AppControlSettingsViewModelTest : BaseTest() {
         canInfoSize: Boolean = true,
         canInfoActive: Boolean = true,
         canIncludeMultiUser: Boolean = true,
+        rootAccess: AccessState = AccessState.Undecided,
+        shizukuAccess: AccessState = AccessState.Undecided,
         listSortInitial: SortSettings = SortSettings(),
         listFilterInitial: FilterSettings = FilterSettings(),
     ): Harness {
@@ -114,10 +119,18 @@ class AppControlSettingsViewModelTest : BaseTest() {
             every { upgradeInfo } returns MutableStateFlow(upgradeInfo(isPro = isPro))
         }
 
+        val rootManager = mockk<RootManager>().apply {
+            every { accessState } returns flowOf(rootAccess)
+        }
+        val shizukuManager = mockk<ShizukuManager>().apply {
+            every { accessState } returns flowOf(shizukuAccess)
+        }
         val vm = AppControlSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             appControl = appControl,
             upgradeRepo = upgradeRepo,
+            rootManager = rootManager,
+            shizukuManager = shizukuManager,
             settings = settings,
         )
         return Harness(

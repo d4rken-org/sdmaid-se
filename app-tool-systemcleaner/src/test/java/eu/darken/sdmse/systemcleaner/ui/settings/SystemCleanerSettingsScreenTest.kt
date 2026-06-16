@@ -10,6 +10,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -121,5 +122,32 @@ class SystemCleanerSettingsScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("ANR errors").performClick()
 
         if (badgeClicks < 1) throw AssertionError("Expected badge click to fire, got $badgeClicks")
+    }
+
+    @Test
+    fun `blocked root-gated row shows Unavailable badge and does not route to setup`() {
+        // When root is a settled dead-end, the row is non-actionable: it shows the muted
+        // "Unavailable" badge and tapping must NOT navigate to setup (it shows a snackbar instead).
+        var badgeClicks = 0
+        composeRule.setSettingsScreen(
+            state = SystemCleanerSettingsViewModel.State(
+                areSystemFilterAvailable = false,
+                systemFilterGate = FeatureGateState.BLOCKED,
+                filterAnr = false,
+            ),
+            onRootFilterBadgeClick = { badgeClicks++ },
+        )
+
+        composeRule.scrollToText("ANR errors")
+        composeRule.onAllNodesWithContentDescription("Unavailable").fetchSemanticsNodes().size.let {
+            if (it == 0) throw AssertionError("Expected at least one Unavailable badge visible")
+        }
+
+        composeRule.onNodeWithText("ANR errors").performClick()
+        composeRule.waitForIdle()
+
+        if (badgeClicks != 0) {
+            throw AssertionError("Blocked row must not route to setup, but onRootFilterBadgeClick fired $badgeClicks time(s)")
+        }
     }
 }

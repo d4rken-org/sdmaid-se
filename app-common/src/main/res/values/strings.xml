@@ -27,6 +27,7 @@
     <string name="general_save_action">Save</string>    <string name="general_gotit_action">Got it</string>
     <string name="general_fix_action">Fix</string>
     <string name="general_set_up_action">Set up</string>
+    <string name="general_unavailable_label">Unavailable</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Empty</string>
@@ -218,4 +219,9 @@
     <string name="appcontrol_systemsettings_open_title">Show settings</string>
     <string name="ui_theme_color_sunset_label">Sunset</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
+
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">This feature needs root access, but SD Maid couldn\'t get it on this device.</string>
+    <string name="access_blocked_root_declined">This feature needs root access. You can enable it via the setup screen.</string>
+    <string name="access_blocked_root_or_shizuku">This feature needs root or Shizuku access, which isn\'t available on this device.</string>
 </resources>

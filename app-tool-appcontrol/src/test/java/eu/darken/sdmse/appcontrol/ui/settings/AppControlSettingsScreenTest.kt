@@ -10,6 +10,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -105,6 +106,7 @@ class AppControlSettingsScreenTest : BaseComposeRobolectricTest() {
                 canInfoSize = true,
                 canInfoActive = true,
                 canIncludeMultiUser = true,
+                multiUserGate = FeatureGateState.AVAILABLE,
             ),
         )
 
@@ -165,6 +167,7 @@ class AppControlSettingsScreenTest : BaseComposeRobolectricTest() {
                 isPro = true,
                 multiUserEnabled = false,
                 canIncludeMultiUser = true,
+                multiUserGate = FeatureGateState.AVAILABLE,
             ),
             onMultiUserChanged = { changed = it },
         )

@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.root
 import android.content.Context
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -24,6 +25,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
@@ -128,6 +131,25 @@ class RootManager @Inject constructor(
             initialValue = null
         )
         .filterNotNull()
+
+    /**
+     * Probe-aware status for UI gating: distinguishes "not decided" / "checking" / "active" /
+     * "opted in but unavailable" / "opted out". Shares [isRooted]'s cache, so it does not trigger
+     * an additional su bind. [AccessState.Active] is equivalent to [useRoot] being true.
+     */
+    val accessState: Flow<AccessState> = settings.useRoot.flow
+        .flatMapLatest { setting ->
+            when (setting) {
+                null -> flowOf(AccessState.Undecided)
+                false -> flowOf(AccessState.Declined)
+                true -> flow {
+                    emit(AccessState.Checking)
+                    emit(if (isRooted()) AccessState.Active else AccessState.Unavailable)
+                }
+            }
+        }
+        .setupCommonEventHandlers(TAG) { "accessState" }
+        .replayingShare(appScope)
 
     suspend fun isInstalled(): Boolean {
         val installed = KNOWN_ROOT_MANAGERS.any {

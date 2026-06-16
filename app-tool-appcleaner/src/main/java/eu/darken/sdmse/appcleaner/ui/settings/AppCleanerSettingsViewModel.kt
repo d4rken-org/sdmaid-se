@@ -3,10 +3,14 @@ package eu.darken.sdmse.appcleaner.ui.settings
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.common.access.AccessState
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import eu.darken.sdmse.common.compose.settings.privilegedGateState
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupRoute
@@ -18,6 +22,7 @@ import javax.inject.Inject
 class AppCleanerSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     appCleaner: AppCleaner,
+    rootManager: RootManager,
     private val settings: AppCleanerSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
@@ -106,9 +111,12 @@ class AppCleanerSettingsViewModel @Inject constructor(
         includeFlow,
         genericFilterFlow,
         specificFilterFlow,
-    ) { appState, include, generic, specific ->
+        rootManager.accessState,
+    ) { appState, include, generic, specific, rootAccess ->
         State(
             isOtherUsersAvailable = appState.isOtherUsersAvailable,
+            otherUsersAccess = rootAccess,
+            otherUsersGate = privilegedGateState(appState.isOtherUsersAvailable, listOf(rootAccess)),
             isRunningAppsDetectionAvailable = appState.isRunningAppsDetectionAvailable,
             isInaccessibleCacheAvailable = appState.isInaccessibleCacheAvailable,
             isAcsRequired = appState.isAcsRequired,
@@ -191,6 +199,8 @@ class AppCleanerSettingsViewModel @Inject constructor(
 
     data class State(
         val isOtherUsersAvailable: Boolean = false,
+        val otherUsersAccess: AccessState = AccessState.Undecided,
+        val otherUsersGate: FeatureGateState = FeatureGateState.SETUP,
         val isRunningAppsDetectionAvailable: Boolean = false,
         val isInaccessibleCacheAvailable: Boolean = false,
         val isAcsRequired: Boolean = false,

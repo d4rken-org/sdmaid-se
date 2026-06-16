@@ -21,6 +21,8 @@ import androidx.compose.material.icons.twotone.TaskAlt
 import androidx.compose.material.icons.twotone.ThumbUp
 import androidx.compose.material.icons.twotone.Usb
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -41,14 +43,17 @@ import eu.darken.sdmse.common.compose.icons.Penguin
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Tombstone
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.settings.SettingGate
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.SettingsBadgedSwitchItem
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
 import eu.darken.sdmse.common.compose.settings.dialogs.AgeInputDialog
+import eu.darken.sdmse.common.compose.settings.rememberGateClickHandler
+import eu.darken.sdmse.common.compose.settings.toSettingGate
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.formatAge
@@ -62,9 +67,11 @@ fun SystemCleanerSettingsScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
     val state by vm.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     SystemCleanerSettingsScreen(
         state = state,
+        snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onCustomFiltersClick = vm::onCustomFiltersClick,
         onLogFilesChanged = vm::setFilterLogFiles,
@@ -99,6 +106,7 @@ fun SystemCleanerSettingsScreenHost(
 @Composable
 internal fun SystemCleanerSettingsScreen(
     state: SystemCleanerSettingsViewModel.State = SystemCleanerSettingsViewModel.State(),
+    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     onNavigateUp: () -> Unit = {},
     onCustomFiltersClick: () -> Unit = {},
     onLogFilesChanged: (Boolean) -> Unit = {},
@@ -147,7 +155,18 @@ internal fun SystemCleanerSettingsScreen(
         )
     }
 
-    val rootGate = SettingGate.SetupRequired
+    val gateClick = rememberGateClickHandler(snackbarHostState)
+    val rootGate = state.systemFilterGate.toSettingGate()
+    val rootBlockedMessage = stringResource(
+        if (state.rootAccess == AccessState.Declined) {
+            CommonR.string.access_blocked_root_declined
+        } else {
+            CommonR.string.access_blocked_root_unavailable
+        }
+    )
+    val onRootGateClick: () -> Unit = {
+        gateClick(state.systemFilterGate, rootBlockedMessage, onRootFilterBadgeClick)
+    }
 
     SdmScaffold(
         topBar = {
@@ -162,6 +181,7 @@ internal fun SystemCleanerSettingsScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -329,8 +349,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_anr_summary),
                     checked = state.filterAnr,
                     onCheckedChange = onAnrChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -340,8 +360,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_localtmp_summary),
                     checked = state.filterLocalTmp,
                     onCheckedChange = onLocalTmpChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -351,8 +371,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_downloadcache_summary),
                     checked = state.filterDownloadCache,
                     onCheckedChange = onDownloadCacheChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -362,8 +382,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_datalogger_summary),
                     checked = state.filterDataLogger,
                     onCheckedChange = onDataLoggerChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -373,8 +393,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_logdropbox_summary),
                     checked = state.filterLogDropbox,
                     onCheckedChange = onLogDropboxChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -384,8 +404,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_recenttasks_summary),
                     checked = state.filterRecentTasks,
                     onCheckedChange = onRecentTasksChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -395,8 +415,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_tombstones_summary),
                     checked = state.filterTombstones,
                     onCheckedChange = onTombstonesChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -406,8 +426,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_usagestats_summary),
                     checked = state.filterUsageStats,
                     onCheckedChange = onUsageStatsChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -417,8 +437,8 @@ internal fun SystemCleanerSettingsScreen(
                     subtitle = stringResource(R.string.systemcleaner_filter_packagecaches_summary),
                     checked = state.filterPackageCache,
                     onCheckedChange = onPackageCacheChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.areSystemFilterAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
         }
@@ -433,6 +453,7 @@ private fun SystemCleanerSettingsScreenPreview() {
             state = SystemCleanerSettingsViewModel.State(
                 isPro = true,
                 areSystemFilterAvailable = true,
+                systemFilterGate = FeatureGateState.AVAILABLE,
                 filterScreenshots = true,
                 filterSuperfluosApks = true,
             ),

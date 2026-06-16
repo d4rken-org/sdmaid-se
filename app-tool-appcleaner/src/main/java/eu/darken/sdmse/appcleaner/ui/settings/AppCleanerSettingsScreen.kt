@@ -23,6 +23,8 @@ import androidx.compose.material.icons.twotone.RotateRight
 import androidx.compose.material.icons.twotone.SignalCellularOff
 import androidx.compose.material.icons.twotone.VisibilityOff
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -43,8 +45,10 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.WeChat
 import eu.darken.sdmse.common.compose.icons.WhatsApp
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.SettingGate
 import eu.darken.sdmse.common.compose.settings.SettingsBadgedSwitchItem
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
@@ -52,6 +56,8 @@ import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
 import eu.darken.sdmse.common.compose.settings.dialogs.AgeInputDialog
 import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
+import eu.darken.sdmse.common.compose.settings.rememberGateClickHandler
+import eu.darken.sdmse.common.compose.settings.toSettingGate
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.formatAge
@@ -66,9 +72,11 @@ fun AppCleanerSettingsScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
     val state by vm.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     AppCleanerSettingsScreen(
         state = state,
+        snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onIncludeSystemAppsChanged = vm::setIncludeSystemApps,
         onIncludeOtherUsersChanged = vm::setIncludeOtherUsers,
@@ -110,6 +118,7 @@ fun AppCleanerSettingsScreenHost(
 @Composable
 internal fun AppCleanerSettingsScreen(
     state: AppCleanerSettingsViewModel.State = AppCleanerSettingsViewModel.State(),
+    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     onNavigateUp: () -> Unit = {},
     onIncludeSystemAppsChanged: (Boolean) -> Unit = {},
     onIncludeOtherUsersChanged: (Boolean) -> Unit = {},
@@ -149,6 +158,15 @@ internal fun AppCleanerSettingsScreen(
     var showSizeDialog by remember { mutableStateOf(false) }
     var showAgeDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
+
+    val gateClick = rememberGateClickHandler(snackbarHostState)
+    val otherUsersBlockedMessage = stringResource(
+        if (state.otherUsersAccess == AccessState.Declined) {
+            CommonR.string.access_blocked_root_declined
+        } else {
+            CommonR.string.access_blocked_root_unavailable
+        }
+    )
 
     if (showSizeDialog) {
         SizeInputDialog(
@@ -195,6 +213,7 @@ internal fun AppCleanerSettingsScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -216,8 +235,10 @@ internal fun AppCleanerSettingsScreen(
                     subtitle = stringResource(CommonR.string.general_include_multiuser_summary),
                     checked = state.includeOtherUsers,
                     onCheckedChange = onIncludeOtherUsersChanged,
-                    onBadgeClick = onIncludeOtherUsersBadge,
-                    gate = if (state.isOtherUsersAvailable) null else SettingGate.SetupRequired,
+                    onBadgeClick = {
+                        gateClick(state.otherUsersGate, otherUsersBlockedMessage, onIncludeOtherUsersBadge)
+                    },
+                    gate = state.otherUsersGate.toSettingGate(),
                 )
             }
             item {
@@ -479,6 +500,7 @@ private fun AppCleanerSettingsScreenPreviewAcsRequired() {
             state = AppCleanerSettingsViewModel.State(
                 isAcsRequired = true,
                 isOtherUsersAvailable = true,
+                otherUsersGate = FeatureGateState.AVAILABLE,
                 isRunningAppsDetectionAvailable = true,
                 isInaccessibleCacheAvailable = false,
             ),
@@ -494,6 +516,7 @@ private fun AppCleanerSettingsScreenPreviewAcsNotRequired() {
             state = AppCleanerSettingsViewModel.State(
                 isAcsRequired = false,
                 isOtherUsersAvailable = true,
+                otherUsersGate = FeatureGateState.AVAILABLE,
                 isRunningAppsDetectionAvailable = true,
                 isInaccessibleCacheAvailable = true,
             ),

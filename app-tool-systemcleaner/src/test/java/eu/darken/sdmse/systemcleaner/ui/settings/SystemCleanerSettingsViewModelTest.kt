@@ -1,7 +1,9 @@
 package eu.darken.sdmse.systemcleaner.ui.settings
 
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -153,10 +155,16 @@ class SystemCleanerSettingsViewModelTest : BaseTest() {
                 mockk<UpgradeRepo.Info>().apply { every { this@apply.isPro } returns isPro },
             )
         }
+        val rootManager = mockk<RootManager>().apply {
+            every { accessState } returns flowOf(
+                if (rooted) AccessState.Active else AccessState.Undecided,
+            )
+        }
         val vm = SystemCleanerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             upgradeRepo = upgradeRepo,
             systemCleaner = systemCleaner,
+            rootManager = rootManager,
             settings = settings,
         )
         return Harness(vm, settings, values)

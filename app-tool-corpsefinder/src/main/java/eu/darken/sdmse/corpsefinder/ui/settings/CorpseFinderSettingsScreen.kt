@@ -7,22 +7,28 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.LocalLibrary
 import androidx.compose.material.icons.twotone.PhotoLibrary
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.settings.SettingGate
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.SettingsBadgedSwitchItem
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
+import eu.darken.sdmse.common.compose.settings.rememberGateClickHandler
+import eu.darken.sdmse.common.compose.settings.toSettingGate
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.corpsefinder.R
@@ -36,9 +42,11 @@ fun CorpseFinderSettingsScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
     val state by vm.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     CorpseFinderSettingsScreen(
         state = state,
+        snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onWatcherChanged = vm::setWatcherEnabled,
         onWatcherBadgeClick = vm::onWatcherBadgeClick,
@@ -63,6 +71,7 @@ fun CorpseFinderSettingsScreenHost(
 @Composable
 internal fun CorpseFinderSettingsScreen(
     state: CorpseFinderSettingsViewModel.State = CorpseFinderSettingsViewModel.State(),
+    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     onNavigateUp: () -> Unit = {},
     onWatcherChanged: (Boolean) -> Unit = {},
     onWatcherBadgeClick: () -> Unit = {},
@@ -84,7 +93,18 @@ internal fun CorpseFinderSettingsScreen(
 ) {
     val watcherSummary = stringResource(R.string.corpsefinder_watcher_summary)
 
-    val rootGate = SettingGate.SetupRequired
+    val gateClick = rememberGateClickHandler(snackbarHostState)
+    val rootGate = state.rootFilterGate.toSettingGate()
+    val rootBlockedMessage = stringResource(
+        if (state.rootAccess == AccessState.Declined) {
+            CommonR.string.access_blocked_root_declined
+        } else {
+            CommonR.string.access_blocked_root_unavailable
+        }
+    )
+    val onRootGateClick: () -> Unit = {
+        gateClick(state.rootFilterGate, rootBlockedMessage, onRootFilterBadgeClick)
+    }
 
     SdmScaffold(
         topBar = {
@@ -99,6 +119,7 @@ internal fun CorpseFinderSettingsScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -193,8 +214,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_privatedata_summary),
                     checked = state.filterPrivateDataEnabled,
                     onCheckedChange = onFilterPrivateDataChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterPrivateDataAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -204,8 +225,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_dalvik_summary),
                     checked = state.filterDalvikCacheEnabled,
                     onCheckedChange = onFilterDalvikCacheChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterDalvikCacheAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -215,8 +236,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_artprofiles_summary),
                     checked = state.filterArtProfilesEnabled,
                     onCheckedChange = onFilterArtProfilesChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterArtProfilesAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -226,8 +247,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_applib_summary),
                     checked = state.filterAppLibEnabled,
                     onCheckedChange = onFilterAppLibChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterAppLibrariesAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -237,8 +258,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_appsource_summary),
                     checked = state.filterAppSourceEnabled,
                     onCheckedChange = onFilterAppSourceChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterAppSourcesAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -248,8 +269,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_appsource_private_summary),
                     checked = state.filterAppSourcePrivateEnabled,
                     onCheckedChange = onFilterAppSourcePrivateChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterPrivateAppSourcesAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
             item {
@@ -259,8 +280,8 @@ internal fun CorpseFinderSettingsScreen(
                     subtitle = stringResource(R.string.corpsefinder_filter_appasec_summary),
                     checked = state.filterAppSourceAsecEnabled,
                     onCheckedChange = onFilterAppSourceAsecChanged,
-                    onBadgeClick = onRootFilterBadgeClick,
-                    gate = if (state.isFilterAppSourcesAvailable) null else rootGate,
+                    onBadgeClick = onRootGateClick,
+                    gate = rootGate,
                 )
             }
         }
@@ -275,6 +296,7 @@ private fun CorpseFinderSettingsScreenPreviewRooted() {
             state = CorpseFinderSettingsViewModel.State(
                 isPro = true,
                 isWatcherEnabled = true,
+                rootFilterGate = FeatureGateState.AVAILABLE,
                 isFilterPrivateDataAvailable = true,
                 isFilterDalvikCacheAvailable = true,
                 isFilterArtProfilesAvailable = true,

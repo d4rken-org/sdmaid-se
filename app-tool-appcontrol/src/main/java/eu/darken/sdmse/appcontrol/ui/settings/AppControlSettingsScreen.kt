@@ -8,10 +8,13 @@ import androidx.compose.material.icons.twotone.DirectionsRun
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.MonitorWeight
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -20,8 +23,11 @@ import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.SettingGate
 import eu.darken.sdmse.common.compose.settings.SettingsBadgedSwitchItem
+import eu.darken.sdmse.common.compose.settings.rememberGateClickHandler
+import eu.darken.sdmse.common.compose.settings.toSettingGate
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.R as CommonR
@@ -33,9 +39,11 @@ fun AppControlSettingsScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
     val state by vm.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     AppControlSettingsScreen(
         state = state,
+        snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onSizingChanged = vm::setSizingEnabled,
         onSizingBadgeClick = vm::onSizingBadgeClick,
@@ -49,6 +57,7 @@ fun AppControlSettingsScreenHost(
 @Composable
 internal fun AppControlSettingsScreen(
     state: AppControlSettingsViewModel.State = AppControlSettingsViewModel.State(),
+    snackbarHostState: SnackbarHostState = SnackbarHostState(),
     onNavigateUp: () -> Unit = {},
     onSizingChanged: (Boolean) -> Unit = {},
     onSizingBadgeClick: () -> Unit = {},
@@ -58,6 +67,9 @@ internal fun AppControlSettingsScreen(
     onMultiUserBadgeClick: () -> Unit = {},
 ) {
     val multiUserSummary = stringResource(CommonR.string.general_include_multiuser_summary)
+
+    val gateClick = rememberGateClickHandler(snackbarHostState)
+    val multiUserBlockedMessage = stringResource(CommonR.string.access_blocked_root_or_shizuku)
 
     SdmScaffold(
         topBar = {
@@ -72,6 +84,7 @@ internal fun AppControlSettingsScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -107,8 +120,10 @@ internal fun AppControlSettingsScreen(
                     // Non-Pro users see an unchecked switch regardless of the stored value.
                     checked = state.isPro && state.multiUserEnabled,
                     onCheckedChange = onMultiUserChanged,
-                    onBadgeClick = onMultiUserBadgeClick,
-                    gate = if (state.isPro && !state.canIncludeMultiUser) SettingGate.SetupRequired else null,
+                    onBadgeClick = {
+                        gateClick(state.multiUserGate, multiUserBlockedMessage, onMultiUserBadgeClick)
+                    },
+                    gate = state.multiUserGate.toSettingGate(),
                     requiresUpgrade = !state.isPro,
                     onUpgrade = onMultiUserBadgeClick,
                 )
@@ -130,6 +145,7 @@ private fun AppControlSettingsScreenPreviewReady() {
                 canInfoSize = true,
                 canInfoActive = true,
                 canIncludeMultiUser = true,
+                multiUserGate = FeatureGateState.AVAILABLE,
             ),
         )
     }
