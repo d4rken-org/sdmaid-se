@@ -193,6 +193,45 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
         return actionResult
     }
 
+    /**
+     * Captures and runs the storage-entry step (the first step, "Storage entry for …"), which
+     * navigates from the App Info screen into the storage detail. Returns the nodeAction result.
+     * Runs the action a single time so callers can assert one-shot behaviour (e.g. that a clipped
+     * node is scrolled into view rather than blindly tapped).
+     */
+    protected suspend fun captureAndRunStorageEntryAction(
+        spec: S = createSpec(),
+        pkg: Installed = createTestPkg(),
+    ): Boolean {
+        var actionResult = false
+
+        coEvery { stepper.process(any(), any()) } coAnswers {
+            val step = secondArg<AutomationStep>()
+            if (step.descriptionInternal.contains("storage", ignoreCase = true)) {
+                val stepContext = StepContext(
+                    hostContext = testContext,
+                    tag = "test",
+                    stepAttempts = 0,
+                )
+                val nodeAction = step.nodeAction
+                if (nodeAction != null) {
+                    try {
+                        actionResult = nodeAction.invoke(stepContext)
+                    } catch (_: StepAbortException) {
+                        actionResult = false
+                    }
+                }
+            }
+            Unit
+        }
+
+        val automationSpec = spec.getClearCache(pkg) as AutomationSpec.Explorer
+        val plan = automationSpec.createPlan()
+        plan.invoke(testContext)
+
+        return actionResult
+    }
+
     // ============================================================
     // Generic isResponsible() tests - work for any ROM spec
     // ============================================================

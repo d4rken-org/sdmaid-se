@@ -2,7 +2,6 @@ package eu.darken.sdmse.automation.core.common.stepper
 
 import android.accessibilityservice.GestureDescription
 import android.graphics.Path
-import android.graphics.Rect
 import android.view.ViewConfiguration
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.children
@@ -10,6 +9,7 @@ import eu.darken.sdmse.automation.core.common.contentDescMatches
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.distanceTo
 import eu.darken.sdmse.automation.core.common.findParentOrNull
+import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.textMatches
 import eu.darken.sdmse.automation.core.dispatchGesture
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
@@ -17,9 +17,12 @@ import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 
 
 suspend fun StepContext.findNode(
@@ -203,10 +206,17 @@ suspend fun StepContext.clickGesture(
     isDryRun: Boolean = false,
     node: ACSNodeInfo,
 ): Boolean {
-    val rect = Rect().apply { node.getBoundsInScreen(this) }
-    val x = rect.centerX().toFloat()
-    val y = rect.centerY().toFloat()
-    log(tag, VERBOSE) { "clickGesture(): node=$node, bounds=$rect" }
+    val bounds = node.getScreenBounds()
+    // Empty/degenerate bounds mean the node is clipped (e.g. behind a system bar). The
+    // computed center would land on whatever occupies that region (often the navigation bar's
+    // home button), so refuse the tap and let the step retry via node recovery.
+    if (bounds.isEmpty()) {
+        log(tag, WARN) { "clickGesture(): Refusing tap, node bounds are empty/degenerate: $bounds ($node)" }
+        return false
+    }
+    val x = ((bounds.left + bounds.right) / 2).toFloat()
+    val y = ((bounds.top + bounds.bottom) / 2).toFloat()
+    log(tag, VERBOSE) { "clickGesture(): node=$node, bounds=$bounds" }
     return clickGestureAtCoords(x, y, isDryRun)
 }
 
@@ -219,6 +229,15 @@ suspend fun StepContext.clickGestureAtCoords(
     y: Float,
     isDryRun: Boolean = false,
 ): Boolean {
+    // Defense-in-depth: never dispatch a tap outside the current foreground window (e.g. onto
+    // the navigation/status bar, which belongs to a different window). right/bottom are exclusive.
+    host.windowRoot()?.getScreenBounds()?.let { root ->
+        if (x < root.left || x >= root.right || y < root.top || y >= root.bottom) {
+            log(tag, WARN) { "clickGestureAtCoords(): Refusing tap at X=$x, Y=$y, outside window root $root" }
+            return false
+        }
+    }
+
     val path = Path().apply {
         moveTo(x, y)
         lineTo(x + 1f, y + 1f)
@@ -227,15 +246,20 @@ suspend fun StepContext.clickGestureAtCoords(
         addStroke(GestureDescription.StrokeDescription(path, 0, ViewConfiguration.getTapTimeout().toLong()))
     }.build()
 
-    log(tag, VERBOSE) { "clickGesture(): Waiting for passthrough..." }
-    host.changeOptions { it.copy(passthrough = true) }
-    host.state.filter { it.passthrough }.first()
+    return try {
+        log(tag, VERBOSE) { "clickGesture(): Waiting for passthrough..." }
+        host.changeOptions { it.copy(passthrough = true) }
+        host.state.filter { it.passthrough }.first()
 
-    log(tag) { "clickGestureAtCoords(): Performing CLICK gesture at X=$x, Y=$y" }
-    val success = if (isDryRun) true else host.dispatchGesture(gesture)
-
-    host.changeOptions { it.copy(passthrough = false) }
-    host.state.filter { !it.passthrough }.first()
-
-    return success
+        log(tag) { "clickGestureAtCoords(): Performing CLICK gesture at X=$x, Y=$y" }
+        if (isDryRun) true else host.dispatchGesture(gesture)
+    } finally {
+        // Always restore passthrough, even if enabling/dispatch threw or we're cancelled
+        // mid-gesture; leaving it on would stop the service from intercepting touches. Bounded
+        // so it can never hang past the step timeout if the state never settles.
+        withContext(NonCancellable) {
+            host.changeOptions { it.copy(passthrough = false) }
+            withTimeoutOrNull(1_000L) { host.state.filter { !it.passthrough }.first() }
+        }
+    }
 }
