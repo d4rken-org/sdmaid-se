@@ -30,6 +30,8 @@ class GuidedTourControllerTest : BaseTest() {
 
     private lateinit var prefsFlow: MutableStateFlow<TourPreferences>
     private lateinit var prefsValue: DataStoreValue<TourPreferences>
+    private lateinit var enabledFlow: MutableStateFlow<Boolean>
+    private lateinit var enabledValue: DataStoreValue<Boolean>
 
     private val basicDefinition = TourDefinition(
         id = TourId("test.basic"),
@@ -61,6 +63,20 @@ class GuidedTourControllerTest : BaseTest() {
             }
         }
         every { generalSettings.tourPreferences } returns prefsValue
+
+        enabledFlow = MutableStateFlow(true)
+        enabledValue = mockk {
+            every { flow } returns enabledFlow
+            coEvery { update(any<(Boolean) -> Boolean?>()) } coAnswers {
+                @Suppress("UNCHECKED_CAST")
+                val fn = firstArg<(Boolean) -> Boolean?>()
+                val old = enabledFlow.value
+                val new = fn(old) ?: old
+                enabledFlow.value = new
+                DataStoreValue.Updated(old, new)
+            }
+        }
+        every { generalSettings.isGuidedToursEnabled } returns enabledValue
     }
 
     private fun TestScope.controller(): GuidedTourController = GuidedTourController(
@@ -90,6 +106,27 @@ class GuidedTourControllerTest : BaseTest() {
         val ctrl = controller()
         ctrl.start(basicDefinition)
         ctrl.shouldStart(basicDefinition) shouldBe false
+    }
+
+    @Test
+    fun `shouldStart is false when guided tours are globally disabled`() = runTest {
+        enabledFlow.value = false
+        controller().shouldStart(basicDefinition) shouldBe false
+    }
+
+    @Test
+    fun `start no-ops when guided tours are globally disabled`() = runTest {
+        enabledFlow.value = false
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        ctrl.session.value shouldBe null
+    }
+
+    @Test
+    fun `reset re-enables guided tours`() = runTest {
+        enabledFlow.value = false
+        controller().reset()
+        enabledFlow.value shouldBe true
     }
 
     @Test

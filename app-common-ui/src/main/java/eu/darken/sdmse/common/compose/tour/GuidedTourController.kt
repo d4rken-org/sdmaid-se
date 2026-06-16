@@ -44,6 +44,7 @@ class GuidedTourController @Inject constructor(
     private val mutationMutex = Mutex()
 
     suspend fun shouldStart(definition: TourDefinition): Boolean {
+        if (!generalSettings.isGuidedToursEnabled.value()) return false
         if (_session.value != null) return false
         val raw = definition.id.raw
         if (raw in skippedThisSession) return false
@@ -153,6 +154,8 @@ class GuidedTourController @Inject constructor(
         log(TAG) { "reset()" }
         skippedThisSession.clear()
         generalSettings.tourPreferences.value(TourPreferences())
+        // Resetting brings tours back even if the user opted out during onboarding.
+        generalSettings.isGuidedToursEnabled.value(true)
     }
 
     fun onRouteChanged(top: NavKey?) {

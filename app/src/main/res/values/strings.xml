@@ -104,6 +104,8 @@
     <string name="onboarding_setup_body5">For more thorough results, visit each tool\'s settings and adjust them to your liking.</string>
     <string name="onboarding_setup_body3">Start using SD Maid by setting up access.</string>
     <string name="onboarding_setup_continue_action">Set up access</string>
+    <string name="onboarding_setup_tours_enabled_label">Show guided tours</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Get short tips that point out non-obvious features as you open each tool. You can bring them back anytime with \"Reset guided tours\" in the settings.</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
@@ -360,5 +362,5 @@
     <string name="tour_setup_intro_body">Each card below is a permission SD Maid can use. All are optional, but more permissions mean more features and more thorough scans. Without any, most tools will find little to clean.</string>
 
     <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
-    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen.</string>
+    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables tours if you turned them off during setup.</string>
 </resources>
