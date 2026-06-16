@@ -11,7 +11,9 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.isClickyButton
+import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.common.scrollNodeIntoView
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
@@ -41,6 +43,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.device.RomTypeProvider
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 @Reusable
@@ -90,8 +93,26 @@ class RealmeSpecs @Inject constructor(
                         if (mapped != null) {
                             clickNormal(node = mapped)
                         } else {
+                            // No clickable parent (e.g. Compose-based settings): we must tap by
+                            // coordinates. If the row is clipped behind a system bar its bounds are
+                            // degenerate and a tap would hit the navigation bar.
                             log(TAG, WARN) { "Target has no clickable parent, trying gesture..." }
-                            clickGesture(node = target)
+                            if (target.getScreenBounds().isEmpty()) {
+                                // Bring it on-screen, then re-find on a fresh tree. If it's still
+                                // clipped, fail so node recovery scrolls and the step retries —
+                                // never tap degenerate bounds (that lands on the navigation bar).
+                                log(TAG, WARN) { "Target bounds are clipped, scrolling into view: $target" }
+                                target.scrollNodeIntoView()
+                                delay(250)
+                                val refreshed = storageFinder(this) ?: return@action false
+                                if (refreshed.getScreenBounds().isEmpty()) {
+                                    log(TAG, WARN) { "Target still clipped after scroll, retrying: $refreshed" }
+                                    return@action false
+                                }
+                                clickGesture(node = refreshed)
+                            } else {
+                                clickGesture(node = target)
+                            }
                         }
                     }
 
