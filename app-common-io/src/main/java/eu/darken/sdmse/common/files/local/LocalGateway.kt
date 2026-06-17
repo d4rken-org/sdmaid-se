@@ -37,6 +37,7 @@ import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.common.storage.StorageEnvironment
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onCompletion
@@ -243,6 +244,48 @@ class LocalGateway @Inject constructor(
         } catch (e: Exception) {
             throw ReadException(path = path, cause = e).also {
                 log(TAG, WARN) { "lookup(path=$path, mode=$mode) failed:\n${it.asLog()}" }
+            }
+        }
+    }
+
+    override suspend fun lookupExtended(path: LocalPath): LocalPathLookupExtended = lookupExtended(path, Mode.AUTO)
+
+    suspend fun lookupExtended(path: LocalPath, mode: Mode = Mode.AUTO): LocalPathLookupExtended = runIO {
+        try {
+            val javaFile = path.asFile()
+            val canRead = if (mode == Mode.ROOT) {
+                false
+            } else {
+                javaFile.canRead()
+            }
+
+            when {
+                mode == Mode.NORMAL || canRead && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "lookupExtended($mode->NORMAL): $path" }
+                    if (!canRead) throw ReadException(path = path)
+                    path.performLookupExtended(ipcFunnel, libcoreTool)
+                }
+
+                hasRoot() && (mode == Mode.ROOT || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupExtended($mode->ROOT): $path" }
+                    rootOps { it.lookUpExtended(path) }
+                }
+
+                hasAdb() && (mode == Mode.ADB || !canRead && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupExtended($mode->ADB): $path" }
+                    adbOps { it.lookUpExtended(path) }
+                }
+
+                else -> throw IOException("No matching mode available.")
+            }.also {
+                log(TAG, VERBOSE) { "Looked up extended: $it" }
+            }
+
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            throw ReadException(path = path, cause = e).also {
+                log(TAG, WARN) { "lookupExtended(path=$path, mode=$mode) failed:\n${it.asLog()}" }
             }
         }
     }
