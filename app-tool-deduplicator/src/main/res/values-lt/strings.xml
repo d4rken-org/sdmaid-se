@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_explanation_short">Rasti pasikartojantių duomenų jūsų įrenginyje.</string>
+    <string name="deduplicator_explanation_short">Raskite dubliuotus duomenis savo įrenginyje.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d dublikatas ištrintas</item>
-        <item quantity="few">%d dublikatai ištrinti</item>
-        <item quantity="many">%d dublikatų ištrinta</item>
-        <item quantity="other">Ištrinta %d dublikatų</item>
+        <item quantity="one">%d dublikatas ištrintas.</item>
+        <item quantity="few">%d dublikatai ištrinti.</item>
+        <item quantity="many">%d dublikato ištrinta.</item>
+        <item quantity="other">%d dublikatų ištrinta.</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Rasta %d dublikatų rinkinys</item>
@@ -13,21 +13,21 @@
         <item quantity="many">Rasta %d dublikatų rinkiniai</item>
         <item quantity="other">Rasta %d dublikatų grupių</item>
     </plurals>
-    <string name="deduplicator_protection_deleteall_allowed_title">Leisti „Ištrinti visus“</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Rodyti parinktis, leidžiančias ištrinti visus failus dublikatų rinkinyje, nepaliekant nė vieno failo.</string>
-    <string name="deduplicator_search_locations_title">Ieškos vietos</string>
+    <string name="deduplicator_protection_deleteall_allowed_title">Įjungti galimybę „Ištrinti viską“</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Rodyti parinktis, leidžiančias ištrinti visus failus dublikatų rinkinyje, kad neliktų nė vieno failo.</string>
+    <string name="deduplicator_search_locations_title">Paieškos vietos</string>
     <string name="deduplicator_search_locations_all_summary">Visos pasiekiamos sritys</string>
-    <string name="deduplicator_keep_prefer_paths_title">Pirmenybe išlaikyti</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Nusprendus, kurį dublikatą palikti, pirmenybe teikti failams šiose vietose.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nėra sukonfigūruotų vietų</string>
+    <string name="deduplicator_keep_prefer_paths_title">Pageidauti išlaikyti</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Sprendžiant, kurį dublikatą išlaikyti, pageidauti išlaikyti failus šiose vietose.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nėra sukonfigūruotų vietų.</string>
     <string name="deduplicator_skip_minsize_title">Minimalus dydis</string>
-    <string name="deduplicator_skip_minsize_description">Praleisti failus, mažesnius už minimaliu dydį.</string>
-    <string name="deduplicator_skip_uncommon_title">Praleisti nedažnai naudojamus failų tipus</string>
-    <string name="deduplicator_skip_uncommon_description">Įtraukti tik Įprastų media failus, dokumentus ir archyvus.</string>
-    <string name="deduplicator_detection_method_label">Aptikimo metodas</string>
+    <string name="deduplicator_skip_minsize_description">Praleisti failus, kurių mažesnis nei mažiausias dydis.</string>
+    <string name="deduplicator_skip_uncommon_title">Praleisti neįprastus failų tipus</string>
+    <string name="deduplicator_skip_uncommon_description">Įtraukti tik įprastus medijos failus, dokumentus ir archyvus.</string>
+    <string name="deduplicator_detection_method_label">Aptikimo būdas</string>
     <string name="deduplicator_detection_method_checksum_title">Turinio kontrolinė suma</string>
-    <string name="deduplicator_detection_method_checksum_summary">Nustatyti dublikatus skaičiuojant failų kontrolines sumas. Failai su sutampančiomis kontrolinėmis sumomis turi tiksliai toki patut turinį.</string>
-    <string name="deduplicator_detection_method_phash_title">Suvokimo maistėlis</string>
+    <string name="deduplicator_detection_method_checksum_summary">Nustatyti dublikatus apskaičiuojant failų kontrolines sumas. Failai su sutampančiomis kontrolinėmis sumomis turi visiškai tokį patį turinį.</string>
+    <string name="deduplicator_detection_method_phash_title">Suvokimo maiša</string>
     <string name="deduplicator_detection_method_phash_summary">Rasti panašius failus analizuojant turinio požymius ir lyginant suvokimo maštėlio reikšmes. ⚠️ Panaumo pagrindu aptikimas gali apimti klaidingų rezultatų, reikalaujančių rankinio tikrinimo.</string>
     <string name="deduplicator_detection_method_media_title">Medijų pirštų atspaudas</string>
     <string name="deduplicator_detection_method_media_summary">Raskite panašius vaizdo ir garso failus analizuodami garso pirštų atspaudus. ⚠️ Panašumu pagrįstas aptikimas gali apimti klaidingus teigiamus atvejus, reikalaujančius rankinio patikrinimo.</string>
@@ -62,13 +62,13 @@
     <string name="deduplicator_arbiter_configure_paths_action">Sukonfigūruoti kelius…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Dublikato tipas</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pirmenyė tikslū atitikmenų prieš panašius failus.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indeksavimas</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Medijos indeksavimas</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Apsvarstyti, ar failai yra indeksuoti media teikėjo.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Atminties vieta</string>
     <string name="deduplicator_arbiter_criterium_location_description">Pirmenyė failams vidinėje arba išorenėje atmintyje.</string>
     <string name="deduplicator_arbiter_criterium_nesting_title">Aplanko gylis</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Pirmenyė failams seklėsnėse arba gilesĖse aplanko struktūrose.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Keitimo data</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Pageidauti failus seklesnėse arba gilesnėse aplankų struktūrose.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Modifikacijos data</string>
     <string name="deduplicator_arbiter_criterium_modified_description">Pirmenyė senesniems arba naujesniems failams pagal keitimo laiką.</string>
     <string name="deduplicator_arbiter_criterium_size_title">Failo dydis</string>
     <string name="deduplicator_arbiter_criterium_size_description">Pirmenyė didesniems arba mažesniems failams, kai dydiai skiriasi.</string>
@@ -84,8 +84,8 @@
     <string name="deduplicator_arbiter_mode_prefer_deeper">Pirmenyė gilesniems aplankams</string>
     <string name="deduplicator_arbiter_mode_prefer_older">Pirmenyė senesniems failams</string>
     <string name="deduplicator_arbiter_mode_prefer_newer">Pirmenyė naujesniems failams</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Pirmenyė didesniems failams</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Pirmenyė mažesniems failams</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Pageidauti didesnius failus</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Pageidauti mažesnius failus</string>
     <string name="deduplicator_view_mode_groups_label">Grupės</string>
     <string name="deduplicator_view_mode_directories_label">Aplankai</string>
 </resources>

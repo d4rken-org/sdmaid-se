@@ -20,9 +20,9 @@
     <string name="debug_debuglog_screen_session_path_label">Putanja sesije</string>
     <string name="debug_debuglog_screen_log_files_label">Datoteke zapisnika</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d datoteka spremna (%2$s)</item>
-        <item quantity="few">%1$d datoteke spremne (%2$s)</item>
-        <item quantity="other">%1$d datoteka spremno (%2$s)</item>
+        <item quantity="one">%1$d datoteka spremna (%2$s) · %3$s</item>
+        <item quantity="few">%1$d datoteke spremne (%2$s) · %3$s</item>
+        <item quantity="other">%1$d datoteka spremno (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
     <string name="debug_debuglog_short_recording_title">Vrlo kratko snimanje</string>
