@@ -19,6 +19,8 @@ interface APathGateway<
 
     suspend fun lookup(path: P): PLU
 
+    suspend fun lookupExtended(path: P): PLUE
+
     suspend fun lookupFiles(path: P): Collection<PLU>
 
     suspend fun lookupFilesExtended(path: P): Collection<PLUE>

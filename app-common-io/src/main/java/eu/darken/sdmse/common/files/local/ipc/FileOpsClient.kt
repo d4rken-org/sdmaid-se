@@ -46,6 +46,14 @@ class FileOpsClient @AssistedInject constructor(
         throw e.refineException()
     }
 
+    fun lookUpExtended(path: LocalPath): LocalPathLookupExtended = try {
+        fileOpsConnection.lookUpExtended(path).also {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookUpExtended($path): $it" }
+        }
+    } catch (e: Exception) {
+        throw e.refineException()
+    }
+
     /**
      * Doesn't run into IPC buffer overflows on large directories
      */

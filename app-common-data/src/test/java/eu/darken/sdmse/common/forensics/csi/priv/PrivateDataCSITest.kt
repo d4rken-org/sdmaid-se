@@ -1,10 +1,14 @@
 package eu.darken.sdmse.common.forensics.csi.priv
 
+import android.content.pm.ApplicationInfo
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.removePrefix
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
@@ -90,6 +94,25 @@ class PrivateDataCSITest : BaseCSITest() {
                 )
             )
         )
+
+        // Default: ownership lookup yields no uid, so UID attribution is a no-op unless a test opts in
+        stubOwnerUid(null)
+    }
+
+    private fun stubOwnerUid(uid: Int?) {
+        coEvery { gatewaySwitch.lookupExtended(any()) } returns mockk {
+            every { ownership } returns uid?.let { value -> mockk { every { userId } returns value.toLong() } }
+        }
+    }
+
+    private fun mockNormalPkg(
+        pkgId: Pkg.Id,
+        uid: Int,
+        userHandle: UserHandle2 = UserHandle2(0),
+    ): NormalPkg = mockk<NormalPkg>().apply {
+        every { id } returns pkgId
+        every { this@apply.userHandle } returns userHandle
+        every { applicationInfo } returns mockk<ApplicationInfo>(relaxed = true).apply { this.uid = uid }
     }
 
     private fun getProcessor() = PrivateDataCSI(
@@ -99,6 +122,7 @@ class PrivateDataCSITest : BaseCSITest() {
         userManager = userManager2,
         storageEnvironment = storageEnvironment,
         pkgOps = pkgOps,
+        gatewaySwitch = gatewaySwitch,
     )
 
     @Test override fun `test jurisdiction`() = runTest {
@@ -191,6 +215,74 @@ class PrivateDataCSITest : BaseCSITest() {
             processor.findOwners(locationInfo).apply {
                 owners.single().pkgId shouldBe testFile1.name.toPkgId()
             }
+        }
+    }
+
+    @Test fun `uid maps to a single installed package - attributed as owner`() = runTest {
+        val processor = getProcessor()
+
+        val wifiAi = "com.samsung.android.wifi.ai".toPkgId()
+        every { pkgRepo.data } returns flowOf(PkgRepo.PkgData.from(setOf(mockNormalPkg(wifiAi, uid = 1000))))
+        stubOwnerUid(1000)
+
+        // Directory named after an uninstalled package, but its data is owned by an installed package's uid
+        val toHit = privData1.path.child("com.samsung.android.wifi.intelligence")
+        val locationInfo = processor.identifyArea(toHit)!!
+
+        processor.findOwners(locationInfo).apply {
+            owners.single().pkgId shouldBe wifiAi
+            hasKnownUnknownOwner shouldBe false
+        }
+    }
+
+    @Test fun `uid shared by multiple installed packages - reported as known unknown owner`() = runTest {
+        val processor = getProcessor()
+
+        every { pkgRepo.data } returns flowOf(
+            PkgRepo.PkgData.from(
+                setOf(
+                    mockNormalPkg("android".toPkgId(), uid = 1000),
+                    mockNormalPkg("com.samsung.android.wifi.ai".toPkgId(), uid = 1000),
+                )
+            )
+        )
+        stubOwnerUid(1000)
+
+        val toHit = privData1.path.child("com.samsung.android.wifi.intelligence")
+        val locationInfo = processor.identifyArea(toHit)!!
+
+        processor.findOwners(locationInfo).apply {
+            owners.isEmpty() shouldBe true
+            hasKnownUnknownOwner shouldBe true
+        }
+    }
+
+    @Test fun `uid resolves to no installed package - still a corpse via fallback`() = runTest {
+        val processor = getProcessor()
+
+        every { pkgRepo.data } returns flowOf(PkgRepo.PkgData.from(emptySet()))
+        stubOwnerUid(12345)
+
+        val toHit = privData1.path.child("com.gone.app")
+        val locationInfo = processor.identifyArea(toHit)!!
+
+        processor.findOwners(locationInfo).apply {
+            owners.single().pkgId shouldBe "com.gone.app".toPkgId()
+            hasKnownUnknownOwner shouldBe false
+        }
+    }
+
+    @Test fun `ownership lookup failure falls through to fallback`() = runTest {
+        val processor = getProcessor()
+
+        coEvery { gatewaySwitch.lookupExtended(any()) } throws IllegalStateException("boom")
+
+        val toHit = privData1.path.child("com.gone.app")
+        val locationInfo = processor.identifyArea(toHit)!!
+
+        processor.findOwners(locationInfo).apply {
+            owners.single().pkgId shouldBe "com.gone.app".toPkgId()
+            hasKnownUnknownOwner shouldBe false
         }
     }
 
