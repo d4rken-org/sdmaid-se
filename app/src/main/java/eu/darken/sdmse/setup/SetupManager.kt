@@ -62,6 +62,13 @@ class SetupManager @Inject constructor(
         val isIncomplete: Boolean = moduleStates.filterIsInstance<SetupModule.State.Current>().any { !it.isComplete }
         val isLoading: Boolean = moduleStates.any { it is SetupModule.State.Loading }
         val isWorking: Boolean = isHealerWorking || isLoading
+
+        // Incomplete only once module probing has settled (isLoading=false). While a module is still
+        // probing, a privileged check (e.g. the root service handshake on rooted devices) can briefly
+        // report a settled incomplete Result, which previously flashed the dashboard setup card on
+        // every launch. The healer may still be working here - that's a deliberately visible card
+        // state, so it is not excluded.
+        val isIncompleteSettled: Boolean = !isLoading && isIncomplete
     }
 
     companion object {
