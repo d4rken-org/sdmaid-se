@@ -470,7 +470,7 @@ class DashboardViewModel @Inject constructor(
                 onContinue = { navigateTo(SetupRoute()) }
             )
 
-            if (setupState.isIncomplete) return@flatMapLatest flowOf(item)
+            if (setupState.isIncompleteSettled) return@flatMapLatest flowOf(item)
 
             if (!setupState.isLoading) return@flatMapLatest flowOf(null)
 
