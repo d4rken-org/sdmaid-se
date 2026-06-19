@@ -25,7 +25,7 @@ The authoritative list lives in `settings.gradle`.
 
 ### UI & Feature Modules
 
-- `app-common-ui`: Custom ViewModel hierarchy (`ViewModel1` → `ViewModel2` → `ViewModel3`), base fragments, navigation
+- `app-common-ui`: Custom ViewModel hierarchy (`ViewModel1` → `ViewModel2` → `ViewModel4`), Compose navigation
 - `app-common-coil`: Coil-based image loading and request pipeline
 - `app-common-automation`: Accessibility-service automation engine
 - `app-common-exclusion`: Shared exclusion rules across tools
@@ -69,10 +69,11 @@ Layered ViewModel hierarchy (defined in `app-common-ui/.../common/uix/`):
 
 - **`ViewModel1`** (extends `androidx.lifecycle.ViewModel`): Debug logging on init/clear, `tag` system for log identification
 - **`ViewModel2`** (extends `ViewModel1`): Adds `DispatcherProvider`, `vmScope`, `launch()`, `Flow<T>.asStateFlow()` for coroutine management
-- **`ViewModel3`** (extends `ViewModel2`): Adds error handling via `ErrorEventSource` with `SingleEventFlow<Throwable>`
-- **`ViewModel4`** (extends `ViewModel3`): Adds navigation via `NavigationEventSource` with `navTo()` and `navUp()`
+- **`ViewModel4`** (extends `ViewModel2`): Base for all Compose screens. Adds error handling (`errorEvents`, a `SingleEventFlow<Throwable>`), navigation via `NavigationEventSource` (`navTo()` / `navUp()`), and `safeStateIn()` for collector-safe render state.
 
-New ViewModels should extend **`ViewModel3`** (no navigation) or **`ViewModel4`** (with navigation). Uses `@HiltViewModel` with Hilt injection
+> There is no `ViewModel3` — what older docs split across `ViewModel3` (errors) and `ViewModel4` (navigation) is now merged into a single `ViewModel4`.
+
+New ViewModels extend **`ViewModel4`** (use it whether or not the screen navigates). Uses `@HiltViewModel` with Hilt injection
 
 ## Dependency Injection
 

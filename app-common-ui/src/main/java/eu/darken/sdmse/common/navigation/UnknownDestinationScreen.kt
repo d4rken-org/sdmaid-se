@@ -22,11 +22,9 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 /**
- * Placeholder shown when the NavDisplay's entryProvider receives a route that no [NavigationEntry]
- * has registered. During the incremental Compose rewrite this is expected for routes whose
- * Fragment-based screens haven't been converted yet (e.g. CustomFilterList, Picker, ArbiterConfig,
- * Reports). Without this fallback NavDisplay throws `IllegalStateException: Unknown screen …`
- * and kills the app.
+ * Fallback shown when the NavDisplay's entryProvider receives a route that no [NavigationEntry]
+ * has registered. Without it NavDisplay throws `IllegalStateException: Unknown screen …` and kills
+ * the app, so this guards against navigating to a route that was added without a matching entry.
  */
 @Composable
 fun UnknownDestinationScreen(

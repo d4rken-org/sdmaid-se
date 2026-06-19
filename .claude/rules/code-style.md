@@ -22,7 +22,7 @@
 - Jetpack Compose with Material 3 (`SdmSeTheme`)
 - Edge-to-edge display support
 - Single Activity architecture with Navigation3 (`NavDisplay`)
-- Legacy Fragments still exist (unconverted screens) — new screens must be Compose
+- All screens are Compose — the legacy Fragment / XML-layout UI has been fully removed
 
 ### Host/Page Pattern (mandatory for all Compose screens)
 

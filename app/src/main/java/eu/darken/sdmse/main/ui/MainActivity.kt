@@ -193,10 +193,9 @@ class MainActivity : ComponentActivity() {
                     ),
                     entryProvider = entryProvider<NavKey>(
                         fallback = { unknownKey ->
-                            // Prevents IllegalStateException when a tool-settings row navigates
-                            // to a route whose Fragment screen hasn't been converted yet
-                            // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute).
-                            // Tracked as immediate follow-up in the rewrite plan.
+                            // Safety net: render UnknownDestinationScreen instead of letting
+                            // NavDisplay throw IllegalStateException if a route is ever navigated
+                            // to without a matching NavigationEntry registered.
                             NavEntry(key = unknownKey) {
                                 UnknownDestinationScreen(
                                     routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),
