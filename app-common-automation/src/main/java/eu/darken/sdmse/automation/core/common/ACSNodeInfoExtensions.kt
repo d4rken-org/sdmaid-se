@@ -146,6 +146,23 @@ fun ACSNodeInfo.scrollNodeBackward(): Boolean {
     }
 }
 
+/**
+ * Asks the framework to bring this node fully on-screen, scrolling its container in whatever
+ * direction is necessary. Unlike [scrollNode] (blind FORWARD on a scrollable node), this works
+ * for a node that is clipped behind a system bar at the bottom of a list.
+ */
+fun ACSNodeInfo.scrollNodeIntoView(): Boolean =
+    performAction(ACSNodeInfo.ACTION_SHOW_ON_SCREEN).also { success ->
+        log(TAG, VERBOSE) { "scrollNodeIntoView(): success=$success: $this" }
+    }
+
+/**
+ * True when the node's on-screen bounds are empty or degenerate (e.g. clipped behind a system
+ * bar so that `top >= bottom`). A positional gesture computed from such bounds would land on
+ * whatever occupies that screen region (often the navigation bar), so callers must not tap it.
+ */
+fun ACSNodeInfo.ScreenBounds.isEmpty(): Boolean = left >= right || top >= bottom
+
 val AccessibilityEvent.pkgId: Pkg.Id? get() = packageName.takeIf { !it.isNullOrBlank() }?.toString()?.toPkgId()
 
 fun ACSNodeInfo.distanceTo(other: ACSNodeInfo): Double {

@@ -126,7 +126,7 @@
     <string name="support_contact_category_question_label">Klausimas</string>
     <string name="support_contact_tool_label">Susijęs įrankis</string>
     <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
-    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_corpsefinder_label">Pamirštųjų ieškiklis</string>
     <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
     <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
     <string name="support_contact_tool_analyzer_label">Analizatorius</string>

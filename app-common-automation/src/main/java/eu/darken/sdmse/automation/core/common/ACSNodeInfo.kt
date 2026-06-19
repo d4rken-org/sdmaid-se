@@ -40,6 +40,11 @@ interface ACSNodeInfo {
         const val ACTION_SELECT = AccessibilityNodeInfo.ACTION_SELECT
         const val ACTION_SCROLL_FORWARD = AccessibilityNodeInfo.ACTION_SCROLL_FORWARD
         const val ACTION_SCROLL_BACKWARD = AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD
+
+        // Equivalent to AccessibilityAction.ACTION_SHOW_ON_SCREEN.id (API 23+; minSdk is 26).
+        // Referenced via the framework resource id so it stays a plain int constant — the
+        // AccessibilityAction object is null under the unit-test android stub and would NPE.
+        val ACTION_SHOW_ON_SCREEN = android.R.id.accessibilityActionShowOnScreen
         const val ACTION_FOCUS = AccessibilityNodeInfo.ACTION_FOCUS
         const val ACTION_ACCESSIBILITY_FOCUS = AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS
 

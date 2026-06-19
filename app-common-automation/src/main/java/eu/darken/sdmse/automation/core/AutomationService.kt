@@ -473,7 +473,7 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         log(TAG) { "cancelTask()" }
         val (task, job) = currentTask.value ?: return false
         log(TAG, INFO) { "cancelTask(): Canceling $task" }
-        job.cancel()
+        job.cancel(cause = UserCancelledAutomationException())
         return true
     }
 

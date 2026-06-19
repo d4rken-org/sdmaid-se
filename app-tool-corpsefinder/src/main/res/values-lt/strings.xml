@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="corpsefinder_explanation_short">Duomenys, priklausantys jau pašalintoms programoms.</string>
-    <string name="corpsefinder_settings_summary">Sureguliuokite nuskaitymo filtrus ir rizikos lygius.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Įtraukti pageidaujamus failus</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Failus, kuriuos galbūt norėsite išsaugoti, net jei programa bus pašalinta, pvz., padarytas nuotraukas arba sukurtas atsargines kopijas.</string>
+    <string name="corpsefinder_settings_summary">Koreguokite skenavimo filtrus ir rizikos lygius.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Įtraukti pageidaujamus likučius</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Failai, kuriuos galbūt norėsite išsaugoti net ir jei programa yra pašalinta, pvz., jūsų padarytos nuotraukos ar sukurtos atsarginės kopijos.</string>
     <string name="corpsefinder_settings_risk_common_title">Įtraukite bendrinius pavadinimus</string>
     <string name="corpsefinder_settings_risk_common_summary">Duomenys su dažnai naudojamais pavadinimais, pvz., aplankas \"Notes\" priklauso per daug nežinomų programų.</string>
     <string name="corpsefinder_watcher_title">Priežiūra po priežįdos</string>

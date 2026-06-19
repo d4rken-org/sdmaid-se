@@ -6207,6 +6207,9 @@
   "pkgs": ["com.sec.android.allshare.service.controlshare"],
   "mrks": [{"loc": "PRIVATE_DATA", "path": "com.sec.android.allshare.framework"}]
 }, {
+  "pkgs": ["com.samsung.android.wifi.ai"],
+  "mrks": [{"loc": "PRIVATE_DATA", "path": "com.samsung.android.wifi.intelligence"}]
+}, {
   "pkgs": ["com.glu.deerhunt2"],
   "mrks": [{"loc": "PUBLIC_DATA", "path": "com.glu.android.gwallet"}]
 }, {

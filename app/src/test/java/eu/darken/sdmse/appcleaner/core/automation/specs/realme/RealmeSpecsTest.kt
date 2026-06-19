@@ -3,8 +3,11 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.realme
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.common.device.RomType
+import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
@@ -114,5 +117,37 @@ class RealmeSpecsTest : BaseAppCleanerSpecTest<RealmeSpecs, RealmeLabels>() {
 
         // Should return true (success) - disabled button with no cache means nothing to clear
         result shouldBe true
+    }
+
+    @Test
+    fun `storage entry - clipped row is scrolled into view, never gesture-tapped - API 35+ - GitHub 2464`() = runTest {
+        // realme C51 / ColorOS A15: the storage row is a Compose node with no clickable ancestor,
+        // and when parked at the bottom of the list it is clipped behind the nav bar so its bounds
+        // are degenerate (top >= bottom). A center-of-bounds gesture would hit the Home button.
+        // The fix: bring it on-screen via ACTION_SHOW_ON_SCREEN and never tap degenerate bounds.
+        // See: https://github.com/d4rken-org/sdmaid-se/issues/2464
+        every { eu.darken.sdmse.common.hasApiLevel(35) } returns true
+
+        val clipped = TestACSNodeInfo(
+            text = "Занято 1,16 ГБ (Внутр. накопитель)",
+            viewIdResourceName = "android:id/summary",
+            className = "android.widget.TextView",
+            isClickable = false,
+            screenBoundsOverride = ACSNodeInfo.ScreenBounds(left = 64, top = 1519, right = 560, bottom = 1504),
+        )
+        // No clickable ancestor anywhere (Compose layout) → forces the gesture branch.
+        val root = TestACSNodeInfo(className = "android.widget.FrameLayout").addChildren(clipped)
+        testHost.setWindowRoot(root)
+
+        val finder: suspend StepContext.() -> ACSNodeInfo? = { clipped }
+        coEvery { storageEntryFinder.storageFinderAOSP(any(), any(), any()) } returns finder
+
+        val result = captureAndRunStorageEntryAction()
+
+        // Scroll-into-view was attempted on the clipped node...
+        clipped.performedActions shouldContain ACSNodeInfo.ACTION_SHOW_ON_SCREEN
+        // ...and because bounds stayed degenerate, no tap was dispatched and the step did not
+        // falsely report success (it will retry / time out instead of pressing Home).
+        result shouldBe false
     }
 }
