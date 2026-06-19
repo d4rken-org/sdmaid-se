@@ -26,6 +26,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performKeyPress
+import androidx.compose.ui.test.performScrollTo
 import android.view.KeyEvent as NativeKeyEvent
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -112,13 +113,13 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
     @Test
     fun `Skip icon opens confirm — neither callback fires yet`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
-        var skipCount = 0
         var dismissCount = 0
+        var disableAllCount = 0
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("first" to targetRect),
-            onSkipForNow = { skipCount++ },
             onDontShowAgain = { dismissCount++ },
+            onDisableAllTours = { disableAllCount++ },
         ) {
             Text("CONTENT_MARKER")
         }
@@ -127,19 +128,17 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         // Tap the X — confirm appears, no controller calls yet.
         composeRule.onNodeWithContentDescription("Skip").performClick()
         composeRule.onNodeWithText("Skip the tour?").assertExists()
-        skipCount shouldBeEq 0
         dismissCount shouldBeEq 0
+        disableAllCount shouldBeEq 0
     }
 
     @Test
     fun `confirm Continue tour returns to step view without firing callbacks`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
-        var skipCount = 0
         var dismissCount = 0
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("first" to targetRect),
-            onSkipForNow = { skipCount++ },
             onDontShowAgain = { dismissCount++ },
         ) {
             Text("CONTENT_MARKER")
@@ -147,46 +146,45 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithContentDescription("Skip").performClick()
         composeRule.onNodeWithText("Continue tour").performClick()
         composeRule.onNodeWithText("Body of step 1").assertExists()
-        skipCount shouldBeEq 0
         dismissCount shouldBeEq 0
     }
 
     @Test
-    fun `confirm Skip for now invokes onSkipForNow only`() {
+    fun `confirm Don't show this tour invokes onDontShowAgain only`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
-        var skipCount = 0
         var dismissCount = 0
+        var disableAllCount = 0
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("first" to targetRect),
-            onSkipForNow = { skipCount++ },
             onDontShowAgain = { dismissCount++ },
+            onDisableAllTours = { disableAllCount++ },
         ) {
             Text("CONTENT_MARKER")
         }
         composeRule.onNodeWithContentDescription("Skip").performClick()
-        composeRule.onNodeWithText("Skip for now").performClick()
-        skipCount shouldBeEq 1
-        dismissCount shouldBeEq 0
-    }
-
-    @Test
-    fun `confirm Don't show again invokes onDontShowAgain only`() {
-        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
-        var skipCount = 0
-        var dismissCount = 0
-        composeRule.setHostContent(
-            sessionFlow,
-            preregister = mapOf("first" to targetRect),
-            onSkipForNow = { skipCount++ },
-            onDontShowAgain = { dismissCount++ },
-        ) {
-            Text("CONTENT_MARKER")
-        }
-        composeRule.onNodeWithContentDescription("Skip").performClick()
-        composeRule.onNodeWithText("Don't show again").performClick()
-        skipCount shouldBeEq 0
+        composeRule.onNodeWithText("Don't show this tour").performScrollTo().performClick()
         dismissCount shouldBeEq 1
+        disableAllCount shouldBeEq 0
+    }
+
+    @Test
+    fun `confirm Disable all tours invokes onDisableAllTours only`() {
+        val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
+        var dismissCount = 0
+        var disableAllCount = 0
+        composeRule.setHostContent(
+            sessionFlow,
+            preregister = mapOf("first" to targetRect),
+            onDontShowAgain = { dismissCount++ },
+            onDisableAllTours = { disableAllCount++ },
+        ) {
+            Text("CONTENT_MARKER")
+        }
+        composeRule.onNodeWithContentDescription("Skip").performClick()
+        composeRule.onNodeWithText("Disable all tours").performScrollTo().performClick()
+        disableAllCount shouldBeEq 1
+        dismissCount shouldBeEq 0
     }
 
     @Test
@@ -433,23 +431,23 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
     // was unreliable under Robolectric; the real owner dispatches fine.
 
     @Test
-    fun `back at a later step invokes onPrevious, never onSkipForNow`() {
+    fun `back at a later step invokes onPrevious, never a terminal action`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 1))
         var previousCount = 0
-        var skipCount = 0
+        var dismissCount = 0
         var backOwner: OnBackPressedDispatcherOwner? = null
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("second" to targetRect),
             onPrevious = { previousCount++ },
-            onSkipForNow = { skipCount++ },
+            onDontShowAgain = { dismissCount++ },
             onBackOwner = { backOwner = it },
         ) {
             Text("CONTENT_MARKER")
         }
         composeRule.pressBack(backOwner)
         previousCount shouldBeEq 1
-        skipCount shouldBeEq 0
+        dismissCount shouldBeEq 0
         composeRule.onAllNodesWithText("Skip the tour?").assertCountEquals(0)
     }
 
@@ -457,14 +455,12 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
     fun `back at the first step opens the exit confirm without firing callbacks`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
         var previousCount = 0
-        var skipCount = 0
         var dismissCount = 0
         var backOwner: OnBackPressedDispatcherOwner? = null
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("first" to targetRect),
             onPrevious = { previousCount++ },
-            onSkipForNow = { skipCount++ },
             onDontShowAgain = { dismissCount++ },
             onBackOwner = { backOwner = it },
         ) {
@@ -474,19 +470,18 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Skip the tour?").assertExists()
         composeRule.onNodeWithText("Continue tour").assertIsFocused()
         previousCount shouldBeEq 0
-        skipCount shouldBeEq 0
         dismissCount shouldBeEq 0
     }
 
     @Test
     fun `back while the confirm is showing returns to the step view and refocuses Next`() {
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
-        var skipCount = 0
+        var dismissCount = 0
         var backOwner: OnBackPressedDispatcherOwner? = null
         composeRule.setHostContent(
             sessionFlow,
             preregister = mapOf("first" to targetRect),
-            onSkipForNow = { skipCount++ },
+            onDontShowAgain = { dismissCount++ },
             onBackOwner = { backOwner = it },
         ) {
             Text("CONTENT_MARKER")
@@ -497,7 +492,7 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText("Skip the tour?").assertCountEquals(0)
         composeRule.onNodeWithText("Body of step 1").assertExists()
         composeRule.onNodeWithContentDescription("Next").assertIsFocused()
-        skipCount shouldBeEq 0
+        dismissCount shouldBeEq 0
     }
 
     @Test
@@ -524,12 +519,12 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         // neither cancel the tour nor reach back handlers beneath the host.
         val sessionFlow = MutableStateFlow<TourSession?>(TourSession(protectedDef, 0))
         var underlyingBacks = 0
-        var skipCount = 0
+        var dismissCount = 0
         var backOwner: OnBackPressedDispatcherOwner? = null
         composeRule.mainClock.autoAdvance = false
         composeRule.setHostContent(
             sessionFlow,
-            onSkipForNow = { skipCount++ },
+            onDontShowAgain = { dismissCount++ },
             onBackOwner = { backOwner = it },
         ) {
             BackHandler { underlyingBacks++ }
@@ -539,7 +534,7 @@ class GuidedTourHostTest : BaseComposeRobolectricTest() {
         composeRule.pressBack(backOwner)
         composeRule.mainClock.autoAdvance = true
         underlyingBacks shouldBeEq 0
-        skipCount shouldBeEq 0
+        dismissCount shouldBeEq 0
     }
 
     @Test
@@ -565,8 +560,8 @@ private fun ComposeContentTestRule.setHostContent(
     preregister: Map<String, Rect> = emptyMap(),
     onNext: () -> Unit = {},
     onPrevious: () -> Unit = {},
-    onSkipForNow: () -> Unit = {},
     onDontShowAgain: () -> Unit = {},
+    onDisableAllTours: () -> Unit = {},
     onStepRendered: (TourId) -> Unit = {},
     onBackOwner: (OnBackPressedDispatcherOwner) -> Unit = {},
     content: @Composable () -> Unit,
@@ -583,8 +578,8 @@ private fun ComposeContentTestRule.setHostContent(
                 session = session,
                 onNext = onNext,
                 onPrevious = onPrevious,
-                onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
+                onDisableAllTours = onDisableAllTours,
                 modifier = Modifier.fillMaxSize(),
                 registry = registry,
                 onStepRendered = onStepRendered,

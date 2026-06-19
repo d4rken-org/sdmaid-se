@@ -130,6 +130,42 @@ class GuidedTourControllerTest : BaseTest() {
     }
 
     @Test
+    fun `disableAllTours clears the session and persists the flag off`() = runTest {
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        ctrl.disableAllTours()
+        ctrl.session.value shouldBe null
+        enabledFlow.value shouldBe false
+    }
+
+    @Test
+    fun `disableAllTours leaves per-tour preferences untouched`() = runTest {
+        prefsFlow.value = TourPreferences(completed = setOf("x"), dismissed = setOf("y"))
+        val ctrl = controller()
+        ctrl.start(basicDefinition)
+        ctrl.disableAllTours()
+        // The global flag dominates shouldStart(); per-tour state is reset() territory, not this.
+        prefsFlow.value shouldBe TourPreferences(completed = setOf("x"), dismissed = setOf("y"))
+    }
+
+    @Test
+    fun `disableAllTours with no active session still disables`() = runTest {
+        val ctrl = controller()
+        ctrl.disableAllTours()
+        ctrl.session.value shouldBe null
+        enabledFlow.value shouldBe false
+    }
+
+    @Test
+    fun `disableAllTours suppresses all tours until reset re-enables them`() = runTest {
+        val ctrl = controller()
+        ctrl.disableAllTours()
+        ctrl.shouldStart(basicDefinition) shouldBe false
+        ctrl.reset()
+        ctrl.shouldStart(basicDefinition) shouldBe true
+    }
+
+    @Test
     fun `start no-ops when blocked by completed prefs`() = runTest {
         prefsFlow.value = TourPreferences(completed = setOf(basicDefinition.id.raw))
         val ctrl = controller()

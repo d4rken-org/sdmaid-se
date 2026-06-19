@@ -147,8 +147,9 @@ internal fun OnboardingSetupScreen(
                         style = MaterialTheme.typography.bodyLarge,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(bottom = 16.dp),
                     )
+
+                    Spacer(modifier = Modifier.height(32.dp))
 
                     ToggleRow(
                         icon = {

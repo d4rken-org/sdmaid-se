@@ -42,7 +42,6 @@ import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -62,9 +61,10 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Density
@@ -94,8 +94,8 @@ internal fun TourBubble(
     onShowConfirmChange: (Boolean) -> Unit,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     onFocusWithinChanged: (Boolean) -> Unit = {},
 ) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
@@ -125,8 +125,8 @@ internal fun TourBubble(
                 endPad = endPad,
                 onNext = onNext,
                 onPrevious = onPrevious,
-                onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
+                onDisableAllTours = onDisableAllTours,
                 onFocusWithinChanged = onFocusWithinChanged,
             )
 
@@ -143,8 +143,8 @@ internal fun TourBubble(
                 bottomPad = bottomPad,
                 onNext = onNext,
                 onPrevious = onPrevious,
-                onSkipForNow = onSkipForNow,
                 onDontShowAgain = onDontShowAgain,
+                onDisableAllTours = onDisableAllTours,
                 onFocusWithinChanged = onFocusWithinChanged,
             )
 
@@ -170,8 +170,8 @@ private fun BoxScope.AnchoredBubble(
     endPad: Dp,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     onFocusWithinChanged: (Boolean) -> Unit,
 ) {
     val maxHPx = with(density) { maxHeight.toPx() }
@@ -243,8 +243,8 @@ private fun BoxScope.AnchoredBubble(
             onShowConfirmChange = onShowConfirmChange,
             onNext = onNext,
             onPrevious = onPrevious,
-            onSkipForNow = onSkipForNow,
             onDontShowAgain = onDontShowAgain,
+            onDisableAllTours = onDisableAllTours,
             onFocusWithinChanged = onFocusWithinChanged,
         )
     }
@@ -264,8 +264,8 @@ private fun BoxScope.CenterlessBubble(
     bottomPad: Dp,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     onFocusWithinChanged: (Boolean) -> Unit,
 ) {
     // Cap height at the safe area; the body has its own vertical scroll for content that doesn't
@@ -288,8 +288,8 @@ private fun BoxScope.CenterlessBubble(
             onShowConfirmChange = onShowConfirmChange,
             onNext = onNext,
             onPrevious = onPrevious,
-            onSkipForNow = onSkipForNow,
             onDontShowAgain = onDontShowAgain,
+            onDisableAllTours = onDisableAllTours,
             onFocusWithinChanged = onFocusWithinChanged,
         )
     }
@@ -308,8 +308,8 @@ private fun BubbleCard(
     isNarrow: Boolean,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     onFocusWithinChanged: (Boolean) -> Unit = {},
     // Confirm state is hoisted to GuidedTourHost so its BackHandler can drive the same exit
     // confirm: back at the first step opens it, back while it's showing dismisses it.
@@ -337,8 +337,8 @@ private fun BubbleCard(
             if (confirming) {
                 ConfirmContent(
                     onContinue = { onShowConfirmChange(false) },
-                    onSkipForNow = onSkipForNow,
                     onDontShowAgain = onDontShowAgain,
+                    onDisableAllTours = onDisableAllTours,
                 )
             } else {
                 StepContent(
@@ -432,20 +432,28 @@ private fun StepContent(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = mascotWidth + 4.dp, end = 16.dp, top = 14.dp, bottom = 14.dp),
+                .padding(start = mascotWidth, end = 16.dp, top = 16.dp, bottom = 16.dp),
         ) {
-            // Header: three-cell layout via Box(fillMaxWidth) + alignment, so the dots are
-            // truly centered regardless of which navigation buttons are visible.
-            Box(
+            // Header: square nav buttons flank a flexible middle cell, so the step dots stay
+            // centered in the free space between the left cluster (exit + back) and the Next
+            // button — not pinned to the bubble's geometric center, which looked off-balance
+            // once the clusters had unequal widths.
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(40.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
+                TourNavButton(
+                    onClick = onRequestExit,
+                    icon = Icons.TwoTone.Close,
+                    contentDescription = stringResource(UiR.string.tour_action_cancel),
+                )
                 if (session.stepIndex > 0) {
+                    Spacer(Modifier.width(4.dp))
                     Button(
                         onClick = onPrevious,
                         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
-                        modifier = Modifier.align(Alignment.CenterStart),
                     ) {
                         Icon(
                             imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
@@ -454,19 +462,21 @@ private fun StepContent(
                         )
                     }
                 }
-                if (session.definition.steps.size > 1) {
-                    StepDots(
-                        current = session.stepIndex,
-                        total = session.definition.steps.size,
-                        modifier = Modifier.align(Alignment.Center),
-                    )
+                Box(
+                    modifier = Modifier.weight(1f),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    if (session.definition.steps.size > 1) {
+                        StepDots(
+                            current = session.stepIndex,
+                            total = session.definition.steps.size,
+                        )
+                    }
                 }
                 Button(
                     onClick = onNext,
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .focusRequester(nextFocus),
+                    modifier = Modifier.focusRequester(nextFocus),
                 ) {
                     Icon(
                         imageVector = if (session.isLast) Icons.TwoTone.Check
@@ -479,13 +489,13 @@ private fun StepContent(
                     )
                 }
             }
-            Spacer(Modifier.height(8.dp))
             // Focusable so long step text can be scrolled with the D-pad from inside the focus
             // trap (scrollables handle arrow keys when focused). Tinted while focused since
             // plain focusable() has no indication of its own.
             var bodyFocused by remember { mutableStateOf(false) }
             Column(
                 modifier = Modifier
+                    .padding(top=16.dp)
                     .onFocusChanged { bodyFocused = it.isFocused }
                     .background(
                         color = if (bodyFocused) {
@@ -502,7 +512,7 @@ private fun StepContent(
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary,
                     )
-                    Spacer(Modifier.height(6.dp))
+                    Spacer(Modifier.height(4.dp))
                 }
                 Text(
                     text = step.body.get(context),
@@ -513,33 +523,16 @@ private fun StepContent(
         SdmMascot(
             modifier = Modifier
                 .align(Alignment.CenterStart)
-                .padding(top = 24.dp)
                 .width(mascotWidth),
         )
-        // Close (X) overlay parked on the empty top of the mascot's animation container.
-        // Drawn last in the Box so it sits above the mascot in z-order and wins hit-testing.
-        IconButton(
-            onClick = onRequestExit,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 16.dp, top = 20.dp)
-                .size(36.dp),
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.Close,
-                contentDescription = stringResource(UiR.string.tour_action_cancel),
-                modifier = Modifier.size(18.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
     }
 }
 
 @Composable
 private fun ConfirmContent(
     onContinue: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
 ) {
     // Mirror of StepContent's focus pull: when the confirm view swaps in via AnimatedContent,
     // re-anchor D-pad focus on the safe default so the trap keeps holding. Keyed on input mode
@@ -550,7 +543,15 @@ private fun ConfirmContent(
         runCatching { continueFocus.requestFocus() }
     }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    // Actions are stacked full-width (not a Row): the labels are too long to share a row at large
+    // font scale / narrow widths / translations, and each full-width button is its own focusable so
+    // the D-pad can reach the bottom one (the scroll follows focus). The escalation reads top→bottom:
+    // keep going → silence this tour → silence everything.
+    Column(
+        modifier = Modifier
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp),
+    ) {
         Text(
             text = stringResource(UiR.string.tour_confirm_title),
             style = MaterialTheme.typography.titleMedium,
@@ -571,22 +572,46 @@ private fun ConfirmContent(
             Text(text = stringResource(UiR.string.tour_confirm_continue))
         }
         Spacer(Modifier.height(4.dp))
-        Row(
+        TextButton(
+            onClick = onDontShowAgain,
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            TextButton(onClick = onSkipForNow) {
-                Text(text = stringResource(UiR.string.tour_confirm_skip_for_now))
-            }
-            TextButton(
-                onClick = onDontShowAgain,
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = MaterialTheme.colorScheme.error,
-                ),
-            ) {
-                Text(text = stringResource(UiR.string.tour_confirm_dont_show_again))
-            }
+            Text(text = stringResource(UiR.string.tour_confirm_dont_show_this_tour))
         }
+        TextButton(
+            onClick = onDisableAllTours,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.textButtonColors(
+                contentColor = MaterialTheme.colorScheme.error,
+            ),
+        ) {
+            Text(text = stringResource(UiR.string.tour_confirm_disable_all))
+        }
+    }
+}
+
+/**
+ * Compact round button for the tour header's close (✕) action. A bare [Button] enforces a
+ * ~58.dp min width (stadium pill); the fixed [size] overrides that so close renders as a small
+ * icon-sized circle, distinct from the wider prev/next pills.
+ */
+@Composable
+private fun TourNavButton(
+    onClick: () -> Unit,
+    icon: ImageVector,
+    contentDescription: String,
+    modifier: Modifier = Modifier,
+) {
+    Button(
+        onClick = onClick,
+        contentPadding = PaddingValues(0.dp),
+        modifier = modifier.size(40.dp),
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = contentDescription,
+            modifier = Modifier.size(20.dp),
+        )
     }
 }
 
@@ -734,8 +759,8 @@ private fun ConfirmContentPreview() {
     PreviewWrapper {
         ConfirmContent(
             onContinue = {},
-            onSkipForNow = {},
             onDontShowAgain = {},
+            onDisableAllTours = {},
         )
     }
 }
@@ -752,8 +777,8 @@ private fun BubbleCardPreviewTailTop() {
                 isNarrow = false,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
             )
         }
     }
@@ -771,8 +796,8 @@ private fun BubbleCardPreviewTailBottom() {
                 isNarrow = false,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
             )
         }
     }
@@ -790,8 +815,8 @@ private fun BubbleCardPreviewCenterless() {
                 isNarrow = false,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
             )
         }
     }

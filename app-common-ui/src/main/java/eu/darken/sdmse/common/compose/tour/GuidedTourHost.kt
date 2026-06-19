@@ -74,8 +74,8 @@ fun GuidedTourHost(
     session: StateFlow<TourSession?>,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     modifier: Modifier = Modifier,
     registry: TourTargetRegistry = remember { TourTargetRegistry() },
     onStepRendered: (TourId) -> Unit = {},
@@ -171,8 +171,8 @@ fun GuidedTourHost(
                     onShowConfirmChange = { showExitConfirm = it },
                     onNext = onNext,
                     onPrevious = onPrevious,
-                    onSkipForNow = onSkipForNow,
                     onDontShowAgain = onDontShowAgain,
+                    onDisableAllTours = onDisableAllTours,
                     onBubbleFocusChanged = { bubbleHasFocus = it },
                 )
             }
@@ -190,8 +190,8 @@ private fun TourOverlay(
     onShowConfirmChange: (Boolean) -> Unit,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
-    onSkipForNow: () -> Unit,
     onDontShowAgain: () -> Unit,
+    onDisableAllTours: () -> Unit,
     onBubbleFocusChanged: (Boolean) -> Unit = {},
 ) {
     val density = LocalDensity.current
@@ -283,22 +283,13 @@ private fun TourOverlay(
         onShowConfirmChange = onShowConfirmChange,
         onNext = onNext,
         onPrevious = onPrevious,
-        onSkipForNow = onSkipForNow,
         onDontShowAgain = onDontShowAgain,
+        onDisableAllTours = onDisableAllTours,
         onFocusWithinChanged = onBubbleFocusChanged,
     )
 }
 
 // region Previews
-
-private val previewHostStep = TourStep(
-    stepId = "preview",
-    title = "Setup".toCaString(),
-    body = (
-        "Setup determines what SD Maid can do, based on permissions, " +
-            "device behavior, and Android restrictions."
-        ).toCaString(),
-)
 
 private val previewHostSession = TourSession(
     definition = TourDefinition(
@@ -329,8 +320,8 @@ private fun GuidedTourHostPreviewActive() {
                 session = sessionFlow,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
                 modifier = Modifier.fillMaxSize(),
                 registry = registry,
             ) {
@@ -378,8 +369,8 @@ private fun GuidedTourHostPreviewCenterless() {
                 session = sessionFlow,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
                 modifier = Modifier.fillMaxSize(),
             ) {
                 Box(
@@ -409,8 +400,8 @@ private fun GuidedTourHostPreviewIdle() {
                 session = sessionFlow,
                 onNext = {},
                 onPrevious = {},
-                onSkipForNow = {},
                 onDontShowAgain = {},
+                onDisableAllTours = {},
                 modifier = Modifier.fillMaxSize(),
             ) {
                 Box(

@@ -171,8 +171,8 @@ class MainActivity : ComponentActivity() {
                 session = guidedTourController.session,
                 onNext = { coroutineScope.launch { guidedTourController.next() } },
                 onPrevious = { coroutineScope.launch { guidedTourController.previous() } },
-                onSkipForNow = { coroutineScope.launch { guidedTourController.skipForNow() } },
                 onDontShowAgain = { coroutineScope.launch { guidedTourController.dismissForever() } },
+                onDisableAllTours = { coroutineScope.launch { guidedTourController.disableAllTours() } },
                 onStepRendered = { guidedTourController.markStepRendered(it) },
                 modifier = Modifier.fillMaxSize(),
             ) {

@@ -4,8 +4,8 @@
     <string name="dashboard_hero_freed_headline">%1$s freed</string>
     <string name="dashboard_hero_freeable_x_items">%1$s can be removed</string>
     <string name="dashboard_hero_freed_x_items">%1$s removed</string>
-    <string name="dashboard_hero_freeable_hint">Tap the button to free space. Tap a category to check first.</string>
-    <string name="dashboard_hero_freed_hint">Tap a category for details.</string>
+    <string name="dashboard_hero_freeable_hint">Tap the button to free space. Tap a chip to check first.</string>
+    <string name="dashboard_hero_freed_hint">Tap a chip for details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanned %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Freed %1$s</string>
@@ -105,7 +105,7 @@
     <string name="onboarding_setup_body3">Start using SD Maid by setting up access.</string>
     <string name="onboarding_setup_continue_action">Set up access</string>
     <string name="onboarding_setup_tours_enabled_label">Show guided tours</string>
-    <string name="onboarding_setup_tours_enabled_explanation">Get short tips that point out non-obvious features as you open each tool. You can bring them back anytime with \"Reset guided tours\" in the settings.</string>
+    <string name="onboarding_setup_tours_enabled_explanation">A quick guided tour of each feature as you open it.</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
@@ -343,24 +343,16 @@
     <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
 
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7 days</string>
-    <!-- Shorter versions for side-by-side display -->
 
-    <string name="tour_dashboard_overview_title">Dashboard</string>
-    <string name="tour_dashboard_overview_body">This is the dashboard, your home for all of SD Maid\'s tools. Each card here is a tool — open one to use it.</string>
-    <string name="tour_dashboard_setup_title">Setup</string>
-    <string name="tour_dashboard_setup_body">Setup determines what SD Maid can do, based on permissions, device behavior, and Android restrictions.</string>
-    <string name="tour_dashboard_tools_title">Tool cards</string>
-    <string name="tour_dashboard_tools_body">Cards can be opened to see details. Scan and delete actions live on each card; details become available once results exist.</string>
-    <string name="tour_dashboard_main_action_title">One-tap action</string>
-    <string name="tour_dashboard_main_action_body">The big button on the bottom is the easy scan/delete path for automatic tools.</string>
-    <string name="tour_dashboard_manual_tools_title">Manual tools</string>
-    <string name="tour_dashboard_manual_tools_body">Some tools — like Swiper — need a guided workflow you walk through yourself. They live alongside the automatic ones; open them directly to start.</string>
-    <string name="tour_dashboard_settings_title">Settings</string>
-    <string name="tour_dashboard_settings_body">Defaults are conservative and safe. Settings let you customize behavior — every device behaves a little differently.</string>
+    <string name="tour_dashboard_overview_body">This is your dashboard, SD Maid\'s home screen. Every tool and operation lives on a card here.</string>
+    <string name="tour_dashboard_setup_body">The setup card appears when something needs configuring. Open it and resolve the issues so SD Maid can do more. You can also reach setup from settings, if you dismiss it.</string>
+    <string name="tour_dashboard_tools_body">Open a tool\'s card for details. Scan and delete actions live on each card, details appear once a scan finds something.</string>
+    <string name="tour_dashboard_main_action_body">The big button at the bottom is the one-tap action. One tap to scan, one tap to clean, all automatic tools.</string>
+    <string name="tour_dashboard_manual_tools_body">Some tools, like Swiper, aren\'t automatic, they offer a guided workflow you step through yourself.</string>
+    <string name="tour_dashboard_settings_body">SD Maid\'s defaults are conservative and safe. Every device is a little different, so adjust the settings to get more out of it.</string>
 
-    <string name="tour_setup_intro_title">Permissions</string>
-    <string name="tour_setup_intro_body">Each card below is a permission SD Maid can use. All are optional, but more permissions mean more features and more thorough scans. Without any, most tools will find little to clean.</string>
+    <string name="tour_setup_intro_body">Each card on this screen is a permission SD Maid can use. All are optional, but more permissions mean more features and more thorough scans. Without any, most tools will find little to clean.</string>
 
     <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
-    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables tours if you turned them off during setup.</string>
+    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables all tours if you previously turned them off.</string>
 </resources>

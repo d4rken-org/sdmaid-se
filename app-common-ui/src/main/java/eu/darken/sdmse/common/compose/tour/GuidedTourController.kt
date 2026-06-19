@@ -119,6 +119,20 @@ class GuidedTourController @Inject constructor(
         routeAtStart = null
     }
 
+    /**
+     * Flip the global master switch off — no tour starts again until the user taps "Reset guided
+     * tours" in settings (which re-enables and clears per-tour state). Per-tour [TourPreferences]
+     * are intentionally left untouched: [shouldStart] gates on this flag first, so the flag alone
+     * suppresses everything. The session is cleared BEFORE persisting so the overlay disappears
+     * immediately — the DataStore write can settle after.
+     */
+    suspend fun disableAllTours() = mutationMutex.withLock {
+        log(TAG) { "disableAllTours() (active=${_session.value?.definition?.id?.raw})" }
+        _session.value = null
+        routeAtStart = null
+        generalSettings.isGuidedToursEnabled.value(false)
+    }
+
     suspend fun complete() = mutationMutex.withLock { completeLocked() }
 
     /**

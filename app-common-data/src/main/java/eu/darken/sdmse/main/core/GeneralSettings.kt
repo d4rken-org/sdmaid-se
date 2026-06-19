@@ -88,7 +88,8 @@ class GeneralSettings @Inject constructor(
     )
 
     // Global master switch for guided tours. When false, no tour starts (see GuidedTourController.shouldStart).
-    // Offered as an opt-out on the onboarding setup screen; re-enabled by "Reset guided tours" in settings.
+    // Offered as an opt-out during onboarding and from a tour's exit dialog ("Disable all tours");
+    // re-enabled by "Reset guided tours" in settings.
     val isGuidedToursEnabled = dataStore.createValue("core.tours.enabled", true)
 
     // Unused at the moment, but we keep this to remember the setting should we add this again in the future
