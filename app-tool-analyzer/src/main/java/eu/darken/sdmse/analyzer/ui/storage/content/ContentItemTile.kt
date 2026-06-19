@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.text.format.Formatter
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -79,12 +83,16 @@ internal fun ContentItemTile(
     } else {
         CardDefaults.cardColors()
     }
+    val cardBorder = if (isSelected) {
+        BorderStroke(3.dp, MaterialTheme.colorScheme.primary)
+    } else null
 
     Card(
         modifier = modifier
             .fillMaxWidth()
             .combinedClickable(onClick = onTap, onLongClick = onLongPress),
         colors = cardColor,
+        border = cardBorder,
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
         Box(
@@ -143,6 +151,19 @@ internal fun ContentItemTile(
                     }
                 }
             }
+            if (isSelected) {
+                Icon(
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(6.dp)
+                        .size(24.dp)
+                        .background(MaterialTheme.colorScheme.onPrimary, CircleShape)
+                        .padding(2.dp),
+                )
+            }
         }
     }
 }
@@ -152,23 +173,37 @@ internal fun ContentItemTile(
 private fun ContentItemTilePreview() {
     PreviewWrapper {
         ContentItemTile(
-            item = Item(
-                parent = previewContentItem(
-                    segments = arrayOf("storage", "emulated", "0", "DCIM"),
-                    type = FileType.FILE,
-                    size = 15L * 1024 * 1024,
-                    withLookup = false,
-                ),
-                content = previewContentItem(
-                    segments = arrayOf("storage", "emulated", "0", "DCIM", "vacation.jpg"),
-                    type = FileType.FILE,
-                    size = 3L * 1024 * 1024,
-                    withLookup = false,
-                ),
-                sizeRatio = 0.4f,
-            ),
+            item = previewTileItem(),
             isSelected = false,
             isSelectionMode = false,
         )
     }
 }
+
+@Preview2
+@Composable
+private fun ContentItemTileSelectedPreview() {
+    PreviewWrapper {
+        ContentItemTile(
+            item = previewTileItem(),
+            isSelected = true,
+            isSelectionMode = true,
+        )
+    }
+}
+
+private fun previewTileItem() = Item(
+    parent = previewContentItem(
+        segments = arrayOf("storage", "emulated", "0", "DCIM"),
+        type = FileType.FILE,
+        size = 15L * 1024 * 1024,
+        withLookup = false,
+    ),
+    content = previewContentItem(
+        segments = arrayOf("storage", "emulated", "0", "DCIM", "vacation.jpg"),
+        type = FileType.FILE,
+        size = 3L * 1024 * 1024,
+        withLookup = false,
+    ),
+    sizeRatio = 0.4f,
+)
