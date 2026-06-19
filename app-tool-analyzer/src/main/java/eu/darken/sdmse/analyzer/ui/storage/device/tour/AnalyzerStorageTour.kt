@@ -2,13 +2,14 @@ package eu.darken.sdmse.analyzer.ui.storage.device.tour
 
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.tour.GuidedTour
 import eu.darken.sdmse.common.compose.tour.TourDefinition
 import eu.darken.sdmse.common.compose.tour.TourId
 import eu.darken.sdmse.common.compose.tour.TourStep
 
-object AnalyzerStorageTour {
+object AnalyzerStorageTour : GuidedTour {
 
-    val id: TourId = TourId("tour.analyzer.storage")
+    override val id: TourId = TourId("tour.analyzer.storage")
 
     const val STORAGE_CARD_TARGET = "analyzer.storageCard"
 
@@ -25,13 +26,11 @@ object AnalyzerStorageTour {
             TourStep(
                 stepId = "intro",
                 targetId = null,
-                title = R.string.tour_analyzer_intro_title.toCaString(),
                 body = R.string.tour_analyzer_intro_body.toCaString(),
             ),
             TourStep(
                 stepId = "storage",
                 targetId = STORAGE_CARD_TARGET,
-                title = R.string.tour_analyzer_storage_title.toCaString(),
                 body = R.string.tour_analyzer_storage_body.toCaString(),
             ),
         ),

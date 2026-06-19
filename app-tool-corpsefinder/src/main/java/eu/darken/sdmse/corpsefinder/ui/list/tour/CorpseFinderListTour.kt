@@ -1,14 +1,15 @@
 package eu.darken.sdmse.corpsefinder.ui.list.tour
 
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.tour.GuidedTour
 import eu.darken.sdmse.common.compose.tour.TourDefinition
 import eu.darken.sdmse.common.compose.tour.TourId
 import eu.darken.sdmse.common.compose.tour.TourStep
 import eu.darken.sdmse.corpsefinder.R
 
-object CorpseFinderListTour {
+object CorpseFinderListTour : GuidedTour {
 
-    val id: TourId = TourId("tour.corpsefinder.list")
+    override val id: TourId = TourId("tour.corpsefinder.list")
 
     const val CORPSE_ROW_TARGET = "corpsefinder.corpseRow"
 
@@ -25,13 +26,11 @@ object CorpseFinderListTour {
             TourStep(
                 stepId = "intro",
                 targetId = null,
-                title = R.string.tour_corpsefinder_intro_title.toCaString(),
                 body = R.string.tour_corpsefinder_intro_body.toCaString(),
             ),
             TourStep(
                 stepId = "row",
                 targetId = CORPSE_ROW_TARGET,
-                title = R.string.tour_corpsefinder_row_title.toCaString(),
                 body = R.string.tour_corpsefinder_row_body.toCaString(),
             ),
         ),

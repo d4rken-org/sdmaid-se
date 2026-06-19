@@ -1,14 +1,15 @@
 package eu.darken.sdmse.squeezer.ui.list.tour
 
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.tour.GuidedTour
 import eu.darken.sdmse.common.compose.tour.TourDefinition
 import eu.darken.sdmse.common.compose.tour.TourId
 import eu.darken.sdmse.common.compose.tour.TourStep
 import eu.darken.sdmse.squeezer.R
 
-object SqueezerListTour {
+object SqueezerListTour : GuidedTour {
 
-    val id: TourId = TourId("tour.squeezer.list")
+    override val id: TourId = TourId("tour.squeezer.list")
 
     const val COMPRESS_ALL_TARGET = "squeezer.compressAll"
 
@@ -25,13 +26,11 @@ object SqueezerListTour {
             TourStep(
                 stepId = "intro",
                 targetId = null,
-                title = R.string.tour_squeezer_intro_title.toCaString(),
                 body = R.string.tour_squeezer_intro_body.toCaString(),
             ),
             TourStep(
                 stepId = "compress",
                 targetId = COMPRESS_ALL_TARGET,
-                title = R.string.tour_squeezer_compress_title.toCaString(),
                 body = R.string.tour_squeezer_compress_body.toCaString(),
             ),
         ),

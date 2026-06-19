@@ -52,8 +52,6 @@
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
 
     <!-- Guided tour -->
-    <string name="tour_analyzer_intro_title">Storage Analyzer</string>
-    <string name="tour_analyzer_intro_body">See what\'s actually filling up your storage. The Analyzer maps out where your space goes — it measures and shows, it doesn\'t delete on its own.</string>
-    <string name="tour_analyzer_storage_title">Tap to drill in</string>
-    <string name="tour_analyzer_storage_body">Open a storage to break it down into apps, media and files, then keep tapping to track down the biggest space users. The bar shows how full it is.</string>
+    <string name="tour_analyzer_intro_body">See what\'s actually filling up your storage. The Analyzer maps out where your space goes. Each of these cards is a storage chip on your device.</string>
+    <string name="tour_analyzer_storage_body">Open a storage to break it down into apps, media and files, then keep tapping to track down the biggest culprits.</string>
 </resources>

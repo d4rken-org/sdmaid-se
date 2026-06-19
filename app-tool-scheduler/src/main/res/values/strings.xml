@@ -39,8 +39,6 @@
     <string name="scheduler_battery_optimization_hint">Consider disabling battery optimizations for SD Maid if you experience issues with background execution.</string>
 
     <!-- Guided tour -->
-    <string name="tour_scheduler_intro_title">Hands-off cleaning</string>
-    <string name="tour_scheduler_intro_body">Let SD Maid clean on a schedule. Pick a time and which tools run, and it does the work in the background — no need to open the app.</string>
-    <string name="tour_scheduler_create_title">Create a schedule</string>
-    <string name="tour_scheduler_create_body">Tap here to add one, then set when it runs and which tools to include. Note: if Android\'s battery optimization is on, scheduled runs can be delayed.</string>
+    <string name="tour_scheduler_intro_body">SD Maid can clean on a schedule. Pick a time and which tools run, and it does the work in the background, (almost) no need to open the app.</string>
+    <string name="tour_scheduler_create_body">Tap here to create a new schedule, then set when it runs and which tools to include.</string>
 </resources>

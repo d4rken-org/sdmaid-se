@@ -100,8 +100,6 @@
     <string name="squeezer_onboarding_got_it">Got it</string>
 
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_title">Shrink media to save space</string>
-    <string name="tour_squeezer_intro_body">Squeezer re-compresses your photos and videos so they take up less room. The files stay usable, just smaller — and each one shows its estimated saving.</string>
-    <string name="tour_squeezer_compress_title">Compress your media</string>
+    <string name="tour_squeezer_intro_body">Squeezer re-compresses your photos and videos so they take up less room. The files stay usable, just smaller, and each one shows its estimated saving.</string>
     <string name="tour_squeezer_compress_body">Compress everything at once here, or tap a single item to shrink just that one. Long-press to pick several. You\'ll always see a preview before anything changes.</string>
 </resources>

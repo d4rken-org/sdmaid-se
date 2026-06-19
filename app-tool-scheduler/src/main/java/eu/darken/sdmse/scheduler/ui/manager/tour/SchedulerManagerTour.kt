@@ -1,14 +1,15 @@
 package eu.darken.sdmse.scheduler.ui.manager.tour
 
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.tour.GuidedTour
 import eu.darken.sdmse.common.compose.tour.TourDefinition
 import eu.darken.sdmse.common.compose.tour.TourId
 import eu.darken.sdmse.common.compose.tour.TourStep
 import eu.darken.sdmse.scheduler.R
 
-object SchedulerManagerTour {
+object SchedulerManagerTour : GuidedTour {
 
-    val id: TourId = TourId("tour.scheduler.manager")
+    override val id: TourId = TourId("tour.scheduler.manager")
 
     const val ADD_TARGET = "scheduler.add"
 
@@ -25,13 +26,11 @@ object SchedulerManagerTour {
             TourStep(
                 stepId = "intro",
                 targetId = null,
-                title = R.string.tour_scheduler_intro_title.toCaString(),
                 body = R.string.tour_scheduler_intro_body.toCaString(),
             ),
             TourStep(
                 stepId = "create",
                 targetId = ADD_TARGET,
-                title = R.string.tour_scheduler_create_title.toCaString(),
                 body = R.string.tour_scheduler_create_body.toCaString(),
             ),
         ),

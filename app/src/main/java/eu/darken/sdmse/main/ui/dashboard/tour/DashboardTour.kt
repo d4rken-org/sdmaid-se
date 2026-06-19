@@ -2,13 +2,14 @@ package eu.darken.sdmse.main.ui.dashboard.tour
 
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.tour.GuidedTour
 import eu.darken.sdmse.common.compose.tour.TourDefinition
 import eu.darken.sdmse.common.compose.tour.TourId
 import eu.darken.sdmse.common.compose.tour.TourStep
 
-object DashboardTour {
+object DashboardTour : GuidedTour {
 
-    val id: TourId = TourId("tour.dashboard")
+    override val id: TourId = TourId("tour.dashboard")
 
     const val SETUP_TARGET = "dashboard.setup"
     const val TOOLS_TARGET = "dashboard.firstTool"
@@ -46,7 +47,6 @@ object DashboardTour {
                 TourStep(
                     stepId = "overview",
                     targetId = null,
-                    title = R.string.tour_dashboard_overview_title.toCaString(),
                     body = R.string.tour_dashboard_overview_body.toCaString(),
                 ),
             )
@@ -55,7 +55,6 @@ object DashboardTour {
                     TourStep(
                         stepId = "setup",
                         targetId = SETUP_TARGET,
-                        title = R.string.tour_dashboard_setup_title.toCaString(),
                         body = R.string.tour_dashboard_setup_body.toCaString(),
                         prepareTarget = prepareSetup,
                     ),
@@ -65,7 +64,6 @@ object DashboardTour {
                 TourStep(
                     stepId = "tools",
                     targetId = TOOLS_TARGET,
-                    title = R.string.tour_dashboard_tools_title.toCaString(),
                     body = R.string.tour_dashboard_tools_body.toCaString(),
                     prepareTarget = prepareTools,
                 ),
@@ -74,7 +72,6 @@ object DashboardTour {
                 TourStep(
                     stepId = "mainAction",
                     targetId = MAIN_ACTION_TARGET,
-                    title = R.string.tour_dashboard_main_action_title.toCaString(),
                     body = R.string.tour_dashboard_main_action_body.toCaString(),
                 ),
             )
@@ -83,7 +80,6 @@ object DashboardTour {
                     TourStep(
                         stepId = "manualTools",
                         targetId = MANUAL_TOOL_TARGET,
-                        title = R.string.tour_dashboard_manual_tools_title.toCaString(),
                         body = R.string.tour_dashboard_manual_tools_body.toCaString(),
                         prepareTarget = prepareManualTool,
                     ),
@@ -93,7 +89,6 @@ object DashboardTour {
                 TourStep(
                     stepId = "settings",
                     targetId = SETTINGS_TARGET,
-                    title = R.string.tour_dashboard_settings_title.toCaString(),
                     body = R.string.tour_dashboard_settings_body.toCaString(),
                 ),
             )
