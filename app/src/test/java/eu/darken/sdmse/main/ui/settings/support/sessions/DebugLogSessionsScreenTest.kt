@@ -32,7 +32,7 @@ import java.time.Instant
  * slide the sheet) lives in `ModalBottomSheetSceneStrategy` and needs a real focus + nested-scroll
  * harness, so it is covered by on-device verification rather than this JVM test.
  */
-class DebugLogSessionsSheetContentTest : BaseComposeRobolectricTest() {
+class DebugLogSessionsScreenTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
@@ -53,7 +53,7 @@ class DebugLogSessionsSheetContentTest : BaseComposeRobolectricTest() {
 
         composeRule.setContent {
             PreviewWrapper {
-                DebugLogSessionsSheetContent(
+                DebugLogSessionsScreen(
                     // requiredHeight pins the sheet height regardless of the Robolectric host
                     // size, so the weight cap is the only thing keeping the footer on screen.
                     modifier = Modifier

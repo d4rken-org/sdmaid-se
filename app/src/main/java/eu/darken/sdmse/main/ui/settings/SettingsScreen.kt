@@ -29,6 +29,8 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -316,5 +318,13 @@ internal fun SettingsScreen(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SettingsScreenPreview() {
+    PreviewWrapper {
+        SettingsScreen()
     }
 }

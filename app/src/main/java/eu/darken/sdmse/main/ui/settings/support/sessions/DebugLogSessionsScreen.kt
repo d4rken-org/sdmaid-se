@@ -73,7 +73,7 @@ fun DebugLogSessionsScreenHost(
         }
     }
 
-    DebugLogSessionsSheetContent(
+    DebugLogSessionsScreen(
         stateSource = vm.state,
         onOpenSession = vm::openSession,
         onDeleteSession = vm::delete,
@@ -83,7 +83,7 @@ fun DebugLogSessionsScreenHost(
 }
 
 @Composable
-internal fun DebugLogSessionsSheetContent(
+internal fun DebugLogSessionsScreen(
     modifier: Modifier = Modifier,
     stateSource: StateFlow<DebugLogSessionsViewModel.State> =
         MutableStateFlow(DebugLogSessionsViewModel.State()),
@@ -198,7 +198,7 @@ internal fun DebugLogSessionsSheetContent(
 @Composable
 private fun DebugLogSessionsEmptyPreview() {
     PreviewWrapper {
-        DebugLogSessionsSheetContent(
+        DebugLogSessionsScreen(
             stateSource = MutableStateFlow(DebugLogSessionsViewModel.State()),
         )
     }
@@ -208,7 +208,7 @@ private fun DebugLogSessionsEmptyPreview() {
 @Composable
 private fun DebugLogSessionsPopulatedPreview() {
     PreviewWrapper {
-        DebugLogSessionsSheetContent(
+        DebugLogSessionsScreen(
             stateSource = MutableStateFlow(
                 DebugLogSessionsViewModel.State(
                     sessions = listOf(

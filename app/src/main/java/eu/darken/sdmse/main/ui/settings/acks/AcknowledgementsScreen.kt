@@ -12,6 +12,8 @@ import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -147,4 +149,12 @@ private fun LicenseItem(
         subtitle = subtitle,
         onClick = { onOpenUrl(url) },
     )
+}
+
+@Preview2
+@Composable
+private fun AcknowledgementsScreenPreview() {
+    PreviewWrapper {
+        AcknowledgementsScreen()
+    }
 }
