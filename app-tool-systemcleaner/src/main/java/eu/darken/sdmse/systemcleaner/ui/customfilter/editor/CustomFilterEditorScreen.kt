@@ -43,6 +43,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
@@ -57,8 +58,11 @@ internal sealed interface EditorPendingDialog {
 
 @Composable
 fun CustomFilterEditorScreenHost(
+    route: CustomFilterEditorRoute,
     vm: CustomFilterEditorViewModel = hiltViewModel(),
 ) {
+    LaunchedEffect(route) { vm.bindRoute(route) }
+
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 

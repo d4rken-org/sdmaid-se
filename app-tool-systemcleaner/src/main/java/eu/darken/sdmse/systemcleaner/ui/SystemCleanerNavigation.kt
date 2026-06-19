@@ -19,6 +19,6 @@ class SystemCleanerNavigation @Inject constructor() : NavigationEntry {
         entry<CustomFilterListRoute> { CustomFilterListScreenHost() }
         entry<SystemCleanerListRoute> { SystemCleanerListScreenHost() }
         entry<FilterContentDetailsRoute> { route -> FilterContentDetailsScreenHost(route = route) }
-        entry<CustomFilterEditorRoute> { CustomFilterEditorScreenHost() }
+        entry<CustomFilterEditorRoute> { route -> CustomFilterEditorScreenHost(route = route) }
     }
 }

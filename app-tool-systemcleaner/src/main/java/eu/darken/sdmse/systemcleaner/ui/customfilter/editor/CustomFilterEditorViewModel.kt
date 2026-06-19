@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -29,9 +28,12 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
@@ -46,7 +48,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CustomFilterEditorViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val filterRepo: CustomFilterRepo,
     dataAreaManager: DataAreaManager,
@@ -55,13 +56,22 @@ class CustomFilterEditorViewModel @Inject constructor(
     private val settings: SystemCleanerSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val route = CustomFilterEditorRoute.from(handle)
-    private val initialOptions: CustomFilterEditorOptions? = route.initial
-    private val identifier: FilterIdentifier = route.identifier ?: filterRepo.generateIdentifier()
+    private val routeFlow = MutableStateFlow<CustomFilterEditorRoute?>(null)
+
+    /** Set the route exactly once. Subsequent calls are no-ops so recompositions don't reset state. */
+    fun bindRoute(route: CustomFilterEditorRoute) {
+        if (routeFlow.value != null) return
+        log(TAG) { "bindRoute($route)" }
+        routeFlow.value = route
+    }
 
     val events = SingleEventFlow<Event>()
 
     private val currentState = DynamicStateFlow(TAG, vmScope) {
+        val route = routeFlow.filterNotNull().first()
+        val initialOptions: CustomFilterEditorOptions? = route.initial
+        val identifier: FilterIdentifier = route.identifier ?: filterRepo.generateIdentifier()
+
         val originalConfig = filterRepo.currentConfigs().singleOrNull { it.identifier == identifier }
 
         if (originalConfig == null && initialOptions == null) {
@@ -107,7 +117,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         log(TAG) { "save()" }
         val toSave = currentState.value().current.copy(modifiedAt = Instant.now())
         filterRepo.save(setOf(toSave))
-        if (initialOptions?.saveAsEnabled == true) {
+        if (routeFlow.value?.initial?.saveAsEnabled == true) {
             settings.toggleCustomFilter(toSave.identifier, true)
         }
         navUp()
