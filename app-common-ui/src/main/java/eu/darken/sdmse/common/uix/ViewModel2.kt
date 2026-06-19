@@ -11,9 +11,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlin.coroutines.CoroutineContext
@@ -49,14 +47,6 @@ abstract class ViewModel2(
     open fun <T> Flow<T>.launchInViewModel() = this
         .setupCommonEventHandlers(tag) { "launchInViewModel()" }
         .launchIn(vmScope)
-
-    // Compatibility helper for legacy code. For Compose render state, prefer ViewModel4.safeStateIn()
-    // so failures become explicit UI state plus errorEvents instead of escaping into collectors.
-    fun <T> Flow<T>.asStateFlow(defaultValue: T? = null): Flow<T?> = stateIn(
-        vmScope,
-        started = SharingStarted.WhileSubscribed(5000),
-        initialValue = defaultValue,
-    )
 
     companion object {
         private fun defaultTag(): String = this::class.simpleName ?: "VM2"

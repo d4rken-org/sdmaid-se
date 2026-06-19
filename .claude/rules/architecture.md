@@ -68,7 +68,7 @@ Each cleaning tool is its own Gradle module under `app-tool-*`:
 Layered ViewModel hierarchy (defined in `app-common-ui/.../common/uix/`):
 
 - **`ViewModel1`** (extends `androidx.lifecycle.ViewModel`): Debug logging on init/clear, `tag` system for log identification
-- **`ViewModel2`** (extends `ViewModel1`): Adds `DispatcherProvider`, `vmScope`, `launch()`, `Flow<T>.asStateFlow()` for coroutine management
+- **`ViewModel2`** (extends `ViewModel1`): Adds `DispatcherProvider`, `vmScope`, `launch()`, `Flow<T>.launchInViewModel()` for coroutine management
 - **`ViewModel4`** (extends `ViewModel2`): Base for all Compose screens. Adds error handling (`errorEvents`, a `SingleEventFlow<Throwable>`), navigation via `NavigationEventSource` (`navTo()` / `navUp()`), and `safeStateIn()` for collector-safe render state.
 
 > There is no `ViewModel3` — what older docs split across `ViewModel3` (errors) and `ViewModel4` (navigation) is now merged into a single `ViewModel4`.
