@@ -157,9 +157,10 @@
     <string name="swiper_open_externally_action">Open in external app</string>
 
     <!-- Guided tour -->
-    <string name="tour_swiper_actions_title">Decide with the buttons</string>
-    <string name="tour_swiper_actions_body">Rather not swipe? Keep or delete the current file from here. Skip leaves it undecided for later — and long-pressing Skip excludes a file from future scans. Undo reverts your last choice.</string>
-    <string name="tour_swiper_review_title">Nothing is deleted yet</string>
+    <string name="tour_swiper_gestures_body">Swipe a photo to decide its fate: Sideways to keep or delete, up to skip, down to undo. The buttons below do the same — and show which side is which.</string>
+    <string name="tour_swiper_openin_body">This button opens the photo in another app, handy to check it before deciding.</string>
+    <string name="tour_swiper_preview_body">This button opens a full-screen preview for a closer look.</string>
+    <string name="tour_swiper_actions_body">Don\'t like swiping? We\'ve got buttons too! Skip leaves it undecided for later, and long-pressing Skip excludes a file from future scans. Undo reverts your last choice.</string>
     <string name="tour_swiper_review_body">Your keep and delete choices are only staged. Open Review to go over them and apply the deletions when you\'re ready.</string>
 
 </resources>

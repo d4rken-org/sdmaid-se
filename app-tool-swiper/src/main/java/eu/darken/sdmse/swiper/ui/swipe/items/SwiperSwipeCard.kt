@@ -58,11 +58,13 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.ui.swipe.SwipeOutcome
 import eu.darken.sdmse.swiper.ui.swipe.decideSwipe
+import eu.darken.sdmse.swiper.ui.swipe.tour.SwiperSwipeTour
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -230,7 +232,8 @@ internal fun SwiperSwipeCard(
                     modifier = Modifier
                         .align(Alignment.TopStart)
                         .padding(8.dp)
-                        .graphicsLayer { alpha = chromeAlpha.value },
+                        .graphicsLayer { alpha = chromeAlpha.value }
+                        .guidedTourTarget(SwiperSwipeTour.OPEN_IN_TARGET),
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.TwoTone.OpenInNew,
@@ -245,7 +248,8 @@ internal fun SwiperSwipeCard(
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(8.dp)
-                        .graphicsLayer { alpha = chromeAlpha.value },
+                        .graphicsLayer { alpha = chromeAlpha.value }
+                        .guidedTourTarget(SwiperSwipeTour.FULLSCREEN_PREVIEW_TARGET),
                 ) {
                     Icon(
                         imageVector = Icons.TwoTone.ZoomOutMap,

@@ -89,7 +89,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val itemsFlow: MutableStateFlow<List<SwipeItem>>,
         val sessionsWithStatsFlow: MutableStateFlow<List<Swiper.SessionWithStats>>,
         val hapticSetting: DataStoreValue<Boolean>,
-        val gestureOverlaySetting: DataStoreValue<Boolean>,
     )
 
     // TestScope extension so the harness can launch a state collector inside the test's own scope.
@@ -102,7 +101,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
         startIndex: Int = -1,
         hasSessionLookups: Boolean = true,
         hapticEnabled: Boolean = false,
-        showGestureOverlay: Boolean = false,
         sessionsWithStats: List<Swiper.SessionWithStats> = emptyList(),
     ): Harness {
         val sessionFlow = MutableStateFlow(session)
@@ -117,12 +115,10 @@ class SwiperSwipeViewModelTest : BaseTest() {
         }
 
         val hapticSetting = mockSetting(hapticEnabled)
-        val gestureOverlaySetting = mockSetting(!showGestureOverlay)
         val settings = mockk<SwiperSettings>().apply {
             every { swapSwipeDirections } returns mockSetting(false)
             every { showFileDetailsOverlay } returns mockSetting(true)
             every { hapticFeedbackEnabled } returns hapticSetting
-            every { hasShownGestureOverlay } returns gestureOverlaySetting
         }
         val exclusionManager = mockk<ExclusionManager>(relaxed = true)
         val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
@@ -163,7 +159,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
             itemsFlow = itemsFlow,
             sessionsWithStatsFlow = sessionsWithStatsFlow,
             hapticSetting = hapticSetting,
-            gestureOverlaySetting = gestureOverlaySetting,
         )
     }
 
@@ -493,18 +488,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `dismissGestureOverlay writes hasShownGestureOverlay setting`() = runTest2 {
-        val h = harness()
-
-        h.vm.dismissGestureOverlay()
-        advanceUntilIdle()
-
-        // settings.hasShownGestureOverlay.value(true) is an extension that calls update { true }.
-        // We verify the underlying update() call was made on the relaxed mock.
-        coVerify(exactly = 1) { h.gestureOverlaySetting.update(any()) }
-    }
-
-    @Test
     fun `excludeAndRemove saves PathExclusion with SWIPER tag and removes item`() = runTest2 {
         val items = listOf(item(1), item(2))
         val h = harness(items = items)
@@ -571,19 +554,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val nav = h.vm.navEvents.first()
         nav.shouldBeInstanceOf<NavEvent.GoTo>()
         nav.destination shouldBe SwiperStatusRoute(sessionId = "session-x")
-    }
-
-    @Test
-    fun `state showGestureOverlay reflects inverse of hasShownGestureOverlay setting`() = runTest2 {
-        // showGestureOverlay = !hasShownOverlay. With hasShownOverlay = false, the overlay should
-        // appear; with true, it should be hidden.
-        val showFirst = harness(items = listOf(item(1)), showGestureOverlay = true)
-        advanceUntilIdle()
-        showFirst.vm.state.first()!!.showGestureOverlay shouldBe true
-
-        val hidden = harness(items = listOf(item(1)), showGestureOverlay = false)
-        advanceUntilIdle()
-        hidden.vm.state.first()!!.showGestureOverlay shouldBe false
     }
 
     private class CollectedEvents(

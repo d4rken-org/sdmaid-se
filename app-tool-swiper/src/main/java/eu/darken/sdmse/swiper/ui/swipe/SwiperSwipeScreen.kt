@@ -53,7 +53,6 @@ import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperActionBar
-import eu.darken.sdmse.swiper.ui.swipe.items.SwiperGestureOverlay
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperProgressPager
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperStatsCard
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperSwipeBackCard
@@ -102,7 +101,6 @@ fun SwiperSwipeScreenHost(
         onSetCurrentIndex = vm::setCurrentIndex,
         onOpenExternally = vm::openExternally,
         onExcludeAndRemove = vm::excludeAndRemove,
-        onDismissGestureOverlay = vm::dismissGestureOverlay,
         onOpenPreview = { item ->
             vm.navTo(PreviewRoute(PreviewOptions(paths = listOf(item.lookup.lookedUp), position = 0)))
         },
@@ -121,7 +119,6 @@ internal fun SwiperSwipeScreen(
     onSetCurrentIndex: (Int) -> Unit = {},
     onOpenExternally: (SwipeItem) -> Unit = {},
     onExcludeAndRemove: (SwipeItem) -> Unit = {},
-    onDismissGestureOverlay: () -> Unit = {},
     onOpenPreview: (SwipeItem) -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
@@ -132,9 +129,9 @@ internal fun SwiperSwipeScreen(
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { SwiperSwipeTour.definition() }
     var tourStartAttempted by remember { mutableStateOf(false) }
-    // Start only once the first-run gesture overlay is dismissed and a card is in view, so the
-    // gesture overlay and this tour never show at the same time.
-    val tourReady = state?.let { it.showGestureOverlay == false && it.currentItem != null } == true
+    // Start once a card is in view. The tour's leading centerless step teaches the swipe gestures
+    // (it replaced the old standalone first-run overlay).
+    val tourReady = state?.currentItem != null
     LaunchedEffect(tourReady) {
         if (!tourReady || tourStartAttempted) return@LaunchedEffect
         // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
@@ -276,13 +273,6 @@ internal fun SwiperSwipeScreen(
             }
         }
 
-        val overlayState = state
-        if (overlayState?.showGestureOverlay == true && overlayState.currentItem != null) {
-            SwiperGestureOverlay(
-                swapDirections = overlayState.swapDirections,
-                onDismiss = onDismissGestureOverlay,
-            )
-        }
     }
 
     if (showHelpDialog) {

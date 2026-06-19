@@ -83,15 +83,13 @@ class SwiperSwipeViewModel @Inject constructor(
             settings.swapSwipeDirections.flow,
             settings.showFileDetailsOverlay.flow,
             undoHistory,
-            settings.hasShownGestureOverlay.flow,
         ) { session: SwipeSession?,
             items: List<SwipeItem>,
             allSessions: List<Swiper.SessionWithStats>,
             indexOverride: Int?,
             swapDirections: Boolean,
             showDetails: Boolean,
-            undoStack: List<UndoEntry>,
-            hasShownOverlay: Boolean ->
+            undoStack: List<UndoEntry> ->
             // Override (set by bindRoute / setCurrentIndex) takes precedence over the session's
             // persistent currentIndex. After a partial delete the session resets to 0 but the
             // override may point past the now-shorter items list — coerceIn handles that without
@@ -122,7 +120,6 @@ class SwiperSwipeViewModel @Inject constructor(
                 showDetails = showDetails,
                 sessionPosition = sessionPosition,
                 canUndo = undoStack.isNotEmpty(),
-                showGestureOverlay = !hasShownOverlay,
             )
         }
     }.safeStateIn(initialValue = null) { null }
@@ -261,11 +258,6 @@ class SwiperSwipeViewModel @Inject constructor(
         )
     }
 
-    fun dismissGestureOverlay() = launch {
-        log(TAG, INFO) { "dismissGestureOverlay()" }
-        settings.hasShownGestureOverlay.value(true)
-    }
-
     fun openExternally(item: SwipeItem) = launch {
         log(TAG, INFO) { "openExternally(${item.lookup.lookedUp})" }
         val intent = viewIntentTool.create(item.lookup)
@@ -308,7 +300,6 @@ class SwiperSwipeViewModel @Inject constructor(
         val showDetails: Boolean,
         val sessionPosition: Int?,
         val canUndo: Boolean,
-        val showGestureOverlay: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
         // Strict next item only (legacy parity). The previous `?: firstOrNull { it != current }`
