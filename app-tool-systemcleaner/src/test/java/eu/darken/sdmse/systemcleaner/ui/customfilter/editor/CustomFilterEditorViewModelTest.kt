@@ -1,6 +1,5 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
-import androidx.lifecycle.SavedStateHandle
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.files.FileType
@@ -20,8 +19,6 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.mockkObject
-import io.mockk.unmockkObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -29,7 +26,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
@@ -38,11 +34,6 @@ import java.time.Duration
 import java.time.Instant
 
 class CustomFilterEditorViewModelTest : BaseTest() {
-
-    @AfterEach
-    fun teardownRouteMock() {
-        unmockkObject(CustomFilterEditorRoute.Companion)
-    }
 
     private fun config(
         id: String = "filter-1",
@@ -68,26 +59,13 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         val dataAreaState: MutableSharedFlow<DataAreaManager.State>,
     )
 
-    /**
-     * Mocks `CustomFilterEditorRoute.from(handle)` to bypass `SavedStateHandle.toRoute()`
-     * which requires real Android Bundle support (Robolectric) — the Navigation library's
-     * `SavedStateHandleArgStore` calls `bundleOf()` internally and crashes on JVM mocks.
-     */
-    private fun mockRoute(identifier: String?, initial: CustomFilterEditorOptions?) {
-        mockkObject(CustomFilterEditorRoute.Companion)
-        every { CustomFilterEditorRoute.from(any()) } returns CustomFilterEditorRoute(
-            identifier = identifier,
-            initial = initial,
-        )
-    }
-
     private fun buildHarness(
         identifier: String? = null,
         initial: CustomFilterEditorOptions? = null,
         existingConfigs: List<CustomFilterConfig> = emptyList(),
         availableAreas: Set<DataArea.Type> = emptySet(),
+        bindRoute: Boolean = true,
     ): Harness {
-        mockRoute(identifier, initial)
         val repo = mockk<CustomFilterRepo>(relaxed = true).apply {
             every { configs } returns flowOf(existingConfigs)
             every { generateIdentifier() } returns "generated-id-${System.nanoTime()}"
@@ -114,7 +92,6 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         }
         val filterFactory = mockk<CustomFilter.Factory>(relaxed = true)
         val vm = CustomFilterEditorViewModel(
-            handle = SavedStateHandle(),
             dispatcherProvider = TestDispatcherProvider(),
             filterRepo = repo,
             dataAreaManager = dataAreaManager,
@@ -122,6 +99,9 @@ class CustomFilterEditorViewModelTest : BaseTest() {
             filterFactory = filterFactory,
             settings = settings,
         )
+        if (bindRoute) {
+            vm.bindRoute(CustomFilterEditorRoute(identifier = identifier, initial = initial))
+        }
         return Harness(vm, repo, settings, enabledFilterValue, crawler, filterFactory, dataAreaState)
     }
 
@@ -500,5 +480,86 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.value!!.availableAreas shouldBe setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA)
+    }
+
+    // ──────────────────────────── route binding ────────────────────────────
+
+    @Test
+    fun `analyzer create-filter route seeds config and does not phantom-navUp`() = runTest2 {
+        // Regression: the analyzer "create filter" route carries a non-null `initial` with path
+        // criteria and saveAsEnabled=true but no identifier. Previously the complex `initial`
+        // field was lost via SavedStateHandle.toRoute(), tripping the phantom-filter navUp.
+        val path = SegmentCriterium(listOf("Downloads"), SegmentCriterium.Mode.Start())
+        val h = buildHarness(
+            identifier = null,
+            initial = CustomFilterEditorOptions(
+                label = "From analyzer",
+                areas = setOf(DataArea.Type.SDCARD),
+                pathCriteria = setOf(path),
+                saveAsEnabled = true,
+            ),
+        )
+        keepStateAlive(h.vm)
+        val navEvents = mutableListOf<NavEvent>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            h.vm.navEvents.collect { navEvents.add(it) }
+        }
+        advanceUntilIdle()
+
+        val state = h.vm.state.value!!
+        state.original shouldBe null
+        state.current.label shouldBe "From analyzer"
+        state.current.pathCriteria!!.contains(path) shouldBe true
+        state.current.areas shouldBe setOf(DataArea.Type.SDCARD)
+        navEvents.contains(NavEvent.Up) shouldBe false
+
+        h.vm.save()
+        advanceUntilIdle()
+        job.cancel()
+
+        coVerify(exactly = 1) { h.repo.save(any()) }
+        coVerify(atLeast = 1) { h.enabledFilterValue.update(any()) }
+    }
+
+    @Test
+    fun `bindRoute is bind-once - second route is ignored`() = runTest2 {
+        val h = buildHarness(identifier = null, initial = CustomFilterEditorOptions(label = "First"), bindRoute = false)
+        h.vm.bindRoute(CustomFilterEditorRoute(initial = CustomFilterEditorOptions(label = "First")))
+        h.vm.bindRoute(CustomFilterEditorRoute(initial = CustomFilterEditorOptions(label = "Second")))
+        keepStateAlive(h.vm)
+        advanceUntilIdle()
+
+        h.vm.state.value!!.current.label shouldBe "First"
+    }
+
+    @Test
+    fun `state stays null until route is bound then initializes`() = runTest2 {
+        val h = buildHarness(identifier = null, initial = CustomFilterEditorOptions(label = "Deferred"), bindRoute = false)
+        keepStateAlive(h.vm)
+        advanceUntilIdle()
+
+        h.vm.state.value shouldBe null
+
+        h.vm.bindRoute(CustomFilterEditorRoute(initial = CustomFilterEditorOptions(label = "Deferred")))
+        advanceUntilIdle()
+
+        h.vm.state.value!!.current.label shouldBe "Deferred"
+    }
+
+    @Test
+    fun `availableAreas emitted before bind is still applied after bind`() = runTest2 {
+        val h = buildHarness(
+            identifier = null,
+            initial = CustomFilterEditorOptions(label = "x"),
+            availableAreas = setOf(DataArea.Type.SDCARD),
+            bindRoute = false,
+        )
+        keepStateAlive(h.vm)
+        advanceUntilIdle()
+
+        h.vm.bindRoute(CustomFilterEditorRoute(initial = CustomFilterEditorOptions(label = "x")))
+        advanceUntilIdle()
+
+        h.vm.state.value!!.availableAreas shouldBe setOf(DataArea.Type.SDCARD)
     }
 }
