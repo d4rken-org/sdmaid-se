@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
@@ -225,6 +226,32 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText("User").assertExists()
         composeRule.onNodeWithContentDescription("Search").assertExists()
+    }
+
+    @Test
+    fun `inspection mode renders populated rows without a tour controller`() {
+        // In @Preview/inspection mode no LocalGuidedTourController is provided. The screen must
+        // skip its tour wiring (guarded by LocalInspectionMode) instead of hitting the local's
+        // error() default. Deliberately do NOT provide LocalGuidedTourController here.
+        composeRule.setContent {
+            CompositionLocalProvider(LocalInspectionMode provides true) {
+                PreviewWrapper {
+                    AppControlListScreen(
+                        stateSource = MutableStateFlow(
+                            AppControlListViewModel.State(
+                                rows = listOf(
+                                    row("com.alpha.app", label = "Alpha"),
+                                    row("com.beta.app", label = "Beta"),
+                                ),
+                            ),
+                        ),
+                    )
+                }
+            }
+        }
+
+        composeRule.onNodeWithText("Alpha").assertExists()
+        composeRule.onNodeWithText("Beta").assertExists()
     }
 
     private infix fun <T> T.shouldBeEqual(other: T) {

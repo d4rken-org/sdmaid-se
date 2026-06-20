@@ -14,8 +14,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.PowerSettingsNew
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun AppActionRow(
@@ -54,5 +59,18 @@ fun AppActionRow(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppActionRowPreview() {
+    PreviewWrapper {
+        AppActionRow(
+            icon = rememberVectorPainter(Icons.TwoTone.PowerSettingsNew),
+            title = "Force stop",
+            description = "Stop the app and all its background services",
+            onClick = {},
+        )
     }
 }

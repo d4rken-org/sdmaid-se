@@ -22,8 +22,11 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListViewModel
 import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
+import eu.darken.sdmse.appcontrol.ui.preview.previewAppControlRow
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SelectableListRow
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.formatDuration
 import eu.darken.sdmse.common.toSystemTimezone
 import java.time.format.DateTimeFormatter
@@ -137,5 +140,33 @@ private fun secondaryInfoFor(
 
         SortSettings.Mode.NAME, SortSettings.Mode.PACKAGENAME, SortSettings.Mode.SIZE ->
             "${appInfo.pkg.versionName ?: "?"} (${appInfo.pkg.versionCode})"
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlListRowPreview() {
+    PreviewWrapper {
+        AppControlListRow(
+            row = previewAppControlRow(),
+            sortMode = SortSettings.Mode.NAME,
+            selected = false,
+            onClick = {},
+            onLongClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlListRowSelectedPreview() {
+    PreviewWrapper {
+        AppControlListRow(
+            row = previewAppControlRow(),
+            sortMode = SortSettings.Mode.NAME,
+            selected = true,
+            onClick = {},
+            onLongClick = {},
+        )
     }
 }

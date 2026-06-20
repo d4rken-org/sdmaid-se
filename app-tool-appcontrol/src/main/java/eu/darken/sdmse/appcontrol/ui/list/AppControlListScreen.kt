@@ -62,6 +62,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.pluralStringResource
@@ -77,7 +78,12 @@ import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.appcontrol.ui.list.items.AppControlListRow
 import eu.darken.sdmse.appcontrol.ui.list.tour.AppControlListTour
+import eu.darken.sdmse.appcontrol.ui.preview.previewAppControlRow
+import eu.darken.sdmse.appcontrol.ui.preview.previewAppInfo
+import eu.darken.sdmse.appcontrol.ui.preview.previewInstalled
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.FastScrollSection
 import eu.darken.sdmse.common.compose.SdmFastScroller
 import eu.darken.sdmse.common.compose.SdmFastScrollerDefaultMinItems
@@ -413,8 +419,14 @@ internal fun AppControlListScreen(
         }
     }
 
-    val tourController = LocalGuidedTourController.current
-    val tourSession by tourController.session.collectAsStateWithLifecycle()
+    // The pure Screen reads the guided-tour controller from the composition local, which is only
+    // provided by the host Activity at runtime (and by the screen test). In @Preview/inspection
+    // mode there's no provider — reading `.current` would hit the local's error() default and crash
+    // the preview — so skip all tour wiring when inspecting. This is a no-op at runtime and in tests
+    // (LocalInspectionMode is false there), so guided-tour behavior is unchanged.
+    val tourController = if (LocalInspectionMode.current) null else LocalGuidedTourController.current
+    val tourSession by (tourController?.session ?: remember { MutableStateFlow(null) })
+        .collectAsStateWithLifecycle()
     val tourActive = tourSession != null
     val tourDef = remember { AppControlListTour.definition() }
     // Track whether we already tried to start the tour in this composition: rows can oscillate
@@ -427,12 +439,15 @@ internal fun AppControlListScreen(
     // and the filter/sort chips (AnimatedVisibility visible = !isBusy) aren't composed while a load
     // is in progress. rowsReady can flip true while progress is still non-null, so starting on
     // rowsReady alone left steps 0-2 with no registered target and they grace-skipped.
-    val tourReady = !rows.isNullOrEmpty() && !isBusy
-    LaunchedEffect(tourReady) {
+    val tourReady = tourController != null && !rows.isNullOrEmpty() && !isBusy
+    LaunchedEffect(tourReady, tourController) {
         if (!tourReady || tourStartAttempted) return@LaunchedEffect
+        // tourController is non-null whenever tourReady is true; the elvis return is just a smart-cast
+        // anchor (it never actually returns here).
+        val controller = tourController ?: return@LaunchedEffect
         // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
         // only after it passes so a transient block can't permanently suppress this tour.
-        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
+        if (!controller.shouldStart(tourDef)) return@LaunchedEffect
         tourStartAttempted = true
         tourFirstRowId = rows?.firstOrNull()?.installId
         tourController.start(tourDef)
@@ -806,5 +821,43 @@ internal fun buildFastScrollerSections(
         }
     }
     return sections
+}
+
+@Preview2
+@Composable
+private fun AppControlListScreenLoadingPreview() {
+    PreviewWrapper {
+        AppControlListScreen(
+            stateSource = MutableStateFlow(AppControlListViewModel.State(rows = null)),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlListScreenEmptyPreview() {
+    PreviewWrapper {
+        AppControlListScreen(
+            stateSource = MutableStateFlow(AppControlListViewModel.State(rows = emptyList())),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlListScreenPopulatedPreview() {
+    PreviewWrapper {
+        AppControlListScreen(
+            stateSource = MutableStateFlow(
+                AppControlListViewModel.State(
+                    rows = listOf(
+                        previewAppControlRow(previewAppInfo(pkg = previewInstalled(label = "Alpha", pkgName = "com.alpha.app"))),
+                        previewAppControlRow(previewAppInfo(pkg = previewInstalled(label = "Beta", pkgName = "com.beta.app"))),
+                        previewAppControlRow(previewAppInfo(pkg = previewInstalled(label = "Gamma", pkgName = "com.gamma.app"))),
+                    ),
+                ),
+            ),
+        )
+    }
 }
 

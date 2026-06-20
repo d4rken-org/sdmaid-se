@@ -18,6 +18,9 @@ import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
+import eu.darken.sdmse.appcontrol.ui.preview.previewAppInfo
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isDebuggable
 import eu.darken.sdmse.common.pkgs.isEnabled
@@ -120,4 +123,15 @@ private fun Tag(
         fontSize = 11.sp,
         style = MaterialTheme.typography.labelSmall,
     )
+}
+
+@Preview2
+@Composable
+private fun AppInfoTagsRowPreview() {
+    PreviewWrapper {
+        AppInfoTagsRow(
+            // isActive + an APK source produce visible tags (a plain enabled user app shows none).
+            appInfo = previewAppInfo(isActive = true),
+        )
+    }
 }
