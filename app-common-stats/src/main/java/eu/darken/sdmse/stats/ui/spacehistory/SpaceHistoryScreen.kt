@@ -2,8 +2,12 @@ package eu.darken.sdmse.stats.ui.spacehistory
 
 import android.text.format.Formatter
 import android.widget.PopupWindow
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -11,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -21,6 +26,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.minimumInteractiveComponentSize
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,10 +37,16 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -151,7 +163,7 @@ internal fun SpaceHistoryScreen(
                     val context = LocalContext.current
                     state.storages.forEach { storage ->
                         StorageChip(
-                            selected = storage.id == state.selectedStorageId,
+                            isSelected = storage.id == state.selectedStorageId,
                             label = storage.label.get(context),
                             onClick = { onSelectStorage(storage.id) },
                             onLongClick = { pendingDeleteStorageId = storage.id },
@@ -206,19 +218,56 @@ private fun RangeChip(
 
 @Composable
 private fun StorageChip(
-    selected: Boolean,
+    isSelected: Boolean,
     label: String,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {
-    // combinedClickable (not a bare pointerInput) so accessibility services get a real onClick
-    // semantic — a FilterChip with an empty onClick + pointerInput is invisible to TalkBack tap.
-    FilterChip(
-        modifier = Modifier.combinedClickable(onClick = onClick, onLongClick = onLongClick),
-        selected = selected,
-        onClick = onClick,
-        label = { Text(label) },
-    )
+    // A Material3 FilterChip always installs its own selectable clickable (via the Surface(onClick)
+    // overload). Layering combinedClickable on top of that stacks two competing gesture detectors on
+    // the same node, which swallows the long-press (and is flaky for the tap too). Instead we render
+    // the flat-FilterChip visual ourselves and own the gesture with a single combinedClickable on one
+    // node: onClick selects the storage, onLongClick opens the delete dialog. We restore the chip's
+    // accessibility contract a plain container would otherwise lose — Role.RadioButton + a `selected`
+    // semantic so TalkBack announces the current storage, a labelled long-click action (the only entry
+    // to delete), and minimumInteractiveComponentSize() for a 48dp touch target. Colors mirror
+    // FilterChipTokens (selected: secondaryContainer; unselected: transparent + outlineVariant border).
+    val shape = MaterialTheme.shapes.small
+    val containerColor = if (isSelected) MaterialTheme.colorScheme.secondaryContainer else Color.Transparent
+    val labelColor = if (isSelected) {
+        MaterialTheme.colorScheme.onSecondaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val borderModifier = if (isSelected) {
+        Modifier
+    } else {
+        Modifier.border(BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant), shape)
+    }
+    val deleteLabel = stringResource(R.string.stats_space_history_delete_storage_title)
+    Box(
+        modifier = Modifier
+            .minimumInteractiveComponentSize()
+            .clip(shape)
+            .then(borderModifier)
+            .background(containerColor)
+            .combinedClickable(
+                role = Role.RadioButton,
+                onLongClickLabel = deleteLabel,
+                onLongClick = onLongClick,
+                onClick = onClick,
+            )
+            .semantics { selected = isSelected }
+            .heightIn(min = 32.dp)
+            .padding(horizontal = 16.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelLarge,
+            color = labelColor,
+        )
+    }
 }
 
 @Composable
