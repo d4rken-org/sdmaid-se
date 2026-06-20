@@ -2,6 +2,8 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqual
 import eu.darken.sdmse.common.compose.icons.Contain
 import eu.darken.sdmse.common.compose.icons.ContainEnd
@@ -28,6 +30,40 @@ internal fun inputTextToChipTag(input: String, type: TagType): SieveCriterium = 
     TagType.NAME -> NameCriterium(
         name = input,
         mode = NameCriterium.Mode.Contain(),
+    )
+}
+
+/**
+ * Builds a criterium from raw [input] text. When [basedOn] is supplied (i.e. the user is editing
+ * an existing chip that was popped back into the input) its matching mode is preserved, instead of
+ * resetting to the default Contain mode.
+ */
+internal fun inputTextToChipTag(input: String, type: TagType, basedOn: SieveCriterium?): SieveCriterium {
+    val fresh = inputTextToChipTag(input, type)
+    return if (basedOn != null) withMode(fresh, criteriumMode(basedOn)) else fresh
+}
+
+internal fun criteriumMode(criterium: SieveCriterium): SieveCriterium.Mode = when (criterium) {
+    is NameCriterium -> criterium.mode
+    is SegmentCriterium -> criterium.mode
+}
+
+/**
+ * Removes `/` from a [TextFieldValue]'s text (name criteria cannot contain path separators) while
+ * keeping the caret/selection anchored to the same logical position by subtracting the number of
+ * removed separators before each endpoint. Returns the value unchanged when there is nothing to strip.
+ */
+internal fun stripSlashes(value: TextFieldValue): TextFieldValue {
+    val original = value.text
+    if (!original.contains('/')) return value
+    val filtered = original.filterNot { it == '/' }
+    fun mapOffset(offset: Int): Int {
+        val clamped = offset.coerceIn(0, original.length)
+        return (clamped - original.take(clamped).count { it == '/' }).coerceIn(0, filtered.length)
+    }
+    return TextFieldValue(
+        text = filtered,
+        selection = TextRange(mapOffset(value.selection.start), mapOffset(value.selection.end)),
     )
 }
 

@@ -24,10 +24,15 @@ import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.input.key.type
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.sieve.SieveCriterium
+
+internal const val TAGGED_INPUT_FIELD_TEST_TAG = "customfilter.editor.tagged_input"
 
 @Composable
 internal fun TaggedInputField(
@@ -40,8 +45,17 @@ internal fun TaggedInputField(
     onModeChange: (old: SieveCriterium, new: SieveCriterium) -> Unit,
     onFocusChange: ((Boolean) -> Unit)? = null,
 ) {
-    var typedText by remember { mutableStateOf("") }
+    var typedText by remember { mutableStateOf(TextFieldValue("")) }
+    // The chip that was popped back into the input for editing (null while typing a fresh entry).
+    var editingCriterium by remember { mutableStateOf<SieveCriterium?>(null) }
     var modeSwitcherFor by remember { mutableStateOf<SieveCriterium?>(null) }
+
+    fun commit() {
+        val text = typedText.text.trim()
+        if (text.isNotEmpty()) onAdd(inputTextToChipTag(text, type, editingCriterium))
+        editingCriterium = null
+        typedText = TextFieldValue("")
+    }
 
     Column(modifier = modifier.fillMaxWidth()) {
         Text(
@@ -66,24 +80,36 @@ internal fun TaggedInputField(
             BasicTextField(
                 value = typedText,
                 onValueChange = { newValue ->
-                    typedText = if (type == TagType.NAME) newValue.filterNot { it == '/' } else newValue
+                    typedText = if (type == TagType.NAME) stripSlashes(newValue) else newValue
                 },
                 modifier = Modifier
                     .widthIn(min = 80.dp)
                     .padding(horizontal = 4.dp, vertical = 8.dp)
+                    .testTag(TAGGED_INPUT_FIELD_TEST_TAG)
                     .onFocusChanged { focusState ->
-                        if (!focusState.isFocused && typedText.isNotEmpty()) typedText = ""
+                        if (!focusState.isFocused) {
+                            // Don't silently drop an in-progress edit of a popped chip — re-commit it
+                            // (preserving its matching mode). Fresh, un-submitted drafts are discarded.
+                            if (editingCriterium != null) {
+                                commit()
+                            } else if (typedText.text.isNotEmpty()) {
+                                typedText = TextFieldValue("")
+                            }
+                        }
                         onFocusChange?.invoke(focusState.isFocused)
                     }
                     .onPreviewKeyEvent { event ->
                         if (event.type == KeyEventType.KeyDown &&
                             event.key == Key.Backspace &&
-                            typedText.isEmpty() &&
+                            typedText.text.isEmpty() &&
                             tags.isNotEmpty()
                         ) {
                             val last = tags.last()
                             onRemove(last)
-                            typedText = criteriumValue(last)
+                            editingCriterium = last
+                            val value = criteriumValue(last)
+                            // Caret at the end so cursor keys move within the text instead of escaping focus.
+                            typedText = TextFieldValue(value, selection = TextRange(value.length))
                             true
                         } else {
                             false
@@ -99,20 +125,8 @@ internal fun TaggedInputField(
                     imeAction = ImeAction.Done,
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = {
-                        val text = typedText.trim()
-                        if (text.isNotEmpty()) {
-                            onAdd(inputTextToChipTag(text, type))
-                            typedText = ""
-                        }
-                    },
-                    onSearch = {
-                        val text = typedText.trim()
-                        if (text.isNotEmpty()) {
-                            onAdd(inputTextToChipTag(text, type))
-                            typedText = ""
-                        }
-                    },
+                    onDone = { commit() },
+                    onSearch = { commit() },
                 ),
             )
         }

@@ -1,5 +1,7 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqual
 import eu.darken.sdmse.common.compose.icons.Contain
 import eu.darken.sdmse.common.compose.icons.ContainEnd
@@ -97,6 +99,48 @@ class TaggedInputHelpersTest : BaseTest() {
         val swapped2 = withMode(seg, SegmentCriterium.Mode.End(allowPartial = false)) as SegmentCriterium
         swapped2.segments shouldBe listOf("a", "b")
         swapped2.mode.shouldBeInstanceOf<SegmentCriterium.Mode.End>()
+    }
+
+    @Test
+    fun `inputTextToChipTag with basedOn preserves the existing matching mode`() {
+        val baseName = NameCriterium("old", NameCriterium.Mode.Equal())
+        val rebuiltName = inputTextToChipTag("new", TagType.NAME, baseName).shouldBeInstanceOf<NameCriterium>()
+        rebuiltName.name shouldBe "new"
+        rebuiltName.mode.shouldBeInstanceOf<NameCriterium.Mode.Equal>()
+
+        val baseSeg = SegmentCriterium(listOf("old"), SegmentCriterium.Mode.End(allowPartial = false))
+        val rebuiltSeg = inputTextToChipTag("a/b", TagType.SEGMENTS, baseSeg).shouldBeInstanceOf<SegmentCriterium>()
+        rebuiltSeg.segments shouldBe listOf("a", "b")
+        rebuiltSeg.mode.shouldBeInstanceOf<SegmentCriterium.Mode.End>()
+    }
+
+    @Test
+    fun `inputTextToChipTag with null basedOn falls back to default Contain mode`() {
+        val name = inputTextToChipTag("x", TagType.NAME, null).shouldBeInstanceOf<NameCriterium>()
+        name.mode.shouldBeInstanceOf<NameCriterium.Mode.Contain>()
+    }
+
+    @Test
+    fun `criteriumMode surfaces the mode for both kinds`() {
+        criteriumMode(NameCriterium("x", NameCriterium.Mode.Equal())).shouldBeInstanceOf<NameCriterium.Mode.Equal>()
+        criteriumMode(
+            SegmentCriterium(listOf("x"), SegmentCriterium.Mode.End(allowPartial = true)),
+        ).shouldBeInstanceOf<SegmentCriterium.Mode.End>()
+    }
+
+    @Test
+    fun `stripSlashes is a no-op when there is no separator`() {
+        val value = TextFieldValue("clean", TextRange(2))
+        stripSlashes(value) shouldBe value
+    }
+
+    @Test
+    fun `stripSlashes removes separators and re-anchors the caret`() {
+        // "a/b/c" with caret after the second slash (index 4) -> "abc" caret at index 2.
+        val result = stripSlashes(TextFieldValue("a/b/c", TextRange(4)))
+        result.text shouldBe "abc"
+        result.selection shouldBe TextRange(2)
+        result.composition shouldBe null
     }
 
     private fun n(text: String, mode: NameCriterium.Mode = NameCriterium.Mode.Contain()): SieveCriterium =
