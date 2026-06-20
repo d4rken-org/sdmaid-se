@@ -50,7 +50,6 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
-import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoSizeRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoUsageRow

@@ -95,10 +95,10 @@ fun AppControlListRow(
                 appInfo = appInfo,
             )
         }
-        if (appInfo.sizes != null) {
+        appInfo.sizes?.let { sizes ->
             Spacer(Modifier.width(8.dp))
             Text(
-                text = Formatter.formatShortFileSize(context, appInfo.sizes!!.total),
+                text = Formatter.formatShortFileSize(context, sizes.total),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

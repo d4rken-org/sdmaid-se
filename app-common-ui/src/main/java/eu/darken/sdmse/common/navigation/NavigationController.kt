@@ -87,11 +87,6 @@ class NavigationController @Inject constructor() {
         backStack.add(destination)
     }
 
-    fun replace(destination: NavigationDestination) {
-        backStack.removeLastOrNull()
-        backStack.add(destination)
-    }
-
     private fun flowFor(name: String): MutableStateFlow<Any?> = synchronized(resultFlowsLock) {
         resultFlows.getOrPut(name) { MutableStateFlow(null) }
     }
