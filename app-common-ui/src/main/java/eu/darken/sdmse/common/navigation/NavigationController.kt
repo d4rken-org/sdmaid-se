@@ -67,7 +67,10 @@ class NavigationController @Inject constructor() {
             return
         }
 
-        if (popUpTo != null) {
+        // Only drain when the target is actually on the stack. A missing popUpTo target must not
+        // empty the back stack — it degrades to a plain push, matching Jetpack NavOptions.popUpTo
+        // which no-ops the pop when the destination isn't found.
+        if (popUpTo != null && backStack.contains(popUpTo)) {
             while (backStack.isNotEmpty() && backStack.last() != popUpTo) {
                 val removed = backStack.removeLastOrNull()
                 log(TAG) { "Popping $removed while looking for $popUpTo" }
@@ -77,6 +80,8 @@ class NavigationController @Inject constructor() {
                 val removed = backStack.removeLastOrNull()
                 log(TAG) { "Popping $removed (inclusive)" }
             }
+        } else if (popUpTo != null) {
+            log(TAG) { "popUpTo=$popUpTo not on back stack — pushing $destination without draining" }
         }
 
         backStack.add(destination)
