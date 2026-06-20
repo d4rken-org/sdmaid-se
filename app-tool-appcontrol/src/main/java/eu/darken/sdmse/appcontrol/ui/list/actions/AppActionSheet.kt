@@ -55,10 +55,15 @@ import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoSizeRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionInfoUsageRow
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItemContext
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionRow
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.buildAppActionItems
+import eu.darken.sdmse.appcontrol.ui.preview.previewAppInfo
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.ShieldEdit
@@ -388,6 +393,32 @@ private fun ActionItemRow(
             title = stringResource(R.string.appcontrol_export_title),
             description = stringResource(R.string.appcontrol_export_description),
             onClick = { onActionTapped(item) },
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppActionSheetPreview() {
+    val appInfo = previewAppInfo()
+    val items = buildAppActionItems(
+        appInfo = appInfo,
+        ctx = AppActionItemContext(
+            isCurrentUser = true,
+            launchAvailable = true,
+            appStoreAvailable = true,
+            canForceStop = true,
+            canArchive = false,
+            canRestore = false,
+            canToggle = true,
+            existingExclusionId = null,
+        ),
+    )
+    PreviewWrapper {
+        AppActionSheet(
+            stateSource = MutableStateFlow(
+                AppActionViewModel.State(appInfo = appInfo, items = items),
+            ),
         )
     }
 }

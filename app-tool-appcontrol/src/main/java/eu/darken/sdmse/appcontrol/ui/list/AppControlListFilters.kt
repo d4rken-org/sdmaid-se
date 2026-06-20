@@ -44,6 +44,8 @@ import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 internal fun AppControlFilterRow(
@@ -365,4 +367,47 @@ private fun sortLabel(mode: SortSettings.Mode): String = when (mode) {
     SortSettings.Mode.PACKAGENAME -> stringResource(R.string.appcontrol_list_sortmode_packagename_label)
     SortSettings.Mode.SIZE -> stringResource(R.string.appcontrol_list_sortmode_size_label)
     SortSettings.Mode.SCREEN_TIME -> stringResource(R.string.appcontrol_list_sortmode_screentime_label)
+}
+
+@Preview2
+@Composable
+private fun AppControlFilterRowPreview() {
+    PreviewWrapper {
+        AppControlFilterRow(
+            activeTags = setOf(FilterSettings.Tag.USER, FilterSettings.Tag.ENABLED),
+            sortNonDefault = true,
+            allowFilterActive = true,
+            onTagRemove = {},
+            onAddTags = {},
+            onSort = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlSortSheetContentPreview() {
+    PreviewWrapper {
+        AppControlSortSheetContent(
+            sort = SortSettings(mode = SortSettings.Mode.NAME),
+            sizeSortModuleEnabled = true,
+            sizeSortCaveatVisible = false,
+            onSortModeChanged = {},
+            onSortDirectionToggle = {},
+            onSizeSortCaveatAck = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppControlTagsSheetContentPreview() {
+    PreviewWrapper {
+        AppControlTagsSheetContent(
+            tags = setOf(FilterSettings.Tag.USER, FilterSettings.Tag.ENABLED),
+            allowFilterActive = true,
+            onTagToggle = {},
+            onTagsReset = {},
+        )
+    }
 }
