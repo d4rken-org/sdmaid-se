@@ -202,6 +202,39 @@ class AppCleanerListViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `onRowClick navs to upgrade and does not confirm when not pro`() = runTest2 {
+        val a = junk("com.example.only")
+        val h = harness(data = AppCleaner.Data(junks = listOf(a)), isPro = false)
+        val navCollected = collectNavEvents(h.vm)
+        val collected = collectEvents(h.vm)
+
+        val row = h.vm.state.first().rows!!.single()
+        h.vm.onRowClick(row)
+        advanceUntilIdle()
+
+        navCollected.list.any { it is NavEvent.GoTo } shouldBe true
+        collected.list shouldBe emptyList()
+        navCollected.cancel()
+        collected.cancel()
+    }
+
+    @Test
+    fun `onDeleteSelected navs to upgrade and does not confirm when not pro`() = runTest2 {
+        val a = junk("com.example.a")
+        val h = harness(data = AppCleaner.Data(junks = listOf(a)), isPro = false)
+        val navCollected = collectNavEvents(h.vm)
+        val collected = collectEvents(h.vm)
+
+        h.vm.onDeleteSelected(setOf(a.identifier))
+        advanceUntilIdle()
+
+        navCollected.list.any { it is NavEvent.GoTo } shouldBe true
+        collected.list shouldBe emptyList()
+        navCollected.cancel()
+        collected.cancel()
+    }
+
+    @Test
     fun `onDeleteConfirmed submits task with valid ids only`() = runTest2 {
         val live = junk("com.example.live")
         val stale = installId("com.example.stale")

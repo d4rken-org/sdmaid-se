@@ -96,8 +96,12 @@ class AppCleanerListViewModel @Inject constructor(
         searchQuery.value = query
     }
 
-    fun onRowClick(row: Row) {
+    fun onRowClick(row: Row) = launch {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
+        if (!upgradeRepo.isPro()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
         events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
     }
 
@@ -106,9 +110,13 @@ class AppCleanerListViewModel @Inject constructor(
         navTo(AppJunkDetailsRoute(identifier = row.identifier))
     }
 
-    fun onDeleteSelected(ids: Set<InstallId>) {
+    fun onDeleteSelected(ids: Set<InstallId>) = launch {
         log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
-        if (ids.isEmpty()) return
+        if (ids.isEmpty()) return@launch
+        if (!upgradeRepo.isPro()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
         events.tryEmit(Event.ConfirmDeletion(ids))
     }
 
