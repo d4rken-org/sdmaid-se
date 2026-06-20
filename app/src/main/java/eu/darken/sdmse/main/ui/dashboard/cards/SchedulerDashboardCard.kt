@@ -15,6 +15,7 @@ import androidx.compose.material.icons.twotone.AccessTime
 import androidx.compose.material.icons.twotone.AccessTimeFilled
 import androidx.compose.material.icons.twotone.Alarm
 import androidx.compose.material.icons.twotone.History
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -46,6 +47,7 @@ data class SchedulerDashboardCardItem(
     val schedulerState: SchedulerManager.State,
     val taskState: TaskSubmitter.State,
     val onManageClicked: () -> Unit,
+    val isInitializing: Boolean = false,
 ) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
 }
@@ -86,9 +88,16 @@ internal fun SchedulerDashboardCard(item: SchedulerDashboardCardItem) {
                 text = stringResource(SchedulerR.string.scheduler_label),
                 style = MaterialTheme.typography.titleMedium,
             )
+            if (item.isInitializing) {
+                Spacer(modifier = Modifier.weight(1f))
+                CircularProgressIndicator(
+                    modifier = Modifier.size(16.dp),
+                    strokeWidth = 3.dp,
+                )
+            }
         }
 
-        if (noActive) {
+        if (!item.isInitializing && noActive) {
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = stringResource(SchedulerR.string.scheduler_no_active_schedules_subtitle),
@@ -96,7 +105,7 @@ internal fun SchedulerDashboardCard(item: SchedulerDashboardCardItem) {
             )
         }
 
-        if (nextExecution != null || lastSchedule != null) {
+        if (!item.isInitializing && (nextExecution != null || lastSchedule != null)) {
             Spacer(modifier = Modifier.height(12.dp))
             Surface(
                 modifier = Modifier.fillMaxWidth(),

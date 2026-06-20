@@ -39,6 +39,7 @@ data class SwiperDashboardCardItem(
     val progress: Progress.Data?,
     val showProRequirement: Boolean,
     val onViewDetails: () -> Unit,
+    val isInitializing: Boolean = false,
 ) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
 }
@@ -80,10 +81,10 @@ internal fun SwiperDashboardCard(
             "$sessionsText, $undecidedText"
         }
     }
-    val actionText = if (item.sessionsWithStats.isEmpty()) {
-        stringResource(SwiperR.string.swiper_start_action)
-    } else {
-        stringResource(CommonR.string.general_open_action)
+    val actionText = when {
+        item.isInitializing -> stringResource(CommonR.string.general_open_action)
+        item.sessionsWithStats.isEmpty() -> stringResource(SwiperR.string.swiper_start_action)
+        else -> stringResource(CommonR.string.general_open_action)
     }
 
     DashboardCard(modifier = modifier, onClick = item.onViewDetails) {
@@ -103,7 +104,7 @@ internal fun SwiperDashboardCard(
             Spacer(modifier = Modifier.width(4.dp))
             NewBadge()
             Spacer(modifier = Modifier.weight(1f))
-            if (item.progress != null) {
+            if (item.progress != null || item.isInitializing) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(16.dp),
                     strokeWidth = 3.dp,

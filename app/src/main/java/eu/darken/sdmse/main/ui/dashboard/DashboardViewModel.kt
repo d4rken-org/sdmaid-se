@@ -245,11 +245,15 @@ class DashboardViewModel @Inject constructor(
     private val analyzerItem: Flow<AnalyzerDashboardCardItem?> = buildAnalyzerItem()
 
     private val schedulerItem: Flow<SchedulerDashboardCardItem?> = combine(
-        schedulerManager.state,
+        // Self-seed null so the card is present (as an initializing placeholder) in the very first
+        // skeleton frame instead of popping in after schedulerManager.state (DynamicStateFlow on IO)
+        // resolves. null renders a neutral loading card, not a misleading "no active schedules".
+        (schedulerManager.state as Flow<SchedulerManager.State?>).onStart { emit(null) },
         taskManager.state,
     ) { schedulerState, taskState ->
         SchedulerDashboardCardItem(
-            schedulerState = schedulerState,
+            isInitializing = schedulerState == null,
+            schedulerState = schedulerState ?: SchedulerManager.State(schedules = emptySet()),
             taskState = taskState,
             onManageClicked = {
                 navTo(SchedulerManagerRoute)
@@ -293,22 +297,28 @@ class DashboardViewModel @Inject constructor(
     private val anniversaryItem: Flow<AnniversaryDashboardCardItem?> = anniversaryProvider.item
 
     private val swiperItem: Flow<SwiperDashboardCardItem?> = combine(
-        swiper.getSessionsWithStats(),
-        swiper.progress,
+        // Self-seed null so the card is present (as an initializing placeholder) in the very first
+        // skeleton frame instead of popping in after the Room-backed sessions query resolves.
+        (swiper.getSessionsWithStats() as Flow<List<Swiper.SessionWithStats>?>).onStart { emit(null) },
+        swiper.progress.onStart { emit(null) },
         upgradeInfo.map { it?.isPro ?: false },
     ) { sessionsWithStats, progress, isPro ->
         SwiperDashboardCardItem(
-            sessionsWithStats = sessionsWithStats,
+            isInitializing = sessionsWithStats == null,
+            sessionsWithStats = sessionsWithStats ?: emptyList(),
             progress = progress,
             showProRequirement = !isPro,
             onViewDetails = { showSwiper() }
         )
     }
 
+    private val dashboardCardConfig: Flow<DashboardCardConfig> = generalSettings.dashboardCardConfig.flow
+        .replayingShare(vmScope)
+
     // Combine refresh trigger with card config to stay within combine's argument limit
     private val cardConfigWithRefresh: Flow<DashboardCardConfig> = combine(
         refreshTrigger,
-        generalSettings.dashboardCardConfig.flow,
+        dashboardCardConfig,
     ) { _, config -> config }
 
     val listState: StateFlow<ListState?> = eu.darken.sdmse.common.flow.combine(
@@ -327,18 +337,18 @@ class DashboardViewModel @Inject constructor(
         corpseFinderItem.listStateDiag("corpse"),
         systemCleanerItem.listStateDiag("system"),
         appCleanerItem.listStateDiag("app"),
-        deduplicatorItem.listStateSource("dedup", null),
-        squeezerItem.listStateSource("squeezer", null),
-        appControlItem.listStateSource("appControl", null),
+        deduplicatorItem.listStateDiag("dedup"),
+        squeezerItem.listStateDiag("squeezer"),
+        appControlItem.listStateDiag("appControl"),
         analyzerItem.listStateDiag("analyzer"),
-        schedulerItem.listStateSource("scheduler", null),
+        schedulerItem.listStateDiag("scheduler"),
         motdItem.listStateSource("motd", null),
         reviewItem.listStateSource("review", null),
         anniversaryItem.listStateSource("anniversary", null),
         statsItem.listStateSource("stats", null),
-        swiperItem.listStateSource("swiper", null),
+        swiperItem.listStateDiag("swiper"),
         easterEggTriggered.listStateDiag("easterEgg"),
-        cardConfigWithRefresh.listStateSource("cardConfig", DashboardCardConfig(cards = emptyList())),
+        cardConfigWithRefresh.listStateDiag("cardConfig"),
     ) { sessions: List<DebugLogSession>,
         debugItem: DebugDashboardCardItem?,
         titleInfo: TitleDashboardCardItem,

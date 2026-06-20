@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.main.core.DashboardCardConfig
+import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
@@ -24,6 +25,9 @@ import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SchedulerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
@@ -70,7 +74,10 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
     private fun TestScope.harness(
         stall: String? = null,
         history: Flow<List<SpaceSnapshotEntity>> = emptyFlow(),
-        cardConfig: Flow<DashboardCardConfig> = emptyFlow(),
+        // The dashboard gates its first frame on the real card config resolving (it can't know which
+        // cards to draw otherwise), so default to a config that actually emits. A never-emitting
+        // config legitimately keeps the spinner — see `stalled card config keeps the loading spinner`.
+        cardConfig: Flow<DashboardCardConfig> = flowOf(DashboardCardConfig()),
         emittingToolStates: Boolean = false,
     ): DashboardViewModel {
         fun <T> srcOr(name: String, default: Flow<T>): Flow<T> = if (stall == name) stalled() else default
@@ -233,5 +240,48 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             advanceUntilIdle()
             withClue(stall) { vm.listState.value.shouldNotBeNull() }
         }
+    }
+
+    @Test
+    fun `scheduler and swiper cards render as initializing placeholders in the first frame`() = runTest2 {
+        // Regression guard: their backend states (DynamicStateFlow on IO / Room) don't emit here,
+        // yet the builders self-seed an initializing placeholder so the cards never pop in after the
+        // skeleton — and render a neutral loading state instead of misleading empty-state content.
+        val vm = harness()
+        advanceUntilIdle()
+
+        val items = vm.listState.value.shouldNotBeNull().items
+        items.filterIsInstance<SchedulerDashboardCardItem>().single().isInitializing shouldBe true
+        items.filterIsInstance<SwiperDashboardCardItem>().single().isInitializing shouldBe true
+    }
+
+    @Test
+    fun `cards hidden in the config are absent from the first frame`() = runTest2 {
+        val config = DashboardCardConfig(
+            cards = DashboardCardType.entries.map {
+                DashboardCardConfig.CardEntry(
+                    type = it,
+                    isVisible = it != DashboardCardType.SCHEDULER && it != DashboardCardType.SWIPER,
+                )
+            },
+        )
+        val vm = harness(cardConfig = flowOf(config))
+        advanceUntilIdle()
+
+        val items = vm.listState.value.shouldNotBeNull().items
+        // Tool cards still render as placeholders, but the two hidden ones must not appear.
+        items.filterIsInstance<ToolDashboardCardItem>().isNotEmpty() shouldBe true
+        items.filterIsInstance<SchedulerDashboardCardItem>().isEmpty() shouldBe true
+        items.filterIsInstance<SwiperDashboardCardItem>().isEmpty() shouldBe true
+    }
+
+    @Test
+    fun `stalled card config keeps the loading spinner`() = runTest2 {
+        // The dashboard intentionally gates on the card config: without it we can't know which cards
+        // to draw, so the spinner stays rather than flashing a default layout. Production DataStore
+        // always emits; only a pathological/never-emitting config keeps us here.
+        val vm = harness(cardConfig = stalled())
+        advanceUntilIdle()
+        vm.listState.value shouldBe null
     }
 }
