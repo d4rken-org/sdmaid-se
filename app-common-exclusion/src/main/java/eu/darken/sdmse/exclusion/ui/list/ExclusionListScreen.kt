@@ -58,6 +58,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -195,7 +196,7 @@ internal fun ExclusionListScreen(
     // back via the Undo snackbar or "Reset defaults". So "Select all" covers every row.
     val selectableIds = currentIds
 
-    var selection by remember { mutableStateOf<Set<ExclusionId>>(emptySet()) }
+    var selection by rememberSelection<ExclusionId>()
     // Prune stale IDs when the underlying list changes.
     LaunchedEffect(currentIds) { selection = selection intersect currentIds }
 
@@ -323,7 +324,6 @@ internal fun ExclusionListScreen(
                             is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
                                 row = row,
                                 selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
                                 onClick = onRowTap,
                                 onLongClick = onRowLongPress,
                             )
@@ -331,7 +331,6 @@ internal fun ExclusionListScreen(
                             is ExclusionListViewModel.Row.Path -> PathExclusionRow(
                                 row = row,
                                 selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
                                 onClick = onRowTap,
                                 onLongClick = onRowLongPress,
                             )
@@ -339,7 +338,6 @@ internal fun ExclusionListScreen(
                             is ExclusionListViewModel.Row.Segment -> SegmentExclusionRow(
                                 row = row,
                                 selected = isSelected,
-                                selectionActive = selection.isNotEmpty(),
                                 onClick = onRowTap,
                                 onLongClick = onRowLongPress,
                             )

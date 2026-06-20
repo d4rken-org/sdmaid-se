@@ -47,14 +47,17 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
+import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.corpsefinder.ui.details.content.CorpseContent
+import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -141,7 +144,7 @@ internal fun CorpseDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by remember { mutableStateOf<Set<APath>>(emptySet()) }
+    var selection by rememberSelection<APath>()
     var pendingDelete by remember { mutableStateOf<PendingDelete?>(null) }
 
     // Drive VM page-tracking from pager state and clear selection on real page changes.
@@ -362,6 +365,23 @@ private fun CorpseDetailsScreenEmptyPreview() {
     PreviewWrapper {
         CorpseDetailsScreen(
             stateSource = MutableStateFlow(CorpseDetailsViewModel.State(items = emptyList())),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CorpseDetailsScreenPreview() {
+    PreviewWrapper {
+        CorpseDetailsScreen(
+            stateSource = MutableStateFlow(
+                CorpseDetailsViewModel.State(
+                    items = listOf(
+                        previewCorpse(riskLevel = RiskLevel.KEEPER),
+                        previewCorpse(riskLevel = RiskLevel.COMMON),
+                    ),
+                ),
+            ),
         )
     }
 }

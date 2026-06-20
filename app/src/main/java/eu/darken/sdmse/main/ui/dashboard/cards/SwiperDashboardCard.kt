@@ -37,7 +37,6 @@ import java.time.Instant
 data class SwiperDashboardCardItem(
     val sessionsWithStats: List<Swiper.SessionWithStats>,
     val progress: Progress.Data?,
-    val showProRequirement: Boolean,
     val onViewDetails: () -> Unit,
     val isInitializing: Boolean = false,
 ) : DashboardItem {
@@ -160,7 +159,6 @@ private fun SwiperDashboardCardPreview() {
                     ),
                 ),
                 progress = null,
-                showProRequirement = false,
                 onViewDetails = {},
             ),
         )
@@ -175,7 +173,6 @@ private fun SwiperDashboardCardSyncingPreview() {
             item = SwiperDashboardCardItem(
                 sessionsWithStats = emptyList(),
                 progress = Progress.Data(),
-                showProRequirement = false,
                 onViewDetails = {},
             ),
         )

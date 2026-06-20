@@ -24,6 +24,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -77,8 +78,8 @@ internal fun AppsScreen(
     val state by stateSource.collectAsStateWithLifecycle(initialValue = AppsViewModel.State())
     val context = LocalContext.current
 
-    var searchActive by remember { mutableStateOf(false) }
-    var searchText by remember { mutableStateOf("") }
+    var searchActive by rememberSaveable { mutableStateOf(false) }
+    var searchText by rememberSaveable { mutableStateOf("") }
 
     BackHandler(enabled = searchActive) {
         searchText = ""

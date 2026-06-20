@@ -35,9 +35,12 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FileListThumbnail
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
 import androidx.compose.ui.res.stringResource
 
 @Composable
@@ -126,6 +129,23 @@ fun SwiperStatusRow(
             onQuickDelete = onQuickDelete,
         )
         Spacer(Modifier.width(8.dp))
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperStatusRowPreview() {
+    PreviewWrapper {
+        SwiperStatusRow(
+            item = previewSwipeItem(decision = SwipeDecision.UNDECIDED),
+            selected = false,
+            selectionActive = false,
+            onClick = {},
+            onLongClick = {},
+            onReset = {},
+            onQuickKeep = {},
+            onQuickDelete = {},
+        )
     }
 }
 

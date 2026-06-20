@@ -96,14 +96,11 @@ import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
-import eu.darken.sdmse.squeezer.core.SqueezerSettings
-import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import eu.darken.sdmse.stats.core.Report
-import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
@@ -124,13 +121,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
@@ -156,7 +151,6 @@ class DashboardViewModel @Inject constructor(
     debugCardProvider: DebugCardProvider,
     internal val deduplicator: Deduplicator,
     internal val squeezer: Squeezer,
-    private val squeezerSettings: SqueezerSettings,
     swiper: Swiper,
     private val upgradeRepo: UpgradeRepo,
     private val generalSettings: GeneralSettings,
@@ -301,13 +295,11 @@ class DashboardViewModel @Inject constructor(
         // skeleton frame instead of popping in after the Room-backed sessions query resolves.
         (swiper.getSessionsWithStats() as Flow<List<Swiper.SessionWithStats>?>).onStart { emit(null) },
         swiper.progress.onStart { emit(null) },
-        upgradeInfo.map { it?.isPro ?: false },
-    ) { sessionsWithStats, progress, isPro ->
+    ) { sessionsWithStats, progress ->
         SwiperDashboardCardItem(
             isInitializing = sessionsWithStats == null,
             sessionsWithStats = sessionsWithStats ?: emptyList(),
             progress = progress,
-            showProRequirement = !isPro,
             onViewDetails = { showSwiper() }
         )
     }
@@ -614,11 +606,6 @@ class DashboardViewModel @Inject constructor(
             return@launch
         }
         submitTask(DeduplicatorDeleteTask())
-    }
-
-    fun showSqueezer() {
-        log(TAG, INFO) { "showSqueezerDetails()" }
-        navTo(SqueezerListRoute)
     }
 
     fun confirmStopRecording() = launch {

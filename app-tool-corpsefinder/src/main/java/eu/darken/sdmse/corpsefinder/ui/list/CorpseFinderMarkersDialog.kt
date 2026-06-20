@@ -46,7 +46,7 @@ internal fun CorpseFinderMarkersDialog(onDismiss: () -> Unit) {
                 marker = {
                     MarkerPill(
                         label = stringResource(R.string.corpsefinder_risk_keeper_chip),
-                        accent = MaterialTheme.colorScheme.tertiary,
+                        accent = MaterialTheme.colorScheme.secondary,
                     )
                 },
                 title = stringResource(R.string.corpsefinder_settings_risk_keeper_title),
@@ -56,7 +56,7 @@ internal fun CorpseFinderMarkersDialog(onDismiss: () -> Unit) {
                 marker = {
                     MarkerPill(
                         label = stringResource(R.string.corpsefinder_risk_common_chip),
-                        accent = MaterialTheme.colorScheme.secondary,
+                        accent = MaterialTheme.colorScheme.tertiary,
                     )
                 },
                 title = stringResource(R.string.corpsefinder_settings_risk_common_title),

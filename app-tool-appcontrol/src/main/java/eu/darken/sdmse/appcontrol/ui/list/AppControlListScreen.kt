@@ -96,6 +96,7 @@ import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -122,7 +123,7 @@ fun AppControlListScreenHost(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
 
-    var pendingExportIds by remember { mutableStateOf<Set<InstallId>>(emptySet()) }
+    var pendingExportIds by rememberSelection<InstallId>()
     var pendingConfirm by remember { mutableStateOf<AppControlListViewModel.Event?>(null) }
     var sizeSortCaveatVisible by rememberSaveable { mutableStateOf(false) }
 
@@ -337,7 +338,7 @@ internal fun AppControlListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by remember { mutableStateOf<Set<InstallId>>(emptySet()) }
+    var selection by rememberSelection<InstallId>()
     val rowIds = rows?.map { it.installId }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
         selection = selection intersect rowIds

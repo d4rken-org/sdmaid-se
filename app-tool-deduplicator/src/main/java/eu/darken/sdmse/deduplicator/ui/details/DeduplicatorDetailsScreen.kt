@@ -45,6 +45,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -227,7 +228,7 @@ internal fun DeduplicatorDetailsScreen(
 
     val pagerState = rememberPagerState(pageCount = { items.size })
 
-    var selection by remember { mutableStateOf<Set<Duplicate.Id>>(emptySet()) }
+    var selection by rememberSelection<Duplicate.Id>()
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
     // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.
@@ -421,6 +422,8 @@ internal fun DeduplicatorDetailsScreen(
                             verticalAlignment = Alignment.Top,
                         ) { page ->
                             val cluster = items.getOrNull(page) ?: return@HorizontalPager
+                            // Per-page list state (unconditional so the slot survives isTourCluster flips).
+                            val pageListState = rememberLazyListState()
                             val collapsedForCluster = current?.collapsedDirs?.get(cluster.identifier) ?: emptySet()
                             val isTourCluster = cluster.identifier == tourClusterId
                             ClusterContent(
@@ -450,7 +453,7 @@ internal fun DeduplicatorDetailsScreen(
                                 onDuplicateDelete = { id -> onDuplicateDelete(cluster.identifier, id) },
                                 onDuplicatePreview = onDuplicatePreview,
                                 onDirectoryDeleteAll = { dirGroup -> onDirectoryDeleteAll(cluster.identifier, dirGroup) },
-                                listState = if (isTourCluster) tourListState else rememberLazyListState(),
+                                listState = if (isTourCluster) tourListState else pageListState,
                                 applyClusterHeaderTourTarget = isTourCluster,
                                 tourDeleteMarkTarget = if (isTourCluster) tourDeleteMarkRowId else null,
                             )

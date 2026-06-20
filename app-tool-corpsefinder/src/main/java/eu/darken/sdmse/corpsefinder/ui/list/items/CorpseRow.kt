@@ -68,8 +68,8 @@ fun CorpseRow(
 
     val riskBadge = when (corpse.riskLevel) {
         RiskLevel.NORMAL -> null
-        RiskLevel.KEEPER -> CorpseR.string.corpsefinder_risk_keeper_chip to MaterialTheme.colorScheme.tertiary
-        RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip to MaterialTheme.colorScheme.secondary
+        RiskLevel.KEEPER -> CorpseR.string.corpsefinder_risk_keeper_chip to MaterialTheme.colorScheme.secondary
+        RiskLevel.COMMON -> CorpseR.string.corpsefinder_risk_common_chip to MaterialTheme.colorScheme.tertiary
     }
 
     SelectableListRow(

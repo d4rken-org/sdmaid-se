@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.compose.dialog
 
-import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

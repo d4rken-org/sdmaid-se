@@ -37,7 +37,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -53,6 +52,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.R
@@ -171,7 +171,7 @@ internal fun CustomFilterListScreen(
     onExportSelected: (List<CustomFilterListViewModel.FilterRow>) -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
-    var selection by remember { mutableStateOf<Set<String>>(emptySet()) }
+    var selection by rememberSelection<String>()
     val selectedRows = state.rows.filter { selection.contains(it.id) }
 
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
@@ -212,7 +212,7 @@ internal fun CustomFilterListScreen(
                         )
                     },
                     actions = {
-                        if (selection.size == 1) {
+                        if (selectedRows.size == 1) {
                             SdmTooltipIconButton(
                                 icon = Icons.TwoTone.Edit,
                                 label = stringResource(CommonR.string.general_edit_action),

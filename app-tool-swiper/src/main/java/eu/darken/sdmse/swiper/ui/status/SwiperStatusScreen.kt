@@ -62,6 +62,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.swiper.R
@@ -122,7 +123,7 @@ internal fun SwiperStatusScreen(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
 
-    var selection by remember { mutableStateOf<Set<Long>>(emptySet()) }
+    var selection by rememberSelection<Long>()
     var confirmDelete by remember { mutableStateOf(false) }
 
     val itemIds = items.map { it.id }.toSet()

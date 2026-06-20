@@ -9,7 +9,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.matches
-import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.save
@@ -46,8 +45,6 @@ class SwiperStatusViewModel @Inject constructor(
     private val routeFlow = MutableStateFlow<SwiperStatusRoute?>(null)
 
     private val sessionId: String? get() = routeFlow.value?.sessionId
-
-    val events = SingleEventFlow<Event>()
 
     fun bindRoute(route: SwiperStatusRoute) {
         if (routeFlow.value != null) return
@@ -147,11 +144,6 @@ class SwiperStatusViewModel @Inject constructor(
         }
     }
 
-    fun retryFailed(itemId: Long) = launch {
-        log(TAG, INFO) { "retryFailed($itemId)" }
-        swiper.retryFailedItem(itemId)
-    }
-
     fun retryAllFailed() = launch {
         log(TAG, INFO) { "retryAllFailed()" }
         val sid = sessionId ?: return@launch
@@ -219,8 +211,6 @@ class SwiperStatusViewModel @Inject constructor(
     }
 
     enum class FinalizeAction { HIDDEN, DELETE, APPLY, DONE }
-
-    sealed interface Event
 
     companion object {
         private val TAG = logTag("Swiper", "Status", "ViewModel")

@@ -36,6 +36,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -136,7 +137,7 @@ internal fun SystemCleanerListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by remember { mutableStateOf<Set<FilterIdentifier>>(emptySet()) }
+    var selection by rememberSelection<FilterIdentifier>()
     val rowIds = rows?.map { it.identifier }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
         selection = selection intersect rowIds

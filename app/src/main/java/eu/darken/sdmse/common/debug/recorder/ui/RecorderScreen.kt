@@ -234,7 +234,7 @@ private fun RecorderSensitiveInfoCard(onPrivacyPolicy: () -> Unit) {
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    text = "Sensitive Information",
+                    text = stringResource(R.string.debug_debuglog_sensitive_information_label),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,

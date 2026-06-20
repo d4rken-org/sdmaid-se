@@ -100,7 +100,7 @@ internal fun SqueezerListGridCard(
                 ) {
                     Icon(
                         imageVector = Icons.TwoTone.Search,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.squeezer_compare_action),
                     )
                 }
             }

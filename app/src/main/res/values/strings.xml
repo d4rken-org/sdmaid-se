@@ -23,6 +23,7 @@
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
+    <string name="debug_debuglog_sensitive_information_label">Sensitive Information</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
     <string name="debug_debuglog_screen_subtitle">Export debug information for troubleshooting</string>
     <string name="debug_logview_screen_title">Log Viewer</string>

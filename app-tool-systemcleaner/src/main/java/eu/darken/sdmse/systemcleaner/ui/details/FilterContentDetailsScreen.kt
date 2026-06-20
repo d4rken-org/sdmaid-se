@@ -46,6 +46,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -156,7 +157,7 @@ internal fun FilterContentDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by remember { mutableStateOf<Set<APath>>(emptySet()) }
+    var selection by rememberSelection<APath>()
     var pendingDelete by remember { mutableStateOf<PendingFilterDelete?>(null) }
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below

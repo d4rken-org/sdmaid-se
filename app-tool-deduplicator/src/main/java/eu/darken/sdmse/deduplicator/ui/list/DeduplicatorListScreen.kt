@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
+import android.os.Parcelable
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -62,6 +64,7 @@ import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.parcelize.Parcelize
 
 private sealed interface ListDeletionRequest {
     data class Clusters(
@@ -75,9 +78,10 @@ private sealed interface ListDeletionRequest {
     ) : ListDeletionRequest
 }
 
+@Parcelize
 private data class MixedSelection(
     val dupes: Map<Duplicate.Cluster.Id, Set<Duplicate.Id>> = emptyMap(),
-) {
+) : Parcelable {
     val isEmpty: Boolean get() = dupes.values.all { it.isEmpty() }
     val fileCount: Int get() = dupes.values.sumOf { it.size }
     val flat: Set<Duplicate.Id> get() = dupes.values.flatten().toSet()
@@ -257,7 +261,7 @@ internal fun DeduplicatorListScreen(
     val layoutMode = state?.layoutMode ?: LayoutMode.GRID
     val allowDeleteAll = state?.allowDeleteAll ?: false
 
-    var selection by remember { mutableStateOf(MixedSelection.Empty) }
+    var selection by rememberSaveable { mutableStateOf(MixedSelection.Empty) }
     val snackScope = rememberCoroutineScope()
 
     val rowsById = rows?.associateBy { it.cluster.identifier } ?: emptyMap()

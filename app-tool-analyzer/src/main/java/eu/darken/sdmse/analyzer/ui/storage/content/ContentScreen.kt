@@ -58,6 +58,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -202,7 +203,7 @@ internal fun ContentScreen(
     val state by stateSource.collectAsStateWithLifecycle(initialValue = ContentViewModel.State.Loading)
     val context = LocalContext.current
 
-    var selection by remember { mutableStateOf<Set<APath>>(emptySet()) }
+    var selection by rememberSelection<APath>()
     var pendingDelete by remember { mutableStateOf<Set<ContentItem>?>(null) }
 
     BackHandler(enabled = true) {
@@ -462,7 +463,7 @@ private fun LazyListScope.contentRows(
 ) {
     items(
         count = items.size,
-        key = { idx -> items[idx].content.path.path.hashCode() },
+        key = { idx -> items[idx].content.path.path },
     ) { idx ->
         val item = items[idx]
         ContentItemRow(
@@ -486,7 +487,7 @@ private fun LazyGridScope.contentTiles(
 ) {
     items(
         count = items.size,
-        key = { idx -> items[idx].content.path.path.hashCode() },
+        key = { idx -> items[idx].content.path.path },
     ) { idx ->
         val item = items[idx]
         ContentItemTile(

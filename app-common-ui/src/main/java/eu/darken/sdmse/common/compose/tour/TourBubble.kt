@@ -495,7 +495,7 @@ private fun StepContent(
             var bodyFocused by remember { mutableStateOf(false) }
             Column(
                 modifier = Modifier
-                    .padding(top=16.dp)
+                    .padding(top = 16.dp)
                     .onFocusChanged { bodyFocused = it.isFocused }
                     .background(
                         color = if (bodyFocused) {

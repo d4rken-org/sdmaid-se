@@ -1,8 +1,6 @@
 package eu.darken.sdmse.appcontrol.ui
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
-import androidx.navigation.toRoute
 import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -21,7 +19,5 @@ data class AppActionRoute(
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<InstallId>() to serializableNavType(InstallId.serializer()),
         )
-
-        fun from(handle: SavedStateHandle) = handle.toRoute<AppActionRoute>(typeMap)
     }
 }

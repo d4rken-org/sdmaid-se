@@ -31,6 +31,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.swiper.R
 
 @Composable
@@ -153,6 +155,23 @@ internal fun SwiperActionBar(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperActionBarPreview() {
+    PreviewWrapper {
+        SwiperActionBar(
+            canUndo = true,
+            swapDirections = false,
+            hasCurrentItem = true,
+            onDelete = {},
+            onKeep = {},
+            onUndo = {},
+            onSkip = {},
+            onSkipLongPress = {},
+        )
     }
 }
 

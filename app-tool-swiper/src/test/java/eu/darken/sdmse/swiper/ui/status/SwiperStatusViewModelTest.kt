@@ -292,14 +292,6 @@ class SwiperStatusViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `retryFailed delegates to swiper retryFailedItem`() = runTest2 {
-        val h = harness()
-        h.vm.retryFailed(42L)
-        advanceUntilIdle()
-        coVerify(exactly = 1) { h.swiper.retryFailedItem(42L) }
-    }
-
-    @Test
     fun `retryAllFailed delegates to swiper`() = runTest2 {
         val h = harness(session = session(id = "session-x"))
         h.vm.retryAllFailed()

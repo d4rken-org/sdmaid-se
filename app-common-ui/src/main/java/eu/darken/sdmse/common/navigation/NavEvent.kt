@@ -8,6 +8,4 @@ sealed interface NavEvent {
     ) : NavEvent
 
     data object Up : NavEvent
-
-    data object Finish : NavEvent
 }

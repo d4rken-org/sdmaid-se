@@ -58,10 +58,13 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
 import eu.darken.sdmse.swiper.ui.swipe.SwipeOutcome
 import eu.darken.sdmse.swiper.ui.swipe.decideSwipe
 import eu.darken.sdmse.swiper.ui.swipe.tour.SwiperSwipeTour
@@ -313,6 +316,28 @@ internal fun SwiperSwipeCard(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperSwipeCardPreview() {
+    PreviewWrapper {
+        SwiperSwipeCard(
+            item = previewSwipeItem(),
+            canUndo = true,
+            swapDirections = false,
+            showDetails = true,
+            sessionPosition = 3,
+            totalItems = 12,
+            onSwipeKeep = {},
+            onSwipeDelete = {},
+            onSwipeSkip = {},
+            onSwipeUndo = {},
+            onPreviewClick = {},
+            onOpenExternallyClick = {},
+            modifier = Modifier.fillMaxSize(),
+        )
     }
 }
 

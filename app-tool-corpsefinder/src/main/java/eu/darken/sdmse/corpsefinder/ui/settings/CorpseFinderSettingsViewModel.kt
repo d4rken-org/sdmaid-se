@@ -119,11 +119,6 @@ class CorpseFinderSettingsViewModel @Inject constructor(
             filterAppSourcePrivateEnabled = filters.appSourcePrivate,
             filterAppSourceAsecEnabled = filters.appSourceAsec,
             isFilterPrivateDataAvailable = cfState.isFilterPrivateDataAvailable,
-            isFilterDalvikCacheAvailable = cfState.isFilterDalvikCacheAvailable,
-            isFilterArtProfilesAvailable = cfState.isFilterArtProfilesAvailable,
-            isFilterAppLibrariesAvailable = cfState.isFilterAppLibrariesAvailable,
-            isFilterAppSourcesAvailable = cfState.isFilterAppSourcesAvailable,
-            isFilterPrivateAppSourcesAvailable = cfState.isFilterPrivateAppSourcesAvailable,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -197,11 +192,6 @@ class CorpseFinderSettingsViewModel @Inject constructor(
         val filterAppSourcePrivateEnabled: Boolean = false,
         val filterAppSourceAsecEnabled: Boolean = false,
         val isFilterPrivateDataAvailable: Boolean = false,
-        val isFilterDalvikCacheAvailable: Boolean = false,
-        val isFilterArtProfilesAvailable: Boolean = false,
-        val isFilterAppLibrariesAvailable: Boolean = false,
-        val isFilterAppSourcesAvailable: Boolean = false,
-        val isFilterPrivateAppSourcesAvailable: Boolean = false,
     )
 
     companion object {

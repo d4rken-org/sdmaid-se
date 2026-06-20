@@ -134,7 +134,6 @@ internal fun ClusterContent(
                     duplicate = element.duplicate,
                     willBeDeleted = element.willBeDeleted,
                     selected = selection.contains(element.duplicate.identifier),
-                    selectionActive = selection.isNotEmpty(),
                     onClick = {
                         if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
                         else onDuplicateDelete(element.duplicate.identifier)
@@ -153,7 +152,6 @@ internal fun ClusterContent(
                     matchType = null,
                     willBeDeleted = element.willBeDeleted,
                     selected = selection.contains(element.duplicate.identifier),
-                    selectionActive = selection.isNotEmpty(),
                     onClick = {
                         if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
                         else onDuplicateDelete(element.duplicate.identifier)
@@ -175,7 +173,6 @@ internal fun ClusterContent(
                         matchType = matchType,
                         willBeDeleted = element.willBeDeleted,
                         selected = selection.contains(element.duplicate.identifier),
-                        selectionActive = selection.isNotEmpty(),
                         onClick = {
                             if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
                             else onDuplicateDelete(element.duplicate.identifier)
@@ -466,7 +463,6 @@ private fun ChecksumFileRow(
     duplicate: ChecksumDuplicate,
     willBeDeleted: Boolean,
     selected: Boolean,
-    selectionActive: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     deleteMarkModifier: Modifier = Modifier,
@@ -519,7 +515,6 @@ private fun ImageFileRow(
     matchType: String?,
     willBeDeleted: Boolean,
     selected: Boolean,
-    selectionActive: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     onPreviewClick: () -> Unit,

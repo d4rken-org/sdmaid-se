@@ -222,11 +222,6 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
 
         val state = h.vm.state.first()
         state.isFilterPrivateDataAvailable shouldBe true
-        state.isFilterDalvikCacheAvailable shouldBe true
-        state.isFilterArtProfilesAvailable shouldBe true
-        state.isFilterAppLibrariesAvailable shouldBe true
-        state.isFilterAppSourcesAvailable shouldBe true
-        state.isFilterPrivateAppSourcesAvailable shouldBe true
     }
 
     @Test

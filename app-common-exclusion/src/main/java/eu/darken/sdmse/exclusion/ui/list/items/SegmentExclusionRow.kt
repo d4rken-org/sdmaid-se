@@ -24,7 +24,6 @@ fun SegmentExclusionRow(
     modifier: Modifier = Modifier,
     row: ExclusionListViewModel.Row.Segment,
     selected: Boolean,
-    selectionActive: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {

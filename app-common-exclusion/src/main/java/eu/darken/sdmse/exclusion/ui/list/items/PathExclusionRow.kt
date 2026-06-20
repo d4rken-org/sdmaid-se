@@ -26,7 +26,6 @@ fun PathExclusionRow(
     modifier: Modifier = Modifier,
     row: ExclusionListViewModel.Row.Path,
     selected: Boolean,
-    selectionActive: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {

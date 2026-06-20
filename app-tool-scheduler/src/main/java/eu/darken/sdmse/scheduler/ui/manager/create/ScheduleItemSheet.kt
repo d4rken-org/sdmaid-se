@@ -19,6 +19,7 @@ import androidx.compose.material.icons.twotone.AccessTime
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Remove
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -83,6 +84,20 @@ internal fun ScheduleItemSheet(
     onSave: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = ScheduleItemViewModel.State())
+
+    if (!state.isReady) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(240.dp)
+                .navigationBarsPadding(),
+            contentAlignment = Alignment.Center,
+        ) {
+            CircularProgressIndicator()
+        }
+        return
+    }
+
     var showTimePicker by remember { mutableStateOf(false) }
 
     var timeText by remember { mutableStateOf(formatTime(state.hour, state.minute)) }

@@ -23,7 +23,6 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
-import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SchedulerDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
@@ -156,7 +155,6 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             debugCardProvider = debugCardProvider,
             deduplicator = deduplicator,
             squeezer = squeezer,
-            squeezerSettings = mockk<SqueezerSettings>(relaxed = true),
             swiper = swiper,
             upgradeRepo = upgradeRepo,
             generalSettings = generalSettings,

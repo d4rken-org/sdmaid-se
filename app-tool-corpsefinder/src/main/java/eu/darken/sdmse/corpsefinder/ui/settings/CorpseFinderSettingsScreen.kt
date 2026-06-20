@@ -298,11 +298,6 @@ private fun CorpseFinderSettingsScreenPreviewRooted() {
                 isWatcherEnabled = true,
                 rootFilterGate = FeatureGateState.AVAILABLE,
                 isFilterPrivateDataAvailable = true,
-                isFilterDalvikCacheAvailable = true,
-                isFilterArtProfilesAvailable = true,
-                isFilterAppLibrariesAvailable = true,
-                isFilterAppSourcesAvailable = true,
-                isFilterPrivateAppSourcesAvailable = true,
             ),
         )
     }

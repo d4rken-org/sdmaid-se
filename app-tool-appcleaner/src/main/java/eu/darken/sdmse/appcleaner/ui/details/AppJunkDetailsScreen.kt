@@ -52,6 +52,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -201,7 +202,7 @@ internal fun AppJunkDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by remember { mutableStateOf<Set<APath>>(emptySet()) }
+    var selection by rememberSelection<APath>()
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
     // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.

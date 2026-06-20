@@ -56,6 +56,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -162,7 +163,7 @@ internal fun SqueezerListScreen(
     val media = state.media ?: emptyList()
     val itemIds = remember(media) { media.map { it.identifier }.toSet() }
 
-    var selection by remember { mutableStateOf<Set<CompressibleMedia.Id>>(emptySet()) }
+    var selection by rememberSelection<CompressibleMedia.Id>()
 
     LaunchedEffect(itemIds) {
         selection = selection intersect itemIds

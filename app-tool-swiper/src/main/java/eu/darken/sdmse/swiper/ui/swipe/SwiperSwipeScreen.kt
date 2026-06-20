@@ -43,6 +43,8 @@ import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R as ExclusionR
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -323,5 +325,13 @@ internal fun SwiperSwipeScreen(
                 onClick = { excludeRequest = null },
             ),
         )
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperSwipeScreenPreview() {
+    PreviewWrapper {
+        SwiperSwipeScreen()
     }
 }

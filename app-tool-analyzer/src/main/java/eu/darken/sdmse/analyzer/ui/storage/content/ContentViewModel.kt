@@ -1,10 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
@@ -53,11 +50,9 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
-@SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class ContentViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
     private val analyzerSettings: AnalyzerSettings,
     private val viewIntentTool: ViewIntentTool,
