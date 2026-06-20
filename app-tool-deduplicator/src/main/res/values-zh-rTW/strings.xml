@@ -22,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵與比對感知雜湊值（Perceptual Hash）來找出相似檔案。⚠️ 基於相似度的偵測可能會出現誤判，請務必進行人工確認。</string>
     <string name="deduplicator_detection_method_media_title">媒體指紋</string>
     <string name="deduplicator_detection_method_media_summary">透過分析音訊指紋找出相似的影片和音訊檔案。⚠️ 基於相似性的偵測可能包含誤報，需要手動驗證。</string>
-    <string name="deduplicator_matches_media_label">相似媒體</string>
     <string name="deduplicator_media_match_audio">基於音訊的配對</string>
     <string name="deduplicator_media_match_visual">基於影片的配對</string>
     <string name="deduplicator_media_match_audio_visual">基於音訊和影片的配對</string>

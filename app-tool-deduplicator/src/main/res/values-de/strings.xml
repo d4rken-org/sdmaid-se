@@ -24,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Findet ähnliche Dateien, indem Inhaltsmerkmale analysiert und perzeptive Hashwerte vergleichen werden. ⚠️ Die ähnlichkeitsbasierte Erkennung kann Fehler beinhalten, die manuelle Überprüfung erfordern.</string>
     <string name="deduplicator_detection_method_media_title">Medien-Fingerabdruck</string>
     <string name="deduplicator_detection_method_media_summary">Ähnliche Video- und Audiodateien durch Analyse von Audio-Fingerabdrücken finden. ⚠️ Ähnlichkeitsbasierte Erkennung kann Fehlalarme enthalten und erfordert eine manuelle Überprüfung.</string>
-    <string name="deduplicator_matches_media_label">Ähnliche Medien</string>
     <string name="deduplicator_media_match_audio">Audio-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_visual">Video-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_audio_visual">Audio- und videobasierte Übereinstimmung</string>

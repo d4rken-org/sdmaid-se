@@ -24,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Məzmun xüsusiyyətlərini təhlil edərək və qavrayış həş perceptual hash dəyərlərini müqayisə edərək bənzər faylları tapın. ⚠️ Bənzərlik əsaslı aşkarlama əl ilə yoxlama tələb edən yanlış müsbət false positive nəticələr verə bilər.</string>
     <string name="deduplicator_detection_method_media_title">Media barmaq izi</string>
     <string name="deduplicator_detection_method_media_summary">Səs barmaq izlərini analiz edərək oxşar video və audio faylları tapın. ⚠️ Oxşarlığa əsaslanan aşkarlama, əl ilə yoxlama tələb edən yanlış müsbət nəticələr verə bilər.</string>
-    <string name="deduplicator_matches_media_label">Oxşar media</string>
     <string name="deduplicator_media_match_audio">Səsə əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_visual">Videoya əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_audio_visual">Səs və videoya əsaslanan uyğunluq</string>

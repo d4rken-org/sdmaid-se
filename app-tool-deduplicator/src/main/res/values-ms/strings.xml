@@ -22,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">Cari fail yang serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi. ⚠️ Pengesanan berasaskan keserupaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
     <string name="deduplicator_detection_method_media_title">Cap jari media</string>
     <string name="deduplicator_detection_method_media_summary">Cari fail video dan audio yang serupa dengan menganalisis cap jari audio. ⚠️ Pengesanan berasaskan persamaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
-    <string name="deduplicator_matches_media_label">Media yang serupa</string>
     <string name="deduplicator_media_match_audio">Padanan berasaskan audio</string>
     <string name="deduplicator_media_match_visual">Padanan berasaskan video</string>
     <string name="deduplicator_media_match_audio_visual">Padanan berasaskan audio dan video</string>

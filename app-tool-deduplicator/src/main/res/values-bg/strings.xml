@@ -24,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Намиране на подобни файлове чрез анализ на характеристиките на съдържанието и сравняване на перцептуални хеш стойности. ⚠️ Базираното на подобие откриване може да включва фалшиви положителни резултати, изискващи ръчна проверка.</string>
     <string name="deduplicator_detection_method_media_title">Медиен пръстов отпечатък</string>
     <string name="deduplicator_detection_method_media_summary">Намерете подобни видео и аудио файлове чрез анализ на аудио пръстови отпечатъци. ⚠️ Базираното на сходство откриване може да включва фалшиви позитиви, изискващи ръчна проверка.</string>
-    <string name="deduplicator_matches_media_label">Подобни медии</string>
     <string name="deduplicator_media_match_audio">Съвпадение по аудио</string>
     <string name="deduplicator_media_match_visual">Съвпадение по видео</string>
     <string name="deduplicator_media_match_audio_visual">Съвпадение по аудио и видео</string>

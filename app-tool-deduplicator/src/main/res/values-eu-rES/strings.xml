@@ -24,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Bilatu antzeko fitxategiak edukiaren ezaugarriak aztertuz eta hash pertzeptualak alderatuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsuki positiboak sar ditzake eskuzko egiaztapena behar dutenak.</string>
     <string name="deduplicator_detection_method_media_title">Media hatz-marka</string>
     <string name="deduplicator_detection_method_media_summary">Bilatu antzeko bideo eta audio fitxategiak audio hatz-markak aztertuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsu positiboak sor ditzake eskuzko egiaztapena eskatuz.</string>
-    <string name="deduplicator_matches_media_label">Antzeko multimedia</string>
     <string name="deduplicator_media_match_audio">Audio-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_visual">Bideo-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_audio_visual">Audio eta bideo-oinarritutako bat etortzea</string>

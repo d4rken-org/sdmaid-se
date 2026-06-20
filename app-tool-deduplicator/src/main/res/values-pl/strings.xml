@@ -28,7 +28,6 @@
     <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki, analizując cechy treści i porównując percepcyjne wartości skrótów. ⚠️ Wykrywanie na podstawie podobieństwa może obejmować fałszywe alarmy wymagające ręcznej weryfikacji.</string>
     <string name="deduplicator_detection_method_media_title">Sygnatury multimediów</string>
     <string name="deduplicator_detection_method_media_summary">Znajdź podobne pliki wideo i audio poprzez analizę sygnatur audio. ⚠️ Wykrywanie oparte na podobieństwie może zawierać fałszywe trafienia wymagające ręcznej weryfikacji.</string>
-    <string name="deduplicator_matches_media_label">Podobne multimedia</string>
     <string name="deduplicator_media_match_audio">Dopasowanie na podstawie dźwięku</string>
     <string name="deduplicator_media_match_visual">Dopasowanie na podstawie wideo</string>
     <string name="deduplicator_media_match_audio_visual">Dopasowanie na podstawie dźwięku i wideo</string>

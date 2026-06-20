@@ -26,7 +26,6 @@
     <string name="deduplicator_detection_method_phash_summary">Пронађите сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности. ⚠️ Детекција заснована на сличности може укључити лажне позитивне резултате који захтевају ручну верификацију.</string>
     <string name="deduplicator_detection_method_media_title">Медијски отисак</string>
     <string name="deduplicator_detection_method_media_summary">Пронађите сличне видео и аудио датотеке анализом аудио отисака. ⚠️ Детекција заснована на сличности може укључивати лажне позитиве који захтевају ручну верификацију.</string>
-    <string name="deduplicator_matches_media_label">Слични медији</string>
     <string name="deduplicator_media_match_audio">Подударање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Подударање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Подударање засновано на аудио и видео</string>

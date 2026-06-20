@@ -24,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Trova file simili analizzando le caratteristiche del contenuto e confrontando i valori di hash percettivo. ⚠️ Il rilevamento basato sulla somiglianza potrebbe includere falsi positivi che richiedono verifica manuale.</string>
     <string name="deduplicator_detection_method_media_title">Impronta multimediale</string>
     <string name="deduplicator_detection_method_media_summary">Trova file video e audio simili analizzando le impronte audio. ⚠️ Il rilevamento basato sulla somiglianza potrebbe includere falsi positivi che richiedono verifica manuale.</string>
-    <string name="deduplicator_matches_media_label">Media simili</string>
     <string name="deduplicator_media_match_audio">Corrispondenza basata sull\'audio</string>
     <string name="deduplicator_media_match_visual">Corrispondenza basata sul video</string>
     <string name="deduplicator_media_match_audio_visual">Corrispondenza basata su audio e video</string>
