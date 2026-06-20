@@ -310,18 +310,18 @@ class SystemCleanerListViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `init navigates up when Data transitions from non-empty to null`() = runTest2 {
-        // BUG-FIXME-9: SystemCleanerListViewModel's drain filter at lines 40-45 uses the
-        // `hasData` extension which returns `false` for `null`. That means a fresh scan
-        // (which sets internalData = null) triggers navUp during loading. The fix would be
-        // to use `mapNotNull { it.data }` like FilterContentDetailsViewModel does. Until then
-        // this test locks in current behavior.
+    fun `init does NOT navigate up when Data transitions from non-empty to null (fresh re-scan)`() = runTest2 {
+        // Fixed: SystemCleanerListViewModel now uses `mapNotNull { it.data }` (like
+        // FilterContentDetailsViewModel), so the null transition a fresh scan publishes while
+        // loading is skipped and no longer triggers navUp. (was BUG-FIXME-9)
         val fc = previewFilterContent(identifier = "f", items = listOf(previewMatch("a")))
         val h = harness(listOf(fc))
+        val nav = collectNavEvents(h.vm)
 
         h.stateFlow.value = scState(data = null)
         advanceUntilIdle()
 
-        h.vm.navEvents.first() shouldBe NavEvent.Up
+        nav.list shouldBe emptyList()
+        nav.cancel()
     }
 }

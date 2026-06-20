@@ -24,6 +24,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -36,10 +37,13 @@ class SystemCleanerListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
+        // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
         systemCleaner.state
-            .map { it.data }
+            .mapNotNull { it.data }
+            .map { it.hasData }
             .drop(1)
-            .filter { !it.hasData }
+            .filter { !it }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)

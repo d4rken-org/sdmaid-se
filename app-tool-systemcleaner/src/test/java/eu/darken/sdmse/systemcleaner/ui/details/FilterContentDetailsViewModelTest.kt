@@ -298,21 +298,20 @@ class FilterContentDetailsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `onExcludeFilter emits ExclusionsCreated with count 0 when save returns empty - details VM does not suppress`() = runTest2 {
-        // BUG-FIXME-4: Details VM emits ExclusionsCreated even when undo.exclusionIds is
-        // empty — meaning the snackbar shows "0 exclusions created". List VM has a guard
-        // (`if (totalExclusions == 0) return@launch`); details VM does not. Asymmetric
-        // behaviour. Flip this test if details VM is updated to match list VM.
+    fun `onExcludeFilter suppresses ExclusionsCreated when save returns empty (no 0-count snackbar)`() = runTest2 {
+        // Fixed: details VM now guards `if (undo.exclusionIds.isEmpty()) return`, so an
+        // all-already-excluded selection no longer emits a "0 exclusions created" snackbar,
+        // matching the list VM. (was BUG-FIXME-4)
         val fc = previewFilterContent(identifier = "f", items = listOf(match("a")))
         val h = harness(listOf(fc))
         coEvery { h.systemCleaner.exclude(eq("f"), any()) } returns fakeUndo(0)
+        val collected = collectEvents(h.vm)
 
         h.vm.onExcludeFilter("f")
         advanceUntilIdle()
 
-        val event = h.vm.events.first()
-        event.shouldBeInstanceOf<FilterContentDetailsViewModel.Event.ExclusionsCreated>()
-        event.count shouldBe 0
+        collected.list shouldBe emptyList()
+        collected.cancel()
     }
 
     @Test

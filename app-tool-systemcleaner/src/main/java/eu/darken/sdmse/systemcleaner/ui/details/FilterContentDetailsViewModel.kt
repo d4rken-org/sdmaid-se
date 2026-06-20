@@ -118,6 +118,9 @@ class FilterContentDetailsViewModel @Inject constructor(
         val paths = fc.items.map { it.path }.toSet()
         if (paths.isEmpty()) return@launch
         val undo = systemCleaner.exclude(id, paths)
+        // Skip the "0 exclusions created" snackbar when every path was already excluded (save dedups
+        // to empty), matching the list VM's guard. (was BUG-FIXME-4)
+        if (undo.exclusionIds.isEmpty()) return@launch
         events.tryEmit(
             Event.ExclusionsCreated(
                 count = undo.exclusionIds.size,
