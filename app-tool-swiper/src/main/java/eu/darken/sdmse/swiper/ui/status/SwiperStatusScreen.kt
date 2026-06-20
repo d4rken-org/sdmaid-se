@@ -56,6 +56,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
@@ -192,6 +193,10 @@ internal fun SwiperStatusScreen(
                             selection = emptySet()
                             onExcludeSelected(payload)
                         })
+                        SdmSelectAllAction(
+                            visible = selection.size < itemIds.size,
+                            onClick = { selection = itemIds },
+                        )
                     },
                 )
             }
