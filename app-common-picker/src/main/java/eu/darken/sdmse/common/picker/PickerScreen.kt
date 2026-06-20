@@ -4,9 +4,13 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -139,7 +143,7 @@ internal fun PickerScreen(
 
     BottomSheetScaffold(
         scaffoldState = sheetScaffoldState,
-        sheetPeekHeight = 72.dp,
+        sheetPeekHeight = SHEET_PEEK_HEIGHT,
         // Color the whole sheet (incl. the drag-handle strip) so it matches the panel content
         // instead of the default container color showing a seam above the content.
         sheetContainerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -228,6 +232,13 @@ internal fun PickerScreen(
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 360.dp),
                     modifier = Modifier.fillMaxSize(),
+                    // The peek sheet draws over the body edge-to-edge (incl. behind the nav bar), so pad
+                    // the bottom by the peek height plus the nav-bar inset to keep the last row reachable
+                    // (legacy PickerFragment padded the list the same way).
+                    contentPadding = PaddingValues(
+                        bottom = SHEET_PEEK_HEIGHT +
+                            WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding(),
+                    ),
                 ) {
                     items(state.items, key = { it.id }) { row ->
                         Column {
@@ -294,6 +305,10 @@ private fun SelectedPathsPanel(
         }
     }
 }
+
+// Height of the collapsed selected-paths sheet. The grid pads its bottom by this (plus the nav-bar
+// inset) so the peek sheet never permanently hides the last row — keep both in sync.
+private val SHEET_PEEK_HEIGHT = 72.dp
 
 @Preview2
 @Composable
