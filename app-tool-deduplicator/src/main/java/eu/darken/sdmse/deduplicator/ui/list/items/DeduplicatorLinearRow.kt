@@ -41,9 +41,12 @@ import eu.darken.sdmse.common.compose.SdmInfoChip
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
+import eu.darken.sdmse.deduplicator.ui.preview.previewDeduplicatorListRow
 
 @Composable
 internal fun DeduplicatorLinearRow(
@@ -265,5 +268,24 @@ private fun DuplicateSubRow(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorLinearRowPreview() {
+    PreviewWrapper {
+        DeduplicatorLinearRow(
+            row = previewDeduplicatorListRow(),
+            selected = false,
+            selectionActive = false,
+            selectedDupes = emptySet(),
+            onHeaderClick = {},
+            onLongClick = {},
+            onThumbnailClick = {},
+            onDuplicateClick = {},
+            onDuplicateLongClick = {},
+            onDuplicatePreviewClick = {},
+        )
     }
 }

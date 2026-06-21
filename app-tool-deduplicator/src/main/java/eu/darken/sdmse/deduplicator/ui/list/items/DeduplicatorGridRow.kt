@@ -39,9 +39,12 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
+import eu.darken.sdmse.deduplicator.ui.preview.previewDeduplicatorListRow
 
 @Composable
 internal fun DeduplicatorGridRow(
@@ -196,6 +199,24 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_media_title),
                 tint = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.size(18.dp),
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorGridRowPreview() {
+    PreviewWrapper {
+        // Constrain to a grid-tile width so the preview reflects how it renders in the LazyVerticalGrid.
+        Box(modifier = Modifier.width(180.dp)) {
+            DeduplicatorGridRow(
+                row = previewDeduplicatorListRow(),
+                selected = false,
+                onThumbnailClick = {},
+                onCaptionClick = {},
+                onPreviewButtonClick = {},
+                onLongClick = {},
             )
         }
     }

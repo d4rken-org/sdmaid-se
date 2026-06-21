@@ -9,6 +9,7 @@ import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
+import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel
 import okio.ByteString.Companion.encodeUtf8
 import java.time.Instant
 
@@ -114,3 +115,42 @@ internal fun previewCluster(
     groups = groups,
     favoriteGroupIdentifier = favoriteGroupIdentifier,
 )
+
+/**
+ * A list-row model for previews/tests: a favorite checksum group of two copies, keeping the first,
+ * so one duplicate is a delete target and [DeduplicatorListViewModel.DeduplicatorListRow.freeableSize]
+ * reflects that single copy.
+ */
+internal fun previewDeduplicatorListRow(
+    identifier: Duplicate.Cluster.Id = Duplicate.Cluster.Id("preview-cluster"),
+): DeduplicatorListViewModel.DeduplicatorListRow {
+    val duplicates = setOf(
+        previewChecksumDuplicate(
+            pathSegments = arrayOf("storage", "emulated", "0", "Pictures", "vacation.jpg"),
+            size = 4L * 1024 * 1024,
+            hashSeed = "vacation-1",
+        ),
+        previewChecksumDuplicate(
+            pathSegments = arrayOf("storage", "emulated", "0", "Pictures", "vacation_copy.jpg"),
+            size = 4L * 1024 * 1024,
+            hashSeed = "vacation-1",
+        ),
+    )
+    val keeper = duplicates.first()
+    val group = ChecksumDuplicate.Group(
+        duplicates = duplicates,
+        identifier = Duplicate.Group.Id("preview-group"),
+        keeperIdentifier = keeper.identifier,
+    )
+    val cluster = previewCluster(
+        identifier = identifier,
+        groups = setOf(group),
+        favoriteGroupIdentifier = group.identifier,
+    )
+    val targets = (duplicates - keeper).map { it.identifier }.toSet()
+    return DeduplicatorListViewModel.DeduplicatorListRow(
+        cluster = cluster,
+        deleteTargetIds = targets,
+        freeableSize = duplicates.filter { it.identifier in targets }.sumOf { it.size },
+    )
+}
