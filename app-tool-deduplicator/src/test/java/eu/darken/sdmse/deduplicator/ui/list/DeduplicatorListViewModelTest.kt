@@ -267,6 +267,65 @@ class DeduplicatorListViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `state freeableSize sums only the delete-target duplicates, not the whole cluster`() = runTest2 {
+        // The favorite group keeps its first copy (size 100); freeableSize must equal the two
+        // non-keeper copies (200 + 300), NOT the raw cluster total. This delete-target model backs
+        // the grid "X freeable" line and the strengthened cluster-delete dialog.
+        val duplicates = listOf(100L, 200L, 300L).mapIndexed { idx, size ->
+            previewChecksumDuplicate(
+                pathSegments = arrayOf("storage", "f", "dup$idx"),
+                size = size,
+                hashSeed = "f-$idx",
+            )
+        }.toSet()
+        val keeper = duplicates.first()
+        val group = ChecksumDuplicate.Group(
+            duplicates = duplicates,
+            identifier = Duplicate.Group.Id("f-group"),
+            keeperIdentifier = keeper.identifier,
+        )
+        val c = previewCluster(
+            identifier = Duplicate.Cluster.Id("f"),
+            groups = setOf(group),
+            favoriteGroupIdentifier = group.identifier,
+        )
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds shouldBe (duplicates - keeper).map { it.identifier }.toSet()
+        row.freeableSize shouldBe 500L
+    }
+
+    @Test
+    fun `state freeableSize is zero when the favorite group has no keeper metadata`() = runTest2 {
+        // Codex review #5: redundantSize could over-report when keeper metadata is missing. The
+        // delete-target model instead yields NO targets for a keeper-less favorite group, so a
+        // single-group cluster reports 0 freeable rather than the raw cluster size.
+        val duplicates = listOf(100L, 200L).mapIndexed { idx, size ->
+            previewChecksumDuplicate(
+                pathSegments = arrayOf("storage", "g", "dup$idx"),
+                size = size,
+                hashSeed = "g-$idx",
+            )
+        }.toSet()
+        val group = ChecksumDuplicate.Group(
+            duplicates = duplicates,
+            identifier = Duplicate.Group.Id("g-group"),
+            keeperIdentifier = null,
+        )
+        val c = previewCluster(
+            identifier = Duplicate.Cluster.Id("g"),
+            groups = setOf(group),
+            favoriteGroupIdentifier = group.identifier,
+        )
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds.size shouldBe 0
+        row.freeableSize shouldBe 0L
+    }
+
+    @Test
     fun `state deleteTargetIds includes all duplicates of a non-favorite group EVEN if that group has a keeper`() = runTest2 {
         // Per the production logic, the keeper-preservation branch ONLY applies to the favorite
         // group. A keeper set on a non-favorite group is irrelevant to deleteTargetIds — the

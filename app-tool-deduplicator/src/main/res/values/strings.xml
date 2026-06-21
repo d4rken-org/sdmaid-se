@@ -41,6 +41,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Delete all but one copy in each selected set of duplicate files?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Delete all files in each selected set of duplicate files? No file is left over!</string>
     <string name="deduplicator_delete_all_toggle_msg">Delete all copies. No file is left over!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Delete %1$d duplicate in this set, freeing %2$s? The kept copy stays.</item>
+        <item quantity="other">Delete %1$d duplicates in this set, freeing %2$s? The kept copy stays.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s freeable</string>
+    <string name="deduplicator_action_delete_set">Delete duplicate set</string>
+    <string name="deduplicator_action_open_preview">Open preview</string>
+    <string name="deduplicator_marked_for_deletion">Marked for deletion</string>
+    <string name="deduplicator_cluster_preview_image">Duplicate set preview</string>
     <string name="deduplicator_selection_keep_one_required">At least one file per duplicate set must remain. Enable \"Make \'Delete all\' possible\" in settings to override.</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
