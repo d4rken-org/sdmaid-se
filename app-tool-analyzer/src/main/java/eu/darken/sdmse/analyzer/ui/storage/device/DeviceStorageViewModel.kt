@@ -45,14 +45,16 @@ class DeviceStorageViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-    val state: StateFlow<State> = combine(
+    // Storage-row production excludes progress so high-frequency progress ticks during a scan don't
+    // rebuild every storage Row. Progress is merged in the outer combine (below) as a cheap field
+    // swap that preserves the storages List instance.
+    private val storagesState = combine(
         analyzer.data,
-        analyzer.progress,
         intervalFlow(1.hours).flatMapLatest {
             spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
         },
         upgradeRepo.upgradeInfo.map { it.isPro },
-    ) { data, progress, snapshots, isPro ->
+    ) { data, snapshots, isPro ->
         val snapshotsByStorage = snapshots.groupBy { it.storageId }
         State(
             storages = data.storages.map { storage ->
@@ -64,8 +66,14 @@ class DeviceStorageViewModel @Inject constructor(
                     isPro = isPro,
                 )
             },
-            progress = progress,
         )
+    }
+
+    val state: StateFlow<State> = combine(
+        storagesState,
+        analyzer.progress,
+    ) { base, progress ->
+        base.copy(progress = progress)
     }.safeStateIn(initialValue = State(), onError = { State() })
 
     fun refresh() = launch {

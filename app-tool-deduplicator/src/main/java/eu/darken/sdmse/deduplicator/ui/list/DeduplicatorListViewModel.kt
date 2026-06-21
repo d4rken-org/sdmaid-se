@@ -76,22 +76,32 @@ class DeduplicatorListViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // the clusters and re-run computeDeleteTargets/freeableSizeOf per cluster. Progress, layout and
+    // allowDeleteAll are merged in the outer combine (below) as a cheap field swap that preserves the
+    // rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsFlow = deduplicator.state
+        .map { it.data }
+        .filterNotNull()
+        .map { data ->
+            data.clusters
+                .sortedByDescending { it.averageSize }
+                .map { cluster ->
+                    val deleteTargetIds = cluster.computeDeleteTargets()
+                    DeduplicatorListRow(
+                        cluster = cluster,
+                        deleteTargetIds = deleteTargetIds,
+                        freeableSize = cluster.freeableSizeOf(deleteTargetIds),
+                    )
+                }
+        }
+
     val state: StateFlow<State?> = combine(
-        deduplicator.state.map { it.data }.filterNotNull(),
+        rowsFlow,
         deduplicator.progress,
         settings.layoutMode.flow,
         settings.allowDeleteAll.flow,
-    ) { data, progress, layoutMode, allowDeleteAll ->
-        val rows = data.clusters
-            .sortedByDescending { it.averageSize }
-            .map { cluster ->
-                val deleteTargetIds = cluster.computeDeleteTargets()
-                DeduplicatorListRow(
-                    cluster = cluster,
-                    deleteTargetIds = deleteTargetIds,
-                    freeableSize = cluster.freeableSizeOf(deleteTargetIds),
-                )
-            }
+    ) { rows, progress, layoutMode, allowDeleteAll ->
         State(rows = rows, progress = progress, layoutMode = layoutMode, allowDeleteAll = allowDeleteAll)
     }.safeStateIn(
         initialValue = null,

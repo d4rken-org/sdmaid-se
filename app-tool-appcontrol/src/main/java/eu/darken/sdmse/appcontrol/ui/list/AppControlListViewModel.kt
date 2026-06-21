@@ -128,11 +128,13 @@ class AppControlListViewModel @Inject constructor(
         DisplayOptions(searchQuery = query, listSort = sort, listFilter = filter)
     }
 
-    val state: StateFlow<State> = combine(
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-run
+    // filterSortRows over hundreds of apps. Progress is merged in the outer combine (below) as a
+    // cheap field swap that preserves the rows List instance, letting keyed lazy rows skip.
+    private val rowsState = combine(
         appControl.state,
-        appControl.progress,
         displayOptions,
-    ) { acState, progress, options ->
+    ) { acState, options ->
         // If the selected sort's backing data wasn't loaded by the current scan (missing or
         // revoked permission, stale scan), order rows by the default sort instead of garbage
         // null values. Only row ordering falls back — the displayed options keep the requested
@@ -151,7 +153,6 @@ class AppControlListViewModel @Inject constructor(
 
         State(
             rows = rows,
-            progress = progress,
             options = options,
             allowActionToggle = acState.canToggle,
             allowActionForceStop = acState.canForceStop,
@@ -161,11 +162,16 @@ class AppControlListViewModel @Inject constructor(
             sizeSortModuleEnabled = settings.moduleSizingEnabled.value(),
         )
     }
-        .combine(settings.listFastScrollerEnabled.flow) { base, fastScrollerEnabled ->
-            // Outer combine: toggling the fast scroller setting must not invalidate the row
-            // pipeline above (which would flash the loading overlay).
-            base.copy(fastScrollerEnabled = fastScrollerEnabled)
-        }
+
+    val state: StateFlow<State> = combine(
+        rowsState,
+        appControl.progress,
+        settings.listFastScrollerEnabled.flow,
+    ) { base, progress, fastScrollerEnabled ->
+        // Outer combine: progress ticks and toggling the fast scroller setting must not invalidate
+        // the row pipeline above (which would re-sort and flash the loading overlay).
+        base.copy(progress = progress, fastScrollerEnabled = fastScrollerEnabled)
+    }
         .safeStateIn(initialValue = State(), onError = { State() })
 
     private fun filterSortRows(apps: Collection<AppInfo>, options: DisplayOptions): List<Row> {

@@ -58,25 +58,31 @@ class FilterContentDetailsViewModel @Inject constructor(
     }
 
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
-        combine(
-            systemCleaner.progress,
-            systemCleaner.state.map { it.data }.filterNotNull(),
-        ) { progress, data ->
-            val sortedContents = data.filterContents.sortedByDescending { it.size }
+        // Item production excludes progress so high-frequency progress ticks during a scan don't
+        // re-sort the filter-content list and re-run resolveTarget. Progress is merged in last (below)
+        // as a cheap field swap that preserves the items List instance, letting keyed pager pages skip.
+        val itemsState = systemCleaner.state
+            .map { it.data }
+            .filterNotNull()
+            .map { data ->
+                val sortedContents = data.filterContents.sortedByDescending { it.size }
 
-            val availableTarget = resolveTarget(
-                items = sortedContents,
-                requestedTarget = currentTarget ?: route.filterIdentifier,
-                lastPosition = lastPosition,
-                identifierOf = { it.identifier },
-                onPositionTracked = { lastPosition = it },
-            )
+                val availableTarget = resolveTarget(
+                    items = sortedContents,
+                    requestedTarget = currentTarget ?: route.filterIdentifier,
+                    lastPosition = lastPosition,
+                    identifierOf = { it.identifier },
+                    onPositionTracked = { lastPosition = it },
+                )
 
-            State(
-                items = sortedContents,
-                target = availableTarget,
-                progress = progress,
-            )
+                State(
+                    items = sortedContents,
+                    target = availableTarget,
+                )
+            }
+
+        combine(itemsState, systemCleaner.progress) { base, progress ->
+            base.copy(progress = progress)
         }
     }.safeStateIn(
         initialValue = State(),

@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -97,6 +99,8 @@ fun AppControlListRow(
         }
         appInfo.sizes?.let { sizes ->
             Spacer(Modifier.width(8.dp))
+            // Cheap single call; left un-remembered so the label tracks locale/config changes (the
+            // expensive per-row work was the DateTimeFormatter construction in secondaryInfoFor).
             Text(
                 text = Formatter.formatShortFileSize(context, sizes.total),
                 style = MaterialTheme.typography.labelSmall,
@@ -112,8 +116,11 @@ private fun secondaryInfoFor(
     sortMode: SortSettings.Mode,
     context: android.content.Context,
 ): String? {
-    val installFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
-    val sinceFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+    // remember keyed on configuration so the formatters aren't reconstructed on every row
+    // recomposition (locale/pattern lookup isn't free), while still rebuilding on a locale change.
+    val configuration = LocalConfiguration.current
+    val installFormatter = remember(configuration) { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
+    val sinceFormatter = remember(configuration) { DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT) }
     val naLabel = stringResource(CommonR.string.general_na_label)
 
     return when (sortMode) {

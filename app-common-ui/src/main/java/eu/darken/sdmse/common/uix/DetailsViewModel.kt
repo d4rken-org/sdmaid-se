@@ -57,6 +57,16 @@ abstract class PagedDetailsViewModel<TRoute, TId>(
     protected var currentTarget: TId? by handle.mutableState("target")
     protected var lastPosition: Int? by handle.mutableState("position")
 
+    /**
+     * Reactive view of [currentTarget], backed by the same saved-state key (`mutableState`'s setter
+     * writes through [SavedStateHandle.set], which [SavedStateHandle.getStateFlow] observes). Fold
+     * this into the subclass state combine so a pager target change (updatePage / undo-restore)
+     * re-resolves the visible page on its own, WITHOUT relying on an incidental upstream re-emit such
+     * as a progress tick — important now that progress is decoupled from item production for scan-time
+     * perf.
+     */
+    protected val currentTargetFlow: StateFlow<TId?> = handle.getStateFlow("target", null)
+
     /** Set the route exactly once. Subsequent calls are no-ops so screen-recompositions don't reset state. */
     fun bindRoute(route: TRoute) {
         if (_routeFlow.value != null) return

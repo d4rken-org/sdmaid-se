@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
@@ -94,10 +95,10 @@ class AppDetailsViewModel @Inject constructor(
     val state: StateFlow<State> = routeFlow
         .filterNotNull()
         .flatMapLatest { route ->
-            combine(
-                analyzer.data,
-                analyzer.progress,
-            ) { data, progress ->
+            // Detail production excludes progress so high-frequency progress ticks during a (deep)
+            // scan don't rebuild the whole Ready state + size-group rows. Progress is merged in the
+            // outer combine (below) as a cheap field swap.
+            val content = analyzer.data.map { data ->
                 val pkgStat = data.findPkg(route)
                 val storage = data.storages.firstOrNull { it.id == route.storageId }
                 if (pkgStat == null || storage == null) {
@@ -110,9 +111,13 @@ class AppDetailsViewModel @Inject constructor(
                         appData = pkgStat.appData,
                         appMedia = pkgStat.appMedia,
                         extraData = pkgStat.extraData,
-                        progress = progress,
+                        progress = null,
                     )
                 }
+            }
+
+            combine(content, analyzer.progress) { base, progress ->
+                if (base is State.Ready) base.copy(progress = progress) else base
             }
         }
         .safeStateIn(initialValue = State.Loading, onError = { State.NotFound })

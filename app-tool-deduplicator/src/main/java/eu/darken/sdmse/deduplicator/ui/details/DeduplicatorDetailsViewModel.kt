@@ -42,8 +42,8 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
-import eu.darken.sdmse.common.flow.combine
 import javax.inject.Inject
 
 @HiltViewModel
@@ -79,8 +79,10 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     }
 
     val state: StateFlow<State?> = routeFlow.filterNotNull().flatMapLatest { route ->
-        combine(
-            deduplicator.progress,
+        // Item production excludes progress so high-frequency progress ticks during a scan don't
+        // re-sort the clusters and re-run resolveTarget. Progress is merged in last (below) as a
+        // cheap field swap that preserves the items List instance, letting keyed pager pages skip.
+        val itemsState = combine(
             deduplicator.state
                 .map { it.data }
                 .filterNotNull()
@@ -88,12 +90,13 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             settings.isDirectoryViewEnabled.flow,
             settings.allowDeleteAll.flow,
             collapsedDirsFlow,
-        ) { progress, data, isDirectoryViewEnabled, allowDeleteAll, collapsedDirs ->
+            currentTargetFlow,
+        ) { data, isDirectoryViewEnabled, allowDeleteAll, collapsedDirs, requestedTarget ->
             val sortedClusters = data.clusters.sortedByDescending { it.averageSize }
 
             val availableTarget = resolveTarget(
                 items = sortedClusters,
-                requestedTarget = currentTarget ?: route.identifier,
+                requestedTarget = requestedTarget ?: route.identifier,
                 lastPosition = lastPosition,
                 identifierOf = { it.identifier },
                 onPositionTracked = { lastPosition = it },
@@ -109,11 +112,15 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             State(
                 items = sortedClusters,
                 target = availableTarget,
-                progress = progress,
+                progress = null,
                 isDirectoryView = isDirectoryViewEnabled,
                 allowDeleteAll = allowDeleteAll,
                 collapsedDirs = collapsedDirs,
             )
+        }
+
+        combine(itemsState, deduplicator.progress) { base, progress ->
+            base.copy(progress = progress)
         }
     }.safeStateIn(
         initialValue = null,

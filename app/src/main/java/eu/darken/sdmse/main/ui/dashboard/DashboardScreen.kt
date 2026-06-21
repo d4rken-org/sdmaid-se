@@ -488,6 +488,9 @@ internal fun DashboardScreen(
                     items(
                         items = items,
                         key = { it.stableId },
+                        // Distinct card shapes (sealed subtypes) so Compose pools same-shaped slots
+                        // and reuses a matching node tree instead of rebuilding mid-fling.
+                        contentType = { it::class },
                     ) { item ->
                         val tourModifier = when {
                             item is SetupDashboardCardItem ->

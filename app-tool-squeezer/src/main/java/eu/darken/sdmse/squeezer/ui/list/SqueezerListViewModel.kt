@@ -60,18 +60,20 @@ class SqueezerListViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
+    // Media production excludes progress/layout/quality so high-frequency progress ticks during
+    // compression don't re-sort the whole media list. Those fields are merged in last (below) as a
+    // cheap field swap that preserves the media List instance, letting keyed lazy rows skip.
+    private val mediaState = squeezer.state
+        .map { it.data }
+        .map { data -> State(media = data?.media?.sortedByDescending { it.size }) }
+
     val state: StateFlow<State> = combine(
-        squeezer.state.map { it.data },
+        mediaState,
         squeezer.progress,
         settings.layoutMode.flow,
         settings.compressionQuality.flow,
-    ) { data, progress, layoutMode, quality ->
-        State(
-            media = data?.media?.sortedByDescending { it.size },
-            progress = progress,
-            layoutMode = layoutMode,
-            quality = quality,
-        )
+    ) { base, progress, layoutMode, quality ->
+        base.copy(progress = progress, layoutMode = layoutMode, quality = quality)
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },
