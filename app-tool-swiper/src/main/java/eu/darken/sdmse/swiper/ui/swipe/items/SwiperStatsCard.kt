@@ -23,6 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeState
 import eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeViewModel
 
 @Composable
@@ -103,5 +106,13 @@ private fun StatBadge(
             style = MaterialTheme.typography.labelLarge,
             color = tint,
         )
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperStatsCardPreview() {
+    PreviewWrapper {
+        SwiperStatsCard(state = previewSwipeState())
     }
 }

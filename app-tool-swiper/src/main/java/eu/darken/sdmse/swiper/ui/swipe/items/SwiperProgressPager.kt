@@ -38,8 +38,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
 import kotlin.math.abs
 
 private val ITEM_SIZE = 64.dp
@@ -197,5 +200,22 @@ private fun DecisionDot(
         contentAlignment = Alignment.Center,
     ) {
         Icon(imageVector = icon, contentDescription = null, tint = tint, modifier = Modifier.size(14.dp))
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperProgressPagerPreview() {
+    PreviewWrapper {
+        SwiperProgressPager(
+            items = listOf(
+                previewSwipeItem(id = 1, decision = SwipeDecision.KEEP),
+                previewSwipeItem(id = 2, decision = SwipeDecision.UNDECIDED),
+                previewSwipeItem(id = 3, decision = SwipeDecision.DELETE),
+                previewSwipeItem(id = 4, decision = SwipeDecision.UNDECIDED),
+            ),
+            currentIndex = 1,
+            onItemClick = {},
+        )
     }
 }

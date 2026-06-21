@@ -8,7 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
 
 @Composable
 internal fun SwiperFileTypeChip(
@@ -29,5 +32,13 @@ internal fun SwiperFileTypeChip(
             maxLines = 1,
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
         )
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperFileTypeChipPreview() {
+    PreviewWrapper {
+        SwiperFileTypeChip(item = previewSwipeItem())
     }
 }

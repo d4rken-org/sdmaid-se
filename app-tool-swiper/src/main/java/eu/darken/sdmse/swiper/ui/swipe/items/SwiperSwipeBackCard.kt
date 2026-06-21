@@ -15,8 +15,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
 
 @Composable
 internal fun SwiperSwipeBackCard(
@@ -55,5 +58,13 @@ internal fun SwiperSwipeBackCard(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperSwipeBackCardPreview() {
+    PreviewWrapper {
+        SwiperSwipeBackCard(item = previewSwipeItem())
     }
 }
