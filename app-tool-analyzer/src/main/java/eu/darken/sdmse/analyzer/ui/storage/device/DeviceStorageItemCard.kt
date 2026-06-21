@@ -37,12 +37,12 @@ import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.stats.R as StatsR
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import java.time.Duration
 import java.time.Instant
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
+import eu.darken.sdmse.common.stats.R as StatsR
 
 @Composable
 internal fun DeviceStorageItemCard(
@@ -69,7 +69,7 @@ internal fun DeviceStorageItemCard(
         colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp)) {
             // Header: hardware icon + label/identifier (icon centered between titles)
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -161,11 +161,12 @@ internal fun DeviceStorageItemCard(
                 modifier = Modifier.fillMaxWidth(),
             )
 
+            Spacer(Modifier.size(16.dp))
+
             // Trend zone at the bottom: a divider, then the delta sentence + the explicit
             // "Storage Trend" button on one row. The button is the only path into the history
             // screen. Free users get a lock badge so the upgrade jump is expected, not a surprise.
             if (row.snapshots.size >= 2) {
-                Spacer(Modifier.size(12.dp))
                 HorizontalDivider(
                     color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f),
                 )
