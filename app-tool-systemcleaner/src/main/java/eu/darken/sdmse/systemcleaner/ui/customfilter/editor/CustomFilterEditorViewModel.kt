@@ -291,7 +291,9 @@ class CustomFilterEditorViewModel @Inject constructor(
             combine(
                 crawler.matchEvents
                     .map { LiveSearchMatch(lookup = it.match) }
-                    .scan(listOf<LiveSearchMatch>()) { list, event -> list.plus(event) },
+                    .scan(listOf<LiveSearchMatch>()) { list, event ->
+                        if (list.any { it.id == event.id }) list else list + event
+                    },
                 crawler.progress,
                 crawlerJobFlow,
             ) { matches, progress, isWorking ->
