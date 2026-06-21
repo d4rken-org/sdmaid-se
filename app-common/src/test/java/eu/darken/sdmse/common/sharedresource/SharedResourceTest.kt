@@ -779,4 +779,102 @@ class SharedResourceTest : BaseTest() {
 
         releaseTeardown.complete(Unit) // let the off-lock teardown finish so the scope can wind down
     }
+
+    @Test fun `a superseded generation's self-teardown never clobbers the live generation`(): Unit = runBlocking {
+        repeat(300) {
+            val gen1Gate = CompletableDeferred<Unit>()
+            var starts = 0
+            val sr = SharedResource<Int>(
+                tag = "supersede",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ZERO,
+                source = callbackFlow {
+                    val g = ++starts
+                    send(g)
+                    if (g == 1) {
+                        gen1Gate.await()
+                        throw IllegalStateException("gen-1 spontaneous death")
+                    } else {
+                        awaitClose()
+                    }
+                },
+            )
+            val r1 = sr.get()
+            r1.item shouldBe 1
+            // Let gen-1 die spontaneously while we install gen-2; its stale onCompletion must NOT tear
+            // down the fresh generation.
+            val killer = launch(Dispatchers.IO) { gen1Gate.complete(Unit) }
+            r1.close()
+            val r2 = withTimeout(5_000) {
+                var r = sr.get()
+                var guard = 0
+                while (r.item == 1 && guard++ < 1000) {
+                    r.close()
+                    r = sr.get()
+                }
+                r
+            }
+            r2.item shouldBe 2
+            killer.join()
+            delay(15)
+            r2.isClosed shouldBe false
+            sr.isClosed shouldBe false
+            r2.close()
+            sr.close()
+        }
+    }
+
+    @Test fun `close() decided under lock converges with a racing cold get()`(): Unit = runBlocking {
+        repeat(300) {
+            val sr = SharedResource.createKeepAlive("coldclose", this + Dispatchers.Default, Duration.ZERO)
+            var acquired: KeepAlive? = null
+            val getter = launch(Dispatchers.IO) { acquired = runCatching { sr.get() }.getOrNull() }
+            val closer = launch(Dispatchers.IO) { sr.close() }
+            joinAll(getter, closer)
+            acquired?.close()
+            withTimeout(2_000) { while (!sr.isClosed) delay(1) }
+            sr.isClosed shouldBe true
+        }
+    }
+
+    @Test fun `detach is not derailed by a child whose close throws`(): Unit = runBlocking {
+        var sourceTornDown = false
+        val parent = SharedResource<Int>(
+            tag = "throwparent",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = callbackFlow {
+                send(1)
+                awaitClose { sourceTornDown = true } // fires only if the off-lock source teardown runs
+            },
+        )
+        val keepParent = parent.get().apply { item shouldBe 1 } // keep parent active while we inject
+
+        // A misbehaving child (close throws) inserted BEFORE a well-behaved one. Detach must close the
+        // good child despite the bad one, and must still tear the source down.
+        var goodChildClosed = false
+        val throwingChild = object : KeepAlive {
+            override val resourceId = "throwing"
+            override val isClosed = false // detachLocked never reads this; close() just throws
+            override fun close() = throw RuntimeException("boom on child close")
+        }
+        val goodChild = object : KeepAlive {
+            override val resourceId = "good"
+            override val isClosed: Boolean get() = goodChildClosed
+            override fun close() {
+                goodChildClosed = true
+            }
+        }
+        parent.injectChildForTest(SharedResource.createKeepAlive("k1", this + Dispatchers.IO, Duration.ZERO), throwingChild)
+        parent.injectChildForTest(SharedResource.createKeepAlive("k2", this + Dispatchers.IO, Duration.ZERO), goodChild)
+
+        keepParent.close() // drops the only real lease -> detach -> detachLocked closes children
+
+        withTimeout(5_000) {
+            while (!(parent.isClosed && goodChildClosed && sourceTornDown)) delay(1)
+        }
+        parent.isClosed shouldBe true   // detach completed despite the throwing child
+        goodChildClosed shouldBe true   // iteration continued past the thrower (per-child runCatching)
+        sourceTornDown shouldBe true    // source teardown was enqueued before the child loop, not stranded
+    }
 }
