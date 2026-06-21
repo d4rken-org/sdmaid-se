@@ -38,9 +38,11 @@ class DashboardHeroSummaryTest : BaseTest() {
         every { totalCount } returns count
     }
 
-    private fun dedupe(redundant: Long, clusterCount: Int) = mockk<Deduplicator.Data> {
-        every { clusters } returns List(clusterCount) { mockk<Duplicate.Cluster>() }.toSet()
+    private fun dedupe(redundant: Long, removableCount: Int) = mockk<Deduplicator.Data> {
+        // Non-empty clusters -> hasData == true; size/count are stubbed directly.
+        every { clusters } returns setOf(mockk<Duplicate.Cluster>())
         every { redundantSize } returns redundant
+        every { redundantCount } returns removableCount
     }
 
     private fun oneClick(
@@ -106,20 +108,39 @@ class DashboardHeroSummaryTest : BaseTest() {
     }
 
     @Test
-    fun `Deduplicator uses redundant size and clusters are kept out of the item count`() {
+    fun `Deduplicator's removable-file count is included in the item count`() {
         val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = corpse(100, 3),
             system = null,
             app = null,
-            dedupe = dedupe(redundant = 500, clusterCount = 4),
+            dedupe = dedupe(redundant = 500, removableCount = 8),
             oneClick = oneClick(dedupe = true),
             isPro = true,
         )!!
 
-        // Size includes dedupe's redundant size; item count does NOT include the 4 clusters.
+        // Size includes dedupe's redundant size; item count sums every tool's removable-file
+        // count: 3 corpses + 8 redundant files.
         result.totalSize shouldBe 600L
-        result.itemCount shouldBe 3
-        result.tools.single { it.type == SDMTool.Type.DEDUPLICATOR }.count shouldBe 4
+        result.itemCount shouldBe 11
+        result.tools.single { it.type == SDMTool.Type.DEDUPLICATOR }.count shouldBe 8
+    }
+
+    @Test
+    fun `Deduplicator-only summary reports its removable-file count, not zero`() {
+        // Regression for the reported bug: with the deduplicator the only tool with data, the hero
+        // showed "0 items can be removed" because the dedup count was excluded from itemCount.
+        val result = DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = null,
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(dedupe = true),
+            isPro = true,
+        )!!
+
+        result.totalSize shouldBe 500L
+        result.itemCount shouldBe 8
+        result.tools.map { it.type } shouldBe listOf(SDMTool.Type.DEDUPLICATOR)
     }
 
     @Test
@@ -130,7 +151,7 @@ class DashboardHeroSummaryTest : BaseTest() {
             corpse = corpse(100, 3),
             system = null,
             app = null,
-            dedupe = dedupe(redundant = 500, clusterCount = 4),
+            dedupe = dedupe(redundant = 500, removableCount = 4),
             oneClick = oneClick(dedupe = true),
             isPro = false,
         )!!

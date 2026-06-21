@@ -399,7 +399,7 @@ class DashboardMainActionEngine(
             HeroSummary(
                 mode = HeroSummary.Mode.FREED,
                 totalSize = slices.sumOf { it.size },
-                itemCount = slices.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
+                itemCount = slices.sumOf { it.count },
                 tools = slices,
                 timestamp = Instant.now(),
             )
@@ -460,15 +460,16 @@ class DashboardMainActionEngine(
                     add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
                 }
                 dedupe?.takeIf { oneClick.deduplicatorEnabled && isPro && it.hasData }?.let {
-                    add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.clusters.size))
+                    add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))
                 }
             }
             if (tools.isEmpty()) return null
             return HeroSummary(
                 mode = HeroSummary.Mode.FREEABLE,
                 totalSize = tools.sumOf { it.size },
-                // Deduplicator's unit is clusters, not discrete files — keep it out of the item headline.
-                itemCount = tools.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
+                // Every included tool contributes a discrete removable-file count (Deduplicator: the
+                // redundant files a keep-one delete removes) — so the headline is a true file count.
+                itemCount = tools.sumOf { it.count },
                 tools = tools,
                 // Only the *included* tools' scans: a newer scan of an absent tool must not make
                 // this summary's data look fresher than it is.

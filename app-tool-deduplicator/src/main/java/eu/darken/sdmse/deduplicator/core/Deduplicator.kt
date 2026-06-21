@@ -362,6 +362,9 @@ class Deduplicator @Inject constructor(
         val clusters: Set<Duplicate.Cluster> = emptySet(),
     ) {
         val redundantSize: Long get() = clusters.sumOf { it.redundantSize }
+
+        /** Files a default keep-one delete removes across all clusters. See [Duplicate.Cluster.redundantCount]. */
+        val redundantCount: Int get() = clusters.sumOf { it.redundantCount }
     }
 
     @InstallIn(SingletonComponent::class)

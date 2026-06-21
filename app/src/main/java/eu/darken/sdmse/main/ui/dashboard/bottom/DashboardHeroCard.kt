@@ -324,7 +324,7 @@ private fun previewSummary(
 ) = HeroSummary(
     mode = mode,
     totalSize = tools.sumOf { it.size },
-    itemCount = tools.filter { it.type != SDMTool.Type.DEDUPLICATOR }.sumOf { it.count },
+    itemCount = tools.sumOf { it.count },
     tools = tools,
     timestamp = Instant.now().minusSeconds(5 * 60),
 )

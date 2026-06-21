@@ -2,9 +2,11 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -20,7 +22,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
@@ -146,5 +150,79 @@ internal class DashboardMainActionEngineTest : BaseTest() {
 
         h.engine.freedResultSince shouldBe Instant.EPOCH
         h.submittedTasks.size shouldBe 1
+    }
+
+    @Test
+    fun `freed hero includes the deduplicator removable-file count`() {
+        // Regression for the post-delete path: a deduplicator-only cleanup must report the deleted
+        // file count, not 0. The FREED itemCount used to exclude the deduplicator entirely.
+        val proInfo = mockk<UpgradeRepo.Info>(relaxed = true) { every { isPro } returns true }
+        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true) {
+            every { upgradeInfo } returns MutableStateFlow(proInfo)
+        }
+        val taskManager = mockk<TaskManager>(relaxed = true) {
+            every { state } returns MutableStateFlow(TaskSubmitter.State())
+        }
+        val corpseFinder = mockk<CorpseFinder>(relaxed = true) {
+            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
+        }
+        val systemCleaner = mockk<SystemCleaner>(relaxed = true) {
+            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
+        }
+        val appCleaner = mockk<AppCleaner>(relaxed = true) {
+            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
+        }
+        val dedupData = mockk<Deduplicator.Data>(relaxed = true)
+        val dedupState = MutableStateFlow(Deduplicator.State(data = dedupData, progress = null))
+        val deduplicator = mockk<Deduplicator>(relaxed = true) {
+            every { state } returns dedupState
+        }
+        val generalSettings = mockk<GeneralSettings>(relaxed = true) {
+            every { oneClickCorpseFinderEnabled } returns mockBool(false)
+            every { oneClickSystemCleanerEnabled } returns mockBool(false)
+            every { oneClickAppCleanerEnabled } returns mockBool(false)
+            every { oneClickDeduplicatorEnabled } returns mockBool(true)
+            every { enableDashboardOneClick } returns mockBool(false)
+        }
+        val deleteResult = DeduplicatorDeleteTask.Success(
+            affectedSpace = 51L * 1024 * 1024,
+            affectedPaths = setOf(mockk<APath>(relaxed = true), mockk<APath>(relaxed = true)),
+        )
+
+        val engineScope = CoroutineScope(SupervisorJob() + Dispatchers.Unconfined)
+        val engine = DashboardMainActionEngine(
+            scope = engineScope,
+            taskManager = taskManager,
+            corpseFinder = corpseFinder,
+            systemCleaner = systemCleaner,
+            appCleaner = appCleaner,
+            deduplicator = deduplicator,
+            generalSettings = generalSettings,
+            upgradeRepo = upgradeRepo,
+            upgradeInfo = MutableStateFlow(proInfo),
+            submitTask = { task -> if (task is DeduplicatorDeleteTask) deleteResult else mockk(relaxed = true) },
+            onUpgradeRequired = {},
+        )
+
+        try {
+            engine.mainAction(BottomBarState.Action.DELETE)
+            // The real delete prunes the now-empty data; mirror that so the FREED hero surfaces
+            // instead of a fresh FREEABLE one.
+            dedupState.value = Deduplicator.State(data = null, progress = null)
+
+            val hero = runBlocking {
+                engine.bottomBarState(
+                    listIsReady = MutableStateFlow(true),
+                    oneClickOptionsState = MutableStateFlow(OneClickOptionsState(deduplicatorEnabled = true)),
+                ).first { it.heroSummary != null }.heroSummary!!
+            }
+
+            hero.mode shouldBe HeroSummary.Mode.FREED
+            hero.totalSize shouldBe 51L * 1024 * 1024
+            hero.itemCount shouldBe 2
+            hero.tools.single { it.type == SDMTool.Type.DEDUPLICATOR }.count shouldBe 2
+        } finally {
+            engineScope.cancel()
+        }
     }
 }

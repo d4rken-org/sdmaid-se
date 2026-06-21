@@ -28,7 +28,8 @@ data class BottomBarState(
  * main action ([DashboardMainActionEngine.mainAction] with [BottomBarState.Action.DELETE]) will
  * free: each tool is included only when its one-click toggle is enabled, it has data, and — for
  * AppCleaner and Deduplicator — the user is Pro. Deduplicator contributes its freeable
- * redundant size and a cluster count (kept out of [itemCount], which counts discrete files only).
+ * redundant size and the count of redundant files a keep-one delete removes, so [itemCount] is a
+ * uniform discrete-file count across all tools.
  */
 data class HeroSummary(
     val mode: Mode,
@@ -44,7 +45,7 @@ data class HeroSummary(
     data class ToolSlice(
         val type: SDMTool.Type,
         val size: Long,
-        /** Discrete file count for CorpseFinder/SystemCleaner/AppCleaner; cluster count for Deduplicator. */
+        /** Discrete removable-file count: scan items for CorpseFinder/SystemCleaner/AppCleaner; redundant files for Deduplicator. */
         val count: Int,
     )
 }
