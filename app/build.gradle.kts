@@ -250,7 +250,6 @@ dependencies {
     implementation("sh.calvin.reorderable:reorderable:2.5.1")
 
     implementation("androidx.exifinterface:exifinterface:1.4.2")
-    implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
 
