@@ -46,7 +46,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -157,7 +157,7 @@ internal fun FilterContentDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by rememberSelection<APath>()
+    val selection = rememberSelectionState<APath>()
     var pendingDelete by remember { mutableStateOf<PendingFilterDelete?>(null) }
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
@@ -167,7 +167,7 @@ internal fun FilterContentDetailsScreen(
             .drop(1)
             .distinctUntilChanged()
             .collect { page ->
-                selection = emptySet()
+                selection.clear()
                 items.getOrNull(page)?.identifier?.let(onPageChanged)
             }
     }
@@ -185,14 +185,14 @@ internal fun FilterContentDetailsScreen(
         currentFilter?.items?.map { it.path }?.toSet().orEmpty()
     }
     LaunchedEffect(currentPaths) {
-        selection = selection intersect currentPaths
+        selection.retainAll(currentPaths)
     }
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.systemcleaner_tool_name),
                     subtitle = stringResource(CommonR.string.general_details_label),
@@ -200,12 +200,12 @@ internal fun FilterContentDetailsScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(onClick = {
                             val filter = currentFilter ?: return@SdmDeleteAction
-                            val paths = selection
+                            val paths = selection.selected
                             val name = if (paths.size == 1) {
                                 filter.items.firstOrNull { it.path == paths.first() }
                                     ?.lookup?.userReadablePath?.get(context)
@@ -220,13 +220,13 @@ internal fun FilterContentDetailsScreen(
                         })
                         SdmExcludeAction(onClick = {
                             val filter = currentFilter ?: return@SdmExcludeAction
-                            val paths = selection
-                            selection = emptySet()
+                            val paths = selection.selected
+                            selection.clear()
                             onExcludeFiles(filter.identifier, paths)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < currentPaths.size,
-                            onClick = { selection = currentPaths },
+                            visible = selection.count < currentPaths.size,
+                            onClick = { selection.setSelection(currentPaths) },
                         )
                     },
                 )
@@ -271,16 +271,8 @@ internal fun FilterContentDetailsScreen(
                                 val filterContent = items.getOrNull(page) ?: return@HorizontalPager
                                 FilterContentPage(
                                     filterContent = filterContent,
-                                    selection = if (filterContent.identifier == currentFilter?.identifier) {
-                                        selection
-                                    } else {
-                                        emptySet()
-                                    },
-                                    onSelectionChange = { newSelection ->
-                                        if (filterContent.identifier == currentFilter?.identifier) {
-                                            selection = newSelection
-                                        }
-                                    },
+                                    selection = selection,
+                                    selectionEnabled = filterContent.identifier == currentFilter?.identifier,
                                     onDeleteFilterRequest = {
                                         pendingDelete = PendingFilterDelete(
                                             filterId = filterContent.identifier,
@@ -332,7 +324,7 @@ internal fun FilterContentDetailsScreen(
                     val filterId = pending.filterId
                     val paths = pending.paths
                     pendingDelete = null
-                    selection = emptySet()
+                    selection.clear()
                     if (paths == null) {
                         onDeleteFilter(filterId)
                     } else {

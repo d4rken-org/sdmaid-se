@@ -56,7 +56,8 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.SelectionState
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -163,10 +164,10 @@ internal fun SqueezerListScreen(
     val media = state.media ?: emptyList()
     val itemIds = remember(media) { media.map { it.identifier }.toSet() }
 
-    var selection by rememberSelection<CompressibleMedia.Id>()
+    val selection = rememberSelectionState<CompressibleMedia.Id>()
 
     LaunchedEffect(itemIds) {
-        selection = selection intersect itemIds
+        selection.retainAll(itemIds)
     }
 
     val tourController = LocalGuidedTourController.current
@@ -184,14 +185,11 @@ internal fun SqueezerListScreen(
         tourController.start(tourDef)
     }
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     // remember keyed on the stable inputs so these O(n) passes don't re-run on unrelated
     // recompositions (media ref is stable across progress ticks now that progress is decoupled).
     val totalSavings = remember(media) { media.sumOf { it.estimatedSavings ?: 0L } }
-    val selectedSavings = remember(media, selection) {
-        media.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
-    }
     val subtitle = if (state.progress == null && media.isNotEmpty()) {
         val countText = pluralStringResource(
             CommonR.plurals.result_x_items,
@@ -202,13 +200,10 @@ internal fun SqueezerListScreen(
     } else {
         null
     }
-    val selectionSubtitle = selectedSavings
-        .takeIf { it > 0 }
-        ?.let { "~" + Formatter.formatShortFileSize(context, it) }
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.squeezer_tool_name),
                     subtitle = subtitle,
@@ -227,30 +222,17 @@ internal fun SqueezerListScreen(
                     },
                 )
             } else {
-                SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    subtitle = selectionSubtitle,
-                    onClearSelection = { selection = emptySet() },
-                    actions = {
-                        SdmTooltipIconButton(
-                            icon = Icons.TwoTone.Compress,
-                            label = stringResource(R.string.squeezer_compress_action),
-                            onClick = { onCompressIds(selection) },
-                        )
-                        SdmExcludeAction(onClick = {
-                            onExcludeIds(selection)
-                            selection = emptySet()
-                        })
-                        SdmSelectAllAction(
-                            visible = selection.size < itemIds.size,
-                            onClick = { selection = itemIds },
-                        )
-                    },
+                SqueezerSelectionTopAppBar(
+                    selection = selection,
+                    media = media,
+                    itemIds = itemIds,
+                    onCompressIds = onCompressIds,
+                    onExcludeIds = onExcludeIds,
                 )
             }
         },
         floatingActionButton = {
-            if (state.progress == null && media.isNotEmpty() && selection.isEmpty()) {
+            if (state.progress == null && media.isNotEmpty() && !selection.isActive) {
                 ExtendedFloatingActionButton(
                     onClick = onCompressAll,
                     modifier = Modifier.guidedTourTarget(SqueezerListTour.COMPRESS_ALL_TARGET),
@@ -287,23 +269,19 @@ internal fun SqueezerListScreen(
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListLinearRow(
                                 media = item,
-                                isSelected = item.identifier in selection,
+                                isSelected = selection.isSelected(item.identifier),
                                 onTap = {
-                                    if (selection.isEmpty()) {
+                                    if (!selection.isActive) {
                                         onCompressIds(setOf(item.identifier))
                                     } else {
-                                        selection = if (item.identifier in selection) {
-                                            selection - item.identifier
-                                        } else {
-                                            selection + item.identifier
-                                        }
+                                        selection.toggle(item.identifier)
                                     }
                                 },
                                 onLongPress = {
-                                    selection = selection + item.identifier
+                                    selection.select(item.identifier)
                                 },
                                 onPreviewTap = {
-                                    if (selection.isEmpty()) onPreviewMedia(item)
+                                    if (!selection.isActive) onPreviewMedia(item)
                                 },
                             )
                         }
@@ -317,23 +295,19 @@ internal fun SqueezerListScreen(
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListGridCard(
                                 media = item,
-                                isSelected = item.identifier in selection,
+                                isSelected = selection.isSelected(item.identifier),
                                 onTap = {
-                                    if (selection.isEmpty()) {
+                                    if (!selection.isActive) {
                                         onCompressIds(setOf(item.identifier))
                                     } else {
-                                        selection = if (item.identifier in selection) {
-                                            selection - item.identifier
-                                        } else {
-                                            selection + item.identifier
-                                        }
+                                        selection.toggle(item.identifier)
                                     }
                                 },
                                 onLongPress = {
-                                    selection = selection + item.identifier
+                                    selection.select(item.identifier)
                                 },
                                 onPreviewTap = {
-                                    if (selection.isEmpty()) onPreviewMedia(item)
+                                    if (!selection.isActive) onPreviewMedia(item)
                                 },
                             )
                         }
@@ -342,6 +316,48 @@ internal fun SqueezerListScreen(
             }
         }
     }
+}
+
+@Composable
+private fun SqueezerSelectionTopAppBar(
+    selection: SelectionState<CompressibleMedia.Id>,
+    media: List<CompressibleMedia>,
+    itemIds: Set<CompressibleMedia.Id>,
+    onCompressIds: (Set<CompressibleMedia.Id>) -> Unit,
+    onExcludeIds: (Set<CompressibleMedia.Id>) -> Unit,
+) {
+    val context = LocalContext.current
+    // Aggregate over the WHOLE selection — isolated to this small composable so a toggle only
+    // recomposes the top bar, not the lazy list (Rule 3).
+    val selected = selection.selected
+    val selectedSavings = remember(media, selected) {
+        media.filter { it.identifier in selected }.sumOf { it.estimatedSavings ?: 0L }
+    }
+    val selectionSubtitle = selectedSavings
+        .takeIf { it > 0 }
+        ?.let { "~" + Formatter.formatShortFileSize(context, it) }
+
+    SdmSelectionTopAppBar(
+        selectedCount = selection.count,
+        subtitle = selectionSubtitle,
+        onClearSelection = { selection.clear() },
+        actions = {
+            SdmTooltipIconButton(
+                icon = Icons.TwoTone.Compress,
+                label = stringResource(R.string.squeezer_compress_action),
+                onClick = { onCompressIds(selection.selected) },
+            )
+            SdmExcludeAction(onClick = {
+                val ids = selection.selected
+                selection.clear()
+                onExcludeIds(ids)
+            })
+            SdmSelectAllAction(
+                visible = selection.count < itemIds.size,
+                onClick = { selection.setSelection(itemIds) },
+            )
+        },
+    )
 }
 
 @Composable

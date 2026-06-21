@@ -36,7 +36,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -137,12 +137,12 @@ internal fun SystemCleanerListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by rememberSelection<FilterIdentifier>()
+    val selection = rememberSelectionState<FilterIdentifier>()
     val rowIds = rows?.map { it.identifier }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
-        selection = selection intersect rowIds
+        selection.retainAll(rowIds)
     }
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { SystemCleanerListTour.definition() }
@@ -168,7 +168,7 @@ internal fun SystemCleanerListScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.systemcleaner_tool_name),
                     subtitle = subtitle,
@@ -176,22 +176,22 @@ internal fun SystemCleanerListScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onExcludeSelected(ids)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < rowIds.size,
-                            onClick = { selection = rowIds },
+                            visible = selection.count < rowIds.size,
+                            onClick = { selection.setSelection(rowIds) },
                         )
                     },
                 )
@@ -227,8 +227,9 @@ internal fun SystemCleanerListScreen(
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = SdmListDefaults.GridContentPadding,
                         ) {
+                            val selectionActive = selection.isActive
                             itemsIndexed(rows, key = { _, it -> it.identifier }) { index, row ->
-                                val isSelected = selection.contains(row.identifier)
+                                val isSelected = selection.isSelected(row.identifier)
                                 SystemCleanerRow(
                                     modifier = if (index == 0) {
                                         Modifier.guidedTourTarget(SystemCleanerListTour.FILTER_ROW_TARGET)
@@ -237,20 +238,16 @@ internal fun SystemCleanerListScreen(
                                     },
                                     row = row,
                                     selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
+                                    selectionActive = selectionActive,
                                     onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = if (isSelected) {
-                                                selection - row.identifier
-                                            } else {
-                                                selection + row.identifier
-                                            }
+                                        if (selection.isActive) {
+                                            selection.toggle(row.identifier)
                                         } else {
                                             onRowClick(row)
                                         }
                                     },
                                     onLongClick = {
-                                        selection = selection + row.identifier
+                                        selection.select(row.identifier)
                                     },
                                     onDetailsClick = { onDetailsClick(row) },
                                 )

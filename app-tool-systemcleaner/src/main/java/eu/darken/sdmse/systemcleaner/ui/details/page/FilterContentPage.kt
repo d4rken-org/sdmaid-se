@@ -41,6 +41,8 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.SelectionState
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.systemcleaner.core.FilterContent
@@ -52,14 +54,15 @@ import java.time.format.FormatStyle
 internal fun FilterContentPage(
     modifier: Modifier = Modifier,
     filterContent: FilterContent,
-    selection: Set<APath>,
-    onSelectionChange: (Set<APath>) -> Unit,
+    selection: SelectionState<APath>,
+    selectionEnabled: Boolean,
     onDeleteFilterRequest: () -> Unit,
     onExcludeFilterRequest: () -> Unit,
     onFileTap: (FilterContentElement.FileRow) -> Unit,
     onPreviewFile: (APath) -> Unit,
 ) {
     val elements = remember(filterContent) { buildFilterContentElements(filterContent) }
+    val selectionActive = selectionEnabled && selection.isActive
 
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
@@ -73,24 +76,19 @@ internal fun FilterContentPage(
             )
         }
         items(elements, key = { it.match.path.path }) { element ->
-            val isSelected = selection.contains(element.match.path)
+            val isSelected = selectionEnabled && selection.isSelected(element.match.path)
             FilterContentFileRow(
                 element = element,
                 selected = isSelected,
-                selectionActive = selection.isNotEmpty(),
+                selectionActive = selectionActive,
                 onClick = {
-                    if (selection.isNotEmpty()) {
-                        val updated = if (isSelected) {
-                            selection - element.match.path
-                        } else {
-                            selection + element.match.path
-                        }
-                        onSelectionChange(updated)
+                    if (selectionEnabled && selection.isActive) {
+                        selection.toggle(element.match.path)
                     } else {
                         onFileTap(element)
                     }
                 },
-                onLongClick = { onSelectionChange(selection + element.match.path) },
+                onLongClick = { if (selectionEnabled) selection.select(element.match.path) },
                 onPreviewClick = if (element.showThumbnailPreview) {
                     { onPreviewFile(element.match.path) }
                 } else {
@@ -261,8 +259,8 @@ private fun FilterContentPagePreview() {
     PreviewWrapper {
         FilterContentPage(
             filterContent = previewFilterContent(),
-            selection = emptySet(),
-            onSelectionChange = {},
+            selection = rememberSelectionState(),
+            selectionEnabled = true,
             onDeleteFilterRequest = {},
             onExcludeFilterRequest = {},
             onFileTap = {},

@@ -96,7 +96,7 @@ import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.layout.SdmSearchBar
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -123,14 +123,14 @@ fun AppControlListScreenHost(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
 
-    var pendingExportIds by rememberSelection<InstallId>()
+    val pendingExportIds = rememberSelectionState<InstallId>()
     var pendingConfirm by remember { mutableStateOf<AppControlListViewModel.Event?>(null) }
     var sizeSortCaveatVisible by rememberSaveable { mutableStateOf(false) }
 
     val exportLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode != android.app.Activity.RESULT_OK) return@rememberLauncherForActivityResult
-        val ids = pendingExportIds
-        pendingExportIds = emptySet()
+        val ids = pendingExportIds.selected
+        pendingExportIds.clear()
         if (ids.isNotEmpty()) vm.onExportPathPicked(ids, result.data?.data)
     }
 
@@ -148,9 +148,9 @@ fun AppControlListScreenHost(
             is AppControlListViewModel.Event.ConfirmRestore -> pendingConfirm = event
 
             is AppControlListViewModel.Event.ExportSelectPath -> {
-                pendingExportIds = event.ids
+                pendingExportIds.setSelection(event.ids)
                 runCatching { exportLauncher.launch(event.intent) }
-                    .onFailure { pendingExportIds = emptySet() }
+                    .onFailure { pendingExportIds.clear() }
             }
 
             is AppControlListViewModel.Event.ShareList -> {
@@ -338,14 +338,15 @@ internal fun AppControlListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by rememberSelection<InstallId>()
+    val selection = rememberSelectionState<InstallId>()
     // remember keyed on rows so the several-hundred-element Set isn't re-mapped/hashed on every
     // selection toggle / recomposition, and the LaunchedEffect(rowIds) key only changes on real data.
     val rowIds = remember(rows) { rows?.map { it.installId }?.toSet() ?: emptySet() }
     LaunchedEffect(rowIds) {
-        selection = selection intersect rowIds
+        selection.retainAll(rowIds)
     }
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    val selectionActive = selection.isActive
+    BackHandler(enabled = selectionActive) { selection.clear() }
 
     var selectionOverflowOpen by remember { mutableStateOf(false) }
     var normalOverflowOpen by remember { mutableStateOf(false) }
@@ -354,7 +355,7 @@ internal fun AppControlListScreen(
 
     val gridState = rememberLazyGridState()
 
-    BackHandler(enabled = searchActive && selection.isEmpty() && activeSheet == null) {
+    BackHandler(enabled = searchActive && !selectionActive && activeSheet == null) {
         onSearchQueryChanged("")
         searchActive = false
     }
@@ -372,7 +373,7 @@ internal fun AppControlListScreen(
         }
         if (isImeVisible) {
             searchImeWasShown = true
-        } else if (searchImeWasShown && activeSheet == null && selection.isEmpty()) {
+        } else if (searchImeWasShown && activeSheet == null && !selection.isActive) {
             onSearchQueryChanged("")
             searchActive = false
         }
@@ -399,8 +400,8 @@ internal fun AppControlListScreen(
         topBarState.heightOffsetLimit = -filterRowHeightPx.toFloat()
     }
     // Reset the row offset so it's visible again when leaving selection mode.
-    LaunchedEffect(selection.isEmpty()) {
-        if (selection.isNotEmpty()) topBarState.heightOffset = 0f
+    LaunchedEffect(selectionActive) {
+        if (selectionActive) topBarState.heightOffset = 0f
     }
 
     // While a task is executing (scan or action), the list content is covered by the progress
@@ -464,7 +465,7 @@ internal fun AppControlListScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selectionActive) {
                 Surface(color = TopAppBarDefaults.topAppBarColors().containerColor) {
                     Column {
                         TopAppBar(
@@ -565,12 +566,12 @@ internal fun AppControlListScreen(
                 }
             } else {
                 TopAppBar(
-                    title = { Text("${selection.size}") },
+                    title = { Text("${selection.count}") },
                     navigationIcon = {
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.Close,
                             label = stringResource(CommonR.string.general_close_action),
-                            onClick = { selection = emptySet() },
+                            onClick = { selection.clear() },
                         )
                     },
                     actions = {
@@ -578,8 +579,8 @@ internal fun AppControlListScreen(
                             icon = Icons.TwoTone.Delete,
                             label = stringResource(CommonR.string.general_delete_selected_action),
                             onClick = {
-                                val ids = selection
-                                selection = emptySet()
+                                val ids = selection.selected
+                                selection.clear()
                                 onUninstallSelected(ids)
                             },
                         )
@@ -587,16 +588,16 @@ internal fun AppControlListScreen(
                             icon = SdmIcons.ShieldAdd,
                             label = stringResource(CommonR.string.general_exclude_selected_action),
                             onClick = {
-                                val ids = selection
-                                selection = emptySet()
+                                val ids = selection.selected
+                                selection.clear()
                                 onExcludeSelected(ids)
                             },
                         )
-                        if (selection.size < rowIds.size) {
+                        if (selection.count < rowIds.size) {
                             SdmTooltipIconButton(
                                 icon = Icons.TwoTone.SelectAll,
                                 label = stringResource(CommonR.string.general_list_select_all_action),
-                                onClick = { selection = rowIds },
+                                onClick = { selection.setSelection(rowIds) },
                             )
                         }
                         SdmTooltipIconButton(
@@ -610,9 +611,9 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_toggle_app_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.AcUnit, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection
+                                        val ids = selection.selected
                                         selectionOverflowOpen = false
-                                        selection = emptySet()
+                                        selection.clear()
                                         onToggleSelected(ids)
                                     },
                                 )
@@ -622,9 +623,9 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_force_stop_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.PowerSettingsNew, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection
+                                        val ids = selection.selected
                                         selectionOverflowOpen = false
-                                        selection = emptySet()
+                                        selection.clear()
                                         onForceStopSelected(ids)
                                     },
                                 )
@@ -634,9 +635,9 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_archive_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Archive, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection
+                                        val ids = selection.selected
                                         selectionOverflowOpen = false
-                                        selection = emptySet()
+                                        selection.clear()
                                         onArchiveSelected(ids)
                                     },
                                 )
@@ -646,9 +647,9 @@ internal fun AppControlListScreen(
                                     text = { Text(stringResource(R.string.appcontrol_restore_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Unarchive, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection
+                                        val ids = selection.selected
                                         selectionOverflowOpen = false
-                                        selection = emptySet()
+                                        selection.clear()
                                         onRestoreSelected(ids)
                                     },
                                 )
@@ -657,9 +658,9 @@ internal fun AppControlListScreen(
                                 text = { Text(stringResource(R.string.appcontrol_export_app_selection_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.SaveAlt, contentDescription = null) },
                                 onClick = {
-                                    val ids = selection
+                                    val ids = selection.selected
                                     selectionOverflowOpen = false
-                                    selection = emptySet()
+                                    selection.clear()
                                     onExportSelected(ids)
                                 },
                             )
@@ -667,9 +668,9 @@ internal fun AppControlListScreen(
                                 text = { Text(stringResource(R.string.appcontrol_share_list_action)) },
                                 leadingIcon = { Icon(Icons.TwoTone.Share, contentDescription = null) },
                                 onClick = {
-                                    val ids = selection
+                                    val ids = selection.selected
                                     selectionOverflowOpen = false
-                                    selection = emptySet()
+                                    selection.clear()
                                     onShareSelected(ids)
                                 },
                             )
@@ -732,7 +733,7 @@ internal fun AppControlListScreen(
                             ),
                         ) {
                             items(rows, key = { it.installId.toString() }) { row ->
-                                val isSelected = selection.contains(row.installId)
+                                val isSelected = selection.isSelected(row.installId)
                                 val rowModifier = if (row.installId == tourFirstRowId) {
                                     Modifier.guidedTourTarget(AppControlListTour.APP_ROW_TARGET)
                                 } else {
@@ -744,18 +745,14 @@ internal fun AppControlListScreen(
                                     sortMode = state.options.listSort.mode,
                                     selected = isSelected,
                                     onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = if (isSelected) {
-                                                selection - row.installId
-                                            } else {
-                                                selection + row.installId
-                                            }
+                                        if (selection.isActive) {
+                                            selection.toggle(row.installId)
                                         } else {
                                             onTapRow(row.installId)
                                         }
                                     },
                                     onLongClick = {
-                                        selection = selection + row.installId
+                                        selection.select(row.installId)
                                     },
                                 )
                             }
