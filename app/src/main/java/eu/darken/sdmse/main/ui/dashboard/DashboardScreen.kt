@@ -510,7 +510,7 @@ internal fun DashboardScreen(
                                 .focusRequester(cardFocusRequesters.getOrPut(item.stableId) { FocusRequester() })
                                 .onFocusEvent { if (it.hasFocus) lastFocusedCardId = item.stableId },
                         ) {
-                            DashboardListCard(item)
+                            DashboardListCard(item = item)
                         }
                     }
                 }

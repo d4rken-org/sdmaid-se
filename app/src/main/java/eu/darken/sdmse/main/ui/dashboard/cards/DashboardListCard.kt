@@ -6,15 +6,15 @@ import androidx.compose.ui.Modifier
 
 @Composable
 internal fun DashboardListCard(
-    item: DashboardItem,
     modifier: Modifier = Modifier,
+    item: DashboardItem,
 ) {
     when (item) {
         is TitleDashboardCardItem -> TitleDashboardCard(item)
-        is SetupDashboardCardItem -> SetupDashboardCard(item, modifier)
+        is SetupDashboardCardItem -> SetupDashboardCard(modifier = modifier, item = item)
         is UpdateDashboardCardItem -> UpdateDashboardCard(item)
         is UpgradeDashboardCardItem -> UpgradeDashboardCard(item)
-        is ToolDashboardCardItem -> ToolDashboardCard(item, modifier)
+        is ToolDashboardCardItem -> ToolDashboardCard(modifier = modifier, item = item)
         is AppControlDashboardCardItem -> AppControlDashboardCard(item)
         is AnalyzerDashboardCardItem -> AnalyzerDashboardCard(item)
         is SqueezerDashboardCardItem -> SqueezerDashboardCard(item)
@@ -24,7 +24,7 @@ internal fun DashboardListCard(
         is ReviewDashboardCardItem -> ReviewDashboardCard(item)
         is AnniversaryDashboardCardItem -> AnniversaryDashboardCard(item)
         is StatsDashboardCardItem -> StatsDashboardCard(item)
-        is SwiperDashboardCardItem -> SwiperDashboardCard(item, modifier)
+        is SwiperDashboardCardItem -> SwiperDashboardCard(modifier = modifier, item = item)
         is DebugDashboardCardItem -> DebugDashboardCard(item)
         is ErrorDataAreaDashboardCardItem -> ErrorDataAreaDashboardCard(item)
     }

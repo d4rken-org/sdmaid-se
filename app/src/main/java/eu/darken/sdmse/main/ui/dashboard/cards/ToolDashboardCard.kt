@@ -56,8 +56,8 @@ data class ToolDashboardCardItem(
 
 @Composable
 internal fun ToolDashboardCard(
-    item: ToolDashboardCardItem,
     modifier: Modifier = Modifier,
+    item: ToolDashboardCardItem,
 ) {
     val toolName = stringResource(toolNameRes(item.toolType))
     val toolDescription = stringResource(toolDescriptionRes(item.toolType))

@@ -49,8 +49,8 @@ data class SetupDashboardCardItem(
 
 @Composable
 internal fun SetupDashboardCard(
-    item: SetupDashboardCardItem,
     modifier: Modifier = Modifier,
+    item: SetupDashboardCardItem,
 ) {
     val state = item.setupState
     val showContinue = !state.isHealerWorking || state.isIncomplete

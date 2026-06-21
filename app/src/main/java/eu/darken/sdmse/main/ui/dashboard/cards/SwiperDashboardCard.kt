@@ -45,8 +45,8 @@ data class SwiperDashboardCardItem(
 
 @Composable
 internal fun SwiperDashboardCard(
-    item: SwiperDashboardCardItem,
     modifier: Modifier = Modifier,
+    item: SwiperDashboardCardItem,
 ) {
     val context = LocalContext.current
     val subtitle = when {
