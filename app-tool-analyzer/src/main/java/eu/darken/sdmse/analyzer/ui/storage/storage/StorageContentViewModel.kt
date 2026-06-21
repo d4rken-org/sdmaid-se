@@ -32,6 +32,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -73,10 +74,10 @@ class StorageContentViewModel @Inject constructor(
         .filterNotNull()
         .flatMapLatest { route ->
             val targetStorageId: StorageId = route.storageId
-            combine(
-                analyzer.data,
-                analyzer.progress,
-            ) { data, progress ->
+            // Row production excludes progress so progress ticks during a scan don't rebuild the
+            // category rows. Progress is merged in the outer combine (below) as a cheap field swap
+            // that preserves the rows List instance.
+            val content = analyzer.data.map { data ->
                 val storage = data.storages.firstOrNull { it.id == targetStorageId }
                 if (storage == null) {
                     State.NotFound
@@ -99,9 +100,13 @@ class StorageContentViewModel @Inject constructor(
                     State.Ready(
                         storage = storage,
                         rows = rows,
-                        progress = progress,
+                        progress = null,
                     )
                 }
+            }
+
+            combine(content, analyzer.progress) { base, progress ->
+                if (base is State.Ready) base.copy(progress = progress) else base
             }
         }
         .safeStateIn(initialValue = State.Loading, onError = { State.NotFound })

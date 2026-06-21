@@ -9,6 +9,7 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 import eu.darken.sdmse.corpsefinder.ui.preview.previewLocalPathLookup
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -133,6 +134,29 @@ class CorpseFinderListViewModelTest : BaseTest() {
             progress = progress,
         )
         h.vm.state.first().progress shouldBe progress
+    }
+
+    @Test
+    fun `progress-only emission preserves the rows instance (no re-sort)`() = runTest2 {
+        // P0 perf guard: progress is decoupled from row production, so a progress tick must update
+        // only the progress field and reuse the exact same rows List — the sort/map must NOT re-run.
+        val h = harness(data = CorpseFinder.Data(corpses = listOf(corpse("a", 100), corpse("b", 200))))
+        // Keep the WhileSubscribed state alive so the upstream chain actually runs.
+        val job = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.state.collect { } }
+        advanceUntilIdle()
+
+        val rowsBefore = h.vm.state.value.rows
+        rowsBefore.shouldNotBeNull()
+
+        // Emit a progress-only change; data is untouched.
+        val tick = Progress.Data(extra = "tick")
+        h.progressFlow.value = tick
+        advanceUntilIdle()
+
+        h.vm.state.value.progress shouldBe tick
+        // Same instance ⇒ the row pipeline did not re-execute on the progress tick.
+        (h.vm.state.value.rows === rowsBefore) shouldBe true
+        job.cancel()
     }
 
     @Test

@@ -339,7 +339,9 @@ internal fun AppControlListScreen(
     val rows = state.rows
 
     var selection by rememberSelection<InstallId>()
-    val rowIds = rows?.map { it.installId }?.toSet() ?: emptySet()
+    // remember keyed on rows so the several-hundred-element Set isn't re-mapped/hashed on every
+    // selection toggle / recomposition, and the LaunchedEffect(rowIds) key only changes on real data.
+    val rowIds = remember(rows) { rows?.map { it.installId }?.toSet() ?: emptySet() }
     LaunchedEffect(rowIds) {
         selection = selection intersect rowIds
     }

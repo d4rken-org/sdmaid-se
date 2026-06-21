@@ -61,11 +61,13 @@ class AppCleanerListViewModel @Inject constructor(
 
     private val searchQuery = MutableStateFlow("")
 
-    val state: StateFlow<State> = combine(
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // and re-map the whole junk list. Progress is merged in last (below) as a cheap field swap that
+    // preserves the rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsState = combine(
         appCleaner.state.map { it.data },
-        appCleaner.progress,
         searchQuery,
-    ) { data, progress, rawQuery ->
+    ) { data, rawQuery ->
         val all = data?.junks?.sortedByDescending { it.size }
         val normalized = AppCleanerSearchMatcher.normalizeQuery(rawQuery)
         val filtered = if (normalized.isEmpty()) {
@@ -81,11 +83,17 @@ class AppCleanerListViewModel @Inject constructor(
         }
         State(
             rows = filtered?.map { Row(junk = it) },
-            progress = progress,
             searchQuery = rawQuery,
             isSearchFilterActive = normalized.isNotEmpty(),
             totalCount = all?.size ?: 0,
         )
+    }
+
+    val state: StateFlow<State> = combine(
+        rowsState,
+        appCleaner.progress,
+    ) { base, progress ->
+        base.copy(progress = progress)
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },

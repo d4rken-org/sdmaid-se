@@ -62,11 +62,13 @@ class AppJunkDetailsViewModel @Inject constructor(
     }
 
     val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
-        combine(
-            appCleaner.progress,
+        // Item production excludes progress so high-frequency progress ticks during a scan don't
+        // re-sort the junk list and re-run resolveTarget. Progress is merged in last (below) as a
+        // cheap field swap that preserves the items List instance, letting keyed pager pages skip.
+        val itemsState = combine(
             appCleaner.state.map { it.data }.filterNotNull(),
             collapsedByJunk,
-        ) { progress, data, collapsed ->
+        ) { data, collapsed ->
             // Drop fully-empty junks left over after path-only `appCleaner.exclude(installId, paths)`
             // calls — backend doesn't filter them out, so without this the pager would show ghost
             // zero-junk pages.
@@ -85,9 +87,12 @@ class AppJunkDetailsViewModel @Inject constructor(
             State(
                 items = visible,
                 target = availableTarget,
-                progress = progress,
                 collapsedByJunk = collapsed,
             )
+        }
+
+        combine(itemsState, appCleaner.progress) { base, progress ->
+            base.copy(progress = progress)
         }
     }.safeStateIn(
         initialValue = State(),

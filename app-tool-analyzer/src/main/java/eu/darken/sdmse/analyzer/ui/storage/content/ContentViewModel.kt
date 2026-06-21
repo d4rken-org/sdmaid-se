@@ -41,6 +41,7 @@ import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -101,12 +102,14 @@ class ContentViewModel @Inject constructor(
     val state: StateFlow<State> = routeFlow
         .filterNotNull()
         .flatMapLatest { route ->
-            combineTransform(
+            // Item production excludes progress so high-frequency progress ticks during a scan don't
+            // re-sort the current folder level. Progress is merged in the outer combine (below) as a
+            // cheap field swap that preserves the items List instance, letting keyed lazy rows skip.
+            val content = combineTransform(
                 analyzer.data,
-                analyzer.progress,
                 navigationState,
                 analyzerSettings.contentLayoutMode.flow,
-            ) { data, progress, navLevels, layoutMode ->
+            ) { data, navLevels, layoutMode ->
                 val storage = data.storages.firstOrNull { it.id == route.storageId }
                 val contentGroup = data.findContentGroup(route)
                 if (storage == null || contentGroup == null) {
@@ -127,7 +130,7 @@ class ContentViewModel @Inject constructor(
                     else -> contentGroup.label
                 }
 
-                // Loading frame: show progress overlay, no items yet.
+                // Loading frame: no items yet (progress stamped by the outer combine).
                 emit(
                     State.Ready(
                         title = title,
@@ -135,7 +138,7 @@ class ContentViewModel @Inject constructor(
                         storage = storage,
                         items = null,
                         layoutMode = layoutMode,
-                        progress = progress,
+                        progress = null,
                         isReadOnly = isReadOnly,
                         showSystemInfoBanner = isReadOnly && currentLevel == null,
                     ),
@@ -160,11 +163,15 @@ class ContentViewModel @Inject constructor(
                         storage = storage,
                         items = sortedItems,
                         layoutMode = layoutMode,
-                        progress = progress,
+                        progress = null,
                         isReadOnly = isReadOnly,
                         showSystemInfoBanner = isReadOnly && currentLevel == null,
                     ),
                 )
+            }
+
+            combine(content, analyzer.progress) { base, progress ->
+                if (base is State.Ready) base.copy(progress = progress) else base
             }
         }
         .safeStateIn(initialValue = State.Loading, onError = { State.NotFound })

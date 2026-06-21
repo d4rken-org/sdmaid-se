@@ -89,7 +89,7 @@ internal fun AppJunkPage(
     ) {
         elements.forEach { element ->
             when (element) {
-                AppJunkElement.Header -> item(key = "header") {
+                AppJunkElement.Header -> item(key = "header", contentType = "header") {
                     AppJunkPageHeaderCard(
                         junk = junk,
                         onDeleteJunk = onDeleteJunk,
@@ -97,14 +97,14 @@ internal fun AppJunkPage(
                     )
                 }
 
-                is AppJunkElement.Inaccessible -> item(key = "inaccessible") {
+                is AppJunkElement.Inaccessible -> item(key = "inaccessible", contentType = "inaccessible") {
                     AppJunkInaccessibleRow(
                         cache = element.cache,
                         onClick = onDeleteInaccessible,
                     )
                 }
 
-                is AppJunkElement.CategoryHeader -> item(key = "cat-${element.category}") {
+                is AppJunkElement.CategoryHeader -> item(key = "cat-${element.category}", contentType = "category") {
                     AppJunkCategoryCard(
                         category = element.category,
                         matchCount = element.matches.size,
@@ -115,7 +115,7 @@ internal fun AppJunkPage(
                     )
                 }
 
-                is AppJunkElement.FileRow -> item(key = "${element.category}-${element.match.path.path}") {
+                is AppJunkElement.FileRow -> item(key = "${element.category}-${element.match.path.path}", contentType = "file") {
                     val isSelected = selection.contains(element.match.path)
                     AppJunkFileRow(
                         match = element.match,

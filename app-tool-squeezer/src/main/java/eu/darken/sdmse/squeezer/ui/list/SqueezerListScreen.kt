@@ -186,8 +186,12 @@ internal fun SqueezerListScreen(
 
     BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
 
-    val totalSavings = media.sumOf { it.estimatedSavings ?: 0L }
-    val selectedSavings = media.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
+    // remember keyed on the stable inputs so these O(n) passes don't re-run on unrelated
+    // recompositions (media ref is stable across progress ticks now that progress is decoupled).
+    val totalSavings = remember(media) { media.sumOf { it.estimatedSavings ?: 0L } }
+    val selectedSavings = remember(media, selection) {
+        media.filter { it.identifier in selection }.sumOf { it.estimatedSavings ?: 0L }
+    }
     val subtitle = if (state.progress == null && media.isNotEmpty()) {
         val countText = pluralStringResource(
             CommonR.plurals.result_x_items,

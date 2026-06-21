@@ -72,11 +72,13 @@ class AppsViewModel @Inject constructor(
     val state: StateFlow<State> = routeFlow
         .filterNotNull()
         .flatMapLatest { route ->
-            combine(
+            // Row production excludes progress so high-frequency progress ticks during a scan don't
+            // re-filter/re-sort the whole app list. Progress is merged in last (below) as a cheap
+            // field swap that preserves the apps List instance, letting keyed lazy rows skip.
+            val appsState = combine(
                 analyzer.data.filter { it.findAppCategory(route) != null },
-                analyzer.progress,
                 searchQuery,
-            ) { data, progress, query ->
+            ) { data, query ->
                 val storage = data.storages.single { it.id == route.storageId }
                 val category = data.findAppCategory(route)!!
                 val queryNormalized = query.lowercase().trim()
@@ -115,8 +117,11 @@ class AppsViewModel @Inject constructor(
                     storage = storage,
                     apps = apps,
                     isSearchActive = queryNormalized.isNotEmpty(),
-                    progress = progress,
                 )
+            }
+
+            combine(appsState, analyzer.progress) { base, progress ->
+                base.copy(progress = progress)
             }
         }
         .safeStateIn(initialValue = State(), onError = { State() })

@@ -51,14 +51,23 @@ class SystemCleanerListViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // and re-map the whole filter-content list. Progress is merged in last (below) as a cheap field
+    // swap that preserves the rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsState = systemCleaner.state
+        .map { it.data }
+        .map { data ->
+            val rows = data?.filterContents
+                ?.sortedByDescending { it.size }
+                ?.map { Row(content = it) }
+            State(rows = rows)
+        }
+
     val state: StateFlow<State> = combine(
-        systemCleaner.state.map { it.data },
+        rowsState,
         systemCleaner.progress,
-    ) { data, progress ->
-        val rows = data?.filterContents
-            ?.sortedByDescending { it.size }
-            ?.map { Row(content = it) }
-        State(rows = rows, progress = progress)
+    ) { base, progress ->
+        base.copy(progress = progress)
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },
