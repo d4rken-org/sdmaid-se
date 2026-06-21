@@ -57,6 +57,7 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.SelectionState
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -70,9 +71,8 @@ private val TAG = logTag("AppCleaner", "Details", "Page")
 internal fun AppJunkPage(
     junk: AppJunk,
     collapsed: Set<ExpendablesFilterIdentifier>,
-    selection: Set<APath>,
-    selectionActive: Boolean,
-    onSelectionChange: (Set<APath>) -> Unit,
+    selection: SelectionState<APath>,
+    isCurrentPage: Boolean,
     onDeleteJunk: () -> Unit,
     onExcludeJunk: () -> Unit,
     onDeleteInaccessible: () -> Unit,
@@ -82,6 +82,8 @@ internal fun AppJunkPage(
     modifier: Modifier = Modifier,
 ) {
     val elements = remember(junk, collapsed) { buildAppJunkElements(junk, collapsed) }
+    // Selection only applies to the current page; the holder is cleared on page change.
+    val selectionActive = isCurrentPage && selection.isActive
 
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
@@ -116,23 +118,20 @@ internal fun AppJunkPage(
                 }
 
                 is AppJunkElement.FileRow -> item(key = "${element.category}-${element.match.path.path}", contentType = "file") {
-                    val isSelected = selection.contains(element.match.path)
+                    val isSelected = isCurrentPage && selection.isSelected(element.match.path)
                     AppJunkFileRow(
                         match = element.match,
                         selected = isSelected,
                         onClick = {
                             if (selectionActive) {
-                                val updated = if (isSelected) {
-                                    selection - element.match.path
-                                } else {
-                                    selection + element.match.path
-                                }
-                                onSelectionChange(updated)
+                                selection.toggle(element.match.path)
                             } else {
                                 onDeleteFile(element.category, element.match.path)
                             }
                         },
-                        onLongClick = { onSelectionChange(selection + element.match.path) },
+                        onLongClick = {
+                            if (isCurrentPage) selection.select(element.match.path)
+                        },
                     )
                 }
             }
@@ -443,9 +442,8 @@ private fun AppJunkPagePreview() {
         AppJunkPage(
             junk = previewAppJunk(),
             collapsed = emptySet(),
-            selection = emptySet(),
-            selectionActive = false,
-            onSelectionChange = {},
+            selection = remember { SelectionState() },
+            isCurrentPage = true,
             onDeleteJunk = {},
             onExcludeJunk = {},
             onDeleteInaccessible = {},

@@ -39,7 +39,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -52,7 +51,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.R
@@ -171,14 +170,13 @@ internal fun CustomFilterListScreen(
     onExportSelected: (List<CustomFilterListViewModel.FilterRow>) -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
-    var selection by rememberSelection<String>()
-    val selectedRows = state.rows.filter { selection.contains(it.id) }
+    val selection = rememberSelectionState<String>()
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 TopAppBar(
                     title = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
                     navigationIcon = {
@@ -203,39 +201,41 @@ internal fun CustomFilterListScreen(
                 )
             } else {
                 TopAppBar(
-                    title = { Text("${selection.size}") },
+                    title = { Text("${selection.count}") },
                     navigationIcon = {
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.Close,
                             label = stringResource(CommonR.string.general_close_action),
-                            onClick = { selection = emptySet() },
+                            onClick = { selection.clear() },
                         )
                     },
                     actions = {
-                        if (selectedRows.size == 1) {
+                        if (selection.count == 1) {
                             SdmTooltipIconButton(
                                 icon = Icons.TwoTone.Edit,
                                 label = stringResource(CommonR.string.general_edit_action),
                                 onClick = {
-                                    val row = selectedRows.first()
-                                    selection = emptySet()
+                                    val ids = selection.selected
+                                    val row = state.rows.firstOrNull { it.id in ids } ?: return@SdmTooltipIconButton
+                                    selection.clear()
                                     onEditRow(row)
                                 },
                             )
                         }
-                        if (selection.size < state.rows.size) {
+                        if (selection.count < state.rows.size) {
                             SdmTooltipIconButton(
                                 icon = Icons.TwoTone.SelectAll,
                                 label = stringResource(CommonR.string.general_list_select_all_action),
-                                onClick = { selection = state.rows.map { it.id }.toSet() },
+                                onClick = { selection.setSelection(state.rows.map { it.id }.toSet()) },
                             )
                         }
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.FileDownload,
                             label = stringResource(R.string.systemcleaner_customfilter_export_action),
                             onClick = {
-                                val rows = selectedRows.toList()
-                                selection = emptySet()
+                                val ids = selection.selected
+                                val rows = state.rows.filter { it.id in ids }
+                                selection.clear()
                                 onExportSelected(rows)
                             },
                         )
@@ -243,8 +243,9 @@ internal fun CustomFilterListScreen(
                             icon = Icons.TwoTone.Delete,
                             label = stringResource(CommonR.string.general_delete_action),
                             onClick = {
-                                val rows = selectedRows.toList()
-                                selection = emptySet()
+                                val ids = selection.selected
+                                val rows = state.rows.filter { it.id in ids }
+                                selection.clear()
                                 onRemoveSelected(rows)
                             },
                         )
@@ -253,7 +254,7 @@ internal fun CustomFilterListScreen(
             }
         },
         floatingActionButton = {
-            if (selection.isEmpty() && state.isPro != null) {
+            if (!selection.isActive && state.isPro != null) {
                 ExtendedFloatingActionButton(
                     onClick = onCreate,
                     icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
@@ -276,26 +277,29 @@ internal fun CustomFilterListScreen(
 
                 state.rows.isEmpty() -> EmptyStateBody()
 
-                else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    items(state.rows, key = { it.id }) { row ->
-                        val isSelected = selection.contains(row.id)
-                        CustomFilterRow(
-                            row = row,
-                            selected = isSelected,
-                            selectionActive = selection.isNotEmpty(),
-                            onClick = {
-                                if (selection.isNotEmpty()) {
-                                    selection = if (isSelected) selection - row.id else selection + row.id
-                                } else {
-                                    onToggleRow(row)
-                                }
-                            },
-                            onLongClick = {
-                                selection = selection + row.id
-                            },
-                            onEditClick = { onEditRow(row) },
-                            onToggle = { onToggleRow(row) },
-                        )
+                else -> {
+                    val selectionActive = selection.isActive
+                    LazyColumn(modifier = Modifier.fillMaxSize()) {
+                        items(state.rows, key = { it.id }) { row ->
+                            val isSelected = selection.isSelected(row.id)
+                            CustomFilterRow(
+                                row = row,
+                                selected = isSelected,
+                                selectionActive = selectionActive,
+                                onClick = {
+                                    if (selection.isActive) {
+                                        selection.toggle(row.id)
+                                    } else {
+                                        onToggleRow(row)
+                                    }
+                                },
+                                onLongClick = {
+                                    selection.select(row.id)
+                                },
+                                onEditClick = { onEditRow(row) },
+                                onToggle = { onToggleRow(row) },
+                            )
+                        }
                     }
                 }
             }

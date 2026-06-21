@@ -58,7 +58,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -196,19 +196,20 @@ internal fun ExclusionListScreen(
     // back via the Undo snackbar or "Reset defaults". So "Select all" covers every row.
     val selectableIds = currentIds
 
-    var selection by rememberSelection<ExclusionId>()
+    val selection = rememberSelectionState<ExclusionId>()
     // Prune stale IDs when the underlying list changes.
-    LaunchedEffect(currentIds) { selection = selection intersect currentIds }
+    LaunchedEffect(currentIds) { selection.retainAll(currentIds) }
+    val selectionActive = selection.isActive
 
     var overflowExpanded by remember { mutableStateOf(false) }
     var infoOpen by rememberSaveable { mutableStateOf(false) }
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selectionActive) { selection.clear() }
 
     SdmScaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selectionActive) {
                 SdmTopAppBar(
                     title = stringResource(R.string.exclusion_manager_title),
                     onNavigateUp = onNavigateUp,
@@ -264,31 +265,33 @@ internal fun ExclusionListScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.FileUpload,
                             label = stringResource(R.string.exclusion_export_action),
                             onClick = {
-                                onExportSelected(selection.toSet())
-                                selection = emptySet()
+                                val ids = selection.selected
+                                selection.clear()
+                                onExportSelected(ids)
                             },
                         )
                         SdmDeleteAction(onClick = {
-                            onRemoveSelected(selection.toSet())
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
+                            onRemoveSelected(ids)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < selectableIds.size,
-                            onClick = { selection = selectableIds },
+                            visible = selection.count < selectableIds.size,
+                            onClick = { selection.setSelection(selectableIds) },
                         )
                     },
                 )
             }
         },
         floatingActionButton = {
-            if (selection.isEmpty()) {
+            if (!selectionActive) {
                 FloatingActionButton(onClick = onAddExclusion) {
                     Icon(Icons.TwoTone.Add, contentDescription = stringResource(R.string.exclusion_create_action))
                 }
@@ -309,16 +312,16 @@ internal fun ExclusionListScreen(
 
                 else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(rows, key = { it.stableId }) { row ->
-                        val isSelected = selection.contains(row.stableId)
+                        val isSelected = selection.isSelected(row.stableId)
                         val onRowTap = {
-                            if (selection.isNotEmpty()) {
-                                selection = selection.toggle(row.stableId)
+                            if (selection.isActive) {
+                                selection.toggle(row.stableId)
                             } else {
                                 onRowClick(row)
                             }
                         }
                         val onRowLongPress = {
-                            selection = selection.toggle(row.stableId)
+                            selection.toggle(row.stableId)
                         }
                         when (row) {
                             is ExclusionListViewModel.Row.Pkg -> PkgExclusionRow(
@@ -405,9 +408,6 @@ private fun ExclusionEmptyState(
         },
     )
 }
-
-private fun Set<ExclusionId>.toggle(id: ExclusionId): Set<ExclusionId> =
-    if (contains(id)) this - id else this + id
 
 @Preview2
 @Composable

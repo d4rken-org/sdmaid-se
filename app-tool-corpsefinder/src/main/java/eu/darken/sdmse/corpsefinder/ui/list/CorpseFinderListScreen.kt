@@ -39,7 +39,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
@@ -141,13 +141,13 @@ internal fun CorpseFinderListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by rememberSelection<CorpseIdentifier>()
+    val selection = rememberSelectionState<CorpseIdentifier>()
     var showMarkersInfo by remember { mutableStateOf(false) }
     val rowIds = rows?.map { it.identifier }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
-        selection = selection intersect rowIds
+        selection.retainAll(rowIds)
     }
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { CorpseFinderListTour.definition() }
@@ -173,7 +173,7 @@ internal fun CorpseFinderListScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.corpsefinder_tool_name),
                     subtitle = subtitle,
@@ -188,22 +188,22 @@ internal fun CorpseFinderListScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onExcludeSelected(ids)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < rowIds.size,
-                            onClick = { selection = rowIds },
+                            visible = selection.count < rowIds.size,
+                            onClick = { selection.setSelection(rowIds) },
                         )
                     },
                 )
@@ -231,6 +231,7 @@ internal fun CorpseFinderListScreen(
                         // items from registering (the tour row step would grace-skip). Read the span
                         // from the context directly, matching the working SystemCleaner/Analyzer screens.
                         val context = LocalContext.current
+                        val selectionActive = selection.isActive
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(
                                 context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt()),
@@ -239,7 +240,7 @@ internal fun CorpseFinderListScreen(
                             contentPadding = SdmListDefaults.GridContentPadding,
                         ) {
                             itemsIndexed(rows, key = { _, it -> it.identifier.toString() }) { index, row ->
-                                val isSelected = selection.contains(row.identifier)
+                                val isSelected = selection.isSelected(row.identifier)
                                 CorpseRow(
                                     modifier = if (index == 0) {
                                         Modifier.guidedTourTarget(CorpseFinderListTour.CORPSE_ROW_TARGET)
@@ -248,20 +249,16 @@ internal fun CorpseFinderListScreen(
                                     },
                                     row = row,
                                     selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
+                                    selectionActive = selectionActive,
                                     onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = if (isSelected) {
-                                                selection - row.identifier
-                                            } else {
-                                                selection + row.identifier
-                                            }
+                                        if (selection.isActive) {
+                                            selection.toggle(row.identifier)
                                         } else {
                                             onRowClick(row)
                                         }
                                     },
                                     onLongClick = {
-                                        selection = selection + row.identifier
+                                        selection.select(row.identifier)
                                     },
                                     onDetailsClick = { onDetailsClick(row) },
                                     onRiskChipClick = { showMarkersInfo = true },

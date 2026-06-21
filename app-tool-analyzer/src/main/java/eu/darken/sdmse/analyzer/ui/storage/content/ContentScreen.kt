@@ -58,7 +58,8 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.SelectionState
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -203,12 +204,12 @@ internal fun ContentScreen(
     val state by stateSource.collectAsStateWithLifecycle(initialValue = ContentViewModel.State.Loading)
     val context = LocalContext.current
 
-    var selection by rememberSelection<APath>()
+    val selection = rememberSelectionState<APath>()
     var pendingDelete by remember { mutableStateOf<Set<ContentItem>?>(null) }
 
     BackHandler(enabled = true) {
-        if (selection.isNotEmpty()) {
-            selection = emptySet()
+        if (selection.isActive) {
+            selection.clear()
         } else {
             onNavigateBack()
         }
@@ -262,18 +263,10 @@ internal fun ContentScreen(
             // Drop stale selection paths after upstream reshuffle.
             val livePaths = remember(s.items) { s.items.orEmpty().map { it.content.path }.toSet() }
             LaunchedEffect(livePaths) {
-                val intersected = selection.intersect(livePaths)
-                if (intersected.size != selection.size) selection = intersected
+                selection.retainAll(livePaths)
             }
 
-            val selectedItems: Set<ContentItem> = remember(selection, s.items) {
-                s.items.orEmpty()
-                    .filter { it.content.path in selection }
-                    .map { it.content }
-                    .toSet()
-            }
-            val isSelectionMode = selection.isNotEmpty()
-            val noneInaccessible = selectedItems.none { it.inaccessible }
+            val isSelectionMode = selection.isActive
 
             val spanCount = if (s.layoutMode == LayoutMode.GRID) {
                 max(context.getSpanCount(widthDp = 144), 3)
@@ -282,13 +275,22 @@ internal fun ContentScreen(
             SdmScaffold(
                 topBar = {
                     if (isSelectionMode) {
+                        // Scoped aggregate reads (Rule 3b): only the top bar recomposes on toggle.
+                        val selectedPaths = selection.selected
+                        val selectedItems: Set<ContentItem> = remember(selectedPaths, s.items) {
+                            s.items.orEmpty()
+                                .filter { it.content.path in selectedPaths }
+                                .map { it.content }
+                                .toSet()
+                        }
+                        val noneInaccessible = selectedItems.none { it.inaccessible }
                         TopAppBar(
                             title = {
                                 Text(
                                     pluralStringResource(
                                         CommonR.plurals.result_x_items,
-                                        selection.size,
-                                        selection.size,
+                                        selection.count,
+                                        selection.count,
                                     ),
                                 )
                             },
@@ -296,18 +298,18 @@ internal fun ContentScreen(
                                 SdmTooltipIconButton(
                                     icon = Icons.TwoTone.Close,
                                     label = stringResource(CommonR.string.general_close_action),
-                                    onClick = { selection = emptySet() },
+                                    onClick = { selection.clear() },
                                 )
                             },
                             actions = {
                                 val all = remember(s.items) {
                                     s.items.orEmpty().map { it.content.path }.toSet()
                                 }
-                                if (selection.size < all.size) {
+                                if (selection.count < all.size) {
                                     SdmTooltipIconButton(
                                         icon = Icons.TwoTone.SelectAll,
                                         label = stringResource(CommonR.string.general_list_select_all_action),
-                                        onClick = { selection = all },
+                                        onClick = { selection.setSelection(all) },
                                     )
                                 }
                                 if (!s.isReadOnly && noneInaccessible) {
@@ -322,7 +324,7 @@ internal fun ContentScreen(
                                     label = stringResource(CommonR.string.general_exclude_action),
                                     onClick = {
                                         onExcludeSelected(selectedItems)
-                                        selection = emptySet()
+                                        selection.clear()
                                     },
                                 )
                                 if (!s.isReadOnly && noneInaccessible) {
@@ -331,7 +333,7 @@ internal fun ContentScreen(
                                         label = stringResource(CommonR.string.general_filter_action),
                                         onClick = {
                                             onCreateFilter(selectedItems)
-                                            selection = emptySet()
+                                            selection.clear()
                                         },
                                     )
                                     SdmTooltipIconButton(
@@ -339,7 +341,7 @@ internal fun ContentScreen(
                                         label = stringResource(R.string.analyzer_content_create_swiper_session_action),
                                         onClick = {
                                             onCreateSwiperSession(selectedItems)
-                                            selection = emptySet()
+                                            selection.clear()
                                         },
                                     )
                                 }
@@ -389,9 +391,6 @@ internal fun ContentScreen(
                         .padding(paddingValues),
                 ) {
                     if (s.progress == null && s.items != null) {
-                        val onToggleSelection: (APath) -> Unit = { itemPath ->
-                            selection = if (itemPath in selection) selection - itemPath else selection + itemPath
-                        }
                         when (s.layoutMode) {
                             LayoutMode.LINEAR -> LazyColumn(
                                 modifier = Modifier.fillMaxSize(),
@@ -402,7 +401,7 @@ internal fun ContentScreen(
                                         ContentInfoBanner(modifier = Modifier.padding(horizontal = 16.dp))
                                     }
                                 }
-                                contentRows(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
+                                contentRows(s.items, selection, isSelectionMode, onItemClick)
                             }
 
                             LayoutMode.GRID -> LazyVerticalGrid(
@@ -420,7 +419,7 @@ internal fun ContentScreen(
                                         ContentInfoBanner()
                                     }
                                 }
-                                contentTiles(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
+                                contentTiles(s.items, selection, isSelectionMode, onItemClick)
                             }
                         }
                     }
@@ -443,7 +442,7 @@ internal fun ContentScreen(
                 onClick = {
                     onDeleteSelected(items)
                     pendingDelete = null
-                    selection = emptySet()
+                    selection.clear()
                 },
             ),
             negative = SdmDialogAction(
@@ -456,10 +455,9 @@ internal fun ContentScreen(
 
 private fun LazyListScope.contentRows(
     items: List<ContentViewModel.Item>,
-    selection: Set<APath>,
+    selection: SelectionState<APath>,
     isSelectionMode: Boolean,
     onItemClick: (ContentViewModel.Item) -> Unit,
-    onToggleSelection: (APath) -> Unit,
 ) {
     items(
         count = items.size,
@@ -468,22 +466,21 @@ private fun LazyListScope.contentRows(
         val item = items[idx]
         ContentItemRow(
             item = item,
-            isSelected = item.content.path in selection,
+            isSelected = selection.isSelected(item.content.path),
             isSelectionMode = isSelectionMode,
             onTap = {
-                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+                if (selection.isActive) selection.toggle(item.content.path) else onItemClick(item)
             },
-            onLongPress = { onToggleSelection(item.content.path) },
+            onLongPress = { selection.toggle(item.content.path) },
         )
     }
 }
 
 private fun LazyGridScope.contentTiles(
     items: List<ContentViewModel.Item>,
-    selection: Set<APath>,
+    selection: SelectionState<APath>,
     isSelectionMode: Boolean,
     onItemClick: (ContentViewModel.Item) -> Unit,
-    onToggleSelection: (APath) -> Unit,
 ) {
     items(
         count = items.size,
@@ -492,12 +489,12 @@ private fun LazyGridScope.contentTiles(
         val item = items[idx]
         ContentItemTile(
             item = item,
-            isSelected = item.content.path in selection,
+            isSelected = selection.isSelected(item.content.path),
             isSelectionMode = isSelectionMode,
             onTap = {
-                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+                if (selection.isActive) selection.toggle(item.content.path) else onItemClick(item)
             },
-            onLongPress = { onToggleSelection(item.content.path) },
+            onLongPress = { selection.toggle(item.content.path) },
         )
     }
 }

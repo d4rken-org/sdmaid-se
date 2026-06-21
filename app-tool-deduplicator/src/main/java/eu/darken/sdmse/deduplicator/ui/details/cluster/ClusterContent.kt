@@ -58,6 +58,7 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.SelectionState
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.files.joinSegments
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
@@ -78,7 +79,8 @@ internal fun ClusterContent(
     cluster: Duplicate.Cluster,
     isDirectoryView: Boolean,
     collapsed: Set<DirectoryGroup.Id>,
-    selection: Set<Duplicate.Id>,
+    selection: SelectionState<Duplicate.Id>,
+    selectionEnabled: Boolean,
     onSelectionToggle: (Duplicate.Id) -> Unit,
     onSelectionLongPress: (Duplicate.Id) -> Unit,
     onCollapseToggle: (DirectoryGroup.Id) -> Unit,
@@ -133,9 +135,9 @@ internal fun ClusterContent(
                 is ClusterElement.ChecksumDuplicateRow -> ChecksumFileRow(
                     duplicate = element.duplicate,
                     willBeDeleted = element.willBeDeleted,
-                    selected = selection.contains(element.duplicate.identifier),
+                    selected = selectionEnabled && selection.isSelected(element.duplicate.identifier),
                     onClick = {
-                        if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
+                        if (selectionEnabled && selection.isActive) onSelectionToggle(element.duplicate.identifier)
                         else onDuplicateDelete(element.duplicate.identifier)
                     },
                     onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
@@ -151,9 +153,9 @@ internal fun ClusterContent(
                     similarity = element.duplicate.similarity,
                     matchType = null,
                     willBeDeleted = element.willBeDeleted,
-                    selected = selection.contains(element.duplicate.identifier),
+                    selected = selectionEnabled && selection.isSelected(element.duplicate.identifier),
                     onClick = {
-                        if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
+                        if (selectionEnabled && selection.isActive) onSelectionToggle(element.duplicate.identifier)
                         else onDuplicateDelete(element.duplicate.identifier)
                     },
                     onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
@@ -172,9 +174,9 @@ internal fun ClusterContent(
                         similarity = element.duplicate.similarity,
                         matchType = matchType,
                         willBeDeleted = element.willBeDeleted,
-                        selected = selection.contains(element.duplicate.identifier),
+                        selected = selectionEnabled && selection.isSelected(element.duplicate.identifier),
                         onClick = {
-                            if (selection.isNotEmpty()) onSelectionToggle(element.duplicate.identifier)
+                            if (selectionEnabled && selection.isActive) onSelectionToggle(element.duplicate.identifier)
                             else onDuplicateDelete(element.duplicate.identifier)
                         },
                         onLongClick = { onSelectionLongPress(element.duplicate.identifier) },
@@ -608,7 +610,8 @@ private fun ClusterContentChecksumPreview() {
             cluster = previewCluster(groups = setOf(previewChecksumGroup())),
             isDirectoryView = false,
             collapsed = emptySet(),
-            selection = emptySet(),
+            selection = SelectionState(),
+            selectionEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},
@@ -631,7 +634,8 @@ private fun ClusterContentImagePreview() {
             cluster = previewCluster(groups = setOf(previewPHashGroup(), previewMediaGroup())),
             isDirectoryView = false,
             collapsed = emptySet(),
-            selection = emptySet(),
+            selection = SelectionState(),
+            selectionEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},
@@ -654,7 +658,8 @@ private fun ClusterContentDirectoryPreview() {
             cluster = previewCluster(groups = setOf(previewChecksumGroup())),
             isDirectoryView = true,
             collapsed = emptySet(),
-            selection = emptySet(),
+            selection = SelectionState(),
+            selectionEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},

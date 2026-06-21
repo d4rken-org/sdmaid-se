@@ -47,7 +47,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -144,7 +144,7 @@ internal fun CorpseDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by rememberSelection<APath>()
+    val selection = rememberSelectionState<APath>()
     var pendingDelete by remember { mutableStateOf<PendingDelete?>(null) }
 
     // Drive VM page-tracking from pager state and clear selection on real page changes.
@@ -155,7 +155,7 @@ internal fun CorpseDetailsScreen(
             .drop(1)
             .distinctUntilChanged()
             .collect { page ->
-                selection = emptySet()
+                selection.clear()
                 items.getOrNull(page)?.identifier?.let(onPageChanged)
             }
     }
@@ -175,14 +175,14 @@ internal fun CorpseDetailsScreen(
         currentCorpse?.content?.map { it.lookedUp }?.toSet().orEmpty()
     }
     LaunchedEffect(currentIds) {
-        selection = selection intersect currentIds
+        selection.retainAll(currentIds)
     }
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 TopAppBar(
                     title = {
                         Column {
@@ -203,12 +203,12 @@ internal fun CorpseDetailsScreen(
                 )
             } else {
                 TopAppBar(
-                    title = { Text("${selection.size}") },
+                    title = { Text("${selection.count}") },
                     navigationIcon = {
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.Close,
                             label = stringResource(CommonR.string.general_close_action),
-                            onClick = { selection = emptySet() },
+                            onClick = { selection.clear() },
                         )
                     },
                     actions = {
@@ -217,7 +217,7 @@ internal fun CorpseDetailsScreen(
                             label = stringResource(CommonR.string.general_delete_selected_action),
                             onClick = {
                                 val corpse = currentCorpse ?: return@SdmTooltipIconButton
-                                val paths = selection
+                                val paths = selection.selected
                                 val name = if (paths.size == 1) {
                                     corpse.content
                                         .firstOrNull { it.lookedUp == paths.first() }
@@ -232,11 +232,11 @@ internal fun CorpseDetailsScreen(
                                 )
                             },
                         )
-                        if (selection.size < currentIds.size) {
+                        if (selection.count < currentIds.size) {
                             SdmTooltipIconButton(
                                 icon = Icons.TwoTone.SelectAll,
                                 label = stringResource(CommonR.string.general_list_select_all_action),
-                                onClick = { selection = currentIds },
+                                onClick = { selection.setSelection(currentIds) },
                             )
                         }
                     },
@@ -291,10 +291,7 @@ internal fun CorpseDetailsScreen(
                                 val corpse = items.getOrNull(page) ?: return@HorizontalPager
                                 CorpseContent(
                                     corpse = corpse,
-                                    selection = if (corpse.identifier == currentCorpse?.identifier) selection else emptySet(),
-                                    onSelectionChange = { newSelection ->
-                                        if (corpse.identifier == currentCorpse?.identifier) selection = newSelection
-                                    },
+                                    selection = if (corpse.identifier == currentCorpse?.identifier) selection else null,
                                     onDeleteCorpseRequest = {
                                         pendingDelete = PendingDelete(
                                             corpseId = corpse.identifier,
@@ -343,7 +340,7 @@ internal fun CorpseDetailsScreen(
                     val corpseId = pending.corpseId
                     val paths = pending.paths
                     pendingDelete = null
-                    selection = emptySet()
+                    selection.clear()
                     if (paths == null) {
                         onDeleteCorpse(corpseId)
                     } else {

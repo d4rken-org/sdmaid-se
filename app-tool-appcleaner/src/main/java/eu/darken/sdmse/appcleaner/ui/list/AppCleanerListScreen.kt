@@ -50,7 +50,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.snackbar.ToolListEventHandler
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
@@ -151,18 +151,18 @@ internal fun AppCleanerListScreen(
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
 
-    var selection by rememberSelection<InstallId>()
+    val selection = rememberSelectionState<InstallId>()
     val rowIds = rows?.map { it.identifier }?.toSet() ?: emptySet()
     LaunchedEffect(rowIds) {
-        selection = selection intersect rowIds
+        selection.retainAll(rowIds)
     }
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     var searchActive by remember { mutableStateOf(false) }
     LaunchedEffect(state.isSearchFilterActive) {
         if (state.isSearchFilterActive && !searchActive) searchActive = true
     }
-    BackHandler(enabled = searchActive && selection.isEmpty()) {
+    BackHandler(enabled = searchActive && !selection.isActive) {
         onSearchQueryChanged("")
         searchActive = false
     }
@@ -179,7 +179,7 @@ internal fun AppCleanerListScreen(
         }
         if (isImeVisible) {
             searchImeWasShown = true
-        } else if (searchImeWasShown && selection.isEmpty()) {
+        } else if (searchImeWasShown && !selection.isActive) {
             onSearchQueryChanged("")
             searchActive = false
         }
@@ -195,7 +195,7 @@ internal fun AppCleanerListScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 TopAppBar(
                     title = {
                         if (searchActive) {
@@ -236,22 +236,22 @@ internal fun AppCleanerListScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onDeleteSelected(ids)
                         })
                         SdmExcludeAction(onClick = {
-                            val ids = selection
-                            selection = emptySet()
+                            val ids = selection.selected
+                            selection.clear()
                             onExcludeSelected(ids)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < rowIds.size,
-                            onClick = { selection = rowIds },
+                            visible = selection.count < rowIds.size,
+                            onClick = { selection.setSelection(rowIds) },
                         )
                     },
                 )
@@ -282,30 +282,27 @@ internal fun AppCleanerListScreen(
                         val spanCount = remember(maxWidth) {
                             context.getSpanCount(widthDp = SdmListDefaults.ToolGridMinWidth.value.toInt())
                         }
+                        val selectionActive = selection.isActive
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(spanCount),
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = SdmListDefaults.GridContentPadding,
                         ) {
                             items(rows, key = { it.identifier.toString() }) { row ->
-                                val isSelected = selection.contains(row.identifier)
+                                val isSelected = selection.isSelected(row.identifier)
                                 AppCleanerListRow(
                                     row = row,
                                     selected = isSelected,
-                                    selectionActive = selection.isNotEmpty(),
+                                    selectionActive = selectionActive,
                                     onClick = {
-                                        if (selection.isNotEmpty()) {
-                                            selection = if (isSelected) {
-                                                selection - row.identifier
-                                            } else {
-                                                selection + row.identifier
-                                            }
+                                        if (selection.isActive) {
+                                            selection.toggle(row.identifier)
                                         } else {
                                             onRowClick(row)
                                         }
                                     },
                                     onLongClick = {
-                                        selection = selection + row.identifier
+                                        selection.select(row.identifier)
                                     },
                                     onDetailsClick = { onDetailsClick(row) },
                                 )

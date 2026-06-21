@@ -45,7 +45,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -228,7 +228,7 @@ internal fun DeduplicatorDetailsScreen(
 
     val pagerState = rememberPagerState(pageCount = { items.size })
 
-    var selection by rememberSelection<Duplicate.Id>()
+    val selection = rememberSelectionState<Duplicate.Id>()
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
     // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.
@@ -237,7 +237,7 @@ internal fun DeduplicatorDetailsScreen(
             .drop(1)
             .distinctUntilChanged()
             .collect { page ->
-                selection = emptySet()
+                selection.clear()
                 items.getOrNull(page)?.identifier?.let(onPageChanged)
             }
     }
@@ -254,17 +254,22 @@ internal fun DeduplicatorDetailsScreen(
     val liveDupeIds = remember(currentCluster) {
         currentCluster?.groups?.flatMap { g -> g.duplicates.map { it.identifier } }?.toSet() ?: emptySet()
     }
-    LaunchedEffect(currentCluster?.identifier, liveDupeIds) {
-        selection = selection intersect liveDupeIds
-    }
-
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
-
     val allowDeleteAll = current?.allowDeleteAll == true
     val maxSelection = remember(currentCluster, allowDeleteAll) {
         val total = currentCluster?.groups?.sumOf { it.duplicates.size } ?: 0
         if (allowDeleteAll) total else (total - 1).coerceAtLeast(0)
     }
+    LaunchedEffect(currentCluster?.identifier, liveDupeIds, maxSelection) {
+        selection.retainAll(liveDupeIds)
+        // Re-apply the keep-one cap: if the cluster shrank under a held selection (e.g. a group/cluster
+        // delete removed members) or a saved selection was restored against a smaller cluster, the
+        // retained set could otherwise exceed maxSelection and let a delete take the whole cluster.
+        if (selection.count > maxSelection) {
+            selection.setSelection(selection.selected.take(maxSelection).toSet())
+        }
+    }
+
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     val tourController = LocalGuidedTourController.current
     // Pin tour targets at start: cluster contents can re-sort after a delete and we don't want
@@ -327,7 +332,7 @@ internal fun DeduplicatorDetailsScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.deduplicator_tool_name),
                     subtitle = stringResource(CommonR.string.general_details_label),
@@ -355,14 +360,14 @@ internal fun DeduplicatorDetailsScreen(
             } else {
                 val clusterId = currentCluster?.identifier
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(
                             enabled = clusterId != null,
                             onClick = {
                                 if (clusterId != null) {
-                                    val selectedIds = selection
+                                    val selectedIds = selection.selected
                                     onDeleteSelectedDuplicates(clusterId, selectedIds)
                                 }
                             },
@@ -371,15 +376,15 @@ internal fun DeduplicatorDetailsScreen(
                             enabled = clusterId != null,
                             onClick = {
                                 if (clusterId != null) {
-                                    val selectedIds = selection
-                                    selection = emptySet()
+                                    val selectedIds = selection.selected
+                                    selection.clear()
                                     onExcludeSelectedDuplicates(clusterId, selectedIds)
                                 }
                             },
                         )
                         SdmSelectAllAction(
-                            visible = selection.size < maxSelection,
-                            onClick = { selection = liveDupeIds.take(maxSelection).toSet() },
+                            visible = selection.count < maxSelection,
+                            onClick = { selection.setSelection(liveDupeIds.take(maxSelection).toSet()) },
                         )
                     },
                 )
@@ -430,20 +435,19 @@ internal fun DeduplicatorDetailsScreen(
                                 cluster = cluster,
                                 isDirectoryView = current?.isDirectoryView == true,
                                 collapsed = collapsedForCluster,
-                                selection = if (cluster.identifier == currentCluster?.identifier) selection else emptySet(),
+                                selection = selection,
+                                selectionEnabled = cluster.identifier == currentCluster?.identifier,
                                 onSelectionToggle = { id ->
                                     if (cluster.identifier != currentCluster?.identifier) return@ClusterContent
-                                    selection = if (selection.contains(id)) {
-                                        selection - id
-                                    } else if (selection.size < maxSelection) {
-                                        selection + id
-                                    } else {
-                                        selection
+                                    if (selection.contains(id)) {
+                                        selection.deselect(id)
+                                    } else if (selection.count < maxSelection) {
+                                        selection.select(id)
                                     }
                                 },
                                 onSelectionLongPress = { id ->
                                     if (cluster.identifier != currentCluster?.identifier) return@ClusterContent
-                                    if (selection.size < maxSelection) selection = selection + id
+                                    if (selection.count < maxSelection) selection.select(id)
                                 },
                                 onCollapseToggle = { dirId -> onCollapseToggle(cluster.identifier, dirId) },
                                 onClusterDelete = { onClusterDelete(cluster.identifier) },

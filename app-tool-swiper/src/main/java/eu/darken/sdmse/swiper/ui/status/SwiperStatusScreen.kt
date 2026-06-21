@@ -62,7 +62,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.swiper.R
@@ -123,14 +123,12 @@ internal fun SwiperStatusScreen(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
 
-    var selection by rememberSelection<Long>()
+    val selection = rememberSelectionState<Long>()
     var confirmDelete by remember { mutableStateOf(false) }
 
     val itemIds = items.map { it.id }.toSet()
-    LaunchedEffect(itemIds) { selection = selection intersect itemIds }
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
-
-    val selectedItems = items.filter { selection.contains(it.id) }
+    LaunchedEffect(itemIds) { selection.retainAll(itemIds) }
+    BackHandler(enabled = selection.isActive) { selection.clear() }
 
     val statsCollapsed by remember {
         derivedStateOf { listState.firstVisibleItemIndex > 0 }
@@ -138,7 +136,7 @@ internal fun SwiperStatusScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selection.isActive) {
                 SdmTopAppBar(
                     title = stringResource(R.string.swiper_status_title),
                     onNavigateUp = onNavigateUp,
@@ -157,16 +155,16 @@ internal fun SwiperStatusScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmTooltipIconButton(
                             icon = Icons.TwoTone.Favorite,
                             label = stringResource(R.string.swiper_status_action_keep_selected),
                             onClick = {
-                                val payload = selectedItems
-                                selection = emptySet()
-                                onKeepSelected(payload)
+                                val ids = selection.selected
+                                selection.clear()
+                                onKeepSelected(items.filter { it.id in ids })
                             },
                             tint = MaterialTheme.colorScheme.primary,
                         )
@@ -174,9 +172,9 @@ internal fun SwiperStatusScreen(
                             icon = Icons.TwoTone.Delete,
                             label = stringResource(R.string.swiper_status_action_delete_selected),
                             onClick = {
-                                val payload = selectedItems
-                                selection = emptySet()
-                                onDeleteSelected(payload)
+                                val ids = selection.selected
+                                selection.clear()
+                                onDeleteSelected(items.filter { it.id in ids })
                             },
                             tint = MaterialTheme.colorScheme.error,
                         )
@@ -184,19 +182,19 @@ internal fun SwiperStatusScreen(
                             icon = Icons.TwoTone.Restore,
                             label = stringResource(R.string.swiper_status_action_reset_selected),
                             onClick = {
-                                val payload = selectedItems
-                                selection = emptySet()
-                                onResetSelected(payload)
+                                val ids = selection.selected
+                                selection.clear()
+                                onResetSelected(items.filter { it.id in ids })
                             },
                         )
                         SdmExcludeAction(onClick = {
-                            val payload = selectedItems
-                            selection = emptySet()
-                            onExcludeSelected(payload)
+                            val ids = selection.selected
+                            selection.clear()
+                            onExcludeSelected(items.filter { it.id in ids })
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < itemIds.size,
-                            onClick = { selection = itemIds },
+                            visible = selection.count < itemIds.size,
+                            onClick = { selection.setSelection(itemIds) },
                         )
                     },
                 )
@@ -225,20 +223,21 @@ internal fun SwiperStatusScreen(
                     },
                 )
             }
+            val selectionActive = selection.isActive
             items(items, key = { it.id }) { item ->
-                val isSelected = selection.contains(item.id)
+                val isSelected = selection.isSelected(item.id)
                 SwiperStatusRow(
                     item = item,
                     selected = isSelected,
-                    selectionActive = selection.isNotEmpty(),
+                    selectionActive = selectionActive,
                     onClick = {
-                        if (selection.isNotEmpty()) {
-                            selection = if (isSelected) selection - item.id else selection + item.id
+                        if (selection.isActive) {
+                            selection.toggle(item.id)
                         } else {
                             onItemClick(item.id)
                         }
                     },
-                    onLongClick = { selection = selection + item.id },
+                    onLongClick = { selection.select(item.id) },
                     onReset = { onReset(item.id) },
                     onQuickKeep = { onQuickKeep(item.id) },
                     onQuickDelete = { onQuickDelete(item.id) },

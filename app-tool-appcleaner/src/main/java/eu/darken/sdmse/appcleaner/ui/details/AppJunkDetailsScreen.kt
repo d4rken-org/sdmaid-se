@@ -52,7 +52,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
-import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.compose.selection.rememberSelectionState
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getSpanCount
@@ -202,7 +202,7 @@ internal fun AppJunkDetailsScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val pagerState = rememberPagerState(pageCount = { items.size })
-    var selection by rememberSelection<APath>()
+    val selection = rememberSelectionState<APath>()
 
     // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
     // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.
@@ -211,7 +211,7 @@ internal fun AppJunkDetailsScreen(
             .drop(1)
             .distinctUntilChanged()
             .collect { page ->
-                selection = emptySet()
+                selection.clear()
                 items.getOrNull(page)?.identifier?.let(onPageChanged)
             }
     }
@@ -229,14 +229,15 @@ internal fun AppJunkDetailsScreen(
         currentJunk?.expendables?.values?.flatten()?.map { it.path }?.toSet().orEmpty()
     }
     LaunchedEffect(livePaths) {
-        selection = selection intersect livePaths
+        selection.retainAll(livePaths)
     }
 
-    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+    val selectionActive = selection.isActive
+    BackHandler(enabled = selectionActive) { selection.clear() }
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty()) {
+            if (!selectionActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.appcleaner_tool_name),
                     subtitle = stringResource(CommonR.string.general_details_label),
@@ -244,13 +245,13 @@ internal fun AppJunkDetailsScreen(
                 )
             } else {
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.size,
-                    onClearSelection = { selection = emptySet() },
+                    selectedCount = selection.count,
+                    onClearSelection = { selection.clear() },
                     actions = {
                         SdmDeleteAction(onClick = {
                             val junk = currentJunk ?: return@SdmDeleteAction
-                            val paths = selection
-                            selection = emptySet()
+                            val paths = selection.selected
+                            selection.clear()
                             onRequestDelete(
                                 DeleteSpec.SelectedFiles(
                                     installId = junk.identifier,
@@ -260,13 +261,13 @@ internal fun AppJunkDetailsScreen(
                         })
                         SdmExcludeAction(onClick = {
                             val junk = currentJunk ?: return@SdmExcludeAction
-                            val paths = selection
-                            selection = emptySet()
+                            val paths = selection.selected
+                            selection.clear()
                             onExcludeSelectedFiles(junk.identifier, paths)
                         })
                         SdmSelectAllAction(
-                            visible = selection.size < livePaths.size,
-                            onClick = { selection = livePaths },
+                            visible = selection.count < livePaths.size,
+                            onClick = { selection.setSelection(livePaths) },
                         )
                     },
                 )
@@ -317,11 +318,8 @@ internal fun AppJunkDetailsScreen(
                                 AppJunkPage(
                                     junk = junk,
                                     collapsed = collapsed,
-                                    selection = if (isCurrentPage) selection else emptySet(),
-                                    selectionActive = isCurrentPage && selection.isNotEmpty(),
-                                    onSelectionChange = { newSelection ->
-                                        if (isCurrentPage) selection = newSelection
-                                    },
+                                    selection = selection,
+                                    isCurrentPage = isCurrentPage,
                                     onDeleteJunk = {
                                         onRequestDelete(
                                             DeleteSpec.WholeJunk(

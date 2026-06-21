@@ -40,6 +40,7 @@ import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.selection.SelectionState
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.joinSegments
@@ -54,8 +55,7 @@ import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 @Composable
 internal fun CorpseContent(
     corpse: Corpse,
-    selection: Set<APath>,
-    onSelectionChange: (Set<APath>) -> Unit,
+    selection: SelectionState<APath>?,
     onDeleteCorpseRequest: () -> Unit,
     onExcludeRequest: () -> Unit,
     onFileTap: (APathLookup<*>) -> Unit,
@@ -64,6 +64,7 @@ internal fun CorpseContent(
     val sortedContent = remember(corpse.identifier, corpse.content) {
         corpse.content.sortedByDescending { it.size }
     }
+    val selectionActive = selection?.isActive == true
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(vertical = 8.dp),
@@ -76,21 +77,20 @@ internal fun CorpseContent(
             )
         }
         items(sortedContent, key = { it.lookedUp.toString() }) { lookup ->
-            val isSelected = selection.contains(lookup.lookedUp)
+            val isSelected = selection?.isSelected(lookup.lookedUp) == true
             CorpseFileRow(
                 corpse = corpse,
                 lookup = lookup,
                 selected = isSelected,
-                selectionActive = selection.isNotEmpty(),
+                selectionActive = selectionActive,
                 onClick = {
-                    if (selection.isNotEmpty()) {
-                        val updated = if (isSelected) selection - lookup.lookedUp else selection + lookup.lookedUp
-                        onSelectionChange(updated)
+                    if (selection != null && selection.isActive) {
+                        selection.toggle(lookup.lookedUp)
                     } else {
                         onFileTap(lookup)
                     }
                 },
-                onLongClick = { onSelectionChange(selection + lookup.lookedUp) },
+                onLongClick = { selection?.select(lookup.lookedUp) },
             )
         }
     }
@@ -272,8 +272,7 @@ private fun CorpseContentPreview() {
     PreviewWrapper {
         CorpseContent(
             corpse = previewCorpse(),
-            selection = emptySet(),
-            onSelectionChange = {},
+            selection = null,
             onDeleteCorpseRequest = {},
             onExcludeRequest = {},
             onFileTap = {},
@@ -287,8 +286,7 @@ private fun CorpseContentKeeperPreview() {
     PreviewWrapper {
         CorpseContent(
             corpse = previewCorpse(riskLevel = RiskLevel.KEEPER),
-            selection = emptySet(),
-            onSelectionChange = {},
+            selection = null,
             onDeleteCorpseRequest = {},
             onExcludeRequest = {},
             onFileTap = {},
