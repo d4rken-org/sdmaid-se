@@ -34,7 +34,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.SdmInfoChip
@@ -43,10 +42,11 @@ import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
+import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.*
 import eu.darken.sdmse.deduplicator.ui.preview.previewDeduplicatorListRow
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 
 @Composable
 internal fun DeduplicatorLinearRow(
@@ -151,6 +151,7 @@ internal fun DeduplicatorLinearRow(
                     onPreviewClick = { onDuplicatePreviewClick(dupe) },
                 )
             }
+        Spacer(Modifier.height(8.dp))
     }
 }
 
@@ -211,7 +212,7 @@ private fun DuplicateSubRow(
             .fillMaxWidth()
             .then(rowModifier)
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 12.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (duplicate.type != Duplicate.Type.CHECKSUM) {
