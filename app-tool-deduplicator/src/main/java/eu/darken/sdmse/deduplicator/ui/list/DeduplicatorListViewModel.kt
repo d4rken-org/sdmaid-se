@@ -85,22 +85,12 @@ class DeduplicatorListViewModel @Inject constructor(
         val rows = data.clusters
             .sortedByDescending { it.averageSize }
             .map { cluster ->
-                val deleteTargetIds = run {
-                    val favId = cluster.favoriteGroupIdentifier
-                    cluster.groups.flatMap { group ->
-                        if (group.identifier == favId) {
-                            val keeper = group.keeperIdentifier
-                            if (keeper != null) {
-                                group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
-                            } else {
-                                emptyList()
-                            }
-                        } else {
-                            group.duplicates.map { it.identifier }
-                        }
-                    }.toSet()
-                }
-                DeduplicatorListRow(cluster = cluster, deleteTargetIds = deleteTargetIds)
+                val deleteTargetIds = cluster.computeDeleteTargets()
+                DeduplicatorListRow(
+                    cluster = cluster,
+                    deleteTargetIds = deleteTargetIds,
+                    freeableSize = cluster.freeableSizeOf(deleteTargetIds),
+                )
             }
         State(rows = rows, progress = progress, layoutMode = layoutMode, allowDeleteAll = allowDeleteAll)
     }.safeStateIn(
@@ -111,6 +101,8 @@ class DeduplicatorListViewModel @Inject constructor(
     data class DeduplicatorListRow(
         val cluster: Duplicate.Cluster,
         val deleteTargetIds: Set<Duplicate.Id>,
+        /** Bytes freed by deleting [deleteTargetIds] (the actual delete-target set, not the raw cluster size). */
+        val freeableSize: Long,
     )
 
     data class State(
@@ -150,7 +142,15 @@ class DeduplicatorListViewModel @Inject constructor(
             if (sanitized.isEmpty()) return@launch
 
             if (!confirmed) {
-                events.tryEmit(Event.ConfirmDeletion(sanitized, allowDeleteAll = settings.allowDeleteAll.value()))
+                val targetsByCluster = sanitized.map { it to it.computeDeleteTargets() }
+                events.tryEmit(
+                    Event.ConfirmDeletion(
+                        clusters = sanitized,
+                        allowDeleteAll = settings.allowDeleteAll.value(),
+                        targetCount = targetsByCluster.sumOf { it.second.size },
+                        freeableSize = targetsByCluster.sumOf { (cluster, targets) -> cluster.freeableSizeOf(targets) },
+                    )
+                )
                 return@launch
             }
 
@@ -269,6 +269,10 @@ class DeduplicatorListViewModel @Inject constructor(
         data class ConfirmDeletion(
             val clusters: Collection<Duplicate.Cluster>,
             val allowDeleteAll: Boolean,
+            /** Number of duplicate copies that will be deleted (keeper excluded). */
+            val targetCount: Int,
+            /** Bytes freed by the deletion (keeper excluded). */
+            val freeableSize: Long,
         ) : Event
 
         data class ConfirmDupeDeletion(
@@ -284,3 +288,34 @@ class DeduplicatorListViewModel @Inject constructor(
         private val TAG = logTag("Deduplicator", "List", "ViewModel")
     }
 }
+
+/**
+ * The duplicate copies that a default (keep-one) delete would remove from this cluster:
+ * every duplicate except the keeper of the favorite group. Single source of truth shared by the
+ * row model (what the list marks/frees) and [DeduplicatorListViewModel.deleteClusters] (what the
+ * confirm dialog reports), so the displayed "freeable" always matches what is actually deleted.
+ *
+ * It mirrors the keeper/favorite assignment the scanner writes for every scanned cluster, so it
+ * matches DuplicatesDeleter's non-deleteAll path for real list data. (Pre-scan clusters with a null
+ * favorite/keeper never reach the list, so the keeper-less fallback here is defensive only.)
+ */
+private fun Duplicate.Cluster.computeDeleteTargets(): Set<Duplicate.Id> {
+    val favId = favoriteGroupIdentifier
+    return groups.flatMap { group ->
+        if (group.identifier == favId) {
+            val keeper = group.keeperIdentifier
+            if (keeper != null) {
+                group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
+            } else {
+                emptyList()
+            }
+        } else {
+            group.duplicates.map { it.identifier }
+        }
+    }.toSet()
+}
+
+private fun Duplicate.Cluster.freeableSizeOf(targets: Set<Duplicate.Id>): Long = groups
+    .flatMap { it.duplicates }
+    .filter { it.identifier in targets }
+    .sumOf { it.size }

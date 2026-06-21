@@ -1,11 +1,16 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.semantics.getOrNull
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -39,9 +44,11 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
             identifier = Duplicate.Cluster.Id(name),
             groups = setOf(group),
         )
+        val targetIds = duplicates.map { it.identifier }.toSet()
         return DeduplicatorListViewModel.DeduplicatorListRow(
             cluster = cluster,
-            deleteTargetIds = duplicates.map { it.identifier }.toSet(),
+            deleteTargetIds = targetIds,
+            freeableSize = duplicates.filter { it.identifier in targetIds }.sumOf { it.size },
         )
     }
 
@@ -123,5 +130,144 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
         // Compose state-event callbacks can fire synchronously inside an onClick lambda. Assert
         // at-least-once to stay robust to dispatcher changes.
         if (toggled < 1) throw AssertionError("Expected at least one toggle, got $toggled")
+    }
+
+    // ─────────────────────────── per-region interaction ───────────────────────────
+
+    // Targets a card region by the a11y click label set via combinedClickable(onClickLabel = …),
+    // so tests assert the accessible action too. Labels are unique within a single layout mode.
+    private fun hasClickLabel(label: String) = SemanticsMatcher("OnClick label == '$label'") { node ->
+        node.config.getOrNull(SemanticsActions.OnClick)?.label == label
+    }
+
+    private fun ComposeContentTestRule.setScreen(
+        state: DeduplicatorListViewModel.State,
+        onClusterDelete: (Duplicate.Cluster) -> Unit = {},
+        onClusterClick: (Duplicate.Cluster) -> Unit = {},
+        onClusterPreview: (Duplicate.Cluster) -> Unit = {},
+        onDuplicateClick: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
+    ) {
+        setContent {
+            PreviewWrapper {
+                DeduplicatorListScreen(
+                    stateSource = MutableStateFlow(state),
+                    onClusterDelete = onClusterDelete,
+                    onClusterClick = onClusterClick,
+                    onClusterPreview = onClusterPreview,
+                    onDuplicateClick = onDuplicateClick,
+                )
+            }
+        }
+    }
+
+    private fun gridState() =
+        DeduplicatorListViewModel.State(rows = listOf(clusterRow("vacation")), layoutMode = LayoutMode.GRID)
+
+    private fun linearState() =
+        DeduplicatorListViewModel.State(rows = listOf(clusterRow("vacation")), layoutMode = LayoutMode.LINEAR)
+
+    @Test
+    fun `GRID thumbnail tap requests cluster deletion (not details or preview)`() {
+        var delete = 0
+        var details = 0
+        var preview = 0
+        composeRule.setScreen(
+            gridState(),
+            onClusterDelete = { delete++ },
+            onClusterClick = { details++ },
+            onClusterPreview = { preview++ },
+        )
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performClick()
+        composeRule.runOnIdle {
+            if (delete != 1 || details != 0 || preview != 0) {
+                throw AssertionError("delete=$delete details=$details preview=$preview")
+            }
+        }
+    }
+
+    @Test
+    fun `GRID caption tap opens details`() {
+        var delete = 0
+        var details = 0
+        composeRule.setScreen(gridState(), onClusterDelete = { delete++ }, onClusterClick = { details++ })
+        composeRule.onNode(hasClickLabel("Show details")).performClick()
+        composeRule.runOnIdle {
+            if (details != 1 || delete != 0) throw AssertionError("details=$details delete=$delete")
+        }
+    }
+
+    @Test
+    fun `GRID preview button opens the full-screen preview`() {
+        var preview = 0
+        var delete = 0
+        composeRule.setScreen(gridState(), onClusterPreview = { preview++ }, onClusterDelete = { delete++ })
+        composeRule.onNode(hasClickLabel("Open preview")).performClick()
+        composeRule.runOnIdle {
+            if (preview != 1 || delete != 0) throw AssertionError("preview=$preview delete=$delete")
+        }
+    }
+
+    @Test
+    fun `GRID primary line shows the freeable-size label`() {
+        composeRule.setScreen(gridState())
+        composeRule.onNodeWithText("freeable", substring = true).assertExists()
+    }
+
+    @Test
+    fun `LINEAR header tap requests cluster deletion`() {
+        var delete = 0
+        var details = 0
+        composeRule.setScreen(linearState(), onClusterDelete = { delete++ }, onClusterClick = { details++ })
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performClick()
+        composeRule.runOnIdle {
+            if (delete != 1 || details != 0) throw AssertionError("delete=$delete details=$details")
+        }
+    }
+
+    @Test
+    fun `LINEAR sub-row tap requests single-duplicate deletion`() {
+        var dupeClicks = 0
+        composeRule.setScreen(linearState(), onDuplicateClick = { _, _ -> dupeClicks++ })
+        composeRule.onNodeWithText("vacation-a.jpg").performClick()
+        composeRule.runOnIdle {
+            if (dupeClicks != 1) throw AssertionError("dupeClicks=$dupeClicks")
+        }
+    }
+
+    @Test
+    fun `LINEAR header thumbnail opens the full-screen preview`() {
+        var preview = 0
+        var delete = 0
+        composeRule.setScreen(linearState(), onClusterPreview = { preview++ }, onClusterDelete = { delete++ })
+        composeRule.onNode(hasClickLabel("Open preview")).performClick()
+        composeRule.runOnIdle {
+            if (preview != 1 || delete != 0) throw AssertionError("preview=$preview delete=$delete")
+        }
+    }
+
+    @Test
+    fun `GRID long-press enters selection mode and suppresses the delete action`() {
+        var delete = 0
+        composeRule.setScreen(gridState(), onClusterDelete = { delete++ })
+        // Long-press selects rather than deletes; the normal top bar (and its layout toggle) is
+        // replaced by the selection top bar.
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performTouchInput { longClick() }
+        composeRule.runOnIdle {
+            if (delete != 0) throw AssertionError("long-press must not delete, got delete=$delete")
+        }
+        composeRule.onNodeWithContentDescription("Switch view mode").assertDoesNotExist()
+    }
+
+    @Test
+    fun `GRID preview button toggles selection rather than previewing while selecting`() {
+        var preview = 0
+        composeRule.setScreen(gridState(), onClusterPreview = { preview++ })
+        // Long-press selects the cluster; the preview button must then behave like the other
+        // regions (toggle) instead of opening the preview.
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performTouchInput { longClick() }
+        composeRule.onNode(hasClickLabel("Open preview")).performClick()
+        composeRule.runOnIdle {
+            if (preview != 0) throw AssertionError("preview must not fire during selection, got preview=$preview")
+        }
     }
 }

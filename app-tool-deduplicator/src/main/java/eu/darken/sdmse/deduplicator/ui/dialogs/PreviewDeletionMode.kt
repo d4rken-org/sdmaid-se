@@ -21,6 +21,10 @@ sealed interface PreviewDeletionMode {
     data class Clusters(
         val clusters: Collection<Duplicate.Cluster>,
         override val allowDeleteAll: Boolean,
+        /** Duplicate copies that will be deleted (keeper excluded). Null = caller didn't compute it. */
+        val targetCount: Int? = null,
+        /** Bytes freed by the deletion (keeper excluded). Null = caller didn't compute it. */
+        val freeableSize: Long? = null,
     ) : PreviewDeletionMode {
         override val count: Int get() = clusters.size
         override val previews: List<APathLookup<*>> get() = clusters.map { it.previewFile }

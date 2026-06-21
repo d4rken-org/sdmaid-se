@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.dialogs
 
+import android.text.format.Formatter
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -166,7 +167,22 @@ private fun formatMessage(
         DeduplicatorR.string.deduplicator_delete_confirmation_message,
     )
 
-    is PreviewDeletionMode.Clusters -> singleOrMultipleSetMessage(mode.count, deleteAll, context)
+    is PreviewDeletionMode.Clusters -> {
+        // The list "delete this cluster" flow supplies targetCount + freeableSize, so the message names
+        // the whole set ("Delete N duplicates … freeing X") — this stops the single preview image from
+        // reading as "delete one file". The keep-none (deleteAll) path and the details flow (no fields)
+        // fall back to the legacy set message.
+        if (!deleteAll && mode.targetCount != null && mode.targetCount > 0 && mode.freeableSize != null) {
+            context.resources.getQuantityString(
+                DeduplicatorR.plurals.deduplicator_delete_set_freeable_confirmation_message_x,
+                mode.targetCount,
+                mode.targetCount,
+                Formatter.formatShortFileSize(context, mode.freeableSize),
+            )
+        } else {
+            singleOrMultipleSetMessage(mode.count, deleteAll, context)
+        }
+    }
 
     is PreviewDeletionMode.Groups -> singleOrMultipleSetMessage(mode.count, deleteAll, context)
 
