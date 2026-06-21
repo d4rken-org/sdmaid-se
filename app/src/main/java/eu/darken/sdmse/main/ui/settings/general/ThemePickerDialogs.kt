@@ -74,7 +74,7 @@ fun ThemeModePickerDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_cancel_action))
+                Text(stringResource(CommonR.string.general_close_action))
             }
         },
     )
@@ -119,7 +119,7 @@ fun ThemeStylePickerDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_cancel_action))
+                Text(stringResource(CommonR.string.general_close_action))
             }
         },
     )
@@ -169,7 +169,7 @@ fun RomTypePickerDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_cancel_action))
+                Text(stringResource(CommonR.string.general_close_action))
             }
         },
     )
@@ -213,7 +213,7 @@ fun ThemeColorPickerDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_cancel_action))
+                Text(stringResource(CommonR.string.general_close_action))
             }
         },
     )
