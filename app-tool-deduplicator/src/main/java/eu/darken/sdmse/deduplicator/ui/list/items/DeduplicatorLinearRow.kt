@@ -121,7 +121,6 @@ internal fun DeduplicatorLinearRow(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Spacer(Modifier.height(4.dp))
                 Text(
                     text = pluralStringResource(
                         CommonR.plurals.result_x_items,
@@ -132,7 +131,7 @@ internal fun DeduplicatorLinearRow(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 if (cluster.types.isNotEmpty()) {
-                    Spacer(Modifier.height(6.dp))
+                    Spacer(Modifier.height(4.dp))
                     MatchTypeChipRow(types = cluster.types)
                 }
             }
@@ -230,12 +229,33 @@ private fun DuplicateSubRow(
             Spacer(Modifier.width(8.dp))
         }
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.bodyMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
+            // Name and size share one line; the name's weight keeps the size end-aligned across rows,
+            // and the delete marker stays just left of the size. Middle-ellipsis keeps both ends of
+            // near-identical duplicate names visible (the distinguishing suffix + extension).
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.MiddleEllipsis,
+                    modifier = Modifier.weight(1f),
+                )
+                if (willBeDeleted) {
+                    Spacer(Modifier.width(8.dp))
+                    Icon(
+                        imageVector = Icons.TwoTone.DeleteSweep,
+                        contentDescription = stringResource(DeduplicatorR.string.deduplicator_marked_for_deletion),
+                        tint = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.size(20.dp),
+                    )
+                }
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = Formatter.formatShortFileSize(context, duplicate.size),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
             if (parentPath.isNotEmpty()) {
                 Text(
                     text = parentPath,
@@ -244,27 +264,6 @@ private fun DuplicateSubRow(
                     maxLines = 1,
                     softWrap = false,
                     overflow = TextOverflow.StartEllipsis,
-                )
-            }
-            // Delete-target marker sits BEFORE the size so the size stays end-aligned across all rows.
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                if (willBeDeleted) {
-                    Icon(
-                        imageVector = Icons.TwoTone.DeleteSweep,
-                        contentDescription = stringResource(DeduplicatorR.string.deduplicator_marked_for_deletion),
-                        tint = MaterialTheme.colorScheme.error,
-                        modifier = Modifier.size(20.dp),
-                    )
-                    Spacer(Modifier.width(8.dp))
-                }
-                Text(
-                    text = Formatter.formatShortFileSize(context, duplicate.size),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }

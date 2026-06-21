@@ -107,7 +107,7 @@ internal fun DeduplicatorGridRow(
                     onClick = onCaptionClick,
                     onLongClick = onLongClick,
                 )
-                .padding(12.dp),
+                .padding(vertical = 8.dp, horizontal = 12.dp),
         ) {
             Text(
                 text = stringResource(
@@ -118,7 +118,6 @@ internal fun DeduplicatorGridRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            Spacer(Modifier.height(4.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
