@@ -23,5 +23,8 @@ data class PickerRequest(
     enum class PickMode {
         @SerialName("DIR") DIR,
         @SerialName("DIRS") DIRS,
+
+        /** Multi-select like [DIRS], but files are also listed and selectable (folders + files). */
+        @SerialName("FILES_AND_DIRS") FILES_AND_DIRS,
     }
 }

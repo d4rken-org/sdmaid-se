@@ -97,6 +97,18 @@ class DeletionPreviewTest : BaseTest() {
     }
 
     @Test
+    fun `a file picked as a source path is omitted from buckets - no crash`() {
+        // With FILES_AND_DIRS the user can pick individual files; such a source equals the item path,
+        // so it's never a strict ancestor and is simply omitted from the bucket preview (header count
+        // still covers it). Guards against a crash/odd bucket for direct file sources.
+        val fileSource = LocalPath.build("root", "loose.txt")
+        val items = listOf(item(1, fileSource, 10, SwipeDecision.DELETE))
+        val preview = DeletionPreview.from(items, listOf(fileSource))
+        preview.buckets shouldBe emptyList()
+        preview.moreFolders shouldBe 0
+    }
+
+    @Test
     fun `items outside any source are omitted`() {
         val source = LocalPath.build("root")
         val items = listOf(

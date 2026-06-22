@@ -5,8 +5,11 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
+import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.user.UserHandle2
@@ -20,11 +23,14 @@ import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.tasks.SwiperScanTask
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -76,6 +82,18 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val navCtrl: NavigationController,
         val pickerResults: MutableSharedFlow<PickerResult>,
     )
+
+    private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
+        fun cancel() = job.cancel()
+    }
+
+    private fun CoroutineScope.collectNavEvents(vm: SwiperSessionsViewModel): CollectedEvents<NavEvent> {
+        val list = mutableListOf<NavEvent>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.navEvents.collect { list.add(it) }
+        }
+        return CollectedEvents(list, job)
+    }
 
     // Extension on TestScope so the harness can launch a state-keep-alive collector inside the test's
     // own scope. safeStateIn uses WhileSubscribed(5000), which means upstream collection only starts
@@ -216,6 +234,22 @@ class SwiperSessionsViewModelTest : BaseTest() {
         // call createSession with an empty set, which crashes (require(paths.isNotEmpty())).
         coVerify(exactly = 0) { h.swiper.createSession(any()) }
         h.vm.state.first().selectedPaths shouldBe emptySet<APath>()
+    }
+
+    @Test
+    fun `openPicker navigates to a files-and-dirs PickerRoute`() = runTest2 {
+        val h = harness()
+        val nav = collectNavEvents(h.vm)
+
+        h.vm.openPicker()
+        advanceUntilIdle()
+
+        val event = nav.list.single().shouldBeInstanceOf<NavEvent.GoTo>()
+        val route = event.destination.shouldBeInstanceOf<PickerRoute>()
+        // Files must be selectable so users can pick loose files and deselect unwanted subfolders.
+        route.request.mode shouldBe PickerRequest.PickMode.FILES_AND_DIRS
+        route.request.requestKey shouldBe SwiperSessionsViewModel.PICKER_REQUEST_KEY
+        nav.cancel()
     }
 
     @Test

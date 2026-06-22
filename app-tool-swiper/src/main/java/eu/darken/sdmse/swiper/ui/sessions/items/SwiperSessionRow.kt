@@ -52,6 +52,8 @@ import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.core.Swiper
 
+private const val MAX_VISIBLE_PATHS = 5
+
 @Composable
 fun SwiperSessionRow(
     modifier: Modifier = Modifier,
@@ -136,12 +138,22 @@ fun SwiperSessionRow(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            session.sourcePaths.forEach { path ->
+            // A file selection can hold many individually-picked paths; cap the list so the card
+            // stays compact and summarize the remainder.
+            session.sourcePaths.take(MAX_VISIBLE_PATHS).forEach { path ->
                 Text(
                     text = path.userReadablePath.get(context),
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
+                )
+            }
+            val hiddenPaths = session.sourcePaths.size - MAX_VISIBLE_PATHS
+            if (hiddenPaths > 0) {
+                Text(
+                    text = pluralStringResource(R.plurals.swiper_session_paths_more, hiddenPaths, hiddenPaths),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
 
