@@ -159,6 +159,7 @@ class AppCleaner @Inject constructor(
                             AppCleanerSchedulerTask.Success(
                                 affectedSpace = it.affectedSpace,
                                 affectedPaths = it.affectedPaths,
+                                affectedCount = it.affectedCount,
                             )
                         }
                     }
@@ -173,6 +174,7 @@ class AppCleaner @Inject constructor(
                             AppCleanerOneClickTask.Success(
                                 affectedSpace = it.affectedSpace,
                                 affectedPaths = it.affectedPaths,
+                                affectedCount = it.affectedCount,
                             )
                         }
                     }
@@ -377,9 +379,15 @@ class AppCleaner @Inject constructor(
             ?.map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
             ?.sumOf { it.totalSize }
             ?: 0L
+        // Count items the same way the scan reported them ("X expendable items found"): the difference between
+        // the pre- and post-deletion scan totals. Deriving it from the snapshot avoids re-deriving the
+        // accessible/inaccessible/public-cache counting rules in a second hand-rolled counter, and it counts ACS
+        // cache clears at scan scale rather than as the <=2 synthetic paths that land in `affectedPaths`.
+        val affectedCount = (snapshot.totalCount - (internalData.value?.totalCount ?: 0)).coerceAtLeast(0)
         return AppCleanerProcessingTask.Success(
             affectedSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.expectedGain } } + automationSize,
             affectedPaths = deleted,
+            affectedCount = affectedCount,
         )
     }
 

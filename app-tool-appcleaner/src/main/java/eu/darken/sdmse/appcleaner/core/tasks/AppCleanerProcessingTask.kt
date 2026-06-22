@@ -44,6 +44,10 @@ data class AppCleanerProcessingTask(
     data class Success(
         override val affectedSpace: Long,
         override val affectedPaths: Set<APath>,
+        // Explicit item count: `affectedPaths` only holds the paths we can enumerate. Caches cleared via the
+        // accessibility-service "Clear cache" tap contribute just their synthetic dir paths, so the path count
+        // would massively undershoot what the scan reported as "found". This carries the scan-scale count instead.
+        override val affectedCount: Int = affectedPaths.size,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val primaryInfo
@@ -62,7 +66,7 @@ data class AppCleanerProcessingTask(
             }
 
         override fun toString(): String {
-            return "AppCleanerProcessingTask.Success($affectedSpace,${affectedPaths.size} items)"
+            return "AppCleanerProcessingTask.Success($affectedSpace,$affectedCount items,${affectedPaths.size} paths)"
         }
     }
 }

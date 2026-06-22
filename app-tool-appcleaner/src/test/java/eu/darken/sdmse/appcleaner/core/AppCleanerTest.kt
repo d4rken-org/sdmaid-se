@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core
 
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
+import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
@@ -10,6 +11,7 @@ import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -568,6 +570,117 @@ class AppCleanerTest : BaseTest() {
             upgradeRepo = mockUpgradeRepo(pro = true),
         )
         return Setup(cleaner, setup.scanner, setup.exclusionManager, inventorySetup)
+    }
+
+    // ─────────────────────────── affectedCount alignment ───────────────────────────
+    // These exercise the inaccessible/ACS deletion path, where the bug lived: a cache the scan
+    // counted as N items is cleared by a single "Clear cache" tap and lands in `affectedPaths` as
+    // only its <=2 synthetic dir paths. The displayed count must follow the scan scale, not the
+    // path-set size. The accessible per-file delete branch needs real filter factories (see NOTE
+    // below) and is left to a follow-up; it already counts per-file, matching the scan.
+
+    private fun inaccJunk(
+        pkgName: String,
+        itemCount: Int,
+        theoreticalPaths: Set<APath>,
+    ): AppJunk = previewAppJunk(
+        pkg = previewInstalled(pkgName = pkgName, label = pkgName),
+        expendables = null,
+        inaccessibleCache = InaccessibleCache(
+            identifier = installId(pkgName),
+            isSystemApp = false,
+            itemCount = itemCount,
+            totalSize = 24L * 1024 * 1024,
+            publicSize = null,
+            theoreticalPaths = theoreticalPaths,
+        ),
+    )
+
+    private fun acsDeleter(succesful: Set<InstallId>): InaccessibleDeleter =
+        mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery {
+                deleteInaccessible(any(), any(), any(), any())
+            } returns InaccessibleDeleter.InaccDelResult(succesful = succesful, failed = emptyMap())
+        }
+
+    @Test
+    fun `ProcessingTask reports scan-scale count for ACS-cleared caches, not affectedPaths size`() = runTest2 {
+        val paths = setOf<APath>(LocalPath.build("p", "a"), LocalPath.build("p", "b"))
+        val junk = inaccJunk("com.example.acs", itemCount = 12, theoreticalPaths = paths)
+        val setup = setupCleaner(scanResults = listOf(junk))
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = setOf(installId("com.example.acs"))))
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        // The cache was scanned as 12 items; clearing it via ACS frees all 12.
+        result.affectedCount shouldBe 12
+        // …but only the 2 synthetic dir paths are individually recordable.
+        result.affectedPaths.size shouldBe 2
+    }
+
+    @Test
+    fun `ProcessingTask does not overcount when ACS clearing fails`() = runTest2 {
+        val junk = inaccJunk("com.example.fail", itemCount = 12, theoreticalPaths = emptySet())
+        val setup = setupCleaner(scanResults = listOf(junk))
+        // Empty `succesful` => the cache was not cleared, so nothing was removed from the scan.
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = emptySet()))
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.affectedCount shouldBe 0
+        result.affectedPaths shouldBe emptySet()
+    }
+
+    @Test
+    fun `ProcessingTask with includeInaccessible false leaves the cache uncounted`() = runTest2 {
+        val junk = inaccJunk("com.example.skip", itemCount = 12, theoreticalPaths = emptySet())
+        // includeInaccessible=false never invokes the deleter, so setupCleaner's erroring provider is fine.
+        val setup = setupCleaner(scanResults = listOf(junk))
+
+        setup.cleaner.submit(AppCleanerScanTask())
+        val result = setup.cleaner.submit(AppCleanerProcessingTask(includeInaccessible = false))
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.affectedCount shouldBe 0
+    }
+
+    @Test
+    fun `OneClickTask propagates the scan-scale affectedCount`() = runTest2 {
+        val paths = setOf<APath>(LocalPath.build("p", "a"), LocalPath.build("p", "b"))
+        val junk = inaccJunk("com.example.oneclick", itemCount = 12, theoreticalPaths = paths)
+        val setup = setupCleaner(scanResults = listOf(junk))
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = setOf(installId("com.example.oneclick"))))
+
+        val result = rebuilt.cleaner.submit(eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask())
+
+        result.shouldBeInstanceOf<eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask.Success>()
+        result.affectedCount shouldBe 12
+        result.affectedPaths.size shouldBe 2
+    }
+
+    @Test
+    fun `SchedulerTask propagates the scan-scale affectedCount`() = runTest2 {
+        val paths = setOf<APath>(LocalPath.build("p", "a"), LocalPath.build("p", "b"))
+        val junk = inaccJunk("com.example.scheduler", itemCount = 12, theoreticalPaths = paths)
+        val setup = setupCleaner(scanResults = listOf(junk))
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = setOf(installId("com.example.scheduler"))))
+
+        val result = rebuilt.cleaner.submit(
+            eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask(
+                scheduleId = "test-schedule",
+                useAutomation = true,
+            ),
+        )
+
+        result.shouldBeInstanceOf<eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask.Success>()
+        result.affectedCount shouldBe 12
+        result.affectedPaths.size shouldBe 2
     }
 
     // ─────────────────────────── delete-path coverage gap ───────────────────────────
