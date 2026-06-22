@@ -202,6 +202,9 @@ class SetupViewModel @Inject constructor(
                                 onRestrictionsHelp = {
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
                                 },
+                                onAdvancedProtectionHelp = {
+                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-advanced-protection")
+                                },
                             )
 
                             is SetupModule.State.Loading -> SetupLoadingCardItem(state)

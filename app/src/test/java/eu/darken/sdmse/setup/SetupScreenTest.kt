@@ -201,6 +201,8 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                                 needsXiaomiAutostart = false,
                                 liftRestrictionsIntent = Intent(),
                                 showAppOpsRestrictionHint = false,
+                                showAdvancedProtectionHint = false,
+                                isAdvancedProtectionBlocked = false,
                                 settingsIntent = Intent(),
                             ),
                             onGrantAction = {},
@@ -208,6 +210,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             onHelp = {},
                             onRestrictionsHelp = {},
                             onRestrictionsShow = {},
+                            onAdvancedProtectionHelp = {},
                         ),
                     ),
                 ),
@@ -216,6 +219,44 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_enabled)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_running)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_consent_negative_action)).assertCountEquals(1)
+    }
+
+    @Test
+    fun `automation card advanced protection hint shows help only and no view action`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        AutomationSetupCardItem(
+                            state = AutomationSetupModule.Result(
+                                isNotRequired = false,
+                                hasConsent = true,
+                                canSelfEnable = false,
+                                isServiceEnabled = false,
+                                isServiceRunning = false,
+                                isShortcutOrButtonEnabled = false,
+                                needsXiaomiAutostart = false,
+                                liftRestrictionsIntent = Intent(),
+                                showAppOpsRestrictionHint = false,
+                                showAdvancedProtectionHint = true,
+                                isAdvancedProtectionBlocked = true,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = {},
+                            onDismiss = {},
+                            onHelp = {},
+                            onRestrictionsHelp = {},
+                            onRestrictionsShow = {},
+                            onAdvancedProtectionHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_advanced_protection_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(eu.darken.sdmse.common.R.string.general_help_action)).assertCountEquals(1)
+        // Advanced Protection has no per-app remedy, so the "View" action must not be offered here.
+        composeRule.onAllNodesWithText(context.getString(eu.darken.sdmse.common.R.string.general_view_action)).assertCountEquals(0)
     }
 
     @Test

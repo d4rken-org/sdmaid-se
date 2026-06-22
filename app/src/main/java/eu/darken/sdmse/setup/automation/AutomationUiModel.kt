@@ -12,6 +12,7 @@ internal data class AutomationUiModel(
     val enabledState: StateChip?,
     val showMiuiAutostartHint: Boolean,
     val showAppOpsRestrictionHint: Boolean,
+    val showAdvancedProtectionHint: Boolean,
     val runningState: StateChip?,
     val showRunningStateHint: Boolean,
     val showAllowAction: Boolean,
@@ -78,8 +79,10 @@ internal fun AutomationSetupModule.Result.toUiModel(): AutomationUiModel {
 
     return AutomationUiModel(
         enabledState = enabledChip,
-        showMiuiAutostartHint = !isServiceEnabled && needsXiaomiAutostart,
+        // Advanced Protection takes precedence; the MIUI autostart hint would be a false remedy here.
+        showMiuiAutostartHint = !isServiceEnabled && needsXiaomiAutostart && !isAdvancedProtectionBlocked,
         showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+        showAdvancedProtectionHint = showAdvancedProtectionHint,
         runningState = runningChip,
         showRunningStateHint = !isServiceRunning && isServiceEnabled,
         showAllowAction = showAllow,

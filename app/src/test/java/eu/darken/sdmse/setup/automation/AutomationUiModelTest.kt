@@ -16,6 +16,8 @@ class AutomationUiModelTest : BaseTest() {
         isShortcutOrButtonEnabled: Boolean = false,
         needsXiaomiAutostart: Boolean = false,
         showAppOpsRestrictionHint: Boolean = false,
+        showAdvancedProtectionHint: Boolean = false,
+        isAdvancedProtectionBlocked: Boolean = false,
     ) = AutomationSetupModule.Result(
         isNotRequired = false,
         hasConsent = hasConsent,
@@ -26,6 +28,8 @@ class AutomationUiModelTest : BaseTest() {
         needsXiaomiAutostart = needsXiaomiAutostart,
         liftRestrictionsIntent = Intent(),
         showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+        showAdvancedProtectionHint = showAdvancedProtectionHint,
+        isAdvancedProtectionBlocked = isAdvancedProtectionBlocked,
         settingsIntent = Intent(),
     )
 
@@ -113,12 +117,48 @@ class AutomationUiModelTest : BaseTest() {
     }
 
     @Test
+    fun `MIUI hint is suppressed while Advanced Protection blocks the service`() {
+        val ui = result(
+            hasConsent = true,
+            isServiceEnabled = false,
+            needsXiaomiAutostart = true,
+            isAdvancedProtectionBlocked = true,
+        ).toUiModel()
+        ui.showMiuiAutostartHint shouldBe false
+    }
+
+    @Test
+    fun `ACS heal is not attempted while Advanced Protection blocks the service`() {
+        // Guards against a SetupHealer refresh loop: heal would no-op yet report success.
+        result(
+            hasConsent = true,
+            isServiceEnabled = false,
+            isAdvancedProtectionBlocked = true,
+        ).isAcsHealAttemptViable shouldBe false
+
+        result(
+            hasConsent = true,
+            isServiceEnabled = false,
+            isAdvancedProtectionBlocked = false,
+        ).isAcsHealAttemptViable shouldBe true
+    }
+
+    @Test
     fun `appops restriction hint propagates directly`() {
         val ui = result(
             hasConsent = true,
             showAppOpsRestrictionHint = true,
         ).toUiModel()
         ui.showAppOpsRestrictionHint shouldBe true
+    }
+
+    @Test
+    fun `advanced protection hint propagates directly`() {
+        val ui = result(
+            hasConsent = true,
+            showAdvancedProtectionHint = true,
+        ).toUiModel()
+        ui.showAdvancedProtectionHint shouldBe true
     }
 
     @Test

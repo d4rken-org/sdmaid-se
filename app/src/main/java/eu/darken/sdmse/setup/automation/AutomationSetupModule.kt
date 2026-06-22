@@ -54,7 +54,11 @@ class AutomationSetupModule @Inject constructor(
         val isServiceRunning = automationManager.isServiceLaunched()
         log(TAG) { "isServiceRunning=$isServiceRunning" }
 
-        val canSelfEnable = automationManager.canSelfEnable()
+        val aapmBlocksAcs = context.isRestrictedByAdvancedProtection()
+        log(TAG) { "aapmBlocksAcs=$aapmBlocksAcs" }
+
+        // Advanced Protection blocks the service bind entirely, so even root/ADB can't self-enable it
+        val canSelfEnable = automationManager.canSelfEnable() && !aapmBlocksAcs
         log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         val isShortcutOrButtonEnabled = automationManager.isShortcutOrButtonEnabled()
@@ -69,12 +73,20 @@ class AutomationSetupModule @Inject constructor(
         val hasTriggeredRestrictions = generalSettings.hasTriggeredRestrictions.value()
         log(TAG) { "hasTriggeredRestrictions=$hasTriggeredRestrictions" }
 
+        val hasConsent = generalSettings.hasAcsConsent.value()
+
         // https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java;l=520
-        val showAppOpsRestrictionHint = !hasPassedRestrictions
+        val appOpsRestrictionApplies = !hasPassedRestrictions
                 && hasTriggeredRestrictions
                 && mightBeRestricted
                 && !canSelfEnable
-        log(TAG) { "showAppOpsRestrictionHint=$showAppOpsRestrictionHint" }
+        val restrictionHints = decideAcsRestrictionHints(
+            advancedProtectionBlocksAcs = aapmBlocksAcs,
+            hasConsent = hasConsent,
+            isServiceRunning = isServiceRunning,
+            appOpsRestrictionApplies = appOpsRestrictionApplies,
+        )
+        log(TAG) { "restrictionHints=$restrictionHints" }
 
         // Settings details screen needs to have the system UID, not ours, otherwise the appops setting is invisible
         val liftRestrictionsIntent = Intent(Settings.ACTION_APPLICATION_SETTINGS).apply {
@@ -86,14 +98,16 @@ class AutomationSetupModule @Inject constructor(
         @Suppress("USELESS_CAST")
         Result(
             isNotRequired = useRoot,
-            hasConsent = generalSettings.hasAcsConsent.value(),
+            hasConsent = hasConsent,
             canSelfEnable = canSelfEnable,
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
             isShortcutOrButtonEnabled = isShortcutOrButtonEnabled,
             needsXiaomiAutostart = deviceDetective.getROMType() == RomType.MIUI && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
-            showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+            showAppOpsRestrictionHint = restrictionHints.showAppOpsRestrictionHint,
+            showAdvancedProtectionHint = restrictionHints.showAdvancedProtectionHint,
+            isAdvancedProtectionBlocked = aapmBlocksAcs,
             settingsIntent = when (deviceDetective.getROMType()) {
                 RomType.ANDROID_TV -> Intent(Settings.ACTION_SETTINGS)
                 else -> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
@@ -138,6 +152,8 @@ class AutomationSetupModule @Inject constructor(
         val needsXiaomiAutostart: Boolean,
         val liftRestrictionsIntent: Intent,
         val showAppOpsRestrictionHint: Boolean,
+        val showAdvancedProtectionHint: Boolean,
+        val isAdvancedProtectionBlocked: Boolean,
         val settingsIntent: Intent,
     ) : SetupModule.State.Current {
 
@@ -155,6 +171,14 @@ class AutomationSetupModule @Inject constructor(
             hasConsent == false -> true // User doesn't want ACS
             else -> false // Consent is NULL, need user decision
         }
+
+        /**
+         * Whether trying to self-enable the ACS via secure-settings could plausibly help. While
+         * Advanced Protection blocks the bind, a heal attempt is a no-op that still reports success,
+         * which would spin the SetupHealer in a refresh loop - so it must not be attempted.
+         */
+        val isAcsHealAttemptViable: Boolean
+            get() = !isComplete && hasConsent == true && !isAdvancedProtectionBlocked
     }
 
     @Module @InstallIn(SingletonComponent::class)
