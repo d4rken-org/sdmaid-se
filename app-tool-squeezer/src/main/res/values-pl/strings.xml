@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Kompresuj obrazy i filmy, aby zaoszczędzić miejsce na dysku.</string>
+    <string name="squeezer_explanation_short">Kompresuj obrazy, aby zaoszczędzić miejsce.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">znaleziono %d element</item>
-        <item quantity="few">znaleziono %d elementy</item>
-        <item quantity="many">znaleziono %d elementów</item>
-        <item quantity="other">znaleziono %d elementów</item>
+        <item quantity="one">Znaleziono %d obraz</item>
+        <item quantity="few">Znaleziono %d obrazy</item>
+        <item quantity="many">Znaleziono %d obrazów</item>
+        <item quantity="other">Znaleziono %d obrazów</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s może zostać zwolniony</item>
@@ -14,52 +14,30 @@
         <item quantity="other">~%s może zostać zwolnionych</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">skompresowano %d element</item>
-        <item quantity="few">skompresowano %d elementy</item>
-        <item quantity="many">skompresowano %d elementów</item>
-        <item quantity="other">skompresowano %d elementów</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d nie powiodło się</item>
-        <item quantity="few">%d nie powiodło się</item>
-        <item quantity="many">%d nie powiodło się</item>
-        <item quantity="other">%d nie powiodło się</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">pominięto %d plik (niedostępny)</item>
-        <item quantity="few">pominięto %d pliki (niedostępne)</item>
-        <item quantity="many">pominięto %d plików (niedostępne)</item>
-        <item quantity="other">pominięto %d plików (niedostępne)</item>
+        <item quantity="one">%d skompresowany obraz</item>
+        <item quantity="few">%d skompresowane obrazy</item>
+        <item quantity="many">%d skompresowanych obrazów</item>
+        <item quantity="other">%d skompresowanych obrazów </item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">wybrano %d element</item>
-        <item quantity="few">wybrano %d elementy</item>
-        <item quantity="many">wybrano %d elementów</item>
-        <item quantity="other">wybrano %d elementów</item>
+        <item quantity="one">Wybrano %d obraz</item>
+        <item quantity="few">Wybrano %d obrazy</item>
+        <item quantity="many">Wybrano %d obrazów</item>
+        <item quantity="other">Wybrano %d obrazów</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Lokalizacje wyszukiwania</string>
-    <string name="squeezer_search_locations_default_summary">Foldery aparatu (domyślnie)</string>
     <string name="squeezer_min_size_title">Minimalny rozmiar pliku</string>
     <string name="squeezer_min_size_description">Pomiń obrazy mniejsze niż ten rozmiar.</string>
     <string name="squeezer_min_age_title">Minimalny wiek pliku</string>
-    <string name="squeezer_min_age_description">Uwzględniaj tylko pliki starsze niż ten wiek.</string>
-    <string name="squeezer_compression_settings_label">Ogólne</string>
-    <string name="squeezer_quality_label">Jakość</string>
-    <string name="squeezer_quality_title">Kompresja jakości</string>
-    <string name="squeezer_quality_description">Niższa jakość oznacza mniejszy rozmiar pliku, ale gorszą jakość wizualną.</string>
-    <string name="squeezer_quality_example_format">Przykład: %1$s obraz → zapisuje ~%2$s przy %3$d%% jakości</string>
-    <string name="squeezer_quality_warning_low">Niższa jakość może powodować widoczne artefakty.</string>
-    <string name="squeezer_quality_warning_high">Bardzo wysoka jakość zapewnia minimalne oszczędności przestrzeni.</string>
-    <string name="squeezer_types_category_label">Ustawienia obrazu</string>
-    <string name="squeezer_video_settings_category_label">Ustawienia wideo</string>
+    <string name="squeezer_min_age_description">Uwzględnia tylko obrazy starsze niż ten wiek.</string>
+    <string name="squeezer_compression_settings_label">Ustawienia kompresji</string>
+    <string name="squeezer_quality_description">Niższa jakość oznacza mniejszy rozmiar pliku, ale mniejszą jakość obrazu.</string>
+    <string name="squeezer_types_category_label">Typy obrazów</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Dołącz zdjęcia JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Dołącz obrazy WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Wideo MP4</string>
-    <string name="squeezer_type_video_description">Dołącz pliki wideo MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Pomiń poprzednio skompresowane</string>
-    <string name="squeezer_skip_compressed_description">Pomiń pliki, które zostały już skompresowane przez SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Pomiń obrazy, które zostały już skompresowane przez SD Maid.</string>
     <string name="squeezer_exif_marker_title">Zapisz znacznik EXIF</string>
     <string name="squeezer_exif_marker_description">Dołącz znacznik do pola komentarza użytkownika EXIF obrazu, aby zapobiec ponownemu kompresji, nawet jeśli historia kompresji jest wyczyszczona.</string>
     <string name="squeezer_estimated_savings_format">~%s zaoszczędzone</string>
@@ -70,8 +48,6 @@
     <string name="squeezer_preview_dialog_title">Potwierdź kompresję</string>
     <string name="squeezer_preview_total_size">Całkowity rozmiar</string>
     <string name="squeezer_preview_estimated_savings">Szacowane oszczędności</string>
-    <string name="squeezer_compress_confirmation_title">Skompresować zaznaczone elementy?</string>
-    <string name="squeezer_compress_confirmation_message">Spowoduje to zastąpienie oryginalnych plików wersjami skompresowanymi. Tej czynności nie można cofnąć.</string>
     <string name="squeezer_history_title">Historia kompresji</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -81,31 +57,17 @@
     </plurals>
     <string name="squeezer_history_empty">Brak historii kompresji</string>
     <string name="squeezer_history_clear_title">Wyczyść historię kompresji</string>
-    <string name="squeezer_history_clear_message">Umożliwi to ponowną kompresję wcześniej skompresowanych plików. Same pliki nie zostaną naruszone.</string>
-    <string name="squeezer_onboarding_title">O kompresji obrazów</string>
-    <string name="squeezer_onboarding_message">Kompresja obrazu zmniejsza rozmiar pliku, usuwając szczegóły wizualne. Ten proces jest nieodwracalny - oryginalna jakość nie może być przywrócona.\n\nOto podgląd jak będą wyglądać twoje obrazy:</string>
+    <string name="squeezer_history_clear_message">Pozwoli to ponownie skompresować wcześniej skompresowane obrazy. Same obrazy nie są naruszone.</string>
     <string name="squeezer_onboarding_original_label">Oryginał</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresji</string>
-    <string name="squeezer_onboarding_video_original_label">Klatka wideo</string>
-    <string name="squeezer_onboarding_video_compressed_label">Podgląd (przybliżony)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Rzeczywista jakość wideo może się różnić</string>
-    <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>
     <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
-    <string name="squeezer_result_empty_message">Nie znaleziono kompresowalnych multimediów.</string>
-    <string name="squeezer_setup_warning">Kompresja trwale obniża jakość, oszczędzając miejsce na dysku. Tej operacji nie można cofnąć. Przed rozpoczęciem dokładnie sprawdź ustawienia.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d lokalizacja nie może zostać użyta do kompresji i została usunięta. Kompresja wymaga bezpośredniego dostępu do pamięci wewnętrznej.</item>
-        <item quantity="few">%d lokalizacje nie mogą zostać użyte do kompresji i zostały usunięte. Kompresja wymaga bezpośredniego dostępu do pamięci wewnętrznej.</item>
-        <item quantity="many">%d lokalizacje nie mogą zostać użyte do kompresji i zostały usunięte. Kompresja wymaga bezpośredniego dostępu do pamięci wewnętrznej.</item>
-        <item quantity="other">%d lokalizacje nie mogą zostać użyte do kompresji i zostały usunięte. Kompresja wymaga bezpośredniego dostępu do pamięci wewnętrznej.</item>
-    </plurals>
+    <string name="squeezer_result_empty_message">Nie znaleziono skompresowanych obrazów.</string>
     <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar plików obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
     <string name="squeezer_setup_paths_title">Lokalizacje wyszukiwania</string>
     <string name="squeezer_setup_paths_default">Wybierz foldery do przeszukania</string>
     <string name="squeezer_setup_quality_title">Kompresja jakości</string>
     <string name="squeezer_setup_age_title">Minimalny wiek</string>
-    <string name="squeezer_setup_age_none">Brak limitu (dołącz wszystkie pliki)</string>
     <string name="squeezer_setup_start_action">Rozpocznij skanowanie</string>
     <string name="squeezer_quality_hint_very_low">Jakość poniżej 40% może tworzyć niezdatne do użytku obrazy.</string>
     <string name="squeezer_quality_hint_low">Niższa jakość pozwala zaoszczędzić więcej miejsca, ale może powodować widoczne artefakty.</string>
@@ -117,6 +79,5 @@
         <item quantity="many">Co najmniej %d dni</item>
         <item quantity="other">Co najmniej %d dni</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Szacowane ~%d%% oszczędności dla obrazów</string>
-    <string name="squeezer_onboarding_got_it">Rozumiem</string>
+    <string name="squeezer_estimated_savings_percent">Szacowane oszczędności ~%d%% dla plików JPEG</string>
 </resources>

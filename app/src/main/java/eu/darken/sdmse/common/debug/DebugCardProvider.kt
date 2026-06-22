@@ -14,9 +14,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -24,7 +22,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
@@ -32,9 +29,9 @@ import eu.darken.sdmse.common.root.service.RootServiceClient
 import eu.darken.sdmse.common.sharedresource.runSessionAction
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel2
 import eu.darken.sdmse.main.ui.dashboard.DashboardEvents
-import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.cards.DebugDashboardCardItem
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -68,19 +65,28 @@ class DebugCardProvider @Inject constructor(
     private val shizukuTestState = MutableStateFlow<ShizukuTestResult?>(null)
     private val isCheckingFolders = MutableStateFlow(false)
 
-    fun create(vm: ViewModel3, onShowEvent: (DashboardEvents) -> Unit = {}) = combine(
+    fun create(
+        vm: ViewModel2,
+        onNavigate: (Any) -> Unit = {},
+        onError: (Throwable) -> Unit = {},
+        onShowEvent: (DashboardEvents) -> Unit = {},
+    ) = combine(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
         debugSettings.isTraceMode.flow.distinctUntilChanged(),
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
+        debugSettings.floatingLogVisible.flow.distinctUntilChanged(),
         rootTestState,
         shizukuTestState,
         automation.currentTask,
         isCheckingFolders,
-    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask, checkingFolders ->
+    ) { isDebug, isTrace, isDryRun, isLogVisible, rootState, shizukuState, acsTask, checkingFolders ->
         if (!isDebug) return@combine null
-        DebugCardVH.Item(
+        DebugDashboardCardItem(
             isDryRunEnabled = isDryRun,
-            onDryRunEnabled = { debugSettings.isDryRunMode.valueBlocking = it },
+            onDryRunEnabled = {
+                debugSettings.isDryRunMode.valueBlocking = it
+                log(TAG, INFO) { "DryRun mode enabled: $it" }
+            },
             isTraceEnabled = isTrace,
             onTraceEnabled = { debugSettings.isTraceMode.valueBlocking = it },
             onReloadAreas = {
@@ -91,8 +97,9 @@ class DebugCardProvider @Inject constructor(
                     pkgRepo.refresh()
                 }
             },
-            onViewLog = {
-                vm.navigateTo(LogViewRoute)
+            isLogPanelVisible = isLogVisible,
+            onToggleLogPanel = { enabled ->
+                vm.launch { debugSettings.floatingLogVisible.value(enabled) }
             },
             rootTestResult = rootState,
             onTestRoot = {
@@ -171,7 +178,7 @@ class DebugCardProvider @Inject constructor(
                             automation.submit(DebugTask())
                         } catch (e: Exception) {
                             if (e !is CancellationException) {
-                                withContext(dispatcherProvider.Main) { vm.errorEvents.value = e }
+                                onError(e)
                             }
                         }
                     }
@@ -180,15 +187,19 @@ class DebugCardProvider @Inject constructor(
             acsTask = acsTask,
             isCheckingUnknownFolders = checkingFolders,
             onCheckUnknownFolders = {
-                if (checkingFolders) return@Item
+                if (checkingFolders) return@DebugDashboardCardItem
                 vm.launch {
-                    checkUnknownFolders(vm, onShowEvent)
+                    checkUnknownFolders(vm, onError, onShowEvent)
                 }
             },
         )
     }
 
-    private suspend fun checkUnknownFolders(vm: ViewModel3, onShowEvent: (DashboardEvents) -> Unit) {
+    private suspend fun checkUnknownFolders(
+        vm: ViewModel2,
+        onError: (Throwable) -> Unit,
+        onShowEvent: (DashboardEvents) -> Unit
+    ) {
         isCheckingFolders.value = true
         try {
             val unknownPaths = mutableListOf<String>()
@@ -260,7 +271,10 @@ class DebugCardProvider @Inject constructor(
                 }
             }
 
-            log(TAG, INFO) { "Unknown folders check: scanned=$scannedCount, skipped=$skippedCount, unknown=${unknownPaths.size}" }
+            log(
+                TAG,
+                INFO
+            ) { "Unknown folders check: scanned=$scannedCount, skipped=$skippedCount, unknown=${unknownPaths.size}" }
             if (unknownPaths.size > 200) {
                 log(TAG, WARN) { "Full unknown list (${unknownPaths.size}):\n${unknownPaths.joinToString("\n")}" }
             }
@@ -278,7 +292,7 @@ class DebugCardProvider @Inject constructor(
             throw e
         } catch (e: Exception) {
             log(TAG, ERROR) { "checkUnknownFolders failed: ${e.asLog()}" }
-            withContext(dispatcherProvider.Main) { vm.errorEvents.value = e }
+            onError(e)
         } finally {
             isCheckingFolders.value = false
         }

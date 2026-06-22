@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">Search locations</string>
     <string name="deduplicator_search_locations_all_summary">All accessible areas</string>
-    <string name="deduplicator_keep_prefer_paths_title">Prefer keeping in</string>
-    <string name="deduplicator_keep_prefer_paths_summary">When deciding which duplicate to keep, prefer keeping files in these locations.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">No locations configured</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon file types</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values. ⚠️ Similarity-based detection may include false positives requiring manual verification.</string>
     <string name="deduplicator_detection_method_media_title">Media fingerprint</string>
     <string name="deduplicator_detection_method_media_summary">Find similar video and audio files by analyzing audio fingerprints. ⚠️ Similarity-based detection may include false positives requiring manual verification.</string>
-    <string name="deduplicator_matches_media_label">Similar media</string>
     <string name="deduplicator_media_match_audio">Audio-based match</string>
     <string name="deduplicator_media_match_visual">Video-based match</string>
     <string name="deduplicator_media_match_audio_visual">Audio and video-based match</string>
@@ -45,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Delete all but one copy in each selected set of duplicate files?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Delete all files in each selected set of duplicate files? No file is left over!</string>
     <string name="deduplicator_delete_all_toggle_msg">Delete all copies. No file is left over!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Delete %1$d duplicate in this set, freeing %2$s? The kept copy stays.</item>
+        <item quantity="other">Delete %1$d duplicates in this set, freeing %2$s? The kept copy stays.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s freeable</string>
+    <string name="deduplicator_action_delete_set">Delete duplicate set</string>
+    <string name="deduplicator_action_open_preview">Open preview</string>
+    <string name="deduplicator_marked_for_deletion">Marked for deletion</string>
+    <string name="deduplicator_cluster_preview_image">Duplicate set preview</string>
+    <string name="deduplicator_selection_keep_one_required">At least one file per duplicate set must remain. Enable \"Make \'Delete all\' possible\" in settings to override.</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
     <string name="deduplicator_matches_exact_label">Exact copies</string>
@@ -82,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
     <string name="deduplicator_view_mode_groups_label">Groups</string>
     <string name="deduplicator_view_mode_directories_label">Folders</string>
+    <string name="tour_deduplicator_details_cluster_body">These files all appear to be the same item or media content, a cluster of duplicates.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Files with this icon will be deleted; the remaining file in the group is the one SD Maid keeps. You can change how the keeper is chosen in the deletion strategy settings.</string>
 </resources>

@@ -20,7 +20,6 @@
         <item quantity="one">Cada die</item>
         <item quantity="other">Cada %d dies</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Intervallu de ripetitzide</string>
     <string name="scheduler_inaccurate_execution_hint">Is oras de esecutzione ispetadas sunt approssimatziones. Is programmaduras podent èssere ritardadas o antìtzipadas si cusservat sa baterìa.</string>
     <string name="scheduler_no_active_schedules_subtitle">Peruna programmadura ativa</string>
     <string name="scheduler_setting_nopowersaving_title">Saltare cun baterìa iscarra</string>

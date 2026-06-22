@@ -33,16 +33,9 @@
     <string name="general_empty_label">خالی</string>
     <string name="general_new_badge_label">نیا</string>
     <string name="general_dismiss_action">بار کریں</string>
-    <string name="general_maybe_later_action">شاید بعد میں</string>
     <string name="general_manage_action">مینج کریں</string>
-    <string name="general_sync_action">ہم آہنگ کریں</string>
     <string name="general_error_label">غلطی</string>
-    <string name="general_tap_hint_msg">مزید اختیارات کے لیے ٹیپ کریں</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
-    <string name="general_donate_action">عطیہ کریں</string>
-    <string name="general_check_action">جانچیں</string>
-    <string name="general_filter_action">فلٹر کریں</string>
-    <string name="general_internal_not_available_msg">انٹرنیٹ کنکشن دستیاب نہیں</string>
     <string name="general_refresh_action">تازہ کریں</string>
     <string name="general_progress_searching">تلاش کر رہا ہے</string>
     <string name="general_progress_generating_searchpaths">تلاشی راستے بنا رہا ہے</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">قطار میں</string>
     <string name="general_progress_deleting">حذف کر رہا ہے</string>
     <string name="general_progress_deleting_x">%s حذف کر رہا ہے</string>
-    <string name="general_sort_action">ترتیب دیں</string>
-    <string name="general_sort_by_title">ترتیب بذریعہ</string>
-    <string name="general_sort_options_label">ترتیب کے اختیارات</string>
     <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
-    <string name="general_sort_oldest_first">پرانا پہلے</string>
-    <string name="general_sort_newest_first">نیا پہلے</string>
-    <string name="general_sort_name_asc">نام (الف → ے)</string>
-    <string name="general_sort_size_desc">سب سے بڑا پہلے</string>
-    <string name="general_tag_filter_label">ٹیگز کے ذریعے فلٹر کریں</string>
     <string name="general_tag_system">سسٹم</string>
     <string name="general_result_success_message">کامیابی سے مکمل</string>
-    <string name="general_result_failure_message">آپریشن ناکام</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s جگہ آزاد کی گئی۔</item>
         <item quantity="other">%s جگہ آزاد کی گئی۔</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">حذف کریں</string>
     <string name="general_delete_selected_action">منتخب کو حذف کریں</string>
     <string name="general_show_details_action">تفصیلات دکھائیں</string>
-    <string name="general_show_all_action">سب دکھائیں</string>
     <string name="general_toggle_layout_mode">دیکھنے کی موڈ تبدیل کریں</string>
     <string name="general_delete_confirmation_title">حذف کی تصدیق کریں</string>
     <string name="general_delete_confirmation_message_x">\"%s\" کو حذف کریں؟</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
     </plurals>
     <string name="general_remove_action">ہٹائیں</string>
-    <string name="general_remove_selected_action">منتخب کو ہٹائیں</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ایک آئٹم ہٹایا گیا</item>
         <item quantity="other">%d آئٹمز ہٹاے گئے</item>
     </plurals>
-    <string name="general_root_required_label">Root کی ضرورت</string>
-    <string name="general_root_required_message">Root کی گئی ڈیوائس کی ضرورت</string>
     <string name="general_search_action">تلاش کریں</string>
-    <string name="general_scan_device_action">ڈیوائس اسکین کریں</string>
     <string name="general_open_system_settings_action">سسٹم سیٹنگز کھولیں</string>
     <plurals name="result_x_items">
         <item quantity="one">%s آئٹم</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">معلومات</string>
     <string name="general_count_label">شمار</string>
-    <string name="general_app_label">ایپ</string>
     <string name="general_more_info_action">مزید معلومات</string>
     <string name="general_grant_access_action">رسائی فراہم کریں</string>
     <string name="general_enable_service_action">سروس فعال کریں</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">منتخب کو خارج کریں</string>
     <string name="general_device_label">ڈیوائس</string>
     <string name="general_settings_title">سیٹنگز</string>
-    <string name="general_help_title">مدد</string>
     <string name="general_hints_label">نوٹس</string>
     <string name="file_type_symbolic_link">لنک</string>
     <string name="file_type_directory">ڈائریکٹری</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
     <string name="setup_title">سیٹ اپ</string>
-    <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
-    <string name="upgrade_feature_requires_pro">پرو کی ضرورت ہے</string>
     <string name="general_include_multiuser_label">دوسرے صارفین شامل کریں</string>
     <string name="general_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
     <string name="general_unsaved_confirmation_message">آپ کی غیر محفوظ تبدیلیاں ہیں!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">خطرے کی سطح</string>
     <string name="settings_category_filter">فلٹر</string>
     <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
-    <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
 </resources>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Përdorni mjetin AppControl për të krijuar përjashtime të aplikacioneve.</string>
     <string name="exclusion_create_path_hint">Përdorni mjetin StorageAnalyzer për të krijuar përjashtime të shtigjeve.</string>
     <string name="exclusion_show_defaults_action">Shfaq parazgjedhjet</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
 </resources>

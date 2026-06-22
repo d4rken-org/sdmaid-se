@@ -108,5 +108,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">تقييد المطابقات بناءً على عمر الملف (وقت آخر تعديل). اتركه فارغًا لمطابقة أي عمر.</string>
     <string name="systemcleaner_customfilter_import_action">استيراد مرشح جديد</string>
     <string name="systemcleaner_customfilter_export_action">تصدير المرشح المحدد</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
 </resources>

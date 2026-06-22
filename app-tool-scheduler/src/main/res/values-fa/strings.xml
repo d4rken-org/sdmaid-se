@@ -20,7 +20,6 @@
         <item quantity="one">روزانه</item>
         <item quantity="other">هر %d روز</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">فاصله زمانی تکرار</string>
     <string name="scheduler_inaccurate_execution_hint">زمان‌های اجرای مورد انتظار به صورت تقریبی هستند. برنامه‌ها ممکن است برای حفظ باتری به تأخیر افتاده یا تسریع شوند.</string>
     <string name="scheduler_no_active_schedules_subtitle">هیچ برنامه فعالی وجود ندارد.</string>
     <string name="scheduler_setting_nopowersaving_title">صرف نظر در صورت کم بودن باتری</string>

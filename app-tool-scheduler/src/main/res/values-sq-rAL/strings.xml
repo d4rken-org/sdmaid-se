@@ -20,7 +20,6 @@
         <item quantity="one">Ditor</item>
         <item quantity="other">Çdo %d ditë</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Përsëriteni intervalin</string>
     <string name="scheduler_inaccurate_execution_hint">Kohët e pritshme të ekzekutimit janë të përafërta. Oraret mund të vonohen ose të përshpejtohen nëse kursen baterinë.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nuk ka orare aktive</string>
     <string name="scheduler_setting_nopowersaving_title">Kapërceje në bateri të ulët</string>

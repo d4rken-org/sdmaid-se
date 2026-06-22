@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">پێویستی بە SD Maid SE Pro هەیە</string>
     <string name="upgrades_dashcard_title">SD Maid SE نوێ بکەرەوە</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro ئەنجامی باشتر، تایبەتمەندی زیاتر و بژاردەی زیاتر بۆ بەکارهێنەرانی پیشکەوتوو پێشکەش دەکات.</string>
     <string name="upgrades_dashcard_upgrade_action">نوێکردنەوە</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">ناتوانرێت بە گوگڵ پلەیەوە پەیوەست ببێت. تکایە پەیوەندی ئینتەرنێتەکەت بپشکنە و دووبارە هەوڵبدەرەوە.</string>
     <string name="upgrades_gplay_already_owned_error_title">پێشتر کڕدراوە</string>
     <string name="upgrades_gplay_already_owned_error_description">بژاردەی \"گەڕاندنەوەی کڕین\" بەکاربهێنە بۆ گەڕاندنەوەی کڕینەکەت. ئەگەر کێشەکە بەردەوام بوو، هەوڵبدە کاشەی گوگڵ پلەی بسڕیتەوە و ئامێرەکەت ڕیستارت بکەیتەوە.</string>
-    <string name="upgrades_no_purchases_found_check_account">هیچ کڕینێک نەدۆزرایەوە. ئایا هەژماری دروست بەکاردەهێنیت؟</string>
     <string name="upgrade_screen_title">SD Maid SE Pro بەدەستبهێنە</string>
     <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. کارەکانی من لەلایەن ئێوەوە پشتگیری دارایی دەکرێت ❤️.</string>
     <string name="upgrade_screen_benefits_title">سوودەکان</string>

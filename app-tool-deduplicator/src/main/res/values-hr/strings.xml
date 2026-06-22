@@ -15,9 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Prikaži opcije koje vam omogućavaju brisanje svih datoteka u setu duplikata tako da ne ostane nijedna datoteka.</string>
     <string name="deduplicator_search_locations_title">Lokacije pretraživanja</string>
     <string name="deduplicator_search_locations_all_summary">Sva dostupna područja</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferiraj zadržavanje u</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Prilikom odlučivanja koji duplikat zadržati, preferiraj zadržavanje datoteka na ovim lokacijama.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nema konfiguriranih lokacija</string>
     <string name="deduplicator_skip_minsize_title">Minimalna veličina</string>
     <string name="deduplicator_skip_minsize_description">Preskoči datoteke koje su manje od minimalne veličine.</string>
     <string name="deduplicator_skip_uncommon_title">Preskoči neuobičajene tipove datoteka</string>
@@ -29,7 +26,6 @@
     <string name="deduplicator_detection_method_phash_summary">Pronađite slične datoteke analizom značajki sadržaja i usporedbom perceptivnih hash vrijednosti. ⚠️ Detekcija na temelju sličnosti može uključivati ​​lažno pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
     <string name="deduplicator_detection_method_media_title">Medijski otisak prsta</string>
     <string name="deduplicator_detection_method_media_summary">Pronađi slične video i audio datoteke analizom audio otisaka prstiju. ⚠️ Detekcija temeljena na sličnosti može sadržavati lažno pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
-    <string name="deduplicator_matches_media_label">Slični mediji</string>
     <string name="deduplicator_media_match_audio">Podudaranje temeljeno na zvuku</string>
     <string name="deduplicator_media_match_visual">Podudaranje temeljeno na videu</string>
     <string name="deduplicator_media_match_audio_visual">Podudaranje temeljeno na zvuku i videu</string>

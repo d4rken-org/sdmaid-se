@@ -20,7 +20,6 @@
         <item quantity="one">দৈনিক</item>
         <item quantity="other">প্রতি %d দিনে</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">পুনরাবৃত্তির মধ্যকার ব্যবধান</string>
     <string name="scheduler_inaccurate_execution_hint">এক্সিকিউশনের প্রত্যাশিত সময় আনুমানিক। সময়সূচী বিলম্বিত হতে পারে বা ত্বরান্বিত হতে পারে যদি এটি ব্যাটারি সংরক্ষণ করে।</string>
     <string name="scheduler_no_active_schedules_subtitle">কোনো সক্রিয় সময়সূচী নেই</string>
     <string name="scheduler_setting_nopowersaving_title">চার্জ কম থাকলে এড়িয়ে যান</string>

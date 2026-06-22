@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">З дапамогай Менеджара стварыце выключэнні для праграм.</string>
     <string name="exclusion_create_path_hint">З дапамогай Аналізу сховішча стварыце выключэнні для шляхоў.</string>
     <string name="exclusion_show_defaults_action">Паказаць значэнні па змаўчанні</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
 </resources>

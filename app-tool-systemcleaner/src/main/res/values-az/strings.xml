@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl yaşına (son dəyişiklik vaxtı) görə nəticələri məhdudlaşdırın. Hər hansı yaş ilə uyğunlaşdırmaq üçün boş buraxın.</string>
     <string name="systemcleaner_customfilter_import_action">Yeni filter idxal et</string>
     <string name="systemcleaner_customfilter_export_action">Seçilmiş filtri ixrac et</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Saxlanılmamış dəyişiklikləriniz var!</string>
 </resources>

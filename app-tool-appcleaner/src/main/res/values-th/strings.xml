@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">การทำงานอัตโนมัติตัวทำความสะอาดแอพ</string>
     <string name="appcleaner_automation_subtitle_default_caches">กำลังล้างแคชเริ่มต้น…</string>
-    <string name="appcleaner_automation_progress_open_settings">เปิดหน้าจอการตั้งค่า (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">ค้นหารายการ \"พื้นที่เก็บข้อมูล\" (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">มองหาปุ่ม \"ล้างข้อมูล\" (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">มองหาปุ่ม \"ล้างแคช\" (คำสำคัญ: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">แคชเริ่มต้นสาธารณะและส่วนตัว ไม่สามารถเข้าถึงโดยตรงได้ แต่สามารถลบโดยอ้อมได้ (เช่น ผ่านบริการช่วยเหลือการเข้าถึง)</string>
     <string name="appcleaner_automation_unavailable_title">บริการช่วยเหลือการเข้าถึงไม่พร้อมใช้งาน</string>
     <string name="appcleaner_automation_unavailable_body">การล้างแคชที่เข้าถึงไม่ได้ต้องใช้บริการช่วยเหลือการเข้าถึงของ SD Maid แต่ไม่พร้อมใช้งาน หากคุณไม่ต้องการใช้: ปิดตัวเลือก \"รวมแคชที่เข้าถึงไม่ได้\"</string>
-    <string name="appcleaner_junk_userprofile_label">ผู้ใช้</string>
     <string name="appcleaner_delete_confirmation_message_x">ลบไฟล์ที่สามารถลบทิ้งได้สำหรับ %s หรือไม่?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ลบไฟล์ที่สามารถลบทิ้งได้สำหรับแอพที่เลือก %d แอพหรือไม่?</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">บังคับหยุดก่อนล้าง</string>
     <string name="appcleaner_forcestop_before_clearing_summary">บังคับหยุดแอปก่อนล้างแคช อาจช่วยล้างแคชบางแอปได้ แต่อาจทำให้แอปทำงานผิดปกติและต้องรีสตาร์ทด้วยตนเอง</string>
     <string name="appcleaner_progress_force_stopping">กำลังบังคับหยุดแอป…</string>
-    <string name="appcleaner_automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
-    <string name="appcleaner_automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
-    <string name="appcleaner_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการช่วยเหลือการเข้าถึง</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">พยายามยืนยันการกระทำก่อนหน้า (คำสำคัญ: %s)</string>
-    <string name="appcleaner_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
-    <string name="appcleaner_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
 </resources>

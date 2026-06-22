@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ఫైల్ వయసు (చివరి సవరణ సమయం) ఆధారంగా సరిపోలికలను పరిమితం చేయండి. ఏదైనా వయసుతో సరిపోలడానికి సెట్ చేయకుండా వదిలేయండి.</string>
     <string name="systemcleaner_customfilter_import_action">కొత్త ఫిల్టర్‌ను పరిచయం చేయండి</string>
     <string name="systemcleaner_customfilter_export_action">ఎంచుకొన్న ఫిల్టర్‌ను ఎక్స్‌పోర్ట్ చేయండి</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">మీరు సేవ్ చేయని మార్పులను కలిగి ఉన్నారు!</string>
 </resources>

@@ -17,9 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Zobrazit možnosti, které umožňují smazat všechny soubory v sadě duplikátů tak, aby nezůstal žádný soubor.</string>
     <string name="deduplicator_search_locations_title">Vyhledat místa</string>
     <string name="deduplicator_search_locations_all_summary">Všechny dostupné oblasti</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferovat zachování</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Při rozhodování které duplikáty uchovat, preferovat zachování souborů v těchto místech.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nenastavena žádná umístění</string>
     <string name="deduplicator_skip_minsize_title">Minimální velikost</string>
     <string name="deduplicator_skip_minsize_description">Přeskočit soubory, které nedosahují minimální velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Přeskočit neobvyklé typy souborů</string>
@@ -31,7 +28,6 @@
     <string name="deduplicator_detection_method_phash_summary">Vyhledejte podobné soubory pomocí analýzy vlastností obsahu a porovnání hodnot percepčního hash. ⚠️ Detekce na základě podobnosti může zahrnovat falešné pozitivní výsledky, které vyžadují ruční ověření.</string>
     <string name="deduplicator_detection_method_media_title">Otisk média</string>
     <string name="deduplicator_detection_method_media_summary">Najde podobné video a audio soubory analýzou zvukových otisků. ⚠️ Detekce na základě podobnosti může zahrnovat falešné poplachy vyžadující ruční ověření.</string>
-    <string name="deduplicator_matches_media_label">Podobná média</string>
     <string name="deduplicator_media_match_audio">Shoda na základě zvuku</string>
     <string name="deduplicator_media_match_visual">Shoda na základě videa</string>
     <string name="deduplicator_media_match_audio_visual">Shoda na základě zvuku a videa</string>

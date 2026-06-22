@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Tiếp tục phiên</string>
     <string name="swiper_sessions_description">Xem lại tệp trong 3 bước đơn giản:\n\n1. Chọn thư mục để quét\n2. Vuốt tệp để giữ, xóa hoặc bỏ qua\n3. Xem lại lựa chọn của bạn và xác nhận\n\nKhông có gì bị xóa cho đến khi bạn nhấn nút xóa cuối cùng.</string>
     <string name="swiper_select_folders_action">Chọn thư mục</string>
-    <string name="swiper_scanning_title">Đang quét…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d mục được tìm thấy</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">Tiếp tục chọn</string>
     <string name="swiper_status_action_delete_selected">Xóa đã chọn</string>
     <string name="swiper_status_action_reset_selected">Đặt lại đã chọn</string>
-    <string name="swiper_decision_undecided">Chưa quyết định</string>
-    <string name="swiper_retry_action">Thử lại</string>
     <string name="swiper_delete_confirmation_title">Xóa các tệp tin?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">Thao tác này sẽ xóa vĩnh viễn %1$d tập tin (%2$s). Hành động này không thể hoàn tác.</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d chưa quyết định</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d đã được lưu giữ</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d đã bị xóa</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d được giữ lại</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Cách Swiper hoạt động</string>
     <string name="swiper_help_message">Vuốt từng tệp để đưa ra quyết định:\n\n← Vuốt sang trái: %1$s\n→ Vuốt sang phải: %2$s\n↑ Vuốt lên: Bỏ qua\n↓ Vuốt xuống: Hoàn tác (sau lần vuốt đầu tiên)\n\nBạn cũng có thể sử dụng các nút ở phía dưới.\n\nKhi hoàn tất, nhấn \"Xem lại\" để xem tất cả quyết định của bạn. Không có gì bị xóa cho đến khi bạn xác nhận trên màn hình xem lại.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Đã hiểu</string>
-    <string name="swiper_help_action">Trợ giúp</string>
     <string name="swiper_file_type_filter_title">Chỉ hiển thị các loại tệp này</string>
     <string name="swiper_file_type_filter_hint">Chọn các loại bạn muốn xem. Nếu không có loại nào được chọn, tất cả các tệp sẽ được hiển thị.</string>
     <string name="swiper_file_type_category_images">Hình ảnh</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">Lưu trữ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Áp dụng</string>
-    <string name="swiper_session_filter_action">Lọc tệp</string>
     <string name="swiper_file_type_filter_summary">Đã lọc: %1$s</string>
     <string name="swiper_session_no_matching_files">Không tìm thấy tệp phù hợp</string>
     <string name="swiper_open_externally_action">Mở trong ứng dụng bên ngoài</string>

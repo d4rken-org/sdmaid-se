@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">സ്റ്റോറേജ് സ്പേസ് ലാഭിക്കാൻ ചിത്രങ്ങളും വീഡിയോകളും കംപ്രസ്സ് ചെയ്യുക.</string>
+    <string name="squeezer_explanation_short">സ്റ്റോറേജ് സ്ഥലം ലാഭിക്കാൻ ചിത്രങ്ങൾ കമ്പ്രസ് ചെയ്യുക.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d ഇനം കണ്ടെത്തി</item>
-        <item quantity="other">%d ഇനങ്ങൾ കണ്ടെത്തി</item>
+        <item quantity="one">%d ചിത്രം കണ്ടെത്തി</item>
+        <item quantity="other">%d ചിത്രങ്ങൾ കണ്ടെത്തി</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s ലാഭിക്കാം</item>
         <item quantity="other">~%s ലാഭിക്കാം</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d ഇനം കംപ്രസ്സ് ചെയ്തു</item>
-        <item quantity="other">%d ഇനങ്ങൾ കംപ്രസ്സ് ചെയ്തു</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d പരാജയപ്പെട്ടു</item>
-        <item quantity="other">%d പരാജയപ്പെട്ടു</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ഫയൽ ഒഴിവാക്കി (ആക്സസ് ചെയ്യാനാവില്ല)</item>
-        <item quantity="other">%d ഫയലുകൾ ഒഴിവാക്കി (ആക്സസ് ചെയ്യാനാവില്ല)</item>
+        <item quantity="one">%d ചിത്രം കമ്പ്രസ് ചെയ്തു</item>
+        <item quantity="other">%d ചിത്രങ്ങൾ കമ്പ്രസ് ചെയ്തു</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d ഇനം തിരഞ്ഞെടുത്തു</item>
-        <item quantity="other">%d ഇനങ്ങൾ തിരഞ്ഞെടുത്തു</item>
+        <item quantity="one">%d ചിത്രം തിരഞ്ഞെടുത്തി</item>
+        <item quantity="other">%d ചിത്രങ്ങൾ തിരഞ്ഞെടുത്തി</item>
     </plurals>
-    <string name="squeezer_search_locations_title">തിരയൽ സ്ഥലങ്ങൾ</string>
-    <string name="squeezer_search_locations_default_summary">ക്യാമറ ഫോർഡർുകൾ (ഡിഫോർൽട്)</string>
     <string name="squeezer_min_size_title">കുറഞ്ഞ ഫയൽ വലുപ്പം</string>
-    <string name="squeezer_min_size_description">ഈ വലിപ്പത്തിൽ കുറഞ്ഞ ഫയലുകൾ ഒഴിവാക്കുക.</string>
+    <string name="squeezer_min_size_description">ഈ വലുപ്പത്തിൽ ചെറുത് ചിത്രങ്ങൾ ഒഴിവാക്കുക.</string>
     <string name="squeezer_min_age_title">കുറഞ്ഞ ഫയൽ പഴക്കം</string>
-    <string name="squeezer_min_age_description">ഈ പഴക്കത്തിൽ കൂടുതൽ പഴയ ഫയലുകൾ മാത്രം ഉൾപ്പെടുത്തുക.</string>
-    <string name="squeezer_compression_settings_label">പൊതുവായ</string>
-    <string name="squeezer_quality_label">ഗുണമേൻമ</string>
-    <string name="squeezer_quality_title">കമ്പ്രഷൻ ഗുണമേൻമ</string>
-    <string name="squeezer_quality_description">കുറഞ്ഞ ഗുണമേൻമ എന്നാൽ ചെറിയ ഫയൽ വലിപ്പം, പക്ഷേ ദൃശ്യ ഗുണമേൻമ കുറയും.</string>
-    <string name="squeezer_quality_example_format">ഉദാ: %1$s ചിത്രം → %3$d%% ഗുണമേൻമയിൽ ~%2$s ലാഭിക്കും</string>
-    <string name="squeezer_quality_warning_low">കുറഞ്ഞ ഗുണമേൻമ ദൃശ്യമായ തക്രാരുകൾ ഉണ്ടാകാൻ സാധ്യതയുണ്ട്.</string>
-    <string name="squeezer_quality_warning_high">വളരെ ഉച്ച ഗുണമേൻമ കുറഞ്ഞ സ്ഥല ലാഭം നൽകുന്നു.</string>
-    <string name="squeezer_types_category_label">ചിത്ര ക്രമീകരണങ്ങൾ</string>
-    <string name="squeezer_video_settings_category_label">വീഡിയോ ക്രമീകരണങ്ങൾ</string>
+    <string name="squeezer_min_age_description">ഈ പഴക്കത്തിലധികം പഴയ ചിത്രങ്ങൾ മാത്രം ഉൾപ്പെടുത്തുക.</string>
+    <string name="squeezer_compression_settings_label">കമ്പ്രഷൻ കാർയക്ഷമതാ അടവുകൾ</string>
+    <string name="squeezer_quality_description">കുറഞ്ഞ ഗുണമേൻമ അര്ഥമാക്കുന്നത് ചെറിയ ഫയൽ വലുപ്പം പക്ഷേ ചിത്ര ഗുണമേൻമ കുറയും.</string>
+    <string name="squeezer_types_category_label">ചിത്ര തരങ്ങൾ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ചിത്രങ്ങൾ (.jpg, .jpeg) ഉൾപ്പെടുത്തുക.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ചിത്രങ്ങൾ (.webp) ഉൾപ്പെടുത്തുക.</string>
-    <string name="squeezer_type_video_title">MP4 വീഡിയോ</string>
-    <string name="squeezer_type_video_description">MP4 വീഡിയോ ഫയലുകൾ (.mp4) ഉൾപ്പെടുത്തുക.</string>
     <string name="squeezer_skip_compressed_title">മുൻപൎ കമ്പ്രസ് ചെയ്തവ ഒഴിവാക്കുക</string>
-    <string name="squeezer_skip_compressed_description">SD Maid ഇതിനകം കംപ്രസ്സ് ചെയ്ത ഫയലുകൾ ഒഴിവാക്കുക.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid മുൻപെ കമ്പ്രസ് ചെയ്ത ചിത്രങ്ങൾ ഒഴിവാക്കുക.</string>
     <string name="squeezer_exif_marker_title">EXIF മാർക്കർ എഴുതുക</string>
     <string name="squeezer_exif_marker_description">കമ്പ്രഷൻ ചരിത്രം മാർജിക്കപ്പെട്ടാൽപോലും വീണ്ടും കമ്പ്രഷൻ തടയാൻ, ചിത്രത്തിന്റെ EXIF ഉപയോക്തൃ കമ്മെന്റ് ഫീൽഡിൽ ഒരു മാർക്കർ ചേർക്കുക.</string>
     <string name="squeezer_estimated_savings_format">~%s ലാഭം</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">കമ്പ്രഷൻ സ്ഥിരീകരിക്കുക</string>
     <string name="squeezer_preview_total_size">മൊത്തം വലുപ്പം</string>
     <string name="squeezer_preview_estimated_savings">കണക്കാക്കിയ ലാഭം</string>
-    <string name="squeezer_compress_confirmation_title">തിരഞ്ഞെടുത്ത ഇനങ്ങൾ കംപ്രസ്സ് ചെയ്യണോ?</string>
-    <string name="squeezer_compress_confirmation_message">ഇത് യഥാർത്ഥ ഫയലുകൾ കംപ്രസ്സ് ചെയ്ത പതിപ്പുകൾ ഉപയോഗിച്ച് മാറ്റിസ്ഥാപിക്കും. ഈ പ്രവൃത്തി പഴേ നിലയിലാക്കാൻ കഴിയില്ല.</string>
     <string name="squeezer_history_title">കമ്പ്രഷൻ ചരിത്രം</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ഇനം (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">കമ്പ്രഷൻ ചരിത്രം ഇല്ല</string>
     <string name="squeezer_history_clear_title">കമ്പ്രഷൻ ചരിത്രം മാർജിക്കുക</string>
-    <string name="squeezer_history_clear_message">ഇത് മുമ്പ് കംപ്രസ്സ് ചെയ്ത ഫയലുകൾ വീണ്ടും കംപ്രസ്സ് ചെയ്യാൻ അനുവദിക്കും. ഫയലുകൾ തന്നെ ബാധിക്കപ്പെടില്ല.</string>
-    <string name="squeezer_onboarding_title">ഇമേജ് കമ്പ്രഷൻ കുറിച്ച്</string>
-    <string name="squeezer_onboarding_message">ഇമേജ് കമ്പ്രഷൻ ദൃശ്യമാന വിവരങ്ങൾ നീക്കി ഫയൽ വലുപ്പം കുറയ്ക്കുന്നു. ഈ പ്രക്രിയ തിരിച്ചെടുക്കാൻ കഴിയാത്തതാണ് - മൂല ഗുണമേൻമ വില തിരിച്ചെടുക്കാൻ കഴിയില്ല.\n\nനിങ്ങളുടെ ചിത്രങ്ങൾ എപ്പോർ കാണപ്പെടും എന്നതിന്റെ ഒരു മുന്നല്:</string>
+    <string name="squeezer_history_clear_message">ഇത് മുൻപൎ കമ്പ്രസ് ചെയ്ത ചിത്രങ്ങൾ വീണ്ടും കമ്പ്രസ് ചെയ്യാൻ അനുവദിക്കും. ചിത്രങ്ങൾ തന്നെ ബാധിക്കപ്പെടുന്നില്ല.</string>
     <string name="squeezer_onboarding_original_label">യഥാർത്ഥം</string>
     <string name="squeezer_onboarding_compressed_label">കമ്പ്രഷൻക്കു ശേഷം</string>
-    <string name="squeezer_onboarding_video_original_label">വീഡിയോ ഫ്രെയിം</string>
-    <string name="squeezer_onboarding_video_compressed_label">പ്രിവ്യൂ (ഏകദേശം)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">യഥാർത്ഥ വീഡിയോ ഗുണമേൻമ വ്യത്യാസപ്പെടാം</string>
-    <string name="squeezer_onboarding_quality_label">ഗുണമേൻമ: %d%%</string>
     <string name="squeezer_compare_action">താരതമ്യം കാണുക</string>
     <string name="squeezer_no_example_found">തിരഞ്ഞെടുത്ത പാതകളിൽ ചിത്രങ്ങൾ കണ്ടെത്തിയില്ല.</string>
-    <string name="squeezer_result_empty_message">കംപ്രസ്സ് ചെയ്യാവുന്ന മീഡിയ ഒന്നും കണ്ടെത്തിയില്ല.</string>
-    <string name="squeezer_setup_warning">കംപ്രഷൻ സ്ഥിരമായി ഗുണമേൻമ കുറക്കുന്നു, സ്റ്റോറേജ് സ്പേസ് ലാഭിക്കാൻ. ഇത് പഴേ നിലയിലാക്കാൻ കഴിയില്ല. തുടങ്ങുന്നതിന് മുമ്പ് ക്രമീകരണങ്ങൾ ശ്രദ്ധാപൂർവ്വം പരിശോധിക്കുക.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">കംപ്രഷനായി %d സ്ഥാനം ഉപയോഗിക്കാനാകില്ല, അത് നീക്കം ചെയ്തു. കംപ്രഷന് ആന്തരിക സ്റ്റോറേജിലേക്ക് നേരിട്ടുള്ള ആക്സസ് ആവശ്യമാണ്.</item>
-        <item quantity="other">കംപ്രഷനായി %d സ്ഥാനങ്ങൾ ഉപയോഗിക്കാനാകില്ല, അവ നീക്കം ചെയ്തു. കംപ്രഷന് ആന്തരിക സ്റ്റോറേജിലേക്ക് നേരിട്ടുള്ള ആക്സസ് ആവശ്യമാണ്.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze ചിത്രങ്ങളുടെയും വീഡിയോകളുടെയും ഫയൽ വലിപ്പം കുറക്കുന്നു, സ്റ്റോറേജ് സ്പേസ് മോചിപ്പിക്കാൻ. ഇത് സ്ഥിരമായി ഗുണമേൻമ കുറക്കുകയും പഴേ നിലയിലാക്കാൻ കഴിയാത്തതുമാണ്. തുടങ്ങുന്നതിന് മുമ്പ് ക്രമീകരണങ്ങൾ ശ്രദ്ധാപൂർവ്വം പരിശോധിക്കുക.</string>
+    <string name="squeezer_result_empty_message">കമ്പ്രസ് ചെയ്യാവുന്ന ചിത്രങ്ങൾ കണ്ടെത്തിയില്ല.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze സ്റ്റോറേജ് സ്ഥലം ശൂന്യമാക്കാൻ ചിത്രങ്ങളുടെ ഫയൽ വലുപ്പം കുറയ്ക്കുന്നു. ഇത് ചിത്ര ഗുണമേൻമ സ്ഥിരമായി കുറയ്ക്കുകയും തിരിച്ചെടുക്കാൻ കഴിയാത്തതുമാണ്. തുടങ്ങുനതിന് മുൻപ് നിങ്ങളുടെ കാർയക്ഷമതാ അടവുകൾ ശ്രദ്ധാപൂർവം പരിശോധിക്കുക.</string>
     <string name="squeezer_setup_paths_title">തിരയൽ സ്ഥലങ്ങൾ</string>
     <string name="squeezer_setup_paths_default">തിരയാൻ ഫോർഡർുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="squeezer_setup_quality_title">കമ്പ്രഷൻ ഗുണമേൻമ</string>
     <string name="squeezer_setup_age_title">കുറഞ്ഞ പഴക്കം</string>
-    <string name="squeezer_setup_age_none">പരിധി ഇല്ല (എല്ലാ ഫയലുകൾ ഉൾകൊള്ളുക)</string>
     <string name="squeezer_setup_start_action">സ്കാൻ തുടങ്ങുക</string>
     <string name="squeezer_quality_hint_very_low">40%ക്ക് താഴെയുള്ള ഗുണമേൻമ ഉപയോഗിക്കാൻ കഴിയാത്ത ചിത്രങ്ങൾ ഉണ്ടാകാർ സാധ്യതയുണ്ട്.</string>
     <string name="squeezer_quality_hint_low">കുറഞ്ഞ ഗുണമേൻമ കൂടുതൽ സ്ഥലം ലാഭിക്കുന്നു, പക്ഷേ ദൃശ്യമായ തക്രാരുകൾ ഉണ്ടാകാർ സാധ്യതയുണ്ട്.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">കുറഞ്ഞത് %d ദിവസം പഴക്കമുള്ളത്</item>
         <item quantity="other">കുറഞ്ഞത് %d ദിവസം പഴക്കമുള്ളത്</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">ചിത്രങ്ങൾക്ക് ഏകദേശം ~%d%% ലാഭം</string>
-    <string name="squeezer_onboarding_got_it">മനസ്സിലായി</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ഫയലുകൾക്കായി ~%d%% ലാഭം കണക്കാക്കിയിട്ടുണ്ട്</string>
 </resources>

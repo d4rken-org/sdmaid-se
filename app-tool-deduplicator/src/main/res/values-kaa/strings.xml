@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikatlar toplamındaǵı barlıq fayllarıdı öshiriwge múmkinshilik beretuǵın optsiyalırdı kórsetiw, sonlıqtan hesh fayl qalmaydi.</string>
     <string name="deduplicator_search_locations_title">Izlew orınları</string>
     <string name="deduplicator_search_locations_all_summary">Barlıq jetimli tarawlar</string>
-    <string name="deduplicator_keep_prefer_paths_title">Saqlaw ushin artıqsha ko\'riw</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Qaysy dublikattı saqlawdı sheshkende, usı orınlardaǵı faylların saqlawdı artıqsha ko\'rin\'.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Hesh qanday orın sazlanbaǵan</string>
     <string name="deduplicator_skip_minsize_title">Minimal kólem</string>
     <string name="deduplicator_skip_minsize_description">Minimal kólemnen kishi bolǵan fayllarıdı ótkerip jiberiw.</string>
     <string name="deduplicator_skip_uncommon_title">Ádettegi emes fayl túrlerin ótkerip jiberiw</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Mazmun o\'zgesheliklerdi taldaw ha\'m perseptual xesh qıymatların salıstırıw arqalı uqsas faylları tabın\'. ⚠️ Uqsaslıqqa tiykarlanǵan anıqlaw jalǵan pozitiflerdı o\'z ishine alıwı mu\'mkin, qoldan tekseriwdi talap etedi.</string>
     <string name="deduplicator_detection_method_media_title">Медиа саусақ изи</string>
     <string name="deduplicator_detection_method_media_summary">Аудио саусақ излери арқалы усыс видео ҳәм аудио файлларды табыў. ⚠️ Усыслыққа тийкарланған анықлаў нәтийжесинде қол менен тексериўди талап ететуғын жалған позитивлер болыўы мүмкин.</string>
-    <string name="deduplicator_matches_media_label">Усыс медиа</string>
     <string name="deduplicator_media_match_audio">Аудиоға тийкарланған сәйкеслик</string>
     <string name="deduplicator_media_match_visual">Видеоға тийкарланған сәйкеслик</string>
     <string name="deduplicator_media_match_audio_visual">Аудио ҳәм видеоға тийкарланған сәйкеслик</string>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">K vytvoření výjimek aplikací použijte nástroj Správce aplikací.</string>
     <string name="exclusion_create_path_hint">K vytvoření výjimek cest použijte nástroj Analyzátor úložiště.</string>
     <string name="exclusion_show_defaults_action">Zobrazit výchozí</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Máte neuložené změny!</string>
 </resources>

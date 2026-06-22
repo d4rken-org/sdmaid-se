@@ -6,11 +6,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import java.io.ByteArrayOutputStream
 import java.io.ObjectOutputStream
 import kotlin.io.encoding.Base64
-import kotlin.io.encoding.ExperimentalEncodingApi
 
 interface IpcHostModule {
 
-    @OptIn(ExperimentalEncodingApi::class)
     fun Array<StackTraceElement>.encodeBase64(): String? = try {
         val baos = ByteArrayOutputStream()
         ObjectOutputStream(baos).use {

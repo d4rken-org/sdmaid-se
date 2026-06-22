@@ -13,8 +13,8 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class PublicDataCSITest : BaseCSITest() {
     val sdcardPath1 = LocalPath.build("/card1")
@@ -70,7 +70,7 @@ class PublicDataCSITest : BaseCSITest() {
         storagePublicData2.path
     )
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         MockKAnnotations.init(this)
         super.setup()
 

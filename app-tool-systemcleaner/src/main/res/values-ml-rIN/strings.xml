@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ഫയൽ പ്രായതിന് അനുസരിച്ച് പൊരുത്തങ്ങൾ പരിമിതപ്പെടുത്തുക (അവസാനം മാര്റ്റിയ സമയം). ഏത് പ്രായവും പൊരുത്തിക്കാൻ സെറ്റ് ംഗീകരിച്ചിട്ടില്ല.</string>
     <string name="systemcleaner_customfilter_import_action">പുതിയ ഫിൽടർ ഇൻപോർട് ചെയ്യുക</string>
     <string name="systemcleaner_customfilter_export_action">തിരഞ്ഞെടുത്ത ഫിൽടർ എക്സ്പോർട് ചെയ്യുക</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ ഉണ്ട്!</string>
 </resources>

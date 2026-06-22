@@ -25,19 +25,12 @@
         <item quantity="many">נבחרו %d תמונות</item>
         <item quantity="other">נבחרו %d תמונות</item>
     </plurals>
-    <string name="squeezer_search_locations_title">חיפוש מיקומים</string>
-    <string name="squeezer_search_locations_default_summary">תיקיות מצלמה (ברירת מחדל)</string>
     <string name="squeezer_min_size_title">גודל קובץ מינימלי</string>
     <string name="squeezer_min_size_description">דלג על תמונות קטנות מגודל זה.</string>
     <string name="squeezer_min_age_title">גיל קובץ מינימלי</string>
     <string name="squeezer_min_age_description">כלול רק תמונות ישנות מגיל זה.</string>
     <string name="squeezer_compression_settings_label">הגדרות דחיסה</string>
-    <string name="squeezer_quality_label">איכות</string>
-    <string name="squeezer_quality_title">איכות דחיסה</string>
     <string name="squeezer_quality_description">איכות נמוכה יותר פירושה גודל קובץ קטן יותר אך איכות תמונה מופחתת.</string>
-    <string name="squeezer_quality_example_format">דוגמה: תמונת %1$s → חוסך ~%2$s באיכות %3$d%%</string>
-    <string name="squeezer_quality_warning_low">איכות נמוכה עלולה לגרום לעיוותים נראים.</string>
-    <string name="squeezer_quality_warning_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
     <string name="squeezer_types_category_label">סוגי תמונות</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">כלול תמונות JPEG ‏(.jpg, .jpeg).</string>
@@ -55,8 +48,6 @@
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>
     <string name="squeezer_preview_total_size">גודל כולל</string>
     <string name="squeezer_preview_estimated_savings">חיסכון משוער</string>
-    <string name="squeezer_compress_confirmation_title">לדחוס תמונות?</string>
-    <string name="squeezer_compress_confirmation_message">פעולה זו תחליף תמונות מקוריות בגרסאות דחוסות. לא ניתן לבטל פעולה זו.</string>
     <string name="squeezer_history_title">היסטוריית דחיסה</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">פריט %1$d (%2$s)</item>
@@ -67,21 +58,16 @@
     <string name="squeezer_history_empty">אין היסטוריית דחיסה</string>
     <string name="squeezer_history_clear_title">נקה היסטוריית דחיסה</string>
     <string name="squeezer_history_clear_message">פעולה זו תאפשר דחיסה חוזרת של תמונות שנדחסו בעבר. התמונות עצמן לא מושפעות.</string>
-    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
-    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
     <string name="squeezer_onboarding_original_label">מקור</string>
     <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
-    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
     <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
-    <string name="squeezer_setup_warning">דחיסה מפחיתה לצמיתות את איכות התמונה כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק היטב את ההגדרות לפני ההתחלה.</string>
     <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
     <string name="squeezer_setup_paths_title">חיפוש מיקומים</string>
     <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
     <string name="squeezer_setup_quality_title">איכות דחיסה</string>
     <string name="squeezer_setup_age_title">גיל מינימלי</string>
-    <string name="squeezer_setup_age_none">ללא הגבלה (כלול את כל הקבצים)</string>
     <string name="squeezer_setup_start_action">התחל סריקה</string>
     <string name="squeezer_quality_hint_very_low">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
     <string name="squeezer_quality_hint_low">איכות נמוכה יותר חוסכת יותר מקום אך עלולה לגרום לעיוותים נראים לעין.</string>
@@ -94,5 +80,4 @@
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
-    <string name="squeezer_onboarding_got_it">הבנתי</string>
 </resources>

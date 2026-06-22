@@ -7,8 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EmailTool
-import eu.darken.sdmse.common.SingleLiveEvent
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -18,12 +16,14 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
-import eu.darken.sdmse.common.flow.DynamicStateFlow
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.update
 import kotlinx.parcelize.Parcelize
 import java.io.File
 import javax.inject.Inject
@@ -35,24 +35,45 @@ class SupportContactFormViewModel @Inject constructor(
     private val emailTool: EmailTool,
     private val upgradeRepo: UpgradeRepo,
     private val sessionManager: DebugLogSessionManager,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, TAG) {
 
-    val events = SingleLiveEvent<SupportContactFormEvents>()
-    val postSendPromptEvent = SingleLiveEvent<Unit>()
+    val events = SingleEventFlow<SupportContactFormEvents>()
+
     @Volatile
     private var pendingSendCheck = false
 
-    private val currentState = DynamicStateFlow(TAG, vmScope) {
-        handle.get<State>(KEY_STATE) ?: State()
-    }
+    private val formState = MutableStateFlow(handle.get<State>(KEY_STATE) ?: State())
 
-    val state = currentState.asLiveData2()
+    val state: StateFlow<State> = formState
 
     private val selectedSessionId = MutableStateFlow<SessionId?>(null)
     private val pendingSessionId = MutableStateFlow<SessionId?>(null)
 
+    val logPickerState: StateFlow<LogPickerState> = combine(
+        sessionManager.sessions,
+        selectedSessionId,
+    ) { sessions, selectedId ->
+        val isRecording = sessions.any { it is DebugLogSession.Recording }
+        val isZipping = sessions.any { it is DebugLogSession.Zipping }
+        val finished = sessions.filterIsInstance<DebugLogSession.Finished>()
+        val validatedSelection = selectedId?.takeIf { id -> finished.any { it.id == id } }
+        LogPickerState(
+            isRecording = isRecording,
+            isZipping = isZipping,
+            sessions = finished.map {
+                LogSessionItem(
+                    sessionId = it.id,
+                    zipFile = it.zipFile,
+                    size = it.compressedSize,
+                    lastModified = it.createdAt.toEpochMilli(),
+                )
+            },
+            selectedSessionId = validatedSelection,
+        )
+    }.safeStateIn(LogPickerState()) { LogPickerState() }
+
     init {
-        // Auto-select: when a pending session finishes zipping, select it
+        // Auto-select a session as soon as its pending zip completes. Clear selection on failure.
         launch {
             sessionManager.sessions.collect { sessions ->
                 val pending = pendingSessionId.value ?: return@collect
@@ -62,42 +83,11 @@ class SupportContactFormViewModel @Inject constructor(
                     selectedSessionId.value = finished.id
                     return@collect
                 }
-                // Clear pending if session failed
                 val failed = sessions.filterIsInstance<DebugLogSession.Failed>().find { it.id == pending }
-                if (failed != null) {
-                    pendingSessionId.value = null
-                }
+                if (failed != null) pendingSessionId.value = null
             }
         }
     }
-
-    val logPickerState = combine(
-        sessionManager.sessions,
-        selectedSessionId,
-    ) { sessions, selectedId ->
-        val isRecording = sessions.any { it is DebugLogSession.Recording }
-        val isZipping = sessions.any { it is DebugLogSession.Zipping }
-        val finishedSessions = sessions.filterIsInstance<DebugLogSession.Finished>()
-
-        // Validate selection still exists
-        val validatedSelection = selectedId?.takeIf { id ->
-            finishedSessions.any { it.id == id }
-        }
-
-        LogPickerState(
-            isRecording = isRecording,
-            isZipping = isZipping,
-            sessions = finishedSessions.map { session ->
-                LogSessionItem(
-                    sessionId = session.id,
-                    zipFile = session.zipFile,
-                    size = session.compressedSize,
-                    lastModified = session.createdAt.toEpochMilli(),
-                )
-            },
-            selectedSessionId = validatedSelection,
-        )
-    }.asLiveData2()
 
     data class LogPickerState(
         val isRecording: Boolean = false,
@@ -127,40 +117,30 @@ class SupportContactFormViewModel @Inject constructor(
         val expectedWords: Int
             get() = expectedBehavior.trim().split("\\s+".toRegex()).filter { it.isNotEmpty() }.size
         val canSend: Boolean
-            get() = !isSending && descriptionWords >= DESCRIPTION_MIN_WORDS && (!isBug || expectedWords >= EXPECTED_MIN_WORDS)
+            get() = !isSending && descriptionWords >= DESCRIPTION_MIN_WORDS &&
+                (!isBug || expectedWords >= EXPECTED_MIN_WORDS)
     }
 
     enum class Category { BUG, FEATURE, QUESTION }
 
     enum class Tool { APP_CLEANER, CORPSE_FINDER, SYSTEM_CLEANER, DEDUPLICATOR, ANALYZER, APP_CONTROL, SCHEDULER, GENERAL }
 
-    private suspend fun updateState(block: State.() -> State) {
-        currentState.updateBlocking(block)
-        handle[KEY_STATE] = currentState.value()
+    private fun updateState(block: State.() -> State) {
+        formState.update { it.block() }
+        handle[KEY_STATE] = formState.value
     }
 
-    fun updateCategory(category: Category) = launch {
-        updateState { copy(category = category) }
-    }
-
-    fun updateTool(tool: Tool) = launch {
-        updateState { copy(tool = tool) }
-    }
-
-    fun updateDescription(text: String) = launch {
-        updateState { copy(description = text) }
-    }
-
-    fun updateExpectedBehavior(text: String) = launch {
-        updateState { copy(expectedBehavior = text) }
-    }
+    fun updateCategory(category: Category) = updateState { copy(category = category) }
+    fun updateTool(tool: Tool) = updateState { copy(tool = tool) }
+    fun updateDescription(text: String) = updateState { copy(description = text) }
+    fun updateExpectedBehavior(text: String) = updateState { copy(expectedBehavior = text) }
 
     fun refreshLogSessions() {
         sessionManager.refresh()
     }
 
-    fun selectLogSession(sessionId: SessionId) = launch {
-        selectedSessionId.value = if (selectedSessionId.value == sessionId) null else sessionId
+    fun selectLogSession(sessionId: SessionId) {
+        selectedSessionId.update { current -> if (current == sessionId) null else sessionId }
     }
 
     fun deleteLogSession(sessionId: SessionId) = launch {
@@ -174,12 +154,10 @@ class SupportContactFormViewModel @Inject constructor(
     fun stopRecording() = launch {
         when (val result = sessionManager.requestStopRecording()) {
             is RecorderModule.StopResult.TooShort -> {
-                events.postValue(SupportContactFormEvents.ShowShortRecordingWarning)
+                events.emit(SupportContactFormEvents.ShowShortRecordingWarning)
             }
-            is RecorderModule.StopResult.Stopped -> {
-                pendingSessionId.value = result.sessionId
-            }
-            is RecorderModule.StopResult.NotRecording -> {}
+            is RecorderModule.StopResult.Stopped -> pendingSessionId.value = result.sessionId
+            is RecorderModule.StopResult.NotRecording -> Unit
         }
     }
 
@@ -191,48 +169,60 @@ class SupportContactFormViewModel @Inject constructor(
     fun checkPendingSend() {
         if (!pendingSendCheck) return
         pendingSendCheck = false
-        postSendPromptEvent.postValue(Unit)
+        events.tryEmit(SupportContactFormEvents.ShowPostSendPrompt)
+    }
+
+    /**
+     * Called by the host composable ONLY after `startActivity(intent)` succeeds. Arming the
+     * post-send prompt before the intent could leak a "message sent?" dialog on devices without
+     * an email app (the legacy fragment did this).
+     */
+    fun markEmailLaunched() {
+        pendingSendCheck = true
+    }
+
+    fun openUrl(url: String) {
+        events.tryEmit(SupportContactFormEvents.OpenUrl(url))
     }
 
     fun send() = launch {
-        val pickerState = logPickerState.value ?: return@launch
-        if (pickerState.isRecording) return@launch
+        val picker = logPickerState.value
+        if (picker.isRecording) return@launch
 
         updateState { copy(isSending = true) }
-
         try {
-            val state = currentState.value()
+            val snapshot = formState.value
 
-            val logUri = pickerState.selectedSessionId?.let { id ->
+            val logUri = picker.selectedSessionId?.let { id ->
                 try {
                     sessionManager.getZipUri(id)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to zip logs: ${e.asLog()}" }
-                    events.postValue(SupportContactFormEvents.ShowError(R.string.support_contact_debuglog_zip_error))
+                    events.emit(SupportContactFormEvents.ShowError(R.string.support_contact_debuglog_zip_error))
                     return@launch
                 }
             }
 
             val isPro = try {
                 upgradeRepo.upgradeInfo.first().isPro
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 null
             }
 
-            val subjectPreview = state.description.trim()
+            val subjectPreview = snapshot.description.trim()
                 .split("\\s+".toRegex())
                 .filter { it.isNotEmpty() }
                 .take(8)
                 .joinToString(" ")
-            val subject = "[SDMSE][${state.category.name}][${state.tool.name}] $subjectPreview"
+            val subject = "[SDMSE][${snapshot.category.name}][${snapshot.tool.name}] $subjectPreview"
 
             val body = buildString {
-                appendLine(state.description)
+                appendLine(snapshot.description)
 
-                if (state.isBug) {
+                if (snapshot.isBug) {
                     appendLine()
                     appendLine("--- Expected Behavior ---")
-                    appendLine(state.expectedBehavior)
+                    appendLine(snapshot.expectedBehavior)
                 }
 
                 val proIndicator = when (isPro) {
@@ -246,6 +236,7 @@ class SupportContactFormViewModel @Inject constructor(
                 appendLine("Android: ${Build.VERSION.RELEASE} (SDK ${Build.VERSION.SDK_INT})")
                 appendLine("Device: ${Build.MANUFACTURER} ${Build.MODEL}")
             }
+
             val email = EmailTool.Email(
                 receipients = listOf(SUPPORT_EMAIL),
                 subject = subject,
@@ -254,8 +245,7 @@ class SupportContactFormViewModel @Inject constructor(
             )
 
             val intent = emailTool.build(email, offerChooser = true)
-            pendingSendCheck = true
-            events.postValue(SupportContactFormEvents.OpenEmail(intent))
+            events.emit(SupportContactFormEvents.OpenEmail(intent))
         } finally {
             updateState { copy(isSending = false) }
         }

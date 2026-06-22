@@ -30,16 +30,9 @@
     <string name="general_empty_label">Vala</string>
     <string name="general_new_badge_label">Nû</string>
     <string name="general_dismiss_action">Red bike</string>
-    <string name="general_maybe_later_action">Belkî paşê</string>
     <string name="general_manage_action">Birêve bike</string>
-    <string name="general_sync_action">Hevdem bike</string>
     <string name="general_error_label">Çewtî</string>
-    <string name="general_tap_hint_msg">Ji bo vebijarkên zêde bitikîne</string>
     <string name="general_upgrade_action">Bilind bike</string>
-    <string name="general_donate_action">Beşxanî</string>
-    <string name="general_check_action">Kontrol bike</string>
-    <string name="general_filter_action">Parzûn</string>
-    <string name="general_internal_not_available_msg">Gihiştina înternet tune ye</string>
     <string name="general_refresh_action">Nû bike</string>
     <string name="general_progress_searching">Digere</string>
     <string name="general_progress_generating_searchpaths">Rêyên lêgerînê çêdike</string>
@@ -68,12 +61,9 @@
     <string name="general_progress_queued">Li rêzê ye</string>
     <string name="general_progress_deleting">Jê dibe</string>
     <string name="general_progress_deleting_x">%s jê dibe</string>
-    <string name="general_sort_options_label">Vebijarkên rêzkirin</string>
     <string name="general_sort_reverse_action">Moda rêzkirina berevajî</string>
-    <string name="general_tag_filter_label">Li gor nîşanan parzûn</string>
     <string name="general_tag_system">Pergal</string>
     <string name="general_result_success_message">Kiryar serketî</string>
-    <string name="general_result_failure_message">Kiryar neserketî</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Cihê %s azad bû.</item>
         <item quantity="other">Cihê %s azad bû.</item>
@@ -86,25 +76,23 @@
     <string name="general_delete_action">Jêbibe</string>
     <string name="general_delete_selected_action">Hilbijartîyan jêbibe</string>
     <string name="general_show_details_action">Hûrgulîyan nîşan bide</string>
-    <string name="general_show_all_action">Hemûyan nîşan bide</string>
     <string name="general_toggle_layout_mode">Moda dîtina biguherîne</string>
     <string name="general_delete_confirmation_title">Jêbirinê bipejirîne</string>
     <string name="general_delete_confirmation_message_x">"%s" jêbibe?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d hêmanên hilbijartî jêbibe?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d hêmanên hilbijartî jêbibe?</item>
+        <item quantity="other">%d hêmanên hilbijartî jêbibe?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d hêman hate jêbirin.</item>
         <item quantity="other">%d hêman hatin jêbirin.</item>
     </plurals>
     <string name="general_remove_action">Rake</string>
-    <string name="general_remove_selected_action">Hilbijartîyan rake</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Yek hêman hate rakirin</item>
         <item quantity="other">%d hêman hatin rakirin</item>
     </plurals>
-    <string name="general_root_required_label">Root hewce ye</string>
-    <string name="general_root_required_message">Amûreke rootkirî hewce ye</string>
     <string name="general_search_action">Bigere</string>
-    <string name="general_scan_device_action">Amûr şan bike</string>
     <string name="general_open_system_settings_action">Mîhengên pergalê veke</string>
     <plurals name="result_x_items">
         <item quantity="one">%s hêman</item>
@@ -124,7 +112,6 @@
     </plurals>
     <string name="general_info_label">Agahî</string>
     <string name="general_count_label">Hejmar</string>
-    <string name="general_app_label">Sepan</string>
     <string name="general_more_info_action">Agahîyên zêde</string>
     <string name="general_grant_access_action">Gihiştin bide</string>
     <string name="general_enable_service_action">Karûbarê çalak bike</string>
@@ -137,7 +124,6 @@
     <string name="general_exclude_selected_action">Hilbijartîyan derxe</string>
     <string name="general_device_label">Amûr</string>
     <string name="general_settings_title">Mîheng</string>
-    <string name="general_help_title">Alîkarî</string>
     <string name="file_type_symbolic_link">Girêdan</string>
     <string name="file_type_directory">Peldanka</string>
     <string name="file_type_file">Pel</string>
@@ -179,5 +165,4 @@
     <string name="settings_category_risklevel">Asta xeterê</string>
     <string name="settings_category_filter">Parzûn</string>
     <string name="appcontrol_systemsettings_open_title">Mîhengan nîşan bide</string>
-    <string name="systemcleaner_customfilter_create_action">Parzûna taybet biafirînin</string>
 </resources>

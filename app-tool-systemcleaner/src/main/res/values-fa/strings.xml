@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">محدود کردن نتایج بر اساس سن فایل (آخرین زمان تغییر). برای تطبیق هر سنی خالی بگذارید.</string>
     <string name="systemcleaner_customfilter_import_action">واردات فیلتر جدید</string>
     <string name="systemcleaner_customfilter_export_action">صادرات فیلتر انتخاب شده</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
 </resources>

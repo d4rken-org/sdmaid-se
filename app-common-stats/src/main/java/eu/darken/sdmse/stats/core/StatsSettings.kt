@@ -5,8 +5,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.serialization.json.Json
@@ -18,11 +16,11 @@ import javax.inject.Singleton
 class StatsSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     private val json: Json,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_stats")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val retentionReports = dataStore.createValue("retention.reports", DEFAULT_RETENTION_REPORTS, json)
@@ -32,12 +30,6 @@ class StatsSettings @Inject constructor(
 
     val totalSpaceFreed = dataStore.createValue("total.space.freed", 0L)
     val totalItemsProcessed = dataStore.createValue("total.items.processed", 0L)
-
-    override val mapper = PreferenceStoreMapper(
-        retentionReports,
-        retentionPaths,
-        retentionSnapshots,
-    )
 
     companion object {
         val DEFAULT_RETENTION_REPORTS: Duration = Duration.ofDays(30)

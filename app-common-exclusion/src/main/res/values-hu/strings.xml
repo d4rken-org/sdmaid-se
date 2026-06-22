@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Használd az AppVezérlő eszközt az alkalmazások kizárásának létrehozásához.</string>
     <string name="exclusion_create_path_hint">Használd a TárhelyElemző eszközt az elérési útvonal-kizárások létrehozásához.</string>
     <string name="exclusion_show_defaults_action">Alapértelmezések megjelenítése</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
 </resources>

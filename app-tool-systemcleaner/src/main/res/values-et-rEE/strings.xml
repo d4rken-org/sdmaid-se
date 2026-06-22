@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Piira tulemusi olenevalt faili vanusest (viimati muudetud). Kõikide vanuste kuvamiseks jätta tühjaks.</string>
     <string name="systemcleaner_customfilter_import_action">Impordi uus filter</string>
     <string name="systemcleaner_customfilter_export_action">Ekspordi valitud filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
 </resources>

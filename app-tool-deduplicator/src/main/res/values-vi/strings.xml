@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Hiển thị các tùy chọn cho phép bạn xóa tất cả các tệp trong một tập hợp các bản sao để không còn tệp nào.</string>
     <string name="deduplicator_search_locations_title">Vị trí tìm kiếm</string>
     <string name="deduplicator_search_locations_all_summary">Tất cả các khu vực có thể tiếp cận</string>
-    <string name="deduplicator_keep_prefer_paths_title">Ưu tiên giữ lại</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Khi quyết định giữ lại bản sao nào, hãy ưu tiên lưu giữ các tệp ở những vị trí này.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Chưa có vị trí nào được cấu hình</string>
     <string name="deduplicator_skip_minsize_title">Kích thước tối thiểu</string>
     <string name="deduplicator_skip_minsize_description">Bỏ qua các tập tin có kích thước dưới kích thước tối thiểu.</string>
     <string name="deduplicator_skip_uncommon_title">Bỏ qua các loại tệp không phổ biến</string>
@@ -25,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị Hash. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết qủa không chính xác, cần xác minh thủ công.</string>
     <string name="deduplicator_detection_method_media_title">Dấu vân tay phương tiện</string>
     <string name="deduplicator_detection_method_media_summary">Tìm các tệp video và âm thanh tương tự bằng cách phân tích dấu vân tay âm thanh. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết quả dương tính giả cần được xác minh thủ công.</string>
-    <string name="deduplicator_matches_media_label">Media tương tự</string>
     <string name="deduplicator_media_match_audio">Khớp dựa trên âm thanh</string>
     <string name="deduplicator_media_match_visual">Khớp dựa trên video</string>
     <string name="deduplicator_media_match_audio_visual">Khớp dựa trên âm thanh và video</string>

@@ -37,8 +37,8 @@
         <item quantity="many">%d елементів вибрано</item>
         <item quantity="other">%d елементів вибрано</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Місця пошуку</string>
-    <string name="squeezer_search_locations_default_summary">Папки камери (за замовчуванням)</string>
+    
+    
     <string name="squeezer_min_size_title">Мінімальний розмір файлу</string>
     <string name="squeezer_min_size_description">Пропускати файли менші за цей розмір.</string>
     <string name="squeezer_min_age_title">Мінімальний вік файлу</string>
@@ -105,7 +105,7 @@
     <string name="squeezer_setup_paths_default">Виберіть папки для пошуку</string>
     <string name="squeezer_setup_quality_title">Якість стиснення</string>
     <string name="squeezer_setup_age_title">Мінімальний вік</string>
-    <string name="squeezer_setup_age_none">Без обмежень (включити всі файли)</string>
+    
     <string name="squeezer_setup_start_action">Почати сканування</string>
     <string name="squeezer_quality_hint_very_low">Якість нижче 40% може призвести до створення непридатних зображень.</string>
     <string name="squeezer_quality_hint_low">Нижча якість економить більше місця, але може спричинити появу видимих артефактів.</string>

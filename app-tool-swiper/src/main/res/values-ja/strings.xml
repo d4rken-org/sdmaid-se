@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">セッションを続行</string>
     <string name="swiper_sessions_description">3つの簡単なステップでファイルを確認:\n\n1. スキャンするフォルダを選択\n2. ファイルをスワイプして保持、削除、スキップ\n3. 選択内容を確認して承認\n\n最終的な削除ボタンをタップするまで何も削除されません。</string>
     <string name="swiper_select_folders_action">フォルダを選択</string>
-    <string name="swiper_scanning_title">スキャン中…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d 個のアイテムが見つかりました</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">選択を保持</string>
     <string name="swiper_status_action_delete_selected">選択したものを削除</string>
     <string name="swiper_status_action_reset_selected">選択をリセット</string>
-    <string name="swiper_decision_undecided">未決定</string>
-    <string name="swiper_retry_action">再試行</string>
     <string name="swiper_delete_confirmation_title">ファイルを削除しますか？</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">%1$d 個のファイル（%2$s）を完全に削除します。この操作は元に戻せません。</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d 個が未決定</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d 個は保持済み</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d 個は削除済み</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d 個保持</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Swiperの使い方</string>
     <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
     <string name="swiper_gesture_overlay_dismiss_action">わかりました。</string>
-    <string name="swiper_help_action">ヘルプ</string>
     <string name="swiper_file_type_filter_title">これらのファイルタイプのみ表示</string>
     <string name="swiper_file_type_filter_hint">表示したいタイプを選択してください。何も選択されていない場合、すべてのファイルが表示されます。</string>
     <string name="swiper_file_type_category_images">画像</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">アーカイブ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">適用</string>
-    <string name="swiper_session_filter_action">ファイルをフィルター</string>
     <string name="swiper_file_type_filter_summary">フィルター済み: %1$s</string>
     <string name="swiper_session_no_matching_files">一致するファイルが見つかりません</string>
     <string name="swiper_open_externally_action">外部アプリで開く</string>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Verwende das App-Kontrolle-Tool, um App-Ausnahmen zu erstellen.</string>
     <string name="exclusion_create_path_hint">Verwende das Speicheranalyse-Tool, um Pfadausschlüsse zu erstellen.</string>
     <string name="exclusion_show_defaults_action">Standardwerte anzeigen</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
 </resources>

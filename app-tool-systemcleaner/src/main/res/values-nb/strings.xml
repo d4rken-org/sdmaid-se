@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Begrens treff basert på filens alder (sist endret). La stå tom for å matche alle aldre.</string>
     <string name="systemcleaner_customfilter_import_action">Importer nytt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksporter valgt filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
 </resources>

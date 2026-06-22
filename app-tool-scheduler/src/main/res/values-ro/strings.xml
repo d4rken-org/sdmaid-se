@@ -21,7 +21,6 @@
         <item quantity="few">La fiecare %d zile</item>
         <item quantity="other">La fiecare %d zile</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Repetă intervalul</string>
     <string name="scheduler_inaccurate_execution_hint">Timpurile de execuție așteptați sunt aproximații. Programele pot fi întârziate sau accelerate dacă economisește bateria.</string>
     <string name="scheduler_no_active_schedules_subtitle">Niciun program activ</string>
     <string name="scheduler_setting_nopowersaving_title">Treci peste când este bateria scăzută</string>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">கோப்பு வயது (கடைசி மாற்றிய நேரம்) அடிப்படையில் பொருத்தங்களை வரம்பிடு. எந்த வயதிலும் பொருத்த அமைக்காமல் விடவும்.</string>
     <string name="systemcleaner_customfilter_import_action">புதிய வடிகட்டியை இறக்குமதி செய்</string>
     <string name="systemcleaner_customfilter_export_action">தேர்ந்தெடுத்த வடிகட்டியை ஏற்றுமதி செய்</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
 </resources>

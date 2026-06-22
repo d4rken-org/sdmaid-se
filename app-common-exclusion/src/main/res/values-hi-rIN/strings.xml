@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ऐप अपवर्जन बनाने के लिए AppControl टूल का उपयोग करें।</string>
     <string name="exclusion_create_path_hint">पथ अपवर्जन बनाने के लिए StorageAnalyzer टूल का उपयोग करें।</string>
     <string name="exclusion_show_defaults_action">डिफ़ॉल्ट दिखाएं</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">आपके परिवर्तन सहेजे नहीं गए हैं!</string>
 </resources>

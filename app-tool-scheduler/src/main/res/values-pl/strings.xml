@@ -22,7 +22,6 @@
         <item quantity="many">Co %d dni</item>
         <item quantity="other">Co %d dni</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Częstotliwość powtarzania</string>
     <string name="scheduler_inaccurate_execution_hint">Przewidywane czasy wykonania są przybliżone. Harmonogramy mogą zostać opóźnione lub przyspieszone, jeśli będzie to skutkowało oszczędzaniem baterii.</string>
     <string name="scheduler_no_active_schedules_subtitle">Brak aktywnych harmonogramów</string>
     <string name="scheduler_setting_nopowersaving_title">Pomiń przy niskim stanie baterii</string>

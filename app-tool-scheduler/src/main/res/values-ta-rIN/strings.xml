@@ -20,7 +20,6 @@
         <item quantity="one">நாளைந்தொறும்</item>
         <item quantity="other">ஒவ்வொரு %d நாட்களிலும்</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">மீண்டும் இடைவெளி</string>
     <string name="scheduler_inaccurate_execution_hint">எதிர்பார்க்கப்படும் நிறைவேற்ற நேரங்கள் தகராறுகளாகும். பாட்டரியை பாதுகாக்கினால் தேதிகள் தாமதமாகலாம் அல்லது விரைவாகலாம்.</string>
     <string name="scheduler_no_active_schedules_subtitle">செயலிலுள்ள தேதிகள் இல்லை</string>
     <string name="scheduler_setting_nopowersaving_title">குறைந்த பாட்டரியில் தவிர்</string>

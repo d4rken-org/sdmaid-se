@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">აჩვენეთ ოფციები, რომლებიც საშუალებას მოგცემთ წაშალოთ ყველა ფაილი დუბლიკატების ნაკრებში, ისე რომ ფაილი არ დარჩეს.</string>
     <string name="deduplicator_search_locations_title">ძიების ადგილები</string>
     <string name="deduplicator_search_locations_all_summary">ყველა ხელმისაწვდომი ზონა</string>
-    <string name="deduplicator_keep_prefer_paths_title">უპირატესობა შენარჩუნებას</string>
-    <string name="deduplicator_keep_prefer_paths_summary">დუბლიკატის შენარჩუნების გადაწყვეტისას, უპირატესობა მიეცეს ამ ადგილებში არსებული ფაილების შენარჩუნებას.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ადგილები არ არის კონფიგურირებული</string>
     <string name="deduplicator_skip_minsize_title">მინიმალური ზომა</string>
     <string name="deduplicator_skip_minsize_description">გამოტოვეთ ფაილები, რომლებიც მინიმალურ ზომაზე ნაკლებია.</string>
     <string name="deduplicator_skip_uncommon_title">გამოტოვეთ უჩვეულო ფაილის ტიპები</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">მსგავსი ფაილების პოვნა კონტენტის მახასიათებლების ანალიზითა და პერცეპტუალური ჰეშის მნიშვნელობების შედარებით. ⚠️ მსგავსებაზე დაფუძნებულმა ამოცნობამ შეიძლება მოიცვას ცრუ პოზიტივები, რომლებიც ხელით შემოწმებას საჭიროებს.</string>
     <string name="deduplicator_detection_method_media_title">მედიის თითის ანაბეჭდი</string>
     <string name="deduplicator_detection_method_media_summary">იპოვეთ მსგავსი ვიდეო და აუდიო ფაილები აუდიო თითის ანაბეჭდების ანალიზით. ⚠️ მსგავსებაზე დაფუძნებული გამოვლენა შეიძლება შეიცავდეს ყალბ დადებით შედეგებს, რომლებიც საჭიროებს ხელით გადამოწმებას.</string>
-    <string name="deduplicator_matches_media_label">მსგავსი მედია</string>
     <string name="deduplicator_media_match_audio">აუდიოზე დაფუძნებული დამთხვევა</string>
     <string name="deduplicator_media_match_visual">ვიდეოზე დაფუძნებული დამთხვევა</string>
     <string name="deduplicator_media_match_audio_visual">აუდიო და ვიდეოზე დაფუძნებული დამთხვევა</string>

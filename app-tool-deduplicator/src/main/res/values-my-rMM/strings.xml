@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ထပ်တူများ အစုတစ်ခုရှိ ဖိုင်အားလုံး ဖျက်နိုင်သော ရွေးချယ်များ ပြသပါ။</string>
     <string name="deduplicator_search_locations_title">ရှာဖွေသောနေရာများ</string>
     <string name="deduplicator_search_locations_all_summary">ဝင်ရောက်နိုင်သော နေရာအားလုံး</string>
-    <string name="deduplicator_keep_prefer_paths_title">ထိန်းသိမ်းနေရာ ဥးစားပေးပါ</string>
-    <string name="deduplicator_keep_prefer_paths_summary">မည်သည့့် ထပ်တူကို ထိန်းသိမ်းမဟုတ် ဆုံးဖြစ်ရာတွင် ဤနေရာများတွင် ဖိုင်များ ထိန်းသိမ်းရန် ဥးစားပေးပါ။</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">နေရာများ သတ်မှတ်မထားပါ</string>
     <string name="deduplicator_skip_minsize_title">အနည်းဆုံး အရွယ်အစား</string>
     <string name="deduplicator_skip_minsize_description">အနည်းဆုံး အရွယ်အစားထက် သေးသော ဖိုင်များကို ကျောပါ။</string>
     <string name="deduplicator_skip_uncommon_title">ဆန်ပြားသော ဖိုင်အမျိုးအစားများ ကျောပါ</string>
@@ -25,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">အကြောင်အရာ လက္ခနာများ ခွဲခြမ်းစိတ်ဖြာပြီး perceptual hash တန်ဖိုးများ နှိုးယှေစ်ကာ ဆင်တူသော ဖိုင်များ ရှာပါ။ ⚠️ ဆင်တူမှုအပေါ် အခှပြု သစ်ဆေးခြင်းတွင် လက်ဖြင့် သစ်ဆေးရမည့်သော မှားယွင်းသော ရလဒ်များ ပါဝင်နိုင်သည်။</string>
     <string name="deduplicator_detection_method_media_title">မီဒီယာ လက်ဗွေ</string>
     <string name="deduplicator_detection_method_media_summary">အသံ လက်ဗွေများကို ခွဲခြမ်းစိတ်ဖြာ၍ ဗီဒီယိုနှင့် အသံဖိုင်များ ကို ရှာဖွေပါ။ ⚠️ တူညီမှုအပေါ် အခြေပြု စစ်ဆေးခြင်းသည် ကိုယ်တိုင် စစ်ဆေးမှု လိုအပ်သော မှားယွင်းသော ကိုက်ညီမှုများ ပါဝင်နိုင်သည်။</string>
-    <string name="deduplicator_matches_media_label">ဆင်တူသော မီဒီယာ</string>
     <string name="deduplicator_media_match_audio">အသံအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
     <string name="deduplicator_media_match_visual">ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
     <string name="deduplicator_media_match_audio_visual">အသံနှင့် ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>

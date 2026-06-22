@@ -18,6 +18,12 @@ sealed interface SetupEvents {
         val item: Permission,
     ) : SetupEvents
 
+    data class SpecialPermissionRequest(
+        val item: Permission,
+        val intent: Intent,
+        val fallbackIntent: Intent?,
+    ) : SetupEvents
+
     data class ConfigureAccessibilityService(
         val item: AutomationSetupModule.Result,
     ) : SetupEvents

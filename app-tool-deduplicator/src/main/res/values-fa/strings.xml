@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">نمایش گزینه‌هایی که به شما اجازه می‌دهد همه فایل‌ها در یک مجموعه تکراری را حذف کنید به طوری که هیچ فایلی باقی نماند.</string>
     <string name="deduplicator_search_locations_title">جستجوی مکان‌ها</string>
     <string name="deduplicator_search_locations_all_summary">تمام مناطق قابل دسترسی</string>
-    <string name="deduplicator_keep_prefer_paths_title">ترجیح نگه‌داشتن در</string>
-    <string name="deduplicator_keep_prefer_paths_summary">هنگام تصمیم‌گیری درباره نگه‌داشتن کدام نسخه تکراری، فایل‌های موجود در این مکان‌ها ترجیح داده شوند.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">هیچ مکانی تنظیم نشده</string>
     <string name="deduplicator_skip_minsize_title">حداقل اندازه</string>
     <string name="deduplicator_skip_minsize_description">فایل‌هایی که کمتر از اندازه حداقل هستند را نادیده بگیرید.</string>
     <string name="deduplicator_skip_uncommon_title">چشم‌پوشی از انواع فایل‌های نادر</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">با تجزیه و تحلیل ویژگی‌های محتوا و مقایسه مقادیر هش ادراکی، فایل‌های مشابه را پیدا کنید. ⚠️ تشخیص مبتنی بر شباهت ممکن است شامل موارد مثبت کاذب باشد که نیاز به تأیید دستی دارند.</string>
     <string name="deduplicator_detection_method_media_title">اثر انگشت رسانه</string>
     <string name="deduplicator_detection_method_media_summary">یافتن فایل‌های ویدیویی و صوتی مشابه با تحلیل اثر انگشت صوتی. ⚠️ تشخیص مبتنی بر شباهت ممکن است شامل موارد مثبت کاذب باشد که نیاز به تأیید دستی دارند.</string>
-    <string name="deduplicator_matches_media_label">رسانه‌های مشابه</string>
     <string name="deduplicator_media_match_audio">تطابق مبتنی بر صدا</string>
     <string name="deduplicator_media_match_visual">تطابق مبتنی بر ویدیو</string>
     <string name="deduplicator_media_match_audio_visual">تطابق مبتنی بر صدا و ویدیو</string>

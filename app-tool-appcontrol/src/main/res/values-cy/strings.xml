@@ -30,7 +30,6 @@
     <string name="appcontrol_tag_debug">Dadfygio</string>
     <string name="appcontrol_progress_enabling_package">Galluogi ap</string>
     <string name="appcontrol_progress_disabling_package">Analluogi ap</string>
-    <string name="appcontrol_list_filteroptions_label">Opsiynau hidlo</string>
     <string name="appcontrol_list_sortmode_name_label">Enw ap</string>
     <string name="appcontrol_list_sortmode_updated_label">Diweddarwyd diwethaf</string>
     <string name="appcontrol_list_sortmode_installed_label">Gosodwyd gyntaf</string>
@@ -68,14 +67,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Amser sgrin: %1$s ers %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Diweddarwyd diwethaf: %s</string>
     <string name="appcontrol_item_installedat_x_label">Gosodwyd ar: %s</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="zero">%d ap wedi\'i ganfod</item>
-        <item quantity="one">%d ap wedi\'i ganfod</item>
-        <item quantity="two">%d ap wedi\'u canfod</item>
-        <item quantity="few">%d ap wedi\'u canfod</item>
-        <item quantity="many">%d ap wedi\'u canfod</item>
-        <item quantity="other">%d o apiau wedi\'u canfod</item>
-    </plurals>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="zero">Dadosodwyd %d ap</item>
         <item quantity="one">Dadosodwyd %d ap</item>

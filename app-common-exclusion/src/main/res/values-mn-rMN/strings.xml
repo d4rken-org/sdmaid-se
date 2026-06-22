@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">AppControl багажийг ашиглан аппын үлэдслэлт үүсгээрэй.</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer багажийг ашиглан шляхын үлэдслэлт үүсгээрэй.</string>
     <string name="exclusion_show_defaults_action">Ӯндөрчлөлтүүдийг үзүүлэх</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Тань хадаагдаагүй өөрчлөлтүүд бий!</string>
 </resources>

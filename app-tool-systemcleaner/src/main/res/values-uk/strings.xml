@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Обмежити відповідності за віком файлу (час останнього редагування). Залиште поле незаповненим, щоб відповідати будь-якому віку.</string>
     <string name="systemcleaner_customfilter_import_action">Імпорт нового фільтра</string>
     <string name="systemcleaner_customfilter_export_action">Експорт вибраного фільтра</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
 </resources>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">फाइल उमेर (अन्तिम परिवर्तन समय) मा आधारित मेलहरू सीमित गर्नुहोस्। कुनै पनि उमेरसँग मेल खान अनिर्धारित छोड्नुहोस्।</string>
     <string name="systemcleaner_customfilter_import_action">नयाँ फिल्टर आयात गर्नुहोस्</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फिल्टर निर्यात गर्नुहोस्</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">तपाईंसँग असेभ गरिएका परिवर्तनहरू छन्!</string>
 </resources>

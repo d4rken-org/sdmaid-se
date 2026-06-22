@@ -22,7 +22,6 @@
         <item quantity="many">Кожных %d дзён</item>
         <item quantity="other">Кожных %d дзён</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Інтэрвал паўтарэння</string>
     <string name="scheduler_inaccurate_execution_hint">Меркаваны час выканання з\'яўляецца прыблізным. Расклад можа быць адкладзены або паскораны, калі гэта дазволіць сэканоміць зарад батарэі.</string>
     <string name="scheduler_no_active_schedules_subtitle">Няма актыўных раскладаў</string>
     <string name="scheduler_setting_nopowersaving_title">Прапускаць пры нізкім зарадзе батарэі</string>

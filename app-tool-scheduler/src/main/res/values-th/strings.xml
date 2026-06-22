@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">ทุก %d วัน</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ช่วงเวลาการทำซ้ำ</string>
     <string name="scheduler_inaccurate_execution_hint">เวลาที่คาดว่าจะทำงานเป็นเพียงการประมาณ ตารางเวลาอาจถูกเลื่อนหรือเร่งขึ้นหากช่วยประหยัดแบตเตอรี่</string>
     <string name="scheduler_no_active_schedules_subtitle">ไม่มีตารางเวลาที่ใช้งานอยู่</string>
     <string name="scheduler_setting_nopowersaving_title">ข้ามเมื่อแบตเตอรี่ต่ำ</string>

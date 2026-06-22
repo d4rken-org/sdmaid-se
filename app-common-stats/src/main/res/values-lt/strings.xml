@@ -12,7 +12,6 @@
         <item quantity="many">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
         <item quantity="other">%s elementų apdorota nuo tada, kai pakvieteėte SD Maid į savo įrenginį.</item>
     </plurals>
-    <string name="stats_report_status_success">Sėkmė</string>
     <string name="stats_report_status_partial_success">Dalinė sėkmė</string>
     <string name="stats_report_status_partial_failure">Klaida</string>
     <string name="stats_settings_desc">Konfigurūkite SD Maid statistiką, ataskaitas ir duomenų saugojimą.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">Dienų skaičius prieš trinant bazines SD Maid operacijų ataskaitas.</string>
     <string name="stats_settings_retention_paths_label">Išsami kelio informacija</string>
     <string name="stats_settings_retention_paths_desc">Dienų skaičius, kiek laiko saugoti informaciją apie SD Maid paveiktus kelius.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d diena</item>
-        <item quantity="few">%d dienos</item>
-        <item quantity="many">%d dienų</item>
-        <item quantity="other">%d dienų</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Nustatyti viską iš naujo</string>
     <string name="stats_settings_reset_all_desc">Ištrinti visas ataskaitas ir nustatyti visas statistikas į nulį.</string>
     <string name="stats_affected_paths_label">Paveikti keliai</string>
@@ -50,8 +43,4 @@
     <string name="stats_storage_type_primary">Pagrindinė saugykla</string>
     <string name="stats_storage_type_secondary">Antrinė saugykla</string>
     <string name="stats_storage_type_portable">Nešiojama saugykla</string>
-    <string name="stats_space_history_delete_storage_title">Ištrinti saugyklos istoriją?</string>
-    <string name="stats_space_history_delete_storage_desc">Visi šios saugyklos tendencijų duomenys bus visam laikui ištrinti.</string>
-    <string name="stats_settings_retention_snapshots_label">Saugyklos momentinės nuotraukos</string>
-    <string name="stats_settings_retention_snapshots_desc">Dienų skaičius, kurį reikia saugoti saugyklos vietos momentines nuotraukas.</string>
 </resources>

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.coil
 
 import android.media.MediaDataSource
-import coil.annotation.ExperimentalCoilApi
 import coil.decode.ImageSource
 import coil.fetch.MediaDataSourceFetcher.MediaSourceMetadata
 import eu.darken.sdmse.common.files.callbacks
@@ -9,7 +8,6 @@ import okio.FileHandle
 import okio.buffer
 import java.io.File
 
-@OptIn(ExperimentalCoilApi::class)
 suspend fun FileHandle.toImageSource(
     cacheDir: File,
 ): ImageSource {

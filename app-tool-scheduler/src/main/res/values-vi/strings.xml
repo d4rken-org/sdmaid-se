@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">Mỗi %d ngày</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Khoảng lặp lại</string>
     <string name="scheduler_inaccurate_execution_hint">Thời gian thực hiện dự kiến ​​là xấp xỉ. Lịch trình có thể bị trì hoãn hoặc tăng tốc nếu nó tiết kiệm pin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Không có lịch trình hoạt động</string>
     <string name="scheduler_setting_nopowersaving_title">Bỏ qua khi pin yếu</string>

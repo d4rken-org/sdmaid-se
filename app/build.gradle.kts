@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("projectConfig")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
@@ -81,26 +82,26 @@ android {
             )
         }
         create("beta") {
-            lint {
-                abortOnError = true
-                fatal.add("StopShip")
-            }
             isMinifyEnabled = true
             isShrinkResources = true
         }
         release {
-            lint {
-                abortOnError = true
-                fatal.add("StopShip")
-            }
             isMinifyEnabled = true
             isShrinkResources = true
         }
     }
 
+    lint {
+        abortOnError = true
+        fatal.add("StopShip")
+        // AGP has no per-buildType lint config; beta builds tolerate translations ahead of source strings
+        val isBetaBuild = gradle.startParameter.taskNames.any { it.contains("beta", ignoreCase = true) }
+        if (isBetaBuild) warning.add("ExtraTranslation") else fatal.add("ExtraTranslation")
+    }
+
     buildFeatures {
-        viewBinding = true
         buildConfig = true
+        compose = true
     }
 
     compileOptions {
@@ -231,6 +232,8 @@ dependencies {
     addAndroidCore()
     implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
+    addCompose()
+    addNavigation3()
     addWorkerManager()
     // WorkManager exposes ListenableFuture in its API (TaskWorkerControl.kt).
     // Media3 Transformer (via app-tool-squeezer) transitively pulls in full Guava at runtime,
@@ -244,23 +247,14 @@ dependencies {
 
     addLottie()
 
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")
-    implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
-    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
+    implementation("sh.calvin.reorderable:reorderable:2.5.1")
 
-    implementation("androidx.core:core-splashscreen:1.2.0")
     implementation("androidx.exifinterface:exifinterface:1.4.2")
-    implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
 
 
 
 
-    testImplementation("org.robolectric:robolectric:4.16.1")
     testImplementation("androidx.test.ext:junit:1.3.0")
 }

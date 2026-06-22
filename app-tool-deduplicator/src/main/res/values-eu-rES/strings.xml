@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Erakutsi bikoiztuen multzo bateko fitxategi guztiak ezabatzeko aukerak, fitxategirik gabe geratu gabe.</string>
     <string name="deduplicator_search_locations_title">Bilaketa-kokalekuak</string>
     <string name="deduplicator_search_locations_all_summary">Eskuragarri dauden arlo guztiak</string>
-    <string name="deduplicator_keep_prefer_paths_title">Hobets non gorde</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Zein bikoiztua gordeko den erabakitzean, hobetsi fitxategiak kokaleku hauetan gordetzea.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ez dago kokalekurik konfiguratuta</string>
     <string name="deduplicator_skip_minsize_title">Gutxieneko tamaina</string>
     <string name="deduplicator_skip_minsize_description">Saltatu gutxieneko tamaina baino txikiagoak diren fitxategiak.</string>
     <string name="deduplicator_skip_uncommon_title">Saltatu ohikoak ez diren fitxategi-motak</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Bilatu antzeko fitxategiak edukiaren ezaugarriak aztertuz eta hash pertzeptualak alderatuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsuki positiboak sar ditzake eskuzko egiaztapena behar dutenak.</string>
     <string name="deduplicator_detection_method_media_title">Media hatz-marka</string>
     <string name="deduplicator_detection_method_media_summary">Bilatu antzeko bideo eta audio fitxategiak audio hatz-markak aztertuz. ⚠️ Antzekotasunean oinarritutako detekzioak faltsu positiboak sor ditzake eskuzko egiaztapena eskatuz.</string>
-    <string name="deduplicator_matches_media_label">Antzeko multimedia</string>
     <string name="deduplicator_media_match_audio">Audio-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_visual">Bideo-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_audio_visual">Audio eta bideo-oinarritutako bat etortzea</string>

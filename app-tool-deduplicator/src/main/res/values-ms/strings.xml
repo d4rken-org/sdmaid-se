@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Tunjukkan pilihan yang membolehkan anda memadam semua fail dalam set pendua supaya tiada fail yang tinggal.</string>
     <string name="deduplicator_search_locations_title">Lokasi carian</string>
     <string name="deduplicator_search_locations_all_summary">Semua kawasan yang boleh diakses</string>
-    <string name="deduplicator_keep_prefer_paths_title">Keutamaan penyimpanan dalam</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Apabila menentukan pendua mana yang disimpan, utamakan fail di lokasi ini.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Tiada lokasi dikonfigurasi</string>
     <string name="deduplicator_skip_minsize_title">Saiz minimum</string>
     <string name="deduplicator_skip_minsize_description">Langkau fail yang kurang daripada saiz minimum.</string>
     <string name="deduplicator_skip_uncommon_title">Langkau jenis fail yang jarang</string>
@@ -25,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">Cari fail yang serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi. ⚠️ Pengesanan berasaskan keserupaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
     <string name="deduplicator_detection_method_media_title">Cap jari media</string>
     <string name="deduplicator_detection_method_media_summary">Cari fail video dan audio yang serupa dengan menganalisis cap jari audio. ⚠️ Pengesanan berasaskan persamaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
-    <string name="deduplicator_matches_media_label">Media yang serupa</string>
     <string name="deduplicator_media_match_audio">Padanan berasaskan audio</string>
     <string name="deduplicator_media_match_visual">Padanan berasaskan video</string>
     <string name="deduplicator_media_match_audio_visual">Padanan berasaskan audio dan video</string>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Begræns matches baseret på filers alder (sidst ændret tidspunkt). Lad stå tomt for at matche enhver alder.</string>
     <string name="systemcleaner_customfilter_import_action">Importér nyt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksportér valgt filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
 </resources>

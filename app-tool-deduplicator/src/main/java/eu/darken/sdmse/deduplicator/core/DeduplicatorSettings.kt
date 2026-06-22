@@ -7,8 +7,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -22,16 +20,15 @@ import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class DeduplicatorSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     json: Json,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_deduplicator")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val allowDeleteAll = dataStore.createValue("protection.deleteall.allowed", false)
@@ -70,17 +67,6 @@ class DeduplicatorSettings @Inject constructor(
     val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, json)
 
     val isDirectoryViewEnabled = dataStore.createValue("ui.cluster.directoryview.enabled", false)
-
-    override val mapper = PreferenceStoreMapper(
-        allowDeleteAll,
-        minSizeBytes,
-        skipUncommon,
-        isSleuthChecksumEnabled,
-        isSleuthPHashEnabled,
-        isSleuthMediaEnabled,
-        scanPaths,
-        arbiterConfig,
-    )
 
     companion object {
         const val MIN_FILE_SIZE = 512 * 1024L

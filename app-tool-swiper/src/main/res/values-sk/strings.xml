@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Pokračovať v relácii</string>
     <string name="swiper_sessions_description">Skontrolujte súbory v 3 jednoduchých krokoch:\n\n1. Vyberte priečinok na skenovanie\n2. Potiahnutím súborov ich ponechajte, odstráňte alebo preskočte\n3. Skontrolujte rozhodnutia a potvrďte\n\nNič sa neodstráni, kým neklepnete na tlačidlo konečného odstránenia.</string>
     <string name="swiper_select_folders_action">Vybrať priečinky</string>
-    <string name="swiper_scanning_title">Skenovanie…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d položka nájdená</item>
         <item quantity="few">%d položky nájdené</item>
@@ -34,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">Ponechať vybrané</string>
     <string name="swiper_status_action_delete_selected">Zmazať vybrané</string>
     <string name="swiper_status_action_reset_selected">Obnoviť vybrané</string>
-    <string name="swiper_decision_undecided">Nerozhodnuté</string>
-    <string name="swiper_retry_action">Skúsiť znova</string>
     <string name="swiper_delete_confirmation_title">Odstrániť súbory?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Toto natrvalo odstráni %1$d súbor (%2$s). Túto akciu nie je možné vrátiť späť.</item>
@@ -117,18 +114,6 @@
         <item quantity="many">%d nerozhodnutých</item>
         <item quantity="other">%d nerozhodnutých</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d už ponechaná</item>
-        <item quantity="few">%d už ponechané</item>
-        <item quantity="many">%d už ponechaných</item>
-        <item quantity="other">%d už ponechaných</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d už odstránená</item>
-        <item quantity="few">%d už odstránené</item>
-        <item quantity="many">%d už odstránených</item>
-        <item quantity="other">%d už odstránených</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ponechaná</item>
         <item quantity="few">%d ponechané</item>
@@ -173,7 +158,6 @@
     <string name="swiper_help_title">Ako funguje Swiper</string>
     <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať\" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
-    <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_file_type_filter_title">Zobraziť iba tieto typy súborov</string>
     <string name="swiper_file_type_filter_hint">Zaškrtnite typy, ktoré chcete vidieť. Ak nie je zaškrtnutý žiadny, zobrazia sa všetky súbory.</string>
     <string name="swiper_file_type_category_images">Obrázky</string>
@@ -187,7 +171,6 @@
     <string name="swiper_file_type_category_archives">Archívy</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Použiť</string>
-    <string name="swiper_session_filter_action">Filtrovať súbory</string>
     <string name="swiper_file_type_filter_summary">Filtrované: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenašli sa žiadne zodpovedajúce súbory</string>
     <string name="swiper_open_externally_action">Otvoriť v externej aplikácii</string>

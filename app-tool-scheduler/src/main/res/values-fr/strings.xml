@@ -20,7 +20,6 @@
         <item quantity="one">Quotidien</item>
         <item quantity="other">Tous les %d jours</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Intervalle de répétition</string>
     <string name="scheduler_inaccurate_execution_hint">Les temps d’exécution prévus sont approximatifs. Les programmations pourraient être retardées ou devancées si cela économise la batterie.</string>
     <string name="scheduler_no_active_schedules_subtitle">Aucune programmation n’est active</string>
     <string name="scheduler_setting_nopowersaving_title">Ignorer si la batterie faible</string>

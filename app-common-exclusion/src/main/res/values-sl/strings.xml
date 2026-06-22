@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Za ustvarjanje izključitev programov uporabite orodje \'Nadzor programov\'.</string>
     <string name="exclusion_create_path_hint">Za ustvarjanje izključitev poti uporabite orodje \'Analizator shrambe\'.</string>
     <string name="exclusion_show_defaults_action">Prikaži privzete</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Spremembe še niso shranjene!</string>
 </resources>

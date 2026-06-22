@@ -8,7 +8,6 @@
         <item quantity="one">Into engu-%s icutshungulwe selokhu wamema i-SD Maid kudivayisi yakho.</item>
         <item quantity="other">Izinto ezingu-%s zicutshungulwe selokhu wamema i-SD Maid kudivayisi yakho.</item>
     </plurals>
-    <string name="stats_report_status_success">Impumelelo</string>
     <string name="stats_report_status_partial_success">Impumelelo engaphelele</string>
     <string name="stats_report_status_partial_failure">Ukwehluleka</string>
     <string name="stats_settings_desc">Lungiselela izibalo ze-SD Maid, imibiko nokugcinwa kwedatha.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Inani lezinsuku ngaphambi kokususa imibiko eyisisekelo yokusebenza kwe-SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Ulwazi lwendlela oluningiliziwe</string>
     <string name="stats_settings_retention_paths_desc">Inani lezinsuku lokugcina imininingwane mayelana nezindlela ezithintwe yi-SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">Usuku olungu-%d</item>
-        <item quantity="other">Izinsuku ezingu-%d</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Setha kabusha konke</string>
     <string name="stats_settings_reset_all_desc">Susa yonke imibiko bese usetha zonke izibalo ku-zero.</string>
     <string name="stats_affected_paths_label">Izindlela ezithintekile</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
     <string name="stats_storage_type_secondary">Isitoreji sesibili</string>
     <string name="stats_storage_type_portable">Isitoreji esiphathekayo</string>
-    <string name="stats_space_history_delete_storage_title">Susa umlando wendawo yokugcina?</string>
-    <string name="stats_space_history_delete_storage_desc">Yonke imininingwane yezindlela zale ndawo yokugcina izosuswa ngokuphelelele.</string>
-    <string name="stats_settings_retention_snapshots_label">Izithombe zesitoreji</string>
-    <string name="stats_settings_retention_snapshots_desc">Inani lamanga okugcina izithombe zendawo yokugcina.</string>
 </resources>

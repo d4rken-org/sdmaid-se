@@ -20,7 +20,6 @@
         <item quantity="one">Ежедневно</item>
         <item quantity="other">На всеки %d дни</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Интервал на повторение</string>
     <string name="scheduler_inaccurate_execution_hint">Очакваните времена за изпълнение са приблизителни. Графиците могат да бъдат забавени или ускорени, ако това пести батерия.</string>
     <string name="scheduler_no_active_schedules_subtitle">Няма активни графици</string>
     <string name="scheduler_setting_nopowersaving_title">Пропускане при слаба батерия</string>

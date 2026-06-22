@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.room.APathTypeConverter
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.AffectedPath
 import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.Report
@@ -158,6 +159,9 @@ class ReportsDatabase @Inject constructor(
     fun getReportsSince(since: Instant): Flow<List<ReportEntity>> = reportsDao.getReportsSince(since)
 
     suspend fun getReport(id: ReportId): Report? = reportsDao.getById(id)
+
+    suspend fun getReportForToolSince(tool: SDMTool.Type, since: Instant): Report? =
+        reportsDao.getReportForToolSince(tool, since)
 
     suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {
         return pathsDao.getById(id)

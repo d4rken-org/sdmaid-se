@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automaatio</string>
     <string name="appcleaner_automation_subtitle_default_caches">Oletusvälimuistit</string>
-    <string name="appcleaner_automation_progress_open_settings">Avataan asetuksia</string>
     <string name="appcleaner_automation_progress_find_storage">Etsitään tallennustilan asetuksia</string>
     <string name="appcleaner_automation_progress_find_clear_data">Etsitään tietojen tyhjennysvalikkoa</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Etsitään välimuistin tyhjennysvalikkoa</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Julkiset ja yksityiset oletusvälimuistit. Ei suoraan saavutettavissa, mutta voidaan poistaa epäsuorasti (esim. saavutettavuuspalvelun kautta).</string>
     <string name="appcleaner_automation_unavailable_title">Automaatio ei käytettävissä</string>
     <string name="appcleaner_automation_unavailable_body">Automaattinen siivous ei ole käytettävissä tälle sovellukselle.</string>
-    <string name="appcleaner_junk_userprofile_label">Käyttäjä</string>
     <string name="appcleaner_delete_confirmation_message_x">Poista %d tiedostoa?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Pysäytä pakotetusti ennen tyhjennystä</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Pysäytä sovellukset pakotetusti ennen välimuistin tyhjennystä. Voi auttaa joidenkin sovellusten välimuistin tyhjentämisessä, mutta saattaa aiheuttaa sovellusten virhetoimintaa ja vaatia manuaalista uudelleenkäynnistystä.</string>
     <string name="appcleaner_progress_force_stopping">Pysäytetään sovelluksia pakotetusti…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Asetuksia ei löytynyt</string>
-    <string name="appcleaner_automation_loading">Ladataan automaattista siivousta</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Etsitään OK-vahvistusta</string>
-    <string name="appcleaner_include_multiuser_label">Sisällytä muut käyttäjät</string>
-    <string name="appcleaner_include_multiuser_summary">Sisällytä muiden käyttäjien sovellukset.</string>
 </resources>

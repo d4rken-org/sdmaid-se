@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">I-compress ang mga larawan at video upang makatipid ng espasyo sa storage.</string>
+    <string name="squeezer_explanation_short">I-compress ang mga larawan upang makatipid ng storage space.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d item ang natagpuan</item>
-        <item quantity="other">%d mga item ang natagpuan</item>
+        <item quantity="one">%d larawang nahanap</item>
+        <item quantity="other">%d mga larawang nahanap</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s ang maaaring matipid</item>
         <item quantity="other">~%s ang maaaring matipid</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d item ang na-compress</item>
-        <item quantity="other">%d mga item ang na-compress</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d nabigo</item>
-        <item quantity="other">%d nabigo</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d file ang nilaktawan (hindi naa-access)</item>
-        <item quantity="other">%d mga file ang nilaktawan (hindi naa-access)</item>
+        <item quantity="one">%d larawang na-compress</item>
+        <item quantity="other">%d mga larawang na-compress</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d item ang napili</item>
-        <item quantity="other">%d mga item ang napili</item>
+        <item quantity="one">%d larawang napili</item>
+        <item quantity="other">%d mga larawang napili</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Mga lokasyon ng paghahanap</string>
-    <string name="squeezer_search_locations_default_summary">Mga camera folder (default)</string>
     <string name="squeezer_min_size_title">Pinakamaliit na sukat ng file</string>
-    <string name="squeezer_min_size_description">Laktawan ang mga file na mas maliit kaysa sa sukat na ito.</string>
+    <string name="squeezer_min_size_description">Laktawan ang mga larawang mas maliit sa sukat na ito.</string>
     <string name="squeezer_min_age_title">Pinakamababang edad ng file</string>
-    <string name="squeezer_min_age_description">Isama lamang ang mga file na mas matanda kaysa sa edad na ito.</string>
-    <string name="squeezer_compression_settings_label">Pangkalahatan</string>
-    <string name="squeezer_quality_label">Kalidad</string>
-    <string name="squeezer_quality_title">Kalidad ng compression</string>
-    <string name="squeezer_quality_description">Ang mas mababang kalidad ay nangangahulugang mas maliit na laki ng file ngunit nabawasan ang visual na kalidad.</string>
-    <string name="squeezer_quality_example_format">Halimbawa: %1$s na larawan → ~%2$s na matitipid sa %3$d%% na kalidad</string>
-    <string name="squeezer_quality_warning_low">Ang mas mababang kalidad ay maaaring magdulot ng nakikitang artifact.</string>
-    <string name="squeezer_quality_warning_high">Ang napakataas na kalidad ay nagbibigay ng kaunting matitipid na espasyo.</string>
-    <string name="squeezer_types_category_label">Mga setting ng larawan</string>
-    <string name="squeezer_video_settings_category_label">Mga setting ng video</string>
+    <string name="squeezer_min_age_description">Isama lang ang mga larawang mas matanda sa edad na ito.</string>
+    <string name="squeezer_compression_settings_label">Mga setting ng compression</string>
+    <string name="squeezer_quality_description">Mas mababang kalidad ay nangangahulugang mas maliit na file subalit mas mababang kalidad ng larawan.</string>
+    <string name="squeezer_types_category_label">Mga uri ng larawan</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Isama ang mga JPEG na larawan (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Isama ang mga WebP na larawan (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Isama ang mga MP4 video file (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Laktawan ang mga dating na-compress</string>
-    <string name="squeezer_skip_compressed_description">Laktawan ang mga file na na-compress na ng SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Laktawan ang mga larawang na-compress na ng SD Maid.</string>
     <string name="squeezer_exif_marker_title">Isulat ang EXIF marker</string>
     <string name="squeezer_exif_marker_description">Magdagdag ng marker sa EXIF user comment field ng larawan upang maiwasan ang muling pag-compress kahit na-clear ang compression history.</string>
     <string name="squeezer_estimated_savings_format">~%s na matitipid</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Kumpirmahin ang compression</string>
     <string name="squeezer_preview_total_size">Kabuuang sukat</string>
     <string name="squeezer_preview_estimated_savings">Tinatayang matitipid</string>
-    <string name="squeezer_compress_confirmation_title">I-compress ang mga napiling item?</string>
-    <string name="squeezer_compress_confirmation_message">Papalitan nito ang mga orihinal na file ng mga compressed na bersyon. Hindi maaaring i-undo ang aksyong ito.</string>
     <string name="squeezer_history_title">History ng compression</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Walang history ng compression</string>
     <string name="squeezer_history_clear_title">I-clear ang history ng compression</string>
-    <string name="squeezer_history_clear_message">Papayagan nito na ma-compress muli ang mga dating na-compress na file. Ang mga file mismo ay hindi apektado.</string>
-    <string name="squeezer_onboarding_title">Tungkol sa Image Compression</string>
-    <string name="squeezer_onboarding_message">Binabawasan ng image compression ang sukat ng file sa pamamagitan ng pag-alis ng visual detail. Ang prosesong ito ay hindi na maaaring ibalik - hindi na maibabalik ang orihinal na kalidad.\n\nNarito ang preview kung paano magiging hitsura ng iyong mga larawan:</string>
+    <string name="squeezer_history_clear_message">Papayagan nitong ma-compress muli ang mga dating na-compress na larawan. Hindi maaapektuhan ang mga larawan mismo.</string>
     <string name="squeezer_onboarding_original_label">Orihinal</string>
     <string name="squeezer_onboarding_compressed_label">Pagkatapos ng compression</string>
-    <string name="squeezer_onboarding_video_original_label">Frame ng video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Preview (tinatayang)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Maaaring mag-iba ang aktwal na kalidad ng video</string>
-    <string name="squeezer_onboarding_quality_label">Kalidad: %d%%</string>
     <string name="squeezer_compare_action">Tingnan ang paghahambing</string>
     <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
-    <string name="squeezer_result_empty_message">Walang nahanap na compressible na media.</string>
-    <string name="squeezer_setup_warning">Ang compression ay permanenteng nagbabawas ng kalidad upang makatipid ng espasyo sa storage. Hindi ito maaaring i-undo. Suriin nang maingat ang iyong mga setting bago magsimula.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
-        <item quantity="other">%d mga lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Binabawasan ng Media Squeeze ang laki ng file ng mga larawan at video upang palayain ang espasyo sa storage. Permanente itong nagbabawas ng kalidad at hindi maaaring i-undo. Suriin nang maingat ang iyong mga setting bago magsimula.</string>
+    <string name="squeezer_result_empty_message">Walang nahanap na maaaring i-compress na larawan.</string>
+    <string name="squeezer_setup_explanation">Binabawasan ng Media Squeeze ang sukat ng file ng mga larawan upang magpalaya ng storage space. Permanente nitong binabawasan ang kalidad ng larawan at hindi na maaaring ibalik. Suriin nang mabuti ang iyong mga setting bago magsimula.</string>
     <string name="squeezer_setup_paths_title">Mga lokasyon ng paghahanap</string>
     <string name="squeezer_setup_paths_default">Pumili ng mga folder na hahanapin</string>
     <string name="squeezer_setup_quality_title">Kalidad ng compression</string>
     <string name="squeezer_setup_age_title">Pinakamababang edad</string>
-    <string name="squeezer_setup_age_none">Walang limitasyon (isama lahat ng file)</string>
     <string name="squeezer_setup_start_action">Simulan ang Scan</string>
     <string name="squeezer_quality_hint_very_low">Ang kalidad na mas mababa sa 40% ay maaaring lumikha ng hindi magagamit na mga larawan.</string>
     <string name="squeezer_quality_hint_low">Mas mababang kalidad ang nagtitipid ng mas maraming espasyo ngunit maaaring magdulot ng nakikitang artifact.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Hindi bababa sa %d araw na edad</item>
         <item quantity="other">Hindi bababa sa %d araw na edad</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Tinatayang ~%d%% ang matitipid para sa mga larawan</string>
-    <string name="squeezer_onboarding_got_it">Kuha ko</string>
+    <string name="squeezer_estimated_savings_percent">Tinatayang ~%d%% na matitipid para sa mga JPEG file</string>
 </resources>

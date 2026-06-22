@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">შედეგების შეზღუდვა ფაილის ასაკის მიხედვით (ბოლო ცვლილების დრო). დატოვეთ ცარიელი ნებისმიერი ასაკის დასამთხვევად.</string>
     <string name="systemcleaner_customfilter_import_action">ახალი ფილტრის იმპორტი</string>
     <string name="systemcleaner_customfilter_export_action">არჩეული ფილტრის ექსპორტი</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
 </resources>

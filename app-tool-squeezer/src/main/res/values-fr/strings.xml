@@ -25,8 +25,8 @@
         <item quantity="one">%d élément choisi</item>
         <item quantity="other">%d éléments choisis</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Emplacements de recherche</string>
-    <string name="squeezer_search_locations_default_summary">Dossiers de l’appareil photo (par défaut)</string>
+    
+    
     <string name="squeezer_min_size_title">Taille minimale des fichiers</string>
     <string name="squeezer_min_size_description">Ignorer les fichiers plus petits que cette taille.</string>
     <string name="squeezer_min_age_title">Âge minimal des fichiers</string>
@@ -89,7 +89,7 @@
     <string name="squeezer_setup_paths_default">Choisir les dossiers à explorer</string>
     <string name="squeezer_setup_quality_title">Qualité de compression</string>
     <string name="squeezer_setup_age_title">Âge minimal</string>
-    <string name="squeezer_setup_age_none">Aucune limite (tous les fichiers)</string>
+    
     <string name="squeezer_setup_start_action">Lancer l’analyse</string>
     <string name="squeezer_quality_hint_very_low">Une qualité inférieure à 40 % peut créer des images inutilisables.</string>
     <string name="squeezer_quality_hint_low">Une qualité inférieure permet d’économiser l’espace, mais peut entraîner des distortions visuelles.</string>

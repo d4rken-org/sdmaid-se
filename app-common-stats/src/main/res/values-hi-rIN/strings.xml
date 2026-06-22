@@ -8,7 +8,6 @@
         <item quantity="one">SD Maid को आपके डिवाइस में आमंत्रित करने के बाद से %s आइटम प्रोसेस किया गया।</item>
         <item quantity="other">SD Maid को आपके डिवाइस में आमंत्रित करने के बाद से %s आइटम प्रोसेस किए गए।</item>
     </plurals>
-    <string name="stats_report_status_success">सफलता</string>
     <string name="stats_report_status_partial_success">आंशिक सफलता</string>
     <string name="stats_report_status_partial_failure">असफलता</string>
     <string name="stats_settings_desc">SD Maid के आंकड़े, रिपोर्ट और डेटा प्रतिधारण को कॉन्फ़िगर करें।</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">बुनियादी SD Maid ऑपरेशन रिपोर्ट मिटाने से पहले दिनों की संख्या।</string>
     <string name="stats_settings_retention_paths_label">विस्तृत पथ जानकारी</string>
     <string name="stats_settings_retention_paths_desc">SD Maid द्वारा प्रभावित पथों के बारे में विवरण रखने के दिनों की संख्या।</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d दिन</item>
-        <item quantity="other">%d दिन</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">सभी रीसेट करें</string>
     <string name="stats_settings_reset_all_desc">सभी रिपोर्ट मिटाएं और सभी आंकड़े शून्य पर सेट करें।</string>
     <string name="stats_affected_paths_label">प्रभावित पथ</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">प्रारंभिक संग्रहण</string>
     <string name="stats_storage_type_secondary">माध्यमिक संग्रहण</string>
     <string name="stats_storage_type_portable">पोर्टेबल संग्रहण</string>
-    <string name="stats_space_history_delete_storage_title">स्टोरेज इतिहास हटाएं?</string>
-    <string name="stats_space_history_delete_storage_desc">इस स्टोरेज के लिए सभी ट्रेंड डेटा स्थायी रूप से हटा दिया जाएगा।</string>
-    <string name="stats_settings_retention_snapshots_label">संग्रहण स्नैपशॉट</string>
-    <string name="stats_settings_retention_snapshots_desc">संग्रहण स्थान स्नैपशॉट रखने के दिनों की संख्या।</string>
 </resources>

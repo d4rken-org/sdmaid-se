@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Képek és videók tömörítése a tárhely felszabadításához.</string>
+    <string name="squeezer_explanation_short">Képek tömörítése a tárhely megtakarítása érdekében.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d elem található</item>
-        <item quantity="other">%d elem található</item>
+        <item quantity="one">%d kép találva</item>
+        <item quantity="other">%d kép találva</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s megtakarítható</item>
         <item quantity="other">~%s megtakarítható</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d elem tömörítve</item>
-        <item quantity="other">%d elem tömörítve</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d sikertelen</item>
-        <item quantity="other">%d sikertelen</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d fájl kihagyva (nem elérhető)</item>
-        <item quantity="other">%d fájl kihagyva (nem elérhető)</item>
+        <item quantity="one">%d kép tömörítve</item>
+        <item quantity="other">%d kép tömörítve</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d elem kiválasztva</item>
-        <item quantity="other">%d elem kiválasztva</item>
+        <item quantity="one">%d kép kiválasztva</item>
+        <item quantity="other">%d kép kiválasztva</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Helyek keresése</string>
-    <string name="squeezer_search_locations_default_summary">Kamera mappák (alapértelmezett)</string>
     <string name="squeezer_min_size_title">Minimális fájlméret</string>
-    <string name="squeezer_min_size_description">Az ennél kisebb fájlok kihagyása.</string>
+    <string name="squeezer_min_size_description">Az ennél kisebb képek kihagyása.</string>
     <string name="squeezer_min_age_title">Minimális fájlkor</string>
-    <string name="squeezer_min_age_description">Csak az ennél régebbi fájlok szerepeljenek.</string>
-    <string name="squeezer_compression_settings_label">Általános</string>
-    <string name="squeezer_quality_label">Minőség</string>
-    <string name="squeezer_quality_title">Tömörítési minőség</string>
-    <string name="squeezer_quality_description">Az alacsonyabb minőség kisebb fájlméretet jelent, de csökkentett vizuális minőséggel.</string>
-    <string name="squeezer_quality_example_format">Példa: %1$s kép → ~%2$s megtakarítás %3$d%% minőségnél</string>
-    <string name="squeezer_quality_warning_low">Alacsonyabb minőségnél látható műtermékek jelenhetnek meg.</string>
-    <string name="squeezer_quality_warning_high">Nagyon magas minőség minimális helytakarékosságot biztosít.</string>
-    <string name="squeezer_types_category_label">Képbeállítások</string>
-    <string name="squeezer_video_settings_category_label">Videóbeállítások</string>
+    <string name="squeezer_min_age_description">Csak az ennél régebbi képek bevonása.</string>
+    <string name="squeezer_compression_settings_label">Tömörítési beállítások</string>
+    <string name="squeezer_quality_description">Alacsonyabb minőség kisebb fájlméretet jelent, de csökkentett képminőséggel.</string>
+    <string name="squeezer_types_category_label">Képtípusok</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG képek (.jpg, .jpeg) bevonása.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP képek (.webp) bevonása.</string>
-    <string name="squeezer_type_video_title">MP4 videó</string>
-    <string name="squeezer_type_video_description">MP4 videófájlok (.mp4) hozzáadása.</string>
     <string name="squeezer_skip_compressed_title">Már tömörítettek kihagyása</string>
-    <string name="squeezer_skip_compressed_description">Az SD Maid által már tömörített fájlok kihagyása.</string>
+    <string name="squeezer_skip_compressed_description">Az SD Maid által már tömörített képek kihagyása.</string>
     <string name="squeezer_exif_marker_title">EXIF jelölő írása</string>
     <string name="squeezer_exif_marker_description">Jelölő hozzáadása a kép EXIF felhasználói megjegyzés mezőjéhez az újratömörítés megakadályozására még a tömörítési előzmények törlése után is.</string>
     <string name="squeezer_estimated_savings_format">~%s megtakarítás</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Tömörítés megerősítése</string>
     <string name="squeezer_preview_total_size">Teljes méret</string>
     <string name="squeezer_preview_estimated_savings">Becsült megtakarítás</string>
-    <string name="squeezer_compress_confirmation_title">Tömöríti a kiválasztott elemeket?</string>
-    <string name="squeezer_compress_confirmation_message">Ez lecseréli az eredeti fájlokat tömörített verziókra. Ez a művelet nem vonható vissza.</string>
     <string name="squeezer_history_title">Tömörítési előzmények</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elem (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Nincs tömörítési előzmény</string>
     <string name="squeezer_history_clear_title">Tömörítési előzmények törlése</string>
-    <string name="squeezer_history_clear_message">Ez lehetővé teszi, hogy a korábban tömörített fájlokat újra tömörítessük. Magukat a fájlokat ez nem érinti.</string>
-    <string name="squeezer_onboarding_title">A képtömörítésről</string>
-    <string name="squeezer_onboarding_message">A képtömörítés csökkenti a fájlméretet a vizuális részletek eltávolításával. Ez a folyamat visszafordíthatatlan - az eredeti minőség nem állítható vissza.\n\nÍgy fognak kinézni a képeid:</string>
+    <string name="squeezer_history_clear_message">Ez lehetővé teszi a korábban tömörített képek újratömörítését. Maguk a képek nem változnak.</string>
     <string name="squeezer_onboarding_original_label">Eredeti</string>
     <string name="squeezer_onboarding_compressed_label">Tömörítés után</string>
-    <string name="squeezer_onboarding_video_original_label">Videókeret</string>
-    <string name="squeezer_onboarding_video_compressed_label">Előnézet (hozzávetőleges)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">A tényleges videóminőség eltérhet</string>
-    <string name="squeezer_onboarding_quality_label">Minőség: %d%%</string>
     <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
     <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
-    <string name="squeezer_result_empty_message">Nem található tömöríthető média.</string>
-    <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a minőséget a tárhely felszabadítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat indítás előtt.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d helyszín nem használható tömörítésre és eltávolítottuk. A tömörítéshez közvetlen hozzáférés szükséges a belső tárhelyre.</item>
-        <item quantity="other">%d helyszín nem használható tömörítésre és eltávolítottuk. A tömörítéshez közvetlen hozzáférés szükséges a belső tárhelyre.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">A Media Squeeze csökkenti a képek és videók fájlméretét a tárhely felszabadítása érdekében. Ez véglegesen csökkenti a minőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat indítás előtt.</string>
+    <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>
+    <string name="squeezer_setup_explanation">A Média Squeeze csökkenti a képfájlok méretét a tárhely felszabadításához. Ez véglegesen csökkenti a képminőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
     <string name="squeezer_setup_paths_title">Helyek keresése</string>
     <string name="squeezer_setup_paths_default">Válassz mappákat a kereséshez</string>
     <string name="squeezer_setup_quality_title">Tömörítési minőség</string>
     <string name="squeezer_setup_age_title">Minimális kor</string>
-    <string name="squeezer_setup_age_none">Nincs korlát (összes fájl)</string>
     <string name="squeezer_setup_start_action">Keresés indítása</string>
     <string name="squeezer_quality_hint_very_low">A 40%% alatti minőség használhatatlan képeket eredményezhet.</string>
     <string name="squeezer_quality_hint_low">Az alacsonyabb minőség több helyet takarít meg, de látható műtermékeket okozhat.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Legalább %d napos</item>
         <item quantity="other">Legalább %d napos</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás képeknél</string>
-    <string name="squeezer_onboarding_got_it">Megvan</string>
+    <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
 </resources>

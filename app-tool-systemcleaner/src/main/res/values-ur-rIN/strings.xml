@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">فائل کی عمر (آخری ترمیم کا وقت) کی بنیاد پر نتائج محدود کریں۔ کسی بھی عمر سے ملاپ کے لیے غیر مقرر چھوڑیں۔</string>
     <string name="systemcleaner_customfilter_import_action">نیا فلٹر امپورٹ کریں</string>
     <string name="systemcleaner_customfilter_export_action">منتخب فلٹر ایکسپورٹ کریں</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں!</string>
 </resources>

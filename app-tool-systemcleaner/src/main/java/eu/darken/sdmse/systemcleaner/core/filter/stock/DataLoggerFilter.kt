@@ -1,17 +1,17 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
+import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -38,7 +38,7 @@ class DataLoggerFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override suspend fun getIcon(): CaDrawable = CommonR.drawable.ic_baseline_format_list_bulleted_24.toCaDrawable()
+    override val icon: ImageVector = Icons.AutoMirrored.TwoTone.FormatListBulleted
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_datalogger_label.toCaString()
 

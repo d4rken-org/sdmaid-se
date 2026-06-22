@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.core
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.common.R as CommonR
 
@@ -15,17 +14,4 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.APPCONTROL -> CommonR.string.appcontrol_tool_name
         SDMTool.Type.ANALYZER -> CommonR.string.analyzer_tool_name
         SDMTool.Type.SWIPER -> CommonR.string.swiper_tool_name
-    }
-
-@get:DrawableRes
-val SDMTool.Type.iconRes: Int
-    get() = when (this) {
-        SDMTool.Type.CORPSEFINDER -> CommonR.drawable.ghost
-        SDMTool.Type.SYSTEMCLEANER -> CommonR.drawable.ic_baseline_view_list_24
-        SDMTool.Type.APPCLEANER -> CommonR.drawable.ic_recycle
-        SDMTool.Type.DEDUPLICATOR -> CommonR.drawable.ic_content_duplicate_24
-        SDMTool.Type.SQUEEZER -> CommonR.drawable.ic_image_compress_24
-        SDMTool.Type.APPCONTROL -> CommonR.drawable.ic_apps
-        SDMTool.Type.ANALYZER -> CommonR.drawable.baseline_data_usage_24
-        SDMTool.Type.SWIPER -> CommonR.drawable.ic_baseline_swipe_24
     }

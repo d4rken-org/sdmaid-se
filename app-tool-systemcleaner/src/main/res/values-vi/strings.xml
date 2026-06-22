@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Giới hạn kết qủa khớp dựa trên thời gian tạo tệp (thời gian sửa đổi lần cuối). Để trống nếu muốn khớp với bất kỳ thời gian tạo tệp nào.</string>
     <string name="systemcleaner_customfilter_import_action">Nhập bộ lọc mới</string>
     <string name="systemcleaner_customfilter_export_action">Xuất bộ lọc đã chọn</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Bạn có thay đổi chưa lưu!</string>
 </resources>

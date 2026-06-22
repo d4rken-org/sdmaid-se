@@ -56,7 +56,6 @@
     <string name="appcleaner_delete_all_confirmation_message">Ĉu forigi elspezeblajn erojn por ĉiuj aplikaĵoj?</string>
     <string name="appcleaner_automation_title">AplikaĵPurigila aŭtomatigo</string>
     <string name="appcleaner_automation_subtitle_default_caches">Viŝante defaŭltajn kaŝmemorojn…</string>
-    <string name="appcleaner_automation_progress_open_settings">Malfermante agordan ekranon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Serĉante "Stokado" enigon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Serĉante "Viŝi datumojn" butonon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Serĉante "Viŝi kaŝmemoron" butonon (ŝlosilvortoj: %s)</string>
@@ -64,7 +63,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publikaj kaj privataj defaŭltaj kaŝmemoroj. Ne rekte alireblaj, sed povas esti forigitaj nerekte (ekz. per alirebleca servo).</string>
     <string name="appcleaner_automation_unavailable_title">Alirebleca servo nedisponebla</string>
     <string name="appcleaner_automation_unavailable_body">Viŝi nealireblajn kaŝmemorojn postulas la alireblecan servon de SD Maid, sed ĝi estis nedisponebla. Se vi ne volas uzi ĝin: Malŝaltu la opcion "Inkluzivi nealireblajn kaŝmemorojn".</string>
-    <string name="appcleaner_junk_userprofile_label">Uzanto</string>
     <string name="appcleaner_delete_confirmation_message_x">Ĉu forigi elspezeblajn dosierojn por %s?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Forigante kaŝmemorojn uzante Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Determinante nealireblajn kaŝmemorojn</string>

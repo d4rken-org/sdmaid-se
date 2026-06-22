@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ගොනුවක් ඉරි නොවෑනිව බහුපත සමුහයක සියලුම ගොනු මකා දැමීමට ඔබට ඉඩම දේ විකල්ප පෙනන්න.</string>
     <string name="deduplicator_search_locations_title">සොයන ස්ථාන</string>
     <string name="deduplicator_search_locations_all_summary">ප්‍රවේශ විය හැකි සියලු පෙමිණ</string>
-    <string name="deduplicator_keep_prefer_paths_title">මෙහි තබා ගැනීමට කැමැත්තක්</string>
-    <string name="deduplicator_keep_prefer_paths_summary">කුමන අනුපිටපත තබා ගැනීම ද යන්න තීරණය කිරීමේදී, මෙම ස්ථානවල ගොනු තබා ගැනීමට කැමැත්ත දක්වන්න.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ස්ථාන වින්‍යාස කර නැත</string>
     <string name="deduplicator_skip_minsize_title">අවම ප්‍රමාණය</string>
     <string name="deduplicator_skip_minsize_description">අවම ප්‍රමාණයට වැඩා ඇපැත් ගොනු මකා හමන්න.</string>
     <string name="deduplicator_skip_uncommon_title">අසාධාරණ ගොනු ප්‍රකාර මකා හමන්න</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">අන්තර්ගත විශේෂාංග විශ්ලේෂණය කර සහ සංකල්පමය හැෂ් අගයන් සැසඳීමෙන් සමාන ගොනු සොයන්න. ⚠️ සමානත්ව පාදක හඳුනාගැනීමේදී අතින් සත්‍යාපනය අවශ්‍ය ව්‍යාජ ධනාත්මක ඇතුළත් විය හැක.</string>
     <string name="deduplicator_detection_method_media_title">මාධ්‍ය ඇඟිලි සලකුණ</string>
     <string name="deduplicator_detection_method_media_summary">ශ්‍රව්‍ය ඇඟිලි සලකුණු විශ්ලේෂණය කිරීමෙන් සමාන වීඩියෝ සහ ශ්‍රව්‍ය ගොනු සොයන්න. ⚠️ සමානත්ව-පදනම් කළ හඳුනාගැනීමට අත්පිටපත් සත්‍යාපනය අවශ්‍ය වන අසත්‍ය ධනාත්මක ප්‍රතිඵල ඇතුළත් විය හැකිය.</string>
-    <string name="deduplicator_matches_media_label">සමාන මාධ්‍ය</string>
     <string name="deduplicator_media_match_audio">ශ්‍රව්‍ය-පදනම් ගැළපීම</string>
     <string name="deduplicator_media_match_visual">වීඩියෝ-පදනම් ගැළපීම</string>
     <string name="deduplicator_media_match_audio_visual">ශ්‍රව්‍ය සහ වීඩියෝ-පදනම් ගැළපීම</string>

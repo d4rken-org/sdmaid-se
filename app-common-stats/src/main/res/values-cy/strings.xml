@@ -16,7 +16,6 @@
     <item quantity="many">%s eitem wedi\'u prosesu ers i chi wahodd SD Maid i\'ch dyfais.</item>
     <item quantity="other">%s o eitemau wedi\'u prosesu ers i chi wahodd SD Maid i\'ch dyfais.</item>
     </plurals>
-    <string name="stats_report_status_success">Llwyddiant</string>
     <string name="stats_report_status_partial_success">Llwyddiant rhannol</string>
     <string name="stats_report_status_partial_failure">Methiant</string>
     <string name="stats_settings_desc">Ffurfweddu ystadegau, adroddiadau a chadw data SD Maid.</string>
@@ -25,14 +24,6 @@
     <string name="stats_settings_retention_reports_desc">Nifer y dyddiau cyn dileu adroddiadau gweithrediad sylfaenol SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Gwybodaeth llwybr manwl</string>
     <string name="stats_settings_retention_paths_desc">Y nifer o ddyddiau i gadw manylion am lwybrau a effeithiwyd gan SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-    <item quantity="zero">%d diwrnod</item>
-    <item quantity="one">%d diwrnod</item>
-    <item quantity="two">%d ddiwrnod</item>
-    <item quantity="few">%d diwrnod</item>
-    <item quantity="many">%d diwrnod</item>
-    <item quantity="other">%d o ddyddiau</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ailosod popeth</string>
     <string name="stats_settings_reset_all_desc">Dileu pob adroddiad a gosod pob ystadegyn i sero.</string>
     <string name="stats_affected_paths_label">Llwybrau a effeithiwyd</string>

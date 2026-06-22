@@ -6,16 +6,19 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.RomType
+import eu.darken.sdmse.common.theming.ThemeColor
 import eu.darken.sdmse.common.theming.ThemeMode
+import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import eu.darken.sdmse.main.core.tour.TourPreferences
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -27,15 +30,24 @@ class GeneralSettings @Inject constructor(
     json: Json,
     motdSettings: MotdSettings,
     updateChecker: UpdateChecker
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_core")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, json)
     val themeStyle = dataStore.createValue("core.ui.theme.style", ThemeStyle.DEFAULT, json)
+    val themeColor = dataStore.createValue(
+        key = "core.ui.theme.color",
+        defaultValue = ThemeColor.GREEN,
+        json = json,
+        // Matches sibling apps: release builds silently fall back to GREEN when a stored
+        // palette value can't be decoded (e.g. a color was removed in a later version);
+        // debug builds throw so we notice the data drift during development.
+        fallbackToDefault = BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE,
+    )
 
     val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
 
@@ -68,16 +80,17 @@ class GeneralSettings @Inject constructor(
         fallbackToDefault = true,
     )
 
-    override val mapper = PreferenceStoreMapper(
-        debugSettings.isDebugMode,
-        themeMode,
-        themeStyle,
-        usePreviews,
-        enableDashboardOneClick,
-        shortcutOneClickEnabled,
-        motdSettings.isMotdEnabled,
-        isUpdateCheckEnabled,
+    val tourPreferences = dataStore.createValue(
+        key = "core.tours.preferences",
+        defaultValue = TourPreferences(),
+        json = json,
+        fallbackToDefault = true,
     )
+
+    // Global master switch for guided tours. When false, no tour starts (see GuidedTourController.shouldStart).
+    // Offered as an opt-out during onboarding and from a tour's exit dialog ("Disable all tours");
+    // re-enabled by "Reset guided tours" in settings.
+    val isGuidedToursEnabled = dataStore.createValue("core.tours.enabled", true)
 
     // Unused at the moment, but we keep this to remember the setting should we add this again in the future
     @Suppress("unused")
@@ -90,3 +103,10 @@ class GeneralSettings @Inject constructor(
         internal val TAG = logTag("Core", "Settings")
     }
 }
+
+val GeneralSettings.themeState: Flow<ThemeState>
+    get() = combine(
+        themeMode.flow,
+        themeStyle.flow,
+        themeColor.flow,
+    ) { mode, style, color -> ThemeState(mode = mode, style = style, color = color) }

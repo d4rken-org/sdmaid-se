@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Zure gailuan instalatutako aplikazioak.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplikazio detektatu da</item>
-        <item quantity="other">%d aplikazio detektatu dira</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Aldatu aplikazioak</string>
     <string name="appcontrol_toggle_app_enable_action">Gaitu aplikazioa</string>
     <string name="appcontrol_toggle_app_disable_action">Desgaitu aplikazioa</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Arazketa</string>
     <string name="appcontrol_progress_enabling_package">Aplikazioa gaitzen</string>
     <string name="appcontrol_progress_disabling_package">Aplikazioa desgaitzen</string>
-    <string name="appcontrol_list_filteroptions_label">Iragazki-aukerak</string>
     <string name="appcontrol_list_sortmode_name_label">Aplikazioaren izena</string>
     <string name="appcontrol_list_sortmode_updated_label">Azken eguneratzea</string>
     <string name="appcontrol_list_sortmode_installed_label">Lehen instalazioa</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Instalatuta: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Kudeatu instalatutako aplikazioak</string>
-    <string name="appcontrol_automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Aurreko ekintza baieztatzen saiatzen (gako-hitzak: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Sartu beste erabiltzaileak</string>
-    <string name="appcontrol_include_multiuser_summary">Sartu gailuko beste erabiltzaile-profiletako aplikazioak.</string>
 </resources>

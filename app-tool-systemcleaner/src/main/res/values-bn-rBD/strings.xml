@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
 </resources>

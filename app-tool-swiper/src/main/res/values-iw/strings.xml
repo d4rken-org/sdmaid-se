@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">המשך הפעלה</string>
     <string name="swiper_sessions_description">סקור קבצים ב-3 שלבים פשוטים:\n\n1. בחר תיקייה לסריקה\n2. החלק קבצים כדי לשמור, למחוק או לדלג\n3. סקור את הבחירות שלך ואשר\n\nשום דבר לא נמחק עד שתלחץ על כפתור המחיקה הסופי.</string>
     <string name="swiper_select_folders_action">בחר תיקיות</string>
-    <string name="swiper_scanning_title">סורק…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">נמצא פריט %d</item>
         <item quantity="two">נמצאו %d פריטים</item>
@@ -34,8 +33,6 @@
     <string name="swiper_status_action_keep_selected">שמור נבחרים</string>
     <string name="swiper_status_action_delete_selected">מחק נבחרים</string>
     <string name="swiper_status_action_reset_selected">אפס נבחרים</string>
-    <string name="swiper_decision_undecided">לא הוחלט</string>
-    <string name="swiper_retry_action">נסה שוב</string>
     <string name="swiper_delete_confirmation_title">למחוק קבצים?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">פעולה זו תמחק לצמיתות קובץ %1$d (%2$s). לא ניתן לבטל פעולה זו.</item>
@@ -117,18 +114,6 @@
         <item quantity="many">%d לא הוחלט</item>
         <item quantity="other">%d לא הוחלט</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d כבר נשמר</item>
-        <item quantity="two">%d כבר נשמרו</item>
-        <item quantity="many">%d כבר נשמרו</item>
-        <item quantity="other">%d כבר נשמרו</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d כבר נמחק</item>
-        <item quantity="two">%d כבר נמחקו</item>
-        <item quantity="many">%d כבר נמחקו</item>
-        <item quantity="other">%d כבר נמחקו</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d נשמר</item>
         <item quantity="two">%d נשמרו</item>
@@ -173,7 +158,6 @@
     <string name="swiper_help_title">איך Swiper עובד</string>
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
     <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
-    <string name="swiper_help_action">עזרה</string>
     <string name="swiper_file_type_filter_title">הצג רק סוגי קבצים אלה</string>
     <string name="swiper_file_type_filter_hint">סמן את הסוגים שברצונך לראות. אם לא סומן אף סוג, כל הקבצים יוצגו.</string>
     <string name="swiper_file_type_category_images">תמונות</string>
@@ -187,7 +171,6 @@
     <string name="swiper_file_type_category_archives">ארכיונים</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">החל</string>
-    <string name="swiper_session_filter_action">סינון קבצים</string>
     <string name="swiper_file_type_filter_summary">מסונן: %1$s</string>
     <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
     <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>

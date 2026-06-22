@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">నిల్వ స్థలాన్ని ఆదా చేయడానికి చిత్రాలు మరియు వీడియోలను కంప్రెస్ చేయండి.</string>
+    <string name="squeezer_explanation_short">స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్రాలను కుదించండి.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d అంశం కనుగొనబడింది</item>
-        <item quantity="other">%d అంశాలు కనుగొనబడినాయి</item>
+        <item quantity="one">%d చిత్రం కనుగొనబడింది</item>
+        <item quantity="other">%d చిత్రాలు కనుగొనబడ్డాయి</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s ఆదా చేయవచ్చు</item>
         <item quantity="other">~%s ఆదా చేయవచ్చు</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d అంశం కంప్రెస్ చేయబడింది</item>
-        <item quantity="other">%d అంశాలు కంప్రెస్ చేయబడినాయి</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d విఫలమైంది</item>
-        <item quantity="other">%d విఫలమైనాయి</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ఫైల్ దాటవేయబడింది (అందుబాటులో లేదు)</item>
-        <item quantity="other">%d ఫైళ్ళు దాటవేయబడినాయి (అందుబాటులో లేవు)</item>
+        <item quantity="one">%d చిత్రం కుదించబడింది</item>
+        <item quantity="other">%d చిత్రాలు కుదించబడ్డాయి</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d అంశం ఎంచుకొబడింది</item>
-        <item quantity="other">%d అంశాలు ఎంచుకొబడినాయి</item>
+        <item quantity="one">%d చిత్రం ఎంచుకోబడింది</item>
+        <item quantity="other">%d చిత్రాలు ఎంచుకోబడ్డాయి</item>
     </plurals>
-    <string name="squeezer_search_locations_title">వెతకడానికి స్థానాలు</string>
-    <string name="squeezer_search_locations_default_summary">కెమెరా ఫోల్డర్‌లు (డిఫాల్ట్)</string>
     <string name="squeezer_min_size_title">కనిష్ట ఫైల్ పరిమాణం</string>
-    <string name="squeezer_min_size_description">ఈ పరిమాణం కంటే చిన్న ఫైళ్ళను దాటవేయండి.</string>
+    <string name="squeezer_min_size_description">ఈ పరిమాణం కంటే చిన్న చిత్రాలను దాటవేయండి.</string>
     <string name="squeezer_min_age_title">కనిష్ట ఫైల్ వయసు</string>
-    <string name="squeezer_min_age_description">ఈ వయసు కంటే పాతవైన ఫైళ్ళను మాత్రమే చేర్చండి.</string>
-    <string name="squeezer_compression_settings_label">సాధారణ</string>
-    <string name="squeezer_quality_label">నాణ్యత</string>
-    <string name="squeezer_quality_title">కుదింపు నాణ్యత</string>
-    <string name="squeezer_quality_description">తక్కువ నాణ్యత అంటే చిన్న ఫైల్ పరిమాణం కానీ తక్కువ దృశ్య నాణ్యత.</string>
-    <string name="squeezer_quality_example_format">ఉదాహరణ: %1$s చిత్రం → %3$d%% నాణ్యతలో ~%2$s ఆదా</string>
-    <string name="squeezer_quality_warning_low">తక్కువ నాణ్యతలు కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
-    <string name="squeezer_quality_warning_high">చాలా అధిక నాణ్యత కనిష్ట స్థల ఆదాను అందిస్తుంది.</string>
-    <string name="squeezer_types_category_label">చిత్రం అమరికలు</string>
-    <string name="squeezer_video_settings_category_label">వీడియో అమరికలు</string>
+    <string name="squeezer_min_age_description">ఈ వయసు కంటే పాత చిత్రాలను మాత్రమే చేర్చండి.</string>
+    <string name="squeezer_compression_settings_label">కుదింపు సెట్టింగ్‌లు</string>
+    <string name="squeezer_quality_description">తక్కువ నాణ్యత అంటే చిన్న ఫైల్ పరిమాణం కానీ తగ్గిన చిత్ర నాణ్యత.</string>
+    <string name="squeezer_types_category_label">చిత్ర రకాలు</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG చిత్రాలను చేర్చండి (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP చిత్రాలను చేర్చండి (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 వీడియో</string>
-    <string name="squeezer_type_video_description">MP4 వీడియో ఫైళ్ళను (.mp4) చేర్చండి.</string>
     <string name="squeezer_skip_compressed_title">గతంలో కుదించినవి దాటవేయండి</string>
-    <string name="squeezer_skip_compressed_description">SD Maid ద్వారా ఇప్పటికే కంప్రెస్ చేయబడిన ఫైళ్ళను దాటవేయండి.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ద్వారా ఇప్పటికే కుదించబడిన చిత్రాలను దాటవేయండి.</string>
     <string name="squeezer_exif_marker_title">EXIF మార్కర్ వ్రాయండి</string>
     <string name="squeezer_exif_marker_description">కుదింపు చరిత్ర క్లియర్ చేయబడినా మళ్ళీ కుదింపును నిరోధించడానికి చిత్రం యొక్క EXIF వినియోగదారు వ్యాఖ్య ఫీల్డ్‌కు మార్కర్‌ను జోడించండి.</string>
     <string name="squeezer_estimated_savings_format">~%s ఆదా</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>
     <string name="squeezer_preview_total_size">మొత్తం పరిమాణం</string>
     <string name="squeezer_preview_estimated_savings">అంచనా ఆదా</string>
-    <string name="squeezer_compress_confirmation_title">ఎంచుకున్న అంశాలను కంప్రెస్ చేయాలా?</string>
-    <string name="squeezer_compress_confirmation_message">ఇది అసలు ఫైళ్ళను కంప్రెస్ చేయబడిన వెర్షన్‌లతో భర్తీ చేస్తుంది. ఈ చర్యను రద్దు చేయడం సాధ్యం కాదు.</string>
     <string name="squeezer_history_title">కుదింపు చరిత్ర</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d అంశం (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">కుదింపు చరిత్ర లేదు</string>
     <string name="squeezer_history_clear_title">కుదింపు చరిత్రను క్లియర్ చేయండి</string>
-    <string name="squeezer_history_clear_message">ఇది గతంలో కంప్రెస్ చేయబడిన ఫైళ్ళను మళ్ళీ కంప్రెస్ చేయడానికి అనుమతిస్తుంది. ఫైళ్ళు ప్రభావితం కావు.</string>
-    <string name="squeezer_onboarding_title">చిత్ర కుదింపు గురించి</string>
-    <string name="squeezer_onboarding_message">చిత్ర కుదింపు విజువల్ వివరాలను తొలగించడం ద్వారా ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఈ ప్రక్రియ తిరుగులేనిది - అసలు నాణ్యతను పునరుద్ధరించలేరు.\n\nమీ చిత్రాలు ఎలా కనిపిస్తాయో ఇక్కడ ప్రివ్యూ ఉంది:</string>
+    <string name="squeezer_history_clear_message">ఇది గతంలో కుదించిన చిత్రాలను మళ్ళీ కుదించడానికి అనుమతిస్తుంది. చిత్రాలు ప్రభావితం కావు.</string>
     <string name="squeezer_onboarding_original_label">అసలు</string>
     <string name="squeezer_onboarding_compressed_label">కుదింపు తర్వాత</string>
-    <string name="squeezer_onboarding_video_original_label">వీడియో ఫ్రేమ్</string>
-    <string name="squeezer_onboarding_video_compressed_label">ప్రివ్యూ (సుమారు)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">వాస్తవ వీడియో నాణ్యత భిన్నంగా ఉండవచ్చు</string>
-    <string name="squeezer_onboarding_quality_label">నాణ్యత: %d%%</string>
     <string name="squeezer_compare_action">పోలిక చూడండి</string>
     <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
-    <string name="squeezer_result_empty_message">కంప్రెస్ చేయగలిగే మీడియా ఏదీ కనుగొనబడలేదు.</string>
-    <string name="squeezer_setup_warning">కంప్రెషన్ నిల్వ స్థలాన్ని ఆదా చేయడానికి నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది. ఇది రద్దు చేయడం సాధ్యం కాదు. ప్రారంభించే ముందు మీ అమరికలను జాగ్రత్తగా సమీక్షించండి.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d స్థానాన్ని కంప్రెషన్ కోసం ఉపయోగించలేము మరియు తొలగించబడింది. కంప్రెషన్‌కు అంతర్గత నిల్వకు నేరుగా యాక్సెస్ అవసరం.</item>
-        <item quantity="other">%d స్థానాలను కంప్రెషన్ కోసం ఉపయోగించలేము మరియు తొలగించబడినాయి. కంప్రెషన్‌కు అంతర్గత నిల్వకు నేరుగా యాక్సెస్ అవసరం.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">మీడియా స్క్వీజ్ నిల్వ స్థలాన్ని విముక్తి చేయడానికి చిత్రాలు మరియు వీడియోల ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఇది శాశ్వతంగా నాణ్యతను తగ్గిస్తుంది మరియు రద్దు చేయడం సాధ్యం కాదు. ప్రారంభించే ముందు మీ అమరికలను జాగ్రత్తగా సమీక్షించండి.</string>
+    <string name="squeezer_result_empty_message">కుదించగల చిత్రాలు కనుగొనబడలేదు.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze స్టోరేజీ స్థలాన్ని ఖాళీ చేయడానికి చిత్రాల ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఇది చిత్ర నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది మరియు రద్దు చేయలేరు. ప్రారంభించే ముందు మీ సెట్టింగ్‌లను జాగ్రత్తగా సమీక్షించండి.</string>
     <string name="squeezer_setup_paths_title">వెతకడానికి స్థానాలు</string>
     <string name="squeezer_setup_paths_default">వెతకడానికి ఫోల్డర్‌లను ఎంచుకోండి</string>
     <string name="squeezer_setup_quality_title">కుదింపు నాణ్యత</string>
     <string name="squeezer_setup_age_title">కనిష్ట వయసు</string>
-    <string name="squeezer_setup_age_none">పరిమితి లేదు (అన్ని ఫైల్‌లను చేర్చు)</string>
     <string name="squeezer_setup_start_action">స్కాన్ ప్రారంభించు</string>
     <string name="squeezer_quality_hint_very_low">40% కంటే తక్కువ నాణ్యత ఉపయోగించలేని చిత్రాలను సృష్టించవచ్చు.</string>
     <string name="squeezer_quality_hint_low">తక్కువ నాణ్యత ఎక్కువ స్థలాన్ని ఆదా చేస్తుంది కానీ కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">కనీసం %d రోజు పాతది</item>
         <item quantity="other">కనీసం %d రోజులు పాతవి</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">చిత్రాలకు సుమారు ~%d%% ఆదా అంచనా</string>
-    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ఫైల్‌లకు అంచనా ~%d%% ఆదా</string>
 </resources>

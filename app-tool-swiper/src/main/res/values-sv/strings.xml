@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Fortsätt session</string>
     <string name="swiper_sessions_description">Granska filer i 3 enkla steg:\n\n1. Välj en mapp att skanna\n2. Svep genom filer för att behålla, ta bort eller hoppa över\n3. Granska dina val och bekräfta\n\nInget tas bort förrän du trycker på den slutliga raderingsknappen.</string>
     <string name="swiper_select_folders_action">Välj mappar</string>
-    <string name="swiper_scanning_title">Skannar…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d objekt hittat</item>
         <item quantity="other">%d objekt hittade</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Behåll valda</string>
     <string name="swiper_status_action_delete_selected">Radera valda</string>
     <string name="swiper_status_action_reset_selected">Återställ valda</string>
-    <string name="swiper_decision_undecided">Obestämt</string>
-    <string name="swiper_retry_action">Försök igen</string>
     <string name="swiper_delete_confirmation_title">Ta bort filer?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Detta kommer permanent ta bort %1$d fil (%2$s). Denna åtgärd kan inte ångras.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d obestämt</item>
         <item quantity="other">%d obestämda</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d redan behållet</item>
-        <item quantity="other">%d redan behållna</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d redan borttaget</item>
-        <item quantity="other">%d redan borttagna</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d behållet</item>
         <item quantity="other">%d behållna</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Hur Swiper fungerar</string>
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Jag fattar</string>
-    <string name="swiper_help_action">Hjälp</string>
     <string name="swiper_file_type_filter_title">Visa bara dessa filtyper</string>
     <string name="swiper_file_type_filter_hint">Markera de typer du vill se. Om inga är markerade visas alla filer.</string>
     <string name="swiper_file_type_category_images">Bilder</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arkiv</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Tillämpa</string>
-    <string name="swiper_session_filter_action">Filtrera filer</string>
     <string name="swiper_file_type_filter_summary">Filtrerat: %1$s</string>
     <string name="swiper_session_no_matching_files">Inga matchande filer hittades</string>
     <string name="swiper_open_externally_action">Öppna i extern app</string>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Naudokite įrankio AppControl programos išėmimams kurti.</string>
     <string name="exclusion_create_path_hint">Naudokite įrankio StorageAnalyzer kelio išėmimams kurti.</string>
     <string name="exclusion_show_defaults_action">Rodyti numatytuosius</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Turite neišsaugotų pakeitimų!</string>
 </resources>

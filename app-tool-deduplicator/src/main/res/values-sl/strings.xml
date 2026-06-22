@@ -17,9 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">V nizih dvojnikov prikaži možnosti za izbris vseh datotek, tako da ne ostane nobena.</string>
     <string name="deduplicator_search_locations_title">Mesta iskanja</string>
     <string name="deduplicator_search_locations_all_summary">Vsa dostopna področja</string>
-    <string name="deduplicator_keep_prefer_paths_title">Daj prednost ohranjanju v</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Pri odločanju, katero podvojeno datoteko ohraniti, daj prednost datotekam na teh lokacijah.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ni nastavljenih lokacij</string>
     <string name="deduplicator_skip_minsize_title">Najmanjša velikost</string>
     <string name="deduplicator_skip_minsize_description">Preskoči datoteke, ki manjše od najmanjše velikosti.</string>
     <string name="deduplicator_skip_uncommon_title">Preskoči redke vrste datotek</string>
@@ -31,7 +28,6 @@
     <string name="deduplicator_detection_method_phash_summary">Poišči podobne datoteke s preučevanjem značilnosti vsebine in primerjavo zaznavnih zgoščenih vrednosti. ⚠️ Zaznavanje podobnosti lahko poda lažne podobnosti, kar zahteva ročno preverjanje.</string>
     <string name="deduplicator_detection_method_media_title">Medijski prstni odtis</string>
     <string name="deduplicator_detection_method_media_summary">Poišči podobne video in avdio datoteke z analizo zvočnih prstnih odtisov. ⚠️ Zaznavanje na podlagi podobnosti lahko vključuje lažne zadetke, ki zahtevajo ročno preverjanje.</string>
-    <string name="deduplicator_matches_media_label">Podobni mediji</string>
     <string name="deduplicator_media_match_audio">Ujemanje na podlagi zvoka</string>
     <string name="deduplicator_media_match_visual">Ujemanje na podlagi videa</string>
     <string name="deduplicator_media_match_audio_visual">Ujemanje na podlagi zvoka in videa</string>

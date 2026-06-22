@@ -8,7 +8,6 @@
         <item quantity="one">%s elementu protzessadu dae cando as invitadu SD Maid in su dispositivu tuo.</item>
         <item quantity="other">%s elementos protzessados dae cando as invitadu SD Maid in su dispositivu tuo.</item>
     </plurals>
-    <string name="stats_report_status_success">Sutzessu</string>
     <string name="stats_report_status_partial_success">Sutzessu partziale</string>
     <string name="stats_report_status_partial_failure">Fallimentu</string>
     <string name="stats_settings_desc">Cunfigurare istàdisticas, rapòrtos e ritenzione de datos de SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Númeru de dies in antis de cantzellare rapòrtos bàsicos de operatzione de SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Informatziones detalliadas de caminu</string>
     <string name="stats_settings_retention_paths_desc">Su númeru de dies pro mantenner detàllios a subra de caminos afetados dae SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d die</item>
-        <item quantity="other">%d dies</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Ripristinare totu</string>
     <string name="stats_settings_reset_all_desc">Cantzellare totu is rapòrtos e impostare totu is istàdisticas a tzeru.</string>
     <string name="stats_affected_paths_label">Caminos afetados</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Archìviu primàriu</string>
     <string name="stats_storage_type_secondary">Archìviu secundàriu</string>
     <string name="stats_storage_type_portable">Archìviu portàbile</string>
-    <string name="stats_space_history_delete_storage_title">Cantzellare sa crònaca de su depòsitu?</string>
-    <string name="stats_space_history_delete_storage_desc">Totu is datos de tendentzia de custu depòsitu serant cantzellados permanentemente.</string>
-    <string name="stats_settings_retention_snapshots_label">Instantàneas de memorizamentu</string>
-    <string name="stats_settings_retention_snapshots_desc">Número de dies pro mantenni sas instantàneas de s’ispatziu de memorizamentu.</string>
 </resources>

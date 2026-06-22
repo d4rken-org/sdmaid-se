@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ໃຊ້ເຄື່ອງມື AppControl ເພື່ອສ້າງການທ່ອນຂ້າມແອັບ.</string>
     <string name="exclusion_create_path_hint">ໃຊ້ເຄື່ອງມື StorageAnalyzer ເພື່ອສ້າງການທ່ອນຂ້າມທາງ.</string>
     <string name="exclusion_show_defaults_action">ແສດງຄ່າເຣີ່ມຕ້ນ</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ທ່ານມີການ຺່ນທີ່ຍັງບໍ່ຖືກບັນທຶກ!</string>
 </resources>

@@ -1,21 +1,26 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
-import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
-import eu.darken.sdmse.corpsefinder.core.hasData
+import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
@@ -26,78 +31,103 @@ class CorpseFinderListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // navUp only when a non-null Data drains to empty corpses — null is the loading state
+        // (set during performScan before results land) and must not trigger navigation.
         corpseFinder.state
             .map { it.data }
-            .filter { !it.hasData }
+            .drop(1)
+            .filter { it?.corpses?.isEmpty() == true }
             .take(1)
-            .onEach { popNavStack() }
-            .launchInViewModel()
+            .onEach { navUp() }
+            .launchIn(vmScope)
     }
 
-    val events = SingleLiveEvent<CorpseFinderListEvents>()
+    val events = SingleEventFlow<Event>()
 
-    val state = combine(
-        corpseFinder.state.map { it.data }.filterNotNull(),
-        corpseFinder.progress
-    ) { data, progress ->
-        val rows = data.corpses
-            .sortedByDescending { it.size }
-            .map { corpse ->
-                CorpseFinderListRowVH.Item(
-                    corpse = corpse,
-                    onItemClicked = { delete(setOf(it)) },
-                    onDetailsClicked = { showDetails(it) }
-                )
-            }
-        State(rows, progress)
-    }.asLiveData2()
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // and re-map the whole corpse list. Progress is merged in last (below) as a cheap field swap that
+    // preserves the rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsState = corpseFinder.state
+        .map { it.data }
+        .map { data ->
+            val rows = data?.corpses
+                ?.sortedByDescending { it.size }
+                ?.map { Row(corpse = it) }
+            State(rows = rows)
+        }
+
+    val state: StateFlow<State> = combine(
+        rowsState,
+        corpseFinder.progress,
+    ) { base, progress ->
+        base.copy(progress = progress)
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
+
+    fun onRowClick(row: Row) {
+        log(TAG, INFO) { "onRowClick(${row.identifier})" }
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
+    }
+
+    fun onDetailsClick(row: Row) {
+        log(TAG, INFO) { "onDetailsClick(${row.identifier})" }
+        navTo(CorpseDetailsRoute(corpsePath = row.identifier))
+    }
+
+    fun onDeleteSelected(ids: Set<CorpseIdentifier>) {
+        log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
+        if (ids.isEmpty()) return
+        events.tryEmit(Event.ConfirmDeletion(ids))
+    }
+
+    fun onDeleteConfirmed(ids: Set<CorpseIdentifier>) = launch {
+        log(TAG, INFO) { "onDeleteConfirmed(${ids.size})" }
+        val snapshot = corpseFinder.state.first().data ?: return@launch
+        val validIds = ids.filter { id -> snapshot.corpses.any { it.identifier == id } }.toSet()
+        if (validIds.isEmpty()) return@launch
+
+        val task = CorpseFinderDeleteTask(targetCorpses = validIds)
+        val result = taskSubmitter.submit(task) as CorpseFinderDeleteTask.Result
+        log(TAG) { "onDeleteConfirmed(): Result was $result" }
+        when (result) {
+            is CorpseFinderDeleteTask.Success -> events.tryEmit(Event.TaskResult(result))
+        }
+    }
+
+    fun onExcludeSelected(ids: Set<CorpseIdentifier>) = launch {
+        log(TAG, INFO) { "onExcludeSelected(${ids.size})" }
+        if (ids.isEmpty()) return@launch
+        val snapshot = corpseFinder.state.first().data ?: return@launch
+        val validIds = ids.filter { id -> snapshot.corpses.any { it.identifier == id } }.toSet()
+        if (validIds.isEmpty()) return@launch
+        val undo = corpseFinder.exclude(validIds)
+        events.tryEmit(Event.ExclusionsCreated(undo.exclusionIds.size))
+    }
+
+    fun onShowDetailsFromDialog(ids: Set<CorpseIdentifier>) {
+        val target = ids.firstOrNull() ?: return
+        navTo(CorpseDetailsRoute(corpsePath = target))
+    }
 
     data class State(
-        val items: List<CorpseFinderListRowVH.Item>,
+        val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
     )
 
-    fun delete(items: Collection<CorpseFinderListAdapter.Item>, confirmed: Boolean = false) = launch {
-        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
-        if (!confirmed) {
-            events.postValue(CorpseFinderListEvents.ConfirmDeletion(items))
-            return@launch
-        }
-
-        val targets = items.mapNotNull {
-            when (it) {
-                is CorpseFinderListRowVH.Item -> it.corpse.identifier
-                else -> null
-            }
-        }.toSet()
-
-        val task = CorpseFinderDeleteTask(targetCorpses = targets)
-        val result = taskSubmitter.submit(task) as CorpseFinderDeleteTask.Result
-
-        log(TAG) { "delete(): Result was $result" }
-        when (result) {
-            is CorpseFinderDeleteTask.Success -> events.postValue(CorpseFinderListEvents.TaskResult(result))
-        }
+    data class Row(val corpse: Corpse) {
+        val identifier: CorpseIdentifier get() = corpse.identifier
     }
 
-    fun exclude(items: Collection<CorpseFinderListAdapter.Item>) = launch {
-        log(TAG, INFO) { "exclude(): ${items.size}" }
-        val targets = items.mapNotNull {
-            when (it) {
-                is CorpseFinderListRowVH.Item -> it.corpse.identifier
-                else -> null
-            }
-        }.toSet()
-        corpseFinder.exclude(targets)
-        events.postValue(CorpseFinderListEvents.ExclusionsCreated(items.size))
-    }
+    sealed interface Event {
+        data class ConfirmDeletion(val ids: Set<CorpseIdentifier>) : Event
 
-    fun showDetails(item: CorpseFinderListAdapter.Item) = launch {
-        log(TAG, INFO) { "showDetails(item=$item)" }
-        navigateTo(CorpseDetailsRoute(corpsePath = (item as CorpseFinderListRowVH.Item).corpse.identifier))
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
+        data class TaskResult(override val result: CorpseFinderDeleteTask.Result) : Event, ToolListEvent.ShowTaskResult
     }
 
     companion object {

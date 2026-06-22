@@ -24,6 +24,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
@@ -194,10 +195,10 @@ class Squeezer @Inject constructor(
 
     suspend fun exclude(
         identifiers: Collection<CompressibleMedia.Id>
-    ): Unit = toolLock.withLock {
+    ): Set<ExclusionId> = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
-        val snapshot = internalData.value ?: return@withLock
+        val snapshot = internalData.value ?: return@withLock emptySet()
 
         val exclusions = identifiers
             .mapNotNull { id -> snapshot.media.find { it.identifier == id } }
@@ -208,11 +209,13 @@ class Squeezer @Inject constructor(
                 )
             }
             .toSet()
-        exclusionManager.save(exclusions)
+        val savedIds = exclusionManager.save(exclusions).map { it.id }.toSet()
 
         internalData.value = snapshot.copy(
             media = snapshot.media.filter { !identifiers.contains(it.identifier) }.toSet()
         )
+
+        savedIds
     }
 
     data class State(

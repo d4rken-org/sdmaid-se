@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Sighit sa sessione</string>
     <string name="swiper_sessions_description">Revisiona is archìvios in 3 passos semplìtzios:\n\n1. Sèbera una cartella de chìrcare\n2. Iscorre is archìvios pro mantènnere, cantzellare o brincare\n3. Revisiona is detzisiones tuas e cunfirma\n\nNo si cantzellat nudda fintzas a cando tocas su butone de cantzellamentu finale.</string>
     <string name="swiper_select_folders_action">Sèbera cartellas</string>
-    <string name="swiper_scanning_title">Chirchende…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elementu agatadu</item>
         <item quantity="other">%d elementos agatados</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Mantèni is selecionados</string>
     <string name="swiper_status_action_delete_selected">Cantzella is selecionados</string>
     <string name="swiper_status_action_reset_selected">Reseta is selecionados</string>
-    <string name="swiper_decision_undecided">Indetzisu</string>
-    <string name="swiper_retry_action">Torra a proare</string>
     <string name="swiper_delete_confirmation_title">Cantzellare is archìvios?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Custu at a cantzellare in manera permanente %1$d archìviu (%2$s). Custa atzione non si podet annullare.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d indetzisu</item>
         <item quantity="other">%d indetzisos</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d giai mantenidu</item>
-        <item quantity="other">%d giai mantenidos</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d giai cantzelladu</item>
-        <item quantity="other">%d giai cantzellados</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d mantenidu</item>
         <item quantity="other">%d mantenidos</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Comente funtzionat Swiper</string>
     <string name="swiper_help_message">Iscorre cada archìviu pro leare una detzisione:\n\n← Iscorre a manu manca: %1$s\n→ Iscorre a manu dereta: %2$s\n↑ Iscorre a susu: Brinca\n↓ Iscorre a josso: Annulla (a pustis de su primu iscorrimentu)\n\nPodes fintzas impreare is butones in bàsciu.\n\nCando as acabadu, toca \"Revisione\" pro bìdere totu is detzisiones tuas. No si cantzellat nudda fintzas a cando non lu cunfirmas in sa pàgina de revisione.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Apat cumprèndiu</string>
-    <string name="swiper_help_action">Agiudu</string>
     <string name="swiper_file_type_filter_title">Ammustra sos tipos de archiviu solu</string>
     <string name="swiper_file_type_filter_hint">Controlla sos tipos chi boles bidere. Si nisciunu est controlladu, totos sos archivios sun ammustratos.</string>
     <string name="swiper_file_type_category_images">Immàgines</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Archivios</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Appliga</string>
-    <string name="swiper_session_filter_action">Filtra archivios</string>
     <string name="swiper_file_type_filter_summary">Filtradu: %1$s</string>
     <string name="swiper_session_no_matching_files">Nisciunu archiviu currispundente agatadu</string>
     <string name="swiper_open_externally_action">Aberi in app esterna</string>

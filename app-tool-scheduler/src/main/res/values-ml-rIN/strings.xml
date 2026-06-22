@@ -20,7 +20,6 @@
         <item quantity="one">ഒരു ദിവസം ഒരിക്കൽ</item>
         <item quantity="other">എല്ലാ %d ദിവസവും</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ആവർത്തന ഇടവേള</string>
     <string name="scheduler_inaccurate_execution_hint">പ്രതീക്ഷിക്കുന്ന എക്സിക്യൂഷൻ സമയങ്ങൾ ഏകദേശമാണ്. ബാറ്ററി ലാഭിക്കാൻ ഷെഡ്യൂളുകൾ വൈകുകയോ ത്വരിതപ്പെടുകയോ ചെയ്തേക്കാം.</string>
     <string name="scheduler_no_active_schedules_subtitle">സജീവ ഷെഡ്യൂളുകൾ ഇല്ല</string>
     <string name="scheduler_setting_nopowersaving_title">ബാറ്ററി കുറവായിരിക്കുമ്പോൾ ഒഴിവാക്കുക</string>

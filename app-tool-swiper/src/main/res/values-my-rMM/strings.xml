@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">သှားရှား ဆက်ရန်</string>
     <string name="swiper_sessions_description">ဖိုင်များကို လျှော့ချ အဆင့်မြားဆေး စိုးဂဏေစားနှင််:\n\n1. သက်ဖတ်ရန်ဖိုင်တွဲကို ရွေးချယ်ပါ\n2. ဖိုင်ဖိုင်ကို သိုထားနှင််ခြင်းများ သိုထားသွားကြေားများ swipe လုပြီးပါ\n3. သင်မ်းခြယ်များကို ဆေးသပြောက်ပါ\n\nအခုောဆုံးဖည့်ယဖက်ကို နေစ်မှမဪ ဖိုင်များကို မဖက်မအချားပါ။</string>
     <string name="swiper_select_folders_action">ဖိုင်တွဲများ ရွေးချယ်ပါ</string>
-    <string name="swiper_scanning_title">စကင်ဖတ်နေစ်သည်…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">%d ခု တွေးပုံသည်</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">ရွေးချယ်ပြီးသောကို ဆေးလိုက်ပါ</string>
     <string name="swiper_status_action_delete_selected">ရွေးချယ်ထားသည်ကို ဖျက်ပါ</string>
     <string name="swiper_status_action_reset_selected">ရွေးချယ်ပြီးသောကို အသစ်သန်ပြန်ပါ</string>
-    <string name="swiper_decision_undecided">ဆုံးပြေဆုံးမခြယ်ပြီး</string>
-    <string name="swiper_retry_action">ချုမ်းကြိုးပြန်ပါ</string>
     <string name="swiper_delete_confirmation_title">ဖိုင်များ ဖက်ချလိုက်မည်လား?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">ဤလုပ်ဆောင်ချက်သည် %1$d ဖိုင် (%2$s) ကို အမြဲတမ်းဖက်ချလိုက်မည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ပြန်ဆွဲ၍မရပါ။</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d ခု သိုထားလိုက်ပြီး</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d ခု ဖယ်ချလိုက်ပြီး</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d ခု သိုထားပြီး</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Swiper အလုပ်လုပ်ပုံ</string>
     <string name="swiper_help_message">ဖိုင်တစ်ခုစီကို ပွတ်ဆွဲပြီး ဆုံးဖြတ်ပါ:\n\n← ဘယ်ဘက်သို့ ပွတ်ဆွဲ: %1$s\n→ ညာဘက်သို့ ပွတ်ဆွဲ: %2$s\n↑ အပေါ်သို့ ပွတ်ဆွဲ: ကျော်မည်\n↓ အောက်သို့ ပွတ်ဆွဲ: ပြန်ယူမည် (ပထမ ပွတ်ဆွဲပြီးနောက်)\n\nအောက်ခြေ ခလုတ်များကိုလည်း သုံးနိုင်ပါသည်။\n\nပြီးသွားသောအခါ \"ပြန်စစ်\" ကို တို့ပြီး သင့်ဆုံးဖြတ်ချက်များ အားလုံးကို ကြည့်ပါ။ ပြန်စစ်သည့် မျက်နှာပြင်တွင် အတည်ပြုသည့်အထိ ဘာမျှ မဖျက်ပါ။</string>
     <string name="swiper_gesture_overlay_dismiss_action">နား လည်ပါပြီ</string>
-    <string name="swiper_help_action">အကူအညီ</string>
     <string name="swiper_file_type_filter_title">ဤဖိုင်အမျိုးအစားများကိုသာ ပြပါ</string>
     <string name="swiper_file_type_filter_hint">ကြည့်လိုသောအမျိုးအစားများကို စစ်ဆေးပါ။ မည်သည့်အမျိုးအစားမှ မစစ်ဆေးပါက ဖိုင်အားလုံးကို ပြပါမည်။</string>
     <string name="swiper_file_type_category_images">ပုံများ</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">မော်ကွန်းများ</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">သုံးမည်</string>
-    <string name="swiper_session_filter_action">ဖိုင်များ စစ်ထုတ်မည်</string>
     <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
     <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
     <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>

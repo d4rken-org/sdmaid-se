@@ -33,16 +33,9 @@
     <string name="general_empty_label">ਖ਼ਾਲੀ</string>
     <string name="general_new_badge_label">ਨਵਾਂ</string>
     <string name="general_dismiss_action">ਬਰਖਾਸਤ ਕਰੋ</string>
-    <string name="general_maybe_later_action">ਫੇਰ ਕਦੇ</string>
     <string name="general_manage_action">ਪ੍ਰਬੰਧ ਕਰੋ</string>
-    <string name="general_sync_action">ਸਿੰਕ੍ਰੋਨਾਇਜ਼ ਕਰੋ</string>
     <string name="general_error_label">ਖ਼ਾਮੀ</string>
-    <string name="general_tap_hint_msg">ਹੋਰ ਵਿਕਲਪਾਂ ਲਈ ਠੁੰਗ ਮਾਰੋ</string>
     <string name="general_upgrade_action">ਅੱਪਗਰੇਡ</string>
-    <string name="general_donate_action">ਦਾਨ ਕਰੋ</string>
-    <string name="general_check_action">ਜਾਂਚ ਕਰੋ</string>
-    <string name="general_filter_action">ਪੁਣ-ਛਾਣ ਕਰੋ</string>
-    <string name="general_internal_not_available_msg">ਇੰਟਰਨੈਟ ਕਨੈਕਸ਼ਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
     <string name="general_refresh_action">ਤਾਜ਼ਾ ਕਰੋ</string>
     <string name="general_progress_searching">ਲੱਭ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_generating_searchpaths">ਖੋਜ ਮਾਰਗ ਬਣਾ ਰਿਹਾ ਹੈ</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">ਕਤਾਰ ਵਿੱਚ</string>
     <string name="general_progress_deleting">ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_deleting_x">%s ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
-    <string name="general_sort_action">ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
-    <string name="general_sort_by_title">ਇਸ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
-    <string name="general_sort_options_label">ਸੰਧਿ ਵਿਕਲਪ</string>
     <string name="general_sort_reverse_action">ਰਿਵਰਸ ਸੰਧਿ ਮੋਡ</string>
-    <string name="general_sort_oldest_first">ਪੁਰਾਣੇ ਪਹਿਲਾਂ</string>
-    <string name="general_sort_newest_first">ਨਵੇਂ ਪਹਿਲਾਂ</string>
-    <string name="general_sort_name_asc">ਨਾਮ (A → Z)</string>
-    <string name="general_sort_size_desc">ਸਭ ਤੋਂ ਵੱਡੇ ਪਹਿਲਾਂ</string>
-    <string name="general_tag_filter_label">ਟੈਗਾਂ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ</string>
     <string name="general_tag_system">ਸਿਸਟਮ</string>
     <string name="general_result_success_message">ਕਾਰਵਾਈ ਸਫਲ ਹੋਈ</string>
-    <string name="general_result_failure_message">ਕਾਰਵਾਈ ਅਸਫਲ ਹੋਈ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
         <item quantity="other">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">ਮਿਟਾਓ</string>
     <string name="general_delete_selected_action">ਚੁਣੇ ਮਿਟਾਓ</string>
     <string name="general_show_details_action">ਵੇਰਵੇ ਦਿਖਾਓ</string>
-    <string name="general_show_all_action">ਸਾਰੇ ਦਿਖਾਓ</string>
     <string name="general_toggle_layout_mode">ਦੇਖਣ ਦਾ ਮੋਡ ਬਦਲੋ</string>
     <string name="general_delete_confirmation_title">ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ਮਿਟਾਓ?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d ਆਈਟਮ ਮਿਟਾਏ ਗਏ।</item>
     </plurals>
     <string name="general_remove_action">ਹਟਾਓ</string>
-    <string name="general_remove_selected_action">ਚੁਣੇ ਹਟਾਓ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ਇੱਕ ਆਈਟਮ ਹਟਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਆਈਟਮ ਹਟਾਏ ਗਏ</item>
     </plurals>
-    <string name="general_root_required_label">ਰੂਟ ਦੀ ਲੋੜ ਹੈ</string>
-    <string name="general_root_required_message">ਰੂਟ ਕੀਤੇ ਗਏ ਯੰਤਰ ਦੀ ਲੋੜ ਹੈ</string>
     <string name="general_search_action">ਖੋਜੋ</string>
-    <string name="general_scan_device_action">ਯੰਤਰ ਸਕੈਨ ਕਰੋ</string>
     <string name="general_open_system_settings_action">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ਆਈਟਮ</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">ਜਾਣਕਾਰੀ</string>
     <string name="general_count_label">ਗਿਣਤੀ</string>
-    <string name="general_app_label">ਐਪ</string>
     <string name="general_more_info_action">ਹੋਰ ਜਾਣਕਾਰੀ</string>
     <string name="general_grant_access_action">ਪਹੁੰਚ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ</string>
     <string name="general_enable_service_action">ਸੇਵਾ ਚਾਲੂ ਕਰੋ</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">ਚੁਣੇ ਨੂੰ ਬਾਹਰ ਰੱਖੋ</string>
     <string name="general_device_label">ਯੰਤਰ</string>
     <string name="general_settings_title">ਸੈਟਿੰਗਾਂ</string>
-    <string name="general_help_title">ਮਦਦ</string>
     <string name="general_hints_label">ਸੂਚਨਾ</string>
     <string name="file_type_symbolic_link">ਲਿੰਕ</string>
     <string name="file_type_directory">ਡਾਇਰੈਕਟਰੀ</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">ਮਾਲਕ</string>
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
     <string name="setup_title">ਸੈਟਅੱਪ</string>
-    <string name="setup_feature_requires_additional_setup_x">ਇਸ ਫੀਚਰ ਲਈ ਵਾਧੂ ਸੈੱਟਅੱਪ ਆਈਟਮਾਂ ਨੂੰ ਪੂਰਾ ਕਰਨਾ ਜ਼ਰੂਰੀ ਹੈ: %s</string>
-    <string name="upgrade_feature_requires_pro">ਪ੍ਰੋ ਦੀ ਲੋੜ ਹੈ</string>
     <string name="general_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="general_include_multiuser_summary">ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਪ੍ਰੋਫਾਈਲਾਂ ਤੋਂ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="general_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੇਵ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>
     <string name="settings_category_filter">ਫਿਲਟਰ</string>
     <string name="appcontrol_systemsettings_open_title">ਸੈਟਿੰਗਾਂ ਦਿਖਾਓ</string>
-    <string name="systemcleaner_customfilter_create_action">ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ</string>
 </resources>

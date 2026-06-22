@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jarraitu saioa</string>
     <string name="swiper_sessions_description">Berrikusi fitxategiak 3 urrats sinpleetan:\n\n1. Hautatu eskaneatzeko karpeta\n2. Irrist egin fitxategiak gorde, ezabatu edo saltatzeko\n3. Berrikusi aukerak eta baieztatu\n\nEzer ez da ezabatzen azken ezabatze-botoia sakatu arte.</string>
     <string name="swiper_select_folders_action">Hautatu karpetak</string>
-    <string name="swiper_scanning_title">Eskanatzen…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elementu aurkitu da</item>
         <item quantity="other">%d elementu aurkitu dira</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Gorde hautatuak</string>
     <string name="swiper_status_action_delete_selected">Hautatutakoak ezabatu</string>
     <string name="swiper_status_action_reset_selected">Berrezarri hautatuak</string>
-    <string name="swiper_decision_undecided">Erabaki gabe</string>
-    <string name="swiper_retry_action">Saiatu berriro</string>
     <string name="swiper_delete_confirmation_title">Ezabatu fitxategiak?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Honek betirako ezabatuko du %1$d fitxategi (%2$s). Ekintza hau ezin da desegin.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d erabaki gabe</item>
         <item quantity="other">%d erabaki gabe</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jada gordeta</item>
-        <item quantity="other">%d jada gordeta</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d jada ezabatuta</item>
-        <item quantity="other">%d jada ezabatuta</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d gordeta</item>
         <item quantity="other">%d gordeta</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Swiper nola funtzionatzen duen</string>
     <string name="swiper_help_message">Irristatu fitxategi bakoitza erabaki bat hartzeko:\n\n← Irristatu ezkerrera: %1$s\n→ Irristatu eskuinera: %2$s\n↑ Irristatu gora: Saltatu\n↓ Irristatu behera: Desegin (lehen irristadaren ondoren)\n\nBeheko botoiak ere erabil ditzakezu.\n\nBukatutakoan, sakatu \"Berrikusi\" zure erabaki guztiak ikusteko. Ezer ez da ezabatuko berrikusketa pantailan baieztatu arte.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ulertuta</string>
-    <string name="swiper_help_action">Laguntza</string>
     <string name="swiper_file_type_filter_title">Erakutsi fitxategi mota hauek soilik</string>
     <string name="swiper_file_type_filter_hint">Hautatu ikusi nahi dituzun motak. Bat ere hautatzen ez bada, fitxategi guztiak erakutsiko dira.</string>
     <string name="swiper_file_type_category_images">Irudiak</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Artxiboak</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Aplikatu</string>
-    <string name="swiper_session_filter_action">Iragazki fitxategiak</string>
     <string name="swiper_file_type_filter_summary">Iragazita: %1$s</string>
     <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
     <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>

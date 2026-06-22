@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="action_reportsFragment_to_affectedFilesFragment" type="id" />
-    <item name="action_reportsFragment_to_affectedPkgsFragment" type="id" />
-    <item name="action_reportsFragment_to_spaceHistoryFragment" type="id" />
-</resources>

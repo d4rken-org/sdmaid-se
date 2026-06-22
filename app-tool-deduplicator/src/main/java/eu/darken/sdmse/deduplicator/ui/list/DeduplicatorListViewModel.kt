@@ -1,19 +1,19 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.previews.PreviewOptions
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
+import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
@@ -21,13 +21,23 @@ import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
+import eu.darken.sdmse.deduplicator.core.tasks.isSingleDuplicateDelete
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -37,161 +47,285 @@ class DeduplicatorListViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     init {
         deduplicator.state
-            .map { it.data }
+            .mapNotNull { it.data }
+            .drop(1)
             .filter { !it.hasData }
             .take(1)
-            .onEach { popNavStack() }
+            .onEach { navUp() }
+            .launchInViewModel()
+
+        val start = Instant.now()
+        val handledResults = mutableSetOf<String>()
+        taskSubmitter.state
+            .map { it.getLatestTask(SDMTool.Type.DEDUPLICATOR) }
+            .filterNotNull()
+            .filter { it.completedAt!! > start }
+            .onEach { task ->
+                val result = task.result as? DeduplicatorTask.Result ?: return@onEach
+                if (handledResults.add(task.id)) {
+                    if (task.task.isSingleDuplicateDelete) return@onEach
+                    events.tryEmit(Event.TaskResult(result))
+                }
+            }
             .launchInViewModel()
     }
 
-    val events = SingleLiveEvent<DeduplicatorListEvents>()
+    val events = SingleEventFlow<Event>()
 
-    val layoutMode: LayoutMode
-        get() = settings.layoutMode.valueBlocking
-
-    val state = combine(
-        deduplicator.state.map { it.data }.filterNotNull(),
-        deduplicator.progress,
-        settings.layoutMode.flow,
-    ) { data, progress, layoutMode ->
-        val rows = data.clusters
-            .sortedByDescending { it.averageSize }
-            .map { cluster ->
-                when (layoutMode) {
-                    LayoutMode.LINEAR -> DeduplicatorListLinearVH.Item(
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // the clusters and re-run computeDeleteTargets/freeableSizeOf per cluster. Progress, layout and
+    // allowDeleteAll are merged in the outer combine (below) as a cheap field swap that preserves the
+    // rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsFlow = deduplicator.state
+        .map { it.data }
+        .filterNotNull()
+        .map { data ->
+            data.clusters
+                .sortedByDescending { it.averageSize }
+                .map { cluster ->
+                    val deleteTargetIds = cluster.computeDeleteTargets()
+                    DeduplicatorListRow(
                         cluster = cluster,
-                        deleteTargetIds = run {
-                            val favId = cluster.favoriteGroupIdentifier
-                            cluster.groups.flatMap { group ->
-                                if (group.identifier == favId) {
-                                    // Favorite group: only non-keeper files are targets
-                                    val keeper = group.keeperIdentifier
-                                    if (keeper != null) {
-                                        group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
-                                    } else {
-                                        emptyList()
-                                    }
-                                } else {
-                                    // Non-favorite group: all files are targets
-                                    group.duplicates.map { it.identifier }
-                                }
-                            }.toSet()
-                        },
-                        onItemClicked = { delete(setOf(it)) },
-                        onDupeClicked = { delete(setOf(it)) },
-                        onPreviewClicked = { item ->
-                            val options = PreviewOptions(
-                                paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
-                            )
-                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
-                        },
-                        onItemPreviewClick = { item ->
-                            val paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
-                            val options = PreviewOptions(
-                                paths = paths,
-                                position = paths.indexOf(item.dupe.path)
-                            )
-                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
-                        },
-                    )
-
-                    LayoutMode.GRID -> DeduplicatorListGridVH.Item(
-                        cluster = cluster,
-                        onItemClicked = { delete(setOf(it)) },
-                        onFooterClicked = { showDetails(cluster.identifier) },
-                        onPreviewClicked = { item ->
-                            val options = PreviewOptions(
-                                paths = item.cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
-                            )
-                            events.postValue(DeduplicatorListEvents.PreviewEvent(options))
-                        }
+                        deleteTargetIds = deleteTargetIds,
+                        freeableSize = cluster.freeableSizeOf(deleteTargetIds),
                     )
                 }
-            }
-        State(rows, progress, layoutMode)
-    }.asLiveData2()
+        }
 
-    data class State(
-        val items: List<DeduplicatorListAdapter.Item>,
-        val progress: Progress.Data? = null,
-        val layoutMode: LayoutMode,
+    val state: StateFlow<State?> = combine(
+        rowsFlow,
+        deduplicator.progress,
+        settings.layoutMode.flow,
+        settings.allowDeleteAll.flow,
+    ) { rows, progress, layoutMode, allowDeleteAll ->
+        State(rows = rows, progress = progress, layoutMode = layoutMode, allowDeleteAll = allowDeleteAll)
+    }.safeStateIn(
+        initialValue = null,
+        onError = { null },
     )
 
-    fun delete(
-        items: Collection<DeduplicatorListLinearSubAdapter.Item>,
-        confirmed: Boolean = false,
-    ) = launch {
-        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
+    data class DeduplicatorListRow(
+        val cluster: Duplicate.Cluster,
+        val deleteTargetIds: Set<Duplicate.Id>,
+        /** Bytes freed by deleting [deleteTargetIds] (the actual delete-target set, not the raw cluster size). */
+        val freeableSize: Long,
+    )
 
-        if (!confirmed) {
-            val event = DeduplicatorListEvents.ConfirmDupeDeletion(items)
-            events.postValue(event)
-            return@launch
-        }
+    data class State(
+        val rows: List<DeduplicatorListRow>,
+        val progress: Progress.Data? = null,
+        val layoutMode: LayoutMode,
+        val allowDeleteAll: Boolean = false,
+    )
 
-        if (!upgradeRepo.isPro()) {
-            navigateTo(UpgradeRoute())
-            return@launch
-        }
-
-        val mode: DeduplicatorDeleteTask.TargetMode = DeduplicatorDeleteTask.TargetMode.Duplicates(
-            targets = items.map { it.dupe.identifier }.toSet(),
-        )
-
-        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
-    }
-
-    fun delete(
-        items: Collection<DeduplicatorListAdapter.Item>,
-        confirmed: Boolean = false,
-        deleteAll: Boolean = false,
-    ) = launch {
-        log(TAG, INFO) { "delete(): ${items.size} confirmed=$confirmed" }
-
-        if (!confirmed) {
-            val event = DeduplicatorListEvents.ConfirmDeletion(items, settings.allowDeleteAll.value())
-            events.postValue(event)
-            return@launch
-        }
-
-        if (!upgradeRepo.isPro()) {
-            navigateTo(UpgradeRoute())
-            return@launch
-        }
-
-        val mode: DeduplicatorDeleteTask.TargetMode = DeduplicatorDeleteTask.TargetMode.Clusters(
-            targets = items.map { it.cluster.identifier }.toSet(),
-            deleteAll = deleteAll,
-        )
-
-        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
-    }
-
-    fun exclude(items: Collection<DeduplicatorListAdapter.Item>) = launch {
-        log(TAG, INFO) { "exclude(): ${items.size}" }
-        val targets = items.map { it.cluster.identifier }.toSet()
-        deduplicator.exclude(targets)
-        events.postValue(DeduplicatorListEvents.ExclusionsCreated(items.sumOf { it.cluster.count }))
-    }
-
-    fun showDetails(id: Duplicate.Cluster.Id) = launch {
+    fun showDetails(id: Duplicate.Cluster.Id) {
         log(TAG, INFO) { "showDetails(id=$id)" }
-        navigateTo(DeduplicatorDetailsRoute(identifier = id))
+        navTo(DeduplicatorDetailsRoute(identifier = id))
+    }
+
+    fun openPreview(options: PreviewOptions) {
+        log(TAG, INFO) { "openPreview(options=$options)" }
+        navTo(PreviewRoute(options = options))
+    }
+
+    fun previewCluster(cluster: Duplicate.Cluster) {
+        val paths = cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+        if (paths.isEmpty()) return
+        openPreview(PreviewOptions(paths = paths))
+    }
+
+    fun previewDuplicate(cluster: Duplicate.Cluster, dupe: Duplicate) {
+        val paths = cluster.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+        if (paths.isEmpty()) return
+        openPreview(PreviewOptions(paths = paths, position = paths.indexOf(dupe.path)))
+    }
+
+    fun deleteClusters(clusters: Collection<Duplicate.Cluster>, confirmed: Boolean = false, deleteAll: Boolean = false) =
+        launch {
+            log(TAG, INFO) { "deleteClusters(${clusters.size}) confirmed=$confirmed deleteAll=$deleteAll" }
+
+            val sanitized = clusters.distinctBy { it.identifier }
+            if (sanitized.isEmpty()) return@launch
+
+            if (!confirmed) {
+                val targetsByCluster = sanitized.map { it to it.computeDeleteTargets() }
+                events.tryEmit(
+                    Event.ConfirmDeletion(
+                        clusters = sanitized,
+                        allowDeleteAll = settings.allowDeleteAll.value(),
+                        targetCount = targetsByCluster.sumOf { it.second.size },
+                        freeableSize = targetsByCluster.sumOf { (cluster, targets) -> cluster.freeableSizeOf(targets) },
+                    )
+                )
+                return@launch
+            }
+
+            if (!upgradeRepo.isPro()) {
+                navTo(UpgradeRoute())
+                return@launch
+            }
+
+            val mode = DeduplicatorDeleteTask.TargetMode.Clusters(
+                targets = sanitized.map { it.identifier }.toSet(),
+                deleteAll = deleteAll,
+            )
+            taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+        }
+
+    fun deleteDuplicate(cluster: Duplicate.Cluster, dupe: Duplicate, confirmed: Boolean = false) = launch {
+        log(TAG, INFO) { "deleteDuplicate(${dupe.identifier}) confirmed=$confirmed" }
+
+        if (!confirmed) {
+            events.tryEmit(
+                Event.ConfirmDupeDeletion(
+                    duplicates = listOf(dupe),
+                    detailsClusterId = cluster.identifier,
+                )
+            )
+            return@launch
+        }
+
+        if (!upgradeRepo.isPro()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
+
+        val mode = DeduplicatorDeleteTask.TargetMode.Duplicates(targets = setOf(dupe.identifier))
+        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+    }
+
+    fun deleteDuplicates(ids: Set<Duplicate.Id>, confirmed: Boolean = false) = launch {
+        if (ids.isEmpty()) return@launch
+        log(TAG, INFO) { "deleteDuplicates(${ids.size}) confirmed=$confirmed" }
+
+        if (!confirmed) {
+            val data = deduplicator.state.first { it.data?.hasData == true }.data ?: return@launch
+            val matched = data.clusters.flatMap { cluster ->
+                cluster.groups
+                    .flatMap { it.duplicates }
+                    .filter { it.identifier in ids }
+                    .map { cluster.identifier to it }
+            }
+            if (matched.isEmpty()) return@launch
+            val involvedClusters = matched.map { it.first }.toSet()
+            events.tryEmit(
+                Event.ConfirmDupeDeletion(
+                    duplicates = matched.map { it.second },
+                    detailsClusterId = involvedClusters.singleOrNull(),
+                )
+            )
+            return@launch
+        }
+
+        if (!upgradeRepo.isPro()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
+
+        val mode = DeduplicatorDeleteTask.TargetMode.Duplicates(targets = ids)
+        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+    }
+
+    fun excludeDuplicates(ids: Set<Duplicate.Id>) = launch {
+        if (ids.isEmpty()) return@launch
+        log(TAG, INFO) { "excludeDuplicates(${ids.size})" }
+        val data = deduplicator.state.first { it.data?.hasData == true }.data ?: return@launch
+        var totalPaths = 0
+        data.clusters.forEach { cluster ->
+            val paths = cluster.groups
+                .flatMap { it.duplicates }
+                .filter { it.identifier in ids }
+                .map { it.path }
+            if (paths.isEmpty()) return@forEach
+            deduplicator.exclude(cluster.identifier, paths)
+            totalPaths += paths.size
+        }
+        if (totalPaths > 0) events.tryEmit(Event.ExclusionsCreated(count = totalPaths))
+    }
+
+    fun excludeClusters(clusters: Collection<Duplicate.Cluster>) = launch {
+        log(TAG, INFO) { "excludeClusters(${clusters.size})" }
+        val sanitized = clusters.distinctBy { it.identifier }
+        if (sanitized.isEmpty()) return@launch
+        val undo = deduplicator.exclude(sanitized.map { it.identifier }.toSet())
+        events.tryEmit(Event.ExclusionsCreated(count = undo.exclusionIds.size))
+    }
+
+    /**
+     * Cluster-level exclusion for the selection-mode "exclude selected" action — matches legacy,
+     * which excluded whole clusters (and removed them from the list) rather than pruning individual
+     * duplicate paths (which leaves the cluster partially populated and still visible).
+     */
+    fun excludeClusterIds(clusterIds: Set<Duplicate.Cluster.Id>) = launch {
+        if (clusterIds.isEmpty()) return@launch
+        log(TAG, INFO) { "excludeClusterIds(${clusterIds.size})" }
+        val undo = deduplicator.exclude(clusterIds)
+        events.tryEmit(Event.ExclusionsCreated(count = undo.exclusionIds.size))
     }
 
     fun toggleLayoutMode() = launch {
-        log(TAG) { "toggleLayoutMode()" }
+        log(TAG, INFO) { "toggleLayoutMode()" }
         when (settings.layoutMode.value()) {
             LayoutMode.LINEAR -> settings.layoutMode.value(LayoutMode.GRID)
             LayoutMode.GRID -> settings.layoutMode.value(LayoutMode.LINEAR)
         }
     }
 
+    sealed interface Event {
+        data class ConfirmDeletion(
+            val clusters: Collection<Duplicate.Cluster>,
+            val allowDeleteAll: Boolean,
+            /** Number of duplicate copies that will be deleted (keeper excluded). */
+            val targetCount: Int,
+            /** Bytes freed by the deletion (keeper excluded). */
+            val freeableSize: Long,
+        ) : Event
+
+        data class ConfirmDupeDeletion(
+            val duplicates: Collection<Duplicate>,
+            val detailsClusterId: Duplicate.Cluster.Id?,
+        ) : Event
+
+        data class TaskResult(override val result: DeduplicatorTask.Result) : Event, ToolListEvent.ShowTaskResult
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
+    }
+
     companion object {
-        private val TAG = logTag("Deduplicator", "DuplicateGroupList", "ViewModel")
+        private val TAG = logTag("Deduplicator", "List", "ViewModel")
     }
 }
+
+/**
+ * The duplicate copies that a default (keep-one) delete would remove from this cluster:
+ * every duplicate except the keeper of the favorite group. Single source of truth shared by the
+ * row model (what the list marks/frees) and [DeduplicatorListViewModel.deleteClusters] (what the
+ * confirm dialog reports), so the displayed "freeable" always matches what is actually deleted.
+ *
+ * It mirrors the keeper/favorite assignment the scanner writes for every scanned cluster, so it
+ * matches DuplicatesDeleter's non-deleteAll path for real list data. (Pre-scan clusters with a null
+ * favorite/keeper never reach the list, so the keeper-less fallback here is defensive only.)
+ */
+private fun Duplicate.Cluster.computeDeleteTargets(): Set<Duplicate.Id> {
+    val favId = favoriteGroupIdentifier
+    return groups.flatMap { group ->
+        if (group.identifier == favId) {
+            val keeper = group.keeperIdentifier
+            if (keeper != null) {
+                group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
+            } else {
+                emptyList()
+            }
+        } else {
+            group.duplicates.map { it.identifier }
+        }
+    }.toSet()
+}
+
+private fun Duplicate.Cluster.freeableSizeOf(targets: Set<Duplicate.Id>): Long = groups
+    .flatMap { it.duplicates }
+    .filter { it.identifier in targets }
+    .sumOf { it.size }

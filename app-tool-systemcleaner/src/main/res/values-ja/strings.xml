@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ファイルの年齢（最終更新日時）に基づいてマッチを制限します。未設定の場合はすべての年齢にマッチします。</string>
     <string name="systemcleaner_customfilter_import_action">新しいフィルタをインポート</string>
     <string name="systemcleaner_customfilter_export_action">選択したフィルタをエクスポート</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">保存していない変更があります！</string>
 </resources>

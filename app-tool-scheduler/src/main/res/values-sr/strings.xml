@@ -21,7 +21,6 @@
         <item quantity="few">Свака %d дана</item>
         <item quantity="other">Сваких %d дана</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Интервал понављања</string>
     <string name="scheduler_inaccurate_execution_hint">Очекивана времена извршавања су приближна. Распореди могу бити одложени или убрзани ако то штеди батерију.</string>
     <string name="scheduler_no_active_schedules_subtitle">Нема активних распореда</string>
     <string name="scheduler_setting_nopowersaving_title">Прескочи при слабој батерији</string>

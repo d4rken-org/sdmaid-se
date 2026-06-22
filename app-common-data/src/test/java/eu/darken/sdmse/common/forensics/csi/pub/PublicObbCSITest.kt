@@ -13,8 +13,8 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -73,7 +73,7 @@ class PublicObbCSITest : BaseCSITest() {
         storagePublicObb2.path,
     )
 
-    @Before override fun setup() {
+    @BeforeEach override fun setup() {
         MockKAnnotations.init(this)
         super.setup()
 
@@ -101,11 +101,11 @@ class PublicObbCSITest : BaseCSITest() {
         storageManager = storageManager,
     )
 
-    override fun `test jurisdiction`() = runTest {
+    @Test override fun `test jurisdiction`() = runTest {
         getProcessor().assertJurisdiction(DataArea.Type.PUBLIC_OBB)
     }
 
-    override fun `determine area successfully`() = runTest {
+    @Test override fun `determine area successfully`() = runTest {
         val processor = getProcessor()
         for (base in obbPaths) {
             val testFile1 = base.child(rngString)
@@ -118,7 +118,7 @@ class PublicObbCSITest : BaseCSITest() {
         }
     }
 
-    override fun `fail to determine area`() = runTest {
+    @Test override fun `fail to determine area`() = runTest {
         val processor = getProcessor()
         for (base in sdcardPaths) {
             processor.identifyArea(base.child("Android/data", rngString)) shouldBe null

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Qosımsha shetlestiriwlerin jaratıw ushın AppControl quralınan paydalanıń.</string>
     <string name="exclusion_create_path_hint">Jol shetlestiriwlerin jaratıw ushın StorageAnalyzer quralınan paydalanıń.</string>
     <string name="exclusion_show_defaults_action">Ádepki bahaları kórsetiw</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Saqlanbaǵan ózgerislerińiz bar!</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Munkamenet folytatása</string>
     <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>
     <string name="swiper_select_folders_action">Mappák kiválasztása</string>
-    <string name="swiper_scanning_title">Keresés…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d elem található</item>
         <item quantity="other">%d elem található</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Kijelöltek megtartása</string>
     <string name="swiper_status_action_delete_selected">Kijelöltek törlése</string>
     <string name="swiper_status_action_reset_selected">Kijelöltek visszaállítása</string>
-    <string name="swiper_decision_undecided">Eldöntetlen</string>
-    <string name="swiper_retry_action">Újrapróbálás</string>
     <string name="swiper_delete_confirmation_title">Fájlok törlése?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Ez véglegesen törli a(z) %1$d fájlt (%2$s). Ez a művelet nem vonható vissza.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d eldöntetlen</item>
         <item quantity="other">%d eldöntetlen</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d már megtartva</item>
-        <item quantity="other">%d már megtartva</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d már törölve</item>
-        <item quantity="other">%d már törölve</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d megtartva</item>
         <item quantity="other">%d megtartva</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Hogyan működik a Swiper</string>
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Megvan</string>
-    <string name="swiper_help_action">Segítség</string>
     <string name="swiper_file_type_filter_title">Csak ezeket a fájltípusokat mutassa</string>
     <string name="swiper_file_type_filter_hint">Jelöld be a megtekinteni kívánt típusokat. Ha egyik sincs bejelölve, az összes fájl megjelenik.</string>
     <string name="swiper_file_type_category_images">Képek</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Archívumok</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Alkalmaz</string>
-    <string name="swiper_session_filter_action">Fájlok szűrése</string>
     <string name="swiper_file_type_filter_summary">Szűrve: %1$s</string>
     <string name="swiper_session_no_matching_files">Nem található megfelelő fájl</string>
     <string name="swiper_open_externally_action">Megnyitás külső alkalmazásban</string>

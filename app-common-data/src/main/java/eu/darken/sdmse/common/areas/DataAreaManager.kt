@@ -6,7 +6,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,6 +15,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicLong
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,14 +26,16 @@ class DataAreaManager @Inject constructor(
     private val areaFactory: DataAreaFactory,
 ) {
 
-    private val refreshTrigger = MutableStateFlow(rngString)
+    private val refreshGeneration = AtomicLong(0L)
+    private val refreshTrigger = MutableStateFlow(refreshGeneration.get())
     private val _internalStateCache = MutableStateFlow<State?>(null)
     val latestState: Flow<State?> = _internalStateCache
 
     val state: Flow<State> = refreshTrigger
-        .mapLatest {
+        .mapLatest { generation ->
             State(
                 areas = areaFactory.build().toSet(),
+                refreshGeneration = generation,
             )
         }
         .onEach { _internalStateCache.value = it }
@@ -45,12 +47,23 @@ class DataAreaManager @Inject constructor(
         if (_internalStateCache.value == null) {
             appScope.launch { state.first() }
         } else {
-            refreshTrigger.value = rngString
+            triggerReload()
         }
+    }
+
+    suspend fun reloadAndAwait(): State {
+        log(TAG, WARN) { "reloadAndAwait()" }
+        val targetGeneration = triggerReload()
+        return state.first { it.refreshGeneration >= targetGeneration }
+    }
+
+    private fun triggerReload(): Long = refreshGeneration.incrementAndGet().also {
+        refreshTrigger.value = it
     }
 
     data class State(
         val areas: Set<DataArea>,
+        val refreshGeneration: Long = 0L,
     )
 
     companion object {

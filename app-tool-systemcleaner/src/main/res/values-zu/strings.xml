@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Khawulela imiphumela ngokuya ngobudala befayela (isikhathi sokugcina sokugqugquzela). Shiya ingasetiwe ukufanisa noma yibuphi ubudala.</string>
     <string name="systemcleaner_customfilter_import_action">Ngenisa isihluzi esisha</string>
     <string name="systemcleaner_customfilter_export_action">Khipha isihluzi esikhethiwe</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
 </resources>

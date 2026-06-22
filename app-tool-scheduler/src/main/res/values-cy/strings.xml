@@ -16,7 +16,6 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s o gwmpas %2$s</string>
     <string name="scheduler_schedule_next_at_x">Wedi\'i gynllunio ar gyfer %s</string>
     <string name="scheduler_schedule_last_at_x">Gweithredwyd diwethaf am %s</string>
-    <string name="scheduler_schedule_repeat_interval">Cyfnod ailadrodd</string>
     <string name="scheduler_inaccurate_execution_hint">Mae amseroedd gweithredu disgwyliedig yn frasamcanion. Gall amserlenni gael eu gohirio neu eu cyflymu os yw\'n arbed batri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Dim amserlenni gweithredol</string>
     <string name="scheduler_setting_nopowersaving_title">Hepgor pan fydd y batri\'n isel</string>

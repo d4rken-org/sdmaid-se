@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (fecha de última modificación). Dejá vacío para coincidir con cualquier antigüedad.</string>
     <string name="systemcleaner_customfilter_import_action">Importar un nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar el filtro seleccionado</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">¡Tenés cambios sin guardar!</string>
 </resources>

@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Omejite ujemanja glede na starost datoteke (čas zadnje spremembe). Pustite prazno za ujemanje s katero koli starostjo.</string>
     <string name="systemcleaner_customfilter_import_action">Uvozi nov filter</string>
     <string name="systemcleaner_customfilter_export_action">Izvozi izbrani filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Spremembe še niso shranjene!</string>
 </resources>

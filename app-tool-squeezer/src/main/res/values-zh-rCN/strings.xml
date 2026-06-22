@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">压缩图片和视频以节省存储空间。</string>
+    <string name="squeezer_explanation_short">压缩图片以节省存储空间。</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">找到 %d 个项目</item>
+        <item quantity="other">找到 %d 张图片</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">可节省约 %s</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">已压缩 %d 个项目</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">%d 失败</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">已跳过 %d 个文件（无法访问）</item>
+        <item quantity="other">已压缩 %d 张图片</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">已选择 %d 个项目</item>
+        <item quantity="other">已选择 %d 张图片</item>
     </plurals>
-    <string name="squeezer_search_locations_title">搜索位置</string>
-    <string name="squeezer_search_locations_default_summary">相机文件夹（默认）</string>
     <string name="squeezer_min_size_title">最小文件大小</string>
-    <string name="squeezer_min_size_description">跳过小于此大小的文件。</string>
+    <string name="squeezer_min_size_description">跳过小于此大小的图片。</string>
     <string name="squeezer_min_age_title">最小文件年龄</string>
-    <string name="squeezer_min_age_description">仅包含早于此时间的文件。</string>
-    <string name="squeezer_compression_settings_label">常规</string>
-    <string name="squeezer_quality_label">质量</string>
-    <string name="squeezer_quality_title">压缩质量</string>
-    <string name="squeezer_quality_description">质量越低，文件越小，但视觉质量也越低。</string>
-    <string name="squeezer_quality_example_format">示例：%1$s 图片 → 以 %3$d%% 质量节省约 %2$s</string>
-    <string name="squeezer_quality_warning_low">较低的质量可能会导致明显的伪影。</string>
-    <string name="squeezer_quality_warning_high">非常高的质量只能节省极少空间。</string>
-    <string name="squeezer_types_category_label">图片设置</string>
-    <string name="squeezer_video_settings_category_label">视频设置</string>
+    <string name="squeezer_min_age_description">仅包含超过此年龄的图片。</string>
+    <string name="squeezer_compression_settings_label">压缩设置</string>
+    <string name="squeezer_quality_description">质量越低，文件越小，但图片质量也会降低。</string>
+    <string name="squeezer_types_category_label">图片类型</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">包含 JPEG 图片（.jpg、.jpeg）。</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">包含 WebP 图片（.webp）。</string>
-    <string name="squeezer_type_video_title">MP4 视频</string>
-    <string name="squeezer_type_video_description">包含 MP4 视频文件（.mp4）。</string>
     <string name="squeezer_skip_compressed_title">跳过已压缩的图片</string>
-    <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩的文件。</string>
+    <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩过的图片。</string>
     <string name="squeezer_exif_marker_title">写入 EXIF 标记</string>
     <string name="squeezer_exif_marker_description">在图片的 EXIF 用户备注字段中添加标记，以防止即使压缩记录被清除也不会重新压缩。</string>
     <string name="squeezer_estimated_savings_format">约可节省 %s</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">确认压缩</string>
     <string name="squeezer_preview_total_size">总大小</string>
     <string name="squeezer_preview_estimated_savings">预估节省量</string>
-    <string name="squeezer_compress_confirmation_title">压缩所选项目？</string>
-    <string name="squeezer_compress_confirmation_message">这将用压缩版本替换原始文件。此操作无法撤销。</string>
     <string name="squeezer_history_title">压缩历史</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d 个项目（%2$s）</item>
     </plurals>
     <string name="squeezer_history_empty">没有压缩历史</string>
     <string name="squeezer_history_clear_title">清除压缩历史</string>
-    <string name="squeezer_history_clear_message">这将允许之前压缩的文件再次被压缩。文件本身不受影响。</string>
-    <string name="squeezer_onboarding_title">关于图片压缩</string>
-    <string name="squeezer_onboarding_message">图片压缩通过移除视觉细节来缩小文件大小。此过程不可逆——原始质量无法恢复。\n\n以下是压缩后图片的预览：</string>
+    <string name="squeezer_history_clear_message">这将允许重新压缩之前已压缩的图片。图片本身不受影响。</string>
     <string name="squeezer_onboarding_original_label">原始</string>
     <string name="squeezer_onboarding_compressed_label">压缩后</string>
-    <string name="squeezer_onboarding_video_original_label">视频帧</string>
-    <string name="squeezer_onboarding_video_compressed_label">预览（近似）</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">实际视频质量可能有所不同</string>
-    <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
     <string name="squeezer_compare_action">查看对比</string>
     <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
-    <string name="squeezer_result_empty_message">未找到可压缩的媒体文件。</string>
-    <string name="squeezer_setup_warning">压缩会永久降低质量以节省存储空间。此操作无法撤销。开始前请仔细检查您的设置。</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d 个位置无法用于压缩，已被移除。压缩需要直接访问内部存储。</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">媒体压缩可缩小图片和视频的文件大小，以释放存储空间。这会永久降低质量且无法撤销。开始前请仔细检查您的设置。</string>
+    <string name="squeezer_result_empty_message">未找到可压缩的图片。</string>
+    <string name="squeezer_setup_explanation">媒体压缩通过缩小图片文件大小来释放存储空间。这会永久降低图片质量且无法撤消。开始前请仔细检查您的设置。</string>
     <string name="squeezer_setup_paths_title">搜索位置</string>
     <string name="squeezer_setup_paths_default">选择要搜索的文件夹</string>
     <string name="squeezer_setup_quality_title">压缩质量</string>
     <string name="squeezer_setup_age_title">最短时间</string>
-    <string name="squeezer_setup_age_none">无限制（包含所有文件）</string>
     <string name="squeezer_setup_start_action">开始扫描</string>
     <string name="squeezer_quality_hint_very_low">质量低于 40% 可能会产生无法使用的图片。</string>
     <string name="squeezer_quality_hint_low">较低的质量可节省更多空间，但可能会产生明显的伪影。</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">至少 %d 天前</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">图片预计节省约 %d%%</string>
-    <string name="squeezer_onboarding_got_it">明白</string>
+    <string name="squeezer_estimated_savings_percent">JPEG 文件预估可节省约 %d%%</string>
 </resources>

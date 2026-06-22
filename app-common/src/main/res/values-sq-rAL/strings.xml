@@ -33,16 +33,9 @@
     <string name="general_empty_label">Bosh</string>
     <string name="general_new_badge_label">E re</string>
     <string name="general_dismiss_action">Largoje</string>
-    <string name="general_maybe_later_action">Ndoshta më vonë</string>
     <string name="general_manage_action">Menaxhon</string>
-    <string name="general_sync_action">Sinkronizoj</string>
     <string name="general_error_label">Gabim</string>
-    <string name="general_tap_hint_msg">Shtyp për më shumë opsione</string>
     <string name="general_upgrade_action">Përmirëso</string>
-    <string name="general_donate_action">Dhuroni</string>
-    <string name="general_check_action">Verifiko</string>
-    <string name="general_filter_action">Filtro</string>
-    <string name="general_internal_not_available_msg">Lidhja me internetin e padisponueshme</string>
     <string name="general_refresh_action">Rifresko</string>
     <string name="general_progress_searching">Duke kërkuar</string>
     <string name="general_progress_generating_searchpaths">Gjenerimi i shtigjeve të kërkimit</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Në radhë</string>
     <string name="general_progress_deleting">Po fshihet</string>
     <string name="general_progress_deleting_x">Po fshihet %s</string>
-    <string name="general_sort_action">Rendit</string>
-    <string name="general_sort_by_title">Rendit sipas</string>
-    <string name="general_sort_options_label">Opsionet e renditjes</string>
     <string name="general_sort_reverse_action">Modaliteti i renditjes së kundërt</string>
-    <string name="general_sort_oldest_first">Më të vjetrat fillimisht</string>
-    <string name="general_sort_newest_first">Më të rejat fillimisht</string>
-    <string name="general_sort_name_asc">Emri (A → Z)</string>
-    <string name="general_sort_size_desc">Më të mëdhatë fillimisht</string>
-    <string name="general_tag_filter_label">Filtro sipas etiketave</string>
     <string name="general_tag_system">Sistemi</string>
     <string name="general_result_success_message">Operation successful</string>
-    <string name="general_result_failure_message">Operacioni dështoi</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Çliroi %s hapësirë.</item>
         <item quantity="other">Çliroi %s hapësirë.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Fshije</string>
     <string name="general_delete_selected_action">Fshij të zgjedhurin</string>
     <string name="general_show_details_action">Shfaq detajet</string>
-    <string name="general_show_all_action">Shfaq të gjitha</string>
     <string name="general_toggle_layout_mode">Ndëro modusin e pamjes</string>
     <string name="general_delete_confirmation_title">Konfirmo fshirjen</string>
     <string name="general_delete_confirmation_message_x">Të fshihet \"%s\"?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">Fshinë %d artikuj.</item>
     </plurals>
     <string name="general_remove_action">Hiq</string>
-    <string name="general_remove_selected_action">Hiq të zgjedhurin</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Një artikull u hoq</item>
         <item quantity="other">%d artikuj u hoqën</item>
     </plurals>
-    <string name="general_root_required_label">Kërkon qasje rrënjë</string>
-    <string name="general_root_required_message">Kërkon një pajisje të rrënjosur</string>
     <string name="general_search_action">Kërko</string>
-    <string name="general_scan_device_action">Skanoni pajisjen</string>
     <string name="general_open_system_settings_action">Hapni cilësimet e sistemit</string>
     <plurals name="result_x_items">
         <item quantity="one">%s artikull</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Numëroni</string>
-    <string name="general_app_label">Aplikacioni</string>
     <string name="general_more_info_action">Me shumë informata</string>
     <string name="general_grant_access_action">Lejo qasje</string>
     <string name="general_enable_service_action">Aktivizo shërbimin</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Përjashto/ni të përzgjedhurit</string>
     <string name="general_device_label">Pajisja</string>
     <string name="general_settings_title">Cilësimet</string>
-    <string name="general_help_title">Ndihmë</string>
     <string name="general_hints_label">Paralajmërim</string>
     <string name="file_type_symbolic_link">Lidhje</string>
     <string name="file_type_directory">Drejtoria</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Pronari</string>
     <string name="general_user_label_system">Sistemi</string>
     <string name="setup_title">Konfigurim</string>
-    <string name="setup_feature_requires_additional_setup_x">Ky funksion kërkon plotësimin e artikujve shtesë të konfigurimit: %s</string>
-    <string name="upgrade_feature_requires_pro">Kërkon Pro</string>
     <string name="general_include_multiuser_label">Përfshini përdorues të tjerë</string>
     <string name="general_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
     <string name="general_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="appcontrol_systemsettings_open_title">Shfaq rregullime</string>
-    <string name="systemcleaner_customfilter_create_action">Krijo filtër të personalizuar</string>
 </resources>

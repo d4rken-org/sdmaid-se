@@ -25,8 +25,8 @@
         <item quantity="one">%d valitud</item>
         <item quantity="other">%d valitud</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Otsi asukohti</string>
-    <string name="squeezer_search_locations_default_summary">Kaamera kaustad (tavaline)</string>
+    
+    
     <string name="squeezer_min_size_title">Väikseim faili maht</string>
     <string name="squeezer_min_size_description">Eira sellest mahust väiksemaid faile.</string>
     <string name="squeezer_min_age_title">Faili noorim vanus</string>
@@ -89,7 +89,7 @@
     <string name="squeezer_setup_paths_default">Vali otsitavad kaustad</string>
     <string name="squeezer_setup_quality_title">Kokkupakkimise kvaliteet</string>
     <string name="squeezer_setup_age_title">Noorim vanus</string>
-    <string name="squeezer_setup_age_none">Piiranguta (kaasa kõik failid)</string>
+    
     <string name="squeezer_setup_start_action">Alusta skanni</string>
     <string name="squeezer_quality_hint_very_low">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
     <string name="squeezer_quality_hint_low">Madalam kvaliteet tekitab ruumi juurde, ent võib põhjustada nähtavaid häireid.</string>

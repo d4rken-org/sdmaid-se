@@ -14,6 +14,16 @@ object Versions {
             const val core = "2.9.7"
         }
 
+        object Compose {
+            const val bom = "2025.12.00"
+            const val foundationOverride = "1.11.0-alpha01"
+        }
+
+        object Navigation3 {
+            const val core = "1.0.1"
+            const val lifecycleVm = "2.10.0"
+        }
+
         object Media3 {
             const val core = "1.10.0"
         }
@@ -21,5 +31,9 @@ object Versions {
 
     object Desugar {
         const val core = "2.1.5"
+    }
+
+    object Robolectric {
+        const val core = "4.16.1"
     }
 }

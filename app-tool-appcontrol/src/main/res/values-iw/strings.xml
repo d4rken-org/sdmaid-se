@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">אפליקציות המותקנות במכשיר שלך.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">זוהתה אפליקציה %d</item>
-        <item quantity="two">זוהו %d אפליקציות</item>
-        <item quantity="many">זוהו %d אפליקציות</item>
-        <item quantity="other">זוהו %d אפליקציות</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">החלף אפליקציות</string>
     <string name="appcontrol_toggle_app_enable_action">הפעל אפליקציה</string>
     <string name="appcontrol_toggle_app_disable_action">השבת את האפליקציה</string>
@@ -36,7 +30,6 @@
     <string name="appcontrol_tag_debug">ניפוי שגיאות</string>
     <string name="appcontrol_progress_enabling_package">מפעיל אפליקציה</string>
     <string name="appcontrol_progress_disabling_package">משבית אפליקציה</string>
-    <string name="appcontrol_list_filteroptions_label">אפשרויות סינון</string>
     <string name="appcontrol_list_sortmode_name_label">שם היישום</string>
     <string name="appcontrol_list_sortmode_updated_label">עדכון אחרון</string>
     <string name="appcontrol_list_sortmode_installed_label">מותקן לראשונה</string>
@@ -146,8 +139,4 @@
     <string name="appcontrol_item_installedat_x_label">הותקן ב: %s</string>
     <string name="shortcut_appcontrol_short">ניהול אפליקציות</string>
     <string name="shortcut_appcontrol_long">נהל אפליקציות מותקנות</string>
-    <string name="appcontrol_automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
-    <string name="appcontrol_include_multiuser_label">כלול משתמשים אחרים</string>
-    <string name="appcontrol_include_multiuser_summary">כלול אפליקציות מפרופילי משתמש אחרים במכשיר זה.</string>
 </resources>

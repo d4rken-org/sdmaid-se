@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Yaddaş sahəsinə qənaət etmək üçün şəkilləri və videoları sıxışdırın.</string>
+    <string name="squeezer_explanation_short">Yaddaş yerindən qənaət etmək üçün şəkilləri sıxışdırın.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d element tapıldı</item>
-        <item quantity="other">%d element tapıldı</item>
+        <item quantity="one">%d şəkil tapıldı</item>
+        <item quantity="other">%d şəkil tapıldı</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s qənaət edilə bilər</item>
         <item quantity="other">~%s qənaət edilə bilər</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d element sıxışdırıldı</item>
-        <item quantity="other">%d element sıxışdırıldı</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d uğursuz</item>
-        <item quantity="other">%d uğursuz</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d fayl atlandı (əlçatmaz)</item>
-        <item quantity="other">%d fayl atlandı (əlçatmaz)</item>
+        <item quantity="one">%d şəkil sıxışdırıldı</item>
+        <item quantity="other">%d şəkil sıxışdırıldı</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d element seçildi</item>
-        <item quantity="other">%d element seçildi</item>
+        <item quantity="one">%d şəkil seçildi</item>
+        <item quantity="other">%d şəkil seçildi</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Axtarış yerləri</string>
-    <string name="squeezer_search_locations_default_summary">Kamera qovluqları (standart)</string>
     <string name="squeezer_min_size_title">Minimum fayl ölçüsü</string>
-    <string name="squeezer_min_size_description">Bu ölçüdən kiçik faylları atlayın.</string>
+    <string name="squeezer_min_size_description">Bu ölçüdən kiçik şəkilləri keçin.</string>
     <string name="squeezer_min_age_title">Minimum fayl yaşı</string>
-    <string name="squeezer_min_age_description">Yalnız bu yaşdan köhnə faylları daxil edin.</string>
-    <string name="squeezer_compression_settings_label">Ümumi</string>
-    <string name="squeezer_quality_label">Keyfiyyət</string>
-    <string name="squeezer_quality_title">Sıxışdırma keyfiyyəti</string>
-    <string name="squeezer_quality_description">Aşağı keyfiyyət daha kiçik fayl ölçüsü deməkdir, lakin vizual keyfiyyəti azaldır.</string>
-    <string name="squeezer_quality_example_format">Nümunə: %1$s şəkil → %3$d%% keyfiyyətdə ~%2$s qənaət</string>
-    <string name="squeezer_quality_warning_low">Aşağı keyfiyyət görünən artefaktlara səbəb ola bilər.</string>
-    <string name="squeezer_quality_warning_high">Çox yüksək keyfiyyət minimum yer qənaəti təmin edir.</string>
-    <string name="squeezer_types_category_label">Şəkil parametrləri</string>
-    <string name="squeezer_video_settings_category_label">Video parametrləri</string>
+    <string name="squeezer_min_age_description">Yalnız bu yaşdan köhnə şəkilləri daxil edin.</string>
+    <string name="squeezer_compression_settings_label">Sıxışdırma parametrləri</string>
+    <string name="squeezer_quality_description">Aşağı keyfiyyət daha kiçik fayl ölçüsü deməkdir, lakin şəkil keyfiyyəti azalır.</string>
+    <string name="squeezer_types_category_label">Şəkil növləri</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG şəkillərini daxil et (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP şəkillərini daxil et (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 video fayllarını (.mp4) daxil edin.</string>
     <string name="squeezer_skip_compressed_title">Əvvəl sıxışdırılmışları keç</string>
-    <string name="squeezer_skip_compressed_description">SD Maid tərəfindən artıq sıxışdırılmış faylları atlayın.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid tərəfindən artıq sıxışdırılmış şəkilləri keçin.</string>
     <string name="squeezer_exif_marker_title">EXIF işarəsi yaz</string>
     <string name="squeezer_exif_marker_description">Sıxışdırma tarixçəsi silinsa belə təkrar sıxışdırmanın qarşısını almaq üçün şəklin EXIF istifadəçi şərhi sahəsinə işarə əlavə edin.</string>
     <string name="squeezer_estimated_savings_format">~%s qənaət</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Sıxışdırmanı təsdiqləyin</string>
     <string name="squeezer_preview_total_size">Ümumi ölçü</string>
     <string name="squeezer_preview_estimated_savings">Təxmini qənaət</string>
-    <string name="squeezer_compress_confirmation_title">Seçilmiş elementləri sıxışdırılsın?</string>
-    <string name="squeezer_compress_confirmation_message">Bu, orijinal faylları sıxışdırılmış versiyalarla əvəz edəcək. Bu əməliyyat geri qaytarrla biləməz.</string>
     <string name="squeezer_history_title">Sıxışdırma tarixçəsi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Sıxışdırma tarixçəsi yoxdur</string>
     <string name="squeezer_history_clear_title">Sıxışdırma tarixçəsini təmizlə</string>
-    <string name="squeezer_history_clear_message">Bu, əvvəllər sıxışdırılmış faylların yenidən sıxışdırılmasına icəazə verəcək. Faylların özlərinə təsir edilmir.</string>
-    <string name="squeezer_onboarding_title">Şəkil sıxışdırma haqqında</string>
-    <string name="squeezer_onboarding_message">Şəkil sıxışdırma vizual detalları silməklə fayl ölçüsünü azaldır. Bu proses geri dönməzdir - orijinal keyfiyyət bərpa edilə bilməz.\n\nŞəkillərinizin necə görünəcəyinin ön baxışı:</string>
+    <string name="squeezer_history_clear_message">Bu əvvəl sıxışdırılmış şəkillərin yenidən sıxışdırılmasına icazə verəcək. Şəkillərin özü təsirlənmir.</string>
     <string name="squeezer_onboarding_original_label">Orijinal</string>
     <string name="squeezer_onboarding_compressed_label">Sıxışdırmadan sonra</string>
-    <string name="squeezer_onboarding_video_original_label">Video kadrı</string>
-    <string name="squeezer_onboarding_video_compressed_label">Önizləmə (təxmini)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Faktiki video keyfiyyəti fərqlənə bilər</string>
-    <string name="squeezer_onboarding_quality_label">Keyfiyyət: %d%%</string>
     <string name="squeezer_compare_action">Müqayisəyə bax</string>
     <string name="squeezer_no_example_found">Seçilmiş yollarda şəkil tapılmadı.</string>
-    <string name="squeezer_result_empty_message">Sıxışdırıla bilən media tapılmadı.</string>
-    <string name="squeezer_setup_warning">Sıxışdırma, yaddaş sahəsinə qənaət etmək üçün keyfiyyəti daimi olaraq azaldır. Bu geri qaytarrla biləməz. Başlamadan əvvəl parametrlərinizi diqqətlə nəzardən keçirin.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d yer sıxışdırma üçün istifadə edilə bilməz və silindi. Sıxışdırma daxili yaddaşa birbirə giriş tələb edir.</item>
-        <item quantity="other">%d yer sıxışdırma üçün istifadə edilə bilməz və silindi. Sıxışdırma daxili yaddaşa birbirə giriş tələb edir.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze, yaddaş sahəsini azad etmək üçün şəkil və videoların fayl ölçüsünü azaldır. Bu, keyfiyyəti daimi olaraq azaldır və geri qaytarrla biləməz. Başlamadan əvvəl parametrlərinizi diqqətlə nəzardən keçirin.</string>
+    <string name="squeezer_result_empty_message">Sıxışdırıla bilən şəkil tapılmadı.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze yaddaş yeri azad etmək üçün şəkil fayl ölçüsünü azaldır. Bu şəkil keyfiyyətini daimi olaraq azaldır və geri qaytarıla bilməz. Başlamadan əvvəl parametrlərinizi diqqətlə nəzərdən keçirin.</string>
     <string name="squeezer_setup_paths_title">Axtarış yerləri</string>
     <string name="squeezer_setup_paths_default">Axtarış üçün qovluqları seçin</string>
     <string name="squeezer_setup_quality_title">Sıxışdırma keyfiyyəti</string>
     <string name="squeezer_setup_age_title">Minimum yaş</string>
-    <string name="squeezer_setup_age_none">Məhdudiyyət yoxdur (bütün faylları daxil et)</string>
     <string name="squeezer_setup_start_action">Skanı başlat</string>
     <string name="squeezer_quality_hint_very_low">40%-dən aşağı keyfiyyət yararsız şəkillər yarada bilər.</string>
     <string name="squeezer_quality_hint_low">Aşağı keyfiyyət daha çox yer qənaət edir lakin görünən artefaktlara səbəb ola bilər.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Ən azı %d gün köhnə</item>
         <item quantity="other">Ən azı %d gün köhnə</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Şəkillər üçün təxmini ~%d%% qənaət</string>
-    <string name="squeezer_onboarding_got_it">Başa düşdüm</string>
+    <string name="squeezer_estimated_savings_percent">JPEG faylları üçün təxmini ~%d%% qənaət</string>
 </resources>

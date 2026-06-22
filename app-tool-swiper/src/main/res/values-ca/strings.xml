@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Continua la sessió</string>
     <string name="swiper_sessions_description">Reviseu els fitxers en 3 passos senzills:\n\n1. Trieu una carpeta per escanejar\n2. Llisqueu els fitxers per mantenir-los, suprimir-los o ometre\'ls\n3. Reviseu les decisions i confirmeu\n\nNo se suprimeix res fins que toqueu el botó final de supressió.</string>
     <string name="swiper_select_folders_action">Selecciona les carpetes</string>
-    <string name="swiper_scanning_title">S\'està escanejant…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element</item>
         <item quantity="other">S\'han trobat %d elements</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Mantén la selecció</string>
     <string name="swiper_status_action_delete_selected">Suprimeix els seleccionats</string>
     <string name="swiper_status_action_reset_selected">Restableix la selecció</string>
-    <string name="swiper_decision_undecided">Indecís</string>
-    <string name="swiper_retry_action">Reintenta</string>
     <string name="swiper_delete_confirmation_title">Voleu suprimir els fitxers?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Això suprimirà permanentment %1$d fitxer (%2$s). Aquesta acció no es pot desfer.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d indecís</item>
         <item quantity="other">%d indecisos</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ja conservat</item>
-        <item quantity="other">%d ja conservats</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ja suprimit</item>
-        <item quantity="other">%d ja suprimits</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d conservat</item>
         <item quantity="other">%d conservats</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Com funciona l\'escombrador</string>
     <string name="swiper_help_message">Llisqueu cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
-    <string name="swiper_help_action">Ajuda</string>
     <string name="swiper_file_type_filter_title">Mostra només aquests tipus de fitxers</string>
     <string name="swiper_file_type_filter_hint">Marqueu els tipus que voleu veure. Si no n\'hi ha cap de marcat, es mostren tots els fitxers.</string>
     <string name="swiper_file_type_category_images">Imatges</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Fitxers comprimits</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Aplica</string>
-    <string name="swiper_session_filter_action">Filtra fitxers</string>
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">No s\'han trobat fitxers coincidents</string>
     <string name="swiper_open_externally_action">Obre en una aplicació externa</string>

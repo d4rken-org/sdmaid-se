@@ -15,9 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Arată opţiuni care vă permit să ştergeţi toate fişierele dintr-un set de duplicate, astfel încât nici un fişier să nu mai fie disponibil.</string>
     <string name="deduplicator_search_locations_title">Căutați locații</string>
     <string name="deduplicator_search_locations_all_summary">Toate zonele accesibile</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferați să păstrați în</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Atunci când decideți ce duplicate să păstrați, preferați să păstrați fișierele în aceste locații.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nu există locații configurate</string>
     <string name="deduplicator_skip_minsize_title">Dimensiunea minimă</string>
     <string name="deduplicator_skip_minsize_description">Sari peste fișierele care sunt sub dimensiunea minimă.</string>
     <string name="deduplicator_skip_uncommon_title">Sari peste tipurile de fișiere mai puțin frecvente</string>
@@ -29,7 +26,6 @@
     <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile de conținut și comparând valorile hash perceptuale. ⚠️ Detectarea bazată pe similitudine poate include rezultate fals pozitive care necesită verificare manuală.</string>
     <string name="deduplicator_detection_method_media_title">Amprentă media</string>
     <string name="deduplicator_detection_method_media_summary">Găsește fișiere video și audio similare analizând amprentele audio. ⚠️ Detecția bazată pe similitudine poate include fals pozitive care necesită verificare manuală.</string>
-    <string name="deduplicator_matches_media_label">Media similară</string>
     <string name="deduplicator_media_match_audio">Potrivire bazată pe audio</string>
     <string name="deduplicator_media_match_visual">Potrivire bazată pe video</string>
     <string name="deduplicator_media_match_audio_visual">Potrivire bazată pe audio și video</string>

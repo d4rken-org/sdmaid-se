@@ -26,6 +26,18 @@ data class AppCleanerProcessingTask(
     val isBackground: Boolean = false,
 ) : AppCleanerTask, Reportable {
 
+    init {
+        // `targetContents` without `targetPkgs` would smear the path-list across every junk in the
+        // snapshot: AppCleaner.performProcessing iterates each junk's `allMatches` and tries to
+        // `single { tc.matches(it.path) }` against every targetContent, which throws as soon as a
+        // path is missing from any junk. No current caller produces this shape — the contract
+        // ensures future callers can't reintroduce it.
+        require(targetContents == null || targetPkgs != null) {
+            "targetContents requires targetPkgs to bound which junk owns each path"
+        }
+    }
+
+
     sealed interface Result : AppCleanerTask.Result
 
     @Parcelize

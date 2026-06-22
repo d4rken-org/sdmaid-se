@@ -1,60 +1,30 @@
 package eu.darken.sdmse.common.previews
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.previews.item.PreviewItem
-import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.lookup
+import eu.darken.sdmse.common.uix.ViewModel4
 import javax.inject.Inject
 
 @HiltViewModel
 class PreviewViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+    private val gatewaySwitch: GatewaySwitch,
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val options: PreviewOptions = PreviewRoute.from(handle).options
-    private val currentPosition = MutableStateFlow(options.position)
-
-    val events = SingleLiveEvent<PreviewEvents>()
-
-    val state = combine(
-        currentPosition,
-        flowOf(options.paths)
-    ) { pos, paths ->
-        State(
-            position = pos,
-            previews = paths.map { PreviewItem(it) }
-        )
-    }
-        .onStart { emit(State(progress = Progress.Data())) }
-        .asLiveData2()
-
-    data class State(
-        val position: Int = 0,
-        val previews: List<PreviewItem>? = null,
-        val progress: Progress.Data? = null,
-    ) {
-        val preview: PreviewItem?
-            get() = previews
-                ?.takeIf { it.isNotEmpty() }
-                ?.let { it[position] }
-    }
-
-    fun next() {
-        currentPosition.value = (currentPosition.value + 1) % options.paths.size
-    }
-
-    fun previous() {
-        currentPosition.value = (currentPosition.value - 1 + options.paths.size) % options.paths.size
-    }
-
-    fun onNewPage(position: Int) {
-        currentPosition.value = position
+    suspend fun resolveLookup(path: APath): APathLookup<*>? = try {
+        path.lookup(gatewaySwitch)
+    } catch (e: Exception) {
+        log(TAG, WARN) { "resolveLookup($path) failed: ${e.asLog()}" }
+        errorEvents.tryEmit(e)
+        null
     }
 
     companion object {

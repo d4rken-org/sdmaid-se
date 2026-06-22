@@ -33,16 +33,9 @@
     <string name="general_empty_label">Празен</string>
     <string name="general_new_badge_label">Ново</string>
     <string name="general_dismiss_action">Отфрли</string>
-    <string name="general_maybe_later_action">Можеби подоцна</string>
     <string name="general_manage_action">Управувај</string>
-    <string name="general_sync_action">Синхронизирај</string>
     <string name="general_error_label">Грешка</string>
-    <string name="general_tap_hint_msg">Допрете за повеќе опции</string>
     <string name="general_upgrade_action">Надградба</string>
-    <string name="general_donate_action">Донирајте</string>
-    <string name="general_check_action">Провери</string>
-    <string name="general_filter_action">Филтер</string>
-    <string name="general_internal_not_available_msg">Интернет-врската е недостапна</string>
     <string name="general_refresh_action">Освежи</string>
     <string name="general_progress_searching">Пребарување</string>
     <string name="general_progress_generating_searchpaths">Генерирам патеки за пребарување</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Во редица</string>
     <string name="general_progress_deleting">Бришење</string>
     <string name="general_progress_deleting_x">Се брише %s</string>
-    <string name="general_sort_action">Сортирај</string>
-    <string name="general_sort_by_title">Сортирај по</string>
-    <string name="general_sort_options_label">Опции за подредување</string>
     <string name="general_sort_reverse_action">Режим на обратно сортирање</string>
-    <string name="general_sort_oldest_first">Прво најстарите</string>
-    <string name="general_sort_newest_first">Прво најновите</string>
-    <string name="general_sort_name_asc">Име (А → Ш)</string>
-    <string name="general_sort_size_desc">Прво најголемите</string>
-    <string name="general_tag_filter_label">Филтрирајте по ознаки</string>
     <string name="general_tag_system">Систем</string>
     <string name="general_result_success_message">Operation successful</string>
-    <string name="general_result_failure_message">Неуспешна операција</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Ослободен %s простор.</item>
         <item quantity="other">Ослободен %s простор.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Избирши</string>
     <string name="general_delete_selected_action">Избришете го избраното</string>
     <string name="general_show_details_action">Покажи детали</string>
-    <string name="general_show_all_action">Покажи се</string>
     <string name="general_toggle_layout_mode">Префрлете го режимот на приказ</string>
     <string name="general_delete_confirmation_title">Потврдете го бришењето</string>
     <string name="general_delete_confirmation_message_x">Да се ​​избрише „%s“?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">Избришани %d ставки.</item>
     </plurals>
     <string name="general_remove_action">Отстрани</string>
-    <string name="general_remove_selected_action">Отстранете го избраното</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Една ставка е отстранета</item>
         <item quantity="other">%d ставки беа отстранети</item>
     </plurals>
-    <string name="general_root_required_label">Потребен е root</string>
-    <string name="general_root_required_message">Потребен е root уред</string>
     <string name="general_search_action">Пребарување</string>
-    <string name="general_scan_device_action">Скенирајте го уредот</string>
     <string name="general_open_system_settings_action">Отворете ги системските поставки</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ставка</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Инфо</string>
     <string name="general_count_label">Брои</string>
-    <string name="general_app_label">Апликација</string>
     <string name="general_more_info_action">Повеќе информации</string>
     <string name="general_grant_access_action">Дозволи пристап</string>
     <string name="general_enable_service_action">Овозможи услуга</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Исклучи ги избраните</string>
     <string name="general_device_label">Уред</string>
     <string name="general_settings_title">Поставки</string>
-    <string name="general_help_title">Помош</string>
     <string name="general_hints_label">Известување</string>
     <string name="file_type_symbolic_link">Врска</string>
     <string name="file_type_directory">Именик</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Поставување</string>
-    <string name="setup_feature_requires_additional_setup_x">Оваа функција бара завршување на дополнителни ставки за поставување: %s</string>
-    <string name="upgrade_feature_requires_pro">Потребна е Pro верзија</string>
     <string name="general_include_multiuser_label">Вклучи други корисници</string>
     <string name="general_include_multiuser_summary">Вклучи апликации од други кориснички профили на овој уред.</string>
     <string name="general_unsaved_confirmation_message">Имате незачувани промени!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Ниво на ризик</string>
     <string name="settings_category_filter">Филтер</string>
     <string name="appcontrol_systemsettings_open_title">Прикажи поставки</string>
-    <string name="systemcleaner_customfilter_create_action">Создај прилагоден филтер</string>
 </resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Navigation action IDs used by Analyzer UI -->
-    <item name="action_deviceStorageFragment_to_storageFragment" type="id" />
-    <item name="action_storageFragment_to_appsFragment" type="id" />
-    <item name="action_storageFragment_to_contentFragment" type="id" />
-    <item name="action_appsFragment_to_appDetailsFragment" type="id" />
-    <item name="action_appDetailsFragment_to_contentFragment" type="id" />
-</resources>

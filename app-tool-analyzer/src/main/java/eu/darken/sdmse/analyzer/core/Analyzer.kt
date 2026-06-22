@@ -52,7 +52,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeoutOrNull
@@ -69,6 +74,7 @@ class Analyzer @Inject constructor(
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
     @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
     private val mediaStoreTool: MediaStoreTool,
     private val spaceTracker: SpaceTracker,
 ) : SDMTool, Progress.Client {
@@ -116,6 +122,27 @@ class Analyzer @Inject constructor(
             progress = progress,
         )
     }.replayingShare(appScope)
+
+    init {
+        // Device-storage scans bake `setupIncomplete` into each DeviceStorage at scan time. If a scan
+        // ran before the storage permission was granted, that stale flag (and the permission-limited
+        // content) sticks in the cached data until the next scan — so the UI keeps showing
+        // "permissions missing" and the storage card bounces through a Setup screen that immediately
+        // closes. When the storage setup transitions to complete, re-scan so the stale flag clears and
+        // the real content loads. No loop: after the rescan no DeviceStorage carries setupIncomplete,
+        // and the setup state stays complete (distinctUntilChanged), so this stops firing.
+        storageSetupModule.state
+            .map { it.isComplete }
+            .distinctUntilChanged()
+            .filter { isComplete -> isComplete }
+            .onEach {
+                if (storageDevices.value.any { it.setupIncomplete }) {
+                    log(TAG, INFO) { "Storage setup completed while cached storage data is stale; re-scanning" }
+                    submit(DeviceStorageScanTask())
+                }
+            }
+            .launchIn(appScope)
+    }
 
     private val jobLock = Mutex()
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = jobLock.withLock {

@@ -20,7 +20,6 @@
         <item quantity="one">ዕለታዊ</item>
         <item quantity="other">በየ%d ቀኖች</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">የመድገሚያ ክፍተት</string>
     <string name="scheduler_inaccurate_execution_hint">የሚጠበቁ የአፈጻጸም ጊዜዎች ግምታዊ ናቸው። ባትሪን ለመቆጠብ ከሆነ መርሃ ግብሮች ሊዘገዩ ወይም ሊፋጠኑ ይችላሉ።</string>
     <string name="scheduler_no_active_schedules_subtitle">ንቁ መርሃ ግብሮች የሉም</string>
     <string name="scheduler_setting_nopowersaving_title">በዝቅተኛ ባትሪ ላይ ዝለል</string>

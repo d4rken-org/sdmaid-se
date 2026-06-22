@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">SD Maid를 기기에 초대한 이후 %s개의 항목이 처리되었습니다.</item>
     </plurals>
-    <string name="stats_report_status_success">성공</string>
     <string name="stats_report_status_partial_success">부분 성공</string>
     <string name="stats_report_status_partial_failure">부분 실패</string>
     <string name="stats_settings_desc">SD Maid의 작업에 대한 기록을 보관하고 통계를 생성합니다.</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">개별 작업 보고서를 보관할 일수입니다.</string>
     <string name="stats_settings_retention_paths_label">세부 경로 정보</string>
     <string name="stats_settings_retention_paths_desc">SD Maid가 영향을 준 경로에 대한 세부 정보를 보관할 일수입니다.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d일</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">모두 초기화</string>
     <string name="stats_settings_reset_all_desc">모든 보고서를 삭제하고 모든 통계를 0으로 설정합니다.</string>
     <string name="stats_affected_paths_label">영향을 받은 경로</string>
@@ -41,8 +37,4 @@
     <string name="stats_storage_type_primary">주 저장소</string>
     <string name="stats_storage_type_secondary">추가 저장소</string>
     <string name="stats_storage_type_portable">휴대용 저장소</string>
-    <string name="stats_space_history_delete_storage_title">저장소 기록을 삭제하시겠습니까?</string>
-    <string name="stats_space_history_delete_storage_desc">이 저장소의 모든 추세 데이터가 영구적으로 삭제됩니다.</string>
-    <string name="stats_settings_retention_snapshots_label">저장공간 스냅샷</string>
-    <string name="stats_settings_retention_snapshots_desc">저장공간 스냅샷을 보관할 일수입니다.</string>
 </resources>

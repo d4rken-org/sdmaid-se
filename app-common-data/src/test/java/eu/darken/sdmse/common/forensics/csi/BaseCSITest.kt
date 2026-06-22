@@ -26,7 +26,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest

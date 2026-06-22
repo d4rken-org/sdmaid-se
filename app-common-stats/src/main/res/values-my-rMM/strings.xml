@@ -6,7 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">သင်မ်းသည် SD Maid ကို သင်မ်း ကရိုးသိုချ သပြောက်မှ %s အခုများ ဆေးသပြောက်ပြီးသည်။</item>
     </plurals>
-    <string name="stats_report_status_success">အောင်မြင်မှု</string>
     <string name="stats_report_status_partial_success">တစ်စိတ်တစ်ပိုင်း အောင်မြင်မှု</string>
     <string name="stats_report_status_partial_failure">မအစားပြေဆွဲ</string>
     <string name="stats_settings_desc">SD Maid တွင် စကᒰသတောမှတ်များ၏ အအကြေးများနှင်် တဪဖိုင် သိုထားသွားကို စိုးချရန်။</string>
@@ -15,9 +14,6 @@
     <string name="stats_settings_retention_reports_desc">SD Maid အပြမြအအကြေးများကို ဖက်ချခြင်းသက်မတိုင် ရက်များကိုဆုံး</string>
     <string name="stats_settings_retention_paths_label">ပောထ် အသေးအစား အသေးအပါ</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ခရောကြေးသော ပောထ်များအကြေးများကို သိုထားမပြုမှအဆေး သိုထားလိုက်သော ရက်များကိုဆုံး။</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="other">%d ရက်</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">အားလုံး အသစ်သန်ပြန်ပါ</string>
     <string name="stats_settings_reset_all_desc">အအကြေးများကို ဖက်ချပြီးသောက စကᒰသတောများကို သုည်လုံးအသားသိုသွက်သွက်ချရန်။</string>
     <string name="stats_affected_paths_label">ခရောကြေးပောထ်များ</string>
@@ -41,8 +37,4 @@
     <string name="stats_storage_type_primary">မူလသိုလှောင်မှု</string>
     <string name="stats_storage_type_secondary">ဒုတိယသိုလှောင်မှု</string>
     <string name="stats_storage_type_portable">လွယ်ကူစွာသယ်နိုင်သော သိုလှောင်မှု</string>
-    <string name="stats_space_history_delete_storage_title">သိုလှောင်မှု မှတ်တမ်းကို ဖျက်မလား?</string>
-    <string name="stats_space_history_delete_storage_desc">ဤသိုလှောင်မှုအတွက် ခေတ်ရေစီးကြောင်း ဒေတာအားလုံးကို အပြီးအပိုင် ဖျက်မည်။</string>
-    <string name="stats_settings_retention_snapshots_label">သိုလှောင်မှု ဓာတ်ပုံရိုက်ချက်များ</string>
-    <string name="stats_settings_retention_snapshots_desc">သိုလှောင်မှုနေရာ ဓာတ်ပုံရိုက်ချက်များကို သိမ်းဆည်းထားရမည့် ရက်အရေအတွက်။</string>
 </resources>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">ຕ້ອງການ SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">ອັບເກຣດ SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro ໃຫ້ຜົນລັບທີ່ດີກວ່າ, ຄຸນສົມບັດ ແລະຕົວເລືອກເພີ່ມເຕີມສຳລັບຜູ້ໃຊ້ຂັ້ນສູງ.</string>
     <string name="upgrades_dashcard_upgrade_action">ອັບເກຣດ</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. ກະລຸນາກວດສອບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ ແລະລອງໃໝ່.</string>
     <string name="upgrades_gplay_already_owned_error_title">ຊື້ແລ້ວ</string>
     <string name="upgrades_gplay_already_owned_error_description">ໃຊ້ຕົວເລືອກ \"ກູ້ຄືນການຊື້\" ເພື່ອກູ້ຄືນການຊື້ຂອງທ່ານ. ຖ້າບັນຫາຍັງຄົງຢູ່, ລອງລ້າງແຄສ Google Play ແລະຣີສະຕາດອຸປະກອນຂອງທ່ານ.</string>
-    <string name="upgrades_no_purchases_found_check_account">ບໍ່ພົບການຊື້. ທ່ານກຳລັງໃຊ້ບັນຊີທີ່ຖືກຕ້ອງບໍ?</string>
     <string name="upgrade_screen_title">ຮັບ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ວຽກຂອງຂ້ອຍໄດ້ຮັບການສະໜັບສະໜູນທາງການເງິນໂດຍທ່ານ ❤️.</string>
     <string name="upgrade_screen_benefits_title">ຂໍ້ດີ</string>

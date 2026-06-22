@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">የመተግበሪያ ማስወገጃዎችን ለመፍጠር AppControl መሳሪያን ይጠቀሙ።</string>
     <string name="exclusion_create_path_hint">የመንገድ ማስወገጃዎችን ለመፍጠር StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
     <string name="exclusion_show_defaults_action">ነባሪዎችን አሳይ</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
 </resources>

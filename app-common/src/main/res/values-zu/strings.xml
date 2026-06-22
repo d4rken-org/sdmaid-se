@@ -33,16 +33,9 @@
     <string name="general_empty_label">Akunalutho</string>
     <string name="general_new_badge_label">Okusha</string>
     <string name="general_dismiss_action">Lahla</string>
-    <string name="general_maybe_later_action">Mhlawumbe kamuva</string>
     <string name="general_manage_action">Phatha</string>
-    <string name="general_sync_action">Vumelanisa</string>
     <string name="general_error_label">Iphutha</string>
-    <string name="general_tap_hint_msg">Thepha ukuze uthole izinketho eziningi</string>
     <string name="general_upgrade_action">Thuthukisa</string>
-    <string name="general_donate_action">Nikela</string>
-    <string name="general_check_action">Hlola</string>
-    <string name="general_filter_action">Hlola</string>
-    <string name="general_internal_not_available_msg">Ukuxhumana ne-inthanethi akutholakali</string>
     <string name="general_refresh_action">Vuselela</string>
     <string name="general_progress_searching">Iyasesha</string>
     <string name="general_progress_generating_searchpaths">Yakha indlela zokusesha</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Emgqeni</string>
     <string name="general_progress_deleting">Iyasusa</string>
     <string name="general_progress_deleting_x">Susa %s</string>
-    <string name="general_sort_action">Hlunga</string>
-    <string name="general_sort_by_title">Hlunga ngo</string>
-    <string name="general_sort_options_label">Izinketho zokuhlunga</string>
     <string name="general_sort_reverse_action">Imodi yokuhlungana okuphambene</string>
-    <string name="general_sort_oldest_first">Omdala kuqala</string>
-    <string name="general_sort_newest_first">Omusha kuqala</string>
-    <string name="general_sort_name_asc">Igama (A → Z)</string>
-    <string name="general_sort_size_desc">Olukhulu kuqala</string>
-    <string name="general_tag_filter_label">Hlola ngama-tag</string>
     <string name="general_tag_system">Uhlelo</string>
     <string name="general_result_success_message">Kuqedwe ngempumelelo</string>
-    <string name="general_result_failure_message">Umsebenzi uhlulekile</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Isikhala se-%s sikhululiwe.</item>
         <item quantity="other">Isikhala se-%s sikhululiwe.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Susa</string>
     <string name="general_delete_selected_action">Susa okukhethiwe</string>
     <string name="general_show_details_action">Bonisa imininingwane</string>
-    <string name="general_show_all_action">Bonisa konke</string>
     <string name="general_toggle_layout_mode">Shintsha imodi yokubuka</string>
     <string name="general_delete_confirmation_title">Qinisekisa ukususa</string>
     <string name="general_delete_confirmation_message_x">Susa \"%s\"?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">Kususiwe izinto ezingu-%d.</item>
     </plurals>
     <string name="general_remove_action">Susa</string>
-    <string name="general_remove_selected_action">Susa okukhethiwe</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Into eyodwa isusiwe</item>
         <item quantity="other">Izinto ezingu-%d zisusiwe</item>
     </plurals>
-    <string name="general_root_required_label">I-root iyadingeka</string>
-    <string name="general_root_required_message">Kudingeka idivayisi ene-root</string>
     <string name="general_search_action">Sesha</string>
-    <string name="general_scan_device_action">Scanna idivayisi</string>
     <string name="general_open_system_settings_action">Vula izilungiselelo zesistimu</string>
     <plurals name="result_x_items">
         <item quantity="one">Into eyi-%s</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Ulwazi</string>
     <string name="general_count_label">Inombolo</string>
-    <string name="general_app_label">Uhlelo lokusebenza</string>
     <string name="general_more_info_action">Olunye ulwazi</string>
     <string name="general_grant_access_action">Nikeza ukufinyelela</string>
     <string name="general_enable_service_action">Nika amandla insizakalo</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Khipha okukhethiwe</string>
     <string name="general_device_label">Idivayisi</string>
     <string name="general_settings_title">Izilungiselelo</string>
-    <string name="general_help_title">Usizo</string>
     <string name="general_hints_label">Isaziso</string>
     <string name="file_type_symbolic_link">Isixhumanisi</string>
     <string name="file_type_directory">Uhla lwemibhalo</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
-    <string name="setup_feature_requires_additional_setup_x">Lesi sici sidinga ukuqedela ezinye izinto zokusetshenziswa: %s</string>
-    <string name="upgrade_feature_requires_pro">Idinga i-Pro</string>
     <string name="general_include_multiuser_label">Faka abasebenzisi abanye</string>
     <string name="general_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
     <string name="general_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Izinga lengozi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="appcontrol_systemsettings_open_title">Bonisa izilungiselelo</string>
-    <string name="systemcleaner_customfilter_create_action">Dala isihluzi sangasese</string>
 </resources>

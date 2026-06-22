@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitem que você exclua todos os arquivos em um conjunto de duplicados para que nenhum arquivo fique sobrando.</string>
     <string name="deduplicator_search_locations_title">Pesquisar os locais</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferir manter</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Ao decidir qual duplicado manter, preferir manter os arquivos destes locais.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nenhum local configurado</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Pular os arquivos que estejam abaixo do tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de arquivo incomuns</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Encontre arquivos similares, analisando recursos de conteúdo e comparando valores hash perceptuais. ⚠️ Detecção baseada em similar pode incluir falsos positivos que requerem verificação manual.</string>
     <string name="deduplicator_detection_method_media_title">Impressão digital de mídia</string>
     <string name="deduplicator_detection_method_media_summary">Encontre arquivos de vídeo e áudio semelhantes analisando impressões digitais de áudio. ⚠️ A detecção baseada em similaridade pode incluir falsos positivos que requerem verificação manual.</string>
-    <string name="deduplicator_matches_media_label">Mídia semelhante</string>
     <string name="deduplicator_media_match_audio">Correspondência baseada em áudio</string>
     <string name="deduplicator_media_match_visual">Correspondência baseada em vídeo</string>
     <string name="deduplicator_media_match_audio_visual">Correspondência baseada em áudio e vídeo</string>

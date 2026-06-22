@@ -20,7 +20,6 @@
         <item quantity="one">Καθημερινά</item>
         <item quantity="other">Κάθε %d ημέρες</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Διάστημα επανάληψης</string>
     <string name="scheduler_inaccurate_execution_hint">Οι αναμενόμενοι χρόνοι εκτέλεσης είναι προσεγγίσεις. Τα χρονοδιαγράμματα ενδέχεται να καθυστερήσουν ή να επιταχυνθούν εάν εξοικονομούν μπαταρία.</string>
     <string name="scheduler_no_active_schedules_subtitle">Δεν υπάρχουν ενεργά χρονοδιαγράμματα</string>
     <string name="scheduler_setting_nopowersaving_title">Παράληψη όταν η μπαταρία είναι χαμηλή</string>

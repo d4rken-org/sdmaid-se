@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Ilova chiqarishlarini yaratish uchun AppControl vositasidan foydalaning.</string>
     <string name="exclusion_create_path_hint">Yo\'l chiqarishlarini yaratish uchun StorageAnalyzer vositasidan foydalaning.</string>
     <string name="exclusion_show_defaults_action">Standartlarni ko\'rsatish</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sizda saqlanmagan o\'zgarishlar bor!</string>
 </resources>

@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitahan ang mga resulta batay sa edad ng file (huling pagbabago). Hayaang walang setting upang tumugma sa anumang edad.</string>
     <string name="systemcleaner_customfilter_import_action">Mag-import ng bagong filter</string>
     <string name="systemcleaner_customfilter_export_action">I-export ang napilingi na filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago!</string>
 </resources>

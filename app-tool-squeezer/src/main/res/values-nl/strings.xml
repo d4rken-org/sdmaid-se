@@ -25,8 +25,8 @@
         <item quantity="one">%d item geselecteerd</item>
         <item quantity="other">%d items geselecteerd</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Zoek locaties</string>
-    <string name="squeezer_search_locations_default_summary">Cameramappen (standaard)</string>
+    
+    
     <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
     <string name="squeezer_min_size_description">Sla bestanden kleiner dan deze grootte over.</string>
     <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
@@ -89,7 +89,7 @@
     <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
     <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>
     <string name="squeezer_setup_age_title">Minimum leeftijd</string>
-    <string name="squeezer_setup_age_none">Geen limiet (alle bestanden opnemen)</string>
+    
     <string name="squeezer_setup_start_action">Scan starten</string>
     <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
     <string name="squeezer_quality_hint_low">Lagere kwaliteit bespaart meer ruimte maar kan zichtbare artefacten veroorzaken.</string>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE, version libre</string>
     <string name="app_name_upgrade_postfix">Logiciel libre</string>
-    <string name="upgrade_feature_requires_pro">Nécessite SD Maid SE, version libre</string>
     <string name="upgrades_dashcard_title">Passer à SD Maid SE Pro</string>
     <string name="upgrades_dashcard_body">Débloquez des fonctions supplémentaires et devenez mécène pour soutenir le développement continu.</string>
     <string name="upgrades_dashcard_upgrade_action">Passer Pro</string>

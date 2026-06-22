@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Gamitin ang AppControl tool para gumawa ng mga app exclusion.</string>
     <string name="exclusion_create_path_hint">Gamitin ang StorageAnalyzer tool para gumawa ng mga path exclusion.</string>
     <string name="exclusion_show_defaults_action">Ipakita ang mga default</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago\!</string>
 </resources>

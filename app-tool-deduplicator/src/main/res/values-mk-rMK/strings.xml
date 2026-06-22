@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Прикажи опции кои ви дозволуваат да ги избришете сите датотеки во група дупликати така што ниедна датотека не останува.</string>
     <string name="deduplicator_search_locations_title">Локации за пребарување</string>
     <string name="deduplicator_search_locations_all_summary">Сите достапни области</string>
-    <string name="deduplicator_keep_prefer_paths_title">Претпочитај задржување во</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Кога се одлучува кој дупликат да се задржи, претпочитај задржување датотеки на овие локации.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Нема конфигурирани локации</string>
     <string name="deduplicator_skip_minsize_title">Минимална големина</string>
     <string name="deduplicator_skip_minsize_description">Прескокни датотеки кои се под минималната големина.</string>
     <string name="deduplicator_skip_uncommon_title">Прескокни невообичаени типови датотеки</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Најдете слични датотеки со анализа на карактеристики на содржината и споредба на перцептуални хеш вредности. ⚠️ Откривањето базирано на сличност може да вклучи лажни позитивни резултати кои бараат рачна верификација.</string>
     <string name="deduplicator_detection_method_media_title">Медиумски отпечаток</string>
     <string name="deduplicator_detection_method_media_summary">Пронајди слични видео и аудио датотеки со анализа на аудио отпечатоци. ⚠️ Откривањето засновано на сличност може да вклучи лажни позитиви кои бараат рачна верификација.</string>
-    <string name="deduplicator_matches_media_label">Слични медиуми</string>
     <string name="deduplicator_media_match_audio">Совпаѓање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Совпаѓање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Совпаѓање засновано на аудио и видео</string>

@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">డుప్లికేట్ సెట్‌లో అన్ని ఫైల్‌లను తొలగించడానికి అనుమతించే ఎంపికలను చూపించండి దీనిలో ఏ ఫైల్ కూడా మిగిలిపోదు.</string>
     <string name="deduplicator_search_locations_title">వెతకలు స్థలాలు</string>
     <string name="deduplicator_search_locations_all_summary">అన్ని ప్రాప్యత ప్రాంతాలు</string>
-    <string name="deduplicator_keep_prefer_paths_title">ఇక్కడ ఉంచడానికి ప్రాధాన్యత</string>
-    <string name="deduplicator_keep_prefer_paths_summary">ఏ డూప్లికేట్‌ను ఉంచాలో నిర్ణయించేటప్పుడు, ఈ స్థానాల్లో ఫైల్‌లను ఉంచడానికి ప్రాధాన్యత ఇవ్వండి.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">స్థానాలు కాన్ఫిగర్ చేయబడలేదు</string>
     <string name="deduplicator_skip_minsize_title">కనిష్ఠ పరిమాణం</string>
     <string name="deduplicator_skip_minsize_description">కనిష్ఠ పరిమాణం కంటే తక్కువ ఫైల్‌లను విడుదల చేయండి.</string>
     <string name="deduplicator_skip_uncommon_title">అప్రచలిత ఫైల్ రకాలను విడుదల చేయండి</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">కంటెంట్ ఫీచర్‌లను విశ్లేషించడం మరియు పర్సెప్చువల్ హాష్ విలువలను పోల్చడం ద్వారా సారూప్య ఫైల్‌లను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు పాజిటివ్‌లు ఉండవచ్చు, మాన్యువల్ ధృవీకరణ అవసరం.</string>
     <string name="deduplicator_detection_method_media_title">మీడియా వేలిముద్ర</string>
     <string name="deduplicator_detection_method_media_summary">ఆడియో వేలిముద్రలను విశ్లేషించడం ద్వారా సారూప్య వీడియో మరియు ఆడియో ఫైళ్ళను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు ఫలితాలు ఉండవచ్చు, వాటికి మాన్యువల్ ధృవీకరణ అవసరం.</string>
-    <string name="deduplicator_matches_media_label">సారూప్య మీడియా</string>
     <string name="deduplicator_media_match_audio">ఆడియో-ఆధారిత సరిపోలిక</string>
     <string name="deduplicator_media_match_visual">వీడియో-ఆధారిత సరిపోలిక</string>
     <string name="deduplicator_media_match_audio_visual">ఆడియో మరియు వీడియో-ఆధారిత సరిపోలిక</string>

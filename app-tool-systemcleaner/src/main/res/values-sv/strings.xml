@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Begränsa matchningar baserat på filålder (senast ändrad tid). Lämna tomt för att matcha alla åldrar.</string>
     <string name="systemcleaner_customfilter_import_action">Importera nytt filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportera valt filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har osparade ändringar!</string>
 </resources>

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
@@ -13,7 +13,7 @@ interface SystemCleanerFilter : Progress.Host, Progress.Client {
     val identifier: FilterIdentifier
         get() = this::class.qualifiedName!!
 
-    suspend fun getIcon(): CaDrawable
+    val icon: ImageVector
 
     suspend fun getLabel(): CaString
 

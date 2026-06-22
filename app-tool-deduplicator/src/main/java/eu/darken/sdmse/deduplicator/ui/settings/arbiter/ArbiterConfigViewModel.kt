@@ -1,61 +1,56 @@
 package eu.darken.sdmse.deduplicator.ui.settings.arbiter
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.navigation.NavigationController
 import eu.darken.sdmse.common.picker.PickerRequest
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.picker.PickerResultKey
+import eu.darken.sdmse.common.picker.PickerRoute
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class ArbiterConfigViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val settings: DeduplicatorSettings,
-) : ViewModel3(dispatcherProvider) {
+    navCtrl: NavigationController,
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    val state = settings.arbiterConfig.flow.map { config ->
-        val criteriumItems = config.criteria.mapIndexed { index, criterium ->
-            ArbiterConfigAdapter.CriteriumItem(
-                criterium = criterium,
-                position = index,
-                onModeClicked = { showModeSelection(it) },
-            )
-        }
-        State(
-            items = listOf(ArbiterConfigAdapter.HeaderItem()) + criteriumItems,
+    val state: StateFlow<State> = settings.arbiterConfig.flow
+        .map { State(criteria = it.criteria) }
+        .safeStateIn(
+            initialValue = State(),
+            onError = { State() },
         )
-    }.asLiveData2()
 
-    data class State(
-        val items: List<ArbiterConfigAdapter.Item>,
-    )
+    val events = SingleEventFlow<Event>()
 
-    fun onItemsReordered(items: List<ArbiterConfigAdapter.Item>) = launch {
-        val criteriumItems = items.filterIsInstance<ArbiterConfigAdapter.CriteriumItem>()
-        log(TAG) { "onItemsReordered(): ${criteriumItems.map { it.criterium::class.simpleName }}" }
-        val newConfig = DeduplicatorSettings.ArbiterConfig(
-            criteria = criteriumItems.map { it.criterium }
-        )
-        settings.arbiterConfig.value(newConfig)
+    init {
+        navCtrl.consumeResults(PickerResultKey(PICKER_REQUEST_KEY))
+            .onEach { result ->
+                log(TAG) { "Picker returned ${result.selectedPaths.size} preferred paths" }
+                updatePreferredPaths(result.selectedPaths)
+            }
+            .launchIn(vmScope)
     }
 
-    private fun showModeSelection(item: ArbiterConfigAdapter.CriteriumItem) {
-        log(TAG) { "showModeSelection(): ${item.criterium}" }
-        when (val criterium = item.criterium) {
-            is ArbiterCriterium.PreferredPath -> {
-                pickerEvents.postValue(
-                    PickerRequest(
+    fun onCriteriumClick(criterium: ArbiterCriterium) {
+        when (criterium) {
+            is ArbiterCriterium.PreferredPath -> navTo(
+                PickerRoute(
+                    request = PickerRequest(
                         requestKey = PICKER_REQUEST_KEY,
                         mode = PickerRequest.PickMode.DIRS,
                         allowedAreas = setOf(
@@ -65,49 +60,37 @@ class ArbiterConfigViewModel @Inject constructor(
                             DataArea.Type.PUBLIC_MEDIA,
                         ),
                         selectedPaths = criterium.keepPreferPaths.toList(),
-                    )
-                )
-            }
+                    ),
+                ),
+            )
 
             else -> {
-                val modes = getModeOptions(item.criterium)
+                val modes = getModeOptions(criterium)
                 if (modes.isNotEmpty()) {
-                    modeSelectionEvents.postValue(ModeSelectionEvent(item, modes))
+                    events.tryEmit(Event.ShowModeSelection(criterium, modes))
                 }
             }
         }
     }
 
-    val modeSelectionEvents = SingleLiveEvent<ModeSelectionEvent>()
-    val pickerEvents = SingleLiveEvent<PickerRequest>()
+    fun onItemsReordered(newOrder: List<ArbiterCriterium>) = launch {
+        log(TAG) { "onItemsReordered(): ${newOrder.map { it::class.simpleName }}" }
+        settings.arbiterConfig.value(DeduplicatorSettings.ArbiterConfig(criteria = newOrder))
+    }
 
-    data class ModeSelectionEvent(
-        val item: ArbiterConfigAdapter.CriteriumItem,
-        val modes: List<ArbiterCriterium.Mode>,
-    )
-
-    fun onModeSelected(item: ArbiterConfigAdapter.CriteriumItem, mode: ArbiterCriterium.Mode) = launch {
-        log(TAG) { "onModeSelected(): ${item.criterium::class.simpleName} -> $mode" }
-        val currentConfig = settings.arbiterConfig.flow.first()
-        val newCriteria = currentConfig.criteria.map { criterium ->
-            if (criterium::class == item.criterium::class) {
-                updateCriteriumMode(criterium, mode)
-            } else {
-                criterium
-            }
+    fun onModeSelected(criterium: ArbiterCriterium, mode: ArbiterCriterium.Mode) = launch {
+        log(TAG) { "onModeSelected(): ${criterium::class.simpleName} -> $mode" }
+        val current = settings.arbiterConfig.flow.first()
+        val newCriteria = current.criteria.map {
+            if (it::class == criterium::class) updateCriteriumMode(it, mode) else it
         }
         settings.arbiterConfig.value(DeduplicatorSettings.ArbiterConfig(criteria = newCriteria))
     }
 
-    fun updatePreferredPaths(paths: Set<APath>) = launch {
-        log(TAG) { "updatePreferredPaths(): $paths" }
-        val currentConfig = settings.arbiterConfig.flow.first()
-        val newCriteria = currentConfig.criteria.map { criterium ->
-            if (criterium is ArbiterCriterium.PreferredPath) {
-                criterium.copy(keepPreferPaths = paths)
-            } else {
-                criterium
-            }
+    private fun updatePreferredPaths(paths: Set<eu.darken.sdmse.common.files.APath>) = launch {
+        val current = settings.arbiterConfig.flow.first()
+        val newCriteria = current.criteria.map {
+            if (it is ArbiterCriterium.PreferredPath) it.copy(keepPreferPaths = paths) else it
         }
         settings.arbiterConfig.value(DeduplicatorSettings.ArbiterConfig(criteria = newCriteria))
     }
@@ -138,8 +121,17 @@ class ArbiterConfigViewModel @Inject constructor(
             is ArbiterCriterium.PreferredPath -> criterium
         }
 
+    data class State(val criteria: List<ArbiterCriterium> = emptyList())
+
+    sealed interface Event {
+        data class ShowModeSelection(
+            val criterium: ArbiterCriterium,
+            val modes: List<ArbiterCriterium.Mode>,
+        ) : Event
+    }
+
     companion object {
         private val TAG = logTag("Deduplicator", "Settings", "Arbiter", "ViewModel")
-        const val PICKER_REQUEST_KEY = "arbiter.keep.prefer.paths"
+        private const val PICKER_REQUEST_KEY = "arbiter.keep.prefer.paths"
     }
 }

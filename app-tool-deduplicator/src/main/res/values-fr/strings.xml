@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Afficher les options de suppression de tous les fichiers d\'un jeu de doublons afin qu’aucun fichier ne reste.</string>
     <string name="deduplicator_search_locations_title">Chercher dans les emplacements</string>
     <string name="deduplicator_search_locations_all_summary">Toutes les zones accessibles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Préférer ces fichiers</string>
-    <string name="deduplicator_keep_prefer_paths_summary">En cas de doublon, conserver en priorité les fichiers de ces emplacements.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Aucun emplacement n’est défini</string>
     <string name="deduplicator_skip_minsize_title">Taille minimale</string>
     <string name="deduplicator_skip_minsize_description">Ignorer les fichiers inférieurs à taille minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorer les types de fichier inhabituels</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Trouvez des fichiers similaires en analysant les caractéristiques du contenu et en comparant les valeurs perceptuelles de hachage. ⚠️ La détection fondée sur la similitude peut comporter de faux positifs qui nécessitent une vérification manuelle.</string>
     <string name="deduplicator_detection_method_media_title">Empreinte numérique du média</string>
     <string name="deduplicator_detection_method_media_summary">Trouver des fichiers vidéo et audio similaires en analysant les empreintes sonores numériques. ⚠️ La détection selon la similitude peut comprendre de faux positifs qui demandent une vérification manuelle.</string>
-    <string name="deduplicator_matches_media_label">Médias similaires</string>
     <string name="deduplicator_media_match_audio">Correspondance basée sur le son</string>
     <string name="deduplicator_media_match_visual">Correspondance basée sur la vidéo</string>
     <string name="deduplicator_media_match_audio_visual">Correspondance basée sur le son et la vidéo</string>

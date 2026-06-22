@@ -20,7 +20,6 @@
         <item quantity="one">%d დღეში ერთხელ</item>
         <item quantity="other">%d დღეში ერთხელ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">გამეორების ინტერვალი</string>
     <string name="scheduler_inaccurate_execution_hint">მოსალოდნელი შესრულების დროები წარმოადგენს მიახლოებას. განრიგები შეიძლება დაგვიანდეს ან დაჩქარდეს, თუ ეს ზოგავს ბატარეას.</string>
     <string name="scheduler_no_active_schedules_subtitle">აქტიური განრიგები არ არის</string>
     <string name="scheduler_setting_nopowersaving_title">გამოტოვება დაბალ ბატარეაზე</string>

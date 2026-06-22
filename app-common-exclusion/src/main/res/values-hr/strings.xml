@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Upotrijebite alat Kontrola aplikacija za stvaranje izuzetaka aplikacija.</string>
     <string name="exclusion_create_path_hint">Upotrijebite alat \"Analizator pohrane\" za stvaranje izuzetaka putanja.</string>
     <string name="exclusion_show_defaults_action">Prikaži zadano</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Imate nespremljene promjene!</string>
 </resources>

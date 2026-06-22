@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">نیشاندان options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">گەڕان locations</string>
     <string name="deduplicator_search_locations_all_summary">هەموو ناوچەکانی دەستگەیشتراو</string>
-    <string name="deduplicator_keep_prefer_paths_title">پێشتر نگەداشتن لە</string>
-    <string name="deduplicator_keep_prefer_paths_summary">لە کاتی بڕیاردانەوە کام دووبارە نگەبداریت، پێشتر فایلەکان لەم شوێنانەدا نگەبدارە.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">هیچ شوێنێک ڕێکخستن نەکراوە</string>
     <string name="deduplicator_skip_minsize_title">کەمترین size</string>
     <string name="deduplicator_skip_minsize_description">Skip فایلs that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon فایل types</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">فایلی هاوشێوە بدۆزەرەوە بە شیکردنەوەی تایبەتمەندییەکانی ناوەڕۆک و بەراوردکردنی بەهاکانی هاشی هەستبردنی. ⚠️ دۆزینەوەی بنەماتی هاوشێوەیی لەوانەیە هەڵەی دروستی تێدابێت کە پشکنینی دەستی پێویستە.</string>
     <string name="deduplicator_detection_method_media_title">نیشانەی میدیا</string>
     <string name="deduplicator_detection_method_media_summary">فایلە کاریکانی کورتە و دەنگ ھەمان بە تالیلکردنی نیشانەی دەنگ بدەستبێنە. ⚠️ کاشفکردنی لە سەر هاوبەندی لەوانی ھەبیهەی شاشە راست نییە کە چەککردنی دەست دەخەی بەکارھێنەر دەبێتەوە.</string>
-    <string name="deduplicator_matches_media_label">میدیای هاوبێش</string>
     <string name="deduplicator_media_match_audio">هاوبێشی لەسەر دەنگ</string>
     <string name="deduplicator_media_match_visual">هاوبێشی لەسەر ڤیدیۆ</string>
     <string name="deduplicator_media_match_audio_visual">هاوبێشی لەسەر دەنگ و ڤیدیۆ</string>

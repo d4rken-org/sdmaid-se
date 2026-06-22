@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">შეკუმშეთ სურათები და ვიდეოები საცავის სივრცის დასაზოგად.</string>
+    <string name="squeezer_explanation_short">სურათების შეკუმშვა მეხსიერების დაზოგვისთვის.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d ელემენტი მოიძებნა</item>
-        <item quantity="other">%d ელემენტი მოიძებნა</item>
+        <item quantity="one">%d სურათი ნაპოვნია</item>
+        <item quantity="other">%d სურათი ნაპოვნია</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s დაზოგვა შესაძლებელია</item>
         <item quantity="other">~%s დაზოგვა შესაძლებელია</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d ელემენტი შეკუმშულია</item>
-        <item quantity="other">%d ელემენტი შეკუმშულია</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ვერ შესრულდა</item>
-        <item quantity="other">%d ვერ შესრულდა</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ფაილი გამოტოვებულია (მიუწვდომელია)</item>
-        <item quantity="other">%d ფაილი გამოტოვებულია (მიუწვდომელია)</item>
+        <item quantity="one">%d სურათი შეკუმშულია</item>
+        <item quantity="other">%d სურათი შეკუმშულია</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d ელემენტი არჩეულია</item>
-        <item quantity="other">%d ელემენტი არჩეულია</item>
+        <item quantity="one">%d სურათი არჩეულია</item>
+        <item quantity="other">%d სურათი არჩეულია</item>
     </plurals>
-    <string name="squeezer_search_locations_title">ძიების ადგილები</string>
-    <string name="squeezer_search_locations_default_summary">კამერის საქაღალდეები (ნაგულისხმევი)</string>
     <string name="squeezer_min_size_title">ფაილის მინიმალური ზომა</string>
-    <string name="squeezer_min_size_description">გამოტოვე ამ ზომაზე პატარა ფაილები.</string>
+    <string name="squeezer_min_size_description">ამ ზომაზე პატარა სურათების გამოტოვება.</string>
     <string name="squeezer_min_age_title">ფაილის მინიმალური ასაკი</string>
-    <string name="squeezer_min_age_description">შეიტანე მხოლოდ ამ ასაკზე ძველი ფაილები.</string>
-    <string name="squeezer_compression_settings_label">ზოგადი</string>
-    <string name="squeezer_quality_label">ხარისხი</string>
-    <string name="squeezer_quality_title">შეკუმშვის ხარისხი</string>
-    <string name="squeezer_quality_description">დაბალი ხარისხი ნიშნავს პატარა ფაილის ზომას, მაგრამ მცირდება ვიზუალური ხარისხი.</string>
-    <string name="squeezer_quality_example_format">მაგალითი: %1$s სურათი → %3$d%% ხარისხით ~%2$s დაზოგვა</string>
-    <string name="squeezer_quality_warning_low">დაბალმა ხარისხმა შეიძლება ხილული არტეფაქტები გამოიწვიოს.</string>
-    <string name="squeezer_quality_warning_high">ძალიან მაღალი ხარისხი მინიმალურ დაზოგვას უზრუნველყოფს.</string>
-    <string name="squeezer_types_category_label">სურათის პარამეტრები</string>
-    <string name="squeezer_video_settings_category_label">ვიდეოს პარამეტრები</string>
+    <string name="squeezer_min_age_description">მხოლოდ ამ ასაკზე ძველი სურათების ჩართვა.</string>
+    <string name="squeezer_compression_settings_label">შეკუმშვის პარამეტრები</string>
+    <string name="squeezer_quality_description">დაბალი ხარისხი ნიშნავს უფრო მცირე ფაილის ზომას, მაგრამ შემცირებულ სურათის ხარისხს.</string>
+    <string name="squeezer_types_category_label">სურათების ტიპები</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG სურათების ჩართვა (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP სურათების ჩართვა (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 ვიდეო</string>
-    <string name="squeezer_type_video_description">შეიტანე MP4 ვიდეო ფაილები (.mp4).</string>
     <string name="squeezer_skip_compressed_title">ადრე შეკუმშულების გამოტოვება</string>
-    <string name="squeezer_skip_compressed_description">გამოტოვე ფაილები, რომლებიც უკვე შეკუმშულია SD Maid-ის მიერ.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid-ის მიერ უკვე შეკუმშული სურათების გამოტოვება.</string>
     <string name="squeezer_exif_marker_title">EXIF მარკერის ჩაწერა</string>
     <string name="squeezer_exif_marker_description">სურათის EXIF მომხმარებლის კომენტარის ველში მარკერის დამატება ხელახალი შეკუმშვის თავიდან ასაცილებლად, მაშინაც კი, თუ შეკუმშვის ისტორია გასუფთავდა.</string>
     <string name="squeezer_estimated_savings_format">~%s დაზოგვა</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">შეკუმშვის დადასტურება</string>
     <string name="squeezer_preview_total_size">საერთო ზომა</string>
     <string name="squeezer_preview_estimated_savings">სავარაუდო დაზოგვა</string>
-    <string name="squeezer_compress_confirmation_title">შეკუმშოთ არჩეული ელემენტები?</string>
-    <string name="squeezer_compress_confirmation_message">ეს შეცვლის ორიგინალ ფაილებს შეკუმშული ვერსიებით. ეს მოქმედება ვერ გაუქმდება.</string>
     <string name="squeezer_history_title">შეკუმშვის ისტორია</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ელემენტი (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">შეკუმშვის ისტორია არ არის</string>
     <string name="squeezer_history_clear_title">შეკუმშვის ისტორიის გასუფთავება</string>
-    <string name="squeezer_history_clear_message">ეს საშუალებას მისცემს ადრე შეკუმშულ ფაილებს კვლავ შეიკუმშოს. თავად ფაილები არ შეიცვლება.</string>
-    <string name="squeezer_onboarding_title">სურათის შეკუმშვის შესახებ</string>
-    <string name="squeezer_onboarding_message">სურათის შეკუმშვა ამცირებს ფაილის ზომას ვიზუალური დეტალების წაშლით. ეს პროცესი შეუქცევადია - ორიგინალი ხარისხის აღდგენა შეუძლებელია.\n\nაი, როგორ გამოიყურება თქვენი სურათები:</string>
+    <string name="squeezer_history_clear_message">ეს საშუალებას მისცემს ადრე შეკუმშულ სურათებს ხელახლა შეიკუმშოს. თავად სურათებზე გავლენა არ იქნება.</string>
     <string name="squeezer_onboarding_original_label">ორიგინალი</string>
     <string name="squeezer_onboarding_compressed_label">შეკუმშვის შემდეგ</string>
-    <string name="squeezer_onboarding_video_original_label">ვიდეო კადრი</string>
-    <string name="squeezer_onboarding_video_compressed_label">გადახედვა (სავარაუდო)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">ვიდეოს რეალური ხარისხი შეიძლება განსხვავდებოდეს</string>
-    <string name="squeezer_onboarding_quality_label">ხარისხი: %d%%</string>
     <string name="squeezer_compare_action">შედარების ნახვა</string>
     <string name="squeezer_no_example_found">არჩეულ გზებში სურათები ვერ მოიძებნა.</string>
-    <string name="squeezer_result_empty_message">შეკუმშვადი მედია ვერ მოიძებნა.</string>
-    <string name="squeezer_setup_warning">შეკუმშვა მუდმივად ამცირებს ხარისხს საცავის სივრცის დაზოგვის მიზნით. ეს ვერ გაუქმდება. ყურადღებით გადახედე პარამეტრებს დაწყებამდე.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
-        <item quantity="other">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze ამცირებს სურათების და ვიდეოების ფაილის ზომას საცავის სივრცის გასათავისუფლებლად. ეს მუდმივად ამცირებს ხარისხს და ვერ გაუქმდება. ყურადღებით გადახედე პარამეტრებს დაწყებამდე.</string>
+    <string name="squeezer_result_empty_message">შეკუმშვადი სურათები ვერ მოიძებნა.</string>
+    <string name="squeezer_setup_explanation">მედია შეკუმშვა ამცირებს სურათების ფაილის ზომას მეხსიერების გასათავისუფლებლად. ეს სამუდამოდ ამცირებს სურათის ხარისხს და ვერ გაუქმდება. დაწყებამდე ყურადღებით გადახედეთ თქვენს პარამეტრებს.</string>
     <string name="squeezer_setup_paths_title">ძიების ადგილები</string>
     <string name="squeezer_setup_paths_default">აირჩიეთ საქაღალდეები საძიებლად</string>
     <string name="squeezer_setup_quality_title">შეკუმშვის ხარისხი</string>
     <string name="squeezer_setup_age_title">მინიმალური ასაკი</string>
-    <string name="squeezer_setup_age_none">შეზღუდვის გარეშე (ყველა ფაილის ჩართვა)</string>
     <string name="squeezer_setup_start_action">სკანირების დაწყება</string>
     <string name="squeezer_quality_hint_very_low">40%-ზე დაბალმა ხარისხმა შეიძლება გამოუსადეგარი სურათები შექმნას.</string>
     <string name="squeezer_quality_hint_low">დაბალი ხარისხი მეტ ადგილს ზოგავს, მაგრამ ხილული არტეფაქტები შეიძლება გამოჩნდეს.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">სულ მცირე %d დღის</item>
         <item quantity="other">სულ მცირე %d დღის</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">სავარაუდო ~%d%% დაზოგვა სურათებისთვის</string>
-    <string name="squeezer_onboarding_got_it">Გავიგე</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ფაილებისთვის სავარაუდოდ ~%d%% დაზოგვა</string>
 </resources>

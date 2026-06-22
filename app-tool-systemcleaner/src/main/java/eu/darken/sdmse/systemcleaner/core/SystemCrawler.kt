@@ -166,7 +166,7 @@ class SystemCrawler @Inject constructor(
             val filter = filters.single { it.identifier == entry.key }
             FilterContent(
                 identifier = entry.key,
-                icon = filter.getIcon(),
+                icon = filter.icon,
                 label = filter.getLabel(),
                 description = filter.getDescription(),
                 items = entry.value,

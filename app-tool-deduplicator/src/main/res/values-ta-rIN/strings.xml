@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">நகல் தொகுப்பில் உள்ள அனைத்து கோப்புகளையும் நீக்க அனுமதிக்கும் விருப்பங்களைக் காட்டு, எந்த கோப்பும் மீதம் இருக்காதபடி.</string>
     <string name="deduplicator_search_locations_title">தேடல் இடங்கள்</string>
     <string name="deduplicator_search_locations_all_summary">அனைத்து அணுகக்கூடிய பகுதிகள்</string>
-    <string name="deduplicator_keep_prefer_paths_title">இதில் வைத்திருக்க விரும்பு</string>
-    <string name="deduplicator_keep_prefer_paths_summary">எந்த நகலை வைத்திருப்பது என்று முடிவு செய்யும் போது, இந்த இடங்களில் உள்ள கோப்புகளை வைத்திருக்க விரும்பு.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">இடங்கள் எதுவும் அமைக்கப்படவில்லை</string>
     <string name="deduplicator_skip_minsize_title">குறைந்த அளவு</string>
     <string name="deduplicator_skip_minsize_description">குறைந்த அளவில் கீழ் உள்ள கோப்புகளை தவிர்க்கவும்.</string>
     <string name="deduplicator_skip_uncommon_title">பொதுவான கோப்பு வகைகளை தவிர்</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">உள்ளடக்க அம்சங்களை பகுப்பாய்வு செய்து புலனுணர்வு ஹாஷ் மதிப்புகளை ஒப்பிட்டு ஒத்த கோப்புகளைக் கண்டறியவும். ⚠️ ஒற்றுமை அடிப்படையிலான கண்டறிதலில் கைமுறை சரிபார்ப்பு தேவைப்படும் தவறான நேர்மறைகள் இருக்கலாம்.</string>
     <string name="deduplicator_detection_method_media_title">மீடியா கைரேகை</string>
     <string name="deduplicator_detection_method_media_summary">ஆடியோ கைரேகைகளை பகுப்பாய்வு செய்வதன் மூலம் ஒத்த வீடியோ மற்றும் ஆடியோ கோப்புகளைக் கண்டறியவும். ⚠️ ஒற்றுமை அடிப்படையிலான கண்டறிதல் தவறான நேர்மறைகளை உள்ளடக்கியிருக்கலாம், கைமுறை சரிபார்ப்பு தேவை.</string>
-    <string name="deduplicator_matches_media_label">ஒத்த மீடியா</string>
     <string name="deduplicator_media_match_audio">ஆடியோ அடிப்படையிலான பொருத்தம்</string>
     <string name="deduplicator_media_match_visual">வீடியோ அடிப்படையிலான பொருத்தம்</string>
     <string name="deduplicator_media_match_audio_visual">ஆடியோ மற்றும் வீடியோ அடிப்படையிலான பொருத்தம்</string>

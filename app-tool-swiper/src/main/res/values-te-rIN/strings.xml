@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">సెషన్ కొనసాగించు</string>
     <string name="swiper_sessions_description">3 సులభ దశల్లో ఫైల్‌లను సమీక్షించండి:\n\n1. స్కాన్ చేయడానికి ఫోల్డర్‌ను ఎంచుకోండి\n2. ఉంచడానికి, తొలగించడానికి లేదా దాటవేయడానికి ఫైల్‌లను స్వైప్ చేయండి\n3. మీ ఎంపికలను సమీక్షించి నిర్ధారించండి\n\nతుది తొలగించు బటన్‌ను నొక్కే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_select_folders_action">ఫోల్డర్‌లను ఎంచుకోండి</string>
-    <string name="swiper_scanning_title">స్కాన్ చేస్తోంది…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d అంశం కనుగొనబడింది</item>
         <item quantity="other">%d అంశాలు కనుగొనబడ్డాయి</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">ఎంచుకున్నవి ఉంచు</string>
     <string name="swiper_status_action_delete_selected">ఎంచుకున్నవి తొలగించండి</string>
     <string name="swiper_status_action_reset_selected">ఎంచుకున్నవి రీసెట్ చేయి</string>
-    <string name="swiper_decision_undecided">నిర్ణయించబడలేదు</string>
-    <string name="swiper_retry_action">మళ్ళీ ప్రయత్నించు</string>
     <string name="swiper_delete_confirmation_title">ఫైల్‌లను తొలగించాలా?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">ఇది %1$d ఫైల్‌ను (%2$s) శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d నిర్ణయించబడలేదు</item>
         <item quantity="other">%d నిర్ణయించబడలేదు</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ఇప్పటికే ఉంచబడింది</item>
-        <item quantity="other">%d ఇప్పటికే ఉంచబడ్డాయి</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ఇప్పటికే తొలగించబడింది</item>
-        <item quantity="other">%d ఇప్పటికే తొలగించబడ్డాయి</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ఉంచబడింది</item>
         <item quantity="other">%d ఉంచబడ్డాయి</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Swiper ఎలా పని చేస్తుంది</string>
     <string name="swiper_help_message">నిర్ణయం తీసుకోవడానికి ప్రతి ఫైల్‌ను స్వైప్ చేయండి:\n\n← ఎడమకు స్వైప్: %1$s\n→ కుడికి స్వైప్: %2$s\n↑ పైకి స్వైప్: దాటవేయి\n↓ క్రిందికి స్వైప్: రద్దు (మొదటి స్వైప్ తర్వాత)\n\nమీరు దిగువన ఉన్న బటన్‌లను కూడా ఉపయోగించవచ్చు.\n\nమీరు పూర్తి చేసిన తర్వాత, మీ అన్ని నిర్ణయాలను చూడటానికి \"సమీక్ష\" నొక్కండి. సమీక్ష స్క్రీన్‌లో మీరు నిర్ధారించే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_gesture_overlay_dismiss_action">అర్థమైంది</string>
-    <string name="swiper_help_action">సహాయం</string>
     <string name="swiper_file_type_filter_title">ఈ ఫైల్ రకాలను మాత్రమే చూపించు</string>
     <string name="swiper_file_type_filter_hint">మీరు చూడాలనుకునే రకాలను ఎంచుకోండి. ఏదీ ఎంచుకోకపోతే, అన్ని ఫైల్స్ చూపించబడతాయి.</string>
     <string name="swiper_file_type_category_images">చిత్రాలు</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">ఆర్కైవ్‌లు</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">వర్తించు</string>
-    <string name="swiper_session_filter_action">ఫైల్స్ వడపోత</string>
     <string name="swiper_file_type_filter_summary">వడపోయబడినవి: %1$s</string>
     <string name="swiper_session_no_matching_files">సరిపోలే ఫైల్స్ కనుగొనబడలేదు</string>
     <string name="swiper_open_externally_action">బాహ్య యాప్‌లో తెరవండి</string>

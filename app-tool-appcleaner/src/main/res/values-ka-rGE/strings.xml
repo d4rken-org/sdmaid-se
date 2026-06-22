@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner ავტომატიზაცია</string>
     <string name="appcleaner_automation_subtitle_default_caches">ნაგულისხმევი ქეშების გასუფთავება…</string>
-    <string name="appcleaner_automation_progress_open_settings">პარამეტრების ეკრანის გახსნა (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"მეხსიერების\" ჩანაწერის ძიება (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"მონაცემების გასუფთავების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"ქეშის გასუფთავების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">საჯარო და კერძო ნაგულისხმევი ქეშები. არ არის პირდაპირ წვდომა, მაგრამ შეიძლება წაიშალოს არაპირდაპირი გზით (მაგ. ხელმისაწვდომობის სერვისის საშუალებით).</string>
     <string name="appcleaner_automation_unavailable_title">ხელმისაწვდომობის სერვისი მიუწვდომელია</string>
     <string name="appcleaner_automation_unavailable_body">მიუწვდომელი ქეშების გასუფთავებას სჭირდება SD Maid-ის ხელმისაწვდომობის სერვისი, მაგრამ ის მიუწვდომელი იყო. თუ არ გსურთ მისი გამოყენება: გათიშეთ ოფცია \"მიუწვდომელი ქეშების ჩართვა\".</string>
-    <string name="appcleaner_junk_userprofile_label">მომხმარებელი</string>
     <string name="appcleaner_delete_confirmation_message_x">წაიშალოს ხარჯვადი ფაილები %s-თვის?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">წაიშალოს ხარჯვადი ფაილები %d არჩეული აპისთვის?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">გასუფთავებამდე იძულებითი გაჩერება</string>
     <string name="appcleaner_forcestop_before_clearing_summary">აპების იძულებითი გაჩერება მათი ქეშის გასუფთავებამდე. ეს დაგეხმარებათ ზოგიერთი აპის ქეშის გასუფთავებაში, მაგრამ აპებმა შეიძლება არასწორად იმუშაონ და ხელით გადატვირთვა დაგჭირდეთ.</string>
     <string name="appcleaner_progress_force_stopping">აპების იძულებითი გაჩერება…</string>
-    <string name="appcleaner_automation_error_no_settings_body">ამ სისტემურ აპს არ აქვს პარამეტრების ეკრანი. ქეშის გასუფთავება ხელმისაწვდომობის სერვისის საშუალებით შეუძლებელია. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
-    <string name="appcleaner_automation_error_no_settings_title">პარამეტრების ეკრანი მიუწვდომელია</string>
-    <string name="appcleaner_automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
-    <string name="appcleaner_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
-    <string name="appcleaner_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
 </resources>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Sử dụng công cụ AppControl để tạo loại trừ ứng dụng.</string>
     <string name="exclusion_create_path_hint">Sử dụng công cụ StorageAnalyzer để tạo loại trừ đường dẫn.</string>
     <string name="exclusion_show_defaults_action">Hiển thị mặc định</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Bạn có các thay đổi chưa lưu!</string>
 </resources>

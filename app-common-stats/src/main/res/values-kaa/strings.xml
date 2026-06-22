@@ -8,7 +8,6 @@
         <item quantity="one">SD Maid qurilmanızda bolgıannan beri %s element óńdeldi.</item>
         <item quantity="other">SD Maid qurilmanızda bolgıannan beri %s element óńdeldi.</item>
     </plurals>
-    <string name="stats_report_status_success">Tabıs</string>
     <string name="stats_report_status_partial_success">Ishinen tabıs</string>
     <string name="stats_report_status_partial_failure">Sátsizlik</string>
     <string name="stats_settings_desc">SD Maid-tıŋ statistikası, esabatları hám maǵlıwmatlar saqlaw waqıtın konfiguraciyalaw.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">SD Maid-tıŋ ásasiy operaciya esabatların óshiriw aldından kúnler sanı.</string>
     <string name="stats_settings_retention_paths_label">Egjeyli jollar maǵlıwmatı</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tárápınan tásirleng̱en jollar haqqında egjeyliklerni saqlaw kúnler sanı.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d kün</item>
-        <item quantity="other">%d kün</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Barlıg̱ın qayta ornatıw</string>
     <string name="stats_settings_reset_all_desc">Barlıq esabatlardı óshiriw hám barlıq statistikalardı nólge ornatıw.</string>
     <string name="stats_affected_paths_label">Tásirleng̱en jollar</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
     <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>
     <string name="stats_storage_type_portable">Алмаламалы сақлау орны</string>
-    <string name="stats_space_history_delete_storage_title">Сақлаў тарийхын өшириу?</string>
-    <string name="stats_space_history_delete_storage_desc">Бул сақлаўға байланыслы барлық трендлик мәліметлер мәңгилик өширилетуғын болады.</string>
-    <string name="stats_settings_retention_snapshots_label">Сақлау орны снимоклары</string>
-    <string name="stats_settings_retention_snapshots_desc">Сақлау орны снимокларын сақлаў күнлер саны.</string>
 </resources>

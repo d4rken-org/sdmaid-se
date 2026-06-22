@@ -56,7 +56,6 @@
     <string name="appcleaner_delete_all_confirmation_message">Dileu eitemau gwariadwy ar gyfer pob ap?</string>
     <string name="appcleaner_automation_title">Awtomeiddio Glanhawr Apiau</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clirio storfeydd rhagosodedig…</string>
-    <string name="appcleaner_automation_progress_open_settings">Agor sgrin gosodiadau (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Chwilio am gofnod "Storfa" (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Chwilio am fotwm "Clirio data" (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Chwilio am fotwm "Clirio storfa" (allweddeiriau: %s)</string>
@@ -64,7 +63,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Storfeydd rhagosodedig cyhoeddus a phreifat. Nid ydynt yn hygyrch yn uniongyrchol, ond gellir eu dileu\'n anuniongyrchol (e.e. trwy wasanaeth hygyrchedd).</string>
     <string name="appcleaner_automation_unavailable_title">Gwasanaeth hygyrchedd ddim ar gael</string>
     <string name="appcleaner_automation_unavailable_body">Mae clirio storfeydd anhygyrch yn gofyn am wasanaeth hygyrchedd SD Maid, ond nid oedd ar gael. Os nad ydych am ei ddefnyddio: Analluogwch yr opsiwn "Cynnwys storfeydd anhygyrch".</string>
-    <string name="appcleaner_junk_userprofile_label">Defnyddiwr</string>
     <string name="appcleaner_delete_confirmation_message_x">Dileu ffeiliau gwariadwy ar gyfer %s?</string>
     <string name="appcleaner_progress_shizuku_deleting_caches">Dileu storfeydd gan ddefnyddio Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Pennu storfeydd anhygyrch</string>

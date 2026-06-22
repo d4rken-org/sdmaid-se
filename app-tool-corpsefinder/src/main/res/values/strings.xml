@@ -41,8 +41,6 @@
     <string name="corpsefinder_filter_appsource_private_summary">Restricted app installation data, e.g. protected third party apps.</string>
     <string name="corpsefinder_filter_appasec_label">Encrypted app resources</string>
     <string name="corpsefinder_filter_appasec_summary">Encrypted app resources, e.g. game assets.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data moved to external storage by App2Sd mods.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d app remnant deleted</item>
         <item quantity="other">%d app remnants deleted</item>
@@ -56,4 +54,13 @@
     <string name="corpsefinder_owner_unknown">Unknown owner</string>
     <string name="corpsefinder_corpse_hint_keeper">This item may contain data you want to keep despite it\'s owner being uninstalled, e.g. photos or backups.</string>
     <string name="corpsefinder_corpse_hint_common">This item has a very common name and could belong to still installed apps that SD Maid doesn\'t know.</string>
+    <string name="corpsefinder_risk_keeper_chip">Desirable</string>
+    <string name="corpsefinder_risk_common_chip">Common</string>
+    <string name="corpsefinder_markers_dialog_title">About these markers</string>
+    <string name="corpsefinder_markers_dialog_normal_label">No marker</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standard remnant. Generally safe to remove — these files belong to apps that are no longer installed.</string>
+
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder finds data left behind by apps you\'ve already uninstalled. It no longer belongs to anything installed, so removing it is safe and frees up space.</string>
+    <string name="tour_corpsefinder_row_body">Each item is leftover data and the app it came from. The marker shows how confident SD Maid is that it\'s safe to remove — tap the ⓘ at the top to learn what the markers mean.</string>
 </resources>

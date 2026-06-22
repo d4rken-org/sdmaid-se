@@ -7,8 +7,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -22,16 +20,15 @@ import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class SqueezerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     json: Json,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_squeezer")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val minSizeBytes = dataStore.createValue<Long>("filter.minsize.bytes", MIN_FILE_SIZE)
@@ -48,18 +45,6 @@ class SqueezerSettings @Inject constructor(
     @Serializable
     data class ScanPaths(
         @SerialName("paths") val paths: Set<APath> = emptySet(),
-    )
-
-    override val mapper = PreferenceStoreMapper(
-        minSizeBytes,
-        minAge,
-        compressionQuality,
-        includeJpeg,
-        includeWebp,
-        includeVideo,
-        skipPreviouslyCompressed,
-        writeExifMarker,
-        scanPaths,
     )
 
     companion object {

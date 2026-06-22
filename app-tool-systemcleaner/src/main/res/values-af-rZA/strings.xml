@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultate op grond van lêerouderdom (laaste gewysigde tyd). Laat ongestel om enige ouderdom te pas.</string>
     <string name="systemcleaner_customfilter_import_action">Voer nuwe filter in</string>
     <string name="systemcleaner_customfilter_export_action">Voer gekiesde filter uit</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
 </resources>

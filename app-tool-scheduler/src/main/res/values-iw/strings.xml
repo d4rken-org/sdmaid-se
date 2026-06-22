@@ -22,7 +22,6 @@
         <item quantity="many">כל %d ימים</item>
         <item quantity="other">כל %d ימים</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">מרווח בין חזרות</string>
     <string name="scheduler_inaccurate_execution_hint">זמני הביצוע הצפויים הם בקירוב. תזמונים עשויים להתעכב או להקדים אם זה חוסך בסוללה.</string>
     <string name="scheduler_no_active_schedules_subtitle">אין תזמונים פעילים</string>
     <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>

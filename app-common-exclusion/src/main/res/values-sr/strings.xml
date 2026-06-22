@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Користите алатку Контрола апликација да креирате искључења апликација.</string>
     <string name="exclusion_create_path_hint">Користите алатку Анализатор складишта да креирате искључења путања.</string>
     <string name="exclusion_show_defaults_action">Прикажи подразумевана</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате несачуване измене!</string>
 </resources>

@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Obmedzte zhody na základe veku súboru (čas poslednej úpravy). Nechajte nenastavené pre zhodu s akýmkoľvek vekom.</string>
     <string name="systemcleaner_customfilter_import_action">Importovať nový filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportovať vybraný filter</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Máte neuložené zmeny!</string>
 </resources>

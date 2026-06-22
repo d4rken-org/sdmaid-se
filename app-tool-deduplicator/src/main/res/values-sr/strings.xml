@@ -15,9 +15,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Прикажи опције које вам омогућавају да обришете све датотеке у скупу дупликата тако да ниједна датотека не остане.</string>
     <string name="deduplicator_search_locations_title">Локације претраге</string>
     <string name="deduplicator_search_locations_all_summary">Све приступачне области</string>
-    <string name="deduplicator_keep_prefer_paths_title">Префериши чување у</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Приликом одлучивања који дупликат задржати, пожељно је задржати фајлове на овим локацијама.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Нема конфигурисаних локација</string>
     <string name="deduplicator_skip_minsize_title">Минимална величина</string>
     <string name="deduplicator_skip_minsize_description">Прескочи датотеке које су испод минималне величине.</string>
     <string name="deduplicator_skip_uncommon_title">Прескочи неуобичајене типове датотека</string>
@@ -29,7 +26,6 @@
     <string name="deduplicator_detection_method_phash_summary">Пронађите сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности. ⚠️ Детекција заснована на сличности може укључити лажне позитивне резултате који захтевају ручну верификацију.</string>
     <string name="deduplicator_detection_method_media_title">Медијски отисак</string>
     <string name="deduplicator_detection_method_media_summary">Пронађите сличне видео и аудио датотеке анализом аудио отисака. ⚠️ Детекција заснована на сличности може укључивати лажне позитиве који захтевају ручну верификацију.</string>
-    <string name="deduplicator_matches_media_label">Слични медији</string>
     <string name="deduplicator_media_match_audio">Подударање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Подударање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Подударање засновано на аудио и видео</string>

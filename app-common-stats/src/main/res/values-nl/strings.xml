@@ -8,7 +8,6 @@
         <item quantity="one">%s item verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
         <item quantity="other">%s items verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
     </plurals>
-    <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
     <string name="stats_report_status_partial_failure">Mislukt</string>
     <string name="stats_settings_desc">Configureer de statistieken, rapporten en gegevensretentie van SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Aantal dagen voordat de standaard SD Maid-bedieningsrapporten worden verwijderd.</string>
     <string name="stats_settings_retention_paths_label">Gedetailleerde padinformatie</string>
     <string name="stats_settings_retention_paths_desc">Het aantal dagen dat gegevens moeten worden bewaard over paden die worden beïnvloed door SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dag</item>
-        <item quantity="other">%d dagen</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Reset Alles</string>
     <string name="stats_settings_reset_all_desc">Verwijder alle rapporten en zet alle statistieken op nul.</string>
     <string name="stats_affected_paths_label">Beïnvloede paden</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>
     <string name="stats_storage_type_portable">Draagbare opslag</string>
-    <string name="stats_space_history_delete_storage_title">Opslaggeschiedenis verwijderen?</string>
-    <string name="stats_space_history_delete_storage_desc">Alle trendgegevens voor deze opslag worden permanent verwijderd.</string>
-    <string name="stats_settings_retention_snapshots_label">Opslagmomentopnames</string>
-    <string name="stats_settings_retention_snapshots_desc">Aantal dagen om opslagruimte-momentopnames te bewaren.</string>
 </resources>

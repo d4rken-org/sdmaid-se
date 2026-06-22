@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner स्वचालन</string>
     <string name="appcleaner_automation_subtitle_default_caches">पूर्वनिर्धारित क्यासहरू खाली गर्दै…</string>
-    <string name="appcleaner_automation_progress_open_settings">सेटिङ स्क्रिन खोल्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" प्रविष्टि खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" बटन खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" बटन खोज्दै (किवर्डहरू: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक र निजी पूर्वनिर्धारित cache हरू। प्रत्यक्ष रूपमा पहुँचयोग्य छैन, तर अप्रत्यक्ष रूपमा मेटाउन सकिन्छ (जस्तै accessibility service मार्फत)।</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility service उपलब्ध छैन</string>
     <string name="appcleaner_automation_unavailable_body">पहुँचयोग्य नभएका cache हरू सफा गर्न SD Maid को accessibility service चाहिन्छ, तर यो उपलब्ध छैन। यदि तपाईं यसलाई प्रयोग गर्न चाहनुहुन्न भने: \"पहुँचयोग्य नभएका cache हरू समावेश गर्नुहोस्\" विकल्प बन्द गर्नुहोस्।</string>
-    <string name="appcleaner_junk_userprofile_label">प्रयोगकर्ता</string>
     <string name="appcleaner_delete_confirmation_message_x">%s का लागि अनावश्यक फाइलहरू मेटाउनुहुन्छ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d चयनित अनुप्रयोगका खर्चजनक फाइलहरू हटाउने?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">सफा गर्नु अगाडि जबर्जस्ती बन्द गर्नुहोस्</string>
     <string name="appcleaner_forcestop_before_clearing_summary">क्यास साफ गर्नु अघि अनुप्रयोगहरू जबरदस्ती बन्द गर्नुहोस्। यसले केही अनुप्रयोगहरूको क्यास साफ गर्न मदत गर्न सक्छ, तर अनुप्रयोगहरू खराब व्यवहार गर्न र म्यानुअल पुनरारम्भ गर्न आवश्यक हुन सक्छ।</string>
     <string name="appcleaner_progress_force_stopping">अनुप्रयोगहरू जबर्जस्ती बन्द गर्दै…</string>
-    <string name="appcleaner_automation_error_no_settings_body">यस सिस्टम app मा कुनै सेटिङ स्क्रिन छैन। Accessibility service मार्फत cache सफा गर्न सम्भव छैन। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
-    <string name="appcleaner_automation_error_no_settings_title">सेटिङ स्क्रिन उपलब्ध छैन</string>
-    <string name="appcleaner_automation_loading">पहुँच सेवा मार्फत स्वचालन तयार गर्दै</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
-    <string name="appcleaner_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
-    <string name="appcleaner_include_multiuser_summary">यस उपकरणका अन्य प्रयोगकर्ता प्रोफाइलहरूका एप्सहरू समावेश गर्नुहोस्।</string>
 </resources>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">继续会话</string>
     <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
     <string name="swiper_select_folders_action">选择文件夹</string>
-    <string name="swiper_scanning_title">正在扫描…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="other">找到 %d 个项目</item>
     </plurals>
@@ -25,8 +24,6 @@
     <string name="swiper_status_action_keep_selected">保留所选</string>
     <string name="swiper_status_action_delete_selected">删除所选</string>
     <string name="swiper_status_action_reset_selected">重置所选</string>
-    <string name="swiper_decision_undecided">未决定</string>
-    <string name="swiper_retry_action">重试</string>
     <string name="swiper_delete_confirmation_title">删除文件？</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="other">这将永久删除 %1$d 个文件（%2$s）。此操作无法撤消。</item>
@@ -78,12 +75,6 @@
     <plurals name="swiper_session_status_undecided">
         <item quantity="other">%d 个未决定</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="other">%d 个已保留</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="other">%d 个已删除</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="other">已保留 %d 个</item>
     </plurals>
@@ -122,7 +113,6 @@
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
     <string name="swiper_gesture_overlay_dismiss_action">明白</string>
-    <string name="swiper_help_action">帮助</string>
     <string name="swiper_file_type_filter_title">仅显示这些文件类型</string>
     <string name="swiper_file_type_filter_hint">勾选您想查看的类型。如果未勾选任何类型，则显示所有文件。</string>
     <string name="swiper_file_type_category_images">图片</string>
@@ -136,7 +126,6 @@
     <string name="swiper_file_type_category_archives">压缩包</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">应用</string>
-    <string name="swiper_session_filter_action">筛选文件</string>
     <string name="swiper_file_type_filter_summary">已筛选：%1$s</string>
     <string name="swiper_session_no_matching_files">未找到匹配文件</string>
     <string name="swiper_open_externally_action">在外部应用中打开</string>

@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jatka istuntoa</string>
     <string name="swiper_sessions_description">Tarkista tiedostot 3 helpolla askeleella:\n\n1. Valitse kansio skannattavaksi\n2. Pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi\n3. Tarkista valintasi ja vahvista\n\nMitään ei poisteta ennen kuin painat lopullista poista-painiketta.</string>
     <string name="swiper_select_folders_action">Valitse kansiot</string>
-    <string name="swiper_scanning_title">Skannataan…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d kohde löydetty</item>
         <item quantity="other">%d kohdetta löydetty</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Säilytä valitut</string>
     <string name="swiper_status_action_delete_selected">Poista valitut</string>
     <string name="swiper_status_action_reset_selected">Nollaa valitut</string>
-    <string name="swiper_decision_undecided">Päättämätön</string>
-    <string name="swiper_retry_action">Yritä uudelleen</string>
     <string name="swiper_delete_confirmation_title">Poistetaanko tiedostot?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Tämä poistaa pysyvästi %1$d tiedoston (%2$s). Tätä toimintoa ei voi kumota.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d päättämätön</item>
         <item quantity="other">%d päättämätöntä</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jo säilytetty</item>
-        <item quantity="other">%d jo säilytettyä</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d jo poistettu</item>
-        <item quantity="other">%d jo poistettua</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d säilytetty</item>
         <item quantity="other">%d säilytettyä</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
     <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
-    <string name="swiper_help_action">Ohje</string>
     <string name="swiper_file_type_filter_title">Näytä vain nämä tiedostotyypit</string>
     <string name="swiper_file_type_filter_hint">Valitse tyypit, jotka haluat nähdä. Jos mitään ei ole valittu, kaikki tiedostot näytetään.</string>
     <string name="swiper_file_type_category_images">Kuvat</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arkistot</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Käytä</string>
-    <string name="swiper_session_filter_action">Suodata tiedostoja</string>
     <string name="swiper_file_type_filter_summary">Suodatettu: %1$s</string>
     <string name="swiper_session_no_matching_files">Vastaavia tiedostoja ei löydy</string>
     <string name="swiper_open_externally_action">Avaa ulkoisessa sovelluksessa</string>

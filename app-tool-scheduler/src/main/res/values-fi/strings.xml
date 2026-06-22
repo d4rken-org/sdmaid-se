@@ -20,7 +20,6 @@
         <item quantity="one">Päivittäin</item>
         <item quantity="other">%d päivän välein</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Toistointervalli</string>
     <string name="scheduler_inaccurate_execution_hint">Odotetut suoritusajat ovat arvioita. Aikatauluja voidaan viivästyttää tai nopeuttaa akkujen säästämiseksi.</string>
     <string name="scheduler_no_active_schedules_subtitle">Ei aktiivisia aikatauluja</string>
     <string name="scheduler_setting_nopowersaving_title">Ohita matalalla akulla</string>

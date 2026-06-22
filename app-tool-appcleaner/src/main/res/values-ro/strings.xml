@@ -68,7 +68,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizare Curățitor de Aplicații</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>
-    <string name="appcleaner_automation_progress_open_settings">Deschiderea ecranului de setări (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Se caută intrarea „Depozitare” (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Se caută butonul „Șterge datele” (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Se caută butonul „Șterge memoria cache” (cuvinte cheie: %s)</string>
@@ -76,7 +75,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
     <string name="appcleaner_automation_unavailable_title">Serviciul de accesibilitate indisponibil</string>
     <string name="appcleaner_automation_unavailable_body">Golirea cache-urilor inaccesibile necesită serviciul de accesibilitate SD Maid, dar acesta nu a fost disponibil. Dacă nu doriți să-l utilizați: dezactivați opțiunea \"Include cache-uri inaccesibile\".</string>
-    <string name="appcleaner_junk_userprofile_label">Utilizator</string>
     <string name="appcleaner_delete_confirmation_message_x">Ștergeți fișierele consumabile pentru %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ștergeți fișierele consumabile pentru aplicația selectată %d?</item>
@@ -92,10 +90,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Oprire forțată înainte de curățare</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Aplicații de oprire forțată înainte de a șterge memoria cache. Aceasta poate ajuta la ștergerea cache-urilor unor aplicații, dar poate determina aplicații să se comporte greșit și să necesite repornirea manuală a acestora.</string>
     <string name="appcleaner_progress_force_stopping">Aplicații oprite forțat…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Setări ecran indisponibil</string>
-    <string name="appcleaner_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
-    <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
 </resources>

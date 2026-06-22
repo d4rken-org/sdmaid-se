@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">ଷ୍ଟୋରେଜ ସ୍ଥାନ ସଞ୍ଚୟ କରିବାକୁ ଚିତ୍ର ଏବଂ ଭିଡ଼ିଓ ସଙ୍କୁଚିତ କରନ୍ତୁ।</string>
+    <string name="squeezer_explanation_short">ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ସଞ୍ଚୟ ପାଇଁ ଚିତ୍ର ସଙ୍କୋଚନ କରନ୍ତୁ।</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d ଆଇଟମ ମିଳିଲା</item>
-        <item quantity="other">%d ଆଇଟମ ମିଳିଲା</item>
+        <item quantity="one">%d ଚିତ୍ର ମିଳିଲା</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ମିଳିଲା</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s ସଞ୍ଚୟ କରିହେବ</item>
         <item quantity="other">~%s ସଞ୍ଚୟ କରିହେବ</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d ଆଇଟମ ସଙ୍କୁଚିତ ହେଲା</item>
-        <item quantity="other">%d ଆଇଟମ ସଙ୍କୁଚିତ ହେଲା</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ବିଫଳ</item>
-        <item quantity="other">%d ବିଫଳ</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ଫାଇଲ ଛଡ଼ାଇ ଦିଆଗଲା (ଆକ୍ସେସ ଯୋଗ୍ୟ ନୁହେଁ)</item>
-        <item quantity="other">%d ଫାଇଲ ଛଡ଼ାଇ ଦିଆଗଲା (ଆକ୍ସେସ ଯୋଗ୍ୟ ନୁହେଁ)</item>
+        <item quantity="one">%d ଚିତ୍ର ସଙ୍କୋଚିତ</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ସଙ୍କୋଚିତ</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d ଆଇଟମ ମନୋନୀତ</item>
-        <item quantity="other">%d ଆଇଟମ ମନୋନୀତ</item>
+        <item quantity="one">%d ଚିତ୍ର ଚୟନ ହୋଇଛି</item>
+        <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ଚୟନ ହୋଇଛି</item>
     </plurals>
-    <string name="squeezer_search_locations_title">ଖୋଜ ସ୍ଥାନ</string>
-    <string name="squeezer_search_locations_default_summary">କ୍ୟାମେରା ଫୋଲ୍ଡର (ଡିଫଲ୍ଟ)</string>
     <string name="squeezer_min_size_title">ସର୍ବନିମ୍ନ ଫାଇଲ୍ ଆକାର</string>
-    <string name="squeezer_min_size_description">ଏହି ଆକାରରୁ ଛୋଟ ଫାଇଲ ଛଡ଼ାଇ ଦିଅନ୍ତୁ।</string>
+    <string name="squeezer_min_size_description">ଏହି ଆକାରଠାରୁ ଛୋଟ ଚିତ୍ର ଛାଡନ୍ତୁ।</string>
     <string name="squeezer_min_age_title">ସର୍ବନିମ୍ନ ଫାଇଲ୍ ବୟସ</string>
-    <string name="squeezer_min_age_description">କେବଳ ଏହି ବୟସରୁ ପୁରୁଣା ଫାଇଲ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
-    <string name="squeezer_compression_settings_label">ସାଧାରଣ</string>
-    <string name="squeezer_quality_label">ଗୁଣବତ୍ତା</string>
-    <string name="squeezer_quality_title">ସଙ୍କୋଚନ ଗୁଣବତ୍ତା</string>
-    <string name="squeezer_quality_description">କମ ଗୁଣମାନ ମାନେ ଛୋଟ ଫାଇଲ ଆକାର କିନ୍ତୁ ଦୃଶ୍ୟ ଗୁଣମାନ ହ୍ରାସ ପାଏ।</string>
-    <string name="squeezer_quality_example_format">ଉଦାହରଣ: %1$s ଚିତ୍ର → %3$d%% ଗୁଣବତ୍ତାରେ ~%2$s ସଞ୍ଚୟ</string>
-    <string name="squeezer_quality_warning_low">କମ୍ ଗୁଣବତ୍ତା ଦୃଶ୍ୟମାନ ତ୍ରୁଟି ସୃଷ୍ଟି କରିପାରେ।</string>
-    <string name="squeezer_quality_warning_high">ଅତ୍ୟଧିକ ଉଚ୍ଚ ଗୁଣବତ୍ତା ସର୍ବନିମ୍ନ ସ୍ଥାନ ସଞ୍ଚୟ ପ୍ରଦାନ କରେ।</string>
-    <string name="squeezer_types_category_label">ଚିତ୍ର ସେଟିଂସ</string>
-    <string name="squeezer_video_settings_category_label">ଭିଡ଼ିଓ ସେଟିଂସ</string>
+    <string name="squeezer_min_age_description">କେବଳ ଏହି ବୟସଠାରୁ ପୁରୁଣା ଚିତ୍ର ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_compression_settings_label">ସଙ୍କୋଚନ ସେଟିଂସ</string>
+    <string name="squeezer_quality_description">କମ୍ ଗୁଣବତ୍ତା ମାନେ ଛୋଟ ଫାଇଲ୍ ଆକାର କିନ୍ତୁ ଚିତ୍ର ଗୁଣବତ୍ତା ହ୍ରାସ।</string>
+    <string name="squeezer_types_category_label">ଚିତ୍ର ପ୍ରକାର</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ଚିତ୍ର (.jpg, .jpeg) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ଚିତ୍ର (.webp) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
-    <string name="squeezer_type_video_title">MP4 ଭିଡ଼ିଓ</string>
-    <string name="squeezer_type_video_description">MP4 ଭିଡ଼ିଓ ଫାଇଲ (.mp4) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="squeezer_skip_compressed_title">ପୂର୍ବରୁ ସଙ୍କୋଚିତ ଛାଡନ୍ତୁ</string>
-    <string name="squeezer_skip_compressed_description">SD Maid ଦ୍ଵାରା ଈତିମଧ୍ୟେ ସଙ୍କୁଚିତ ଫାଇଲ ଛଡ଼ାଇ ଦିଅନ୍ତୁ।</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ଦ୍ୱାରା ପୂର୍ବରୁ ସଙ୍କୋଚିତ ହୋଇଥିବା ଚିତ୍ର ଛାଡନ୍ତୁ।</string>
     <string name="squeezer_exif_marker_title">EXIF ମାର୍କର ଲେଖନ୍ତୁ</string>
     <string name="squeezer_exif_marker_description">ସଙ୍କୋଚନ ଇତିହାସ ସଫା ହେଲେ ମଧ୍ୟ ପୁନଃ-ସଙ୍କୋଚନ ରୋକିବା ପାଇଁ ଚିତ୍ରର EXIF ବ୍ୟବହାରକାରୀ ମନ୍ତବ୍ୟ କ୍ଷେତ୍ରରେ ଏକ ମାର୍କର ଯୋଡନ୍ତୁ।</string>
     <string name="squeezer_estimated_savings_format">~%s ସଞ୍ଚୟ</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="squeezer_preview_total_size">ମୋଟ ଆକାର</string>
     <string name="squeezer_preview_estimated_savings">ଆନୁମାନିକ ସଞ୍ଚୟ</string>
-    <string name="squeezer_compress_confirmation_title">ମନୋନୀତ ଆଇଟମ ସଙ୍କୁଚିତ କରିବେ?</string>
-    <string name="squeezer_compress_confirmation_message">ଏହା ମିଳ ଫାଇଲ ସ୍ଥାନରେ ସଙ୍କୁଚିତ ସଂସ୍କରଣ ରଖିବ। ଏହି କ୍ରିୟା ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ।</string>
     <string name="squeezer_history_title">ସଙ୍କୋଚନ ଇତିହାସ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ଆଇଟମ୍ (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">କୌଣସି ସଙ୍କୋଚନ ଇତିହାସ ନାହିଁ</string>
     <string name="squeezer_history_clear_title">ସଙ୍କୋଚନ ଇତିହାସ ସଫା କରନ୍ତୁ</string>
-    <string name="squeezer_history_clear_message">ଏହା ପୂର୍ବରୁ ସଙ୍କୁଚିତ ଫାଇଲ ପୁଣି ସଙ୍କୁଚିତ ହେବାର ସୁୟୋଗ ଦେବ। ଫାଇଲ ନିଜେ ପ୍ରଭାଵିତ ହୁଏ ନାହିଁ।</string>
-    <string name="squeezer_onboarding_title">ଚିତ୍ର ସଙ୍କୋଚନ ବିଷୟରେ</string>
-    <string name="squeezer_onboarding_message">ଚିତ୍ର ସଙ୍କୋଚନ ଦୃଶ୍ୟ ବିବରଣୀ ଅପସାରଣ କରି ଫାଇଲ୍ ଆକାର ହ୍ରାସ କରେ। ଏହି ପ୍ରକ୍ରିୟା ଅପ୍ରତ୍ୟାବର୍ତ୍ତନୀୟ - ମୂଳ ଗୁଣବତ୍ତା ପୁନଃସ୍ଥାପିତ ହୋଇପାରିବ ନାହିଁ।\n\nଆପଣଙ୍କ ଚିତ୍ରଗୁଡିକ କିପରି ଦେଖାଯିବ ତାହାର ଏକ ପୂର୍ବାବଲୋକନ ଏଠାରେ ଅଛି:</string>
+    <string name="squeezer_history_clear_message">ଏହା ପୂର୍ବରୁ ସଙ୍କୋଚିତ ଚିତ୍ରଗୁଡିକୁ ପୁନଃ ସଙ୍କୋଚନ ହେବାକୁ ଅନୁମତି ଦେବ। ଚିତ୍ରଗୁଡିକ ନିଜେ ପ୍ରଭାବିତ ହୁଅନ୍ତି ନାହିଁ।</string>
     <string name="squeezer_onboarding_original_label">ମୂଳ</string>
     <string name="squeezer_onboarding_compressed_label">ସଙ୍କୋଚନ ପରେ</string>
-    <string name="squeezer_onboarding_video_original_label">ଭିଡ଼ିଓ ଫ୍ରେମ</string>
-    <string name="squeezer_onboarding_video_compressed_label">ପୂର୍ବାବଲୋକନ (ଆନୁମାନିକ)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">ପ୍ରକୃତ ଭିଡ଼ିଓ ଗୁଣମାନ ଭିନ୍ନ ହୋଇ ପାରେ</string>
-    <string name="squeezer_onboarding_quality_label">ଗୁଣବତ୍ତା: %d%%</string>
     <string name="squeezer_compare_action">ତୁଳନା ଦେଖନ୍ତୁ</string>
     <string name="squeezer_no_example_found">ଚୟନ ହୋଇଥିବା ପଥରେ କୌଣସି ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
-    <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୁଚିତ ଯୋଗ୍ୟ ମିଡ଼ିଆ ମିଳିଲା ନାହିଁ।</string>
-    <string name="squeezer_setup_warning">ସଙ୍କୋଚନ ଷ୍ଟୋରେଜ ସ୍ଥାନ ସଞ୍ଚୟ କରିବାକୁ ଗୁଣମାନ ସ୍ଥାୟୀଭାବେ ହ୍ରାସ କରେ। ଏହା ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ୟତ୍ନ ସହ ୟାଞ୍ଚ କରନ୍ତୁ।</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
-        <item quantity="other">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">ମିଡ଼ିଆ ସ୍କ୍ୟୁଇଜ ଷ୍ଟୋରେଜ ସ୍ଥାନ ମୁକ୍ତ କରିବାକୁ ଚିତ୍ର ଏବଂ ଭିଡ଼ିଓ ଫାଇଲ ଆକାର ହ୍ରାସ କରେ। ଏହା ଗୁଣମାନ ସ୍ଥାୟୀଭାବେ ହ୍ରାସ କରେ ଏବଂ ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ୟତ୍ନ ସହ ୟାଞ୍ଚ କରନ୍ତୁ।</string>
+    <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୋଚନଯୋଗ୍ୟ ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
+    <string name="squeezer_setup_explanation">ମିଡିଆ ସ୍କ୍ୱିଜ୍ ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ମୁକ୍ତ କରିବା ପାଇଁ ଚିତ୍ର ଫାଇଲ୍ ଆକାର ହ୍ରାସ କରେ। ଏହା ସ୍ଥାୟୀ ଭାବରେ ଚିତ୍ର ଗୁଣବତ୍ତା ହ୍ରାସ କରେ ଏବଂ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ଯତ୍ନର ସହ ସମୀକ୍ଷା କରନ୍ତୁ।</string>
     <string name="squeezer_setup_paths_title">ଖୋଜ ସ୍ଥାନ</string>
     <string name="squeezer_setup_paths_default">ଖୋଜିବା ପାଇଁ ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
     <string name="squeezer_setup_quality_title">ସଙ୍କୋଚନ ଗୁଣବତ୍ତା</string>
     <string name="squeezer_setup_age_title">ସର୍ବନିମ୍ନ ବୟସ</string>
-    <string name="squeezer_setup_age_none">କୌଣସି ସୀମା ନାହିଁ (ସମସ୍ତ ଫାଇଲ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ)</string>
     <string name="squeezer_setup_start_action">ସ୍କାନ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="squeezer_quality_hint_very_low">40% ତଳର ଗୁଣବତ୍ତା ବ୍ୟବହାରଯୋଗ୍ୟ ନୁହେଁ ଏପରି ଚିତ୍ର ସୃଷ୍ଟି କରିପାରେ।</string>
     <string name="squeezer_quality_hint_low">କମ୍ ଗୁଣବତ୍ତା ଅଧିକ ସ୍ଥାନ ସଞ୍ଚୟ କରେ କିନ୍ତୁ ଦୃଶ୍ୟମାନ ତ୍ରୁଟି ସୃଷ୍ଟି କରିପାରେ।</string>
@@ -99,6 +67,5 @@
         <item quantity="one">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
         <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">ଚିତ୍ର ପାଇଁ ଅନୁମାନିତ ~%d%% ସଞ୍ଚୟ</string>
-    <string name="squeezer_onboarding_got_it">ବୁଝିଗଲି</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲ୍ ପାଇଁ ଆନୁମାନିକ ~%d%% ସଞ୍ଚୟ</string>
 </resources>

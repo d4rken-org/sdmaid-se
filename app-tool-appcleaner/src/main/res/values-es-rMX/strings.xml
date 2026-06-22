@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatización del Limpiador de Aplicaciones</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpiando cachés predeterminados…</string>
-    <string name="appcleaner_automation_progress_open_settings">Abriendo pantalla de configuración (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Buscando entrada de \"Almacenamiento\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Buscando botón de \"Limpiar datos\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Buscando botón de \"Limpiar caché\" (palabras clave: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cachés públicos y privados predeterminados. No accesibles directamente, pero pueden eliminarse indirectamente (p. ej. a través del servicio de accesibilidad).</string>
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>
     <string name="appcleaner_automation_unavailable_body">Limpiar cachés inaccesibles requiere el servicio de accesibilidad de SD Maid, pero no estaba disponible. Si no quieres usarlo: Desactiva la opción \"Incluir cachés inaccesibles\".</string>
-    <string name="appcleaner_junk_userprofile_label">Usuario</string>
     <string name="appcleaner_delete_confirmation_message_x">¿Eliminar archivos prescindibles de %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">¿Eliminar archivos prescindibles de %d aplicación seleccionada?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
     <string name="appcleaner_progress_force_stopping">Forzando detención de aplicaciones…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Pantalla de configuración no disponible</string>
-    <string name="appcleaner_automation_loading">Preparando automatización a través del servicio de accesibilidad</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Incluir otros usuarios</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario en este dispositivo.</string>
 </resources>

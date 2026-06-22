@@ -24,6 +24,38 @@ class DeviceDetectiveTest : BaseTest() {
     }
 
     @Test
+    fun `isTvLikeDevice via UI mode`() {
+        val context = mockDevice {
+            manufacturer = "Generic"
+            uiModeType = Configuration.UI_MODE_TYPE_TELEVISION
+        }
+        detective = DeviceDetective(context)
+
+        detective.isTvLikeDevice() shouldBe true
+    }
+
+    @Test
+    fun `isTvLikeDevice via leanback feature`() {
+        val context = mockDevice {
+            manufacturer = "Generic"
+            hasLeanbackFeature = true
+        }
+        detective = DeviceDetective(context)
+
+        detective.isTvLikeDevice() shouldBe true
+    }
+
+    @Test
+    fun `isTvLikeDevice is false on regular devices`() {
+        val context = mockDevice {
+            manufacturer = "Generic"
+        }
+        detective = DeviceDetective(context)
+
+        detective.isTvLikeDevice() shouldBe false
+    }
+
+    @Test
     fun `detect Android TV with UI mode`() {
         val context = mockDevice {
             manufacturer = "Generic"

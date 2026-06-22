@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Parhau â\'r sesiwn</string>
     <string name="swiper_sessions_description">Mae rhai ffeiliau angen penderfyniad dynol. Sweipiwch drwy eitemau a dewiswch beth i\'w gadw neu\'i ddileu. Sgipiwch unrhyw beth nad ydych yn sicr amdano. Mae\'r offeryn hwn yn gadael i chi adolygu ffolderi penodol â llaw, a dim byd yn cael ei ddileu hyd nes y byddwch yn cadarnhau.</string>
     <string name="swiper_select_folders_action">Dewis ffolderi</string>
-    <string name="swiper_scanning_title">Sganio…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="zero">%d eitem wedi\'u canfod</item>
         <item quantity="one">%d eitem wedi\'i chanfod</item>
@@ -40,8 +39,6 @@
     <string name="swiper_status_action_keep_selected">Cadw\'r rhai a ddewiswyd</string>
     <string name="swiper_status_action_delete_selected">Dileu\'r rhai a ddewiswyd</string>
     <string name="swiper_status_action_reset_selected">Ailosod y rhai a ddewiswyd</string>
-    <string name="swiper_decision_undecided">Heb benderfynu</string>
-    <string name="swiper_retry_action">Ailgeisio</string>
     <string name="swiper_delete_confirmation_title">Dileu ffeiliau?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="zero">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
@@ -142,22 +139,6 @@
         <item quantity="few">%d heb benderfynu</item>
         <item quantity="many">%d heb benderfynu</item>
         <item quantity="other">%d heb benderfynu</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="zero">%d eisoes wedi\'u cadw</item>
-        <item quantity="one">%d eisoes wedi\'i gadw</item>
-        <item quantity="two">%d eisoes wedi\'u cadw</item>
-        <item quantity="few">%d eisoes wedi\'u cadw</item>
-        <item quantity="many">%d eisoes wedi\'u cadw</item>
-        <item quantity="other">%d eisoes wedi\'u cadw</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="zero">%d eisoes wedi\'u dileu</item>
-        <item quantity="one">%d eisoes wedi\'i ddileu</item>
-        <item quantity="two">%d eisoes wedi\'u dileu</item>
-        <item quantity="few">%d eisoes wedi\'u dileu</item>
-        <item quantity="many">%d eisoes wedi\'u dileu</item>
-        <item quantity="other">%d eisoes wedi\'u dileu</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="zero">%d wedi\'u cadw</item>

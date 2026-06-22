@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Tətbiq istisnaları yaratmaq üçün AppControl alətindən istifadə edin.</string>
     <string name="exclusion_create_path_hint">Yol istisnaları yaratmaq üçün StorageAnalyzer alətindən istifadə edin.</string>
     <string name="exclusion_show_defaults_action">Standartları göstər</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Saxlanılmamış dəyişiklikləriniz var!</string>
 </resources>

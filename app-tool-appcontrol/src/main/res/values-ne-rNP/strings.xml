@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">तपाईंको उपकरणमा स्थापना भएका Apps।</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d अनुप्रयोग पत्ता लगाइयो</item>
-        <item quantity="other">%d अनुप्रयोगहरू पत्ता लगाइए</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Apps टगल गर्नुहोस्</string>
     <string name="appcontrol_toggle_app_enable_action">App सक्षम पार्नुहोस्</string>
     <string name="appcontrol_toggle_app_disable_action">App असक्षम पार्नुहोस्</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">डिबग</string>
     <string name="appcontrol_progress_enabling_package">App सक्षम पार्दै</string>
     <string name="appcontrol_progress_disabling_package">App असक्षम पार्दै</string>
-    <string name="appcontrol_list_filteroptions_label">फिल्टर विकल्पहरू</string>
     <string name="appcontrol_list_sortmode_name_label">App नाम</string>
     <string name="appcontrol_list_sortmode_updated_label">अन्तिम अपडेट</string>
     <string name="appcontrol_list_sortmode_installed_label">पहिलो स्थापना</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">यसमा स्थापित: %s</string>
     <string name="shortcut_appcontrol_short">अनुप्रयोग नियन्त्रण</string>
     <string name="shortcut_appcontrol_long">स्थापित अनुप्रयोगहरू व्यवस्थापन गर्नुहोस्</string>
-    <string name="appcontrol_automation_loading">Accessibility service मार्फत स्वचालन तयार गर्दै</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
-    <string name="appcontrol_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
-    <string name="appcontrol_include_multiuser_summary">यस डिभाइसमा अन्य प्रयोगकर्ता प्रोफाइलहरूबाट अनुप्रयोगहरू समावेश गर्नुहोस्।</string>
 </resources>

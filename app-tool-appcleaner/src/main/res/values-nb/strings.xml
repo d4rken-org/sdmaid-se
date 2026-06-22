@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Apprenser automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Fjerner standard hurtigbuffere…</string>
-    <string name="appcleaner_automation_progress_open_settings">Åpner innstillingsskjerm (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Søker etter \"Lagring\"-oppføring (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ser etter \"Fjern data\"-knapp (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ser etter \"Tøm hurtigbuffer\"-knapp (nøkkelord: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Standard offentlige og private hurtigbuffere. Ikke direkte tilgjengelig, men kan slettes indirekte (f.eks. via tilgjengelighetstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>
     <string name="appcleaner_automation_unavailable_body">Fjerning av utilgjengelige hurtigbuffere krever SD Maid sin tilgjengelighetstjeneste, men den var utilgjengelig. Hvis du ikke vil bruke den: Deaktiver alternativet \"Inkluder utilgjengelige hurtigbuffere\".</string>
-    <string name="appcleaner_junk_userprofile_label">Bruker</string>
     <string name="appcleaner_delete_confirmation_message_x">Slette unødvendige filer for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Slette unødvendige filer for %d valgt app?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tving avslutning før tømming</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tving avslutning av apper før tømming av hurtigbufferen. Det kan hjelpe med å tømme noen appers hurtigbuffere, men kan forårsake at apper oppfører seg feil og krever manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvinger avslutning av apper…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
-    <string name="appcleaner_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inkluder andre brukere</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
 </resources>

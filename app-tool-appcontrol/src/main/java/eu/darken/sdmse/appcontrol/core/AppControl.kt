@@ -48,6 +48,7 @@ import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
+import eu.darken.sdmse.setup.isCurrentAndIncomplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -116,6 +117,10 @@ class AppControl @Inject constructor(
             canIncludeMultiUser = useRoot || useAdb,
             canArchive = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
             canRestore = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
+            missingSetup = setOfNotNull(
+                SetupModule.Type.USAGE_STATS.takeIf { usageState.isCurrentAndIncomplete },
+                SetupModule.Type.STORAGE.takeIf { storageState.isCurrentAndIncomplete },
+            ),
         )
     }.replayingShare(appScope)
 
@@ -171,7 +176,7 @@ class AppControl @Inject constructor(
         internalData.value = Data(
             apps = appInfos,
             hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
-            hasInfoActive = task.loadInfoSize && curState.canInfoSize,
+            hasInfoActive = task.loadInfoActive && curState.canInfoActive,
             hasInfoSize = task.loadInfoSize && curState.canInfoSize,
             hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
         )
@@ -480,6 +485,7 @@ class AppControl @Inject constructor(
         val canIncludeMultiUser: Boolean,
         val canArchive: Boolean,
         val canRestore: Boolean,
+        val missingSetup: Set<SetupModule.Type> = emptySet(),
     ) : SDMTool.State
 
     data class Data(

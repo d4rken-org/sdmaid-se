@@ -102,5 +102,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничите резултате на основу старости датотеке (време последње измене). Оставите непостављено да бисте укључили све старости.</string>
     <string name="systemcleaner_customfilter_import_action">Увези нови филтер</string>
     <string name="systemcleaner_customfilter_export_action">Извези изабрани филтер</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате несачуване измене!</string>
 </resources>

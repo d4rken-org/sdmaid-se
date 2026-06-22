@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="stats_report_status_success">سەرکەوتوو</string>
     <string name="stats_report_status_partial_success">سەرکەوتنی بەشی</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_affected_paths_label">ڕێگا کاریگەربووەکان</string>

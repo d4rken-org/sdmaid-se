@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d Aplicación detectada</item>
-        <item quantity="other">%d Aplicaciones detectadas</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Alternar las aplicaciones</string>
     <string name="appcontrol_toggle_app_enable_action">Activar aplicación</string>
     <string name="appcontrol_toggle_app_disable_action">Desactivar aplicación</string>
@@ -41,7 +37,6 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="appcontrol_tag_debug">Depuración</string>
     <string name="appcontrol_progress_enabling_package">Activando aplicación</string>
     <string name="appcontrol_progress_disabling_package">Desactivando aplicación</string>
-    <string name="appcontrol_list_filteroptions_label">Opciones del filtro</string>
     <string name="appcontrol_list_sortmode_name_label">Nombre de la aplicación</string>
     <string name="appcontrol_list_sortmode_updated_label">Última actualización</string>
     <string name="appcontrol_list_sortmode_installed_label">Primera instalación</string>
@@ -135,8 +130,4 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="appcontrol_item_installedat_x_label">Instalado el: %s</string>
     <string name="shortcut_appcontrol_short">Control de Apps</string>
     <string name="shortcut_appcontrol_long">Administrar apps instaladas</string>
-    <string name="appcontrol_automation_loading">Preparar la automatización mediante el servicio de accesibilidad</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Incluir otros usuarios</string>
-    <string name="appcontrol_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario en este dispositivo.</string>
 </resources>

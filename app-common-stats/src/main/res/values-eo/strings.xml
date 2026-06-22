@@ -8,7 +8,6 @@
     <item quantity="one">%s ero prilaborita ekde kiam vi invitis SD Maid al via aparato.</item>
     <item quantity="other">%s eroj prilaboritaj ekde kiam vi invitis SD Maid al via aparato.</item>
     </plurals>
-    <string name="stats_report_status_success">Sukceso</string>
     <string name="stats_report_status_partial_success">Parta sukceso</string>
     <string name="stats_report_status_partial_failure">Malsukceso</string>
     <string name="stats_settings_desc">Agordi la statistikojn, raportojn kaj datumokonservadon de SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Nombro da tagoj antaŭ forigi bazajn operaci-raportojn de SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Detalaj vojaj informoj</string>
     <string name="stats_settings_retention_paths_desc">La nombro da tagoj por konservi detalojn pri vojoj tuŝitaj de SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d tago</item>
-    <item quantity="other">%d tagoj</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Restarigi ĉion</string>
     <string name="stats_settings_reset_all_desc">Forigi ĉiujn raportojn kaj agordi ĉiujn statistikojn al nulo.</string>
     <string name="stats_affected_paths_label">Tuŝitaj vojoj</string>

@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opções que permitam que apague todos os arquivos num conjunto de duplicados.</string>
     <string name="deduplicator_search_locations_title">Pesquisar localizações</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas acessíveis</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferir manter</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Ao decidir qual duplicado para manter, prefira manter os arquivos nesses locais.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nenhuma localização configurada</string>
     <string name="deduplicator_skip_minsize_title">Tamanho mínimo</string>
     <string name="deduplicator_skip_minsize_description">Saltar ficheiros que sejam mais pequenos que o tamanho mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Ignorar tipos de ficheiros incomuns</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Encontre arquivos similares, analisando recursos de conteúdo e comparando valores hash perceptuais. ⚠️ Detecção baseada em similaridade pode incluir falsos positivos que requerem verificação manual.</string>
     <string name="deduplicator_detection_method_media_title">Impressão digital de multimédia</string>
     <string name="deduplicator_detection_method_media_summary">Encontrar ficheiros de vídeo e áudio semelhantes através da análise de impressões digitais de áudio. ⚠️ A deteção baseada em semelhança pode incluir falsos positivos que requerem verificação manual.</string>
-    <string name="deduplicator_matches_media_label">Multimédia semelhante</string>
     <string name="deduplicator_media_match_audio">Correspondência baseada em áudio</string>
     <string name="deduplicator_media_match_visual">Correspondência baseada em vídeo</string>
     <string name="deduplicator_media_match_audio_visual">Correspondência baseada em áudio e vídeo</string>

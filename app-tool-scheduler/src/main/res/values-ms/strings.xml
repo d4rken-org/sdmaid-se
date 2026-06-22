@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">Setiap %d hari</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Ulang selang</string>
     <string name="scheduler_inaccurate_execution_hint">Jangkaan masa pelaksanaan adalah anggaran. Jadual mungkin ditangguhkan atau dipercepatkan jika ia menjimatkan bateri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Tiada jadual aktif</string>
     <string name="scheduler_setting_nopowersaving_title">Langkau pada bateri lemah</string>

@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("projectConfig")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -16,7 +17,7 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
+        compose = true
     }
 
     setupCompileOptions()
@@ -37,15 +38,13 @@ setupKotlinOptions()
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
+    implementation(project(":app-common-io"))
+    implementation(project(":app-common-data"))
 
     addAndroidCore()
     addAndroidUI()
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
-    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
+    addCompose()
+    addNavigation3()
     addDI()
     addCoroutines()
     addSerialization()
@@ -54,5 +53,4 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
-    testImplementation("org.robolectric:robolectric:4.16")
 }

@@ -1,0 +1,388 @@
+package eu.darken.sdmse.appcleaner.ui.details
+
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.rememberPagerState
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.appcleaner.R
+import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
+import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
+import eu.darken.sdmse.appcleaner.ui.details.page.AppJunkPage
+import eu.darken.sdmse.appcleaner.ui.labelRes
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
+import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmScrollableTabStrip
+import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
+import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.getSpanCount
+import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.pkgs.features.InstallId
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.launch
+
+@Composable
+fun AppJunkDetailsScreenHost(
+    route: AppJunkDetailsRoute,
+    vm: AppJunkDetailsViewModel = hiltViewModel(),
+) {
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
+
+    LaunchedEffect(route) { vm.bindRoute(route) }
+
+    val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    val snackScope = rememberCoroutineScope()
+
+    var pendingSpec by remember { mutableStateOf<DeleteSpec?>(null) }
+    val viewActionLabel = stringResource(CommonR.string.general_view_action)
+    val undoActionLabel = stringResource(CommonR.string.general_undo_action)
+
+    LaunchedEffect(vm) {
+        vm.events.collect { event ->
+            when (event) {
+                is AppJunkDetailsViewModel.Event.ConfirmDelete -> pendingSpec = event.spec
+                is AppJunkDetailsViewModel.Event.TaskResult -> snackScope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = event.result.primaryInfo.get(context),
+                        duration = SnackbarDuration.Long,
+                    )
+                }
+                is AppJunkDetailsViewModel.Event.HeaderExclusionCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = undoActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onUndoExclude(event.undo, event.restoreTarget)
+                    }
+                }
+                is AppJunkDetailsViewModel.Event.SelectionExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.count,
+                        event.count,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = viewActionLabel,
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.onShowExclusions()
+                    }
+                }
+            }
+        }
+    }
+
+    AppJunkDetailsScreen(
+        stateSource = vm.state,
+        snackbarHostState = snackbarHostState,
+        onNavigateUp = vm::navUp,
+        onPageChanged = vm::onPageChanged,
+        onRequestDelete = vm::requestDelete,
+        onExcludeJunk = vm::onExcludeJunk,
+        onExcludeSelectedFiles = vm::onExcludeSelectedFiles,
+        onToggleCollapse = vm::onToggleCategoryCollapse,
+    )
+
+    pendingSpec?.let { spec ->
+        val message = describeSpec(spec)
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = message,
+            onDismissRequest = { pendingSpec = null },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
+                    val captured = spec
+                    pendingSpec = null
+                    vm.confirmDelete(captured)
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingSpec = null },
+            ),
+        )
+    }
+}
+
+@Composable
+private fun describeSpec(spec: DeleteSpec): String {
+    val context = LocalContext.current
+    return when (spec) {
+        is DeleteSpec.WholeJunk -> stringResource(R.string.appcleaner_delete_confirmation_message_x, spec.appLabel)
+        is DeleteSpec.Inaccessible -> stringResource(
+            R.string.appcleaner_delete_confirmation_message_x,
+            "${spec.appLabel} (${context.getString(R.string.appcleaner_item_caches_inaccessible_title)})",
+        )
+        is DeleteSpec.Category -> stringResource(
+            R.string.appcleaner_delete_confirmation_message_x,
+            "${spec.appLabel} → ${spec.categoryLabel}",
+        )
+        is DeleteSpec.SingleFile -> stringResource(
+            CommonR.string.general_delete_confirmation_message_x,
+            spec.displayName,
+        )
+        is DeleteSpec.SelectedFiles -> pluralStringResource(
+            R.plurals.appcleaner_delete_confirmation_message_selected_x_items,
+            spec.paths.size,
+            spec.paths.size,
+        )
+    }
+}
+
+@Composable
+internal fun AppJunkDetailsScreen(
+    stateSource: StateFlow<AppJunkDetailsViewModel.State> =
+        MutableStateFlow(AppJunkDetailsViewModel.State()),
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    onNavigateUp: () -> Unit = {},
+    onPageChanged: (InstallId) -> Unit = {},
+    onRequestDelete: (DeleteSpec) -> Unit = {},
+    onExcludeJunk: (InstallId) -> Unit = {},
+    onExcludeSelectedFiles: (InstallId, Set<APath>) -> Unit = { _, _ -> },
+    onToggleCollapse: (InstallId, ExpendablesFilterIdentifier) -> Unit = { _, _ -> },
+) {
+    val context = LocalContext.current
+    val state by stateSource.collectAsStateWithLifecycle()
+    val items = state.items
+    val coroutineScope = rememberCoroutineScope()
+
+    val pagerState = rememberPagerState(pageCount = { items.size })
+    var selection by rememberSelection<APath>()
+
+    // drop(1) skips the initial currentPage=0 emission so the scroll-to-target effect below
+    // isn't clobbered by a spurious onPageChanged(items[0]) before it can scroll.
+    LaunchedEffect(pagerState, items) {
+        snapshotFlow { pagerState.currentPage }
+            .drop(1)
+            .distinctUntilChanged()
+            .collect { page ->
+                selection = emptySet()
+                items.getOrNull(page)?.identifier?.let(onPageChanged)
+            }
+    }
+
+    LaunchedEffect(state.target, items) {
+        val target = state.target ?: return@LaunchedEffect
+        val idx = items.indexOfFirst { it.identifier == target }
+        if (idx != -1 && pagerState.currentPage != idx) {
+            pagerState.scrollToPage(idx)
+        }
+    }
+
+    val currentJunk: AppJunk? = items.getOrNull(pagerState.currentPage)
+    val livePaths = remember(currentJunk?.identifier, currentJunk?.expendables) {
+        currentJunk?.expendables?.values?.flatten()?.map { it.path }?.toSet().orEmpty()
+    }
+    LaunchedEffect(livePaths) {
+        selection = selection intersect livePaths
+    }
+
+    BackHandler(enabled = selection.isNotEmpty()) { selection = emptySet() }
+
+    SdmScaffold(
+        topBar = {
+            if (selection.isEmpty()) {
+                SdmTopAppBar(
+                    title = stringResource(CommonR.string.appcleaner_tool_name),
+                    subtitle = stringResource(CommonR.string.general_details_label),
+                    onNavigateUp = onNavigateUp,
+                )
+            } else {
+                SdmSelectionTopAppBar(
+                    selectedCount = selection.size,
+                    onClearSelection = { selection = emptySet() },
+                    actions = {
+                        SdmDeleteAction(onClick = {
+                            val junk = currentJunk ?: return@SdmDeleteAction
+                            val paths = selection
+                            selection = emptySet()
+                            onRequestDelete(
+                                DeleteSpec.SelectedFiles(
+                                    installId = junk.identifier,
+                                    paths = paths,
+                                ),
+                            )
+                        })
+                        SdmExcludeAction(onClick = {
+                            val junk = currentJunk ?: return@SdmExcludeAction
+                            val paths = selection
+                            selection = emptySet()
+                            onExcludeSelectedFiles(junk.identifier, paths)
+                        })
+                        SdmSelectAllAction(
+                            visible = selection.size < livePaths.size,
+                            onClick = { selection = livePaths },
+                        )
+                    },
+                )
+            }
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+        ) {
+            ProgressOverlay(
+                data = state.progress,
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                if (items.isEmpty()) {
+                    SdmEmptyState()
+                } else {
+                    Column(modifier = Modifier.fillMaxSize()) {
+                        SdmScrollableTabStrip(
+                            selectedTabIndex = pagerState.currentPage.coerceIn(0, items.lastIndex),
+                            tabCount = items.size,
+                            onTabSelected = { index ->
+                                coroutineScope.launch { pagerState.animateScrollToPage(index) }
+                            },
+                        ) { index ->
+                            Text(
+                                text = items[index].label.get(context),
+                                maxLines = 1,
+                            )
+                        }
+                        BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+                            val spanCount = remember(maxWidth) {
+                                context.getSpanCount(widthDp = SdmListDefaults.DetailGridMinWidth.value.toInt())
+                            }
+                            val pageWidth = maxWidth / spanCount
+                            HorizontalPager(
+                                state = pagerState,
+                                modifier = Modifier.fillMaxSize(),
+                                pageSize = PageSize.Fixed(pageWidth),
+                                contentPadding = PaddingValues(horizontal = 0.dp),
+                                verticalAlignment = Alignment.Top,
+                            ) { page ->
+                                val junk = items.getOrNull(page) ?: return@HorizontalPager
+                                val collapsed = state.collapsedByJunk[junk.identifier].orEmpty()
+                                val isCurrentPage = junk.identifier == currentJunk?.identifier
+                                AppJunkPage(
+                                    junk = junk,
+                                    collapsed = collapsed,
+                                    selection = if (isCurrentPage) selection else emptySet(),
+                                    selectionActive = isCurrentPage && selection.isNotEmpty(),
+                                    onSelectionChange = { newSelection ->
+                                        if (isCurrentPage) selection = newSelection
+                                    },
+                                    onDeleteJunk = {
+                                        onRequestDelete(
+                                            DeleteSpec.WholeJunk(
+                                                installId = junk.identifier,
+                                                appLabel = junk.label.get(context),
+                                            ),
+                                        )
+                                    },
+                                    onExcludeJunk = { onExcludeJunk(junk.identifier) },
+                                    onDeleteInaccessible = {
+                                        onRequestDelete(
+                                            DeleteSpec.Inaccessible(
+                                                installId = junk.identifier,
+                                                appLabel = junk.label.get(context),
+                                            ),
+                                        )
+                                    },
+                                    onDeleteCategory = { category ->
+                                        val matches = junk.expendables?.get(category).orEmpty()
+                                        onRequestDelete(
+                                            DeleteSpec.Category(
+                                                installId = junk.identifier,
+                                                category = category,
+                                                matchCount = matches.size,
+                                                appLabel = junk.label.get(context),
+                                                categoryLabel = context.getString(category.labelRes),
+                                            ),
+                                        )
+                                    },
+                                    onDeleteFile = { category, path ->
+                                        val match = junk.expendables?.get(category)
+                                            ?.firstOrNull { it.path == path }
+                                        onRequestDelete(
+                                            DeleteSpec.SingleFile(
+                                                installId = junk.identifier,
+                                                category = category,
+                                                path = path,
+                                                displayName = match?.lookup?.userReadablePath?.get(context)
+                                                    ?: path.path,
+                                            ),
+                                        )
+                                    },
+                                    onToggleCollapse = { category ->
+                                        onToggleCollapse(junk.identifier, category)
+                                    },
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun AppJunkDetailsScreenEmptyPreview() {
+    PreviewWrapper {
+        AppJunkDetailsScreen(
+            stateSource = MutableStateFlow(AppJunkDetailsViewModel.State(items = emptyList())),
+        )
+    }
+}

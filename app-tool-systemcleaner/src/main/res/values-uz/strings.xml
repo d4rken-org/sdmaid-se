@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl yoshiga qarab mosliklarni cheklash (oxirgi o\'zgartirish vaqti). Har qanday yoshga mos kelish uchun bo\'sh qoldiring.</string>
     <string name="systemcleaner_customfilter_import_action">Yangi filtrni import qilish</string>
     <string name="systemcleaner_customfilter_export_action">Tanlangan filtrni eksport qilish</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Sizda saqlanmagan o\'zgarishlar bor!</string>
 </resources>

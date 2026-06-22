@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ਫਾਈਲ ਦੀ ਉਮਰ (ਆਖਰੀ ਸੋਧ ਸਮਾਂ) ਦੇ ਆਧਾਰ \'ਤੇ ਨਤੀਜੇ ਸੀਮਤ ਕਰੋ। ਕਿਸੇ ਵੀ ਉਮਰ ਨਾਲ ਮੇਲ ਖਾਣ ਲਈ ਖਾਲੀ ਛੱਡੋ।</string>
     <string name="systemcleaner_customfilter_import_action">ਨਵਾਂ ਫਿਲਟਰ ਆਯਾਤ ਕਰੋ</string>
     <string name="systemcleaner_customfilter_export_action">ਚੁਣਿਆ ਫਿਲਟਰ ਨਿਰਯਾਤ ਕਰੋ</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਨਾ-ਸੰਭਾਲੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
 </resources>

@@ -30,16 +30,9 @@
     <string name="general_empty_label">Vojt</string>
     <string name="general_new_badge_label">Ġdid</string>
     <string name="general_dismiss_action">Ikċaħħad</string>
-    <string name="general_maybe_later_action">Forsi aktar tard</string>
     <string name="general_manage_action">Immaniġġja</string>
-    <string name="general_sync_action">Issinkronizza</string>
     <string name="general_error_label">Żball</string>
-    <string name="general_tap_hint_msg">Imiss għal aktar għażliet</string>
     <string name="general_upgrade_action">Aġġorna</string>
-    <string name="general_donate_action">Agħti donazzjoni</string>
-    <string name="general_check_action">Iċċekkja</string>
-    <string name="general_filter_action">Iffiltra</string>
-    <string name="general_internal_not_available_msg">Konnessjoni tal-internet mhux disponibbli</string>
     <string name="general_refresh_action">Aġġorna</string>
     <string name="general_progress_searching">Qed infittex</string>
     <string name="general_progress_generating_searchpaths">Qed niġġenera mogħdijiet tat-tiftix</string>
@@ -68,12 +61,9 @@
     <string name="general_progress_queued">Fil-kju</string>
     <string name="general_progress_deleting">Qed inħassar</string>
     <string name="general_progress_deleting_x">Qed inħassar %s</string>
-    <string name="general_sort_options_label">Għażliet tal-issortjar</string>
     <string name="general_sort_reverse_action">Modalità issortjar kontra</string>
-    <string name="general_tag_filter_label">Iffiltra skont it-tags</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operazzjoni b\'suċċess</string>
-    <string name="general_result_failure_message">Operazzjoni falliet</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s spazju ċċarat.</item>
         <item quantity="few">%s spazju ċċarat.</item>
@@ -88,11 +78,13 @@
     <string name="general_delete_action">Ħassar</string>
     <string name="general_delete_selected_action">Ħassar il-magħżula</string>
     <string name="general_show_details_action">Uri dettalji</string>
-    <string name="general_show_all_action">Uri kollox</string>
     <string name="general_toggle_layout_mode">Ibdel modalità tal-veduta</string>
     <string name="general_delete_confirmation_title">Ikkonferma t-tħassir</string>
     <string name="general_delete_confirmation_message_x">Tħassar \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Tħassar il-%d oġġetti magħżula?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Tħassar il-%d oġġetti magħżula?</item>
+        <item quantity="other">Tħassar il-%d oġġetti magħżula?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d oġġett imħassar.</item>
         <item quantity="few">%d oġġetti mħassra.</item>
@@ -100,17 +92,13 @@
         <item quantity="other">%d oġġett imħassar.</item>
     </plurals>
     <string name="general_remove_action">Neħħi</string>
-    <string name="general_remove_selected_action">Neħħi l-magħżula</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Oġġett wieħed imneħħi</item>
         <item quantity="few">%d oġġetti mneħħija</item>
         <item quantity="many">%d oġġett imneħħi</item>
         <item quantity="other">%d oġġett imneħħi</item>
     </plurals>
-    <string name="general_root_required_label">Għeruq meħtieġa</string>
-    <string name="general_root_required_message">Apparat bil-għeruq meħtieġ</string>
     <string name="general_search_action">Fittex</string>
-    <string name="general_scan_device_action">Skenja l-apparat</string>
     <string name="general_open_system_settings_action">Iftaħ settings tas-sistema</string>
     <plurals name="result_x_items">
         <item quantity="one">%s oġġett</item>
@@ -138,7 +126,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Għadd</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">Aktar info</string>
     <string name="general_grant_access_action">Agħti aċċess</string>
     <string name="general_enable_service_action">Ippermetti s-servizz</string>
@@ -151,7 +138,6 @@
     <string name="general_exclude_selected_action">Eskludi l-magħżula</string>
     <string name="general_device_label">Apparat</string>
     <string name="general_settings_title">Settings</string>
-    <string name="general_help_title">Għajnuna</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Direttorju</string>
     <string name="file_type_file">Fajl</string>
@@ -205,5 +191,4 @@
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="appcontrol_systemsettings_open_title">Uri settings</string>
-    <string name="systemcleaner_customfilter_create_action">Oħloq filtru personalizzat</string>
 </resources>

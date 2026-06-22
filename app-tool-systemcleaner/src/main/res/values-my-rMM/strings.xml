@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ဖိုင်အနောသက်တမ်း (နောဆုံးပြစကင်းချနောက်များ)အပို ကိုက်ခြင်းကို ကန့်သတ်ချရန်။ အနောသက်တမ်းမပြုကို ကိုက်ခြေနိုင် ပြမ်းလုံရန်။</string>
     <string name="systemcleaner_customfilter_import_action">စစ်ထုတ်မှု အသစ် တင်သွင်းရန်</string>
     <string name="systemcleaner_customfilter_export_action">ရွေးချယ်ထားသော စစ်ထုတ်မှု တင်ပို့ရန်</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">သိမ်းမထားသေးသော ပြောင်းလဲမှုများ ရှိသည်!</string>
 </resources>

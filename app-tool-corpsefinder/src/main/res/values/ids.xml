@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Navigation action IDs used by CorpseFinder UI -->
-    <item name="action_corpseFinderListFragment_to_corpseFinderDetailsFragment" type="id" />
-</resources>

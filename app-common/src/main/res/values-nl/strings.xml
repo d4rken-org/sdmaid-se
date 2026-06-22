@@ -33,16 +33,9 @@
     <string name="general_empty_label">Leeg</string>
     <string name="general_new_badge_label">Nieuw</string>
     <string name="general_dismiss_action">Afwijzen</string>
-    <string name="general_maybe_later_action">Misschien later</string>
     <string name="general_manage_action">Beheren</string>
-    <string name="general_sync_action">Synchroniseren</string>
     <string name="general_error_label">Fout</string>
-    <string name="general_tap_hint_msg">Tik voor meer opties</string>
     <string name="general_upgrade_action">Upgraden</string>
-    <string name="general_donate_action">Doneren</string>
-    <string name="general_check_action">Controleren</string>
-    <string name="general_filter_action">Filter</string>
-    <string name="general_internal_not_available_msg">Internetverbinding niet beschikbaar</string>
     <string name="general_refresh_action">Vernieuwen</string>
     <string name="general_progress_searching">Zoeken</string>
     <string name="general_progress_generating_searchpaths">Genereren van zoekpaden</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">In de wachtrij</string>
     <string name="general_progress_deleting">Verwijderen</string>
     <string name="general_progress_deleting_x">Verwijderen %s</string>
-    <string name="general_sort_action">Sorteren</string>
-    <string name="general_sort_by_title">Sorteren op</string>
-    <string name="general_sort_options_label">Sorteer opties</string>
     <string name="general_sort_reverse_action">Omgekeerde sorteermodus</string>
-    <string name="general_sort_oldest_first">Oudste eerst</string>
-    <string name="general_sort_newest_first">Nieuwste eerst</string>
-    <string name="general_sort_name_asc">Naam (A → Z)</string>
-    <string name="general_sort_size_desc">Grootste eerst</string>
-    <string name="general_tag_filter_label">Filteren op tags</string>
     <string name="general_tag_system">Systeem</string>
     <string name="general_result_success_message">Bewerking geslaagd</string>
-    <string name="general_result_failure_message">Bewerking mislukt</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ruimte vrijgemaakt.</item>
         <item quantity="other">%s ruimte vrijgemaakt.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Verwijderen</string>
     <string name="general_delete_selected_action">Verwijder geselecteerde</string>
     <string name="general_show_details_action">Toon details</string>
-    <string name="general_show_all_action">Toon alles</string>
     <string name="general_toggle_layout_mode">Wijzig de weergavemodus</string>
     <string name="general_delete_confirmation_title">Bevestig verwijdering</string>
     <string name="general_delete_confirmation_message_x">Verwijder \"%s\"?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d items verwijderd.</item>
     </plurals>
     <string name="general_remove_action">Verwijderen</string>
-    <string name="general_remove_selected_action">Verwijder geselecteerde</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Eén item is verwijderd</item>
         <item quantity="other">%d items zijn verwijderd</item>
     </plurals>
-    <string name="general_root_required_label">Vereist root</string>
-    <string name="general_root_required_message">Vereist een geroot apparaat</string>
     <string name="general_search_action">Zoeken</string>
-    <string name="general_scan_device_action">Apparaat scannen</string>
     <string name="general_open_system_settings_action">Systeeminstellingen openen</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Info</string>
     <string name="general_count_label">Tellen</string>
-    <string name="general_app_label">App</string>
     <string name="general_more_info_action">Meer informatie</string>
     <string name="general_grant_access_action">Toegang verlenen</string>
     <string name="general_enable_service_action">Dienst inschakelen</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Geselecteerde uitsluiten</string>
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
-    <string name="general_help_title">Help</string>
     <string name="general_hints_label">Kennisgeving</string>
     <string name="file_type_symbolic_link">Koppeling</string>
     <string name="file_type_directory">Adresboek</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
     <string name="setup_title">Instelling</string>
-    <string name="setup_feature_requires_additional_setup_x">Voor deze functie zijn aanvullende installatie-items vereist: %s</string>
-    <string name="upgrade_feature_requires_pro">Vereist Pro</string>
     <string name="general_include_multiuser_label">Inclusief andere gebruikers</string>
     <string name="general_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="general_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Risico niveau</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
-    <string name="systemcleaner_customfilter_create_action">Maak een aangepast filter</string>
 </resources>

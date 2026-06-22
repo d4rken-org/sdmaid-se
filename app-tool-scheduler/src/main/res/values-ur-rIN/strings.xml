@@ -20,7 +20,6 @@
         <item quantity="one">روزانہ</item>
         <item quantity="other">ہر %d دن</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">تکرار کا وقفہ</string>
     <string name="scheduler_inaccurate_execution_hint">متوقع تکمیل کے اوقات تخمینی ہیں۔ اگر بیٹری بچانے کے لیے ضروری ہو تو شیڈیولز موخر یا جلدی ہو سکتے ہیں۔</string>
     <string name="scheduler_no_active_schedules_subtitle">کوئی فعال شیڈیول نہیں</string>
     <string name="scheduler_setting_nopowersaving_title">کم بیٹری پر چھوڑیں</string>

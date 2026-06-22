@@ -5,22 +5,19 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class AppCleanerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_appcleaner")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
@@ -60,37 +57,6 @@ class AppCleanerSettings @Inject constructor(
 
     // Amounts to common folders created by default
     val minCacheSizeBytes = dataStore.createValue<Long>("skip.mincachesize.bytes", MIN_CACHE_SIZE_DEFAULT)
-
-    override val mapper = PreferenceStoreMapper(
-        includeSystemAppsEnabled,
-        includeRunningAppsEnabled,
-        includeOtherUsersEnabled,
-        includeInaccessibleEnabled,
-        forceStopBeforeClearing,
-        minCacheSizeBytes,
-        minCacheAgeMs,
-        filterDefaultCachesPublicEnabled,
-        filterDefaultCachesPrivateEnabled,
-        filterCodeCacheEnabled,
-        filterAdvertisementEnabled,
-        filterBugreportingEnabled,
-        filterAnalyticsEnabled,
-        filterGameFilesEnabled,
-        filterHiddenCachesEnabled,
-        filterThumbnailsEnabled,
-        filterOfflineCachesEnabled,
-        filterRecycleBinsEnabled,
-        filterWebviewEnabled,
-        filterShortcutServiceEnabled,
-        filterThreemaEnabled,
-        filterTelegramEnabled,
-        filterWhatsAppBackupsEnabled,
-        filterWhatsAppReceivedEnabled,
-        filterWhatsAppSentEnabled,
-        filterWeChatEnabled,
-        filterMobileQQEnabled,
-        filterViberEnabled,
-    )
 
     companion object {
         const val MIN_CACHE_SIZE_DEFAULT = 48 * 1024L

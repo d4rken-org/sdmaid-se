@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Fortsæt session</string>
     <string name="swiper_sessions_description">Gennemgå filer i 3 enkle trin:\n\n1. Vælg en mappe at scanne\n2. Stryg gennem filer for at beholde, slette eller springe over\n3. Gennemgå dine valg og bekræft\n\nIntet fjernes, før du trykker på den endelige sletteknap.</string>
     <string name="swiper_select_folders_action">Vælg mapper</string>
-    <string name="swiper_scanning_title">Scanner…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d element fundet</item>
         <item quantity="other">%d elementer fundet</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Behold valgte</string>
     <string name="swiper_status_action_delete_selected">Slet valgte</string>
     <string name="swiper_status_action_reset_selected">Nulstil valgte</string>
-    <string name="swiper_decision_undecided">Uafgjort</string>
-    <string name="swiper_retry_action">Prøv igen</string>
     <string name="swiper_delete_confirmation_title">Slet filer?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Dette vil permanent slette %1$d fil (%2$s). Denne handling kan ikke fortrydes.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d uafgjort</item>
         <item quantity="other">%d uafgjorte</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d allerede beholdt</item>
-        <item quantity="other">%d allerede beholdt</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d allerede slettet</item>
-        <item quantity="other">%d allerede slettet</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d beholdt</item>
         <item quantity="other">%d beholdt</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Sådan fungerer Swiper</string>
     <string name="swiper_help_message">Stryg hver fil for at tage en beslutning:\n\n← Stryg til venstre: %1$s\n→ Stryg til højre: %2$s\n↑ Stryg op: Spring over\n↓ Stryg ned: Fortryd (efter første stryg)\n\nDu kan også bruge knapperne i bunden.\n\nNår du er færdig, tryk \"Gennemgå\" for at se alle dine beslutninger. Intet slettes, før du bekræfter på gennemgangsskærmen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Forstået</string>
-    <string name="swiper_help_action">Hjælp</string>
     <string name="swiper_file_type_filter_title">Vis kun disse filtyper</string>
     <string name="swiper_file_type_filter_hint">Markér de typer du vil se. Hvis ingen er markeret, vises alle filer.</string>
     <string name="swiper_file_type_category_images">Billeder</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arkiver</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Anvend</string>
-    <string name="swiper_session_filter_action">Filtrér filer</string>
     <string name="swiper_file_type_filter_summary">Filtreret: %1$s</string>
     <string name="swiper_session_no_matching_files">Ingen matchende filer fundet</string>
     <string name="swiper_open_externally_action">Åbn i ekstern app</string>

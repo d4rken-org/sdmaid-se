@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Използвайте инструмента AppControl за създаване на изключения за приложения.</string>
     <string name="exclusion_create_path_hint">Използвайте инструмента StorageAnalyzer за създаване на изключения за пътища.</string>
     <string name="exclusion_show_defaults_action">Показване на стандартните</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате незапазени промени!</string>
 </resources>

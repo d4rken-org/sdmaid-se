@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Izmantojiet AppControl rīku, lai izveidotu lietotnes izslēgumus.</string>
     <string name="exclusion_create_path_hint">Izmantojiet StorageAnalyzer rīku, lai izveidotu ceļa izslēgumus.</string>
     <string name="exclusion_show_defaults_action">Rādīt noklusejumus</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Jums ir nesaglabātas izmaiņas!</string>
 </resources>

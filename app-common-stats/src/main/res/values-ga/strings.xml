@@ -14,7 +14,6 @@
     <item quantity="many">Próiseáladh %s mír ó thug tú cuireadh do SD Maid chuig do ghléas.</item>
     <item quantity="other">Próiseáladh %s mír ó thug tú cuireadh do SD Maid chuig do ghléas.</item>
     </plurals>
-    <string name="stats_report_status_success">Rath</string>
     <string name="stats_report_status_partial_success">Rath páirteach</string>
     <string name="stats_report_status_partial_failure">Teip</string>
     <string name="stats_settings_desc">Cumraigh staitisticí, tuairiscí agus coinneáil sonraí SD Maid.</string>
@@ -23,13 +22,6 @@
     <string name="stats_settings_retention_reports_desc">Líon laethanta roimh scriosadh tuairiscí bunúsacha oibríochta SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Faisnéis mhionsonraithe cosáin</string>
     <string name="stats_settings_retention_paths_desc">Líon laethanta chun sonraí a choinneáil faoi chosáin a raibh tionchar ag SD Maid orthu.</string>
-    <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d lá</item>
-    <item quantity="two">%d lá</item>
-    <item quantity="few">%d lá</item>
-    <item quantity="many">%d lá</item>
-    <item quantity="other">%d lá</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Athshocraigh gach rud</string>
     <string name="stats_settings_reset_all_desc">Scrios gach tuairisc agus socraigh gach staitistic ar náid.</string>
     <string name="stats_affected_paths_label">Cosáin a bhfuil tionchar orthu</string>

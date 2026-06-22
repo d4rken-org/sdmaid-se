@@ -98,5 +98,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案時間（最後修改時間）限制匹配結果。留空則匹配任何時間。</string>
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
     <string name="systemcleaner_customfilter_export_action">匯出選取的過濾器</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
 </resources>

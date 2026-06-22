@@ -104,5 +104,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничение совпадений на основе возраста файла (времени последнего изменения). Оставьте пустым для любого возраста.</string>
     <string name="systemcleaner_customfilter_import_action">Импорт нового фильтра</string>
     <string name="systemcleaner_customfilter_export_action">Экспорт выбранного фильтра</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
 </resources>

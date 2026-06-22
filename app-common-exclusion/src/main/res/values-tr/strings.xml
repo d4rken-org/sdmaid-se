@@ -26,5 +26,4 @@
     <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
     <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için Depolama Analizcisi\'ni kullan.</string>
     <string name="exclusion_show_defaults_action">Varsayılanları göster</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
 </resources>

@@ -9,7 +9,6 @@
     <string name="swiper_start_action">Dest bi şûrînê bikin</string>
     <string name="swiper_continue_action">Danişînê bidomînin</string>
     <string name="swiper_select_folders_action">Peldankan hilbijêrin</string>
-    <string name="swiper_scanning_title">Dişopîne…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d tişt hat dîtin</item>
         <item quantity="other">%d tişt hatin dîtin</item>
@@ -22,8 +21,6 @@
     <string name="swiper_status_action_keep_selected">Yên bijartî bihêlin</string>
     <string name="swiper_status_action_delete_selected">Yên bijartî jê bibin</string>
     <string name="swiper_status_action_reset_selected">Yên bijartî vegerînin</string>
-    <string name="swiper_decision_undecided">Nebiryarkirî</string>
-    <string name="swiper_retry_action">Dîsa biceribîne</string>
     <string name="swiper_delete_confirmation_title">Pelan jê bibin?</string>
     <string name="swiper_no_preview_available">Pêşdîtinek tune</string>
     <string name="swiper_sessions_header_title">Amade ne ji bo sererastkirin?</string>

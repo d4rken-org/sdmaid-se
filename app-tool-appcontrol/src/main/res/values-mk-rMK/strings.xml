@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Апликации инсталирани на вашиот уред.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d апликација откриена</item>
-        <item quantity="other">%d апликации откриени</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Вклучи/исклучи апликации</string>
     <string name="appcontrol_toggle_app_enable_action">Вклучи апликација</string>
     <string name="appcontrol_toggle_app_disable_action">Исклучи апликација</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Дебаг</string>
     <string name="appcontrol_progress_enabling_package">Вклучување апликација</string>
     <string name="appcontrol_progress_disabling_package">Исклучување апликација</string>
-    <string name="appcontrol_list_filteroptions_label">Опции за филтрирање</string>
     <string name="appcontrol_list_sortmode_name_label">Име на апликација</string>
     <string name="appcontrol_list_sortmode_updated_label">Последно ажурирање</string>
     <string name="appcontrol_list_sortmode_installed_label">Прво инсталирање</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Инсталирана на: %s</string>
     <string name="shortcut_appcontrol_short">Контрола на апликации</string>
     <string name="shortcut_appcontrol_long">Управувај со инсталирани апликации</string>
-    <string name="appcontrol_automation_loading">Подготвување на автоматизацијата преку услугата за пристапност</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Обид за потврдување на претходната акција (клучни зборови: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Вклучи други корисници</string>
-    <string name="appcontrol_include_multiuser_summary">Вклучи апликации од другите кориснички профили на овој уред.</string>
 </resources>

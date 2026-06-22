@@ -20,7 +20,6 @@
         <item quantity="one">Araw-araw</item>
         <item quantity="other">Bawat %d araw</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Ulit-ulitin ang interval</string>
     <string name="scheduler_inaccurate_execution_hint">Ang mga inaasahang execution time ay mga pagtatantya. Maaaring ma-delay o mapabilis ang mga schedule kung ito ay nakakatipid ng battery.</string>
     <string name="scheduler_no_active_schedules_subtitle">Walang aktibong mga schedule</string>
     <string name="scheduler_setting_nopowersaving_title">Laktawan sa mababang battery</string>

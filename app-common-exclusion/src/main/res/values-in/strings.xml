@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Gunakan alat PengendaliApp untuk membuat pengecualian app.</string>
     <string name="exclusion_create_path_hint">Gunakan alat PenganalisaPenyimpanan untuk membuat jejak pengecualian.</string>
     <string name="exclusion_show_defaults_action">Tampilkan bawaan</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Anda memiliki perubahan yang belum tersimpan!</string>
 </resources>

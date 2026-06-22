@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Näita valikuid, mis lubab kustutada kõik samad failid, nii et ühtki faili ei jää alles.</string>
     <string name="deduplicator_search_locations_title">Otsinguasukohad</string>
     <string name="deduplicator_search_locations_all_summary">Kõik juurdepääsetavad alad</string>
-    <string name="deduplicator_keep_prefer_paths_title">Eelistan säilitada kohta</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Korduste säilitamise otsustamisel eelista failide hoiustamist nendes kohtades.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Asukohti pole seadistatud</string>
     <string name="deduplicator_skip_minsize_title">Väikseim maht</string>
     <string name="deduplicator_skip_minsize_description">Eira faile, mis on väiksemad kui väikseim maht.</string>
     <string name="deduplicator_skip_uncommon_title">Eira haruldasi failitüüpe</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Leidke sarnaseid faile, analüüsides sisu võimalusi ja võrreldes tajuräsi väärtusi. ⚠️ Sarnasusel põhinev tuvastus võib sisaldada valeteateid, mis vajavad inimese kontrolli.</string>
     <string name="deduplicator_detection_method_media_title">Meedia sõrmejälg</string>
     <string name="deduplicator_detection_method_media_summary">Leia sarnaseid video- ja helifaile, analüüsides heli sõrmejälge. ⚠️ Sarnasusepõhine tuvastamine võib sisaldada valetulemusi, mis nõuavad käsitsi kontrollimist.</string>
-    <string name="deduplicator_matches_media_label">Sarnane meedia</string>
     <string name="deduplicator_media_match_audio">Helipõhine vaste</string>
     <string name="deduplicator_media_match_visual">Videopõhine vaste</string>
     <string name="deduplicator_media_match_audio_visual">Heli- ja videopõhine vaste</string>

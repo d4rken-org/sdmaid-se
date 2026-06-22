@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Компресирайте изображения и видеоклипове, за да спестите място за съхранение.</string>
+    <string name="squeezer_explanation_short">Компресиране на изображения за спестяване на място за съхранение.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d намерен елемент</item>
-        <item quantity="other">%d намерени елемента</item>
+        <item quantity="one">%d изображение намерено</item>
+        <item quantity="other">%d изображения намерени</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s може да се спести</item>
         <item quantity="other">~%s могат да се спестят</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d компресиран елемент</item>
-        <item quantity="other">%d компресирани елемента</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d неуспешен</item>
-        <item quantity="other">%d неуспешни</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d файл пропуснат (недостъпен)</item>
-        <item quantity="other">%d файла пропуснати (недостъпни)</item>
+        <item quantity="one">%d изображение компресирано</item>
+        <item quantity="other">%d изображения компресирани</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d избран елемент</item>
-        <item quantity="other">%d избрани елемента</item>
+        <item quantity="one">%d изображение избрано</item>
+        <item quantity="other">%d изображения избрани</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Места за търсене</string>
-    <string name="squeezer_search_locations_default_summary">Папки на камерата (по подразбиране)</string>
     <string name="squeezer_min_size_title">Минимален размер на файла</string>
-    <string name="squeezer_min_size_description">Пропускайте файлове, по-малки от този размер.</string>
+    <string name="squeezer_min_size_description">Пропускане на изображения по-малки от този размер.</string>
     <string name="squeezer_min_age_title">Минимална възраст на файла</string>
-    <string name="squeezer_min_age_description">Включвайте само файлове, по-стари от тази възраст.</string>
-    <string name="squeezer_compression_settings_label">Общи</string>
-    <string name="squeezer_quality_label">Качество</string>
-    <string name="squeezer_quality_title">Качество на компресия</string>
-    <string name="squeezer_quality_description">По-ниското качество означава по-малък размер на файла, но намалено визуално качество.</string>
-    <string name="squeezer_quality_example_format">Пример: %1$s изображение → спестява ~%2$s при %3$d%% качество</string>
-    <string name="squeezer_quality_warning_low">По-ниските качества могат да причинят видими артефакти.</string>
-    <string name="squeezer_quality_warning_high">Много високото качество осигурява минимални спестявания на място.</string>
-    <string name="squeezer_types_category_label">Настройки за изображения</string>
-    <string name="squeezer_video_settings_category_label">Настройки за видео</string>
+    <string name="squeezer_min_age_description">Включване само на изображения по-стари от тази възраст.</string>
+    <string name="squeezer_compression_settings_label">Настройки за компресия</string>
+    <string name="squeezer_quality_description">По-ниско качество означава по-малък размер на файла, но намалено качество на изображението.</string>
+    <string name="squeezer_types_category_label">Типове изображения</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Включване на JPEG изображения (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Включване на WebP изображения (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 видео</string>
-    <string name="squeezer_type_video_description">Включвайте MP4 видео файлове (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Пропускане на вече компресирани</string>
-    <string name="squeezer_skip_compressed_description">Пропускайте файлове, които вече са компресирани от SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Пропускане на изображения, които вече са компресирани от SD Maid.</string>
     <string name="squeezer_exif_marker_title">Записване на EXIF маркер</string>
     <string name="squeezer_exif_marker_description">Добавяне на маркер в полето за EXIF потребителски коментар на изображението, за да се предотврати повторна компресия, дори ако историята на компресията бъде изчистена.</string>
     <string name="squeezer_estimated_savings_format">~%s спестявания</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Потвърждаване на компресията</string>
     <string name="squeezer_preview_total_size">Общ размер</string>
     <string name="squeezer_preview_estimated_savings">Очаквани спестявания</string>
-    <string name="squeezer_compress_confirmation_title">Компресиране на избраните елементи?</string>
-    <string name="squeezer_compress_confirmation_message">Това ще замени оригиналните файлове с компресирани версии. Това действие не може да бъде отменено.</string>
     <string name="squeezer_history_title">История на компресията</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d елемент (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Няма история на компресията</string>
     <string name="squeezer_history_clear_title">Изчистване на историята на компресията</string>
-    <string name="squeezer_history_clear_message">Това ще позволи на вече компресираните файлове да бъдат компресирани отново. Самите файлове не са засегнати.</string>
-    <string name="squeezer_onboarding_title">За компресията на изображения</string>
-    <string name="squeezer_onboarding_message">Компресията на изображения намалява размера на файла чрез премахване на визуални детайли. Този процес е необратим - оригиналното качество не може да бъде възстановено.\n\nЕто предварителен преглед на това как ще изглеждат вашите изображения:</string>
+    <string name="squeezer_history_clear_message">Това ще позволи на вече компресираните изображения да бъдат компресирани отново. Самите изображения не са засегнати.</string>
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">След компресия</string>
-    <string name="squeezer_onboarding_video_original_label">Видео кадър</string>
-    <string name="squeezer_onboarding_video_compressed_label">Преглед (приблизителен)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Действителното качество на видеото може да се различава</string>
-    <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
     <string name="squeezer_compare_action">Преглед на сравнение</string>
     <string name="squeezer_no_example_found">Не са намерени изображения в избраните пътища.</string>
-    <string name="squeezer_result_empty_message">Няма намерени медии за компресиране.</string>
-    <string name="squeezer_setup_warning">Компресирането намалява качеството завинаги, за да спести място за съхранение. Това не може да бъде отменено. Прегледайте внимателно настройките си, преди да започнете.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d местоположение не може да се използва за компресиране и беше премахнато. Компресирането изисква директен достъп до вътрешната памет.</item>
-        <item quantity="other">%d местоположения не могат да се използват за компресиране и бяха премахнати. Компресирането изисква директен достъп до вътрешната памет.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze намалява размера на файловете с изображения и видеоклипове, за да освободи място за съхранение. Това постоянно намалява качеството и не може да бъде отменено. Прегледайте внимателно настройките си, преди да започнете.</string>
+    <string name="squeezer_result_empty_message">Не са намерени компресируеми изображения.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze намалява размера на файловете с изображения, за да освободи място за съхранение. Това трайно намалява качеството на изображенията и не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
     <string name="squeezer_setup_paths_title">Места за търсене</string>
     <string name="squeezer_setup_paths_default">Изберете папки за търсене</string>
     <string name="squeezer_setup_quality_title">Качество на компресия</string>
     <string name="squeezer_setup_age_title">Минимална възраст</string>
-    <string name="squeezer_setup_age_none">Без ограничение (включване на всички файлове)</string>
     <string name="squeezer_setup_start_action">Започване на сканиране</string>
     <string name="squeezer_quality_hint_very_low">Качество под 40% може да създаде неизползваеми изображения.</string>
     <string name="squeezer_quality_hint_low">По-ниско качество спестява повече място, но може да причини видими артефакти.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">Поне %d ден стар</item>
         <item quantity="other">Поне %d дни стар</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Очаквана спестяване ~%d%% за изображения</string>
-    <string name="squeezer_onboarding_got_it">Разбрах</string>
+    <string name="squeezer_estimated_savings_percent">Очаквани ~%d%% спестявания за JPEG файлове</string>
 </resources>

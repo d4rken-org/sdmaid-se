@@ -17,9 +17,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Паказаць опцыю, якая дазваляе выдаліць усе элементы ў пары дублікатаў, каб не засталося ніводнага з іх.</string>
     <string name="deduplicator_search_locations_title">Пошук размяшчэння</string>
     <string name="deduplicator_search_locations_all_summary">Усе даступныя месцы</string>
-    <string name="deduplicator_keep_prefer_paths_title">Пакінуць выбраныя ў</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Падчас выдалення дублікатаў, наладзьце захоўванне файлаў у наступных месцах.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Месцы не наладжаны</string>
     <string name="deduplicator_skip_minsize_title">Мінімальны памер</string>
     <string name="deduplicator_skip_minsize_description">Прапускаць файлы, памер якіх меншы за мінімальны.</string>
     <string name="deduplicator_skip_uncommon_title">Прапускаць невядомыя тыпы файлаў</string>
@@ -31,7 +28,6 @@
     <string name="deduplicator_detection_method_phash_summary">Пошук падобных файлаў з дапамогай аналізу асаблівасцей і параўнання падобных уласцівасцей. ⚠️ Выяўленне на аснове падабенства можа змяшчаць памылковыя вынікі, якія патрабуюць ручнога выяўлення.</string>
     <string name="deduplicator_detection_method_media_title">Медыяадбітак</string>
     <string name="deduplicator_detection_method_media_summary">Знайсці падобныя відэа- і аўдыяфайлы шляхам аналізу аўдыяадбіткаў. ⚠️ Выяўленне на аснове падабенства можа ўключаць ілжывыя спрацоўванні, якія патрабуюць ручной праверкі.</string>
-    <string name="deduplicator_matches_media_label">Падобныя медыяфайлы</string>
     <string name="deduplicator_media_match_audio">Супадзенне па аўдыя</string>
     <string name="deduplicator_media_match_visual">Супадзенне па відэа</string>
     <string name="deduplicator_media_match_audio_visual">Супадзенне па аўдыя і відэа</string>

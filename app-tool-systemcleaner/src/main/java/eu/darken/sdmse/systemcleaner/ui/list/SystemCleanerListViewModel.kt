@@ -1,22 +1,30 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
+import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
+import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -24,64 +32,118 @@ import javax.inject.Inject
 @HiltViewModel
 class SystemCleanerListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
-    systemCleaner: SystemCleaner,
+    private val systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
+        // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
         systemCleaner.state
-            .map { it.data }
-            .filter { !it.hasData }
+            .mapNotNull { it.data }
+            .map { it.hasData }
+            .drop(1)
+            .filter { !it }
             .take(1)
-            .onEach { popNavStack() }
-            .launchInViewModel()
+            .onEach { navUp() }
+            .launchIn(vmScope)
     }
 
-    val events = SingleLiveEvent<SystemCleanerListEvents>()
+    val events = SingleEventFlow<Event>()
 
-    val state = combine(
-        systemCleaner.state.map { it.data }.filterNotNull(),
+    // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
+    // and re-map the whole filter-content list. Progress is merged in last (below) as a cheap field
+    // swap that preserves the rows List instance, letting keyed lazy rows skip recomposition.
+    private val rowsState = systemCleaner.state
+        .map { it.data }
+        .map { data ->
+            val rows = data?.filterContents
+                ?.sortedByDescending { it.size }
+                ?.map { Row(content = it) }
+            State(rows = rows)
+        }
+
+    val state: StateFlow<State> = combine(
+        rowsState,
         systemCleaner.progress,
-    ) { data, progress ->
-        val items = data.filterContents
-            .sortedByDescending { it.size }
-            .map { content ->
-                SystemCleanerListRowVH.Item(
-                    content = content,
-                    onItemClicked = { events.postValue(SystemCleanerListEvents.ConfirmDeletion(listOf(it))) },
-                    onDetailsClicked = { showDetails(it) }
-                )
-            }
-        State(
-            items = items,
-            progress = progress,
-        )
-    }.asLiveData2()
+    ) { base, progress ->
+        base.copy(progress = progress)
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
-    fun delete(items: Collection<SystemCleanerListAdapter.Item>, confirmed: Boolean = false) = launch {
-        log(TAG, INFO) { "delete(): ${items.size}" }
-        if (!confirmed) {
-            events.postValue(SystemCleanerListEvents.ConfirmDeletion(items))
-            return@launch
-        }
-        val task = SystemCleanerProcessingTask(targetFilters = items.map { it.content.identifier }.toSet())
+    fun onRowClick(row: Row) {
+        log(TAG, INFO) { "onRowClick(${row.identifier})" }
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier)))
+    }
+
+    fun onDetailsClick(row: Row) {
+        log(TAG, INFO) { "onDetailsClick(${row.identifier})" }
+        navTo(FilterContentDetailsRoute(filterIdentifier = row.identifier))
+    }
+
+    fun onDeleteSelected(ids: Set<FilterIdentifier>) {
+        log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
+        if (ids.isEmpty()) return
+        events.tryEmit(Event.ConfirmDeletion(ids))
+    }
+
+    fun onDeleteConfirmed(ids: Set<FilterIdentifier>) = launch {
+        log(TAG, INFO) { "onDeleteConfirmed(${ids.size})" }
+        val data = systemCleaner.state.first().data ?: return@launch
+        val validIds = ids.filter { id -> data.filterContents.any { it.identifier == id } }.toSet()
+        if (validIds.isEmpty()) return@launch
+
+        val task = SystemCleanerProcessingTask(targetFilters = validIds)
         val result = taskSubmitter.submit(task) as SystemCleanerProcessingTask.Result
-        log(TAG) { "doDelete(): Result was $result" }
+        log(TAG) { "onDeleteConfirmed(): Result was $result" }
         when (result) {
-            is SystemCleanerProcessingTask.Success -> events.postValue(SystemCleanerListEvents.TaskResult(result))
+            is SystemCleanerProcessingTask.Success -> events.tryEmit(Event.TaskResult(result))
         }
     }
 
-    fun showDetails(item: SystemCleanerListAdapter.Item) = launch {
-        log(TAG, INFO) { "showDetails(filterContent=${item.content.identifier})" }
-        navigateTo(FilterContentDetailsRoute(filterIdentifier = item.content.identifier))
+    fun onShowDetailsFromDialog(ids: Set<FilterIdentifier>) {
+        val target = ids.firstOrNull() ?: return
+        navTo(FilterContentDetailsRoute(filterIdentifier = target))
     }
 
+    fun onExcludeSelected(ids: Set<FilterIdentifier>) = launch {
+        log(TAG, INFO) { "onExcludeSelected(${ids.size})" }
+        if (ids.isEmpty()) return@launch
+        val data = systemCleaner.state.first().data ?: return@launch
+        var totalExclusions = 0
+        ids.forEach { id ->
+            val fc = data.filterContents.firstOrNull { it.identifier == id } ?: return@forEach
+            val paths = fc.items.map { it.path }.toSet()
+            if (paths.isEmpty()) return@forEach
+            val undo = systemCleaner.exclude(id, paths)
+            totalExclusions += undo.exclusionIds.size
+        }
+        if (totalExclusions == 0) return@launch
+        events.tryEmit(Event.ExclusionsCreated(totalExclusions))
+    }
+
+    fun onShowExclusions() {
+        navTo(ExclusionsListRoute)
+    }
 
     data class State(
-        val items: List<SystemCleanerListAdapter.Item>,
-        val progress: Progress.Data?,
+        val rows: List<Row>? = null,
+        val progress: Progress.Data? = null,
     )
+
+    data class Row(val content: FilterContent) {
+        val identifier: FilterIdentifier get() = content.identifier
+    }
+
+    sealed interface Event {
+        data class ConfirmDeletion(val ids: Set<FilterIdentifier>) : Event
+
+        data class TaskResult(override val result: SystemCleanerProcessingTask.Result) : Event, ToolListEvent.ShowTaskResult
+
+        data class ExclusionsCreated(override val count: Int) : Event, ToolListEvent.ShowExclusionsCreated
+    }
 
     companion object {
         private val TAG = logTag("SystemCleaner", "List", "ViewModel")

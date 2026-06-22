@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Hantera installerade appar och deras funktioner.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d app detekterad</item>
-        <item quantity="other">%d appar detekterade</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Växla appar</string>
     <string name="appcontrol_toggle_app_enable_action">Aktivera app</string>
     <string name="appcontrol_toggle_app_disable_action">Inaktivera app</string>
@@ -34,7 +30,6 @@
     <string name="appcontrol_tag_debug">Felsökning</string>
     <string name="appcontrol_progress_enabling_package">Aktiverar app</string>
     <string name="appcontrol_progress_disabling_package">Inaktiverar app</string>
-    <string name="appcontrol_list_filteroptions_label">Filteralternativ</string>
     <string name="appcontrol_list_sortmode_name_label">Appnamn</string>
     <string name="appcontrol_list_sortmode_updated_label">Senast uppdaterad</string>
     <string name="appcontrol_list_sortmode_installed_label">Först installerad</string>
@@ -124,8 +119,4 @@
     <string name="appcontrol_item_installedat_x_label">Installerad: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Hantera installerade appar</string>
-    <string name="appcontrol_automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Inkludera andra användare</string>
-    <string name="appcontrol_include_multiuser_summary">Inkludera appar från andra användarprofiler på den här enheten.</string>
 </resources>

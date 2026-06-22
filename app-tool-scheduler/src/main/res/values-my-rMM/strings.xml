@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">%d ရက်တိုင်း</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ပြန်ပြန်ဆွဲချား</string>
     <string name="scheduler_inaccurate_execution_hint">ခန့်မှန်းအလုပ်ဆောင်ချအချားများသည် ခန့်မှန်း ချန့်အအကြေးအချားသားများအပိုဆုံးဆေးများ။ ဘုးတေရဪ သိုထားထုတ်ချပြီးသောဆုံးဆေးများကို နောက်ချများ သိုမရှိပြီးသည်။</string>
     <string name="scheduler_no_active_schedules_subtitle">ဆုံးဆေး အလုပ်ဆောင်ချများ မရှိပါ</string>
     <string name="scheduler_setting_nopowersaving_title">ဘုးတေရဪ နည်းပါးသည် ကျော်ပြန်ဆွဲရန်</string>

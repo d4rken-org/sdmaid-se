@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("projectConfig")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -16,7 +17,7 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
+        compose = true
     }
 
     setupCompileOptions()
@@ -59,14 +60,12 @@ dependencies {
 
     addAndroidCore()
     addAndroidUI()
+    addCompose()
+    addNavigation3()
     addDI()
     addCoroutines()
     addSerialization()
     addRoomDb()
-
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
@@ -77,7 +76,6 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
-    testImplementation("org.robolectric:robolectric:4.16")
     testImplementation("androidx.test.ext:junit:1.3.0")
     testImplementation("androidx.room:room-testing:2.8.4")
 }

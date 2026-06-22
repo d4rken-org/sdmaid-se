@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">ئەپپاکer automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">پاککردنەوەing default caches…</string>
-    <string name="appcleaner_automation_progress_open_settings">کراوەing settings screen (keywords: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">گەڕانing for \"ناحیەکان\" entry (keywords: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Looking for \"پاککردنەوە data\" button (keywords: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Looking for \"پاککردنەوە cache\" button (keywords: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">گشتی and private default caches. نەخێرt directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">دەسیەڵاتibility service unavailable</string>
     <string name="appcleaner_automation_unavailable_body">پاککردنەوەing inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: ناچالاککردن the option \"Include inaccessible caches\".</string>
-    <string name="appcleaner_junk_userprofile_label">بەکارهێنەر</string>
     <string name="appcleaner_delete_confirmation_message_x">سڕینەوە expendable files for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">فایلە خەرجکراوەکان بۆ %d ئەپی دیاریکراو بسڕێتەوە؟</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">بەهێزبوونی وەستانی پێش سڕینەوە</string>
     <string name="appcleaner_forcestop_before_clearing_summary">بەهێز ئەپەکان بوەستێنە پێش سڕینەوەی کاشەیان. دەتوانێت هاری سڕینەوەی کاشەکانی هەندێ ئەپ بکات، بەڵام لەوانەیە ئەپەکان خراپ بخاتە کارەوە و پێویستی بە دەستی دووبارەکردنەوە هەبێت.</string>
     <string name="appcleaner_progress_force_stopping">بەهێزبوونی وەستانی ئەپەکان…</string>
-    <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. کاش clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
-    <string name="appcleaner_automation_error_no_settings_title">ڕێکخستنەکان screen unavailable</string>
-    <string name="appcleaner_automation_loading">ئامادەکردنی ئۆتۆماتیزاسیون لە ڕێگەی خزمەتگوزاری دەستپێگەیشتنەوە</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">هەوڵدەدرێت کردارەکەی پێشوو پشتڕاست بکرێتەوە (کلیلەکان: %s)</string>
-    <string name="appcleaner_include_multiuser_label">بەکارهێنەرانی دیکەش تێبگرە</string>
-    <string name="appcleaner_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
 </resources>

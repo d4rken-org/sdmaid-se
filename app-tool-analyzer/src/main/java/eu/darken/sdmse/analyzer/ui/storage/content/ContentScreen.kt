@@ -1,0 +1,511 @@
+package eu.darken.sdmse.analyzer.ui.storage.content
+
+import android.content.ActivityNotFoundException
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyGridScope
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ViewList
+import androidx.compose.material.icons.twotone.Close
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Filter
+import androidx.compose.material.icons.twotone.GridView
+import androidx.compose.material.icons.twotone.SelectAll
+import androidx.compose.material.icons.twotone.SwipeRight
+import androidx.compose.material3.MaterialTheme
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.analyzer.core.content.ContentItem
+import eu.darken.sdmse.analyzer.core.storage.SystemStorageScanner
+import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.selection.rememberSelection
+import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.getSpanCount
+import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
+import eu.darken.sdmse.common.ui.LayoutMode
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlin.math.max
+
+@Composable
+fun ContentScreenHost(
+    route: ContentRoute,
+    vm: ContentViewModel = hiltViewModel(),
+) {
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
+
+    LaunchedEffect(route) { vm.bindRoute(route) }
+
+    val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    val snackScope = rememberCoroutineScope()
+
+    var showOtherDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(vm) {
+        vm.events.collect { event ->
+            when (event) {
+                is ContentViewModel.Event.ShowNoAccessHint -> {
+                    if (event.item.path == SystemStorageScanner.OTHER_PATH) {
+                        showOtherDialog = true
+                    } else {
+                        snackScope.launch {
+                            snackbarHostState.showSnackbar(
+                                message = context.getString(R.string.analyzer_content_access_opaque),
+                            )
+                        }
+                    }
+                }
+                is ContentViewModel.Event.ExclusionsCreated -> snackScope.launch {
+                    val message = context.resources.getQuantityString(
+                        CommonR.plurals.exclusion_x_new_exclusions,
+                        event.items.size,
+                        event.items.size,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = context.getString(CommonR.string.general_view_action),
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        if (event.items.size == 1) {
+                            vm.onOpenExclusion(event.items.single())
+                        } else {
+                            vm.navTo(ExclusionsListRoute)
+                        }
+                    }
+                }
+                is ContentViewModel.Event.ContentDeleted -> snackScope.launch {
+                    val itemText = context.resources.getQuantityString(
+                        CommonR.plurals.general_delete_success_deleted_x,
+                        event.count,
+                        event.count,
+                    )
+                    val (spaceFormatted, spaceQuantity) = ByteFormatter.formatSize(context, event.freedSpace)
+                    val spaceText = context.resources.getQuantityString(
+                        CommonR.plurals.general_result_x_space_freed,
+                        spaceQuantity,
+                        spaceFormatted,
+                    )
+                    snackbarHostState.showSnackbar(message = "$itemText $spaceText")
+                }
+                is ContentViewModel.Event.OpenContent -> {
+                    runCatching { context.startActivity(event.intent) }
+                        .onFailure { error ->
+                            if (error is ActivityNotFoundException) {
+                                snackScope.launch {
+                                    snackbarHostState.showSnackbar(
+                                        message = context.getString(CommonR.string.general_error_no_compatible_app_found_msg),
+                                    )
+                                }
+                            }
+                        }
+                }
+                is ContentViewModel.Event.SwiperSessionCreated -> snackScope.launch {
+                    val msg = context.resources.getQuantityString(
+                        R.plurals.analyzer_content_swiper_session_created_x_items,
+                        event.itemCount,
+                        event.itemCount,
+                    )
+                    val result = snackbarHostState.showSnackbar(
+                        message = msg,
+                        actionLabel = context.getString(CommonR.string.general_view_action),
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.navTo(SwiperSessionsRoute)
+                    }
+                }
+            }
+        }
+    }
+
+    ContentScreen(
+        stateSource = vm.state,
+        snackbarHostState = snackbarHostState,
+        onItemClick = vm::onItemClick,
+        onDeleteSelected = vm::onDeleteSelected,
+        onExcludeSelected = vm::onExcludeSelected,
+        onCreateFilter = vm::onCreateFilter,
+        onCreateSwiperSession = vm::onCreateSwiperSession,
+        onLayoutModeToggle = vm::onLayoutModeToggle,
+        onNavigateBack = vm::onNavigateBack,
+    )
+
+    if (showOtherDialog) {
+        SdmConfirmDialog(
+            title = stringResource(R.string.analyzer_storage_content_type_system_other_label),
+            message = stringResource(R.string.analyzer_storage_content_type_system_other_desc),
+            onDismissRequest = { showOtherDialog = false },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_dismiss_action),
+                onClick = { showOtherDialog = false },
+            ),
+        )
+    }
+}
+
+@Composable
+internal fun ContentScreen(
+    stateSource: Flow<ContentViewModel.State> = MutableStateFlow(ContentViewModel.State.Loading),
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    onItemClick: (ContentViewModel.Item) -> Unit = {},
+    onDeleteSelected: (Set<ContentItem>) -> Unit = {},
+    onExcludeSelected: (Set<ContentItem>) -> Unit = {},
+    onCreateFilter: (Set<ContentItem>) -> Unit = {},
+    onCreateSwiperSession: (Set<ContentItem>) -> Unit = {},
+    onLayoutModeToggle: () -> Unit = {},
+    onNavigateBack: () -> Unit = {},
+) {
+    val state by stateSource.collectAsStateWithLifecycle(initialValue = ContentViewModel.State.Loading)
+    val context = LocalContext.current
+
+    var selection by rememberSelection<APath>()
+    var pendingDelete by remember { mutableStateOf<Set<ContentItem>?>(null) }
+
+    BackHandler(enabled = true) {
+        if (selection.isNotEmpty()) {
+            selection = emptySet()
+        } else {
+            onNavigateBack()
+        }
+    }
+
+    when (val s = state) {
+        ContentViewModel.State.NotFound -> {
+            LaunchedEffect(Unit) { onNavigateBack() }
+            SdmScaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { },
+                        navigationIcon = {
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(CommonR.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
+                        },
+                    )
+                },
+            ) { _ -> }
+        }
+
+        ContentViewModel.State.Loading -> {
+            SdmScaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { },
+                        navigationIcon = {
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                label = stringResource(CommonR.string.general_navigate_up_action),
+                                onClick = onNavigateBack,
+                            )
+                        },
+                    )
+                },
+                snackbarHost = { SnackbarHost(snackbarHostState) },
+            ) { paddingValues ->
+                ProgressOverlay(
+                    data = null,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                ) { }
+            }
+        }
+
+        is ContentViewModel.State.Ready -> {
+            // Drop stale selection paths after upstream reshuffle.
+            val livePaths = remember(s.items) { s.items.orEmpty().map { it.content.path }.toSet() }
+            LaunchedEffect(livePaths) {
+                val intersected = selection.intersect(livePaths)
+                if (intersected.size != selection.size) selection = intersected
+            }
+
+            val selectedItems: Set<ContentItem> = remember(selection, s.items) {
+                s.items.orEmpty()
+                    .filter { it.content.path in selection }
+                    .map { it.content }
+                    .toSet()
+            }
+            val isSelectionMode = selection.isNotEmpty()
+            val noneInaccessible = selectedItems.none { it.inaccessible }
+
+            val spanCount = if (s.layoutMode == LayoutMode.GRID) {
+                max(context.getSpanCount(widthDp = 144), 3)
+            } else 1
+
+            SdmScaffold(
+                topBar = {
+                    if (isSelectionMode) {
+                        TopAppBar(
+                            title = {
+                                Text(
+                                    pluralStringResource(
+                                        CommonR.plurals.result_x_items,
+                                        selection.size,
+                                        selection.size,
+                                    ),
+                                )
+                            },
+                            navigationIcon = {
+                                SdmTooltipIconButton(
+                                    icon = Icons.TwoTone.Close,
+                                    label = stringResource(CommonR.string.general_close_action),
+                                    onClick = { selection = emptySet() },
+                                )
+                            },
+                            actions = {
+                                val all = remember(s.items) {
+                                    s.items.orEmpty().map { it.content.path }.toSet()
+                                }
+                                if (selection.size < all.size) {
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.SelectAll,
+                                        label = stringResource(CommonR.string.general_list_select_all_action),
+                                        onClick = { selection = all },
+                                    )
+                                }
+                                if (!s.isReadOnly && noneInaccessible) {
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Delete,
+                                        label = stringResource(CommonR.string.general_delete_action),
+                                        onClick = { pendingDelete = selectedItems },
+                                    )
+                                }
+                                SdmTooltipIconButton(
+                                    icon = SdmIcons.ShieldAdd,
+                                    label = stringResource(CommonR.string.general_exclude_action),
+                                    onClick = {
+                                        onExcludeSelected(selectedItems)
+                                        selection = emptySet()
+                                    },
+                                )
+                                if (!s.isReadOnly && noneInaccessible) {
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Filter,
+                                        label = stringResource(CommonR.string.general_filter_action),
+                                        onClick = {
+                                            onCreateFilter(selectedItems)
+                                            selection = emptySet()
+                                        },
+                                    )
+                                    SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.SwipeRight,
+                                        label = stringResource(R.string.analyzer_content_create_swiper_session_action),
+                                        onClick = {
+                                            onCreateSwiperSession(selectedItems)
+                                            selection = emptySet()
+                                        },
+                                    )
+                                }
+                            },
+                        )
+                    } else {
+                        TopAppBar(
+                            title = {
+                                Column {
+                                    s.title?.let {
+                                        Text(it.get(context))
+                                    }
+                                    s.subtitle?.let {
+                                        Text(
+                                            text = it.get(context),
+                                            style = MaterialTheme.typography.bodySmall,
+                                        )
+                                    }
+                                }
+                            },
+                            navigationIcon = {
+                                SdmTooltipIconButton(
+                                    icon = Icons.AutoMirrored.TwoTone.ArrowBack,
+                                    label = stringResource(CommonR.string.general_navigate_up_action),
+                                    onClick = onNavigateBack,
+                                )
+                            },
+                            actions = {
+                                SdmTooltipIconButton(
+                                    icon = when (s.layoutMode) {
+                                        LayoutMode.LINEAR -> Icons.TwoTone.GridView
+                                        LayoutMode.GRID -> Icons.AutoMirrored.TwoTone.ViewList
+                                    },
+                                    label = stringResource(CommonR.string.general_toggle_layout_mode),
+                                    onClick = onLayoutModeToggle,
+                                )
+                            },
+                        )
+                    }
+                },
+                snackbarHost = { SnackbarHost(snackbarHostState) },
+            ) { paddingValues ->
+                ProgressOverlay(
+                    data = s.progress,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                ) {
+                    if (s.progress == null && s.items != null) {
+                        val onToggleSelection: (APath) -> Unit = { itemPath ->
+                            selection = if (itemPath in selection) selection - itemPath else selection + itemPath
+                        }
+                        when (s.layoutMode) {
+                            LayoutMode.LINEAR -> LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = SdmListDefaults.FullWidthContentPadding,
+                            ) {
+                                if (s.showSystemInfoBanner) {
+                                    item(key = "info-banner") {
+                                        ContentInfoBanner(modifier = Modifier.padding(horizontal = 16.dp))
+                                    }
+                                }
+                                contentRows(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
+                            }
+
+                            LayoutMode.GRID -> LazyVerticalGrid(
+                                columns = GridCells.Fixed(spanCount),
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp),
+                            ) {
+                                if (s.showSystemInfoBanner) {
+                                    item(
+                                        key = "info-banner",
+                                        span = { GridItemSpan(maxLineSpan) },
+                                    ) {
+                                        ContentInfoBanner()
+                                    }
+                                }
+                                contentTiles(s.items, selection, isSelectionMode, onItemClick, onToggleSelection)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    pendingDelete?.let { items ->
+        SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_delete_confirmation_title),
+            message = pluralStringResource(
+                CommonR.plurals.general_delete_confirmation_message_selected_x_items,
+                items.size,
+                items.size,
+            ),
+            onDismissRequest = { pendingDelete = null },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_delete_action),
+                onClick = {
+                    onDeleteSelected(items)
+                    pendingDelete = null
+                    selection = emptySet()
+                },
+            ),
+            negative = SdmDialogAction(
+                label = stringResource(CommonR.string.general_cancel_action),
+                onClick = { pendingDelete = null },
+            ),
+        )
+    }
+}
+
+private fun LazyListScope.contentRows(
+    items: List<ContentViewModel.Item>,
+    selection: Set<APath>,
+    isSelectionMode: Boolean,
+    onItemClick: (ContentViewModel.Item) -> Unit,
+    onToggleSelection: (APath) -> Unit,
+) {
+    items(
+        count = items.size,
+        key = { idx -> items[idx].content.path.path },
+    ) { idx ->
+        val item = items[idx]
+        ContentItemRow(
+            item = item,
+            isSelected = item.content.path in selection,
+            isSelectionMode = isSelectionMode,
+            onTap = {
+                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+            },
+            onLongPress = { onToggleSelection(item.content.path) },
+        )
+    }
+}
+
+private fun LazyGridScope.contentTiles(
+    items: List<ContentViewModel.Item>,
+    selection: Set<APath>,
+    isSelectionMode: Boolean,
+    onItemClick: (ContentViewModel.Item) -> Unit,
+    onToggleSelection: (APath) -> Unit,
+) {
+    items(
+        count = items.size,
+        key = { idx -> items[idx].content.path.path },
+    ) { idx ->
+        val item = items[idx]
+        ContentItemTile(
+            item = item,
+            isSelected = item.content.path in selection,
+            isSelectionMode = isSelectionMode,
+            onTap = {
+                if (isSelectionMode) onToggleSelection(item.content.path) else onItemClick(item)
+            },
+            onLongPress = { onToggleSelection(item.content.path) },
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentScreenLoadingPreview() {
+    PreviewWrapper {
+        ContentScreen()
+    }
+}

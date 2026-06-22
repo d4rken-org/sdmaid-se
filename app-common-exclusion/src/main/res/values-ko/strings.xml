@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">AppControl 도구를 이용해 앱 제외를 만드세요.</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer 도구를 이용해 경로 제외를 만드세요.</string>
     <string name="exclusion_show_defaults_action">기본값 표시</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
 </resources>

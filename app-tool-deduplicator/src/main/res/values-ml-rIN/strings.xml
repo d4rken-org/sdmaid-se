@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ഒരു ഫയലും ബാക്കി ഇല്ലാതെ ഡ്യൂപ്ലിക്കേറ്റ് സെറ്റിലെ എല്ലാ ഫയലുകളും ഡിലീറ്റ് ചെയ്യാൻ അനുവദിക്കുന്ന ഓപ്ഷൻസ് കാണിക്കുക.</string>
     <string name="deduplicator_search_locations_title">തിരയൽ സ്ഥാനങ്ങൾ</string>
     <string name="deduplicator_search_locations_all_summary">ആക്‍സസ് ചെയ്യാൻ കഴിയുന്ന എല്ലാ ഇടങ്ങളും</string>
-    <string name="deduplicator_keep_prefer_paths_title">ഇതിൽ സൂക്ഷിക്കാൻ ഇഷ്ടപ്പെടുക</string>
-    <string name="deduplicator_keep_prefer_paths_summary">ഏത് ഡ്യൂപ്ലിക്കേറ്റ് സൂക്ഷിക്കണമെന്ന് തീരുമാനിക്കുമ്പോൾ, ഈ ലൊക്കേഷനുകളിൽ ഫയലുകൾ സൂക്ഷിക്കാൻ ഇഷ്ടപ്പെടുക.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ലൊക്കേഷനുകൾ ക്രമീകരിച്ചിട്ടില്ല</string>
     <string name="deduplicator_skip_minsize_title">കുറഞ്ഞ വലുപ്പം</string>
     <string name="deduplicator_skip_minsize_description">കുറഞ്ഞ വലുപ്പത്തിൽ താഴെയുള്ള ഫയലുകൾ ഒഴിവാക്കുക.</string>
     <string name="deduplicator_skip_uncommon_title">അസാധാരണ ഫയൽ തരങ്ങൾ ഒഴിവാക്കുക</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">ഉള്ളടക്ക സവിശേഷതകൾ വിശകലനം ചെയ്ത് പെർസെപ്ച്വൽ ഹാഷ് മൂല്യങ്ങൾ താരതമ്യം ചെയ്ത് സമാന ഫയലുകൾ കണ്ടെത്തുക. ⚠️ സമാനത അടിസ്ഥാനത്തിലുള്ള കണ്ടെത്തൽ തെറ്റായ ഫലങ്ങൾ നൽകിയേക്കാം, അതിന് സ്വമേധയായ പരിശോധന ആവശ്യമായി വരും.</string>
     <string name="deduplicator_detection_method_media_title">മീഡിയ ഫിംഗർപ്രിന്റ്</string>
     <string name="deduplicator_detection_method_media_summary">ഓഡിയോ ഫിംഗർപ്രിന്റുകൾ വിശകലനം ചെയ്ത് സമാനമായ വീഡിയോ, ഓഡിയോ ഫയലുകൾ കണ്ടെത്തുക. ⚠️ സാദൃശ്യ അടിസ്ഥാനത്തിലുള്ള കണ്ടെത്തൽ തെറ്റായ ഫലങ്ങൾ ഉൾക്കൊള്ളാം, അതിനാൽ സ്വമേധയാ പരിശോധന ആവശ്യമാണ്.</string>
-    <string name="deduplicator_matches_media_label">സമാന മീഡിയ</string>
     <string name="deduplicator_media_match_audio">ഓഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
     <string name="deduplicator_media_match_visual">വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
     <string name="deduplicator_media_match_audio_visual">ഓഡിയോ, വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>

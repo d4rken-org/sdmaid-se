@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничи совпаѓања врз основа на старост на датотека (време на последна промена). Оставете го непоставено за совпаѓање на било која старост.</string>
     <string name="systemcleaner_customfilter_import_action">Увези нов филтер</string>
     <string name="systemcleaner_customfilter_export_action">Извези избран филтер</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате незачувани промени!</string>
 </resources>

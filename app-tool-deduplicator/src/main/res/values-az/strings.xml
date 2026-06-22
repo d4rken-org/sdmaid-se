@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikat dəstində bütün faylları silməyə imkan verən seçimləri göstər, beləliklə heç bir fayl qalmaz.</string>
     <string name="deduplicator_search_locations_title">Axtarış yerleri</string>
     <string name="deduplicator_search_locations_all_summary">Bütün əlçatan sahələr</string>
-    <string name="deduplicator_keep_prefer_paths_title">Burada saxlamağa üstünlük ver</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Hansı dublikatın saxlanacağına qərar verərkən, faylların bu məkanlarda saxlanılmasına üstünlük ver.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Heç bir məkan konfiqurasiya edilməyib</string>
     <string name="deduplicator_skip_minsize_title">Minimum ölçü</string>
     <string name="deduplicator_skip_minsize_description">Minimum ölçüdən kiçik olan faylları keç.</string>
     <string name="deduplicator_skip_uncommon_title">Qeyri-adi fayl növlərini keç</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Məzmun xüsusiyyətlərini təhlil edərək və qavrayış həş perceptual hash dəyərlərini müqayisə edərək bənzər faylları tapın. ⚠️ Bənzərlik əsaslı aşkarlama əl ilə yoxlama tələb edən yanlış müsbət false positive nəticələr verə bilər.</string>
     <string name="deduplicator_detection_method_media_title">Media barmaq izi</string>
     <string name="deduplicator_detection_method_media_summary">Səs barmaq izlərini analiz edərək oxşar video və audio faylları tapın. ⚠️ Oxşarlığa əsaslanan aşkarlama, əl ilə yoxlama tələb edən yanlış müsbət nəticələr verə bilər.</string>
-    <string name="deduplicator_matches_media_label">Oxşar media</string>
     <string name="deduplicator_media_match_audio">Səsə əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_visual">Videoya əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_audio_visual">Səs və videoya əsaslanan uyğunluq</string>

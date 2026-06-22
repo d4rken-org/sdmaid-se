@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Na vytvorenie vylúčení aplikácií použite nástroj Kontrola aplikácií.</string>
     <string name="exclusion_create_path_hint">Na vytvorenie vylúčení ciest použite nástroj Analyzátor úložiska.</string>
     <string name="exclusion_show_defaults_action">Zobraziť predvolené</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Máte neuložené zmeny!</string>
 </resources>

@@ -23,6 +23,9 @@ class DebugSettings @Inject constructor(
     val isTraceMode = dataStore.createValue("debug.trace.enabled", false)
     val isDryRunMode = dataStore.createValue("debug.dryrun.enabled", false)
 
+    /** Whether the floating in-app log panel is shown. Persisted so it re-appears after restart. */
+    val floatingLogVisible = dataStore.createValue("debug.logview.floating.visible", false)
+
     val recorderPath = dataStore.createValue<String?>("recorder.log.path", null)
 
 }

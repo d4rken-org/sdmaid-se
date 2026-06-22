@@ -19,7 +19,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">매 %d일</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">반복 간격</string>
     <string name="scheduler_inaccurate_execution_hint">예상 실행 시간은 근사치입니다. 배터리를 절약하면 예약이 지연되거나 빨라질 수 있습니다.</string>
     <string name="scheduler_no_active_schedules_subtitle">활성 일정이 없습니다</string>
     <string name="scheduler_setting_nopowersaving_title">배터리 낮을 때 스킵하기</string>

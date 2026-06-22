@@ -1,60 +1,55 @@
 package eu.darken.sdmse.main.ui.settings.cards
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.DashboardCardConfig
+import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
 class DashboardCardConfigViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
-) : ViewModel3(dispatcherProvider) {
-
-    val state = generalSettings.dashboardCardConfig.flow.map { config ->
-        val cardItems = config.cards.mapIndexed { index, entry ->
-            DashboardCardConfigAdapter.CardItem(
-                cardEntry = entry,
-                position = index,
-                onVisibilityToggle = { toggleVisibility(it) },
-            )
-        }
-        State(
-            items = listOf(DashboardCardConfigAdapter.HeaderItem()) + cardItems,
-        )
-    }.asLiveData2()
+) : ViewModel4(dispatcherProvider, TAG) {
 
     data class State(
-        val items: List<DashboardCardConfigAdapter.Item>,
+        val entries: List<DashboardCardConfig.CardEntry> = emptyList(),
     )
 
-    fun onItemsReordered(items: List<DashboardCardConfigAdapter.Item>) = launch {
-        val cardItems = items.filterIsInstance<DashboardCardConfigAdapter.CardItem>()
-        log(TAG) { "onItemsReordered(): ${cardItems.map { it.cardEntry.type }}" }
-        val newConfig = DashboardCardConfig(
-            cards = cardItems.map { it.cardEntry }
-        )
-        generalSettings.dashboardCardConfig.value(newConfig)
+    val state: StateFlow<State> = generalSettings.dashboardCardConfig.flow
+        .map { config -> State(entries = config.cards) }
+        .safeStateIn(State()) { State() }
+
+    fun applyReorder(newOrder: List<DashboardCardType>) = launch {
+        val current = generalSettings.dashboardCardConfig.value()
+        val byType = current.cards.associateBy { it.type }
+        val reordered = newOrder.mapNotNull { byType[it] }
+
+        // If reorder does not include all known types (drag-in-progress snapshot drift), bail out.
+        if (reordered.size != current.cards.size) {
+            log(TAG) { "applyReorder($newOrder) ignored: size mismatch with ${current.cards.size}" }
+            return@launch
+        }
+
+        if (reordered.map { it.type } == current.cards.map { it.type }) return@launch
+
+        log(TAG) { "applyReorder(): ${reordered.map { it.type }}" }
+        generalSettings.dashboardCardConfig.value(DashboardCardConfig(cards = reordered))
     }
 
-    private fun toggleVisibility(item: DashboardCardConfigAdapter.CardItem) = launch {
-        log(TAG) { "toggleVisibility(): ${item.cardEntry.type} -> ${!item.cardEntry.isVisible}" }
-        val currentConfig = generalSettings.dashboardCardConfig.value()
-        val newCards = currentConfig.cards.map { entry ->
-            if (entry.type == item.cardEntry.type) {
-                entry.copy(isVisible = !entry.isVisible)
-            } else {
-                entry
-            }
+    fun toggleVisibility(type: DashboardCardType) = launch {
+        val current = generalSettings.dashboardCardConfig.value()
+        val newCards = current.cards.map { entry ->
+            if (entry.type == type) entry.copy(isVisible = !entry.isVisible) else entry
         }
+        log(TAG) { "toggleVisibility($type): ${newCards.first { it.type == type }.isVisible}" }
         generalSettings.dashboardCardConfig.value(DashboardCardConfig(cards = newCards))
     }
 

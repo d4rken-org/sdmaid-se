@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Brug AppControl-værktøjet til at oprette app-eksklusioner.</string>
     <string name="exclusion_create_path_hint">Brug StorageAnalyzer-værktøjet til at oprette stieksklusioner.</string>
     <string name="exclusion_show_defaults_action">Vis standarder</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
 </resources>

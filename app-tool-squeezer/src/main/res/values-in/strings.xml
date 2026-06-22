@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Kompres gambar dan video untuk menghemat ruang penyimpanan.</string>
+    <string name="squeezer_explanation_short">Perkecil gambar untuk menghemat ruang penyimpanan.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d item ditemukan</item>
+        <item quantity="other">%d gambar ditemukan</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">~%s dapat dihemat</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d item dikompres</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="other">%d gagal</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="other">%d file dilewati (tidak dapat diakses)</item>
+        <item quantity="other">%d gambar dikompresi</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d item dipilih</item>
+        <item quantity="other">%d gambar dipilih</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Lokasi pencarian</string>
-    <string name="squeezer_search_locations_default_summary">Folder kamera (bawaan)</string>
     <string name="squeezer_min_size_title">Ukuran file minimum</string>
-    <string name="squeezer_min_size_description">Lewati file yang lebih kecil dari ukuran ini.</string>
+    <string name="squeezer_min_size_description">Lewati gambar yang lebih kecil dari ukuran ini.</string>
     <string name="squeezer_min_age_title">Umur file minimum</string>
-    <string name="squeezer_min_age_description">Hanya sertakan file yang lebih lama dari usia ini.</string>
-    <string name="squeezer_compression_settings_label">Umum</string>
-    <string name="squeezer_quality_label">Kualitas</string>
-    <string name="squeezer_quality_title">Kualitas kompresi</string>
-    <string name="squeezer_quality_description">Kualitas lebih rendah berarti ukuran file lebih kecil tetapi kualitas visual berkurang.</string>
-    <string name="squeezer_quality_example_format">Contoh: gambar %1$s → menghemat ~%2$s pada kualitas %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Kualitas yang lebih rendah dapat menyebabkan artefak yang terlihat.</string>
-    <string name="squeezer_quality_warning_high">Kualitas yang sangat tinggi memberikan penghematan ruang yang minimal.</string>
-    <string name="squeezer_types_category_label">Pengaturan gambar</string>
-    <string name="squeezer_video_settings_category_label">Pengaturan video</string>
+    <string name="squeezer_min_age_description">Hanya sertakan gambar yang lebih lama dari umur ini.</string>
+    <string name="squeezer_compression_settings_label">Pengaturan kompresi</string>
+    <string name="squeezer_quality_description">Kualitas yang lebih rendah berarti ukuran file yang lebih kecil tetapi kualitas gambar yang berkurang.</string>
+    <string name="squeezer_types_category_label">Jenis gambar</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Sertakan gambar JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Sertakan gambar WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Sertakan file video MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Lewati yang sudah dikompresi</string>
-    <string name="squeezer_skip_compressed_description">Lewati file yang sudah dikompresi oleh SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Lewati gambar yang sudah dikompresi oleh SD Maid.</string>
     <string name="squeezer_exif_marker_title">Tulis penanda EXIF</string>
     <string name="squeezer_exif_marker_description">Tambahkan penanda pada bidang komentar pengguna EXIF gambar untuk mencegah kompresi ulang meskipun riwayat kompresi dihapus.</string>
     <string name="squeezer_estimated_savings_format">~%s penghematan</string>
@@ -52,36 +36,23 @@
     <string name="squeezer_preview_dialog_title">Konfirmasi kompresi</string>
     <string name="squeezer_preview_total_size">Ukuran total</string>
     <string name="squeezer_preview_estimated_savings">Perkiraan penghematan</string>
-    <string name="squeezer_compress_confirmation_title">Kompres item yang dipilih?</string>
-    <string name="squeezer_compress_confirmation_message">Ini akan menggantikan file asli dengan versi yang dikompresi. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="squeezer_history_title">Riwayat kompresi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d item (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">Tidak ada riwayat kompresi</string>
     <string name="squeezer_history_clear_title">Hapus riwayat kompresi</string>
-    <string name="squeezer_history_clear_message">Ini akan memungkinkan file yang sebelumnya dikompresi untuk dikompresi kembali. File itu sendiri tidak terpengaruh.</string>
-    <string name="squeezer_onboarding_title">Tentang Kompresi Gambar</string>
-    <string name="squeezer_onboarding_message">Kompresi gambar mengurangi ukuran file dengan menghapus detail visual. Proses ini tidak dapat dibalik - kualitas asli tidak dapat dipulihkan.\n\nBerikut pratinjau tampilan gambar Anda:</string>
+    <string name="squeezer_history_clear_message">Ini akan memungkinkan gambar yang sudah dikompresi untuk dikompresi lagi. Gambar itu sendiri tidak terpengaruh.</string>
     <string name="squeezer_onboarding_original_label">Asli</string>
     <string name="squeezer_onboarding_compressed_label">Setelah kompresi</string>
-    <string name="squeezer_onboarding_video_original_label">Bingkai video</string>
-    <string name="squeezer_onboarding_video_compressed_label">Pratinjau (perkiraan)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Kualitas video aktual mungkin berbeda</string>
-    <string name="squeezer_onboarding_quality_label">Kualitas: %d%%</string>
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tidak ada gambar ditemukan di jalur yang dipilih.</string>
-    <string name="squeezer_result_empty_message">Tidak ada media yang dapat dikompresi ditemukan.</string>
-    <string name="squeezer_setup_warning">Kompresi secara permanen mengurangi kualitas untuk menghemat ruang penyimpanan. Ini tidak dapat dibatalkan. Tinjau pengaturan Anda dengan cermat sebelum memulai.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="other">%d lokasi tidak dapat digunakan untuk kompresi dan telah dihapus. Kompresi memerlukan akses langsung ke penyimpanan internal.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze mengurangi ukuran file gambar dan video untuk membebaskan ruang penyimpanan. Ini secara permanen mengurangi kualitas dan tidak dapat dibatalkan. Tinjau pengaturan Anda dengan cermat sebelum memulai.</string>
+    <string name="squeezer_result_empty_message">Tidak ada gambar yang dapat dikompresi ditemukan.</string>
+    <string name="squeezer_setup_explanation">Optimasi Media mengurangi ukuran file gambar untuk membebaskan ruang penyimpanan. Ini secara permanen mengurangi kualitas gambar dan tidak dapat dibatalkan. Tinjau pengaturan Anda dengan cermat sebelum memulai.</string>
     <string name="squeezer_setup_paths_title">Lokasi pencarian</string>
     <string name="squeezer_setup_paths_default">Pilih folder untuk dicari</string>
     <string name="squeezer_setup_quality_title">Kualitas kompresi</string>
     <string name="squeezer_setup_age_title">Umur minimal</string>
-    <string name="squeezer_setup_age_none">Tanpa batas (sertakan semua file)</string>
     <string name="squeezer_setup_start_action">Mulai Pemindaian</string>
     <string name="squeezer_quality_hint_very_low">Kualitas di bawah 40% dapat menghasilkan gambar yang tidak dapat digunakan.</string>
     <string name="squeezer_quality_hint_low">Kualitas yang lebih rendah menghemat lebih banyak ruang tetapi dapat menyebabkan artefak yang terlihat.</string>
@@ -90,6 +61,5 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">Minimal %d hari</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Estimasi ~%d%% penghematan untuk gambar</string>
-    <string name="squeezer_onboarding_got_it">Mengerti</string>
+    <string name="squeezer_estimated_savings_percent">Perkiraan ~%d%% penghematan untuk file JPEG</string>
 </resources>

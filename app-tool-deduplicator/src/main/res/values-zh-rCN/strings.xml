@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">显示允许您删除一组重复文件中的所有文件的选项，实现一键清空</string>
     <string name="deduplicator_search_locations_title">搜索位置</string>
     <string name="deduplicator_search_locations_all_summary">所有可访问区域</string>
-    <string name="deduplicator_keep_prefer_paths_title">偏好保留位置</string>
-    <string name="deduplicator_keep_prefer_paths_summary">在决定保留哪个重复文件时，偏好保留在这些位置的文件。</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">未配置位置</string>
     <string name="deduplicator_skip_minsize_title">最小文件大小</string>
     <string name="deduplicator_skip_minsize_description">跳过小于最小大小的文件</string>
     <string name="deduplicator_skip_uncommon_title">跳过不常见的文件类型</string>
@@ -25,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">通过分析内容特征并比较感知哈希值来查找相似文件。⚠️ 基于相似度的检测可能包含需要人工验证的误报。</string>
     <string name="deduplicator_detection_method_media_title">媒体指纹</string>
     <string name="deduplicator_detection_method_media_summary">通过分析音频指纹查找相似的视频和音频文件。⚠️ 基于相似度的检测可能包含误报，需要手动验证。</string>
-    <string name="deduplicator_matches_media_label">相似媒体</string>
     <string name="deduplicator_media_match_audio">基于音频的匹配</string>
     <string name="deduplicator_media_match_visual">基于视频的匹配</string>
     <string name="deduplicator_media_match_audio_visual">基于音频和视频的匹配</string>

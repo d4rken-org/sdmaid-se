@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.progress
 
 import android.content.Context
 import android.text.format.Formatter
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.easterEggProgressMsg
@@ -12,7 +11,6 @@ import kotlin.math.ceil
 interface Progress {
 
     data class Data(
-        val icon: CaDrawable? = null,
         val primary: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
         val secondary: CaString = easterEggProgressMsg.toCaString(),
         val count: Count = Count.Indeterminate(),

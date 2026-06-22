@@ -20,7 +20,6 @@
         <item quantity="one">සෑම %d දිනම</item>
         <item quantity="other">සියලු %d දිනම</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">සරටි අන්තරාලය</string>
     <string name="scheduler_inaccurate_execution_hint">පේක්ෂිත කාර්යාන්විත වේලා ආසන්න කාර්යය. බැටරිය හාමාකරන්න නම් වේලාව යැක් හැරීම හෝ ඵැන කරන්න පුළුවාන්.</string>
     <string name="scheduler_no_active_schedules_subtitle">සක්‍රිය වේලාව නොමැත</string>
     <string name="scheduler_setting_nopowersaving_title">අළ බැටරිය විට මකා හමන්න</string>

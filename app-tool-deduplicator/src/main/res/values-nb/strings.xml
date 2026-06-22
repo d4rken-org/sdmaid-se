@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Vis alternativer som lar deg slette alle filer i et sett med duplikater, slik at ingen filer blir igjen.</string>
     <string name="deduplicator_search_locations_title">Søkeplasseringer</string>
     <string name="deduplicator_search_locations_all_summary">Alle tilgjengelige områder</string>
-    <string name="deduplicator_keep_prefer_paths_title">Foretrekk å beholde i</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Når det bestemmes hvilken duplikat som skal beholdes, foretrekk filer på disse stedene.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Ingen steder konfigurert</string>
     <string name="deduplicator_skip_minsize_title">Minste størrelse</string>
     <string name="deduplicator_skip_minsize_description">Hopp over filer som er under minste størrelse.</string>
     <string name="deduplicator_skip_uncommon_title">Hopp over uvanlige filtyper</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdsfunksjoner og sammenligne perseptuelle hashverdier. ⚠️ Likhetsbasert deteksjon kan inkludere falske positiver som krever manuell verifisering.</string>
     <string name="deduplicator_detection_method_media_title">Mediefingeravtrykk</string>
     <string name="deduplicator_detection_method_media_summary">Finn lignende video- og lydfiler ved å analysere lydfingeravtrykk. ⚠️ Likhetbasert gjenkjenning kan inkludere falske positiver som krever manuell verifisering.</string>
-    <string name="deduplicator_matches_media_label">Lignende medier</string>
     <string name="deduplicator_media_match_audio">Lydbasert treff</string>
     <string name="deduplicator_media_match_visual">Videobasert treff</string>
     <string name="deduplicator_media_match_audio_visual">Lyd- og videobasert treff</string>

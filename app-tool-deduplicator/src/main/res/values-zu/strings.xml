@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Bonisa izinketho ezikuvumela ukuthi ususe wonke amafayela esetheni sokukhophisa ukuze kungabi nafayela elisele.</string>
     <string name="deduplicator_search_locations_title">Izindawo zokusesha</string>
     <string name="deduplicator_search_locations_all_summary">Zonke izindawo ezifikelekayo</string>
-    <string name="deduplicator_keep_prefer_paths_title">Khetha ukugcina ku</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Uma uqukethwe ukuthi yikuphi okufanayo okugcinwa, khetha ukugcina amafayela kulezi zindawo.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Azikho izindawo ezihlongoziwe</string>
     <string name="deduplicator_skip_minsize_title">Usayizi omncane</string>
     <string name="deduplicator_skip_minsize_description">Yeqa amafayela angaphansi kosayizi omncane.</string>
     <string name="deduplicator_skip_uncommon_title">Yeqa izinhlobo zamafayela angavamile</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Thola amafayela afanayo ngokuhlaziya izici zokuqukethwe nokuqhathanisa amagugu e-hash okuqonda. ⚠️ Ukutholwa okungesokunembile okusekelwe kufanayo kungafaka imiphumela engalona iqiniso edinga ukuqinisekiswa ngesandla.</string>
     <string name="deduplicator_detection_method_media_title">Uphawu lwemidiya</string>
     <string name="deduplicator_detection_method_media_summary">Thola amafayela efuziwe evidiyo namazwi ngokuhlaziya izimpawu zamazwi. ⚠️ Ukutholwa okusekelwe okulunganayo kungahlanganisa izinto ezingeyizo ezidinga ukuqinisekiswa ngesandla.</string>
-    <string name="deduplicator_matches_media_label">Imidiya efanayo</string>
     <string name="deduplicator_media_match_audio">Ukufanana okusekelwe kumazwi</string>
     <string name="deduplicator_media_match_visual">Ukufanana okusekelwe evidiyo</string>
     <string name="deduplicator_media_match_audio_visual">Ukufanana okusekelwe kumazwi nasevidiyo</string>

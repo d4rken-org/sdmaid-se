@@ -20,7 +20,6 @@
         <item quantity="one">Kundalik</item>
         <item quantity="other">Har %d kunda</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Takrorlash oralig\'i</string>
     <string name="scheduler_inaccurate_execution_hint">Kutilgan bajarilish vaqtlari taxminiydir. Batareyani tejash uchun rejalar kechiktirilishi yoki tezlashtirilishi mumkin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Faol rejalar yo\'q</string>
     <string name="scheduler_setting_nopowersaving_title">Kam batareyada o\'tkazib yuborish</string>

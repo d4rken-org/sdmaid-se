@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">சேமிப்பு இடத்தை மிச்சப்படுத்த படங்கள் மற்றும் வீடியோக்களை சுருக்கவும்.</string>
+    <string name="squeezer_explanation_short">சேமிப்பிடத்தை மிச்சப்படுத்த படங்களை சுருக்கவும்.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d உருப்படி கண்டுபிடிக்கப்பட்டது</item>
-        <item quantity="other">%d உருப்படிகள் கண்டுபிடிக்கப்பட்டன</item>
+        <item quantity="one">%d படம் கண்டுபிடிக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் கண்டுபிடிக்கப்பட்டன</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s மிச்சப்படுத்தலாம்</item>
         <item quantity="other">~%s மிச்சப்படுத்தலாம்</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d உருப்படி சுருக்கப்பட்டது</item>
-        <item quantity="other">%d உருப்படிகள் சுருக்கப்பட்டன</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d தோல்வியுற்றது</item>
-        <item quantity="other">%d தோல்வியுற்றன</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d கோப்பு தவிர்க்கப்பட்டது (அணுக இயலவில்லை)</item>
-        <item quantity="other">%d கோப்புகள் தவிர்க்கப்பட்டன (அணுக இயலவில்லை)</item>
+        <item quantity="one">%d படம் சுருக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் சுருக்கப்பட்டன</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d உருப்படி தேர்ந்தெடுக்கப்பட்டுள்ளது</item>
-        <item quantity="other">%d உருப்படிகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
+        <item quantity="one">%d படம் தேர்ந்தெடுக்கப்பட்டது</item>
+        <item quantity="other">%d படங்கள் தேர்ந்தெடுக்கப்பட்டன</item>
     </plurals>
-    <string name="squeezer_search_locations_title">தேடல் இடங்கள்</string>
-    <string name="squeezer_search_locations_default_summary">கேமரா கோப்புறைகள் (இயல்புநிலை)</string>
     <string name="squeezer_min_size_title">குறைந்தபட்ச கோப்பு அளவு</string>
-    <string name="squeezer_min_size_description">இந்த அளவை விட சிறிய கோப்புகளை தவிர்க்கவும்.</string>
+    <string name="squeezer_min_size_description">இந்த அளவை விட சிறிய படங்களைத் தவிர்.</string>
     <string name="squeezer_min_age_title">குறைந்தபட்ச கோப்பு வயது</string>
-    <string name="squeezer_min_age_description">இந்த வயதை விட பழைய கோப்புகளை மட்டும் சேர்க்கவும்.</string>
-    <string name="squeezer_compression_settings_label">போது</string>
-    <string name="squeezer_quality_label">தரம்</string>
-    <string name="squeezer_quality_title">சுருக்கத் தரம்</string>
-    <string name="squeezer_quality_description">குறைந்த தரம் என்பது சிறிய கோப்பு அளவைக் குறிக்கும், ஆனால் காட்சி தரம் குறையும்.</string>
-    <string name="squeezer_quality_example_format">எடுத்துக்காட்டு: %1$s படம் → %3$d%% தரத்தில் ~%2$s மிச்சம்</string>
-    <string name="squeezer_quality_warning_low">குறைந்த தரங்களில் கண்ணுக்குத் தெரியும் குறைபாடுகள் ஏற்படலாம்.</string>
-    <string name="squeezer_quality_warning_high">மிக உயர் தரம் குறைந்தபட்ச இட மிச்சத்தை வழங்குகிறது.</string>
-    <string name="squeezer_types_category_label">படம் அமைப்புகள்</string>
-    <string name="squeezer_video_settings_category_label">வீடியோ அமைப்புகள்</string>
+    <string name="squeezer_min_age_description">இந்த வயதை விட பழைய படங்களை மட்டும் சேர்.</string>
+    <string name="squeezer_compression_settings_label">சுருக்க அமைப்புகள்</string>
+    <string name="squeezer_quality_description">குறைந்த தரம் என்பது சிறிய கோப்பு அளவு ஆனால் குறைந்த படத் தரம்.</string>
+    <string name="squeezer_types_category_label">படம் வகைகள்</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG படங்களைச் (.jpg, .jpeg) சேர்.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP படங்களைச் (.webp) சேர்.</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 வீடியோ கோப்புகளை (.mp4) சேர்க்கவும்.</string>
     <string name="squeezer_skip_compressed_title">முன்பு சுருக்கப்பட்டவற்றைத் தவிர்</string>
-    <string name="squeezer_skip_compressed_description">SD Maid ஆல் ஏற்கனவே சுருக்கப்பட்ட கோப்புகளை தவிர்க்கவும்.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ஏற்கனவே சுருக்கிய படங்களைத் தவிர்.</string>
     <string name="squeezer_exif_marker_title">EXIF குறிப்பான் எழுது</string>
     <string name="squeezer_exif_marker_description">சுருக்க வரலாறு அழிக்கப்பட்டாலும் மீண்டும் சுருக்குவதைத் தடுக்க படத்தின் EXIF பயனர் கருத்து புலத்தில் குறிப்பானை இணை.</string>
     <string name="squeezer_estimated_savings_format">~%s மிச்சம்</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>
     <string name="squeezer_preview_total_size">மொத்த அளவு</string>
     <string name="squeezer_preview_estimated_savings">மதிப்பிடப்பட்ட மிச்சம்</string>
-    <string name="squeezer_compress_confirmation_title">தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை சுருக்கவா?</string>
-    <string name="squeezer_compress_confirmation_message">இது அசல் கோப்புகளை சுருக்கப்பட்ட பதிப்புகளால் மாற்றும். இந்த செயலை மீட்டெடுக்க முடியாது.</string>
     <string name="squeezer_history_title">சுருக்க வரலாறு</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d உருப்படி (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">சுருக்க வரலாறு இல்லை</string>
     <string name="squeezer_history_clear_title">சுருக்க வரலாற்றை அழி</string>
-    <string name="squeezer_history_clear_message">இது முந்பு சுருக்கப்பட்ட கோப்புகளை மீண்டும் சுருக்க அனுமதிக்கும். கோப்புகளே பாதிக்கப்படாது.</string>
-    <string name="squeezer_onboarding_title">பட சுருக்கம் பற்றி</string>
-    <string name="squeezer_onboarding_message">பட சுருக்கம் காட்சி விவரங்களை நீக்குவதன் மூலம் கோப்பு அளவைக் குறைக்கிறது. இந்தச் செயல்முறை மீளமுடியாதது - அசல் தரத்தை மீட்டெடுக்க முடியாது.\n\nஉங்கள் படங்கள் எப்படி இருக்கும் என்பதன் முன்னோட்டம்:</string>
+    <string name="squeezer_history_clear_message">இது முன்பு சுருக்கப்பட்ட படங்களை மீண்டும் சுருக்க அனுமதிக்கும். படங்கள் பாதிக்கப்படாது.</string>
     <string name="squeezer_onboarding_original_label">அசல்</string>
     <string name="squeezer_onboarding_compressed_label">சுருக்கத்திற்குப் பிறகு</string>
-    <string name="squeezer_onboarding_video_original_label">வீடியோ சட்டகம்</string>
-    <string name="squeezer_onboarding_video_compressed_label">முன்னோட்டம் (தோராயமான)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">உண்மையான வீடியோ தரம் வேறுபடலாம்</string>
-    <string name="squeezer_onboarding_quality_label">தரம்: %d%%</string>
     <string name="squeezer_compare_action">ஒப்பீட்டைக் காண்</string>
     <string name="squeezer_no_example_found">தேர்ந்தெடுக்கப்பட்ட பாதைகளில் படங்கள் காணப்படவில்லை.</string>
-    <string name="squeezer_result_empty_message">சுருக்கக்கூடிய ஊடகம் எதுவும் கிடைக்கவில்லை.</string>
-    <string name="squeezer_setup_warning">சுருக்கம் தரத்தை நிரந்தரமாக குறைக்கும், சேமிப்பு இடத்தை மிச்சப்படுத்த. இதை மீட்டெடுக்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக சரிபார்க்கவும்.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d இடத்தை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டது. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
-        <item quantity="other">%d இடங்களை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டன. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">மீடியா ஸ்கீஸ் படங்கள் மற்றும் வீடியோக்களின் கோப்பு அளவை சேமிப்பு இடத்தை விடுவிக்க குறைக்கிறது. இது தரத்தை நிரந்தரமாக குறைக்கும், மீட்டெடுக்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக சரிபார்க்கவும்.</string>
+    <string name="squeezer_result_empty_message">சுருக்கக்கூடிய படங்கள் காணப்படவில்லை.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze சேமிப்பிடத்தை விடுவிக்க படங்களின் கோப்பு அளவைக் குறைக்கிறது. இது படத் தரத்தை நிரந்தரமாகக் குறைக்கிறது, இதை மீட்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக மதிப்பாய்வு செய்யவும்.</string>
     <string name="squeezer_setup_paths_title">தேடல் இடங்கள்</string>
     <string name="squeezer_setup_paths_default">தேட கோப்புறைகளைத் தேர்ந்தெடு</string>
     <string name="squeezer_setup_quality_title">சுருக்கத் தரம்</string>
     <string name="squeezer_setup_age_title">குறைந்தபட்ச வயது</string>
-    <string name="squeezer_setup_age_none">வரம்பு இல்லை (அனைத்து கோப்புகளையும் சேர்)</string>
     <string name="squeezer_setup_start_action">ஸ்கேன் தொடங்கு</string>
     <string name="squeezer_quality_hint_very_low">40%க்கு கீழ் தரம் பயன்படுத்த முடியாத படங்களை உருவாக்கலாம்.</string>
     <string name="squeezer_quality_hint_low">குறைந்த தரம் அதிக இடத்தை மிச்சப்படுத்தும் ஆனால் கண்ணுக்குத் தெரியும் குறைபாடுகள் ஏற்படலாம்.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">குறைந்தது %d நாள் பழமையானது</item>
         <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">படங்களுக்கு ~%d%% சேமிப்பு மதிப்பிடப்பட்டுள்ளது</string>
-    <string name="squeezer_onboarding_got_it">புரிந்தது</string>
+    <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% மிச்சம்</string>
 </resources>

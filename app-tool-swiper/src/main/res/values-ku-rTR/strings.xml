@@ -9,7 +9,6 @@
     <string name="swiper_start_action">دەست بکە بە هەڵسوڕاندن</string>
     <string name="swiper_continue_action">دانیشتن بەردەوام بکە</string>
     <string name="swiper_select_folders_action">بوخچەکان هەڵبژێرە</string>
-    <string name="swiper_scanning_title">سکان دەکرێت…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d شت دۆزرایەوە</item>
         <item quantity="other">%d شت دۆزرانەوە</item>
@@ -22,8 +21,6 @@
     <string name="swiper_status_action_keep_selected">هەڵبژێردراوەکان بهێڵەوە</string>
     <string name="swiper_status_action_delete_selected">هەڵبژێردراوەکان بسڕەوە</string>
     <string name="swiper_status_action_reset_selected">هەڵبژێردراوەکان ڕیسێت بکەوە</string>
-    <string name="swiper_decision_undecided">بڕیار نەدراو</string>
-    <string name="swiper_retry_action">دووبارە هەوڵبدەرەوە</string>
     <string name="swiper_delete_confirmation_title">فایلەکان بسڕیتەوە؟</string>
     <string name="swiper_no_preview_available">پێشبینینی بەردەست نییە</string>
     <string name="swiper_sessions_header_title">ئامادەیت بۆ ڕێکخستنەوە؟</string>

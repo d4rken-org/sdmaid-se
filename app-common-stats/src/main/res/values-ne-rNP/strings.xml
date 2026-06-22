@@ -8,7 +8,6 @@
         <item quantity="one">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तु प्रक्रिया गरिएको छ।</item>
         <item quantity="other">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तुहरू प्रक्रिया गरिएका छन्।</item>
     </plurals>
-    <string name="stats_report_status_success">सफलता</string>
     <string name="stats_report_status_partial_success">आंशिक सफलता</string>
     <string name="stats_report_status_partial_failure">असफलता</string>
     <string name="stats_settings_desc">SD Maid को तथ्याङ्क, प्रतिवेदनहरू र डेटा प्रतिधारण कन्फिगर गर्नुहोस्।</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">आधारभूत SD Maid संचालन प्रतिवेदनहरू मेटाउनुअगि दिनहरूको संख्या।</string>
     <string name="stats_settings_retention_paths_label">विस्तृत पथ जानकारी</string>
     <string name="stats_settings_retention_paths_desc">SD Maid द्वारा प्रभावित पथहरूको विवरण राख्न दिनहरूको संख्या।</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d दिन</item>
-        <item quantity="other">%d दिनहरू</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">सबै रिसेट गर्नुहोस्</string>
     <string name="stats_settings_reset_all_desc">सबै प्रतिवेदनहरू मेटाउनुहोस् र सबै तथ्याङ्क शून्यमा सेट गर्नुहोस्।</string>
     <string name="stats_affected_paths_label">प्रभावित पथहरू</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
     <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>
     <string name="stats_storage_type_portable">पोर्टेबल भण्डारण</string>
-    <string name="stats_space_history_delete_storage_title">भण्डारण इतिहास मेटाउने?</string>
-    <string name="stats_space_history_delete_storage_desc">यस भण्डारणका सबै ट्रेन्ड डेटा स्थायी रूपमा मेटाइनेछ।</string>
-    <string name="stats_settings_retention_snapshots_label">भण्डारण स्न्यापशटहरू</string>
-    <string name="stats_settings_retention_snapshots_desc">भण्डारण स्थान स्न्यापशटहरू राख्ने दिनहरूको संख्या।</string>
 </resources>

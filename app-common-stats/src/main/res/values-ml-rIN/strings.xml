@@ -8,7 +8,6 @@
         <item quantity="one">നിങ്ങൾ SD Maid ഉപകരണത്തിൽ സ്വാഗതം ചെയ്തതിന് ശേഷം %s ആയടം പ്രക്രിയക്കപ്പെട്ടു.</item>
         <item quantity="other">നിങ്ങൾ SD Maid ഉപകരണത്തിൽ സ്വാഗതം ചെയ്തതിന് ശേഷം %s ആയടങ്ങൾ പ്രക്രിയക്കപ്പെട്ടു.</item>
     </plurals>
-    <string name="stats_report_status_success">വിജയം</string>
     <string name="stats_report_status_partial_success">ഭാഗിക വിജയം</string>
     <string name="stats_report_status_partial_failure">പരാജയം</string>
     <string name="stats_settings_desc">SD Maidന്റെ സ്റാറ്റിസ്റിക്സും റിപ്പോർട്ടുകൺം ഡേറ്റ റിടെൻഷർം ക്രമീകരിക്കുക.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">അടിസ്ഥാന SD Maid പ്രവർത്തന റിപ്പോർട്ടുകൾ ഇല്ലാതാക്കുന്നതിന് മുമ്പ്യുള്ള ദിവസങ്ങളുടെ എണ്ണം.</string>
     <string name="stats_settings_retention_paths_label">വിസ്തൃത പാത് വിവരം</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ബാധിച്ച പാതുകൾകുരിച്ച് വിവരങ്ങൾ സൂക്ഷിക്കുന്ന ദിവസ඙്ങളുടെ എണ്ണം.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ദിവസം</item>
-        <item quantity="other">%d ദിവസ඙്ങൾ</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">എല്ലാം റീസെറ്റ് ചെയ്യുക</string>
     <string name="stats_settings_reset_all_desc">എല്ലാ റിപ്പോർട്ടുകൾ ഇല്ലാതാക്കുകയും എല്ലാ സ്റാറ്റിസ്റിക്സും ശൂന്യമാക്കുകയും ചെയ്യുക.</string>
     <string name="stats_affected_paths_label">ബാധിക്കപ്പെട്ട പാതുകൾ</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">പ്രാഥമിക സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_secondary">ദ്വിതീയ സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_portable">പോർട്ടബിൾ സ്റ്റോറേജ്</string>
-    <string name="stats_space_history_delete_storage_title">സ്റ്റോറേജ് ചരിത്രം ഇല്ലാതാക്കണോ?</string>
-    <string name="stats_space_history_delete_storage_desc">ഈ സ്റ്റോറേജിനായുള്ള എല്ലാ ട്രെൻഡ് ഡേറ്റയും സ്ഥിരമായി ഇല്ലാതാക്കും.</string>
-    <string name="stats_settings_retention_snapshots_label">സ്റ്റോറേജ് സ്നാപ്പ്ഷോട്ടുകൾ</string>
-    <string name="stats_settings_retention_snapshots_desc">സ്റ്റോറേജ് സ്പേസ് സ്നാപ്പ്ഷോട്ടുകൾ സൂക്ഷിക്കേണ്ട ദിവസങ്ങളുടെ എണ്ണം.</string>
 </resources>

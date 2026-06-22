@@ -8,7 +8,6 @@
         <item quantity="one">%s item na naproseso mula nang imbitahan ninyo ang SD Maid sa inyong device.</item>
         <item quantity="other">%s mga item na naproseso mula nang imbitahan ninyo ang SD Maid sa inyong device.</item>
     </plurals>
-    <string name="stats_report_status_success">Tagumpay</string>
     <string name="stats_report_status_partial_success">Bahagyang tagumpay</string>
     <string name="stats_report_status_partial_failure">Nabigo</string>
     <string name="stats_settings_desc">I-configure ang mga statistics, report at data retention ng SD Maid.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Bilang ng mga araw bago burahin ang mga basic SD Maid operation report.</string>
     <string name="stats_settings_retention_paths_label">Detalyadong path information</string>
     <string name="stats_settings_retention_paths_desc">Ang bilang ng mga araw na panatilihin ang mga detalye tungkol sa mga path na naapektuhan ng SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d araw</item>
-        <item quantity="other">%d mga araw</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">I-reset lahat</string>
     <string name="stats_settings_reset_all_desc">Burahin ang lahat ng report at i-set ang lahat ng statistics sa zero.</string>
     <string name="stats_affected_paths_label">Mga naapektuhang path</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Pangunahing imbakan</string>
     <string name="stats_storage_type_secondary">Pangalawang imbakan</string>
     <string name="stats_storage_type_portable">Portable na imbakan</string>
-    <string name="stats_space_history_delete_storage_title">Burahin ang kasaysayan ng storage?</string>
-    <string name="stats_space_history_delete_storage_desc">Lahat ng trend data para sa storage na ito ay permanenteng mabubura.</string>
-    <string name="stats_settings_retention_snapshots_label">Mga snapshot ng imbakan</string>
-    <string name="stats_settings_retention_snapshots_desc">Bilang ng mga araw na itatago ang mga snapshot ng espasyo ng imbakan.</string>
 </resources>

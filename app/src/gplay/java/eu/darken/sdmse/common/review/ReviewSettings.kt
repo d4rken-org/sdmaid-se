@@ -6,8 +6,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.serialization.json.Json
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.datastore.PreferenceScreenData
-import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import java.time.Instant
@@ -18,19 +16,15 @@ import javax.inject.Singleton
 class ReviewSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     json: Json,
-) : PreferenceScreenData {
+) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_review_gplay")
 
-    override val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val lastDismissed = dataStore.createValue("review.dismissedAt", null as Instant?, json)
     val reviewedAt = dataStore.createValue("review.reviewedAt", null as Instant?, json)
-
-    override val mapper = PreferenceStoreMapper(
-
-    )
 
     companion object {
         internal val TAG = logTag("Review", "Settings", "Gplay")

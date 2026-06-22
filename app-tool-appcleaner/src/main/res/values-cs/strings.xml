@@ -70,7 +70,6 @@
     </plurals>
     <string name="appcleaner_automation_title">Automatizace Čističe aplikací</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čištění výchozích mezipamětí…</string>
-    <string name="appcleaner_automation_progress_open_settings">Otevírání obrazovky nastavení (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Hledání položky \"Úložiště\" (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Hledání tlačítka \"Vyčistit data\" (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Hledání tlačítka \"Vyčistit mezipaměť\" (klíčová slova: %s)</string>
@@ -78,7 +77,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
     <string name="appcleaner_automation_unavailable_body">K vyčištění nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
-    <string name="appcleaner_junk_userprofile_label">Uživatel</string>
     <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné soubory pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Smazat nepotřebné soubory pro %d vybranou aplikaci?</item>
@@ -95,10 +93,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynutit ukončení před čištěním</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynutit ukončení aplikací před čištěním jejich mezipaměti. Může pomoci vyčistit některé mezipaměti aplikací, ale i způsobit špatné chování aplikace a vyžadovat její manuální restart.</string>
     <string name="appcleaner_progress_force_stopping">Vynucuji ukončení aplikací…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
-    <string name="appcleaner_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
-    <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
 </resources>

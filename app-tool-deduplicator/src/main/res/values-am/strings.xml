@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">በተመሳሳዩ ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች መሰረዝ የሚያስችሉ አማራጮችን አሳይ፣ ስለዚህ ምንም ፋይል አይቀርም።</string>
     <string name="deduplicator_search_locations_title">የፍለጋ ቦታዎች</string>
     <string name="deduplicator_search_locations_all_summary">ሁሉም ሊደረስባቸው የሚችሉ አካባቢዎች</string>
-    <string name="deduplicator_keep_prefer_paths_title">ለማስቀመጥ ተመራጭ ቦታ</string>
-    <string name="deduplicator_keep_prefer_paths_summary">የትኛውን ተመሳሳይ ማስቀመጥ እንዳለብ ሲወሰን፣ በእነዚህ ቦታዎች ያሉ ፋይሎችን ማስቀመጥ ይመረጣል።</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">ምንም ቦታዎች አልተዋቀሩም</string>
     <string name="deduplicator_skip_minsize_title">ዝቅተኛ መጠን</string>
     <string name="deduplicator_skip_minsize_description">ከዝቅተኛ መጠን በታች ያሉ ፋይሎችን ዝለል።</string>
     <string name="deduplicator_skip_uncommon_title">ያልተለመዱ የፋይል ዓይነቶችን ዝለል</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">የይዘት ባህሪያትን በመተንተንና የማስተዋል ሃሽ ዋጋዎችን በማነጻጸር ተመሳሳይ ፋይሎችን ያግኙ። ⚠️ በተመሳሳይነት ላይ የተመሰረተ ግኝት በእጅ ማረጋገጫ የሚያስፈልጋቸውን የሐሰት አዎንታዊ ውጤቶች ሊያካትት ይችላል።</string>
     <string name="deduplicator_detection_method_media_title">የሚዲያ ጣት አሻራ</string>
     <string name="deduplicator_detection_method_media_summary">የድምፅ ጣት አሻራዎችን በመተንተን ተመሳሳይ ቪዲዮ እና ድምፅ ፋይሎችን ያግኙ። ⚠️ ተመሳሳይነት ላይ የተመሰረተ ማወቅ የሐሰት አዎንታዊ ውጤቶችን ሊያካትት ይችላል፣ ይህም ከእጅ ማረጋገጥ ያስፈልጋል።</string>
-    <string name="deduplicator_matches_media_label">ተመሳሳይ ሚዲያ</string>
     <string name="deduplicator_media_match_audio">በድምፅ ላይ የተመሰረተ ተዛምዶ</string>
     <string name="deduplicator_media_match_visual">በቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>
     <string name="deduplicator_media_match_audio_visual">በድምፅ እና ቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>

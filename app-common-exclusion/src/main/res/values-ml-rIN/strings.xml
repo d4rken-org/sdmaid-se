@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ആപ്പ് ഒഴിവാക്കലുകൾ സൃഷ്ടിക്കാൻ AppControl ടൂൾ ഉപയോഗിക്കുക.</string>
     <string name="exclusion_create_path_hint">പാത് ഒഴിവാക്കലുകൾ സൃഷ്ടിക്കാൻ StorageAnalyzer ടൂൾ ഉപയോഗിക്കുക.</string>
     <string name="exclusion_show_defaults_action">ഡിഫോൺൽട് കാണിക്കുക</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ ഉണ്ട്!</string>
 </resources>

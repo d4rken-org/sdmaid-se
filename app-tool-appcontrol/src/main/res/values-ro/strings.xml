@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplicațiile instalate pe dispozitivul tău.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplicație detectată</item>
-        <item quantity="few">%d aplicații detectate</item>
-        <item quantity="other">%d aplicații detectate</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Comutare aplicații</string>
     <string name="appcontrol_toggle_app_enable_action">Activează aplicația</string>
     <string name="appcontrol_toggle_app_disable_action">Dezactivează aplicația</string>
@@ -35,7 +30,6 @@
     <string name="appcontrol_tag_debug">Depanare</string>
     <string name="appcontrol_progress_enabling_package">Se activează aplicația</string>
     <string name="appcontrol_progress_disabling_package">Se dezactivează aplicația</string>
-    <string name="appcontrol_list_filteroptions_label">Opțiuni pentru filtre</string>
     <string name="appcontrol_list_sortmode_name_label">Numele aplicației</string>
     <string name="appcontrol_list_sortmode_updated_label">Ultima actualizare</string>
     <string name="appcontrol_list_sortmode_installed_label">Prima dată instalată</string>
@@ -135,8 +129,4 @@
     <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
     <string name="shortcut_appcontrol_short">Controlul Aplicațiilor</string>
     <string name="shortcut_appcontrol_long">Gestionați aplicațiile instalate</string>
-    <string name="appcontrol_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Includeți alți utilizatori</string>
-    <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
 </resources>

@@ -12,7 +12,6 @@
         <item quantity="many">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
         <item quantity="other">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
     </plurals>
-    <string name="stats_report_status_success">Úspech</string>
     <string name="stats_report_status_partial_success">Čiastočný úspech</string>
     <string name="stats_report_status_partial_failure">Zlyhanie</string>
     <string name="stats_settings_desc">Nakonfigurujte štatistiky, správy a uchovávanie údajov SD Maid.</string>
@@ -21,12 +20,6 @@
     <string name="stats_settings_retention_reports_desc">Počet dní pred odstránením základných správ o prevádzke SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Podrobné informácie o ceste</string>
     <string name="stats_settings_retention_paths_desc">Počet dní uchovávania podrobností o cestách ovplyvnených službou SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d deň</item>
-        <item quantity="few">%d dni</item>
-        <item quantity="many">%d dní</item>
-        <item quantity="other">%d dní</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Obnoviť všetko</string>
     <string name="stats_settings_reset_all_desc">Odstráňte všetky prehľady a nastavte všetky štatistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovplyvnené cesty</string>
@@ -50,8 +43,4 @@
     <string name="stats_storage_type_primary">Primárne úložisko</string>
     <string name="stats_storage_type_secondary">Sekundárne úložisko</string>
     <string name="stats_storage_type_portable">Prenosné úložisko</string>
-    <string name="stats_space_history_delete_storage_title">Odstrániť históriu úloziška?</string>
-    <string name="stats_space_history_delete_storage_desc">Všetky údaje trendov pre toto úloziško budú natrvalo odstránené.</string>
-    <string name="stats_settings_retention_snapshots_label">Snímky úložiska</string>
-    <string name="stats_settings_retention_snapshots_desc">Počet dní na uchovanie snímok úložného priestoru.</string>
 </resources>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">កម្មវិធីដែលតិត្តាក់នៅឧបករណ៍អ្នក។</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">បានរក %d កម្មវិធី</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">បន្ត្ឡកម្មវិធី</string>
     <string name="appcontrol_toggle_app_enable_action">បង្កើតកម្មវិធី</string>
     <string name="appcontrol_toggle_app_disable_action">បិតកម្មវិធី</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">ដ្បាកស្ញើងត្រូវបាន</string>
     <string name="appcontrol_progress_enabling_package">កំពុងបង្កើតកម្មវិធី</string>
     <string name="appcontrol_progress_disabling_package">កំពុងបិតកម្មវិធី</string>
-    <string name="appcontrol_list_filteroptions_label">ជម្រើសប័ន្ទ័វរង់</string>
     <string name="appcontrol_list_sortmode_name_label">ឈ្មំកម្មវិធី</string>
     <string name="appcontrol_list_sortmode_updated_label">ត្រូវបានអ្ផ័ឡកចុងបន្ថែយ</string>
     <string name="appcontrol_list_sortmode_installed_label">តិត្តាក់ដំបូង</string>
@@ -113,8 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">បានដំឡើងនៅ: %s</string>
     <string name="shortcut_appcontrol_short">ការគ្រប់គ្រងកម្មវិធី</string>
     <string name="shortcut_appcontrol_long">គ្រប់គ្រងកម្មវិធីដែលបានដំឡើង</string>
-    <string name="appcontrol_automation_loading">កំពុងរៀបចំស្វ័យប្រវត្តិតាមរយៈសេវាភាពងាយស្រួល</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">កំពុងព្យាយាមបញ្ជាក់សកម្មភាពមុន (ពាក្យគន្លឹះ: %s)</string>
-    <string name="appcontrol_include_multiuser_label">រួមបញ្ចូលអ្នកប្រើប្រាស់ផ្សេងទៀត</string>
-    <string name="appcontrol_include_multiuser_summary">រួមបញ្ចូលកម្មវិធីពីព្រឮក្នុងស្រកប់អ្នកផ្សេងអ្នកនៅលើសកសន្និតនេ៴</string>
 </resources>

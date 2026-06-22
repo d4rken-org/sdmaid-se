@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner avtomatlashtirilishi</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standart keshlarni tozalash…</string>
-    <string name="appcleaner_automation_progress_open_settings">Sozlamalar ekranini ochish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Xotira\" yozuvini qidirish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Ma\'lumotlarni tozalash\" tugmasini qidirish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keshni tozalash\" tugmasini qidirish (kalit so\'zlar: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Umumiy va shaxsiy standart keshlar. Bevosita kirish mumkin emas, lekin bilvosita o\'chirish mumkin (masalan, kirish xizmati orqali).</string>
     <string name="appcleaner_automation_unavailable_title">Kirish xizmati mavjud emas</string>
     <string name="appcleaner_automation_unavailable_body">Kirish mumkin bo\'lmagan keshlarni tozalash SD Maid ning kirish xizmatini talab qiladi, lekin u mavjud emas edi. Agar undan foydalanishni istamasangiz: \"Kirish mumkin bo\'lmagan keshlarni qo\'shish\" variantini o\'chiring.</string>
-    <string name="appcleaner_junk_userprofile_label">Foydalanuvchi</string>
     <string name="appcleaner_delete_confirmation_message_x">%s uchun sarflash mumkin bo\'lgan fayllarni o\'chirish kerakmi?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d tanlangan ilova uchun sarflash mumkin bo\'lgan fayllarni o\'chirish kerakmi?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tozalashdan oldin majburiy to\'xtatish</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keshni tozalashdan oldin ilovalarni majburiy to\'xtatish. Ba\'zi ilovalar keshini tozalashga yordam beradi, lekin ilovalar noto\'g\'ri ishlashi va qo\'lda qayta ishga tushirishni talab qilishi mumkin.</string>
     <string name="appcleaner_progress_force_stopping">Ilovalar majburiy to\'xtatilmoqda…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ushbu tizim ilovasida sozlamalar ekrani yo\'q. Kirish xizmati orqali kesh tozalash mumkin emas. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Sozlamalar ekrani mavjud emas</string>
-    <string name="appcleaner_automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
-    <string name="appcleaner_include_multiuser_summary">Ushbu qurilmadagi boshqa foydalanuvchi profillaridagi ilovalarni qo\'shish.</string>
 </resources>

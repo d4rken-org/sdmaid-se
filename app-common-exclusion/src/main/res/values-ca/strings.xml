@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Utilitzeu l\'eina de Control d\'aplicacions per crear exclusions d\'aplicacions.</string>
     <string name="exclusion_create_path_hint">Utilitzeu l\'eina Analitzador d\'emmagatzematge per crear exclusions de rutes.</string>
     <string name="exclusion_show_defaults_action">Mostra els valors per defecte</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
 </resources>

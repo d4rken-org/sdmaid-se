@@ -39,8 +39,12 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
+import eu.darken.sdmse.common.upgrade.isProSettled
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
@@ -59,6 +63,14 @@ import eu.darken.sdmse.setup.SetupBinding
 import javax.inject.Provider
 import javax.inject.Singleton
 
+private val AppCleanerTask.requiresPro: Boolean
+    get() = when (this) {
+        is AppCleanerScanTask -> false
+        is AppCleanerProcessingTask -> true
+        is AppCleanerSchedulerTask -> true
+        is AppCleanerOneClickTask -> true
+    }
+
 @Singleton
 class AppCleaner @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -74,6 +86,7 @@ class AppCleaner @Inject constructor(
     private val shellOps: ShellOps,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
+    private val upgradeRepo: UpgradeRepo,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -106,8 +119,28 @@ class AppCleaner @Inject constructor(
     }.replayingShare(appScope)
 
     private val toolLock = Mutex()
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
+
+    /** Drops the current scan results (and only those — progress, settings and task history are unaffected). */
+    suspend fun discardScanData() = toolLock.withLock {
+        log(TAG) { "discardScanData()" }
+        internalData.value = null
+    }
+
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         task as AppCleanerTask
+
+        // Pro gate at the API boundary: defense-in-depth so a UI mistake can't run a Pro-only task
+        // for free. Checked before acquiring toolLock so the (possibly waiting) Pro check never
+        // holds the lock and blocks other submits.
+        if (task.requiresPro && !upgradeRepo.isProSettled()) {
+            log(TAG, WARN) { "submit() denied, Pro upgrade required: $task" }
+            throw UpgradeRequiredException(type)
+        }
+
+        return performTask(task)
+    }
+
+    private suspend fun performTask(task: AppCleanerTask): SDMTool.Task.Result = toolLock.withLock {
         log(TAG) { "submit(): Starting...$task" }
         updateProgress { Progress.Data() }
         try {
@@ -169,7 +202,7 @@ class AppCleaner @Inject constructor(
         scanner.initialize()
 
         val results = scanner.withProgress(this) {
-            scan()
+            scan(pkgFilter = task.pkgIdFilter)
         }
 
         log(TAG) { "Warming up fields..." }
@@ -350,7 +383,7 @@ class AppCleaner @Inject constructor(
         )
     }
 
-    suspend fun exclude(identifiers: Set<InstallId>) = toolLock.withLock {
+    suspend fun exclude(identifiers: Set<InstallId>): ExclusionUndo = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
         // FIXME what about user specific exclusion?
@@ -360,15 +393,40 @@ class AppCleaner @Inject constructor(
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
         }.toSet()
-        exclusionManager.save(exclusions)
+        val saved = exclusionManager.save(exclusions)
 
         val snapshot = internalData.value!!
-        internalData.value = snapshot.copy(
+        val updated = snapshot.copy(
             junks = snapshot.junks.filter { junk ->
                 exclusions.none { it.match(junk.identifier.pkgId) }
             }
         )
+        internalData.value = updated
+
+        ExclusionUndo(
+            exclusionIds = saved.map { it.id }.toSet(),
+            previousData = snapshot,
+            postExcludeData = updated,
+        )
     }
+
+    suspend fun undoExclude(handle: ExclusionUndo) = toolLock.withLock {
+        log(TAG, INFO) { "undoExclude(${handle.exclusionIds})" }
+        if (handle.exclusionIds.isNotEmpty()) {
+            exclusionManager.remove(handle.exclusionIds)
+        }
+        if (internalData.value === handle.postExcludeData) {
+            internalData.value = handle.previousData
+        } else {
+            log(TAG, WARN) { "undoExclude: state moved on, only removed exclusions" }
+        }
+    }
+
+    data class ExclusionUndo(
+        val exclusionIds: Set<ExclusionId>,
+        internal val previousData: Data,
+        internal val postExcludeData: Data,
+    )
 
     suspend fun exclude(identifier: InstallId, exclsionTargets: Set<APath>) = toolLock.withLock {
         log(TAG) { "exclude(): $identifier, $exclsionTargets" }

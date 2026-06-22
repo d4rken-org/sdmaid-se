@@ -33,16 +33,9 @@
     <string name="general_empty_label">Bos</string>
     <string name="general_new_badge_label">Taza</string>
     <string name="general_dismiss_action">Jabıw</string>
-    <string name="general_maybe_later_action">Moǵdan kiyın</string>
     <string name="general_manage_action">Basqarıw</string>
-    <string name="general_sync_action">Sáykeslestiriw</string>
     <string name="general_error_label">Qátelik</string>
-    <string name="general_tap_hint_msg">Kóbirek tańlawlar ushın basıń</string>
     <string name="general_upgrade_action">Jańalaw</string>
-    <string name="general_donate_action">Qollap-quwatlaw</string>
-    <string name="general_check_action">Tekseriw</string>
-    <string name="general_filter_action">Filtr</string>
-    <string name="general_internal_not_available_msg">Internet baylanısı joq</string>
     <string name="general_refresh_action">Jańalaw</string>
     <string name="general_progress_searching">Izlenbekte</string>
     <string name="general_progress_generating_searchpaths">Izlew jollardı jasaw</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">Gezekte</string>
     <string name="general_progress_deleting">Óshiriw</string>
     <string name="general_progress_deleting_x">%s óshiriw</string>
-    <string name="general_sort_action">Сортлаў</string>
-    <string name="general_sort_by_title">Сортлаў тәртиби</string>
-    <string name="general_sort_options_label">Tartıplew tańlawları</string>
     <string name="general_sort_reverse_action">Tartıplew modesin teskers etew</string>
-    <string name="general_sort_oldest_first">Ең ески биринши</string>
-    <string name="general_sort_newest_first">Ең жаңа биринши</string>
-    <string name="general_sort_name_asc">Ат (А → Я)</string>
-    <string name="general_sort_size_desc">Ең үлкен биринши</string>
-    <string name="general_tag_filter_label">Teglar boyınsha filtrlew</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Amal jetiskerli</string>
-    <string name="general_result_failure_message">Amal jetiskersiz</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s orın bostatıldı.</item>
         <item quantity="other">%s orın bostatıldı.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">Óshiriw</string>
     <string name="general_delete_selected_action">Tańlanǵanlardı óshiriw</string>
     <string name="general_show_details_action">Egjeyli maǵlıwmatlardı kórsetew</string>
-    <string name="general_show_all_action">Barlıǵın kórsetew</string>
     <string name="general_toggle_layout_mode">Kóriw modesin ózgertew</string>
     <string name="general_delete_confirmation_title">Óshiriwdi tastıyıqlaw</string>
     <string name="general_delete_confirmation_message_x">\"%s\" óshirilsin be?</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d element óshirildi.</item>
     </plurals>
     <string name="general_remove_action">Alıp taslaw</string>
-    <string name="general_remove_selected_action">Tańlanǵanlardı óshiriw</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Bir element alıp taslaldı</item>
         <item quantity="other">%d element alıp taslaldı</item>
     </plurals>
-    <string name="general_root_required_label">Root kerek</string>
-    <string name="general_root_required_message">Root qurılması kerek</string>
     <string name="general_search_action">Izlew</string>
-    <string name="general_scan_device_action">Qurılmanı skanerlew</string>
     <string name="general_open_system_settings_action">Sistema sazlawların ashıw</string>
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">Maǵlıwmat</string>
     <string name="general_count_label">Muǵdar</string>
-    <string name="general_app_label">Baǵdarlama</string>
     <string name="general_more_info_action">Kóbirek maǵlıwmat</string>
     <string name="general_grant_access_action">Ruqsat beriw</string>
     <string name="general_enable_service_action">Xızmetti qosıw</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">Tańlanǵanlardı ashqa shıǵarıw</string>
     <string name="general_device_label">Qurılma</string>
     <string name="general_settings_title">Sazlawlar</string>
-    <string name="general_help_title">Járdem</string>
     <string name="general_hints_label">Esletpe</string>
     <string name="file_type_symbolic_link">Silteme</string>
     <string name="file_type_directory">Papka</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">Iye</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>
-    <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
-    <string name="upgrade_feature_requires_pro">Pro talab etiledi</string>
     <string name="general_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
     <string name="general_include_multiuser_summary">Basqa user profilelardan applicationlarni qosıw.</string>
     <string name="general_unsaved_confirmation_message">Saqlanbaǵan ózgerislerińiz bar!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">Qáwip dárejesi</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="appcontrol_systemsettings_open_title">Sazlawlardı kórsetiw</string>
-    <string name="systemcleaner_customfilter_create_action">Maqşıtlı filter jaratlıw</string>
 </resources>

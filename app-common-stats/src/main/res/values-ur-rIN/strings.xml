@@ -8,7 +8,6 @@
         <item quantity="one">%s آئٹم پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
         <item quantity="other">%s آئٹمز پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
     </plurals>
-    <string name="stats_report_status_success">کامیاب</string>
     <string name="stats_report_status_partial_success">جزوی کامیابی</string>
     <string name="stats_report_status_partial_failure">ناکامی</string>
     <string name="stats_settings_desc">SD Maid کے شماریات، رپورٹس اور ڈیٹا برقراری کا نظم بنائیں۔</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">بنیادی SD Maid آپریشن رپورٹس کو حذف کرنے سے پہلے دنوں کی تعداد۔</string>
     <string name="stats_settings_retention_paths_label">تفصیلی پاتھ کی معلومات</string>
     <string name="stats_settings_retention_paths_desc">SD Maid کے ذریعے متاثر پاتھز کی تفصیلات رکھنے کے لیے دنوں کی تعداد۔</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d دن</item>
-        <item quantity="other">%d دن</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">تمام ری سیٹ کریں</string>
     <string name="stats_settings_reset_all_desc">تمام رپورٹس حذف کریں اور تمام شماریات صفر پر رکھیں۔</string>
     <string name="stats_affected_paths_label">متاثر پاتھز</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">بنیادی اسٹوریج</string>
     <string name="stats_storage_type_secondary">ثانوی اسٹوریج</string>
     <string name="stats_storage_type_portable">پورٹابل اسٹوریج</string>
-    <string name="stats_space_history_delete_storage_title">اسٹوریج کی تاریخ حذف کریں؟</string>
-    <string name="stats_space_history_delete_storage_desc">اس اسٹوریج کا تمام رجحان کا ڈیٹا مستقل طور پر حذف ہو جائے گا۔</string>
-    <string name="stats_settings_retention_snapshots_label">اسٹوریج اسنیپ شاٹس</string>
-    <string name="stats_settings_retention_snapshots_desc">اسٹوریج اسپیس اسنیپ شاٹس کو رکھنے کے دنوں کی تعداد۔</string>
 </resources>

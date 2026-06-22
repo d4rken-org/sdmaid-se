@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Συνέχεια συνεδρίας</string>
     <string name="swiper_sessions_description">Ελέγξτε αρχεία σε 3 απλά βήματα:\n\n1. Επιλέξτε φάκελο για σάρωση\n2. Σαρώστε αρχεία για διατήρηση, διαγραφή ή παράλειψη\n3. Ελέγξτε τις επιλογές σας και επιβεβαιώστε\n\nΤίποτα δεν αφαιρείται μέχρι να πατήσετε το τελικό κουμπί διαγραφής.</string>
     <string name="swiper_select_folders_action">Επιλογή φακέλων</string>
-    <string name="swiper_scanning_title">Σάρωση…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">Βρέθηκε %d αντικείμενο</item>
         <item quantity="other">Βρέθηκαν %d αντικείμενα</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Διατήρηση επιλεγμένων</string>
     <string name="swiper_status_action_delete_selected">Διαγραφή επιλεγμένου</string>
     <string name="swiper_status_action_reset_selected">Επαναφορά επιλεγμένων</string>
-    <string name="swiper_decision_undecided">Αναποφάσιστο</string>
-    <string name="swiper_retry_action">Επανάληψη</string>
     <string name="swiper_delete_confirmation_title">Διαγραφή αρχείων;</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Αυτό θα διαγράψει οριστικά %1$d αρχείο (%2$s). Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d αναποφάσιστο</item>
         <item quantity="other">%d αναποφάσιστα</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d ήδη διατηρημένο</item>
-        <item quantity="other">%d ήδη διατηρημένα</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ήδη διαγραμμένο</item>
-        <item quantity="other">%d ήδη διαγραμμένα</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d διατηρημένο</item>
         <item quantity="other">%d διατηρημένα</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Το κατάλαβα</string>
-    <string name="swiper_help_action">Βοήθεια</string>
     <string name="swiper_file_type_filter_title">Εμφάνιση μόνο αυτών των τύπων αρχείων</string>
     <string name="swiper_file_type_filter_hint">Επιλέξτε τους τύπους που θέλετε να δείτε. Αν δεν επιλεγεί κανένας, εμφανίζονται όλα τα αρχεία.</string>
     <string name="swiper_file_type_category_images">Εικόνες</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Αρχεία</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Εφαρμογή</string>
-    <string name="swiper_session_filter_action">Φιλτράρισμα αρχείων</string>
     <string name="swiper_file_type_filter_summary">Φιλτραρισμένα: %1$s</string>
     <string name="swiper_session_no_matching_files">Δεν βρέθηκαν αντίστοιχα αρχεία</string>
     <string name="swiper_open_externally_action">Άνοιγμα σε εξωτερική εφαρμογή</string>

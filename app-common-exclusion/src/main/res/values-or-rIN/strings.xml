@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ଆପ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ AppControl ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="exclusion_create_path_hint">ପାଥ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ StorageAnalyzer ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="exclusion_show_defaults_action">ଡିଫଲ୍ଟ ଦେଖାନ୍ତୁ</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
 </resources>

@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Используйте Менеджер для создания исключений приложений.</string>
     <string name="exclusion_create_path_hint">Используйте Анализ памяти для создания исключений путей.</string>
     <string name="exclusion_show_defaults_action">Показать значения по умолчанию</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
 </resources>

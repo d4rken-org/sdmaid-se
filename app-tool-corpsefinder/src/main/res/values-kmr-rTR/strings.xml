@@ -19,7 +19,6 @@
     <string name="corpsefinder_filter_artprofiles_label">Profîlên ART</string>
     <string name="corpsefinder_filter_applib_label">Pirtûkxaneyên sepanê</string>
     <string name="corpsefinder_filter_appsource_label">Çavkaniyên sepanê</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_owners_label">Xwedî</string>
     <string name="corpsefinder_owner_unknown">Xwedîyê nenas</string>
 </resources>

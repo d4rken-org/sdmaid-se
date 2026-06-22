@@ -20,7 +20,6 @@
         <item quantity="one">Dagelijks</item>
         <item quantity="other">Elke %d dagen</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Herhaal interval</string>
     <string name="scheduler_inaccurate_execution_hint">Verwachte uitvoeringstijden zijn bij benadering. Schema\'s kunnen worden vertraagd of versneld als dit de batterij spaart.</string>
     <string name="scheduler_no_active_schedules_subtitle">Geen actieve planningen</string>
     <string name="scheduler_setting_nopowersaving_title">Overslaan bij bijna lege batterij</string>

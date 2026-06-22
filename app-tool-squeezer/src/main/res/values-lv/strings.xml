@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Saspiež attēlus un video, lai ietaupītu krātuves vietu.</string>
+    <string name="squeezer_explanation_short">Saspiediet attēlus, lai ietaupītu krātuves vietu.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="zero">%d vienumu atrasts</item>
-        <item quantity="one">%d vienums atrasts</item>
-        <item quantity="other">%d vienumi atrasti</item>
+        <item quantity="zero">%d attēlu atrasti</item>
+        <item quantity="one">%d attēls atrasts</item>
+        <item quantity="other">%d attēli atrasti</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="zero">~%s var ietaupīt</item>
@@ -12,48 +12,28 @@
         <item quantity="other">~%s var ietaupīt</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="zero">%d vienumu saspiest</item>
-        <item quantity="one">%d vienums saspiest</item>
-        <item quantity="other">%d vienumi saspiesti</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="zero">%d neveiksmīgi</item>
-        <item quantity="one">%d neveiksmīgs</item>
-        <item quantity="other">%d neveiksmīgi</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="zero">%d failu izlaists (nav pieejams)</item>
-        <item quantity="one">%d fails izlaists (nav pieejams)</item>
-        <item quantity="other">%d faili izlaisti (nav pieejami)</item>
+        <item quantity="zero">%d attēli saspiesti</item>
+        <item quantity="one">%d attēls saspists</item>
+        <item quantity="other">%d attēli saspiesti</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="zero">%d vienumu atlasīts</item>
-        <item quantity="one">%d vienums atlasīts</item>
-        <item quantity="other">%d vienumi atlasīti</item>
+        <item quantity="zero">%d attēli atlasīti</item>
+        <item quantity="one">%d attēls atlasīts</item>
+        <item quantity="other">%d attēli atlasīti</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Meklēšanas vietas</string>
-    <string name="squeezer_search_locations_default_summary">Kameras mapes (noklusējums)</string>
     <string name="squeezer_min_size_title">Minimālais faila izmērs</string>
-    <string name="squeezer_min_size_description">Izlaist failus, kas ir mazāki par šo izmēru.</string>
+    <string name="squeezer_min_size_description">Izlaist attēlus, kas ir mazāki par šo izmēru.</string>
     <string name="squeezer_min_age_title">Minimālais faila vecums</string>
-    <string name="squeezer_min_age_description">Iekļaut tikai failus, kas ir vecāki par šo vecumu.</string>
-    <string name="squeezer_compression_settings_label">Vispārīgi</string>
-    <string name="squeezer_quality_label">Kvalitāte</string>
-    <string name="squeezer_quality_title">Kompresijas kvalitāte</string>
-    <string name="squeezer_quality_description">Zemāka kvalitāte nozīmē mazāku faila izmēru, bet samazinātu vizuālo kvalitāti.</string>
-    <string name="squeezer_quality_example_format">Piemērs: %1$s attēls → ietaupa ~%2$s pie %3$d%% kvalitātes</string>
-    <string name="squeezer_quality_warning_low">Zemāka kvalitāte var radīt redzamus artefaktus.</string>
-    <string name="squeezer_quality_warning_high">Oti augsta kvalitāte nodrošina minimalu vietas ietaupijumu.</string>
-    <string name="squeezer_types_category_label">Attēlu iestatījumi</string>
-    <string name="squeezer_video_settings_category_label">Video iestatījumi</string>
+    <string name="squeezer_min_age_description">Iekļaut tikai attēlus, kas ir vecāki par šo vecumu.</string>
+    <string name="squeezer_compression_settings_label">Kompresijas iestatījumi</string>
+    <string name="squeezer_quality_description">Zemāka kvalitāte nozīmē mazāku faila izmēru, bet samazinātu attēla kvalitāti.</string>
+    <string name="squeezer_types_category_label">Attēlu tipi</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Iekļaut JPEG attēlus (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Iekļaut WebP attēlus (.webp).</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Iekļaut MP4 video failus (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Izlaist jau saspiestus</string>
-    <string name="squeezer_skip_compressed_description">Izlaist failus, kas jau ir saspiesti ar SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Izlaist attēlus, kas jau ir saspiesti ar SD Maid.</string>
     <string name="squeezer_exif_marker_title">Rakstīt EXIF atzīmi</string>
     <string name="squeezer_exif_marker_description">Pievienot atzīmi attēla EXIF lietotāja komentāra laukam, lai novērstu atkartotu saspiešanu, pat ja kompresijas vēsture ir notīrīta.</string>
     <string name="squeezer_estimated_savings_format">~%s ietaupijums</string>
@@ -64,8 +44,6 @@
     <string name="squeezer_preview_dialog_title">Apstiprināt kompresiju</string>
     <string name="squeezer_preview_total_size">Kopējais izmērs</string>
     <string name="squeezer_preview_estimated_savings">Paredzamais ietaupijums</string>
-    <string name="squeezer_compress_confirmation_title">Saspiest atlasītos vienumus?</string>
-    <string name="squeezer_compress_confirmation_message">Tas aizstās oriģinālos failus ar saspiestam versijām. Šo darbību nevar atsaukt.</string>
     <string name="squeezer_history_title">Kompresijas vēsture</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d vienības (%2$s)</item>
@@ -74,30 +52,17 @@
     </plurals>
     <string name="squeezer_history_empty">Nav kompresijas vēstures</string>
     <string name="squeezer_history_clear_title">Notīrīt kompresijas vēsturi</string>
-    <string name="squeezer_history_clear_message">Tas ļaus iepriekš saspiestus failus saspiest vēlreiz. Paši faili netiek ietekmēti.</string>
-    <string name="squeezer_onboarding_title">Par attēlu kompresiju</string>
-    <string name="squeezer_onboarding_message">Attēlu kompresija samazina faila izmēru, noņemot vizuālas detajas. Šis process ir neatgriezenisks — originālo kvalitāti nav iespējams atjaunot.\n\nLot paskats, kā jūsu attēli izskatiesšies:</string>
+    <string name="squeezer_history_clear_message">Tas ļaujs iepriekš saspiestajiem attēliem tikt saspiestiem atkārtoti. Paši attēli netiek skartī.</string>
     <string name="squeezer_onboarding_original_label">Origināls</string>
     <string name="squeezer_onboarding_compressed_label">Pēc kompresijas</string>
-    <string name="squeezer_onboarding_video_original_label">Video rāmis</string>
-    <string name="squeezer_onboarding_video_compressed_label">Priekšskatījums (aptuvens)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Faktiskā video kvalitāte var atšķirties</string>
-    <string name="squeezer_onboarding_quality_label">Kvalitāte: %d%%</string>
     <string name="squeezer_compare_action">Skatīt salīdzīnājumu</string>
     <string name="squeezer_no_example_found">Nav atrasts neviens attēls atlasītajās ceļos.</string>
-    <string name="squeezer_result_empty_message">Nav atrasts neviens saspiežams multivides fails.</string>
-    <string name="squeezer_setup_warning">Saspiešana neatgriezeniski samazina kvalitāti, lai ietaupītu krātuves vietu. To nevar atsaukt. Pirms sākšanas rūpīgi pārskatiet iestatījumus.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="zero">%d atrašanvietu nevar izmantot saspiešanai un tās tika noņemtas. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
-        <item quantity="one">%d atrašanvietu nevar izmantot saspiešanai un tā tika noņemta. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
-        <item quantity="other">%d atrašanvietas nevar izmantot saspiešanai un tās tika noņemtas. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze samazina attēlu un video failu izmēru, lai atbrīvotu krātuves vietu. Tas neatgriezeniski samazina kvalitāti un to nevar atsaukt. Pirms sākšanas rūpīgi pārskatiet iestatījumus.</string>
+    <string name="squeezer_result_empty_message">Nav atrasti saspiešanai piemēroti attēli.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze samazina attēlu failu izmēru, lai atbrīvotu krātuves vietu. Tas neatgriezeniski samazina attēlu kvalitāti un to nav iespējams atcelt. Rūpīgi pārskatiet savus iestatījumus pirms sākuma.</string>
     <string name="squeezer_setup_paths_title">Meklēšanas vietas</string>
     <string name="squeezer_setup_paths_default">Atlasīt meklējamas mapes</string>
     <string name="squeezer_setup_quality_title">Kompresijas kvalitāte</string>
     <string name="squeezer_setup_age_title">Minimālais vecums</string>
-    <string name="squeezer_setup_age_none">Nav ierobezojumu (iekļaut visus failus)</string>
     <string name="squeezer_setup_start_action">Sākt skenēšanu</string>
     <string name="squeezer_quality_hint_very_low">Kvalitāte zemāk par 40% var radīt nelietojamus attēlus.</string>
     <string name="squeezer_quality_hint_low">Zemāka kvalitāte ietaupa vairāk vietas, taču var radīt redzamus artefaktus.</string>
@@ -108,6 +73,5 @@
         <item quantity="one">Vismaz %d dienu vecs</item>
         <item quantity="other">Vismaz %d dienas vecs</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Parēdzamais ~%d%% ietaupījums attēliem</string>
-    <string name="squeezer_onboarding_got_it">Sapratu</string>
+    <string name="squeezer_estimated_savings_percent">Paredzamie ~%d%% ietaupijumi JPEG failiem</string>
 </resources>

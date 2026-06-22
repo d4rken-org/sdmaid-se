@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opcións que che permiten eliminar todos os ficheiros nun conxunto de duplicados para que non quede ningún ficheiro.</string>
     <string name="deduplicator_search_locations_title">Ubicacións de busca</string>
     <string name="deduplicator_search_locations_all_summary">Todas as áreas accesibles</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferir manter en</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Ao decidir que duplicado manter, preferir manter ficheiros nestas ubicacións.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Non hai ubicacións configuradas</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omitir ficheiros que estean por debaixo do tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir tipos de ficheiro pouco comúns</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Atopar ficheiros similares analizando características do contido e comparando valores de hash perceptual. ⚠️ A detección baseada en similitude pode incluír falsos positivos que requiren verificación manual.</string>
     <string name="deduplicator_detection_method_media_title">Pegada dixital de medios</string>
     <string name="deduplicator_detection_method_media_summary">Atopa ficheiros de vídeo e audio similares analizando as pegadas dixitais de audio. ⚠️ A detección baseada en similitude pode incluír falsos positivos que requiren verificación manual.</string>
-    <string name="deduplicator_matches_media_label">Medios similares</string>
     <string name="deduplicator_media_match_audio">Coincidencia baseada en audio</string>
     <string name="deduplicator_media_match_visual">Coincidencia baseada en vídeo</string>
     <string name="deduplicator_media_match_audio_visual">Coincidencia baseada en audio e vídeo</string>

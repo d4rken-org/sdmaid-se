@@ -20,7 +20,6 @@
         <item quantity="one">ਹਰ %d ਦਿਨ</item>
         <item quantity="other">ਹਰ %d ਦਿਨ</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">ਦੁਹਰਾਉਣ ਅੰਤਰਾਲ</string>
     <string name="scheduler_inaccurate_execution_hint">ਅਪੇਖਿਤ ਐਕਜ਼ੀਕਿਊਸ਼ਨ ਸਮਾਂ ਅਨੁਮਾਨ ਹਨ। ਜੇ ਇਹ ਬੈਟਰੀ ਬਚਾਉਂਦਾ ਹੈ ਤਾਂ ਸ਼ੈਡਿਊਲ ਵਿਲੰਬਿਤ ਜਾਂ ਤੇਜ਼ ਹੋ ਸਕਦੇ ਹਨ।</string>
     <string name="scheduler_no_active_schedules_subtitle">ਕੋਈ ਸਰਗਰਮ ਸ਼ੈਡਿਊਲ ਨਹੀਂ</string>
     <string name="scheduler_setting_nopowersaving_title">ਘੱਟ ਬੈਟਰੀ \'ਤੇ ਛੱਡੋ</string>

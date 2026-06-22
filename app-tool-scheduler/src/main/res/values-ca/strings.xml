@@ -20,7 +20,6 @@
         <item quantity="one">A diari</item>
         <item quantity="other">Cada %d dies</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Repetició de l\'interval</string>
     <string name="scheduler_inaccurate_execution_hint">Els temps d\'execució previstos són aproximats. Les programacions es poden retardar o accelerar si s\'estalvia bateria.</string>
     <string name="scheduler_no_active_schedules_subtitle">No hi ha programacions activades</string>
     <string name="scheduler_setting_nopowersaving_title">Omet amb bateria baixa</string>

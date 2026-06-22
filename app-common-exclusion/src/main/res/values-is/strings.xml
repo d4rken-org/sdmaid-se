@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">Notaðu AppControl verkfærið til að búa til forritaútilokanir.</string>
     <string name="exclusion_create_path_hint">Notaðu StorageAnalyzer verkfærið til að búa til slóðaútilokanir.</string>
     <string name="exclusion_show_defaults_action">Sýna sjálfgefnar</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
 </resources>

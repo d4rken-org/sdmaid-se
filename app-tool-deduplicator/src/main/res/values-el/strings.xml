@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Εμφάνιση επιλογών που σας επιτρέπουν να διαγράψετε όλα τα αρχεία σε ένα σύνολο διπλότυπων έτσι ώστε να μην μείνει κανένα αρχείο.</string>
     <string name="deduplicator_search_locations_title">Τοποθεσίες αναζήτησης</string>
     <string name="deduplicator_search_locations_all_summary">Όλες οι προσβάσιμες περιοχές</string>
-    <string name="deduplicator_keep_prefer_paths_title">Προτίμηση διατήρησης σε</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Κατά τη λήψη απόφασης για το ποιο αντίγραφο θα διατηρηθεί, προτιμήστε τη διατήρηση αρχείων σε αυτές τις τοποθεσίες.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Δεν έχουν ρυθμιστεί τοποθεσίες</string>
     <string name="deduplicator_skip_minsize_title">Ελάχιστο μέγεθος</string>
     <string name="deduplicator_skip_minsize_description">Παράλειψη αρχείων που είναι μικρότερα από το ελάχιστο μέγεθος.</string>
     <string name="deduplicator_skip_uncommon_title">Παράλειψη ασυνήθιστων τύπων αρχείων</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τιμές hash που βασίζονται στην αντίληψη. ⚠️ Η ανίχνευση βάσει ομοιότητας μπορεί να περιλαμβάνει ψευδώς θετικά αποτελέσματα που απαιτούν χειροκίνητη επαλήθευση.</string>
     <string name="deduplicator_detection_method_media_title">Αποτύπωμα πολυμέσων</string>
     <string name="deduplicator_detection_method_media_summary">Εύρεση παρόμοιων βίντεο και αρχείων ήχου με ανάλυση ακουστικών αποτυπωμάτων. ⚠️ Η ανίχνευση βάσει ομοιότητας ενδέχεται να περιλαμβάνει ψευδώς θετικά που απαιτούν χειροκίνητη επαλήθευση.</string>
-    <string name="deduplicator_matches_media_label">Παρόμοια πολυμέσα</string>
     <string name="deduplicator_media_match_audio">Αντιστοιχία βάσει ήχου</string>
     <string name="deduplicator_media_match_visual">Αντιστοιχία βάσει βίντεο</string>
     <string name="deduplicator_media_match_audio_visual">Αντιστοιχία βάσει ήχου και βίντεο</string>

@@ -20,7 +20,6 @@
         <item quantity="one">Egunero</item>
         <item quantity="other">Egunero %d</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Errepikapen-tartea</string>
     <string name="scheduler_inaccurate_execution_hint">Espero diren exekuzio-denborak gutxi gorabeherakoak dira. Ordenagailuak bateria aurrezteko moduan badago, ordutegiak atzeratu edo aurreratu daitezke.</string>
     <string name="scheduler_no_active_schedules_subtitle">Ez dago ordutegirik aktibo</string>
     <string name="scheduler_setting_nopowersaving_title">Saltatu bateria baxuarekin</string>

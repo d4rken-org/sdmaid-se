@@ -11,9 +11,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">중복된 파일 세트의 모든 파일을 삭제할 수 있는 옵션을 표시하여 파일이 남지 않도록 합니다.</string>
     <string name="deduplicator_search_locations_title">검색 위치</string>
     <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
-    <string name="deduplicator_keep_prefer_paths_title">보관 우선 위치</string>
-    <string name="deduplicator_keep_prefer_paths_summary">어떤 중복을 유지할지 결정할 때, 이 위치의 파일을 우선적으로 유지합니다.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">구성된 위치 없음</string>
     <string name="deduplicator_skip_minsize_title">최소 크기</string>
     <string name="deduplicator_skip_minsize_description">최소 크기 미만의 파일은 건너뜁니다.</string>
     <string name="deduplicator_skip_uncommon_title">흔하지 않은 파일 형식 건너뛰기</string>
@@ -25,7 +22,6 @@
     <string name="deduplicator_detection_method_phash_summary">콘텐츠 특성을 분석하고 인식 해시 값을 비교하여 유사한 파일을 찾습니다. ⚠️ 유사도 기반 탐지에는 수동 확인이 필요한 오탐이 포함될 수 있습니다.</string>
     <string name="deduplicator_detection_method_media_title">미디어 지문</string>
     <string name="deduplicator_detection_method_media_summary">오디오 지문을 분석하여 유사한 동영상 및 오디오 파일을 찾습니다. ⚠️ 유사성 기반 감지는 수동 확인이 필요한 오탐지를 포함할 수 있습니다.</string>
-    <string name="deduplicator_matches_media_label">유사 미디어</string>
     <string name="deduplicator_media_match_audio">오디오 기반 일치</string>
     <string name="deduplicator_media_match_visual">동영상 기반 일치</string>
     <string name="deduplicator_media_match_audio_visual">오디오 및 동영상 기반 일치</string>

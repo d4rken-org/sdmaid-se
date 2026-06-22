@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
-    <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="other">%d aplikasi terdeteksi</item>
-    </plurals>
     <string name="appcontrol_toggle_app_selection_action">Pilih aplikasi</string>
     <string name="appcontrol_toggle_app_enable_action">Aktifkan aplikasi</string>
     <string name="appcontrol_toggle_app_disable_action">Nonaktifkan aplikasi</string>
@@ -33,7 +30,6 @@
     <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Mengaktifkan aplikasi</string>
     <string name="appcontrol_progress_disabling_package">Menonaktifkan aplikasi</string>
-    <string name="appcontrol_list_filteroptions_label">Pilihan filter</string>
     <string name="appcontrol_list_sortmode_name_label">Nama aplikasi</string>
     <string name="appcontrol_list_sortmode_updated_label">Terakhir diperbarui</string>
     <string name="appcontrol_list_sortmode_installed_label">Diinstal pertama kali</string>
@@ -113,8 +109,4 @@
     <string name="appcontrol_item_installedat_x_label">Dipasang di: %s</string>
     <string name="shortcut_appcontrol_short">Kontrol Aplikasi</string>
     <string name="shortcut_appcontrol_long">Kelola aplikasi terpasang</string>
-    <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
-    <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada perangkat ini.</string>
 </resources>

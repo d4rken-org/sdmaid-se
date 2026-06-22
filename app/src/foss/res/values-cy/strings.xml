@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-
-    <string name="upgrade_feature_requires_pro">Mae angen SD Maid SE FOSS</string>
 
     <string name="upgrades_dashcard_title">Uwchraddio SD Maid</string>
     <string name="upgrades_dashcard_body">Datgloi nodweddion ychwanegol a dod yn noddwr i gefnogi datblygiad parhaus!</string>

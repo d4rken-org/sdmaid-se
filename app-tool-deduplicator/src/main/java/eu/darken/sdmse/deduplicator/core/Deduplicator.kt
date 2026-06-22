@@ -8,6 +8,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -18,6 +19,9 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.UpgradeRequiredException
+import eu.darken.sdmse.common.upgrade.isProSettled
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
@@ -30,6 +34,7 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
@@ -46,6 +51,13 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
+private val DeduplicatorTask.requiresPro: Boolean
+    get() = when (this) {
+        is DeduplicatorScanTask -> false
+        is DeduplicatorDeleteTask -> true
+        is DeduplicatorOneClickTask -> true
+    }
+
 @Singleton
 class Deduplicator @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -56,6 +68,7 @@ class Deduplicator @Inject constructor(
     private val deleter: Provider<DuplicatesDeleter>,
     private val settings: DeduplicatorSettings,
     private val arbiter: DuplicatesArbiter,
+    private val upgradeRepo: UpgradeRepo,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -85,6 +98,12 @@ class Deduplicator @Inject constructor(
 
     private val toolLock = Mutex()
 
+    /** Drops the current scan results (and only those — progress, settings and task history are unaffected). */
+    suspend fun discardScanData() = toolLock.withLock {
+        log(TAG) { "discardScanData()" }
+        internalData.value = null
+    }
+
     init {
         settings.arbiterConfig.flow
             .drop(1)
@@ -96,8 +115,21 @@ class Deduplicator @Inject constructor(
             }
             .launchIn(appScope)
     }
-    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         task as DeduplicatorTask
+
+        // Pro gate at the API boundary: defense-in-depth so a UI mistake can't run a Pro-only task
+        // for free. Checked before acquiring toolLock so the (possibly waiting) Pro check never
+        // holds the lock and blocks other submits.
+        if (task.requiresPro && !upgradeRepo.isProSettled()) {
+            log(TAG, WARN) { "submit($task) denied: Pro upgrade required" }
+            throw UpgradeRequiredException(type)
+        }
+
+        return performTask(task)
+    }
+
+    private suspend fun performTask(task: DeduplicatorTask): SDMTool.Task.Result = toolLock.withLock {
         log(TAG, INFO) { "submit($task) starting..." }
         updateProgress { Progress.Data() }
 
@@ -272,7 +304,7 @@ class Deduplicator @Inject constructor(
 
     suspend fun exclude(
         identifiers: Collection<Duplicate.Cluster.Id>
-    ): Unit = toolLock.withLock {
+    ): ExclusionUndo = toolLock.withLock {
         log(TAG) { "exclude(): $identifiers" }
 
         val snapshot = internalData.value!!
@@ -288,12 +320,37 @@ class Deduplicator @Inject constructor(
                 )
             }
             .toSet()
-        exclusionManager.save(exclusions)
+        val saved = exclusionManager.save(exclusions)
 
-        internalData.value = snapshot.copy(
+        val updated = snapshot.copy(
             clusters = snapshot.clusters.filter { !identifiers.contains(it.identifier) }.toSet()
         )
+        internalData.value = updated
+
+        ExclusionUndo(
+            exclusionIds = saved.map { it.id }.toSet(),
+            previousData = snapshot,
+            postExcludeData = updated,
+        )
     }
+
+    suspend fun undoExclude(handle: ExclusionUndo) = toolLock.withLock {
+        log(TAG, INFO) { "undoExclude(${handle.exclusionIds})" }
+        if (handle.exclusionIds.isNotEmpty()) {
+            exclusionManager.remove(handle.exclusionIds)
+        }
+        if (internalData.value === handle.postExcludeData) {
+            internalData.value = handle.previousData
+        } else {
+            log(TAG, WARN) { "undoExclude: state moved on, only removed exclusions" }
+        }
+    }
+
+    data class ExclusionUndo(
+        val exclusionIds: Set<ExclusionId>,
+        internal val previousData: Data,
+        internal val postExcludeData: Data,
+    )
 
     data class State(
         val data: Data?,
@@ -305,6 +362,9 @@ class Deduplicator @Inject constructor(
         val clusters: Set<Duplicate.Cluster> = emptySet(),
     ) {
         val redundantSize: Long get() = clusters.sumOf { it.redundantSize }
+
+        /** Files a default keep-one delete removes across all clusters. See [Duplicate.Cluster.redundantCount]. */
+        val redundantCount: Int get() = clusters.sumOf { it.redundantCount }
     }
 
     @InstallIn(SingletonComponent::class)

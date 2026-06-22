@@ -167,4 +167,12 @@ class RootSetupModuleTest : BaseTest() {
 
         runBlocking { collector.cancelAndJoin() }
     }
+
+    @Test fun `completion depends on user choice and service readiness`() {
+        RootSetupModule.Result(useRoot = null).isComplete shouldBe false
+        RootSetupModule.Result(useRoot = false).isComplete shouldBe true
+        RootSetupModule.Result(useRoot = true, isInstalled = true, ourService = false).isComplete shouldBe false
+        RootSetupModule.Result(useRoot = true, isInstalled = false, ourService = false).isComplete shouldBe true
+        RootSetupModule.Result(useRoot = true, isInstalled = true, ourService = true).isComplete shouldBe true
+    }
 }

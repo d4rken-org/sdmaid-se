@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppCleaner автоматизация</string>
     <string name="appcleaner_automation_subtitle_default_caches">Изчистване на кешове по подразбиране…</string>
-    <string name="appcleaner_automation_progress_open_settings">Отваряне на екран с настройки (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Търсене на запис \"Хранилище\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Търсене на бутон \"Изчистване на данни\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Търсене на бутон \"Изчистване на кеш\" (ключови думи: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публични и частни кешове по подразбиране. Не са директно достъпни, но могат да бъдат изтрити косвено (напр. чрез услуга за достъпност).</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за достъпност не е налична</string>
     <string name="appcleaner_automation_unavailable_body">Изчистването на недостъпни кешове изисква услугата за достъпност на SD Maid, но тя не беше налична. Ако не искате да я използвате: Деактивирайте опцията \"Включване на недостъпни кешове\".</string>
-    <string name="appcleaner_junk_userprofile_label">Потребител</string>
     <string name="appcleaner_delete_confirmation_message_x">Изтриване на разходни файлове за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Изтриване на разходни файлове за %d избрано приложение?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудително спиране преди изчистване</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудително спиране на приложенията преди изчистване на кеша им. Може да помогне за изчистване на кеша на някои приложения, но може да причини неправилно поведение и да изисква ръчно рестартиране.</string>
     <string name="appcleaner_progress_force_stopping">Принудително спиране на приложения…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Това системно приложение няма екран с настройки. Изчистването на кеш чрез услуга за достъпност не е възможно. Изключете го, за да ускорите изчистването на кеш.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Екранът с настройки не е наличен</string>
-    <string name="appcleaner_automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Включване на други потребители</string>
-    <string name="appcleaner_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
 </resources>

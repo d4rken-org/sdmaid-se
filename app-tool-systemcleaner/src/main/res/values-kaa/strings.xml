@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl jasılıǵına (aqırǵı o\'zgertiw waqtı) tiykarlanıp na\'tiyjelerin sheklew. Qa\'legen jasılıqqa uyqas keliw ushin sazlanbastan qaldırın\'.</string>
     <string name="systemcleaner_customfilter_import_action">Жаңа сүзгиди импорт етиў</string>
     <string name="systemcleaner_customfilter_export_action">Таңдалған сүзгиди экспорт етиў</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Saǵlanbagan ózgerislerdі bar!</string>
 </resources>

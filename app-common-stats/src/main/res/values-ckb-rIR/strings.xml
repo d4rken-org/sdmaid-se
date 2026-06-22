@@ -8,21 +8,12 @@
         <item quantity="one">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
         <item quantity="other">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
     </plurals>
-    <string name="stats_report_status_success">سەرکەوتن</string>
-    <string name="stats_report_status_partial_success">بەشیکیی کەمتری</string>
+    <string name="stats_report_status_partial_success">بەشی سەرکەوتن</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">ئامارەکان، ڕاپۆرتەکان و پاراستنی داتای SD Maid ڕێکبخە.</string>
     <string name="stats_settings_retention_category">پاراستن</string>
-    <string name="stats_settings_retention_reports_label">ڕۆکاری «ڕۆکاری»</string>
-    <string name="stats_settings_retention_reports_desc">ژمارەی ڕۆژەی بەشیو سیلەدانیی SD Maid کەوت بێتبێتهێنرەوە.</string>
     <string name="stats_settings_retention_paths_label">زانیاری وردی ڕێگا</string>
     <string name="stats_settings_retention_paths_desc">ژمارەی ڕۆژەکان بۆ پاراستنی وردەکاری دەربارەی ڕێگاکانی کاریگەری SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d ڕۆژ</item>
-        <item quantity="other">%d ڕۆژ</item>
-    </plurals>
-    <string name="stats_settings_reset_all_label">هەموی رێکخستنەوە</string>
-    <string name="stats_settings_reset_all_desc">هەموی ڕۆکارییکان بستبە و هەموی ئامارەکان بڮەڕێنەوە بە سیفر.</string>
     <string name="stats_affected_paths_label">ڕێگاکانی کاریگەرکراو</string>
     <string name="stats_affected_pkgs_label">ئەپەکانی کاریگەرکراو</string>
     <string name="stats_dash_body_snapshots_only">شوێنکەوتنی مێژووی ئەنبارەکەت.</string>
@@ -44,8 +35,4 @@
     <string name="stats_storage_type_primary">ئەنبارێکی سەرەکی</string>
     <string name="stats_storage_type_secondary">ئەنبارێکی دووەم</string>
     <string name="stats_storage_type_portable">ئەنبارێکی گواستانەپێز</string>
-    <string name="stats_space_history_delete_storage_title">مێژەکەی مێژێنەی حەزداری بستبەیتەوە؟</string>
-    <string name="stats_space_history_delete_storage_desc">هەموی داتای ڕووخانێ بۆ ئەم حەزدارییکە بە شێوەیەکی هەمیشەیی سماچ دەبیت.</string>
-    <string name="stats_settings_retention_snapshots_label">سناپشێتی ئەنبار</string>
-    <string name="stats_settings_retention_snapshots_desc">ژمارەی ڕۆژەکان بۆ چاودانی سناپشیتی ئەنباری سطحی.</string>
 </resources>

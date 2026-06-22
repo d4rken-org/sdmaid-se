@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Comprimi imàgines e vìdeos pro arrisparmiare ispàtziu de archiviàtzione.</string>
+    <string name="squeezer_explanation_short">Cumprimi is immàgines pro isparagnare ispàtziu de archìviu.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d elementu agatadu</item>
-        <item quantity="other">%d elementos agatados</item>
+        <item quantity="one">%d immàgine agatada</item>
+        <item quantity="other">%d immàgines agatadas</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s si podet isparagnare</item>
         <item quantity="other">~%s si podent isparagnare</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d elementu comprimidu</item>
-        <item quantity="other">%d elementos comprimidos</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d fallidu</item>
-        <item quantity="other">%d fallidos</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d archìviu saltadu (non accessìbile)</item>
-        <item quantity="other">%d archìvios saltados (non accessìbiles)</item>
+        <item quantity="one">%d immàgine cumprimida</item>
+        <item quantity="other">%d immàgines cumprimidas</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d elementu seletzionadu</item>
-        <item quantity="other">%d elementos seletzionados</item>
+        <item quantity="one">%d immàgine selecionada</item>
+        <item quantity="other">%d immàgines selecionadas</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Logos de chirca</string>
-    <string name="squeezer_search_locations_default_summary">Cartellas de sa fotocàmera (predefinidas)</string>
     <string name="squeezer_min_size_title">Mannesa mìnima de s\'archìviu</string>
-    <string name="squeezer_min_size_description">Salta sos archìvios prus pitchinnos de custa dimensione.</string>
+    <string name="squeezer_min_size_description">Brinca is immàgines prus piticas de custa mannesa.</string>
     <string name="squeezer_min_age_title">Edade mìnima de s\'archìviu</string>
-    <string name="squeezer_min_age_description">Includi ebbia sos archìvios prus bèzios de custa edade.</string>
-    <string name="squeezer_compression_settings_label">Generale</string>
-    <string name="squeezer_quality_label">Calidade</string>
-    <string name="squeezer_quality_title">Calidade de cumpressione</string>
-    <string name="squeezer_quality_description">Una calidàde prus bàscia significat unu archìviu prus pitchinu ma una calidàde visuale reduida.</string>
-    <string name="squeezer_quality_example_format">Esèmpiu: %1$s immàgine → isparagnos de ~%2$s a %3$d%% calidade</string>
-    <string name="squeezer_quality_warning_low">Calidades prus bascias podent càusare artefatos visìbiles.</string>
-    <string name="squeezer_quality_warning_high">Calidade meda arta dat isparagnos mìnimos de ispàtziu.</string>
-    <string name="squeezer_types_category_label">Cunfiguratziones de imàgines</string>
-    <string name="squeezer_video_settings_category_label">Cunfiguratziones de vìdeo</string>
+    <string name="squeezer_min_age_description">Inclùe feti is immàgines prus betzas de custa edade.</string>
+    <string name="squeezer_compression_settings_label">Impostatziones de cumpressione</string>
+    <string name="squeezer_quality_description">Calidade prus bascia cheret nàrrere mannesa de archìviu prus pitica ma calidade de immàgine reduida.</string>
+    <string name="squeezer_types_category_label">Gèneres de immàgine</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Inclùe immàgines JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inclùe immàgines WebP (.webp).</string>
-    <string name="squeezer_type_video_title">Vìdeo MP4</string>
-    <string name="squeezer_type_video_description">Includi sos archìvios de vìdeo MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Brinca is cumprimidas in antis</string>
-    <string name="squeezer_skip_compressed_description">Salta sos archìvios chi sunt giai istados comprimidos dae SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Brinca is immàgines chi SD Maid at giai cumprimidu.</string>
     <string name="squeezer_exif_marker_title">Iscrìe marcadore EXIF</string>
     <string name="squeezer_exif_marker_description">Agiunghe unu marcadore a su campu de comentu EXIF de s\'immàgine pro impedire sa torrada a cumprìmere fintzas si s\'istòria de cumpressione benit limpiada.</string>
     <string name="squeezer_estimated_savings_format">~%s de isparagnu</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Cunfirma sa cumpressione</string>
     <string name="squeezer_preview_total_size">Mannesa totale</string>
     <string name="squeezer_preview_estimated_savings">Isparagnu istimadu</string>
-    <string name="squeezer_compress_confirmation_title">Comprimi sos elementos seletzionados?</string>
-    <string name="squeezer_compress_confirmation_message">Custu ddos remplatzàrà sos archìvios originales cun versiones comprimidas. Custa atzione non podet èssere annullada.</string>
     <string name="squeezer_history_title">Istòria de cumpressione</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elementu (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Peruna istòria de cumpressione</string>
     <string name="squeezer_history_clear_title">Lìmpia s\'istòria de cumpressione</string>
-    <string name="squeezer_history_clear_message">Custu permettet a sos archìvios comprimidos in antis de bènnere comprimidos ancora. Sos archìvios medesimu no ant a èssere afetados.</string>
-    <string name="squeezer_onboarding_title">Informatzione subra sa cumpressione de immàgines</string>
-    <string name="squeezer_onboarding_message">Sa cumpressione de immàgines reduet sa mannesa de s\'archìviu boggende detàllios visivos. Custu protzessu est irreversìbile - sa calidade originale non si podet torrare.\n\nEcco comente ant a apàrrere is immàgines tuas:</string>
+    <string name="squeezer_history_clear_message">Custu at a permìtere de cumprìmere torra is immàgines giai cumprimidas. Is immàgines a sa sola non sunt afetadas.</string>
     <string name="squeezer_onboarding_original_label">Originale</string>
     <string name="squeezer_onboarding_compressed_label">Pustis de sa cumpressione</string>
-    <string name="squeezer_onboarding_video_original_label">Fotogramma de vìdeo</string>
-    <string name="squeezer_onboarding_video_compressed_label">Anteprima (aproximada)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Sa calidàde reale de vìdeo podet èssere diferente</string>
-    <string name="squeezer_onboarding_quality_label">Calidade: %d%%</string>
     <string name="squeezer_compare_action">Bide su paragone</string>
     <string name="squeezer_no_example_found">Peruna immàgine agatada in is caminos selecionados.</string>
-    <string name="squeezer_result_empty_message">Medios comprimìbiles non sunt istados agatados.</string>
-    <string name="squeezer_setup_warning">Sa compressione reduet in manera permanente sa calidàde pro arrisparmiare ispàtziu de archiviàtzione. Custu non podet èssere annulladu. Revisiona cun cuidadu sas tunadas tuas antes de incomintzare.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d logu non podet èssere utilizadu pro sa compressione ed est istadu eliminadu. Sa compressione rechidet atzessu direttu a s\'archìviu internu.</item>
-        <item quantity="other">%d logos non podent èssere utilizados pro sa compressione ed ant a èssere eliminados. Sa compressione rechidet atzessu direttu a s\'archìviu internu.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze reduet sa dimensione de sos archìvios de imàgines e vìdeos pro liberare ispàtziu de archiviàtzione. Custu reduet in manera permanente sa calidàde e non podet èssere annulladu. Revisiona cun cuidadu sas tunadas tuas antes de incomintzare.</string>
+    <string name="squeezer_result_empty_message">Peruna immàgine cumprimìbile agatada.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduet sa mannesa de is archìvios de is immàgines pro liberare ispàtziu de archìviu. Custu reduet in manera permanente sa calidade de s\'immàgine e non si podet annullare. Revisa is impostatziones tuas cun curu prima de cumintzare.</string>
     <string name="squeezer_setup_paths_title">Logos de chirca</string>
     <string name="squeezer_setup_paths_default">Sèbera cartellas de chircare</string>
     <string name="squeezer_setup_quality_title">Calidade de cumpressione</string>
     <string name="squeezer_setup_age_title">Edade mìnima</string>
-    <string name="squeezer_setup_age_none">Perunu lìmite (inclùe totu is archìvios)</string>
     <string name="squeezer_setup_start_action">Cumintza sa chirca</string>
     <string name="squeezer_quality_hint_very_low">Calidade asuta de 40% podet creare immàgines no impitàbiles.</string>
     <string name="squeezer_quality_hint_low">Calidade prus bascia isparagniat prus ispàtziu ma podet càusare artefatos visìbiles.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">A su mancu %d die de edade</item>
         <item quantity="other">A su mancu %d dies de edade</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">~%d%% de rispàrmiu istimadu pro imàgines</string>
-    <string name="squeezer_onboarding_got_it">Apat cumprèndiu</string>
+    <string name="squeezer_estimated_savings_percent">Isparagnu istimadu de ~%d%% pro archìvios JPEG</string>
 </resources>

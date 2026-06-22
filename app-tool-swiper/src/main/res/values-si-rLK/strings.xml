@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">සැසිය දිගටම</string>
     <string name="swiper_sessions_description">සරල පියවර 3කින් ගොනු සමාලෝචනය කරන්න:\n\n1. පරිලෝකනය කිරීමට ෆෝල්ඩරයක් තෝරන්න\n2. තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ගොනු ස්වයිප් කරන්න\n3. ඔබේ තේරීම් සමාලෝචනය කර තහවුරු කරන්න\n\nඅවසාන මකන්න බොත්තම ඔබන තුරු කිසිවක් ඉවත් නොකෙරේ.</string>
     <string name="swiper_select_folders_action">ෆෝල්ඩර තෝරන්න</string>
-    <string name="swiper_scanning_title">පරිලෝකනය කරමින්…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">අයිතම %d හමු විය</item>
         <item quantity="other">අයිතම %d හමු විය</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">තෝරාගත්තවා තබාගන්න</string>
     <string name="swiper_status_action_delete_selected">තෝරාගත් ඒවා මකන්න</string>
     <string name="swiper_status_action_reset_selected">තෝරාගත්තවා යළි පිහිටුවන්න</string>
-    <string name="swiper_decision_undecided">තීරණය නොකළ</string>
-    <string name="swiper_retry_action">නැවත උත්සාහ</string>
     <string name="swiper_delete_confirmation_title">ගොනු මකන්නද?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">මෙය ගොනු %1$d (%2$s) ස්ථිරවම මකනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d තීරණය නොකළ</item>
         <item quantity="other">%d තීරණය නොකළ</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d දැනටමත් තබාගෙන</item>
-        <item quantity="other">%d දැනටමත් තබාගෙන</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d දැනටමත් මකා ඇත</item>
-        <item quantity="other">%d දැනටමත් මකා ඇත</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d තබාගෙන</item>
         <item quantity="other">%d තබාගෙන</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
     <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
     <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
-    <string name="swiper_help_action">උදව්</string>
     <string name="swiper_file_type_filter_title">මෙම ගොනු වර්ග පමණක් පෙන්වන්න</string>
     <string name="swiper_file_type_filter_hint">ඔබ දැකීමට කැමති වර්ග සලකුණු කරන්න. කිසිවක් සලකුණු නොකළ හොත්, සියළු ගොනු පෙන්වනු ලැබේ.</string>
     <string name="swiper_file_type_category_images">රූප</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">සංරක්ෂිත</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">යොදන්න</string>
-    <string name="swiper_session_filter_action">ගොනු පෙරහන්</string>
     <string name="swiper_file_type_filter_summary">පෙරහන් කළ: %1$s</string>
     <string name="swiper_session_no_matching_files">ගැළපෙන ගොනු හමු නොවිණි</string>
     <string name="swiper_open_externally_action">බාහිර යෙදුමකින් විවෘත කරන්න</string>

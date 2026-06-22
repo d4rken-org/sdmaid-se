@@ -16,6 +16,19 @@ data class CorpseFinderDeleteTask(
     val targetContent: Set<APath>? = null,
 ) : CorpseFinderTask, Reportable {
 
+    init {
+        // Without a targetCorpses scope, `targetContent` would be attempted against every
+        // corpse in turn — historically that smeared the same paths across unrelated corpses.
+        // Today the only caller (CorpseDetailsViewModel) always pairs targetContent with a
+        // single corpse. The contract here is the minimum needed to prevent the smear: a
+        // non-null scope of one or more corpses, leaving room for future callers that want
+        // multi-corpse partial deletes. The per-corpse content intersection in CorpseFinder
+        // makes that case safe.
+        require(targetContent == null || targetCorpses != null) {
+            "targetContent requires a non-null targetCorpses scope"
+        }
+    }
+
     sealed interface Result : CorpseFinderTask.Result
 
     @Parcelize

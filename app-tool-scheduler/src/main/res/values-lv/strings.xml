@@ -21,7 +21,6 @@
         <item quantity="one">Ikdienas</item>
         <item quantity="other">Ik %d dienas</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Atkārtošanās intervs</string>
     <string name="scheduler_inaccurate_execution_hint">Paredzētie izpildes laiki ir aptuvenī. Grafiki var tikt aizturēti vai parādrīnāti, ja tas ietaupa akumulatoru.</string>
     <string name="scheduler_no_active_schedules_subtitle">Nav aktivo grafikas</string>
     <string name="scheduler_setting_nopowersaving_title">Izlaist ar zemu akumulatoru</string>

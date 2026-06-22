@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">AppControl ツールを使用して、アプリケーションの除外を作成します。</string>
     <string name="exclusion_create_path_hint">ストレージ解析ツールを使用して、パス除外を作成します。</string>
     <string name="exclusion_show_defaults_action">デフォルトを表示</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">保存されていない変更があります!</string>
 </resources>

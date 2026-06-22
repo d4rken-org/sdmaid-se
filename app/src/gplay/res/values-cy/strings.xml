@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
-    <string name="upgrade_feature_requires_pro">Mae angen SD Maid SE Pro</string>
 
     <string name="upgrades_dashcard_title">Uwchraddio SD Maid</string>
     <string name="upgrades_dashcard_body">Mae SD Maid Pro yn cynnig gwell canlyniadau, mwy o nodweddion ac opsiynau ar gyfer defnyddwyr uwch.</string>
@@ -11,7 +8,6 @@
 
     <string name="upgrades_gplay_unavailable_error_title">Nid yw Google Play ar gael</string>
     <string name="upgrades_gplay_unavailable_error_description">Ni all SD Maid gysylltu â Google Play. A yw Google Play wedi\'i osod a\'i ddiweddaru? A yw eich Cyfrif Google wedi mewngofnodi? Ceisiwch glirio storfa ap Google Play ac ailgychwyn eich dyfais.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ni chanfuwyd unrhyw bryniadau. Ydych chi\'n defnyddio\'r cyfrif cywir?</string>
     <string name="upgrade_screen_title">Cael SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">Nid oes gan SD Maid hysbysebion ac nid yw\'n gwerthu data defnyddwyr. Mae fy ngwaith yn cael ei ariannu gennych chi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Manteision</string>

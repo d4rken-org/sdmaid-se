@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <string name="upgrade_feature_requires_pro">SD Maid Pro behar da</string>
     <string name="upgrades_dashcard_title">Eguneratu SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro-k emaitza hobeak, ezaugarri gehiago eta erabiltzaile aurreratuentzako aukerak eskaintzen ditu.</string>
     <string name="upgrades_dashcard_upgrade_action">Goratu</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Ezin da Google Play-ra konektatu. Mesedez, egiaztatu zure Interneteko konexioa eta saiatu berriro.</string>
     <string name="upgrades_gplay_already_owned_error_title">Dagoeneko erosita</string>
     <string name="upgrades_gplay_already_owned_error_description">Erabili \"Berreskuratu erosketa\" aukera zure erosketa berreskuratzeko. Arazoak jarraitzen badu, saiatu Google Play katxea garbitzen eta zure gailua berrabiarazten.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ez dira erosketarik aurkitu. Kontu zuzena erabiltzen ari zara?</string>
     <string name="upgrade_screen_title">SD Maid Pro lortu</string>
     <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
     <string name="upgrade_screen_benefits_title">Abantailak</string>

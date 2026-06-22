@@ -8,7 +8,6 @@
         <item quantity="one">%s hlutur unninn síðan þú bauðst SD Maid á tækið þitt.</item>
         <item quantity="other">%s hlutir unnir síðan þú bauðst SD Maid á tækið þitt.</item>
     </plurals>
-    <string name="stats_report_status_success">Tókst</string>
     <string name="stats_report_status_partial_success">Tókst að hluta</string>
     <string name="stats_report_status_partial_failure">Mistök</string>
     <string name="stats_settings_desc">Stilltu tölfræði SD Maid, skýrslur og gagnageymslu.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">Fjöldi daga áður en grunnsk​ýrslur SD Maid aðgerða eru eyddar.</string>
     <string name="stats_settings_retention_paths_label">Nákvæmar slóðarupplýsingar</string>
     <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d dagur</item>
-        <item quantity="other">%d dagar</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Endurstilla allt</string>
     <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
     <string name="stats_affected_paths_label">Slóðir sem urðu fyrir áhrifum</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Aðalgeymsla</string>
     <string name="stats_storage_type_secondary">Aukaleg geymsla</string>
     <string name="stats_storage_type_portable">Flætanleg geymsla</string>
-    <string name="stats_space_history_delete_storage_title">Eyða geymslusögu?</string>
-    <string name="stats_space_history_delete_storage_desc">Öll þróunargögn fyrir þessa geymslu verða eytt varanlega.</string>
-    <string name="stats_settings_retention_snapshots_label">Geymslu-skyndimyndir</string>
-    <string name="stats_settings_retention_snapshots_desc">Fjöldi daga til að geyma skyndimyndir af geymsluplassi.</string>
 </resources>

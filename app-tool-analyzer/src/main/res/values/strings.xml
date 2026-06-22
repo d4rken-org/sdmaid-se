@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable SD card. Contains media files and data from apps that support it.</string>
     <string name="analyzer_storage_type_tertiary_title">Portable storage</string>
     <string name="analyzer_storage_type_tertiary_description">A portable storage, e.g. a flash drive plugged into your USB port.</string>
+    <string name="analyzer_storage_identifier_internal">Internal storage</string>
     <string name="analyzer_storage_content_title">Storage content</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. application files, data and caches).</string>
@@ -49,4 +50,8 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">This app occupies %1$s on \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">This app has been archived.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
+
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">See what\'s actually filling up your storage. The Analyzer maps out where your space goes. Each of these cards is a storage chip on your device.</string>
+    <string name="tour_analyzer_storage_body">Open a storage to break it down into apps, media and files, then keep tapping to track down the biggest culprits.</string>
 </resources>

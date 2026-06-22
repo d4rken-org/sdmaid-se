@@ -20,7 +20,6 @@
         <item quantity="one">Dagligt</item>
         <item quantity="other">Hver %d. dag</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Gentagelsesinterval</string>
     <string name="scheduler_inaccurate_execution_hint">Forventede udførelsestider er omtrentlige. Tidsplaner kan forsinkes eller fremskyndes, hvis det sparer batteri.</string>
     <string name="scheduler_no_active_schedules_subtitle">Ingen aktive tidsplaner</string>
     <string name="scheduler_setting_nopowersaving_title">Spring over ved lavt batteriniveau</string>

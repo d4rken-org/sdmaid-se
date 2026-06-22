@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Þjappa myndum og myndböndum til að spara geymslupláss.</string>
+    <string name="squeezer_explanation_short">Þjappa myndum til að spara geymslupláss.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d atriði fundið</item>
-        <item quantity="other">%d atriðar fundin</item>
+        <item quantity="one">%d mynd fannst</item>
+        <item quantity="other">%d myndir fundust</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s er hægt að spara</item>
         <item quantity="other">~%s er hægt að spara</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d atriði þjappað</item>
-        <item quantity="other">%d atriðar þjöppuð</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d mistókst</item>
-        <item quantity="other">%d mistókust</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d skrá sleppt (ekki aðgengileg)</item>
-        <item quantity="other">%d skrár slepptar (ekki aðgengilegar)</item>
+        <item quantity="one">%d mynd þjöppuð</item>
+        <item quantity="other">%d myndir þjappaðar</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d atriði valið</item>
-        <item quantity="other">%d atriðar valin</item>
+        <item quantity="one">%d mynd valin</item>
+        <item quantity="other">%d myndir valdar</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Leitarstaðir</string>
-    <string name="squeezer_search_locations_default_summary">Myndavélarmöppur (sjálfgefið)</string>
     <string name="squeezer_min_size_title">Lágmarksstærð skráar</string>
-    <string name="squeezer_min_size_description">Sleppa skrám sem eru minni en þssi stærð.</string>
+    <string name="squeezer_min_size_description">Sleppa myndum sem eru minni en þessi stærð.</string>
     <string name="squeezer_min_age_title">Lágmarksaldur skráar</string>
-    <string name="squeezer_min_age_description">Taka aðeins með skrár sem eru eldri en þssi aldur.</string>
-    <string name="squeezer_compression_settings_label">Almennt</string>
-    <string name="squeezer_quality_label">Gæði</string>
-    <string name="squeezer_quality_title">Þjöppunargæði</string>
-    <string name="squeezer_quality_description">Lægri gæði þyðir minni skráarstæð en lakari sjónræn gæði.</string>
-    <string name="squeezer_quality_example_format">Dæmi: %1$s mynd → sparar ~%2$s við %3$d%% gæði</string>
-    <string name="squeezer_quality_warning_low">Lægri gæði gætu valdið sjáanlegum göllum.</string>
-    <string name="squeezer_quality_warning_high">Mjög há gæði veita lágmarks plásssparnað.</string>
-    <string name="squeezer_types_category_label">Myndastillingar</string>
-    <string name="squeezer_video_settings_category_label">Myndbandasstillingar</string>
+    <string name="squeezer_min_age_description">Aðeins taka myndir eldri en þessi aldur.</string>
+    <string name="squeezer_compression_settings_label">Þjöppunarstillingar</string>
+    <string name="squeezer_quality_description">Lægri gæði þýðir minni skráarstærð en minni myndgæði.</string>
+    <string name="squeezer_types_category_label">Myndategundir</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Taka JPEG myndir (.jpg, .jpeg) með.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Taka WebP myndir (.webp) með.</string>
-    <string name="squeezer_type_video_title">MP4 myndband</string>
-    <string name="squeezer_type_video_description">Taka með MP4 myndbandsskrár (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Sleppa áður þjöppuðum</string>
-    <string name="squeezer_skip_compressed_description">Sleppa skrám sem þgar hafa verið þjappaðar af SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Sleppa myndum sem SD Maid hefur þegar þjappað.</string>
     <string name="squeezer_exif_marker_title">Skrifa EXIF merki</string>
     <string name="squeezer_exif_marker_description">Bæta merki við EXIF athugasemdareit myndarinnar til að koma í veg fyrir endurþjöppun jafnvel þótt þjöppunarsaga sé hreinsuð.</string>
     <string name="squeezer_estimated_savings_format">~%s sparnaður</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
     <string name="squeezer_preview_total_size">Heildarstærð</string>
     <string name="squeezer_preview_estimated_savings">Áætlaður sparnaður</string>
-    <string name="squeezer_compress_confirmation_title">Þjappa völdum atriðum?</string>
-    <string name="squeezer_compress_confirmation_message">Þtta mun skipta upprunalegum skrám út fyrir þjappaðar útgáfur. Ekki er hægt að afturkalla þessa aðgerð.</string>
     <string name="squeezer_history_title">Þjöppunarsaga</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d hlutur (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">Engin þjöppunarsaga</string>
     <string name="squeezer_history_clear_title">Hreinsa þjöppunarsögu</string>
-    <string name="squeezer_history_clear_message">Þtta mun leyfa skrám sem þgar hafa verið þjappaðar að verða þjappaðar aftur. Skrárnar sjálfar verða ekki fyrir áhrifum.</string>
-    <string name="squeezer_onboarding_title">Um myndaþjöppun</string>
-    <string name="squeezer_onboarding_message">Myndaþjöppun minnkar skráarstærð með því að fjarlægja sjónræn smáatriði. Þetta ferli er óafturkræft - upprunaleg gæði er ekki hægt að endurheimta.\n\nHér er forskoðun á hvernig myndirnar þínar munu líta út:</string>
+    <string name="squeezer_history_clear_message">Þetta mun leyfa að þjappa áður þjöppuðum myndum aftur. Myndirnar sjálfar eru ekki breyttar.</string>
     <string name="squeezer_onboarding_original_label">Upprunalegt</string>
     <string name="squeezer_onboarding_compressed_label">Eftir þjöppun</string>
-    <string name="squeezer_onboarding_video_original_label">Myndbandsrðammi</string>
-    <string name="squeezer_onboarding_video_compressed_label">Forskoðun (áætluð)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">Raunveruleg myndbandsgaæði geta verið frábruggin</string>
-    <string name="squeezer_onboarding_quality_label">Gæði: %d%%</string>
     <string name="squeezer_compare_action">Skoða samanburð</string>
     <string name="squeezer_no_example_found">Engar myndir fundust á völdum slóðum.</string>
-    <string name="squeezer_result_empty_message">Ekkert þjáppanlegt efni fannst.</string>
-    <string name="squeezer_setup_warning">Þjöppun minnkar gæði varanlega til að spara geymslupláss. Ekki er hægt að afturkalla þtta. Farðu vandlega yfir stillingar þinar áður en þú byrjar.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d staðsetning er ekki hægt að nota til þjöppunar og var fjarlægð. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
-        <item quantity="other">%d staðsetningar eru ekki hægt að nota til þjöppunar og voru fjarlægðar. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze minnkar skráarstærð mynda og myndbanda til að losa um geymslupláss. Þtta minnkar gæði varanlega og er ekki hægt að afturkalla. Farðu vandlega yfir stillingar þinar áður en þú byrjar.</string>
+    <string name="squeezer_result_empty_message">Engar þjappanlegar myndir fundust.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze minnkar skráarstærð mynda til að losa um geymslupláss. Þetta minnkar myndgæði varanlega og er ekki hægt að afturkalla. Farðu vandlega yfir stillingarnar áður en þú byrjar.</string>
     <string name="squeezer_setup_paths_title">Leitarstaðir</string>
     <string name="squeezer_setup_paths_default">Veldu möppur til að leita í</string>
     <string name="squeezer_setup_quality_title">Þjöppunargæði</string>
     <string name="squeezer_setup_age_title">Lágmarksaldur</string>
-    <string name="squeezer_setup_age_none">Engin takmörk (taka allar skrár með)</string>
     <string name="squeezer_setup_start_action">Hefja skönnun</string>
     <string name="squeezer_quality_hint_very_low">Gæði undir 40% geta búið til ónothæfar myndir.</string>
     <string name="squeezer_quality_hint_low">Lægri gæði spara meira pláss en geta valdið sjáanlegum göllum.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">A.m.k. %d dags gamalt</item>
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Áætlaður sparnaður ~%d%% fyrir myndir</string>
-    <string name="squeezer_onboarding_got_it">Ég skil</string>
+    <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
 </resources>

@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
@@ -150,6 +151,12 @@ class StatsRepo @Inject constructor(
     suspend fun getById(id: ReportId): Report? {
         log(TAG) { "getById($id)" }
         return reportsDatabase.getReport(id)
+    }
+
+    /** First report for [tool] at/after [since] — used to deep-link the dashboard freed-hero chips. */
+    suspend fun getReportForToolSince(tool: SDMTool.Type, since: Instant): Report? {
+        log(TAG) { "getReportForToolSince($tool, $since)" }
+        return reportsDatabase.getReportForToolSince(tool, since)
     }
 
     suspend fun getAffectedPaths(id: ReportId): Collection<AffectedPath> {

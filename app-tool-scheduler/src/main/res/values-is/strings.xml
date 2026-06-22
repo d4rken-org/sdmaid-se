@@ -20,7 +20,6 @@
         <item quantity="one">Daglega</item>
         <item quantity="other">Á %d daga fresti</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Endurtekningarbil</string>
     <string name="scheduler_inaccurate_execution_hint">Áætlaðir keyrslutímar eru nálganir. Tímaáætlanir geta seinkað eða flýst ef það sparar rafhlöðu.</string>
     <string name="scheduler_no_active_schedules_subtitle">Engar virkar tímaáætlanir</string>
     <string name="scheduler_setting_nopowersaving_title">Sleppa við litla rafhlöðu</string>

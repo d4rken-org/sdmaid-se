@@ -2,14 +2,12 @@ package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
@@ -28,7 +26,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -38,7 +35,6 @@ import kotlin.math.pow
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
     @AppScope private val scope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
     private val billingManager: BillingManager,
     private val billingCache: BillingCache,
 ) : UpgradeRepo {
@@ -91,7 +87,12 @@ class UpgradeRepoGplay @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
-    fun launchBillingFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) {
+    fun launchBillingFlow(
+        activity: Activity,
+        sku: Sku,
+        offer: Sku.Subscription.Offer?,
+        onError: (Throwable) -> Unit,
+    ) {
         log(TAG) { "launchBillingFlow($activity,$sku)" }
         scope.launch {
             try {
@@ -102,9 +103,7 @@ class UpgradeRepoGplay @Inject constructor(
                     return@launch
                 }
                 log(TAG) { "startIapFlow failed:${e.asLog()}" }
-                withContext(dispatcherProvider.Main) {
-                    e.asErrorDialogBuilder(activity).show()
-                }
+                onError(e)
             }
         }
     }

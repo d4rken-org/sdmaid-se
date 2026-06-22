@@ -25,5 +25,4 @@
     <string name="exclusion_create_pkg_hint">ใช้เครื่องมือ AppControl เพื่อสร้างการยกเว้นแอพ</string>
     <string name="exclusion_create_path_hint">ใช้เครื่องมือ StorageAnalyzer เพื่อสร้างการยกเว้นเส้นทาง</string>
     <string name="exclusion_show_defaults_action">แสดงค่าเริ่มต้น</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
 </resources>

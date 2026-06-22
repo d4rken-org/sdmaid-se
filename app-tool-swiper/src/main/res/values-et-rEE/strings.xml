@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Jätka seanssi</string>
     <string name="swiper_sessions_description">Vaata failid üle 3 lihtsa sammuga:\n\n1. Vali kaust skanneerimiseks\n2. Pühi faile säilitamiseks, kustutamiseks või vahelejätmiseks\n3. Vaata oma valikud üle ja kinnita\n\nMidagi ei kustutata enne, kui vajutate lõplikku kustutamisnuppu.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
-    <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d leiti</item>
         <item quantity="other">%d leiti</item>
@@ -28,8 +27,6 @@
     <string name="swiper_status_action_keep_selected">Säilita valitud</string>
     <string name="swiper_status_action_delete_selected">Kustuta märgitud</string>
     <string name="swiper_status_action_reset_selected">Lähtesta valitud</string>
-    <string name="swiper_decision_undecided">Otsustamata</string>
-    <string name="swiper_retry_action">Proovi uuesti</string>
     <string name="swiper_delete_confirmation_title">Kustutada failid?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">See kustutab %1$d faili jäädavalt (%2$s). Seda ei saa tühistada.</item>
@@ -91,14 +88,6 @@
         <item quantity="one">%d ootel</item>
         <item quantity="other">%d ootel</item>
     </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d juba säilitatud</item>
-        <item quantity="other">%d juba säilitatud</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d juba kustutatud</item>
-        <item quantity="other">%d juba kustutatud</item>
-    </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d säilitatud</item>
         <item quantity="other">%d säilitatud</item>
@@ -139,7 +128,6 @@
     <string name="swiper_help_title">Kuidas Pühkija töötab</string>
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selge!</string>
-    <string name="swiper_help_action">Abi</string>
     <string name="swiper_file_type_filter_title">Kuva ainult neid failitüüpe</string>
     <string name="swiper_file_type_filter_hint">Märgi tüübid, mida soovid näha. Kui ühtegi pole märgitud, kuvatakse kõik failid.</string>
     <string name="swiper_file_type_category_images">Pildid</string>
@@ -153,7 +141,6 @@
     <string name="swiper_file_type_category_archives">Arhiivid</string>
     <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
     <string name="swiper_file_type_filter_apply_action">Rakenda</string>
-    <string name="swiper_session_filter_action">Filtreeri faile</string>
     <string name="swiper_file_type_filter_summary">Filtreeritud: %1$s</string>
     <string name="swiper_session_no_matching_files">Ühtegi sobivat faili ei leitud</string>
     <string name="swiper_open_externally_action">Ava muus rakenduses</string>

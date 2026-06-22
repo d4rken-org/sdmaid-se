@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD മെയ്ഡ് SE പ്രോ</string>
     <string name="app_name_upgrade_postfix">പ്രോ</string>
-    <string name="upgrade_feature_requires_pro">SD മെയ്ഡ് SE പ്രോ ആവശ്യമാണ്</string>
     <string name="upgrades_dashcard_title">SD Maid SE അപ്ഗ്രേഡ് ചെയ്യുക</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro മികച്ച ഫലങ്ങളും കൂടുതല്‍ ഫീച്ചറുകളും പവര്‍ ഉപയോക്താക്കള്‍ക്കുള്ള ഓപ്ഷനുകളും വാഗ്ദാനം ചെയ്യുന്നു.</string>
     <string name="upgrades_dashcard_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
@@ -16,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play-യിലേക്ക് കണക്റ്റുചെയ്യാന്‍ കഴിയുന്നില്ല. ദയവായി നിങ്ങളുടെ ഇന്റര്‍നെറ്റ് കണക്ഷന്‍ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrades_gplay_already_owned_error_title">ഇതിനകം വാങ്ങിയിട്ടുണ്ട്</string>
     <string name="upgrades_gplay_already_owned_error_description">നിങ്ങളുടെ വാങ്ങല്‍ പുനഃസ്ഥാപിക്കാന്‍ \"വാങ്ങല്‍ പുനഃസ്ഥാപിക്കുക\" ഓപ്ഷന്‍ ഉപയോഗിക്കുക. പ്രശ്നം തുടരുകയാണെങ്കില്‍, Google Play കാഷെ മായ്‌ക്കാനും നിങ്ങളുടെ ഉപകരണം റീസ്റ്റാര്‍ട്ട് ചെയ്യാനും ശ്രമിക്കുക.</string>
-    <string name="upgrades_no_purchases_found_check_account">വാങ്ങലുകളൊന്നും കണ്ടെത്തിയില്ല. നിങ്ങൾ ശരിയായ അക്കൗണ്ട് തന്നെയാണോ ഉപയോഗിക്കുന്നത്?</string>
     <string name="upgrade_screen_title">SD മെയ്ഡ് SE പ്രോ വാങ്ങുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല. എന്റെ ജോലി നിങ്ങൾ ധനസഹായം ചെയ്യുന്നു ❤️.</string>
     <string name="upgrade_screen_benefits_title">പ്രയോജനങ്ങൾ</string>

@@ -33,16 +33,9 @@
     <string name="general_empty_label">خالی</string>
     <string name="general_new_badge_label">جدید</string>
     <string name="general_dismiss_action">نادیده گرفتن</string>
-    <string name="general_maybe_later_action">شاید بعدا</string>
     <string name="general_manage_action">مدیریت</string>
-    <string name="general_sync_action">همگام سازی</string>
     <string name="general_error_label">خطا</string>
-    <string name="general_tap_hint_msg">برای گزینه های بیشتر ضربه بزنید</string>
     <string name="general_upgrade_action">ارتقاء</string>
-    <string name="general_donate_action">کمک مالی</string>
-    <string name="general_check_action">بررسی</string>
-    <string name="general_filter_action">فیلتر</string>
-    <string name="general_internal_not_available_msg">بدون اتصال اینترنت</string>
     <string name="general_refresh_action">نوسازی</string>
     <string name="general_progress_searching">درحال جستجو</string>
     <string name="general_progress_generating_searchpaths">ایجاد مسیرهای جستجو</string>
@@ -71,18 +64,9 @@
     <string name="general_progress_queued">در صف</string>
     <string name="general_progress_deleting">درحال حذف</string>
     <string name="general_progress_deleting_x">درحال حذف %s</string>
-    <string name="general_sort_action">مرتب‌سازی</string>
-    <string name="general_sort_by_title">مرتب‌سازی بر اساس</string>
-    <string name="general_sort_options_label">گزینه‌های مرتب‌سازی</string>
     <string name="general_sort_reverse_action">حالت مرتب سازی معکوس</string>
-    <string name="general_sort_oldest_first">قدیمی‌ترین اول</string>
-    <string name="general_sort_newest_first">جدیدترین اول</string>
-    <string name="general_sort_name_asc">نام (الف ← ی)</string>
-    <string name="general_sort_size_desc">بزرگ‌ترین اول</string>
-    <string name="general_tag_filter_label">فیلتر بر اساس برچسب</string>
     <string name="general_tag_system">سیستم</string>
     <string name="general_result_success_message">عملیات موفق</string>
-    <string name="general_result_failure_message">عملیات انجام نشد</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s فضا آزاد شد.</item>
         <item quantity="other">%s فضا آزاد شد.</item>
@@ -96,7 +80,6 @@
     <string name="general_delete_action">حذف</string>
     <string name="general_delete_selected_action">حذف انتخاب شده‌‌‌‌‌‌ها</string>
     <string name="general_show_details_action">نمایش جزئیات</string>
-    <string name="general_show_all_action">نمایش همه</string>
     <string name="general_toggle_layout_mode">تغییر حالت نمایش</string>
     <string name="general_delete_confirmation_title">تایید حذف</string>
     <string name="general_delete_confirmation_message_x">\"%s\" حذف شود؟</string>
@@ -109,15 +92,11 @@
         <item quantity="other">%d مورد حذف شد.</item>
     </plurals>
     <string name="general_remove_action">حذف</string>
-    <string name="general_remove_selected_action">حذف انتخاب شده</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">یک مورد حذف شد</item>
         <item quantity="other">%d مورد حذف شد</item>
     </plurals>
-    <string name="general_root_required_label">نیازمند روت</string>
-    <string name="general_root_required_message">به دستگاه روت شده نیاز دارد</string>
     <string name="general_search_action">جستجو</string>
-    <string name="general_scan_device_action">اسکن دستگاه</string>
     <string name="general_open_system_settings_action">باز کردن تنظیمات سیستمی</string>
     <plurals name="result_x_items">
         <item quantity="one">%s مورد</item>
@@ -137,7 +116,6 @@
     </plurals>
     <string name="general_info_label">درباره</string>
     <string name="general_count_label">تعداد</string>
-    <string name="general_app_label">برنامه</string>
     <string name="general_more_info_action">اطلاعات بیشتر</string>
     <string name="general_grant_access_action">موافقت کردن با دسترسی</string>
     <string name="general_enable_service_action">فعال کردن سرویس</string>
@@ -150,7 +128,6 @@
     <string name="general_exclude_selected_action">استثناء انتخابی</string>
     <string name="general_device_label">دستگاه</string>
     <string name="general_settings_title">تنظیمات</string>
-    <string name="general_help_title">کمک</string>
     <string name="general_hints_label">اطلاعیه</string>
     <string name="file_type_symbolic_link">پیوند</string>
     <string name="file_type_directory">مسیر</string>
@@ -180,8 +157,6 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سیستم</string>
     <string name="setup_title">راه‌اندازی</string>
-    <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
-    <string name="upgrade_feature_requires_pro">نیاز به Pro دارد</string>
     <string name="general_include_multiuser_label">شامل کردن کاربران دیگر</string>
     <string name="general_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
     <string name="general_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
@@ -204,5 +179,4 @@
     <string name="settings_category_risklevel">سطح خطر</string>
     <string name="settings_category_filter">فیلتر</string>
     <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
-    <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
 </resources>

@@ -64,7 +64,6 @@
     </plurals>
     <string name="appcleaner_automation_title">앱정리기 자동화</string>
     <string name="appcleaner_automation_subtitle_default_caches">기본 캐시를 정리하고 있습니다…</string>
-    <string name="appcleaner_automation_progress_open_settings">설정 화면 여는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">“저장소” 항목 찾는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">“자료 삭제” 버튼 찾는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">“캐시 삭제” 버튼 찾는 중 (키워드: %s)</string>
@@ -72,7 +71,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">앱의 캐시 파일입니다. 직접적인 접근은 어렵지만, 접근성 서비스 등을 통해 간접적으로 지울 수 있습니다.</string>
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>
     <string name="appcleaner_automation_unavailable_body">직접 접근할 수 없는 캐시를 지우려면 SD Maid의 접근성 서비스가 필요하지만, 사용할 수 없었습니다. 사용하고 싶지 않다면 \"접근 불가한 캐시 포함\" 옵션을 꺼주세요.</string>
-    <string name="appcleaner_junk_userprofile_label">사용자</string>
     <string name="appcleaner_delete_confirmation_message_x">%s의 임시 파일을 제거할까요?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">%d 개의 선택된 앱의 임시 파일을 제거할까요?</item>
@@ -86,10 +84,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">삭제 전 강제 종료</string>
     <string name="appcleaner_forcestop_before_clearing_summary">캐시를 삭제하기 전에 앱을 강제 종료합니다. 일부 앱의 캐시를 삭제하는 데 도움이 될 수 있지만, 앱이 오작동하거나 수동 재시작이 필요할 수 있습니다.</string>
     <string name="appcleaner_progress_force_stopping">앱 강제 종료 중…</string>
-    <string name="appcleaner_automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
-    <string name="appcleaner_automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
-    <string name="appcleaner_automation_loading">접근성 서비스를 통한 자동화를 준비하고 있습니다</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">이전 동작 확인을 시도하는 중 (키워드: %s)</string>
-    <string name="appcleaner_include_multiuser_label">다른 유저 포함</string>
-    <string name="appcleaner_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
 </resources>

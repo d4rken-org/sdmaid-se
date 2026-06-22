@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">ගබඩා ඉඩ ඉතිරි කිරීමට රූප සහ වීඩියෝ සම්පීඩනය කරන්න.</string>
+    <string name="squeezer_explanation_short">ගබඩා ඉඩ ඉතිරි කිරීමට රූප සංකෝචනය කරන්න.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d අයිතමය හමු විය</item>
-        <item quantity="other">%d අයිතම හමු විය</item>
+        <item quantity="one">රූපය %d ක් හමු විය</item>
+        <item quantity="other">රූප %d ක් හමු විය</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s ඉතිරි කළ හැක</item>
         <item quantity="other">~%s ඉතිරි කළ හැක</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d අයිතමය සම්පීඩනය කරන ලදි</item>
-        <item quantity="other">%d අයිතම සම්පීඩනය කරන ලදි</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d අසාර්ථක</item>
-        <item quantity="other">%d අසාර්ථක</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d ගොනුව මඟ හැරිණි (ප්‍රවේශ විය නොහැකි)</item>
-        <item quantity="other">%d ගොනු මඟ හැරිණි (ප්‍රවේශ විය නොහැකි)</item>
+        <item quantity="one">රූපය %d ක් සංකෝචනය විය</item>
+        <item quantity="other">රූප %d ක් සංකෝචනය විය</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d අයිතමය තෝරා ගන්නා ලදි</item>
-        <item quantity="other">%d අයිතම තෝරා ගන්නා ලදි</item>
+        <item quantity="one">රූපය %d ක් තෝරා ඇත</item>
+        <item quantity="other">රූප %d ක් තෝරා ඇත</item>
     </plurals>
-    <string name="squeezer_search_locations_title">සෙවුම් ස්ථාන</string>
-    <string name="squeezer_search_locations_default_summary">කැමරා ෆෝල්ඩර (පෙරනිමි)</string>
     <string name="squeezer_min_size_title">අවම ගොනු ප්‍රමාණය</string>
-    <string name="squeezer_min_size_description">මෙම ප්‍රමාණයට වඩා කුඩා ගොනු මඟ හරින්න.</string>
+    <string name="squeezer_min_size_description">මෙම ප්‍රමාණයට වඩා කුඩා රූප මඟ හරින්න.</string>
     <string name="squeezer_min_age_title">අවම ගොනු වයස</string>
-    <string name="squeezer_min_age_description">මෙම වයසට වඩා පැරණි ගොනු පමණක් ඇතුළත් කරන්න.</string>
-    <string name="squeezer_compression_settings_label">සාමාන්‍ය</string>
-    <string name="squeezer_quality_label">ගුණත්වය</string>
-    <string name="squeezer_quality_title">සංකෝචන ගුණත්වය</string>
-    <string name="squeezer_quality_description">අඩු ගුණාත්මකභාවය කුඩා ගොනු ප්‍රමාණය අදහස් කරයි නමුත් දෘශ්‍ය ගුණාත්මකභාවය අඩු වේ.</string>
-    <string name="squeezer_quality_example_format">උදාහරණ: %1$s රූපය → %3$d%% ගුණත්වයේදී ~%2$s ඉතිරි</string>
-    <string name="squeezer_quality_warning_low">අඩු ගුණත්වයන්හි දෘශ්‍ය අවශේෂ ඇති විය හැක.</string>
-    <string name="squeezer_quality_warning_high">ඉතා ඉහළ ගුණත්වය අවම ඉඩ ඉතිරිකිරීම් සපයයි.</string>
-    <string name="squeezer_types_category_label">රූප සැකසීම්</string>
-    <string name="squeezer_video_settings_category_label">වීඩියෝ සැකසීම්</string>
+    <string name="squeezer_min_age_description">මෙම වයසට වඩා පැරණි රූප පමණක් ඇතුළත් කරන්න.</string>
+    <string name="squeezer_compression_settings_label">සංකෝචන සැකසුම්</string>
+    <string name="squeezer_quality_description">අඩු ගුණත්වය යනු කුඩා ගොනු ප්‍රමාණය නමුත් අඩු රූප ගුණත්වයයි.</string>
+    <string name="squeezer_types_category_label">රූප වර්ග</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG රූප (.jpg, .jpeg) ඇතුළත් කරන්න.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP රූප (.webp) ඇතුළත් කරන්න.</string>
-    <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 වීඩියෝ ගොනු (.mp4) ඇතුළත් කරන්න.</string>
     <string name="squeezer_skip_compressed_title">කලින් සංකෝචනය කළ ඒවා මඟ හරින්න</string>
-    <string name="squeezer_skip_compressed_description">SD Maid විසින් දැනටමත් සම්පීඩනය කරන ලද ගොනු මඟ හරින්න.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid විසින් දැනටමත් සංකෝචනය කර ඇති රූප මඟ හරින්න.</string>
     <string name="squeezer_exif_marker_title">EXIF සලකුණ ලියන්න</string>
     <string name="squeezer_exif_marker_description">සංකෝචන ඉතිහාසය මකා දැමුවද නැවත සංකෝචනය වැළැක්වීමට රූපයේ EXIF පරිශීලක අදහස් ක්‍ෂේත්‍රයට සලකුණක් එකතු කරන්න.</string>
     <string name="squeezer_estimated_savings_format">~%s ඉතිරි</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">සංකෝචනය තහවුරු කරන්න</string>
     <string name="squeezer_preview_total_size">මුළු ප්‍රමාණය</string>
     <string name="squeezer_preview_estimated_savings">ඇස්තමේන්තු ඉතිරි</string>
-    <string name="squeezer_compress_confirmation_title">තෝරාගත් අයිතම සම්පීඩනය කරන්නද?</string>
-    <string name="squeezer_compress_confirmation_message">මෙය මුල් ගොනු සම්පීඩිත අනුවාද සමඟ ප්‍රතිස්ථාපනය කරනු ඇත. මෙම ක්‍රියාව නිෂ්ප්‍රභ කළ නොහැක.</string>
     <string name="squeezer_history_title">සංකෝචන ඉතිහාසය</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">අයිතම %1$d (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">සංකෝචන ඉතිහාසයක් නැත</string>
     <string name="squeezer_history_clear_title">සංකෝචන ඉතිහාසය මකන්න</string>
-    <string name="squeezer_history_clear_message">මෙය කලින් සම්පීඩනය කරන ලද ගොනු නැවත සම්පීඩනය කිරීමට ඉඩ දෙනු ඇත. ගොනු ම කෙරෙහි බලපෑමක් නොමැත.</string>
-    <string name="squeezer_onboarding_title">රූප සංකෝචනය ගැන</string>
-    <string name="squeezer_onboarding_message">රූප සංකෝචනය දෘශ්‍ය විස්තර ඉවත් කිරීමෙන් ගොනු ප්‍රමාණය අඩු කරයි. මෙම ක්‍රියාවලිය ආපසු හැරවිය නොහැක - මුල් ගුණත්වය ප්‍රතිසාධනය කළ නොහැක.\n\nඔබේ රූප කෙසේ පෙනෙනු ඇත්දැයි මෙන්න:</string>
+    <string name="squeezer_history_clear_message">මෙය කලින් සංකෝචනය කළ රූප නැවත සංකෝචනය කිරීමට ඉඩ දෙනු ඇත. රූප වලට බලපෑමක් නැත.</string>
     <string name="squeezer_onboarding_original_label">මුල්</string>
     <string name="squeezer_onboarding_compressed_label">සංකෝචනයෙන් පසුව</string>
-    <string name="squeezer_onboarding_video_original_label">වීඩියෝ රාමුව</string>
-    <string name="squeezer_onboarding_video_compressed_label">පූර්වදර්ශනය (ආසන්න)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">සත්‍ය වීඩියෝ ගුණාත්මකභාවය වෙනස් විය හැක</string>
-    <string name="squeezer_onboarding_quality_label">ගුණත්වය: %d%%</string>
     <string name="squeezer_compare_action">සැසඳීම බලන්න</string>
     <string name="squeezer_no_example_found">තෝරාගත් මාර්ගවල රූප හමු නොවීය.</string>
-    <string name="squeezer_result_empty_message">සම්පීඩනය කළ හැකි මාධ්‍ය හමු නොවීය.</string>
-    <string name="squeezer_setup_warning">සම්පීඩනය ගබඩා ඉඩ ඉතිරි කිරීමට ගුණාත්මකභාවය ස්ථිරවශයෙන් අඩු කරයි. මෙය නිෂ්ප්‍රභ කළ නොහැක. ආරම්භ කිරීමට පෙර ඔබගේ සැකසීම් ප්‍රවේශමෙන් සමාලෝචනය කරන්න.</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d ස්ථානයක් සම්පීඩනය සඳහා භාවිතා කළ නොහැකි අතර ඉවත් කරන ලදි. සම්පීඩනයට අභ්‍යන්තර ගබඩාවට සෘජු ප්‍රවේශය අවශ්‍ය වේ.</item>
-        <item quantity="other">%d ස්ථාන සම්පීඩනය සඳහා භාවිතා කළ නොහැකි අතර ඉවත් කරන ලදි. සම්පීඩනයට අභ්‍යන්තර ගබඩාවට සෘජු ප්‍රවේශය අවශ්‍ය වේ.</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze රූප සහ වීඩියෝ ගොනු ප්‍රමාණය අඩු කිරීමෙන් ගබඩා ඉඩ නිදහස් කරයි. මෙය ගුණාත්මකභාවය ස්ථිරවශයෙන් අඩු කරයි, නිෂ්ප්‍රභ කළ නොහැක. ආරම්භ කිරීමට පෙර ඔබගේ සැකසීම් ප්‍රවේශමෙන් සමාලෝචනය කරන්න.</string>
+    <string name="squeezer_result_empty_message">සංකෝචනය කළ හැකි රූප හමු නොවීය.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze ගබඩා ඉඩ නිදහස් කිරීමට රූපවල ගොනු ප්‍රමාණය අඩු කරයි. මෙය රූප ගුණත්වය ස්ථිරවම අඩු කරන අතර පසුගමනය කළ නොහැක. ආරම්භ කිරීමට පෙර ඔබේ සැකසුම් ප්‍රවේශමෙන් සමාලෝචනය කරන්න.</string>
     <string name="squeezer_setup_paths_title">සෙවුම් ස්ථාන</string>
     <string name="squeezer_setup_paths_default">සෙවීමට ෆෝල්ඩර තෝරන්න</string>
     <string name="squeezer_setup_quality_title">සංකෝචන ගුණත්වය</string>
     <string name="squeezer_setup_age_title">අවම වයස</string>
-    <string name="squeezer_setup_age_none">සීමාවක් නැත (සියලු ගොනු ඇතුළත්)</string>
     <string name="squeezer_setup_start_action">පරිලෝකනය ආරම්භ කරන්න</string>
     <string name="squeezer_quality_hint_very_low">40%ට අඩු ගුණත්වය භාවිත කළ නොහැකි රූප සාදන්නට පුළුවන.</string>
     <string name="squeezer_quality_hint_low">අඩු ගුණත්වය වැඩි ඉඩ ඉතිරි කරන නමුත් දෘශ්‍ය අවශේෂ ඇති විය හැක.</string>
@@ -99,6 +67,5 @@
         <item quantity="one">අවම දින %d ක් පැරණි</item>
         <item quantity="other">අවම දින %d ක් පැරණි</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">රූප සඳහා ඇස්තමේන්තු ~%d%% ඉතිරිකිරීම්</string>
-    <string name="squeezer_onboarding_got_it">තේරුණා</string>
+    <string name="squeezer_estimated_savings_percent">JPEG ගොනු සඳහා ඇස්තමේන්තු ~%d%% ඉතිරි</string>
 </resources>

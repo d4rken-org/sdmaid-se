@@ -19,7 +19,6 @@
         <item quantity="one">Daily</item>
         <item quantity="other">Every %d days</item>
     </plurals>
-    <string name="scheduler_schedule_repeat_interval">Repeat interval</string>
     <string name="scheduler_inaccurate_execution_hint">Expected execution times are approximations. Schedules may be delayed or expedited if it conserves battery.</string>
     <string name="scheduler_no_active_schedules_subtitle">No active schedules</string>
     <string name="scheduler_setting_nopowersaving_title">Skip on low battery</string>
@@ -38,4 +37,8 @@
     <string name="scheduler_commands_after_schedule_label">Post-schedule commands</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell commands that will be executed at the end of a schedule.</string>
     <string name="scheduler_battery_optimization_hint">Consider disabling battery optimizations for SD Maid if you experience issues with background execution.</string>
+
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid can clean on a schedule. Pick a time and which tools run, and it does the work in the background, (almost) no need to open the app.</string>
+    <string name="tour_scheduler_create_body">Tap here to create a new schedule, then set when it runs and which tools to include.</string>
 </resources>

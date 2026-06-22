@@ -66,7 +66,6 @@
     </plurals>
     <string name="appcleaner_automation_title">AppReiniger-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standaard cachegeheugen wissen…</string>
-    <string name="appcleaner_automation_progress_open_settings">Instellingenscherm openen (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Zoeken naar item \"Opslag\" (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Cache wissen\' (trefwoorden: %s)</string>
@@ -74,7 +73,6 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
     <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid nodig, maar deze was niet beschikbaar. Als je deze niet wilt gebruiken: schakel de optie \'Inclusief ontoegankelijke caches\' uit.</string>
-    <string name="appcleaner_junk_userprofile_label">Gebruiker</string>
     <string name="appcleaner_delete_confirmation_message_x">Overbodige bestanden verwijderen voor %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Overbodige bestanden verwijderen voor %d geselecteerde app?</item>
@@ -89,10 +87,4 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforceerd stoppen voor wissen</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sluit apps geforceerd af voordat je hun cache wist. Dit kan helpen om de cache van sommige apps te wissen, maar het kan er ook toe leiden dat apps niet goed meer werken en handmatig opnieuw moeten worden opgestart.</string>
     <string name="appcleaner_progress_force_stopping">Apps geforceerd stoppen…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Instellingenscherm niet beschikbaar</string>
-    <string name="appcleaner_automation_loading">Automatisering voorbereiden via toegankelijkheidsservice</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
-    <string name="appcleaner_include_multiuser_label">Inclusief andere gebruikers</string>
-    <string name="appcleaner_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
 </resources>

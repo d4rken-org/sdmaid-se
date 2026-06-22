@@ -27,9 +27,9 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.extension
-import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.R as CommonR
 import okio.buffer
 import kotlinx.coroutines.CancellationException
 import java.io.IOException
@@ -48,8 +48,14 @@ class PathPreviewFetcher @Inject constructor(
 ) : Fetcher {
 
     private val fallbackIcon by lazy {
+        val fallbackResId = when (data.fileType) {
+            FileType.DIRECTORY -> CommonR.drawable.ic_folder
+            FileType.SYMBOLIC_LINK -> CommonR.drawable.ic_file_link
+            FileType.FILE -> CommonR.drawable.ic_file
+            FileType.UNKNOWN -> CommonR.drawable.file_question
+        }
         DrawableResult(
-            drawable = ContextCompat.getDrawable(options.context, data.fileType.iconRes)!!,
+            drawable = ContextCompat.getDrawable(options.context, fallbackResId)!!,
             isSampled = false,
             dataSource = DataSource.MEMORY
         )
@@ -58,10 +64,22 @@ class PathPreviewFetcher @Inject constructor(
     private val pacMan: PackageManager
         get() = context.packageManager
 
-    override suspend fun fetch(): FetchResult {
-        if (data.fileType != FileType.FILE || data.size == 0L) return fallbackIcon
+    /**
+     * The drawable fallback shown when no real preview exists. When a caller sets
+     * [PARAM_NO_DRAWABLE_FALLBACK] (Compose thumbnails that own their own fallback visual), throw
+     * instead so Coil routes to the request's error slot rather than rendering [fallbackIcon].
+     */
+    private fun fallbackResult(): FetchResult {
+        if (options.parameters.value<Boolean>(PARAM_NO_DRAWABLE_FALLBACK) == true) {
+            throw PreviewUnavailableException()
+        }
+        return fallbackIcon
+    }
 
-        if (!generalSettings.usePreviews.value()) return fallbackIcon
+    override suspend fun fetch(): FetchResult {
+        if (data.fileType != FileType.FILE || data.size == 0L) return fallbackResult()
+
+        if (!generalSettings.usePreviews.value()) return fallbackResult()
 
         val mimeType = mimeTypeTool.determineMimeType(data)
 
@@ -96,19 +114,19 @@ class PathPreviewFetcher @Inject constructor(
                         isSampled = false,
                         dataSource = DataSource.DISK
                     )
-                } ?: fallbackIcon
+                } ?: fallbackResult()
             }
 
             mimeType == "application/pdf" -> {
-                if (data.size > PDF_MAX_PREVIEW_SIZE) fallbackIcon
-                else renderPdfPreview() ?: fallbackIcon
+                if (data.size > PDF_MAX_PREVIEW_SIZE) fallbackResult()
+                else renderPdfPreview() ?: fallbackResult()
             }
 
             isTextFile(data) -> {
-                renderTextPreview() ?: fallbackIcon
+                renderTextPreview() ?: fallbackResult()
             }
 
-            else -> fallbackIcon
+            else -> fallbackResult()
         }
     }
 
@@ -204,6 +222,14 @@ class PathPreviewFetcher @Inject constructor(
 
     companion object {
         private val TAG = logTag("Coil", "PathPreview")
+
+        /**
+         * Coil request parameter (Boolean). When `true`, the fetcher throws instead of returning the
+         * [fallbackIcon] drawable, so the caller's error slot can render its own placeholder. Set by
+         * Compose thumbnails (e.g. [FileListThumbnail]); unset for the legacy `PreviewScreen` path.
+         */
+        const val PARAM_NO_DRAWABLE_FALLBACK = "sdmse.coil.no_drawable_fallback"
+
         private const val MAX_TEXT_READ_BYTES = 8192L
         private const val DEFAULT_SIZE_PX = 256
         private const val MAX_SIZE_PX = 512
@@ -226,5 +252,14 @@ class PathPreviewFetcher @Inject constructor(
             return data.lookedUp.extension?.lowercase() in TEXT_EXTENSIONS
         }
     }
+}
+
+/**
+ * Control-flow signal that no preview drawable should be produced (see
+ * [PathPreviewFetcher.PARAM_NO_DRAWABLE_FALLBACK]). Coil turns the throw into an error result so the
+ * request's error slot renders. Stack trace capture is suppressed since it carries no useful info.
+ */
+class PreviewUnavailableException : Exception() {
+    override fun fillInStackTrace(): Throwable = this
 }
 

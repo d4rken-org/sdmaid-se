@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">ذخیرہ کی جگہ بچانے کے لیے تصاویر اور ویڈیوز کو کمپریس کریں۔</string>
+    <string name="squeezer_explanation_short">اسٹوریج بچانے کے لیے تصاویر کمپریس کریں۔</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d آئٹم ملا</item>
-        <item quantity="other">%d آئٹمز ملے</item>
+        <item quantity="one">%d تصویر ملی</item>
+        <item quantity="other">%d تصاویر ملیں</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s بچائی جا سکتی ہے</item>
         <item quantity="other">~%s بچائی جا سکتی ہیں</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d آئٹم کمپریس ہوا</item>
-        <item quantity="other">%d آئٹمز کمپریس ہوئے</item>
-    </plurals>
-    <plurals name="squeezer_result_x_items_failed">
-        <item quantity="one">%d ناکام</item>
-        <item quantity="other">%d ناکام</item>
-    </plurals>
-    <plurals name="squeezer_result_x_skipped_inaccessible">
-        <item quantity="one">%d فائل چھوڑی گئی (قابل رسائی نہیں)</item>
-        <item quantity="other">%d فائلیں چھوڑی گئیں (قابل رسائی نہیں)</item>
+        <item quantity="one">%d تصویر کمپریس ہوئی</item>
+        <item quantity="other">%d تصاویر کمپریس ہوئیں</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d آئٹم منتخب</item>
-        <item quantity="other">%d آئٹمز منتخب</item>
+        <item quantity="one">%d تصویر منتخب</item>
+        <item quantity="other">%d تصاویر منتخب</item>
     </plurals>
-    <string name="squeezer_search_locations_title">تلاش کے مقامات</string>
-    <string name="squeezer_search_locations_default_summary">کیمرہ فولڈرز (پہلے سے طے شدہ)</string>
     <string name="squeezer_min_size_title">کم از کم فائل سائز</string>
-    <string name="squeezer_min_size_description">اس سائز سے چھوٹی فائلیں چھوڑ دیں۔</string>
+    <string name="squeezer_min_size_description">اس سائز سے چھوٹی تصاویر چھوڑ دیں۔</string>
     <string name="squeezer_min_age_title">کم از کم فائل عمر</string>
-    <string name="squeezer_min_age_description">صرف اس عمر سے پرانی فائلیں شامل کریں۔</string>
-    <string name="squeezer_compression_settings_label">عام</string>
-    <string name="squeezer_quality_label">معیار</string>
-    <string name="squeezer_quality_title">کمپریشن معیار</string>
-    <string name="squeezer_quality_description">کم معیار کا مطلب ہے چھوٹا فائل سائز لیکن کم بصری معیار۔</string>
-    <string name="squeezer_quality_example_format">مثال: %1$s تصویر → %3$d%% معیار پر ~%2$s بچت</string>
-    <string name="squeezer_quality_warning_low">کم معیار میں نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
-    <string name="squeezer_quality_warning_high">بہت زیادہ معیار کم جگہ بچاتا ہے۔</string>
-    <string name="squeezer_types_category_label">تصویر کی ترتیبات</string>
-    <string name="squeezer_video_settings_category_label">ویڈیو کی ترتیبات</string>
+    <string name="squeezer_min_age_description">صرف اس عمر سے پرانی تصاویر شامل کریں۔</string>
+    <string name="squeezer_compression_settings_label">کمپریشن ترتیبات</string>
+    <string name="squeezer_quality_description">کم معیار کا مطلب چھوٹی فائل سائز لیکن کم تصویر کوالٹی ہے۔</string>
+    <string name="squeezer_types_category_label">تصویر کی اقسام</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG تصاویر (.jpg, .jpeg) شامل کریں۔</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP تصاویر (.webp) شامل کریں۔</string>
-    <string name="squeezer_type_video_title">MP4 ویڈیو</string>
-    <string name="squeezer_type_video_description">MP4 ویڈیو فائلیں (.mp4) شامل کریں۔</string>
     <string name="squeezer_skip_compressed_title">پہلے سے کمپریس شدہ چھوڑیں</string>
-    <string name="squeezer_skip_compressed_description">وہ فائلیں چھوڑ دیں جو SD Maid نے پہلے ہی کمپریس کی ہیں۔</string>
+    <string name="squeezer_skip_compressed_description">وہ تصاویر چھوڑیں جو پہلے سے SD Maid نے کمپریس کی ہیں۔</string>
     <string name="squeezer_exif_marker_title">EXIF مارکر لکھیں</string>
     <string name="squeezer_exif_marker_description">تصویر کے EXIF یوزر کمنٹ فیلڈ میں مارکر شامل کریں تاکہ کمپریشن ہسٹری صاف ہونے پر بھی دوبارہ کمپریشن روکی جائے۔</string>
     <string name="squeezer_estimated_savings_format">~%s بچت</string>
@@ -58,8 +40,6 @@
     <string name="squeezer_preview_dialog_title">کمپریشن کی تصدیق</string>
     <string name="squeezer_preview_total_size">کل سائز</string>
     <string name="squeezer_preview_estimated_savings">تخمینی بچت</string>
-    <string name="squeezer_compress_confirmation_title">منتخب آئٹمز کمپریس کریں؟</string>
-    <string name="squeezer_compress_confirmation_message">یہ اصل فائلوں کو کمپریس شدہ ورژنز سے تبدیل کر دے گا۔ یہ عمل واپس نہیں کیا جا سکتا۔</string>
     <string name="squeezer_history_title">کمپریشن ہسٹری</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d آئٹم (%2$s)</item>
@@ -67,29 +47,17 @@
     </plurals>
     <string name="squeezer_history_empty">کوئی کمپریشن ہسٹری نہیں</string>
     <string name="squeezer_history_clear_title">کمپریشن ہسٹری صاف کریں</string>
-    <string name="squeezer_history_clear_message">یہ پہلے کمپریس شدہ فائلوں کو دوبارہ کمپریس کرنے کی اجازت دے گا۔ فائلیں خود متاثر نہیں ہوں گی۔</string>
-    <string name="squeezer_onboarding_title">تصویر کمپریشن کے بارے میں</string>
-    <string name="squeezer_onboarding_message">تصویر کمپریشن بصری تفصیلات ہٹا کر فائل سائز کم کرتی ہے۔ یہ عمل ناقابل واپسی ہے - اصل معیار بحال نہیں ہو سکتا۔\n\nآپ کی تصاویر کیسی نظر آئیں گی اس کا جائزہ:</string>
+    <string name="squeezer_history_clear_message">یہ پہلے سے کمپریس شدہ تصاویر کو دوبارہ کمپریس ہونے دے گا۔ تصاویر خود متاثر نہیں ہوتیں۔</string>
     <string name="squeezer_onboarding_original_label">اصل</string>
     <string name="squeezer_onboarding_compressed_label">کمپریشن کے بعد</string>
-    <string name="squeezer_onboarding_video_original_label">ویڈیو فریم</string>
-    <string name="squeezer_onboarding_video_compressed_label">پیش نظارہ (تقریبی)</string>
-    <string name="squeezer_onboarding_video_quality_disclaimer">اصل ویڈیو کا معیار مختلف ہو سکتا ہے</string>
-    <string name="squeezer_onboarding_quality_label">معیار: %d%%</string>
     <string name="squeezer_compare_action">موازنہ دیکھیں</string>
     <string name="squeezer_no_example_found">منتخب پاتھز میں کوئی تصاویر نہیں ملیں۔</string>
-    <string name="squeezer_result_empty_message">کوئی قابل۔ کمپریس میڈیا نہیں ملا۔</string>
-    <string name="squeezer_setup_warning">کمپریشن مستقل طور پر معیار کو کم کر دیتی ہے تاکہ ذخیرہ کی جگہ بچائی جا سکے۔ یہ واپس نہیں کیا جا سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
-    <plurals name="squeezer_setup_path_dropped_message">
-        <item quantity="one">%d مقام کمپریشن کے لیے استعمال نہیں ہو سکتا اور ہٹا دیا گیا۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
-        <item quantity="other">%d مقامات کمپریشن کے لیے استعمال نہیں ہو سکتے اور ہٹا دیے گئے۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
-    </plurals>
-    <string name="squeezer_setup_explanation">میڈیا سکوئیز ذخیرہ کی جگہ خالی کرنے کے لیے تصاویر اور ویڈیوز کا فائل سائز کم کرتا ہے۔ یہ مستقل طور پر معیار کو کم کر دیتا ہے اور واپس نہیں کیا جا سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
+    <string name="squeezer_result_empty_message">کوئی کمپریس ہونے والی تصاویر نہیں ملیں۔</string>
+    <string name="squeezer_setup_explanation">میڈیا سکویز اسٹوریج خالی کرنے کے لیے تصاویر کا فائل سائز کم کرتا ہے۔ یہ تصویر کا معیار مستقل طور پر کم کرتا ہے اور واپس نہیں ہو سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
     <string name="squeezer_setup_paths_title">تلاش کے مقامات</string>
     <string name="squeezer_setup_paths_default">تلاش کرنے کے لیے فولڈرز منتخب کریں</string>
     <string name="squeezer_setup_quality_title">کمپریشن معیار</string>
     <string name="squeezer_setup_age_title">کم از کم عمر</string>
-    <string name="squeezer_setup_age_none">کوئی حد نہیں (تمام فائلیں شامل کریں)</string>
     <string name="squeezer_setup_start_action">اسکین شروع کریں</string>
     <string name="squeezer_quality_hint_very_low">40% سے کم معیار ناقابل استعمال تصاویر بنا سکتا ہے۔</string>
     <string name="squeezer_quality_hint_low">کم معیار زیادہ جگہ بچاتا ہے لیکن نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
@@ -99,6 +67,5 @@
         <item quantity="one">کم از کم %d دن پرانی</item>
         <item quantity="other">کم از کم %d دن پرانی</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">تصاویر کے لیے تخمیناں ~%d%% بچت</string>
-    <string name="squeezer_onboarding_got_it">سمجھ گیا</string>
+    <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
 </resources>

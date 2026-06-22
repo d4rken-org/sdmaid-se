@@ -7,7 +7,6 @@
     <string name="swiper_continue_action">Lean ar aghaidh leis an seisiún</string>
     <string name="swiper_sessions_description">Teastaíonn cinneadh daonna ó roinnt comhad. Svaidhpeáil trí mhíreanna agus roghnaigh cad a choinnítear nó a scriostar. Scipeáil aon rud nach bhfuil tú cinnte faoi. Ligeann an uirlis seo duit fillteáin shonracha a athbhreithniú de láimh, agus ní bhaintear aon rud go dtí go ndearbhaíonn tú.</string>
     <string name="swiper_select_folders_action">Roghnaigh fillteáin</string>
-    <string name="swiper_scanning_title">Ag scanadh…</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d mhír aimsíodh</item>
         <item quantity="two">%d mhír aimsíodh</item>
@@ -37,8 +36,6 @@
     <string name="swiper_status_action_keep_selected">Coinnigh roghnaithe</string>
     <string name="swiper_status_action_delete_selected">Scrios roghnaithe</string>
     <string name="swiper_status_action_reset_selected">Athshocraigh roghnaithe</string>
-    <string name="swiper_decision_undecided">Neamhchinntithe</string>
-    <string name="swiper_retry_action">Bain triail eile as</string>
     <string name="swiper_delete_confirmation_title">Scrios comhaid?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
@@ -129,20 +126,6 @@
         <item quantity="few">%d neamhchinntithe</item>
         <item quantity="many">%d neamhchinntithe</item>
         <item quantity="other">%d neamhchinntithe</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d coinnithe cheana</item>
-        <item quantity="two">%d choinnithe cheana</item>
-        <item quantity="few">%d choinnithe cheana</item>
-        <item quantity="many">%d gcoinnithe cheana</item>
-        <item quantity="other">%d coinnithe cheana</item>
-    </plurals>
-    <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d scriosta cheana</item>
-        <item quantity="two">%d scriosta cheana</item>
-        <item quantity="few">%d scriosta cheana</item>
-        <item quantity="many">%d scriosta cheana</item>
-        <item quantity="other">%d scriosta cheana</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d coinnithe</item>

@@ -39,18 +39,4 @@ class SystemCleanerRoutesSerializationTest : BaseTest() {
         deserialized shouldBe original
     }
 
-    @Test
-    fun `FilterContentRoute serialization`() {
-        val original = FilterContentRoute(identifier = "eu.darken.sdmse.systemcleaner.filter.EmptyDirectoryFilter")
-
-        val serialized = json.encodeToString(original)
-        serialized.toComparableKotlinxJson() shouldBe """
-            {
-                "identifier": "eu.darken.sdmse.systemcleaner.filter.EmptyDirectoryFilter"
-            }
-        """.toComparableKotlinxJson()
-
-        val deserialized = json.decodeFromString<FilterContentRoute>(serialized)
-        deserialized shouldBe original
-    }
 }

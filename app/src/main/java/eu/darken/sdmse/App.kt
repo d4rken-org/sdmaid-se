@@ -22,7 +22,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.installErrorDialogCustomizer
-import eu.darken.sdmse.setup.installShowSetupHint
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.storage.StorageRescue
@@ -31,6 +30,7 @@ import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
+import eu.darken.sdmse.main.core.taskmanager.TaskResultNotifier
 import eu.darken.sdmse.stats.core.SpaceMonitorControl
 import eu.darken.sdmse.stats.core.TaskStatsCoordinator
 import kotlinx.coroutines.CoroutineScope
@@ -59,6 +59,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var spaceMonitorControl: SpaceMonitorControl
     @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
+    @Inject lateinit var taskResultNotifier: TaskResultNotifier
     @Inject lateinit var storageRescue: StorageRescue
 
     private val logCatLogger = LogCatLogger()
@@ -103,7 +104,6 @@ open class App : Application(), Configuration.Provider {
         theming.setup()
 
         installErrorDialogCustomizer()
-        installShowSetupHint()
 
         memoryMonitor.register()
 
@@ -115,6 +115,7 @@ open class App : Application(), Configuration.Provider {
 
         shortcutManager.initialize()
         taskStatsCoordinator.start()
+        taskResultNotifier.start()
         spaceMonitorControl.start()
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()

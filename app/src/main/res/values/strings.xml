@@ -1,5 +1,14 @@
 <resources>
     <string name="dashboard_delete_all_message">Delete results in all tools?</string>
+    <string name="dashboard_hero_freeable_headline">%1$s can be freed</string>
+    <string name="dashboard_hero_freed_headline">%1$s freed</string>
+    <string name="dashboard_hero_freeable_x_items">%1$s can be removed</string>
+    <string name="dashboard_hero_freed_x_items">%1$s removed</string>
+    <string name="dashboard_hero_freeable_hint">Tap the button to free space. Tap a chip to check first.</string>
+    <string name="dashboard_hero_freed_hint">Tap a chip for details.</string>
+    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
+    <string name="dashboard_hero_scanned_timestamp_description">Scanned %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">Freed %1$s</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">A message from the developer</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>
@@ -14,9 +23,27 @@
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
+    <string name="debug_debuglog_sensitive_information_label">Sensitive Information</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
+    <string name="debug_debuglog_screen_subtitle">Export debug information for troubleshooting</string>
+    <string name="debug_logview_screen_title">Log Viewer</string>
+    <string name="debug_logview_pause_action">Pause (freeze buffer)</string>
+    <string name="debug_logview_resume_action">Resume</string>
+    <string name="debug_logview_copy_action">Copy log</string>
+    <string name="debug_logview_collapse_action">Collapse</string>
+    <string name="debug_logview_close_action">Close log panel</string>
+    <string name="debug_logview_resize_action">Resize</string>
+    <string name="debug_logview_more_action">More options</string>
+    <string name="debug_logview_level_action">Log level</string>
+    <string name="debug_logview_clear_action">Clear buffer</string>
+    <string name="debug_logview_search_prev_action">Previous match</string>
+    <string name="debug_logview_search_next_action">Next match</string>
+    <string name="debug_logview_jump_to_bottom_action">Jump to latest</string>
+    <string name="debug_logview_paused_msg">Paused — buffer frozen</string>
+    <string name="debug_logview_paused_dropped_msg">Paused — %1$d new line(s) skipped</string>
+    <string name="debug_logview_copied_msg">Log copied to clipboard</string>
+    <string name="debug_logview_share_label">Share log</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
-    <string name="debug_debuglog_screen_discard_action">Discard</string>
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>
     <string name="debug_debuglog_screen_log_files_label">Log Files</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,8 +67,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Failed: compression error</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Delete this debug log session?</string>
     <string name="support_contact_post_send_message">Message sent successfully?</string>
-    <string name="debug_debuglog_sessions_stop_action">Stop</string>
-
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -54,6 +79,7 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Task results</string>
     <string name="tasks_result_subtext">Task result</string>
+    <string name="tasks_result_failed_msg">Task didn\'t finish successfully.</string>
     <string name="tasks_timeout_error_label">Task timed out</string>
     <string name="tasks_timeout_error_desc">The task took too long and was stopped. Please try again.</string>
 
@@ -72,16 +98,15 @@
 
     <string name="onboarding_privacy_title">Privacy</string>
     <string name="onboarding_privacy_body1">SD Maid has no ads and does not sell user data.</string>
-    <string name="onboarding_privacy_bugreport_toggle_body">Bug reports are sent when errors occur and may contain details about apps and files on your device. Reports help me fix bugs and improve the app.</string>
-    <string name="onboarding_privacy_bugreport_toggle">Allow automatic bug reports</string>
-    <string name="onboarding_privacy_bugreport_toggle_hint">These options can be changed in the settings.</string>
-    <string name="onboarding_privacy_continue_action">Continue</string>
-
     <string name="onboarding_setup_title">Setup</string>
     <string name="onboarding_setup_body1">SD Maid will search all accessible data areas.</string>
     <string name="onboarding_setup_body2">What is accessible depends on your device, Android version and granted permissions.</string>
-    <string name="onboarding_setup_body3">Start using SD Maid by setting up access to areas that should be searched.</string>
+    <string name="onboarding_setup_body4">SD Maid\'s defaults are configured to be safe and thorough, offering a good balance for most users.</string>
+    <string name="onboarding_setup_body5">For more thorough results, visit each tool\'s settings and adjust them to your liking.</string>
+    <string name="onboarding_setup_body3">Start using SD Maid by setting up access.</string>
     <string name="onboarding_setup_continue_action">Set up access</string>
+    <string name="onboarding_setup_tours_enabled_label">Show guided tours</string>
+    <string name="onboarding_setup_tours_enabled_explanation">A quick guided tour of each feature as you open it.</string>
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
@@ -89,6 +114,8 @@
 
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
+
+    <string name="upgrade_badge_label">Pro</string>
 
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">General tweaks that affect the whole app.</string>
@@ -104,6 +131,13 @@
     <string name="ui_theme_style_setting_explanation">The color style used when theming the app.</string>
     <string name="ui_theme_style_default_label">Default</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Medium contrast</string>
+    <string name="ui_theme_style_highcontrast_label">High contrast</string>
+
+    <string name="ui_theme_color_setting_label">Theme color</string>
+    <string name="ui_theme_color_setting_explanation">The color palette used for theming the app.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Colors are provided by Material You from your wallpaper.</string>
+    <string name="ui_theme_color_value_system">System colors</string>
 
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>
@@ -116,8 +150,6 @@
     <string name="documentation_label">Documentation</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests.</string>
     <string name="issue_tracker_label">Issue tracker</string>
-    <string name="support_installid_label">Install ID</string>
-    <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
     <string name="support_debuglog_folder_label">Debug log folder</string>
@@ -178,7 +210,6 @@
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
     <string name="setup_incomplete_card_body">Finish SD Maid\'s setup to get better results.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid is trying to fix setup issues.</string>
-    <string name="setup_incomplete_card_dismiss_action">Dismiss</string>
     <string name="setup_incomplete_card_continue_action">Continue setup</string>
     <string name="setup_forcedshow_summary">Show setup screen again, including already completed items.</string>
     <string name="setup_checking_card_body">Verifying setup completion and functionality.</string>
@@ -199,9 +230,9 @@
     <string name="setup_root_card_title">Root access</string>
     <string name="setup_root_card_body">Should SD Maid use root access if it is available? Root access can be used to check additional system folders and private application data.</string>
     <string name="setup_root_state_ready_label">Root access is ready.</string>
-    <string name="setup_root_state_waiting_label">Waiting for root access.</string>
-    <string name="setup_root_enable_root_use_label">Use root access if available</string>
-    <string name="setup_root_disable_root_use_label">Don\'t use root access</string>
+    <string name="setup_root_state_waiting_label">Root access is not available.</string>
+    <string name="setup_root_enable_root_use_label">Try to use root access</string>
+    <string name="setup_root_disable_root_use_label">I didn\'t root my device</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
 
     <string name="setup_shizuku_card_title">Shizuku</string>
@@ -210,7 +241,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link is ready.</string>
     <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Use Shizuku if available</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Try to use Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use Shizuku</string>
 
     <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>
@@ -255,12 +286,15 @@
 
     <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
-    <string name="debug_bugreporter_label">Automatic bug reports</string>
-    <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug mode is enabled</string>
-    <string name="debug_card_trace_mode_label">Enable trace mode</string>
-    <string name="debug_card_dryrun_mode_label">Dry-run mode (disable deletion)</string>
+    <string name="debug_card_description">Developer diagnostics and runtime overrides. This card only appears while debug mode is enabled.</string>
+    <string name="debug_card_section_diagnostics">Diagnostics</string>
+    <string name="debug_card_section_reload">Reload</string>
+    <string name="debug_card_trace_mode_title">Trace logging</string>
+    <string name="debug_card_trace_mode_desc">Verbose step-by-step logs. Slows the app down noticeably.</string>
+    <string name="debug_card_dryrun_mode_title">Dry-run mode</string>
+    <string name="debug_card_dryrun_mode_desc">Simulate cleanup — files are scanned but nothing is deleted.</string>
     <string name="debug_card_areas_reload_action">Reload data areas</string>
     <string name="debug_card_pkgs_reload_action">Reload apps</string>
     <string name="debug_card_root_test_action">Test root</string>
@@ -272,11 +306,6 @@
     <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Data areas</string>
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
-    <string name="data_areas_short_summary">Areas that SD Maid can access based on the currently granted permissions.</string>
-
-    <string name="history_label">History</string>
-    <string name="history_description">A chronological list of recent actions and affected data.</string>
-
     <string name="updates_dashcard_title">Update available</string>
     <string name="updates_dashcard_body">An update is available. You have %1$s and the latest version is %2$s.</string>
 
@@ -291,8 +320,6 @@
     <string name="updatecheck_setting_enabled_label">Update check</string>
     <string name="updatecheck_setting_enabled_explanation">Allow SD Maid to check for updates to let you know if a newer version is available.</string>
     <string name="device_settings_category">Device</string>
-
-    <string name="beta_version_indicator_desc">Pre-release versions display a litte ribbon on the start screen. They are updated more frequently, might have more features, but could also have more bugs.</string>
 
     <string name="review_app_review_action">Review</string>
     <string name="review_app_dismiss_action">Maybe later</string>
@@ -317,5 +344,16 @@
     <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
 
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7 days</string>
-    <!-- Shorter versions for side-by-side display -->
+
+    <string name="tour_dashboard_overview_body">This is your dashboard, SD Maid\'s home screen. Every tool and operation lives on a card here.</string>
+    <string name="tour_dashboard_setup_body">The setup card appears when something needs configuring. Open it and resolve the issues so SD Maid can do more. You can also reach setup from settings, if you dismiss it.</string>
+    <string name="tour_dashboard_tools_body">Open a tool\'s card for details. Scan and delete actions live on each card, details appear once a scan finds something.</string>
+    <string name="tour_dashboard_main_action_body">The big button at the bottom is the one-tap action. One tap to scan, one tap to clean, all automatic tools.</string>
+    <string name="tour_dashboard_manual_tools_body">Some tools, like Swiper, aren\'t automatic, they offer a guided workflow you step through yourself.</string>
+    <string name="tour_dashboard_settings_body">SD Maid\'s defaults are conservative and safe. Every device is a little different, so adjust the settings to get more out of it.</string>
+
+    <string name="tour_setup_intro_body">Each card on this screen is a permission SD Maid can use. All are optional, but more permissions mean more features and more thorough scans. Without any, most tools will find little to clean.</string>
+
+    <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
+    <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables all tours if you previously turned them off.</string>
 </resources>

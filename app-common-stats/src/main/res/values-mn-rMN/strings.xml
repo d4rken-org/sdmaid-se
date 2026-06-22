@@ -8,7 +8,6 @@
         <item quantity="one">Тань SD Maid-ыг төхөөртөө уриссанаас %s зүйл боловсон</item>
         <item quantity="other">Тань SD Maid-ыг төхөөртөө уриссанаас %s зүйл боловсон</item>
     </plurals>
-    <string name="stats_report_status_success">Амжилттай</string>
     <string name="stats_report_status_partial_success">Хэсэгчлэн амжилттай</string>
     <string name="stats_report_status_partial_failure">Амжилтгүй</string>
     <string name="stats_settings_desc">SD Maid-ийн статистик, тайлан болон өгөгдөл хадгалах хугацааг тохируулах.</string>
@@ -17,10 +16,6 @@
     <string name="stats_settings_retention_reports_desc">SD Maid-ын үйл ажиллын тайлануудыг устгахаас өмнөх өдрийн тоо.</string>
     <string name="stats_settings_retention_paths_label">Дэлгэрэнгүй шляхын мэдээлэл</string>
     <string name="stats_settings_retention_paths_desc">SD Maid-аас нөлөөлөгдсөн шляхуудын дэлгэрэнгүй мэдээллийг хадгалах өдрийн тоо.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d өдөр</item>
-        <item quantity="other">%d өдөр</item>
-    </plurals>
     <string name="stats_settings_reset_all_label">Бүгдийг шинэчлэх</string>
     <string name="stats_settings_reset_all_desc">Бүх тайланг устгаж, бүх статистикийг тэг болгох.</string>
     <string name="stats_affected_paths_label">Нөлөөлсөн замууд</string>
@@ -44,8 +39,4 @@
     <string name="stats_storage_type_primary">Үндсэн хадгалалт</string>
     <string name="stats_storage_type_secondary">Хоёрдогч хадгалалт</string>
     <string name="stats_storage_type_portable">Зөөврийн хадгалалт</string>
-    <string name="stats_space_history_delete_storage_title">Санах ойн түүхийг устгах уу?</string>
-    <string name="stats_space_history_delete_storage_desc">Энэ санах ойн бүх чиг хандлагын өгөгдөл бүрмөсөн устгагдана.</string>
-    <string name="stats_settings_retention_snapshots_label">Хадгалалтын агшин зургууд</string>
-    <string name="stats_settings_retention_snapshots_desc">Хадгалалтын зайн агшин зургуудыг хэдэн хоног хадгалах тоо.</string>
 </resources>

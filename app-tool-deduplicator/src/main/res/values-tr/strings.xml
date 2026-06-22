@@ -13,9 +13,6 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Tekrar eden dosyalar için tüm dosyaları sil seçeneklerini göster, sonucunda hiçbir dosya kalmayacaktır.</string>
     <string name="deduplicator_search_locations_title">Arama konumları</string>
     <string name="deduplicator_search_locations_all_summary">Tüm erişilebilir alanlar</string>
-    <string name="deduplicator_keep_prefer_paths_title">Saklamayı tercih et</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Hangi yineleneni saklayacağına karar verirken, bu konumlardaki dosyaları saklamayı tercih et.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Yapılandırılmış konum yok</string>
     <string name="deduplicator_skip_minsize_title">Minimum boyut</string>
     <string name="deduplicator_skip_minsize_description">Minimum boyutun altındaki dosyaları geç.</string>
     <string name="deduplicator_skip_uncommon_title">Tanıdık olmayan dosya türlerini geç</string>
@@ -27,7 +24,6 @@
     <string name="deduplicator_detection_method_phash_summary">İçerik özelliklerini analiz ederek ve algısal karma değerleri karşılaştırarak benzer dosyaları bulun. ⚠️ Benzerlik tabanlı algılama, manuel doğrulama gerektiren yanlış pozitif sonuçlar içerebilir.</string>
     <string name="deduplicator_detection_method_media_title">Medya parmak izi</string>
     <string name="deduplicator_detection_method_media_summary">Ses parmak izlerini analiz ederek benzer video ve ses dosyalarını bulur. ⚠️ Benzerlik tabanlı algılama, manuel doğrulama gerektiren yanlış pozitifler içerebilir.</string>
-    <string name="deduplicator_matches_media_label">Benzer medya</string>
     <string name="deduplicator_media_match_audio">Ses tabanlı eşleşme</string>
     <string name="deduplicator_media_match_visual">Video tabanlı eşleşme</string>
     <string name="deduplicator_media_match_audio_visual">Ses ve video tabanlı eşleşme</string>

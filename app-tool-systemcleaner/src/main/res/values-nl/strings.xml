@@ -100,5 +100,4 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
     <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
     <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
 </resources>

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.core.filter.stock
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -8,10 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.common.areas.DataArea
-import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
-import eu.darken.sdmse.common.ca.toCaDrawable
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.compose.icons.AndroidStudio
+import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -36,7 +37,7 @@ class DataLocalTmpFilter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : BaseSystemCleanerFilter() {
 
-    override suspend fun getIcon(): CaDrawable = R.drawable.ic_android_studio_24.toCaDrawable()
+    override val icon: ImageVector = SdmIcons.AndroidStudio
 
     override suspend fun getLabel(): CaString = R.string.systemcleaner_filter_localtmp_label.toCaString()
 
