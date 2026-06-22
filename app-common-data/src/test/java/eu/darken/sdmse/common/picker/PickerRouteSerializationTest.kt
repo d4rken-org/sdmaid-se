@@ -45,4 +45,26 @@ class PickerRouteSerializationTest : BaseTest() {
         val deserialized = json.decodeFromString<PickerRoute>(serialized)
         deserialized shouldBe original
     }
+
+    @Test
+    fun `FILES_AND_DIRS mode serializes to its stable name`() {
+        val original = PickerRoute(
+            request = PickerRequest(
+                requestKey = "swiper_sessions_picker",
+                mode = PickerRequest.PickMode.FILES_AND_DIRS,
+            ),
+        )
+
+        val serialized = json.encodeToString(original)
+        serialized.toComparableKotlinxJson() shouldBe """
+            {
+                "request": {
+                    "requestKey": "swiper_sessions_picker",
+                    "mode": "FILES_AND_DIRS"
+                }
+            }
+        """.toComparableKotlinxJson()
+
+        json.decodeFromString<PickerRoute>(serialized) shouldBe original
+    }
 }

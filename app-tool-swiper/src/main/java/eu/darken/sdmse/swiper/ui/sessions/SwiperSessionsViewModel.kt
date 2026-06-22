@@ -99,7 +99,9 @@ class SwiperSessionsViewModel @Inject constructor(
             PickerRoute(
                 request = PickerRequest(
                     requestKey = PICKER_REQUEST_KEY,
-                    mode = PickerRequest.PickMode.DIRS,
+                    // Files + folders: lets the user pick loose files and whole subfolders, e.g. select
+                    // a folder's contents then deselect a subfolder they don't want to sort.
+                    mode = PickerRequest.PickMode.FILES_AND_DIRS,
                     allowedAreas = setOf(
                         DataArea.Type.PORTABLE,
                         DataArea.Type.SDCARD,

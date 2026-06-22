@@ -2,6 +2,7 @@ package eu.darken.sdmse.swiper.core.scanner
 
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -25,12 +26,14 @@ import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.core.db.SwipeItemEntity
 import eu.darken.sdmse.swiper.core.db.SwipeSessionEntity
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
@@ -80,16 +83,29 @@ class SwiperScanner @Inject constructor(
                     exclusions.none { it.match(toCheck) }
                 }
 
-                val lookup = gatewaySwitch.lookup(path)
-                if (lookup.fileType == FileType.FILE) {
-                    if (filter(lookup)) flowOf(lookup) else emptyFlow()
-                } else {
-                    path.walk(
-                        gatewaySwitch,
-                        options = APathGateway.WalkOptions(
-                            onFilter = filter,
-                        ),
-                    )
+                // A source path can vanish or become unreadable between picking and scanning (more
+                // likely now that sources can be many individually-picked files). Skip a bad source
+                // instead of failing the whole scan — guard both the eager lookup and the lazy walk.
+                try {
+                    val lookup = gatewaySwitch.lookup(path)
+                    if (lookup.fileType == FileType.FILE) {
+                        if (filter(lookup)) flowOf(lookup) else emptyFlow()
+                    } else {
+                        path.walk(
+                            gatewaySwitch,
+                            options = APathGateway.WalkOptions(
+                                onFilter = filter,
+                            ),
+                        ).catch { e ->
+                            if (e is CancellationException) throw e
+                            log(TAG, WARN) { "Source walk failed, skipping remainder: $path\n${e.asLog()}" }
+                        }
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Source path no longer accessible, skipping: $path\n${e.asLog()}" }
+                    emptyFlow()
                 }
             }
             .flowOn(dispatcherProvider.IO)

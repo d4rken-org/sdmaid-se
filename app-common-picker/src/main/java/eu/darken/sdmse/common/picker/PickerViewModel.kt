@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.isDescendantOf
 import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.flow.SingleEventFlow
@@ -241,6 +242,9 @@ class PickerViewModel @Inject constructor(
                     when (req.mode) {
                         PickerRequest.PickMode.DIR,
                         PickerRequest.PickMode.DIRS -> it.isDirectory
+                        // Files + folders. Restrict to plain files/dirs (not symlinks/unknown) so a
+                        // selected source is always something the consumer can walk or read directly.
+                        PickerRequest.PickMode.FILES_AND_DIRS -> it.isDirectory || it.isFile
                     }
                 }
                 .map { lookup ->
@@ -309,6 +313,9 @@ class PickerViewModel @Inject constructor(
 
     fun onRowClick(row: PickerRow) {
         log(TAG) { "onRowClick($row)" }
+        // A file can't be navigated into; the row routes file taps to toggle, but guard here too so
+        // a non-navigable item is never pushed onto the nav stack (lookupFiles on a file would fail).
+        if (!row.navigable) return
         val newNav = (navigationState.value ?: emptyList()) + row.item
         navigationState.value = newNav
         persistNav(newNav)
@@ -385,7 +392,8 @@ class PickerViewModel @Inject constructor(
                 if (alreadySelected) emptyList() else listOf(path)
             }
 
-            PickerRequest.PickMode.DIRS -> current.toMutableList().apply {
+            PickerRequest.PickMode.DIRS,
+            PickerRequest.PickMode.FILES_AND_DIRS -> current.toMutableList().apply {
                 paths.forEach { path ->
                     val removed = removeIf { it.lookedUp == path.lookedUp }
                     if (!removed) {
@@ -418,6 +426,9 @@ class PickerViewModel @Inject constructor(
 
     data class PickerRow(val item: PickerItem) {
         val id: String get() = item.lookup.lookedUp.path
+
+        /** Area roots and directories can be opened; files (the new mode) can only be selected. */
+        val navigable: Boolean get() = item.parent == null || item.lookup.isDirectory
     }
 
     data class SelectedRow(val lookup: APathLookup<*>) {

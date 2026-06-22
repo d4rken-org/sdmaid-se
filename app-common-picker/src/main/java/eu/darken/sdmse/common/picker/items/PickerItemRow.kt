@@ -51,7 +51,9 @@ fun PickerItemRow(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            // Directories/area-roots open on a body tap; a file has nothing to open into, so its
+            // body tap toggles selection instead (only the checkbox would otherwise select it).
+            .clickable(onClick = { if (row.navigable) onClick() else onToggleSelect() })
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {

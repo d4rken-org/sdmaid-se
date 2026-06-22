@@ -86,6 +86,10 @@
     <string name="swiper_session_rename_hint">Enter a name for this session</string>
     <string name="swiper_sessions_current_sessions">Current sessions</string>
     <string name="swiper_session_paths_label">Paths</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…and %d more</item>
+        <item quantity="other">…and %d more</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d to keep</item>
