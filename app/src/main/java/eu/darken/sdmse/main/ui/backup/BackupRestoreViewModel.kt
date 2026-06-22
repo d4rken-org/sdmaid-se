@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.MimeTypes
+import eu.darken.sdmse.common.backup.BackupCodec
 import eu.darken.sdmse.common.backup.BackupEnvelope
 import eu.darken.sdmse.common.backup.ConfigBackupManager
 import eu.darken.sdmse.common.backup.InvalidBackupException
@@ -19,7 +20,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isProSettled
@@ -59,8 +59,8 @@ class BackupRestoreViewModel @Inject constructor(
         }
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            type = MimeTypes.Json.value
-            putExtra(Intent.EXTRA_TITLE, "SDMaidSE-backup-${LocalDate.now()}.json")
+            type = MIME_GZIP
+            putExtra(Intent.EXTRA_TITLE, "SDMaidSE-backup-${LocalDate.now()}.json.gz")
         }
         events.emit(Event.PickExportTarget(intent))
     }
@@ -73,7 +73,7 @@ class BackupRestoreViewModel @Inject constructor(
         log(TAG) { "performExport($uri)" }
         val raw = configBackupManager.createBackup()
         context.contentResolver.openOutputStream(uri)?.use { out ->
-            out.write(raw.toByteArray())
+            out.write(BackupCodec.encode(raw))
         } ?: throw IOException("Failed to open output stream for $uri")
         log(TAG, INFO) { "Backup written to $uri" }
         events.emit(Event.ExportDone)
@@ -83,7 +83,9 @@ class BackupRestoreViewModel @Inject constructor(
         log(TAG) { "requestImport()" }
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            type = MimeTypes.Json.value
+            // Accept both the gzip backups we now write and older/plain .json backups.
+            type = "*/*"
+            putExtra(Intent.EXTRA_MIME_TYPES, arrayOf(MIME_GZIP, MimeTypes.Json.value, "application/octet-stream"))
         }
         events.emit(Event.PickImportSource(intent))
     }
@@ -94,7 +96,9 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "onImportPicked($uri)" }
-        val raw = uri.readAsText(context) ?: throw InvalidBackupException("Failed to read backup file")
+        val bytes = context.contentResolver.openInputStream(uri)?.use { it.readBytes() }
+            ?: throw InvalidBackupException("Failed to read backup file")
+        val raw = BackupCodec.decode(bytes)
         val envelope = configBackupManager.parse(raw)
         pendingEnvelope = envelope
         events.emit(Event.ConfirmRestore(envelope.toConfirmInfo()))
@@ -169,5 +173,6 @@ class BackupRestoreViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Backup", "Restore", "ViewModel")
+        private const val MIME_GZIP = "application/gzip"
     }
 }
