@@ -16,12 +16,6 @@ class MotdSettingsBackupContributor @Inject constructor(
     settings: MotdSettings,
 ) : DataStoreSettingsBackupContributor(settings.dataStore) {
     override val key = "motd"
-
-    // Server-driven caches, nothing to restore.
-    override val excludedKeys = setOf(
-        "motd.state.cache",
-        "motd.last.dismissed",
-    )
 }
 
 @Module

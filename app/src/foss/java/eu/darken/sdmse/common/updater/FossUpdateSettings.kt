@@ -22,7 +22,7 @@ class FossUpdateSettings @Inject constructor(
 
     private val Context.dataStore by preferencesDataStore(name = "settings_updater_foss")
 
-    private val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     private fun FossUpdateChecker.Update.getSetting(): DataStoreValue<Boolean> {

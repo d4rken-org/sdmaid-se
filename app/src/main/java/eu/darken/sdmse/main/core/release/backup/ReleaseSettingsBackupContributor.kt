@@ -16,12 +16,6 @@ class ReleaseSettingsBackupContributor @Inject constructor(
     settings: ReleaseSettings,
 ) : DataStoreSettingsBackupContributor(settings.dataStore) {
     override val key = "release"
-
-    // Migration/legacy markers, not user settings. The beta opt-in is kept.
-    override val excludedKeys = setOf(
-        "release.party.date",
-        "release.earlyadopter",
-    )
 }
 
 @Module

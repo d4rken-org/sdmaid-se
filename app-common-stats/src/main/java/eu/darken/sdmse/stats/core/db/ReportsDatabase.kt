@@ -2,6 +2,7 @@ package eu.darken.sdmse.stats.core.db
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.room.withTransaction
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -50,6 +51,10 @@ class ReportsDatabase @Inject constructor(
             .addTypeConverter(aPathTypeConverter)
             .build()
     }
+
+    /** Underlying Room database, exposed for config backup/restore. */
+    val roomDb: RoomDatabase
+        get() = database
 
     private val dbFile: File
         get() = context.getDatabasePath(DB_NAME)
