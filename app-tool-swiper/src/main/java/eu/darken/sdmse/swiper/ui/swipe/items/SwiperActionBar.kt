@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -50,6 +51,9 @@ internal fun SwiperActionBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            // Scaffold's bottomBar slot is NOT auto-padded for the nav bar inset; with
+            // edge-to-edge enabled the bar would otherwise draw under the system nav bar.
+            .navigationBarsPadding()
             .padding(horizontal = 32.dp)
             .padding(top = 8.dp, bottom = 24.dp),
         verticalAlignment = Alignment.Top,
