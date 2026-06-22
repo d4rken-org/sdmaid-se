@@ -359,4 +359,29 @@
 
     <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
     <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables all tours if you previously turned them off.</string>
+
+    <!-- Config backup & restore -->
+    <string name="backup_restore_title">Backup &amp; Restore</string>
+    <string name="backup_restore_desc">Save your settings and configuration to a file, or restore them</string>
+    <string name="backup_restore_export_title">Create backup</string>
+    <string name="backup_restore_export_desc">Save settings, exclusions, schedules and custom filters to a file</string>
+    <string name="backup_restore_import_title">Restore backup</string>
+    <string name="backup_restore_import_desc">Load configuration from a backup file</string>
+    <string name="backup_restore_export_success">Backup created</string>
+    <string name="backup_restore_restore_success">Backup restored</string>
+    <string name="backup_restore_restore_partial">Backup restored, but %1$d section(s) could not be applied</string>
+    <string name="backup_restore_confirm_title">Restore this backup?</string>
+    <string name="backup_restore_confirm_created">Created: %1$s</string>
+    <string name="backup_restore_confirm_source">From SD Maid %1$s on %2$s (Android %3$s)</string>
+    <string name="backup_restore_mode_label">Restore mode</string>
+    <string name="backup_restore_mode_merge">Merge</string>
+    <string name="backup_restore_mode_merge_desc">Add the backup on top of your current configuration</string>
+    <string name="backup_restore_mode_replace">Replace</string>
+    <string name="backup_restore_mode_replace_desc">Reset your current configuration, then apply the backup</string>
+    <string name="backup_restore_warn_version_body">This backup is from SD Maid %1$s, but you are on %2$s. Restoring is only officially supported between identical versions.</string>
+    <string name="backup_restore_warn_android_body">This backup was made on Android %1$s, but this device runs Android %2$s.</string>
+    <string name="backup_restore_warn_device_body">This backup was made on a different device (%1$s vs %2$s).</string>
+    <string name="backup_restore_warn_flavor_body">This backup is from a different app edition (%1$s vs %2$s).</string>
+    <string name="backup_restore_ack_understand">I understand and want to continue</string>
+    <string name="backup_restore_action_restore">Restore</string>
 </resources>

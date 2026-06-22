@@ -16,7 +16,7 @@ class DebugSettings @Inject constructor(
 ) {
     private val Context.dataStore by preferencesDataStore(name = "debug_settings")
 
-    private val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val isDebugMode = dataStore.createValue("debug.enabled", BuildConfigWrap.DEBUG)

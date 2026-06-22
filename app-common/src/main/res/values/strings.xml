@@ -224,4 +224,9 @@
     <string name="access_blocked_root_unavailable">This feature needs root access, but SD Maid couldn\'t get it on this device.</string>
     <string name="access_blocked_root_declined">This feature needs root access. You can enable it via the setup screen.</string>
     <string name="access_blocked_root_or_shizuku">This feature needs root or Shizuku access, which isn\'t available on this device.</string>
+
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Invalid backup file</string>
+    <string name="backup_restore_error_invalid_body">This file is not a valid SD Maid backup or is corrupt.</string>
+    <string name="backup_restore_error_version_body">This backup was created with a newer version of SD Maid. Please update the app and try again.</string>
 </resources>

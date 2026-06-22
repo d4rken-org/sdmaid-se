@@ -20,7 +20,7 @@ class MotdSettings @Inject constructor(
 
     private val Context.dataStore by preferencesDataStore(name = "settings_motd")
 
-    private val dataStore: DataStore<Preferences>
+    val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
     val lastMotd = dataStore.createValue<MotdState?>("motd.state.cache", null, json)
