@@ -29,6 +29,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
     private class Values(
         val includeJpeg: DataStoreValue<Boolean>,
         val includeWebp: DataStoreValue<Boolean>,
+        val includeHeic: DataStoreValue<Boolean>,
         val includeVideo: DataStoreValue<Boolean>,
         val skipPreviouslyCompressed: DataStoreValue<Boolean>,
         val writeExifMarker: DataStoreValue<Boolean>,
@@ -45,6 +46,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
     private fun harness(
         includeJpeg: Boolean = true,
         includeWebp: Boolean = true,
+        includeHeic: Boolean = false,
         includeVideo: Boolean = false,
         skipPreviouslyCompressed: Boolean = true,
         writeExifMarker: Boolean = false,
@@ -55,6 +57,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val values = Values(
             includeJpeg = rwDataStoreValue(includeJpeg),
             includeWebp = rwDataStoreValue(includeWebp),
+            includeHeic = rwDataStoreValue(includeHeic),
             includeVideo = rwDataStoreValue(includeVideo),
             skipPreviouslyCompressed = rwDataStoreValue(skipPreviouslyCompressed),
             writeExifMarker = rwDataStoreValue(writeExifMarker),
@@ -63,6 +66,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val settings = mockk<SqueezerSettings>().apply {
             every { this@apply.includeJpeg } returns values.includeJpeg
             every { this@apply.includeWebp } returns values.includeWebp
+            every { this@apply.includeHeic } returns values.includeHeic
             every { this@apply.includeVideo } returns values.includeVideo
             every { this@apply.skipPreviouslyCompressed } returns values.skipPreviouslyCompressed
             every { this@apply.writeExifMarker } returns values.writeExifMarker
@@ -93,6 +97,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val state = h.vm.state.first()
         state.includeJpeg shouldBe true
         state.includeWebp shouldBe true
+        state.includeHeic shouldBe false
         state.includeVideo shouldBe false
         state.skipPreviouslyCompressed shouldBe true
         state.writeExifMarker shouldBe false
@@ -106,6 +111,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val h = harness(
             includeJpeg = false,
             includeWebp = false,
+            includeHeic = true,
             includeVideo = true,
             skipPreviouslyCompressed = false,
             writeExifMarker = true,
@@ -117,6 +123,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val state = h.vm.state.first()
         state.includeJpeg shouldBe false
         state.includeWebp shouldBe false
+        state.includeHeic shouldBe true
         state.includeVideo shouldBe true
         state.skipPreviouslyCompressed shouldBe false
         state.writeExifMarker shouldBe true
@@ -148,6 +155,18 @@ class SqueezerSettingsViewModelTest : BaseTest() {
 
         val captured = slot<(Boolean) -> Boolean?>()
         coVerify(exactly = 1) { h.values.includeWebp.update(capture(captured)) }
+        captured.captured(false) shouldBe true
+    }
+
+    @Test
+    fun `setIncludeHeic writes through`() = runTest2 {
+        val h = harness(includeHeic = false)
+
+        h.vm.setIncludeHeic(true)
+        advanceUntilIdle()
+
+        val captured = slot<(Boolean) -> Boolean?>()
+        coVerify(exactly = 1) { h.values.includeHeic.update(capture(captured)) }
         captured.captured(false) shouldBe true
     }
 

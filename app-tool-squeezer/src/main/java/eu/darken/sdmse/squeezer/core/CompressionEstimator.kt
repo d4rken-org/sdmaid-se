@@ -33,6 +33,17 @@ class CompressionEstimator @Inject constructor() {
                     else -> 0.85
                 }
             }
+            CompressibleImage.MIME_TYPE_HEIC, CompressibleImage.MIME_TYPE_HEIF -> {
+                // HEIC is already an efficient codec — re-encoding saves less than JPEG/WebP.
+                when {
+                    quality == 100 -> 1.0
+                    quality <= 50 -> 0.55
+                    quality <= 70 -> 0.70
+                    quality <= 80 -> 0.80
+                    quality <= 90 -> 0.90
+                    else -> 0.95
+                }
+            }
             else -> null
         }
     }

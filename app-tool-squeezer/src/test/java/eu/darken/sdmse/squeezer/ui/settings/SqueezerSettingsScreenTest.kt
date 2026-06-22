@@ -16,6 +16,7 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
         state: SqueezerSettingsViewModel.State,
         onIncludeJpegChanged: (Boolean) -> Unit = {},
         onIncludeWebpChanged: (Boolean) -> Unit = {},
+        onIncludeHeicChanged: (Boolean) -> Unit = {},
         onIncludeVideoChanged: (Boolean) -> Unit = {},
         onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
         onWriteExifMarkerChanged: (Boolean) -> Unit = {},
@@ -28,6 +29,7 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
                     state = state,
                     onIncludeJpegChanged = onIncludeJpegChanged,
                     onIncludeWebpChanged = onIncludeWebpChanged,
+                    onIncludeHeicChanged = onIncludeHeicChanged,
                     onIncludeVideoChanged = onIncludeVideoChanged,
                     onSkipPreviouslyCompressedChanged = onSkipPreviouslyCompressedChanged,
                     onWriteExifMarkerChanged = onWriteExifMarkerChanged,
@@ -83,6 +85,29 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithText("WebP").performClick()
+
+        captured shouldBe true
+    }
+
+    @Test
+    fun `HEIC row is hidden when the device cannot encode HEIC`() {
+        composeRule.setSettingsScreen(
+            state = SqueezerSettingsViewModel.State(isHeicSupported = false),
+        )
+
+        composeRule.onNodeWithText("HEIC/HEIF").assertDoesNotExist()
+    }
+
+    @Test
+    fun `tapping the HEIC row toggles its callback when supported`() {
+        var captured: Boolean? = null
+        composeRule.setSettingsScreen(
+            state = SqueezerSettingsViewModel.State(isHeicSupported = true, includeHeic = false),
+            onIncludeHeicChanged = { captured = it },
+        )
+
+        composeRule.scrollToText("HEIC/HEIF")
+        composeRule.onNodeWithText("HEIC/HEIF").performClick()
 
         captured shouldBe true
     }

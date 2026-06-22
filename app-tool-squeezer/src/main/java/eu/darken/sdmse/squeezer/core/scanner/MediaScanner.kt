@@ -239,6 +239,11 @@ class MediaScanner @Inject constructor(
             return null
         }
 
+        if (mimeType in CompressibleImage.HEIC_MIME_TYPES && hasMultipleHeifImages(lookup)) {
+            log(TAG, VERBOSE) { "Skipping HEIC with auxiliary/sibling images: $lookup" }
+            return null
+        }
+
         val estimatedCompressedSize = compressionEstimator.estimateCompressedSize(
             lookup.size, mimeType, options.compressionQuality,
         )
@@ -250,6 +255,43 @@ class MediaScanner @Inject constructor(
             wasCompressedBefore = false,
         ).also {
             log(TAG, VERBOSE) { "Found compressible image: $it" }
+        }
+    }
+
+    /**
+     * A HEIF container can hold multiple images: Apple Live Photo siblings, Samsung Motion Photo
+     * frames, depth/portrait auxiliary images, HDR gain maps. The compression pipeline takes a
+     * single decoded [android.graphics.Bitmap] and feeds it to `HeifWriter` with `setMaxImages(1)`,
+     * which would silently drop everything except the primary image. Files like this are excluded
+     * from results rather than destroyed.
+     *
+     * Fails closed: if `MediaMetadataRetriever` can't open the file or `METADATA_KEY_IMAGE_COUNT`
+     * is unreadable, the file is treated as multi-image (skipped). The cost of a false-positive
+     * skip is a missed compression opportunity; the cost of a false-negative is silently destroying
+     * the user's auxiliary images. The toggle is opt-in, so erring on the side of caution is safe.
+     */
+    private fun hasMultipleHeifImages(lookup: APathLookup<*>): Boolean {
+        val localPath = lookup.lookedUp as? LocalPath ?: return true
+        val retriever = MediaMetadataRetriever()
+        return try {
+            retriever.setDataSource(File(localPath.path).absolutePath)
+            val rawCount = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_IMAGE_COUNT)
+            val count = rawCount?.toIntOrNull()
+            if (count == null) {
+                log(TAG, WARN) { "Unknown HEIF image count for $lookup (raw=$rawCount); treating as multi-image" }
+                true
+            } else {
+                count > 1
+            }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to read HEIF image count for $lookup; treating as multi-image: ${e.message}" }
+            true
+        } finally {
+            try {
+                retriever.release()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "MediaMetadataRetriever.release() threw: ${e.message}" }
+            }
         }
     }
 

@@ -99,7 +99,7 @@ class MediaScannerOptionsTest : BaseTest() {
         )
 
         options.enabledMimeTypes shouldBe CompressibleImage.SUPPORTED_MIME_TYPES
-        options.enabledMimeTypes.size shouldBe 2
+        options.enabledMimeTypes.size shouldBe 4 // JPEG + WebP + HEIC + HEIF
     }
 
     @Test

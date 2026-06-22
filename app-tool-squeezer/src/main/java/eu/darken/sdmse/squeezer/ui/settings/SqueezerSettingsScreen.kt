@@ -5,11 +5,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.automirrored.twotone.RotateRight
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
-import androidx.compose.material.icons.twotone.RotateRight
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -54,6 +54,7 @@ fun SqueezerSettingsScreenHost(
         onNavigateUp = vm::navUp,
         onIncludeJpegChanged = vm::setIncludeJpeg,
         onIncludeWebpChanged = vm::setIncludeWebp,
+        onIncludeHeicChanged = vm::setIncludeHeic,
         onIncludeVideoChanged = vm::setIncludeVideo,
         onSkipPreviouslyCompressedChanged = vm::setSkipPreviouslyCompressed,
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
@@ -68,6 +69,7 @@ internal fun SqueezerSettingsScreen(
     onNavigateUp: () -> Unit = {},
     onIncludeJpegChanged: (Boolean) -> Unit = {},
     onIncludeWebpChanged: (Boolean) -> Unit = {},
+    onIncludeHeicChanged: (Boolean) -> Unit = {},
     onIncludeVideoChanged: (Boolean) -> Unit = {},
     onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
@@ -158,6 +160,17 @@ internal fun SqueezerSettingsScreen(
                     onCheckedChange = onIncludeWebpChanged,
                 )
             }
+            if (state.isHeicSupported) {
+                item {
+                    SettingsSwitchItem(
+                        icon = Icons.TwoTone.Compress,
+                        title = stringResource(R.string.squeezer_type_heic_title),
+                        subtitle = stringResource(R.string.squeezer_type_heic_description),
+                        checked = state.includeHeic,
+                        onCheckedChange = onIncludeHeicChanged,
+                    )
+                }
+            }
             item {
                 SettingsSwitchItem(
                     icon = Icons.TwoTone.NewReleases,
@@ -189,7 +202,7 @@ internal fun SqueezerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.TwoTone.RotateRight,
+                    icon = Icons.AutoMirrored.TwoTone.RotateRight,
                     title = stringResource(R.string.squeezer_skip_compressed_title),
                     subtitle = stringResource(R.string.squeezer_skip_compressed_description),
                     checked = state.skipPreviouslyCompressed,
