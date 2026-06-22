@@ -1,4 +1,4 @@
-package eu.darken.sdmse.stats.core.backup
+package eu.darken.sdmse.common.updater.backup
 
 import dagger.Binds
 import dagger.Module
@@ -7,21 +7,22 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.backup.ConfigBackupContributor
 import eu.darken.sdmse.common.backup.DataStoreSettingsBackupContributor
-import eu.darken.sdmse.stats.core.StatsSettings
+import eu.darken.sdmse.common.updater.FossUpdateSettings
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/** FOSS-only. On a GPLAY restore this section has no matching contributor and is skipped. */
 @Singleton
-class StatsSettingsBackupContributor @Inject constructor(
-    settings: StatsSettings,
+class FossUpdateSettingsBackupContributor @Inject constructor(
+    settings: FossUpdateSettings,
 ) : DataStoreSettingsBackupContributor(settings.dataStore) {
-    override val key = "stats"
+    override val key = "updater.foss"
 }
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class StatsSettingsBackupModule {
+abstract class FossUpdateSettingsBackupModule {
     @Binds
     @IntoSet
-    abstract fun bind(c: StatsSettingsBackupContributor): ConfigBackupContributor
+    abstract fun bind(c: FossUpdateSettingsBackupContributor): ConfigBackupContributor
 }
