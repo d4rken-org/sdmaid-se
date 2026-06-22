@@ -17,6 +17,7 @@ import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.Policy
 import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Update
@@ -56,6 +57,7 @@ import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorSettingsRoute
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.ui.navigation.AcknowledgementsRoute
+import eu.darken.sdmse.main.ui.navigation.BackupRestoreRoute
 import eu.darken.sdmse.main.ui.navigation.GeneralSettingsRoute
 import eu.darken.sdmse.main.ui.navigation.SupportRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
@@ -122,6 +124,7 @@ fun SettingsScreenHost(
         },
         onStatsClick = { vm.navTo(StatsSettingsRoute) },
         onSchedulerClick = { vm.navTo(SchedulerSettingsRoute) },
+        onBackupRestoreClick = { vm.navTo(BackupRestoreRoute) },
     )
 }
 
@@ -142,6 +145,7 @@ internal fun SettingsScreen(
     onToolSettingsClick: (String) -> Unit = {},
     onStatsClick: () -> Unit = {},
     onSchedulerClick: () -> Unit = {},
+    onBackupRestoreClick: () -> Unit = {},
 ) {
     SdmScaffold(
         topBar = {
@@ -257,6 +261,14 @@ internal fun SettingsScreen(
                     title = stringResource(eu.darken.sdmse.scheduler.R.string.scheduler_settings_label),
                     subtitle = stringResource(eu.darken.sdmse.scheduler.R.string.scheduler_settings_summary),
                     onClick = onSchedulerClick,
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.SettingsBackupRestore,
+                    title = stringResource(R.string.backup_restore_title),
+                    subtitle = stringResource(R.string.backup_restore_desc),
+                    onClick = onBackupRestoreClick,
                 )
             }
             item {

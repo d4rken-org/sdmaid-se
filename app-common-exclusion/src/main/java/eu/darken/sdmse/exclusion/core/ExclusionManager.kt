@@ -121,6 +121,17 @@ class ExclusionManager @Inject constructor(
     }
 
     /**
+     * Atomically replaces ALL user exclusions with [exclusions] (used by config restore in REPLACE
+     * mode). Single mutex acquisition so a concurrent scan never observes a transient empty set.
+     */
+    suspend fun replaceUserExclusions(exclusions: Set<Exclusion>) = mutex.withLock {
+        log(TAG, INFO) { "replaceUserExclusions(${exclusions.size})" }
+        userExclusions.updateBlocking {
+            exclusions.also { exclusionStorage.save(it) }
+        }
+    }
+
+    /**
      * Restores the built-in default exclusions to their pristine state: un-removes any deleted
      * defaults AND drops user exclusions that shadow a built-in default (same ID, different tags).
      */
