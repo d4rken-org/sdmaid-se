@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class StatsDbBackupContributor @Inject constructor(
     db: ReportsDatabase,
-) : RoomDbBackupContributor(db.roomDb, TABLES) {
+) : RoomDbBackupContributor({ db.roomDb.openHelper.writableDatabase }, TABLES) {
     override val key = "stats.db"
 
     companion object {
