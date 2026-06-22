@@ -168,7 +168,9 @@ class SetupHealer @Inject constructor(
     }
 
     private suspend fun AutomationSetupModule.Result.tryHeal(): Boolean {
-        if (isComplete || hasConsent != true) {
+        // Skips healing while Advanced Protection blocks the ACS bind - a heal attempt would no-op
+        // yet report success and spin this collector in a refresh loop.
+        if (!isAcsHealAttemptViable) {
             return false
         }
 

@@ -274,6 +274,9 @@
     <string name="setup_acs_appops_restriction_title">Restricted settings</string>
     <string name="setup_acs_appops_restriction_body">Can\'t enable SD Maids accessibility service? Android 13+ may apply restrictions to apps not installed via Google Play. Lift these restrictions from the system\'s detail page for SD Maid. The option is in the context menu in the top right corner.</string>
 
+    <string name="setup_acs_advanced_protection_title">Blocked by Advanced Protection</string>
+    <string name="setup_acs_advanced_protection_body">Android\'s Advanced Protection blocks SD Maid\'s accessibility service on Android 17 and newer, so it can\'t be enabled while Advanced Protection is on. Tap Help for details and alternatives.</string>
+
     <string name="setup_inventory_card_title">App inventory</string>
     <string name="setup_inventory_card_body">SD Maid needs to know which apps you have to find files that don\'t belong to any installed apps.</string>
     <string name="setup_inventory_card_extra">Look for a permission called \"App list\" or \"Query all packages\".</string>

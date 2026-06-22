@@ -38,6 +38,7 @@ data class AutomationSetupCardItem(
     val onHelp: () -> Unit,
     val onRestrictionsHelp: () -> Unit,
     val onRestrictionsShow: () -> Unit,
+    val onAdvancedProtectionHelp: () -> Unit,
 ) : SetupCardItem
 
 @Composable
@@ -78,6 +79,12 @@ internal fun AutomationSetupCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 32.dp),
+            )
+        }
+
+        if (ui.showAdvancedProtectionHint) {
+            AdvancedProtectionBox(
+                onHelp = item.onAdvancedProtectionHelp,
             )
         }
 
@@ -230,6 +237,49 @@ private fun AppOpsRestrictionBox(
     }
 }
 
+@Composable
+private fun AdvancedProtectionBox(
+    onHelp: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.tertiaryContainer)
+            .padding(horizontal = 32.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Warning,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.secondary,
+                modifier = Modifier.size(20.dp),
+            )
+            Text(
+                text = stringResource(R.string.setup_acs_advanced_protection_title),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.secondary,
+            )
+        }
+        Text(
+            text = stringResource(R.string.setup_acs_advanced_protection_body),
+            style = MaterialTheme.typography.bodySmall,
+            color = Color.Unspecified,
+        )
+        Button(
+            onClick = onHelp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+        ) {
+            Text(stringResource(CommonR.string.general_help_action))
+        }
+    }
+}
+
 @Preview2
 @Composable
 private fun AutomationSetupCardPreview() {
@@ -246,6 +296,8 @@ private fun AutomationSetupCardPreview() {
                     needsXiaomiAutostart = false,
                     liftRestrictionsIntent = Intent(),
                     showAppOpsRestrictionHint = false,
+                    showAdvancedProtectionHint = false,
+                    isAdvancedProtectionBlocked = false,
                     settingsIntent = Intent(),
                 ),
                 onGrantAction = {},
@@ -253,6 +305,7 @@ private fun AutomationSetupCardPreview() {
                 onHelp = {},
                 onRestrictionsHelp = {},
                 onRestrictionsShow = {},
+                onAdvancedProtectionHelp = {},
             ),
         )
     }
