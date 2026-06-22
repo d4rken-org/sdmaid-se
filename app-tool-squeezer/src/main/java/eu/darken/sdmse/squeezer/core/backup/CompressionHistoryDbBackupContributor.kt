@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class CompressionHistoryDbBackupContributor @Inject constructor(
     db: CompressionHistoryDatabase,
-) : RoomDbBackupContributor(db.roomDb, TABLES) {
+) : RoomDbBackupContributor({ db.roomDb.openHelper.writableDatabase }, TABLES) {
     override val key = "squeezer.db"
 
     companion object {

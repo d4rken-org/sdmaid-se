@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "createdAt": "2026-06-22T12:00:00Z",
+  "appVersionCode": 1750000,
+  "appVersionName": "1.7.5",
+  "flavor": "GPLAY",
+  "androidSdkInt": 34,
+  "androidRelease": "14",
+  "deviceManufacturer": "Google",
+  "deviceModel": "Pixel 8",
+  "sections": {
+    "general": {
+      "core.ui.theme.mode": { "t": "s", "v": "\"DARK\"" },
+      "core.ui.previews.enabled": { "t": "b", "v": true },
+      "dashboard.oneclick.onepass.enabled": { "t": "b", "v": false }
+    },
+    "appcleaner": {
+      "skip.mincachesize.bytes": { "t": "l", "v": 49152 },
+      "filter.advertisement.enabled": { "t": "b", "v": true }
+    },
+    "exclusions": "{\"exclusionRaw\":\"[]\",\"version\":1}",
+    "stats.db": {
+      "space_snapshots": [
+        { "id": { "t": "i", "v": 1 }, "spaceUsed": { "t": "i", "v": 12345 } }
+      ]
+    }
+  }
+}

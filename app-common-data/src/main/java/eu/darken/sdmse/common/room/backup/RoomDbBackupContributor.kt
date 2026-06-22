@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Base64
-import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import eu.darken.sdmse.common.backup.ConfigBackupContributor
 import eu.darken.sdmse.common.backup.RestoreMode
@@ -35,16 +34,20 @@ import kotlinx.serialization.json.put
  *
  * [tables] must be ordered parents-first (no SQLite FK constraints are declared, but it keeps logical
  * relations tidy).
+ *
+ * Takes a [sqliteProvider] (typically `{ roomDb.openHelper.writableDatabase }`) rather than the
+ * RoomDatabase itself, so it depends only on [SupportSQLiteDatabase] — decoupled from Room and
+ * testable against a raw in-memory SQLite database.
  */
 abstract class RoomDbBackupContributor(
-    private val database: RoomDatabase,
+    private val sqliteProvider: () -> SupportSQLiteDatabase,
     private val tables: List<String>,
 ) : ConfigBackupContributor {
 
     override val restoreOrder = ConfigBackupContributor.ORDER_CONTENT
 
     override suspend fun snapshot(): JsonElement? {
-        val db = database.openHelper.writableDatabase
+        val db = sqliteProvider()
         var total = 0
         val payload = buildJsonObject {
             tables.forEach { table ->
@@ -58,7 +61,7 @@ abstract class RoomDbBackupContributor(
     }
 
     override suspend fun restore(data: JsonElement, mode: RestoreMode) {
-        val db = database.openHelper.writableDatabase
+        val db = sqliteProvider()
         val payload = data.jsonObject
         log(TAG) { "restore($key, mode=$mode)" }
         db.beginTransaction()

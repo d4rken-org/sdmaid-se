@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class SwipeDbBackupContributor @Inject constructor(
     db: SwiperRoomDb,
-) : RoomDbBackupContributor(db, TABLES) {
+) : RoomDbBackupContributor({ db.openHelper.writableDatabase }, TABLES) {
     override val key = "swiper.db"
 
     companion object {
