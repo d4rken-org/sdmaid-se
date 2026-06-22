@@ -106,6 +106,9 @@ class Squeezer @Inject constructor(
         val enabledMimeTypes = buildSet {
             if (settings.includeJpeg.value()) add(CompressibleImage.MIME_TYPE_JPEG)
             if (settings.includeWebp.value()) add(CompressibleImage.MIME_TYPE_WEBP)
+            if (CompressibleImage.isHeicEncodingSupported() && settings.includeHeic.value()) {
+                addAll(CompressibleImage.HEIC_MIME_TYPES)
+            }
             if (settings.includeVideo.value()) add(CompressibleVideo.MIME_TYPE_MP4)
         }
 

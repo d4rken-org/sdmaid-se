@@ -199,7 +199,11 @@ class SqueezerSetupViewModel @Inject constructor(
                     }
                     if (lookup.size < settings.minSizeBytes.value()) return@firstOrNull false
                     val mimeType = mimeTypeTool.determineMimeType(lookup)
-                    mimeType in CompressibleImage.SUPPORTED_MIME_TYPES
+                    // The onboarding example compresses in-memory and shows a quick preview; HEIC
+                    // can't demonstrate savings that way, so exclude HEIC samples even on devices
+                    // that could otherwise encode them.
+                    mimeType in CompressibleImage.SUPPORTED_MIME_TYPES &&
+                        mimeType !in CompressibleImage.HEIC_MIME_TYPES
                 }
 
                 if (lookup != null) {

@@ -42,6 +42,8 @@
     <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Include WebP images (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Include HEIC/HEIF images (.heic, .heif). Date, location, and other EXIF metadata are kept. HDR gain maps, depth data, and Live/Motion Photo siblings cannot be preserved; multi-image files are skipped.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
     <string name="squeezer_type_video_description">Include MP4 video files (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Skip previously compressed</string>

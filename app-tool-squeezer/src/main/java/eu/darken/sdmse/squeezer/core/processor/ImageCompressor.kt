@@ -7,10 +7,13 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import java.io.File
+import java.io.IOException
 import javax.inject.Inject
 
 class ImageCompressor @Inject constructor(
     private val exifPreserver: ExifPreserver,
+    private val encoderFactory: ImageEncoderFactory,
+    private val heifExifExtractor: HeifExifExtractor,
 ) {
 
     fun compress(
@@ -20,24 +23,43 @@ class ImageCompressor @Inject constructor(
         quality: Int,
         writeExifMarker: Boolean,
     ) {
-        val exifData = exifPreserver.extractExif(inputFile)
+        val isHeic = mimeType in CompressibleImage.HEIC_MIME_TYPES
+
+        // JPEG/WebP take EXIF via the post-encode ExifPreserver path; HEIC takes it as a
+        // pre-built APP1 byte block embedded by HeifWriter.addExifData at encode time. We
+        // bypass androidx.exifinterface for HEIF reads because it can't reliably parse
+        // real-world HEIF EXIF — see HeifExifExtractor.
+        val jpegWebpExif = if (isHeic) null else exifPreserver.extractExif(inputFile)
+        val heicExifBlock: ByteArray? = if (isHeic) {
+            when (val r = heifExifExtractor.extractExifBlock(inputFile)) {
+                is HeifExifExtractor.Result.NoExif -> null
+                is HeifExifExtractor.Result.Extracted -> r.bytes
+                is HeifExifExtractor.Result.Unsupported -> throw IOException(
+                    "HEIC ${inputFile.path} has unreadable EXIF metadata (${r.reason}); " +
+                        "aborting to avoid silently stripping date/location/camera tags",
+                )
+            }
+        } else {
+            null
+        }
 
         val bitmap = decodeSampledBitmap(inputFile)
             ?: throw IllegalStateException("Failed to decode bitmap: ${inputFile.path}")
         try {
-            compressBitmapToFile(bitmap, mimeType, quality, outputFile)
+            compressBitmapToFile(bitmap, mimeType, quality, outputFile, heicExifBlock)
         } finally {
             bitmap.recycle()
         }
 
-        // Fail-closed: if EXIF cannot be preserved, let the exception propagate so
-        // FileTransaction aborts the replacement. A compressed file without original
-        // EXIF metadata should not replace the source.
-        if (exifData != null) {
-            exifPreserver.applyExif(outputFile.absolutePath, exifData)
+        // Fail-closed: if EXIF cannot be preserved post-encode for JPEG/WebP, let the exception
+        // propagate so FileTransaction aborts the replacement.
+        if (jpegWebpExif != null) {
+            exifPreserver.applyExif(outputFile.absolutePath, jpegWebpExif)
         }
 
-        if (writeExifMarker) {
+        // EXIF compression marker only works on formats ExifInterface can write to.
+        // HEIC re-compression is skip-protected via the content-hash in CompressionHistoryDatabase.
+        if (writeExifMarker && !isHeic) {
             exifPreserver.writeCompressionMarker(outputFile.absolutePath)
         }
     }
@@ -71,11 +93,9 @@ class ImageCompressor @Inject constructor(
         mimeType: String,
         quality: Int,
         outputFile: File,
+        exifData: ByteArray?,
     ) {
-        val format = CompressibleImage.compressFormat(mimeType)
-        outputFile.outputStream().buffered().use { output ->
-            bitmap.compress(format, quality, output)
-        }
+        encoderFactory.encoderFor(mimeType).encode(bitmap, mimeType, quality, outputFile, exifData)
     }
 
     private fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {

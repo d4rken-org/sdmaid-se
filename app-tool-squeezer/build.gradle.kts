@@ -67,7 +67,8 @@ dependencies {
     addSerialization()
     addRoomDb()
 
-    implementation("androidx.exifinterface:exifinterface:1.3.7")
+    implementation("androidx.exifinterface:exifinterface:1.4.2")
+    implementation("androidx.heifwriter:heifwriter:1.1.0")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
     implementation("androidx.media3:media3-transformer:${Versions.AndroidX.Media3.core}")

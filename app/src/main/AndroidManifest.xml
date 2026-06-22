@@ -51,6 +51,13 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
+    <!--
+        androidx.heifwriter requires minSdk 28; the project's minSdk is 26. The library is only
+        invoked behind a runtime Build.VERSION.SDK_INT >= P guard (see CompressibleImage.isHeicEncodingSupported
+        and HeifWriterEncoder), so the manifest-merger check is safe to override.
+    -->
+    <uses-sdk tools:overrideLibrary="androidx.heifwriter" />
+
     <application
         android:name="eu.darken.sdmse.App"
         android:allowBackup="true"
