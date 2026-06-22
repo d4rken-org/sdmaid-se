@@ -21,6 +21,7 @@ data class AppCleanerSchedulerTask(
     data class Success(
         override val affectedSpace: Long,
         override val affectedPaths: Set<APath>,
+        override val affectedCount: Int = affectedPaths.size,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val primaryInfo
