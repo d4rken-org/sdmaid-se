@@ -11,11 +11,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
 import androidx.compose.material.icons.twotone.Compress
@@ -48,7 +52,9 @@ import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
 import eu.darken.sdmse.common.compose.layout.SdmExcludeAction
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
@@ -187,6 +193,11 @@ internal fun SqueezerListScreen(
 
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
+    val listState = rememberLazyListState()
+    val gridState = rememberLazyGridState()
+    val activeScroll: ScrollableState =
+        if (state.layoutMode == LayoutMode.GRID) gridState else listState
+
     // remember keyed on the stable inputs so these O(n) passes don't re-run on unrelated
     // recompositions (media ref is stable across progress ticks now that progress is decoupled).
     val totalSavings = remember(media) { media.sumOf { it.estimatedSavings ?: 0L } }
@@ -233,20 +244,22 @@ internal fun SqueezerListScreen(
         },
         floatingActionButton = {
             if (state.progress == null && media.isNotEmpty() && !selection.isActive) {
-                ExtendedFloatingActionButton(
-                    onClick = onCompressAll,
-                    modifier = Modifier.guidedTourTarget(SqueezerListTour.COMPRESS_ALL_TARGET),
-                    icon = {
-                        Icon(
-                            imageVector = Icons.TwoTone.Compress,
-                            contentDescription = null,
-                        )
-                    },
-                    text = { Text(stringResource(R.string.squeezer_compress_all_action)) },
-                    containerColor = MaterialTheme.colorScheme.errorContainer,
-                    contentColor = MaterialTheme.colorScheme.onErrorContainer,
-                    elevation = FloatingActionButtonDefaults.elevation(),
-                )
+                ScrollAwareFab(scrollState = activeScroll) {
+                    ExtendedFloatingActionButton(
+                        onClick = onCompressAll,
+                        modifier = Modifier.guidedTourTarget(SqueezerListTour.COMPRESS_ALL_TARGET),
+                        icon = {
+                            Icon(
+                                imageVector = Icons.TwoTone.Compress,
+                                contentDescription = null,
+                            )
+                        },
+                        text = { Text(stringResource(R.string.squeezer_compress_all_action)) },
+                        containerColor = MaterialTheme.colorScheme.errorContainer,
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                        elevation = FloatingActionButtonDefaults.elevation(),
+                    )
+                }
             }
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -265,7 +278,11 @@ internal fun SqueezerListScreen(
 
                     media.isEmpty() -> SdmEmptyState()
 
-                    state.layoutMode == LayoutMode.LINEAR -> LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    state.layoutMode == LayoutMode.LINEAR -> LazyColumn(
+                        state = listState,
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(bottom = SdmListDefaults.FabClearance),
+                    ) {
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListLinearRow(
                                 media = item,
@@ -289,8 +306,9 @@ internal fun SqueezerListScreen(
 
                     state.layoutMode == LayoutMode.GRID -> LazyVerticalGrid(
                         columns = GridCells.Adaptive(144.dp),
+                        state = gridState,
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = SdmListDefaults.GridTileContentPadding,
+                        contentPadding = SdmListDefaults.GridTileContentPadding.plusBottom(SdmListDefaults.FabClearance),
                     ) {
                         items(media, key = { it.identifier.value }) { item ->
                             SqueezerListGridCard(

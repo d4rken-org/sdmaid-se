@@ -6,11 +6,13 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Check
@@ -51,6 +53,8 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
 import eu.darken.sdmse.common.compose.layout.SdmEmptyState
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
@@ -200,6 +204,7 @@ internal fun ExclusionListScreen(
     // Prune stale IDs when the underlying list changes.
     LaunchedEffect(currentIds) { selection.retainAll(currentIds) }
     val selectionActive = selection.isActive
+    val listState = rememberLazyListState()
 
     var overflowExpanded by remember { mutableStateOf(false) }
     var infoOpen by rememberSaveable { mutableStateOf(false) }
@@ -292,8 +297,10 @@ internal fun ExclusionListScreen(
         },
         floatingActionButton = {
             if (!selectionActive) {
-                FloatingActionButton(onClick = onAddExclusion) {
-                    Icon(Icons.TwoTone.Add, contentDescription = stringResource(R.string.exclusion_create_action))
+                ScrollAwareFab(scrollState = listState, scrollHideEnabled = !rows.isNullOrEmpty()) {
+                    FloatingActionButton(onClick = onAddExclusion) {
+                        Icon(Icons.TwoTone.Add, contentDescription = stringResource(R.string.exclusion_create_action))
+                    }
                 }
             }
         },
@@ -310,7 +317,11 @@ internal fun ExclusionListScreen(
                     modifier = Modifier.fillMaxSize(),
                 )
 
-                else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
+                else -> LazyColumn(
+                    state = listState,
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = SdmListDefaults.FabClearance),
+                ) {
                     items(rows, key = { it.stableId }) { row ->
                         val isSelected = selection.isSelected(row.stableId)
                         val onRowTap = {

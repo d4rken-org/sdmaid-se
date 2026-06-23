@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -21,6 +22,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -101,6 +104,7 @@ internal fun SwiperSessionsScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    val listState = rememberLazyListState()
 
     var pendingRename by remember { mutableStateOf<PendingRename?>(null) }
     var pendingFilter by remember { mutableStateOf<PendingFilter?>(null) }
@@ -135,20 +139,23 @@ internal fun SwiperSessionsScreen(
         floatingActionButton = {
             // Free-tier users at the session limit have canCreateNewSession=false; the FAB collapses
             // to icon-only AND must not trigger the picker (legacy disabled the FAB outright).
-            ExtendedFloatingActionButton(
-                onClick = { if (state.canCreateNewSession) onOpenPicker() },
-                icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
-                text = { Text(stringResource(R.string.swiper_select_folders_action)) },
-                expanded = state.canCreateNewSession,
-                modifier = Modifier.alpha(if (state.canCreateNewSession) 1f else 0.38f),
-            )
+            ScrollAwareFab(scrollState = listState) {
+                ExtendedFloatingActionButton(
+                    onClick = { if (state.canCreateNewSession) onOpenPicker() },
+                    icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
+                    text = { Text(stringResource(R.string.swiper_select_folders_action)) },
+                    expanded = state.canCreateNewSession,
+                    modifier = Modifier.alpha(if (state.canCreateNewSession) 1f else 0.38f),
+                )
+            }
         },
     ) { paddingValues ->
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
-            contentPadding = PaddingValues(vertical = 8.dp),
+            contentPadding = PaddingValues(top = 8.dp, bottom = 8.dp + SdmListDefaults.FabClearance),
         ) {
             if (state.sessionsWithStats.isEmpty()) {
                 item(key = "header") { SwiperSessionsHeaderCard() }
