@@ -129,6 +129,55 @@ class DirectLocalWalkerTest : BaseTest() {
     }
 
     @Test
+    fun `followSymlinks true descends into a target outside the walked tree`() = runTest {
+        // The symlink target lives OUTSIDE the walked root, so its content is reachable ONLY by
+        // following the symlink — proving the symlink path was actually descended.
+        val walkRoot = File(testDir, "walkRoot").apply { mkdirs() }
+        val outside = File(testDir, "outside").apply { mkdirs() }
+        File(outside, "secret.txt").writeText("data")
+        Files.createSymbolicLink(
+            File(walkRoot, "link").toPath(),
+            outside.toPath(),
+        )
+
+        val walker = DirectLocalWalker(
+            start = LocalPath.build(walkRoot),
+            followSymlinks = true,
+        )
+        val names = walker.toList().names()
+
+        names shouldContain "link"
+        names shouldContain "secret.txt"
+        // 'outside' is a sibling of the walked root and must not be walked directly.
+        names shouldNotContain "outside"
+    }
+
+    @Test
+    fun `followSymlinks true with symlink back to start does not duplicate the root subtree`() = runTest {
+        File(testDir, "sub").mkdirs()
+        File(testDir, "sub/file.txt").writeText("data")
+        // A symlink resolving back to the start directory.
+        Files.createSymbolicLink(
+            File(testDir, "sub/backlink").toPath(),
+            testDir.toPath(),
+        )
+
+        val walker = DirectLocalWalker(
+            start = LocalPath.build(testDir),
+            followSymlinks = true,
+        )
+        val items = walker.toList()
+
+        val names = items.names()
+        names shouldContain "sub"
+        names shouldContain "file.txt"
+        names shouldContain "backlink"
+        // Start dir is seeded into the visited set, so 'backlink' resolves to an already-visited
+        // canonical path and is not descended — 'sub' is emitted exactly once, not duplicated below it.
+        items.count { it.lookedUp.asFile().name == "sub" } shouldBe 1
+    }
+
+    @Test
     fun `deeply nested directories are fully walked`() = runTest {
         var dir = testDir
         for (i in 1..10) {

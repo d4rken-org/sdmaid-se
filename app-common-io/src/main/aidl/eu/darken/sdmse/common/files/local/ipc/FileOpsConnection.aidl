@@ -32,7 +32,7 @@ interface FileOpsConnection {
     List<LocalPathLookupExtended> lookupFilesExtended(in LocalPath path);
     RemoteInputStream lookupFilesExtendedStream(in LocalPath path);
 
-    RemoteInputStream walkStream(in LocalPath path, in List<String> pathDoesNotContain);
+    RemoteInputStream walkStream(in LocalPath path, in List<String> pathDoesNotContain, boolean followSymlinks);
 
     long du(in LocalPath path);
 

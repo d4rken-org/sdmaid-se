@@ -32,7 +32,13 @@ class DirectLocalWalker(
         }
 
         val queue = LinkedList(mutableListOf(startLookUp))
-        val visitedCanonical = if (followSymlinks) HashSet<String>() else null
+        // Seed with the start dir's canonical path so a child symlink pointing back to start
+        // doesn't re-walk the root subtree once before its descendants get deduped.
+        val visitedCanonical = if (followSymlinks) {
+            HashSet<String>().apply { runCatching { add(start.asFile().canonicalPath) } }
+        } else {
+            null
+        }
 
         while (!queue.isEmpty()) {
             val lookUp = queue.removeFirst()

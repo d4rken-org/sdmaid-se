@@ -34,8 +34,12 @@ interface APathGateway<
         val onError: (suspend (PLU, Exception) -> Boolean)? = null,
         val followSymlinks: Boolean = false,
     ) {
+        // followSymlinks is intentionally NOT part of this check: symlink following is valid in
+        // every mode. In ROOT/ADB it runs host-side via DirectLocalWalker (privileged process); in
+        // AUTO, EscalatingWalker escalates symlinks it can't resolve app-side. Only onFilter/onError
+        // force the app-side IndirectLocalWalker, since suspend callbacks can't cross the IPC boundary.
         val isDirect: Boolean
-            get() = onFilter == null && onError == null && !followSymlinks
+            get() = onFilter == null && onError == null
     }
 
     suspend fun du(

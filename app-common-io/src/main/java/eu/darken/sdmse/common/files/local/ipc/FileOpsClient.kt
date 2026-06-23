@@ -80,6 +80,7 @@ class FileOpsClient @AssistedInject constructor(
             fileOpsConnection.walkStream(
                 path,
                 (options.pathDoesNotContain ?: emptyList()).toMutableList(),
+                options.followSymlinks,
             )
         } catch (e: Exception) {
             throw e.refineException()

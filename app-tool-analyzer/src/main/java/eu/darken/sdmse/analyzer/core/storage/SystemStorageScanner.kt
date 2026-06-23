@@ -64,7 +64,12 @@ class SystemStorageScanner @Inject constructor(
             try {
                 val lookup = gatewaySwitch.lookup(path, type = GatewaySwitch.Type.AUTO)
                 if (lookup.fileType == FileType.DIRECTORY) {
-                    path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, followSymlinks = true)
+                    // Don't follow symlinks: /system contains cross-partition directory symlinks
+                    // (e.g. /system/vendor -> /vendor, /system/product -> /product) whose targets are
+                    // already walked as separate SYSTEM_PARTITIONS. Following them would walk those
+                    // trees twice as duplicate nodes. Storage is counted once at the target's real
+                    // location; anything only reachable via symlink is absorbed by the addRemainder bucket.
+                    path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, followSymlinks = false)
                 } else {
                     log(TAG) { "walkSystemPartitions(): /$partition is not a directory (${lookup.fileType}), skipping" }
                     null
@@ -87,7 +92,8 @@ class SystemStorageScanner @Inject constructor(
 
             val walkedChildren = filteredChildren.map { child ->
                 try {
-                    child.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, followSymlinks = true)
+                    // followSymlinks = false: count bytes once at their real location (see walkSystemPartitions).
+                    child.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, followSymlinks = false)
                 } catch (e: ReadException) {
                     log(TAG, WARN) { "walkData(): Failed to walk /data/${child.name}: ${e.asLog()}" }
                     ContentItem.fromInaccessible(child)

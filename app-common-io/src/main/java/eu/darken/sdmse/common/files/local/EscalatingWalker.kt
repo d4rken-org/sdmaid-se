@@ -34,7 +34,13 @@ class EscalatingWalker(
         }
 
         val followSymlinks = options.followSymlinks
-        val visitedCanonical = if (followSymlinks) HashSet<String>() else null
+        // Seed with the start dir's canonical path so a child symlink pointing back to start
+        // doesn't re-walk the root subtree once before its descendants get deduped.
+        val visitedCanonical = if (followSymlinks) {
+            HashSet<String>().apply { runCatching { add(start.asFile().canonicalPath) } }
+        } else {
+            null
+        }
 
         val escalationMode = when {
             gateway.hasRoot() -> LocalGateway.Mode.ROOT
@@ -63,10 +69,24 @@ class EscalatingWalker(
                                 allowed
                             }
                             .forEach { child ->
-                                val shouldDescend = child.isDirectory ||
-                                    (followSymlinks && child.isSymlink && child.lookedUp.asFile().isDirectory)
+                                // For a symlink we can't classify app-side (target can't be stat'd,
+                                // likely privileged), escalate the symlink itself: listing a symlink
+                                // path follows it host-side, so the escalated walk resolves+follows it
+                                // instead of silently under-following. A symlink whose target IS
+                                // app-readable is handled inline (descend if dir, skip if file).
+                                val escalateSymlink = followSymlinks &&
+                                    child.isSymlink &&
+                                    escalationMode != null &&
+                                    !runCatching { child.lookedUp.asFile().exists() }.getOrDefault(false)
 
-                                if (shouldDescend) {
+                                val shouldDescend = child.isDirectory ||
+                                    (followSymlinks && child.isSymlink && !escalateSymlink &&
+                                        runCatching { child.lookedUp.asFile().isDirectory }.getOrDefault(false))
+
+                                if (escalateSymlink) {
+                                    log(tag, VERBOSE) { "Escalating symlink to $escalationMode to follow it: $child" }
+                                    queue.addFirst(QueuedItem(child, escalationMode))
+                                } else if (shouldDescend) {
                                     if (visitedCanonical != null) {
                                         val canonical = try {
                                             child.lookedUp.asFile().canonicalPath
