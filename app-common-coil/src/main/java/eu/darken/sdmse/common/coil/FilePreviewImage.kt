@@ -62,6 +62,11 @@ fun FilePreviewImage(
     fallback: FilePreviewFallback = FilePreviewFallback.Tile,
     fallbackTint: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     fallbackBackground: Color = MaterialTheme.colorScheme.surfaceVariant,
+    // When false, the Tile loading slot stays transparent instead of showing the tonal placeholder.
+    // Use for surfaces that re-mount the same (already memory-cached) image — e.g. the swipe deck,
+    // where promoting the next card would otherwise flash the placeholder for a frame before the
+    // cached bitmap resolves. ListIcon is always transparent regardless.
+    placeholderWhileLoading: Boolean = true,
 ) {
     // The call-site modifier carries the size and any clip/click; it stays on the container Box so it
     // never lands on the Icon itself.
@@ -127,12 +132,10 @@ fun FilePreviewImage(
         contentScale = contentScale,
         colorFilter = colorFilter,
         loading = {
-            // Tile shows the tonal placeholder while loading; ListIcon stays transparent to avoid a
-            // type-icon flash before the real bitmap resolves.
-            when (fallback) {
-                FilePreviewFallback.Tile -> fallbackContent(Modifier.fillMaxSize())
-                FilePreviewFallback.ListIcon -> Box(Modifier.fillMaxSize())
-            }
+            // Tile shows the tonal placeholder while loading (unless opted out); ListIcon stays
+            // transparent to avoid a type-icon flash before the real bitmap resolves.
+            val showPlaceholder = placeholderWhileLoading && fallback == FilePreviewFallback.Tile
+            if (showPlaceholder) fallbackContent(Modifier.fillMaxSize()) else Box(Modifier.fillMaxSize())
         },
         error = { fallbackContent(Modifier.fillMaxSize()) },
     )
