@@ -5,16 +5,16 @@ import android.os.Parcelable
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.PathException
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 
-sealed class LocalPathLookupResult : Parcelable {
+sealed class LocalPathLookupExtendedResult : Parcelable {
 
     data class Success(
-        val lookup: LocalPathLookup
-    ) : LocalPathLookupResult() {
+        val lookup: LocalPathLookupExtended
+    ) : LocalPathLookupExtendedResult() {
         @Suppress("DEPRECATION")
         constructor(parcel: Parcel) : this(
-            parcel.readParcelable(LocalPathLookup::class.java.classLoader)!!
+            parcel.readParcelable(LocalPathLookupExtended::class.java.classLoader)!!
         )
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -33,7 +33,7 @@ sealed class LocalPathLookupResult : Parcelable {
         val exceptionClass: String,
         val message: String?,
         val pathString: String? = null
-    ) : LocalPathLookupResult() {
+    ) : LocalPathLookupExtendedResult() {
         constructor(parcel: Parcel) : this(
             parcel.readString()!!,
             parcel.readString(),
@@ -92,7 +92,7 @@ sealed class LocalPathLookupResult : Parcelable {
      * (e.g. the privileged host process dying mid-stream) — both look identical at EOF and would
      * otherwise silently yield a partial directory listing.
      */
-    object Complete : LocalPathLookupResult() {
+    object Complete : LocalPathLookupExtendedResult() {
         override fun describeContents(): Int = 0
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -106,8 +106,8 @@ sealed class LocalPathLookupResult : Parcelable {
         }
     }
 
-    companion object CREATOR : Parcelable.Creator<LocalPathLookupResult> {
-        override fun createFromParcel(parcel: Parcel): LocalPathLookupResult {
+    companion object CREATOR : Parcelable.Creator<LocalPathLookupExtendedResult> {
+        override fun createFromParcel(parcel: Parcel): LocalPathLookupExtendedResult {
             return when (parcel.readInt()) {
                 0 -> Success.createFromParcel(parcel)
                 1 -> Error.createFromParcel(parcel)
@@ -116,7 +116,7 @@ sealed class LocalPathLookupResult : Parcelable {
             }
         }
 
-        override fun newArray(size: Int): Array<LocalPathLookupResult?> = arrayOfNulls(size)
+        override fun newArray(size: Int): Array<LocalPathLookupExtendedResult?> = arrayOfNulls(size)
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

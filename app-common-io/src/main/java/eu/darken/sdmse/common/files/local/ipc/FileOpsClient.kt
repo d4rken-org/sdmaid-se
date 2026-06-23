@@ -16,6 +16,8 @@ import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.ipc.fileHandle
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.runBlocking
 import okio.FileHandle
 import java.time.Instant
 
@@ -46,7 +48,9 @@ class FileOpsClient @AssistedInject constructor(
      * Doesn't run into IPC buffer overflows on large directories
      */
     fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
-        fileOpsConnection.lookupFilesStream(path).toLocalPathLookups().also {
+        runBlocking {
+            fileOpsConnection.lookupFilesStream(path).toLocalPathLookupFlow().toList()
+        }.also {
             if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {
@@ -57,7 +61,9 @@ class FileOpsClient @AssistedInject constructor(
      * Doesn't run into IPC buffer overflows on large directories
      */
     fun lookupFilesExtendedStream(path: LocalPath): Collection<LocalPathLookupExtended> = try {
-        fileOpsConnection.lookupFilesExtendedStream(path).toLocalPathLookupExtended().also {
+        runBlocking {
+            fileOpsConnection.lookupFilesExtendedStream(path).toLocalPathLookupExtendedFlow().toList()
+        }.also {
             if (Bugs.isTrace) log(
                 TAG,
                 VERBOSE

@@ -31,6 +31,7 @@ import eu.darken.sdmse.common.ipc.fileHandle
 import eu.darken.sdmse.common.ipc.remoteFileHandle
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
@@ -70,12 +71,17 @@ class FileOpsHost @Inject constructor(
 
     override fun lookupFilesStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path)..." }
-        val paths = listFiles(path)
-        val lookups = paths.mapIndexed { index, item ->
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up $index: $item" }
-            item.performLookup()
+        // Stream lookups chunk-by-chunk instead of materializing the whole directory (list + bulk
+        // parcel + buffer copy) at once. On the memory-constrained privileged host a concurrent
+        // multi-tool scan could otherwise pile up whole-directory payloads and OOM the process,
+        // which the client then sees as a dead binder (ServiceConnectionLostException).
+        val lookups = flow {
+            listFiles(path).forEach { item ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up: $item" }
+                emit(item.performLookup())
+            }
         }
-        lookups.toRemoteInputStream()
+        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -121,12 +127,15 @@ class FileOpsHost @Inject constructor(
 
     override fun lookupFilesExtendedStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtendedStream($path)..." }
-        val paths = listFiles(path)
-        val lookups = paths.mapIndexed { index, item ->
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up extended $index: $item" }
-            item.performLookupExtended(ipcFunnel, libcoreTool)
+        // Stream chunk-by-chunk instead of materializing the whole directory at once — see
+        // lookupFilesStream for the memory rationale.
+        val lookups = flow {
+            listFiles(path).forEach { item ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up extended: $item" }
+                emit(item.performLookupExtended(ipcFunnel, libcoreTool))
+            }
         }
-        lookups.toRemoteInputStream()
+        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()

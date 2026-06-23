@@ -6,7 +6,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.flow.chunked
 import eu.darken.sdmse.common.ipc.RemoteInputStream
 import eu.darken.sdmse.common.ipc.inputStream
@@ -31,23 +31,23 @@ import java.io.PipedOutputStream
 private const val CHUNK_COUNT = 100
 private const val LOOKUP_SIZE = 1024
 
-fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
-    if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathLookupResultFlow() starting..." }
+fun RemoteInputStream.toLocalPathLookupExtendedFlow(): Flow<LocalPathLookupExtended> = flow {
+    if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathLookupExtendedFlow() starting..." }
 
-    val buffer = this@toLocalPathLookupFlow.inputStream().reader().buffered(CHUNK_COUNT * LOOKUP_SIZE)
+    val buffer = this@toLocalPathLookupExtendedFlow.inputStream().reader().buffered(CHUNK_COUNT * LOOKUP_SIZE)
     var sawTerminal = false
     try {
         while (currentCoroutineContext().isActive) {
             val line = buffer.readLine() ?: break
 
             val decodedChunk = line.decodeBase64()
-                ?: throw IOException("LocalPathLookup stream: invalid base64 frame")
+                ?: throw IOException("LocalPathLookupExtended stream: invalid base64 frame")
             val parcel = Parcel.obtain().apply {
                 unmarshall(decodedChunk.toByteArray(), 0, decodedChunk.size)
                 setDataPosition(0)
             }
             val wrapper = try {
-                LocalPathLookupResultsIPCWrapper.createFromParcel(parcel)
+                LocalPathLookupExtendedResultsIPCWrapper.createFromParcel(parcel)
             } finally {
                 parcel.recycle()
             }
@@ -57,9 +57,9 @@ fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
             }
             for (result in wrapper.payload) {
                 when (result) {
-                    is LocalPathLookupResult.Success -> emit(result.lookup)
-                    is LocalPathLookupResult.Error -> throw result.toException()
-                    LocalPathLookupResult.Complete -> sawTerminal = true
+                    is LocalPathLookupExtendedResult.Success -> emit(result.lookup)
+                    is LocalPathLookupExtendedResult.Error -> throw result.toException()
+                    LocalPathLookupExtendedResult.Complete -> sawTerminal = true
                 }
                 // Complete is the last thing the host emits; ignore anything after it in this chunk.
                 if (sawTerminal) break
@@ -70,7 +70,7 @@ fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
         // Only a real EOF (context still active) without a terminal marker means truncation.
         // If the loop exited because the consumer cancelled, let that cancellation stand.
         if (currentCoroutineContext().isActive && !sawTerminal) {
-            throw IOException("LocalPathLookup stream ended without terminal event")
+            throw IOException("LocalPathLookupExtended stream ended without terminal event")
         }
     } finally {
         try {
@@ -81,8 +81,8 @@ fun RemoteInputStream.toLocalPathLookupFlow(): Flow<LocalPathLookup> = flow {
     }
 }
 
-fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInputStream {
-    if (Bugs.isTrace) log(FileOpsHost.TAG, VERBOSE) { "Flow<LocalPathLookup>.toRemoteInputStreamWithExceptions()..." }
+fun Flow<LocalPathLookupExtended>.toRemoteInputStream(scope: CoroutineScope): RemoteInputStream {
+    if (Bugs.isTrace) log(FileOpsHost.TAG, VERBOSE) { "Flow<LocalPathLookupExtended>.toRemoteInputStream()..." }
 
     val inputStream = PipedInputStream(2 * CHUNK_COUNT * LOOKUP_SIZE)
     val outputStream = PipedOutputStream()
@@ -90,27 +90,27 @@ fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInpu
 
     val buffer = outputStream.writer().buffered(CHUNK_COUNT * LOOKUP_SIZE)
 
-    val resultFlow: Flow<LocalPathLookupResult> = flow {
+    val resultFlow: Flow<LocalPathLookupExtendedResult> = flow {
         try {
             this@toRemoteInputStream.collect { lookup ->
-                emit(LocalPathLookupResult.Success(lookup))
+                emit(LocalPathLookupExtendedResult.Success(lookup))
             }
             // Terminal marker: tells the consumer the stream ended cleanly rather than being
             // truncated by a dying host process.
-            emit(LocalPathLookupResult.Complete)
+            emit(LocalPathLookupExtendedResult.Complete)
         } catch (exception: CancellationException) {
             // Cancellation is not a stream error — let it unwind instead of fabricating an Error frame.
             throw exception
         } catch (exception: Exception) {
-            emit(LocalPathLookupResult.Error(exception))
+            emit(LocalPathLookupExtendedResult.Error(exception))
         }
     }
 
     resultFlow
         .chunked(CHUNK_COUNT)
-        .onEach { chunk: List<LocalPathLookupResult> ->
+        .onEach { chunk: List<LocalPathLookupExtendedResult> ->
             val parcel = Parcel.obtain().apply {
-                LocalPathLookupResultsIPCWrapper(chunk).writeToParcel(this, 0)
+                LocalPathLookupExtendedResultsIPCWrapper(chunk).writeToParcel(this, 0)
             }
 
             val encodedChunk = parcel.marshall().toByteString().base64()
@@ -134,7 +134,7 @@ fun Flow<LocalPathLookup>.toRemoteInputStream(scope: CoroutineScope): RemoteInpu
             }
         }
         .catch {
-            log(FileOpsHost.TAG, ERROR) { "toRemoteInputStreamWithExceptions failed: ${it.asLog()}" }
+            log(FileOpsHost.TAG, ERROR) { "Flow<LocalPathLookupExtended>.toRemoteInputStream failed: ${it.asLog()}" }
             throw it
         }
         .launchIn(scope)
