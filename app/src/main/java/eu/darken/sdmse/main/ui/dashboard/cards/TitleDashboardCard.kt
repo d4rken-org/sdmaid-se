@@ -38,6 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import eu.darken.sdmse.R
@@ -156,6 +157,8 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
                     Text(
                         text = sloganText,
                         style = MaterialTheme.typography.bodySmall,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                         modifier = if (slogan == CommonR.string.slogan_message_8) {
                             Modifier.pointerInput(item.webpageTool) {
                                 detectTapGestures(
@@ -200,8 +203,26 @@ private fun TitleHeaderLayout(
     ) { measurables, constraints ->
         val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
         val mascotPlaceable = measurables[0].measure(looseConstraints)
-        val titlePlaceable = measurables[1].measure(looseConstraints)
         val ribbonPlaceable = measurables.getOrNull(2)?.measure(looseConstraints)
+
+        val inlineSpacing = 12.dp.roundToPx()
+        val stackSpacing = 8.dp.roundToPx()
+
+        // When a badge is present, cap the title width so the card-centered title leaves room
+        // for the inline badge. A long randomized slogan then ellipsizes instead of pushing the
+        // badge onto a second row. Reserve against the badge width only (not the wider mascot),
+        // keeping the slot wide enough that most slogans still fit on one line.
+        val titleConstraints = if (constraints.hasBoundedWidth && ribbonPlaceable != null) {
+            val minTitleWidth = 96.dp.roundToPx()
+            val reserved = 2 * (inlineSpacing + ribbonPlaceable.width)
+            val maxTitleWidth = (constraints.maxWidth - reserved)
+                .coerceAtLeast(minTitleWidth)
+                .coerceAtMost(constraints.maxWidth)
+            looseConstraints.copy(maxWidth = maxTitleWidth)
+        } else {
+            looseConstraints
+        }
+        val titlePlaceable = measurables[1].measure(titleConstraints)
 
         val width = if (constraints.hasBoundedWidth) {
             constraints.maxWidth
@@ -212,8 +233,6 @@ private fun TitleHeaderLayout(
                 ribbonPlaceable?.width,
             ).maxOrNull() ?: 0
         }
-        val inlineSpacing = 12.dp.roundToPx()
-        val stackSpacing = 8.dp.roundToPx()
 
         val titleX = ((width - titlePlaceable.width) / 2).coerceAtLeast(0)
         val titleRight = titleX + titlePlaceable.width
