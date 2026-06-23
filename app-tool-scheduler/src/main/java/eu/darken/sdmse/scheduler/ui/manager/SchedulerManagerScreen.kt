@@ -1,12 +1,13 @@
 package eu.darken.sdmse.scheduler.ui.manager
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.HelpOutline
@@ -32,6 +33,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -137,6 +140,7 @@ internal fun SchedulerManagerScreen(
     onDismissBattery: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = SchedulerManagerViewModel.State())
+    val listState = rememberLazyListState()
 
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { SchedulerManagerTour.definition() }
@@ -180,14 +184,16 @@ internal fun SchedulerManagerScreen(
             )
         },
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = onCreateNew,
-                modifier = Modifier.guidedTourTarget(SchedulerManagerTour.ADD_TARGET),
-            ) {
-                Icon(
-                    Icons.TwoTone.Add,
-                    contentDescription = stringResource(R.string.scheduler_new_schedule_action),
-                )
+            ScrollAwareFab(scrollState = listState) {
+                FloatingActionButton(
+                    onClick = onCreateNew,
+                    modifier = Modifier.guidedTourTarget(SchedulerManagerTour.ADD_TARGET),
+                ) {
+                    Icon(
+                        Icons.TwoTone.Add,
+                        contentDescription = stringResource(R.string.scheduler_new_schedule_action),
+                    )
+                }
             }
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -200,7 +206,8 @@ internal fun SchedulerManagerScreen(
         ) {
             ScheduleListContent(
                 state = state,
-                contentPadding = PaddingValues(vertical = 8.dp),
+                listState = listState,
+                contentPadding = PaddingValues(top = 8.dp, bottom = 8.dp + SdmListDefaults.FabClearance),
                 onEditSchedule = onEditSchedule,
                 onToggleSchedule = onToggleSchedule,
                 onRemoveSchedule = onRemoveSchedule,
@@ -218,6 +225,7 @@ internal fun SchedulerManagerScreen(
 @Composable
 private fun ScheduleListContent(
     state: SchedulerManagerViewModel.State,
+    listState: LazyListState,
     contentPadding: PaddingValues,
     onEditSchedule: (ScheduleId) -> Unit,
     onToggleSchedule: (ScheduleId) -> Unit,
@@ -230,6 +238,7 @@ private fun ScheduleListContent(
     onDismissBattery: () -> Unit,
 ) {
     LazyColumn(
+        state = listState,
         modifier = Modifier.fillMaxSize(),
         contentPadding = contentPadding,
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -263,9 +272,6 @@ private fun ScheduleListContent(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
             }
-        }
-        item("spacer") {
-            Box(modifier = Modifier.padding(40.dp))
         }
     }
 }

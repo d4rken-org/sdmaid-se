@@ -9,10 +9,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
@@ -48,6 +50,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -171,6 +175,7 @@ internal fun CustomFilterListScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val selection = rememberSelectionState<String>()
+    val listState = rememberLazyListState()
 
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
@@ -255,11 +260,13 @@ internal fun CustomFilterListScreen(
         },
         floatingActionButton = {
             if (!selection.isActive && state.isPro != null) {
-                ExtendedFloatingActionButton(
-                    onClick = onCreate,
-                    icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
-                    text = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
-                )
+                ScrollAwareFab(scrollState = listState, scrollHideEnabled = state.rows.isNotEmpty()) {
+                    ExtendedFloatingActionButton(
+                        onClick = onCreate,
+                        icon = { Icon(Icons.TwoTone.Add, contentDescription = null) },
+                        text = { Text(stringResource(R.string.systemcleaner_customfilter_label)) },
+                    )
+                }
             }
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -279,7 +286,11 @@ internal fun CustomFilterListScreen(
 
                 else -> {
                     val selectionActive = selection.isActive
-                    LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    LazyColumn(
+                        state = listState,
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(bottom = SdmListDefaults.FabClearance),
+                    ) {
                         items(state.rows, key = { it.id }) { row ->
                             val isSelected = selection.isSelected(row.id)
                             CustomFilterRow(

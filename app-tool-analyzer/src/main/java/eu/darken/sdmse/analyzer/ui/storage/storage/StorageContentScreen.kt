@@ -1,9 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.storage
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Refresh
@@ -35,7 +33,10 @@ import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryCard
+import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -74,6 +75,7 @@ internal fun StorageContentScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = StorageContentViewModel.State.Loading)
     val context = LocalContext.current
+    val gridState = rememberLazyGridState()
 
     BackHandler(enabled = true) { onNavigateBack() }
 
@@ -143,11 +145,7 @@ internal fun StorageContentScreen(
                     )
                 },
                 floatingActionButton = {
-                    AnimatedVisibility(
-                        visible = s.progress == null,
-                        enter = fadeIn(),
-                        exit = fadeOut(),
-                    ) {
+                    ScrollAwareFab(scrollState = gridState, visible = s.progress == null) {
                         FloatingActionButton(onClick = onRefresh) {
                             Icon(
                                 Icons.TwoTone.Refresh,
@@ -165,8 +163,10 @@ internal fun StorageContentScreen(
                 ) {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(context.getSpanCount()),
+                        state = gridState,
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                            .plusBottom(SdmListDefaults.FabClearance),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
