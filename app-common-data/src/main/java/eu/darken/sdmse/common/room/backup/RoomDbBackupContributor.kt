@@ -1,151 +1,77 @@
 package eu.darken.sdmse.common.room.backup
 
-import android.content.ContentValues
-import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
-import android.util.Base64
 import androidx.sqlite.db.SupportSQLiteDatabase
-import eu.darken.sdmse.common.backup.ConfigBackupContributor
+import eu.darken.sdmse.common.backup.DatabaseBackupContributor
 import eu.darken.sdmse.common.backup.RestoreMode
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import kotlinx.serialization.json.JsonArray
-import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.JsonNull
-import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.JsonPrimitive
-import kotlinx.serialization.json.buildJsonObject
-import kotlinx.serialization.json.double
-import kotlinx.serialization.json.jsonObject
-import kotlinx.serialization.json.jsonPrimitive
-import kotlinx.serialization.json.long
-import kotlinx.serialization.json.put
+import java.io.File
 
 /**
- * Generic [ConfigBackupContributor] base for Room databases. Dumps each named table row-by-row at the
- * raw SQLite level (`SELECT *` → per-cell `{t,v}` tag), so it is agnostic to Room entities and type
- * converters and needs no `@Serializable` annotations on entities. Restore writes through the live DB
- * connection (no file swap / app restart). Runs at [ORDER_CONTENT][ConfigBackupContributor.ORDER_CONTENT].
+ * Generic [DatabaseBackupContributor] for a Room database, working at the SQLite/file level so memory
+ * stays flat regardless of row count.
  *
- * Restore semantics: REPLACE clears each table first; MERGE upserts by primary key
- * (`CONFLICT_REPLACE`). Original primary keys are preserved so cross-table relations (e.g. a stats
- * report and its affected paths) stay intact. Only columns that still exist in the live schema are
- * written, so a column added/removed across versions doesn't fail the insert.
+ * Export: WAL-checkpoint (TRUNCATE) so the main DB file is self-consistent, then copy that file.
+ * (`VACUUM INTO` would be cleaner but needs SQLite 3.27 / API 30; minSdk here is 26.)
  *
- * [tables] must be ordered parents-first (no SQLite FK constraints are declared, but it keeps logical
- * relations tidy).
+ * Restore: `ATTACH` the backup file and copy rows with `INSERT … SELECT` per table inside one
+ * transaction — REPLACE clears each table first, MERGE upserts by primary key (`INSERT OR REPLACE`).
+ * Only columns present in both schemas are copied, so a column added/removed across versions is
+ * tolerated. ATTACH/DETACH run outside the transaction (SQLite requirement).
  *
- * Takes a [sqliteProvider] (typically `{ roomDb.openHelper.writableDatabase }`) rather than the
- * RoomDatabase itself, so it depends only on [SupportSQLiteDatabase] — decoupled from Room and
- * testable against a raw in-memory SQLite database.
+ * [tables] should be ordered parents-first (no SQLite FK constraints are declared).
  */
 abstract class RoomDbBackupContributor(
     private val sqliteProvider: () -> SupportSQLiteDatabase,
+    private val dbFileProvider: () -> File,
     private val tables: List<String>,
-) : ConfigBackupContributor {
+) : DatabaseBackupContributor {
 
-    override val restoreOrder = ConfigBackupContributor.ORDER_CONTENT
-
-    override suspend fun snapshot(): JsonElement? {
+    override suspend fun exportTo(target: File) {
         val db = sqliteProvider()
-        var total = 0
-        val payload = buildJsonObject {
-            tables.forEach { table ->
-                val rows = dumpTable(db, table)
-                total += rows.size
-                put(table, JsonArray(rows))
-            }
-        }
-        log(TAG) { "snapshot($key): $total rows across ${tables.size} tables" }
-        return if (total == 0) null else payload
+        db.query("PRAGMA wal_checkpoint(TRUNCATE)").use { it.moveToFirst() }
+        val source = dbFileProvider()
+        source.copyTo(target, overwrite = true)
+        log(TAG) { "exportTo($key): copied ${source.length()} bytes -> $target" }
     }
 
-    override suspend fun restore(data: JsonElement, mode: RestoreMode) {
+    override suspend fun restoreFrom(source: File, mode: RestoreMode) {
         val db = sqliteProvider()
-        val payload = data.jsonObject
-        log(TAG) { "restore($key, mode=$mode)" }
-        db.beginTransaction()
+        log(TAG) { "restoreFrom($key, mode=$mode)" }
+        db.execSQL("ATTACH DATABASE ? AS backup_src", arrayOf(source.absolutePath))
         try {
-            tables.forEach { table ->
-                val rows = (payload[table] as? JsonArray) ?: return@forEach
-                if (mode == RestoreMode.REPLACE) db.execSQL("DELETE FROM `$table`")
-                val liveColumns = currentColumns(db, table)
-                rows.forEach { row ->
-                    val values = toContentValues(row.jsonObject, liveColumns)
-                    if (values.size() > 0) {
-                        db.insert(table, SQLiteDatabase.CONFLICT_REPLACE, values)
-                    }
+            db.beginTransaction()
+            try {
+                tables.forEach { table ->
+                    val live = columns(db, "main", table)
+                    val backup = columns(db, "backup_src", table)
+                    val shared = live.filter { it in backup }
+                    if (shared.isEmpty()) return@forEach
+                    if (mode == RestoreMode.REPLACE) db.execSQL("DELETE FROM main.`$table`")
+                    val cols = shared.joinToString(", ") { "`$it`" }
+                    val verb = if (mode == RestoreMode.MERGE) "INSERT OR REPLACE" else "INSERT"
+                    db.execSQL("$verb INTO main.`$table` ($cols) SELECT $cols FROM backup_src.`$table`")
                 }
+                db.setTransactionSuccessful()
+            } finally {
+                db.endTransaction()
             }
-            db.setTransactionSuccessful()
         } finally {
-            db.endTransaction()
+            db.execSQL("DETACH DATABASE backup_src")
         }
     }
 
-    private fun dumpTable(db: SupportSQLiteDatabase, table: String): List<JsonObject> {
-        val out = mutableListOf<JsonObject>()
-        db.query("SELECT * FROM `$table`").use { c ->
-            while (c.moveToNext()) {
-                out += buildJsonObject {
-                    for (i in 0 until c.columnCount) {
-                        put(c.getColumnName(i), c.cellToTagged(i))
-                    }
-                }
-            }
+    private fun columns(db: SupportSQLiteDatabase, schema: String, table: String): List<String> {
+        val out = mutableListOf<String>()
+        db.query("PRAGMA $schema.table_info(`$table`)").use { c ->
+            val nameIdx = c.getColumnIndex("name")
+            if (nameIdx < 0) return emptyList()
+            while (c.moveToNext()) out += c.getString(nameIdx)
         }
         return out
     }
 
-    private fun Cursor.cellToTagged(i: Int): JsonObject = when (getType(i)) {
-        Cursor.FIELD_TYPE_INTEGER -> tagged(TAG_INT, JsonPrimitive(getLong(i)))
-        Cursor.FIELD_TYPE_FLOAT -> tagged(TAG_REAL, JsonPrimitive(getDouble(i)))
-        Cursor.FIELD_TYPE_STRING -> tagged(TAG_TEXT, JsonPrimitive(getString(i)))
-        Cursor.FIELD_TYPE_BLOB -> tagged(TAG_BLOB, JsonPrimitive(Base64.encodeToString(getBlob(i), Base64.NO_WRAP)))
-        else -> tagged(TAG_NULL, JsonNull)
-    }
-
-    private fun tagged(tag: String, value: JsonElement) = buildJsonObject {
-        put(KEY_TYPE, tag)
-        put(KEY_VALUE, value)
-    }
-
-    private fun currentColumns(db: SupportSQLiteDatabase, table: String): Set<String> {
-        val cols = mutableSetOf<String>()
-        db.query("PRAGMA table_info(`$table`)").use { c ->
-            val nameIdx = c.getColumnIndex("name")
-            if (nameIdx < 0) return emptySet()
-            while (c.moveToNext()) cols += c.getString(nameIdx)
-        }
-        return cols
-    }
-
-    private fun toContentValues(row: JsonObject, liveColumns: Set<String>): ContentValues {
-        val cv = ContentValues()
-        row.forEach { (column, cell) ->
-            if (column !in liveColumns) return@forEach
-            val obj = cell.jsonObject
-            val tag = obj[KEY_TYPE]?.jsonPrimitive?.content
-            val value = obj[KEY_VALUE]
-            when (tag) {
-                TAG_NULL -> cv.putNull(column)
-                TAG_INT -> cv.put(column, value!!.jsonPrimitive.long)
-                TAG_REAL -> cv.put(column, value!!.jsonPrimitive.double)
-                TAG_TEXT -> cv.put(column, value!!.jsonPrimitive.content)
-                TAG_BLOB -> cv.put(column, Base64.decode(value!!.jsonPrimitive.content, Base64.NO_WRAP))
-            }
-        }
-        return cv
-    }
-
     companion object {
         private val TAG = logTag("Backup", "RoomDbContributor")
-        private const val KEY_TYPE = "t"
-        private const val KEY_VALUE = "v"
-        private const val TAG_NULL = "0"
-        private const val TAG_INT = "i"
-        private const val TAG_REAL = "r"
-        private const val TAG_TEXT = "s"
-        private const val TAG_BLOB = "b"
     }
 }

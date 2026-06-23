@@ -18,11 +18,6 @@
       "skip.mincachesize.bytes": { "t": "l", "v": 49152 },
       "filter.advertisement.enabled": { "t": "b", "v": true }
     },
-    "exclusions": "{\"exclusionRaw\":\"[]\",\"version\":1}",
-    "stats.db": {
-      "space_snapshots": [
-        { "id": { "t": "i", "v": 1 }, "spaceUsed": { "t": "i", "v": 12345 } }
-      ]
-    }
+    "exclusions": "{\"exclusionRaw\":\"[]\",\"version\":1}"
   }
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.backup
 
+import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -23,7 +24,13 @@ import java.nio.file.Path
 class GoldenBackupFormatTest : BaseTest() {
 
     private val json = Json { ignoreUnknownKeys = true }
-    private val manager = ConfigBackupManager(emptySet(), json, mockk<UpgradeRepo>(relaxed = true))
+    private val manager = ConfigBackupManager(
+        context = mockk<Context>(relaxed = true),
+        sectionContributors = emptySet(),
+        databaseContributors = emptySet(),
+        json = json,
+        upgradeRepo = mockk<UpgradeRepo>(relaxed = true),
+    )
 
     private fun loadGolden(): String = javaClass.classLoader!!
         .getResourceAsStream("backup/golden-backup-v1.json")!!
@@ -45,7 +52,7 @@ class GoldenBackupFormatTest : BaseTest() {
         envelope.appVersionCode shouldBe 1750000L
         envelope.androidRelease shouldBe "14"
         envelope.deviceModel shouldBe "Pixel 8"
-        envelope.sections.keys shouldContainAll setOf("general", "appcleaner", "exclusions", "stats.db")
+        envelope.sections.keys shouldContainAll setOf("general", "appcleaner", "exclusions")
     }
 
     @Test
