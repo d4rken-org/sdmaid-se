@@ -3,15 +3,28 @@ package eu.darken.sdmse.analyzer.core.storage
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldNotContain
+import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
+import io.mockk.mockk
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
+import java.util.UUID
 
 class SystemStorageScannerTest : BaseTest() {
 
@@ -193,5 +206,41 @@ class SystemStorageScannerTest : BaseTest() {
 
         val group = ContentGroup(label = null, contents = items)
         group.groupSize shouldBe override
+    }
+
+    // --- followSymlinks regression ---
+
+    @Test
+    fun `scan never follows symlinks`() = runTest {
+        // Regression guard: following /system's cross-partition directory symlinks (vendor/product/
+        // system_ext) would double-walk content already covered by separate partitions. Every walk
+        // the scanner issues must request followSymlinks = false.
+        val capturedOptions = mutableListOf<APathGateway.WalkOptions<APath, APathLookup<APath>>>()
+
+        val gatewaySwitch = mockk<GatewaySwitch> {
+            coEvery { lookup(any(), type = any()) } answers {
+                val path = firstArg<APath>()
+                mockk<LocalPathLookup> {
+                    coEvery { lookedUp } returns (path as LocalPath)
+                    coEvery { fileType } returns FileType.DIRECTORY
+                    coEvery { size } returns 4096L
+                    coEvery { modifiedAt } returns Instant.EPOCH
+                    coEvery { target } returns null
+                } as APathLookup<APath>
+            }
+            coEvery { listFiles(any()) } returns listOf(LocalPath.build("data", "some_app"))
+            coEvery { walk(any(), capture(capturedOptions)) } returns emptyFlow()
+        }
+
+        SystemStorageScanner(gatewaySwitch).scan(
+            storageId = StorageId(internalId = null, externalId = UUID.randomUUID()),
+            existingGroupId = ContentGroup.Id(),
+            spaceUsedOverride = null,
+            dataAreas = emptySet(),
+        )
+
+        // 5 system partitions + at least one /data child.
+        capturedOptions.size shouldBeGreaterThanOrEqual 6
+        capturedOptions.all { !it.followSymlinks } shouldBe true
     }
 }

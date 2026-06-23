@@ -6,10 +6,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
-import eu.darken.sdmse.common.files.isSymlink
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
 import java.util.LinkedList
@@ -25,6 +23,16 @@ class IndirectLocalWalker(
     private val tag = "$TAG#${hashCode()}"
 
     override suspend fun collectSafely(collector: FlowCollector<LocalPathLookup>) {
+        // followSymlinks is not supported here: resolving a symlink's target type and canonical path
+        // requires stat-ing paths the app process can't reach in ROOT/ADB mode, and the resolution
+        // can't be delegated to the privileged host because this walker only exists to run the
+        // app-side onFilter/onError callbacks (which can't cross the IPC boundary). Callback-free
+        // follow-walks go host-side via DirectLocalWalker (see WalkOptions.isDirect). Here we only
+        // descend real directories — no symlink following, so no traversal cycles are possible.
+        if (followSymlinks) {
+            log(TAG, WARN) { "followSymlinks is not supported for indirect ($mode) walks, nested symlinks won't be followed: $start" }
+        }
+
         val startLookUp = gateway.lookup(start, mode)
 
         if (startLookUp.isFile) {
@@ -33,7 +41,6 @@ class IndirectLocalWalker(
         }
 
         val queue = LinkedList(listOf(startLookUp))
-        val visitedCanonical = if (followSymlinks) HashSet<String>() else null
 
         while (!queue.isEmpty()) {
             val lookUp = queue.removeFirst()
@@ -58,26 +65,9 @@ class IndirectLocalWalker(
                     allowed
                 }
                 .forEach { child ->
-                    val shouldDescend = child.isDirectory ||
-                        (followSymlinks && child.isSymlink && child.lookedUp.asFile().isDirectory)
-
-                    if (shouldDescend) {
-                        if (visitedCanonical != null) {
-                            val canonical = try {
-                                child.lookedUp.asFile().canonicalPath
-                            } catch (e: Exception) {
-                                null
-                            }
-                            if (canonical != null && !visitedCanonical.add(canonical)) {
-                                log(tag, WARN) { "Already visited, skipping: $child -> $canonical" }
-                            } else {
-                                if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
-                                queue.addFirst(child)
-                            }
-                        } else {
-                            if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
-                            queue.addFirst(child)
-                        }
+                    if (child.isDirectory) {
+                        if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
+                        queue.addFirst(child)
                     }
                     collector.emit(child)
                 }
