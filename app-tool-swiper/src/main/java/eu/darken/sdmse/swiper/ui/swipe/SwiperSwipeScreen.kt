@@ -25,6 +25,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -54,11 +57,12 @@ import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
+import eu.darken.sdmse.swiper.ui.swipe.items.LeavingCard
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperActionBar
+import eu.darken.sdmse.swiper.ui.swipe.items.SwiperDeckCard
+import eu.darken.sdmse.swiper.ui.swipe.items.SwiperLeavingCard
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperProgressPager
 import eu.darken.sdmse.swiper.ui.swipe.items.SwiperStatsCard
-import eu.darken.sdmse.swiper.ui.swipe.items.SwiperSwipeBackCard
-import eu.darken.sdmse.swiper.ui.swipe.items.SwiperSwipeCard
 import eu.darken.sdmse.swiper.ui.swipe.tour.SwiperSwipeTour
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -116,7 +120,7 @@ internal fun SwiperSwipeScreen(
     onNavigateUp: () -> Unit = {},
     onNavigateToStatus: () -> Unit = {},
     onSetDecision: (Long, SwipeDecision) -> Unit = { _, _ -> },
-    onSkip: () -> Unit = {},
+    onSkip: (Long) -> Unit = {},
     onUndo: () -> Unit = {},
     onSetCurrentIndex: (Int) -> Unit = {},
     onOpenExternally: (SwipeItem) -> Unit = {},
@@ -127,6 +131,36 @@ internal fun SwiperSwipeScreen(
 
     var showHelpDialog by remember { mutableStateOf(false) }
     var excludeRequest by remember { mutableStateOf<SwipeItem?>(null) }
+
+    // Cards mid-fly-off, drawn on top of the live deck. A commit advances the deck immediately and
+    // parks the outgoing card here so its fly-off animation never gates the next swipe.
+    val leaving = remember { mutableStateListOf<LeavingCard>() }
+    var leavingKey by remember { mutableIntStateOf(0) }
+
+    fun commit(item: SwipeItem, outcome: SwipeOutcome, releaseX: Float, releaseY: Float) {
+        val snapshot = state ?: return
+        // Park the outgoing card so its fly-off plays on top of the already-promoted next card.
+        fun park() = leaving.add(
+            LeavingCard(
+                key = leavingKey++,
+                item = item,
+                outcome = outcome,
+                releaseX = releaseX,
+                releaseY = releaseY,
+                swapDirections = snapshot.swapDirections,
+                showDetails = snapshot.showDetails,
+                totalItems = snapshot.totalItems,
+            ),
+        )
+        when (outcome) {
+            SwipeOutcome.Keep -> { park(); onSetDecision(item.id, SwipeDecision.KEEP) }
+            SwipeOutcome.Delete -> { park(); onSetDecision(item.id, SwipeDecision.DELETE) }
+            SwipeOutcome.Skip -> { park(); onSkip(item.id) }
+            // Undo navigates backwards — handled entirely by the VM, no fly-off overlay.
+            SwipeOutcome.Undo -> onUndo()
+            SwipeOutcome.SnapBack -> Unit
+        }
+    }
 
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { SwiperSwipeTour.definition() }
@@ -207,13 +241,15 @@ internal fun SwiperSwipeScreen(
                         swapDirections = current.swapDirections,
                         hasCurrentItem = current.currentItem != null,
                         onDelete = {
-                            current.currentItem?.let { onSetDecision(it.id, SwipeDecision.DELETE) }
+                            current.currentItem?.let { commit(it, SwipeOutcome.Delete, 0f, 0f) }
                         },
                         onKeep = {
-                            current.currentItem?.let { onSetDecision(it.id, SwipeDecision.KEEP) }
+                            current.currentItem?.let { commit(it, SwipeOutcome.Keep, 0f, 0f) }
                         },
                         onUndo = onUndo,
-                        onSkip = onSkip,
+                        onSkip = {
+                            current.currentItem?.let { commit(it, SwipeOutcome.Skip, 0f, 0f) }
+                        },
                         onSkipLongPress = {
                             excludeRequest = current.currentItem
                         },
@@ -246,30 +282,41 @@ internal fun SwiperSwipeScreen(
                         .weight(1f),
                     contentAlignment = Alignment.Center,
                 ) {
-                    val nextItem = current.nextItem?.takeIf { it.id != current.currentItem?.id }
-                    if (nextItem != null) {
-                        SwiperSwipeBackCard(
-                            item = nextItem,
-                            modifier = Modifier.fillMaxSize(),
-                        )
-                    }
                     val front = current.currentItem
-                    if (front != null) {
-                        SwiperSwipeCard(
-                            item = front,
-                            canUndo = current.canUndo,
-                            swapDirections = current.swapDirections,
-                            showDetails = current.showDetails,
-                            sessionPosition = current.currentItemOriginalIndex?.plus(1) ?: (current.currentIndex + 1),
-                            totalItems = current.totalItems,
-                            onSwipeKeep = { onSetDecision(front.id, SwipeDecision.KEEP) },
-                            onSwipeDelete = { onSetDecision(front.id, SwipeDecision.DELETE) },
-                            onSwipeSkip = onSkip,
-                            onSwipeUndo = onUndo,
-                            onPreviewClick = { onOpenPreview(front) },
-                            onOpenExternallyClick = { onOpenExternally(front) },
-                            modifier = Modifier.fillMaxSize(),
-                        )
+                    val back = current.nextItem?.takeIf { it.id != front?.id }
+                    // Back card first (drawn behind), then the top card. Both go through one keyed
+                    // call site so promoting the back card to the top MOVES its node (and its loaded
+                    // preview) instead of recreating it — no re-request, no blink.
+                    val deckItems = listOfNotNull(back, front)
+                    deckItems.forEach { deckItem ->
+                        key(deckItem.id) {
+                            SwiperDeckCard(
+                                item = deckItem,
+                                isTop = deckItem.id == front?.id,
+                                canUndo = current.canUndo,
+                                swapDirections = current.swapDirections,
+                                showDetails = current.showDetails,
+                                sessionPosition = deckItem.itemIndex + 1,
+                                totalItems = current.totalItems,
+                                onCommit = { outcome, releaseX, releaseY ->
+                                    commit(deckItem, outcome, releaseX, releaseY)
+                                },
+                                onPreviewClick = { onOpenPreview(deckItem) },
+                                onOpenExternallyClick = { onOpenExternally(deckItem) },
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
+                    }
+                    // Outgoing cards finishing their fly-off, on top of the live deck. Non-interactive,
+                    // so the freshly promoted card beneath them takes input immediately.
+                    leaving.forEach { card ->
+                        key(card.key) {
+                            SwiperLeavingCard(
+                                card = card,
+                                onExitDone = { leaving.remove(card) },
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
                     }
                 }
             }

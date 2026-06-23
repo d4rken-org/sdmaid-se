@@ -87,7 +87,7 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val viewIntentTool: ViewIntentTool,
         val sessionFlow: MutableStateFlow<SwipeSession?>,
         val itemsFlow: MutableStateFlow<List<SwipeItem>>,
-        val sessionsWithStatsFlow: MutableStateFlow<List<Swiper.SessionWithStats>>,
+        val activeSessionsFlow: MutableStateFlow<List<SwipeSession>>,
         val hapticSetting: DataStoreValue<Boolean>,
     )
 
@@ -101,17 +101,17 @@ class SwiperSwipeViewModelTest : BaseTest() {
         startIndex: Int = -1,
         hasSessionLookups: Boolean = true,
         hapticEnabled: Boolean = false,
-        sessionsWithStats: List<Swiper.SessionWithStats> = emptyList(),
+        sessions: List<SwipeSession> = listOfNotNull(session),
     ): Harness {
         val sessionFlow = MutableStateFlow(session)
         val itemsFlow = MutableStateFlow(items)
-        val sessionsWithStatsFlow = MutableStateFlow(sessionsWithStats)
+        val activeSessionsFlow = MutableStateFlow(sessions)
 
         val swiper = mockk<Swiper>(relaxed = true).apply {
             every { getSession(any()) } returns sessionFlow
             every { getItemsForSession(any()) } returns itemsFlow
-            every { getSessionsWithStats() } returns sessionsWithStatsFlow
-            coEvery { this@apply.hasSessionLookups(any()) } returns hasSessionLookups
+            every { activeSessions } returns activeSessionsFlow
+            coEvery { hasSessionLookups(any()) } returns hasSessionLookups
         }
 
         val hapticSetting = mockSetting(hapticEnabled)
@@ -125,6 +125,7 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
         val vm = SwiperSwipeViewModel(
             dispatcherProvider = TestDispatcherProvider(),
+            appScope = backgroundScope,
             swiper = swiper,
             settings = settings,
             exclusionManager = exclusionManager,
@@ -142,9 +143,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
         // Keep state subscribed for the entire test via TestScope.backgroundScope, which is
         // auto-cancelled at runTest completion without blocking the test body.
-        // Without this, safeStateIn's WhileSubscribed lazy-collection means state.value returns the
-        // initialValue (null) and state.first() races with the upstream chain — both make the
-        // route-driven state derivations invisible to tests.
         backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) {
             vm.state.collect { /* keep subscription alive */ }
         }
@@ -157,7 +155,7 @@ class SwiperSwipeViewModelTest : BaseTest() {
             viewIntentTool = viewIntentTool,
             sessionFlow = sessionFlow,
             itemsFlow = itemsFlow,
-            sessionsWithStatsFlow = sessionsWithStatsFlow,
+            activeSessionsFlow = activeSessionsFlow,
             hapticSetting = hapticSetting,
         )
     }
@@ -194,10 +192,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
     @Test
     fun `bindRoute with startIndex applies it as override regardless of session current index`() = runTest2 {
-        // The override (set by bindRoute on a non-default startIndex) wins over the session's
-        // persistent currentIndex. Pin this for both the fresh-session case (currentIndex = 0,
-        // previously broken by the eager stale-override guard) and the mid-session case
-        // (currentIndex > 0).
         val items = (1..5).map { item(it.toLong()) }
 
         val fresh = harness(session = session(currentIndex = 0), items = items, startIndex = 3)
@@ -211,9 +205,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
     @Test
     fun `state currentIndex coerces an out-of-range override to the last item`() = runTest2 {
-        // Override may outlive a partial delete that shortened the items list — coercion clamps it
-        // to the new last valid index. This is the responsibility we kept after dropping the eager
-        // override-clearing logic (which used to reset to 0 in this scenario).
         val items = (1..3).map { item(it.toLong()) }
         val h = harness(session = session(currentIndex = 1), items = items, startIndex = 99)
         advanceUntilIdle()
@@ -232,8 +223,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
     @Test
     fun `bindRoute when cache is empty navigates to sessions`() = runTest2 {
-        // Cache miss after process death — the swipe screen can't render lookups and must navigate
-        // back to sessions where continueSession can refresh the cache.
         val h = harness(bind = false, hasSessionLookups = false)
         h.vm.bindRoute(SwiperSwipeRoute(sessionId = "session-1"))
         advanceUntilIdle()
@@ -258,6 +247,36 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
         coVerify(exactly = 1) { h.swiper.updateDecision(1L, SwipeDecision.KEEP) }
         coVerify { h.swiper.updateCurrentIndex(any(), 1) }
+        h.vm.state.first()!!.currentIndex shouldBe 1
+    }
+
+    @Test
+    fun `setDecision advances optimistically before the DB write happens`() = runTest2 {
+        // The visible cursor must move synchronously (no advanceUntilIdle) so the next card promotes
+        // within a frame; the DB write is enqueued and runs later.
+        val items = listOf(item(1), item(2), item(3))
+        val h = harness(items = items)
+        advanceUntilIdle()
+
+        h.vm.setDecision(itemId = 1L, decision = SwipeDecision.DELETE)
+        // No advanceUntilIdle: the cursor already moved.
+        h.vm.state.first()!!.currentIndex shouldBe 1
+        // The decided item already reads as DELETE via the optimistic overlay.
+        h.vm.state.first()!!.deleteCount shouldBe 1
+    }
+
+    @Test
+    fun `setDecision ignores a stale commit for a non-current item`() = runTest2 {
+        val items = listOf(item(1), item(2))
+        val h = harness(items = items)
+        advanceUntilIdle()
+
+        // Current item is 1; a late callback for item 2 must be ignored.
+        h.vm.setDecision(itemId = 2L, decision = SwipeDecision.KEEP)
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.swiper.updateDecision(2L, any()) }
+        h.vm.state.first()!!.currentIndex shouldBe 0
     }
 
     @Test
@@ -304,25 +323,38 @@ class SwiperSwipeViewModelTest : BaseTest() {
         h.vm.setDecision(itemId = 1L, decision = SwipeDecision.KEEP)
         advanceUntilIdle()
 
-        // findNextUndecidedIndex should jump past index 1 (already KEEP) and stop at index 2.
         coVerify { h.swiper.updateCurrentIndex(any(), 2) }
     }
 
     @Test
     fun `setDecision navigates to status when no undecided remain`() = runTest2 {
+        // Deciding the only item leaves nothing undecided — the optimistic overlay means we don't
+        // need to wait for Room to reflect the write before navigating.
         val items = listOf(item(1, SwipeDecision.UNDECIDED))
         val h = harness(items = items)
         advanceUntilIdle()
 
         h.vm.setDecision(itemId = 1L, decision = SwipeDecision.DELETE)
-        // Mutate the items flow to reflect the decision so findNextUndecidedIndex sees no undecided.
-        h.itemsFlow.value = listOf(item(1, SwipeDecision.DELETE))
         advanceUntilIdle()
 
-        h.vm.setDecision(itemId = 1L, decision = SwipeDecision.DELETE)
+        val nav = h.vm.navEvents.first()
+        nav.shouldBeInstanceOf<NavEvent.GoTo>()
+        nav.destination shouldBe SwiperStatusRoute(sessionId = "session-1")
+    }
+
+    @Test
+    fun `rapid decisions on the last cards do not wrap back to a just-decided card`() = runTest2 {
+        // Two undecided items; decide both back-to-back WITHOUT letting Room re-emit between them.
+        // Without the optimistic overlay, the second advance would wrap around and revisit item 1
+        // (still UNDECIDED in the stale items list) instead of navigating to status.
+        val items = listOf(item(1, SwipeDecision.UNDECIDED), item(2, SwipeDecision.UNDECIDED))
+        val h = harness(items = items)
         advanceUntilIdle()
 
-        // navigateToStatus emits a GoTo(SwiperStatusRoute) event.
+        h.vm.setDecision(itemId = 1L, decision = SwipeDecision.KEEP)
+        h.vm.setDecision(itemId = 2L, decision = SwipeDecision.DELETE)
+        advanceUntilIdle()
+
         val nav = h.vm.navEvents.first()
         nav.shouldBeInstanceOf<NavEvent.GoTo>()
         nav.destination shouldBe SwiperStatusRoute(sessionId = "session-1")
@@ -337,10 +369,9 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val h = harness(session = session(currentIndex = 0), items = items)
         advanceUntilIdle()
 
-        h.vm.skip()
+        h.vm.skip(1L)
         advanceUntilIdle()
 
-        // Reverting from KEEP back to UNDECIDED so the item appears in the undecided queue again.
         coVerify { h.swiper.updateDecision(1L, SwipeDecision.UNDECIDED) }
     }
 
@@ -350,28 +381,74 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val h = harness(items = items)
         advanceUntilIdle()
 
-        h.vm.skip()
+        h.vm.skip(1L)
         advanceUntilIdle()
 
-        // updateDecision must NOT fire for items already UNDECIDED — otherwise we'd hit the DB for
-        // every skip with the same value.
         coVerify(exactly = 0) { h.swiper.updateDecision(any(), any()) }
     }
 
     @Test
+    fun `skip on a decided-only deck resets the item and navigates to status`() = runTest2 {
+        // Documented edge case: skipping the only (decided) card resets it to UNDECIDED, but there is
+        // no other undecided card to advance to, so we land on the status screen.
+        val items = listOf(item(1, SwipeDecision.KEEP))
+        val h = harness(items = items)
+        advanceUntilIdle()
+
+        h.vm.skip(1L)
+        advanceUntilIdle()
+
+        coVerify { h.swiper.updateDecision(1L, SwipeDecision.UNDECIDED) }
+        val nav = h.vm.navEvents.first()
+        nav.shouldBeInstanceOf<NavEvent.GoTo>()
+        nav.destination shouldBe SwiperStatusRoute(sessionId = "session-1")
+    }
+
+    @Test
     fun `skip discards session and navigates back when no items remain`() = runTest2 {
-        // Edge case: all items got excludeAndRemove'd but the user keeps swiping skip — the screen
-        // must self-rescue back to sessions.
         val h = harness(items = emptyList())
         advanceUntilIdle()
 
-        h.vm.skip()
+        h.vm.skip(1L)
         advanceUntilIdle()
 
         coVerify(exactly = 1) { h.swiper.discardSession("session-1") }
         val nav = h.vm.navEvents.first()
         nav.shouldBeInstanceOf<NavEvent.GoTo>()
         nav.destination shouldBe SwiperSessionsRoute
+    }
+
+    @Test
+    fun `skip ignores a stale commit for a non-current item`() = runTest2 {
+        // Current item is 1 (decided KEEP); a late skip for item 2 must be ignored, so item 1's
+        // decision is NOT reset.
+        val items = listOf(item(1, SwipeDecision.KEEP), item(2, SwipeDecision.UNDECIDED))
+        val h = harness(items = items)
+        advanceUntilIdle()
+
+        h.vm.skip(2L)
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.swiper.updateDecision(any(), any()) }
+        h.vm.state.first()!!.currentIndex shouldBe 0
+    }
+
+    @Test
+    fun `keep then undo then keep on the same item ends optimistically KEEP`() = runTest2 {
+        // Exercises the decide→undo→decide burst on one item: the final optimistic state must be KEEP
+        // and must not be clobbered by the intermediate undo's reconciliation.
+        val items = listOf(item(1, SwipeDecision.UNDECIDED), item(2, SwipeDecision.UNDECIDED))
+        val h = harness(items = items)
+        advanceUntilIdle()
+
+        h.vm.setDecision(1L, SwipeDecision.KEEP)
+        h.vm.undo()
+        h.vm.setDecision(1L, SwipeDecision.KEEP)
+        advanceUntilIdle()
+
+        val state = h.vm.state.first()!!
+        state.items.first { it.id == 1L }.decision shouldBe SwipeDecision.KEEP
+        state.keepCount shouldBe 1
     }
 
     @Test
@@ -391,15 +468,14 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val h = harness(items = items)
         advanceUntilIdle()
 
-        // Make a decision so history is populated.
         h.vm.setDecision(itemId = 1L, decision = SwipeDecision.KEEP)
         advanceUntilIdle()
-        // Now undo should restore item 1 to UNDECIDED and move back to index 0.
         h.vm.undo()
         advanceUntilIdle()
 
-        // The undo restores decision via updateDecision(itemId, previousDecision=UNDECIDED).
         coVerify { h.swiper.updateDecision(1L, SwipeDecision.UNDECIDED) }
+        coVerify { h.swiper.updateCurrentIndex(any(), 0) }
+        h.vm.state.first()!!.currentIndex shouldBe 0
     }
 
     @Test
@@ -448,8 +524,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
             item(3, SwipeDecision.UNDECIDED),
             item(4, SwipeDecision.UNDECIDED),
         )
-        // totalItems is read from the session, not from items.size, because previously processed
-        // items would have been removed from the item table.
         val h = harness(session = session().copy(totalItems = 4), items = items)
         advanceUntilIdle()
 
@@ -458,7 +532,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
     @Test
     fun `state sessionPosition is 1-based index of session in createdAt order`() = runTest2 {
-        // Older session at index 0, current "session-1" at index 1, newer at index 2.
         val older = SwipeSession(
             sessionId = "older",
             sourcePaths = emptyList(),
@@ -478,9 +551,8 @@ class SwiperSwipeViewModelTest : BaseTest() {
             lastModifiedAt = Instant.parse("2025-06-01T00:00:00Z"),
             state = SessionState.READY,
         )
-        val stats = listOf(older, current, newer).map { Swiper.SessionWithStats(it, 0, 0, 0, 0, 0) }
 
-        val h = harness(items = listOf(item(1)), sessionsWithStats = stats)
+        val h = harness(items = listOf(item(1)), sessions = listOf(older, current, newer))
         advanceUntilIdle()
 
         // current is at index 1 in createdAt-sorted list → 1-based position 2.
@@ -493,8 +565,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
         val h = harness(items = items)
         advanceUntilIdle()
 
-        // exclusionManager.save(Exclusion) extension calls save(setOf(exclusion)) on the real
-        // save(Set<Exclusion>) method — capture the Set arg.
         val captured = slot<Set<Exclusion>>()
         coEvery { h.exclusionManager.save(capture(captured)) } returns emptyList()
 
@@ -556,6 +626,32 @@ class SwiperSwipeViewModelTest : BaseTest() {
         nav.destination shouldBe SwiperStatusRoute(sessionId = "session-x")
     }
 
+    @Test
+    fun `nextUndecidedIndex skips decided and pending-decided items and wraps around`() {
+        val items = listOf(item(1), item(2), item(3), item(4))
+
+        // From 0, next undecided is 1.
+        nextUndecidedIndex(items, emptyMap(), fromIndex = 0, excludeItemId = null) shouldBe 1
+
+        // Pending DELETE on item 2 (index 1) is skipped → 2.
+        nextUndecidedIndex(items, mapOf(2L to SwipeDecision.DELETE), fromIndex = 0, excludeItemId = null) shouldBe 2
+
+        // Excluded current item is skipped even though undecided.
+        nextUndecidedIndex(items, emptyMap(), fromIndex = 0, excludeItemId = 2L) shouldBe 2
+
+        // Wrap-around: from the last index, find an earlier undecided item.
+        nextUndecidedIndex(items, emptyMap(), fromIndex = 3, excludeItemId = null) shouldBe 0
+
+        // Everything decided (persisted or pending) → null.
+        val allDecided = mapOf(
+            1L to SwipeDecision.KEEP,
+            2L to SwipeDecision.DELETE,
+            3L to SwipeDecision.KEEP,
+            4L to SwipeDecision.DELETE,
+        )
+        nextUndecidedIndex(items, allDecided, fromIndex = 0, excludeItemId = null) shouldBe null
+    }
+
     private class CollectedEvents(
         val list: MutableList<SwiperSwipeViewModel.Event>,
         val job: Job,
@@ -567,7 +663,6 @@ class SwiperSwipeViewModelTest : BaseTest() {
 
     private fun TestScope.collectEvents(vm: SwiperSwipeViewModel): CollectedEvents {
         val list = mutableListOf<SwiperSwipeViewModel.Event>()
-        // UNDISPATCHED so the collect is wired up before the test body's next action.
         val job = launch(start = CoroutineStart.UNDISPATCHED) {
             vm.events.collect { list.add(it) }
         }
