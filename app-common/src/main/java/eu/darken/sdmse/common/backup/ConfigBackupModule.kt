@@ -14,4 +14,7 @@ import dagger.multibindings.Multibinds
 abstract class ConfigBackupModule {
     @Multibinds
     abstract fun configBackupContributors(): Set<ConfigBackupContributor>
+
+    @Multibinds
+    abstract fun databaseBackupContributors(): Set<DatabaseBackupContributor>
 }

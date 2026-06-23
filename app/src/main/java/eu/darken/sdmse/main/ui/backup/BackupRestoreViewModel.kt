@@ -7,8 +7,6 @@ import android.os.Build
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.MimeTypes
-import eu.darken.sdmse.common.backup.BackupCodec
 import eu.darken.sdmse.common.backup.BackupEnvelope
 import eu.darken.sdmse.common.backup.ConfigBackupManager
 import eu.darken.sdmse.common.backup.InvalidBackupException
@@ -25,6 +23,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isProSettled
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
+import java.io.File
 import java.io.IOException
 import java.time.LocalDate
 import java.time.ZoneId
@@ -42,9 +41,10 @@ class BackupRestoreViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
-    // Survives config changes (VM-scoped); on process death the user simply re-picks the file.
+    // The imported archive, staged between import (dialog) and confirm. VM-scoped so it survives
+    // config changes; on process death the user simply re-picks the file.
     // @Volatile: set/read/cleared from separate launch{} coroutines that may run on different threads.
-    @Volatile private var pendingEnvelope: BackupEnvelope? = null
+    @Volatile private var pendingBackup: File? = null
 
     val state: StateFlow<State> = upgradeRepo.upgradeInfo
         .map { State(isPro = it.isPro) }
@@ -59,8 +59,8 @@ class BackupRestoreViewModel @Inject constructor(
         }
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            type = MIME_GZIP
-            putExtra(Intent.EXTRA_TITLE, "SDMaidSE-backup-${LocalDate.now()}.json.gz")
+            type = MIME_ZIP
+            putExtra(Intent.EXTRA_TITLE, "SDMaidSE-backup-${LocalDate.now()}.zip")
         }
         events.emit(Event.PickExportTarget(intent))
     }
@@ -71,9 +71,8 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "performExport($uri)" }
-        val raw = configBackupManager.createBackup()
         context.contentResolver.openOutputStream(uri)?.use { out ->
-            out.write(BackupCodec.encode(raw))
+            configBackupManager.writeBackup(out)
         } ?: throw IOException("Failed to open output stream for $uri")
         log(TAG, INFO) { "Backup written to $uri" }
         events.emit(Event.ExportDone)
@@ -83,9 +82,8 @@ class BackupRestoreViewModel @Inject constructor(
         log(TAG) { "requestImport()" }
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            // Accept both the gzip backups we now write and older/plain .json backups.
             type = "*/*"
-            putExtra(Intent.EXTRA_MIME_TYPES, arrayOf(MIME_GZIP, MimeTypes.Json.value, "application/octet-stream"))
+            putExtra(Intent.EXTRA_MIME_TYPES, arrayOf(MIME_ZIP, "application/octet-stream"))
         }
         events.emit(Event.PickImportSource(intent))
     }
@@ -96,29 +94,48 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "onImportPicked($uri)" }
-        val bytes = context.contentResolver.openInputStream(uri)?.use { it.readBytes() }
-            ?: throw InvalidBackupException("Failed to read backup file")
-        val raw = BackupCodec.decode(bytes)
-        val envelope = configBackupManager.parse(raw)
-        pendingEnvelope = envelope
+        // Copy the archive to a temp file so it can be read with random access (ZipFile).
+        val staged = File.createTempFile("import-", ".zip", backupTmpDir())
+        context.contentResolver.openInputStream(uri)?.use { input ->
+            staged.outputStream().use { input.copyTo(it) }
+        } ?: run {
+            staged.delete()
+            throw InvalidBackupException("Failed to read backup file")
+        }
+
+        val envelope = try {
+            configBackupManager.parse(staged)
+        } catch (e: Exception) {
+            staged.delete()
+            throw e
+        }
+        pendingBackup?.delete()
+        pendingBackup = staged
         events.emit(Event.ConfirmRestore(envelope.toConfirmInfo()))
     }
 
     fun confirmRestore(mode: RestoreMode) = launch {
-        val envelope = pendingEnvelope ?: run {
+        val staged = pendingBackup ?: run {
             log(TAG, WARN) { "confirmRestore() with no staged backup" }
             return@launch
         }
         log(TAG, INFO) { "confirmRestore(mode=$mode)" }
-        val result = configBackupManager.restore(envelope, mode)
-        pendingEnvelope = null
-        events.emit(Event.RestoreDone(failedSections = result.failures.size))
+        try {
+            val result = configBackupManager.restore(staged, mode)
+            events.emit(Event.RestoreDone(failedSections = result.failures.size))
+        } finally {
+            staged.delete()
+            pendingBackup = null
+        }
     }
 
     fun cancelRestore() {
         log(TAG) { "cancelRestore()" }
-        pendingEnvelope = null
+        pendingBackup?.delete()
+        pendingBackup = null
     }
+
+    private fun backupTmpDir(): File = File(context.cacheDir, "backup").apply { mkdirs() }
 
     private fun BackupEnvelope.toConfirmInfo(): RestoreConfirmInfo {
         val currentDevice = "${Build.MANUFACTURER} ${Build.MODEL}"
@@ -173,6 +190,6 @@ class BackupRestoreViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Backup", "Restore", "ViewModel")
-        private const val MIME_GZIP = "application/gzip"
+        private const val MIME_ZIP = "application/zip"
     }
 }

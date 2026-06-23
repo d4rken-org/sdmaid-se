@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.room.backup
 
 import android.content.ContentValues
+import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
@@ -9,8 +11,6 @@ import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.common.backup.RestoreMode
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonElement
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -19,37 +19,42 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
+import java.io.File
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
 class RoomDbBackupContributorTest : BaseTest() {
 
+    private lateinit var ctx: Context
     private lateinit var helper: SupportSQLiteOpenHelper
     private lateinit var db: SupportSQLiteDatabase
-    private val json = Json
 
     private class TestContributor(
         provider: () -> SupportSQLiteDatabase,
+        fileProvider: () -> File,
         tables: List<String>,
-    ) : RoomDbBackupContributor(provider, tables) {
+    ) : RoomDbBackupContributor(provider, fileProvider, tables) {
         override val key = "test.db"
     }
 
-    private fun contributor() = TestContributor({ db }, listOf("t"))
-
-    @Before
-    fun setup() {
-        val config = SupportSQLiteOpenHelper.Configuration.builder(ApplicationProvider.getApplicationContext())
-            .name(null) // in-memory
+    private fun openDb(name: String, withGhostColumn: Boolean = false): SupportSQLiteOpenHelper {
+        val ddl = "CREATE TABLE t (id INTEGER PRIMARY KEY, txt TEXT" + (if (withGhostColumn) ", ghost TEXT" else "") + ")"
+        val config = SupportSQLiteOpenHelper.Configuration.builder(ctx)
+            .name(name)
             .callback(object : SupportSQLiteOpenHelper.Callback(1) {
-                override fun onCreate(db: SupportSQLiteDatabase) {
-                    db.execSQL("CREATE TABLE t (id INTEGER PRIMARY KEY, txt TEXT, rl REAL, bl BLOB, nl TEXT)")
-                }
-
+                override fun onCreate(db: SupportSQLiteDatabase) = db.execSQL(ddl)
                 override fun onUpgrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) = Unit
             })
             .build()
-        helper = FrameworkSQLiteOpenHelperFactory().create(config)
+        return FrameworkSQLiteOpenHelperFactory().create(config)
+    }
+
+    private fun contributor() = TestContributor({ db }, { ctx.getDatabasePath("live.db") }, listOf("t"))
+
+    @Before
+    fun setup() {
+        ctx = ApplicationProvider.getApplicationContext()
+        helper = openDb("live.db")
         db = helper.writableDatabase
     }
 
@@ -58,110 +63,76 @@ class RoomDbBackupContributorTest : BaseTest() {
         helper.close()
     }
 
-    private fun insert(id: Long, txt: String?, rl: Double?, bl: ByteArray?, nl: String?) {
-        val cv = ContentValues().apply {
+    private fun SupportSQLiteDatabase.insertRow(id: Long, txt: String?) {
+        insert("t", SQLiteDatabase.CONFLICT_REPLACE, ContentValues().apply {
             put("id", id)
             if (txt != null) put("txt", txt) else putNull("txt")
-            if (rl != null) put("rl", rl) else putNull("rl")
-            if (bl != null) put("bl", bl) else putNull("bl")
-            if (nl != null) put("nl", nl) else putNull("nl")
-        }
-        db.insert("t", SQLiteDatabase.CONFLICT_REPLACE, cv)
+        })
     }
 
-    private fun rows(): List<Map<String, Any?>> {
-        val out = mutableListOf<Map<String, Any?>>()
-        db.query("SELECT * FROM t ORDER BY id").use { c ->
+    private fun rowsById(): Map<Long, String?> {
+        val out = mutableMapOf<Long, String?>()
+        db.query("SELECT id, txt FROM t ORDER BY id").use { c ->
             while (c.moveToNext()) {
-                val row = mutableMapOf<String, Any?>()
-                for (i in 0 until c.columnCount) {
-                    row[c.getColumnName(i)] = when (c.getType(i)) {
-                        android.database.Cursor.FIELD_TYPE_NULL -> null
-                        android.database.Cursor.FIELD_TYPE_INTEGER -> c.getLong(i)
-                        android.database.Cursor.FIELD_TYPE_FLOAT -> c.getDouble(i)
-                        android.database.Cursor.FIELD_TYPE_STRING -> c.getString(i)
-                        android.database.Cursor.FIELD_TYPE_BLOB -> c.getBlob(i).toList()
-                        else -> null
-                    }
-                }
-                out += row
+                val txt = if (c.getType(1) == Cursor.FIELD_TYPE_NULL) null else c.getString(1)
+                out[c.getLong(0)] = txt
             }
         }
         return out
     }
 
     @Test
-    fun `replace round-trip preserves all column types incl blob and null`() = runTest {
-        insert(1, "hello", 2.5, byteArrayOf(1, 2, 3), "extra")
-        insert(2, null, null, null, null)
+    fun `replace round-trip restores the exported rows`() = runTest {
+        db.insertRow(1, "a")
+        db.insertRow(2, "b")
 
-        val snap = contributor().snapshot()!!
+        val backup = File.createTempFile("backup-", ".db")
+        try {
+            contributor().exportTo(backup)
 
-        db.execSQL("DELETE FROM t")
-        insert(99, "stale", 1.0, null, null)
+            db.execSQL("DELETE FROM t")
+            db.insertRow(99, "stale")
 
-        contributor().restore(snap, RestoreMode.REPLACE)
+            contributor().restoreFrom(backup, RestoreMode.REPLACE)
 
-        val result = rows()
-        result.map { it["id"] } shouldBe listOf(1L, 2L)
-        result[0]["txt"] shouldBe "hello"
-        result[0]["rl"] shouldBe 2.5
-        result[0]["bl"] shouldBe listOf<Any?>(1L, 2L, 3L).map { (it as Long).toByte() }
-        result[0]["nl"] shouldBe "extra"
-        result[1]["txt"] shouldBe null
-        result[1]["bl"] shouldBe null
+            rowsById() shouldBe mapOf(1L to "a", 2L to "b")
+        } finally {
+            backup.delete()
+        }
     }
 
     @Test
     fun `merge upserts by primary key and keeps unrelated rows`() = runTest {
-        insert(1, "fromBackup", null, null, null)
-        val snap = contributor().snapshot()!!
+        db.insertRow(1, "fromBackup")
 
-        // Local divergence after the snapshot.
-        insert(1, "localModified", null, null, null)
-        insert(2, "localOnly", null, null, null)
+        val backup = File.createTempFile("backup-", ".db")
+        try {
+            contributor().exportTo(backup)
 
-        contributor().restore(snap, RestoreMode.MERGE)
+            db.execSQL("UPDATE t SET txt='local' WHERE id=1")
+            db.insertRow(2, "localOnly")
 
-        val byId = rows().associateBy { it["id"] }
-        byId[1L]!!["txt"] shouldBe "fromBackup" // backup wins on PK
-        byId[2L]!!["txt"] shouldBe "localOnly"  // untouched
+            contributor().restoreFrom(backup, RestoreMode.MERGE)
+
+            rowsById() shouldBe mapOf(1L to "fromBackup", 2L to "localOnly")
+        } finally {
+            backup.delete()
+        }
     }
 
     @Test
-    fun `snapshot of an empty database is null`() = runTest {
-        contributor().snapshot() shouldBe null
-    }
+    fun `restore tolerates a backup column missing from the live schema`() = runTest {
+        // Build a separate backup DB whose table has an extra column.
+        val otherHelper = openDb("other.db", withGhostColumn = true)
+        otherHelper.writableDatabase.insert(
+            "t", SQLiteDatabase.CONFLICT_REPLACE,
+            ContentValues().apply { put("id", 5L); put("txt", "ok"); put("ghost", "dropme") },
+        )
+        otherHelper.close()
+        val backup = ctx.getDatabasePath("other.db")
 
-    // Golden DB-section format: if this stops parsing, the on-disk DB backup format changed.
-    @Test
-    fun `golden db section restores`() = runTest {
-        val golden = """
-            {"t":[{"id":{"t":"i","v":7},"txt":{"t":"s","v":"golden"},"rl":{"t":"r","v":1.5},"bl":{"t":"b","v":"AQID"},"nl":{"t":"0","v":null}}]}
-        """.trimIndent()
-        val data: JsonElement = json.parseToJsonElement(golden)
+        contributor().restoreFrom(backup, RestoreMode.REPLACE)
 
-        contributor().restore(data, RestoreMode.REPLACE)
-
-        val row = rows().single()
-        row["id"] shouldBe 7L
-        row["txt"] shouldBe "golden"
-        row["rl"] shouldBe 1.5
-        row["bl"] shouldBe byteArrayOf(1, 2, 3).toList()
-        row["nl"] shouldBe null
-    }
-
-    // A column present in the backup but not in the live schema must be skipped, not crash.
-    @Test
-    fun `unknown column in backup is ignored`() = runTest {
-        val withGhost = """
-            {"t":[{"id":{"t":"i","v":3},"txt":{"t":"s","v":"ok"},"ghost":{"t":"s","v":"dropme"}}]}
-        """.trimIndent()
-
-        contributor().restore(json.parseToJsonElement(withGhost), RestoreMode.REPLACE)
-
-        val row = rows().single()
-        row["id"] shouldBe 3L
-        row["txt"] shouldBe "ok"
+        rowsById() shouldBe mapOf(5L to "ok")
     }
 }
