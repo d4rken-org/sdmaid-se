@@ -234,7 +234,11 @@ internal fun DashboardScreen(
             isBottomBarVisible = true
             return@LaunchedEffect
         }
-        var previousPos = 0
+        // Seed from the restored scroll position: returning from a pushed screen recreates this
+        // composable (grid offset restored via its Saver) and restarts this effect. With
+        // previousPos=0, the first emission of a restored non-zero offset reads as one large
+        // downward scroll and wrongly hides the dock. Seeding makes that first delta ~0.
+        var previousPos = gridState.firstVisibleItemIndex * 10_000 + gridState.firstVisibleItemScrollOffset
         snapshotFlow { gridState.firstVisibleItemIndex * 10_000 + gridState.firstVisibleItemScrollOffset }
             .collect { currentPos ->
                 when {
