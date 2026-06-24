@@ -208,6 +208,33 @@ private fun TitleHeaderLayout(
         val inlineSpacing = 12.dp.roundToPx()
         val stackSpacing = 8.dp.roundToPx()
 
+        // Past "Large" system text the mascot-beside-title row + inline badge can't keep the app
+        // name on one line — it collapses into an ugly 2–3 line stack ("SD" / "Maid" / "SE"). Switch
+        // to a clean centered vertical stack instead — mascot on top, the full-width one-line title
+        // below it, then the badge — which reads as a deliberate large-text header, not a cramped
+        // row. The compact horizontal row below is kept verbatim for normal/smaller text.
+        if (constraints.hasBoundedWidth && fontScale > 1.15f) {
+            val w = constraints.maxWidth
+            val titlePlaceable = measurables[1].measure(looseConstraints.copy(maxWidth = w))
+            val contentHeight = mascotPlaceable.height + stackSpacing + titlePlaceable.height +
+                (ribbonPlaceable?.let { stackSpacing + it.height } ?: 0)
+            val layoutHeight = if (constraints.hasBoundedHeight) {
+                contentHeight.coerceIn(constraints.minHeight, constraints.maxHeight)
+            } else {
+                contentHeight.coerceAtLeast(constraints.minHeight)
+            }
+            return@Layout layout(w, layoutHeight) {
+                var y = 0
+                mascotPlaceable.placeRelative((w - mascotPlaceable.width) / 2, y)
+                y += mascotPlaceable.height + stackSpacing
+                titlePlaceable.placeRelative((w - titlePlaceable.width) / 2, y)
+                ribbonPlaceable?.let { ribbon ->
+                    y += titlePlaceable.height + stackSpacing
+                    ribbon.placeRelative((w - ribbon.width) / 2, y)
+                }
+            }
+        }
+
         // When a badge is present, cap the title width so the card-centered title leaves room
         // for the inline badge. A long randomized slogan then ellipsizes instead of pushing the
         // badge onto a second row. Reserve against the badge width only (not the wider mascot),
