@@ -101,12 +101,12 @@ abstract class DataStoreSettingsBackupContributor(
 
     companion object {
         private val TAG = logTag("Backup", "DataStoreContributor")
-        private const val KEY_TYPE = "t"
-        private const val KEY_VALUE = "v"
-        private const val TAG_BOOL = "b"
-        private const val TAG_STRING = "s"
-        private const val TAG_INT = "i"
-        private const val TAG_LONG = "l"
-        private const val TAG_FLOAT = "f"
+        private const val KEY_TYPE = "type"
+        private const val KEY_VALUE = "value"
+        private const val TAG_BOOL = "boolean"
+        private const val TAG_STRING = "string"
+        private const val TAG_INT = "int"
+        private const val TAG_LONG = "long"
+        private const val TAG_FLOAT = "float"
     }
 }
