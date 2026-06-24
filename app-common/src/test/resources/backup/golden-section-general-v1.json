@@ -1,0 +1,5 @@
+{
+  "core.ui.theme.mode": { "type": "string", "value": "\"DARK\"" },
+  "core.ui.previews.enabled": { "type": "boolean", "value": true },
+  "dashboard.oneclick.onepass.enabled": { "type": "boolean", "value": false }
+}

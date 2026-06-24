@@ -56,9 +56,7 @@ class ConfigBackupManagerTest : BaseTest() {
         }
     }
 
-    private class FakeDbContributor(
-        override val key: String,
-    ) : DatabaseBackupContributor {
+    private class FakeDbContributor(override val key: String) : DatabaseBackupContributor {
         var restoredBytes: ByteArray? = null
         var restoredMode: RestoreMode? = null
         override suspend fun exportTo(target: File) = target.writeBytes("db-$key".toByteArray())
@@ -79,7 +77,7 @@ class ConfigBackupManagerTest : BaseTest() {
         return ConfigBackupManager(ctx, sections, databases, json, FakeUpgradeRepo(pro))
     }
 
-    private fun envelope(sections: Map<String, JsonElement>, version: Int = BackupEnvelope.VERSION) = BackupEnvelope(
+    private fun envelope(version: Int = BackupEnvelope.VERSION) = BackupEnvelope(
         version = version,
         createdAt = Instant.ofEpochMilli(1_700_000_000_000L),
         appVersionCode = 1L,
@@ -89,19 +87,22 @@ class ConfigBackupManagerTest : BaseTest() {
         androidRelease = "11",
         deviceManufacturer = "x",
         deviceModel = "y",
-        sections = sections,
     )
 
-    private fun writeZip(tmp: Path, configJson: String, dbEntries: Map<String, ByteArray> = emptyMap()): File {
+    private fun writeZip(
+        tmp: Path,
+        manifest: String,
+        sectionFiles: Map<String, String> = emptyMap(),
+        dbEntries: Map<String, ByteArray> = emptyMap(),
+    ): File {
         val zip = File.createTempFile("backup-", ".zip", tmp.toFile())
         ZipOutputStream(zip.outputStream()).use { out ->
-            out.putNextEntry(ZipEntry("config.json"))
-            out.write(configJson.toByteArray())
-            out.closeEntry()
+            out.putNextEntry(ZipEntry("manifest.json")); out.write(manifest.toByteArray()); out.closeEntry()
+            sectionFiles.forEach { (key, content) ->
+                out.putNextEntry(ZipEntry("sections/$key.json")); out.write(content.toByteArray()); out.closeEntry()
+            }
             dbEntries.forEach { (key, bytes) ->
-                out.putNextEntry(ZipEntry("databases/$key"))
-                out.write(bytes)
-                out.closeEntry()
+                out.putNextEntry(ZipEntry("databases/$key")); out.write(bytes); out.closeEntry()
             }
         }
         return zip
@@ -116,7 +117,7 @@ class ConfigBackupManagerTest : BaseTest() {
 
     @Test
     fun `parse rejects a newer format version`(@TempDir tmp: Path) = runTest {
-        val raw = json.encodeToString(envelope(emptyMap(), version = BackupEnvelope.VERSION + 1))
+        val raw = json.encodeToString(envelope(version = BackupEnvelope.VERSION + 1))
         shouldThrow<UnsupportedBackupVersionException> { manager(tmp).parse(raw) }
     }
 
@@ -129,7 +130,7 @@ class ConfigBackupManagerTest : BaseTest() {
     }
 
     @Test
-    fun `parse of a zip without config_json fails`(@TempDir tmp: Path) = runTest {
+    fun `parse of a zip without manifest fails`(@TempDir tmp: Path) = runTest {
         val zip = File.createTempFile("empty-", ".zip", tmp.toFile())
         ZipOutputStream(zip.outputStream()).use { it.putNextEntry(ZipEntry("nope.txt")); it.closeEntry() }
         shouldThrow<InvalidBackupException> { manager(tmp).parse(zip) }
@@ -144,14 +145,11 @@ class ConfigBackupManagerTest : BaseTest() {
 
         val zip = writeZip(
             tmp,
-            json.encodeToString(
-                envelope(
-                    mapOf(
-                        "appcleaner" to JsonPrimitive("x"),
-                        "exclusions" to JsonPrimitive("y"),
-                        "unknown-section" to JsonPrimitive("z"),
-                    ),
-                ),
+            manifest = json.encodeToString(envelope()),
+            sectionFiles = mapOf(
+                "appcleaner" to "\"x\"",
+                "exclusions" to "\"y\"",
+                "unknown-section" to "\"z\"",
             ),
         )
 
@@ -166,7 +164,7 @@ class ConfigBackupManagerTest : BaseTest() {
     fun `restore dispatches database entries to db contributors`(@TempDir tmp: Path) = runTest {
         val db = FakeDbContributor("stats.db")
         val payload = "sqlite-bytes".toByteArray()
-        val zip = writeZip(tmp, json.encodeToString(envelope(emptyMap())), mapOf("stats.db" to payload))
+        val zip = writeZip(tmp, json.encodeToString(envelope()), dbEntries = mapOf("stats.db" to payload))
 
         val result = manager(tmp, databases = setOf(db)).restore(zip, RestoreMode.REPLACE)
 
@@ -181,7 +179,8 @@ class ConfigBackupManagerTest : BaseTest() {
         val bad = FakeContributor("bad", failRestore = true)
         val zip = writeZip(
             tmp,
-            json.encodeToString(envelope(mapOf("good" to JsonPrimitive("1"), "bad" to JsonPrimitive("2")))),
+            manifest = json.encodeToString(envelope()),
+            sectionFiles = mapOf("good" to "\"1\"", "bad" to "\"2\""),
         )
 
         val result = manager(tmp, sections = setOf(good, bad)).restore(zip, RestoreMode.REPLACE)

@@ -25,11 +25,13 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Reads/writes a backup archive (a zip): `config.json` holds the [BackupEnvelope] (metadata + the
- * settings/content sections), and each database is a separate `databases/<key>` entry copied at the
- * SQLite-file level so memory stays flat regardless of row count.
+ * Reads/writes a backup archive (a zip). Layout:
+ * - `manifest.json` — the [BackupEnvelope] (provenance metadata).
+ * - `sections/<key>.json` — one file per [ConfigBackupContributor] (settings + content).
+ * - `databases/<key>` — one SQLite file per [DatabaseBackupContributor], copied at the file level so
+ *   memory stays flat regardless of row count.
  *
- * Export is Pro-gated; import/restore is free. Per-section/per-db failures are isolated.
+ * Export is Pro-gated; import/restore is free. Per-entry failures are isolated.
  */
 @Singleton
 class ConfigBackupManager @Inject constructor(
@@ -50,23 +52,24 @@ class ConfigBackupManager @Inject constructor(
             throw UpgradeRequiredException()
         }
 
-        val sections = sectionContributors
-            .sortedBy { it.key }
-            .mapNotNull { c ->
-                try {
-                    c.snapshot()?.let { c.key to it }
+        var sectionCount = 0
+        ZipOutputStream(out.buffered()).use { zip ->
+            zip.putNextEntry(ZipEntry(MANIFEST_ENTRY))
+            zip.write(json.encodeToString(newEnvelope()).toByteArray())
+            zip.closeEntry()
+
+            sectionContributors.sortedBy { it.key }.forEach { c ->
+                val element = try {
+                    c.snapshot()
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "snapshot() failed for '${c.key}': ${e.asLog()}" }
                     null
-                }
+                } ?: return@forEach
+                zip.putNextEntry(ZipEntry("$SECTIONS_DIR${c.key}.json"))
+                zip.write(json.encodeToString(element).toByteArray())
+                zip.closeEntry()
+                sectionCount++
             }
-            .toMap()
-        val envelope = newEnvelope(sections)
-
-        ZipOutputStream(out.buffered()).use { zip ->
-            zip.putNextEntry(ZipEntry(CONFIG_ENTRY))
-            zip.write(json.encodeToString(envelope).toByteArray())
-            zip.closeEntry()
 
             databaseContributors.sortedBy { it.key }.forEach { c ->
                 val tmp = File.createTempFile("export-${c.key}-", ".db", tmpDir)
@@ -84,19 +87,19 @@ class ConfigBackupManager @Inject constructor(
                 }
             }
         }
-        log(TAG, INFO) { "writeBackup(): ${sections.size} sections + ${databaseContributors.size} databases" }
+        log(TAG, INFO) { "writeBackup(): $sectionCount sections + ${databaseContributors.size} databases" }
     }
 
-    /** Parse + version-check `config.json` from a backup zip, without applying it. */
+    /** Parse + version-check `manifest.json` from a backup zip, without applying it. */
     fun parse(zip: File): BackupEnvelope = ZipFile(zip).use { zf ->
-        val entry = zf.getEntry(CONFIG_ENTRY) ?: throw InvalidBackupException("Not a backup archive (no $CONFIG_ENTRY)")
-        val raw = zf.getInputStream(entry).bufferedReader().use { it.readText() }
-        parse(raw)
+        val entry = zf.getEntry(MANIFEST_ENTRY)
+            ?: throw InvalidBackupException("Not a backup archive (no $MANIFEST_ENTRY)")
+        parse(zf.getInputStream(entry).bufferedReader().use { it.readText() })
     }
 
-    /** Parse + version-check raw `config.json` content. */
+    /** Parse + version-check raw `manifest.json` content. */
     fun parse(raw: String): BackupEnvelope {
-        if (raw.isBlank()) throw InvalidBackupException("Backup config was empty")
+        if (raw.isBlank()) throw InvalidBackupException("Backup manifest was empty")
         val envelope = try {
             json.decodeFromString<BackupEnvelope>(raw)
         } catch (e: SerializationException) {
@@ -108,19 +111,24 @@ class ConfigBackupManager @Inject constructor(
         return envelope
     }
 
-    /** Applies a backup zip: JSON sections first (content before settings), then databases. */
+    /** Applies a backup zip: section files first (content before settings), then databases. */
     suspend fun restore(zip: File, mode: RestoreMode): RestoreResult {
         val failures = mutableListOf<SectionFailure>()
         val restored = mutableSetOf<String>()
 
         ZipFile(zip).use { zf ->
-            val envelope = parse(zip)
-            log(TAG, INFO) { "restore(mode=$mode): sections=${envelope.sections.keys}" }
+            // Version gate (also throws on a non-backup archive).
+            val manifest = zf.getEntry(MANIFEST_ENTRY)
+                ?: throw InvalidBackupException("Not a backup archive (no $MANIFEST_ENTRY)")
+            parse(zf.getInputStream(manifest).bufferedReader().use { it.readText() })
 
             sectionContributors.sortedBy { it.restoreOrder }.forEach { c ->
-                val data = envelope.sections[c.key] ?: return@forEach
+                val entry = zf.getEntry("$SECTIONS_DIR${c.key}.json") ?: return@forEach
                 try {
-                    c.restore(data, mode)
+                    val element = json.parseToJsonElement(
+                        zf.getInputStream(entry).bufferedReader().use { it.readText() },
+                    )
+                    c.restore(element, mode)
                     restored += c.key
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "restore() failed for '${c.key}': ${e.asLog()}" }
@@ -146,7 +154,7 @@ class ConfigBackupManager @Inject constructor(
         return RestoreResult(restored = restored, failures = failures)
     }
 
-    private fun newEnvelope(sections: Map<String, kotlinx.serialization.json.JsonElement>) = BackupEnvelope(
+    private fun newEnvelope() = BackupEnvelope(
         createdAt = Instant.now(),
         appVersionCode = BuildConfigWrap.VERSION_CODE,
         appVersionName = BuildConfigWrap.VERSION_NAME,
@@ -155,7 +163,6 @@ class ConfigBackupManager @Inject constructor(
         androidRelease = Build.VERSION.RELEASE ?: "?",
         deviceManufacturer = Build.MANUFACTURER ?: "?",
         deviceModel = Build.MODEL ?: "?",
-        sections = sections,
     )
 
     data class RestoreResult(
@@ -172,7 +179,8 @@ class ConfigBackupManager @Inject constructor(
 
     companion object {
         private val TAG = logTag("Backup", "Manager")
-        private const val CONFIG_ENTRY = "config.json"
+        private const val MANIFEST_ENTRY = "manifest.json"
+        private const val SECTIONS_DIR = "sections/"
         private const val DB_DIR = "databases/"
     }
 }
