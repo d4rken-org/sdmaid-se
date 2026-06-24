@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.first
@@ -65,7 +66,13 @@ abstract class DataStoreSettingsBackupContributor(
             }
             section.forEach { (name, element) ->
                 if (name in excludedKeys) return@forEach
-                prefs.applyTagged(name, element.jsonObject)
+                // Skip a single unrestorable key (e.g. an unknown future type tag) instead of failing
+                // the whole section — keeps forward compatibility key-level, not section-level.
+                try {
+                    prefs.applyTagged(name, element.jsonObject)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "restore($key): skipping unrestorable key '$name': ${e.message}" }
+                }
             }
         }
     }

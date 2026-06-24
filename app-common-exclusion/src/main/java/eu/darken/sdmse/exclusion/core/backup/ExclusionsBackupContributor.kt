@@ -10,9 +10,9 @@ import eu.darken.sdmse.common.backup.RestoreMode
 import eu.darken.sdmse.exclusion.core.ExclusionImporter
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.ExclusionStorage
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
-import kotlinx.serialization.json.jsonPrimitive
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,19 +22,24 @@ class ExclusionsBackupContributor @Inject constructor(
     private val exclusionStorage: ExclusionStorage,
     private val exclusionManager: ExclusionManager,
     private val exclusionImporter: ExclusionImporter,
+    private val json: Json,
 ) : ConfigBackupContributor {
 
     override val key = "exclusions"
     override val restoreOrder = ConfigBackupContributor.ORDER_CONTENT
 
+    // ExclusionImporter speaks String (its own versioned Container). Parse that into a real JsonElement
+    // so the section is inspectable, pretty-printable JSON instead of a quoted string-of-JSON.
     override suspend fun snapshot(): JsonElement? {
         val current = exclusionStorage.load() ?: emptySet()
         if (current.isEmpty()) return null
-        return JsonPrimitive(exclusionImporter.export(current))
+        return json.parseToJsonElement(exclusionImporter.export(current))
     }
 
     override suspend fun restore(data: JsonElement, mode: RestoreMode) {
-        val restored = exclusionImporter.import(data.jsonPrimitive.content)
+        // Accept both the new object shape and the legacy quoted-string shape (older backups).
+        val payload = if (data is JsonPrimitive && data.isString) data.content else data.toString()
+        val restored = exclusionImporter.import(payload)
         when (mode) {
             RestoreMode.REPLACE -> exclusionManager.replaceUserExclusions(restored)
             RestoreMode.MERGE -> exclusionManager.save(restored)

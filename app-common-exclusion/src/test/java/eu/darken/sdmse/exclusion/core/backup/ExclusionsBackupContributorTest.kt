@@ -10,6 +10,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonPrimitive
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -19,13 +20,18 @@ class ExclusionsBackupContributorTest : BaseTest() {
     private val exclusionStorage = mockk<ExclusionStorage>()
     private val exclusionManager = mockk<ExclusionManager>(relaxed = true)
     private val exclusionImporter = mockk<ExclusionImporter>()
-    private val contributor = ExclusionsBackupContributor(exclusionStorage, exclusionManager, exclusionImporter)
+    private val json = Json
+    private val contributor =
+        ExclusionsBackupContributor(exclusionStorage, exclusionManager, exclusionImporter, json)
+
+    private val containerJson = """{"exclusionRaw":"[]","version":1}"""
 
     @Test
     fun `replace mode atomically replaces user exclusions`() = runTest {
         val restored = setOf(mockk<Exclusion>())
         coEvery { exclusionImporter.import("payload") } returns restored
 
+        // Legacy quoted-string shape is still accepted.
         contributor.restore(JsonPrimitive("payload"), RestoreMode.REPLACE)
 
         coVerify { exclusionManager.replaceUserExclusions(restored) }
@@ -44,12 +50,22 @@ class ExclusionsBackupContributorTest : BaseTest() {
     }
 
     @Test
-    fun `snapshot exports current exclusions via importer`() = runTest {
+    fun `restore accepts the json object shape`() = runTest {
+        val restored = setOf(mockk<Exclusion>())
+        coEvery { exclusionImporter.import(containerJson) } returns restored
+
+        contributor.restore(json.parseToJsonElement(containerJson), RestoreMode.MERGE)
+
+        coVerify { exclusionManager.save(restored) }
+    }
+
+    @Test
+    fun `snapshot stores the importer output as a json object`() = runTest {
         val current = setOf(mockk<Exclusion>())
         coEvery { exclusionStorage.load() } returns current
-        coEvery { exclusionImporter.export(current) } returns "exported"
+        coEvery { exclusionImporter.export(current) } returns containerJson
 
-        contributor.snapshot() shouldBe JsonPrimitive("exported")
+        contributor.snapshot() shouldBe json.parseToJsonElement(containerJson)
     }
 
     @Test

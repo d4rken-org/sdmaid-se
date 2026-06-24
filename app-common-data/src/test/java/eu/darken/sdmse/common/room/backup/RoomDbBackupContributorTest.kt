@@ -102,19 +102,22 @@ class RoomDbBackupContributorTest : BaseTest() {
     }
 
     @Test
-    fun `merge upserts by primary key and keeps unrelated rows`() = runTest {
+    fun `merge adds non-colliding rows and never overwrites local data`() = runTest {
         db.insertRow(1, "fromBackup")
+        db.insertRow(3, "alsoBackup")
 
         val backup = File.createTempFile("backup-", ".db")
         try {
             contributor().exportTo(backup)
 
-            db.execSQL("UPDATE t SET txt='local' WHERE id=1")
-            db.insertRow(2, "localOnly")
+            db.execSQL("DELETE FROM t")
+            db.insertRow(1, "local")     // collides with backup id=1
+            db.insertRow(2, "localOnly") // unrelated local row
 
             contributor().restoreFrom(backup, RestoreMode.MERGE)
 
-            rowsById() shouldBe mapOf(1L to "fromBackup", 2L to "localOnly")
+            // INSERT OR IGNORE: id=1 stays local (collision ignored), id=2 untouched, id=3 added.
+            rowsById() shouldBe mapOf(1L to "local", 2L to "localOnly", 3L to "alsoBackup")
         } finally {
             backup.delete()
         }
