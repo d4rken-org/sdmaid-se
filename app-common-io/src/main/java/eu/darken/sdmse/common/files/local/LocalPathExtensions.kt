@@ -5,15 +5,19 @@ import android.system.StructStat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.asFile
-import eu.darken.sdmse.common.files.core.local.readLink
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
+import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.LinkOption
+import java.nio.file.attribute.BasicFileAttributes
 import java.time.Instant
 
 
@@ -38,15 +42,44 @@ fun LocalPath.toCrumbs(): List<LocalPath> {
 }
 
 fun LocalPath.performLookup(): LocalPathLookup {
-    val type = file.getAPathFileType() ?: throw ReadException("Does not exist or can't be read", this)
+    // One lstat (NOFOLLOW) yields type + size + mtime, replacing ~6 java.io.File syscalls per entry.
+    // NOFOLLOW means a symlink reports its OWN size/mtime (not the target's) — which is correct, since
+    // deletion only ever removes the link, never the target.
+    val attrs = try {
+        Files.readAttributes(file.toPath(), BasicFileAttributes::class.java, LinkOption.NOFOLLOW_LINKS)
+    } catch (e: IOException) {
+        throw ReadException("Does not exist or can't be read", this, e)
+    }
+
+    val type = when {
+        attrs.isSymbolicLink -> FileType.SYMBOLIC_LINK
+        attrs.isDirectory -> FileType.DIRECTORY
+        attrs.isRegularFile -> FileType.FILE
+        else -> FileType.UNKNOWN
+    }
 
     return LocalPathLookup(
         fileType = type,
         lookedUp = this,
-        size = file.length(),
-        modifiedAt = Instant.ofEpochMilli(file.lastModified()),
-        target = file.readLink()?.let { LocalPath.build(it) }
+        size = attrs.size(),
+        modifiedAt = Instant.ofEpochMilli(attrs.lastModifiedTime().toMillis()),
+        target = if (type == FileType.SYMBOLIC_LINK) file.resolveSymlinkTarget() else null,
     )
+}
+
+/**
+ * Resolves a symlink's target to an absolute [LocalPath]. Uses NIO so it works in JVM tests (unlike
+ * `Os.readlink`), and resolves a relative target against the link's parent (the old
+ * `LocalPath.build(rawTarget)` turned `../x` into a bogus `/../x`).
+ */
+private fun File.resolveSymlinkTarget(): LocalPath? {
+    val raw = try {
+        Files.readSymbolicLink(toPath())
+    } catch (e: Exception) {
+        return null
+    }
+    val resolved = if (raw.isAbsolute) raw else (toPath().parent?.resolve(raw) ?: raw)
+    return LocalPath.build(resolved.toString())
 }
 
 fun LocalPath.performLookupExtended(

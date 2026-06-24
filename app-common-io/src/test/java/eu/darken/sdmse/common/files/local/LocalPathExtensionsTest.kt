@@ -6,8 +6,16 @@ import eu.darken.sdmse.common.files.local.*
 import eu.darken.sdmse.common.files.startsWith
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.LinkOption
+import java.nio.file.Paths
+import java.nio.file.attribute.BasicFileAttributes
 import java.time.Instant
 
 class LocalPathExtensionsTest : BaseTest() {
@@ -359,6 +367,75 @@ class LocalPathExtensionsTest : BaseTest() {
 
     @Test fun `isUncommonAndroidDir - Android is last segment`() {
         LocalPath.build("storage", "emulated", "0", "Android").isUncommonAndroidDir shouldBe false
+    }
+
+    private lateinit var fsDir: File
+
+    @BeforeEach fun setupFs() {
+        fsDir = Files.createTempDirectory("performLookup").toFile()
+    }
+
+    @AfterEach fun cleanupFs() {
+        fsDir.deleteRecursively()
+    }
+
+    @Test fun `performLookup - regular file matches java io File`() {
+        val f = File(fsDir, "file.txt").apply { writeText("hello!") } // 6 bytes
+        val lookup = LocalPath.build(f).performLookup()
+        lookup.fileType shouldBe FileType.FILE
+        lookup.size shouldBe 6L
+        lookup.size shouldBe f.length()
+        lookup.modifiedAt.toEpochMilli() shouldBe f.lastModified()
+        lookup.target shouldBe null
+    }
+
+    @Test fun `performLookup - directory size equals File length (totals must not shift)`() {
+        val d = File(fsDir, "sub").apply { mkdirs(); File(this, "a").writeText("x") }
+        val lookup = LocalPath.build(d).performLookup()
+        lookup.fileType shouldBe FileType.DIRECTORY
+        // Critical parity: a directory's reported size must stay identical to the old File.length(),
+        // or every FilterContent/Corpse/AppJunk size total would shift.
+        lookup.size shouldBe d.length()
+        val nofollow = Files.readAttributes(d.toPath(), BasicFileAttributes::class.java, LinkOption.NOFOLLOW_LINKS)
+        lookup.size shouldBe nofollow.size()
+        lookup.target shouldBe null
+    }
+
+    @Test fun `performLookup - symlink reports its own size, not the target's`() {
+        val target = File(fsDir, "target.bin").apply { writeBytes(ByteArray(5000)) }
+        val link = File(fsDir, "link")
+        Files.createSymbolicLink(link.toPath(), target.toPath())
+
+        val lookup = LocalPath.build(link).performLookup()
+        lookup.fileType shouldBe FileType.SYMBOLIC_LINK
+        // The link node, NOT the 5000-byte target — deletion only removes the link.
+        lookup.size shouldNotBe 5000L
+        val linkAttrs = Files.readAttributes(link.toPath(), BasicFileAttributes::class.java, LinkOption.NOFOLLOW_LINKS)
+        lookup.size shouldBe linkAttrs.size()
+        lookup.target shouldBe LocalPath.build(target.path)
+    }
+
+    @Test fun `performLookup - relative symlink target is resolved against the link's parent`() {
+        File(fsDir, "realfile").apply { writeText("x") }
+        val link = File(fsDir, "rellink")
+        Files.createSymbolicLink(link.toPath(), Paths.get("realfile")) // relative target
+
+        val lookup = LocalPath.build(link).performLookup()
+        lookup.fileType shouldBe FileType.SYMBOLIC_LINK
+        // Resolved to <parent>/realfile, not the old bogus "/realfile".
+        lookup.target shouldBe LocalPath.build(File(fsDir, "realfile").path)
+    }
+
+    @Test fun `performLookup - broken symlink is still a SYMBOLIC_LINK`() {
+        val link = File(fsDir, "broken")
+        Files.createSymbolicLink(link.toPath(), File(fsDir, "does-not-exist").toPath())
+
+        val lookup = LocalPath.build(link).performLookup()
+        lookup.fileType shouldBe FileType.SYMBOLIC_LINK
+    }
+
+    @Test fun `performLookup - non-existent path throws ReadException`() {
+        shouldThrow<ReadException> { LocalPath.build(File(fsDir, "nope")).performLookup() }
     }
 
     @Test fun `remove prefix with overlap`() {
