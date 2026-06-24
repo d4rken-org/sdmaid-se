@@ -1,11 +1,15 @@
 package eu.darken.sdmse.common.files.core.local
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.io.File
+import java.io.IOException
 import java.nio.file.Files
 
 /**
@@ -106,6 +110,53 @@ class FileExtensionsBaseTest : BaseTest() {
         targetDir.exists() shouldBe true
         targetFile.exists() shouldBe true
         targetFile.readText() shouldBe "image data"
+    }
+
+    @Test
+    fun `listFilesStreaming - parity with listFiles2 over a populated directory`() {
+        val dir = File(testDir, "pop").apply { mkdirs() }
+        File(dir, "a.txt").writeText("a")
+        File(dir, "b.txt").writeText("b")
+        File(dir, "sub").mkdirs()
+        File(dir, ".hidden").writeText("h")
+
+        val streamed = runBlocking { dir.listFilesStreaming().toList() }.map { it.name }.toSet()
+        val eager = dir.listFiles2().map { it.name }.toSet()
+        // Order is unspecified for both, so compare as sets.
+        streamed shouldBe eager
+        streamed shouldBe setOf("a.txt", "b.txt", "sub", ".hidden")
+    }
+
+    @Test
+    fun `listFilesStreaming - empty directory yields nothing`() {
+        val dir = File(testDir, "empty").apply { mkdirs() }
+        runBlocking { dir.listFilesStreaming().toList() } shouldBe emptyList()
+    }
+
+    @Test
+    fun `listFilesStreaming - missing path throws IOException`() {
+        val dir = File(testDir, "does-not-exist")
+        shouldThrow<IOException> { runBlocking { dir.listFilesStreaming().toList() } }
+    }
+
+    @Test
+    fun `listFilesStreaming - a regular file throws IOException`() {
+        val file = File(testDir, "regular.txt").apply { writeText("x") }
+        // newDirectoryStream throws NotDirectoryException, normalized to a plain IOException.
+        shouldThrow<IOException> { runBlocking { file.listFilesStreaming().toList() } }
+    }
+
+    @Test
+    fun `listFilesStreaming - symlink child is listed but not followed`() {
+        val dir = File(testDir, "withlink").apply { mkdirs() }
+        val target = File(testDir, "target").apply { mkdirs() }
+        File(target, "inside.txt").writeText("x")
+        Files.createSymbolicLink(File(dir, "link").toPath(), target.toPath())
+        File(dir, "plain.txt").writeText("r")
+
+        val names = runBlocking { dir.listFilesStreaming().toList() }.map { it.name }.toSet()
+        // The symlink itself is an entry; its target's contents are not enumerated.
+        names shouldBe setOf("link", "plain.txt")
     }
 
     /**

@@ -8,12 +8,15 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.asFile
-import eu.darken.sdmse.common.files.core.local.listFiles2
+import eu.darken.sdmse.common.files.core.local.listFilesStreaming
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.isSymlink
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
 import java.util.LinkedList
 
 class DirectLocalWalker(
@@ -43,28 +46,21 @@ class DirectLocalWalker(
         while (!queue.isEmpty()) {
             val lookUp = queue.removeFirst()
 
-            val newBatch = try {
-                lookUp.lookedUp.asFile()
-                    .listFiles2()
-                    .map { it.toLocalPath().performLookup() }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to read $lookUp: $e" }
-                if (onError(lookUp, e)) {
-                    emptyList()
-                } else {
-                    throw e
+            // Enumerate each directory lazily (NIO) so a single huge directory isn't fully
+            // materialized. Listing + per-entry lookup errors route to onError (as before); a filter
+            // or emit error (incl. cancellation) propagates. Note: unlike the old eager listing, an
+            // error part-way through a directory keeps the entries already emitted before it.
+            lookUp.lookedUp.asFile().listFilesStreaming()
+                .map { it.toLocalPath().performLookup() }
+                .catch { e ->
+                    log(TAG, ERROR) { "Failed to read $lookUp: $e" }
+                    if (!onError(lookUp, e as? Exception ?: throw e)) throw e
                 }
-            }
+                .collect { child ->
+                    val allowed = onFilter(child)
+                    if (Bugs.isTrace && !allowed) log(tag, VERBOSE) { "Skipping (filter): $child" }
+                    if (!allowed) return@collect
 
-            newBatch
-                .filter {
-                    val allowed = onFilter(it)
-                    if (Bugs.isTrace) {
-                        if (!allowed) log(tag, VERBOSE) { "Skipping (filter): $it" }
-                    }
-                    allowed
-                }
-                .forEach { child ->
                     val shouldDescend = child.isDirectory ||
                         (followSymlinks && child.isSymlink && child.lookedUp.asFile().isDirectory)
 

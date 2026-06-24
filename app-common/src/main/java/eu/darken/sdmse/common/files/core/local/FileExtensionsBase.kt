@@ -4,8 +4,12 @@ import android.system.Os
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import java.io.File
 import java.io.IOException
+import java.nio.file.DirectoryIteratorException
+import java.nio.file.Files
 
 fun File(vararg crumbs: String): File {
     var compacter = File(crumbs[0])
@@ -78,6 +82,37 @@ fun File.listFiles2(): List<File> {
     if (!exists()) throw IOException("File does not exist")
     if (!canRead()) throw IOException("Can't read $path")
     return this.listFiles()?.toList() ?: throw IOException("Failed to listFiles() on $path")
+}
+
+/**
+ * Lazy counterpart to [listFiles2]: enumerates the directory via [Files.newDirectoryStream] instead
+ * of materializing the whole child array up front, so a single huge directory doesn't spike the heap.
+ * The underlying [java.nio.file.DirectoryStream] stays open for the duration of flow collection and is
+ * closed when collection completes, throws, or is cancelled.
+ *
+ * All failures are normalized to [IOException] to match [listFiles2]'s contract and to survive the IPC
+ * error round-trip (which reconstructs exceptions by class name). In particular [DirectoryIteratorException]
+ * is an unchecked wrapper around an [IOException] thrown during iteration and must not leak as-is.
+ *
+ * Entry order is unspecified, same as [listFiles2].
+ */
+fun File.listFilesStreaming(): Flow<File> = flow {
+    if (!exists()) throw IOException("File does not exist")
+    if (!canRead()) throw IOException("Can't read $path")
+    val stream = try {
+        Files.newDirectoryStream(toPath())
+    } catch (e: IOException) {
+        // NotDirectoryException / NoSuchFileException / AccessDeniedException etc. — match listFiles2's
+        // generic failure so callers and the IPC round-trip see a plain IOException.
+        throw IOException("Failed to listFiles() on $path", e)
+    }
+    stream.use { dirStream ->
+        try {
+            for (entry in dirStream) emit(entry.toFile())
+        } catch (e: DirectoryIteratorException) {
+            throw (e.cause as? IOException) ?: IOException("Failed to listFiles() on $path", e)
+        }
+    }
 }
 
 fun File.isSymbolicLink(): Boolean {
