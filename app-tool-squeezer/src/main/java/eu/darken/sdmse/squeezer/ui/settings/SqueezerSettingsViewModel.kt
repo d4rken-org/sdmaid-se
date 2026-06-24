@@ -26,18 +26,20 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeWebp.flow,
         settings.includeHeic.flow,
         settings.includeVideo.flow,
+        settings.includeLossyAuxImages.flow,
         settings.skipPreviouslyCompressed.flow,
         settings.writeExifMarker.flow,
         settings.minSizeBytes.flow,
         historyDatabase.count,
         historyDatabase.databaseSize,
-    ) { jpeg, webp, heic, video, skipCompressed, exif, minSize, historyCount, historySize ->
+    ) { jpeg, webp, heic, video, lossyAux, skipCompressed, exif, minSize, historyCount, historySize ->
         State(
             includeJpeg = jpeg,
             includeWebp = webp,
             includeHeic = heic,
             isHeicSupported = CompressibleImage.isHeicEncodingSupported(),
             includeVideo = video,
+            includeLossyAuxImages = lossyAux,
             skipPreviouslyCompressed = skipCompressed,
             writeExifMarker = exif,
             minSizeBytes = minSize,
@@ -65,6 +67,10 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeVideo.value(value)
     }
 
+    fun setIncludeLossyAuxImages(value: Boolean) = launch {
+        settings.includeLossyAuxImages.value(value)
+    }
+
     fun setSkipPreviouslyCompressed(value: Boolean) = launch {
         settings.skipPreviouslyCompressed.value(value)
     }
@@ -88,6 +94,7 @@ class SqueezerSettingsViewModel @Inject constructor(
         val includeHeic: Boolean = false,
         val isHeicSupported: Boolean = false,
         val includeVideo: Boolean = false,
+        val includeLossyAuxImages: Boolean = false,
         val skipPreviouslyCompressed: Boolean = true,
         val writeExifMarker: Boolean = false,
         val minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,

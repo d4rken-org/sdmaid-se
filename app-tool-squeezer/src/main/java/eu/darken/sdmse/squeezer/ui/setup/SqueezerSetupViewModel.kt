@@ -158,10 +158,11 @@ class SqueezerSetupViewModel @Inject constructor(
         val result = taskSubmitter.submit(SqueezerScanTask())
         log(TAG, INFO) { "Scan result: $result" }
 
-        if (squeezer.state.first().data.hasData) {
+        val data = squeezer.state.first().data
+        if (data.hasData) {
             navTo(SqueezerListRoute)
         } else {
-            events.tryEmit(Event.NoResultsFound)
+            events.tryEmit(Event.NoResultsFound(skippedLossyAuxCount = data?.skippedLossyAuxCount ?: 0))
         }
     }
 
@@ -231,7 +232,7 @@ class SqueezerSetupViewModel @Inject constructor(
     sealed interface Event {
         data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : Event
         data object NoExampleFound : Event
-        data object NoResultsFound : Event
+        data class NoResultsFound(val skippedLossyAuxCount: Int = 0) : Event
         data class PathsDropped(val droppedPaths: List<APath>) : Event
     }
 

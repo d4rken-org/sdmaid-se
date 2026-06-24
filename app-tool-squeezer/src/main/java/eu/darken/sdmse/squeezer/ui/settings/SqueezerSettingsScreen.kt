@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.automirrored.twotone.RotateRight
+import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.Movie
@@ -55,6 +56,7 @@ fun SqueezerSettingsScreenHost(
         onIncludeJpegChanged = vm::setIncludeJpeg,
         onIncludeWebpChanged = vm::setIncludeWebp,
         onIncludeHeicChanged = vm::setIncludeHeic,
+        onIncludeLossyAuxImagesChanged = vm::setIncludeLossyAuxImages,
         onIncludeVideoChanged = vm::setIncludeVideo,
         onSkipPreviouslyCompressedChanged = vm::setSkipPreviouslyCompressed,
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
@@ -70,6 +72,7 @@ internal fun SqueezerSettingsScreen(
     onIncludeJpegChanged: (Boolean) -> Unit = {},
     onIncludeWebpChanged: (Boolean) -> Unit = {},
     onIncludeHeicChanged: (Boolean) -> Unit = {},
+    onIncludeLossyAuxImagesChanged: (Boolean) -> Unit = {},
     onIncludeVideoChanged: (Boolean) -> Unit = {},
     onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
@@ -170,6 +173,15 @@ internal fun SqueezerSettingsScreen(
                         onCheckedChange = onIncludeHeicChanged,
                     )
                 }
+            }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.AutoAwesome,
+                    title = stringResource(R.string.squeezer_include_lossy_aux_title),
+                    subtitle = stringResource(R.string.squeezer_include_lossy_aux_description),
+                    checked = state.includeLossyAuxImages,
+                    onCheckedChange = onIncludeLossyAuxImagesChanged,
+                )
             }
             item {
                 SettingsSwitchItem(

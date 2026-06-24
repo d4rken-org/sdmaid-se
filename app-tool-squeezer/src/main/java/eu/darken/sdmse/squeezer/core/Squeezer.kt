@@ -119,6 +119,7 @@ class Squeezer @Inject constructor(
             enabledMimeTypes = enabledMimeTypes,
             skipPreviouslyCompressed = settings.skipPreviouslyCompressed.value(),
             compressionQuality = settings.compressionQuality.value(),
+            includeLossyAuxImages = settings.includeLossyAuxImages.value(),
         )
 
         val scanResult = scanner.get().withProgress(this) {
@@ -128,11 +129,13 @@ class Squeezer @Inject constructor(
 
         log(TAG, INFO) {
             "performScan(): ${results.size} media items found, " +
-                    "${scanResult.skippedInaccessibleCount} skipped (inaccessible)"
+                    "${scanResult.skippedInaccessibleCount} skipped (inaccessible), " +
+                    "${scanResult.skippedLossyAuxCount} skipped (HDR/depth aux)"
         }
 
         internalData.value = Data(
             media = results,
+            skippedLossyAuxCount = scanResult.skippedLossyAuxCount,
         )
 
         return SqueezerScanTask.Success(
@@ -140,6 +143,7 @@ class Squeezer @Inject constructor(
             totalSize = results.sumOf { it.size },
             estimatedSavings = results.sumOf { it.estimatedSavings ?: 0L },
             skippedInaccessibleCount = scanResult.skippedInaccessibleCount,
+            skippedLossyAuxCount = scanResult.skippedLossyAuxCount,
         )
     }
 
@@ -185,7 +189,10 @@ class Squeezer @Inject constructor(
 
         updateProgress { Progress.Data() }
 
-        internalData.value = snapshot.prune(allSuccess.map { it.identifier }.toSet())
+        // Consume both compressed items and HDR/depth-preserved (guard-skipped) ones from the list,
+        // but only compressed items count toward processedCount / affectedPaths below.
+        val handledIds = (allSuccess.map { it.identifier } + imageResult.skippedGuarded.map { it.identifier }).toSet()
+        internalData.value = snapshot.prune(handledIds)
 
         return SqueezerProcessTask.Success(
             affectedSpace = totalSavedSpace,
@@ -229,6 +236,8 @@ class Squeezer @Inject constructor(
 
     data class Data(
         val media: Set<CompressibleMedia> = emptySet(),
+        /** Photos excluded from this scan to preserve their HDR gain map / depth map. */
+        val skippedLossyAuxCount: Int = 0,
     ) {
         val images: Set<CompressibleImage> get() = media.filterIsInstance<CompressibleImage>().toSet()
         val videos: Set<CompressibleVideo> get() = media.filterIsInstance<CompressibleVideo>().toSet()

@@ -31,6 +31,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val includeWebp: DataStoreValue<Boolean>,
         val includeHeic: DataStoreValue<Boolean>,
         val includeVideo: DataStoreValue<Boolean>,
+        val includeLossyAuxImages: DataStoreValue<Boolean>,
         val skipPreviouslyCompressed: DataStoreValue<Boolean>,
         val writeExifMarker: DataStoreValue<Boolean>,
         val minSizeBytes: DataStoreValue<Long>,
@@ -48,6 +49,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         includeWebp: Boolean = true,
         includeHeic: Boolean = false,
         includeVideo: Boolean = false,
+        includeLossyAuxImages: Boolean = false,
         skipPreviouslyCompressed: Boolean = true,
         writeExifMarker: Boolean = false,
         minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
@@ -59,6 +61,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
             includeWebp = rwDataStoreValue(includeWebp),
             includeHeic = rwDataStoreValue(includeHeic),
             includeVideo = rwDataStoreValue(includeVideo),
+            includeLossyAuxImages = rwDataStoreValue(includeLossyAuxImages),
             skipPreviouslyCompressed = rwDataStoreValue(skipPreviouslyCompressed),
             writeExifMarker = rwDataStoreValue(writeExifMarker),
             minSizeBytes = rwDataStoreValue(minSizeBytes),
@@ -68,6 +71,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
             every { this@apply.includeWebp } returns values.includeWebp
             every { this@apply.includeHeic } returns values.includeHeic
             every { this@apply.includeVideo } returns values.includeVideo
+            every { this@apply.includeLossyAuxImages } returns values.includeLossyAuxImages
             every { this@apply.skipPreviouslyCompressed } returns values.skipPreviouslyCompressed
             every { this@apply.writeExifMarker } returns values.writeExifMarker
             every { this@apply.minSizeBytes } returns values.minSizeBytes
@@ -99,6 +103,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         state.includeWebp shouldBe true
         state.includeHeic shouldBe false
         state.includeVideo shouldBe false
+        state.includeLossyAuxImages shouldBe false
         state.skipPreviouslyCompressed shouldBe true
         state.writeExifMarker shouldBe false
         state.minSizeBytes shouldBe SqueezerSettings.MIN_FILE_SIZE
@@ -113,6 +118,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
             includeWebp = false,
             includeHeic = true,
             includeVideo = true,
+            includeLossyAuxImages = true,
             skipPreviouslyCompressed = false,
             writeExifMarker = true,
             minSizeBytes = 4096L,
@@ -125,6 +131,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         state.includeWebp shouldBe false
         state.includeHeic shouldBe true
         state.includeVideo shouldBe true
+        state.includeLossyAuxImages shouldBe true
         state.skipPreviouslyCompressed shouldBe false
         state.writeExifMarker shouldBe true
         state.minSizeBytes shouldBe 4096L
@@ -179,6 +186,18 @@ class SqueezerSettingsViewModelTest : BaseTest() {
 
         val captured = slot<(Boolean) -> Boolean?>()
         coVerify(exactly = 1) { h.values.includeVideo.update(capture(captured)) }
+        captured.captured(false) shouldBe true
+    }
+
+    @Test
+    fun `setIncludeLossyAuxImages writes through`() = runTest2 {
+        val h = harness(includeLossyAuxImages = false)
+
+        h.vm.setIncludeLossyAuxImages(true)
+        advanceUntilIdle()
+
+        val captured = slot<(Boolean) -> Boolean?>()
+        coVerify(exactly = 1) { h.values.includeLossyAuxImages.update(capture(captured)) }
         captured.captured(false) shouldBe true
     }
 
