@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.provider.DocumentsContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -71,11 +72,31 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "performExport($uri)" }
-        context.contentResolver.openOutputStream(uri)?.use { out ->
-            configBackupManager.writeBackup(out)
-        } ?: throw IOException("Failed to open output stream for $uri")
-        log(TAG, INFO) { "Backup written to $uri" }
-        events.emit(Event.ExportDone)
+        // Build the archive into a temp file first, then copy it onto the user-picked document. The SAF
+        // target only receives bytes once the whole zip is complete, so a failure mid-write never leaves
+        // a corrupt/partial file sitting behind a "success" toast.
+        var staged: File? = null
+        val result = try {
+            staged = File.createTempFile("export-", ".zip", backupTmpDir())
+            val res = staged.outputStream().use { configBackupManager.writeBackup(it) }
+            context.contentResolver.openOutputStream(uri)?.use { out ->
+                staged.inputStream().use { it.copyTo(out) }
+            } ?: throw IOException("Failed to open output stream for $uri")
+            res
+        } catch (e: Exception) {
+            // Best-effort cleanup of the empty/partial document so the user isn't left with a broken file.
+            // Covers any failure once the target uri is accepted — including temp-file creation.
+            try {
+                DocumentsContract.deleteDocument(context.contentResolver, uri)
+            } catch (de: Exception) {
+                log(TAG, WARN) { "Could not remove failed export target $uri: ${de.message}" }
+            }
+            throw e
+        } finally {
+            staged?.delete()
+        }
+        log(TAG, INFO) { "Backup written to $uri (${result.failures.size} failures)" }
+        events.emit(Event.ExportDone(failedSections = result.failures.map { it.key }))
     }
 
     fun requestImport() = launch {
@@ -122,7 +143,7 @@ class BackupRestoreViewModel @Inject constructor(
         log(TAG, INFO) { "confirmRestore(mode=$mode)" }
         try {
             val result = configBackupManager.restore(staged, mode)
-            events.emit(Event.RestoreDone(failedSections = result.failures.size))
+            events.emit(Event.RestoreDone(failedSections = result.failures.map { it.key }))
         } finally {
             staged.delete()
             pendingBackup = null
@@ -184,8 +205,8 @@ class BackupRestoreViewModel @Inject constructor(
         data class PickExportTarget(val intent: Intent) : Event
         data class PickImportSource(val intent: Intent) : Event
         data class ConfirmRestore(val info: RestoreConfirmInfo) : Event
-        data object ExportDone : Event
-        data class RestoreDone(val failedSections: Int) : Event
+        data class ExportDone(val failedSections: List<String>) : Event
+        data class RestoreDone(val failedSections: List<String>) : Event
     }
 
     companion object {

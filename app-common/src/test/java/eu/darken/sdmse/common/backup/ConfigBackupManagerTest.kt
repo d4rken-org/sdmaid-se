@@ -45,10 +45,14 @@ class ConfigBackupManagerTest : BaseTest() {
         override val key: String,
         override val restoreOrder: Int = ConfigBackupContributor.ORDER_SETTINGS,
         private val failRestore: Boolean = false,
+        private val failSnapshot: Boolean = false,
         private val recorder: MutableList<String>? = null,
     ) : ConfigBackupContributor {
         var restoredWith: Pair<JsonElement, RestoreMode>? = null
-        override suspend fun snapshot(): JsonElement = JsonPrimitive("snap-$key")
+        override suspend fun snapshot(): JsonElement {
+            if (failSnapshot) throw RuntimeException("snap boom")
+            return JsonPrimitive("snap-$key")
+        }
         override suspend fun restore(data: JsonElement, mode: RestoreMode) {
             if (failRestore) throw RuntimeException("boom")
             recorder?.add(key)
@@ -113,6 +117,33 @@ class ConfigBackupManagerTest : BaseTest() {
         shouldThrow<UpgradeRequiredException> {
             manager(tmp, pro = false).writeBackup(ByteArrayOutputStream())
         }
+    }
+
+    // writeBackup()'s happy path writes the manifest via BuildConfigWrap, which can't initialize in
+    // app-common JVM tests, so the entry-writing logic is exercised through the writeEntries() seam.
+    @Test
+    fun `writeEntries records written sections and databases`(@TempDir tmp: Path) = runTest {
+        val section = FakeContributor("appcleaner")
+        val db = FakeDbContributor("stats.db")
+        val mgr = manager(tmp, sections = setOf(section), databases = setOf(db))
+
+        val result = ZipOutputStream(ByteArrayOutputStream()).use { mgr.writeEntries(it) }
+
+        result.written shouldBe setOf("appcleaner", "stats.db")
+        result.isCompleteSuccess shouldBe true
+    }
+
+    @Test
+    fun `writeEntries isolates a failing snapshot and reports it`(@TempDir tmp: Path) = runTest {
+        val good = FakeContributor("good")
+        val bad = FakeContributor("bad", failSnapshot = true)
+        val mgr = manager(tmp, sections = setOf(good, bad))
+
+        val result = ZipOutputStream(ByteArrayOutputStream()).use { mgr.writeEntries(it) }
+
+        result.written shouldBe setOf("good")
+        result.isCompleteSuccess shouldBe false
+        result.failures.map { it.key } shouldBe listOf("bad")
     }
 
     @Test
@@ -188,5 +219,27 @@ class ConfigBackupManagerTest : BaseTest() {
         good.restoredWith?.second shouldBe RestoreMode.REPLACE
         result.isCompleteSuccess shouldBe false
         result.failures.map { it.key } shouldBe listOf("bad")
+    }
+
+    @Test
+    fun `parse rejects a non-zip file`(@TempDir tmp: Path) = runTest {
+        val notZip = File.createTempFile("notzip-", ".zip", tmp.toFile())
+        notZip.writeText("definitely not a zip archive")
+        shouldThrow<InvalidBackupException> { manager(tmp).parse(notZip) }
+    }
+
+    @Test
+    fun `restore rejects a corrupt archive before applying anything`(@TempDir tmp: Path) = runTest {
+        val recorder = mutableListOf<String>()
+        val good = FakeContributor("good", recorder = recorder)
+        val zip = writeZip(tmp, json.encodeToString(envelope()), sectionFiles = mapOf("good" to "\"x\""))
+        // Truncate the archive (drops the end-of-central-directory record) to corrupt it.
+        val bytes = zip.readBytes()
+        zip.writeBytes(bytes.copyOf(bytes.size - 40))
+
+        shouldThrow<InvalidBackupException> {
+            manager(tmp, sections = setOf(good)).restore(zip, RestoreMode.REPLACE)
+        }
+        recorder shouldBe emptyList<String>()
     }
 }

@@ -18,8 +18,10 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Backup
 import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -27,6 +29,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.LaunchedEffect
@@ -44,7 +47,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.backup.RestoreMode
-import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -89,13 +91,24 @@ fun BackupRestoreScreenHost(
                 is BackupRestoreViewModel.Event.PickImportSource -> importLauncher.launch(event.intent)
                 is BackupRestoreViewModel.Event.ConfirmRestore -> restoreConfirm = event.info
                 is BackupRestoreViewModel.Event.ExportDone -> scope.launch {
-                    snackbarHostState.showSnackbar(context.getString(R.string.backup_restore_export_success))
+                    val msg = if (event.failedSections.isEmpty()) {
+                        context.getString(R.string.backup_restore_export_success)
+                    } else {
+                        context.getString(
+                            R.string.backup_restore_export_partial,
+                            event.failedSections.joinToString(", "),
+                        )
+                    }
+                    snackbarHostState.showSnackbar(msg)
                 }
                 is BackupRestoreViewModel.Event.RestoreDone -> scope.launch {
-                    val msg = if (event.failedSections == 0) {
+                    val msg = if (event.failedSections.isEmpty()) {
                         context.getString(R.string.backup_restore_restore_success)
                     } else {
-                        context.getString(R.string.backup_restore_restore_partial, event.failedSections)
+                        context.getString(
+                            R.string.backup_restore_restore_partial,
+                            event.failedSections.joinToString(", "),
+                        )
                     }
                     snackbarHostState.showSnackbar(msg)
                 }
@@ -104,13 +117,13 @@ fun BackupRestoreScreenHost(
     }
 
     restoreConfirm?.let { info ->
-        RestoreConfirmDialog(
+        RestoreConfirmSheet(
             info = info,
             onConfirm = { mode ->
                 restoreConfirm = null
                 vm.confirmRestore(mode)
             },
-            onDismiss = {
+            onCancel = {
                 restoreConfirm = null
                 vm.cancelRestore()
             },
@@ -181,11 +194,43 @@ internal fun BackupRestoreScreen(
 
 private data class RestoreWarning(val id: String, val body: String)
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun RestoreConfirmDialog(
+private fun RestoreConfirmSheet(
     info: BackupRestoreViewModel.RestoreConfirmInfo,
     onConfirm: (RestoreMode) -> Unit,
-    onDismiss: () -> Unit,
+    onCancel: () -> Unit,
+) {
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val scope = rememberCoroutineScope()
+    // One-shot: the first of {confirm, cancel, swipe/scrim/back dismiss} wins; later exits are ignored.
+    // This guarantees confirm is never followed by cancel (which would drop the staged backup and skip
+    // the restore).
+    var handled by remember { mutableStateOf(false) }
+    val finish: (() -> Unit) -> Unit = { action ->
+        if (!handled) {
+            handled = true
+            scope.launch { sheetState.hide() }.invokeOnCompletion { if (!sheetState.isVisible) action() }
+        }
+    }
+
+    ModalBottomSheet(
+        onDismissRequest = { if (!handled) { handled = true; onCancel() } },
+        sheetState = sheetState,
+    ) {
+        RestoreConfirmContent(
+            info = info,
+            onConfirm = { mode -> finish { onConfirm(mode) } },
+            onCancel = { finish(onCancel) },
+        )
+    }
+}
+
+@Composable
+private fun RestoreConfirmContent(
+    info: BackupRestoreViewModel.RestoreConfirmInfo,
+    onConfirm: (RestoreMode) -> Unit,
+    onCancel: () -> Unit,
 ) {
     val versionMsg = stringResource(
         R.string.backup_restore_warn_version_body, info.sourceVersion, info.currentVersion,
@@ -212,86 +257,92 @@ private fun RestoreConfirmDialog(
     var mode by remember(info) { mutableStateOf(RestoreMode.MERGE) }
     val allAcked = warnings.all { acked.contains(it.id) }
 
-    SdmAlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.backup_restore_confirm_title)) },
-        text = {
-            Column(
-                modifier = Modifier.verticalScroll(rememberScrollState()),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                Text(
-                    text = stringResource(R.string.backup_restore_confirm_created, info.createdAt),
-                    style = MaterialTheme.typography.bodySmall,
-                )
-                Text(
-                    text = stringResource(
-                        R.string.backup_restore_confirm_source,
-                        info.sourceVersion, info.sourceDevice, info.sourceAndroid,
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                )
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp)
+            .padding(bottom = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        Text(
+            text = stringResource(R.string.backup_restore_confirm_title),
+            style = MaterialTheme.typography.headlineSmall,
+        )
+        Text(
+            text = stringResource(R.string.backup_restore_confirm_created, info.createdAt),
+            style = MaterialTheme.typography.bodySmall,
+        )
+        Text(
+            text = stringResource(
+                R.string.backup_restore_confirm_source,
+                info.sourceVersion, info.sourceDevice, info.sourceAndroid,
+            ),
+            style = MaterialTheme.typography.bodySmall,
+        )
 
-                warnings.forEach { warning ->
-                    val checked = acked.contains(warning.id)
-                    Surface(
-                        color = MaterialTheme.colorScheme.errorContainer,
-                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
-                        shape = MaterialTheme.shapes.small,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .selectable(
-                                    selected = checked,
-                                    onClick = {
-                                        acked = if (checked) acked - warning.id else acked + warning.id
-                                    },
-                                )
-                                .padding(8.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Checkbox(checked = checked, onCheckedChange = null)
-                            Column(modifier = Modifier.padding(start = 8.dp)) {
-                                Text(text = warning.body, style = MaterialTheme.typography.bodySmall)
-                                Text(
-                                    text = stringResource(R.string.backup_restore_ack_understand),
-                                    style = MaterialTheme.typography.labelMedium,
-                                )
-                            }
-                        }
+        warnings.forEach { warning ->
+            val checked = acked.contains(warning.id)
+            Surface(
+                color = MaterialTheme.colorScheme.errorContainer,
+                contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                shape = MaterialTheme.shapes.small,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .selectable(
+                            selected = checked,
+                            onClick = {
+                                acked = if (checked) acked - warning.id else acked + warning.id
+                            },
+                        )
+                        .padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Checkbox(checked = checked, onCheckedChange = null)
+                    Column(modifier = Modifier.padding(start = 8.dp)) {
+                        Text(text = warning.body, style = MaterialTheme.typography.bodySmall)
+                        Text(
+                            text = stringResource(R.string.backup_restore_ack_understand),
+                            style = MaterialTheme.typography.labelMedium,
+                        )
                     }
                 }
-
-                Text(
-                    text = stringResource(R.string.backup_restore_mode_label),
-                    style = MaterialTheme.typography.titleSmall,
-                )
-                RestoreModeOption(
-                    selected = mode == RestoreMode.MERGE,
-                    title = stringResource(R.string.backup_restore_mode_merge),
-                    description = stringResource(R.string.backup_restore_mode_merge_desc),
-                    onClick = { mode = RestoreMode.MERGE },
-                )
-                RestoreModeOption(
-                    selected = mode == RestoreMode.REPLACE,
-                    title = stringResource(R.string.backup_restore_mode_replace),
-                    description = stringResource(R.string.backup_restore_mode_replace_desc),
-                    onClick = { mode = RestoreMode.REPLACE },
-                )
             }
-        },
-        confirmButton = {
+        }
+
+        Text(
+            text = stringResource(R.string.backup_restore_mode_label),
+            style = MaterialTheme.typography.titleSmall,
+        )
+        RestoreModeOption(
+            selected = mode == RestoreMode.MERGE,
+            title = stringResource(R.string.backup_restore_mode_merge),
+            description = stringResource(R.string.backup_restore_mode_merge_desc),
+            onClick = { mode = RestoreMode.MERGE },
+        )
+        RestoreModeOption(
+            selected = mode == RestoreMode.REPLACE,
+            title = stringResource(R.string.backup_restore_mode_replace),
+            description = stringResource(R.string.backup_restore_mode_replace_desc),
+            onClick = { mode = RestoreMode.REPLACE },
+        )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
+        ) {
+            TextButton(onClick = onCancel) {
+                Text(stringResource(CommonR.string.general_cancel_action))
+            }
             TextButton(onClick = { onConfirm(mode) }, enabled = allAcked) {
                 Text(stringResource(R.string.backup_restore_action_restore))
             }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_cancel_action))
-            }
-        },
-    )
+        }
+    }
 }
 
 @Composable
@@ -326,9 +377,9 @@ private fun BackupRestoreScreenPreview() {
 
 @Preview2
 @Composable
-private fun RestoreConfirmDialogPreview() {
+private fun RestoreConfirmContentPreview() {
     PreviewWrapper {
-        RestoreConfirmDialog(
+        RestoreConfirmContent(
             info = BackupRestoreViewModel.RestoreConfirmInfo(
                 createdAt = "Jun 22, 2026, 12:00",
                 sourceVersion = "1.2.3",
@@ -345,7 +396,7 @@ private fun RestoreConfirmDialogPreview() {
                 flavorDiffers = true,
             ),
             onConfirm = {},
-            onDismiss = {},
+            onCancel = {},
         )
     }
 }

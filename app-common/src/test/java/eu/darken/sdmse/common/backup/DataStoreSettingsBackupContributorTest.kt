@@ -13,7 +13,9 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.put
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
@@ -100,5 +102,21 @@ class DataStoreSettingsBackupContributorTest : BaseTest() {
         prefs[stringPreferencesKey("s")] shouldBe "fromBackup"
         prefs[stringPreferencesKey("stale")] shouldBe null
         prefs[stringPreferencesKey("secret")] shouldBe "device-local"
+    }
+
+    @Test
+    fun `restore skips an unrestorable key and keeps the rest`(@TempDir tempDir: Path) = runTest {
+        // A section with one valid key and one carrying an unknown future type tag.
+        val section = buildJsonObject {
+            put("good", buildJsonObject { put("type", "string"); put("value", "ok") })
+            put("bad", buildJsonObject { put("type", "weirdtype"); put("value", "x") })
+        }
+        val target = store(tempDir, "target", this)
+
+        TestContributor(target).restore(section, RestoreMode.MERGE)
+
+        val prefs = target.data.first()
+        prefs[stringPreferencesKey("good")] shouldBe "ok"
+        prefs[stringPreferencesKey("bad")] shouldBe null
     }
 }
