@@ -8,8 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.isDirectory
-import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
@@ -33,13 +32,15 @@ class SystemCrawlerSieve @AssistedInject constructor(
     suspend fun match(subject: APathLookup<*>): Result {
         val nope = { Result(subject, matches = false) }
 
-        // Directory or file?
+        // Directory or file? Symlinks and unknown entries are treated as FILE, mirroring how
+        // CustomFilter maps the configured fileTypes. A symlink is its own node (we only ever
+        // delete the link, never its target), so it must not slip past a directory-only filter.
         config.targetTypes?.takeIf { it.isNotEmpty() }?.let { types ->
-            if (subject.isFile && !types.contains(TypeCriterium.FILE)) {
-                return nope()
-            } else if (subject.isDirectory && !types.contains(TypeCriterium.DIRECTORY)) {
-                return nope()
+            val subjectType = when (subject.fileType) {
+                FileType.DIRECTORY -> TypeCriterium.DIRECTORY
+                FileType.FILE, FileType.SYMBOLIC_LINK, FileType.UNKNOWN -> TypeCriterium.FILE
             }
+            if (!types.contains(subjectType)) return nope()
         }
 
         config.maximumSize?.let {
