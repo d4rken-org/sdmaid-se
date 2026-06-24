@@ -10,13 +10,13 @@
   "deviceModel": "Pixel 8",
   "sections": {
     "general": {
-      "core.ui.theme.mode": { "t": "s", "v": "\"DARK\"" },
-      "core.ui.previews.enabled": { "t": "b", "v": true },
-      "dashboard.oneclick.onepass.enabled": { "t": "b", "v": false }
+      "core.ui.theme.mode": { "type": "string", "value": "\"DARK\"" },
+      "core.ui.previews.enabled": { "type": "boolean", "value": true },
+      "dashboard.oneclick.onepass.enabled": { "type": "boolean", "value": false }
     },
     "appcleaner": {
-      "skip.mincachesize.bytes": { "t": "l", "v": 49152 },
-      "filter.advertisement.enabled": { "t": "b", "v": true }
+      "skip.mincachesize.bytes": { "type": "long", "value": 49152 },
+      "filter.advertisement.enabled": { "type": "boolean", "value": true }
     },
     "exclusions": "{\"exclusionRaw\":\"[]\",\"version\":1}"
   }
