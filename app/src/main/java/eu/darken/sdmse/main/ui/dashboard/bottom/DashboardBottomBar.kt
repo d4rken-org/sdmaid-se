@@ -127,10 +127,16 @@ internal fun BottomBar(
     val fabBottomInset = DASHBOARD_FAB_BOTTOM_INSET
     val heroBottomInset = DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP
 
+    // Hero card + dock reservation grow with the font scale so large text doesn't clip the card's
+    // caption/hint. One read each, reused below for the card height, the dock reservation, the
+    // hidden-offset slide distance, and the swipe-to-dismiss threshold — they must stay in lockstep.
+    val heroCardHeight = dashboardHeroCardHeight
+    val dockHeightWithHero = dashboardDockHeightWithHero
+
     // Reserved layout height drives the Scaffold's content padding. Elements are bottom-anchored, so
     // growing this only reflows the list above — it never moves the bar/FAB.
     val dockHeight by animateDpAsState(
-        targetValue = if (showHero) DASHBOARD_DOCK_HEIGHT_WITH_HERO else DASHBOARD_FAB_SLOT_HEIGHT,
+        targetValue = if (showHero) dockHeightWithHero else DASHBOARD_FAB_SLOT_HEIGHT,
         animationSpec = tween(durationMillis = 300),
         label = "dashboardDockHeight",
     )
@@ -156,7 +162,7 @@ internal fun BottomBar(
         label = "dashboardFabOffset",
     )
     val heroOffsetY by animateDpAsState(
-        targetValue = if (isVisible && showHero) -(navBottom + heroBottomInset) else DASHBOARD_HERO_CARD_HEIGHT,
+        targetValue = if (isVisible && showHero) -(navBottom + heroBottomInset) else heroCardHeight,
         animationSpec = tween(
             durationMillis = 340,
             delayMillis = if (isVisible && showHero) 150 else 0,
@@ -175,7 +181,7 @@ internal fun BottomBar(
     // finish from the dragged position; a short drag springs back. Reset whenever the hero
     // (re)appears so a restored card never starts displaced.
     val density = LocalDensity.current
-    val heroDismissDistancePx = with(density) { DASHBOARD_HERO_CARD_HEIGHT.toPx() }
+    val heroDismissDistancePx = with(density) { heroCardHeight.toPx() }
     val heroDismissThresholdPx = heroDismissDistancePx * 0.35f
     val heroFlingVelocityCutoff = with(density) { 500.dp.toPx() }
     var heroDragPx by remember { mutableFloatStateOf(0f) }
@@ -239,7 +245,7 @@ internal fun BottomBar(
                         alpha = heroAlpha * (1f - heroDragPx / heroDismissDistancePx).coerceIn(0f, 1f)
                     }
                     .fillMaxWidth()
-                    .height(DASHBOARD_HERO_CARD_HEIGHT)
+                    .height(heroCardHeight)
                     .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN)
                     .draggable(
                         state = heroDragState,

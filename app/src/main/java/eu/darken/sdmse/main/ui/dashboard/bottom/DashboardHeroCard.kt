@@ -159,9 +159,11 @@ private fun HeroBody(
                     summary.itemCount,
                 )
                 Text(
+                    // Two lines so the item-count result reads fully at large font scales (the column
+                    // is narrow next to the dismiss button); the card height grows to make room.
                     text = stringResource(modeRes.caption, itemsText),
                     style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 1,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
             }
@@ -338,7 +340,7 @@ private fun HeroCardPreview(
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(DASHBOARD_HERO_CARD_HEIGHT)
+                .height(dashboardHeroCardHeight)
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = summary,
             onDiscard = onDiscard,
