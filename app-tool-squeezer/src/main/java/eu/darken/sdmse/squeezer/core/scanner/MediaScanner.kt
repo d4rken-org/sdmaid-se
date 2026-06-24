@@ -61,6 +61,7 @@ class MediaScanner @Inject constructor(
     private val videoContentHasher: VideoContentHasher,
     private val compressionEstimator: CompressionEstimator,
     private val exifPreserver: ExifPreserver,
+    private val lossyAuxDetector: LossyAuxDetector,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
 
@@ -78,11 +79,15 @@ class MediaScanner @Inject constructor(
         val enabledMimeTypes: Set<String>,
         val skipPreviouslyCompressed: Boolean,
         val compressionQuality: Int,
+        /** When false (default), skip photos with an HDR gain map or depth map. */
+        val includeLossyAuxImages: Boolean = false,
     )
 
     data class ScanResult(
         val items: Set<CompressibleMedia>,
         val skippedInaccessibleCount: Int,
+        /** Photos excluded to preserve their HDR gain map / depth map. */
+        val skippedLossyAuxCount: Int = 0,
     )
 
     private suspend fun createSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
@@ -125,6 +130,7 @@ class MediaScanner @Inject constructor(
         updateProgressCount(Progress.Count.Indeterminate())
 
         val skippedInaccessible = AtomicInteger(0)
+        val skippedLossyAux = AtomicInteger(0)
 
         val searchPaths = options.paths
         val searchFlow = createSearchFlow(searchPaths)
@@ -185,7 +191,7 @@ class MediaScanner @Inject constructor(
             }
 
             if (isImage) {
-                val media = processImageCandidate(lookup, mimeType, options)
+                val media = processImageCandidate(lookup, mimeType, options, skippedLossyAux)
                 if (media != null) results.add(media)
             } else if (isVideo) {
                 val media = processVideoCandidate(lookup, mimeType, options)
@@ -193,14 +199,23 @@ class MediaScanner @Inject constructor(
             }
         }
 
-        log(TAG) { "Scan complete: ${results.size} compressible media found, ${skippedInaccessible.get()} skipped (inaccessible)" }
-        return ScanResult(items = results, skippedInaccessibleCount = skippedInaccessible.get())
+        log(TAG) {
+            "Scan complete: ${results.size} compressible media found, " +
+                "${skippedInaccessible.get()} skipped (inaccessible), " +
+                "${skippedLossyAux.get()} skipped (HDR/depth aux)"
+        }
+        return ScanResult(
+            items = results,
+            skippedInaccessibleCount = skippedInaccessible.get(),
+            skippedLossyAuxCount = skippedLossyAux.get(),
+        )
     }
 
     private suspend fun processImageCandidate(
         lookup: APathLookup<*>,
         mimeType: String,
         options: Options,
+        skippedLossyAux: AtomicInteger,
     ): CompressibleImage? {
         val skipReason = if (options.skipPreviouslyCompressed) {
             val hasExifMarker = if (settings.writeExifMarker.value()) {
@@ -239,6 +254,24 @@ class MediaScanner @Inject constructor(
             return null
         }
 
+        // Skip photos whose HDR gain map / depth map compression would silently destroy, unless the
+        // user opted in. Runs BEFORE the (HEIC-only) multi-image guard so a HEIF gain-map/depth file
+        // is attributed to "HDR/depth preserved" rather than the multi-image reason. Format-wide
+        // (also catches Ultra HDR JPEG). Plain Live-Photo HEICs carry no gain-map signature, so they
+        // still fall through to the hard multi-image skip below.
+        if (!options.includeLossyAuxImages) {
+            val localFile = (lookup.lookedUp as? LocalPath)?.let { File(it.path) }
+            if (localFile != null && lossyAuxDetector.hasLossyAux(localFile, mimeType)) {
+                skippedLossyAux.incrementAndGet()
+                log(TAG, VERBOSE) { "Skipping image with HDR/depth aux data: $lookup" }
+                return null
+            }
+        }
+
+        // Intentionally NOT bypassed by includeLossyAuxImages: a multi-image HEIC may hold sibling
+        // photos (Live/Motion Photo) that compression would destroy, and METADATA_KEY_IMAGE_COUNT
+        // can't distinguish those from a counted aux gain map. So even when the user opts into
+        // compressing HDR/depth photos, a HEIC the platform reports as multi-image stays protected.
         if (mimeType in CompressibleImage.HEIC_MIME_TYPES && hasMultipleHeifImages(lookup)) {
             log(TAG, VERBOSE) { "Skipping HEIC with auxiliary/sibling images: $lookup" }
             return null

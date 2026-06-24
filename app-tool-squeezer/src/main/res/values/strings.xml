@@ -21,6 +21,10 @@
         <item quantity="one">%d file skipped (not accessible)</item>
         <item quantity="other">%d files skipped (not accessible)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d skipped (HDR/depth preserved)</item>
+        <item quantity="other">%d skipped (HDR/depth preserved)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selected</item>
         <item quantity="other">%d items selected</item>
@@ -50,6 +54,8 @@
     <string name="squeezer_skip_compressed_description">Skip files that have already been compressed by SD Maid.</string>
     <string name="squeezer_exif_marker_title">Write EXIF marker</string>
     <string name="squeezer_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
+    <string name="squeezer_include_lossy_aux_title">Compress HDR &amp; depth photos</string>
+    <string name="squeezer_include_lossy_aux_description">Off by default: photos with an HDR gain map or depth/portrait data are skipped so they aren\'t flattened. Enable to compress them anyway — they will lose their HDR gain map or depth data.</string>
     <string name="squeezer_estimated_savings_format">~%s savings</string>
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>
@@ -79,6 +85,10 @@
     <string name="squeezer_compare_action">View comparison</string>
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
     <string name="squeezer_result_empty_message">No compressible media found.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">No media to compress — %d HDR/depth photo was skipped. Enable \"Compress HDR &amp; depth photos\" in settings to include it.</item>
+        <item quantity="other">No media to compress — %d HDR/depth photos were skipped. Enable \"Compress HDR &amp; depth photos\" in settings to include them.</item>
+    </plurals>
     <string name="squeezer_setup_warning">Compression permanently reduces quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d location can\'t be used for compression and was removed. Compression requires direct access to internal storage.</item>

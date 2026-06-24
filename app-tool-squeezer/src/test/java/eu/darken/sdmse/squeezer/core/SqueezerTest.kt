@@ -250,6 +250,7 @@ class SqueezerTest : BaseTest() {
         includeJpeg: Boolean = true,
         includeWebp: Boolean = true,
         includeVideo: Boolean = true,
+        includeLossyAuxImages: Boolean = false,
         minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
         minAge: Duration = Duration.ofDays(0),
         skipPreviouslyCompressed: Boolean = false,
@@ -279,6 +280,7 @@ class SqueezerTest : BaseTest() {
             every { this@apply.includeJpeg } returns mockDataStoreValue(includeJpeg)
             every { this@apply.includeWebp } returns mockDataStoreValue(includeWebp)
             every { this@apply.includeVideo } returns mockDataStoreValue(includeVideo)
+            every { this@apply.includeLossyAuxImages } returns mockDataStoreValue(includeLossyAuxImages)
             every { this@apply.skipPreviouslyCompressed } returns mockDataStoreValue(skipPreviouslyCompressed)
         }
 
@@ -414,6 +416,18 @@ class SqueezerTest : BaseTest() {
         captured.captured.minAge shouldBe Duration.ofDays(30)
         captured.captured.skipPreviouslyCompressed shouldBe true
         captured.captured.compressionQuality shouldBe 65
+        captured.captured.includeLossyAuxImages shouldBe false
+    }
+
+    @Test
+    fun `submit ScanTask threads includeLossyAuxImages opt-in from settings`() = runTest2 {
+        val s = setup(includeLossyAuxImages = true)
+        val captured = slot<MediaScanner.Options>()
+        coEvery { s.scanner.scan(capture(captured)) } returns scanResult()
+
+        s.squeezer.submit(SqueezerScanTask())
+
+        captured.captured.includeLossyAuxImages shouldBe true
     }
 
     @Test
