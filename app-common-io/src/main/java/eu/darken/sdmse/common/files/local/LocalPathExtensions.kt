@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import java.io.File
 import java.io.IOException
 import java.nio.file.Files
+import java.nio.file.InvalidPathException
 import java.nio.file.LinkOption
 import java.nio.file.attribute.BasicFileAttributes
 import java.time.Instant
@@ -49,6 +50,10 @@ fun LocalPath.performLookup(): LocalPathLookup {
         Files.readAttributes(file.toPath(), BasicFileAttributes::class.java, LinkOption.NOFOLLOW_LINKS)
     } catch (e: IOException) {
         throw ReadException("Does not exist or can't be read", this, e)
+    } catch (e: InvalidPathException) {
+        // file.toPath() rejects paths with illegal chars (e.g. an embedded NUL). The old
+        // java.io.File-based lookup returned null here, which became a ReadException — keep that contract.
+        throw ReadException("Does not exist or can't be read", this, e)
     }
 
     val type = when {
@@ -70,7 +75,8 @@ fun LocalPath.performLookup(): LocalPathLookup {
 /**
  * Resolves a symlink's target to an absolute [LocalPath]. Uses NIO so it works in JVM tests (unlike
  * `Os.readlink`), and resolves a relative target against the link's parent (the old
- * `LocalPath.build(rawTarget)` turned `../x` into a bogus `/../x`).
+ * `LocalPath.build(rawTarget)` turned `../x` into a bogus `/../x`). The result is lexically
+ * normalized (collapses `.`/`..`); it is informational only and not used for deletion.
  */
 private fun File.resolveSymlinkTarget(): LocalPath? {
     val raw = try {
@@ -79,7 +85,7 @@ private fun File.resolveSymlinkTarget(): LocalPath? {
         return null
     }
     val resolved = if (raw.isAbsolute) raw else (toPath().parent?.resolve(raw) ?: raw)
-    return LocalPath.build(resolved.toString())
+    return LocalPath.build(resolved.normalize().toString())
 }
 
 fun LocalPath.performLookupExtended(
