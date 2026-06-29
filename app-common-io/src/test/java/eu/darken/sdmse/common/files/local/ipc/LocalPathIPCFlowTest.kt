@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.files.local.ipc
 
 import android.os.Parcel
+import eu.darken.sdmse.common.files.PathException
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.ipc.remoteInputStream
 import io.kotest.matchers.collections.shouldContainExactly
@@ -169,5 +171,39 @@ class LocalPathIPCFlowTest : BaseTest() {
             val collected = ByteArrayInputStream(bytes).remoteInputStream().toLocalPathFlow().toList()
             collected shouldContainExactly listOf(path("before"))
         }
+    }
+
+    @Test
+    fun `data after Complete is ignored across chunks`() {
+        fun frame(vararg results: LocalPathResult): ByteArray {
+            val parcel = Parcel.obtain().apply {
+                LocalPathResultsIPCWrapper(results.toList()).writeToParcel(this, 0)
+            }
+            val encoded = parcel.marshall().toByteString().base64()
+            parcel.recycle()
+            return (encoded + "\n").toByteArray()
+        }
+        val bytes = frame(LocalPathResult.Success(path("before")), LocalPathResult.Complete) +
+            frame(LocalPathResult.Success(path("after")))
+
+        runBlocking {
+            val collected = ByteArrayInputStream(bytes).remoteInputStream().toLocalPathFlow().toList()
+            collected shouldContainExactly listOf(path("before"))
+        }
+    }
+
+    @Test
+    fun `Error frame reconstructs a PathException subtype with its path preserved`() {
+        val original = ReadException("boom", path = path("x"))
+        val reconstructed = LocalPathResult.Error(original).toException()
+        reconstructed.shouldBeInstanceOf<ReadException>()
+        (reconstructed as PathException).path?.path shouldBe original.path?.path
+    }
+
+    @Test
+    fun `Error frame falls back to a generic Exception when the class can't be reconstructed`() {
+        val reconstructed = LocalPathResult.Error("com.example.DoesNotExist", "boom", null).toException()
+        reconstructed.javaClass shouldBe Exception::class.java
+        reconstructed.message shouldBe "com.example.DoesNotExist: boom"
     }
 }
