@@ -55,7 +55,7 @@ class FileOpsHost @Inject constructor(
         // Enumerate the directory lazily (NIO) and stream paths chunk-by-chunk, so a single huge
         // directory is never fully materialized on the memory-constrained privileged host.
         val paths = path.asFile().listFilesStreaming().map { LocalPath.build(it) }
-        runBlocking { paths.toRemoteInputStream(appScope + dispatcherProvider.IO) }
+        paths.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "listFilesStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -78,7 +78,7 @@ class FileOpsHost @Inject constructor(
         // A concurrent multi-tool scan could otherwise pile up whole-directory payloads and OOM the
         // process, which the client then sees as a dead binder (ServiceConnectionLostException).
         val lookups = path.asFile().listFilesStreaming().map { LocalPath.build(it).performLookup() }
-        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
+        lookups.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -113,15 +113,13 @@ class FileOpsHost @Inject constructor(
         followSymlinks: Boolean,
     ): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "walkStream($path, followSymlinks=$followSymlinks)..." }
-        runBlocking {
-            DirectLocalWalker(
-                start = path,
-                onFilter = { lookup ->
-                    pathDoesNotContain.none { lookup.path.contains(it) }
-                },
-                followSymlinks = followSymlinks,
-            ).toRemoteInputStream(appScope + dispatcherProvider.IO)
-        }
+        DirectLocalWalker(
+            start = path,
+            onFilter = { lookup ->
+                pathDoesNotContain.none { lookup.path.contains(it) }
+            },
+            followSymlinks = followSymlinks,
+        ).toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "walkStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -132,7 +130,7 @@ class FileOpsHost @Inject constructor(
         // Lazy NIO enumeration + chunked streaming — see lookupFilesStream for the memory rationale.
         val lookups = path.asFile().listFilesStreaming()
             .map { LocalPath.build(it).performLookupExtended(ipcFunnel, libcoreTool) }
-        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
+        lookups.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()

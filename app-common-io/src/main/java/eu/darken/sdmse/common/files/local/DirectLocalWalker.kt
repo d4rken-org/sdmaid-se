@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.files.core.local.listFilesStreaming
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.isSymlink
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.catch
@@ -48,13 +49,16 @@ class DirectLocalWalker(
 
             // Enumerate each directory lazily (NIO) so a single huge directory isn't fully
             // materialized. Listing + per-entry lookup errors route to onError (as before); a filter
-            // or emit error (incl. cancellation) propagates. Note: unlike the old eager listing, an
-            // error part-way through a directory keeps the entries already emitted before it.
+            // or emit error (incl. cancellation) propagates. Note: unlike the old eager listing — and
+            // unlike IndirectLocalWalker, which stays eager/all-or-nothing per directory — an error
+            // part-way through a directory keeps the entries already emitted before it.
             lookUp.lookedUp.asFile().listFilesStreaming()
                 .map { it.toLocalPath().performLookup() }
                 .catch { e ->
-                    log(TAG, ERROR) { "Failed to read $lookUp: $e" }
-                    if (!onError(lookUp, e as? Exception ?: throw e)) throw e
+                    if (e is CancellationException) throw e
+                    val error = e as? Exception ?: throw e
+                    log(TAG, ERROR) { "Failed to read $lookUp: $error" }
+                    if (!onError(lookUp, error)) throw error
                 }
                 .collect { child ->
                     val allowed = onFilter(child)

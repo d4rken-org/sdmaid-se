@@ -194,4 +194,26 @@ class DirectLocalWalkerTest : BaseTest() {
         names shouldContain "deep.txt"
         items shouldHaveSize 11
     }
+
+    @Test
+    fun `onFilter error propagates and is not routed to onError`() = runTest {
+        File(testDir, "child.txt").writeText("data")
+
+        var onErrorCalled = false
+        val boom = IllegalStateException("filter blew up")
+        val walker = DirectLocalWalker(
+            start = LocalPath.build(testDir),
+            onFilter = { throw boom },
+            onError = { _, _ ->
+                onErrorCalled = true
+                true
+            },
+        )
+
+        // A filter error is downstream of the walker's .catch, so it must propagate untouched
+        // rather than being swallowed by onError.
+        val thrown = runCatching { walker.toList() }.exceptionOrNull()
+        thrown shouldBe boom
+        onErrorCalled shouldBe false
+    }
 }
