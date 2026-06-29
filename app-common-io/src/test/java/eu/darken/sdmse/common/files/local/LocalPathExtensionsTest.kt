@@ -6,7 +6,6 @@ import eu.darken.sdmse.common.files.local.*
 import eu.darken.sdmse.common.files.startsWith
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -409,7 +408,6 @@ class LocalPathExtensionsTest : BaseTest() {
         val lookup = LocalPath.build(link).performLookup()
         lookup.fileType shouldBe FileType.SYMBOLIC_LINK
         // The link node, NOT the 5000-byte target — deletion only removes the link.
-        lookup.size shouldNotBe 5000L
         val linkAttrs = Files.readAttributes(link.toPath(), BasicFileAttributes::class.java, LinkOption.NOFOLLOW_LINKS)
         lookup.size shouldBe linkAttrs.size()
         lookup.target shouldBe LocalPath.build(target.path)
@@ -426,6 +424,18 @@ class LocalPathExtensionsTest : BaseTest() {
         lookup.target shouldBe LocalPath.build(File(fsDir, "realfile").path)
     }
 
+    @Test fun `performLookup - relative symlink target with parent traversal is normalized`() {
+        File(fsDir, "realfile").apply { writeText("x") }
+        val sub = File(fsDir, "sub").apply { mkdirs() }
+        val link = File(sub, "uplink")
+        Files.createSymbolicLink(link.toPath(), Paths.get("../realfile")) // relative, traverses up
+
+        val lookup = LocalPath.build(link).performLookup()
+        lookup.fileType shouldBe FileType.SYMBOLIC_LINK
+        // <sub>/../realfile is lexically normalized to <fsDir>/realfile, not left as "/sub/../realfile".
+        lookup.target shouldBe LocalPath.build(File(fsDir, "realfile").path)
+    }
+
     @Test fun `performLookup - broken symlink is still a SYMBOLIC_LINK`() {
         val link = File(fsDir, "broken")
         Files.createSymbolicLink(link.toPath(), File(fsDir, "does-not-exist").toPath())
@@ -436,6 +446,11 @@ class LocalPathExtensionsTest : BaseTest() {
 
     @Test fun `performLookup - non-existent path throws ReadException`() {
         shouldThrow<ReadException> { LocalPath.build(File(fsDir, "nope")).performLookup() }
+    }
+
+    @Test fun `performLookup - path with illegal characters throws ReadException`() {
+        // file.toPath() throws InvalidPathException on an embedded NUL; it must surface as ReadException.
+        shouldThrow<ReadException> { LocalPath.build(File(fsDir, "bad\u0000name")).performLookup() }
     }
 
     @Test fun `remove prefix with overlap`() {
