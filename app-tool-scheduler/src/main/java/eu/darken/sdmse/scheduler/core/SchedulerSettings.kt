@@ -27,6 +27,7 @@ class SchedulerSettings @Inject constructor(
     val createdDefaultEntry = dataStore.createValue("default.entry.created", false)
 
     val hintBatteryDismissed = dataStore.createValue("hint.battery.optimization.dismissed", false)
+    val hintAcsScreenLockedDismissed = dataStore.createValue("hint.acs.screenlocked.dismissed", false)
 
     companion object {
         internal val TAG = logTag("Scheduler", "Settings")
