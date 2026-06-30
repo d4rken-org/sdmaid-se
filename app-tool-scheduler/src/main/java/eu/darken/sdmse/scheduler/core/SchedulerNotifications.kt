@@ -14,7 +14,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.scheduler.R
 import eu.darken.sdmse.stats.core.ReportDetails
@@ -48,7 +47,7 @@ class SchedulerNotifications @Inject constructor(
                 context,
                 0,
                 it,
-                PendingIntentCompat.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
         }
 
@@ -71,7 +70,7 @@ class SchedulerNotifications @Inject constructor(
                 context,
                 0,
                 it,
-                PendingIntentCompat.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
         }
 
@@ -106,7 +105,9 @@ class SchedulerNotifications @Inject constructor(
     fun getForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = getStateBuilder(null).toForegroundInfo(scheduleId)
 
     private fun NotificationCompat.Builder.toForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = if (hasApiLevel(29)) {
-        @Suppress("NewApi")
+        // SpecifyForegroundServiceType is a false positive here: the dataSync type is declared on
+        // SystemForegroundService in the app manifest, which this library module can't see in isolation.
+        @Suppress("NewApi", "SpecifyForegroundServiceType")
         ForegroundInfo(scheduleId.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
     } else {
         ForegroundInfo(scheduleId.toNotificationid(), build())

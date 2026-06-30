@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcontrol.ui.preview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
@@ -33,6 +34,7 @@ private class PreviewInstalled(
     override val userHandle: UserHandle2 = UserHandle2(handleId = 0),
 ) : Installed, InstallDetails, SourceAvailable {
 
+    @SuppressLint("NewApi") // Preview-only fake data; longVersionCode (API 28) never runs on-device
     override val packageInfo: PackageInfo = PackageInfo().apply {
         packageName = pkgName
         this.versionName = versionName

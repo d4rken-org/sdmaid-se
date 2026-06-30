@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
+import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.Context
 import android.content.IntentSender
@@ -246,6 +247,7 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
+    @SuppressLint("MissingPermission") // Runs in the privileged root/ADB IPC host process; SDK-guarded below
     override fun requestUnarchive(packageName: String, statusReceiver: IntentSender) = try {
         log(TAG, VERBOSE) { "requestUnarchive($packageName)..." }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
