@@ -69,7 +69,6 @@
     <string name="squeezer_setup_quality_title">Suglaudinimo kokybė</string>
     <string name="squeezer_setup_age_title">Minimalus amžius</string>
     <string name="squeezer_setup_start_action">Pradėti nuskaitymą</string>
-    <string name="squeezer_quality_hint_very_low">Kokybė žemiau 40% gali sukurti nenaudojamus vaizdus.</string>
     <string name="squeezer_quality_hint_low">Mažesnė kokybė sutaupo daugiau vietos, tačiau gali sukelti matomus artefaktus.</string>
     <string name="squeezer_quality_hint_high">Labai aukšta kokybė suteikia minimalias vietos sutaupymas.</string>
     <string name="squeezer_quality_hint_normal">Subalansuota kokybė ir vietos sutaupymas.</string>

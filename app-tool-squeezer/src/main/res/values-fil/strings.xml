@@ -59,7 +59,6 @@
     <string name="squeezer_setup_quality_title">Kalidad ng compression</string>
     <string name="squeezer_setup_age_title">Pinakamababang edad</string>
     <string name="squeezer_setup_start_action">Simulan ang Scan</string>
-    <string name="squeezer_quality_hint_very_low">Ang kalidad na mas mababa sa 40% ay maaaring lumikha ng hindi magagamit na mga larawan.</string>
     <string name="squeezer_quality_hint_low">Mas mababang kalidad ang nagtitipid ng mas maraming espasyo ngunit maaaring magdulot ng nakikitang artifact.</string>
     <string name="squeezer_quality_hint_high">Ang napakataas na kalidad ay nagbibigay ng kaunting matitipid na espasyo.</string>
     <string name="squeezer_quality_hint_normal">Balanseng kalidad at pagtitipid ng espasyo.</string>

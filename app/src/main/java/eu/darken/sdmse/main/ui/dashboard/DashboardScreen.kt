@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.ui.dashboard
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Box
@@ -40,7 +39,7 @@ import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
-import androidx.compose.ui.platform.LocalContext
+import androidx.activity.compose.LocalActivity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -73,7 +72,7 @@ fun DashboardScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val activity = LocalContext.current as? Activity ?: return
+    val activity = LocalActivity.current ?: return
     val snackbarHostState = remember { SnackbarHostState() }
 
     val listState by vm.listState.collectAsStateWithLifecycle()

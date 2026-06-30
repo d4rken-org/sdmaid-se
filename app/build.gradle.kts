@@ -93,6 +93,7 @@ android {
 
     lint {
         abortOnError = true
+        applySdmSeDefaults()
         fatal.add("StopShip")
         // AGP has no per-buildType lint config; beta builds tolerate translations ahead of source strings
         val isBetaBuild = gradle.startParameter.taskNames.any { it.contains("beta", ignoreCase = true) }

@@ -135,6 +135,9 @@ sealed class Permission(
 
     companion object {
         // Without lazy there is an NPE: https://youtrack.jetbrains.com/issue/KT-25957
+        // MANAGE_EXTERNAL_STORAGE is @RequiresApi(R); referencing it in this version-agnostic
+        // registry is safe (the object is only constructed, its API-30 methods are guarded at use).
+        @Suppress("NewApi")
         val values: List<Permission> by lazy {
             listOf(
                 POST_NOTIFICATIONS,
