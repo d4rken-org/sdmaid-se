@@ -114,28 +114,53 @@ class LossyAuxDetector @Inject constructor() {
     }
 
     /**
-     * Detects a Samsung SEF trailer (appended after the JPEG EOI) carrying a depth block. Parses
-     * the trailer structure per ExifTool's `Samsung.pm` `ProcessSamsung` (little-endian): the file
-     * ends with `[dirLen:u32]["SEFT"]`, the directory starts with `"SEFH"` and lists 12-byte entries
-     * `[2 zero][type:u16][noff:u32][size:u32]`; each entry's data block (at `dirStart - noff`) starts
-     * with `[4 bytes][nameLen:u32][name]`. Fires only when a block name contains [SEF_DEPTH_KEY]
-     * (`DualShot_DepthMap_N`) — so non-depth SEF trailers (Sound&Shot etc.) are left alone. Reads only
-     * small per-entry headers; all offsets/sizes are treated as unsigned and bounds-checked before use.
+     * Detects a Samsung SEF trailer (appended after the JPEG EOI) carrying a depth block. Parses the
+     * trailer structure per ExifTool's `Samsung.pm` `ProcessSamsung` (little-endian). Trailer blocks
+     * are framed `[payload][len:u32]["TYPE"]` and read backward from EOF: the file ends either with
+     * the `"SEFT"` directory block, or — when a `"QDIO"` (Sound&Shot audio) block trails it — with
+     * `"QDIOBS"` (a 2-byte `"BS"` suffix). We walk backward, skipping non-`SEFT` blocks, until the
+     * `SEFT` directory is found, then check it for a depth block (see [sefDirectoryHasDepth]).
+     *
+     * Note: the QDIO-trailing case can't be end-to-end verified against a real device file (none is
+     * publicly available), but detection is **fail-open** — a mis-parse here only yields a false
+     * negative (missed depth), never a false positive, since a match still requires a positively
+     * named depth block inside a valid `SEFH` directory.
      */
     private fun hasSefDepthTrailer(raf: RandomAccessFile): Boolean {
         val fileLen = raf.length()
         if (fileLen < MIN_SEF_LEN) return false
 
-        val tail = ByteArray(8)
-        raf.seek(fileLen - 8)
+        val tail = ByteArray(6)
+        raf.seek(fileLen - 6)
         raf.readFully(tail)
-        if (!tail.asciiAt(4, SEF_TAIL_MAGIC)) return false
+        // "…SEFT" -> directory block ends at EOF; "QDIOBS" -> skip the trailing 2-byte "BS".
+        var blockEnd = when {
+            tail.asciiAt(2, SEF_TAIL_MAGIC) -> fileLen
+            tail.asciiAt(0, SEF_QDIO_TAIL_MAGIC) -> fileLen - 2
+            else -> return false
+        }
 
-        val dirLen = tail.u32(0)
+        var walked = 0
+        while (walked++ < MAX_SEF_BLOCKS && blockEnd >= 8) {
+            val framing = ByteArray(8)
+            raf.seek(blockEnd - 8)
+            raf.readFully(framing)
+            val len = framing.u32(0)
+            if (len < 4L || len > MAX_SEF_DIR || len + 8L > blockEnd) return false
+            val blockStart = blockEnd - 8 - len
+            if (blockStart < 0L) return false
+            if (framing.asciiAt(4, SEF_TAIL_MAGIC)) {
+                return sefDirectoryHasDepth(raf, blockStart, len)
+            }
+            // Not the directory (e.g. a QDIO block) — skip it and keep walking backward.
+            blockEnd = blockStart
+        }
+        return false
+    }
+
+    /** Reads the `SEFH` directory at [dirStart] and returns true if any data block is a depth map. */
+    private fun sefDirectoryHasDepth(raf: RandomAccessFile, dirStart: Long, dirLen: Long): Boolean {
         if (dirLen < 12L || dirLen > MAX_SEF_DIR) return false
-        val dirStart = fileLen - 8 - dirLen
-        if (dirStart < 0L) return false
-
         val dir = ByteArray(dirLen.toInt())
         raf.seek(dirStart)
         raf.readFully(dir)
@@ -263,10 +288,8 @@ class LossyAuxDetector @Inject constructor() {
                 payloadStart = pos + 16
                 boxEnd = pos + largesize
             }
-            sizeRaw == 0L -> {
-                payloadStart = pos + 8
-                boxEnd = parentEnd
-            }
+            // size 0 ("extends to EOF") is only legal for a top-level box; readBoxAt is only ever
+            // used for child boxes (iinf/infe), so treat it — and any sub-header size — as malformed.
             sizeRaw < 8L -> return null
             else -> {
                 payloadStart = pos + 8
@@ -352,9 +375,13 @@ class LossyAuxDetector @Inject constructor() {
         private const val MAX_SEF_DIR = 1L * 1024 * 1024   // directory is tiny; cap allocation
         private const val MAX_SEF_ENTRIES = 4096L
         private const val MAX_SEF_NAME = 256L
-        private const val SEF_TAIL_MAGIC = "SEFT"
+        private const val MAX_SEF_BLOCKS = 8 // a trailer holds only a handful of framed blocks
+        private const val SEF_TAIL_MAGIC = "SEFT"       // directory block type / SEFT-terminated tail
+        private const val SEF_QDIO_TAIL_MAGIC = "QDIOBS" // a QDIO audio block trails the directory
         private const val SEF_DIR_MAGIC = "SEFH"
-        private const val SEF_DEPTH_KEY = "DepthMap" // matches DualShot_DepthMap_N
+        // Broad on purpose: matches every depth variant (DualShot_DepthMap_N, the misspelled
+        // SingeShot_DepthMap_N, …). A false negative here means lost depth, so we bias toward matching.
+        private const val SEF_DEPTH_KEY = "DepthMap"
 
         /**
          * Namespaced signatures only (never bare words). The HDRGM namespace is present in every
