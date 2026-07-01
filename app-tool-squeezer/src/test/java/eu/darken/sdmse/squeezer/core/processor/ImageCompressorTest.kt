@@ -1,6 +1,7 @@
 package eu.darken.sdmse.squeezer.core.processor
 
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.MetadataPreservationException
 import io.kotest.assertions.throwables.shouldThrow
 import io.mockk.every
 import io.mockk.mockk
@@ -8,7 +9,6 @@ import io.mockk.verify
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.io.File
-import java.io.IOException
 
 class ImageCompressorTest : BaseTest() {
 
@@ -30,7 +30,7 @@ class ImageCompressorTest : BaseTest() {
         every { heifExifExtractor.extractExifBlock(any()) } returns
             HeifExifExtractor.Result.Unsupported("construction_method=2")
 
-        shouldThrow<IOException> {
+        shouldThrow<MetadataPreservationException> {
             create().compress(
                 inputFile = File("build/tmp/does-not-need-to-exist.heic"),
                 outputFile = File("build/tmp/out.heic"),
