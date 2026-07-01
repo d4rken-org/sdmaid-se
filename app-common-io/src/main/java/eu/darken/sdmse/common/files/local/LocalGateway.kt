@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.files.callbacks
 import eu.darken.sdmse.common.files.core.local.createSymlink
 import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.files.core.local.isReadable
+import eu.darken.sdmse.common.files.core.local.isSymbolicLink
 import eu.darken.sdmse.common.files.core.local.listFiles2
 import eu.darken.sdmse.common.files.core.local.parentsInclusive
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
@@ -215,7 +216,11 @@ class LocalGateway @Inject constructor(
             val canRead = if (mode == Mode.ROOT) {
                 false
             } else {
-                javaFile.canRead()
+                // canRead() follows symlinks, so a valid link with a broken/unreadable target would
+                // report false and force a needless escalation (or fail outright without root).
+                // performLookup() is NOFOLLOW and only needs to lstat the link node, so accept any
+                // symlink we can lstat app-side. Short-circuit keeps readable paths syscall-free.
+                javaFile.canRead() || javaFile.isSymbolicLink()
             }
 
             when {

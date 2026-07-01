@@ -13,12 +13,12 @@ import java.io.IOException
 import java.nio.file.Files
 
 /**
- * Tests the safety property of symlink-aware recursive deletion.
+ * Tests symlink helpers and the safety property of symlink-aware recursive deletion.
  *
- * Since [isSymbolicLink] uses Android's `Os.readlink()` (unavailable on JVM),
- * these tests use `java.nio.file.Files` to create real symlinks and a NIO-based
- * mirror of the same algorithm to verify the core safety property:
- * recursive deletion must NOT follow symlinks into target directories.
+ * [deleteRecursivelySafe] uses Android's `Os.readlink()` (unavailable on JVM), so its recursion
+ * is verified via [deleteRecursivelySafeNio] — a NIO-based mirror of the same algorithm — to
+ * assert the core safety property: recursive deletion must NOT follow symlinks into target
+ * directories. [isSymbolicLink] is NIO-based ([Files.isSymbolicLink]) and is tested directly.
  */
 class FileExtensionsBaseTest : BaseTest() {
 
@@ -157,6 +157,29 @@ class FileExtensionsBaseTest : BaseTest() {
         val names = runBlocking { dir.listFilesStreaming().toList() }.map { it.name }.toSet()
         // The symlink itself is an entry; its target's contents are not enumerated.
         names shouldBe setOf("link", "plain.txt")
+    }
+
+    @Test
+    fun `isSymbolicLink classifies link nodes including broken ones`() {
+        val regularFile = File(testDir, "regular.txt").apply { writeText("data") }
+        val regularDir = File(testDir, "regular-dir").apply { mkdirs() }
+        val nonExistent = File(testDir, "ghost")
+
+        val linkToFile = File(testDir, "link-to-file")
+        Files.createSymbolicLink(linkToFile.toPath(), regularFile.toPath())
+        val linkToDir = File(testDir, "link-to-dir")
+        Files.createSymbolicLink(linkToDir.toPath(), regularDir.toPath())
+        val brokenLink = File(testDir, "broken-link")
+        Files.createSymbolicLink(brokenLink.toPath(), nonExistent.toPath())
+
+        // A symlink node is a symlink regardless of whether its target exists/is readable.
+        linkToFile.isSymbolicLink() shouldBe true
+        linkToDir.isSymbolicLink() shouldBe true
+        brokenLink.isSymbolicLink() shouldBe true
+
+        regularFile.isSymbolicLink() shouldBe false
+        regularDir.isSymbolicLink() shouldBe false
+        nonExistent.isSymbolicLink() shouldBe false
     }
 
     /**
