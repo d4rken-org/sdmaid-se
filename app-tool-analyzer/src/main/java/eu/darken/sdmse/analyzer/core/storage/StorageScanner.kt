@@ -46,6 +46,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.SetupBinding
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -147,21 +148,34 @@ class StorageScanner @Inject constructor(
                     ?.filter { storage.type == DeviceStorage.Type.PORTABLE || it.name != "Android" }
                     ?: emptySet()
 
-                val hasCompleteInventory = inventorySetupModule.isComplete()
-                val folders = storageChildren
-                    .takeIf { hasCompleteInventory }
-                    ?.mapNotNull { fileForensics.findOwners(it) }
-                    ?.filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PORTABLE).contains(it.areaInfo.type) }
-                    ?.onEach { log(TAG) { "Top level dir: $it" } }
-                    ?: emptySet()
+                // Owner forensics needs a working app inventory. Skip it when setup is incomplete, and treat a
+                // wholesale failure as a degraded scan too: on some OEMs attribution can still throw even when setup
+                // reports complete (e.g. a stale PkgRepo error or a forensics/CSI failure), and that must not abort
+                // the whole storage overview.
+                val owners: Collection<OwnerInfo>? = when {
+                    !inventorySetupModule.isComplete() -> null
+                    else -> try {
+                        storageChildren
+                            .mapNotNull { fileForensics.findOwners(it) }
+                            .filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PORTABLE).contains(it.areaInfo.type) }
+                            .onEach { log(TAG) { "Top level dir: $it" } }
+                    } catch (e: CancellationException) {
+                        throw e
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "Top-level owner forensics failed, degrading storage scan: ${e.asLog()}" }
+                        null
+                    }
+                }
+
+                val ownersResolved = owners != null
                 topLevelDirs.clear()
-                topLevelDirs.addAll(folders)
+                topLevelDirs.addAll(owners ?: emptySet())
 
                 val apps = scanForApps(storage)
 
                 updateProgressSecondary("Scanning media files")
                 val media = storageDir
-                    ?.let { scanForMedia(storage, it, storageChildren, hasCompleteInventory) }
+                    ?.let { scanForMedia(storage, it, storageChildren, ownersResolved) }
                     ?: MediaCategory(storage.id, emptySet())
 
                 updateProgressSecondary("Scanning system data")
@@ -249,13 +263,13 @@ class StorageScanner @Inject constructor(
         storage: DeviceStorage,
         mediaDir: APathLookup<*>,
         storageChildren: Collection<APath>,
-        hasCompleteInventory: Boolean,
+        ownersResolved: Boolean,
     ): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
         updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_userfiles)
 
-        if (!hasCompleteInventory) {
-            log(TAG, WARN) { "Inventory setup is incomplete, sizing media folders without owner forensics." }
+        if (!ownersResolved) {
+            log(TAG, WARN) { "Owner forensics unavailable, sizing media folders directly (read-only)." }
             updateProgressCount(Progress.Count.Percent(storageChildren.size))
 
             val topLevelContents: Collection<ContentItem> = storageChildren.mapNotNull { path ->
