@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.storage.StorageSpaceReconcile
 import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
@@ -55,17 +56,30 @@ class DeviceStorageScanner @Inject constructor(
                 externalId = primaryUuid,
             )
 
-            val totalBytes = try {
-                storageStatsmanager.getTotalBytes(id)
+            val dataDirFile = environment.dataDir.asFile()
+            val fileTotal = dataDirFile.totalSpace
+            val fileFree = dataDirFile.freeSpace
+
+            val (totalBytes, freeBytes) = try {
+                // Keep the pair coupled: if either call fails the other is suspect too.
+                val statsTotal = storageStatsmanager.getTotalBytes(id)
+                val statsFree = storageStatsmanager.getFreeBytes(id)
+
+                val reconciled = StorageSpaceReconcile.reconcilePrimary(
+                    statsTotal = statsTotal,
+                    statsFree = statsFree,
+                    fileTotal = fileTotal,
+                    fileFree = fileFree,
+                )
+                if (reconciled.usedFileFallback) {
+                    log(TAG, WARN) {
+                        "Primary StorageStats total=$statsTotal implausible vs File=$fileTotal for $id; using File"
+                    }
+                }
+                reconciled.total to reconciled.free
             } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to get total bytes for $id" }
-                environment.dataDir.asFile().totalSpace
-            }
-            val freeBytes = try {
-                storageStatsmanager.getFreeBytes(id)
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to get free bytes for $id" }
-                environment.dataDir.asFile().freeSpace
+                log(TAG, WARN) { "StorageStatsManager failed for primary $id, using File API: ${e.message}" }
+                fileTotal to fileFree
             }
 
             DeviceStorage(
@@ -106,19 +120,19 @@ class DeviceStorageScanner @Inject constructor(
                     val statsTotal = storageStatsmanager.getTotalBytes(id)
                     val statsFree = storageStatsmanager.getFreeBytes(id)
 
-                    // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
-                    // If statfs disagrees with the API by >10%, trust the filesystem.
-                    val mismatches = isFatUuid
-                        && fileTotal > 0
-                        && kotlin.math.abs(statsTotal - fileTotal) * 10 > fileTotal
-                    if (mismatches) {
+                    val reconciled = StorageSpaceReconcile.reconcileSecondary(
+                        statsTotal = statsTotal,
+                        statsFree = statsFree,
+                        fileTotal = fileTotal,
+                        fileFree = fileFree,
+                        isFatUuid = isFatUuid,
+                    )
+                    if (reconciled.usedFileFallback) {
                         log(TAG, WARN) {
                             "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $id; using File"
                         }
-                        fileTotal to fileFree
-                    } else {
-                        statsTotal to statsFree
                     }
+                    reconciled.total to reconciled.free
                 } catch (e: Exception) {
                     log(TAG, WARN) { "StorageStatsManager failed for $id, using File API: ${e.message}" }
                     fileTotal to fileFree

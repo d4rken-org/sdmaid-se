@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
+import eu.darken.sdmse.common.storage.StorageSpaceReconcile
 import eu.darken.sdmse.common.storage.StorageStatsManager2
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.withContext
@@ -19,7 +20,6 @@ import java.time.Instant
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.math.abs
 
 @Singleton
 class SpaceTracker @Inject constructor(
@@ -108,17 +108,30 @@ class SpaceTracker @Inject constructor(
                 internalId = null,
                 externalId = primaryUuid,
             )
-            val totalBytes = try {
-                storageStatsManager.getTotalBytes(storageId)
+            val dataDirFile = storageEnvironment.dataDir.asFile()
+            val fileTotal = dataDirFile.totalSpace
+            val fileFree = dataDirFile.freeSpace
+
+            val (totalBytes, freeBytes) = try {
+                // Keep the pair coupled: if either call fails the other is suspect too.
+                val statsTotal = storageStatsManager.getTotalBytes(storageId)
+                val statsFree = storageStatsManager.getFreeBytes(storageId)
+
+                val reconciled = StorageSpaceReconcile.reconcilePrimary(
+                    statsTotal = statsTotal,
+                    statsFree = statsFree,
+                    fileTotal = fileTotal,
+                    fileFree = fileFree,
+                )
+                if (reconciled.usedFileFallback) {
+                    log(TAG, WARN) {
+                        "Primary StorageStats total=$statsTotal implausible vs File=$fileTotal; using File"
+                    }
+                }
+                reconciled.total to reconciled.free
             } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to get total bytes for primary storage: ${e.asLog()}" }
-                storageEnvironment.dataDir.asFile().totalSpace
-            }
-            val freeBytes = try {
-                storageStatsManager.getFreeBytes(storageId)
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to get free bytes for primary storage: ${e.asLog()}" }
-                storageEnvironment.dataDir.asFile().freeSpace
+                log(TAG, WARN) { "StorageStatsManager failed for primary storage, using File API: ${e.asLog()}" }
+                fileTotal to fileFree
             }
 
             StorageSnapshot(
@@ -149,19 +162,19 @@ class SpaceTracker @Inject constructor(
                     val statsTotal = storageStatsManager.getTotalBytes(storageId)
                     val statsFree = storageStatsManager.getFreeBytes(storageId)
 
-                    // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
-                    // If statfs disagrees with the API by >10%, trust the filesystem.
-                    val mismatches = isFatUuid
-                        && fileTotal > 0
-                        && abs(statsTotal - fileTotal) * 10 > fileTotal
-                    if (mismatches) {
+                    val reconciled = StorageSpaceReconcile.reconcileSecondary(
+                        statsTotal = statsTotal,
+                        statsFree = statsFree,
+                        fileTotal = fileTotal,
+                        fileFree = fileFree,
+                        isFatUuid = isFatUuid,
+                    )
+                    if (reconciled.usedFileFallback) {
                         log(TAG, WARN) {
                             "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $storageId; using File"
                         }
-                        fileTotal to fileFree
-                    } else {
-                        statsTotal to statsFree
                     }
+                    reconciled.total to reconciled.free
                 } catch (e: Exception) {
                     log(TAG, WARN) { "StorageStatsManager failed for $storageId, using File API: ${e.asLog()}" }
                     fileTotal to fileFree
