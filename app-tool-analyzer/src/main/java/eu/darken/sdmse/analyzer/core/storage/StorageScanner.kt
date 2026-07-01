@@ -167,11 +167,16 @@ class StorageScanner @Inject constructor(
                     }
                 }
 
-                val ownersResolved = owners != null
                 topLevelDirs.clear()
                 topLevelDirs.addAll(owners ?: emptySet())
 
-                val apps = scanForApps(storage)
+                val appScan = scanForApps(storage)
+                val apps = appScan.category
+
+                // Media stays writable only while owner attribution is trustworthy end to end: top-level forensics
+                // resolved AND the app scan didn't hit an inventory failure (which leaves app-owned top-level dirs
+                // undrained — they must not surface as writable user files).
+                val ownersResolved = owners != null && !appScan.inventoryFailed
 
                 updateProgressSecondary("Scanning media files")
                 val media = storageDir
@@ -190,31 +195,58 @@ class StorageScanner @Inject constructor(
         }
     }
 
-    private suspend fun scanForApps(storage: DeviceStorage): AppCategory? {
+    private data class AppScanResult(
+        val category: AppCategory?,
+        // The pkg inventory threw despite setup reporting complete. Unlike plain setup-incomplete (e.g. missing
+        // usage stats, where owner attribution is still trustworthy), this must also degrade the media scan.
+        val inventoryFailed: Boolean = false,
+    )
+
+    private suspend fun scanForApps(storage: DeviceStorage): AppScanResult {
         log(TAG) { "scanForApps($storage)" }
         if (!inventorySetupModule.isComplete()) {
             log(TAG, WARN) { "Inventory setup is incomplete, can't scan apps." }
-            return AppCategory(
-                storageId = storage.id,
-                setupIncomplete = true,
-                pkgStats = emptyMap()
+            return AppScanResult(
+                AppCategory(
+                    storageId = storage.id,
+                    setupIncomplete = true,
+                    pkgStats = emptyMap()
+                )
             )
         }
 
         if (!usageStatsSetupModule.isComplete()) {
             log(TAG, WARN) { "Usagestats setup is incomplete, can't scan apps." }
-            return AppCategory(
-                storageId = storage.id,
-                setupIncomplete = true,
-                pkgStats = emptyMap()
+            return AppScanResult(
+                AppCategory(
+                    storageId = storage.id,
+                    setupIncomplete = true,
+                    pkgStats = emptyMap()
+                )
             )
         }
 
         updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_apps)
 
-        val targetPkgs = pkgRepo.current()
-            .filter { it.packageName != "android" }
-            .filter { it.applicationInfo != null }
+        // Same failure mode as the top-level owner forensics: setup can report complete while the pkg repo holds a
+        // stale error. Degrade to "setup incomplete" instead of aborting the whole storage scan.
+        val targetPkgs = try {
+            pkgRepo.current()
+                .filter { it.packageName != "android" }
+                .filter { it.applicationInfo != null }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "App inventory unavailable despite completed setup, degrading app scan: ${e.asLog()}" }
+            return AppScanResult(
+                AppCategory(
+                    storageId = storage.id,
+                    setupIncomplete = true,
+                    pkgStats = emptyMap()
+                ),
+                inventoryFailed = true,
+            )
+        }
 
         updateProgressCount(Progress.Count.Percent(targetPkgs.size))
 
@@ -252,11 +284,13 @@ class StorageScanner @Inject constructor(
             .filter { it.totalSize > 0L }
             .associateBy { it.id }
 
-        return if (pkgStats.isNotEmpty()) {
-            AppCategory(storageId = storage.id, pkgStats = pkgStats)
-        } else {
-            null
-        }
+        return AppScanResult(
+            if (pkgStats.isNotEmpty()) {
+                AppCategory(storageId = storage.id, pkgStats = pkgStats)
+            } else {
+                null
+            }
+        )
     }
 
     private suspend fun scanForMedia(
@@ -285,7 +319,9 @@ class StorageScanner @Inject constructor(
                 }
             }
 
-            val rootItem = topLevelContents.plus(ContentItem.fromLookup(mediaDir)).toNestedContent().single()
+            // All sized items are direct children of the storage root, so build the tree directly instead of
+            // relying on segment-based nesting — a stray non-child path must not abort the degraded scan.
+            val rootItem = ContentItem.fromLookup(mediaDir).copy(children = topLevelContents)
 
             val group = ContentGroup(
                 label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_media_label.toCaString(),

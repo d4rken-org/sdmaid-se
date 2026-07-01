@@ -7,6 +7,7 @@ import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
@@ -15,8 +16,12 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageId
+import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
@@ -154,7 +159,7 @@ class ContentViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `system banner hides while browsing into a folder`() = runTest2 {
+    fun `system banner hides while browsing into a folder but stays read-only`() = runTest2 {
         val child = dirItem("Android")
         val group = ContentGroup(label = "System".toCaString(), contents = setOf(child))
         val h = harness(SystemCategory(storageId, setOf(group)), group)
@@ -163,7 +168,30 @@ class ContentViewModelTest : BaseTest() {
         h.vm.onItemClick(ContentViewModel.Item(parent = null, content = child, sizeRatio = null))
         advanceUntilIdle()
 
-        h.vm.readyState().infoBanner.shouldBeNull()
+        val state = h.vm.readyState()
+        state.infoBanner.shouldBeNull()
+        // Only the banner is level-gated — the delete/filter/Swiper guard must not lift mid-browse.
+        state.isReadOnly shouldBe true
+    }
+
+    @Test
+    fun `app group shows no banner and is writable`() = runTest2 {
+        val group = ContentGroup(label = "App data".toCaString())
+        val installId = InstallId(pkgId = Pkg.Id("com.example.app"), userHandle = UserHandle2(0))
+        val pkgStat = AppCategory.PkgStat(
+            pkg = mockk<Installed>().apply { every { this@apply.installId } returns installId },
+            isShallow = false,
+            appCode = null,
+            appData = group,
+            appMedia = null,
+            extraData = null,
+        )
+        val h = harness(AppCategory(storageId, pkgStats = mapOf(installId to pkgStat)), group)
+        advanceUntilIdle()
+
+        val state = h.vm.readyState()
+        state.isReadOnly shouldBe false
+        state.infoBanner.shouldBeNull()
     }
 
     @Test

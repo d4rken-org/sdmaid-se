@@ -30,6 +30,15 @@ class ContentCategoryTest : BaseTest() {
     }
 
     @Test
+    fun `media content is writable by default`() {
+        // Most call sites construct MediaCategory without isReadOnly — pin the default so a flipped
+        // default can't silently make normal scans read-only (or degraded scans writable).
+        val category = MediaCategory(storageId = storageId, groups = setOf(group))
+        category.isReadOnly shouldBe false
+        category.isContentReadOnly shouldBe false
+    }
+
+    @Test
     fun `app content is never read-only`() {
         AppCategory(storageId = storageId, pkgStats = emptyMap()).isContentReadOnly shouldBe false
     }
