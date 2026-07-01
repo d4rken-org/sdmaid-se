@@ -57,7 +57,7 @@ class BitmapCompressEncoderTest : BaseTest() {
     }
 
     @Test
-    fun `encode throws IOException when called with HEIC mime`() {
+    fun `encode throws IllegalArgumentException when called with HEIC mime`() {
         // BitmapCompressEncoder must never be reached for HEIC — the factory routes that to
         // HeifWriterEncoder. If something wires it up wrong, fail loudly.
         val bitmap = Bitmap.createBitmap(32, 32, Bitmap.Config.ARGB_8888)
