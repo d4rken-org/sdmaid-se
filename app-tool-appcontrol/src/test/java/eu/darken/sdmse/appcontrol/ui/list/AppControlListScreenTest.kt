@@ -230,9 +230,9 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `inspection mode renders populated rows without a tour controller`() {
-        // In @Preview/inspection mode no LocalGuidedTourController is provided. The screen must
-        // skip its tour wiring (guarded by LocalInspectionMode) instead of hitting the local's
-        // error() default. Deliberately do NOT provide LocalGuidedTourController here.
+        // In @Preview/inspection mode no real LocalGuidedTourController is provided; PreviewWrapper supplies
+        // NoOpGuidedTourAccess when LocalInspectionMode is true, so the screen reads a no-op instead of hitting
+        // the local's error() default. Deliberately do NOT provide LocalGuidedTourController here.
         composeRule.setContent {
             CompositionLocalProvider(LocalInspectionMode provides true) {
                 PreviewWrapper {
