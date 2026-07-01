@@ -18,19 +18,21 @@ import javax.inject.Inject
  * photo loses its depth.
  *
  * Detection is **decode-free** and **structure-aware**:
- * - JPEG: walk the APP markers up to the SOS and match namespaced signatures inside the
+ * - JPEG: (a) walk the APP markers up to the SOS and match namespaced signatures inside the
  *   APP1/APP2 (XMP/Exif/MPF) segments — *not* bare words, so an XMP caption containing the text
- *   "GainMap" cannot trigger a false positive.
- * - HEIF: locate the `meta` box and scan only within it for Apple auxiliary-image URNs.
+ *   "GainMap" cannot trigger a false positive; and (b) parse the Samsung SEF trailer appended after
+ *   the JPEG EOI for a `DualShot_DepthMap` block (portrait/Live-Focus depth).
+ * - HEIF: locate the `meta` box and match Apple auxiliary-image URNs, and structurally walk `iinf`
+ *   for an ISO 21496-1 `tmap` (tone-map) gain-map item.
  *
  * **Fail-open is required.** Any IO/parse error, a missing/non-readable file, or an unrecognised
- * format returns `false`. The opt-in setting that consumes this defaults to "skip these photos",
- * so a fail-closed detector would skip every un-parseable JPEG/HEIC and regress ordinary
- * compression for everyone.
+ * format returns `false` (and any single sub-check that throws is isolated so the others still run).
+ * The opt-in setting that consumes this defaults to "skip these photos", so a fail-closed detector
+ * would skip every un-parseable JPEG/HEIC and regress ordinary compression for everyone.
  *
- * Known v1 limitation: HEIF detection keys off Apple's aux URNs (the realistic HEIF HDR/depth
- * source — iPhones). ISO 21496-1 `tmap` HEIF gain maps are not yet covered. Android phones emit
- * Ultra HDR as JPEG, which the JPEG path handles.
+ * Known limitation: for HEIC, a positive result is a *scan-time exclusion*; the "compress them
+ * anyway" opt-in still can't force compression of a multi-image HEIC (the hard multi-image guard in
+ * `MediaScanner` can't tell a gain-map sub-image from Live-Photo siblings).
  */
 @Reusable
 class LossyAuxDetector @Inject constructor() {
@@ -49,43 +51,118 @@ class LossyAuxDetector @Inject constructor() {
 
     private fun hasJpegLossyAux(file: File): Boolean {
         RandomAccessFile(file, "r").use { raf ->
-            val len = raf.length()
-            if (len < 4) return false
-            if (raf.read() != 0xFF || raf.read() != 0xD8) return false // no SOI -> not a JPEG
+            // SOI gate: only trust a JPEG. Also stops a non-JPEG blob that merely ends in a "SEFT"
+            // tail from tripping the SEF check below.
+            if (raf.length() < 4) return false
+            raf.seek(0)
+            if (raf.read() != 0xFF || raf.read() != 0xD8) return false
 
-            while (raf.filePointer < len) {
-                var b = raf.read()
-                if (b < 0) return false
-                if (b != 0xFF) continue // resync to the next marker
-                var marker = raf.read()
-                while (marker == 0xFF) marker = raf.read() // skip fill bytes
-                when {
-                    marker < 0 -> return false
-                    marker == 0xD9 -> return false // EOI
-                    marker == 0xDA -> return false // SOS: compressed data starts, headers are done
-                    marker == 0x01 || marker in 0xD0..0xD7 -> continue // standalone markers, no length
-                    else -> {
-                        val hi = raf.read()
-                        val lo = raf.read()
-                        if (hi < 0 || lo < 0) return false
-                        val payloadLen = ((hi shl 8) or lo) - 2
-                        if (payloadLen <= 0) continue
-                        val payloadStart = raf.filePointer
-                        // APP1 = Exif/XMP (gain-map metadata), APP2 = MPF/ICC.
-                        if (marker == 0xE1 || marker == 0xE2) {
-                            val toRead = payloadLen.coerceAtMost(MAX_SEGMENT_SCAN)
-                            val buf = ByteArray(toRead)
-                            raf.readFully(buf)
-                            val text = String(buf, Charsets.ISO_8859_1)
-                            if (JPEG_AUX_SIGNATURES.any { text.contains(it) }) {
-                                log(TAG, VERBOSE) { "JPEG lossy-aux signature found in ${file.name}" }
-                                return true
-                            }
+            // Each sub-check is isolated so a throw in one still lets the other run (fail-open).
+            if (runAux(file) { hasJpegXmpAux(raf) }) return true
+            if (runAux(file) { hasSefDepthTrailer(raf) }) return true
+        }
+        return false
+    }
+
+    /** Runs a sub-check, swallowing any exception as `false` so a sibling check still runs. */
+    private inline fun runAux(file: File, block: () -> Boolean): Boolean = try {
+        block()
+    } catch (e: Exception) {
+        log(TAG, WARN) { "aux sub-check failed for ${file.path} (fail-open): ${e.message}" }
+        false
+    }
+
+    /** Scans APP1/APP2 segments (up to SOS) for namespaced gain-map/depth XMP signatures. */
+    private fun hasJpegXmpAux(raf: RandomAccessFile): Boolean {
+        val len = raf.length()
+        raf.seek(2) // past the SOI already validated by the caller
+        while (raf.filePointer < len) {
+            val b = raf.read()
+            if (b < 0) return false
+            if (b != 0xFF) continue // resync to the next marker
+            var marker = raf.read()
+            while (marker == 0xFF) marker = raf.read() // skip fill bytes
+            when {
+                marker < 0 -> return false
+                marker == 0xD9 -> return false // EOI
+                marker == 0xDA -> return false // SOS: compressed data starts, headers are done
+                marker == 0x01 || marker in 0xD0..0xD7 -> continue // standalone markers, no length
+                else -> {
+                    val hi = raf.read()
+                    val lo = raf.read()
+                    if (hi < 0 || lo < 0) return false
+                    val payloadLen = ((hi shl 8) or lo) - 2
+                    if (payloadLen <= 0) continue
+                    val payloadStart = raf.filePointer
+                    // APP1 = Exif/XMP (gain-map metadata), APP2 = MPF/ICC.
+                    if (marker == 0xE1 || marker == 0xE2) {
+                        val toRead = payloadLen.coerceAtMost(MAX_SEGMENT_SCAN)
+                        val buf = ByteArray(toRead)
+                        raf.readFully(buf)
+                        val text = String(buf, Charsets.ISO_8859_1)
+                        if (JPEG_AUX_SIGNATURES.any { text.contains(it) }) {
+                            log(TAG, VERBOSE) { "JPEG XMP lossy-aux signature found" }
+                            return true
                         }
-                        if (payloadStart + payloadLen > len) return false
-                        raf.seek(payloadStart + payloadLen)
                     }
+                    if (payloadStart + payloadLen > len) return false
+                    raf.seek(payloadStart + payloadLen)
                 }
+            }
+        }
+        return false
+    }
+
+    /**
+     * Detects a Samsung SEF trailer (appended after the JPEG EOI) carrying a depth block. Parses
+     * the trailer structure per ExifTool's `Samsung.pm` `ProcessSamsung` (little-endian): the file
+     * ends with `[dirLen:u32]["SEFT"]`, the directory starts with `"SEFH"` and lists 12-byte entries
+     * `[2 zero][type:u16][noff:u32][size:u32]`; each entry's data block (at `dirStart - noff`) starts
+     * with `[4 bytes][nameLen:u32][name]`. Fires only when a block name contains [SEF_DEPTH_KEY]
+     * (`DualShot_DepthMap_N`) — so non-depth SEF trailers (Sound&Shot etc.) are left alone. Reads only
+     * small per-entry headers; all offsets/sizes are treated as unsigned and bounds-checked before use.
+     */
+    private fun hasSefDepthTrailer(raf: RandomAccessFile): Boolean {
+        val fileLen = raf.length()
+        if (fileLen < MIN_SEF_LEN) return false
+
+        val tail = ByteArray(8)
+        raf.seek(fileLen - 8)
+        raf.readFully(tail)
+        if (!tail.asciiAt(4, SEF_TAIL_MAGIC)) return false
+
+        val dirLen = tail.u32(0)
+        if (dirLen < 12L || dirLen > MAX_SEF_DIR) return false
+        val dirStart = fileLen - 8 - dirLen
+        if (dirStart < 0L) return false
+
+        val dir = ByteArray(dirLen.toInt())
+        raf.seek(dirStart)
+        raf.readFully(dir)
+        if (!dir.asciiAt(0, SEF_DIR_MAGIC)) return false
+
+        val count = dir.u32(8)
+        if (count > MAX_SEF_ENTRIES || 12L + 12L * count > dirLen) return false
+
+        for (i in 0 until count) {
+            val entry = (12L + 12L * i).toInt()
+            val noff = dir.u32(entry + 4)
+            val size = dir.u32(entry + 8)
+            if (noff > dirStart || size < 8L || size > noff) continue
+            val blockStart = dirStart - noff
+            if (blockStart < 0L || blockStart + size > dirStart) continue
+
+            val toRead = minOf(size, 8L + MAX_SEF_NAME).toInt()
+            val header = ByteArray(toRead)
+            raf.seek(blockStart)
+            raf.readFully(header)
+            if (header.size < 8) continue
+            val nameLen = header.u32(4)
+            if (nameLen <= 0L || nameLen > minOf(size - 8L, MAX_SEF_NAME)) continue
+            val name = String(header, 8, nameLen.toInt(), Charsets.ISO_8859_1)
+            if (name.contains(SEF_DEPTH_KEY)) {
+                log(TAG, VERBOSE) { "Samsung SEF depth block found: $name" }
+                return true
             }
         }
         return false
@@ -94,18 +171,133 @@ class LossyAuxDetector @Inject constructor() {
     private fun hasHeifLossyAux(file: File): Boolean {
         RandomAccessFile(file, "r").use { raf ->
             val meta = findTopLevelBox(raf, BOX_META) ?: return false
+
+            // (a) Apple aux URNs (older iPhone HDR/depth) — substring within the meta box.
             val length = (meta.second - meta.first).coerceAtMost(MAX_META_SCAN)
-            if (length <= 0) return false
-            raf.seek(meta.first)
-            val buf = ByteArray(length.toInt())
-            raf.readFully(buf)
-            val text = String(buf, Charsets.ISO_8859_1)
-            if (HEIF_AUX_SIGNATURES.any { text.contains(it) }) {
-                log(TAG, VERBOSE) { "HEIF lossy-aux signature found in ${file.name}" }
+            if (length > 0) {
+                raf.seek(meta.first)
+                val buf = ByteArray(length.toInt())
+                raf.readFully(buf)
+                val text = String(buf, Charsets.ISO_8859_1)
+                if (HEIF_AUX_SIGNATURES.any { text.contains(it) }) {
+                    log(TAG, VERBOSE) { "HEIF Apple-URN lossy-aux signature found in ${file.name}" }
+                    return true
+                }
+            }
+
+            // (b) ISO 21496-1 gain map: a `tmap` (tone-map) derived item declared in `iinf`.
+            if (heifHasTmapItem(raf, meta)) {
+                log(TAG, VERBOSE) { "HEIF tmap gain-map item found in ${file.name}" }
                 return true
             }
         }
         return false
+    }
+
+    /**
+     * True if the HEIF `meta` box declares an `infe` with item_type `tmap`. Structure-aware (not a
+     * bare-word scan): walks `meta` (FullBox) → `iinf` (FullBox) → each `infe`, reading the item_type
+     * at the version-specific offset (`infe` v2/v3, same layout as `HeifExifExtractor.readInfeItem`).
+     * Every read is length-guarded; anything unexpected returns `false` (fail-open).
+     */
+    private fun heifHasTmapItem(raf: RandomAccessFile, meta: Pair<Long, Long>): Boolean {
+        val metaContentStart = meta.first + 4 // meta is a FullBox (skip version+flags)
+        val metaEnd = meta.second
+        val iinf = findChildBox(raf, metaContentStart, metaEnd, BOX_IINF) ?: return false
+        val (iinfStart, iinfEnd) = iinf
+        if (iinfStart + 4 > iinfEnd) return false
+
+        raf.seek(iinfStart)
+        val version = (raf.readInt() ushr 24) and 0xff
+        val entryCount: Long
+        var pos: Long
+        if (version == 0) {
+            if (iinfStart + 6 > iinfEnd) return false
+            entryCount = (raf.readShort().toInt() and 0xffff).toLong()
+            pos = iinfStart + 6
+        } else {
+            if (iinfStart + 8 > iinfEnd) return false
+            entryCount = raf.readInt().toLong() and 0xffffffffL
+            pos = iinfStart + 8
+        }
+
+        var seen = 0L
+        while (seen < entryCount && pos + 8 <= iinfEnd) {
+            val box = readBoxAt(raf, pos, iinfEnd) ?: break
+            if (box.type == BOX_INFE && infeItemTypeIsTmap(raf, box.payloadStart, box.boxEnd)) return true
+            pos = box.boxEnd
+            seen++
+        }
+        return false
+    }
+
+    private fun infeItemTypeIsTmap(raf: RandomAccessFile, payloadStart: Long, boxEnd: Long): Boolean {
+        if (payloadStart + 4 > boxEnd) return false
+        raf.seek(payloadStart)
+        val version = (raf.readInt() ushr 24) and 0xff
+        val typeOffset = when (version) {
+            2 -> payloadStart + 8  // version+flags(4) + item_id(2) + protection_index(2)
+            3 -> payloadStart + 10 // version+flags(4) + item_id(4) + protection_index(2)
+            else -> return false
+        }
+        if (typeOffset + 4 > boxEnd) return false
+        raf.seek(typeOffset)
+        return raf.readInt() == TYPE_TMAP
+    }
+
+    private data class BoxAt(val type: Int, val payloadStart: Long, val boxEnd: Long)
+
+    /** Reads the ISOBMFF box header at [pos], bounded by [parentEnd]. Null on any malformed size. */
+    private fun readBoxAt(raf: RandomAccessFile, pos: Long, parentEnd: Long): BoxAt? {
+        if (pos + 8 > parentEnd) return null
+        raf.seek(pos)
+        val sizeRaw = raf.readInt().toLong() and 0xffffffffL
+        val type = raf.readInt()
+        val payloadStart: Long
+        val boxEnd: Long
+        when {
+            sizeRaw == 1L -> {
+                if (pos + 16 > parentEnd) return null
+                val largesize = raf.readLong()
+                if (largesize < 16L) return null
+                payloadStart = pos + 16
+                boxEnd = pos + largesize
+            }
+            sizeRaw == 0L -> {
+                payloadStart = pos + 8
+                boxEnd = parentEnd
+            }
+            sizeRaw < 8L -> return null
+            else -> {
+                payloadStart = pos + 8
+                boxEnd = pos + sizeRaw
+            }
+        }
+        if (boxEnd > parentEnd || boxEnd <= pos) return null
+        return BoxAt(type, payloadStart, boxEnd)
+    }
+
+    private fun findChildBox(raf: RandomAccessFile, start: Long, end: Long, type: Int): Pair<Long, Long>? {
+        var pos = start
+        while (pos + 8 <= end) {
+            val box = readBoxAt(raf, pos, end) ?: return null
+            if (box.type == type) return box.payloadStart to box.boxEnd
+            pos = box.boxEnd
+        }
+        return null
+    }
+
+    /** Little-endian unsigned 32-bit read from a byte array. */
+    private fun ByteArray.u32(offset: Int): Long =
+        (this[offset].toLong() and 0xff) or
+            ((this[offset + 1].toLong() and 0xff) shl 8) or
+            ((this[offset + 2].toLong() and 0xff) shl 16) or
+            ((this[offset + 3].toLong() and 0xff) shl 24)
+
+    private fun ByteArray.asciiAt(offset: Int, ascii: String): Boolean {
+        if (offset + ascii.length > size) return false
+        for (i in ascii.indices) if (this[offset + i] != ascii[i].code.toByte()) return false
+        return true
     }
 
     /**
@@ -155,6 +347,15 @@ class LossyAuxDetector @Inject constructor() {
         private const val MAX_SEGMENT_SCAN = 65_536
         private const val MAX_META_SCAN = 8L * 1024 * 1024
 
+        // Samsung SEF trailer parsing bounds (guards against malformed trailers).
+        private const val MIN_SEF_LEN = 20L
+        private const val MAX_SEF_DIR = 1L * 1024 * 1024   // directory is tiny; cap allocation
+        private const val MAX_SEF_ENTRIES = 4096L
+        private const val MAX_SEF_NAME = 256L
+        private const val SEF_TAIL_MAGIC = "SEFT"
+        private const val SEF_DIR_MAGIC = "SEFH"
+        private const val SEF_DEPTH_KEY = "DepthMap" // matches DualShot_DepthMap_N
+
         /**
          * Namespaced signatures only (never bare words). The HDRGM namespace is present in every
          * ISO 21496-1 / Ultra HDR gain-map JPEG; the others cover Google's GContainer, Apple, and
@@ -184,5 +385,8 @@ class LossyAuxDetector @Inject constructor() {
         }
 
         private val BOX_META = fourcc("meta")
+        private val BOX_IINF = fourcc("iinf")
+        private val BOX_INFE = fourcc("infe")
+        private val TYPE_TMAP = fourcc("tmap")
     }
 }

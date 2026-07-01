@@ -6,8 +6,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.MetadataPreservationException
 import java.io.File
-import java.io.IOException
 import javax.inject.Inject
 
 class ImageCompressor @Inject constructor(
@@ -34,7 +34,7 @@ class ImageCompressor @Inject constructor(
             when (val r = heifExifExtractor.extractExifBlock(inputFile)) {
                 is HeifExifExtractor.Result.NoExif -> null
                 is HeifExifExtractor.Result.Extracted -> r.bytes
-                is HeifExifExtractor.Result.Unsupported -> throw IOException(
+                is HeifExifExtractor.Result.Unsupported -> throw MetadataPreservationException(
                     "HEIC ${inputFile.path} has unreadable EXIF metadata (${r.reason}); " +
                         "aborting to avoid silently stripping date/location/camera tags",
                 )

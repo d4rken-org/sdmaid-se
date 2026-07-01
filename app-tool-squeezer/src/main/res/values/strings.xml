@@ -17,6 +17,10 @@
         <item quantity="one">%d failed</item>
         <item quantity="other">%d failed</item>
     </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d kept unchanged (metadata couldn\'t be preserved)</item>
+        <item quantity="other">%d kept unchanged (metadata couldn\'t be preserved)</item>
+    </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d file skipped (not accessible)</item>
         <item quantity="other">%d files skipped (not accessible)</item>
@@ -55,7 +59,7 @@
     <string name="squeezer_exif_marker_title">Write EXIF marker</string>
     <string name="squeezer_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
     <string name="squeezer_include_lossy_aux_title">Compress HDR &amp; depth photos</string>
-    <string name="squeezer_include_lossy_aux_description">Off by default: photos with an HDR gain map or depth/portrait data are skipped so they aren\'t flattened. Enable to compress them anyway — they will lose their HDR gain map or depth data.</string>
+    <string name="squeezer_include_lossy_aux_description">Off by default: photos with an HDR gain map or depth/portrait data are skipped so they aren\'t flattened. Enable to compress them where possible — they will lose their HDR gain map or depth data. Some multi-image HEIC photos stay protected regardless.</string>
     <string name="squeezer_estimated_savings_format">~%s savings</string>
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>

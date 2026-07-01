@@ -2,6 +2,7 @@ package eu.darken.sdmse.squeezer.core.tasks
 
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.FailureReason
 import eu.darken.sdmse.stats.core.AffectedPath
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainAll
@@ -118,6 +119,44 @@ class SqueezerTasksTest : BaseTest() {
 
         success.affectedPaths.size shouldBe 2
         success.affectedPaths shouldContainAll paths
+    }
+
+    @Test
+    fun `ProcessTask Success splits metadata aborts out of the generic failed count`() {
+        // A metadata-unpreservable file counts in failedCount; it must be reported once, not
+        // both as "failed" and as "metadata kept unchanged".
+        val metadataOnly = SqueezerProcessTask.Success(
+            affectedSpace = 0L,
+            affectedPaths = emptySet(),
+            processedCount = 0,
+            failedCount = 1,
+            failureReasons = mapOf(FailureReason.METADATA_UNPRESERVABLE to 1),
+        )
+        metadataOnly.metadataUnpreservableCount shouldBe 1
+        metadataOnly.genericFailedCount shouldBe 0
+
+        val mixed = SqueezerProcessTask.Success(
+            affectedSpace = 0L,
+            affectedPaths = emptySet(),
+            processedCount = 0,
+            failedCount = 3,
+            failureReasons = mapOf(
+                FailureReason.METADATA_UNPRESERVABLE to 1,
+                FailureReason.IO_ERROR to 2,
+            ),
+        )
+        mixed.metadataUnpreservableCount shouldBe 1
+        mixed.genericFailedCount shouldBe 2
+
+        val genericOnly = SqueezerProcessTask.Success(
+            affectedSpace = 0L,
+            affectedPaths = emptySet(),
+            processedCount = 0,
+            failedCount = 2,
+            failureReasons = mapOf(FailureReason.IO_ERROR to 2),
+        )
+        genericOnly.metadataUnpreservableCount shouldBe 0
+        genericOnly.genericFailedCount shouldBe 2
     }
 
     @Test

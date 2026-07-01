@@ -47,6 +47,50 @@ class LossyAuxDetectorTest : BaseTest() {
         return out.toByteArray()
     }
 
+    private fun ascii(s: String) = s.toByteArray(Charsets.ISO_8859_1)
+    private fun leU16(v: Int) = byteArrayOf((v and 0xFF).toByte(), (v ushr 8 and 0xFF).toByte())
+    private fun leU32(v: Long) = byteArrayOf(
+        (v and 0xFF).toByte(), (v ushr 8 and 0xFF).toByte(),
+        (v ushr 16 and 0xFF).toByte(), (v ushr 24 and 0xFF).toByte(),
+    )
+
+    /** Real ISOBMFF (big-endian boxes): `ftyp` + `meta{ iinf[one infe of itemType], iloc }`. */
+    private fun heifWithItemType(itemType: String): ByteArray {
+        require(itemType.length == 4)
+        fun beU32(v: Int) = byteArrayOf(
+            (v ushr 24 and 0xFF).toByte(), (v ushr 16 and 0xFF).toByte(),
+            (v ushr 8 and 0xFF).toByte(), (v and 0xFF).toByte(),
+        )
+        fun beU16(v: Int) = byteArrayOf((v ushr 8 and 0xFF).toByte(), (v and 0xFF).toByte())
+        fun box(type: String, payload: ByteArray) = beU32(8 + payload.size) + ascii(type) + payload
+        // infe v2: version+flags, item_id, item_protection_index, item_type
+        val infe = box("infe", beU32(0x02000000) + beU16(1) + beU16(0) + ascii(itemType))
+        val iinf = box("iinf", beU32(0) + beU16(1) + infe) // v0, entry_count=1
+        val iloc = box("iloc", ByteArray(0))
+        val meta = box("meta", beU32(0) + iinf + iloc) // FullBox
+        return box("ftyp", ascii("heic") + beU32(0) + ascii("heic")) + meta
+    }
+
+    /** Samsung SEF trailer (little-endian) with one data block named [blockName]. */
+    private fun sefTrailer(blockName: String): ByteArray {
+        val name = ascii(blockName)
+        val data = ByteArray(8) { 0x11 }
+        val block = byteArrayOf(0, 0) + leU16(0x0100) + leU32(name.size.toLong()) + name + data
+        val entry = byteArrayOf(0, 0) + leU16(0x0100) + leU32(block.size.toLong()) + leU32(block.size.toLong())
+        val dir = ascii("SEFH") + leU32(101) + leU32(1) + entry
+        return block + dir + (leU32(dir.size.toLong()) + ascii("SEFT"))
+    }
+
+    /** Minimal JPEG (SOI+EOI, or a broken head when [soi]=false) followed by an SEF trailer. */
+    private fun jpegWithSef(blockName: String, soi: Boolean = true): ByteArray {
+        val head = if (soi) {
+            byteArrayOf(0xFF.toByte(), 0xD8.toByte(), 0xFF.toByte(), 0xD9.toByte())
+        } else {
+            byteArrayOf(0x00, 0x00, 0xFF.toByte(), 0xD9.toByte())
+        }
+        return head + sefTrailer(blockName)
+    }
+
     private val jpeg = CompressibleImage.MIME_TYPE_JPEG
     private val webp = CompressibleImage.MIME_TYPE_WEBP
     private val heic = CompressibleImage.MIME_TYPE_HEIC
@@ -130,5 +174,51 @@ class LossyAuxDetectorTest : BaseTest() {
     @Test
     fun `truncated heif fails open to false`() {
         detector.hasLossyAux(tmp(byteArrayOf(0, 0, 0), "heic"), heic) shouldBe false
+    }
+
+    @Test
+    fun `heif with a tmap gain-map item is a gain map`() {
+        detector.hasLossyAux(tmp(heifWithItemType("tmap"), "heic"), heic) shouldBe true
+    }
+
+    @Test
+    fun `heif whose only item is the primary image is not flagged`() {
+        detector.hasLossyAux(tmp(heifWithItemType("hvc1"), "heic"), heic) shouldBe false
+    }
+
+    @Test
+    fun `jpeg with a Samsung SEF DepthMap trailer is depth data`() {
+        detector.hasLossyAux(tmp(jpegWithSef("DualShot_DepthMap_1"), "jpg"), jpeg) shouldBe true
+    }
+
+    @Test
+    fun `jpeg with a non-depth SEF trailer is not flagged`() {
+        // A valid SEF trailer without a DepthMap block (e.g. Sound&Shot metadata) must not be skipped.
+        detector.hasLossyAux(tmp(jpegWithSef("DualShot_Meta_Info"), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `SEF depth tail without a JPEG SOI is not a false positive`() {
+        detector.hasLossyAux(tmp(jpegWithSef("DualShot_DepthMap_1", soi = false), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `short SEF directory fails open to false`() {
+        // Tail claims a 4-byte directory (< the 12-byte SEFH minimum).
+        val bytes = byteArrayOf(0xFF.toByte(), 0xD8.toByte(), 0xFF.toByte(), 0xD9.toByte()) +
+            ByteArray(8) + leU32(4) + ascii("SEFT")
+        detector.hasLossyAux(tmp(bytes, "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `malformed APP segment does not prevent SEF depth detection`() {
+        // APP1 declares a bogus over-long length (the XMP scan throws/bails); the isolated SEF
+        // trailer check must still run and find the depth block.
+        val brokenApp1 = byteArrayOf(
+            0xFF.toByte(), 0xD8.toByte(), // SOI
+            0xFF.toByte(), 0xE1.toByte(), // APP1 marker
+            0xFF.toByte(), 0xFF.toByte(), // length = 65535 (payload far exceeds the file)
+        )
+        detector.hasLossyAux(tmp(brokenApp1 + sefTrailer("DualShot_DepthMap_1"), "jpg"), jpeg) shouldBe true
     }
 }

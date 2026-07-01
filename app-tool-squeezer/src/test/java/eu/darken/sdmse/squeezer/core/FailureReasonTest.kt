@@ -21,6 +21,13 @@ class FailureReasonTest : BaseTest() {
     }
 
     @Test
+    fun `MetadataPreservationException maps to METADATA_UNPRESERVABLE (not IO_ERROR)`() {
+        // It subclasses IOException, so the mapping must match it before the IOException branch.
+        val e = MetadataPreservationException("EXIF unreadable")
+        e.toFailureReason() shouldBe FailureReason.METADATA_UNPRESERVABLE
+    }
+
+    @Test
     fun `CancellationException maps to CANCELLED`() {
         val e = CancellationException("interrupted")
         e.toFailureReason() shouldBe FailureReason.CANCELLED
