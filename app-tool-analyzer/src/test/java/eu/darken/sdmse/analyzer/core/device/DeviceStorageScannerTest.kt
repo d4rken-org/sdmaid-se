@@ -1,5 +1,6 @@
 package eu.darken.sdmse.analyzer.core.device
 
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
@@ -45,6 +46,13 @@ class DeviceStorageScannerTest : BaseTest() {
         every { this@apply.path } returns "/storage/mocked"
     }
 
+    private fun mockDataDir(totalSpace: Long, freeSpace: Long) {
+        val dataDir = mockk<LocalPath>().apply {
+            every { this@apply.file } returns mockFile(totalSpace = totalSpace, freeSpace = freeSpace)
+        }
+        every { environment.dataDir } returns dataDir
+    }
+
     @BeforeEach
     fun setup() {
         val completeState = mockk<SetupModule.State.Current> {
@@ -52,9 +60,10 @@ class DeviceStorageScannerTest : BaseTest() {
             every { type } returns SetupModule.Type.STORAGE
         }
         every { setupModule.state } returns flowOf(completeState)
-        // Primary block: let stats succeed so environment.dataDir fallback is not exercised.
+        // Primary block: stats succeed and agree with the filesystem so no fallback fires by default.
         coEvery { statsManager.getTotalBytes(match { it.internalId == null }) } returns 128_000_000_000L
         coEvery { statsManager.getFreeBytes(match { it.internalId == null }) } returns 64_000_000_000L
+        mockDataDir(totalSpace = 128_000_000_000L, freeSpace = 64_000_000_000L)
     }
 
     private fun createScanner() = DeviceStorageScanner(
@@ -65,6 +74,36 @@ class DeviceStorageScannerTest : BaseTest() {
     )
 
     private fun Set<DeviceStorage>.secondary() = firstOrNull { it.type == DeviceStorage.Type.SECONDARY }
+
+    private fun Set<DeviceStorage>.primary() = firstOrNull { it.type == DeviceStorage.Type.PRIMARY }
+
+    @Test
+    fun `primary grossly inflated total prefers File (reproduces realme A15 2x)`() = runTest {
+        // Device reports 2x real capacity for the primary volume; free stays correct.
+        every { storageManager2.volumes } returns emptyList()
+        coEvery { statsManager.getTotalBytes(match { it.internalId == null }) } returns 2_000_000_000_000L
+        coEvery { statsManager.getFreeBytes(match { it.internalId == null }) } returns 104_000_000_000L
+        mockDataDir(totalSpace = 1_010_000_000_000L, freeSpace = 105_000_000_000L)
+
+        val primary = createScanner().scan().primary()
+
+        primary shouldNotBe null
+        primary!!.spaceCapacity shouldBe 1_010_000_000_000L
+        primary.spaceFree shouldBe 105_000_000_000L
+    }
+
+    @Test
+    fun `primary getFreeBytes throws falls back to File for both`() = runTest {
+        every { storageManager2.volumes } returns emptyList()
+        coEvery { statsManager.getTotalBytes(match { it.internalId == null }) } returns 128_000_000_000L
+        coEvery { statsManager.getFreeBytes(match { it.internalId == null }) } throws IllegalStateException("sentinel")
+        mockDataDir(totalSpace = 120_000_000_000L, freeSpace = 30_000_000_000L)
+
+        val primary = createScanner().scan().primary()
+
+        primary!!.spaceCapacity shouldBe 120_000_000_000L
+        primary.spaceFree shouldBe 30_000_000_000L
+    }
 
     @Test
     fun `stats succeed on non-FAT UUID uses stats values`() = runTest {
