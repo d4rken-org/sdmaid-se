@@ -43,7 +43,10 @@ private fun storageRingBitmap(context: Context, ratio: Float, sizePx: Int): Bitm
     val bitmap = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
     val stroke = sizePx * 0.13f
-    val pad = stroke / 2f + sizePx * 0.04f
+    // Inset by exactly half the stroke so the ring's OUTER edge is flush with the bitmap bounds —
+    // giving it the same rendered diameter as the mascot icon and Clean circle beside it (all
+    // NARROW_ELEMENT_SIZE). Any extra padding here makes the ring look smaller than its neighbours.
+    val pad = stroke / 2f
     val bounds = RectF(pad, pad, sizePx - pad, sizePx - pad)
 
     val arcColor = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
