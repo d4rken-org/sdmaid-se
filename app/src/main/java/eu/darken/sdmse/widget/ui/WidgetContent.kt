@@ -38,6 +38,7 @@ import androidx.glance.text.TextStyle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.main.core.shortcuts.AppShortcut
 import eu.darken.sdmse.main.ui.MainActivity
+import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.widget.WidgetRenderState
 import eu.darken.sdmse.common.ui.R as CommonUiR
 
@@ -55,6 +56,17 @@ private val NARROW_ELEMENT_SIZE = 44.dp
 
 @Composable
 private fun openApp(): Action = actionStartActivity(Intent(LocalContext.current, MainActivity::class.java))
+
+@Composable
+private fun openAnalyzer(): Action {
+    val context = LocalContext.current
+    return actionStartActivity(
+        Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            putExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION, ShortcutActivity.ACTION_OPEN_ANALYZER)
+        }
+    )
+}
 
 @Composable
 private fun clean(): Action = actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(LocalContext.current))
@@ -90,9 +102,9 @@ internal fun WidgetContent(state: WidgetRenderState) {
 @Composable
 private fun StackedLayout(data: WidgetRenderState.Data) {
     Column(modifier = GlanceModifier.fillMaxSize()) {
-        Column(modifier = GlanceModifier.fillMaxWidth().clickable(openApp())) {
-            BrandingHeader(data.freedBytes)
-            Spacer(GlanceModifier.height(12.dp))
+        BrandingHeader(data.freedBytes, GlanceModifier.fillMaxWidth().clickable(openApp()))
+        Spacer(GlanceModifier.height(12.dp))
+        Column(modifier = GlanceModifier.fillMaxWidth().clickable(openAnalyzer())) {
             data.storages.forEachIndexed { index, entry ->
                 if (index > 0) Spacer(GlanceModifier.height(10.dp))
                 StorageRow(entry)
@@ -115,22 +127,17 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
         modifier = GlanceModifier.fillMaxSize(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Row(
-            modifier = GlanceModifier.defaultWeight().clickable(openApp()),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Mascot(40.dp)
-            Spacer(GlanceModifier.width(12.dp))
-            Column(modifier = GlanceModifier.defaultWeight()) {
-                data.storages.firstOrNull()?.let { entry ->
-                    Text(
-                        text = usedOfTotal(context, entry),
-                        style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
-                        maxLines = 1,
-                    )
-                    Spacer(GlanceModifier.height(5.dp))
-                    StorageBar(entry.usedRatio)
-                }
+        Mascot(40.dp, GlanceModifier.clickable(openApp()))
+        Spacer(GlanceModifier.width(12.dp))
+        Column(modifier = GlanceModifier.defaultWeight().clickable(openAnalyzer())) {
+            data.storages.firstOrNull()?.let { entry ->
+                Text(
+                    text = usedOfTotal(context, entry),
+                    style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
+                    maxLines = 1,
+                )
+                Spacer(GlanceModifier.height(5.dp))
+                StorageBar(entry.usedRatio)
             }
         }
         Spacer(GlanceModifier.width(12.dp))
@@ -144,14 +151,13 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
  */
 @Composable
 private fun RingRowLayout(data: WidgetRenderState.Data) {
-    val openApp = openApp()
     Row(
         modifier = GlanceModifier.fillMaxSize(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Mascot(NARROW_ELEMENT_SIZE, GlanceModifier.clickable(openApp))
+        Mascot(NARROW_ELEMENT_SIZE, GlanceModifier.clickable(openApp()))
         Spacer(GlanceModifier.defaultWeight())
-        Box(modifier = GlanceModifier.size(NARROW_ELEMENT_SIZE).clickable(openApp)) {
+        Box(modifier = GlanceModifier.size(NARROW_ELEMENT_SIZE).clickable(openAnalyzer())) {
             data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
         }
         Spacer(GlanceModifier.defaultWeight())
@@ -160,9 +166,9 @@ private fun RingRowLayout(data: WidgetRenderState.Data) {
 }
 
 @Composable
-private fun BrandingHeader(freedBytes: Long) {
+private fun BrandingHeader(freedBytes: Long, modifier: GlanceModifier = GlanceModifier) {
     val context = LocalContext.current
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Mascot(42.dp)
         Spacer(GlanceModifier.width(10.dp))
         Column(modifier = GlanceModifier.defaultWeight()) {

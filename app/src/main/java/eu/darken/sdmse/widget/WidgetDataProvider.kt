@@ -1,6 +1,10 @@
 package eu.darken.sdmse.widget
 
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsSettings
 import javax.inject.Inject
@@ -29,10 +33,15 @@ class WidgetDataProvider @Inject constructor(
                 .let { addAll(it) }
         }.take(MAX_STORAGES)
 
-        if (entries.isEmpty()) return WidgetRenderState.Unavailable
+        if (entries.isEmpty()) {
+            log(TAG, WARN) { "snapshot(): no readable storage volume → Unavailable" }
+            return WidgetRenderState.Unavailable
+        }
 
         val freed = statsSettings.totalSpaceFreed.value().coerceAtLeast(0L)
-        return WidgetRenderState.Data(storages = entries, freedBytes = freed)
+        return WidgetRenderState.Data(storages = entries, freedBytes = freed).also {
+            log(TAG, VERBOSE) { "snapshot(): $it" }
+        }
     }
 
     private fun entry(
@@ -52,5 +61,6 @@ class WidgetDataProvider @Inject constructor(
     companion object {
         /** Cap rows so the widget height stays bounded on multi-volume devices. */
         private const val MAX_STORAGES = 3
+        private val TAG = logTag("Widget", "DataProvider")
     }
 }

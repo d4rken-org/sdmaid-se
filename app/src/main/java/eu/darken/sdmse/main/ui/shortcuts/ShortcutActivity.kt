@@ -147,6 +147,7 @@ class ShortcutActivity : ComponentActivity() {
         private val TAG = logTag("Shortcut", "Activity")
 
         const val ACTION_OPEN_APPCONTROL = "eu.darken.sdmse.ACTION_OPEN_APPCONTROL"
+        const val ACTION_OPEN_ANALYZER = "eu.darken.sdmse.ACTION_OPEN_ANALYZER"
         const val ACTION_SCAN_DELETE = "eu.darken.sdmse.ACTION_SCAN_DELETE"
         const val ACTION_UPGRADE = "eu.darken.sdmse.ACTION_UPGRADE"
 

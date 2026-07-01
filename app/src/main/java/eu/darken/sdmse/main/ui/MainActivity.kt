@@ -55,6 +55,7 @@ import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
 import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
 import eu.darken.sdmse.common.compose.tour.GuidedTourHost
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -233,6 +234,7 @@ class MainActivity : ComponentActivity() {
 
         when (shortcutAction) {
             ShortcutActivity.ACTION_OPEN_APPCONTROL -> navCtrl.goTo(AppControlListRoute)
+            ShortcutActivity.ACTION_OPEN_ANALYZER -> navCtrl.goTo(DeviceStorageRoute)
             ShortcutActivity.ACTION_UPGRADE -> navCtrl.goTo(UpgradeRoute())
         }
     }

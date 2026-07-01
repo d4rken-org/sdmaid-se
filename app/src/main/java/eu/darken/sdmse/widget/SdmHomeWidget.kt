@@ -6,6 +6,9 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
 import dagger.hilt.android.EntryPointAccessors
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.widget.ui.WidgetContent
 
 /**
@@ -22,14 +25,20 @@ class SdmHomeWidget : GlanceAppWidget() {
     override val sizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
+        log(TAG, VERBOSE) { "provideGlance(id=$id)" }
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext,
             WidgetEntryPoint::class.java,
         )
         val state = entryPoint.widgetDataProvider().snapshot()
+        log(TAG) { "provideGlance(id=$id): rendering $state" }
 
         provideContent {
             WidgetContent(state)
         }
+    }
+
+    companion object {
+        private val TAG = logTag("Widget", "Home")
     }
 }
