@@ -40,8 +40,13 @@ import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.widget.WidgetRenderState
 import eu.darken.sdmse.common.ui.R as CommonUiR
 
-// Below this cell height the stacked (vertical) layout can't fit; use the single-row layout instead.
-private val ROW_LAYOUT_MAX_HEIGHT = 110.dp
+// Breakpoints on the actual cell size (SizeMode.Exact). Column↔dp is approximate.
+private val STACKED_MIN_HEIGHT = 110.dp
+private val RING_MAX_WIDTH = 190.dp     // below this (1 row) → ring (~2 col)
+private val BUTTON_LABEL_MIN_WIDTH = 300.dp // at/above this (1 row) → show the Clean text (~4 col)
+
+// Equal element size for the symmetric narrow (ring) row.
+private val NARROW_ELEMENT_SIZE = 44.dp
 
 @Composable
 internal fun WidgetContent(state: WidgetRenderState) {
@@ -58,10 +63,11 @@ internal fun WidgetContent(state: WidgetRenderState) {
         ) {
             when (state) {
                 is WidgetRenderState.Data -> {
-                    if (LocalSize.current.height < ROW_LAYOUT_MAX_HEIGHT) {
-                        RowLayout(state)
-                    } else {
-                        StackedLayout(state)
+                    val size = LocalSize.current
+                    when {
+                        size.height >= STACKED_MIN_HEIGHT -> StackedLayout(state)
+                        size.width < RING_MAX_WIDTH -> RingRowLayout(state)
+                        else -> ValueRowLayout(state, showButtonLabel = size.width >= BUTTON_LABEL_MIN_WIDTH)
                     }
                 }
 
@@ -71,7 +77,7 @@ internal fun WidgetContent(state: WidgetRenderState) {
     }
 }
 
-/** Tall layout: branding + storage pinned to the top, Clean button pinned to the bottom. */
+/** Tall (2+ rows): branding + storage pinned to the top, Clean button pinned to the bottom. */
 @Composable
 private fun StackedLayout(data: WidgetRenderState.Data) {
     Column(modifier = GlanceModifier.fillMaxSize()) {
@@ -88,11 +94,11 @@ private fun StackedLayout(data: WidgetRenderState.Data) {
 }
 
 /**
- * Short/wide layout: mascot + the primary storage + Clean button, all on a single row. The volume
- * label is dropped here — space is tight and, with one storage shown, the value + bar read clearly.
+ * 1 row, medium/wide: mascot + primary storage value + bar + Clean button. The button label only
+ * shows at the widest sizes; at ~3 columns it's icon-only so the value isn't truncated.
  */
 @Composable
-private fun RowLayout(data: WidgetRenderState.Data) {
+private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolean) {
     val context = LocalContext.current
     Row(
         modifier = GlanceModifier.fillMaxSize(),
@@ -103,7 +109,7 @@ private fun RowLayout(data: WidgetRenderState.Data) {
         Column(modifier = GlanceModifier.defaultWeight()) {
             data.storages.firstOrNull()?.let { entry ->
                 Text(
-                    text = "${formatSize(context, entry.usedBytes)} / ${formatSize(context, entry.totalBytes)}",
+                    text = usedOfTotal(context, entry),
                     style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
                     maxLines = 1,
                 )
@@ -112,7 +118,25 @@ private fun RowLayout(data: WidgetRenderState.Data) {
             }
         }
         Spacer(GlanceModifier.width(12.dp))
-        CleanButton()
+        CleanButton(showLabel = showButtonLabel)
+    }
+}
+
+/**
+ * 1 row, narrow (~2 col): mascot, storage ring and Clean button as three equal-size circles, evenly
+ * distributed.
+ */
+@Composable
+private fun RingRowLayout(data: WidgetRenderState.Data) {
+    Row(
+        modifier = GlanceModifier.fillMaxSize(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Mascot(NARROW_ELEMENT_SIZE)
+        Spacer(GlanceModifier.defaultWeight())
+        data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
+        Spacer(GlanceModifier.defaultWeight())
+        CleanCircle(NARROW_ELEMENT_SIZE)
     }
 }
 
@@ -164,7 +188,7 @@ private fun StorageRow(entry: WidgetRenderState.Data.StorageEntry) {
             // edge (weighting the label Text itself collapses it to zero width in Glance).
             Spacer(GlanceModifier.defaultWeight())
             Text(
-                text = "${formatSize(context, entry.usedBytes)} / ${formatSize(context, entry.totalBytes)}",
+                text = usedOfTotal(context, entry),
                 style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 13.sp, fontWeight = FontWeight.Bold),
                 maxLines = 1,
             )
@@ -185,28 +209,51 @@ private fun StorageBar(ratio: Float) {
 }
 
 @Composable
-private fun CleanButton(modifier: GlanceModifier = GlanceModifier) {
+private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Boolean = true) {
     val context = LocalContext.current
     Row(
         modifier = modifier
             .background(GlanceTheme.colors.primary)
             .cornerRadius(22.dp)
             .clickable(actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(context)))
-            .padding(horizontal = 16.dp, vertical = 9.dp),
+            .padding(horizontal = if (showLabel) 16.dp else 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
             provider = ImageProvider(CommonUiR.drawable.ic_baseline_delete_sweep_24),
-            contentDescription = null,
+            contentDescription = context.getString(R.string.widget_home_clean_action),
             colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
             modifier = GlanceModifier.size(18.dp),
         )
-        Spacer(GlanceModifier.width(6.dp))
-        Text(
-            text = context.getString(R.string.widget_home_clean_action),
-            style = TextStyle(color = GlanceTheme.colors.onPrimary, fontSize = 13.sp, fontWeight = FontWeight.Medium),
-            maxLines = 1,
+        if (showLabel) {
+            Spacer(GlanceModifier.width(6.dp))
+            Text(
+                text = context.getString(R.string.widget_home_clean_action),
+                style = TextStyle(color = GlanceTheme.colors.onPrimary, fontSize = 13.sp, fontWeight = FontWeight.Medium),
+                maxLines = 1,
+            )
+        }
+    }
+}
+
+/** Circular icon-only Clean button, sized to match the mascot and ring in the narrow layout. */
+@Composable
+private fun CleanCircle(size: Dp) {
+    val context = LocalContext.current
+    Box(
+        modifier = GlanceModifier
+            .size(size)
+            .background(GlanceTheme.colors.primary)
+            .cornerRadius(size / 2)
+            .clickable(actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(context))),
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            provider = ImageProvider(CommonUiR.drawable.ic_baseline_delete_sweep_24),
+            contentDescription = context.getString(R.string.widget_home_clean_action),
+            colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
+            modifier = GlanceModifier.size(size / 2),
         )
     }
 }
@@ -227,6 +274,9 @@ private fun UnavailableContent() {
         )
     }
 }
+
+private fun usedOfTotal(context: Context, entry: WidgetRenderState.Data.StorageEntry): String =
+    "${formatSize(context, entry.usedBytes)} / ${formatSize(context, entry.totalBytes)}"
 
 private fun storageLabelRes(kind: WidgetRenderState.Data.StorageEntry.Kind): Int = when (kind) {
     WidgetRenderState.Data.StorageEntry.Kind.INTERNAL -> R.string.widget_home_storage_internal

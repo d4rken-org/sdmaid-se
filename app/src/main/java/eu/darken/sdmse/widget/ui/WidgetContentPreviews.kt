@@ -25,9 +25,21 @@ private fun WidgetContentNormalPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
 }
 
-@Preview(widthDp = 320, heightDp = 80)
+@Preview(widthDp = 300, heightDp = 80)
 @Composable
-private fun WidgetContentSingleRowPreview() {
+private fun WidgetContentRowWidePreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
+}
+
+@Preview(widthDp = 220, heightDp = 80)
+@Composable
+private fun WidgetContentRowMediumPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
+}
+
+@Preview(widthDp = 150, heightDp = 80)
+@Composable
+private fun WidgetContentRowNarrowPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
 }
 
