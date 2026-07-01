@@ -9,17 +9,17 @@ import dagger.hilt.android.EntryPointAccessors
 import eu.darken.sdmse.widget.ui.WidgetContent
 
 /**
- * Home-screen widget showing primary-storage usage + lifetime "space freed", with a one-tap clean
- * button. State is computed on demand in [provideGlance]; refreshes are driven externally by
- * [WidgetUpdater] (post-clean / app-start / 6h backstop) and by the host (add / resize).
+ * Home-screen widget showing per-volume storage usage + lifetime "space freed", with a Clean button.
+ * State is computed on demand in [provideGlance]; refreshes are driven externally by [WidgetUpdater]
+ * (post-clean / app-start / 6h backstop) and by the host (add / resize).
  *
- * Uses [SizeMode.Single] with a single vertical layout that fills the cell. The minimum size in the
- * `appwidget-provider` XML guarantees the layout always has room to render — a responsive split is
- * unnecessary for this content and was prone to picking an overflowing layout at small sizes.
+ * Uses [SizeMode.Exact] so the composable receives the true cell size and can pick the stacked
+ * (tall) vs single-row (short/wide) layout by actual height — `SizeMode.Responsive` can't express
+ * that, since a large cell fits both buckets and it then picks by area.
  */
 class SdmHomeWidget : GlanceAppWidget() {
 
-    override val sizeMode = SizeMode.Single
+    override val sizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val entryPoint = EntryPointAccessors.fromApplication(

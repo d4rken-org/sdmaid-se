@@ -25,6 +25,12 @@ private fun WidgetContentNormalPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
 }
 
+@Preview(widthDp = 320, heightDp = 80)
+@Composable
+private fun WidgetContentSingleRowPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
+}
+
 @Preview(widthDp = 200, heightDp = 140)
 @Composable
 private fun WidgetContentNearFullPreview() {
