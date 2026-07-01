@@ -19,6 +19,10 @@ object Versions {
             const val foundationOverride = "1.11.0-alpha01"
         }
 
+        object Glance {
+            const val core = "1.1.1"
+        }
+
         object Navigation3 {
             const val core = "1.0.1"
             const val lifecycleVm = "2.10.0"

@@ -49,12 +49,14 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.LocalNavigationController
 import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
 import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
 import eu.darken.sdmse.common.compose.tour.GuidedTourHost
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -94,7 +96,13 @@ class MainActivity : ComponentActivity() {
 
         curriculumVitae.updateAppOpened()
 
-        savedIntent = intent
+        // Fresh launch: fold a shortcut/widget intent straight into the initial back stack (see
+        // Navigation()), so we never navigate as a second step. A second-step goTo() would race the
+        // back-stack setup on a CLEAR_TASK recreate (the widget/launcher intents all CLEAR_TASK, and
+        // MainActivity is launchMode=standard) and get discarded, landing on the Dashboard. Gating on
+        // savedInstanceState avoids re-consuming the same intent after a config change. onNewIntent
+        // deliveries to an already-live instance still route via onResume → handleShortcutAction.
+        launchRoute = if (savedInstanceState == null) shortcutRoute(intent) else null
 
         setContent {
             // Prime WindowInsets to prevent UI jumping on first composition
@@ -149,7 +157,9 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun Navigation() {
-        val backStack = rememberNavBackStack(vm.startRoute)
+        // On a fresh launch this seeds [startRoute, launchRoute]; launchRoute is null otherwise. On a
+        // config change rememberNavBackStack restores the saved stack and ignores these args.
+        val backStack = rememberNavBackStack(*listOfNotNull<NavKey>(vm.startRoute, launchRoute).toTypedArray())
 
         LaunchedEffect(Unit) { navCtrl.setup(backStack) }
 
@@ -227,17 +237,25 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun handleShortcutAction(intent: Intent) {
-        val shortcutAction = intent.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION) ?: return
-        log(TAG, VERBOSE) { "Handling shortcut action: $shortcutAction" }
-
-        when (shortcutAction) {
-            ShortcutActivity.ACTION_OPEN_APPCONTROL -> navCtrl.goTo(AppControlListRoute)
-            ShortcutActivity.ACTION_UPGRADE -> navCtrl.goTo(UpgradeRoute())
+    // Map a shortcut/widget launch intent to its destination. Used both to seed the initial back
+    // stack for a fresh launch (onCreate) and to navigate an already-live instance (onResume, for
+    // onNewIntent deliveries).
+    private fun shortcutRoute(intent: Intent?): NavigationDestination? =
+        when (intent?.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)) {
+            ShortcutActivity.ACTION_OPEN_APPCONTROL -> AppControlListRoute
+            ShortcutActivity.ACTION_OPEN_ANALYZER -> DeviceStorageRoute
+            ShortcutActivity.ACTION_UPGRADE -> UpgradeRoute()
+            else -> null
         }
+
+    private fun handleShortcutAction(intent: Intent) {
+        val route = shortcutRoute(intent) ?: return
+        log(TAG, VERBOSE) { "Handling shortcut action → $route" }
+        navCtrl.goTo(route)
     }
 
     private var savedIntent: Intent? = null
+    private var launchRoute: NavigationDestination? = null
 
     companion object {
         private val TAG = logTag("Main", "Activity")

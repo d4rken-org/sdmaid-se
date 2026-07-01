@@ -33,6 +33,7 @@ import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.core.taskmanager.TaskResultNotifier
 import eu.darken.sdmse.stats.core.SpaceMonitorControl
 import eu.darken.sdmse.stats.core.TaskStatsCoordinator
+import eu.darken.sdmse.widget.WidgetRefreshCoordinator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
@@ -61,6 +62,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
     @Inject lateinit var taskResultNotifier: TaskResultNotifier
     @Inject lateinit var storageRescue: StorageRescue
+    @Inject lateinit var widgetRefreshCoordinator: WidgetRefreshCoordinator
 
     private val logCatLogger = LogCatLogger()
 
@@ -117,6 +119,7 @@ open class App : Application(), Configuration.Provider {
         taskStatsCoordinator.start()
         taskResultNotifier.start()
         spaceMonitorControl.start()
+        widgetRefreshCoordinator.start()
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
