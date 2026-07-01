@@ -62,7 +62,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.pluralStringResource
@@ -423,14 +422,8 @@ internal fun AppControlListScreen(
         }
     }
 
-    // The pure Screen reads the guided-tour controller from the composition local, which is only
-    // provided by the host Activity at runtime (and by the screen test). In @Preview/inspection
-    // mode there's no provider — reading `.current` would hit the local's error() default and crash
-    // the preview — so skip all tour wiring when inspecting. This is a no-op at runtime and in tests
-    // (LocalInspectionMode is false there), so guided-tour behavior is unchanged.
-    val tourController = if (LocalInspectionMode.current) null else LocalGuidedTourController.current
-    val tourSession by (tourController?.session ?: remember { MutableStateFlow(null) })
-        .collectAsStateWithLifecycle()
+    val tourController = LocalGuidedTourController.current
+    val tourSession by tourController.session.collectAsStateWithLifecycle()
     val tourActive = tourSession != null
     val tourDef = remember { AppControlListTour.definition() }
     // Track whether we already tried to start the tour in this composition: rows can oscillate
@@ -443,15 +436,12 @@ internal fun AppControlListScreen(
     // and the filter/sort chips (AnimatedVisibility visible = !isBusy) aren't composed while a load
     // is in progress. rowsReady can flip true while progress is still non-null, so starting on
     // rowsReady alone left steps 0-2 with no registered target and they grace-skipped.
-    val tourReady = tourController != null && !rows.isNullOrEmpty() && !isBusy
-    LaunchedEffect(tourReady, tourController) {
+    val tourReady = !rows.isNullOrEmpty() && !isBusy
+    LaunchedEffect(tourReady) {
         if (!tourReady || tourStartAttempted) return@LaunchedEffect
-        // tourController is non-null whenever tourReady is true; the elvis return is just a smart-cast
-        // anchor (it never actually returns here).
-        val controller = tourController ?: return@LaunchedEffect
         // shouldStart() is false for both "done/dismissed" and "another tour active"; mark attempted
         // only after it passes so a transient block can't permanently suppress this tour.
-        if (!controller.shouldStart(tourDef)) return@LaunchedEffect
+        if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
         tourStartAttempted = true
         tourFirstRowId = rows?.firstOrNull()?.installId
         tourController.start(tourDef)

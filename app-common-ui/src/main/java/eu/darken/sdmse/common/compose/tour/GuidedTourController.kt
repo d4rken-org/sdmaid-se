@@ -24,10 +24,10 @@ import javax.inject.Singleton
 class GuidedTourController @Inject constructor(
     private val generalSettings: GeneralSettings,
     @AppScope private val scope: CoroutineScope,
-) {
+) : GuidedTourAccess {
 
     private val _session = MutableStateFlow<TourSession?>(null)
-    val session: StateFlow<TourSession?> = _session.asStateFlow()
+    override val session: StateFlow<TourSession?> = _session.asStateFlow()
 
     @Volatile private var currentTopRoute: NavKey? = null
     @Volatile private var routeAtStart: NavKey? = null
@@ -43,7 +43,7 @@ class GuidedTourController @Inject constructor(
 
     private val mutationMutex = Mutex()
 
-    suspend fun shouldStart(definition: TourDefinition): Boolean {
+    override suspend fun shouldStart(definition: TourDefinition): Boolean {
         if (!generalSettings.isGuidedToursEnabled.value()) return false
         if (_session.value != null) return false
         val raw = definition.id.raw
@@ -52,7 +52,7 @@ class GuidedTourController @Inject constructor(
         return raw !in prefs.completed && raw !in prefs.dismissed
     }
 
-    suspend fun start(definition: TourDefinition) = mutationMutex.withLock {
+    override suspend fun start(definition: TourDefinition) = mutationMutex.withLock {
         if (!shouldStart(definition)) {
             log(TAG, VERBOSE) { "start(${definition.id.raw}): blocked by prefs or active session" }
             return@withLock
@@ -102,7 +102,7 @@ class GuidedTourController @Inject constructor(
      * Exit the current session and suppress this tour for the rest of the app process.
      * The skip is in-memory only, so after the app is restarted the tour becomes eligible again.
      */
-    suspend fun skipForNow() = mutationMutex.withLock {
+    override suspend fun skipForNow() = mutationMutex.withLock {
         val s = _session.value ?: return@withLock
         log(TAG) { "skipForNow(${s.definition.id.raw})" }
         skippedThisSession += s.definition.id.raw
