@@ -75,6 +75,21 @@ class SystemCrawlerSieveTest : BaseTest() {
         )
         configForFile.match(aDirectory).matches shouldBe false
         configForDir.match(aDirectory).matches shouldBe true
+
+        // Symlinks are classified as FILE (matching CustomFilter's fileType mapping): they must
+        // match a file-only filter and be rejected by a directory-only one.
+        val aSymlink = baseLookup.copy(
+            fileType = FileType.SYMBOLIC_LINK
+        )
+        configForFile.match(aSymlink).matches shouldBe true
+        configForDir.match(aSymlink).matches shouldBe false
+
+        // Unknown entries (sockets/fifos/...) are likewise treated as non-directory.
+        val anUnknown = baseLookup.copy(
+            fileType = FileType.UNKNOWN
+        )
+        configForFile.match(anUnknown).matches shouldBe true
+        configForDir.match(anUnknown).matches shouldBe false
     }
 
     @Test

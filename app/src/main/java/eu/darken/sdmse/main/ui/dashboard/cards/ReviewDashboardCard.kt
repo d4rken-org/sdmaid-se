@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.activity.compose.LocalActivity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -38,7 +38,7 @@ data class ReviewDashboardCardItem(
 
 @Composable
 internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
-    val activity = LocalContext.current as? Activity
+    val activity = LocalActivity.current
     DashboardCard(
         containerColor = MaterialTheme.colorScheme.secondaryContainer,
         onClick = { activity?.let(item.onReview) },

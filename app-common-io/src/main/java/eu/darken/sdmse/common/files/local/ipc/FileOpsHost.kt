@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.core.local.createSymlink
 import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.files.core.local.listFiles2
+import eu.darken.sdmse.common.files.core.local.listFilesStreaming
 import eu.darken.sdmse.common.files.local.DirectLocalWalker
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
@@ -31,7 +32,7 @@ import eu.darken.sdmse.common.ipc.fileHandle
 import eu.darken.sdmse.common.ipc.remoteFileHandle
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
@@ -51,11 +52,12 @@ class FileOpsHost @Inject constructor(
 
     override fun listFilesStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path)..." }
-        val result = path.asFile().listFiles2().map { LocalPath.build(it) }
-        if (Bugs.isTrace) log(TAG, VERBOSE) { "listFilesStream($path) ${result.size} items read, now streaming" }
-        result.toRemoteInputStream()
+        // Enumerate the directory lazily (NIO) and stream paths chunk-by-chunk, so a single huge
+        // directory is never fully materialized on the memory-constrained privileged host.
+        val paths = path.asFile().listFilesStreaming().map { LocalPath.build(it) }
+        paths.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
-        log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
+        log(TAG, ERROR) { "listFilesStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
@@ -71,17 +73,12 @@ class FileOpsHost @Inject constructor(
 
     override fun lookupFilesStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesStream($path)..." }
-        // Stream lookups chunk-by-chunk instead of materializing the whole directory (list + bulk
-        // parcel + buffer copy) at once. On the memory-constrained privileged host a concurrent
-        // multi-tool scan could otherwise pile up whole-directory payloads and OOM the process,
-        // which the client then sees as a dead binder (ServiceConnectionLostException).
-        val lookups = flow {
-            listFiles(path).forEach { item ->
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up: $item" }
-                emit(item.performLookup())
-            }
-        }
-        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
+        // Enumerate the directory lazily (NIO) and stream lookups chunk-by-chunk, so neither the
+        // directory listing nor the lookups are fully materialized on the memory-constrained host.
+        // A concurrent multi-tool scan could otherwise pile up whole-directory payloads and OOM the
+        // process, which the client then sees as a dead binder (ServiceConnectionLostException).
+        val lookups = path.asFile().listFilesStreaming().map { LocalPath.build(it).performLookup() }
+        lookups.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFiles(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -116,15 +113,13 @@ class FileOpsHost @Inject constructor(
         followSymlinks: Boolean,
     ): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "walkStream($path, followSymlinks=$followSymlinks)..." }
-        runBlocking {
-            DirectLocalWalker(
-                start = path,
-                onFilter = { lookup ->
-                    pathDoesNotContain.none { lookup.path.contains(it) }
-                },
-                followSymlinks = followSymlinks,
-            ).toRemoteInputStream(appScope + dispatcherProvider.IO)
-        }
+        DirectLocalWalker(
+            start = path,
+            onFilter = { lookup ->
+                pathDoesNotContain.none { lookup.path.contains(it) }
+            },
+            followSymlinks = followSymlinks,
+        ).toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "walkStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()
@@ -132,15 +127,10 @@ class FileOpsHost @Inject constructor(
 
     override fun lookupFilesExtendedStream(path: LocalPath): RemoteInputStream = try {
         if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFilesExtendedStream($path)..." }
-        // Stream chunk-by-chunk instead of materializing the whole directory at once — see
-        // lookupFilesStream for the memory rationale.
-        val lookups = flow {
-            listFiles(path).forEach { item ->
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "Looking up extended: $item" }
-                emit(item.performLookupExtended(ipcFunnel, libcoreTool))
-            }
-        }
-        runBlocking { lookups.toRemoteInputStream(appScope + dispatcherProvider.IO) }
+        // Lazy NIO enumeration + chunked streaming — see lookupFilesStream for the memory rationale.
+        val lookups = path.asFile().listFilesStreaming()
+            .map { LocalPath.build(it).performLookupExtended(ipcFunnel, libcoreTool) }
+        lookups.toRemoteInputStream(appScope + dispatcherProvider.IO)
     } catch (e: Exception) {
         log(TAG, ERROR) { "lookupFilesExtendedStream(path=$path) failed\n${e.asLog()}" }
         throw e.wrapToPropagate()

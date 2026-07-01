@@ -29,7 +29,9 @@ class FileOpsClient @AssistedInject constructor(
      * Doesn't run into IPC buffer overflows on large directories
      */
     fun listFiles(path: LocalPath): Collection<LocalPath> = try {
-        fileOpsConnection.listFilesStream(path).toLocalPaths().also {
+        runBlocking {
+            fileOpsConnection.listFilesStream(path).toLocalPathFlow().toList()
+        }.also {
             if (Bugs.isTrace) log(TAG) { "listFiles($path) finished streaming, ${it.size} items" }
         }
     } catch (e: Exception) {

@@ -32,6 +32,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
 import java.time.Duration
+import java.util.concurrent.atomic.AtomicInteger
 
 class SharedResourceTest : BaseTest() {
     @BeforeEach
@@ -876,5 +877,38 @@ class SharedResourceTest : BaseTest() {
         parent.isClosed shouldBe true   // detach completed despite the throwing child
         goodChildClosed shouldBe true   // iteration continued past the thrower (per-child runCatching)
         sourceTornDown shouldBe true    // source teardown was enqueued before the child loop, not stranded
+    }
+
+    @Test
+    fun `get re-acquires a fresh generation when a reused one fails the liveness check`() = runTest2 {
+        // Real dispatcher, like the other tests here: SharedResource's Lease.close uses runBlocking, which
+        // deadlocks a single-threaded test dispatcher.
+        val produced = AtomicInteger(0)
+        val liveThreshold = AtomicInteger(0) // resources with id > threshold are considered alive
+        val sr = SharedResource<Int>(
+            tag = "reuse-liveness",
+            parentScope = this + Dispatchers.IO,
+            source = flow {
+                emit(produced.incrementAndGet())
+                awaitCancellation()
+            },
+            isReusable = { it > liveThreshold.get() },
+        )
+
+        // A held lease pins generation 1 as `active`, so no idle-teardown can race this test.
+        val pin = sr.get()
+        pin.item shouldBe 1
+
+        // Resource 1 is now "dead" WITHOUT completing its source, so `active` still points at generation 1 —
+        // exactly the window where SharedResource's async detach hasn't cleared the dead generation yet.
+        liveThreshold.set(1)
+
+        // Without the fix, get() reuses the stale dead generation 1. With it, get() fails the liveness
+        // check, detaches generation 1, and re-acquires a fresh generation 2.
+        val second = sr.get()
+        second.item shouldBe 2
+
+        second.close()
+        sr.close()
     }
 }

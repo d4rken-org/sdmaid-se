@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -48,6 +49,8 @@ internal data class AutomationOverlayState(
 internal fun AutomationOverlay(
     modifier: Modifier = Modifier,
     state: AutomationOverlayState,
+    isTv: Boolean = false,
+    showHomeCancelHint: Boolean = false,
     onCancel: () -> Unit,
 ) {
     val progress = state.progress ?: return
@@ -70,7 +73,14 @@ internal fun AutomationOverlay(
             )
 
             Text(
-                text = stringResource(AutomationR.string.automation_screenoverlay_explanation),
+                text = stringResource(
+                    when {
+                        isTv && showHomeCancelHint -> AutomationR.string.automation_screenoverlay_explanation_tv
+                        // TV without a resolvable launcher: no reachable cancel, so don't promise one.
+                        isTv -> AutomationR.string.automation_screenoverlay_explanation_nocancel
+                        else -> AutomationR.string.automation_screenoverlay_explanation
+                    },
+                ),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(horizontal = 32.dp, vertical = 16.dp),
@@ -81,6 +91,7 @@ internal fun AutomationOverlay(
             ControlCard(
                 state = state,
                 progress = progress,
+                isTv = isTv,
                 onCancel = onCancel,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -97,6 +108,7 @@ private fun ControlCard(
     modifier: Modifier = Modifier,
     state: AutomationOverlayState,
     progress: Progress.Data,
+    isTv: Boolean = false,
     onCancel: () -> Unit,
 ) {
     val ctx = LocalContext.current
@@ -161,22 +173,28 @@ private fun ControlCard(
             overflow = TextOverflow.Ellipsis,
         )
 
-        Button(
-            onClick = onCancel,
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.error,
-                contentColor = MaterialTheme.colorScheme.onError,
-            ),
-            modifier = Modifier
-                .align(Alignment.End)
-                .padding(16.dp),
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.Cancel,
-                contentDescription = null,
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(stringResource(CommonR.string.general_cancel_action))
+        if (isTv) {
+            // No touchscreen and the overlay window isn't D-pad focusable, so the button would be
+            // unreachable. Cancel happens via the Home button (see the explanation text) instead.
+            Spacer(modifier = Modifier.height(16.dp))
+        } else {
+            Button(
+                onClick = onCancel,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.error,
+                    contentColor = MaterialTheme.colorScheme.onError,
+                ),
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .padding(16.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.Cancel,
+                    contentDescription = null,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(stringResource(CommonR.string.general_cancel_action))
+            }
         }
     }
 }
@@ -259,6 +277,27 @@ private fun AutomationOverlayPercentPreview() {
                     count = Progress.Count.Percent(current = 33, max = 100),
                 ),
             ),
+            onCancel = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AutomationOverlayTvPreview() {
+    PreviewWrapper {
+        AutomationOverlay(
+            state = AutomationOverlayState(
+                title = "AppCleaner".toCaString(),
+                subtitle = "Clearing caches…".toCaString(),
+                progress = Progress.Data(
+                    primary = "com.example.app".toCaString(),
+                    secondary = "/storage/emulated/0/Android/data/com.example.app/cache".toCaString(),
+                    count = Progress.Count.Indeterminate(),
+                ),
+            ),
+            isTv = true,
+            showHomeCancelHint = true,
             onCancel = {},
         )
     }
