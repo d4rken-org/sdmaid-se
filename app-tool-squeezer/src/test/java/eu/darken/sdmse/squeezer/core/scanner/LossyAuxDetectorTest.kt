@@ -55,7 +55,11 @@ class LossyAuxDetectorTest : BaseTest() {
     )
 
     /** Real ISOBMFF (big-endian boxes): `ftyp` + `meta{ iinf[one infe of itemType], iloc }`. */
-    private fun heifWithItemType(itemType: String): ByteArray {
+    private fun heifWithItemType(
+        itemType: String,
+        infeVersion: Int = 2,
+        brokenIinfSize: Boolean = false,
+    ): ByteArray {
         require(itemType.length == 4)
         fun beU32(v: Int) = byteArrayOf(
             (v ushr 24 and 0xFF).toByte(), (v ushr 16 and 0xFF).toByte(),
@@ -63,9 +67,14 @@ class LossyAuxDetectorTest : BaseTest() {
         )
         fun beU16(v: Int) = byteArrayOf((v ushr 8 and 0xFF).toByte(), (v and 0xFF).toByte())
         fun box(type: String, payload: ByteArray) = beU32(8 + payload.size) + ascii(type) + payload
-        // infe v2: version+flags, item_id, item_protection_index, item_type
-        val infe = box("infe", beU32(0x02000000) + beU16(1) + beU16(0) + ascii(itemType))
-        val iinf = box("iinf", beU32(0) + beU16(1) + infe) // v0, entry_count=1
+        // infe version+flags, item_id (2 bytes @v2 / 4 bytes @v3), item_protection_index, item_type
+        val infePayload = when (infeVersion) {
+            3 -> beU32(0x03000000) + beU32(1) + beU16(0) + ascii(itemType)
+            else -> beU32(0x02000000) + beU16(1) + beU16(0) + ascii(itemType)
+        }
+        val infe = box("infe", infePayload)
+        var iinf = box("iinf", beU32(0) + beU16(1) + infe) // iinf v0, entry_count=1
+        if (brokenIinfSize) iinf = beU32(0) + iinf.copyOfRange(4, iinf.size) // size 0 -> malformed
         val iloc = box("iloc", ByteArray(0))
         val meta = box("meta", beU32(0) + iinf + iloc) // FullBox
         return box("ftyp", ascii("heic") + beU32(0) + ascii("heic")) + meta
@@ -81,6 +90,14 @@ class LossyAuxDetectorTest : BaseTest() {
         return block + dir + (leU32(dir.size.toLong()) + ascii("SEFT"))
     }
 
+    /** SEF trailer with a trailing QDIO (Sound&Shot) block, so the file ends in "QDIOBS" not "SEFT". */
+    private fun sefTrailerWithQdio(blockName: String): ByteArray {
+        // QDIO block: ['QDIO'][101][1][audioStart][audioEnd] payload(20) + [len=20]['QDIO'], then 'BS'.
+        val qdioPayload = ascii("QDIO") + leU32(101) + leU32(1) + leU32(0) + leU32(0)
+        val qdio = qdioPayload + leU32(qdioPayload.size.toLong()) + ascii("QDIO")
+        return sefTrailer(blockName) + qdio + ascii("BS")
+    }
+
     /** Minimal JPEG (SOI+EOI, or a broken head when [soi]=false) followed by an SEF trailer. */
     private fun jpegWithSef(blockName: String, soi: Boolean = true): ByteArray {
         val head = if (soi) {
@@ -90,6 +107,8 @@ class LossyAuxDetectorTest : BaseTest() {
         }
         return head + sefTrailer(blockName)
     }
+
+    private fun jpegHead() = byteArrayOf(0xFF.toByte(), 0xD8.toByte(), 0xFF.toByte(), 0xD9.toByte())
 
     private val jpeg = CompressibleImage.MIME_TYPE_JPEG
     private val webp = CompressibleImage.MIME_TYPE_WEBP
@@ -187,6 +206,22 @@ class LossyAuxDetectorTest : BaseTest() {
     }
 
     @Test
+    fun `heif with a v3 infe tmap item is a gain map`() {
+        detector.hasLossyAux(tmp(heifWithItemType("tmap", infeVersion = 3), "heic"), heic) shouldBe true
+    }
+
+    @Test
+    fun `bare tmap text without a structural infe is not a false positive`() {
+        // 'tmap' appearing only as free text in the meta box must not trip the structural iinf walk.
+        detector.hasLossyAux(tmp(heif("caption: shot with tmap tone mapping, no real item"), "heic"), heic) shouldBe false
+    }
+
+    @Test
+    fun `malformed HEIF with a size-zero iinf box fails open to false`() {
+        detector.hasLossyAux(tmp(heifWithItemType("tmap", brokenIinfSize = true), "heic"), heic) shouldBe false
+    }
+
+    @Test
     fun `jpeg with a Samsung SEF DepthMap trailer is depth data`() {
         detector.hasLossyAux(tmp(jpegWithSef("DualShot_DepthMap_1"), "jpg"), jpeg) shouldBe true
     }
@@ -195,6 +230,17 @@ class LossyAuxDetectorTest : BaseTest() {
     fun `jpeg with a non-depth SEF trailer is not flagged`() {
         // A valid SEF trailer without a DepthMap block (e.g. Sound&Shot metadata) must not be skipped.
         detector.hasLossyAux(tmp(jpegWithSef("DualShot_Meta_Info"), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `jpeg whose depth SEF is followed by a QDIO block (QDIOBS tail) is still depth data`() {
+        // The SEFT directory isn't last; the backward walk must skip the trailing QDIO block.
+        detector.hasLossyAux(tmp(jpegHead() + sefTrailerWithQdio("DualShot_DepthMap_1"), "jpg"), jpeg) shouldBe true
+    }
+
+    @Test
+    fun `jpeg with a non-depth SEF behind a QDIO block is not flagged`() {
+        detector.hasLossyAux(tmp(jpegHead() + sefTrailerWithQdio("DualShot_Meta_Info"), "jpg"), jpeg) shouldBe false
     }
 
     @Test
