@@ -2,6 +2,7 @@ package eu.darken.sdmse.widget.ui
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.text.format.Formatter
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
@@ -53,20 +54,33 @@ private val NARROW_ELEMENT_SIZE = 44.dp
 // NOTE: the widget root must NOT be clickable. A clickable parent swallows taps on the clickable
 // Clean button nested inside it, so the button would open the app instead of cleaning. Instead the
 // "open app" click sits on a content group that is a *sibling* of the Clean button.
+//
+// Each Action's Intent must be `filterEquals`-distinct, otherwise their PendingIntents collapse into
+// one. `Intent.filterEquals` compares component/action/data but IGNORES extras and flags, so the two
+// MainActivity intents below (which differ only by extra + flags) would otherwise share a single
+// PendingIntent and route every tap to whichever was registered — that made storage taps open the
+// dashboard instead of the Analyzer. Distinct `data` URIs keep them separate. `clean()` already
+// differs by component (ShortcutActivity) + action.
+private val URI_OPEN_APP = Uri.parse("sdmse://widget/home")
+private val URI_OPEN_ANALYZER = Uri.parse("sdmse://widget/analyzer")
+
+// Extracted + internal so the filterEquals-distinctness that keeps their PendingIntents from
+// collapsing (and `clean()`'s) is unit-testable without a composition. See WidgetIntentsTest.
+internal fun widgetOpenAppIntent(context: Context): Intent =
+    Intent(context, MainActivity::class.java).apply { data = URI_OPEN_APP }
+
+internal fun widgetOpenAnalyzerIntent(context: Context): Intent =
+    Intent(context, MainActivity::class.java).apply {
+        data = URI_OPEN_ANALYZER
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        putExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION, ShortcutActivity.ACTION_OPEN_ANALYZER)
+    }
 
 @Composable
-private fun openApp(): Action = actionStartActivity(Intent(LocalContext.current, MainActivity::class.java))
+private fun openApp(): Action = actionStartActivity(widgetOpenAppIntent(LocalContext.current))
 
 @Composable
-private fun openAnalyzer(): Action {
-    val context = LocalContext.current
-    return actionStartActivity(
-        Intent(context, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            putExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION, ShortcutActivity.ACTION_OPEN_ANALYZER)
-        }
-    )
-}
+private fun openAnalyzer(): Action = actionStartActivity(widgetOpenAnalyzerIntent(LocalContext.current))
 
 @Composable
 private fun clean(): Action = actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(LocalContext.current))
