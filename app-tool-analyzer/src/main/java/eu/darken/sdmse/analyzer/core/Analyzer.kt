@@ -229,6 +229,18 @@ class Analyzer @Inject constructor(
             throw UnsupportedOperationException("Deletion is not supported for $what")
         }
 
+        // App tasks are rebuilt against their pkgStat after deletion — resolve it now so a malformed task
+        // (missing/wrong targetPkg, foreign group) fails before any file is deleted, not after.
+        val oldPkg = (oldCategory as? AppCategory)?.let { category ->
+            val pkg = category.pkgStats[task.targetPkg]
+                ?: throw IllegalStateException("Can't find pkgStat ${task.targetPkg} for ${task.groupId}")
+            val groups = setOfNotNull(pkg.appCode, pkg.appData, pkg.appMedia, pkg.extraData)
+            if (groups.none { it == oldGroup }) {
+                throw IllegalStateException("${pkg.id} has no content group matching ${task.groupId}")
+            }
+            pkg
+        }
+
         updateProgressPrimary {
             it.getString(
                 eu.darken.sdmse.common.R.string.general_progress_deleting_x,
@@ -259,13 +271,13 @@ class Analyzer @Inject constructor(
 
         val newCategory = when (oldCategory) {
             is AppCategory -> {
-                val oldPkg = oldCategory.pkgStats[task.targetPkg]!!
+                checkNotNull(oldPkg) { "pkgStat was preflight-resolved for app categories" }
                 val newPkg = when {
                     oldPkg.appCode == oldGroup -> oldPkg.copy(appCode = newGroup)
                     oldPkg.appData == oldGroup -> oldPkg.copy(appData = newGroup)
                     oldPkg.appMedia == oldGroup -> oldPkg.copy(appMedia = newGroup)
                     oldPkg.extraData == oldGroup -> oldPkg.copy(extraData = newGroup)
-                    else -> throw IllegalArgumentException("${oldPkg.id} has no matching content group")
+                    else -> error("unreachable: group membership was preflight-validated")
                 }
                 oldCategory.copy(
                     pkgStats = oldCategory.pkgStats.mutate {
