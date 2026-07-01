@@ -359,4 +359,15 @@
 
     <string name="general_settings_reset_guided_tours_label">Reset guided tours</string>
     <string name="general_settings_reset_guided_tours_summary">Show all guided tours again the next time you visit their screen. Also re-enables all tours if you previously turned them off.</string>
+
+    <string name="widget_home_title">SD Maid</string>
+    <string name="widget_home_description">Storage usage and one-tap cleanup</string>
+    <string name="widget_home_storage_internal">Internal</string>
+    <string name="widget_home_storage_external">External</string>
+    <string name="widget_home_freed_label">Freed: %1$s</string>
+    <string name="widget_home_clean_action">Clean</string>
+    <string name="widget_home_unavailable">Storage unavailable</string>
+
+    <string name="shortcut_onetap_started">Scan &amp; delete started…</string>
+    <string name="shortcut_onetap_nothing_enabled">No one-tap tools are enabled</string>
 </resources>

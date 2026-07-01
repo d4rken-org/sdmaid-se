@@ -184,6 +184,15 @@ fun DependencyHandlerScope.addCompose() {
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
 }
 
+fun DependencyHandlerScope.addGlance() {
+    implementation("androidx.glance:glance-appwidget:${Versions.AndroidX.Glance.core}")
+    implementation("androidx.glance:glance-material3:${Versions.AndroidX.Glance.core}")
+
+    // @Preview annotation (kept on the main classpath); renderer stays debug-only.
+    implementation("androidx.glance:glance-preview:${Versions.AndroidX.Glance.core}")
+    debugImplementation("androidx.glance:glance-appwidget-preview:${Versions.AndroidX.Glance.core}")
+}
+
 fun DependencyHandlerScope.addNavigation3() {
     implementation("androidx.navigation3:navigation3-runtime-android:${Versions.AndroidX.Navigation3.core}")
     implementation("androidx.navigation3:navigation3-ui-android:${Versions.AndroidX.Navigation3.core}")

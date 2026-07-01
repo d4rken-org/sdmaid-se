@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.common.coroutine.AppCoroutineScope
@@ -85,41 +86,60 @@ class ShortcutActivity : ComponentActivity() {
 
         log(TAG, INFO) { "Executing scan and delete tasks" }
 
-        if (generalSettings.oneClickCorpseFinderEnabled.value()) {
+        val corpseEnabled = generalSettings.oneClickCorpseFinderEnabled.value()
+        val systemEnabled = generalSettings.oneClickSystemCleanerEnabled.value()
+        val appCleanerEnabled = generalSettings.oneClickAppCleanerEnabled.value()
+        val deduplicatorEnabled = generalSettings.oneClickDeduplicatorEnabled.value()
+
+        if (!corpseEnabled && !systemEnabled && !appCleanerEnabled && !deduplicatorEnabled) {
+            log(TAG, INFO) { "No one-tap tools are enabled, nothing to run" }
+            withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@ShortcutActivity,
+                    getString(R.string.shortcut_onetap_nothing_enabled),
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+            return@launch
+        }
+
+        // Show "started" up front: submit() suspends until each task finishes, so showing it after
+        // the submits would land only once everything is already done.
+        withContext(Dispatchers.Main) {
+            Toast.makeText(
+                this@ShortcutActivity,
+                getString(R.string.shortcut_onetap_started),
+                Toast.LENGTH_SHORT,
+            ).show()
+        }
+
+        if (corpseEnabled) {
             try {
                 taskManager.submit(CorpseFinderOneClickTask())
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit CorpseFinderOneClickTask: $e" }
             }
         }
-        if (generalSettings.oneClickSystemCleanerEnabled.value()) {
+        if (systemEnabled) {
             try {
                 taskManager.submit(SystemCleanerOneClickTask())
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit SystemCleanerOneClickTask: $e" }
             }
         }
-        if (generalSettings.oneClickAppCleanerEnabled.value()) {
+        if (appCleanerEnabled) {
             try {
                 taskManager.submit(AppCleanerOneClickTask(shortcutMode = true))
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit AppCleanerOneClickTask: $e" }
             }
         }
-        if (generalSettings.oneClickDeduplicatorEnabled.value()) {
+        if (deduplicatorEnabled) {
             try {
                 taskManager.submit(DeduplicatorOneClickTask())
             } catch (e: Exception) {
                 log(TAG) { "Failed to submit DeduplicatorOneClickTask: $e" }
             }
-        }
-
-        withContext(Dispatchers.Main) {
-            Toast.makeText(
-                this@ShortcutActivity,
-                "Scan & delete started...",
-                Toast.LENGTH_SHORT
-            ).show()
         }
     }
 

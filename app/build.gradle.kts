@@ -233,6 +233,7 @@ dependencies {
     implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
     addCompose()
+    addGlance()
     addNavigation3()
     addWorkerManager()
     // WorkManager exposes ListenableFuture in its API (TaskWorkerControl.kt).

@@ -101,8 +101,15 @@ class SpaceTracker @Inject constructor(
         return inserted
     }
 
-    private suspend fun readCurrentStorages(): Set<StorageSnapshot> {
-        val primary = run {
+    /**
+     * Reads the current snapshot of the primary (built-in) storage volume.
+     *
+     * Self-contained and IO-dispatched: safe to call from any context (e.g. a home-screen widget
+     * refresh). Falls back to the [java.io.File] API when [StorageStatsManager2] is unavailable, and
+     * returns `null` only if even the fallback throws.
+     */
+    suspend fun readPrimaryStorage(): StorageSnapshot? = withContext(dispatcherProvider.IO) {
+        try {
             val primaryUuid = StorageManager.UUID_DEFAULT ?: UUID.fromString("00000000-0000-0000-0000-000000000000")
             val storageId = StorageId(
                 internalId = null,
@@ -126,61 +133,82 @@ class SpaceTracker @Inject constructor(
                 spaceFree = freeBytes,
                 spaceCapacity = totalBytes,
             )
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "readPrimaryStorage() failed: ${e.asLog()}" }
+            null
         }
+    }
 
-        val secondary = (storageManager2.volumes ?: emptySet())
-            .filter { it.isPrimary == false && it.fsUuid != null && it.isMounted }
-            .mapNotNull { volume ->
-                val volumeUuid = StorageId.parseVolumeUuid(volume.fsUuid)
-                if (volumeUuid == null) {
-                    log(TAG, WARN) { "Failed to determine UUID for volume: $volume" }
-                    return@mapNotNull null
-                }
-
-                val storageId = StorageId(
-                    internalId = volume.fsUuid,
-                    externalId = volumeUuid,
-                )
-                val isFatUuid = volumeUuid.toString().startsWith(StorageId.FAT_UUID_PREFIX)
-                val fileTotal = volume.path?.totalSpace ?: 0L
-                val fileFree = volume.path?.freeSpace ?: 0L
-
-                val (totalBytes, freeBytes) = try {
-                    val statsTotal = storageStatsManager.getTotalBytes(storageId)
-                    val statsFree = storageStatsManager.getFreeBytes(storageId)
-
-                    // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
-                    // If statfs disagrees with the API by >10%, trust the filesystem.
-                    val mismatches = isFatUuid
-                        && fileTotal > 0
-                        && abs(statsTotal - fileTotal) * 10 > fileTotal
-                    if (mismatches) {
-                        log(TAG, WARN) {
-                            "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $storageId; using File"
-                        }
-                        fileTotal to fileFree
-                    } else {
-                        statsTotal to statsFree
+    /**
+     * Reads snapshots of the mounted secondary volumes (SD card, USB, adopted storage).
+     *
+     * Self-contained, IO-dispatched, and safe: returns an empty list if the volumes can't be
+     * enumerated. Same [StorageStatsManager2] → [java.io.File] fallback as the primary read.
+     */
+    suspend fun readSecondaryStorages(): List<StorageSnapshot> = withContext(dispatcherProvider.IO) {
+        try {
+            (storageManager2.volumes ?: emptySet())
+                .filter { it.isPrimary == false && it.fsUuid != null && it.isMounted }
+                .mapNotNull { volume ->
+                    val volumeUuid = StorageId.parseVolumeUuid(volume.fsUuid)
+                    if (volumeUuid == null) {
+                        log(TAG, WARN) { "Failed to determine UUID for volume: $volume" }
+                        return@mapNotNull null
                     }
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "StorageStatsManager failed for $storageId, using File API: ${e.asLog()}" }
-                    fileTotal to fileFree
+
+                    val storageId = StorageId(
+                        internalId = volume.fsUuid,
+                        externalId = volumeUuid,
+                    )
+                    val isFatUuid = volumeUuid.toString().startsWith(StorageId.FAT_UUID_PREFIX)
+                    val fileTotal = volume.path?.totalSpace ?: 0L
+                    val fileFree = volume.path?.freeSpace ?: 0L
+
+                    val (totalBytes, freeBytes) = try {
+                        val statsTotal = storageStatsManager.getTotalBytes(storageId)
+                        val statsFree = storageStatsManager.getFreeBytes(storageId)
+
+                        // For FAT synthesised UUIDs, StorageStatsManager is unreliable on some devices (#2389).
+                        // If statfs disagrees with the API by >10%, trust the filesystem.
+                        val mismatches = isFatUuid
+                            && fileTotal > 0
+                            && abs(statsTotal - fileTotal) * 10 > fileTotal
+                        if (mismatches) {
+                            log(TAG, WARN) {
+                                "StorageStats total=$statsTotal disagrees with File=$fileTotal for FAT $storageId; using File"
+                            }
+                            fileTotal to fileFree
+                        } else {
+                            statsTotal to statsFree
+                        }
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "StorageStatsManager failed for $storageId, using File API: ${e.asLog()}" }
+                        fileTotal to fileFree
+                    }
+
+                    if (totalBytes <= 0L) {
+                        log(TAG, WARN) { "Secondary volume reports zero capacity, skipping: $volume" }
+                        return@mapNotNull null
+                    }
+
+                    StorageSnapshot(
+                        storageId = storageId.externalId.toString(),
+                        spaceFree = freeBytes,
+                        spaceCapacity = totalBytes,
+                    )
                 }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "readSecondaryStorages() failed: ${e.asLog()}" }
+            emptyList()
+        }
+    }
 
-                if (totalBytes <= 0L) {
-                    log(TAG, WARN) { "Secondary volume reports zero capacity, skipping: $volume" }
-                    return@mapNotNull null
-                }
-
-                StorageSnapshot(
-                    storageId = storageId.externalId.toString(),
-                    spaceFree = freeBytes,
-                    spaceCapacity = totalBytes,
-                )
-            }
-            .toSet()
-
-        return setOf(primary) + secondary
+    private suspend fun readCurrentStorages(): Set<StorageSnapshot> {
+        return setOfNotNull(readPrimaryStorage()) + readSecondaryStorages()
     }
 
     data class StorageSnapshot(
