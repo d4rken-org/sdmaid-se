@@ -14,6 +14,7 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
+import androidx.glance.action.Action
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.LinearProgressIndicator
 import androidx.glance.appwidget.action.actionStartActivity
@@ -48,9 +49,18 @@ private val BUTTON_LABEL_MIN_WIDTH = 300.dp // at/above this (1 row) → show th
 // Equal element size for the symmetric narrow (ring) row.
 private val NARROW_ELEMENT_SIZE = 44.dp
 
+// NOTE: the widget root must NOT be clickable. A clickable parent swallows taps on the clickable
+// Clean button nested inside it, so the button would open the app instead of cleaning. Instead the
+// "open app" click sits on a content group that is a *sibling* of the Clean button.
+
+@Composable
+private fun openApp(): Action = actionStartActivity(Intent(LocalContext.current, MainActivity::class.java))
+
+@Composable
+private fun clean(): Action = actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(LocalContext.current))
+
 @Composable
 internal fun WidgetContent(state: WidgetRenderState) {
-    val context = LocalContext.current
     GlanceTheme {
         Box(
             modifier = GlanceModifier
@@ -58,7 +68,6 @@ internal fun WidgetContent(state: WidgetRenderState) {
                 .appWidgetBackground()
                 .background(GlanceTheme.colors.background)
                 .cornerRadius(20.dp)
-                .clickable(actionStartActivity(Intent(context, MainActivity::class.java)))
                 .padding(horizontal = 14.dp, vertical = 12.dp),
         ) {
             when (state) {
@@ -77,15 +86,17 @@ internal fun WidgetContent(state: WidgetRenderState) {
     }
 }
 
-/** Tall (2+ rows): branding + storage pinned to the top, Clean button pinned to the bottom. */
+/** Tall (2+ rows): branding + storage (tap → app) at the top, Clean button pinned to the bottom. */
 @Composable
 private fun StackedLayout(data: WidgetRenderState.Data) {
     Column(modifier = GlanceModifier.fillMaxSize()) {
-        BrandingHeader(data.freedBytes)
-        Spacer(GlanceModifier.height(12.dp))
-        data.storages.forEachIndexed { index, entry ->
-            if (index > 0) Spacer(GlanceModifier.height(10.dp))
-            StorageRow(entry)
+        Column(modifier = GlanceModifier.fillMaxWidth().clickable(openApp())) {
+            BrandingHeader(data.freedBytes)
+            Spacer(GlanceModifier.height(12.dp))
+            data.storages.forEachIndexed { index, entry ->
+                if (index > 0) Spacer(GlanceModifier.height(10.dp))
+                StorageRow(entry)
+            }
         }
         Spacer(GlanceModifier.defaultWeight())
         Spacer(GlanceModifier.height(12.dp))
@@ -94,7 +105,7 @@ private fun StackedLayout(data: WidgetRenderState.Data) {
 }
 
 /**
- * 1 row, medium/wide: mascot + primary storage value + bar + Clean button. The button label only
+ * 1 row, medium/wide: mascot + primary storage (tap → app) + Clean button. The button label only
  * shows at the widest sizes; at ~3 columns it's icon-only so the value isn't truncated.
  */
 @Composable
@@ -104,17 +115,22 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
         modifier = GlanceModifier.fillMaxSize(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Mascot(40.dp)
-        Spacer(GlanceModifier.width(12.dp))
-        Column(modifier = GlanceModifier.defaultWeight()) {
-            data.storages.firstOrNull()?.let { entry ->
-                Text(
-                    text = usedOfTotal(context, entry),
-                    style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
-                    maxLines = 1,
-                )
-                Spacer(GlanceModifier.height(5.dp))
-                StorageBar(entry.usedRatio)
+        Row(
+            modifier = GlanceModifier.defaultWeight().clickable(openApp()),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Mascot(40.dp)
+            Spacer(GlanceModifier.width(12.dp))
+            Column(modifier = GlanceModifier.defaultWeight()) {
+                data.storages.firstOrNull()?.let { entry ->
+                    Text(
+                        text = usedOfTotal(context, entry),
+                        style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
+                        maxLines = 1,
+                    )
+                    Spacer(GlanceModifier.height(5.dp))
+                    StorageBar(entry.usedRatio)
+                }
             }
         }
         Spacer(GlanceModifier.width(12.dp))
@@ -124,17 +140,20 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
 
 /**
  * 1 row, narrow (~2 col): mascot, storage ring and Clean button as three equal-size circles, evenly
- * distributed.
+ * distributed. Mascot + ring tap → app; the button cleans.
  */
 @Composable
 private fun RingRowLayout(data: WidgetRenderState.Data) {
+    val openApp = openApp()
     Row(
         modifier = GlanceModifier.fillMaxSize(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Mascot(NARROW_ELEMENT_SIZE)
+        Mascot(NARROW_ELEMENT_SIZE, GlanceModifier.clickable(openApp))
         Spacer(GlanceModifier.defaultWeight())
-        data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
+        Box(modifier = GlanceModifier.size(NARROW_ELEMENT_SIZE).clickable(openApp)) {
+            data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
+        }
         Spacer(GlanceModifier.defaultWeight())
         CleanCircle(NARROW_ELEMENT_SIZE)
     }
@@ -163,11 +182,11 @@ private fun BrandingHeader(freedBytes: Long) {
 }
 
 @Composable
-private fun Mascot(size: Dp) {
+private fun Mascot(size: Dp, modifier: GlanceModifier = GlanceModifier) {
     Image(
         provider = ImageProvider(R.mipmap.ic_launcher_round),
         contentDescription = null,
-        modifier = GlanceModifier.size(size),
+        modifier = GlanceModifier.size(size).then(modifier),
     )
 }
 
@@ -215,7 +234,7 @@ private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Bo
         modifier = modifier
             .background(GlanceTheme.colors.primary)
             .cornerRadius(22.dp)
-            .clickable(actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(context)))
+            .clickable(clean())
             .padding(horizontal = if (showLabel) 16.dp else 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -246,7 +265,7 @@ private fun CleanCircle(size: Dp) {
             .size(size)
             .background(GlanceTheme.colors.primary)
             .cornerRadius(size / 2)
-            .clickable(actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(context))),
+            .clickable(clean()),
         contentAlignment = Alignment.Center,
     ) {
         Image(
@@ -262,7 +281,7 @@ private fun CleanCircle(size: Dp) {
 private fun UnavailableContent() {
     val context = LocalContext.current
     Column(
-        modifier = GlanceModifier.fillMaxSize(),
+        modifier = GlanceModifier.fillMaxSize().clickable(openApp()),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
