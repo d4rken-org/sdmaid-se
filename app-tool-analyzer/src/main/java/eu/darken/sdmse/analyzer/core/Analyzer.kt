@@ -18,6 +18,8 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
+import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
 import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
@@ -216,6 +218,29 @@ class Analyzer @Inject constructor(
     private suspend fun deleteContent(task: ContentDeleteTask): ContentDeleteTask.Result {
         log(TAG, VERBOSE) { "deleteContent(): $task" }
 
+        val oldCategory: ContentCategory = storageCategories.value[task.storageId]
+            ?.singleOrNull { it.ownsGroup(task.groupId) }
+            ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
+        val oldGroup = oldCategory.groups.single { it.id == task.groupId }
+
+        if (oldCategory.isContentReadOnly) {
+            val what = if (oldCategory is SystemCategory) "system content" else "read-only media content"
+            log(TAG, WARN) { "deleteContent(): Blocked — $what is read-only" }
+            throw UnsupportedOperationException("Deletion is not supported for $what")
+        }
+
+        // App tasks are rebuilt against their pkgStat after deletion — resolve it now so a malformed task
+        // (missing/wrong targetPkg, foreign group) fails before any file is deleted, not after.
+        val oldPkg = (oldCategory as? AppCategory)?.let { category ->
+            val pkg = category.pkgStats[task.targetPkg]
+                ?: throw IllegalStateException("Can't find pkgStat ${task.targetPkg} for ${task.groupId}")
+            val groups = setOfNotNull(pkg.appCode, pkg.appData, pkg.appMedia, pkg.extraData)
+            if (groups.none { it == oldGroup }) {
+                throw IllegalStateException("${pkg.id} has no content group matching ${task.groupId}")
+            }
+            pkg
+        }
+
         updateProgressPrimary {
             it.getString(
                 eu.darken.sdmse.common.R.string.general_progress_deleting_x,
@@ -232,14 +257,6 @@ class Analyzer @Inject constructor(
                 (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
 
-        // TODO this seems convoluted, can we come up with a better data pattern?
-        var _oldGroup: ContentGroup? = null
-        val oldCategory: ContentCategory = storageCategories.value[task.storageId]!!.singleOrNull { category ->
-            category.groups.singleOrNull { it.id == task.groupId }
-                ?.also { _oldGroup = it }
-                ?.let { true } ?: false
-        } ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
-        val oldGroup = _oldGroup!!
         var freedSpace = 0L
         val newContents = oldGroup.contents
             .toFlatContent()
@@ -254,13 +271,13 @@ class Analyzer @Inject constructor(
 
         val newCategory = when (oldCategory) {
             is AppCategory -> {
-                val oldPkg = oldCategory.pkgStats[task.targetPkg]!!
+                checkNotNull(oldPkg) { "pkgStat was preflight-resolved for app categories" }
                 val newPkg = when {
                     oldPkg.appCode == oldGroup -> oldPkg.copy(appCode = newGroup)
                     oldPkg.appData == oldGroup -> oldPkg.copy(appData = newGroup)
                     oldPkg.appMedia == oldGroup -> oldPkg.copy(appMedia = newGroup)
                     oldPkg.extraData == oldGroup -> oldPkg.copy(extraData = newGroup)
-                    else -> throw IllegalArgumentException("${oldPkg.id} has no matching content group")
+                    else -> error("unreachable: group membership was preflight-validated")
                 }
                 oldCategory.copy(
                     pkgStats = oldCategory.pkgStats.mutate {
