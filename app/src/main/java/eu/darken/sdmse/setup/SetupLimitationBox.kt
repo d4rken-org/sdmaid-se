@@ -3,8 +3,8 @@ package eu.darken.sdmse.setup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,7 +25,8 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 /**
  * Highlighted hint for setup states the user can't (fully) fix themselves, e.g. OS restrictions or device
- * limitations. Pass the available actions (help, settings, ...) as buttons; they share the row equally.
+ * limitations. Actions stack vertically; long button labels must not wrap. Callers with several short-labeled
+ * actions can place their own Row inside the slot.
  */
 @Composable
 internal fun SetupLimitationBox(
@@ -33,7 +34,7 @@ internal fun SetupLimitationBox(
     body: String,
     modifier: Modifier = Modifier,
     body2: String? = null,
-    actions: @Composable RowScope.() -> Unit,
+    actions: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -70,11 +71,11 @@ internal fun SetupLimitationBox(
                 color = Color.Unspecified,
             )
         }
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             actions()
         }
@@ -90,11 +91,11 @@ private fun SetupLimitationBoxPreview() {
             body = "The system returned an incomplete list of installed apps, even though the required permissions appear to be granted.",
             body2 = "Some devices never provide a complete app list. To protect your data, app-related tools stay disabled.",
         ) {
-            OutlinedButton(onClick = {}, modifier = Modifier.weight(1f)) {
-                Text("Help")
-            }
-            Button(onClick = {}, modifier = Modifier.weight(1f)) {
+            Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
                 Text("Open system settings")
+            }
+            OutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+                Text("Help")
             }
         }
     }

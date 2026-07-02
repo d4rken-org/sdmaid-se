@@ -87,17 +87,17 @@ internal fun InventorySetupCard(
                 body = stringResource(R.string.setup_inventory_limitation_body),
                 body2 = stringResource(R.string.setup_inventory_limitation_body2),
             ) {
-                OutlinedButton(
-                    onClick = item.onHelp,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text(stringResource(CommonR.string.general_help_action))
-                }
                 Button(
                     onClick = item.onGrantAction,
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
                     Text(stringResource(CommonR.string.general_open_system_settings_action))
+                }
+                OutlinedButton(
+                    onClick = item.onHelp,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
                 }
             }
         }

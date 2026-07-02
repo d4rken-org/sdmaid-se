@@ -86,7 +86,7 @@ internal fun AutomationSetupCard(
             ) {
                 Button(
                     onClick = item.onAdvancedProtectionHelp,
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
                     Text(stringResource(CommonR.string.general_help_action))
                 }
@@ -98,17 +98,22 @@ internal fun AutomationSetupCard(
                 title = stringResource(R.string.setup_acs_appops_restriction_title),
                 body = stringResource(R.string.setup_acs_appops_restriction_body),
             ) {
-                OutlinedButton(
-                    onClick = item.onRestrictionsHelp,
-                    modifier = Modifier.weight(1f),
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Text(stringResource(CommonR.string.general_help_action))
-                }
-                Button(
-                    onClick = item.onRestrictionsShow,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Text(stringResource(CommonR.string.general_view_action))
+                    OutlinedButton(
+                        onClick = item.onRestrictionsHelp,
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text(stringResource(CommonR.string.general_help_action))
+                    }
+                    Button(
+                        onClick = item.onRestrictionsShow,
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text(stringResource(CommonR.string.general_view_action))
+                    }
                 }
             }
         }
