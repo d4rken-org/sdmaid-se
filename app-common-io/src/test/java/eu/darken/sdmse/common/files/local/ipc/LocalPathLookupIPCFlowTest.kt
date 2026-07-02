@@ -8,15 +8,20 @@ import eu.darken.sdmse.common.ipc.remoteInputStream
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import okio.ByteString.Companion.toByteString
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -27,6 +32,7 @@ import testhelpers.TestApplication
 import java.io.ByteArrayInputStream
 import java.io.IOException
 import java.time.Instant
+import java.util.concurrent.CopyOnWriteArrayList
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
@@ -155,6 +161,34 @@ class LocalPathLookupIPCFlowTest : BaseTest() {
                     source.toRemoteInputStream(scope).toLocalPathLookupFlow().toList()
                 }.exceptionOrNull()
                 thrown.shouldBeInstanceOf<IOException>()
+            }
+        } finally {
+            scope.cancel()
+        }
+    }
+
+    @Test
+    fun `consumer cancellation does not propagate into the host scope`() {
+        // Regression guard: the client decoder closes the pipe when its collector is cancelled
+        // (take(), user-cancelled scan). The host writer then fails with "Pipe closed" — that
+        // failure must be contained, not rethrown into `scope`: in production that is the
+        // helper's unsupervised app scope, where an uncaught exception kills the privileged
+        // process (surfacing as ServiceConnectionLost on the next IPC call).
+        val uncaught = CopyOnWriteArrayList<Throwable>()
+        val supervisor = SupervisorJob()
+        val scope = CoroutineScope(
+            supervisor + Dispatchers.IO + CoroutineExceptionHandler { _, e -> uncaught += e },
+        )
+        try {
+            runBlocking {
+                val source: Flow<LocalPathLookup> = flow {
+                    repeat(100_000) { emit(lookup("file$it")) }
+                }
+                val collected = source.toRemoteInputStream(scope).toLocalPathLookupFlow().take(3).toList()
+                collected.size shouldBe 3
+                // The writer must unwind on the broken pipe instead of hanging or throwing.
+                withTimeout(10_000) { supervisor.children.toList().joinAll() }
+                uncaught shouldBe emptyList<Throwable>()
             }
         } finally {
             scope.cancel()

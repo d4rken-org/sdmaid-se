@@ -115,8 +115,12 @@ fun File.listFilesStreaming(): Flow<File> = flow {
     }
 }
 
-fun File.isSymbolicLink(): Boolean {
-    return readLink() != null
+// NOFOLLOW lstat: true for any symlink node, including one whose target is missing/unreadable.
+// Fail-safe to false so an unstattable path (e.g. unreadable parent) is treated as "not a symlink".
+fun File.isSymbolicLink(): Boolean = try {
+    Files.isSymbolicLink(toPath())
+} catch (_: Exception) {
+    false
 }
 
 fun File.createSymlink(target: File): Boolean {

@@ -29,6 +29,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -64,6 +65,7 @@ class FilterContentDetailsViewModel @Inject constructor(
         val itemsState = systemCleaner.state
             .map { it.data }
             .filterNotNull()
+            .distinctUntilChanged()
             .map { data ->
                 val sortedContents = data.filterContents.sortedByDescending { it.size }
 

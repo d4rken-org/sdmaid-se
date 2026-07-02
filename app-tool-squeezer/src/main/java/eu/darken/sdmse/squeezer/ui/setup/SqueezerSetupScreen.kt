@@ -98,10 +98,21 @@ fun SqueezerSetupScreenHost(
                 }
 
                 is SqueezerSetupViewModel.Event.NoResultsFound -> snackScope.launch {
-                    snackbarHostState.showSnackbar(
-                        message = context.getString(R.string.squeezer_result_empty_message),
-                        duration = SnackbarDuration.Short,
-                    )
+                    if (event.skippedLossyAuxCount > 0) {
+                        snackbarHostState.showSnackbar(
+                            message = context.resources.getQuantityString(
+                                R.plurals.squeezer_result_empty_lossy_aux,
+                                event.skippedLossyAuxCount,
+                                event.skippedLossyAuxCount,
+                            ),
+                            duration = SnackbarDuration.Long,
+                        )
+                    } else {
+                        snackbarHostState.showSnackbar(
+                            message = context.getString(R.string.squeezer_result_empty_message),
+                            duration = SnackbarDuration.Short,
+                        )
+                    }
                 }
 
                 is SqueezerSetupViewModel.Event.PathsDropped -> snackScope.launch {

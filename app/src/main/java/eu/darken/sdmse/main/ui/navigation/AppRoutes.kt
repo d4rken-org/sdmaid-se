@@ -19,6 +19,9 @@ data object OnboardingSetupRoute : NavigationDestination
 data object SettingsRoute : NavigationDestination
 
 @Serializable
+data object BackupRestoreRoute : NavigationDestination
+
+@Serializable
 data object SupportFormRoute : NavigationDestination
 
 @Serializable

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import kotlinx.coroutines.flow.StateFlow
@@ -23,17 +24,22 @@ class SqueezerSettingsViewModel @Inject constructor(
     val state: StateFlow<State> = combine(
         settings.includeJpeg.flow,
         settings.includeWebp.flow,
+        settings.includeHeic.flow,
         settings.includeVideo.flow,
+        settings.includeLossyAuxImages.flow,
         settings.skipPreviouslyCompressed.flow,
         settings.writeExifMarker.flow,
         settings.minSizeBytes.flow,
         historyDatabase.count,
         historyDatabase.databaseSize,
-    ) { jpeg, webp, video, skipCompressed, exif, minSize, historyCount, historySize ->
+    ) { jpeg, webp, heic, video, lossyAux, skipCompressed, exif, minSize, historyCount, historySize ->
         State(
             includeJpeg = jpeg,
             includeWebp = webp,
+            includeHeic = heic,
+            isHeicSupported = CompressibleImage.isHeicEncodingSupported(),
             includeVideo = video,
+            includeLossyAuxImages = lossyAux,
             skipPreviouslyCompressed = skipCompressed,
             writeExifMarker = exif,
             minSizeBytes = minSize,
@@ -53,8 +59,16 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeWebp.value(value)
     }
 
+    fun setIncludeHeic(value: Boolean) = launch {
+        settings.includeHeic.value(value)
+    }
+
     fun setIncludeVideo(value: Boolean) = launch {
         settings.includeVideo.value(value)
+    }
+
+    fun setIncludeLossyAuxImages(value: Boolean) = launch {
+        settings.includeLossyAuxImages.value(value)
     }
 
     fun setSkipPreviouslyCompressed(value: Boolean) = launch {
@@ -77,7 +91,10 @@ class SqueezerSettingsViewModel @Inject constructor(
     data class State(
         val includeJpeg: Boolean = true,
         val includeWebp: Boolean = true,
+        val includeHeic: Boolean = false,
+        val isHeicSupported: Boolean = false,
         val includeVideo: Boolean = false,
+        val includeLossyAuxImages: Boolean = false,
         val skipPreviouslyCompressed: Boolean = true,
         val writeExifMarker: Boolean = false,
         val minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,

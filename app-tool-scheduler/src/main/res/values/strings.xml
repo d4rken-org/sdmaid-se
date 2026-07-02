@@ -34,6 +34,11 @@
     <string name="scheduler_notification_result_title">Scheduler finished</string>
     <string name="scheduler_notification_result_success_message">All scheduled tasks ran successfully.</string>
     <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered errors. Try running them manually.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Skipped, screen was off or locked</string>
+    <string name="scheduler_acs_screenlocked_hint_title">App cleaning may be skipped</string>
+    <string name="scheduler_acs_screenlocked_hint_body">App cleaning uses the accessibility service, which needs the screen unlocked. Scheduled runs while the device is locked are skipped.\n\nUse Shizuku or root for background cleaning, or schedule it for when you\'re using the device.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">System apps may be skipped</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku cleans most caches in the background, but system apps need the accessibility service, which needs the screen unlocked. With \"Include system apps\" on, those are skipped when the device is locked.\n\nTurn off \"Include system apps\", or run the schedule while unlocked.</string>
     <string name="scheduler_commands_after_schedule_label">Post-schedule commands</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell commands that will be executed at the end of a schedule.</string>
     <string name="scheduler_battery_optimization_hint">Consider disabling battery optimizations for SD Maid if you experience issues with background execution.</string>

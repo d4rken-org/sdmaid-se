@@ -20,6 +20,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -57,7 +58,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
         val vm: CorpseFinderListViewModel,
         val corpseFinder: CorpseFinder,
         val taskSubmitter: TaskSubmitter,
-        val stateFlow: MutableStateFlow<CorpseFinder.State>,
+        val dataFlow: MutableStateFlow<CorpseFinder.Data?>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
     )
 
@@ -84,10 +85,16 @@ class CorpseFinderListViewModelTest : BaseTest() {
         data: CorpseFinder.Data? = null,
         progress: Progress.Data? = null,
     ): Harness {
-        val stateFlow = MutableStateFlow(cfState(data = data, progress = progress))
+        val dataFlow = MutableStateFlow(data)
         val progressFlow = MutableStateFlow(progress)
         val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply {
-            every { this@apply.state } returns stateFlow
+            // Mirror production wiring: CorpseFinder.state is a combine over data and progress,
+            // so a progress tick reaches the VM as a NEW State instance carrying the SAME Data
+            // instance. Stubbing state and progress as independent flows would make the
+            // rows-instance guard below pass vacuously.
+            every { this@apply.state } returns combine(dataFlow, progressFlow) { d, p ->
+                cfState(data = d, progress = p)
+            }
             every { this@apply.progress } returns progressFlow
         }
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
@@ -96,7 +103,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
             corpseFinder = corpseFinder,
             taskSubmitter = taskSubmitter,
         )
-        return Harness(vm, corpseFinder, taskSubmitter, stateFlow, progressFlow)
+        return Harness(vm, corpseFinder, taskSubmitter, dataFlow, progressFlow)
     }
 
     @Test
@@ -138,15 +145,20 @@ class CorpseFinderListViewModelTest : BaseTest() {
 
     @Test
     fun `progress-only emission preserves the rows instance (no re-sort)`() = runTest2 {
-        // P0 perf guard: progress is decoupled from row production, so a progress tick must update
-        // only the progress field and reuse the exact same rows List — the sort/map must NOT re-run.
-        val h = harness(data = CorpseFinder.Data(corpses = listOf(corpse("a", 100), corpse("b", 200))))
+        // P0 perf guard: progress is decoupled from row production, so a progress tick must not
+        // re-run the sort/map pipeline. Checking only the published rows instance is NOT enough:
+        // StateFlow's structural-equality conflation can preserve the old instance even while the
+        // pipeline wastefully re-executed. The iteration counter observes the executions directly
+        // (the init navUp watcher only calls isEmpty() and never iterates).
+        val corpses = IterationCountingList(listOf(corpse("a", 100), corpse("b", 200)))
+        val h = harness(data = CorpseFinder.Data(corpses = corpses))
         // Keep the WhileSubscribed state alive so the upstream chain actually runs.
         val job = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.state.collect { } }
         advanceUntilIdle()
 
         val rowsBefore = h.vm.state.value.rows
         rowsBefore.shouldNotBeNull()
+        val iterationsBefore = corpses.iterations.get()
 
         // Emit a progress-only change; data is untouched.
         val tick = Progress.Data(extra = "tick")
@@ -154,9 +166,22 @@ class CorpseFinderListViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.value.progress shouldBe tick
-        // Same instance ⇒ the row pipeline did not re-execute on the progress tick.
+        // The row pipeline did not touch the corpse list again...
+        corpses.iterations.get() shouldBe iterationsBefore
+        // ...and the published rows are still the exact same instance.
         (h.vm.state.value.rows === rowsBefore) shouldBe true
         job.cancel()
+    }
+
+    /** Counts iterations so tests can observe whether the sort/map pipeline (re-)executed. */
+    private class IterationCountingList<T>(
+        private val backing: List<T>,
+    ) : List<T> by backing {
+        val iterations = java.util.concurrent.atomic.AtomicInteger()
+        override fun iterator(): Iterator<T> {
+            iterations.incrementAndGet()
+            return backing.iterator()
+        }
     }
 
     @Test
@@ -313,7 +338,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
         val h = harness(data = initial)
 
         // drop(1) skips the initial replay; the second emission with empty data triggers navUp.
-        h.stateFlow.value = cfState(data = CorpseFinder.Data(corpses = emptyList()))
+        h.dataFlow.value = CorpseFinder.Data(corpses = emptyList())
         advanceUntilIdle()
 
         h.vm.navEvents.first() shouldBe NavEvent.Up
@@ -328,7 +353,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
         val h = harness(data = CorpseFinder.Data(corpses = listOf(c)))
         val collected = collectNavEvents(h.vm)
 
-        h.stateFlow.value = cfState(data = null)
+        h.dataFlow.value = null
         advanceUntilIdle()
 
         // No navUp emitted — the tightened filter (data != null && data.corpses.isEmpty())

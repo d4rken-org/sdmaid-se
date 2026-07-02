@@ -65,7 +65,7 @@ class DuplicateRedundantCountTest : BaseTest() {
     }
 
     @Test
-    fun `cluster - favorite group with 1 member removes the sole file`() {
+    fun `cluster - favorite group with 1 member keeps the sole file`() {
         val singleGroup = ChecksumDuplicate.Group(
             identifier = Duplicate.Group.Id("g1"),
             duplicates = setOf(mockChecksumDupe("a")),
@@ -81,9 +81,9 @@ class DuplicateRedundantCountTest : BaseTest() {
             groups = setOf(singleGroup, multiGroup),
             favoriteGroupIdentifier = Duplicate.Group.Id("g1"),
         )
-        // Favorite has <2 members so the keep-one rule doesn't apply: its sole file is removed (1).
-        // Non-favorite: removes b and c (2). Mirrors the redundantSize totalSize branch.
-        cluster.redundantCount shouldBe 3
+        // Favorite's sole file is the kept copy: removes nothing (0).
+        // Non-favorite: removes b and c (2). Mirrors the redundantSize favorite branch.
+        cluster.redundantCount shouldBe 2
     }
 
     @Test

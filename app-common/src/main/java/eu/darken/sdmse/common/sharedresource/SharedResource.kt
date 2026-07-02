@@ -48,6 +48,14 @@ open class SharedResource<T : Any>(
      * Off by default — opt in per resource where silent failures are a known support pain point.
      */
     private val verboseLifecycle: Boolean = false,
+    /**
+     * Optional liveness check for a REUSED resource. Before handing back a cached generation, [get]
+     * validates its value with this; if it returns false the dead generation is detached and [get]
+     * retries with a fresh one. Guards against the window where a resource's backing has already died
+     * (e.g. a shell process exited) but the asynchronous onCompletion detach hasn't cleared [active]
+     * yet, so a reuse would otherwise be handed a dead resource. Null (default) disables validation.
+     */
+    private val isReusable: (suspend (T) -> Boolean)? = null,
 ) : KeepAlive {
     private val iTag = "$tag:SR"
     override val resourceId: String = iTag
@@ -57,6 +65,9 @@ open class SharedResource<T : Any>(
     }
 
     private val coreLock = Mutex()
+
+    /** Max times [get] will detach a dead reused generation and retry before giving up. */
+    private val reuseValidationAttempts = 5
 
     private val leaseScope = CoroutineScope(parentScope.newCoroutineContext(SupervisorJob()))
 
@@ -97,6 +108,35 @@ open class SharedResource<T : Any>(
         get() = active == null
 
     suspend fun get(): Resource<T> {
+        var attempt = 0
+        while (true) {
+            val (generation, value, lease) = acquireGeneration()
+            val reusable = isReusable ?: return Resource(value, lease)
+
+            val alive = try {
+                reusable(value)
+            } catch (e: Throwable) {
+                // The validator threw, or the caller was cancelled at this suspension point. Release only
+                // our provisional lease and propagate — do NOT tear down the shared generation for others.
+                releaseProvisionalLease(lease, "reuse-validation-error")
+                throw e
+            }
+            if (alive) return Resource(value, lease)
+
+            // The cached generation's resource has died (e.g. its shell process exited) but the async
+            // onCompletion detach hasn't cleared `active` yet, so acquireGeneration() handed back a dead
+            // value. Drop our provisional lease + force-detach the stale generation, then retry for a fresh one.
+            if (Bugs.isTrace) {
+                log(iTag, DEBUG) { "[${generation.id}]-get() reused resource failed liveness check, detaching + retrying" }
+            }
+            detachInvalidReuse(generation, lease, "reuse-invalid")
+            if (++attempt >= reuseValidationAttempts) {
+                throw IllegalStateException("[$iTag] resource failed the reuse liveness check after $attempt attempts")
+            }
+        }
+    }
+
+    private suspend fun acquireGeneration(): Triple<Generation<T>, T, Lease> {
         val lId = "L:${UUID.randomUUID().toString().takeLast(4)}"
         if (Bugs.isTrace) {
             val call = traceCall()
@@ -228,8 +268,49 @@ open class SharedResource<T : Any>(
         }
 
         if (Bugs.isTrace) log(iTag) { "[${generation.id}|$lId]-get() returning value $value" }
-        return Resource(value, lease!!)
+        return Triple(generation, value, lease!!)
     }
+
+    /**
+     * Release only [lease] (under coreLock, as [closeLease] requires) and run the idle lease-check, for when
+     * acquisition fails after the provisional lease was taken — e.g. the reuse liveness validator threw or the
+     * caller was cancelled. Does NOT detach the generation, so other holders are unaffected. NonCancellable so
+     * the lease can't leak if we're being cancelled.
+     */
+    private suspend fun releaseProvisionalLease(lease: Lease, tag: String) = withContext(NonCancellable) {
+        coreLock.withLock("releaseProvisional-$tag") { closeLease(tag, lease) }
+        leaseCheck(tag, forced = false)
+    }
+
+    /**
+     * A reused generation failed the liveness check. Drop [lease] and, if [generation] is still active,
+     * force-detach it (mirrors the asynchronous onCompletion self-teardown) so a retrying get() starts a fresh
+     * generation. leaseCheckLock -> coreLock, the order leaseCheck()/onCompletion use. NonCancellable so a
+     * cancellation mid-detach can't strand a half-torn-down generation.
+     */
+    private suspend fun detachInvalidReuse(generation: Generation<T>, lease: Lease, tag: String) =
+        withContext(NonCancellable) {
+            val detached = leaseCheckLock.withLock {
+                val didDetach = coreLock.withLock("detachInvalidReuse-$tag") {
+                    if (active !== generation) {
+                        // Superseded: a fresh generation is already installed. Only drop our provisional lease.
+                        closeLease(tag, lease)
+                        false
+                    } else {
+                        closeLeasesLocked(tag) // closes every lease on the dead generation, including ours
+                        detachLocked(tag)
+                        true
+                    }
+                }
+                if (didDetach) {
+                    leaseCheckJob?.cancelAndJoin()
+                    leaseCheckJob = null
+                }
+                didDetach
+            }
+            // Superseded path only dropped one lease; idle-check the leases that remain.
+            if (!detached) leaseCheck(tag, forced = false)
+        }
 
     // Must be called with coreLock.withLock { }
     private suspend fun closeLease(tag: String, lease: Lease): Unit = withContext(NonCancellable) {

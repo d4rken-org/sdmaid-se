@@ -28,6 +28,22 @@ class CompressionEstimatorTest : BaseTest() {
     }
 
     @Test
+    fun `estimateOutputRatio - HEIC step function`() {
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIC, 50) shouldBe 0.55
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIC, 70) shouldBe 0.70
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIC, 80) shouldBe 0.80
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIC, 90) shouldBe 0.90
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIC, 100) shouldBe 1.00
+    }
+
+    @Test
+    fun `estimateOutputRatio - HEIF uses HEIC curve`() {
+        // HEIF and HEIC share an encoder, ratio table, and toggle.
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIF, 80) shouldBe 0.80
+        subject.estimateOutputRatio(CompressibleImage.MIME_TYPE_HEIF, 50) shouldBe 0.55
+    }
+
+    @Test
     fun `estimateOutputRatio - video mime type returns null`() {
         // Video uses the dedicated estimateVideoSize path, not the ratio-based estimator.
         subject.estimateOutputRatio(CompressibleVideo.MIME_TYPE_MP4, 80) shouldBe null

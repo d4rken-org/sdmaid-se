@@ -2,6 +2,7 @@ package eu.darken.sdmse.squeezer.core.history
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -27,6 +28,10 @@ class CompressionHistoryDatabase @Inject constructor(
             .addMigrations(MIGRATION_1_2)
             .build()
     }
+
+    /** Underlying Room database, exposed for config backup/restore. */
+    val roomDb: RoomDatabase
+        get() = database
 
     private val historyDao: CompressionHistoryDao
         get() = database.historyDao()

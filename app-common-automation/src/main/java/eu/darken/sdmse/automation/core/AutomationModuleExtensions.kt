@@ -20,6 +20,13 @@ suspend fun AutomationModule.finishAutomation(
     returnToAppIntent: Intent?,
     deviceDetective: DeviceDetective,
 ) = withContext(if (userCancelled) NonCancellable else EmptyCoroutineContext) {
+    // On TV a guard cancels the task when the user surfaces the home screen. Our own exit
+    // navigation below (BACK/HOME) could trip that guard, so hide the overlay first to disarm it.
+    // changeOptions() is awaited here so the disarm lands before we navigate.
+    if (deviceDetective.isTvLikeDevice()) {
+        log(TAG, INFO) { "finishAutomation(...): Hiding overlay to disarm TV leave-guard" }
+        host.changeOptions { it.copy(showOverlay = false) }
+    }
     if (returnToAppIntent != null) {
         // Settings may have multiple screens open (e.g. App Info → Storage).
         // Press BACK until we're back at SD Maid, closing all settings screens along the way.

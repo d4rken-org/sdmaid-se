@@ -59,7 +59,6 @@
     <string name="squeezer_setup_quality_title">Þjöppunargæði</string>
     <string name="squeezer_setup_age_title">Lágmarksaldur</string>
     <string name="squeezer_setup_start_action">Hefja skönnun</string>
-    <string name="squeezer_quality_hint_very_low">Gæði undir 40% geta búið til ónothæfar myndir.</string>
     <string name="squeezer_quality_hint_low">Lægri gæði spara meira pláss en geta valdið sjáanlegum göllum.</string>
     <string name="squeezer_quality_hint_high">Mjög há gæði veita lágmarks plásssparnað.</string>
     <string name="squeezer_quality_hint_normal">Jafnvægi milli gæða og plásssparnaðar.</string>

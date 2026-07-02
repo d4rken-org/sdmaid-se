@@ -17,6 +17,7 @@ import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -52,6 +53,7 @@ class CorpseFinderListViewModel @Inject constructor(
     // preserves the rows List instance, letting keyed lazy rows skip recomposition.
     private val rowsState = corpseFinder.state
         .map { it.data }
+        .distinctUntilChanged()
         .map { data ->
             val rows = data?.corpses
                 ?.sortedByDescending { it.size }

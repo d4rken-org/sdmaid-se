@@ -44,6 +44,14 @@ data class SqueezerProcessTask(
         val failureReasons: Map<FailureReason, Int> = emptyMap(),
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
+        /** Files aborted to preserve metadata (part of [failedCount], surfaced as their own clause). */
+        val metadataUnpreservableCount: Int
+            get() = failureReasons[FailureReason.METADATA_UNPRESERVABLE] ?: 0
+
+        /** [failedCount] minus [metadataUnpreservableCount] so a metadata abort isn't counted twice. */
+        val genericFailedCount: Int
+            get() = (failedCount - metadataUnpreservableCount).coerceAtLeast(0)
+
         override val action: AffectedPath.Action
             get() = AffectedPath.Action.COMPRESSED
 
@@ -55,17 +63,26 @@ data class SqueezerProcessTask(
         override val secondaryInfo
             get() = caString {
                 val (formatted, quantity) = ByteFormatter.formatSize(this, affectedSpace)
-                val base = getQuantityString2(
-                    eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
-                    quantity,
-                    formatted,
+                val fragments = mutableListOf(
+                    getQuantityString2(
+                        eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
+                        quantity,
+                        formatted,
+                    ),
                 )
-                if (failedCount > 0) {
-                    val failedStr = getQuantityString2(R.plurals.squeezer_result_x_items_failed, failedCount)
-                    "$base • $failedStr"
-                } else {
-                    base
+                // Metadata-preservation aborts are part of failedCount; surface them as their own,
+                // honest clause and exclude them from the generic "failed" count (see the count
+                // properties above) so a single such file isn't shown twice.
+                if (genericFailedCount > 0) {
+                    fragments += getQuantityString2(R.plurals.squeezer_result_x_items_failed, genericFailedCount)
                 }
+                if (metadataUnpreservableCount > 0) {
+                    fragments += getQuantityString2(
+                        R.plurals.squeezer_result_x_metadata_unpreservable,
+                        metadataUnpreservableCount,
+                    )
+                }
+                fragments.joinToString(" • ")
             }
     }
 }

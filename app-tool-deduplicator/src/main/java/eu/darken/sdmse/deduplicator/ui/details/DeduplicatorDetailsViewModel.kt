@@ -35,7 +35,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -80,13 +80,17 @@ class DeduplicatorDetailsViewModel @Inject constructor(
 
     val state: StateFlow<State?> = routeFlow.filterNotNull().flatMapLatest { route ->
         // Item production excludes progress so high-frequency progress ticks during a scan don't
-        // re-sort the clusters and re-run resolveTarget. Progress is merged in last (below) as a
-        // cheap field swap that preserves the items List instance, letting keyed pager pages skip.
+        // re-sort the clusters and re-run resolveTarget: ticks re-emit the same Data instance, so
+        // the reference-dedup drops them. Anything that builds new Data (prune after deleting or
+        // excluding duplicates inside a surviving cluster) passes through and refreshes the pager —
+        // an id-set key would wrongly suppress those intra-cluster changes and keep showing deleted
+        // files. Progress is merged in last (below) as a cheap field swap that preserves the items
+        // List instance, letting keyed pager pages skip.
         val itemsState = combine(
             deduplicator.state
                 .map { it.data }
                 .filterNotNull()
-                .distinctUntilChangedBy { data -> data.clusters.map { it.identifier }.toSet() },
+                .distinctUntilChanged(),
             settings.isDirectoryViewEnabled.flow,
             settings.allowDeleteAll.flow,
             collapsedDirsFlow,

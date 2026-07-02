@@ -17,4 +17,8 @@ abstract class TaskManagerModule {
     @Binds
     @Singleton
     abstract fun schedulerTaskFactory(impl: SchedulerTaskFactoryImpl): SchedulerTaskFactory
+
+    @Binds
+    @Singleton
+    abstract fun schedulerAppCleanerAdvisor(impl: SchedulerAppCleanerAdvisorImpl): SchedulerAppCleanerAdvisor
 }

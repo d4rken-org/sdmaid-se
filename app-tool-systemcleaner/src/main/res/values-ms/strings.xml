@@ -21,7 +21,6 @@
     <string name="systemcleaner_filter_emptydirectories_label">Direktori kosong</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Direktori yang kosong dan tidak mengandungi fail atau sub-direktori.</string>
     <string name="systemcleaner_filter_screenshots_label">Tangkapan skrin</string>
-    <string name="systemcleaner_filter_screenshots_summary">Tangkapan skrin yang disimpan dalam direktori tangkapan skrin lalai.</string>
     <string name="systemcleaner_filter_trashed_label">Fail dalam tong sampah</string>
     <string name="systemcleaner_filter_trashed_summary">Fail yang telah dibuang ke tong sampah sistem atau aplikasi.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Umur tangkapan skrin</string>

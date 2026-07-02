@@ -38,8 +38,14 @@ class CustomFilterRepo @Inject constructor(
         }
     }
 
+    // FilterIdentifier is a plain String and restore feeds us identifiers from a user-supplied
+    // archive — the containment check stops `../`-style identifiers from escaping the filter dir.
     private val FilterIdentifier.configPath: File
-        get() = File(filterDir, "$this.json")
+        get() = File(filterDir, "$this.json").also {
+            require(it.canonicalFile.parentFile == filterDir.canonicalFile) {
+                "Invalid filter identifier: $this"
+            }
+        }
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -87,6 +93,34 @@ class CustomFilterRepo @Inject constructor(
                 path.writeText(json.encodeToString(config))
                 log(TAG) { "Saved to $path" }
             }
+        }
+        refresh()
+    }
+
+    /**
+     * Swaps the whole filter set in one locked critical section: the complete new set is written
+     * first, stale config files are only removed after every write succeeded. A failure mid-way can
+     * therefore never delete filters that weren't replaced — worst case is a superset (new files
+     * written, stale ones still present), never a loss.
+     */
+    suspend fun replaceAll(configs: Set<CustomFilterConfig>) {
+        log(TAG) { "replaceAll(${configs.size} configs)" }
+        lock.withLock {
+            val newIds = configs.map { it.identifier }.toSet()
+            configs.forEach { config ->
+                val path = config.identifier.configPath
+                path.writeText(json.encodeToString(config))
+                log(TAG) { "Saved to $path" }
+            }
+            filterDir.listFiles().orEmpty()
+                .filter { it.name.endsWith(".json") }
+                .map { it.name.removeSuffix(".json") }
+                .filter { it !in newIds }
+                .forEach { staleId ->
+                    val path = staleId.configPath
+                    if (!path.delete() && path.exists()) log(TAG, ERROR) { "Failed to delete $path" }
+                    settings.clearCustomFilter(staleId)
+                }
         }
         refresh()
     }

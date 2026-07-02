@@ -26,6 +26,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -65,6 +66,7 @@ class SqueezerListViewModel @Inject constructor(
     // cheap field swap that preserves the media List instance, letting keyed lazy rows skip.
     private val mediaState = squeezer.state
         .map { it.data }
+        .distinctUntilChanged()
         .map { data -> State(media = data?.media?.sortedByDescending { it.size }) }
 
     val state: StateFlow<State> = combine(

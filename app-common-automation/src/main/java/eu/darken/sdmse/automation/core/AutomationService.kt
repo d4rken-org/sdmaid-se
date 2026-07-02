@@ -2,6 +2,7 @@ package eu.darken.sdmse.automation.core
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.PixelFormat
 import android.view.Gravity
 import android.view.View
@@ -28,6 +29,7 @@ import eu.darken.sdmse.automation.ui.AutomationOverlay
 import eu.darken.sdmse.automation.ui.AutomationOverlayState
 import eu.darken.sdmse.automation.ui.OverlayLifecycleOwner
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.datastore.value
@@ -92,8 +94,30 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     @Inject lateinit var automationManager: AutomationManager
     @Inject @SetupBinding(SetupModule.Type.AUTOMATION) lateinit var automationSetupModule: SetupModule
     @Inject lateinit var screenState: ScreenState
+    @Inject lateinit var deviceDetective: DeviceDetective
 
     private lateinit var windowManager: WindowManager
+
+    /** Leanback/TV-style device: the overlay Cancel button is unreachable by D-pad here. */
+    private val isTvDevice: Boolean by lazy { deviceDetective.isTvLikeDevice() }
+
+    /**
+     * The default launcher package. On TV we treat the user surfacing the launcher (Home button) as
+     * an intentional cancel. We resolve the *default* home (MATCH_DEFAULT_ONLY) rather than querying
+     * all CATEGORY_HOME registrants: on Android TV the Settings app registers a `FallbackHome`
+     * activity for CATEGORY_HOME, and since automation runs inside Settings, including it would make
+     * the guard cancel the moment automation enters Settings. `MATCH_DEFAULT_ONLY` yields only the
+     * actual launcher the user lands on. Empty if it resolves to the system chooser or nothing — then
+     * the overlay won't promise a Home-to-cancel.
+     */
+    private val homePackages: Set<String> by lazy {
+        val intent = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME)
+        val resolved = packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+        val pkg = resolved?.activityInfo?.packageName?.takeUnless { it == "android" }
+        val pkgs = setOfNotNull(pkg)
+        log(TAG, INFO) { "Home package resolved: $pkgs (from $resolved)" }
+        pkgs
+    }
 
     private val automationEvents = MutableSharedFlow<Snapshot>(
         extraBufferCapacity = 10,
@@ -394,10 +418,9 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
                             val s by overlayState.collectAsState()
                             AutomationOverlay(
                                 state = s,
-                                onCancel = {
-                                    serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
-                                    currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
-                                },
+                                isTv = isTvDevice,
+                                showHomeCancelHint = isTvDevice && homePackages.isNotEmpty(),
+                                onCancel = { userCancelCurrentTask() },
                             )
                         }
                     }
@@ -465,8 +488,38 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         }
         currentTask.value = task to deferred
         automationManager.setCurrentTask(task)
+
+        // On TV the overlay Cancel button is unreachable by D-pad. Instead, watch for the user
+        // surfacing the home screen (Home button) during the task and treat it as a cancel.
+        // Launched after currentTask is assigned so the cancel can't no-op; torn down with the task.
+        if (isTvDevice && homePackages.isNotEmpty()) {
+            val leaveGuardJob = leaveSignals(
+                foregroundPkgs = automationEvents
+                    .filter { it.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED }
+                    .map { it.pkgId },
+                homePkgs = homePackages,
+                graceMs = LEAVE_CANCEL_GRACE_MS,
+            )
+                .onEach {
+                    // Re-check the overlay is still armed: finishAutomation() hides it before its own
+                    // BACK/HOME exit navigation, so the engine's exit isn't misread as a user-leave.
+                    if (hostState.value.hasOverlay) {
+                        log(TAG, INFO) { "submit($id): User left to home screen, cancelling task" }
+                        userCancelCurrentTask()
+                    }
+                }
+                .launchIn(serviceScope)
+            deferred.invokeOnCompletion { leaveGuardJob.cancel() }
+        }
+
         log(TAG) { "submit($id): ...waiting for result" }
         deferred.await().also { log(TAG) { "submit($id): Result available: $it" } }
+    }
+
+    /** Hide the overlay and cancel the running task as if the user pressed Cancel (overlay button / TV Home). */
+    private fun userCancelCurrentTask() {
+        serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
+        currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
     }
 
     override fun cancelTask(): Boolean {
@@ -480,5 +533,8 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     companion object {
         val TAG: String = logTag("Automation", "Service")
         var instance: AutomationService? = null
+
+        /** How long the home screen must stay foreground before a TV "leave" counts as a cancel. */
+        private const val LEAVE_CANCEL_GRACE_MS = 1000L
     }
 }

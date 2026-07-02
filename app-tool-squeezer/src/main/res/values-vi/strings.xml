@@ -54,7 +54,6 @@
     <string name="squeezer_setup_quality_title">Chất lượng nén</string>
     <string name="squeezer_setup_age_title">Độ tuổi tối thiểu</string>
     <string name="squeezer_setup_start_action">Bắt đầu quét</string>
-    <string name="squeezer_quality_hint_very_low">Chất lượng dưới 40% có thể tạo ra những hình ảnh không thể sử dụng được.</string>
     <string name="squeezer_quality_hint_low">Chất lượng thấp hơn giúp tiết kiệm dung lượng nhưng có thể gây ra hiện tượng nhiễu ảnh.</string>
     <string name="squeezer_quality_hint_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
     <string name="squeezer_quality_hint_normal">Cân bằng giữa chất lượng và tiết kiệm không gian.</string>

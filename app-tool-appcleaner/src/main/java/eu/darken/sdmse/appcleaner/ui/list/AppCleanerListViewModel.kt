@@ -26,6 +26,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -65,7 +66,7 @@ class AppCleanerListViewModel @Inject constructor(
     // and re-map the whole junk list. Progress is merged in last (below) as a cheap field swap that
     // preserves the rows List instance, letting keyed lazy rows skip recomposition.
     private val rowsState = combine(
-        appCleaner.state.map { it.data },
+        appCleaner.state.map { it.data }.distinctUntilChanged(),
         searchQuery,
     ) { data, rawQuery ->
         val all = data?.junks?.sortedByDescending { it.size }

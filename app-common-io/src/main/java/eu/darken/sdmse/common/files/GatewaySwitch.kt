@@ -91,6 +91,28 @@ class GatewaySwitch @Inject constructor(
         }
     }
 
+    override suspend fun lookupExtended(path: APath): APathLookupExtended<APath> {
+        return lookupExtended(path, Type.CURRENT)
+    }
+
+    suspend fun lookupExtended(path: APath, type: Type): APathLookupExtended<APath> {
+        val mapped = path.toTargetType(type)
+        return try {
+            useGateway(mapped) { lookupExtended(mapped) }
+        } catch (oge: ReadException) {
+            if (type != Type.AUTO) throw oge
+            log(TAG, WARN) { "lookupExtended(...): Original lookup failed, try alternative: ${oge.asLog()}" }
+
+            val fallback = path.toAlternative()
+            try {
+                useGateway(fallback) { lookupExtended(fallback) }
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "lookupExtended(...): Alternative lookup failed either: ${e.asLog()}" }
+                throw oge
+            }
+        }
+    }
+
     override suspend fun lookupFiles(path: APath): Collection<APathLookup<APath>> {
         return lookupFiles(path, Type.CURRENT)
     }

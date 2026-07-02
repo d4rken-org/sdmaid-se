@@ -48,9 +48,11 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.main.core.taskmanager.AcsScheduleRisk
 import eu.darken.sdmse.scheduler.R
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.ScheduleId
+import eu.darken.sdmse.scheduler.ui.manager.items.AcsScreenLockedHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.CommandsEditDialog
@@ -107,6 +109,7 @@ fun SchedulerManagerScreenHost(
         onEditCommands = vm::requestEditCommands,
         onFixBattery = vm::fixBatteryOptimization,
         onDismissBattery = vm::dismissBatteryHint,
+        onDismissAcsScreenLockedHint = vm::dismissAcsScreenLockedHint,
     )
 
     pendingCommandsEdit?.let { ev ->
@@ -138,6 +141,7 @@ internal fun SchedulerManagerScreen(
     onEditCommands: (ScheduleId) -> Unit = {},
     onFixBattery: () -> Unit = {},
     onDismissBattery: () -> Unit = {},
+    onDismissAcsScreenLockedHint: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = SchedulerManagerViewModel.State())
     val listState = rememberLazyListState()
@@ -217,6 +221,7 @@ internal fun SchedulerManagerScreen(
                 onEditCommands = onEditCommands,
                 onFixBattery = onFixBattery,
                 onDismissBattery = onDismissBattery,
+                onDismissAcsScreenLockedHint = onDismissAcsScreenLockedHint,
             )
         }
     }
@@ -236,6 +241,7 @@ private fun ScheduleListContent(
     onEditCommands: (ScheduleId) -> Unit,
     onFixBattery: () -> Unit,
     onDismissBattery: () -> Unit,
+    onDismissAcsScreenLockedHint: () -> Unit,
 ) {
     LazyColumn(
         state = listState,
@@ -248,6 +254,15 @@ private fun ScheduleListContent(
                 BatteryHintRow(
                     onFix = onFixBattery,
                     onDismiss = onDismissBattery,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
+            }
+        }
+        if (state.acsScreenLockedRisk != AcsScheduleRisk.NONE) {
+            item("acs_screenlocked") {
+                AcsScreenLockedHintRow(
+                    risk = state.acsScreenLockedRisk,
+                    onDismiss = onDismissAcsScreenLockedHint,
                     modifier = Modifier.padding(horizontal = 16.dp),
                 )
             }
@@ -307,6 +322,67 @@ private fun SchedulerManagerScreenWithSchedulePreview() {
                         ),
                     ),
                     showAlarmHint = false,
+                    showBatteryHint = false,
+                    showCommands = false,
+                    isLoading = false,
+                ),
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SchedulerManagerScreenWithAcsHintPreview() {
+    PreviewWrapper {
+        SchedulerManagerScreen(
+            stateSource = MutableStateFlow(
+                SchedulerManagerViewModel.State(
+                    schedules = listOf(
+                        Schedule(
+                            id = "preview-1",
+                            label = "Nightly clean",
+                            hour = 1,
+                            minute = 0,
+                            useAppCleaner = true,
+                        ),
+                        Schedule(
+                            id = "preview-2",
+                            label = "Weekend clean",
+                            hour = 23,
+                            minute = 30,
+                            useAppCleaner = true,
+                        ),
+                    ),
+                    acsScreenLockedRisk = AcsScheduleRisk.ACS_REQUIRED_ALL,
+                    showAlarmHint = true,
+                    showBatteryHint = false,
+                    showCommands = false,
+                    isLoading = false,
+                ),
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SchedulerManagerScreenWithAcsSystemAppsHintPreview() {
+    PreviewWrapper {
+        SchedulerManagerScreen(
+            stateSource = MutableStateFlow(
+                SchedulerManagerViewModel.State(
+                    schedules = listOf(
+                        Schedule(
+                            id = "preview-1",
+                            label = "Nightly clean",
+                            hour = 1,
+                            minute = 0,
+                            useAppCleaner = true,
+                        ),
+                    ),
+                    acsScreenLockedRisk = AcsScheduleRisk.ACS_REQUIRED_SYSTEM_APPS_ONLY,
+                    showAlarmHint = true,
                     showBatteryHint = false,
                     showCommands = false,
                     isLoading = false,

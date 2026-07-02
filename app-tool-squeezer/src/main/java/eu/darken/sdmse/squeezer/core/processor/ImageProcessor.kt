@@ -21,6 +21,7 @@ import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
+import eu.darken.sdmse.squeezer.core.scanner.LossyAuxDetector
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -37,6 +38,7 @@ class ImageProcessor @Inject constructor(
     private val historyDatabase: CompressionHistoryDatabase,
     private val imageContentHasher: ImageContentHasher,
     private val fileTransaction: FileTransaction,
+    private val lossyAuxDetector: LossyAuxDetector,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
 
@@ -51,6 +53,11 @@ class ImageProcessor @Inject constructor(
         val success: Set<CompressibleImage>,
         val failed: Map<CompressibleImage, Throwable>,
         val savedSpace: Long,
+        /**
+         * Photos left untouched by the HDR/depth preflight guard. Not "compressed" (so excluded
+         * from the processed count and affected paths) but still consumed from the scan list.
+         */
+        val skippedGuarded: Set<CompressibleImage> = emptySet(),
     )
 
     suspend fun process(
@@ -67,11 +74,26 @@ class ImageProcessor @Inject constructor(
 
         val successful = mutableSetOf<CompressibleImage>()
         val failed = mutableMapOf<CompressibleImage, Throwable>()
+        val skippedGuarded = mutableSetOf<CompressibleImage>()
         var totalSaved = 0L
 
         targets.forEachIndexed { index, image ->
             updateProgressCount(Progress.Count.Percent(index, targets.size))
             updateProgressSecondary(image.lookup.userReadablePath)
+
+            // Authoritative HDR/depth guard. The scan already excludes these when the opt-in is off,
+            // but re-check against the CURRENT setting here so a photo can't be flattened if the user
+            // toggled the setting off after scanning. Mirrors the existing skip paths: counted as
+            // handled, never compressed, no history written.
+            val guardPath = image.path as? LocalPath
+            if (guardPath != null &&
+                !settings.includeLossyAuxImages.value() &&
+                lossyAuxDetector.hasLossyAux(File(guardPath.path), image.mimeType)
+            ) {
+                log(TAG, INFO) { "Skipped ${image.path} (HDR/depth preserved)" }
+                skippedGuarded.add(image)
+                return@forEachIndexed
+            }
 
             try {
                 val outcome = processImage(image, quality)
@@ -110,13 +132,15 @@ class ImageProcessor @Inject constructor(
         }
 
         log(TAG, INFO) {
-            "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes"
+            "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, " +
+                "${skippedGuarded.size} HDR/depth-preserved, saved $totalSaved bytes"
         }
 
         Result(
             success = successful,
             failed = failed,
             savedSpace = totalSaved,
+            skippedGuarded = skippedGuarded,
         )
     }
 

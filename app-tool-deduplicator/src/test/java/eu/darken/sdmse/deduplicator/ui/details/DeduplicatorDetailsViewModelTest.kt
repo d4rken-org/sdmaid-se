@@ -211,6 +211,25 @@ class DeduplicatorDetailsViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `intra-cluster deletion refreshes items - deleted duplicates disappear`() = runTest2 {
+        // Regression guard: the items pipeline used to dedup on the SET OF CLUSTER IDS, so a
+        // prune() after deleting duplicates inside a surviving cluster (same cluster ids, fewer
+        // duplicates) was suppressed — the pager kept showing the deleted file with stale sizes
+        // until a full rescan. The reference-dedup must let the new Data instance through.
+        val a = cluster("a", dupeSizes = listOf(100L, 100L, 100L))
+        val h = harness(clusters = setOf(a))
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+        h.vm.state.filterNotNull().first().items.single().count shouldBe 3
+
+        // Same cluster id, one duplicate pruned — exactly what prune() publishes after a
+        // partial delete.
+        val pruned = cluster("a", dupeSizes = listOf(100L, 100L))
+        h.stateFlow.value = Deduplicator.State(data = Deduplicator.Data(clusters = setOf(pruned)), progress = null)
+
+        h.vm.state.filterNotNull().first().items.single().count shouldBe 2
+    }
+
+    @Test
     fun `state target initially matches route identifier`() = runTest2 {
         val a = cluster("a", dupeSizes = listOf(100L, 100L))
         val b = cluster("b", dupeSizes = listOf(200L, 200L))
@@ -830,12 +849,11 @@ class DeduplicatorDetailsViewModelTest : BaseTest() {
         coVerify(exactly = 1) { h.deduplicator.undoExclude(undo) }
 
         // currentTarget was set to b inside the launched coroutine, but the state's combine()
-        // only re-runs when one of its inputs emits. The cluster-set didn't change (the mock
-        // doesn't actually persist anything), and the deduplicator.state input passes through
-        // distinctUntilChangedBy { clusters.identifiers }, so re-pushing the same data is
-        // dropped. Force a re-emit through `deduplicator.progress` (a different combine input)
-        // so the next state value reflects the restored target. Progress changes don't leave
-        // residual UI state behind.
+        // only re-runs when one of its inputs emits. The mock doesn't actually persist anything,
+        // and the deduplicator.state input dedups by Data reference, so re-pushing the same
+        // instance would be dropped. Force a re-emit through `deduplicator.progress` (a different
+        // combine input) so the next state value reflects the restored target. Progress changes
+        // don't leave residual UI state behind.
         h.progressFlow.value = Progress.Data()
         h.vm.state.filterNotNull().first().target shouldBe b.identifier
     }

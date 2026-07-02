@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.corpsefinder.R
 import javax.inject.Inject
 import eu.darken.sdmse.common.ui.R as UiR
@@ -44,7 +43,7 @@ class UninstallWatcherNotifications @Inject constructor(
                 context,
                 0,
                 it,
-                PendingIntentCompat.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
         }
 
@@ -109,7 +108,7 @@ class UninstallWatcherNotifications @Inject constructor(
                 context,
                 0,
                 deleteIntent,
-                PendingIntentCompat.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
 
             val deleteAction = NotificationCompat.Action(

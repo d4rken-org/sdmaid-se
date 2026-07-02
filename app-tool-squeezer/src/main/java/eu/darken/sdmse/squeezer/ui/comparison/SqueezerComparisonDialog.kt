@@ -60,6 +60,7 @@ import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.processor.HeifWriterEncoder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
@@ -88,6 +89,7 @@ fun SqueezerComparisonDialog(
             SqueezerComparisonEntryPoint::class.java,
         ).gatewaySwitch()
     }
+    val heifWriterEncoder = remember { HeifWriterEncoder() }
     val isVideo = media is CompressibleVideo
 
     Dialog(
@@ -148,19 +150,27 @@ fun SqueezerComparisonDialog(
                     val sampled = BitmapSampler.decodeSampledBitmap(sourceForPipeline)
                     if (sampled != null) {
                         try {
-                            // Videos always re-encode the sampled frame as JPEG; images keep their
-                            // native format (JPEG/WebP) so the preview reflects what the actual
-                            // compressor would do.
-                            val format = (media as? CompressibleImage)?.compressFormat
-                                ?: Bitmap.CompressFormat.JPEG
-                            val baos = ByteArrayOutputStream()
-                            sampled.compress(format, quality, baos)
-                            val extension = when {
-                                media is CompressibleImage && media.isWebp -> "webp"
-                                else -> "jpg"
+                            // HEIC has no Bitmap.CompressFormat and can't be encoded into an
+                            // in-memory stream — route it through HeifWriter (writes to a file)
+                            // so the preview reflects a real HEIF re-encode. JPEG/WebP keep their
+                            // native format; videos re-encode the sampled frame as JPEG.
+                            val outFile = if (media is CompressibleImage && media.isHeic) {
+                                val heic = File(dir, "compressed_q$quality.heic")
+                                heifWriterEncoder.encode(sampled, media.mimeType, quality, heic, null)
+                                heic
+                            } else {
+                                val format = (media as? CompressibleImage)?.compressFormat
+                                    ?: Bitmap.CompressFormat.JPEG
+                                val baos = ByteArrayOutputStream()
+                                sampled.compress(format, quality, baos)
+                                val extension = when {
+                                    media is CompressibleImage && media.isWebp -> "webp"
+                                    else -> "jpg"
+                                }
+                                val jpegOrWebp = File(dir, "compressed_q$quality.$extension")
+                                FileOutputStream(jpegOrWebp).use { it.write(baos.toByteArray()) }
+                                jpegOrWebp
                             }
-                            val outFile = File(dir, "compressed_q$quality.$extension")
-                            FileOutputStream(outFile).use { it.write(baos.toByteArray()) }
                             compressedFile = outFile
                         } finally {
                             sampled.recycle()

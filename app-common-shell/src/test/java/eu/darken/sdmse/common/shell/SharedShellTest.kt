@@ -87,4 +87,18 @@ class SharedShellTest : BaseTest() {
             sharedShell.useRes { FlowCmd("echo test-$count").execute(it) }.isSuccessful shouldBe true
         }
     }
+
+    @Test fun `a dead shell session is never handed to a reuse`() = runTest2(autoCancel = true, timeout = 60.seconds) {
+        val sharedShell = SharedShell("SDMSE", this + Dispatchers.Default)
+
+        // `kill $$` makes the shell process exit mid-command -> the same failure mode as the reuse-with-cancel
+        // flake: the command sees no exit-code marker and throws (session died externally).
+        shouldThrow<IllegalStateException> {
+            sharedShell.useRes { FlowCmd("kill \$\$").execute(it) }
+        }
+
+        // The cached session is now dead but SharedResource's detach is asynchronous. Without the liveness
+        // check, the next get() reuses the dead session and fails the same way. It must instead get a fresh shell.
+        sharedShell.useRes { FlowCmd("echo after").execute(it) }.output shouldBe listOf("after")
+    }
 }

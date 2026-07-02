@@ -18,13 +18,17 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
+import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
 import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -48,6 +52,7 @@ import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.stats.core.SpaceTracker
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -128,17 +133,29 @@ class Analyzer @Inject constructor(
         // ran before the storage permission was granted, that stale flag (and the permission-limited
         // content) sticks in the cached data until the next scan — so the UI keeps showing
         // "permissions missing" and the storage card bounces through a Setup screen that immediately
-        // closes. When the storage setup transitions to complete, re-scan so the stale flag clears and
-        // the real content loads. No loop: after the rescan no DeviceStorage carries setupIncomplete,
-        // and the setup state stays complete (distinctUntilChanged), so this stops firing.
-        storageSetupModule.state
-            .map { it.isComplete }
+        // closes. Whenever setup is complete AND the cached data carries the stale flag, re-scan.
+        // Observing both flows covers setup completing mid-scan: the finishing scan publishes the
+        // stale devices after the setup transition, which re-evaluates the condition. No loop: a
+        // successful rescan bakes setupIncomplete=false into every device, and a failed one leaves
+        // the devices cleared (scan start empties them) — either way the condition turns false.
+        combine(
+            storageSetupModule.state.map { it.isComplete }.distinctUntilChanged(),
+            storageDevices,
+        ) { setupComplete, devices ->
+            setupComplete && devices.any { it.setupIncomplete }
+        }
             .distinctUntilChanged()
-            .filter { isComplete -> isComplete }
+            .filter { staleWhileComplete -> staleWhileComplete }
             .onEach {
-                if (storageDevices.value.any { it.setupIncomplete }) {
-                    log(TAG, INFO) { "Storage setup completed while cached storage data is stale; re-scanning" }
+                log(TAG, INFO) { "Storage setup is complete but cached storage data is stale; re-scanning" }
+                try {
                     submit(DeviceStorageScanTask())
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Background heal only — appScope has no exception handler, so anything
+                    // escaping here would kill the whole process. The next manual scan recovers.
+                    log(TAG, ERROR) { "Automatic storage re-scan failed: ${e.asLog()}" }
                 }
             }
             .launchIn(appScope)
@@ -216,6 +233,29 @@ class Analyzer @Inject constructor(
     private suspend fun deleteContent(task: ContentDeleteTask): ContentDeleteTask.Result {
         log(TAG, VERBOSE) { "deleteContent(): $task" }
 
+        val oldCategory: ContentCategory = storageCategories.value[task.storageId]
+            ?.singleOrNull { it.ownsGroup(task.groupId) }
+            ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
+        val oldGroup = oldCategory.groups.single { it.id == task.groupId }
+
+        if (oldCategory.isContentReadOnly) {
+            val what = if (oldCategory is SystemCategory) "system content" else "read-only media content"
+            log(TAG, WARN) { "deleteContent(): Blocked — $what is read-only" }
+            throw UnsupportedOperationException("Deletion is not supported for $what")
+        }
+
+        // App tasks are rebuilt against their pkgStat after deletion — resolve it now so a malformed task
+        // (missing/wrong targetPkg, foreign group) fails before any file is deleted, not after.
+        val oldPkg = (oldCategory as? AppCategory)?.let { category ->
+            val pkg = category.pkgStats[task.targetPkg]
+                ?: throw IllegalStateException("Can't find pkgStat ${task.targetPkg} for ${task.groupId}")
+            val groups = setOfNotNull(pkg.appCode, pkg.appData, pkg.appMedia, pkg.extraData)
+            if (groups.none { it == oldGroup }) {
+                throw IllegalStateException("${pkg.id} has no content group matching ${task.groupId}")
+            }
+            pkg
+        }
+
         updateProgressPrimary {
             it.getString(
                 eu.darken.sdmse.common.R.string.general_progress_deleting_x,
@@ -232,14 +272,6 @@ class Analyzer @Inject constructor(
                 (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
 
-        // TODO this seems convoluted, can we come up with a better data pattern?
-        var _oldGroup: ContentGroup? = null
-        val oldCategory: ContentCategory = storageCategories.value[task.storageId]!!.singleOrNull { category ->
-            category.groups.singleOrNull { it.id == task.groupId }
-                ?.also { _oldGroup = it }
-                ?.let { true } ?: false
-        } ?: throw IllegalStateException("Can't find category and group for ${task.groupId}")
-        val oldGroup = _oldGroup!!
         var freedSpace = 0L
         val newContents = oldGroup.contents
             .toFlatContent()
@@ -254,13 +286,13 @@ class Analyzer @Inject constructor(
 
         val newCategory = when (oldCategory) {
             is AppCategory -> {
-                val oldPkg = oldCategory.pkgStats[task.targetPkg]!!
+                checkNotNull(oldPkg) { "pkgStat was preflight-resolved for app categories" }
                 val newPkg = when {
                     oldPkg.appCode == oldGroup -> oldPkg.copy(appCode = newGroup)
                     oldPkg.appData == oldGroup -> oldPkg.copy(appData = newGroup)
                     oldPkg.appMedia == oldGroup -> oldPkg.copy(appMedia = newGroup)
                     oldPkg.extraData == oldGroup -> oldPkg.copy(extraData = newGroup)
-                    else -> throw IllegalArgumentException("${oldPkg.id} has no matching content group")
+                    else -> error("unreachable: group membership was preflight-validated")
                 }
                 oldCategory.copy(
                     pkgStats = oldCategory.pkgStats.mutate {

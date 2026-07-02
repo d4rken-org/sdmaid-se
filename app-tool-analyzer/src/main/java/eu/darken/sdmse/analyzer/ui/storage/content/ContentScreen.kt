@@ -396,9 +396,12 @@ internal fun ContentScreen(
                                 modifier = Modifier.fillMaxSize(),
                                 contentPadding = SdmListDefaults.FullWidthContentPadding,
                             ) {
-                                if (s.showSystemInfoBanner) {
+                                s.infoBanner?.let { banner ->
                                     item(key = "info-banner") {
-                                        ContentInfoBanner(modifier = Modifier.padding(horizontal = 16.dp))
+                                        ContentInfoBanner(
+                                            modifier = Modifier.padding(horizontal = 16.dp),
+                                            text = banner,
+                                        )
                                     }
                                 }
                                 contentRows(s.items, selection, isSelectionMode, onItemClick)
@@ -411,12 +414,12 @@ internal fun ContentScreen(
                                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                                 verticalArrangement = Arrangement.spacedBy(8.dp),
                             ) {
-                                if (s.showSystemInfoBanner) {
+                                s.infoBanner?.let { banner ->
                                     item(
                                         key = "info-banner",
                                         span = { GridItemSpan(maxLineSpan) },
                                     ) {
-                                        ContentInfoBanner()
+                                        ContentInfoBanner(text = banner)
                                     }
                                 }
                                 contentTiles(s.items, selection, isSelectionMode, onItemClick)

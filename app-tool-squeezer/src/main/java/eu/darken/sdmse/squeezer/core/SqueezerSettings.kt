@@ -36,7 +36,15 @@ class SqueezerSettings @Inject constructor(
     val compressionQuality = dataStore.createValue("compression.quality", DEFAULT_QUALITY)
     val includeJpeg = dataStore.createValue("filter.type.jpeg.enabled", true)
     val includeWebp = dataStore.createValue("filter.type.webp.enabled", true)
+    val includeHeic = dataStore.createValue("filter.type.heic.enabled", false)
     val includeVideo = dataStore.createValue("filter.type.video.enabled", false)
+
+    /**
+     * When false (default), photos carrying an HDR gain map or depth/portrait map are skipped at
+     * scan time so compression can't silently flatten them to SDR / strip their depth. Opt in to
+     * compress them anyway. Format-wide (JPEG Ultra HDR + HEIC), see [eu.darken.sdmse.squeezer.core.scanner.LossyAuxDetector].
+     */
+    val includeLossyAuxImages = dataStore.createValue("filter.image.lossyaux.include", false)
     val skipPreviouslyCompressed = dataStore.createValue("skip.previously.compressed", true)
     val writeExifMarker = dataStore.createValue("compression.exif.marker.enabled", false)
     val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), json)

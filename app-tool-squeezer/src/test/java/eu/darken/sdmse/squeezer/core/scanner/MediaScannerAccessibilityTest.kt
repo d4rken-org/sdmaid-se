@@ -49,6 +49,7 @@ class MediaScannerAccessibilityTest : BaseTest() {
     private val videoContentHasher: VideoContentHasher = mockk(relaxed = true)
     private val compressionEstimator: CompressionEstimator = mockk(relaxed = true)
     private val exifPreserver: ExifPreserver = mockk(relaxed = true)
+    private val lossyAuxDetector: LossyAuxDetector = mockk(relaxed = true)
     private val settings: SqueezerSettings = mockk(relaxed = true)
 
     private val dispatcherProvider: DispatcherProvider = TestDispatcherProvider()
@@ -104,6 +105,7 @@ class MediaScannerAccessibilityTest : BaseTest() {
         videoContentHasher = videoContentHasher,
         compressionEstimator = compressionEstimator,
         exifPreserver = exifPreserver,
+        lossyAuxDetector = lossyAuxDetector,
         settings = settings,
     )
 
@@ -161,6 +163,45 @@ class MediaScannerAccessibilityTest : BaseTest() {
 
         result.items.size shouldBe 0
         result.skippedInaccessibleCount shouldBe 0
+    }
+
+    @Test
+    fun `image with HDR-depth aux is excluded and counted when opt-in is off`() = runTest {
+        val photo = File(testDir, "hdr.jpg").apply { writeBytes(ByteArray(256)) }
+        stubWalk(lookupFor(photo))
+        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+
+        val result = scanner().scan(options()) // options default: includeLossyAuxImages = false
+
+        result.items.size shouldBe 0
+        result.skippedLossyAuxCount shouldBe 1
+    }
+
+    @Test
+    fun `image with HDR-depth aux is included when opt-in is on`() = runTest {
+        val photo = File(testDir, "hdr.jpg").apply { writeBytes(ByteArray(256)) }
+        stubWalk(lookupFor(photo))
+        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+
+        val result = scanner().scan(options().copy(includeLossyAuxImages = true))
+
+        result.items.size shouldBe 1
+        result.skippedLossyAuxCount shouldBe 0
+    }
+
+    @Test
+    fun `ordinary image without aux is unaffected by the guard`() = runTest {
+        val photo = File(testDir, "plain.jpg").apply { writeBytes(ByteArray(256)) }
+        stubWalk(lookupFor(photo))
+        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns false
+
+        val result = scanner().scan(options()) // guard on, detector finds nothing
+
+        result.items.size shouldBe 1
+        result.skippedLossyAuxCount shouldBe 0
     }
 
     companion object {

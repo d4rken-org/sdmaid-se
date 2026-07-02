@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.dsl.Lint
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
@@ -24,6 +25,31 @@ fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
         minSdk = projectConfig.minSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    lint { applySdmSeDefaults() }
+}
+
+/**
+ * Shared lint severity policy, applied to every module: libraries via [setupLibraryDefaults], the
+ * app module via its own `lint {}` block. Keeps `./gradlew build` (full lint) usable as a local gate
+ * while CI continues to run `lintVital` (fatal-only).
+ */
+fun Lint.applySdmSeDefaults() {
+    // Translation completeness is owned by the Crowdin pipeline, not lint. On a ~80-locale app these
+    // fire in the hundreds and only bury real findings.
+    disable += setOf("MissingTranslation", "MissingQuantity", "ImpliedQuantity")
+    // Mostly legitimate callback/coroutine usage where stringResource() isn't callable. Keep it
+    // visible (it can still catch real in-composable misuse) without failing the build.
+    warning += setOf("LocalContextGetResourceValueCall")
+    // A type-mismatched format arg (StringFormatMatches, e.g. a translation using %d where the source
+    // has %s) crashes with IllegalFormatException for users in that locale. Promote it to fatal so
+    // lintVital (CI, including Crowdin pulls) blocks it going forward.
+    // StringFormatInvalid is intentionally NOT promoted: it also fires on a benign literal "%" in a
+    // non-format string (handled per-string with formatted="false"), so making it fatal would block
+    // legitimate translations on pull. It stays at its default Error severity (gates the full local
+    // build, not lintVital). StringFormatCount likewise stays at default warning — a translation with
+    // too few args doesn't crash, it just drops the value, and that mismatch is pervasive.
+    fatal += setOf("StringFormatMatches")
 }
 
 val Project.projectConfig: ProjectConfig

@@ -8,6 +8,7 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.ContentId
 import eu.darken.sdmse.squeezer.core.ContentIdentifier
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.scanner.LossyAuxDetector
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import io.kotest.matchers.shouldBe
@@ -41,6 +42,7 @@ class ImageProcessorTest : BaseTest() {
     private val historyDatabase = mockk<CompressionHistoryDatabase>(relaxed = true)
     private val imageContentHasher = mockk<ImageContentHasher>()
     private val fileTransaction = mockk<FileTransaction>()
+    private val lossyAuxDetector = mockk<LossyAuxDetector>(relaxed = true)
     private val settings = mockk<SqueezerSettings>()
 
     private lateinit var subject: ImageProcessor
@@ -48,6 +50,8 @@ class ImageProcessorTest : BaseTest() {
     @Before
     fun setup() {
         every { settings.writeExifMarker } returns mockDataStoreValue(false)
+        // Opt-in ON => the HDR/depth preflight is a no-op, so existing compression cases are unaffected.
+        every { settings.includeLossyAuxImages } returns mockDataStoreValue(true)
 
         subject = ImageProcessor(
             context = RuntimeEnvironment.getApplication(),
@@ -56,6 +60,7 @@ class ImageProcessorTest : BaseTest() {
             historyDatabase = historyDatabase,
             imageContentHasher = imageContentHasher,
             fileTransaction = fileTransaction,
+            lossyAuxDetector = lossyAuxDetector,
             settings = settings,
         )
     }
@@ -128,6 +133,21 @@ class ImageProcessorTest : BaseTest() {
         result.savedSpace shouldBe 0L
 
         coVerify { historyDatabase.recordNoSavings(hashId) }
+    }
+
+    @Test
+    fun `process - HDR-depth photo is preserved (skipped, not compressed) when opt-in is off`() = runTest {
+        val image = createImage()
+        every { settings.includeLossyAuxImages } returns mockDataStoreValue(false)
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+
+        val result = subject.process(setOf(image), quality = 80)
+
+        result.skippedGuarded.size shouldBe 1
+        result.success.size shouldBe 0
+        result.failed.size shouldBe 0
+        result.savedSpace shouldBe 0L
+        coVerify(exactly = 0) { fileTransaction.replace(any(), any(), any()) }
     }
 
     @Test

@@ -108,6 +108,7 @@ class DuplicatesDeleter @Inject constructor(
                         targets = setOf(favorite.identifier),
                         deleteAll = false,
                         strategy = strategy,
+                        isKeptGroup = true,
                     )
                     val restResult = targetGroups(
                         targets = rest.map { it.identifier }.toSet(),
@@ -124,14 +125,19 @@ class DuplicatesDeleter @Inject constructor(
         targets: Set<Duplicate.Group.Id>,
         deleteAll: Boolean = false,
         strategy: ArbiterStrategy,
+        isKeptGroup: Boolean = false,
     ): Collection<Duplicate> {
-        log(TAG, VERBOSE) { "#_targetGroups(deleteAll=$deleteAll): $targets" }
+        log(TAG, VERBOSE) { "#_targetGroups(deleteAll=$deleteAll, isKeptGroup=$isKeptGroup): $targets" }
         return clusters
             .flatMap { it.groups }
             .filter { group -> targets.contains(group.identifier) }
             .map { group ->
                 log(TAG, VERBOSE) { "__targetGroups(): Deleting from ${group.identifier} (dupes=${group.count})" }
-                if (deleteAll || group.duplicates.size == 1) {
+                // A directly targeted single-member group is deleted whole - the user explicitly
+                // picked it (e.g. a similar-image group in the details view). But a cluster's kept
+                // group must never lose its sole member that way: it is the copy being kept, and
+                // deleting it could remove the last remaining copy of the file.
+                if (deleteAll || (group.duplicates.size == 1 && !isKeptGroup)) {
                     targetDuplicates(group.duplicates.map { it.identifier }.toSet())
                 } else {
                     val keeperId = group.keeperIdentifier

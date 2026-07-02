@@ -84,7 +84,9 @@ interface Duplicate {
             get() {
                 val favId = favoriteGroupIdentifier
                 return groups.sumOf { group ->
-                    if (group.identifier == favId && group.count >= 2) group.redundantSize else group.totalSize
+                    // The favorite group's keeper survives a keep-one delete; a single-member
+                    // favorite group IS the keeper and frees nothing.
+                    if (group.identifier == favId) group.redundantSize else group.totalSize
                 }
             }
 
@@ -92,14 +94,15 @@ interface Duplicate {
          * Files a default keep-one delete removes: every duplicate except the favorite group's
          * keeper, distinct by id so cross-group path overlap isn't double-counted. The count
          * counterpart of [redundantSize]; exact vs DuplicatesDeleter for normalized (scanned)
-         * data. The keeper-less fallback mirrors [redundantSize] and is defensive only — the
+         * data. A single-member favorite group contributes nothing - its sole member is the kept
+         * copy. The keeper-less fallback mirrors [redundantSize] and is defensive only — the
          * scanner always assigns a keeper to every group with >= 2 members.
          */
         val redundantCount: Int
             get() {
                 val favId = favoriteGroupIdentifier
                 return groups.flatMap { group ->
-                    if (group.identifier == favId && group.count >= 2) {
+                    if (group.identifier == favId) {
                         val keeperId = group.keeperIdentifier ?: group.duplicates.firstOrNull()?.identifier
                         group.duplicates.filterNot { it.identifier == keeperId }.map { it.identifier }
                     } else {

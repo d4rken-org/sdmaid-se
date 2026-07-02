@@ -9,12 +9,13 @@ import android.content.pm.ServiceInfo
 import androidx.core.app.NotificationCompat
 import androidx.work.ForegroundInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.causes
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.scheduler.R
 import eu.darken.sdmse.stats.core.ReportDetails
@@ -48,7 +49,7 @@ class SchedulerNotifications @Inject constructor(
                 context,
                 0,
                 it,
-                PendingIntentCompat.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
         }
 
@@ -71,7 +72,7 @@ class SchedulerNotifications @Inject constructor(
                 context,
                 0,
                 it,
-                PendingIntentCompat.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
         }
 
@@ -106,7 +107,9 @@ class SchedulerNotifications @Inject constructor(
     fun getForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = getStateBuilder(null).toForegroundInfo(scheduleId)
 
     private fun NotificationCompat.Builder.toForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = if (hasApiLevel(29)) {
-        @Suppress("NewApi")
+        // SpecifyForegroundServiceType is a false positive here: the dataSync type is declared on
+        // SystemForegroundService in the app manifest, which this library module can't see in isolation.
+        @Suppress("NewApi", "SpecifyForegroundServiceType")
         ForegroundInfo(scheduleId.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
     } else {
         ForegroundInfo(scheduleId.toNotificationid(), build())
@@ -158,7 +161,7 @@ class SchedulerNotifications @Inject constructor(
         return results.joinToString("\n") { result ->
             val toolName = context.getString(result.task.type.toToolNameId())
             if (result.error != null) {
-                val errorLabel = context.getString(eu.darken.sdmse.common.R.string.general_error_label)
+                val errorLabel = context.getString(result.error.toSchedulerErrorLabelRes())
                 "$toolName: $errorLabel"
             } else if (result.result != null) {
                 val space = (result.result as? ReportDetails.AffectedSpace)?.affectedSpace
@@ -217,4 +220,18 @@ class SchedulerNotifications @Inject constructor(
         internal const val NOTIFICATION_ID_RANGE_STATE = 1000
         internal const val NOTIFICATION_ID_RANGE_RESULT = 1200
     }
+}
+
+/**
+ * A [ScreenUnavailableException] means the accessibility service couldn't run because the screen was off or locked
+ * (e.g. an unattended scheduled run). That's a by-design limitation, not a genuine failure, so it's worth surfacing
+ * with its own wording instead of the generic error label.
+ */
+internal fun Throwable.isScreenUnavailableSkip(): Boolean =
+    this is ScreenUnavailableException || causes.any { it is ScreenUnavailableException }
+
+internal fun Throwable.toSchedulerErrorLabelRes(): Int = if (isScreenUnavailableSkip()) {
+    R.string.scheduler_notification_result_skipped_screen_unavailable
+} else {
+    eu.darken.sdmse.common.R.string.general_error_label
 }

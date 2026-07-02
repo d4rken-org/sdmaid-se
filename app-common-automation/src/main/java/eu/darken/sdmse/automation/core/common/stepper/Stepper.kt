@@ -1,6 +1,7 @@
 package eu.darken.sdmse.automation.core.common.stepper
 
 import android.accessibilityservice.AccessibilityService
+import android.annotation.SuppressLint
 import android.content.Intent
 import dagger.Reusable
 import eu.darken.sdmse.automation.core.ScreenState
@@ -105,6 +106,7 @@ class Stepper @Inject constructor(
         }
     }
 
+    @SuppressLint("MissingPermission") // ACTION_CLOSE_SYSTEM_DIALOGS broadcast from an accessibility-service context
     private suspend fun doProcess(stepContext: StepContext, step: AutomationStep) {
         val tag = stepContext.tag + ":Stepper"
         log(tag, INFO) { "doProcess(): context=$stepContext for $step" }

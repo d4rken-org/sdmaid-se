@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Intent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
@@ -10,11 +11,14 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
+import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -94,8 +98,13 @@ class ContentViewModel @Inject constructor(
 
     private fun Analyzer.Data.isSystemGroup(route: ContentRoute): Boolean {
         return categories[route.storageId]
-            ?.filterIsInstance<SystemCategory>()
-            ?.any { category -> category.groups.any { it.id == route.groupId } }
+            ?.any { it is SystemCategory && it.ownsGroup(route.groupId) }
+            ?: false
+    }
+
+    private fun Analyzer.Data.isReadOnlyGroup(route: ContentRoute): Boolean {
+        return categories[route.storageId]
+            ?.any { it.ownsGroup(route.groupId) && it.isContentReadOnly }
             ?: false
     }
 
@@ -116,7 +125,8 @@ class ContentViewModel @Inject constructor(
                     emit(State.NotFound)
                     return@combineTransform
                 }
-                val isReadOnly = data.isSystemGroup(route)
+                val isReadOnly = data.isReadOnlyGroup(route)
+                val isSystemGroup = data.isSystemGroup(route)
                 val pkgStat = route.installId?.let { installId ->
                     data.categories[route.storageId]
                         ?.filterIsInstance<AppCategory>()?.singleOrNull()
@@ -129,6 +139,15 @@ class ContentViewModel @Inject constructor(
                     pkgStat?.label == null -> null
                     else -> contentGroup.label
                 }
+                val infoBanner: CaString? = when {
+                    // System content: top-level banner only, mirroring the system category presentation.
+                    isSystemGroup -> R.string.analyzer_storage_content_type_system_info.toCaString()
+                        .takeIf { currentLevel == null }
+                    // Degraded read-only media: keep the banner visible while browsing too, since the group is a
+                    // single storage-root item the user must open before seeing any folders.
+                    isReadOnly -> R.string.analyzer_storage_content_type_media_readonly_info.toCaString()
+                    else -> null
+                }
 
                 // Loading frame: no items yet (progress stamped by the outer combine).
                 emit(
@@ -140,7 +159,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isReadOnly && currentLevel == null,
+                        infoBanner = infoBanner,
                     ),
                 )
 
@@ -165,7 +184,7 @@ class ContentViewModel @Inject constructor(
                         layoutMode = layoutMode,
                         progress = null,
                         isReadOnly = isReadOnly,
-                        showSystemInfoBanner = isReadOnly && currentLevel == null,
+                        infoBanner = infoBanner,
                     ),
                 )
             }
@@ -217,8 +236,8 @@ class ContentViewModel @Inject constructor(
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onDeleteSelected(): ${items.size}" }
         val data = analyzer.data.first()
-        if (data.isSystemGroup(route)) {
-            log(TAG, WARN) { "delete(): Blocked — system content is read-only" }
+        if (data.isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "delete(): Blocked — content is read-only" }
             return@launch
         }
         val targets = items.map { it.path }.toSet()
@@ -245,8 +264,8 @@ class ContentViewModel @Inject constructor(
     fun onCreateFilter(items: Set<ContentItem>) = launch {
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onCreateFilter(): ${items.size}" }
-        if (analyzer.data.first().isSystemGroup(route)) {
-            log(TAG, WARN) { "createFilter(): Blocked — system content is read-only" }
+        if (analyzer.data.first().isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "createFilter(): Blocked — content is read-only" }
             return@launch
         }
         if (!upgradeRepo.isPro()) {
@@ -263,8 +282,8 @@ class ContentViewModel @Inject constructor(
     fun onCreateSwiperSession(items: Set<ContentItem>) = launch {
         val route = routeFlow.value ?: return@launch
         log(TAG) { "onCreateSwiperSession(): ${items.size}" }
-        if (analyzer.data.first().isSystemGroup(route)) {
-            log(TAG, WARN) { "createSwiperSession(): Blocked — system content is read-only" }
+        if (analyzer.data.first().isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "createSwiperSession(): Blocked — content is read-only" }
             return@launch
         }
         val paths = items
@@ -313,7 +332,7 @@ class ContentViewModel @Inject constructor(
             val layoutMode: LayoutMode,
             val progress: Progress.Data?,
             val isReadOnly: Boolean,
-            val showSystemInfoBanner: Boolean,
+            val infoBanner: CaString?,
         ) : State
         data object NotFound : State
     }

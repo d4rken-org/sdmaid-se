@@ -132,7 +132,7 @@ class DuplicateRedundantSizeTest : BaseTest() {
     }
 
     @Test
-    fun `cluster - favorite group with 1 member uses totalSize`() {
+    fun `cluster - favorite group with 1 member frees nothing`() {
         val singleGroup = ChecksumDuplicate.Group(
             identifier = Duplicate.Group.Id("g1"),
             duplicates = setOf(mockChecksumDupe("a", 150L)),
@@ -151,9 +151,9 @@ class DuplicateRedundantSizeTest : BaseTest() {
             groups = setOf(singleGroup, multiGroup),
             favoriteGroupIdentifier = Duplicate.Group.Id("g1"),
         )
-        // Favorite (1 member): totalSize = 150 (deleter deletes sole file)
+        // Favorite (1 member): its sole file IS the kept copy, frees 0
         // Non-favorite: totalSize = 500
-        cluster.redundantSize shouldBe 650L
+        cluster.redundantSize shouldBe 500L
     }
 
     @Test

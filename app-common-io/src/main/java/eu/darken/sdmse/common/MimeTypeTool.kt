@@ -10,6 +10,16 @@ class MimeTypeTool @Inject constructor() {
 
     suspend fun determineMimeType(lookup: APathLookup<*>): String {
         val ext = lookup.name.substringAfterLast('.', "").lowercase()
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: MimeTypes.Unknown.value
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext)
+            ?: EXTENSION_FALLBACKS[ext]
+            ?: MimeTypes.Unknown.value
+    }
+
+    companion object {
+        // MimeTypeMap on some older devices doesn't know HEIC/HEIF; patch only these two.
+        private val EXTENSION_FALLBACKS = mapOf(
+            "heic" to "image/heic",
+            "heif" to "image/heif",
+        )
     }
 }

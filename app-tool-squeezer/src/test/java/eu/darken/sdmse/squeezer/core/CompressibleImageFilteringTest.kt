@@ -213,8 +213,14 @@ class CompressibleImageFilteringTest : BaseTest() {
     }
 
     @Test
-    fun `SUPPORTED_MIME_TYPES has exactly 2 types`() {
-        CompressibleImage.SUPPORTED_MIME_TYPES shouldHaveSize 2
+    fun `SUPPORTED_MIME_TYPES covers JPEG WebP HEIC HEIF`() {
+        CompressibleImage.SUPPORTED_MIME_TYPES shouldHaveSize 4
+        CompressibleImage.SUPPORTED_MIME_TYPES shouldContainAll setOf(
+            CompressibleImage.MIME_TYPE_JPEG,
+            CompressibleImage.MIME_TYPE_WEBP,
+            CompressibleImage.MIME_TYPE_HEIC,
+            CompressibleImage.MIME_TYPE_HEIF,
+        )
     }
 
     @Test

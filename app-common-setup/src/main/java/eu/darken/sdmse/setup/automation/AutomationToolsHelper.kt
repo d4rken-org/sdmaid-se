@@ -39,7 +39,7 @@ fun Context.mightBeRestrictedDueToSideload(): Boolean {
  * Protection is active our accessibility service can never be enabled - the bind is rejected, not
  * just the Settings toggle, so even a root/ADB (Shizuku) secure-settings write does not help.
  */
-@SuppressLint("NewApi")
+@SuppressLint("NewApi", "MissingPermission")
 fun Context.isRestrictedByAdvancedProtection(): Boolean {
     if (!hasApiLevel(37)) return false
     return runCatching {

@@ -277,6 +277,45 @@ class ScheduleTest : BaseTest() {
         eta shouldNotBe null
     }
 
+    @Test fun `zero or negative repeat interval cannot hang the calculations`() {
+        listOf(Duration.ZERO, Duration.ofDays(-3), Duration.ofHours(1)).forEach { interval ->
+            val schedule = Schedule(
+                id = "id",
+                hour = 22,
+                minute = 0,
+                repeatInterval = interval,
+                scheduledAt = Instant.parse("2022-01-01T12:00:00Z"),
+            )
+
+            // Regression: a <1 day interval made plusDays(0) spin forever. Preemptive timeout —
+            // a plain timeout can't interrupt a tight CPU loop.
+            org.junit.jupiter.api.Assertions.assertTimeoutPreemptively(java.time.Duration.ofSeconds(10)) {
+                schedule.calcExecutionEta(
+                    now = Instant.parse("2022-06-01T12:00:00Z"), // months later → many loop steps
+                    reschedule = false,
+                    zone = ZoneId.of("UTC"),
+                ) shouldNotBe null
+                schedule.calcFirstExecutionAt(zone = ZoneId.of("UTC")) shouldNotBe null
+            }
+        }
+    }
+
+    @Test fun `sub-day repeat interval behaves like a one day interval`() {
+        val schedule = Schedule(
+            id = "id",
+            hour = 22,
+            minute = 0,
+            repeatInterval = Duration.ofHours(1),
+            scheduledAt = Instant.parse("2022-01-01T12:00:00Z"),
+        )
+
+        schedule.calcExecutionEta(
+            now = Instant.parse("2022-01-01T12:00:00Z"),
+            reschedule = false,
+            zone = ZoneId.of("UTC"),
+        ) shouldBe Duration.ofHours(10)
+    }
+
     // DST Tests - verify local time is preserved across daylight saving transitions
 
     @Test fun `DST spring forward - local time preserved for daily schedule`() {

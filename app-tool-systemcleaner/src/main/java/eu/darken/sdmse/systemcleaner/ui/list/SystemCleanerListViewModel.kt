@@ -19,6 +19,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -56,6 +57,7 @@ class SystemCleanerListViewModel @Inject constructor(
     // swap that preserves the rows List instance, letting keyed lazy rows skip recomposition.
     private val rowsState = systemCleaner.state
         .map { it.data }
+        .distinctUntilChanged()
         .map { data ->
             val rows = data?.filterContents
                 ?.sortedByDescending { it.size }

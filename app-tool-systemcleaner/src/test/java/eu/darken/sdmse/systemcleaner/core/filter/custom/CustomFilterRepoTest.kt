@@ -213,6 +213,47 @@ class CustomFilterRepoTest : BaseTest() {
     }
 
     @Test
+    fun `replaceAll writes the new set before removing stale files`() = runTest2 {
+        val h = harness()
+        h.repo.save(setOf(config(id = "stale"), config(id = "kept", label = "Old kept")))
+
+        h.repo.replaceAll(setOf(config(id = "kept", label = "New kept"), config(id = "fresh")))
+
+        File(h.filterDir, "stale.json").exists() shouldBe false
+        File(h.filterDir, "kept.json").readText().contains("New kept") shouldBe true
+        File(h.filterDir, "fresh.json").exists() shouldBe true
+        h.repo.configs.first().map { it.identifier }.toSet() shouldBe setOf("kept", "fresh")
+        // The stale filter's enabled-state entry was cleared.
+        io.mockk.coVerify(atLeast = 1) { h.enabledValue.update(any()) }
+    }
+
+    @Test
+    fun `identifiers that escape the filter directory are rejected`() = runTest2 {
+        val h = harness()
+        val escapee = File(tempDir, "evil.json")
+
+        shouldThrow<IllegalArgumentException> {
+            h.repo.save(setOf(config(id = "../evil")))
+        }
+        shouldThrow<IllegalArgumentException> {
+            h.repo.replaceAll(setOf(config(id = "../evil")))
+        }
+
+        escapee.exists() shouldBe false
+    }
+
+    @Test
+    fun `replaceAll with an empty set clears all filters`() = runTest2 {
+        val h = harness()
+        h.repo.save(setOf(config(id = "a"), config(id = "b")))
+
+        h.repo.replaceAll(emptySet())
+
+        h.filterDir.listFiles().orEmpty().filter { it.name.endsWith(".json") } shouldBe emptyList()
+        h.repo.configs.first() shouldBe emptyList()
+    }
+
+    @Test
     fun `configs clears orphan settings entries with no matching file on disk`() = runTest2 {
         // settings has IDs for filters that no longer have a config file on disk; loading
         // configs triggers cleanup of those orphan entries via clearCustomFilter.

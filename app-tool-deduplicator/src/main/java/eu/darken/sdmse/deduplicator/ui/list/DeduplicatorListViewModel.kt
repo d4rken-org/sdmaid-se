@@ -29,6 +29,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
@@ -83,6 +84,7 @@ class DeduplicatorListViewModel @Inject constructor(
     private val rowsFlow = deduplicator.state
         .map { it.data }
         .filterNotNull()
+        .distinctUntilChanged()
         .map { data ->
             data.clusters
                 .sortedByDescending { it.averageSize }

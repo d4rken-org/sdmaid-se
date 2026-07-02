@@ -242,6 +242,15 @@ class SAFGateway @Inject constructor(
         }
     }
 
+    override suspend fun lookupExtended(path: SAFPath): SAFPathLookupExtended = runIO {
+        try {
+            SAFPathLookupExtended(lookup(path))
+        } catch (e: Exception) {
+            log(TAG, WARN) { "lookupExtended($path) failed." }
+            throw ReadException(path = path, cause = e)
+        }
+    }
+
     override suspend fun lookupFiles(path: SAFPath): List<SAFPathLookup> = runIO {
         try {
             val docFile = findDocFile(path)

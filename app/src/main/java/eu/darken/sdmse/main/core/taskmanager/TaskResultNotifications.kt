@@ -13,7 +13,6 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.main.ui.MainActivity
@@ -39,7 +38,7 @@ class TaskResultNotifications @Inject constructor(
             context,
             0,
             openIntent,
-            PendingIntentCompat.FLAG_IMMUTABLE
+            PendingIntent.FLAG_IMMUTABLE
         )
     }
 

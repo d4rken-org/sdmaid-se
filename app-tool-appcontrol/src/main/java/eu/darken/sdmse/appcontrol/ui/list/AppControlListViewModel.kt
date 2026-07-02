@@ -52,6 +52,7 @@ import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -132,7 +133,7 @@ class AppControlListViewModel @Inject constructor(
     // filterSortRows over hundreds of apps. Progress is merged in the outer combine (below) as a
     // cheap field swap that preserves the rows List instance, letting keyed lazy rows skip.
     private val rowsState = combine(
-        appControl.state,
+        appControl.state.distinctUntilChangedBy { it.copy(progress = null) },
         displayOptions,
     ) { acState, options ->
         // If the selected sort's backing data wasn't loaded by the current scan (missing or
