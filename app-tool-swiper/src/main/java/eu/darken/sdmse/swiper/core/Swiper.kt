@@ -370,11 +370,6 @@ class Swiper @Inject constructor(
         sessionDao.updateLabel(sessionId, label)
     }
 
-    suspend fun retryFailedItem(itemId: Long) = toolLock.withLock {
-        log(TAG) { "retryFailedItem(itemId=$itemId)" }
-        itemDao.updateDecision(itemId, SwipeDecision.DELETE)
-    }
-
     suspend fun retryAllFailed(sessionId: String) = toolLock.withLock {
         log(TAG) { "retryAllFailed(sessionId=$sessionId)" }
         val failedItems = itemDao.getItemsByDecisionSync(sessionId, SwipeDecision.DELETE_FAILED)
