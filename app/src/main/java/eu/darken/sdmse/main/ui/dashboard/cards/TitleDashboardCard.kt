@@ -38,6 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -153,6 +154,7 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
                     Text(
                         text = titleText,
                         style = MaterialTheme.typography.headlineSmall,
+                        textAlign = TextAlign.Center,
                     )
                     Text(
                         text = sloganText,
