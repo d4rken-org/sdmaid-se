@@ -22,9 +22,11 @@ import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
 import eu.darken.sdmse.common.collections.mutate
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -48,6 +50,7 @@ import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.stats.core.SpaceTracker
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -128,17 +131,29 @@ class Analyzer @Inject constructor(
         // ran before the storage permission was granted, that stale flag (and the permission-limited
         // content) sticks in the cached data until the next scan — so the UI keeps showing
         // "permissions missing" and the storage card bounces through a Setup screen that immediately
-        // closes. When the storage setup transitions to complete, re-scan so the stale flag clears and
-        // the real content loads. No loop: after the rescan no DeviceStorage carries setupIncomplete,
-        // and the setup state stays complete (distinctUntilChanged), so this stops firing.
-        storageSetupModule.state
-            .map { it.isComplete }
+        // closes. Whenever setup is complete AND the cached data carries the stale flag, re-scan.
+        // Observing both flows covers setup completing mid-scan: the finishing scan publishes the
+        // stale devices after the setup transition, which re-evaluates the condition. No loop: a
+        // successful rescan bakes setupIncomplete=false into every device, and a failed one leaves
+        // the devices cleared (scan start empties them) — either way the condition turns false.
+        combine(
+            storageSetupModule.state.map { it.isComplete }.distinctUntilChanged(),
+            storageDevices,
+        ) { setupComplete, devices ->
+            setupComplete && devices.any { it.setupIncomplete }
+        }
             .distinctUntilChanged()
-            .filter { isComplete -> isComplete }
+            .filter { staleWhileComplete -> staleWhileComplete }
             .onEach {
-                if (storageDevices.value.any { it.setupIncomplete }) {
-                    log(TAG, INFO) { "Storage setup completed while cached storage data is stale; re-scanning" }
+                log(TAG, INFO) { "Storage setup is complete but cached storage data is stale; re-scanning" }
+                try {
                     submit(DeviceStorageScanTask())
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Background heal only — appScope has no exception handler, so anything
+                    // escaping here would kill the whole process. The next manual scan recovers.
+                    log(TAG, ERROR) { "Automatic storage re-scan failed: ${e.asLog()}" }
                 }
             }
             .launchIn(appScope)
