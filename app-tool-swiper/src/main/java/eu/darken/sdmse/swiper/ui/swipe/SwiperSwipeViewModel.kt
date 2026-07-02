@@ -43,6 +43,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import java.util.concurrent.atomic.AtomicLong
 import javax.inject.Inject
 
 @HiltViewModel
@@ -73,13 +74,23 @@ class SwiperSwipeViewModel @Inject constructor(
 
     // Optimistic decisions applied on top of the DB items until Room catches up. Lets counts/stamps
     // and next-card selection reflect a swipe instantly; reconciled (entry dropped) once the DB row
-    // shows the matching decision. Keyed by itemId.
-    private val pendingDecisions = MutableStateFlow<Map<Long, SwipeDecision>>(emptyMap())
+    // shows the matching decision. Keyed by itemId. Each overlay carries the generation of the
+    // write that produced it so a failed OLD write can be told apart from a newer same-value one
+    // (DELETE -> undo -> DELETE) when deciding whether a rollback still applies.
+    private data class PendingDecision(val decision: SwipeDecision, val generation: Long)
+
+    private val pendingDecisions = MutableStateFlow<Map<Long, PendingDecision>>(emptyMap())
+    private val writeGeneration = AtomicLong(0)
+
+    private fun pendingPlain(): Map<Long, SwipeDecision> =
+        pendingDecisions.value.mapValues { it.value.decision }
 
     private data class UndoEntry(
         val itemId: Long,
         val previousDecision: SwipeDecision,
         val previousIndex: Int,
+        /** Generation of the action that pushed this entry — ties it to that write's rollback. */
+        val generation: Long,
     )
 
     private val undoHistory = MutableStateFlow<List<UndoEntry>>(emptyList())
@@ -157,12 +168,12 @@ class SwiperSwipeViewModel @Inject constructor(
             swapDirections: Boolean,
             showDetails: Boolean,
             undoStack: List<UndoEntry>,
-            pending: Map<Long, SwipeDecision> ->
+            pending: Map<Long, PendingDecision> ->
             // Apply optimistic decisions so the UI reflects a swipe instantly, before the DB write.
             val items = if (pending.isEmpty()) {
                 rawItems
             } else {
-                rawItems.map { item -> pending[item.id]?.let { item.copy(decision = it) } ?: item }
+                rawItems.map { item -> pending[item.id]?.let { item.copy(decision = it.decision) } ?: item }
             }
             // Override (set by bindRoute / actions) takes precedence over the session's persistent
             // currentIndex. After a partial delete the session resets to 0 but the override may point
@@ -220,7 +231,7 @@ class SwiperSwipeViewModel @Inject constructor(
     }.safeStateIn(initialValue = null) { null }
 
     private fun effectiveDecision(item: SwipeItem): SwipeDecision =
-        pendingDecisions.value[item.id] ?: item.decision
+        pendingDecisions.value[item.id]?.decision ?: item.decision
 
     private fun currentIndexNow(items: List<SwipeItem>): Int =
         (currentIndexOverride.value ?: sessionState.value?.currentIndex ?: 0)
@@ -229,8 +240,8 @@ class SwiperSwipeViewModel @Inject constructor(
     private fun reconcilePending(dbItems: List<SwipeItem>) {
         pendingDecisions.update { pending ->
             if (pending.isEmpty()) return@update pending
-            pending.filterNot { (id, decision) ->
-                dbItems.firstOrNull { it.id == id }?.decision == decision
+            pending.filterNot { (id, overlay) ->
+                dbItems.firstOrNull { it.id == id }?.decision == overlay.decision
             }
         }
     }
@@ -238,6 +249,9 @@ class SwiperSwipeViewModel @Inject constructor(
     /**
      * @param tracksDecision true for ops that write an item decision — keeps [inFlightWrites] raised
      * until the write lands so optimistic-decision reconciliation waits for the queue to drain.
+     * Decision writes handle their own failures inside [op] (scoped exactly around the decision
+     * write — see [rollbackDecisionWrite]); the catch here is the backstop for the cheap
+     * index/discard writes, whose failure is cosmetic.
      */
     private fun enqueuePersist(tracksDecision: Boolean = false, op: suspend () -> Unit) {
         // Retain synchronously (main thread) so the counter rises in submission order.
@@ -261,7 +275,8 @@ class SwiperSwipeViewModel @Inject constructor(
         }
     }
 
-    fun setDecision(itemId: Long, decision: SwipeDecision) {
+    /** @return whether the commit was accepted — the UI only plays the fly-off for accepted ones. */
+    fun setDecision(itemId: Long, decision: SwipeDecision): Boolean {
         val items = itemsState.value
         val currentIndex = currentIndexNow(items)
         val currentItem = items.getOrNull(currentIndex)
@@ -269,22 +284,33 @@ class SwiperSwipeViewModel @Inject constructor(
         // against the new cursor.
         if (currentItem == null || currentItem.id != itemId) {
             log(TAG, WARN) { "setDecision($itemId, $decision) ignored: not the current item (${currentItem?.id})" }
-            return
+            return false
         }
         log(TAG, INFO) { "setDecision(itemId=$itemId, decision=$decision)" }
 
+        val gen = writeGeneration.incrementAndGet()
         undoHistory.value = (
-            undoHistory.value + UndoEntry(itemId, effectiveDecision(currentItem), currentIndex)
+            undoHistory.value + UndoEntry(itemId, effectiveDecision(currentItem), currentIndex, gen)
             ).takeLast(UNDO_HISTORY_LIMIT)
 
         // Optimistic + cursor advance — synchronous, before any IO.
-        pendingDecisions.update { it + (itemId to decision) }
-        val next = nextUndecidedIndex(items, pendingDecisions.value, currentIndex, itemId)
+        pendingDecisions.update { it + (itemId to PendingDecision(decision, gen)) }
+        val next = nextUndecidedIndex(items, pendingPlain(), currentIndex, itemId)
         if (next != null) currentIndexOverride.value = next
 
         val sid = sessionId
         enqueuePersist(tracksDecision = true) {
-            swiper.updateDecision(itemId, decision)
+            try {
+                swiper.updateDecision(itemId, decision)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Scoped to the decision write only: a failing index write below must not roll
+                // back a decision that DID persist.
+                log(TAG, ERROR) { "Decision write failed for $itemId: ${e.asLog()}" }
+                rollbackDecisionWrite(itemId, generation = gen, error = e)
+                return@enqueuePersist
+            }
             if (next != null && sid != null) swiper.updateCurrentIndex(sid, next)
         }
 
@@ -293,16 +319,18 @@ class SwiperSwipeViewModel @Inject constructor(
         }
 
         if (next == null) navigateToStatus()
+        return true
     }
 
-    fun skip(itemId: Long) {
+    /** @return whether the commit was accepted — the UI only plays the fly-off for accepted ones. */
+    fun skip(itemId: Long): Boolean {
         val items = itemsState.value
         if (items.isEmpty()) {
             log(TAG, INFO) { "skip(): No items remain, discarding session" }
-            val sid = sessionId ?: return
+            val sid = sessionId ?: return false
             enqueuePersist { swiper.discardSession(sid) }
             navToSessions()
-            return
+            return false
         }
         val currentIndex = currentIndexNow(items)
         val currentItem = items.getOrNull(currentIndex)
@@ -310,28 +338,42 @@ class SwiperSwipeViewModel @Inject constructor(
         // (gesture + button, or a double tap) could otherwise skip whatever is current at VM time.
         if (currentItem == null || currentItem.id != itemId) {
             log(TAG, WARN) { "skip($itemId) ignored: not the current item (${currentItem?.id})" }
-            return
+            return false
         }
         log(TAG, INFO) { "skip(): item=${currentItem.id}" }
 
+        val gen = writeGeneration.incrementAndGet()
         undoHistory.value = (
-            undoHistory.value + UndoEntry(currentItem.id, effectiveDecision(currentItem), currentIndex)
+            undoHistory.value + UndoEntry(currentItem.id, effectiveDecision(currentItem), currentIndex, gen)
             ).takeLast(UNDO_HISTORY_LIMIT)
 
         val needsReset = effectiveDecision(currentItem) != SwipeDecision.UNDECIDED
-        if (needsReset) pendingDecisions.update { it + (currentItem.id to SwipeDecision.UNDECIDED) }
+        if (needsReset) {
+            pendingDecisions.update { it + (currentItem.id to PendingDecision(SwipeDecision.UNDECIDED, gen)) }
+        }
 
         // Exclude the just-skipped item so we don't immediately land back on it.
-        val next = nextUndecidedIndex(items, pendingDecisions.value, currentIndex, currentItem.id)
+        val next = nextUndecidedIndex(items, pendingPlain(), currentIndex, currentItem.id)
         if (next != null) currentIndexOverride.value = next
 
         val sid = sessionId
         enqueuePersist(tracksDecision = needsReset) {
-            if (needsReset) swiper.updateDecision(currentItem.id, SwipeDecision.UNDECIDED)
+            if (needsReset) {
+                try {
+                    swiper.updateDecision(currentItem.id, SwipeDecision.UNDECIDED)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Decision reset failed for ${currentItem.id}: ${e.asLog()}" }
+                    rollbackDecisionWrite(currentItem.id, generation = gen, error = e)
+                    return@enqueuePersist
+                }
+            }
             if (next != null && sid != null) swiper.updateCurrentIndex(sid, next)
         }
 
         if (next == null) navigateToStatus()
+        return true
     }
 
     fun undo() {
@@ -343,15 +385,63 @@ class SwiperSwipeViewModel @Inject constructor(
         val entry = history.last()
         log(TAG, INFO) { "undo(): Restoring itemId=${entry.itemId} to ${entry.previousDecision} at index ${entry.previousIndex}" }
 
+        val gen = writeGeneration.incrementAndGet()
         undoHistory.value = history.dropLast(1)
-        pendingDecisions.update { it + (entry.itemId to entry.previousDecision) }
+        pendingDecisions.update { it + (entry.itemId to PendingDecision(entry.previousDecision, gen)) }
         currentIndexOverride.value = entry.previousIndex
 
         val sid = sessionId
         enqueuePersist(tracksDecision = true) {
-            swiper.updateDecision(entry.itemId, entry.previousDecision)
+            try {
+                swiper.updateDecision(entry.itemId, entry.previousDecision)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The undo never reached the DB — without a rollback the deck would show the item
+                // as undone while finalizing from the status screen still acts on the old
+                // decision (e.g. deleting a file the user believes rescued). Generation-guarded:
+                // a newer same-item action supersedes this failure, and re-pushing the popped
+                // entry then would corrupt the undo order. Scoped to the decision write only.
+                log(TAG, ERROR) { "Undo write failed for ${entry.itemId}: ${e.asLog()}" }
+                if (revertOverlay(entry.itemId, gen)) {
+                    undoHistory.update { stack -> (stack + entry).takeLast(UNDO_HISTORY_LIMIT) }
+                    errorEvents.tryEmit(e)
+                } else {
+                    log(TAG, WARN) { "Undo persist failure for ${entry.itemId} superseded, no rollback" }
+                }
+                return@enqueuePersist
+            }
             if (sid != null) swiper.updateCurrentIndex(sid, entry.previousIndex)
         }
+    }
+
+    /**
+     * Removes the optimistic overlay produced by write [generation]. Returns false when a newer
+     * action already replaced it — that action's own write runs later in the fair queue and its
+     * failure handling governs the final state, so the older failure must not touch anything.
+     * CAS loop instead of update{}: update retries its lambda on contention, so a side-effect
+     * "did it apply" flag could be left over from a losing attempt.
+     */
+    private fun revertOverlay(itemId: Long, generation: Long): Boolean {
+        while (true) {
+            val current = pendingDecisions.value
+            if (current[itemId]?.generation != generation) return false
+            if (pendingDecisions.compareAndSet(current, current - itemId)) return true
+        }
+    }
+
+    /**
+     * Rolls back a failed optimistic decision write: the DB still holds the old decision, so the
+     * overlay (and the undo entry this write pushed) must go or the deck drifts from what
+     * finalizing would actually delete. Generation-guarded — see [revertOverlay].
+     */
+    private fun rollbackDecisionWrite(itemId: Long, generation: Long, error: Exception) {
+        if (!revertOverlay(itemId, generation)) {
+            log(TAG, WARN) { "Persist failure for $itemId superseded by a newer action, no rollback" }
+            return
+        }
+        undoHistory.update { stack -> stack.filterNot { it.generation == generation } }
+        errorEvents.tryEmit(error)
     }
 
     fun setCurrentIndex(index: Int) {
@@ -393,8 +483,17 @@ class SwiperSwipeViewModel @Inject constructor(
         )
         // Non-optimistic: the exclusion save can fail, so only advance after both side effects land.
         exclusionManager.save(exclusion)
+        val removedIndex = itemsState.value.indexOfFirst { it.id == item.id }
         pendingDecisions.update { it - item.id }
-        undoHistory.update { stack -> stack.filterNot { it.itemId == item.id } }
+        // Removal shifts every later index down by one; recorded undo positions must follow or an
+        // undo would land the cursor on a neighbor of the restored item.
+        undoHistory.update { stack ->
+            stack
+                .filterNot { it.itemId == item.id }
+                .map {
+                    if (removedIndex in 0 until it.previousIndex) it.copy(previousIndex = it.previousIndex - 1) else it
+                }
+        }
         swiper.removeItem(item.id)
 
         val sid = sessionId ?: return@launch
@@ -405,8 +504,17 @@ class SwiperSwipeViewModel @Inject constructor(
             navToSessions()
             return@launch
         }
+        // After the removal the item at currentIndex IS the removed item's successor — it must be
+        // considered, not excluded: starting the search past it (with the successor as
+        // excludeItemId on top) used to bypass it until wrap-around.
         val currentIndex = currentIndexNow(items)
-        val next = nextUndecidedIndex(items, pendingDecisions.value, currentIndex, items.getOrNull(currentIndex)?.id)
+        val currentUndecided = items.getOrNull(currentIndex)
+            ?.let { (pendingDecisions.value[it.id]?.decision ?: it.decision) == SwipeDecision.UNDECIDED } == true
+        val next = if (currentUndecided) {
+            currentIndex
+        } else {
+            nextUndecidedIndex(items, pendingPlain(), currentIndex, null)
+        }
         if (next != null) {
             currentIndexOverride.value = next
             enqueuePersist { swiper.updateCurrentIndex(sid, next) }
@@ -438,10 +546,13 @@ class SwiperSwipeViewModel @Inject constructor(
         val canUndo: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
-        // Strict next item only (legacy parity). The previous `?: firstOrNull { it != current }`
-        // fallback showed an arbitrary earlier (often already-decided) card as the back-card when
-        // the current item was last — misrepresenting what will actually be processed next.
-        val nextItem: SwipeItem? = items.getOrNull(currentIndex + 1)
+        // The peeking back-card must be the card the deck actually promotes on the next advance:
+        // mirror nextUndecidedIndex (skips decided items, wraps) instead of the raw list
+        // successor, which peeked the wrong card after undo/pager jumps/wrap-around and flashed
+        // a blank frame on promotion. `items` already carries the optimistic decisions, so no
+        // pending overlay is needed here.
+        val nextItem: SwipeItem? = nextUndecidedIndex(items, emptyMap(), currentIndex, currentItem?.id)
+            ?.let { items[it] }
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label
     }

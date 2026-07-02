@@ -19,6 +19,7 @@ import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.swiper.ui.preview.previewLocalPathLookup
 import eu.darken.sdmse.swiper.ui.preview.previewSwipeItem
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -28,6 +29,7 @@ import io.mockk.mockk
 import io.mockk.slot
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -38,6 +40,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.io.IOException
 import java.time.Instant
 
 class SwiperSwipeViewModelTest : BaseTest() {
@@ -650,6 +653,164 @@ class SwiperSwipeViewModelTest : BaseTest() {
             4L to SwipeDecision.DELETE,
         )
         nextUndecidedIndex(items, allDecided, fromIndex = 0, excludeItemId = null) shouldBe null
+    }
+
+    // ─────────────────────────── persist-failure containment & deck integrity ───────────────────────────
+
+    @Test
+    fun `a failed decision write rolls back the optimistic overlay and surfaces the error`() = runTest2 {
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+        coEvery { h.swiper.updateDecision(any(), any()) } throws IOException("db write failed")
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.errorEvents.collect { errors.add(it) } }
+
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        advanceUntilIdle()
+
+        // Optimistic DELETE rolled back to the DB truth (UNDECIDED)...
+        h.vm.state.value!!.items.first { it.id == 1L }.decision shouldBe SwipeDecision.UNDECIDED
+        // ...its undo entry dropped...
+        h.vm.state.value!!.canUndo shouldBe false
+        // ...and the failure surfaced instead of being swallowed.
+        errors shouldHaveSize 1
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `a failed undo write restores the overlay and the undo entry`() = runTest2 {
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        advanceUntilIdle()
+        // Simulate the DB echoing the successful first write.
+        h.itemsFlow.value = listOf(item(1, SwipeDecision.DELETE), item(2))
+        advanceUntilIdle()
+
+        coEvery { h.swiper.updateDecision(any(), any()) } throws IOException("db write failed")
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.errorEvents.collect { errors.add(it) } }
+
+        h.vm.undo()
+        advanceUntilIdle()
+
+        // The deck falls back to the recorded DELETE instead of claiming a rescued item that
+        // finalizing from the status screen would still delete...
+        h.vm.state.value!!.items.first { it.id == 1L }.decision shouldBe SwipeDecision.DELETE
+        // ...the undo entry is restored so it can be retried...
+        h.vm.state.value!!.canUndo shouldBe true
+        // ...and the failure surfaced.
+        errors shouldHaveSize 1
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `a failed index write after a successful decision write does not roll back`() = runTest2 {
+        // The decision itself persisted; only the cosmetic cursor write failed. Rolling back the
+        // overlay/undo entry here would hide a decision that IS recorded in the DB.
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+        coEvery { h.swiper.updateCurrentIndex(any(), any()) } throws IOException("index write failed")
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.errorEvents.collect { errors.add(it) } }
+
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        advanceUntilIdle()
+
+        h.vm.state.value!!.items.first { it.id == 1L }.decision shouldBe SwipeDecision.DELETE
+        h.vm.state.value!!.canUndo shouldBe true
+        errors shouldHaveSize 0
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `a superseded persist failure does not clobber the newer decision`() = runTest2 {
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+        var calls = 0
+        coEvery { h.swiper.updateDecision(any(), any()) } coAnswers {
+            delay(100)
+            if (++calls == 1) throw IOException("first write fails late")
+        }
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.errorEvents.collect { errors.add(it) } }
+
+        // decide -> undo -> decide again while the first (failing) write is still in the queue.
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        h.vm.undo()
+        h.vm.setDecision(1L, SwipeDecision.KEEP) shouldBe true
+        advanceUntilIdle()
+
+        // The old failure must neither clobber the newer overlay nor drop its undo entry...
+        h.vm.state.value!!.items.first { it.id == 1L }.decision shouldBe SwipeDecision.KEEP
+        h.vm.state.value!!.canUndo shouldBe true
+        // ...and the superseded failure isn't surfaced - the newer write governs the final state.
+        errors shouldHaveSize 0
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `a superseded persist failure does not clobber a same-value newer decision`() = runTest2 {
+        // DELETE -> undo -> DELETE: comparing overlay values can't tell the old failed write from
+        // the newer accepted one — only the write generation can.
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+        var calls = 0
+        coEvery { h.swiper.updateDecision(any(), any()) } coAnswers {
+            delay(100)
+            if (++calls == 1) throw IOException("first write fails late")
+        }
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.errorEvents.collect { errors.add(it) } }
+
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        h.vm.undo()
+        h.vm.setDecision(1L, SwipeDecision.DELETE) shouldBe true
+        advanceUntilIdle()
+
+        h.vm.state.value!!.items.first { it.id == 1L }.decision shouldBe SwipeDecision.DELETE
+        h.vm.state.value!!.canUndo shouldBe true
+        errors shouldHaveSize 0
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `stale commits report rejection so no fly-off is played for them`() = runTest2 {
+        val h = harness(items = listOf(item(1), item(2)))
+        advanceUntilIdle()
+
+        // Item 2 is not the current card; nothing is recorded, and the screen must not stamp a
+        // KEEP/DELETE fly-off for it.
+        h.vm.setDecision(2L, SwipeDecision.DELETE) shouldBe false
+        h.vm.skip(2L) shouldBe false
+    }
+
+    @Test
+    fun `back-card preview mirrors the actual deck advance`() = runTest2 {
+        // The raw list successor is already decided; the deck's advance skips it, so the peeking
+        // back-card must too — otherwise the promoted card mounts fresh and flashes blank.
+        val h = harness(items = listOf(item(1), item(2, SwipeDecision.KEEP), item(3)))
+        advanceUntilIdle()
+
+        h.vm.state.value!!.nextItem?.id shouldBe 3L
+    }
+
+    @Test
+    fun `excluding the current card advances to its direct successor`() = runTest2 {
+        val h = harness(items = listOf(item(1), item(2), item(3)))
+        advanceUntilIdle()
+        coEvery { h.swiper.removeItem(any()) } answers {
+            val removed = arg<Long>(0)
+            h.itemsFlow.value = h.itemsFlow.value.filterNot { it.id == removed }
+        }
+
+        h.vm.excludeAndRemove(h.vm.state.value!!.items.first())
+        advanceUntilIdle()
+
+        // After removing item 1, item 2 sits at the cursor and is the next card — the old search
+        // started past it and additionally excluded it, bypassing it until wrap-around.
+        h.vm.state.value!!.currentItem?.id shouldBe 2L
     }
 
     private class CollectedEvents(
