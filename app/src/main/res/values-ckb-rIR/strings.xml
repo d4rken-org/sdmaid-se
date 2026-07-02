@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">کۆگای ئەپەکان</string>
     <string name="setup_inventory_card_body">SD Maid پێویستی هەیە بزانێت چ ئەپەکانت هەیە بۆ دۆزینەوەی ئەو فایلانەی کە سەر بە هیچ ئەپێکی دامەزراو نین.</string>
     <string name="setup_inventory_card_extra">بەدوای مۆڵەتێکدا بگەڕێ بە ناوی \"لیستی ئەپەکان\" یان \"پرسیارکردن لە هەموو پاکێجەکان\".</string>
-    <string name="setup_inventory_invalid_message">سیستەم لیستێکی نادروستی ئەپە دامەزراوەکانی دابینکرد (بۆ نموونە زۆر کەم یان هەندێکیان ون بوون). بڕۆ بۆ ڕێکخستنەکانی سیستەم و ڕێگا بە SD Maid بدە بگاتە \"لیستی ئەپەکان\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid هیچ ناوچەی داتایەکی نەدۆزییەوە کە بگەڕێدرێت. ئایا ڕێکخستنت تەواو کرد؟</string>
     <string name="dataarea_warningcard_label">ناوچەکانی داتا</string>
     <string name="dataarea_warningcard_reload_action">ناوچەکانی داتا دووبارە بارببە</string>

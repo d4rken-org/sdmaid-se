@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">アプリのインベントリ</string>
     <string name="setup_inventory_card_body">SD Maid は、インストールされているアプリに属さないファイルを見つけるために、どのアプリを持っているかを知る必要があります。</string>
     <string name="setup_inventory_card_extra">アプリリストまたはすべてのパッケージクエリと呼ばれる権限を探します。</string>
-    <string name="setup_inventory_invalid_message">システムが無効なインストール済みアプリのリストを提供しました（例：少なすぎる、または一部が欠落している）。システム設定に移動し、SD Maidに「アプリリスト」へのアクセスを許可してください。</string>
     <string name="dataarea_warningcard_empty_message">SD Maidはスキャン可能なデータ領域を発見できませんでした。セットアップは完了しましたか？</string>
     <string name="dataarea_warningcard_label">データエリア</string>
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>

@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">รายการแอพ</string>
     <string name="setup_inventory_card_body">SD Maid ต้องทราบว่าคุณมีแอพใดบ้างเพื่อค้นหาไฟล์ที่ไม่เป็นของแอพที่ติดตั้งไว้</string>
     <string name="setup_inventory_card_extra">มองหาสิทธิ์ที่เรียกว่า \"App list\" หรือ \"Query all packages\"</string>
-    <string name="setup_inventory_invalid_message">ระบบให้รายการแอพที่ติดตั้งที่ไม่ถูกต้อง (เช่น น้อยเกินไป หรือบางตัวหายไป) ไปที่การตั้งค่าระบบและอนุญาตให้ SD Maid เข้าถึง \"App list\"</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ไม่พบพื้นที่เก็บข้อมูลที่สามารถสแกนได้ คุณตั้งค่าเบื้องต้นเสร็จแล้วไหม?</string>
     <string name="dataarea_warningcard_label">พื้นที่เก็บข้อมูล</string>
     <string name="dataarea_warningcard_reload_action">โหลดพื้นที่เก็บข้อมูลใหม่</string>

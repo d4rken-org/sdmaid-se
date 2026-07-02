@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">App-inventaris</string>
     <string name="setup_inventory_card_body">SD Maid moet weten welke apps je hebt om bestanden te vinden die niet bij geïnstalleerde apps horen.</string>
     <string name="setup_inventory_card_extra">Zoek naar een machtiging met de naam \'Applijst\' of \'Alle pakketten opvragen\'.</string>
-    <string name="setup_inventory_invalid_message">Het systeem heeft een ongeldige lijst met geïnstalleerde apps verstrekt (bijv. te weinig of sommige ontbreken). Ga naar de systeeminstellingen en geef SD Maid toegang tot de \"App-lijst\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid heeft geen gegevensgebieden gevonden die kunnen worden gescand. Heb je de installatie voltooid?</string>
     <string name="dataarea_warningcard_label">Gegevens gebieden</string>
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">অ্যাপ ইনভেন্টরি</string>
     <string name="setup_inventory_card_body">SD Maid এর জানা দরকার যে কোন অ্যাপগুলি আপনার কাছে এমন ফাইলগুলি খুঁজে বের করতে হবে যা কোনও ইনস্টল করা অ্যাপের অন্তর্গত নয়।</string>
     <string name="setup_inventory_card_extra">\"অ্যাপ লিস্ট\" বা \"কোয়েরি অল প্যাকেজ\" নামে একটি পারমিশন খুঁজুন।</string>
-    <string name="setup_inventory_invalid_message">সিস্টেমটি ইনস্টল করা অ্যাপগুলির একটি অবৈধ তালিকা প্রদান করেছে (যেমন খুব কম বা কিছু অনুপস্থিত)। সিস্টেম সেটিংসে যান এবং \"অ্যাপ তালিকা\" এ SD Maid অ্যাক্সেসের অনুমতি দিন।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid স্ক্যান করাতে পারে এমন কোনো ডেটা এরিয়া খুঁজে পায়নি। আপনি সেটআপ সম্পূর্ণ করেছেন?</string>
     <string name="dataarea_warningcard_label">ডেটা এরিয়া</string>
     <string name="dataarea_warningcard_reload_action">ডেটা এরিয়া পুনরায় লোড করুন</string>

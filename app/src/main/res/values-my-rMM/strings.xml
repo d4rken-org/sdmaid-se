@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">အက်ပ် စာရင်းကောက်ခြင်း</string>
     <string name="setup_inventory_card_body">တပ်ဆင်ထားသော အက်ပ်များအားလုံးနှင့် မပိုင်ဆိုင်သော ဖိုင်များကို ရှာရန် SD Maid သည် သင့်တွင် မည်သည့်အက်ပ်များရှိကြောင်း သိရန် လိုအပ်သည်။</string>
     <string name="setup_inventory_card_extra">\"အက်ပ်စာရင်း\" သို့မဟုတ် \"ပက်ကေ့ချ်များအားလုံးကို မေးမြန်းခြင်း\" ဟုခေါ်သော ခွင့်ပြုချက်ကို ရှာပါ။</string>
-    <string name="setup_inventory_invalid_message">စနစ်က တပ်ဆင်ထားသော အက်ပ်များ၏ မမှန်ကန်သောစာရင်းကို ပံ့ပိုးပေးသည် (ဥပမာ အများလွန်းသော သို့မဟုတ် အချို့ပျောက်ဆုံးနေခြင်း)။ စနစ်ဆက်တင်များသို့သွားပြီး SD Maid ကို \"အက်ပ်စာရင်း\" သို့ ဝင်ရောက်ခွင့်ပေးပါ။</string>
     <string name="dataarea_warningcard_empty_message">SD Maid သည် စကင်န်ဖတ်နိုင်သော ဒေတာနယ်ပယ်များကို မတွေ့ရှိပါ။ သင်က တပ်ဆင်မှုကို ပြီးအောင်လုပ်ပြီးပြီလား?</string>
     <string name="dataarea_warningcard_label">ဒေတာနယ်ပယ်များ</string>
     <string name="dataarea_warningcard_reload_action">ဒေတာနယ်ပယ်များကို ပြန်လည်တင်ရန်</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">ആപ്പ് ഇൻവെന്ററി</string>
     <string name="setup_inventory_card_body">ഇൻസ്റ്റോൾ ചെയ്ത ആപ്പുകളിൽ ഒന്നിനും അൽപ്പമാണ്ട ഫയലുകൾ കണ്ടെത്താൻ SD Maid-ന് നിങ്ങളുടെ ആപ്പുകളെക്കുറിച്ച് അറിഞ്ഞിരിക്കേണ്ടതുണ്ട്.</string>
     <string name="setup_inventory_card_extra">\"ആപ്പ് ലിസ്റ്റ്\" അല്ലെങ്കിൽ \"എല്ലാ പാക്കേജുകളും ക്വറി ചെയ്യുക\" എന്ന അനുമതി തിരയുക.</string>
-    <string name="setup_inventory_invalid_message">ഇൻസ്റ്റോൾ ചെയ്ത ആപ്പുകളുടെ അസാധുവായ ഒരു ലിസ്റ്റ് സിസ്റ്റം നൽകി (ഉദാ. വളരെ കുറച്ചോ ചിലവ കാണുന്നില്ലോ). സിസ്റ്റം ക്രമീകരണങ്ങളിലേക്ക് പോയി SD Maid-ന് \"ആപ്പ് ലിസ്റ്റ്\" ആക്സസ് അനുവദിക്കുക.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-ന് സ്കാൻ ചെയ്യാൻ കഴിയുന്ന ഡേറ്റ മേഖലകൾ കണ്ടെത്തിയില്ല. നിങ്ങൾ സെറ്റപ്പ് പൂർത്തിയാക്കിയോ?</string>
     <string name="dataarea_warningcard_label">ഡേറ്റ മേഖലകൾ</string>
     <string name="dataarea_warningcard_reload_action">ഡേറ്റ മേഖലകൾ പുനഃലോഡ് ചെയ്യുക</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">ऐप सूची</string>
     <string name="setup_inventory_card_body">स्थापित ऐप्स और डेटा क्षेत्रों की सूची बनाई जा रही है।</string>
     <string name="setup_inventory_card_extra">\"App list\" या \"Query all packages\" नामक अनुमति देखें।</string>
-    <string name="setup_inventory_invalid_message">सिस्टम ने इंस्टॉल किए गए ऐप्स की एक अमान्य सूची प्रदान की (जैसे बहुत कम या कुछ गुम थे)। सिस्टम सेटिंग्स में जाएं और SD Maid को \"App list\" तक पहुंच की अनुमति दें।</string>
     <string name="dataarea_warningcard_empty_message">SD मेड को ऐसा कोई डेटा क्षेत्र नहीं मिला जिसे स्कैन किया जा सके। क्या आपने सेटअप पूरा किया?</string>
     <string name="dataarea_warningcard_label">भंडारण क्षेत्र</string>
     <string name="dataarea_warningcard_reload_action">भंडारण क्षेत्रों को पुनः लोड करें</string>

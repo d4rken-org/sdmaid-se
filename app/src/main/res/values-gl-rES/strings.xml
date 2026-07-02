@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventario de aplicacións</string>
     <string name="setup_inventory_card_body">SD Maid necesita saber que aplicacións tes para atopar ficheiros que non pertencen a ningunha aplicación instalada.</string>
     <string name="setup_inventory_card_extra">Busca un permiso chamado \"Lista de aplicacións\" ou \"Consultar todos os paquetes\".</string>
-    <string name="setup_inventory_invalid_message">O sistema proporcionou unha lista non válida de aplicacións instaladas (por exemplo, moi poucas ou algunhas faltaban). Vai á configuración do sistema e permite a SD Maid acceso á \"Lista de aplicacións\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non atopou ningunha área de datos que se poida escanear. Completaches a configuración inicial?</string>
     <string name="dataarea_warningcard_label">Áreas de datos</string>
     <string name="dataarea_warningcard_reload_action">Recargar áreas de datos</string>

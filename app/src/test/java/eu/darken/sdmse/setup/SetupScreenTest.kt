@@ -115,7 +115,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `inventory card with fake access shows error label and open settings button`() {
+    fun `inventory card with fake access shows error label, limitation box and open settings button`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -134,8 +134,66 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             )
         }
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_invalid_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_body2)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_help_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_open_system_settings_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `inventory card limitation box buttons invoke settings and help actions`() {
+        var settingsClicks = 0
+        var helpClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        InventorySetupCardItem(
+                            state = InventorySetupModule.Result(
+                                missingPermission = emptySet(),
+                                isAccessFaked = true,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = { settingsClicks++ },
+                            onHelp = { helpClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_open_system_settings_action)).performClick()
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.runOnIdle {
+            assertTrue(settingsClicks == 1)
+            // The container help icon has no text label, so the click unambiguously hit the box button.
+            assertTrue(helpClicks == 1)
+        }
+    }
+
+    @Test
+    fun `inventory card with missing permission shows grant button and no limitation box`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        InventorySetupCardItem(
+                            state = InventorySetupModule.Result(
+                                missingPermission = setOf(Permission.GET_INSTALLED_APPS),
+                                isAccessFaked = false,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_invalid_label)).assertCountEquals(0)
     }
 
     @Test
@@ -258,6 +316,85 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         // Advanced Protection has no per-app remedy, so the "View" action must not be offered here.
         composeRule.onAllNodesWithText(context.getString(eu.darken.sdmse.common.R.string.general_view_action)).assertCountEquals(0)
     }
+
+    @Test
+    fun `automation card advanced protection help button invokes callback`() {
+        var helpClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(showAdvancedProtectionHint = true, isAdvancedProtectionBlocked = true),
+                            onAdvancedProtectionHelp = { helpClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.runOnIdle { assertTrue(helpClicks == 1) }
+    }
+
+    @Test
+    fun `automation card appops restriction hint shows help and view actions that invoke callbacks`() {
+        var helpClicks = 0
+        var showClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(showAppOpsRestrictionHint = true),
+                            onRestrictionsHelp = { helpClicks++ },
+                            onRestrictionsShow = { showClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_appops_restriction_title)).assertCountEquals(1)
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_view_action)).performClick()
+        composeRule.runOnIdle {
+            assertTrue(helpClicks == 1)
+            assertTrue(showClicks == 1)
+        }
+    }
+
+    private fun automationResult(
+        showAppOpsRestrictionHint: Boolean = false,
+        showAdvancedProtectionHint: Boolean = false,
+        isAdvancedProtectionBlocked: Boolean = false,
+    ) = AutomationSetupModule.Result(
+        isNotRequired = false,
+        hasConsent = true,
+        canSelfEnable = false,
+        isServiceEnabled = false,
+        isServiceRunning = false,
+        isShortcutOrButtonEnabled = false,
+        needsXiaomiAutostart = false,
+        liftRestrictionsIntent = Intent(),
+        showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+        showAdvancedProtectionHint = showAdvancedProtectionHint,
+        isAdvancedProtectionBlocked = isAdvancedProtectionBlocked,
+        settingsIntent = Intent(),
+    )
+
+    private fun automationCardItem(
+        state: AutomationSetupModule.Result,
+        onRestrictionsHelp: () -> Unit = {},
+        onRestrictionsShow: () -> Unit = {},
+        onAdvancedProtectionHelp: () -> Unit = {},
+    ) = AutomationSetupCardItem(
+        state = state,
+        onGrantAction = {},
+        onDismiss = {},
+        onHelp = {},
+        onRestrictionsHelp = onRestrictionsHelp,
+        onRestrictionsShow = onRestrictionsShow,
+        onAdvancedProtectionHelp = onAdvancedProtectionHelp,
+    )
 
     @Test
     fun `shizuku card shows root info note and open action while waiting`() {

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">යෙදුම් රන්ඩු</string>
     <string name="setup_inventory_card_body">ස්ථාපනය කර යෙදුම්වලට පායැනේ නොවො ගොනු සොයාගැනීමට ඔබ ඇද යෙදුම් මොනවාද ආසි SD Maid හට දැනීම අවශ්‍යය.</string>
     <string name="setup_inventory_card_extra">\"App list\" නකඬත් \"Query all packages\" නමන් අනුමතියක් සොයන්න.</string>
-    <string name="setup_inventory_invalid_message">පද්ධතිය ස්ථාපනය කැරි යෙදුම් නැවැලිස්ටයක් සපයී (උදා. ඉතා අුණු නකඬත් කිහිපයක් නැති විය). පද්ධති සම්සාවලට ගිහින් \"App list\" වලට SD Maid හට ප්‍රවේශය ඉඩ දෙන්න.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid හට ස්කැන් කළ හැකි දත්ත ප්‍රදේශ සොයාගැන් නොහැක. ඔබ පිහිටුවීම සම්පූර්ණ කලාද?</string>
     <string name="dataarea_warningcard_label">දත්ත ප්‍රදේශ</string>
     <string name="dataarea_warningcard_reload_action">දත්ත ප්‍රදේශ නැවත ලොඩ් කරන්න</string>

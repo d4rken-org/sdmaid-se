@@ -13,6 +13,7 @@ import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,8 +24,10 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
+import eu.darken.sdmse.setup.SetupLimitationBox
 import eu.darken.sdmse.common.R as CommonR
 
 data class InventorySetupCardItem(
@@ -78,30 +81,35 @@ internal fun InventorySetupCard(
             }
         }
 
-        if (item.state.isAccessFaked) {
-            Text(
-                text = stringResource(R.string.setup_inventory_invalid_message),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-            )
+        if (item.state.missingPermission.isEmpty() && item.state.isAccessFaked) {
+            SetupLimitationBox(
+                title = stringResource(R.string.setup_inventory_limitation_title),
+                body = stringResource(R.string.setup_inventory_limitation_body),
+                body2 = stringResource(R.string.setup_inventory_limitation_body2),
+            ) {
+                OutlinedButton(
+                    onClick = item.onHelp,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
+                }
+                Button(
+                    onClick = item.onGrantAction,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(stringResource(CommonR.string.general_open_system_settings_action))
+                }
+            }
         }
 
-        if (!item.state.isComplete) {
+        if (item.state.missingPermission.isNotEmpty()) {
             Button(
                 onClick = item.onGrantAction,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp),
             ) {
-                Text(
-                    text = stringResource(
-                        if (item.state.isAccessFaked) CommonR.string.general_open_system_settings_action
-                        else CommonR.string.general_grant_access_action,
-                    ),
-                )
+                Text(stringResource(CommonR.string.general_grant_access_action))
             }
         }
 
@@ -119,13 +127,31 @@ internal fun InventorySetupCard(
 
 @Preview2
 @Composable
-private fun InventorySetupCardPreview() {
+private fun InventorySetupCardInvalidPreview() {
     PreviewWrapper {
         InventorySetupCard(
             item = InventorySetupCardItem(
                 state = InventorySetupModule.Result(
                     missingPermission = emptySet(),
                     isAccessFaked = true,
+                    settingsIntent = Intent(),
+                ),
+                onGrantAction = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun InventorySetupCardMissingPermissionPreview() {
+    PreviewWrapper {
+        InventorySetupCard(
+            item = InventorySetupCardItem(
+                state = InventorySetupModule.Result(
+                    missingPermission = setOf(Permission.GET_INSTALLED_APPS),
+                    isAccessFaked = false,
                     settingsIntent = Intent(),
                 ),
                 onGrantAction = {},

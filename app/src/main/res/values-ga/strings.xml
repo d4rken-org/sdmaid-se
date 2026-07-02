@@ -129,7 +129,6 @@
     <string name="setup_acs_appops_restriction_body">Nach féidir seirbhís inrochtaineachta SD Maid a chumasú? D\'fhéadfadh Android 13+ srianta a chur i bhfeidhm ar aipeanna nach ndearnadh a shuiteáil trí Google Play. Bain na srianta seo ó leathanach sonraí an chórais do SD Maid. Tá an rogha sa roghchlár comhthéacs sa chúinne uachtarach ar dheis.</string>
     <string name="setup_inventory_card_body">Ní mór do SD Maid a fháil amach cé na haipeanna atá agat chun comhaid a aimsiú nach mbaineann le haipeanna suiteáilte ar bith.</string>
     <string name="setup_inventory_card_extra">Lorg cead ar a dtugtar \"Liosta aipeanna\" nó \"Ceist ar gach pacáiste\".</string>
-    <string name="setup_inventory_invalid_message">Sholáthair an córas liosta neamhbhailí d\'aipeanna suiteáilte (m.sh. an-bheagán nó bhí cuid ar iarraidh). Téigh go socruithe an chórais agus ceadaigh rochtain SD Maid ar \"Liosta aipeanna\".</string>
     <string name="dataarea_warningcard_empty_message">Níor aimsigh SD Maid aon cheantair sonraí is féidir a scanadh. Ar chríochnaigh tú an tsocrú?</string>
     <string name="debug_mode_explanation">Cumasaigh roghanna tástála agus aschur níos beohiúla. Rithfidh an aip níos moille agus feidhmeoidh sí go difriúil.</string>
     <string name="data_area_public_app_data_official_label">Sonraí aipe poiblí réamhshocraithe</string>

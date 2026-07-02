@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">एप सूची</string>
     <string name="setup_inventory_card_body">SD Maid लाई तपाईंसँग कुन एप्सहरू छन् भनेर जान्न आवश्यक छ जुन स्थापित एप्सहरूसँग सम्बन्धित नभएका फाइलहरू फेला पार्न सक्छ।</string>
     <string name="setup_inventory_card_extra">\"एप सूची\" वा \"सबै प्याकेजहरू खोज\" भनिने अनुमति खोज्नुहोस्।</string>
-    <string name="setup_inventory_invalid_message">सिस्टमले स्थापित एप्सहरूको अवैध सूची प्रदान गरेको छ (जस्तै धेरै कम वा केही छुटेका छन्)। सिस्टम सेटिङहरूमा जानुहोस् र SD Maid लाई \"एप सूची\" मा पहुँच दिनुहोस्।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ले स्क्यान गर्न सकिने कुनै डाटा क्षेत्रहरू फेला पारेन। के तपाईंले सेटअप पूरा गर्नुभयो?</string>
     <string name="dataarea_warningcard_label">डाटा क्षेत्रहरू</string>
     <string name="dataarea_warningcard_reload_action">डाटा क्षेत्रहरू पुनः लोड गर्नुहोस्</string>

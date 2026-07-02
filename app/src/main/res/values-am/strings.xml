@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">የመተግበሪያዎች ዝርዝር</string>
     <string name="setup_inventory_card_body">ኤስዲ ሜይድ ለተጫኑ መተግበሪያዎች የማይንቁ ፋይሎችን ለማግኘት የትኞቹ መተግበሪያዎች እንዳሉዎት ማወቅ ያስፈልገዋል።</string>
     <string name="setup_inventory_card_extra">\"መተግበሪያ ዝርዝር\" ወይም \"ሁሉንም ጥቅሎች ጠይቅ\" የሚባል ፈቃድ ይፈልጉ።</string>
-    <string name="setup_inventory_invalid_message">ሲስተሙ ልክ ያልሆነ የተጫኑ መተግበሪያዎች ዝርዝር ሰጥቷል (ለምሳሌ በጣም ጥቂት ወይም አንዳንዶቹ አልተገኙም). ወደ ሲስተም ቅንብሮች ሄደው ኤስዲ ሜይድ \"መተግበሪያ ዝርዝርን\" እንዲደርስ ያስችሉ።</string>
     <string name="dataarea_warningcard_empty_message">ኤስዲ ሜይድ መፈተሽ የሚቻሉ የውሂብ አካባቢዎችን አላገኘም። ማዋቀሩን ጨርሰዋል?</string>
     <string name="dataarea_warningcard_label">የውሂብ አካባቢዎች</string>
     <string name="dataarea_warningcard_reload_action">የውሂብ አካባቢዎችን እንደገና ጫን</string>

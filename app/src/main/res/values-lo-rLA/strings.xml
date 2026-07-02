@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">ຄໍງມີຂອງແອັບ</string>
     <string name="setup_inventory_card_body">SD Maid ຕ້ອງການທຫາບວ່າທ່ານມີແອັບອະໄຮບ້າງເພື່ອຫາໄຟລໄທີ່ບໍ່ໄດ້ເປັນຂອງແອັບທີ່ຕິດຕັ້ງທັງໜັງ.</string>
     <string name="setup_inventory_card_extra">ມອງຫາການອະນຸຍາດທີ່ເຣີຍກວ່າ \"ລາຍລະອຽດແອັບ\" ຫຼື \"ຄໍາຖາມອຸປະກອນທັງໜັງ\".</string>
-    <string name="setup_inventory_invalid_message">ລະບົບແສດງລາຍລະອຽດແອັບທີ່ຕິດຕັ້ງທີ່ບໍ່ຖືກຕ້ອງ (ເຊ່ນ ນ້ອຍເກີນໄປ ຫຼື ບາງຕົວໜັດໄປ). ເຂົ້າໄປໃນການຕັ້ງຄ່າລະບົບ ແລະ ອະນຸຍາດໃຫ້ SD Maid ເຂົ້າເຖິງ \"ລາຍລະອຽດແອັບ\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ບໍ່ພົບພື້ນທີ່ຂໍ້ມູນໃດທີ່ສາມາດສແກນໄດ້. ທ່ານໄດ້ທໍາການຕັ້ງຄ່າສໍາເລັດແລ້ວຫຼືບໍ່?</string>
     <string name="dataarea_warningcard_label">ພື້ນທີ່ຂໍ້ມູນ</string>
     <string name="dataarea_warningcard_reload_action">ໂຫຼດພື້ນທີ່ຂໍ້ມູນໃໜ່</string>

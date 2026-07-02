@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Forritayfirlit</string>
     <string name="setup_inventory_card_body">SD Maid þarf að vita hvaða forrit þú hefur til að finna skrár sem tilheyra ekki neinu uppsettum forriti.</string>
     <string name="setup_inventory_card_extra">Leitaðu að leyfi sem kallast \"Forritalisti\" eða \"Query all packages\".</string>
-    <string name="setup_inventory_invalid_message">Kerfið gaf ógilda lista yfir uppsett forrit (t.d. of fá eða sum vantaði). Farðu í kerfisstillingar og leyfðu SD Maid aðgang að \"Forritalista\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid fann engin gagnasvæði sem hægt er að skanna. Hefur þú lokið uppsetningunni?</string>
     <string name="dataarea_warningcard_label">Gagnasvæði</string>
     <string name="dataarea_warningcard_reload_action">Endurhlaða gagnasvæði</string>

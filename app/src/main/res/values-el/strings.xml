@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Εφαρμογές</string>
     <string name="setup_inventory_card_body">Το SD Maid πρέπει να γνωρίζει ποιες εφαρμογές έχετε για να βρει αρχεία που δεν ανήκουν σε καμία εγκατεστημένη εφαρμογή.</string>
     <string name="setup_inventory_card_extra">Αναζητήστε μια άδεια που ονομάζεται \"Λίστα εφαρμογών\"/\"App list\" ή \"Ερώτηση σε όλα τα πακέτα\"/\"Query all packages\".</string>
-    <string name="setup_inventory_invalid_message">Το σύστημα παρείχε μια μη έγκυρη λίστα εγκατεστημένων εφαρμογών (π.χ. πολύ λίγα ή λείπουν μερικά από αυτά). Μεταβείτε στις ρυθμίσεις συστήματος και επιτρέψτε την πρόσβαση SD Maid στη \"Λίστα εφαρμογών\".</string>
     <string name="dataarea_warningcard_empty_message">Το SD Maid δε βρήκε περιοχές δεδομένων που μπορούν να σαρωθούν. Ολοκληρώσατε την εγκατάσταση;</string>
     <string name="dataarea_warningcard_label">Περιοχές δεδομένων</string>
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>

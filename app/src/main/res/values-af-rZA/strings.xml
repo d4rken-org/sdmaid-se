@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Toepassing inventaris</string>
     <string name="setup_inventory_card_body">SD Maid moet weet watter toepassings jy het om lêers te vind wat nie aan enige geïnstalleerde toepassings behoort nie.</string>
     <string name="setup_inventory_card_extra">Soek vir \'n toestemming genaamd \"Toepassing lys\" of \"Vraag alle pakkette\".</string>
-    <string name="setup_inventory_invalid_message">Die stelsel het \'n ongeldige lys van geïnstalleerde toepassings verskaf (bv. te min of sommige was vermis). Gaan na stelsel instellings en laat SD Maid toegang toe tot \"Toepassing lys\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid het geen data areas gevind wat geskandeer kan word nie. Het jy die opstelling voltooi?</string>
     <string name="dataarea_warningcard_label">Data-areas</string>
     <string name="dataarea_warningcard_reload_action">Herlaai data areas</string>

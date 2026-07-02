@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Апп-ын жагсаалт</string>
     <string name="setup_inventory_card_body">SD Maid нь суулгагдсан апп-д харьяалахгүй файлуудыг олохын тулд тань апп-уудыг чьнь мэдэх шаардлагатай.</string>
     <string name="setup_inventory_card_extra">\"Апп жагсаалт\" эсвэл \"Бүх пакетийг асуух\" гэдэг ерхийг хайна уу.</string>
-    <string name="setup_inventory_invalid_message">Систем суулгасан апп-уудын буруу жагсаалт өгсөн (жш. хэтэрхий цөөн эсвэл дутуу). Системийн тохиргоог нээж SD Maid-д \"Апп жагсаалт\" руу нэвтрэх эрх өгөөрөй.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid сканнердах боломжтой өгөгдлийн бүс олсонгүй. Та тохиргоог дуусгасан уу?</string>
     <string name="dataarea_warningcard_label">Өгөгдлийн бүсүүд</string>
     <string name="dataarea_warningcard_reload_action">Өгөгдлийн бүсүүдийг дахин ачаалах</string>

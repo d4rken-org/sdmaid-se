@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">App-Inventar</string>
     <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps du installiert hast, um Dateien zu finden, die zu keiner installierten App gehören.</string>
     <string name="setup_inventory_card_extra">Suchen Sie nach einer Berechtigung namens \"App-Liste\" oder \"Alle Pakete abfragen\".</string>
-    <string name="setup_inventory_invalid_message">Das System hat eine ungültige Liste installierter Apps bereitgestellt (z. B. zu wenige oder einige fehlten). Gehe zu den Systemeinstellungen und erlaube SD Maid den Zugriff auf die „App-Liste“.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>

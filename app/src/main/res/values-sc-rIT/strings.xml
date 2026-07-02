@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventariu de aplicatziones</string>
     <string name="setup_inventory_card_body">SD Maid necessitat de ischire cales aplicatziones tenes pro agatare documentos chi no apertènint a peruna aplicatzione installada.</string>
     <string name="setup_inventory_card_extra">Chirca unu permissu clamadu \"Lista de aplicatziones\" o \"Consulta totu is pachetos\".</string>
-    <string name="setup_inventory_invalid_message">Su sistema at frunidu una lista de aplicatziones installadas non vàlida (pro es. tropu paghedas o calicunas ch\'abarrant). Andare in is impostatziones de sistema e permitere a SD Maid s\'atzessu a \"Lista de aplicatziones\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid no at agatadu peruna àrea de datos chi si potzat iscansiare. As cumpletadu sa cunfiguratzione?</string>
     <string name="dataarea_warningcard_label">Àreas de datos</string>
     <string name="dataarea_warningcard_reload_action">Torrare a carrighere is àreas de datos</string>

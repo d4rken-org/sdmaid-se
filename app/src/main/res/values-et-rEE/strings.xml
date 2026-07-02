@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Rakenduse inventuur</string>
     <string name="setup_inventory_card_body">SD Maid peab paigaldatud rakenduste failide kuuluvuse leidmiseks teada teie rakendusi.</string>
     <string name="setup_inventory_card_extra">Otsige luba „Rakenduste loend” või „Küsi kõiki pakette”.</string>
-    <string name="setup_inventory_invalid_message">Süsteem esitas paigaldatud rakenduste puuduliku nimekirja (nt liiga vähe või osad on puudu). Avage süsteemi seaded ja lubage SD Maidil juurde pääseda rakenduste loendile.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei leidnud skannitavaid andmekogusid. Kas lõpetasite seadistamise?</string>
     <string name="dataarea_warningcard_label">Andmekogud</string>
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>

@@ -126,7 +126,6 @@
     <string name="setup_inventory_card_title">Rhestr apiau</string>
     <string name="setup_inventory_card_body">Mae angen i SD Maid wybod pa apiau sydd gennych i ddod o hyd i ffeiliau nad ydynt yn perthyn i unrhyw apiau wedi\'u gosod.</string>
     <string name="setup_inventory_card_extra">Chwiliwch am ganiatâd o\'r enw "Rhestr apiau" neu "Holi pob pecyn".</string>
-    <string name="setup_inventory_invalid_message">Darparodd y system restr annilys o apiau wedi\'u gosod (e.e. rhy ychydig neu roedd rhai ar goll). Ewch i osodiadau\'r system a chaniatáu mynediad SD Maid i "Rhestr apiau".</string>
     <string name="dataarea_warningcard_empty_message">Ni ddaeth SD Maid o hyd i unrhyw ardaloedd data y gellir eu sganio. A wnaethoch chi gwblhau\'r gosodiad?</string>
     <string name="dataarea_warningcard_label">Ardaloedd data</string>
     <string name="dataarea_warningcard_reload_action">Ail-lwytho ardaloedd data</string>

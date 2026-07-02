@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">ଆପ୍ ତାଲିକା</string>
     <string name="setup_inventory_card_body">କୌଣସି ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସର ନୁହଁ ଏପରି ଫାଇଲ୍ ଖୋଜିବା ପାଇଁ SD Maid କୁ ଜାଣିବା ଦରକାର ଯେ ଆପଣଙ୍କର କେଉଁ ଆପ୍ସ ଅଛି।</string>
     <string name="setup_inventory_card_extra">\"App list\" କିମ୍ବା \"Query all packages\" ନାମକ ଏକ ଅନୁମତି ଖୋଜନ୍ତୁ।</string>
-    <string name="setup_inventory_invalid_message">ସିଷ୍ଟମ୍ ଏକ ଅବୈଧ ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସର ତାଲିକା ପ୍ରଦାନ କରିଛି (ଯଥା ବହୁତ କମ୍ କିମ୍ବା କିଛି ନାହିଁ)। ସିଷ୍ଟମ୍ ସେଟିଂସ୍ କୁ ଯାଆନ୍ତୁ ଏବଂ SD Maid କୁ \"App list\" ରେ ପ୍ରବେଶ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ସ୍କାନ୍ କରିବା ପାଇଁ କୌଣସି ଡାଟା କ୍ଷେତ୍ର ପାଇଲା ନାହିଁ। ଆପଣ ସେଟଅପ୍ ସମ୍ପୂର୍ଣ୍ଣ କରିଛନ୍ତି କି?</string>
     <string name="dataarea_warningcard_label">ଡାଟା କ୍ଷେତ୍ରଗୁଡ଼ିକ</string>
     <string name="dataarea_warningcard_reload_action">ଡାଟା କ୍ଷେତ୍ରଗୁଡ଼ିକୁ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Sovelluslista</string>
     <string name="setup_inventory_card_body">SD Maidin täytyy tietää mitä sovelluksia sinulla on löytääkseen tiedostot, jotka eivät kuulu mihinkään asennettuun sovellukseen.</string>
     <string name="setup_inventory_card_extra">Etsi lupaa nimeltä \"Sovellusluettelo\" tai \"Kysy kaikki paketit\".</string>
-    <string name="setup_inventory_invalid_message">Järjestelmä toimitti virheellisen luettelon asennetuista sovelluksista (esim. liian vähän tai joitain puuttui). Mene järjestelmäasetuksiin ja salli SD Maidin pääsy \"Sovellusluetteloon\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei löytänyt tietoalueita, joita voitaisiin skannata. Suorititko asennuksen loppuun?</string>
     <string name="dataarea_warningcard_label">Tietoalueet</string>
     <string name="dataarea_warningcard_reload_action">Lataa tietoalueet uudelleen</string>

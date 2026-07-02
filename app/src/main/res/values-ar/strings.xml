@@ -229,7 +229,6 @@
     <string name="setup_inventory_card_title">مخزون التطبيق</string>
     <string name="setup_inventory_card_body">يحتاج SD Maid إلى معرفة أي تطبيقات لديك حتى يتم العثور على ملفات لا تنتمي إلى أي تطبيقات مثبتة.</string>
     <string name="setup_inventory_card_extra">ابحث عن إذن يسمى \"قائمة التطبيقات\" أو \"الاستعلام عن جميع الحزم\".</string>
-    <string name="setup_inventory_invalid_message">يوفر النظام قائمة غير صالحة للتطبيقات المثبتة (على سبيل المثال عدد قليل جدا أو بعضها مفقود). انتقل إلى إعدادات النظام و قم بالسماح بالوصول إلى \"قائمة التطبيقات\".</string>
     <string name="dataarea_warningcard_empty_message">لم تجد SD Maid أي مناطق بيانات يمكن مسحها. هل أكملت الإعداد؟</string>
     <string name="dataarea_warningcard_label">مناطق البيانات</string>
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>

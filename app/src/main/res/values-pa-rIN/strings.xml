@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">ਐਪ ਸੂਚੀ</string>
     <string name="setup_inventory_card_body">SD Maid ਨੂੰ ਇਹ ਜਾਣਨ ਦੀ ਲੋੜ ਹੈ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਕਿਹੜੀਆਂ ਐਪਾਂ ਹਨ ਤਾਂ ਜੋ ਉਹ ਫਾਇਲਾਂ ਲੱਭ ਸਕੇ ਜੋ ਕਿਸੇ ਵੀ ਇੰਸਟਾਲ ਕੀਤੀ ਐਪ ਨਾਲ ਸੰਬੰਧਿਤ ਨਹੀਂ ਹਨ।</string>
     <string name="setup_inventory_card_extra">\"ਐਪ ਸੂਚੀ\" ਜਾਂ \"ਸਾਰੇ ਪੈਕੇਜਾਂ ਦੀ ਪੁੱਛਗਿੱਛ ਕਰੋ\" ਨਾਮਕ ਅਨੁਮਤੀ ਲੱਭੋ।</string>
-    <string name="setup_inventory_invalid_message">ਸਿਸਟਮ ਨੇ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਦੀ ਇੱਕ ਅਵੈਧ ਸੂਚੀ ਪ੍ਰਦਾਨ ਕੀਤੀ (ਜਿਵੇਂ ਕਿ ਬਹੁਤ ਘੱਟ ਜਾਂ ਕੁਝ ਗੁੰਮ ਸਨ)। ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਓ ਅਤੇ SD Maid ਨੂੰ \"ਐਪ ਸੂਚੀ\" ਤੱਕ ਪਹੁੰਚ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ਨੂੰ ਕੋਈ ਵੀ ਡੇਟਾ ਖੇਤਰ ਨਹੀਂ ਮਿਲੇ ਜਿਨ੍ਹਾਂ ਨੂੰ ਸਕੈਨ ਕੀਤਾ ਜਾ ਸਕੇ। ਕੀ ਤੁਸੀਂ ਸੈੱਟਅੱਪ ਪੂਰਾ ਕੀਤਾ ਹੈ?</string>
     <string name="dataarea_warningcard_label">ਡੇਟਾ ਖੇਤਰ</string>
     <string name="dataarea_warningcard_reload_action">ਡੇਟਾ ਖੇਤਰਾਂ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ</string>

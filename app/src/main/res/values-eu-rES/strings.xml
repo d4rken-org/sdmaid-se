@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Aplikazio-inbentarioa</string>
     <string name="setup_inventory_card_body">SD Maid-ek jakin behar du zein aplikazio dituzun instalatutako aplikazioei ez dakizkien fitxategiak aurkitzeko.</string>
     <string name="setup_inventory_card_extra">Bilatu \"Aplikazio-zerrenda\" edo \"Pakete guztiak kontsultatu\" izeneko baimena.</string>
-    <string name="setup_inventory_invalid_message">Sistemak instalatutako aplikazioen zerrenda baliogabea eman du (adib. gutxiegi edo batzuk falta dira). Joan sistema-ezarpenetara eta baimendu SD Maid-i \"Aplikazio-zerrenda\" atzitzea.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-ek ez du eskaneatu daitezkeen datu-arearik aurkitu. Konfigurazioa osatu duzu?</string>
     <string name="dataarea_warningcard_label">Datu-areoak</string>
     <string name="dataarea_warningcard_reload_action">Birkargatu datu-areoak</string>

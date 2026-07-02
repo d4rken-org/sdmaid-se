@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventory ng app</string>
     <string name="setup_inventory_card_body">Kailangan ng SD Maid na malaman kung anong mga app ang mayroon kayo para mahanap ang mga file na hindi kabilang sa anumang naka-install na app.</string>
     <string name="setup_inventory_card_extra">Hanapin ang permission na tinatawag na \"App list\" o \"Query all packages\".</string>
-    <string name="setup_inventory_invalid_message">Nagbigay ang system ng hindi wastong listahan ng mga naka-install na app (hal. masyadong kaunti o may nawawala). Pumunta sa system settings at payagan ang SD Maid na ma-access ang \"App list\".</string>
     <string name="dataarea_warningcard_empty_message">Walang nahanap na data area na pwedeng i-scan ang SD Maid. Natapos ba ninyo ang setup?</string>
     <string name="dataarea_warningcard_label">Mga data area</string>
     <string name="dataarea_warningcard_reload_action">I-reload ang mga data area</string>
