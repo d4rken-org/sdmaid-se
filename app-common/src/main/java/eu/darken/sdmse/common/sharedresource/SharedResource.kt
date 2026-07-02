@@ -474,6 +474,12 @@ open class SharedResource<T : Any>(
      * But the backupmodule, while open, keeps the root shell alive.
      */
     suspend fun addChild(child: SharedResource<*>) {
+        if (child === this) {
+            // Self-adoption would register our own lease as our own child, pinning this resource open
+            // until a forced close() (before the lock-scope rework it deadlocked on coreLock instead).
+            log(iTag, WARN) { "[$sId|_]-addChild() Ignoring attempt to adopt ourselves as our own child" }
+            return
+        }
         // Decide under lock whether adoption is needed and pin the generation we are adopting FOR.
         val adoptingGen = coreLock.withLock("addChild-check-${child.resourceId}") {
             val existing = children[child]

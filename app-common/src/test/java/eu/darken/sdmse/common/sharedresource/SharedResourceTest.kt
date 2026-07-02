@@ -215,6 +215,21 @@ class SharedResourceTest : BaseTest() {
         srParent.addChild(srChild)
         srParent.addChild(srChild)
         srChild.isClosed shouldBe false
+
+        // A duplicate adoption must not leak a second keep-alive: closing the parent frees the child.
+        srParent.close()
+        srChild.isClosed shouldBe true
+    }
+
+    @Test fun `addChild ignores self-adoption`() = runTest2(autoCancel = true) {
+        val sr = SharedResource.createKeepAlive("test", this + Dispatchers.IO, Duration.ZERO)
+
+        val lease = sr.get()
+        sr.addChild(sr)
+        lease.close()
+
+        // Without the guard, the self-held child lease would keep us pinned open forever.
+        sr.isClosed shouldBe true
     }
 
     @Test fun `error during creation is forwarded`() = runTest2(autoCancel = true) {
@@ -984,11 +999,18 @@ class SharedResourceTest : BaseTest() {
         val adoption = launch(Dispatchers.IO) { parent.addChild(child) }
         childStarted.await()
 
-        // The generation the adoption was decided for dies while the child is still starting up...
-        parent.close()
+        try {
+            // The generation the adoption was decided for dies while the child is still starting up.
+            // Off-thread + timeout so a regression (addChild holding coreLock across child.get() would
+            // block close() until childGate opens) fails the test instead of hanging the worker.
+            withTimeout(5_000) {
+                withContext(Dispatchers.IO) { parent.close() }
+            }
+        } finally {
+            childGate.complete(Unit)
+        }
         parent.isClosed shouldBe true
 
-        childGate.complete(Unit)
         adoption.join()
 
         // ...so the acquired keep-alive must be released instead of registered — nothing may pin the
