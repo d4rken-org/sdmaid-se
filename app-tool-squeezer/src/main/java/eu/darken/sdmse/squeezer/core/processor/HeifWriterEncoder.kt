@@ -33,15 +33,22 @@ class HeifWriterEncoder @Inject constructor() : ImageEncoder {
         quality: Int,
         outputFile: File,
         exifData: ByteArray?,
+        rotationDegreesCw: Int,
     ) {
         check(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             "HeifWriterEncoder requires API 28+, was ${Build.VERSION.SDK_INT}"
         }
-        encodeP(bitmap, quality, outputFile, exifData)
+        encodeP(bitmap, quality, outputFile, exifData, rotationDegreesCw)
     }
 
     @RequiresApi(Build.VERSION_CODES.P)
-    private fun encodeP(bitmap: Bitmap, quality: Int, outputFile: File, exifData: ByteArray?) {
+    private fun encodeP(
+        bitmap: Bitmap,
+        quality: Int,
+        outputFile: File,
+        exifData: ByteArray?,
+        rotationDegreesCw: Int,
+    ) {
         if (outputFile.exists()) outputFile.delete()
 
         val writer = HeifWriter.Builder(
@@ -52,6 +59,8 @@ class HeifWriterEncoder @Inject constructor() : ImageEncoder {
         )
             .setQuality(quality)
             .setMaxImages(1)
+            // Carries the source's display rotation into the output as an irot property.
+            .setRotation(rotationDegreesCw)
             .build()
 
         var closed = false
