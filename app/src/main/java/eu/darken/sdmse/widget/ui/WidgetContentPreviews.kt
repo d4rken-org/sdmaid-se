@@ -62,6 +62,20 @@ private fun WidgetContentWithSdCardPreview() {
 
 @Preview(widthDp = 200, heightDp = 140)
 @Composable
+private fun WidgetContentCancellablePreview() {
+    WidgetContent(
+        WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB, isWorking = true, isCancellable = true)
+    )
+}
+
+@Preview(widthDp = 200, heightDp = 140)
+@Composable
+private fun WidgetContentWorkingPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB, isWorking = true))
+}
+
+@Preview(widthDp = 200, heightDp = 140)
+@Composable
 private fun WidgetContentUnavailablePreview() {
     WidgetContent(WidgetRenderState.Unavailable)
 }

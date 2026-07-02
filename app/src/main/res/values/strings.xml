@@ -366,6 +366,7 @@
     <string name="widget_home_storage_external">External</string>
     <string name="widget_home_freed_label">Freed: %1$s</string>
     <string name="widget_home_clean_action">Clean</string>
+    <string name="widget_home_working">Working…</string>
     <string name="widget_home_unavailable">Storage unavailable</string>
 
     <string name="shortcut_onetap_started">Scan &amp; delete started…</string>

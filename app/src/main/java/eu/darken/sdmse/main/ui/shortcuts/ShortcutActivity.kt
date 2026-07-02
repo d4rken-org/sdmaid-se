@@ -20,11 +20,18 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderOneClickTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -40,6 +47,7 @@ class ShortcutActivity : ComponentActivity() {
     @Inject lateinit var appCleaner: AppCleaner
     @Inject lateinit var deduplicator: Deduplicator
     @Inject lateinit var appScope: AppCoroutineScope
+    @Inject lateinit var oneTapRunGuard: OneTapRunGuard
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +62,10 @@ class ShortcutActivity : ComponentActivity() {
 
             ACTION_SCAN_DELETE -> {
                 handleScanDeleteShortcut()
+            }
+
+            ACTION_CANCEL_ONECLICK -> {
+                handleCancelOneClick()
             }
 
             else -> {
@@ -103,44 +115,76 @@ class ShortcutActivity : ComponentActivity() {
             return@launch
         }
 
-        // Show "started" up front: submit() suspends until each task finishes, so showing it after
-        // the submits would land only once everything is already done.
-        withContext(Dispatchers.Main) {
-            Toast.makeText(
-                this@ShortcutActivity,
-                getString(R.string.shortcut_onetap_started),
-                Toast.LENGTH_SHORT,
-            ).show()
+        // Single-flight: if a OneTap run is already in progress, don't stack another — open the app so
+        // the user can watch progress (the widget's Clean button is already "working" by now). Placed
+        // after the Pro gate so the shared launcher shortcut keeps its non-Pro → upgrade behaviour.
+        // Registering this coroutine's job lets the widget's Cancel abort not-yet-submitted tools too.
+        if (!oneTapRunGuard.tryStart(coroutineContext.job)) {
+            log(TAG, INFO) { "OneTap already running, opening app instead of starting again" }
+            withContext(Dispatchers.Main) {
+                startActivity(
+                    Intent(this@ShortcutActivity, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                )
+            }
+            return@launch
         }
 
-        if (corpseEnabled) {
-            try {
-                taskManager.submit(CorpseFinderOneClickTask())
-            } catch (e: Exception) {
-                log(TAG) { "Failed to submit CorpseFinderOneClickTask: $e" }
+        try {
+            // Show "started" up front: submit() suspends until each task finishes, so showing it after
+            // the submits would land only once everything is already done.
+            withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@ShortcutActivity,
+                    getString(R.string.shortcut_onetap_started),
+                    Toast.LENGTH_SHORT,
+                ).show()
             }
+
+            if (corpseEnabled) submitOneTapTask(CorpseFinderOneClickTask())
+            if (systemEnabled) submitOneTapTask(SystemCleanerOneClickTask())
+            if (appCleanerEnabled) submitOneTapTask(AppCleanerOneClickTask(shortcutMode = true))
+            if (deduplicatorEnabled) submitOneTapTask(DeduplicatorOneClickTask())
+        } finally {
+            oneTapRunGuard.finish()
         }
-        if (systemEnabled) {
-            try {
-                taskManager.submit(SystemCleanerOneClickTask())
-            } catch (e: Exception) {
-                log(TAG) { "Failed to submit SystemCleanerOneClickTask: $e" }
+    }
+
+    private suspend fun submitOneTapTask(task: SDMTool.Task) {
+        try {
+            // Don't queue a new task into an already-cancelled run: a cancel landing between two
+            // submits wouldn't stop submit() from registering the next task (TaskManager queues it
+            // inside a NonCancellable block before reaching a cancellable suspension).
+            currentCoroutineContext().ensureActive()
+            taskManager.submit(task)
+        } catch (e: CancellationException) {
+            if (!currentCoroutineContext().isActive) {
+                // The RUN was cancelled (widget Cancel → OneTapRunGuard.cancelRun()): abort the
+                // sequence. The submit may have slipped the task into the queue inside TaskManager's
+                // NonCancellable block after handleCancelOneClick()'s sweep — cancel its type again
+                // so nothing keeps running.
+                taskManager.cancel(task.type)
+                throw e
             }
+            // A per-tool cancel (e.g. from the dashboard) only skips that tool. Swallowing this used
+            // to be unconditional, which made cancelling the run impossible.
+            log(TAG) { "${task::class.simpleName} was cancelled individually, continuing run: $e" }
+        } catch (e: Exception) {
+            log(TAG) { "Failed to submit ${task::class.simpleName}: $e" }
         }
-        if (appCleanerEnabled) {
-            try {
-                taskManager.submit(AppCleanerOneClickTask(shortcutMode = true))
-            } catch (e: Exception) {
-                log(TAG) { "Failed to submit AppCleanerOneClickTask: $e" }
-            }
-        }
-        if (deduplicatorEnabled) {
-            try {
-                taskManager.submit(DeduplicatorOneClickTask())
-            } catch (e: Exception) {
-                log(TAG) { "Failed to submit DeduplicatorOneClickTask: $e" }
-            }
-        }
+    }
+
+    /**
+     * Widget "Cancel" while working: stop the OneTap sequence (pending submits never start) and cancel
+     * the one-click cleaning tools' active/queued tasks — the same scope as the dashboard's cancel
+     * action. Other tools (Analyzer, AppControl, …) keep running; they were started from in-app UI
+     * that has its own cancel affordances. Not Pro-gated — cancelling is never a premium feature.
+     */
+    private fun handleCancelOneClick() {
+        log(TAG, INFO) { "Cancelling OneTap run + one-click cleaning tasks" }
+        oneTapRunGuard.cancelRun()
+        ONECLICK_TYPES.forEach { taskManager.cancel(it) }
     }
 
     companion object {
@@ -149,7 +193,16 @@ class ShortcutActivity : ComponentActivity() {
         const val ACTION_OPEN_APPCONTROL = "eu.darken.sdmse.ACTION_OPEN_APPCONTROL"
         const val ACTION_OPEN_ANALYZER = "eu.darken.sdmse.ACTION_OPEN_ANALYZER"
         const val ACTION_SCAN_DELETE = "eu.darken.sdmse.ACTION_SCAN_DELETE"
+        const val ACTION_CANCEL_ONECLICK = "eu.darken.sdmse.ACTION_CANCEL_ONECLICK"
         const val ACTION_UPGRADE = "eu.darken.sdmse.ACTION_UPGRADE"
+
+        /** The tools the one-click run submits and the cancel action targets (dashboard parity). */
+        private val ONECLICK_TYPES = setOf(
+            SDMTool.Type.CORPSEFINDER,
+            SDMTool.Type.SYSTEMCLEANER,
+            SDMTool.Type.APPCLEANER,
+            SDMTool.Type.DEDUPLICATOR,
+        )
 
         const val EXTRA_SHORTCUT_ACTION = "shortcut_action"
     }

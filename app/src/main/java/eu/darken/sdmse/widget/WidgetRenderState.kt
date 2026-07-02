@@ -8,6 +8,13 @@ sealed interface WidgetRenderState {
     data class Data(
         val storages: List<StorageEntry>,
         val freedBytes: Long,
+        /** A clean/scan is running: the Clean control turns into a working/cancel affordance. */
+        val isWorking: Boolean = false,
+        /**
+         * The running work can still be cancelled → render a Cancel button. False while working means
+         * cancellation is already underway (or nothing is cancellable) → muted "Working…" instead.
+         */
+        val isCancellable: Boolean = false,
     ) : WidgetRenderState {
 
         data class StorageEntry(

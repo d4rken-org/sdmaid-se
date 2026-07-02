@@ -17,6 +17,7 @@ import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.Action
 import androidx.glance.action.clickable
+import androidx.glance.appwidget.CircularProgressIndicator
 import androidx.glance.appwidget.LinearProgressIndicator
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.appWidgetBackground
@@ -41,6 +42,7 @@ import eu.darken.sdmse.main.core.shortcuts.AppShortcut
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.widget.WidgetRenderState
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ui.R as CommonUiR
 
 // Breakpoints on the actual cell size (SizeMode.Exact). Column↔dp is approximate.
@@ -67,13 +69,27 @@ private val URI_OPEN_ANALYZER = Uri.parse("sdmse://widget/analyzer")
 // Extracted + internal so the filterEquals-distinctness that keeps their PendingIntents from
 // collapsing (and `clean()`'s) is unit-testable without a composition. See WidgetIntentsTest.
 internal fun widgetOpenAppIntent(context: Context): Intent =
-    Intent(context, MainActivity::class.java).apply { data = URI_OPEN_APP }
+    Intent(context, MainActivity::class.java).apply {
+        data = URI_OPEN_APP
+        // Behave like a launcher tap: reuse a live MainActivity instead of stacking a second one.
+        // The data URI (needed for PendingIntent identity) stops the system's own root-intent
+        // matching, so without these flags a backgrounded app would get a duplicate dashboard
+        // instance on top — and backing out of that left the singleton NavigationController wired
+        // to the finished instance's back stack, freezing all navigation (device-confirmed).
+        flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+    }
 
 internal fun widgetOpenAnalyzerIntent(context: Context): Intent =
     Intent(context, MainActivity::class.java).apply {
         data = URI_OPEN_ANALYZER
         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         putExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION, ShortcutActivity.ACTION_OPEN_ANALYZER)
+    }
+
+internal fun widgetCancelIntent(context: Context): Intent =
+    Intent(context, ShortcutActivity::class.java).apply {
+        action = ShortcutActivity.ACTION_CANCEL_ONECLICK
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK
     }
 
 @Composable
@@ -83,10 +99,44 @@ private fun openApp(): Action = actionStartActivity(widgetOpenAppIntent(LocalCon
 private fun openAnalyzer(): Action = actionStartActivity(widgetOpenAnalyzerIntent(LocalContext.current))
 
 @Composable
+private fun cancel(): Action = actionStartActivity(widgetCancelIntent(LocalContext.current))
+
+@Composable
 private fun clean(): Action = actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(LocalContext.current))
 
 @Composable
 internal fun WidgetContent(state: WidgetRenderState) {
+    WidgetChrome {
+        when (state) {
+            is WidgetRenderState.Data -> {
+                val size = LocalSize.current
+                when {
+                    size.height >= STACKED_MIN_HEIGHT -> StackedLayout(state)
+                    size.width < RING_MAX_WIDTH -> RingRowLayout(state)
+                    else -> ValueRowLayout(state, showButtonLabel = size.width >= BUTTON_LABEL_MIN_WIDTH)
+                }
+            }
+
+            WidgetRenderState.Unavailable -> UnavailableContent()
+        }
+    }
+}
+
+/**
+ * Widget-picker preview content: always the stacked (default 3×2) layout. The preview surface has no
+ * real host size — Glance composes it at the provider's minimum resize size, which the LocalSize
+ * dispatch in [WidgetContent] would resolve to the narrow ring row; the stacked layout is the
+ * representative showcase.
+ */
+@Composable
+internal fun WidgetPreviewContent(state: WidgetRenderState.Data) {
+    WidgetChrome {
+        StackedLayout(state)
+    }
+}
+
+@Composable
+private fun WidgetChrome(content: @Composable () -> Unit) {
     GlanceTheme {
         Box(
             modifier = GlanceModifier
@@ -96,18 +146,7 @@ internal fun WidgetContent(state: WidgetRenderState) {
                 .cornerRadius(20.dp)
                 .padding(horizontal = 14.dp, vertical = 12.dp),
         ) {
-            when (state) {
-                is WidgetRenderState.Data -> {
-                    val size = LocalSize.current
-                    when {
-                        size.height >= STACKED_MIN_HEIGHT -> StackedLayout(state)
-                        size.width < RING_MAX_WIDTH -> RingRowLayout(state)
-                        else -> ValueRowLayout(state, showButtonLabel = size.width >= BUTTON_LABEL_MIN_WIDTH)
-                    }
-                }
-
-                WidgetRenderState.Unavailable -> UnavailableContent()
-            }
+            content()
         }
     }
 }
@@ -126,7 +165,7 @@ private fun StackedLayout(data: WidgetRenderState.Data) {
         }
         Spacer(GlanceModifier.defaultWeight())
         Spacer(GlanceModifier.height(12.dp))
-        CleanButton(GlanceModifier.fillMaxWidth())
+        CleanButton(GlanceModifier.fillMaxWidth(), mode = data.cleanMode)
     }
 }
 
@@ -155,7 +194,7 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
             }
         }
         Spacer(GlanceModifier.width(12.dp))
-        CleanButton(showLabel = showButtonLabel)
+        CleanButton(showLabel = showButtonLabel, mode = data.cleanMode)
     }
 }
 
@@ -175,7 +214,7 @@ private fun RingRowLayout(data: WidgetRenderState.Data) {
             data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
         }
         Spacer(GlanceModifier.defaultWeight())
-        CleanCircle(NARROW_ELEMENT_SIZE)
+        CleanCircle(NARROW_ELEMENT_SIZE, mode = data.cleanMode)
     }
 }
 
@@ -247,29 +286,65 @@ private fun StorageBar(ratio: Float) {
     )
 }
 
+/**
+ * The Clean control's three faces. While work runs it's a muted, non-primary affordance; the widget
+ * re-renders on busy/cancellable transitions (WidgetRefreshCoordinator), so the action swaps with the
+ * visual: CANCEL stops everything, WORKING (mid-cancel) just opens the app to watch.
+ */
+private enum class CleanMode { CLEAN, CANCEL, WORKING }
+
+private val WidgetRenderState.Data.cleanMode: CleanMode
+    get() = when {
+        isWorking && isCancellable -> CleanMode.CANCEL
+        isWorking -> CleanMode.WORKING
+        else -> CleanMode.CLEAN
+    }
+
 @Composable
-private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Boolean = true) {
+private fun CleanMode.action(): Action = when (this) {
+    CleanMode.CLEAN -> clean()
+    CleanMode.CANCEL -> cancel()
+    CleanMode.WORKING -> openApp()
+}
+
+private fun CleanMode.label(context: Context): String = when (this) {
+    CleanMode.CLEAN -> context.getString(R.string.widget_home_clean_action)
+    CleanMode.CANCEL -> context.getString(CommonR.string.general_cancel_action)
+    CleanMode.WORKING -> context.getString(R.string.widget_home_working)
+}
+
+@Composable
+private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Boolean = true, mode: CleanMode = CleanMode.CLEAN) {
     val context = LocalContext.current
+    val bg = if (mode == CleanMode.CLEAN) GlanceTheme.colors.primary else GlanceTheme.colors.secondaryContainer
+    val fg = if (mode == CleanMode.CLEAN) GlanceTheme.colors.onPrimary else GlanceTheme.colors.onSecondaryContainer
+    val label = mode.label(context)
     Row(
         modifier = modifier
-            .background(GlanceTheme.colors.primary)
+            .background(bg)
             .cornerRadius(22.dp)
-            .clickable(clean())
+            .clickable(mode.action())
             .padding(horizontal = if (showLabel) 16.dp else 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(
-            provider = ImageProvider(CommonUiR.drawable.ic_baseline_delete_sweep_24),
-            contentDescription = context.getString(R.string.widget_home_clean_action),
-            colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
-            modifier = GlanceModifier.size(18.dp),
-        )
+        when (mode) {
+            CleanMode.WORKING -> CircularProgressIndicator(modifier = GlanceModifier.size(18.dp), color = fg)
+            else -> Image(
+                provider = ImageProvider(
+                    if (mode == CleanMode.CANCEL) CommonUiR.drawable.ic_cancel
+                    else CommonUiR.drawable.ic_baseline_delete_sweep_24
+                ),
+                contentDescription = label,
+                colorFilter = ColorFilter.tint(fg),
+                modifier = GlanceModifier.size(18.dp),
+            )
+        }
         if (showLabel) {
             Spacer(GlanceModifier.width(6.dp))
             Text(
-                text = context.getString(R.string.widget_home_clean_action),
-                style = TextStyle(color = GlanceTheme.colors.onPrimary, fontSize = 13.sp, fontWeight = FontWeight.Medium),
+                text = label,
+                style = TextStyle(color = fg, fontSize = 13.sp, fontWeight = FontWeight.Medium),
                 maxLines = 1,
             )
         }
@@ -278,22 +353,30 @@ private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Bo
 
 /** Circular icon-only Clean button, sized to match the mascot and ring in the narrow layout. */
 @Composable
-private fun CleanCircle(size: Dp) {
+private fun CleanCircle(size: Dp, mode: CleanMode = CleanMode.CLEAN) {
     val context = LocalContext.current
+    val bg = if (mode == CleanMode.CLEAN) GlanceTheme.colors.primary else GlanceTheme.colors.secondaryContainer
+    val fg = if (mode == CleanMode.CLEAN) GlanceTheme.colors.onPrimary else GlanceTheme.colors.onSecondaryContainer
     Box(
         modifier = GlanceModifier
             .size(size)
-            .background(GlanceTheme.colors.primary)
+            .background(bg)
             .cornerRadius(size / 2)
-            .clickable(clean()),
+            .clickable(mode.action()),
         contentAlignment = Alignment.Center,
     ) {
-        Image(
-            provider = ImageProvider(CommonUiR.drawable.ic_baseline_delete_sweep_24),
-            contentDescription = context.getString(R.string.widget_home_clean_action),
-            colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
-            modifier = GlanceModifier.size(size / 2),
-        )
+        when (mode) {
+            CleanMode.WORKING -> CircularProgressIndicator(modifier = GlanceModifier.size(size / 2), color = fg)
+            else -> Image(
+                provider = ImageProvider(
+                    if (mode == CleanMode.CANCEL) CommonUiR.drawable.ic_cancel
+                    else CommonUiR.drawable.ic_baseline_delete_sweep_24
+                ),
+                contentDescription = mode.label(context),
+                colorFilter = ColorFilter.tint(fg),
+                modifier = GlanceModifier.size(size / 2),
+            )
+        }
     }
 }
 

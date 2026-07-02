@@ -8,7 +8,7 @@
     android:minWidth="180dp"
     android:maxResizeHeight="360dp"
     android:maxResizeWidth="360dp"
-    android:previewImage="@mipmap/ic_launcher"
+    android:previewImage="@drawable/widget_home_preview"
     android:resizeMode="horizontal|vertical"
     android:targetCellHeight="2"
     android:targetCellWidth="3"
