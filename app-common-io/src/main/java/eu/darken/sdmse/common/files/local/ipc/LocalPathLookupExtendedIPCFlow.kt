@@ -133,9 +133,12 @@ fun Flow<LocalPathLookupExtended>.toRemoteInputStream(scope: CoroutineScope): Re
                 buffer.close()
             }
         }
-        .catch {
-            log(FileOpsHost.TAG, ERROR) { "Flow<LocalPathLookupExtended>.toRemoteInputStream failed: ${it.asLog()}" }
-            throw it
+        .catch { exception ->
+            if (exception is CancellationException) throw exception
+            // Usually "Pipe closed": the client cancelled and closed its end, nobody is left to
+            // report to. Must not rethrow — `scope` is the helper's unsupervised app scope, and an
+            // uncaught exception there kills the whole privileged process with it (BaseRootHost).
+            log(FileOpsHost.TAG, ERROR) { "Flow<LocalPathLookupExtended>.toRemoteInputStream failed: ${exception.asLog()}" }
         }
         .launchIn(scope)
 
