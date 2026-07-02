@@ -234,4 +234,102 @@ class DuplicatesDeleterTest : BaseTest() {
 
         result.success shouldBe setOf(dupe1, dupe2, dupe4)
     }
+
+    private fun dupe(name: String) = ChecksumDuplicate(
+        lookup = mockk<APathLookup<*>>().apply {
+            every { lookedUp } returns LocalPath.build("path", name)
+            every { path } returns lookedUp.path
+            every { userReadablePath } returns lookedUp.userReadablePath
+        },
+        hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash-$name".toByteString()),
+    )
+
+    @Test
+    fun `keep-one cluster delete never deletes the favorite groups sole member`() = runTest {
+        val deleter = create()
+
+        val kept = dupe("kept")
+        val other1 = dupe("other1")
+        val other2 = dupe("other2")
+
+        // The state prune() produces after a partial delete, or a PREFER_PHASH scan: the
+        // cluster's favorite group holds a single file - the copy being kept. Deleting it
+        // would remove the last remaining copy while the confirm dialog promised to keep it.
+        val data = Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("cluster1"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("favorite"),
+                            duplicates = setOf(kept),
+                        ),
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("rest"),
+                            duplicates = setOf(other1, other2),
+                            keeperIdentifier = other1.identifier,
+                        ),
+                    ),
+                    favoriteGroupIdentifier = Duplicate.Group.Id("favorite"),
+                )
+            )
+        )
+
+        deleter.delete(
+            task = DeduplicatorDeleteTask(
+                mode = DeduplicatorDeleteTask.TargetMode.Clusters(
+                    deleteAll = false,
+                    targets = setOf(Duplicate.Cluster.Id("cluster1")),
+                )
+            ),
+            data = data,
+        ).success shouldBe setOf(other1, other2)
+
+        // The default task (TargetMode.All) routes through the same keep-one path.
+        deleter.delete(
+            task = DeduplicatorDeleteTask(),
+            data = data,
+        ).success shouldBe setOf(other1, other2)
+    }
+
+    @Test
+    fun `explicitly targeted single-member group is still deleted whole`() = runTest {
+        val deleter = create()
+
+        val solo = dupe("solo")
+        val other1 = dupe("other1")
+        val other2 = dupe("other2")
+
+        val data = Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("cluster1"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("group1"),
+                            duplicates = setOf(other1, other2),
+                            keeperIdentifier = other1.identifier,
+                        ),
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("group2"),
+                            duplicates = setOf(solo),
+                        ),
+                    ),
+                    favoriteGroupIdentifier = Duplicate.Group.Id("group1"),
+                )
+            )
+        )
+
+        // Details-screen flow: the user explicitly picked this group (e.g. a similar-image
+        // group), so its single member is exactly what they asked to delete.
+        deleter.delete(
+            task = DeduplicatorDeleteTask(
+                mode = DeduplicatorDeleteTask.TargetMode.Groups(
+                    deleteAll = false,
+                    targets = setOf(Duplicate.Group.Id("group2")),
+                )
+            ),
+            data = data,
+        ).success shouldBe setOf(solo)
+    }
 }
