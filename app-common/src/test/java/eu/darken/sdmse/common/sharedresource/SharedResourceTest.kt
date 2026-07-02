@@ -911,4 +911,75 @@ class SharedResourceTest : BaseTest() {
         second.close()
         sr.close()
     }
+
+    @Test
+    fun `get retries when a concurrent close force-closes the lease mid-acquisition`() = runTest2 {
+        // Real dispatcher: Lease.close/close() use runBlocking.
+        val produced = AtomicInteger(0)
+        val closeTriggered = AtomicInteger(0)
+        lateinit var sr: SharedResource<Int>
+        sr = SharedResource(
+            tag = "close-race",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                emit(produced.incrementAndGet())
+                awaitCancellation()
+            },
+            // The validator runs in the window between lease registration (under coreLock) and get()
+            // returning — exactly where a concurrent close() can force-close the just-created lease.
+            // Trigger that close() deterministically on the first acquisition.
+            isReusable = {
+                if (closeTriggered.incrementAndGet() == 1) sr.close()
+                true
+            },
+        )
+
+        val resource = sr.get()
+        // Without the retry, get() hands back generation 1's force-closed lease and this access throws.
+        // With it, get() notices the closed lease and re-acquires a fresh generation.
+        resource.item shouldBe 2
+        resource.close()
+        sr.close()
+    }
+
+    @Test
+    fun `a reused generation dying before its first value does not poison the reusing caller`(): Unit = runBlocking {
+        val attempts = AtomicInteger(0)
+        val firstStarted = CompletableDeferred<Unit>()
+        val failFirst = CompletableDeferred<Unit>()
+        val sr = SharedResource<Int>(
+            tag = "stale-reuse",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                if (attempts.incrementAndGet() == 1) {
+                    firstStarted.complete(Unit)
+                    failFirst.await()
+                    throw IOException("source died before producing a value")
+                }
+                emit(attempts.get())
+                awaitCancellation()
+            },
+        )
+
+        val creator = async(Dispatchers.IO) { runCatching { sr.get() } }
+        firstStarted.await()
+        // The source is running but has produced no value yet, so this get() REUSES generation 1
+        // and parks on its ready-gate...
+        val reuser = async(Dispatchers.IO) { runCatching { sr.get() } }
+        delay(100)
+        // ...then generation 1 dies before ever producing a value.
+        failFirst.complete(Unit)
+
+        // The caller that STARTED the doomed source sees its original failure...
+        (creator.await().exceptionOrNull() is IOException) shouldBe true
+        // ...but the caller that merely latched onto the dying generation must not inherit that stale
+        // error — it retries onto a fresh generation instead.
+        val resource = reuser.await().getOrThrow()
+        resource.item shouldBe 2
+
+        resource.close()
+        sr.close()
+    }
 }
