@@ -49,6 +49,8 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -88,6 +90,7 @@ class AppActionViewModel @Inject constructor(
                     // Wait for data to be loaded before deciding the app is gone — otherwise the
                     // transient null state during a scan refresh would dismiss the sheet.
                     .mapNotNull { it.data }
+                    .distinctUntilChanged()
                     .map { data -> data.apps.firstOrNull { app -> app.installId == id } to id }
             }
             .filter { (app, _) -> app == null }
@@ -101,12 +104,14 @@ class AppActionViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
-    val state: StateFlow<State> = combine(
+    // Item production excludes progress so high-frequency progress ticks (which re-emit the tool
+    // state with the same data instance) don't re-scan the app list and rebuild the action items
+    // while the sheet is open. Progress is merged in last (below) as a cheap field swap.
+    private val baseState = combine(
         installIdFlow,
-        appControl.state,
-        appControl.progress,
+        appControl.state.distinctUntilChangedBy { it.copy(progress = null) },
         exclusionManager.exclusions,
-    ) { installId, acState, progress, _ ->
+    ) { installId, acState, _ ->
         if (installId == null) return@combine State()
         val appInfo = acState.data?.apps?.firstOrNull { it.installId == installId }
             ?: return@combine State()
@@ -130,7 +135,14 @@ class AppActionViewModel @Inject constructor(
             existingExclusionId = existingExclusion?.id,
         )
         val items = buildAppActionItems(appInfo, ctx)
-        State(appInfo = appInfo, progress = progress, items = items)
+        State(appInfo = appInfo, items = items)
+    }
+
+    val state: StateFlow<State> = combine(
+        baseState,
+        appControl.progress,
+    ) { base, progress ->
+        base.copy(progress = progress)
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },

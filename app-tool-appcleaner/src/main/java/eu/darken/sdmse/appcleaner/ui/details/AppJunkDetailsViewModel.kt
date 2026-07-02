@@ -28,6 +28,7 @@ import eu.darken.sdmse.main.core.taskmanager.uniqueTaskResults
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -66,7 +67,7 @@ class AppJunkDetailsViewModel @Inject constructor(
         // re-sort the junk list and re-run resolveTarget. Progress is merged in last (below) as a
         // cheap field swap that preserves the items List instance, letting keyed pager pages skip.
         val itemsState = combine(
-            appCleaner.state.map { it.data }.filterNotNull(),
+            appCleaner.state.map { it.data }.filterNotNull().distinctUntilChanged(),
             collapsedByJunk,
         ) { data, collapsed ->
             // Drop fully-empty junks left over after path-only `appCleaner.exclude(installId, paths)`
