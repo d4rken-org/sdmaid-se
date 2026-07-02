@@ -187,7 +187,10 @@ internal fun PickerScreen(
                             label = stringResource(CommonR.string.general_save_action),
                             onClick = onSave,
                         )
-                        SdmTooltipIconButton(
+                        // Without either entry (single-selection mode at the picker root) the
+                        // overflow would open an empty menu.
+                        val hasOverflowItems = navigatable || state.allowSelectAll
+                        if (hasOverflowItems) SdmTooltipIconButton(
                             icon = Icons.TwoTone.MoreVert,
                             label = stringResource(CommonR.string.general_options_label),
                             onClick = { overflowOpen = true },
@@ -204,10 +207,12 @@ internal fun PickerScreen(
                                     onClick = { overflowOpen = false; onHome() },
                                 )
                             }
-                            DropdownMenuItem(
-                                text = { Text(stringResource(CommonR.string.general_list_select_all_action)) },
-                                onClick = { overflowOpen = false; onSelectAll() },
-                            )
+                            if (state.allowSelectAll) {
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(CommonR.string.general_list_select_all_action)) },
+                                    onClick = { overflowOpen = false; onSelectAll() },
+                                )
+                            }
                         }
                     }
                 },

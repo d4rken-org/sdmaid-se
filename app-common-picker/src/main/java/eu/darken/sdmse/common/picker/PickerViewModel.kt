@@ -284,6 +284,7 @@ class PickerViewModel @Inject constructor(
                     items = emptyList(),
                     selected = selectedRows,
                     hasChanges = hasChanges,
+                    allowSelectAll = req.mode != PickerRequest.PickMode.DIR,
                     progress = Progress.Data(),
                 ),
             )
@@ -298,6 +299,7 @@ class PickerViewModel @Inject constructor(
                         items = items,
                         selected = selectedRows,
                         hasChanges = hasChanges,
+                        allowSelectAll = req.mode != PickerRequest.PickMode.DIR,
                         progress = null,
                     ),
                 )
@@ -331,11 +333,25 @@ class PickerViewModel @Inject constructor(
 
     fun selectAll() = launch {
         log(TAG) { "selectAll()" }
+        if (requestFlow.value?.mode == PickerRequest.PickMode.DIR) {
+            // Single-selection mode: "select everything here" has no meaning, and select() would
+            // just replace the selection with the first listed row.
+            log(TAG) { "selectAll(): ignored in single-selection mode" }
+            return@launch
+        }
         // Read from the directory listing (not state) so we never act on a transient loading frame
         // and end up selecting nothing.
         val loaded = dirListing.first { it is DirListing.Loaded } as DirListing.Loaded
+        val current = selectedItems.value
+        // select() toggles. Routing an already-selected row through it would DEselect what the
+        // user hand-picked before tapping "Select all", and routing a row that a selected
+        // ancestor already covers would swap that ancestor for just this child — silently
+        // dropping the rest of the ancestor's coverage. Select all is purely additive.
         val toSelect = loaded.items
             .map { it.lookup }
+            .filter { candidate ->
+                current.none { it.lookedUp == candidate.lookedUp || it.isAncestorOf(candidate) }
+            }
             .sortedByDescending { it.lookedUp.segments.size }
         select(toSelect)
     }
@@ -440,6 +456,8 @@ class PickerViewModel @Inject constructor(
         val items: List<PickerRow> = emptyList(),
         val selected: List<SelectedRow> = emptyList(),
         val hasChanges: Boolean = false,
+        /** Select-all is a multi-select affordance; single-selection (DIR) mode hides it. */
+        val allowSelectAll: Boolean = false,
         val progress: Progress.Data? = Progress.Data(),
     )
 
