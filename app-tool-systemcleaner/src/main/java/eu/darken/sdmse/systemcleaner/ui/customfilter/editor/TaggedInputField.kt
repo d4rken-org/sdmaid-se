@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
@@ -45,10 +46,12 @@ internal fun TaggedInputField(
     onModeChange: (old: SieveCriterium, new: SieveCriterium) -> Unit,
     onFocusChange: ((Boolean) -> Unit)? = null,
 ) {
-    var typedText by remember { mutableStateOf(TextFieldValue("")) }
+    // Saveable: a config change mid-edit of a backspace-popped chip must not lose the chip — it
+    // was already removed from the draft, so the in-progress text is its only remaining copy.
+    var typedText by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
     // The chip that was popped back into the input for editing (null while typing a fresh entry).
-    var editingCriterium by remember { mutableStateOf<SieveCriterium?>(null) }
-    var modeSwitcherFor by remember { mutableStateOf<SieveCriterium?>(null) }
+    var editingCriterium by rememberSaveable { mutableStateOf<SieveCriterium?>(null) }
+    var modeSwitcherFor by rememberSaveable { mutableStateOf<SieveCriterium?>(null) }
 
     fun commit() {
         val text = typedText.text.trim()

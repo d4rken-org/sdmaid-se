@@ -291,9 +291,13 @@ class CustomFilterEditorViewModel @Inject constructor(
             combine(
                 crawler.matchEvents
                     .map { LiveSearchMatch(lookup = it.match) }
-                    .scan(listOf<LiveSearchMatch>()) { list, event ->
-                        if (list.any { it.id == event.id }) list else list + event
-                    },
+                    // Paired seen-set keeps the per-event dedup O(1); a list scan made large live
+                    // searches quadratic. Mutating the set inside scan is safe: accumulation is
+                    // sequential and downstream only reads the list.
+                    .scan(listOf<LiveSearchMatch>() to hashSetOf<String>()) { (list, seen), event ->
+                        if (seen.add(event.id)) (list + event) to seen else list to seen
+                    }
+                    .map { (list, _) -> list },
                 crawler.progress,
                 crawlerJobFlow,
             ) { matches, progress, isWorking ->
