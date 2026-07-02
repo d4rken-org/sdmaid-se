@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.files.core.local.listFiles2
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.isSymlink
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
 import java.util.LinkedList
@@ -107,6 +108,11 @@ class EscalatingWalker(
                                 collector.emit(child)
                             }
                         continue
+                    } catch (e: CancellationException) {
+                        // A cancelled walk (scan aborted, take() satisfied) is not a read failure:
+                        // re-queueing would grind through the remaining frontier and end up routing
+                        // the cancellation to onError as if the filesystem failed.
+                        throw e
                     } catch (e: Exception) {
                         log(TAG, VERBOSE) { "Escalating ${item.target.lookedUp} to $escalationMode due to: $e" }
                         queue.addFirst(item.copy(targetMode = escalationMode, error = e))
@@ -126,6 +132,8 @@ class EscalatingWalker(
                                 collector.emit(child)
                             }
                         continue
+                    } catch (e: CancellationException) {
+                        throw e
                     } catch (e: Exception) {
                         log(TAG, DEBUG) { "Failed to read despite escalation: ${item.target.lookedUp}: $e" }
                         queue.addFirst(item.copy(targetMode = null, error = e))

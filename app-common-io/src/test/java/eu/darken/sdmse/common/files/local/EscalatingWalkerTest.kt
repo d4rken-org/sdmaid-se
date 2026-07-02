@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.files.local
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.FileType
 import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -10,6 +11,7 @@ import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.unmockkAll
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -107,5 +109,50 @@ class EscalatingWalkerTest : BaseTest() {
         names shouldContain "filelink"
         // Target (real.txt) is app-readable, so the symlink resolves app-side → no escalation needed.
         coVerify(exactly = 0) { gateway.walk(any(), any(), LocalGateway.Mode.ROOT) }
+    }
+
+    @Test
+    fun `cancellation mid-walk stops eagerly and is not routed to onError`() = runTest {
+        // Regression guard: a cancelled walk (aborted scan, satisfied take()) used to be caught
+        // like a read failure — the item was re-queued through the escalation/error branches, the
+        // remaining directory frontier was eagerly listed, and the cancellation ended up in the
+        // caller's onError as if the filesystem had failed.
+        val start = LocalPath.build(testDir)
+        File(testDir, "a.txt").writeText("a")
+        File(testDir, "sub").apply { mkdirs() }.let { File(it, "b.txt").writeText("b") }
+        File(testDir, "sub2").apply { mkdirs() }.let { File(it, "c.txt").writeText("c") }
+
+        var lookupCount = 0
+        mockkStatic("eu.darken.sdmse.common.files.local.LocalPathExtensionsKt")
+        every { any<LocalPath>().performLookup() } answers {
+            lookupCount++
+            val path = arg<LocalPath>(0)
+            lookup(path, if (File(path.path).isDirectory) FileType.DIRECTORY else FileType.FILE)
+        }
+
+        coEvery { gateway.lookup(start) } returns lookup(start, FileType.DIRECTORY)
+        coEvery { gateway.hasRoot() } returns false
+        coEvery { gateway.hasAdb() } returns false
+
+        val errors = mutableListOf<Exception>()
+        val walker = EscalatingWalker(
+            gateway = gateway,
+            start = start,
+            options = APathGateway.WalkOptions(
+                onError = { _, error ->
+                    errors.add(error)
+                    true
+                },
+            ),
+        )
+
+        val collected = walker.take(1).toList()
+
+        collected.size shouldBe 1
+        // Cancellation is not a filesystem failure and must never reach onError...
+        errors shouldBe emptyList()
+        // ...and the walk stops instead of grinding through the remaining directories: only the
+        // start dir's three children were ever looked up.
+        lookupCount shouldBe 3
     }
 }
