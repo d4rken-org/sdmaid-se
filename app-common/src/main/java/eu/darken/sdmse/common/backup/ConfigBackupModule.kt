@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.backup
 
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.Multibinds
@@ -17,4 +18,9 @@ abstract class ConfigBackupModule {
 
     @Multibinds
     abstract fun databaseBackupContributors(): Set<DatabaseBackupContributor>
+
+    companion object {
+        @Provides
+        fun backupLimits(): BackupLimits = BackupLimits()
+    }
 }

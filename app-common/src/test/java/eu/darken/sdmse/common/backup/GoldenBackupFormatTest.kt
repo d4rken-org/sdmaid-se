@@ -32,6 +32,9 @@ class GoldenBackupFormatTest : BaseTest() {
         databaseContributors = emptySet(),
         json = json,
         upgradeRepo = mockk<UpgradeRepo>(relaxed = true),
+        envelopeSource = mockk<BackupEnvelopeSource>(relaxed = true),
+        gate = BackupOperationGate(),
+        limits = BackupLimits(),
     )
 
     private fun load(name: String): String = javaClass.classLoader!!

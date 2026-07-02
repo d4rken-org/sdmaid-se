@@ -28,6 +28,17 @@ interface ConfigBackupContributor {
      */
     suspend fun snapshot(): JsonElement?
 
+    /**
+     * Side-effect-free check that [data] can be applied. Called for every present section before
+     * ANY section is applied, so a broken archive fails the whole restore up front instead of
+     * mid-apply. Implementations should decode exactly as [restore] would, without writing anything,
+     * and throw on data that [restore] would reject.
+     */
+    suspend fun validate(data: JsonElement) {
+        // Default: the manager already parsed the section as JSON; contributors with a stricter
+        // shape (or key-level fault tolerance) override this.
+    }
+
     /** Apply a previously [snapshot]ed section back onto the live configuration. */
     suspend fun restore(data: JsonElement, mode: RestoreMode)
 

@@ -8,7 +8,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import androidx.test.core.app.ApplicationProvider
+import eu.darken.sdmse.common.backup.DatabaseSchemaMismatchException
 import eu.darken.sdmse.common.backup.RestoreMode
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -37,12 +40,27 @@ class RoomDbBackupContributorTest : BaseTest() {
         override val key = "test.db"
     }
 
-    private fun openDb(name: String, withGhostColumn: Boolean = false): SupportSQLiteOpenHelper {
+    /**
+     * Creates a DB shaped like Room's output: the payload table plus `room_master_table` carrying
+     * [identityHash] (or none at all when `null`, mimicking a non-Room SQLite file).
+     */
+    private fun openDb(
+        name: String,
+        withGhostColumn: Boolean = false,
+        identityHash: String? = "hash-v1",
+    ): SupportSQLiteOpenHelper {
         val ddl = "CREATE TABLE t (id INTEGER PRIMARY KEY, txt TEXT" + (if (withGhostColumn) ", ghost TEXT" else "") + ")"
         val config = SupportSQLiteOpenHelper.Configuration.builder(ctx)
             .name(name)
             .callback(object : SupportSQLiteOpenHelper.Callback(1) {
-                override fun onCreate(db: SupportSQLiteDatabase) = db.execSQL(ddl)
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    db.execSQL(ddl)
+                    if (identityHash != null) {
+                        db.execSQL("CREATE TABLE room_master_table (id INTEGER PRIMARY KEY, identity_hash TEXT)")
+                        db.execSQL("INSERT OR REPLACE INTO room_master_table (id, identity_hash) VALUES (42, '$identityHash')")
+                    }
+                }
+
                 override fun onUpgrade(db: SupportSQLiteDatabase, oldVersion: Int, newVersion: Int) = Unit
             })
             .build()
@@ -50,6 +68,28 @@ class RoomDbBackupContributorTest : BaseTest() {
     }
 
     private fun contributor() = TestContributor({ db }, { ctx.getDatabasePath("live.db") }, listOf("t"))
+
+    /** Builds a standalone backup DB file and returns its path. */
+    private fun buildBackupDb(
+        name: String,
+        withGhostColumn: Boolean = false,
+        identityHash: String? = "hash-v1",
+        rows: Map<Long, String?> = emptyMap(),
+    ): File {
+        val otherHelper = openDb(name, withGhostColumn = withGhostColumn, identityHash = identityHash)
+        rows.forEach { (id, txt) ->
+            otherHelper.writableDatabase.insert(
+                "t", SQLiteDatabase.CONFLICT_REPLACE,
+                ContentValues().apply {
+                    put("id", id)
+                    if (txt != null) put("txt", txt) else putNull("txt")
+                    if (withGhostColumn) put("ghost", "dropme")
+                },
+            )
+        }
+        otherHelper.close()
+        return ctx.getDatabasePath(name)
+    }
 
     @Before
     fun setup() {
@@ -124,18 +164,58 @@ class RoomDbBackupContributorTest : BaseTest() {
     }
 
     @Test
-    fun `restore tolerates a backup column missing from the live schema`() = runTest {
-        // Build a separate backup DB whose table has an extra column.
-        val otherHelper = openDb("other.db", withGhostColumn = true)
-        otherHelper.writableDatabase.insert(
-            "t", SQLiteDatabase.CONFLICT_REPLACE,
-            ContentValues().apply { put("id", 5L); put("txt", "ok"); put("ghost", "dropme") },
-        )
-        otherHelper.close()
-        val backup = ctx.getDatabasePath("other.db")
+    fun `validate accepts a schema-identical backup`() = runTest {
+        val backup = buildBackupDb("other.db", rows = mapOf(5L to "ok"))
+        contributor().validate(backup)
+    }
 
-        contributor().restoreFrom(backup, RestoreMode.REPLACE)
+    @Test
+    fun `restore rejects drifted columns even when the identity hash matches`() = runTest {
+        // A tampered file can carry a matching room_master_table while its actual tables drifted —
+        // the structural comparison must catch what the hash can't prove.
+        db.insertRow(1, "keep")
+        val backup = buildBackupDb("other.db", withGhostColumn = true, rows = mapOf(5L to "ok"))
 
-        rowsById() shouldBe mapOf(5L to "ok")
+        shouldThrow<DatabaseSchemaMismatchException> {
+            contributor().restoreFrom(backup, RestoreMode.REPLACE)
+        }
+        rowsById() shouldBe mapOf(1L to "keep")
+    }
+
+    @Test
+    fun `restore rejects a backup with a different identity hash`() = runTest {
+        db.insertRow(1, "keep")
+        val backup = buildBackupDb("other.db", identityHash = "hash-v2", rows = mapOf(5L to "ok"))
+
+        shouldThrow<DatabaseSchemaMismatchException> {
+            contributor().restoreFrom(backup, RestoreMode.REPLACE)
+        }
+        rowsById() shouldBe mapOf(1L to "keep")
+    }
+
+    @Test
+    fun `restore rejects a non-Room database`() = runTest {
+        db.insertRow(1, "keep")
+        val backup = buildBackupDb("other.db", identityHash = null, rows = mapOf(5L to "ok"))
+
+        shouldThrow<DatabaseSchemaMismatchException> {
+            contributor().restoreFrom(backup, RestoreMode.REPLACE)
+        }
+        rowsById() shouldBe mapOf(1L to "keep")
+    }
+
+    @Test
+    fun `restore rejects a file that is not SQLite at all`() = runTest {
+        db.insertRow(1, "keep")
+        val garbage = File.createTempFile("garbage-", ".db").apply { writeText("this is not a database") }
+
+        try {
+            shouldThrowAny {
+                contributor().restoreFrom(garbage, RestoreMode.REPLACE)
+            }
+            rowsById() shouldBe mapOf(1L to "keep")
+        } finally {
+            garbage.delete()
+        }
     }
 }

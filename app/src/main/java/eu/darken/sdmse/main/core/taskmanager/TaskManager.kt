@@ -1,5 +1,6 @@
 package eu.darken.sdmse.main.core.taskmanager
 
+import eu.darken.sdmse.common.backup.BackupOperationGate
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -48,6 +49,7 @@ class TaskManager @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
     private val taskWorkerControl: TaskWorkerControl,
+    private val backupGate: BackupOperationGate,
 ) : TaskSubmitter {
 
     private val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -179,7 +181,17 @@ class TaskManager @Inject constructor(
         }
     }
 
-    private suspend fun execute(taskId: String): SDMTool.Task.Result = concurrencyLock.withPermit {
+    // A config restore rewrites the same databases and settings tool tasks touch. Wait for an active
+    // backup operation BEFORE taking an execution permit, so waiting tasks don't hog the permits.
+    private suspend fun execute(
+        taskId: String,
+    ): SDMTool.Task.Result = backupGate.runShared {
+        concurrencyLock.withPermit {
+            executeGuarded(taskId)
+        }
+    }
+
+    private suspend fun executeGuarded(taskId: String): SDMTool.Task.Result {
         log(TAG) { "execute(): Starting $taskId" }
         val start = System.currentTimeMillis()
 
@@ -204,7 +216,7 @@ class TaskManager @Inject constructor(
         val stop = System.currentTimeMillis()
         log(TAG) { "execute() after ${stop - start}ms: $result : $tempEntry" }
         log(TAG) { "execute(): Task entries now:\n${taskEntries.value.values.joinToString("\n")}" }
-        result
+        return result
     }
 
     override suspend fun submit(task: SDMTool.Task, notifyOnFinish: Boolean): SDMTool.Task.Result {

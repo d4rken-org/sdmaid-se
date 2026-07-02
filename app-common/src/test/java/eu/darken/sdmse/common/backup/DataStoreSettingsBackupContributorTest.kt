@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -118,5 +119,44 @@ class DataStoreSettingsBackupContributorTest : BaseTest() {
         val prefs = target.data.first()
         prefs[stringPreferencesKey("good")] shouldBe "ok"
         prefs[stringPreferencesKey("bad")] shouldBe null
+    }
+    @Test
+    fun `validate accepts the tagged-object shape and rejects anything else`() = runTest {
+        val contributor = TestContributor(io.mockk.mockk(relaxed = true))
+
+        contributor.validate(
+            buildJsonObject { put("k", buildJsonObject { put("type", "boolean"); put("value", true) }) },
+        )
+        // A key with an unknown future tag is still a valid *shape* — restore skips it key-level.
+        contributor.validate(
+            buildJsonObject { put("k", buildJsonObject { put("type", "weirdtype"); put("value", "x") }) },
+        )
+
+        shouldThrow<Exception> { contributor.validate(kotlinx.serialization.json.JsonPrimitive("flat")) }
+        shouldThrow<Exception> {
+            contributor.validate(buildJsonObject { put("k", kotlinx.serialization.json.JsonPrimitive("flat")) })
+        }
+        // A KNOWN tag with an un-coercible value must fail preflight — during REPLACE the live
+        // value would already be gone by the time apply notices.
+        shouldThrow<Exception> {
+            contributor.validate(
+                buildJsonObject { put("k", buildJsonObject { put("type", "int"); put("value", "not-an-int") }) },
+            )
+        }
+    }
+
+    @Test
+    fun `restore aborts the whole edit when a known tag carries a malformed value`(@TempDir tempDir: Path) = runTest {
+        val target = store(tempDir, "malformed", this)
+        target.edit { it[stringPreferencesKey("keep")] = "before" }
+        val section = buildJsonObject {
+            put("keep", buildJsonObject { put("type", "string"); put("value", "after") })
+            put("bad", buildJsonObject { put("type", "int"); put("value", "not-an-int") })
+        }
+
+        shouldThrow<Exception> { TestContributor(target).restore(section, RestoreMode.REPLACE) }
+
+        // DataStore.edit is transactional — the failed restore left everything untouched.
+        target.data.first()[stringPreferencesKey("keep")] shouldBe "before"
     }
 }

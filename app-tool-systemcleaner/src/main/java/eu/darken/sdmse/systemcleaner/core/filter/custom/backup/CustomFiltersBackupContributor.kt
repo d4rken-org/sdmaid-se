@@ -38,13 +38,24 @@ class CustomFiltersBackupContributor @Inject constructor(
         return json.encodeToJsonElement(serializer, current)
     }
 
+    override suspend fun validate(data: JsonElement) {
+        json.decodeFromJsonElement(serializer, data).forEach { config ->
+            // Identifiers become file names inside the repo's filter dir — reject anything that
+            // could traverse out of it (the repo's canonical-path check is the backstop).
+            val id = config.identifier
+            require(id.isNotBlank() && !id.contains('/') && !id.contains('\\') && !id.contains("..")) {
+                "Invalid filter identifier: $id"
+            }
+        }
+    }
+
     override suspend fun restore(data: JsonElement, mode: RestoreMode) {
         val restored = json.decodeFromJsonElement(serializer, data)
-        if (mode == RestoreMode.REPLACE) {
-            val currentIds = customFilterRepo.configs.first().map { it.identifier }.toSet()
-            if (currentIds.isNotEmpty()) customFilterRepo.remove(currentIds)
+        when (mode) {
+            // Atomic swap — never deletes existing filters before the new set is fully written.
+            RestoreMode.REPLACE -> customFilterRepo.replaceAll(restored)
+            RestoreMode.MERGE -> if (restored.isNotEmpty()) customFilterRepo.save(restored)
         }
-        if (restored.isNotEmpty()) customFilterRepo.save(restored)
     }
 }
 
