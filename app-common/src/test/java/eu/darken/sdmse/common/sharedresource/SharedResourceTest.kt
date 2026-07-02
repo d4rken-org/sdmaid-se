@@ -911,4 +911,89 @@ class SharedResourceTest : BaseTest() {
         second.close()
         sr.close()
     }
+
+    @Test
+    fun `addChild does not hold the parent lock across child acquisition`(): Unit = runBlocking {
+        val childStarted = CompletableDeferred<Unit>()
+        val childGate = CompletableDeferred<Unit>()
+        val parent = SharedResource<Int>(
+            tag = "parent",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                emit(1)
+                awaitCancellation()
+            },
+        )
+        val child = SharedResource<Int>(
+            tag = "child",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                childStarted.complete(Unit)
+                childGate.await() // a slow child startup, e.g. launching a root helper
+                emit(2)
+                awaitCancellation()
+            },
+        )
+
+        val parentLease = parent.get()
+        val adoption = launch(Dispatchers.IO) { parent.addChild(child) }
+        childStarted.await()
+
+        // While the child's slow startup is still in progress, the parent must stay fully usable —
+        // previously addChild held the parent's coreLock across child.get(), wedging this call.
+        val concurrent = withTimeout(5_000) { parent.get() }
+        concurrent.item shouldBe 1
+        concurrent.close()
+
+        childGate.complete(Unit)
+        adoption.join()
+        child.isClosed shouldBe false
+
+        parent.close()
+        child.isClosed shouldBe true
+    }
+
+    @Test
+    fun `addChild releases the child when the parent dies during adoption`(): Unit = runBlocking {
+        val childStarted = CompletableDeferred<Unit>()
+        val childGate = CompletableDeferred<Unit>()
+        val parent = SharedResource<Int>(
+            tag = "parent",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                emit(1)
+                awaitCancellation()
+            },
+        )
+        val child = SharedResource<Int>(
+            tag = "child",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                childStarted.complete(Unit)
+                childGate.await()
+                emit(2)
+                awaitCancellation()
+            },
+        )
+
+        parent.get()
+        val adoption = launch(Dispatchers.IO) { parent.addChild(child) }
+        childStarted.await()
+
+        // The generation the adoption was decided for dies while the child is still starting up...
+        parent.close()
+        parent.isClosed shouldBe true
+
+        childGate.complete(Unit)
+        adoption.join()
+
+        // ...so the acquired keep-alive must be released instead of registered — nothing may pin the
+        // child open on behalf of a parent generation whose cleanup already ran.
+        child.isClosed shouldBe true
+        parent.isClosed shouldBe true
+    }
 }

@@ -473,46 +473,75 @@ open class SharedResource<T : Any>(
      * When the root shell closes, the backup module needs to "close" too.
      * But the backupmodule, while open, keeps the root shell alive.
      */
-    suspend fun addChild(child: SharedResource<*>) = coreLock.withLock("addChild-${child.resourceId}") {
-        val existing = children[child]
-        if (existing != null && !existing.isClosed) {
-            if (Bugs.isTrace) {
-                log(iTag, VERBOSE) { "[$sId|_]-addChild() Already keeping child alive: $child" }
+    suspend fun addChild(child: SharedResource<*>) {
+        // Decide under lock whether adoption is needed and pin the generation we are adopting FOR.
+        val adoptingGen = coreLock.withLock("addChild-check-${child.resourceId}") {
+            val existing = children[child]
+            if (existing != null && !existing.isClosed) {
+                if (Bugs.isTrace) {
+                    log(iTag, VERBOSE) { "[$sId|_]-addChild() Already keeping child alive: $child" }
+                }
+                return
             }
-            return@withLock
-        }
-        if (existing != null) {
-            // Stale child entry — drop it and fall through to re-adopt
-            if (Bugs.isTrace) {
+            if (existing != null && Bugs.isTrace) {
                 log(iTag, VERBOSE) { "[$sId|_]-addChild() Replacing stale closed child: $child" }
             }
-            children.remove(child)
-        }
 
-        if (isClosed) {
-            if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Can't add child, we are not alive: $child" }
-            if (!child.isClosed) {
-                val trace = IllegalStateException("Tried to add open child to closed parent")
-                log(iTag, WARN) { "[$sId|_]-addChild() We are closed! Can't add open child $child:\n${trace.asLog()}" }
+            if (isClosed) {
+                if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Can't add child, we are not alive: $child" }
+                if (!child.isClosed) {
+                    val trace = IllegalStateException("Tried to add open child to closed parent")
+                    log(iTag, WARN) { "[$sId|_]-addChild() We are closed! Can't add open child $child:\n${trace.asLog()}" }
+                }
+                return
             }
-            return@withLock
+
+            if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Adding child to us: $child" }
+            active!! // !isClosed == (active != null)
         }
 
-        if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Adding child to us: $child" }
-
+        // Acquire the child OFF our lock: child.get() can be expensive (e.g. launching a root helper takes
+        // seconds) and takes the CHILD's locks. Holding our coreLock across it would wedge every concurrent
+        // get()/close() on this resource for the whole child startup, and nested adoption chains
+        // (switch -> gateway -> root client) would hold multiple resource locks at once.
         val keepAlive = child.get()
-        val wrapped = Child(child, keepAlive)
-        children[child] = wrapped
 
-        if (Bugs.isTrace) {
-            val childrenSize = children.size
-            log(iTag, VERBOSE) { "[$sId|_]-addChild() Resource now has $childrenSize " }
-            if (Bugs.isTrace) {
-                children.onEachIndexed { index, entry ->
-                    log(iTag, VERBOSE) { "[$sId|_]-addChild() Now has #$index ${entry.value} " }
+        // Register under lock, re-validating the world we decided against — both our generation and the
+        // children map may have changed while we were acquiring the child. NonCancellable: once we hold the
+        // child's keep-alive, we must either register or release it — a cancellation in between would leak
+        // the acquisition and pin the child open forever.
+        val superfluous: KeepAlive? = withContext(NonCancellable) {
+            coreLock.withLock("addChild-register-${child.resourceId}") {
+                val existing = children[child]
+                when {
+                    existing != null && !existing.isClosed -> {
+                        // A concurrent addChild() adopted this child while we were acquiring it — keep theirs.
+                        if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Lost adoption race, keeping existing: $child" }
+                        keepAlive
+                    }
+
+                    active !== adoptingGen -> {
+                        // The generation we adopted for was detached (or replaced) in the meantime; registering
+                        // now would attach a keep-alive that generation's detach-cleanup has already missed.
+                        if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|_]-addChild() Parent generation gone during adoption: $child" }
+                        keepAlive
+                    }
+
+                    else -> {
+                        children[child] = Child(child, keepAlive)
+                        if (Bugs.isTrace) {
+                            log(iTag, VERBOSE) { "[$sId|_]-addChild() Resource now has ${children.size} " }
+                            children.onEachIndexed { index, entry ->
+                                log(iTag, VERBOSE) { "[$sId|_]-addChild() Now has #$index ${entry.value} " }
+                            }
+                        }
+                        null
+                    }
                 }
             }
         }
+        // Release a superfluous acquisition OFF our lock — closing takes the child's locks.
+        superfluous?.close()
     }
 
     /**
