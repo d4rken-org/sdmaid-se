@@ -12,9 +12,20 @@ import javax.inject.Inject
  * [exifData] is the JPEG-APP1-form EXIF block ("Exif" + two NUL bytes + TIFF header + IFDs) for
  * embed metadata at write time (HEIF); ignored by encoders that handle EXIF separately
  * post-encode (JPEG/WebP via [ExifPreserver]).
+ *
+ * [rotationDegreesCw] is the display rotation the output container must carry (HEIF `irot`,
+ * mirrored from the source so the result renders like the original). Only the HEIF encoder
+ * supports it — other formats never receive a non-zero value.
  */
 interface ImageEncoder {
-    fun encode(bitmap: Bitmap, mimeType: String, quality: Int, outputFile: File, exifData: ByteArray?)
+    fun encode(
+        bitmap: Bitmap,
+        mimeType: String,
+        quality: Int,
+        outputFile: File,
+        exifData: ByteArray?,
+        rotationDegreesCw: Int = 0,
+    )
 }
 
 class ImageEncoderFactory @Inject constructor(

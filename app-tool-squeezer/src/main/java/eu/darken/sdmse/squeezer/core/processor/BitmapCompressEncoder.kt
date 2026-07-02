@@ -21,7 +21,11 @@ class BitmapCompressEncoder @Inject constructor() : ImageEncoder {
         quality: Int,
         outputFile: File,
         exifData: ByteArray?,
+        rotationDegreesCw: Int,
     ) {
+        require(rotationDegreesCw == 0) {
+            "BitmapCompressEncoder can't write container rotation ($rotationDegreesCw° requested)"
+        }
         val format = CompressibleImage.compressFormat(mimeType)
         val ok = outputFile.outputStream().buffered().use { out ->
             bitmap.compress(format, quality, out)
