@@ -37,7 +37,7 @@ import java.io.File
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -96,7 +96,7 @@ class BackupRestoreViewModel @Inject constructor(
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
             type = MIME_ZIP
-            putExtra(Intent.EXTRA_TITLE, "SDMaidSE-backup-${LocalDate.now()}.zip")
+            putExtra(Intent.EXTRA_TITLE, "SD_Maid_SE-backup-${LocalDateTime.now().format(EXPORT_NAME_STAMP)}.zip")
         }
         events.emit(Event.PickExportTarget(intent))
     }
@@ -321,5 +321,9 @@ class BackupRestoreViewModel @Inject constructor(
     companion object {
         private val TAG = logTag("Backup", "Restore", "ViewModel")
         private const val MIME_ZIP = "application/zip"
+
+        // Suggested export name, e.g. SD_Maid_SE-backup-2026_07_02_14_32.zip — zero-padded so
+        // files sort chronologically; same-minute collisions get SAF's "(1)" suffix.
+        private val EXPORT_NAME_STAMP = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm")
     }
 }
