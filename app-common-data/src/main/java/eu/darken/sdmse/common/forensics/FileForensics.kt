@@ -66,7 +66,10 @@ class FileForensics @Inject constructor(
             }
 
         val installedOwners = result.owners.filter {
-            pkgRepo.isInstalled(it.pkgId, areaInfo.userHandle)
+            // Check each owner against its own user, not the area's: owners normally carry the area's
+            // user, but uid-based attribution (PrivateDataCSI) can resolve an owner in a different user
+            // than the area, and the two must agree for the install check to be meaningful.
+            pkgRepo.isInstalled(it.pkgId, it.userHandle)
         }.toSet()
 
         val ownerInfo = OwnerInfo(

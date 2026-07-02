@@ -113,6 +113,7 @@ class PrivateDataCSI @Inject constructor(
             when (val resolved = resolveOwnersByUid(areaInfo)) {
                 is UidOwners.Single -> owners.add(resolved.owner)
                 UidOwners.Shared -> hasUnknownOwner = true
+                UidOwners.Unknown -> hasUnknownOwner = true
                 UidOwners.None -> {}
             }
         }
@@ -131,7 +132,9 @@ class PrivateDataCSI @Inject constructor(
     /**
      * Resolves the directory's POSIX owner uid to the live package(s) holding it. A uid (especially a
      * shared system uid like 1000) can map to many packages; in that case we can't name a single owner
-     * but the data is clearly not orphaned, so we report it as a known-but-unidentified owner.
+     * but the data is clearly not orphaned, so we report it as a known-but-unidentified owner. If the
+     * lookup fails outright we can't tell either way, so we fail safe and also treat it as owned rather
+     * than risk reporting a live app's data as a corpse.
      */
     private suspend fun resolveOwnersByUid(areaInfo: AreaInfo): UidOwners {
         val localPath = areaInfo.file as? LocalPath ?: return UidOwners.None
@@ -142,23 +145,39 @@ class PrivateDataCSI @Inject constructor(
             throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "resolveOwnersByUid($areaInfo) failed: ${e.asLog()}" }
-            null
-        } ?: return UidOwners.None
+            // A lookup failure is not evidence the owner is gone. Stay conservative and keep the data
+            // protected (known-but-unidentified owner) rather than risk reporting a live app's data as a
+            // corpse because of a transient root/IPC/stat error.
+            return UidOwners.Unknown
+        }
+            // No owner uid despite a successful lookup (e.g. stat couldn't resolve it) is equally
+            // inconclusive, so fail safe rather than fall through to the dirname corpse fallback.
+            ?: return UidOwners.Unknown
 
         // A per-app uid maps to exactly one package and its user matches the area; a shared system uid
         // (e.g. 1000) maps to many, so we can't name a single owner but the data is clearly not orphaned.
         val livePkgs = pkgRepo.getPkgsForUid(uid)
         return when {
             livePkgs.isEmpty() -> UidOwners.None
-            livePkgs.size == 1 -> UidOwners.Single(Owner(livePkgs.first().id, areaInfo.userHandle))
+            // Attribute to the matched package's own user, not the area's: getPkgsForUid resolved the
+            // package from the uid's decomposed user, and the two can differ for cross-user data.
+            livePkgs.size == 1 -> livePkgs.first().let { UidOwners.Single(Owner(it.id, it.userHandle)) }
             else -> UidOwners.Shared
         }
     }
 
     private sealed interface UidOwners {
+        /** A successful lookup whose uid maps to no live package; the dirname corpse fallback may apply. */
         object None : UidOwners
+
+        /** Exactly one live package owns the data. */
         data class Single(val owner: Owner) : UidOwners
+
+        /** A shared uid maps to several live packages: owned, but no single owner can be named. */
         object Shared : UidOwners
+
+        /** The owner uid could not be determined (lookup failure); inconclusive, so fail safe. */
+        object Unknown : UidOwners
     }
 
     private suspend fun tryCleanName(currentName: String): String? {
