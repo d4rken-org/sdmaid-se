@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -347,7 +347,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
-                    if (appCleaner.state.first().data != null && upgradeRepo.isPro()) {
+                    if (appCleaner.state.first().data != null && upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerProcessingTask()))
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         onUpgradeRequired()
@@ -355,7 +355,7 @@ class DashboardMainActionEngine(
                 }
 
                 BottomBarState.Action.ONECLICK -> {
-                    if (upgradeRepo.isPro()) {
+                    if (upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerOneClickTask()))
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         onUpgradeRequired()
@@ -373,12 +373,12 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.SCAN -> submitTask(DeduplicatorScanTask())
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
                 BottomBarState.Action.WORKING -> {}
-                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null && upgradeRepo.isPro()) {
+                BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null && upgradeRepo.isProForUi()) {
                     accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorDeleteTask()))
                 }
 
                 BottomBarState.Action.ONECLICK -> {
-                    if (upgradeRepo.isPro()) {
+                    if (upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorOneClickTask()))
                     } else if (deduplicator.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
                         onUpgradeRequired()

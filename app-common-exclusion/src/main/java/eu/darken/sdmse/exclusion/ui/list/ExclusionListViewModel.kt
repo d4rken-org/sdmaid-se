@@ -26,7 +26,7 @@ import eu.darken.sdmse.common.pkgs.pkgs
 import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.core.DefaultExclusions
 import eu.darken.sdmse.exclusion.core.ExclusionImporter
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -254,7 +254,7 @@ class ExclusionListViewModel @Inject constructor(
     fun exportExclusions(ids: Set<ExclusionId>) = launch {
         log(TAG) { "exportExclusions($ids)" }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             log(TAG) { "Pro upgrade required" }
             navTo(UpgradeRoute())
             return@launch

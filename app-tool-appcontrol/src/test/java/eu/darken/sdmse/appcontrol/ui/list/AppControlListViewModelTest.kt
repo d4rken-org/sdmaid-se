@@ -282,6 +282,7 @@ class AppControlListViewModelTest : BaseTest() {
         val exclusionManager = mockk<ExclusionManager>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
+            every { this@apply.isSettled } returns flowOf(true)
         }
         val context = mockk<Context>(relaxed = true)
         val usageStatsSetupModule = mockk<SetupModule>(relaxed = true)

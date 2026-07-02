@@ -33,6 +33,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
@@ -95,7 +96,10 @@ internal class DashboardDiscardTest : BaseTest() {
                 every { getSessionsWithStats() } returns emptyFlow()
                 every { progress } returns emptyFlow()
             },
-            upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { upgradeInfo } returns emptyFlow() },
+            upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
+                every { upgradeInfo } returns emptyFlow()
+                every { isSettled } returns flowOf(true)
+            },
             generalSettings = mockk<GeneralSettings>(relaxed = true),
             webpageTool = mockk<WebpageTool>(relaxed = true),
             schedulerManager = mockk<SchedulerManager>(relaxed = true).apply { every { state } returns emptyFlow() },

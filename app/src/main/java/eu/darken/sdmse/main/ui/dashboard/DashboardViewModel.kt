@@ -48,7 +48,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
@@ -537,7 +537,7 @@ class DashboardViewModel @Inject constructor(
     fun confirmAppJunkDeletion() = launch {
         log(TAG, INFO) { "confirmAppJunkDeletion()" }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -601,7 +601,7 @@ class DashboardViewModel @Inject constructor(
     fun confirmDeduplicatorDeletion() = launch {
         log(TAG, INFO) { "confirmDeduplicatorDeletion()" }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

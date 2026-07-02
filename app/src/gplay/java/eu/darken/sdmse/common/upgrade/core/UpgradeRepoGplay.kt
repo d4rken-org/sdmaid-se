@@ -20,6 +20,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -42,6 +43,15 @@ class UpgradeRepoGplay @Inject constructor(
     override val storeSite: String = STORE_SITE
     override val upgradeSite: String = UPGRADE_SITE
     override val betaSite: String = BETA_SITE
+
+    // False until the first real billing result after process start — the window where
+    // upgradeInfo below reports non-Pro even for paying users (its flow is seeded with null).
+    // An errored lookup counts as settled: gating callers must not wait on a broken connection.
+    override val isSettled: Flow<Boolean> = billingManager.billingData
+        .map { true }
+        .catch { emit(true) }
+        .onStart { emit(false) }
+        .distinctUntilChanged()
 
     override val upgradeInfo: Flow<Info> = billingManager.billingData
         .map<BillingData, BillingData?> { it }

@@ -119,7 +119,10 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             every { getSessionsWithStats() } returns srcOr("swiper", emptyFlow())
             every { progress } returns emptyFlow()
         }
-        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { upgradeInfo } returns emptyFlow() }
+        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
+            every { upgradeInfo } returns emptyFlow()
+            every { isSettled } returns flowOf(true)
+        }
         val updateService = mockk<UpdateService>(relaxed = true).apply { every { availableUpdate } returns emptyFlow() }
         val debugCardProvider = mockk<DebugCardProvider>(relaxed = true).apply {
             every { create(any(), any(), any(), any()) } returns srcOr("debug", emptyFlow())

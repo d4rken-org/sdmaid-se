@@ -39,3 +39,28 @@ suspend fun UpgradeRepo.isProSettled(timeout: Duration = 5.seconds): Boolean = t
     log(TAG, WARN) { "isProSettled() failed, failing open (allowing): ${e.asLog()}" }
     true
 }
+
+/**
+ * Pro check for UI gates: tap handlers that route between a gated action and the upgrade screen.
+ *
+ * Resolves immediately in the common cases — already Pro, or billing settled and not Pro — so the
+ * upgrade screen stays snappy for free users (unlike [isProSettled], whose non-Pro path always
+ * waits out its timeout). Only while billing is still connecting (GPlay cold start or reconnect,
+ * where [UpgradeRepo.upgradeInfo] reports non-Pro even for paying users) does it wait, up to
+ * [timeout], for the first real billing result — so a Pro user isn't bounced to the upgrade
+ * screen by the handshake race. On timeout or error it falls back to the current state: the UI
+ * route is recoverable, and the backend [isProSettled] gate remains the enforcement safety net.
+ */
+suspend fun UpgradeRepo.isProForUi(timeout: Duration = 3.seconds): Boolean = try {
+    when {
+        upgradeInfo.first().isPro -> true
+        isSettled.first() -> false
+        else -> {
+            withTimeoutOrNull(timeout) { isSettled.first { settled -> settled } }
+            upgradeInfo.first().isPro
+        }
+    }
+} catch (e: Exception) {
+    log(TAG, WARN) { "isProForUi() failed, failing open (allowing): ${e.asLog()}" }
+    true
+}

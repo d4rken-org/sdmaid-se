@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.taskmanager.AcsScheduleRisk
 import eu.darken.sdmse.main.core.taskmanager.SchedulerAppCleanerAdvisor
@@ -201,7 +201,7 @@ class SchedulerManagerViewModel @Inject constructor(
     fun toggleSchedule(id: ScheduleId) = launch {
         log(TAG) { "toggleSchedule($id)" }
         val live = schedulerManager.state.first().schedules.firstOrNull { it.id == id } ?: return@launch
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

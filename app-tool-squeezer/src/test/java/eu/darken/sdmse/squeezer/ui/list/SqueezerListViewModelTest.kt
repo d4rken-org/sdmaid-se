@@ -134,6 +134,7 @@ class SqueezerListViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
+            every { isSettled } returns flowOf(true)
         }
 
         val vm = SqueezerListViewModel(

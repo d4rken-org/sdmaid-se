@@ -41,6 +41,7 @@ class ConfigBackupManagerTest : BaseTest() {
         override val upgradeSite = ""
         override val betaSite = ""
         override val upgradeInfo: Flow<UpgradeRepo.Info> = flowOf(FakeInfo(pro))
+        override val isSettled: Flow<Boolean> = flowOf(true)
         override suspend fun refresh() {}
     }
 
