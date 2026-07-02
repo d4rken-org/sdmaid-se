@@ -43,3 +43,11 @@ private fun ContentInfoBannerPreview() {
         ContentInfoBanner(text = R.string.analyzer_storage_content_type_system_info.toCaString())
     }
 }
+
+@Preview2
+@Composable
+private fun ContentInfoBannerMediaReadOnlyPreview() {
+    PreviewWrapper {
+        ContentInfoBanner(text = R.string.analyzer_storage_content_type_media_readonly_info.toCaString())
+    }
+}
