@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">యాప్ ఇన్వెంటరీ</string>
     <string name="setup_inventory_card_body">ఇన్‌స్టాల్ చేయబడిన ఎవరి యాప్‌లకి సంబంధించని ఫైల్లను కనుగొనడానికి మీరు ఏ యాప్లను కలిగి ఉన్నారు SD Maid కు తెలియాలి.</string>
     <string name="setup_inventory_card_extra">\"యాప్ లిస్ట్\" లేదా \"అన్ని ప్యాకేజీలను క్వైరీ చేయండి\" అనే అనుమతి కోసం చూడండి.</string>
-    <string name="setup_inventory_invalid_message">సిస్టమ్ ఇన్‌స్టాల్ చేయబడిన యాప్ల చెల్లని లిస్ట్‌ను అందించింది (ఉదా. చాలా తక్కువ లేదా కొన్ని మిస్ అవుతున్నాయి). సిస్టమ్ సెట్టింగ్స్‌కి వెళ్ళి SD Maid కు \"యాప్ లిస్ట్\" యాక్సెస్ అనుమతించండి.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid స్కాన్ చేయగల ఎవరి డేటా ఏరియాలను కనుగొనలేదు. మీరు సెటప్‌ను పూర్తి చేశారా?</string>
     <string name="dataarea_warningcard_label">డేటా ఏరియాలు</string>
     <string name="dataarea_warningcard_reload_action">డేటా ఏరియాలను మళ్లీ లోడ్ చేయండి</string>

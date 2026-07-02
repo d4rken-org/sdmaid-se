@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Uygulama envanteri</string>
     <string name="setup_inventory_card_body">SD Maid\'in yüklü uygulamalara ait olmayan dosyaları bulmak için hangi uygulamalara sahip olduğunuzu bilmesi gerekir.</string>
     <string name="setup_inventory_card_extra">\"Uygulama listesi\" veya \"Tüm paketleri sorgula\" adlı bir izin arayın.</string>
-    <string name="setup_inventory_invalid_message">Sistem, yüklü uygulamaların geçersiz bir listesini sağladı (örn. çok az veya bazıları eksik). Sistem ayarlarına gidin ve SD Maid\'in \"Uygulama listesi \"ne erişimine izin verin.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid taranabilecek herhangi bir veri alanı bulamadı. Kurulumu tamamladınız mı?</string>
     <string name="dataarea_warningcard_label">Veri alanları</string>
     <string name="dataarea_warningcard_reload_action">Veri alanlarını tekrar yükle</string>

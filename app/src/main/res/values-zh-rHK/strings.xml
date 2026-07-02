@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">應用程式清單</string>
     <string name="setup_inventory_card_body">SD 女僕需要知道您已安裝哪些應用程式，以便找到不屬於任何已安裝應用程式的檔案。</string>
     <string name="setup_inventory_card_extra">尋找名為「應用程式清單」或「查詢所有套件」的權限。</string>
-    <string name="setup_inventory_invalid_message">系統提供了無效的已安裝應用程式清單（例如太少或有些遺漏）。前往系統設定並允許 SD 女僕存取「應用程式清單」。</string>
     <string name="dataarea_warningcard_empty_message">SD 女僕找不到任何可以掃描的資料區域，您完成設定了嗎？</string>
     <string name="dataarea_warningcard_label">資料區域</string>
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">பயன்பாட்டு பட்டியல்</string>
     <string name="setup_inventory_card_body">எந்த நிறுவப்பட்ட பயன்பாடுகளுக்கும் சொந்தமில்லாத கோப்புகளைக் கண்டுபிடிக்க உங்களிடம் எந்த பயன்பாடுகள் உள்ளன என்பதை SD Maid தெரிந்து கொள்ள வேண்டும்.</string>
     <string name="setup_inventory_card_extra">\"பயன்பாட்டு பட்டியல்\" அல்லது \"அனைத்து பொதிகளையும் விசாரி\" எனும் அனுமதியைத் தேடவும்.</string>
-    <string name="setup_inventory_invalid_message">கணினி நிறுவப்பட்ட பயன்பாடுகளின் தவறான பட்டியலை வழங்கியுள்ளது (எ.கா. மிகக் குறைவாக அல்லது சில காணாமல் போயிருந்தன). கணினி அமைப்புகளுக்குச் சென்று SD Maid ஐ \"பயன்பாட்டு பட்டியல்\" அணுக அனுமதிக்கவும்.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ஸ்கேன் செய்யக்கூடிய எந்த தரவு பகுதிகளையும் கண்டுபிடிக்கவில்லை. நீங்கள் அமைப்பை முடித்துவிட்டீர்களா?</string>
     <string name="dataarea_warningcard_label">தரவு பகுதிகள்</string>
     <string name="dataarea_warningcard_reload_action">தரவு பகுதிகளை மீண்டும் ஏற்று</string>

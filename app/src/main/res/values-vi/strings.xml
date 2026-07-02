@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">Khoảng không quảng cáo ứng dụng</string>
     <string name="setup_inventory_card_body">SD Maid cần biết bạn có ứng dụng nào để tìm các tệp không thuộc về bất kỳ ứng dụng đã cài đặt nào.</string>
     <string name="setup_inventory_card_extra">Hãy tìm quyền có tên \"Danh sách ứng dụng\" hoặc \"Truy vấn tất cả các gói\".</string>
-    <string name="setup_inventory_invalid_message">Hệ thống cung cấp danh sách ứng dụng đã cài đặt không hợp lệ (ví dụ: quá ít hoặc một số ứng dụng bị thiếu). Hãy vào cài đặt hệ thống và cho phép SD Maid truy cập vào \"Danh sách ứng dụng\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid không tìm thấy bất kỳ vùng dữ liệu nào có thể quét được. Bạn đã hoàn thành thiết lập?</string>
     <string name="dataarea_warningcard_label">Vùng dữ liệu</string>
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>

@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">应用列表</string>
     <string name="setup_inventory_card_body">SD Maid 需要读取您的应用列表才能找到不属于任何应用的文件。</string>
     <string name="setup_inventory_card_extra">寻找名为“应用列表”或“查询所有软件包”的权限。</string>
-    <string name="setup_inventory_invalid_message">系统提供的已安装应用列表无效（例如，应用数量太少或部分缺失），请转至系统设置并允许 SD Maid 访问“应用列表”。</string>
     <string name="dataarea_warningcard_empty_message">SD Maid 没有找到任何可以扫描的区域。您是否完成了初始设置？</string>
     <string name="dataarea_warningcard_label">数据区域</string>
     <string name="dataarea_warningcard_reload_action">重载数据区域</string>

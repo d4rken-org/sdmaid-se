@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Programski inventar</string>
     <string name="setup_inventory_card_body">Sporočite SD Maidu, katere programi se uporabljajo za iskanje datotek in niso nameščeni.</string>
     <string name="setup_inventory_card_extra">Poiščite dovoljenje \"Seznam programov\" ali \"Preglej vse pakete\".</string>
-    <string name="setup_inventory_invalid_message">Sistem je podal neveljaven seznam nameščenih programov (npr. premalo).  Pojdite v nastavitve sistema in SD Maidu omogočite dostop do seznama programov.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ni našel podatkovnih področij, ki jih lahko pregleda.  Ali ste dokončali nastavitev?</string>
     <string name="dataarea_warningcard_label">Podatkovna področja</string>
     <string name="dataarea_warningcard_reload_action">Ponovno naloži podatkovna področja</string>

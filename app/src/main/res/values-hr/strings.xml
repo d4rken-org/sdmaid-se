@@ -214,7 +214,6 @@
     <string name="setup_inventory_card_title">Instalirane aplikacije</string>
     <string name="setup_inventory_card_body">SD Maid mora znati koje aplikacije imate kako bi pronašao datoteke koje ne pripadaju nijednoj instaliranoj aplikaciji.</string>
     <string name="setup_inventory_card_extra">Potražite dopuštenje zvano \"Popis aplikacija\" ili \"Upit za sve pakete\".</string>
-    <string name="setup_inventory_invalid_message">Sustav je dao nevažeći popis instaliranih aplikacija (npr. premalo ili su neke nedostajale). Idite u postavke sustava i dopustite SD Maidu pristup \"Popisu aplikacija\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nije pronašao nijedno područje podataka koje je moguće skenirati. Jeste li dovršili postavljanje?</string>
     <string name="dataarea_warningcard_label">Područja podataka</string>
     <string name="dataarea_warningcard_reload_action">Ponovno učitavanje područja podataka</string>

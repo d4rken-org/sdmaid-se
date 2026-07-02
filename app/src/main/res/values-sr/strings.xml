@@ -215,7 +215,6 @@
     <string name="setup_inventory_card_title">Инвентар апликација</string>
     <string name="setup_inventory_card_body">СД Чистач треба да зна које апликације имате да би пронашао датотеке које не припадају ниједној инсталираној апликацији.</string>
     <string name="setup_inventory_card_extra">Потражите дозволу која се зове \"Листа апликација\" или \"Упит свих пакета\".</string>
-    <string name="setup_inventory_invalid_message">Систем је обезбедио неважећу листу инсталираних апликација (нпр. премало или неке недостају). Идите у системска подешавања и дозволите СД Чистачу приступ \"Листи апликација\".</string>
     <string name="dataarea_warningcard_empty_message">СД Чистач није пронашао ниједну област података која се може скенирати. Да ли сте завршили подешавање?</string>
     <string name="dataarea_warningcard_label">Подручја података</string>
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>

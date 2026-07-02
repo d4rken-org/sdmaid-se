@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Инвентар на апликации</string>
     <string name="setup_inventory_card_body">SD Maid треба да знае кои апликации ги имате за да најде датотеки кои не припаѓаат на ниедна инсталирана апликација.</string>
     <string name="setup_inventory_card_extra">Побарајте дозвола наречена \"Листа на апликации\" или \"Барај ги сите пакети\".</string>
-    <string name="setup_inventory_invalid_message">Системот обезбеди невалидна листа на инсталирани апликации (пр. премалку или некои недостасуваа). Одете во системски поставки и дозволете на SD Maid пристап до \"Листа на апликации\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не најде области со податоци за скенирање. Дали го завршивте поставувањето?</string>
     <string name="dataarea_warningcard_label">Области со податоци</string>
     <string name="dataarea_warningcard_reload_action">Повторно вчитај области со податоци</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Қолданбалар инвентары</string>
     <string name="setup_inventory_card_body">SD Maid сізде қандай қолданбалар барын білуі керек, сона қарағанда қандай да орнатылған қолданбаға тиеслі емес файлларды табу үшин.</string>
     <string name="setup_inventory_card_extra">\"Қолданбалар тізімі\" немесе \"Барлық дестелерге сұрау\" деп аталған руқсатты іздең.</string>
-    <string name="setup_inventory_invalid_message">Система орнатылған қолданбалардың қате тізімін берді (мысалы, өте аз немесе кейбіреулері жоқ). Система құрамаларына кирип SD Maidғе \"Қолданбалар тізіміне\" кируғе руқсат берің.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid сканерленуге болатын дата аянын таба алмады. Құрастырыўды аяқтадыңыз ба?</string>
     <string name="dataarea_warningcard_label">Aymaqlardı skanerlew</string>
     <string name="dataarea_warningcard_reload_action">Maǵlıwmatlar maydanların qayta júklew</string>

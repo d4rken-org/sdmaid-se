@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Inventár aplikácií</string>
     <string name="setup_inventory_card_body">SD Maid potrebuje vedieť, ktoré aplikácie máte na nájdenie súborov, ktoré nepatria k žiadnym nainštalovaným aplikáciám.</string>
     <string name="setup_inventory_card_extra">Vyhľadajte povolenie s názvom „Zoznam aplikácií“ alebo „Dopyt na všetky balíky“.</string>
-    <string name="setup_inventory_invalid_message">Systém poskytol neplatný zoznam nainštalovaných aplikácií (napr. príliš málo alebo niektoré chýbali). Prejdite do nastavení systému a povoľte SD Maid prístup k \"Zoznamu aplikácií\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nenašiel žiadne dátové oblasti, ktoré by bolo možné skenovať. Dokončili ste nastavenie?</string>
     <string name="dataarea_warningcard_label">Dátové oblasti</string>
     <string name="dataarea_warningcard_reload_action">Znovu načítajte dátové oblasti</string>

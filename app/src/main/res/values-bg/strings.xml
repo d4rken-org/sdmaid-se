@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Инвентар на приложения</string>
     <string name="setup_inventory_card_body">SD Maid трябва да знае кои приложения имате, за да намери файлове, които не принадлежат на никакви инсталирани приложения.</string>
     <string name="setup_inventory_card_extra">Търсете разрешение, наречено \"Списък на приложения\" или \"Заявка за всички пакети\".</string>
-    <string name="setup_inventory_invalid_message">Системата предостави невалиден списък на инсталираните приложения (напр. твърде малко или някои липсваха). Отидете в системните настройки и позволете на SD Maid достъп до \"Списък на приложения\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не намери никакви области с данни, които могат да бъдат сканирани. Завършихте ли настройката?</string>
     <string name="dataarea_warningcard_label">Области с данни</string>
     <string name="dataarea_warningcard_reload_action">Презареди области с данни</string>

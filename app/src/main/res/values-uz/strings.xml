@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Ilovalar ro\'yxati</string>
     <string name="setup_inventory_card_body">SD Maid hech qanday o\'rnatilgan ilovaga tegishli bo\'lmagan fayllarni topish uchun sizda qanday ilovalar borligini bilishi kerak.</string>
     <string name="setup_inventory_card_extra">\"Ilovalar ro\'yxati\" yoki \"Barcha paketlarni so\'rash\" deb nomlangan ruxsatni qidiring.</string>
-    <string name="setup_inventory_invalid_message">Tizim o\'rnatilgan ilovalarning noto\'g\'ri ro\'yxatini taqdim etdi (masalan, juda kam yoki ba\'zilari etishmayapti). Tizim sozlamalariga o\'ting va SD Maid ga \"Ilovalar ro\'yxati\"ga kirish huquqini bering.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid skanerlash mumkin bo\'lgan hech qanday ma\'lumot hududini topmadi. Sozlashni tugatdingizmi?</string>
     <string name="dataarea_warningcard_label">Ma\'lumot hududlari</string>
     <string name="dataarea_warningcard_reload_action">Ma\'lumot hududlarini qayta yuklash</string>

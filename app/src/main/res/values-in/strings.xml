@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">Inventaris aplikasi</string>
     <string name="setup_inventory_card_body">SD Maid perlu mengetahui aplikasi apa yang Anda miliki untuk mencari file yang tidak terkait dengan aplikasi yang terinstal.</string>
     <string name="setup_inventory_card_extra">Cari izin yang disebut \"Daftar Aplikasi\" atau \"Kueri semua paket\".</string>
-    <string name="setup_inventory_invalid_message">Sistem memberikan daftar aplikasi terinstal yang tidak valid (misalnya, terlalu sedikit atau ada yang hilang). Buka pengaturan sistem dan izinkan SD Maid mengakses \"Daftar aplikasi\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
     <string name="dataarea_warningcard_label">Area data</string>
     <string name="dataarea_warningcard_reload_action">Muat ulang area data</string>

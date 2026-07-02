@@ -220,7 +220,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_inventory_card_title">מלאי אפליקציות</string>
     <string name="setup_inventory_card_body">SD Maid צריך לדעת אילו אפליקציות יש לך כדי למצוא קבצים שאינם שייכים לאף אפליקציה מותקנת.</string>
     <string name="setup_inventory_card_extra">חפש הרשאה בשם \"רשימת אפליקציות\" או \"שאילתה בכל החבילות\".</string>
-    <string name="setup_inventory_invalid_message">המכשיר סיפק רשימה לא חוקית של אפליקציות מותקנות (למשל, מעט מדי או שחלקן היו חסרות). עבור להגדרות המכשיר ואפשר ל-SD Maid גישה ל\"רשימת האפליקציות\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid לא מצאה אזורי נתונים שניתן לסרוק. השלמת את ההגדרה?</string>
     <string name="dataarea_warningcard_label">איזורי מידע</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>

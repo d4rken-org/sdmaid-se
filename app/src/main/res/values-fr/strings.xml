@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventaire des applis</string>
     <string name="setup_inventory_card_body">SD Maid doit savoir quelles applis vous utilisez afin de trouver les fichiers qui n’appartiennent à aucune appli installée.</string>
     <string name="setup_inventory_card_extra">Cherchez l’autorisation « Liste des applis » ou « Interroger tous les paquets ».</string>
-    <string name="setup_inventory_invalid_message">Le système a fourni une liste non valide d’appli installées (p. ex. trop peu ou certaines manquaient). Accédez aux paramètres système et accordez à SD Maid l’accès à la « Liste des applis ».</string>
     <string name="dataarea_warningcard_empty_message">SD Maid n’a trouvé aucune zone de données à analyser. Avez-vous terminé la configuration ?</string>
     <string name="dataarea_warningcard_label">Zones de données</string>
     <string name="dataarea_warningcard_reload_action">Recharger les zones de données</string>

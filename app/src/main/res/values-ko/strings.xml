@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">앱 보관소</string>
     <string name="setup_inventory_card_body">설치한 어떤 앱에도 속하지 않은 파일을 찾으려면 어떤 앱이 필요한지 알아야 해요.</string>
     <string name="setup_inventory_card_extra">“앱 목록”이나 “폭 넓은 패키지 가시성”이라는 권한을 찾으세요.</string>
-    <string name="setup_inventory_invalid_message">시스템은 설치된 앱 목록을 잘못 제공합니다 (예/ 너무 적거나 뭔가 빠져있는). 시스템 설정에서, SD Maid가 \"앱 목록\"에 접근할 수 있도록 해주세요.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid에서 스캔할 수 있는 저장 공간이 없습니다. 초기 설정을 끝마치셨나요?</string>
     <string name="dataarea_warningcard_label">데이터 영역</string>
     <string name="dataarea_warningcard_reload_action">데이터 영역 새로고침</string>

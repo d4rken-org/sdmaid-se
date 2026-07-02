@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">აპების ინვენტარი</string>
     <string name="setup_inventory_card_body">SD Maid-მა უნდა იცოდეს რომელი აპები გაქვთ, რათა იპოვოს ფაილები, რომლებიც არ ეკუთვნის დაინსტალირებულ აპებს.</string>
     <string name="setup_inventory_card_extra">მოძებნეთ ნებართვა, რომელსაც ეწოდება \"აპების ჩამონათვალი\" ან \"ყველა პაკეტის შეკითხვა\".</string>
-    <string name="setup_inventory_invalid_message">სისტემამ მოგვაწოდა დაინსტალირებული აპების არასწორი ჩამონათვალი (მაგ. ძალიან ცოტა ან ზოგიერთი დაკარგული იყო). გადადით სისტემის პარამეტრებზე და მიეცით SD Maid-ს წვდომა \"აპების ჩამონათვალზე\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-მა ვერ იპოვა მონაცემთა ზონა, რომლის სკანირებაც შესაძლებელია. დაასრულეთ დაყენება?</string>
     <string name="dataarea_warningcard_label">მონაცემთა სფეროები</string>
     <string name="dataarea_warningcard_reload_action">გადატვირთეთ მონაცემთა ზონები</string>

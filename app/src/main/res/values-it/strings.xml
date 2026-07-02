@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventario App</string>
     <string name="setup_inventory_card_body">SD Maid deve conoscere le app installate per trovare i file che non appartengono a nessuna di queste.</string>
     <string name="setup_inventory_card_extra">Attivate l\'autorizzazione ad \"Accesso a tutti i file\".</string>
-    <string name="setup_inventory_invalid_message">Il sistema ha fornito un elenco non valido di app installate (es. troppe poche app o alcune mancano). Concedi a SD Maid l\'accesso a \"Lista App\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non ha trovato nessuna area da scansionare. Hai completato il setup?</string>
     <string name="dataarea_warningcard_label">Aree di dati</string>
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>

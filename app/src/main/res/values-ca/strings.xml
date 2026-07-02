@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventari d\'aplicacions</string>
     <string name="setup_inventory_card_body">L\'SD Maid necessita saber quines aplicacions teniu per trobar fitxers que no pertanyen a cap aplicació instal·lada.</string>
     <string name="setup_inventory_card_extra">Cerqueu un permís anomenat «Llista d\'aplicacions» o «Consulta tots els paquets».</string>
-    <string name="setup_inventory_invalid_message">El sistema ha proporcionat una llista no vàlida d\'aplicacions instal·lades (p. ex., molt poques o en faltaven algunes). Aneu a la configuració del sistema i permeteu l\'accés de l\'SD Maid a «Llista d\'aplicacions».</string>
     <string name="dataarea_warningcard_empty_message">L\'SD Maid no ha trobat cap àrea de dades que es pugui escanejar. Heu completat la configuració?</string>
     <string name="dataarea_warningcard_label">Àrees de dades</string>
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>

@@ -217,7 +217,6 @@
     <string name="setup_inventory_card_title">Tətbiq siyahısı</string>
     <string name="setup_inventory_card_body">SD Maid heç bir quraşdırılmış tətbiqə aid olmayan faylları tapmaq üçün hansı tətbiqlərinizin olduğunu bilməlidir.</string>
     <string name="setup_inventory_card_extra">\"Tətbiq siyahısı\" və ya \"Bütün paketləri sorğula\" adlanan icazəni axtarın.</string>
-    <string name="setup_inventory_invalid_message">Sistem quraşdırılmış tətbiqlərin etibarsız siyahısını təqdim etdi (məsələn, çox az və ya bəziləri çatışmır). Sistem parametrlərinə keçin və SD Maid-ə \"Tətbiq siyahısı\"na girişə icazə verin.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid skan edilə bilən heç bir məlumat sahəsi tapmadı. Quraşdırmanı tamamladınız?</string>
     <string name="dataarea_warningcard_label">Məlumat sahələri</string>
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>

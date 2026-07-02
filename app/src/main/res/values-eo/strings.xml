@@ -126,7 +126,6 @@
     <string name="setup_inventory_card_title">Aplikaĵa inventaro</string>
     <string name="setup_inventory_card_body">SD Maid bezonas scii kiujn aplikaĵojn vi havas por trovi dosierojn kiuj ne apartenas al instalitaj aplikaĵoj.</string>
     <string name="setup_inventory_card_extra">Serĉu permeson nomatan \"Aplikaĵa listo\" aŭ \"Pridemandi ĉiujn pakaĵojn\".</string>
-    <string name="setup_inventory_invalid_message">La sistemo provizis nevalidan liston de instalitaj aplikaĵoj (ekz. tro malmultaj aŭ kelkaj mankis). Iru al sistemaj agordoj kaj permesu al SD Maid aliron al \"Aplikaĵa listo\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ne trovis datumareojn kiuj povas esti skanataj. Ĉu vi kompletigis la agordon?</string>
     <string name="dataarea_warningcard_label">Datumareoj</string>
     <string name="dataarea_warningcard_reload_action">Reŝargi datumareojn</string>

@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">ایپ انوینٹری</string>
     <string name="setup_inventory_card_body">SD Maid کو یہ جاننے کی ضرورت ہے کہ آپ کے پاس کون سے ایپس ہیں تاکہ ایسی فائلوں کو تلاش کر سکے جو کسی انسٹال شدہ ایپ سے تعلق نہیں رکھتیں۔</string>
     <string name="setup_inventory_card_extra">\"ایپ فہرست\" یا \"تمام پیکج کا سوال\" کے نام سے اجازت تلاش کریں۔</string>
-    <string name="setup_inventory_invalid_message">سسٹم نے انسٹال شدہ ایپس کی غلط فہرست فراہم کی (جیسے بہت کم یا کچھ غائب)۔ سسٹم سیٹنگز میں جائیں اور SD Maid کو \"ایپ فہرست\" تک رسائی دیں۔</string>
     <string name="dataarea_warningcard_empty_message">SD Maid کو کوئی ڈیٹا ایریا نہیں ملا جس کا اسکین کیا جا سکے۔ کیا آپ نے سیٹ اپ مکمل کیا؟</string>
     <string name="dataarea_warningcard_label">ڈیٹا ایریا</string>
     <string name="dataarea_warningcard_reload_action">ڈیٹا ایریا دوبارہ لوڈ کریں</string>

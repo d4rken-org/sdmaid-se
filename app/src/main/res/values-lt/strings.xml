@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Programų sąrašas</string>
     <string name="setup_inventory_card_body">SD Maid turi žinoti, kurias programas turite, kad rastų failus, nepriklausančius jokioms įdiegtoms programoms.</string>
     <string name="setup_inventory_card_extra">Ieškokite leidimo, vadinamo „Programų sąrašas“ arba „Užklausti visus paketus“.</string>
-    <string name="setup_inventory_invalid_message">Sistema suteikė negaliojantį įdiegtu programų sąrašą (pvz., per mažai arba kai kurios trūko). Eikite į sistemos nustatymus ir leiskite SD Maid prisijungti prie \"Programų sąrašo\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nerado jokių duomenų sričių, kurias būtų galima nuskaityti. Ar baigėte sąranką?</string>
     <string name="dataarea_warningcard_label">Duomenų sritys</string>
     <string name="dataarea_warningcard_reload_action">Duomenų sričių perkrovimas</string>

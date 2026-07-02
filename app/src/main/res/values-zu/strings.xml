@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Uhlu lwezinhlelo zokusebenza</string>
     <string name="setup_inventory_card_body">I-SD Maid idinga ukwazi ukuthi yiziphi izinhlelo zokusebenza onazo ukuze ithole amafayela angayona ayinhlelo lokusebenza elifakiwe.</string>
     <string name="setup_inventory_card_extra">Bheka imvume ebizwa ngokuthi \"Uhlu lwezinhlelo zokusebenza\" noma \"Buza wonke amaphakheji\".</string>
-    <string name="setup_inventory_invalid_message">Isistimu sinikeze uhlu olungavumelekile lwezinhlelo zokusebenza ezifakiwe (isib. zimbalwa kakhulu noma ezinye zazingekho). Iya ezilungiselelweni zesistimu futhi uvumele i-SD Maid ukuthi ifinyelele ku-\"Uhlu lwezinhlelo zokusebenza\".</string>
     <string name="dataarea_warningcard_empty_message">I-SD Maid ayitholanga noma yiziphi izindawo zedatha ezingaskenwa. Ngabe uqedele ukusetshenziswa?</string>
     <string name="dataarea_warningcard_label">Izindawo zedatha</string>
     <string name="dataarea_warningcard_reload_action">Layisha kabusha izindawo zedatha</string>

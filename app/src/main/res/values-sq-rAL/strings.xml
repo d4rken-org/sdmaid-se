@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Inventari i aplikacionit</string>
     <string name="setup_inventory_card_body">SD Maid duhet të dijë se cilat aplikacione keni për të gjetur skedarë që nuk i përkasin asnjë aplikacioni të instaluar.</string>
     <string name="setup_inventory_card_extra">Kërkoni një leje të quajtur \"Lista e aplikacioneve\" ose \"Kërkoni të gjitha paketat\".</string>
-    <string name="setup_inventory_invalid_message">Sistemi dha një listë të pavlefshme të aplikacioneve të instaluara (p.sh. shumë pak ose disa mungonin). Shkoni te cilësimet e sistemit dhe lejojeni SD Maid të qaset te \"Lista e aplikacioneve\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nuk gjeti asnjë zonë të dhënash që mund të skanohej. E keni përfunduar konfigurimin?</string>
     <string name="dataarea_warningcard_label">Zonat e të dhënave</string>
     <string name="dataarea_warningcard_reload_action">Ringarko zonat e të dhënave</string>

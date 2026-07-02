@@ -214,7 +214,6 @@
     <string name="setup_inventory_card_title">Lietotņu saraksts</string>
     <string name="setup_inventory_card_body">SD Maid jāzina, kādas lietotnes jums ir, lai atrastu failus, kas nepieder nevienai instalētai lietotnei.</string>
     <string name="setup_inventory_card_extra">Meklējiet atļauju ar nosaukumu \"Lietotņu saraksts\" vai \"Query all packages\".</string>
-    <string name="setup_inventory_invalid_message">Sistēma sniedza nederīgu instalēto lietotņu sarakstu (piem. pārāk maz vai dažas trūkst). Dodieties uz sistēmas iestatījumiem un ļaujiet SD Maid piekļūt \"Lietotņu sarakstam\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid neatrada nevienu skenējamu datu zonu. Vai esat pabeidzis iestatīšanu?</string>
     <string name="dataarea_warningcard_label">Datu zonas</string>
     <string name="dataarea_warningcard_reload_action">Pārlādēt datu zonas</string>

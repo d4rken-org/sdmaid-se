@@ -214,7 +214,6 @@
     <string name="setup_inventory_card_title">Inventarul aplicației</string>
     <string name="setup_inventory_card_body">SD Maid trebuie să știe ce aplicații aveți pentru a găsi fișiere care nu aparțin niciunei aplicații instalate.</string>
     <string name="setup_inventory_card_extra">Căutați o permisiune numită „Lista de aplicații” sau „Interogați toate pachetele”.</string>
-    <string name="setup_inventory_invalid_message">Sistemul a furnizat o listă invalidă de aplicații instalate (de exemplu, prea puține sau unele lipseau).  Accesați setările sistemului și permiteți accesul SD Maid la lista de aplicații.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nu a putut căuta zone de date care pot fi scanate. Ai completat partea de configurare?</string>
     <string name="dataarea_warningcard_label">Zone de date</string>
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>

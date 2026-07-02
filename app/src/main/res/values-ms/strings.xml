@@ -204,7 +204,6 @@
     <string name="setup_inventory_card_title">Inventori aplikasi</string>
     <string name="setup_inventory_card_body">SD Maid perlu tahu aplikasi yang anda miliki untuk mencari fail yang tidak tergolong dalam mana-mana aplikasi yang dipasang.</string>
     <string name="setup_inventory_card_extra">Cari kebenaran yang dipanggil \"Senarai aplikasi\" atau \"Pertanyaan semua pakej\".</string>
-    <string name="setup_inventory_invalid_message">Kebenaran inventori aplikasi diperlukan untuk menggunakan ciri ini.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemui sebarang kawasan data yang boleh diimbas. Adakah anda telah melengkapkan persediaan?</string>
     <string name="dataarea_warningcard_label">Kawasan data</string>
     <string name="dataarea_warningcard_reload_action">Muat semula kawasan data</string>

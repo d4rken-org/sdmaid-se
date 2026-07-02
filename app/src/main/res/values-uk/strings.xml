@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Інвентар додатку</string>
     <string name="setup_inventory_card_body">SD Maid потрібно знати, які у вас є додатки, щоб знайти файли, які не належать до жодних встановлених додатків.</string>
     <string name="setup_inventory_card_extra">Знайдіть дозвіл під назвою «Список додатків» або «Запитувати всі пакети».</string>
-    <string name="setup_inventory_invalid_message">Система надала невірний список встановлених додатків (наприклад, занадто мало або деякі з них відсутні). Перейдіть до системних налаштувань і дозвольте SD Maid доступ до \"Списку додатків\".</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не виявила області даних для сканування. Ви завершили налаштування?</string>
     <string name="dataarea_warningcard_label">Області даних</string>
     <string name="dataarea_warningcard_reload_action">Перезавантажити області даних</string>

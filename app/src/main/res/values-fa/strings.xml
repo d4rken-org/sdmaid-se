@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">فهرست برنامه‌ها</string>
     <string name="setup_inventory_card_body">SD Maid نیاز دارد بداند کدام برنامه‌ها را نصب کرده‌اید تا فایل‌هایی را که به هیچ‌یک از برنامه‌های نصب شده تعلق ندارند، پیدا کند.</string>
     <string name="setup_inventory_card_extra">به دنبال مجوزی به نام \"لیست برنامه\" یا \"پرس و جو از همه بسته ها\" بگردید.</string>
-    <string name="setup_inventory_invalid_message">سیستم یک لیست نامعتبر از برنامه‌های نصب شده ارائه داده است (مثلاً تعداد کمی یا برخی از آنها گم شده‌اند). به تنظیمات سیستم بروید و به SD Maid دسترسی به \"لیست برنامه\" را بدهید.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid هیچ ناحیه داده‌ای برای اسکن پیدا نکرد. آیا راه‌اندازی را تکمیل کرده‌اید؟</string>
     <string name="dataarea_warningcard_label">حوزه های داده</string>
     <string name="dataarea_warningcard_reload_action">بارگذاری دوباره ناحیه‌های داده</string>

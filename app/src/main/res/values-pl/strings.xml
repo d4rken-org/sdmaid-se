@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Zasobnik aplikacji</string>
     <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz, aby znaleźć pliki, które nie należą do żadnej zainstalowanej aplikacji.</string>
     <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie Lista aplikacji lub Zapytaj o wszystkie pakiety.</string>
-    <string name="setup_inventory_invalid_message">System dostarczył nieprawidłową listę zainstalowanych aplikacji (np. zbyt małą lub niektóre z nich nie działały). Przejdź do ustawień systemu i zezwól aplikacji SD Maid na dostęp do „Listy aplikacji”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
     <string name="dataarea_warningcard_reload_action">Przeładuj obszary danych</string>

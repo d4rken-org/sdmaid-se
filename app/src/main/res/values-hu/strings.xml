@@ -209,7 +209,6 @@
     <string name="setup_inventory_card_title">Alkalmazáskészlet</string>
     <string name="setup_inventory_card_body">Az SD Maidnek tudnia kell, hogy milyen alkalmazásokkal rendelkezel, hogy megtalálja azokat a fájlokat, amelyek nem tartoznak egyetlen telepített alkalmazáshoz sem.</string>
     <string name="setup_inventory_card_extra">Keress egy „Alkalmazáslista” vagy „Minden csomag lekérdezése” nevű engedélyt.</string>
-    <string name="setup_inventory_invalid_message">A rendszer érvénytelen listát adott a telepített alkalmazásokról (pl. túl kevés vagy néhány hiányzott). Menjen a rendszerbeállításokhoz, és engedélyezze az SD Maid számára az „Alkalmazáslista” elérését.</string>
     <string name="dataarea_warningcard_empty_message">Az SD Maid nem talált beolvasható adatterületet. Befejezted a beállítást?</string>
     <string name="dataarea_warningcard_label">Adatterületek</string>
     <string name="dataarea_warningcard_reload_action">Adatterületek újratöltése</string>

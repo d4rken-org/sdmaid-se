@@ -219,7 +219,6 @@
     <string name="setup_inventory_card_title">Інвентар праграмы</string>
     <string name="setup_inventory_card_body">Каб знаходзіць файлы, якія не адносяцца да ўсталяваных праграм SD Maid неабходна ведаць, якія праграмы ў вас ёсць.</string>
     <string name="setup_inventory_card_extra">Знайдзіце дазвол пад назвай «Спіс праграм» або «Запыт усіх пакетаў».</string>
-    <string name="setup_inventory_invalid_message">Сістэма прадставіла несапраўдны спіс усталяваных праграм (напрыклад, іх занадта мала, або некаторыя адсутнічаюць). Перайдзіце ў налады сістэмы і дазвольце SD Maid доступ да \"Спісу праграм\".</string>
     <string name="dataarea_warningcard_empty_message">Праграма SD Maid не выявіла вобласці даных для сканіравання. Ці завершана наладжванне?</string>
     <string name="dataarea_warningcard_label">Вобласці даных</string>
     <string name="dataarea_warningcard_reload_action">Перазагрузіць вобласці даных</string>
