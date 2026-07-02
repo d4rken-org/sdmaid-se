@@ -200,6 +200,7 @@ class Squeezer @Inject constructor(
             processedCount = allSuccess.size,
             failedCount = allFailures.size,
             failureReasons = failureReasons,
+            guardSkippedCount = imageResult.skippedGuarded.size,
         )
     }
 

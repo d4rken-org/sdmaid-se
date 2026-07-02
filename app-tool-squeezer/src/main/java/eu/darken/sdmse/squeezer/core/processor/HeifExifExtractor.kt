@@ -258,6 +258,9 @@ class HeifExifExtractor @Inject constructor() {
             entryCount = raf.readInt()
             entriesStart = iinf.payloadStart + 8
         }
+        // A 32-bit count reads negative for corrupt values >= 2^31. Failing open here would skip
+        // the entry loop entirely and report "no Exif item" — silently stripping metadata.
+        if (entryCount < 0) return ItemLookup.ParseError("implausible iinf entry count $entryCount")
 
         var pos = entriesStart
         var seen = 0
@@ -273,6 +276,11 @@ class HeifExifExtractor @Inject constructor() {
             }
             pos = h.boxEnd
             seen++
+        }
+        if (seen < entryCount) {
+            // Truncated iinf: it declared more entries than its box holds. One of the missing
+            // entries could have been the Exif item — we can't tell, so fail closed.
+            return ItemLookup.ParseError("iinf truncated: saw $seen of $entryCount declared entries")
         }
         return ItemLookup.NotPresent
     }
