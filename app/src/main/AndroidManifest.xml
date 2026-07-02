@@ -61,9 +61,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- singleTask: single-activity app, there must never be two MainActivity instances in one
+             task. The widget's open-app intent carries a data URI (PendingIntent identity), which
+             defeats root-intent task matching — with launchMode=standard a launcher-icon tap onto a
+             widget-rooted task (or vice versa) stacked a duplicate instance, so backing out showed
+             the app "again" and wedged the singleton NavigationController. -->
         <activity
             android:name="eu.darken.sdmse.main.ui.MainActivity"
             android:exported="true"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
