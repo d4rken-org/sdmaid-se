@@ -386,6 +386,7 @@
     <string name="backup_restore_warn_android_body">This backup was made on Android %1$s, but this device runs Android %2$s.</string>
     <string name="backup_restore_warn_device_body">This backup was made on a different device (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">This backup is from a different app edition (%1$s vs %2$s).</string>
+    <string name="backup_restore_warn_history_body">This backup\'s history data (statistics, compression history, swipe sessions) is from a different app version and can\'t be restored. Everything else will be.</string>
     <string name="backup_restore_ack_understand">I understand and want to continue</string>
     <string name="backup_restore_action_restore">Restore</string>
 </resources>

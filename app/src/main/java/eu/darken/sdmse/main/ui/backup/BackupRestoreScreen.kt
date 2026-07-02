@@ -21,6 +21,7 @@ import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.RadioButton
@@ -182,12 +183,17 @@ internal fun BackupRestoreScreen(
             modifier = Modifier.fillMaxSize(),
             contentPadding = paddingValues,
         ) {
+            if (state.isBusy) {
+                item {
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                }
+            }
             item {
                 SettingsPreferenceItem(
                     icon = Icons.TwoTone.Backup,
                     title = stringResource(R.string.backup_restore_export_title),
                     subtitle = stringResource(R.string.backup_restore_export_desc),
-                    onClick = onExport,
+                    onClick = { if (!state.isBusy) onExport() },
                     requiresUpgrade = state.isPro == false,
                     onUpgrade = onUpgrade,
                 )
@@ -197,7 +203,7 @@ internal fun BackupRestoreScreen(
                     icon = Icons.TwoTone.SettingsBackupRestore,
                     title = stringResource(R.string.backup_restore_import_title),
                     subtitle = stringResource(R.string.backup_restore_import_desc),
-                    onClick = onImport,
+                    onClick = { if (!state.isBusy) onImport() },
                 )
             }
             if (state.recoveryBackup != null) {
@@ -206,7 +212,7 @@ internal fun BackupRestoreScreen(
                         icon = Icons.TwoTone.History,
                         title = stringResource(R.string.backup_restore_recovery_title),
                         subtitle = stringResource(R.string.backup_restore_recovery_desc),
-                        onClick = onRecover,
+                        onClick = { if (!state.isBusy) onRecover() },
                     )
                 }
             }
@@ -254,14 +260,19 @@ private fun RestoreConfirmContent(
     onConfirm: (RestoreMode) -> Unit,
     onCancel: () -> Unit,
 ) {
-    val warnings = listOf(
-        Triple("version", R.string.backup_restore_warn_version_body, info.version),
-        Triple("android", R.string.backup_restore_warn_android_body, info.android),
-        Triple("device", R.string.backup_restore_warn_device_body, info.device),
-        Triple("flavor", R.string.backup_restore_warn_flavor_body, info.flavor),
-    )
-        .filter { (_, _, diff) -> diff.differs }
-        .map { (id, res, diff) -> RestoreWarning(id, stringResource(res, diff.source, diff.current)) }
+    val warnings = buildList {
+        listOf(
+            Triple("version", R.string.backup_restore_warn_version_body, info.version),
+            Triple("android", R.string.backup_restore_warn_android_body, info.android),
+            Triple("device", R.string.backup_restore_warn_device_body, info.device),
+            Triple("flavor", R.string.backup_restore_warn_flavor_body, info.flavor),
+        )
+            .filter { (_, _, diff) -> diff.differs }
+            .forEach { (id, res, diff) -> add(RestoreWarning(id, stringResource(res, diff.source, diff.current))) }
+        if (info.historyIncompatible) {
+            add(RestoreWarning("history", stringResource(R.string.backup_restore_warn_history_body)))
+        }
+    }
 
     var acked by remember(info) { mutableStateOf(emptySet<String>()) }
     // Recovery snapshots must be re-applied verbatim — mode is locked to REPLACE.
