@@ -948,38 +948,61 @@ class SharedResourceTest : BaseTest() {
         val attempts = AtomicInteger(0)
         val firstStarted = CompletableDeferred<Unit>()
         val failFirst = CompletableDeferred<Unit>()
-        val sr = SharedResource<Int>(
-            tag = "stale-reuse",
-            parentScope = this + Dispatchers.IO,
-            stopTimeout = Duration.ZERO,
-            source = flow {
-                if (attempts.incrementAndGet() == 1) {
-                    firstStarted.complete(Unit)
-                    failFirst.await()
-                    throw IOException("source died before producing a value")
+
+        // Completed when the second get() has REUSED the running generation — the "Source job already
+        // exists" breadcrumb is logged under coreLock exactly where the reuse decision falls, and only
+        // a reusing caller emits it. Deterministic, unlike a sleep: without this the reuser could start
+        // only after generation 1 already failed, acquire a fresh generation, and pass vacuously.
+        val reuserLatched = CompletableDeferred<Unit>()
+        val capture = object : Logging.Logger {
+            override fun log(
+                priority: Logging.Priority,
+                tag: String,
+                message: String,
+                metaData: Map<String, Any>?
+            ) {
+                if (tag == "stale-reuse:SR" && message.contains("Source job already exists")) {
+                    reuserLatched.complete(Unit)
                 }
-                emit(attempts.get())
-                awaitCancellation()
-            },
-        )
+            }
+        }
+        Logging.install(capture)
+        try {
+            val sr = SharedResource<Int>(
+                tag = "stale-reuse",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ZERO,
+                source = flow {
+                    if (attempts.incrementAndGet() == 1) {
+                        firstStarted.complete(Unit)
+                        failFirst.await()
+                        throw IOException("source died before producing a value")
+                    }
+                    emit(attempts.get())
+                    awaitCancellation()
+                },
+            )
 
-        val creator = async(Dispatchers.IO) { runCatching { sr.get() } }
-        firstStarted.await()
-        // The source is running but has produced no value yet, so this get() REUSES generation 1
-        // and parks on its ready-gate...
-        val reuser = async(Dispatchers.IO) { runCatching { sr.get() } }
-        delay(100)
-        // ...then generation 1 dies before ever producing a value.
-        failFirst.complete(Unit)
+            val creator = async(Dispatchers.IO) { runCatching { sr.get() } }
+            firstStarted.await()
+            // The source is running but has produced no value yet, so this get() REUSES generation 1
+            // and awaits its ready-gate...
+            val reuser = async(Dispatchers.IO) { runCatching { sr.get() } }
+            reuserLatched.await()
+            // ...then generation 1 dies before ever producing a value.
+            failFirst.complete(Unit)
 
-        // The caller that STARTED the doomed source sees its original failure...
-        (creator.await().exceptionOrNull() is IOException) shouldBe true
-        // ...but the caller that merely latched onto the dying generation must not inherit that stale
-        // error — it retries onto a fresh generation instead.
-        val resource = reuser.await().getOrThrow()
-        resource.item shouldBe 2
+            // The caller that STARTED the doomed source sees its original failure...
+            (creator.await().exceptionOrNull() is IOException) shouldBe true
+            // ...but the caller that merely latched onto the dying generation must not inherit that
+            // stale error — it retries onto a fresh generation instead.
+            val resource = reuser.await().getOrThrow()
+            resource.item shouldBe 2
 
-        resource.close()
-        sr.close()
+            resource.close()
+            sr.close()
+        } finally {
+            Logging.remove(capture)
+        }
     }
 }
