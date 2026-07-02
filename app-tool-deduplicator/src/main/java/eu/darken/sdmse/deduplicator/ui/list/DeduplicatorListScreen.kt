@@ -25,6 +25,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -118,6 +121,46 @@ private fun MixedSelection.toggleClusterTargets(
         copy(dupes = dupes - clusterId)
     } else {
         addClusterTargets(clusterId, targets, cap)
+    }
+}
+
+/**
+ * Compose-isolated access to [MixedSelection], mirroring [eu.darken.sdmse.common.compose.selection.SelectionState]'s
+ * per-id derivedStateOf pattern: passing the raw value into the list composables subscribed every
+ * visible row to any selection change, so toggling one duplicate recomposed the whole
+ * thumbnail-heavy window. The structured per-cluster shape doesn't map onto SelectionState<T>,
+ * hence the bespoke holder with the same isolation semantics.
+ */
+@Stable
+private class MixedSelectionHolder(initial: MixedSelection) {
+
+    var value by mutableStateOf(initial)
+
+    /** Notifies only on the empty <-> non-empty transition. */
+    val isActive: Boolean by derivedStateOf { !value.isEmpty }
+
+    /** Notifies only when the selected-file count changes (top-bar "N selected"). */
+    val fileCount: Int by derivedStateOf { value.fileCount }
+
+    /** Per-cluster selected duplicates; only rows whose set actually changes recompose. */
+    @Composable
+    fun selectedDupes(clusterId: Duplicate.Cluster.Id): Set<Duplicate.Id> {
+        val state = remember(this, clusterId) { derivedStateOf { value.dupes[clusterId] ?: emptySet() } }
+        return state.value
+    }
+
+    /** Per-cluster "has any selection" flag for the grid tiles. */
+    @Composable
+    fun hasSelectedDupes(clusterId: Duplicate.Cluster.Id): Boolean {
+        val state = remember(this, clusterId) { derivedStateOf { value.dupes[clusterId]?.isNotEmpty() == true } }
+        return state.value
+    }
+
+    companion object {
+        fun saver(): Saver<MixedSelectionHolder, MixedSelection> = Saver(
+            save = { it.value },
+            restore = { MixedSelectionHolder(it) },
+        )
     }
 }
 
@@ -269,7 +312,10 @@ internal fun DeduplicatorListScreen(
     val layoutMode = state?.layoutMode ?: LayoutMode.GRID
     val allowDeleteAll = state?.allowDeleteAll ?: false
 
-    var selection by rememberSaveable { mutableStateOf(MixedSelection.Empty) }
+    val selectionHolder = rememberSaveable(saver = MixedSelectionHolder.saver()) {
+        MixedSelectionHolder(MixedSelection.Empty)
+    }
+    var selection by selectionHolder::value
     val snackScope = rememberCoroutineScope()
 
     val rowsById = rows?.associateBy { it.cluster.identifier } ?: emptyMap()
@@ -286,7 +332,7 @@ internal fun DeduplicatorListScreen(
         val pruned = MixedSelection(dupes = prunedDupes)
         if (pruned != selection) selection = pruned
     }
-    BackHandler(enabled = !selection.isEmpty) { selection = MixedSelection.Empty }
+    BackHandler(enabled = selectionHolder.isActive) { selection = MixedSelection.Empty }
 
     val capRejectMsg = stringResource(DeduplicatorR.string.deduplicator_selection_keep_one_required)
     val notifyCapExceeded: () -> Unit = {
@@ -305,7 +351,7 @@ internal fun DeduplicatorListScreen(
 
     SdmScaffold(
         topBar = {
-            if (selection.isEmpty) {
+            if (!selectionHolder.isActive) {
                 SdmTopAppBar(
                     title = stringResource(CommonR.string.deduplicator_tool_name),
                     subtitle = subtitle,
@@ -328,7 +374,7 @@ internal fun DeduplicatorListScreen(
             } else {
                 val safeTargetUnion = rows.orEmpty().flatMap { it.deleteTargetIds }.toSet()
                 SdmSelectionTopAppBar(
-                    selectedCount = selection.fileCount,
+                    selectedCount = selectionHolder.fileCount,
                     onClearSelection = { selection = MixedSelection.Empty },
                     actions = {
                         SdmDeleteAction(onClick = {
@@ -421,7 +467,7 @@ internal fun DeduplicatorListScreen(
                         when (layoutMode) {
                             LayoutMode.LINEAR -> LinearList(
                                 rows = rows,
-                                selection = selection,
+                                selection = selectionHolder,
                                 onHeaderClick = onClusterDeleteTap,
                                 onThumbnailClick = onClusterPreviewTap,
                                 onClusterLongPress = onClusterLongPress,
@@ -432,7 +478,7 @@ internal fun DeduplicatorListScreen(
 
                             LayoutMode.GRID -> GridList(
                                 rows = rows,
-                                selection = selection,
+                                selection = selectionHolder,
                                 onThumbnailClick = onClusterDeleteTap,
                                 onCaptionClick = onClusterDetailsTap,
                                 onPreviewButtonClick = onClusterPreviewTap,
@@ -449,7 +495,7 @@ internal fun DeduplicatorListScreen(
 @Composable
 private fun LinearList(
     rows: List<DeduplicatorListViewModel.DeduplicatorListRow>,
-    selection: MixedSelection,
+    selection: MixedSelectionHolder,
     onHeaderClick: (Duplicate.Cluster) -> Unit,
     onThumbnailClick: (Duplicate.Cluster) -> Unit,
     onClusterLongPress: (Duplicate.Cluster) -> Unit,
@@ -457,13 +503,13 @@ private fun LinearList(
     onDuplicateLongPress: (Duplicate.Cluster, Duplicate) -> Unit,
     onDuplicatePreview: (Duplicate.Cluster, Duplicate) -> Unit,
 ) {
-    val selectionActive = !selection.isEmpty
+    val selectionActive = selection.isActive
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = SdmListDefaults.FullWidthContentPadding,
     ) {
         items(rows, key = { it.cluster.identifier.value }) { row ->
-            val selectedDupes = selection.dupes[row.cluster.identifier] ?: emptySet()
+            val selectedDupes = selection.selectedDupes(row.cluster.identifier)
             DeduplicatorLinearRow(
                 row = row,
                 selected = false,
@@ -483,7 +529,7 @@ private fun LinearList(
 @Composable
 private fun GridList(
     rows: List<DeduplicatorListViewModel.DeduplicatorListRow>,
-    selection: MixedSelection,
+    selection: MixedSelectionHolder,
     onThumbnailClick: (Duplicate.Cluster) -> Unit,
     onCaptionClick: (Duplicate.Cluster) -> Unit,
     onPreviewButtonClick: (Duplicate.Cluster) -> Unit,
@@ -500,7 +546,7 @@ private fun GridList(
             horizontalArrangement = Arrangement.spacedBy(0.dp),
         ) {
             items(rows, key = { it.cluster.identifier.value }) { row ->
-                val isSelected = selection.dupes[row.cluster.identifier]?.isNotEmpty() == true
+                val isSelected = selection.hasSelectedDupes(row.cluster.identifier)
                 DeduplicatorGridRow(
                     row = row,
                     selected = isSelected,

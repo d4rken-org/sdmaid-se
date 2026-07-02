@@ -177,6 +177,14 @@ internal fun CustomFilterListScreen(
     val selection = rememberSelectionState<String>()
     val listState = rememberLazyListState()
 
+    // Standard selection prune (same as the other tool lists): ids whose rows disappeared —
+    // removal on another screen, an import replacing filters — must not linger in the count/title
+    // or the next action's input.
+    val rowIds = state?.rows?.map { it.id }?.toSet()
+    LaunchedEffect(rowIds) {
+        if (rowIds != null) selection.retainAll(rowIds)
+    }
+
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
