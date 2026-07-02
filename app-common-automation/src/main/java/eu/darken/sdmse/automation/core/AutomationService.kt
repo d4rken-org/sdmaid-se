@@ -506,6 +506,10 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
                     if (hostState.value.hasOverlay) {
                         log(TAG, INFO) { "submit($id): User left to home screen, cancelling task" }
                         userCancelCurrentTask()
+                    } else {
+                        // E.g. task-startup navigation before the spec armed the overlay. The guard
+                        // re-arms: the next home sighting emits again.
+                        log(TAG) { "submit($id): Home sighting while overlay isn't armed, ignoring" }
                     }
                 }
                 .launchIn(serviceScope)
