@@ -20,7 +20,9 @@ object Versions {
         }
 
         object Glance {
-            const val core = "1.1.1"
+            // 1.2.0-rc01: no stable 1.2.0 exists (train went rc01 → 1.3.0-alpha); the rc is required
+            // for the generated widget-picker preview API (providePreview/setWidgetPreviews, A15+).
+            const val core = "1.2.0-rc01"
         }
 
         object Navigation3 {
