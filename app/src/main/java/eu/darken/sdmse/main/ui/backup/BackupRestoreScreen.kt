@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Backup
+import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -23,8 +24,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -102,15 +105,22 @@ fun BackupRestoreScreenHost(
                     snackbarHostState.showSnackbar(msg)
                 }
                 is BackupRestoreViewModel.Event.RestoreDone -> scope.launch {
-                    val msg = if (event.failedSections.isEmpty()) {
-                        context.getString(R.string.backup_restore_restore_success)
-                    } else {
-                        context.getString(
-                            R.string.backup_restore_restore_partial,
+                    snackbarHostState.showSnackbar(context.getString(R.string.backup_restore_restore_success))
+                }
+                is BackupRestoreViewModel.Event.RestoreFailed -> scope.launch {
+                    val result = snackbarHostState.showSnackbar(
+                        message = context.getString(
+                            R.string.backup_restore_restore_failed,
                             event.failedSections.joinToString(", "),
-                        )
-                    }
-                    snackbarHostState.showSnackbar(msg)
+                        ),
+                        actionLabel = if (event.canUndo) {
+                            context.getString(R.string.backup_restore_undo_action)
+                        } else {
+                            null
+                        },
+                        duration = SnackbarDuration.Long,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) vm.undoRestore()
                 }
             }
         }
@@ -136,6 +146,7 @@ fun BackupRestoreScreenHost(
         onNavigateUp = vm::navUp,
         onExport = vm::requestExport,
         onImport = vm::requestImport,
+        onRecover = vm::requestRecovery,
         onUpgrade = { vm.navTo(UpgradeRoute()) },
     )
 }
@@ -148,6 +159,7 @@ internal fun BackupRestoreScreen(
     onNavigateUp: () -> Unit = {},
     onExport: () -> Unit = {},
     onImport: () -> Unit = {},
+    onRecover: () -> Unit = {},
     onUpgrade: () -> Unit = {},
 ) {
     SdmScaffold(
@@ -187,6 +199,16 @@ internal fun BackupRestoreScreen(
                     subtitle = stringResource(R.string.backup_restore_import_desc),
                     onClick = onImport,
                 )
+            }
+            if (state.recoveryBackup != null) {
+                item {
+                    SettingsPreferenceItem(
+                        icon = Icons.TwoTone.History,
+                        title = stringResource(R.string.backup_restore_recovery_title),
+                        subtitle = stringResource(R.string.backup_restore_recovery_desc),
+                        onClick = onRecover,
+                    )
+                }
             }
         }
     }
@@ -232,29 +254,18 @@ private fun RestoreConfirmContent(
     onConfirm: (RestoreMode) -> Unit,
     onCancel: () -> Unit,
 ) {
-    val versionMsg = stringResource(
-        R.string.backup_restore_warn_version_body, info.sourceVersion, info.currentVersion,
+    val warnings = listOf(
+        Triple("version", R.string.backup_restore_warn_version_body, info.version),
+        Triple("android", R.string.backup_restore_warn_android_body, info.android),
+        Triple("device", R.string.backup_restore_warn_device_body, info.device),
+        Triple("flavor", R.string.backup_restore_warn_flavor_body, info.flavor),
     )
-    val androidMsg = stringResource(
-        R.string.backup_restore_warn_android_body, info.sourceAndroid, info.currentAndroid,
-    )
-    val deviceMsg = stringResource(
-        R.string.backup_restore_warn_device_body, info.sourceDevice, info.currentDevice,
-    )
-    val flavorMsg = stringResource(
-        R.string.backup_restore_warn_flavor_body, info.sourceFlavor, info.currentFlavor,
-    )
-    val warnings = remember(info) {
-        buildList {
-            if (!info.versionMatches) add(RestoreWarning("version", versionMsg))
-            if (info.androidDiffers) add(RestoreWarning("android", androidMsg))
-            if (info.deviceDiffers) add(RestoreWarning("device", deviceMsg))
-            if (info.flavorDiffers) add(RestoreWarning("flavor", flavorMsg))
-        }
-    }
+        .filter { (_, _, diff) -> diff.differs }
+        .map { (id, res, diff) -> RestoreWarning(id, stringResource(res, diff.source, diff.current)) }
 
     var acked by remember(info) { mutableStateOf(emptySet<String>()) }
-    var mode by remember(info) { mutableStateOf(RestoreMode.MERGE) }
+    // Recovery snapshots must be re-applied verbatim — mode is locked to REPLACE.
+    var mode by remember(info) { mutableStateOf(if (info.isRecovery) RestoreMode.REPLACE else RestoreMode.MERGE) }
     val allAcked = warnings.all { acked.contains(it.id) }
 
     Column(
@@ -276,7 +287,7 @@ private fun RestoreConfirmContent(
         Text(
             text = stringResource(
                 R.string.backup_restore_confirm_source,
-                info.sourceVersion, info.sourceDevice, info.sourceAndroid,
+                info.version.source, info.device.source, info.android.source,
             ),
             style = MaterialTheme.typography.bodySmall,
         )
@@ -312,22 +323,24 @@ private fun RestoreConfirmContent(
             }
         }
 
-        Text(
-            text = stringResource(R.string.backup_restore_mode_label),
-            style = MaterialTheme.typography.titleSmall,
-        )
-        RestoreModeOption(
-            selected = mode == RestoreMode.MERGE,
-            title = stringResource(R.string.backup_restore_mode_merge),
-            description = stringResource(R.string.backup_restore_mode_merge_desc),
-            onClick = { mode = RestoreMode.MERGE },
-        )
-        RestoreModeOption(
-            selected = mode == RestoreMode.REPLACE,
-            title = stringResource(R.string.backup_restore_mode_replace),
-            description = stringResource(R.string.backup_restore_mode_replace_desc),
-            onClick = { mode = RestoreMode.REPLACE },
-        )
+        if (!info.isRecovery) {
+            Text(
+                text = stringResource(R.string.backup_restore_mode_label),
+                style = MaterialTheme.typography.titleSmall,
+            )
+            RestoreModeOption(
+                selected = mode == RestoreMode.MERGE,
+                title = stringResource(R.string.backup_restore_mode_merge),
+                description = stringResource(R.string.backup_restore_mode_merge_desc),
+                onClick = { mode = RestoreMode.MERGE },
+            )
+            RestoreModeOption(
+                selected = mode == RestoreMode.REPLACE,
+                title = stringResource(R.string.backup_restore_mode_replace),
+                description = stringResource(R.string.backup_restore_mode_replace_desc),
+                onClick = { mode = RestoreMode.REPLACE },
+            )
+        }
 
         Row(
             modifier = Modifier
@@ -382,18 +395,10 @@ private fun RestoreConfirmContentPreview() {
         RestoreConfirmContent(
             info = BackupRestoreViewModel.RestoreConfirmInfo(
                 createdAt = "Jun 22, 2026, 12:00",
-                sourceVersion = "1.2.3",
-                currentVersion = "1.3.0",
-                versionMatches = false,
-                sourceAndroid = "13",
-                currentAndroid = "14",
-                androidDiffers = true,
-                sourceDevice = "Samsung SM-G991B",
-                currentDevice = "Google Pixel 7",
-                deviceDiffers = true,
-                sourceFlavor = "GPLAY",
-                currentFlavor = "FOSS",
-                flavorDiffers = true,
+                version = BackupRestoreViewModel.Diff("1.2.3", "1.3.0"),
+                android = BackupRestoreViewModel.Diff("13", "14"),
+                device = BackupRestoreViewModel.Diff("Samsung SM-G991B", "Google Pixel 7"),
+                flavor = BackupRestoreViewModel.Diff("GPLAY", "FOSS"),
             ),
             onConfirm = {},
             onCancel = {},

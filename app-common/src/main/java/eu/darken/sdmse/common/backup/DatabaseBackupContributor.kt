@@ -18,6 +18,13 @@ interface DatabaseBackupContributor {
     /** Write a standalone, consistent copy of the live database into [target]. */
     suspend fun exportTo(target: File)
 
+    /**
+     * Verify [source] can be applied to the live database, without writing anything. Called during
+     * the restore preflight — before any section or database is mutated — and again by [restoreFrom]
+     * itself. Throws (e.g. [DatabaseSchemaMismatchException]) when the backup is incompatible.
+     */
+    suspend fun validate(source: File)
+
     /** Restore from a previously exported database file. MERGE upserts by PK; REPLACE clears first. */
     suspend fun restoreFrom(source: File, mode: RestoreMode)
 }

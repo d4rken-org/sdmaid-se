@@ -229,4 +229,12 @@
     <string name="backup_restore_error_invalid_title">Invalid backup file</string>
     <string name="backup_restore_error_invalid_body">This file is not a valid SD Maid backup or is corrupt.</string>
     <string name="backup_restore_error_version_body">This backup was created with a newer version of SD Maid. Please update the app and try again.</string>
+    <string name="backup_restore_error_restore_failed_title">Restore failed</string>
+    <string name="backup_restore_error_restore_failed_body">These parts could not be restored: %1$s. Your previous configuration was saved and can be brought back.</string>
+    <string name="backup_restore_error_safety_title">Restore not started</string>
+    <string name="backup_restore_error_safety_body">SD Maid couldn\'t save a safety snapshot of your current configuration, so nothing was changed.</string>
+    <string name="backup_restore_error_busy_title">Please wait</string>
+    <string name="backup_restore_error_busy_body">A cleaning task or another backup operation is currently running. Try again when it has finished.</string>
+    <string name="backup_restore_error_schema_title">Incompatible backup</string>
+    <string name="backup_restore_error_schema_body">The backup\'s database format doesn\'t match this version of SD Maid. Restoring history data is only supported between identical app versions.</string>
 </resources>

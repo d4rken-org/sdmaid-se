@@ -32,6 +32,18 @@ data class Schedule(
     val isEnabled: Boolean
         get() = scheduledAt != null
 
+    // A zero/negative/sub-day interval (possible via hand-edited backup restores) would make the
+    // plusDays stepping in the calc functions below spin forever; the scheduler's real minimum is 1 day.
+    private val intervalDaysSafe: Long
+        get() = repeatInterval.toDays().let {
+            if (it < 1) {
+                log(SchedulerManager.TAG, WARN) { "schedule($label): invalid repeatInterval $repeatInterval, clamping to 1 day" }
+                1L
+            } else {
+                it
+            }
+        }
+
     private fun resolveZone(): ZoneId = userZone?.let {
         try {
             ZoneId.of(it)
@@ -48,7 +60,7 @@ data class Schedule(
     ): Instant? {
         val targetToday = calcTargetTime(zone) ?: return null
         val scheduledAtZoned = scheduledAt!!.atZone(zone)
-        val intervalDays = repeatInterval.toDays()
+        val intervalDays = intervalDaysSafe
 
         // Use calendar arithmetic (plusDays) to preserve local time across DST
         return if (targetToday.isAfter(scheduledAtZoned)) {
@@ -67,7 +79,7 @@ data class Schedule(
     ): Duration? {
         if (scheduledAt == null) return null
 
-        val intervalDays = repeatInterval.toDays()
+        val intervalDays = intervalDaysSafe
 
         fun calcNextTrigger(present: Instant): Instant {
             var nextZoned = calcTargetTime(zone) ?: return present

@@ -54,6 +54,13 @@ abstract class DataStoreSettingsBackupContributor(
         }
     }
 
+    override suspend fun validate(data: JsonElement) {
+        // Full dry-run decode: a known tag whose value can't be coerced must fail HERE, before a
+        // REPLACE has removed the live value — otherwise a malformed backup key would silently wipe
+        // a setting. Only unknown FUTURE tags stay skippable (forward compatibility, key-level).
+        data.jsonObject.forEach { (name, element) -> checkTagged(name, element.jsonObject) }
+    }
+
     override suspend fun restore(data: JsonElement, mode: RestoreMode) {
         val section = data.jsonObject
         log(TAG) { "restore($key, mode=$mode): ${section.size} keys" }
@@ -66,13 +73,7 @@ abstract class DataStoreSettingsBackupContributor(
             }
             section.forEach { (name, element) ->
                 if (name in excludedKeys) return@forEach
-                // Skip a single unrestorable key (e.g. an unknown future type tag) instead of failing
-                // the whole section — keeps forward compatibility key-level, not section-level.
-                try {
-                    prefs.applyTagged(name, element.jsonObject)
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "restore($key): skipping unrestorable key '$name': ${e.message}" }
-                }
+                prefs.applyTagged(name, element.jsonObject)
             }
         }
     }
@@ -91,6 +92,23 @@ abstract class DataStoreSettingsBackupContributor(
         put(KEY_VALUE, value)
     }
 
+    /** Dry-run of [applyTagged]: throws for anything it would reject, writes nothing. */
+    private fun checkTagged(name: String, entry: JsonObject) {
+        val tag = entry[KEY_TYPE]?.jsonPrimitive?.content
+            ?: throw IllegalArgumentException("Missing type tag for '$name'")
+        val raw = entry[KEY_VALUE]?.jsonPrimitive
+            ?: throw IllegalArgumentException("Missing value for '$name'")
+        when (tag) {
+            TAG_BOOL -> raw.boolean
+            TAG_STRING -> raw.content
+            TAG_INT -> raw.int
+            TAG_LONG -> raw.long
+            TAG_FLOAT -> raw.float
+            // Unknown future tag: restorable key-level skip, not an error (forward compatibility).
+            else -> log(TAG, WARN) { "checkTagged($key): unknown type tag '$tag' for '$name'" }
+        }
+    }
+
     private fun MutablePreferences.applyTagged(name: String, entry: JsonObject) {
         val tag = entry[KEY_TYPE]?.jsonPrimitive?.content
             ?: throw IllegalArgumentException("Missing type tag for '$name'")
@@ -102,7 +120,9 @@ abstract class DataStoreSettingsBackupContributor(
             TAG_INT -> set(intPreferencesKey(name), raw.int)
             TAG_LONG -> set(longPreferencesKey(name), raw.long)
             TAG_FLOAT -> set(floatPreferencesKey(name), raw.float)
-            else -> throw IllegalArgumentException("Unknown type tag '$tag' for '$name'")
+            // The one deliberate skip: an unknown FUTURE tag drops that key, everything else is
+            // validated up front and must apply.
+            else -> log(TAG, WARN) { "restore($key): skipping key '$name' with unknown type tag '$tag'" }
         }
     }
 

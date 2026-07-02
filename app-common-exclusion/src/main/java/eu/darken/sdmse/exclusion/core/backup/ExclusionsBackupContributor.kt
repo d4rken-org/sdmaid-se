@@ -36,15 +36,21 @@ class ExclusionsBackupContributor @Inject constructor(
         return json.parseToJsonElement(exclusionImporter.export(current))
     }
 
+    override suspend fun validate(data: JsonElement) {
+        exclusionImporter.import(payloadOf(data))
+    }
+
     override suspend fun restore(data: JsonElement, mode: RestoreMode) {
-        // Accept both the new object shape and the legacy quoted-string shape (older backups).
-        val payload = if (data is JsonPrimitive && data.isString) data.content else data.toString()
-        val restored = exclusionImporter.import(payload)
+        val restored = exclusionImporter.import(payloadOf(data))
         when (mode) {
             RestoreMode.REPLACE -> exclusionManager.replaceUserExclusions(restored)
             RestoreMode.MERGE -> exclusionManager.save(restored)
         }
     }
+
+    // Accept both the new object shape and the legacy quoted-string shape (older backups).
+    private fun payloadOf(data: JsonElement): String =
+        if (data is JsonPrimitive && data.isString) data.content else data.toString()
 }
 
 @Module

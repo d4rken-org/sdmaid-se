@@ -370,7 +370,10 @@
     <string name="backup_restore_export_success">Backup created</string>
     <string name="backup_restore_export_partial">Backup created, but these parts failed: %1$s</string>
     <string name="backup_restore_restore_success">Backup restored</string>
-    <string name="backup_restore_restore_partial">Backup restored, but these parts failed: %1$s</string>
+    <string name="backup_restore_restore_failed">Restore failed (%1$s). Your previous configuration was saved.</string>
+    <string name="backup_restore_undo_action">Undo</string>
+    <string name="backup_restore_recovery_title">Recover previous configuration</string>
+    <string name="backup_restore_recovery_desc">A safety snapshot from an unfinished restore is available</string>
     <string name="backup_restore_confirm_title">Restore this backup?</string>
     <string name="backup_restore_confirm_created">Created: %1$s</string>
     <string name="backup_restore_confirm_source">From SD Maid %1$s on %2$s (Android %3$s)</string>

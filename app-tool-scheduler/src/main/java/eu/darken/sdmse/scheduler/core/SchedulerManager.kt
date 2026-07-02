@@ -190,6 +190,35 @@ class SchedulerManager @Inject constructor(
         copy(schedules = newSchedules)
     }
 
+    /**
+     * Replaces the entire schedule set in a single state update (used by config restore, so a
+     * REPLACE can never leave a half-swapped set), then reconciles WorkManager explicitly: removed
+     * schedules are cancelled, changed/new ones re-armed. The state watcher in `init` only reacts
+     * to `scheduledAt` changes, so a same-id schedule restored with a different hour/interval would
+     * otherwise keep its stale queued work.
+     */
+    suspend fun setSchedules(schedules: Set<Schedule>) {
+        log(TAG, INFO) { "setSchedules(): ${schedules.size} schedules" }
+        var previous: Set<Schedule> = emptySet()
+        internalState.updateBlocking {
+            previous = this.schedules
+            copy(schedules = schedules)
+        }
+        val previousById = previous.associateBy { it.id }
+        previous.filterNot { old -> schedules.any { it.id == old.id } }.forEach { it.cancel() }
+        schedules.forEach { new ->
+            when {
+                previousById[new.id] == new -> Unit // Untouched, leave its work alone.
+                new.isEnabled -> {
+                    new.cancel()
+                    new.schedule(reschedule = false)
+                }
+
+                else -> new.cancel()
+            }
+        }
+    }
+
     suspend fun removeSchedule(scheduleId: ScheduleId) = internalState.updateBlocking {
         log(TAG) { "removeSchedule(): $scheduleId" }
 
