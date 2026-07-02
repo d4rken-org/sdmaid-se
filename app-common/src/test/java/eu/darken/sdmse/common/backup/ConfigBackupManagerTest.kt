@@ -72,12 +72,14 @@ class ConfigBackupManagerTest : BaseTest() {
     private class FakeDbContributor(
         override val key: String,
         private val failValidate: Boolean = false,
+        private val schemaMismatch: Boolean = false,
         private val failRestore: Boolean = false,
     ) : DatabaseBackupContributor {
         var restoredBytes: ByteArray? = null
         var restoredMode: RestoreMode? = null
         override suspend fun exportTo(target: File) = target.writeBytes("db-$key".toByteArray())
         override suspend fun validate(source: File) {
+            if (schemaMismatch) throw DatabaseSchemaMismatchException(key, "test mismatch")
             if (failValidate) throw RuntimeException("bad db")
         }
 
@@ -320,6 +322,65 @@ class ConfigBackupManagerTest : BaseTest() {
         }
         recorder shouldBe emptyList<String>()
         safetySnapshots(tmp).shouldBeEmpty()
+    }
+
+    @Test
+    fun `inspect reports schema-incompatible databases without applying anything`(@TempDir tmp: Path) = runTest {
+        val mismatched = FakeDbContributor("stats.db", schemaMismatch = true)
+        val fine = FakeDbContributor("swiper.db")
+        val zip = writeZip(
+            tmp,
+            manifest = json.encodeToString(envelope()),
+            dbEntries = mapOf("stats.db" to "a".toByteArray(), "swiper.db" to "b".toByteArray()),
+        )
+
+        val inspection = manager(tmp, databases = setOf(mismatched, fine)).inspect(zip)
+
+        inspection.envelope.version shouldBe BackupEnvelope.VERSION
+        inspection.incompatibleDatabases shouldBe setOf("stats.db")
+        mismatched.restoredBytes shouldBe null
+        fine.restoredBytes shouldBe null
+    }
+
+    @Test
+    fun `restore skips consented incompatible databases and applies everything else`(@TempDir tmp: Path) = runTest {
+        val recorder = mutableListOf<String>()
+        val section = FakeContributor("good", recorder = recorder)
+        val mismatched = FakeDbContributor("stats.db", schemaMismatch = true)
+        val fine = FakeDbContributor("swiper.db")
+        val zip = writeZip(
+            tmp,
+            manifest = json.encodeToString(envelope()),
+            sectionFiles = mapOf("good" to "\"x\""),
+            dbEntries = mapOf("stats.db" to "a".toByteArray(), "swiper.db" to "b".toByteArray()),
+        )
+
+        val restored = manager(tmp, sections = setOf(section), databases = setOf(mismatched, fine))
+            .restore(zip, RestoreMode.REPLACE, acceptedIncompatible = setOf("stats.db"))
+
+        restored shouldBe setOf("good", "swiper.db")
+        recorder shouldBe listOf("good")
+        mismatched.restoredBytes shouldBe null
+        fine.restoredBytes!!.toString(Charsets.UTF_8) shouldBe "b"
+    }
+
+    @Test
+    fun `restore still rejects an incompatible database without consent`(@TempDir tmp: Path) = runTest {
+        val recorder = mutableListOf<String>()
+        val section = FakeContributor("good", recorder = recorder)
+        val mismatched = FakeDbContributor("stats.db", schemaMismatch = true)
+        val zip = writeZip(
+            tmp,
+            manifest = json.encodeToString(envelope()),
+            sectionFiles = mapOf("good" to "\"x\""),
+            dbEntries = mapOf("stats.db" to "a".toByteArray()),
+        )
+
+        shouldThrow<DatabaseSchemaMismatchException> {
+            manager(tmp, sections = setOf(section), databases = setOf(mismatched))
+                .restore(zip, RestoreMode.REPLACE, acceptedIncompatible = setOf("some-other.db"))
+        }
+        recorder shouldBe emptyList<String>()
     }
 
     @Test

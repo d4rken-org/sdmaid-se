@@ -185,6 +185,41 @@ class ConfigBackupManager @Inject constructor(
         return envelope
     }
 
+    /**
+     * Read-only pre-restore inspection: parses the manifest and checks every present database
+     * against the live schema. Schema-mismatched databases (the routine cross-version case — any
+     * Room migration between backup and restore) are reported as [BackupInspection.incompatibleDatabases]
+     * so the UI can disclose "history won't be restored" up front and pass the user's consent to
+     * [restore]; a corrupt database still rejects the whole archive here.
+     */
+    suspend fun inspect(zip: File): BackupInspection {
+        val envelope = parse(zip)
+        val incompatible = mutableSetOf<String>()
+        try {
+            ZipFile(zip).use { zf ->
+                // Same caps + CRC pass as restore — inspect extracts DB entries below and must not
+                // inflate an unverified archive (and a corrupt file should fail at import already).
+                verifyArchiveIntegrity(zf)
+                databaseContributors.sortedBy { it.key }.forEach { c ->
+                    val entry = zf.getEntry("$DB_DIR${c.key}") ?: return@forEach
+                    val tmp = File.createTempFile("inspect-${c.key}-", ".db", tmpDir)
+                    try {
+                        zf.getInputStream(entry).use { input -> tmp.outputStream().use { input.copyTo(it) } }
+                        c.validate(tmp)
+                    } catch (e: DatabaseSchemaMismatchException) {
+                        log(TAG, WARN) { "inspect(): '${c.key}' is schema-incompatible: ${e.message}" }
+                        incompatible += c.key
+                    } finally {
+                        tmp.delete()
+                    }
+                }
+            }
+        } catch (e: ZipException) {
+            throw InvalidBackupException("Backup file is not a valid zip archive", e)
+        }
+        return BackupInspection(envelope, incompatible)
+    }
+
     /** The most recent safety snapshot left behind by a failed/interrupted restore, if any. */
     fun findRecoveryBackup(): File? = safetyDir.listFiles().orEmpty()
         .filter { it.name.startsWith(SAFETY_PREFIX) && it.name.endsWith(".zip") }
@@ -213,8 +248,16 @@ class ConfigBackupManager @Inject constructor(
      * 5. Apply. REPLACE aborts on the first failure, MERGE applies everything and then fails if
      *    anything did — both throw [RestoreFailedException] carrying the safety snapshot, which is
      *    kept on failure and deleted on success.
+     *
+     * [acceptedIncompatible] carries the user's consent (from [inspect] + the confirmation UI) to
+     * SKIP those schema-mismatched databases instead of failing — disclosed-before-apply, never a
+     * silent partial. A mismatch on a database NOT in the set still fails the whole restore.
      */
-    suspend fun restore(zip: File, mode: RestoreMode): Set<String> = gate.runExclusive {
+    suspend fun restore(
+        zip: File,
+        mode: RestoreMode,
+        acceptedIncompatible: Set<String> = emptySet(),
+    ): Set<String> = gate.runExclusive {
         log(TAG, INFO) { "restore(mode=$mode): starting" }
         // A safety snapshot exists to bring back the previous configuration verbatim — MERGE would
         // consume it (deleted on success) while leaving the broken state's leftovers in place.
@@ -264,12 +307,18 @@ class ConfigBackupManager @Inject constructor(
                     databases.add(c to tmp)
                     zf.getInputStream(entry).use { input -> tmp.outputStream().use { input.copyTo(it) } }
                 }
+                val skippedDbs = mutableSetOf<String>()
                 databases.forEach { (c, tmp) ->
                     try {
                         c.validate(tmp)
+                    } catch (e: DatabaseSchemaMismatchException) {
+                        // Skipping requires the user's explicit, per-key consent from the confirm UI.
+                        if (c.key !in acceptedIncompatible) throw e
+                        log(TAG, WARN) { "restore(): skipping consented incompatible database '${c.key}'" }
+                        skippedDbs += c.key
                     } catch (e: Exception) {
-                        // Self-describing errors (e.g. schema mismatch) surface as-is; anything raw
-                        // (a garbage file that isn't SQLite) becomes a friendly "invalid backup".
+                        // Self-describing errors surface as-is; anything raw (a garbage file that
+                        // isn't SQLite) becomes a friendly "invalid backup".
                         if (e is HasLocalizedError) throw e
                         throw InvalidBackupException("Database '${c.key}' failed validation", e)
                     }
@@ -302,7 +351,7 @@ class ConfigBackupManager @Inject constructor(
                         failed(c.key, e)
                     }
                 }
-                databases.forEach { (c, tmp) ->
+                databases.filterNot { it.first.key in skippedDbs }.forEach { (c, tmp) ->
                     try {
                         c.restoreFrom(tmp, mode)
                         restored += c.key
@@ -412,6 +461,12 @@ class ConfigBackupManager @Inject constructor(
     ) {
         val isCompleteSuccess: Boolean get() = failures.isEmpty()
     }
+
+    data class BackupInspection(
+        val envelope: BackupEnvelope,
+        /** Databases in the archive whose schema doesn't match this app version (see [inspect]). */
+        val incompatibleDatabases: Set<String>,
+    )
 
     data class SectionFailure(
         val key: String,

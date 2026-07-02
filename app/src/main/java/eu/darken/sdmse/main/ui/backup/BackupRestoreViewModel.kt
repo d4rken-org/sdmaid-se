@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.IOException
@@ -59,15 +60,31 @@ class BackupRestoreViewModel @Inject constructor(
     // @Volatile: set/read/cleared from separate launch{} coroutines that may run on different threads.
     @Volatile private var pendingBackup: File? = null
 
+    // User-consented schema-incompatible databases of the staged backup (disclosed in the sheet).
+    @Volatile private var pendingIncompatible: Set<String> = emptySet()
+
     // Bumped whenever a restore attempt finished so the leftover-safety-snapshot check re-runs.
     private val recoveryCheckTrigger = MutableStateFlow(UUID.randomUUID())
+
+    private val busyOps = MutableStateFlow(0)
 
     val state: StateFlow<State> = combine(
         upgradeRepo.upgradeInfo,
         recoveryCheckTrigger.map { configBackupManager.findRecoveryBackup() },
-    ) { upgradeInfo, recovery ->
-        State(isPro = upgradeInfo.isPro, recoveryBackup = recovery)
+        busyOps,
+    ) { upgradeInfo, recovery, busy ->
+        State(isPro = upgradeInfo.isPro, recoveryBackup = recovery, isBusy = busy > 0)
     }.safeStateIn(initialValue = State(), onError = { State() })
+
+    /** Tracks a long-running operation in [State.isBusy] so the UI can show progress + disable actions. */
+    private suspend fun <T> busy(block: suspend () -> T): T {
+        busyOps.update { it + 1 }
+        try {
+            return block()
+        } finally {
+            busyOps.update { (it - 1).coerceAtLeast(0) }
+        }
+    }
 
     fun requestExport() = launch {
         log(TAG) { "requestExport()" }
@@ -90,6 +107,10 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "performExport($uri)" }
+        performExportBusy(uri)
+    }
+
+    private suspend fun performExportBusy(uri: Uri) = busy {
         // Build the archive into a temp file first, then copy it onto the user-picked document. The SAF
         // target only receives bytes once the whole zip is complete, so a failure mid-write never leaves
         // a corrupt/partial file sitting behind a "success" toast.
@@ -133,20 +154,22 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG) { "onImportPicked($uri)" }
-        // Copy the archive to a temp file so it can be read with random access (ZipFile).
-        val staged = File.createTempFile("import-", ".zip", backupTmpDir())
-        val envelope = try {
-            val input = context.contentResolver.openInputStream(uri)
-                ?: throw InvalidBackupException("Failed to read backup file")
-            input.use { ins ->
-                staged.outputStream().use { out -> ins.copyToCapped(out, limits.maxArchiveBytes) }
+        busy {
+            // Copy the archive to a temp file so it can be read with random access (ZipFile).
+            val staged = File.createTempFile("import-", ".zip", backupTmpDir())
+            val inspection = try {
+                val input = context.contentResolver.openInputStream(uri)
+                    ?: throw InvalidBackupException("Failed to read backup file")
+                input.use { ins ->
+                    staged.outputStream().use { out -> ins.copyToCapped(out, limits.maxArchiveBytes) }
+                }
+                configBackupManager.inspect(staged)
+            } catch (e: Exception) {
+                staged.delete()
+                throw e
             }
-            configBackupManager.parse(staged)
-        } catch (e: Exception) {
-            staged.delete()
-            throw e
+            stageForRestore(staged, inspection)
         }
-        stageForRestore(staged, envelope)
     }
 
     /** Stages the leftover safety snapshot of an earlier failed/interrupted restore for re-applying. */
@@ -157,13 +180,20 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG, INFO) { "requestRecovery(): staging $recovery" }
-        stageForRestore(recovery, configBackupManager.parse(recovery), isRecovery = true)
+        busy {
+            stageForRestore(recovery, configBackupManager.inspect(recovery), isRecovery = true)
+        }
     }
 
-    private suspend fun stageForRestore(staged: File, envelope: BackupEnvelope, isRecovery: Boolean = false) {
+    private suspend fun stageForRestore(
+        staged: File,
+        inspection: ConfigBackupManager.BackupInspection,
+        isRecovery: Boolean = false,
+    ) {
         pendingBackup?.takeIf { it != staged }?.let { discardStaged(it) }
         pendingBackup = staged
-        events.emit(Event.ConfirmRestore(envelope.toConfirmInfo(isRecovery)))
+        pendingIncompatible = inspection.incompatibleDatabases
+        events.emit(Event.ConfirmRestore(inspection.envelope.toConfirmInfo(isRecovery, inspection)))
     }
 
     /**
@@ -182,26 +212,37 @@ class BackupRestoreViewModel @Inject constructor(
             return@launch
         }
         log(TAG, INFO) { "confirmRestore(mode=$mode)" }
-        try {
-            // A REPLACE must finish once started — leaving the screen must not cancel it halfway.
-            withContext(NonCancellable) { configBackupManager.restore(staged, mode) }
-            discardStaged(staged)
-            pendingBackup = null
-            events.emit(Event.RestoreDone)
-        } catch (e: RestoreFailedException) {
-            log(TAG, ERROR) { "Restore failed: ${e.asLog()}" }
-            discardStaged(staged)
-            // The pre-restore safety snapshot becomes the staged backup, so Undo can re-apply it.
-            pendingBackup = e.recoveryBackup
-            events.emit(Event.RestoreFailed(e.failedSections, canUndo = e.recoveryBackup != null))
-        } catch (e: Exception) {
-            // Anything else failed before mutating (integrity, preflight, safety snapshot, busy).
-            discardStaged(staged)
-            pendingBackup = null
-            throw e
-        } finally {
-            recoveryCheckTrigger.value = UUID.randomUUID()
+        busy {
+            try {
+                // A REPLACE must finish once started — leaving the screen must not cancel it halfway.
+                withContext(NonCancellable) {
+                    configBackupManager.restore(staged, mode, acceptedIncompatible = pendingIncompatible)
+                }
+                discardStaged(staged)
+                clearPending()
+                events.emit(Event.RestoreDone)
+            } catch (e: RestoreFailedException) {
+                log(TAG, ERROR) { "Restore failed: ${e.asLog()}" }
+                discardStaged(staged)
+                // The pre-restore safety snapshot becomes the staged backup, so Undo can re-apply it.
+                // Consent doesn't carry over: a snapshot is same-device/version, nothing to skip.
+                clearPending()
+                pendingBackup = e.recoveryBackup
+                events.emit(Event.RestoreFailed(e.failedSections, canUndo = e.recoveryBackup != null))
+            } catch (e: Exception) {
+                // Anything else failed before mutating (integrity, preflight, safety snapshot, busy).
+                discardStaged(staged)
+                clearPending()
+                throw e
+            } finally {
+                recoveryCheckTrigger.value = UUID.randomUUID()
+            }
         }
+    }
+
+    private fun clearPending() {
+        pendingBackup = null
+        pendingIncompatible = emptySet()
     }
 
     /** Re-applies the pre-restore safety snapshot staged by a failed restore. */
@@ -210,7 +251,7 @@ class BackupRestoreViewModel @Inject constructor(
     fun cancelRestore() {
         log(TAG) { "cancelRestore()" }
         pendingBackup?.let { discardStaged(it) }
-        pendingBackup = null
+        clearPending()
         recoveryCheckTrigger.value = UUID.randomUUID()
     }
 
@@ -228,7 +269,10 @@ class BackupRestoreViewModel @Inject constructor(
         }
     }
 
-    private fun BackupEnvelope.toConfirmInfo(isRecovery: Boolean = false) = RestoreConfirmInfo(
+    private fun BackupEnvelope.toConfirmInfo(
+        isRecovery: Boolean = false,
+        inspection: ConfigBackupManager.BackupInspection? = null,
+    ) = RestoreConfirmInfo(
         createdAt = createdAt.atZone(ZoneId.systemDefault())
             .format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)),
         version = Diff(appVersionName, BuildConfigWrap.VERSION_NAME),
@@ -236,11 +280,13 @@ class BackupRestoreViewModel @Inject constructor(
         device = Diff("$deviceManufacturer $deviceModel", "${Build.MANUFACTURER} ${Build.MODEL}"),
         flavor = Diff(flavor, BuildConfigWrap.FLAVOR.name),
         isRecovery = isRecovery,
+        historyIncompatible = inspection?.incompatibleDatabases?.isNotEmpty() == true,
     )
 
     data class State(
         val isPro: Boolean? = null,
         val recoveryBackup: File? = null,
+        val isBusy: Boolean = false,
     )
 
     /** A provenance attribute of the backup vs this device — differing ones need acknowledgement. */
@@ -259,6 +305,8 @@ class BackupRestoreViewModel @Inject constructor(
         val flavor: Diff,
         /** Re-applying a safety snapshot: mode is locked to REPLACE (MERGE wouldn't recover). */
         val isRecovery: Boolean = false,
+        /** The backup's history databases are schema-incompatible and will be skipped (needs ack). */
+        val historyIncompatible: Boolean = false,
     )
 
     sealed interface Event {
