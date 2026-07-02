@@ -267,7 +267,13 @@ class MainActivity : ComponentActivity() {
         }
 
     private fun handleShortcutAction(intent: Intent) {
-        val route = shortcutRoute(intent) ?: return
+        val route = shortcutRoute(intent)
+        if (route == null) {
+            // A plain delivery (launcher icon / widget open-app tap) onto the live singleTask
+            // instance: don't resume a leftover rootless deep-link stack.
+            navCtrl.resetToHomeOnPlainEntry()
+            return
+        }
         // Same guard as the cold-start seeding: MainActivity is exported, so a shortcut-style
         // intent could arrive via onNewIntent during onboarding — it must not skip consent.
         if (vm.startRoute != DashboardRoute) {

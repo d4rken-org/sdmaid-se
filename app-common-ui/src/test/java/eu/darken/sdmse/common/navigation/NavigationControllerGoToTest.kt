@@ -190,6 +190,52 @@ class NavigationControllerGoToTest : BaseTest() {
     }
 
     @Test
+    fun `plain entry resets a rootless deep-link stack to home`() {
+        val stack = backStackOf(Dest.A)
+        val ctrl = NavigationController().apply { setup(stack, homeRoute = Dest.HOME) }
+
+        ctrl.resetToHomeOnPlainEntry()
+
+        stack.shouldContainExactly(Dest.HOME)
+    }
+
+    @Test
+    fun `plain entry resets a DEEP rootless stack to home`() {
+        val stack = backStackOf(Dest.A, Dest.B, Dest.C)
+        val ctrl = NavigationController().apply { setup(stack, homeRoute = Dest.HOME) }
+
+        ctrl.resetToHomeOnPlainEntry()
+
+        stack.shouldContainExactly(Dest.HOME)
+    }
+
+    @Test
+    fun `plain entry leaves a home-rooted stack untouched`() {
+        // Normal sessions keep resume-where-you-left-off semantics.
+        val stack = backStackOf(Dest.HOME, Dest.A, Dest.B)
+        val ctrl = NavigationController().apply { setup(stack, homeRoute = Dest.HOME) }
+
+        ctrl.resetToHomeOnPlainEntry()
+
+        stack.shouldContainExactly(Dest.HOME, Dest.A, Dest.B)
+    }
+
+    @Test
+    fun `plain entry without a home route is a no-op`() {
+        val (ctrl, stack) = controllerWith(Dest.A, Dest.B)
+
+        ctrl.resetToHomeOnPlainEntry()
+
+        stack.shouldContainExactly(Dest.A, Dest.B)
+    }
+
+    @Test
+    fun `plain entry before setup is a no-op`() {
+        // Doesn't crash on the uninitialized singleton.
+        NavigationController().resetToHomeOnPlainEntry()
+    }
+
+    @Test
     fun `setup with home route still drains queued actions`() {
         val ctrl = NavigationController()
         ctrl.goTo(Dest.B)

@@ -67,6 +67,23 @@ class NavigationController @Inject constructor() {
         return removed != null
     }
 
+    /**
+     * Plain app (re)entry (launcher icon, widget open-app tap — no deep-link payload): a live but
+     * backgrounded ROOTLESS deep-link stack must not resurface. On Android 12+ backing out of a
+     * task root can move the task to the background instead of finishing it, so a leftover
+     * [Analyzer]-rooted stack would otherwise greet every future entry. Resets to [homeRoute] when
+     * the stack's root isn't home; home-rooted stacks keep normal resume-where-you-left-off
+     * semantics, and Recents re-entry (no new intent) still resumes the deep-link session.
+     */
+    fun resetToHomeOnPlainEntry() {
+        val home = homeRoute ?: return
+        val stack = _backStack ?: return
+        if (stack.isEmpty() || stack.first() == home) return
+        log(TAG) { "resetToHomeOnPlainEntry(): clearing rootless deep-link stack ${stack.toList()}" }
+        stack[0] = home
+        while (stack.size > 1) stack.removeLastOrNull()
+    }
+
     fun goTo(
         destination: NavigationDestination,
         popUpTo: NavigationDestination? = null,
