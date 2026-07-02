@@ -318,6 +318,85 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `automation card advanced protection help button invokes callback`() {
+        var helpClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(showAdvancedProtectionHint = true, isAdvancedProtectionBlocked = true),
+                            onAdvancedProtectionHelp = { helpClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.runOnIdle { assertTrue(helpClicks == 1) }
+    }
+
+    @Test
+    fun `automation card appops restriction hint shows help and view actions that invoke callbacks`() {
+        var helpClicks = 0
+        var showClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(showAppOpsRestrictionHint = true),
+                            onRestrictionsHelp = { helpClicks++ },
+                            onRestrictionsShow = { showClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_appops_restriction_title)).assertCountEquals(1)
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_view_action)).performClick()
+        composeRule.runOnIdle {
+            assertTrue(helpClicks == 1)
+            assertTrue(showClicks == 1)
+        }
+    }
+
+    private fun automationResult(
+        showAppOpsRestrictionHint: Boolean = false,
+        showAdvancedProtectionHint: Boolean = false,
+        isAdvancedProtectionBlocked: Boolean = false,
+    ) = AutomationSetupModule.Result(
+        isNotRequired = false,
+        hasConsent = true,
+        canSelfEnable = false,
+        isServiceEnabled = false,
+        isServiceRunning = false,
+        isShortcutOrButtonEnabled = false,
+        needsXiaomiAutostart = false,
+        liftRestrictionsIntent = Intent(),
+        showAppOpsRestrictionHint = showAppOpsRestrictionHint,
+        showAdvancedProtectionHint = showAdvancedProtectionHint,
+        isAdvancedProtectionBlocked = isAdvancedProtectionBlocked,
+        settingsIntent = Intent(),
+    )
+
+    private fun automationCardItem(
+        state: AutomationSetupModule.Result,
+        onRestrictionsHelp: () -> Unit = {},
+        onRestrictionsShow: () -> Unit = {},
+        onAdvancedProtectionHelp: () -> Unit = {},
+    ) = AutomationSetupCardItem(
+        state = state,
+        onGrantAction = {},
+        onDismiss = {},
+        onHelp = {},
+        onRestrictionsHelp = onRestrictionsHelp,
+        onRestrictionsShow = onRestrictionsShow,
+        onAdvancedProtectionHelp = onAdvancedProtectionHelp,
+    )
+
+    @Test
     fun `shizuku card shows root info note and open action while waiting`() {
         composeRule.setSetupContent {
             SetupScreen(

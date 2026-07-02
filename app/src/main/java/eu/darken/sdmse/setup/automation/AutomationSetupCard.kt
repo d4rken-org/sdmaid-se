@@ -1,16 +1,13 @@
 package eu.darken.sdmse.setup.automation
 
 import android.content.Intent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AccessibilityNew
-import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -20,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -29,6 +25,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
+import eu.darken.sdmse.setup.SetupLimitationBox
 import eu.darken.sdmse.common.R as CommonR
 
 data class AutomationSetupCardItem(
@@ -83,16 +80,37 @@ internal fun AutomationSetupCard(
         }
 
         if (ui.showAdvancedProtectionHint) {
-            AdvancedProtectionBox(
-                onHelp = item.onAdvancedProtectionHelp,
-            )
+            SetupLimitationBox(
+                title = stringResource(R.string.setup_acs_advanced_protection_title),
+                body = stringResource(R.string.setup_acs_advanced_protection_body),
+            ) {
+                Button(
+                    onClick = item.onAdvancedProtectionHelp,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
+                }
+            }
         }
 
         if (ui.showAppOpsRestrictionHint) {
-            AppOpsRestrictionBox(
-                onHelp = item.onRestrictionsHelp,
-                onShow = item.onRestrictionsShow,
-            )
+            SetupLimitationBox(
+                title = stringResource(R.string.setup_acs_appops_restriction_title),
+                body = stringResource(R.string.setup_acs_appops_restriction_body),
+            ) {
+                OutlinedButton(
+                    onClick = item.onRestrictionsHelp,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
+                }
+                Button(
+                    onClick = item.onRestrictionsShow,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Text(stringResource(CommonR.string.general_view_action))
+                }
+            }
         }
 
         ui.runningState?.let { chip ->
@@ -179,104 +197,6 @@ private fun StateChipRow(chip: AutomationUiModel.StateChip) {
             style = MaterialTheme.typography.labelLarge,
             color = color,
         )
-    }
-}
-
-@Composable
-private fun AppOpsRestrictionBox(
-    onHelp: () -> Unit,
-    onShow: () -> Unit,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.tertiaryContainer)
-            .padding(horizontal = 32.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.Warning,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.size(20.dp),
-            )
-            Text(
-                text = stringResource(R.string.setup_acs_appops_restriction_title),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.secondary,
-            )
-        }
-        Text(
-            text = stringResource(R.string.setup_acs_appops_restriction_body),
-            style = MaterialTheme.typography.bodySmall,
-            color = Color.Unspecified,
-        )
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            OutlinedButton(
-                onClick = onHelp,
-                modifier = Modifier.weight(1f),
-            ) {
-                Text(stringResource(CommonR.string.general_help_action))
-            }
-            Button(
-                onClick = onShow,
-                modifier = Modifier.weight(1f),
-            ) {
-                Text(stringResource(CommonR.string.general_view_action))
-            }
-        }
-    }
-}
-
-@Composable
-private fun AdvancedProtectionBox(
-    onHelp: () -> Unit,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.tertiaryContainer)
-            .padding(horizontal = 32.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.Warning,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.size(20.dp),
-            )
-            Text(
-                text = stringResource(R.string.setup_acs_advanced_protection_title),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.secondary,
-            )
-        }
-        Text(
-            text = stringResource(R.string.setup_acs_advanced_protection_body),
-            style = MaterialTheme.typography.bodySmall,
-            color = Color.Unspecified,
-        )
-        Button(
-            onClick = onHelp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp),
-        ) {
-            Text(stringResource(CommonR.string.general_help_action))
-        }
     }
 }
 
