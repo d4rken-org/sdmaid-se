@@ -148,6 +148,7 @@ class DeduplicatorDetailsViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
+            every { isSettled } returns flowOf(true)
         }
         val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
         val vm = DeduplicatorDetailsViewModel(

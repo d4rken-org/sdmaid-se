@@ -265,7 +265,17 @@ internal fun DeduplicatorDetailsScreen(
         // delete removed members) or a saved selection was restored against a smaller cluster, the
         // retained set could otherwise exceed maxSelection and let a delete take the whole cluster.
         if (selection.count > maxSelection) {
-            selection.setSelection(selection.selected.take(maxSelection).toSet())
+            // Deterministic re-cap: follow the live duplicate order (set iteration order is
+            // arbitrary) and drop keepers first — a keep-one delete preserves those copies
+            // anyway, so deselecting them loses the least of the user's intent.
+            val keeperIds = currentCluster?.groups?.mapNotNull { it.keeperIdentifier }?.toSet() ?: emptySet()
+            val ordered = currentCluster?.groups
+                ?.flatMap { it.duplicates }
+                ?.map { it.identifier }
+                ?.filter { it in selection.selected }
+                ?.sortedBy { it in keeperIds } // stable: non-keepers keep live order, keepers go last
+                ?: selection.selected.toList()
+            selection.setSelection(ordered.take(maxSelection).toSet())
         }
     }
 

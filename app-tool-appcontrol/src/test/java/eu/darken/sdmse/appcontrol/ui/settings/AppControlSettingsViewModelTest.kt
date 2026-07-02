@@ -117,6 +117,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns MutableStateFlow(upgradeInfo(isPro = isPro))
+            every { isSettled } returns flowOf(true)
         }
 
         val rootManager = mockk<RootManager>().apply {

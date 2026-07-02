@@ -12,6 +12,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
@@ -85,7 +86,7 @@ class GoldenBackupFormatTest : BaseTest() {
             sectionContributors = sections,
             databaseContributors = databases,
             json = json,
-            upgradeRepo = mockk<UpgradeRepo>(relaxed = true),
+            upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { isSettled } returns flowOf(true) },
             envelopeSource = envelopeSource,
             gate = BackupOperationGate(),
             limits = BackupLimits(),

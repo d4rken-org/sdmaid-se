@@ -16,6 +16,7 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -52,6 +53,7 @@ class SupportContactFormViewModelTest : BaseTest() {
         coEvery { sessionManager.forceStopRecording() } returns null
 
         every { upgradeRepo.upgradeInfo } returns upgradeFlow
+        every { upgradeRepo.isSettled } returns flowOf(true)
 
         every { emailTool.build(any(), any()) } returns Intent(Intent.ACTION_SEND)
     }

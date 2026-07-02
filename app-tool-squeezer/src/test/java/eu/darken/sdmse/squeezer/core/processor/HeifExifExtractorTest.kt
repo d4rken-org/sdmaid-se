@@ -86,6 +86,37 @@ class HeifExifExtractorTest : BaseTest() {
         result.shouldBeInstanceOf<HeifExifExtractor.Result.NoExif>()
     }
 
+    @Test
+    fun `iinf with a corrupt negative entry count is Unsupported not NoExif`() {
+        // A 32-bit v1 entry count >= 2^31 reads negative. Failing open would skip the entry loop
+        // and claim "no Exif item" — the file would be compressed with metadata silently stripped.
+        val ftyp = box("ftyp", "heic".ascii() + beInt(0) + "heic".ascii())
+        // iinf v1: version+flags, 4-byte entry_count with the sign bit set, no entries.
+        val iinf = box("iinf", beInt(0x01000000) + beInt(-1))
+        val iloc = box("iloc", ByteArray(0))
+        val meta = box("meta", beInt(0) + iinf + iloc)
+        val fixture = File(testDir, "negative_count.heic").apply { writeBytes(ftyp + meta) }
+
+        val result = subject.extractExifBlock(fixture)
+        result.shouldBeInstanceOf<HeifExifExtractor.Result.Unsupported>()
+    }
+
+    @Test
+    fun `iinf declaring more entries than it holds is Unsupported not NoExif`() {
+        // A truncated iinf ends before all declared entries were seen. One of the missing entries
+        // could have been the Exif item, so this must fail closed instead of reporting NoExif.
+        val ftyp = box("ftyp", "heic".ascii() + beInt(0) + "heic".ascii())
+        val infe = box("infe", beInt(0x02000000) + beShort(1) + beShort(0) + "hvc1".ascii())
+        // iinf v0 declares 3 entries but holds only 1.
+        val iinf = box("iinf", beInt(0) + beShort(3) + infe)
+        val iloc = box("iloc", ByteArray(0))
+        val meta = box("meta", beInt(0) + iinf + iloc)
+        val fixture = File(testDir, "truncated_iinf.heic").apply { writeBytes(ftyp + meta) }
+
+        val result = subject.extractExifBlock(fixture)
+        result.shouldBeInstanceOf<HeifExifExtractor.Result.Unsupported>()
+    }
+
     private fun copyResource(name: String): File {
         val out = File(testDir, name)
         javaClass.classLoader!!.getResourceAsStream(name)!!.use { input ->

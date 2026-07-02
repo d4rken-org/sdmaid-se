@@ -19,7 +19,7 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.readAsText
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
@@ -75,7 +75,7 @@ class CustomFilterListViewModel @Inject constructor(
 
     fun onEditClick(row: FilterRow) = launch {
         log(TAG) { "onEditClick($row)" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -84,7 +84,7 @@ class CustomFilterListViewModel @Inject constructor(
 
     fun onCreateClick() = launch {
         log(TAG) { "onCreateClick()" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -138,7 +138,7 @@ class CustomFilterListViewModel @Inject constructor(
 
     fun exportRows(rows: Collection<FilterRow>) = launch {
         log(TAG) { "exportRows($rows)" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

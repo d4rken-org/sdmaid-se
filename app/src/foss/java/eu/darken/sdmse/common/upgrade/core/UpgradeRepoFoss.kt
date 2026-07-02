@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -31,6 +32,10 @@ class UpgradeRepoFoss @Inject constructor(
     override val betaSite: String = BETA_SITE
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
+
+    // The FOSS entitlement is a local cache read — upgradeInfo is authoritative from its first
+    // emission, there is no billing handshake to wait out.
+    override val isSettled: Flow<Boolean> = flowOf(true)
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = combine(
         fossCache.upgrade.flow,

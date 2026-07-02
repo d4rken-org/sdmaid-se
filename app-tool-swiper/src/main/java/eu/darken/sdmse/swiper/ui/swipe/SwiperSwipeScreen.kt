@@ -119,8 +119,8 @@ internal fun SwiperSwipeScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit = {},
     onNavigateToStatus: () -> Unit = {},
-    onSetDecision: (Long, SwipeDecision) -> Unit = { _, _ -> },
-    onSkip: (Long) -> Unit = {},
+    onSetDecision: (Long, SwipeDecision) -> Boolean = { _, _ -> true },
+    onSkip: (Long) -> Boolean = { true },
     onUndo: () -> Unit = {},
     onSetCurrentIndex: (Int) -> Unit = {},
     onOpenExternally: (SwipeItem) -> Unit = {},
@@ -152,10 +152,13 @@ internal fun SwiperSwipeScreen(
                 totalItems = snapshot.totalItems,
             ),
         )
+        // Park only ACCEPTED commits: a rejected one (stale/double-tap guard in the VM) records
+        // nothing, and playing a stamped fly-off for it would falsely confirm a decision on a
+        // file-deletion surface.
         when (outcome) {
-            SwipeOutcome.Keep -> { park(); onSetDecision(item.id, SwipeDecision.KEEP) }
-            SwipeOutcome.Delete -> { park(); onSetDecision(item.id, SwipeDecision.DELETE) }
-            SwipeOutcome.Skip -> { park(); onSkip(item.id) }
+            SwipeOutcome.Keep -> if (onSetDecision(item.id, SwipeDecision.KEEP)) park()
+            SwipeOutcome.Delete -> if (onSetDecision(item.id, SwipeDecision.DELETE)) park()
+            SwipeOutcome.Skip -> if (onSkip(item.id)) park()
             // Undo navigates backwards — handled entirely by the VM, no fly-off overlay.
             SwipeOutcome.Undo -> onUndo()
             SwipeOutcome.SnapBack -> Unit

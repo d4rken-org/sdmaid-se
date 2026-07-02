@@ -41,7 +41,7 @@ import eu.darken.sdmse.common.pkgs.toKnownPkg
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
@@ -389,7 +389,7 @@ class AppControlListViewModel @Inject constructor(
 
     fun onForceStopRequested(ids: Set<InstallId>) = launch {
         if (ids.isEmpty()) return@launch
-        if (ids.size > 1 && !upgradeRepo.isPro()) {
+        if (ids.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -400,7 +400,7 @@ class AppControlListViewModel @Inject constructor(
         log(TAG, INFO) { "onForceStopConfirmed(${ids.size})" }
         val valid = liveIntersect(ids)
         if (valid.isEmpty()) return@launch
-        if (valid.size > 1 && !upgradeRepo.isPro()) {
+        if (valid.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -410,7 +410,7 @@ class AppControlListViewModel @Inject constructor(
 
     fun onArchiveRequested(ids: Set<InstallId>) = launch {
         if (ids.isEmpty()) return@launch
-        if (ids.size > 1 && !upgradeRepo.isPro()) {
+        if (ids.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -421,7 +421,7 @@ class AppControlListViewModel @Inject constructor(
         log(TAG, INFO) { "onArchiveConfirmed(${ids.size})" }
         val valid = liveIntersect(ids)
         if (valid.isEmpty()) return@launch
-        if (valid.size > 1 && !upgradeRepo.isPro()) {
+        if (valid.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -431,7 +431,7 @@ class AppControlListViewModel @Inject constructor(
 
     fun onRestoreRequested(ids: Set<InstallId>) = launch {
         if (ids.isEmpty()) return@launch
-        if (ids.size > 1 && !upgradeRepo.isPro()) {
+        if (ids.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -442,7 +442,7 @@ class AppControlListViewModel @Inject constructor(
         log(TAG, INFO) { "onRestoreConfirmed(${ids.size})" }
         val valid = liveIntersect(ids)
         if (valid.isEmpty()) return@launch
-        if (valid.size > 1 && !upgradeRepo.isPro()) {
+        if (valid.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -453,7 +453,7 @@ class AppControlListViewModel @Inject constructor(
     fun onExportRequested(ids: Set<InstallId>) = launch {
         log(TAG, INFO) { "onExportRequested(${ids.size})" }
         if (ids.isEmpty()) return@launch
-        if (ids.size > 1 && !upgradeRepo.isPro()) {
+        if (ids.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -466,7 +466,7 @@ class AppControlListViewModel @Inject constructor(
         if (uri == null) return@launch
         val valid = liveIntersect(ids)
         if (valid.isEmpty()) return@launch
-        if (valid.size > 1 && !upgradeRepo.isPro()) {
+        if (valid.size > 1 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

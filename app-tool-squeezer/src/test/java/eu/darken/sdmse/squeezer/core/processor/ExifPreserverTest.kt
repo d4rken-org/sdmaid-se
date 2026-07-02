@@ -2,6 +2,7 @@ package eu.darken.sdmse.squeezer.core.processor
 
 import android.graphics.Bitmap
 import androidx.exifinterface.media.ExifInterface
+import eu.darken.sdmse.squeezer.core.MetadataPreservationException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -41,6 +42,18 @@ class ExifPreserverTest : BaseTest() {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
         }
         bitmap.recycle()
+    }
+
+    @Test
+    fun `extractExif throws instead of failing open when the file can't be read`() {
+        // Regression guard: a failed extraction used to return null — indistinguishable from
+        // "no EXIF present" — so the photo was compressed with its date/location/camera tags
+        // silently stripped. Extraction failures must abort the compression instead.
+        val missing = File(testDir, "does_not_exist.jpg")
+
+        shouldThrow<MetadataPreservationException> {
+            exifPreserver.extractExif(missing)
+        }
     }
 
     // === Compression Marker Tests ===
@@ -155,15 +168,6 @@ class ExifPreserverTest : BaseTest() {
         exifData.shouldNotBeNull()
         exifData.attributes[ExifInterface.TAG_MAKE] shouldBe "TestCamera"
         exifData.attributes[ExifInterface.TAG_MODEL] shouldBe "TestModel"
-    }
-
-    @Test
-    fun `extractExif returns null for non-existent file`() {
-        val file = File(testDir, "does_not_exist.jpg")
-
-        val exifData = exifPreserver.extractExif(file)
-
-        exifData.shouldBeNull()
     }
 
     // === EXIF Apply Tests ===

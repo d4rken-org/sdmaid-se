@@ -110,31 +110,72 @@ open class SharedResource<T : Any>(
     suspend fun get(): Resource<T> {
         var attempt = 0
         while (true) {
-            val (generation, value, lease) = acquireGeneration()
-            val reusable = isReusable ?: return Resource(value, lease)
+            val (generation, value, lease) = try {
+                acquireGeneration()
+            } catch (e: StaleReuseAcquireException) {
+                // A REUSED generation died before producing a value — the failure belongs to that
+                // dying generation, not to this caller. It has been force-detached; retry fresh
+                // instead of rethrowing an error a moment-later call would never have seen.
+                if (Bugs.isTrace) log(iTag, DEBUG) { "[${e.generationId}]-get() reused a dying generation, retrying" }
+                if (++attempt >= reuseValidationAttempts) {
+                    throw IllegalStateException(
+                        "[$iTag] kept acquiring dying generations after $attempt attempts",
+                        e.cause,
+                    )
+                }
+                continue
+            }
 
-            val alive = try {
-                reusable(value)
-            } catch (e: Throwable) {
-                // The validator threw, or the caller was cancelled at this suspension point. Release only
-                // our provisional lease and propagate — do NOT tear down the shared generation for others.
-                releaseProvisionalLease(lease, "reuse-validation-error")
-                throw e
+            val reusable = isReusable
+            if (reusable != null) {
+                val alive = try {
+                    reusable(value)
+                } catch (e: Throwable) {
+                    // The validator threw, or the caller was cancelled at this suspension point. Release only
+                    // our provisional lease and propagate — do NOT tear down the shared generation for others.
+                    releaseProvisionalLease(lease, "reuse-validation-error")
+                    throw e
+                }
+                if (!alive) {
+                    // The cached generation's resource has died (e.g. its shell process exited) but the async
+                    // onCompletion detach hasn't cleared `active` yet, so acquireGeneration() handed back a dead
+                    // value. Drop our provisional lease + force-detach the stale generation, then retry for a fresh one.
+                    if (Bugs.isTrace) {
+                        log(iTag, DEBUG) { "[${generation.id}]-get() reused resource failed liveness check, detaching + retrying" }
+                    }
+                    detachInvalidReuse(generation, lease, "reuse-invalid")
+                    if (++attempt >= reuseValidationAttempts) {
+                        throw IllegalStateException("[$iTag] resource failed the reuse liveness check after $attempt attempts")
+                    }
+                    continue
+                }
             }
-            if (alive) return Resource(value, lease)
 
-            // The cached generation's resource has died (e.g. its shell process exited) but the async
-            // onCompletion detach hasn't cleared `active` yet, so acquireGeneration() handed back a dead
-            // value. Drop our provisional lease + force-detach the stale generation, then retry for a fresh one.
-            if (Bugs.isTrace) {
-                log(iTag, DEBUG) { "[${generation.id}]-get() reused resource failed liveness check, detaching + retrying" }
+            // A concurrent close()/self-teardown may have force-closed every lease — including the one
+            // we just registered — between acquireGeneration() releasing coreLock and here. Handing
+            // that lease out would make the caller's first `.item` access throw ("closed resource");
+            // the generation is already torn down by whoever closed it, so simply retry.
+            if (lease.isClosed) {
+                if (Bugs.isTrace) log(iTag, DEBUG) { "[${generation.id}]-get() lease force-closed during acquisition, retrying" }
+                if (++attempt >= reuseValidationAttempts) {
+                    throw IllegalStateException("[$iTag] resource kept closing mid-acquisition after $attempt attempts")
+                }
+                continue
             }
-            detachInvalidReuse(generation, lease, "reuse-invalid")
-            if (++attempt >= reuseValidationAttempts) {
-                throw IllegalStateException("[$iTag] resource failed the reuse liveness check after $attempt attempts")
-            }
+
+            return Resource(value, lease)
         }
     }
+
+    /**
+     * Acquisition failed because a REUSED generation errored before producing a value. Retryable:
+     * the dying generation was force-detached, a fresh acquisition starts a new source. Never
+     * thrown for freshly-created generations — their startup failures propagate unchanged.
+     */
+    private class StaleReuseAcquireException(
+        val generationId: String,
+        override val cause: Throwable,
+    ) : Exception()
 
     private suspend fun acquireGeneration(): Triple<Generation<T>, T, Lease> {
         val lId = "L:${UUID.randomUUID().toString().takeLast(4)}"
@@ -145,6 +186,7 @@ open class SharedResource<T : Any>(
 
         var lease: Lease? = null
         var gen: Generation<T>? = null
+        var reused = false
 
         coreLock.withLock("[$sId|$lId]-get()-sourcejob") {
             withContext(NonCancellable) {
@@ -169,6 +211,7 @@ open class SharedResource<T : Any>(
                 active?.let {
                     if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|$lId]-get() Source job already exists" }
                     gen = it
+                    reused = true
                     return@withContext
                 }
 
@@ -255,15 +298,26 @@ open class SharedResource<T : Any>(
             generation.ready.await()
         } catch (e: Throwable) {
             if (Bugs.isTrace) log(iTag, DEBUG) { "[${generation.id}|$lId]-get() await failed (${e.javaClass.simpleName}), releasing provisional lease" }
+            if (reused && e !is CancellationException) {
+                // We latched onto an already-running generation that then died before producing a value.
+                // Its startup error belongs to the caller that STARTED it, not to us — force-detach the
+                // corpse (async onCompletion teardown may not have run yet) and signal get() to retry fresh.
+                detachInvalidReuse(generation, lease!!, "stale-reuse")
+                throw StaleReuseAcquireException(generation.id, e)
+            }
             lease!!.close()
             throw e
         }
 
         val value = generation.value
         if (value == null) {
-            lease!!.close()
             val error = generation.error ?: IllegalStateException("Source produced no value")
             if (Bugs.isTrace) log(iTag, WARN) { "[${generation.id}|$lId]-get() no value, throwing $error" }
+            if (reused && error !is CancellationException) {
+                detachInvalidReuse(generation, lease!!, "stale-reuse")
+                throw StaleReuseAcquireException(generation.id, error)
+            }
+            lease!!.close()
             throw error
         }
 

@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.stats.core.Report
@@ -66,7 +66,7 @@ class ReportsViewModel @Inject constructor(
 
     fun onStorageTrendClick() = launch {
         log(TAG) { "onStorageTrendClick()" }
-        if (upgradeRepo.isPro()) {
+        if (upgradeRepo.isProForUi()) {
             navTo(SpaceHistoryRoute())
         } else {
             navTo(UpgradeRoute(forced = true))

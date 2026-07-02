@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -107,7 +107,7 @@ class AppCleanerListViewModel @Inject constructor(
 
     fun onRowClick(row: Row) = launch {
         log(TAG, INFO) { "onRowClick(${row.identifier})" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -122,7 +122,7 @@ class AppCleanerListViewModel @Inject constructor(
     fun onDeleteSelected(ids: Set<InstallId>) = launch {
         log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
         if (ids.isEmpty()) return@launch
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -131,7 +131,7 @@ class AppCleanerListViewModel @Inject constructor(
 
     fun onDeleteConfirmed(ids: Set<InstallId>) = launch {
         log(TAG, INFO) { "onDeleteConfirmed(${ids.size})" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

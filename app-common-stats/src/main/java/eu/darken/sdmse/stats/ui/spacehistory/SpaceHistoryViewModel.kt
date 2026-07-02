@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.stats.R
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.db.ReportEntity
@@ -137,7 +137,7 @@ class SpaceHistoryViewModel @Inject constructor(
 
     fun selectRange(range: Range) = launch {
         log(TAG) { "selectRange($range)" }
-        if (range != Range.DAYS_7 && !upgradeRepo.isPro()) {
+        if (range != Range.DAYS_7 && !upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

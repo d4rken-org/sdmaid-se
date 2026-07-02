@@ -156,6 +156,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
+            every { isSettled } returns flowOf(true)
         }
         val vm = DeduplicatorListViewModel(
             dispatcherProvider = TestDispatcherProvider(),

@@ -42,6 +42,7 @@ import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -83,7 +84,10 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
             every { getSessionsWithStats() } returns emptyFlow()
             every { progress } returns emptyFlow()
         }
-        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { upgradeInfo } returns emptyFlow() }
+        val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
+            every { upgradeInfo } returns emptyFlow()
+            every { isSettled } returns flowOf(true)
+        }
         val updateService = mockk<UpdateService>(relaxed = true).apply { every { availableUpdate } returns emptyFlow() }
         val debugCardProvider = mockk<DebugCardProvider>(relaxed = true).apply {
             every { create(any(), any(), any(), any()) } returns emptyFlow()

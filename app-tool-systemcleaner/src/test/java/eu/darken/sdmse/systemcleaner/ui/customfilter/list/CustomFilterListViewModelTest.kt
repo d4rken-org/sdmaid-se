@@ -67,6 +67,7 @@ class CustomFilterListViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns upgradeFlow
+            every { isSettled } returns flowOf(true)
         }
         val webpageTool = mockk<WebpageTool>(relaxed = true)
         val context = mockk<Context>(relaxed = true)

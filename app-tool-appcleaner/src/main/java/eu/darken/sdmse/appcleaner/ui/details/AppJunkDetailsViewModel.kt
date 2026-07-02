@@ -20,7 +20,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.PagedDetailsViewModel
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -115,7 +115,7 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     fun requestDelete(spec: DeleteSpec) = launch {
         log(TAG, INFO) { "requestDelete($spec)" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -126,7 +126,7 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     fun confirmDelete(spec: DeleteSpec) = launch {
         log(TAG, INFO) { "confirmDelete($spec)" }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

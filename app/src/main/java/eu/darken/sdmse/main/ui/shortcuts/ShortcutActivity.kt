@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderOneClickTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
@@ -84,7 +84,7 @@ class ShortcutActivity : ComponentActivity() {
     }
 
     private fun handleScanDeleteShortcut() = appScope.launch {
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             log(TAG, INFO) { "Scan/Delete shortcut requires Pro version, opening upgrade screen" }
             val upgradeIntent = Intent(this@ShortcutActivity, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

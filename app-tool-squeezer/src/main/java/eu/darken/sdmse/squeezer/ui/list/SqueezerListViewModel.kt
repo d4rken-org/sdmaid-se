@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
@@ -124,7 +124,7 @@ class SqueezerListViewModel @Inject constructor(
             return@launch
         }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

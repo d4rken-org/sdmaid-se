@@ -38,7 +38,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
@@ -268,7 +268,7 @@ class ContentViewModel @Inject constructor(
             log(TAG, WARN) { "createFilter(): Blocked — content is read-only" }
             return@launch
         }
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             log(TAG) { "Not PRO, redirecting to upgrade screen." }
             navTo(UpgradeRoute())
             return@launch

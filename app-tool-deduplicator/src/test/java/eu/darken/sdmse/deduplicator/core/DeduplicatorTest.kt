@@ -49,6 +49,7 @@ class DeduplicatorTest : BaseTest() {
         every { info.isPro } returns isPro
         val upgradeRepo = mockk<UpgradeRepo>(relaxed = true)
         every { upgradeRepo.upgradeInfo } returns flowOf(info)
+        every { upgradeRepo.isSettled } returns flowOf(true)
         return Deduplicator(
             appScope = gateScope,
             gatewaySwitch = mockk(relaxed = true),

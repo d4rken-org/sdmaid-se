@@ -34,6 +34,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -122,6 +123,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns upgradeFlow
+            every { this@apply.isSettled } returns flowOf(true)
         }
         // currentAreas() is an extension that reads state.first().areas — no separate stub needed.
         val dataAreaManager = mockk<DataAreaManager>().apply {

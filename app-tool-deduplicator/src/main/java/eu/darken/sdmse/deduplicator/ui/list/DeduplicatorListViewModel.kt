@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -166,7 +166,7 @@ class DeduplicatorListViewModel @Inject constructor(
                 return@launch
             }
 
-            if (!upgradeRepo.isPro()) {
+            if (!upgradeRepo.isProForUi()) {
                 navTo(UpgradeRoute())
                 return@launch
             }
@@ -191,7 +191,7 @@ class DeduplicatorListViewModel @Inject constructor(
             return@launch
         }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }
@@ -223,7 +223,7 @@ class DeduplicatorListViewModel @Inject constructor(
             return@launch
         }
 
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(UpgradeRoute())
             return@launch
         }

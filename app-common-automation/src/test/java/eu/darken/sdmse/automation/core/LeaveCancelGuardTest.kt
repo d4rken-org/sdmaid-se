@@ -29,6 +29,24 @@ class LeaveCancelGuardTest : BaseTest() {
     }
 
     @Test
+    fun `a suppressed sighting does not disarm the guard - later home sightings emit again`() = runTest2 {
+        // Regression guard: with a single-shot latch, a home sighting during the task-start window
+        // (overlay not armed yet, so the consumer suppresses it) permanently disarmed
+        // Home-to-cancel for the rest of the task. Each home sighting must produce an emission.
+        leaveSignals(flowOf<Pkg.Id?>(launcher, settings, launcher), home, grace)
+            .toList() shouldHaveSize 2
+    }
+
+    @Test
+    fun `duplicate launcher events from one Home press are one sighting`() = runTest2 {
+        // A single Home press can fire several window events for the launcher. They must not
+        // queue extra emissions — a suppressed first firing followed by a queued duplicate would
+        // cancel the task without a second Home press.
+        leaveSignals(flowOf<Pkg.Id?>(launcher, launcher, launcher), home, grace)
+            .toList() shouldHaveSize 1
+    }
+
+    @Test
     fun `only non-home foreground never emits`() = runTest2 {
         leaveSignals(flowOf<Pkg.Id?>(settings, settings), home, grace).toList().shouldBeEmpty()
     }

@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.squeezer.core.MetadataPreservationException
 import java.io.File
 import javax.inject.Inject
 
@@ -23,6 +24,12 @@ class ExifPreserver @Inject constructor() {
         val altitude: Double? = null,
     )
 
+    /**
+     * Returns `null` only when the file genuinely carries no EXIF worth preserving. A failed
+     * extraction throws [MetadataPreservationException] instead — `null` would be
+     * indistinguishable from "nothing to preserve" and the photo would get compressed with its
+     * date/location/camera tags silently stripped (the HEIC path fails closed the same way).
+     */
     fun extractExif(file: File): ExifData? {
         return try {
             val exif = ExifInterface(file)
@@ -48,7 +55,10 @@ class ExifPreserver @Inject constructor() {
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to extract EXIF: ${e.message}" }
-            null
+            throw MetadataPreservationException(
+                "EXIF metadata of ${file.path} could not be read (${e.message}); " +
+                    "aborting to avoid silently stripping date/location/camera tags",
+            )
         }
     }
 

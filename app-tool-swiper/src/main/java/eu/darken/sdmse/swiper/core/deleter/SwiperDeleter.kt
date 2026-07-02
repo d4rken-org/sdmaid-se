@@ -10,6 +10,8 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.saf.SAFPath
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -25,6 +27,7 @@ import javax.inject.Inject
 class SwiperDeleter @Inject constructor(
     @ApplicationContext private val context: Context,
     private val gatewaySwitch: GatewaySwitch,
+    private val pathMapper: PathMapper,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -82,25 +85,33 @@ class SwiperDeleter @Inject constructor(
         )
     }
 
-    private fun notifyMediaScanner(path: APath) {
+    private suspend fun notifyMediaScanner(path: APath) {
         when (path.pathType) {
-            APath.PathType.LOCAL ->
-                try {
-                    val localPath = path as LocalPath
-                    MediaScannerConnection.scanFile(
-                        context,
-                        arrayOf(localPath.file.absolutePath),
-                        null,
-                        null,
-                    )
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "MediaScanner notification failed for $path: ${e.message}" }
-                }
+            APath.PathType.LOCAL -> scanFile(path as LocalPath)
             APath.PathType.SAF -> {
-                log(TAG, WARN) { "Notifying media scanner about SAF changes is not supported atm." }
-                // TODO implement this?
+                // SAF documents live on real storage; map the tree URI back to its mount point so
+                // gallery apps drop the deleted entry instead of showing it until their own rescan.
+                val localPath = pathMapper.toLocalPath(path as SAFPath)
+                if (localPath != null) {
+                    scanFile(localPath)
+                } else {
+                    log(TAG, WARN) { "No filesystem mapping for $path, media scanner not notified" }
+                }
             }
             APath.PathType.RAW -> throw IllegalStateException("How did we get $path here")
+        }
+    }
+
+    private fun scanFile(localPath: LocalPath) {
+        try {
+            MediaScannerConnection.scanFile(
+                context,
+                arrayOf(localPath.file.absolutePath),
+                null,
+                null,
+            )
+        } catch (e: Exception) {
+            log(TAG, WARN) { "MediaScanner notification failed for $localPath: ${e.message}" }
         }
     }
 
