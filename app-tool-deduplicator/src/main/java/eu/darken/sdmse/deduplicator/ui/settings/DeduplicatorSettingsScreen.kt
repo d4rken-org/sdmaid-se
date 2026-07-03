@@ -174,6 +174,11 @@ internal fun DeduplicatorSettingsScreen(
                     subtitle = stringResource(R.string.deduplicator_detection_method_phash_summary),
                     checked = state.isSleuthPHashEnabled,
                     onCheckedChange = onSleuthPHashChanged,
+                    content = if (state.isSleuthPHashEnabled) {
+                        { DetectionCaveatCard() }
+                    } else {
+                        null
+                    },
                 )
             }
             item {
@@ -183,6 +188,11 @@ internal fun DeduplicatorSettingsScreen(
                     subtitle = stringResource(R.string.deduplicator_detection_method_media_summary),
                     checked = state.isSleuthMediaEnabled,
                     onCheckedChange = onSleuthMediaChanged,
+                    content = if (state.isSleuthMediaEnabled) {
+                        { DetectionCaveatCard() }
+                    } else {
+                        null
+                    },
                 )
             }
         }
@@ -201,6 +211,23 @@ private fun DeduplicatorSettingsScreenPreview() {
                 isSleuthChecksumEnabled = true,
                 isSleuthPHashEnabled = false,
                 isSleuthMediaEnabled = false,
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorSettingsScreenSimilarityPreview() {
+    PreviewWrapper {
+        DeduplicatorSettingsScreen(
+            state = DeduplicatorSettingsViewModel.State(
+                allowDeleteAll = false,
+                minSizeBytes = 2 * 1024L,
+                skipUncommon = true,
+                isSleuthChecksumEnabled = true,
+                isSleuthPHashEnabled = true,
+                isSleuthMediaEnabled = true,
             ),
         )
     }

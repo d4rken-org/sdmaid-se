@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -43,8 +44,9 @@ fun SettingsBaseItem(
     onLongClick: (() -> Unit)? = null,
     focusKey: String? = null,
     trailingContent: @Composable (() -> Unit)? = null,
+    content: @Composable (() -> Unit)? = null,
 ) {
-    Row(
+    Column(
         modifier = modifier
             .fillMaxWidth()
             // Before combinedClickable so the requester/observer attach to the row's focus
@@ -56,7 +58,6 @@ fun SettingsBaseItem(
                 onLongClick = onLongClick,
             )
             .padding(horizontal = 16.dp, vertical = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
     ) {
         val contentAlpha = if (enabled) 1f else 0.5f
         val hasIcon = icon != null || iconPainter != null
@@ -66,55 +67,65 @@ fun SettingsBaseItem(
             else -> Color.Unspecified
         }
 
-        if (icon != null) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                modifier = Modifier.size(iconSize),
-                tint = tint,
-            )
-        } else if (iconPainter != null) {
-            Icon(
-                painter = iconPainter,
-                contentDescription = null,
-                modifier = Modifier.size(iconSize),
-                tint = tint,
-            )
-        }
-
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .padding(start = if (hasIcon) 16.dp else 0.dp),
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Normal,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = contentAlpha),
-                    // Only constrain the title when a badge needs to sit beside it; ungated
-                    // rows keep their original wrap behavior.
-                    maxLines = if (requiresUpgrade) 1 else Int.MAX_VALUE,
-                    overflow = if (requiresUpgrade) TextOverflow.Ellipsis else TextOverflow.Clip,
-                    modifier = if (requiresUpgrade) Modifier.weight(1f, fill = false) else Modifier,
+            if (icon != null) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(iconSize),
+                    tint = tint,
                 )
-                if (requiresUpgrade) {
-                    Spacer(Modifier.width(6.dp))
-                    UpgradeBadge()
+            } else if (iconPainter != null) {
+                Icon(
+                    painter = iconPainter,
+                    contentDescription = null,
+                    modifier = Modifier.size(iconSize),
+                    tint = tint,
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = if (hasIcon) 16.dp else 0.dp),
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.Normal,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = contentAlpha),
+                        // Only constrain the title when a badge needs to sit beside it; ungated
+                        // rows keep their original wrap behavior.
+                        maxLines = if (requiresUpgrade) 1 else Int.MAX_VALUE,
+                        overflow = if (requiresUpgrade) TextOverflow.Ellipsis else TextOverflow.Clip,
+                        modifier = if (requiresUpgrade) Modifier.weight(1f, fill = false) else Modifier,
+                    )
+                    if (requiresUpgrade) {
+                        Spacer(Modifier.width(6.dp))
+                        UpgradeBadge()
+                    }
+                }
+                if (subtitle != null) {
+                    Text(
+                        text = subtitle,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f * contentAlpha),
+                        modifier = Modifier.padding(top = 2.dp),
+                    )
                 }
             }
-            if (subtitle != null) {
-                Text(
-                    text = subtitle,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f * contentAlpha),
-                    modifier = Modifier.padding(top = 2.dp),
-                )
-            }
+
+            trailingContent?.invoke()
         }
 
-        trailingContent?.invoke()
+        if (content != null) {
+            Spacer(Modifier.height(12.dp))
+            content()
+        }
     }
 }
 

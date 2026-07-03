@@ -25,6 +25,7 @@ fun SettingsSwitchItem(
     requiresUpgrade: Boolean = false,
     onUpgrade: () -> Unit = {},
     focusKey: String? = null,
+    content: @Composable (() -> Unit)? = null,
 ) {
     SettingsBaseItem(
         icon = icon,
@@ -36,6 +37,7 @@ fun SettingsSwitchItem(
         subtitle = subtitle,
         enabled = enabled,
         requiresUpgrade = requiresUpgrade,
+        content = content,
         trailingContent = {
             Switch(
                 checked = checked,
