@@ -10,10 +10,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -346,28 +344,22 @@ internal fun AppControlListScreen(
 
     val gridState = rememberLazyGridState()
 
-    BackHandler(enabled = searchActive && !selectionActive && activeSheet == null) {
+    // Collapse the search field and clear its query. Search open/closed is intentionally decoupled
+    // from the keyboard: dismissing the IME (tapping a row that opens the action sheet, focus moving
+    // away, swipe-down on gesture nav) leaves search open — only an explicit close collapses it.
+    // This matches the canonical Android search view, where the keyboard is incidental to the
+    // search-open state.
+    val closeSearch: () -> Unit = {
         onSearchQueryChanged("")
         searchActive = false
     }
 
-    // The IME's window-level back handler grabs the first back press while the search field has
-    // focus, which prevents the BackHandler above from firing. Watch the IME insets and treat the
-    // first IME-hide after the field opened (and got the IME up) as a request to collapse search,
-    // so a single back press both hides the keyboard and closes the search bar.
-    val isImeVisible = WindowInsets.isImeVisible
-    var searchImeWasShown by remember { mutableStateOf(false) }
-    LaunchedEffect(searchActive, isImeVisible) {
-        if (!searchActive) {
-            searchImeWasShown = false
-            return@LaunchedEffect
-        }
-        if (isImeVisible) {
-            searchImeWasShown = true
-        } else if (searchImeWasShown && activeSheet == null && !selection.isActive) {
-            onSearchQueryChanged("")
-            searchActive = false
-        }
+    // System back closes search — but only once the IME is down. While the keyboard is up, Android's
+    // IME consumes the first back press to hide it (as it does for any focused field); a second back
+    // then reaches this handler. That two-step "back hides keyboard, back closes search" is the
+    // standard behaviour; we intentionally do not collapse search off IME-visibility changes.
+    BackHandler(enabled = searchActive && !selectionActive && activeSheet == null) {
+        closeSearch()
     }
 
     // Auto-open the search field if a query is restored (e.g. after process death) so the user
@@ -457,10 +449,7 @@ internal fun AppControlListScreen(
                                     SdmSearchBar(
                                         query = state.options.searchQuery,
                                         onQueryChange = onSearchQueryChanged,
-                                        onClose = {
-                                            onSearchQueryChanged("")
-                                            searchActive = false
-                                        },
+                                        onClose = closeSearch,
                                         modifier = Modifier.fillMaxWidth(),
                                     )
                                 } else {
@@ -473,10 +462,15 @@ internal fun AppControlListScreen(
                                 }
                             },
                             navigationIcon = {
+                                // While search is active the leading arrow collapses search (canonical
+                                // search-view behaviour); otherwise it leaves the screen.
                                 SdmTooltipIconButton(
                                     icon = Icons.AutoMirrored.TwoTone.ArrowBack,
-                                    label = stringResource(CommonR.string.general_navigate_up_action),
-                                    onClick = onNavigateUp,
+                                    label = stringResource(
+                                        if (searchActive) CommonR.string.general_close_action
+                                        else CommonR.string.general_navigate_up_action,
+                                    ),
+                                    onClick = if (searchActive) closeSearch else onNavigateUp,
                                 )
                             },
                             actions = {
