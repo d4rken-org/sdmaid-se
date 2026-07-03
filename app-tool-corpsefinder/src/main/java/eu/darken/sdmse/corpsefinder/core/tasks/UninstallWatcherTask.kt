@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.stats.core.Reportable
 import kotlinx.parcelize.Parcelize
@@ -27,19 +28,17 @@ data class UninstallWatcherTask(
 
         override val primaryInfo: CaString
             get() = caString {
-                val itemText = getQuantityString2(
-                    eu.darken.sdmse.common.R.plurals.general_delete_success_deleted_x,
-                    affectedPaths.size,
+                getQuantityString2(R.plurals.corpsefinder_result_x_corpses_deleted, affectedPaths.size)
+            }
+
+        override val secondaryInfo: CaString
+            get() = caString {
+                val (formatted, quantity) = ByteFormatter.formatSize(this, affectedSpace)
+                getQuantityString2(
+                    eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
+                    quantity,
+                    formatted,
                 )
-                val spaceText = run {
-                    val (spaceFormatted, spaceQuantity) = ByteFormatter.formatSize(this, affectedSpace)
-                    getQuantityString2(
-                        eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
-                        spaceQuantity,
-                        spaceFormatted,
-                    )
-                }
-                "$itemText $spaceText"
             }
     }
 }
