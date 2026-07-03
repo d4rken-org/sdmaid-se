@@ -478,8 +478,6 @@ class AppControlListViewModel @Inject constructor(
             val pkg = app.pkg
             val label = app.label.get(context)
             val pkgName = pkg.packageName
-            val versionName = pkg.versionName ?: "?"
-            val versionCode = pkg.versionCode
 
             val store = (pkg as? InstallDetails)?.installerInfo?.installer
                 ?.let { installer ->
@@ -487,7 +485,8 @@ class AppControlListViewModel @Inject constructor(
                 }
 
             buildString {
-                append("- **$label** `$pkgName` v$versionName ($versionCode)")
+                append("- **$label** `$pkgName`")
+                app.versionText?.let { append(" v$it") }
                 store?.urlGenerator?.invoke(pkg.id)?.let { storeLink ->
                     append(" [${store.storeLabel}]($storeLink)")
                 }

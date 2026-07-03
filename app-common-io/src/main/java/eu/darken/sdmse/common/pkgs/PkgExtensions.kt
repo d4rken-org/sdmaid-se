@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
+import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 
@@ -21,6 +22,9 @@ val Pkg.isArchived: Boolean
 
 val Pkg.isUninstalled: Boolean
     get() = this is UninstalledPkg
+
+val Pkg.isLibrary: Boolean
+    get() = this is LibraryPkg
 
 val Pkg.isInstalled: Boolean
     get() = !isArchived && !isUninstalled

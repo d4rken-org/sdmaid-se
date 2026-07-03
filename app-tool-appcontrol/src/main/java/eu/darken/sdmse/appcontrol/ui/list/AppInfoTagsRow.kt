@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isDebuggable
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.isLibrary
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUninstalled
 
@@ -33,7 +34,9 @@ fun AppInfoTagsRow(
     appInfo: AppInfo,
 ) {
     val active = appInfo.isActive == true
-    val system = appInfo.pkg.isSystemApp
+    val library = appInfo.pkg.isLibrary
+    // Libraries are force-flagged as system apps; show the more specific "Library" tag instead.
+    val system = appInfo.pkg.isSystemApp && !library
     val debug = appInfo.pkg.isDebuggable
     val archived = appInfo.pkg.isArchived
     val uninstalled = appInfo.pkg.isUninstalled
@@ -41,7 +44,8 @@ fun AppInfoTagsRow(
     val apkBase = appInfo.exportType == AppExportType.APK
     val apkBundle = appInfo.exportType == AppExportType.BUNDLE
 
-    val anyVisible = active || system || debug || archived || uninstalled || disabled || apkBase || apkBundle
+    val anyVisible =
+        active || library || system || debug || archived || uninstalled || disabled || apkBase || apkBundle
     if (!anyVisible) return
 
     FlowRow(
@@ -73,6 +77,13 @@ fun AppInfoTagsRow(
         if (uninstalled) {
             Tag(
                 text = stringResource(R.string.appcontrol_tag_uninstalled),
+                background = MaterialTheme.colorScheme.tertiaryContainer,
+                contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+        }
+        if (library) {
+            Tag(
+                text = stringResource(CommonR.string.general_tag_library),
                 background = MaterialTheme.colorScheme.tertiaryContainer,
                 contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
             )

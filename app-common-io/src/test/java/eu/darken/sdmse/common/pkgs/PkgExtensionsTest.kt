@@ -123,4 +123,16 @@ class PkgExtensionsTest : BaseTest() {
         // PackageInfo. The extension now reaches this via InstallDetails.
         libraryPkg(enabled = true).isSystemApp shouldBe true
     }
+
+    @Test fun `LibraryPkg reports isLibrary=true`() {
+        libraryPkg(enabled = true).isLibrary shouldBe true
+    }
+
+    @Test fun `NormalPkg reports isLibrary=false`() {
+        normalPkg(enabled = true).isLibrary shouldBe false
+    }
+
+    @Test fun `ArchivedPkg reports isLibrary=false`() {
+        archivedPkg().isLibrary shouldBe false
+    }
 }

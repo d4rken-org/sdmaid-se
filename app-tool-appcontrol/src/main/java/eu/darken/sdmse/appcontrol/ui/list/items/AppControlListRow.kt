@@ -150,7 +150,7 @@ private fun secondaryInfoFor(
         }
 
         SortSettings.Mode.NAME, SortSettings.Mode.PACKAGENAME, SortSettings.Mode.SIZE ->
-            "${appInfo.pkg.versionName ?: "?"} (${appInfo.pkg.versionCode})"
+            appInfo.versionText
     }
 }
 

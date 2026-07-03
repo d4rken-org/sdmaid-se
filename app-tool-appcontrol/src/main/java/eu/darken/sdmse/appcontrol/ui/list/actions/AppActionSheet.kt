@@ -239,11 +239,13 @@ internal fun AppActionSheet(
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
-                            Text(
-                                text = "${appInfo.pkg.versionName ?: "?"} (${appInfo.pkg.versionCode})",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
+                            appInfo.versionText?.let { versionText ->
+                                Text(
+                                    text = versionText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
                             val userLabel = appInfo.userProfile?.getHumanLabel()?.get(context)
                             if (userLabel != null) {
                                 Text(
