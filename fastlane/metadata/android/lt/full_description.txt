@@ -13,7 +13,7 @@ SD Maid 2/SE yra programėlė ir failų tvarkyklė, kuri žino, kurios programė
 
 ✨ Išvalykite po programų pašalinimo
 
-Jei programos sukuria failus už joms skirtų aplankų ribų, failai gali likti net pašalinus programas. „CorpseFinder“ įrankis randa programos likučius, pasako, kuriai programai jie priklausė, ir padeda juos ištrinti.
+Jei programos sukuria failus už joms skirtų aplankų ribų, failai gali likti net pašalinus programas. Įrankis „Pamirštųjų ieškiklis“ suranda programų likučius, pasako, kokiai programai jie priklausė, ir padeda juos ištrinti.
 
 🔍 Išmaniai peržiūrėkite savo įrenginį
 
