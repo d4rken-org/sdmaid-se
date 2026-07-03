@@ -14,7 +14,7 @@ import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -890,7 +890,8 @@ class DebugLogSessionManagerTest : BaseTest() {
             // parallelism is the CPU count (2 on a CI runner), and the zip parks one pool thread on
             // releaseZip.await() for the whole test — leaving the flow plumbing to fight over the
             // remainder. IO's large pool removes that starvation so scheduling can't stall the scan.
-            val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+            val managerJob = SupervisorJob()
+            val scope = CoroutineScope(Dispatchers.IO + managerJob)
             try {
                 val manager = DebugLogSessionManager(scope, realDispatchers, recorderModule, debugLogZipper)
                 runBlocking {
@@ -907,7 +908,12 @@ class DebugLogSessionManagerTest : BaseTest() {
                 }
             } finally {
                 releaseZip.countDown()
-                scope.cancel()
+                // The woken zip thread still writes zipping.zip inside the mock answer, and JUnit
+                // deletes the @TempDir the instant this test returns — a write landing mid-cleanup
+                // fails the run with "Failed to close extension context" (DirectoryNotEmptyException).
+                // cancel() can't interrupt the blocking answer, so join until all manager work,
+                // including that write, has actually finished before teardown starts.
+                runBlocking { withTimeout(DEADLOCK_TIMEOUT_MS) { managerJob.cancelAndJoin() } }
             }
         }
     }
