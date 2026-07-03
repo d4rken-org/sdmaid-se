@@ -397,11 +397,11 @@ class DashboardViewModel @Inject constructor(
                 DashboardCardType.SYSTEMCLEANER -> systemCleanerItem?.let { items.add(it) }
                 DashboardCardType.APPCLEANER -> appCleanerItem?.let { items.add(it) }
                 DashboardCardType.DEDUPLICATOR -> deduplicatorItem?.let { items.add(it) }
-                DashboardCardType.SQUEEZER -> squeezerItem?.let { items.add(it) }
                 DashboardCardType.APPCONTROL -> appControlItem?.let { items.add(it) }
+                DashboardCardType.SWIPER -> swiperItem?.let { items.add(it) }
+                DashboardCardType.SQUEEZER -> squeezerItem?.let { items.add(it) }
                 DashboardCardType.ANALYZER -> analyzerItem?.let { items.add(it) }
                 DashboardCardType.SCHEDULER -> schedulerItem?.let { items.add(it) }
-                DashboardCardType.SWIPER -> swiperItem?.let { items.add(it) }
                 DashboardCardType.STATS -> statsItem?.let { items.add(it) }
             }
         }

@@ -25,14 +25,12 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
-import eu.darken.sdmse.main.ui.dashboard.cards.common.NewBadge
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.R as SqueezerR
 
 data class SqueezerDashboardCardItem(
     val data: Squeezer.Data?,
     val isInitializing: Boolean,
-    val isNew: Boolean,
     val progress: Progress.Data?,
     val onViewDetails: () -> Unit,
 ) : DashboardItem {
@@ -53,10 +51,6 @@ internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
                 text = stringResource(CommonR.string.squeezer_tool_name),
                 style = MaterialTheme.typography.titleMedium,
             )
-            if (item.isNew) {
-                Spacer(modifier = Modifier.width(4.dp))
-                NewBadge()
-            }
             Spacer(modifier = Modifier.weight(1f))
             if (item.isInitializing) {
                 CircularProgressIndicator(
@@ -98,7 +92,6 @@ private fun SqueezerDashboardCardPreview() {
             item = SqueezerDashboardCardItem(
                 data = null,
                 isInitializing = false,
-                isNew = true,
                 progress = null,
                 onViewDetails = {},
             ),

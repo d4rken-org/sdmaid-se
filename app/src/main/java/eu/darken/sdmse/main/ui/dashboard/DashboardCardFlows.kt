@@ -228,7 +228,6 @@ internal fun DashboardViewModel.buildSqueezerItem(): Flow<SqueezerDashboardCardI
         .mapLatest { state ->
             SqueezerDashboardCardItem(
                 isInitializing = state == null,
-                isNew = true,
                 data = state?.data,
                 progress = state?.progress,
                 onViewDetails = {

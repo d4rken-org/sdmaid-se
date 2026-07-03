@@ -25,7 +25,6 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
-import eu.darken.sdmse.main.ui.dashboard.cards.common.NewBadge
 
 import eu.darken.sdmse.swiper.R as SwiperR
 import eu.darken.sdmse.swiper.core.SessionState
@@ -100,8 +99,6 @@ internal fun SwiperDashboardCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            Spacer(modifier = Modifier.width(4.dp))
-            NewBadge()
             Spacer(modifier = Modifier.weight(1f))
             if (item.progress != null || item.isInitializing) {
                 CircularProgressIndicator(

@@ -10,9 +10,9 @@ enum class DashboardCardType {
     @SerialName("APPCLEANER") APPCLEANER,
     @SerialName("DEDUPLICATOR") DEDUPLICATOR,
     @SerialName("APPCONTROL") APPCONTROL,
-    @SerialName("ANALYZER") ANALYZER,
     @SerialName("SWIPER") SWIPER,
     @SerialName("SQUEEZER") SQUEEZER,
+    @SerialName("ANALYZER") ANALYZER,
     @SerialName("SCHEDULER") SCHEDULER,
     @SerialName("STATS") STATS,
 }

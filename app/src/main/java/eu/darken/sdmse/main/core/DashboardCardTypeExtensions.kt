@@ -24,9 +24,9 @@ val DashboardCardType.labelRes: Int
         DashboardCardType.APPCLEANER -> CommonR.string.appcleaner_tool_name
         DashboardCardType.DEDUPLICATOR -> CommonR.string.deduplicator_tool_name
         DashboardCardType.APPCONTROL -> CommonR.string.appcontrol_tool_name
-        DashboardCardType.ANALYZER -> CommonR.string.analyzer_tool_name
         DashboardCardType.SWIPER -> CommonR.string.swiper_tool_name
         DashboardCardType.SQUEEZER -> CommonR.string.squeezer_tool_name
+        DashboardCardType.ANALYZER -> CommonR.string.analyzer_tool_name
         DashboardCardType.SCHEDULER -> eu.darken.sdmse.scheduler.R.string.scheduler_label
         DashboardCardType.STATS -> CommonR.string.stats_label
     }
@@ -38,9 +38,9 @@ val DashboardCardType.icon: ImageVector
         DashboardCardType.APPCLEANER -> Icons.TwoTone.Recycling
         DashboardCardType.DEDUPLICATOR -> Icons.TwoTone.ContentCopy
         DashboardCardType.APPCONTROL -> Icons.TwoTone.Apps
-        DashboardCardType.ANALYZER -> Icons.TwoTone.DataUsage
         DashboardCardType.SWIPER -> Icons.TwoTone.Swipe
         DashboardCardType.SQUEEZER -> Icons.TwoTone.Compress
+        DashboardCardType.ANALYZER -> Icons.TwoTone.DataUsage
         DashboardCardType.SCHEDULER -> Icons.TwoTone.Alarm
         DashboardCardType.STATS -> Icons.TwoTone.BarChart
     }

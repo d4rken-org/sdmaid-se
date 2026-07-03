@@ -40,6 +40,23 @@ class DashboardCardConfigTest : BaseTest() {
     }
 
     @Test
+    fun `DashboardCardConfig default order places Swiper and Squeezer before Analyzer`() {
+        val order = DashboardCardConfig().cards.map { it.type }
+        order shouldBe listOf(
+            DashboardCardType.CORPSEFINDER,
+            DashboardCardType.SYSTEMCLEANER,
+            DashboardCardType.APPCLEANER,
+            DashboardCardType.DEDUPLICATOR,
+            DashboardCardType.APPCONTROL,
+            DashboardCardType.SWIPER,
+            DashboardCardType.SQUEEZER,
+            DashboardCardType.ANALYZER,
+            DashboardCardType.SCHEDULER,
+            DashboardCardType.STATS,
+        )
+    }
+
+    @Test
     fun `DashboardCardConfig serialization format`() {
         val config = DashboardCardConfig(
             cards = listOf(
