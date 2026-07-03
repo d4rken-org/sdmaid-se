@@ -375,7 +375,7 @@
     <string name="widget_settings_oneclick_title">One-Tap Mode</string>
     <string name="widget_settings_oneclick_summary">Let the home-screen widget\'s Clean button scan and delete in one tap, without asking each time.</string>
     <string name="widget_oneclick_consent_title">Enable one-tap cleaning?</string>
-    <string name="widget_oneclick_consent_message">The widget\'s Clean button can scan and delete in a single tap, without asking each time. Enable one-tap mode for the widget?\n\nYou can change this later in Settings.</string>
+    <string name="widget_oneclick_consent_message">The widget\'s Clean button will scan and delete in one go, without asking first or letting you review what gets removed.</string>
     <string name="widget_oneclick_consent_enable_action">Enable</string>
     <string name="widget_oneclick_consent_decline_action">Not now</string>
 
