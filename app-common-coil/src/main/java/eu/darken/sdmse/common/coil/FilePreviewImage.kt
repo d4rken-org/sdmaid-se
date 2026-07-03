@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
@@ -106,7 +107,10 @@ fun FilePreviewImage(
         }
     }
 
-    if (!lookup.canAttemptFilePreview()) {
+    // Under @Preview the mock lookups point at paths that don't exist on the render host; letting Coil
+    // resolve them trips Studio's render sandbox (SecurityException: read access not allowed). Render the
+    // placeholder instead so previews stay side-effect free.
+    if (!lookup.canAttemptFilePreview() || LocalInspectionMode.current) {
         fallbackContent(modifier)
         return
     }
