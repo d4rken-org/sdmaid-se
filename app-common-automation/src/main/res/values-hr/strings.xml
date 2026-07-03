@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Korisnici s posebnim potrebama pristupačnosti mogu omogućiti ovu uslugu kako bi SD Maidu dopustili automatizaciju zadataka koji bi inače zahtijevali zamornu ručnu korisničku interakciju (npr. brisanje predmemorije).\n\nPrimjer: ako SD Maidu naredite da zaustavi više aplikacija, SD Maid može koristiti ovu uslugu za otvaranje zaslona postavki svake aplikacije, pronalaženje gumba \'Prisilno zaustavi\' i njegovog aktiviranja.\n\nSD Maid će se uvijek istaknuti kada koristite ovu uslugu i omogućiti korisniku jednostavan način da odmah otkaže bilo kakvu interakciju.\n\nNikakve radnje neće biti izvedene bez prethodnog odobrenja korisnika. Ova se usluga može ponovno onemogućiti u bilo kojem trenutku bez negativnih učinaka.</string>
     <string name="automation_screenoverlay_explanation">SD Maid je u interakciji s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Pričekajte dok operacija ne završi ili ju otkažite.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid komunicira s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Čekajte dok se operacija ne završi ili pritisnite gumb Home da otkažete operaciju.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid komunicira s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Čekajte dok se operacija ne završi.</string>
     <string name="automation_active_title">SD Maid radi</string>
     <string name="automation_error_no_consent_title">Greška automatizacije</string>
     <string name="automation_error_no_consent_body">Usluga pristupačnosti nije postavljena. Dovršite postavljanje i dajte pristanak.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Zakazani zadatak pokušao je koristiti uslugu pristupačnosti, ali ona nije bila dostupna. Ako vam to nije potrebno, onemogućite opciju \"Usluga pristupačnosti\" u postavkama raspoređivača.</string>
     <string name="automation_error_no_settings_title">Zaslon postavki nedostupan</string>
     <string name="automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
+    <string name="automation_error_interference_title">Zaslon postavki je blokiran</string>
+    <string name="automation_error_interference_body">Druga aplikacija (%1$s) blokira zaslon s postavkama sustava, pa SD Maid ne može nastaviti. Onemogućite zaštitu aplikacije ili zaštitu zaslona te aplikacije za postavke sustava, zatim pokušajte ponovno.</string>
     <string name="automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>
     <string name="automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
 </resources>

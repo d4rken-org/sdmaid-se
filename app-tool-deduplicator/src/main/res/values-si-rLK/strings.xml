@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">තෝරන ලද සියලු බහුපත ගොනු සමුහවල එක එකම එකක් මඟ එක් ගොනුවක් මකා දමන්නද?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">තෝරන ලද සියලු බහුපත ගොනු සමුහවල සියලු ගොනු මකා දමන්නද? ගොනුවක් ඉරි නොවෑ!</string>
     <string name="deduplicator_delete_all_toggle_msg">සියලු පිටපත් මකා දමන්න. ගොනුවක් ඉරි නොවෑ!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">මෙම සමූහයේ අනුපිටපතක් %1$dක් මකා, %2$s නිදහස් කරන්නද? තබාගත් පිටපත ඉතිරි වේ.</item>
+        <item quantity="other">මෙම සමූහයේ අනුපිටපත් %1$dක් මකා, %2$s නිදහස් කරන්නද? තබාගත් පිටපත ඉතිරි වේ.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s නිදහස් කළ හැකි</string>
+    <string name="deduplicator_action_delete_set">අනුපිටපත් සමූහය මකන්න</string>
+    <string name="deduplicator_action_open_preview">පෙරදසුන් විවෘත කරන්න</string>
+    <string name="deduplicator_marked_for_deletion">මකා දැමීමට සලකුණු කර ඇත</string>
+    <string name="deduplicator_cluster_preview_image">අනුපිටපත් සමූහ පෙරදසුන</string>
+    <string name="deduplicator_selection_keep_one_required">එක් එක් අනුපිටපත් සමූහයට අවම වශයෙන් එක් ගොනුවක්වත් ඉතිරි විය යුතුය. එය මඟහරවා ගැනීමට සැකසීම්වල \"\'සියල්ල මකන්න\' හැකි කරන්න\" සක්‍රීය කරන්න.</string>
     <string name="deduplicator_progress_comparing_files">ගොනු සන්දර්භ කරමින්</string>
     <string name="deduplicator_details_cluster_title">බහුපත සමුහය</string>
     <string name="deduplicator_matches_exact_label">නිවැරදි පිටපත්</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">කුඩා ගොනු වලට කැමැත්ත</string>
     <string name="deduplicator_view_mode_groups_label">කණ්ඩායම්</string>
     <string name="deduplicator_view_mode_directories_label">ෆෝල්ඩර</string>
+    <string name="tour_deduplicator_details_cluster_body">මෙම ගොනු සියල්ල එකම අයිතමය හෝ මාධ්‍ය අන්තර්ගතය බව පෙනේ, එනම් අනුපිටපත් සමූහයකි.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">මෙම නිරූපකය සහිත ගොනු මකා දමනු ලැබේ; සමූහයේ ඉතිරි ගොනුව SD Maid තබා ගන්නා එකයි. තබා ගන්නා ගොනුව තෝරන ආකාරය මකාදැමීමේ උපාය මාර්ග සැකසීම්වල වෙනස් කළ හැක.</string>
 </resources>

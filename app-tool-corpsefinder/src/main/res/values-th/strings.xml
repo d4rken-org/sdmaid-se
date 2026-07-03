@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">ไม่ทราบเจ้าของ</string>
     <string name="corpsefinder_corpse_hint_keeper">รายการนี้อาจมีข้อมูลที่คุณต้องการเก็บไว้แม้ว่าเจ้าของจะถูกถอนการติดตั้งไปแล้ว เช่น รูปภาพหรือไฟล์สำรอง</string>
     <string name="corpsefinder_corpse_hint_common">ไฟล์นี้มีชื่อแบบที่พบได้ทั่วไปและอาจเป็นข้อมูลของแอพที่ยังติดตั้งอยู่ในเครื่องซึ่ง SD Maid ไม่รู้จัก</string>
+    <string name="corpsefinder_risk_keeper_chip">ที่ต้องการ</string>
+    <string name="corpsefinder_risk_common_chip">ทั่วไป</string>
+    <string name="corpsefinder_markers_dialog_title">เกี่ยวกับเครื่องหมายเหล่านี้</string>
+    <string name="corpsefinder_markers_dialog_normal_label">ไม่มีเครื่องหมาย</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ซากปกติ โดยทั่วไปปลอดภัยในการลบ — ไฟล์เหล่านี้เป็นของแอปที่ถอนการติดตั้งแล้ว</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ค้นหาข้อมูลที่เหลือจากแอปที่คุณถอนการติดตั้งแล้ว ไม่มีแอปที่ติดตั้งใดเป็นเจ้าของอีกต่อไป ดังนั้นการลบจึงปลอดภัยและช่วยเพิ่มพื้นที่ว่าง</string>
+    <string name="tour_corpsefinder_row_body">แต่ละรายการคือข้อมูลซากและแอปที่มาจาก เครื่องหมายแสดงความมั่นใจของ SD Maid ว่าปลอดภัยในการลบเพียงใด — แตะ ⓘ ด้านบนเพื่อเรียนรู้ว่าเครื่องหมายหมายถึงอะไร</string>
 </resources>

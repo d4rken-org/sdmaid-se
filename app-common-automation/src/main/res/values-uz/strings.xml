@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Maxsus kirish ehtiyojlari bo\'lgan foydalanuvchilar SD Maid ga aks holda zerikarli qo\'lda foydalanuvchi o\'zaro ta\'sirini talab qiladigan vazifalarni avtomatlashtirish uchun ushbu xizmatni yoqishi mumkin (masalan, kesh o\'chirish).\n\nMisol: Agar siz SD Maid ga bir nechta ilovalarni to\'xtatishni buyursangiz, SD Maid ushbu xizmatdan har bir ilovaning sozlamalar ekranini ochish, \"Majburiy to\'xtatish\" tugmasini topish va uni bosish uchun foydalanishi mumkin.\n\nSD Maid ushbu xizmatdan foydalanganda har doim aniq ko\'rsatadi va foydalanuvchiga har qanday o\'zaro ta\'sirni darhol bekor qilish uchun oson yo\'l taqdim etadi.\n\nOldingi foydalanuvchi roziligi bo\'lmasa hech qanday harakat bajarilmaydi. Ushbu xizmatni istalgan vaqtda salbiy ta\'sirlarsiz qayta o\'chirish mumkin.</string>
     <string name="automation_screenoverlay_explanation">SD Maid qurilmangiz bilan o\'zaro ta\'sir qilmoqda. Bir vaqtning o\'zida ekrandan foydalanish mumkin emas. Operatsiya tugagunicha kuting yoki uni bekor qiling.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid qurilmangiz bilan o\'zaro aloqada. Ekranni shu vaqtda ishlatib bo\'lmaydi. Amaliyot tugaguncha kuting yoki bekor qilish uchun Home tugmasini bosing.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid qurilmangiz bilan o\'zaro aloqada. Ekranni shu vaqtda ishlatib bo\'lmaydi. Amaliyot tugaguncha kuting.</string>
     <string name="automation_active_title">SD Maid ishlayapti</string>
     <string name="automation_error_no_consent_title">Avtomatlashtirish xatosi</string>
     <string name="automation_error_no_consent_body">Kirish xizmati sozlanmagan. Sozlashni tugallang va rozilik bering.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Rejalashtirilgan vazifa imkoniyat xizmatidan foydalanmoqchi bo\'ldi, lekin u mavjud emas edi. Agar bu sizga kerak bo\'lmasa, rejalashtiruvchi sozlamalarida \"Imkoniyat xizmati\" opsiyasini o\'chiring.</string>
     <string name="automation_error_no_settings_title">Sozlamalar ekrani mavjud emas</string>
     <string name="automation_error_no_settings_body">Ushbu tizim ilovasida sozlamalar ekrani yo\'q. Kirish xizmati orqali kesh tozalash mumkin emas. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
+    <string name="automation_error_interference_title">Sozlamalar ekrani bloklangan</string>
+    <string name="automation_error_interference_body">Boshqa ilova (%1$s) tizim sozlamalari ekranini bloklamoqda, shuning uchun SD Maid davom eta olmaydi. Ushbu ilovaning ilova qulfi yoki ekran himoyasini tizim sozlamalari uchun o\'chiring, so\'ng qayta urinib ko\'ring.</string>
     <string name="automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
     <string name="automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
 </resources>

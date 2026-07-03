@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Eksklusionsadministrator</string>
     <string name="exclusion_manager_desc">Administrer fil- og app-eksklusioner.</string>
-    <string name="exclusion_explanation_body1">Ekskluder filer og apps fra SD Maids operationer.</string>
-    <string name="exclusion_add_new_hint">Tilføj nye eksklusioner ved først at lade SD Maid søge og derefter bruge kontekstmenuen på det resultat, du vil ekskludere.</string>
+    <string name="exclusion_explanation_body1">Ekskluder filer og apps for at beskytte dem mod SD Maids værktøjer, eller for at springe irrelevante elementer over og fremskynde operationer.</string>
+    <string name="exclusion_add_new_hint">Ingen eksklusioner endnu. Brug +-knappen for at oprette en, eller ekskluder elementer fra resultatet af ethvert værktøj.</string>
     <string name="exclusion_create_action">Opret eksklusion</string>
     <string name="exclusion_edit_action">Rediger eksklusion</string>
     <string name="exclusion_type_package">App-eksklusion</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Eksportér eksklusioner</string>
     <string name="exclusion_create_pkg_hint">Brug AppControl-værktøjet til at oprette app-eksklusioner.</string>
     <string name="exclusion_create_path_hint">Brug StorageAnalyzer-værktøjet til at oprette stieksklusioner.</string>
+    <string name="exclusion_create_segment_hint">Match et navnsegment, såsom \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Vis standarder</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d eksklusion importeret</item>
+        <item quantity="other">%d eksklusioner importeret</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d eksklusion eksporteret</item>
+        <item quantity="other">%d eksklusioner eksporteret</item>
+    </plurals>
 </resources>

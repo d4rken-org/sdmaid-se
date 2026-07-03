@@ -8,4 +8,16 @@
         <item quantity="other">%d shtegje të zgjedhura</item>
     </plurals>
     <string name="picker_home_action">Zonat e të dhënave</string>
+    <string name="tour_action_next">Tjetra</string>
+    <string name="tour_action_previous">Mëpara</string>
+    <string name="tour_action_done">U krye</string>
+    <string name="tour_action_cancel">Anashkalo</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Anashkalo turin?</string>
+    <string name="tour_confirm_message">Mund të riaktivizoni turet në çdo kohë nga Cilësimet.</string>
+    <string name="tour_confirm_continue">Vazhdo turin</string>
+    <string name="tour_confirm_dont_show_this_tour">Mos e shfaq më këtë tur</string>
+    <string name="tour_confirm_disable_all">Çaktivizo të gjitha turret</string>
+    <string name="navigation_unknown_destination_title">Shpejt</string>
+    <string name="navigation_unknown_destination_message">Ky ekran po migrohet ende në ndërfaqen e re.</string>
 </resources>

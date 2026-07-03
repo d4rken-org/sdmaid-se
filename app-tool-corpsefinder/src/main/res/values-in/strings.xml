@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">Pemilik tak dikenal</string>
     <string name="corpsefinder_corpse_hint_keeper">Berkas ini mungkin mengandung data yang ingin Anda simpan walau dihapus oleh pemiliknya, cth. foto atau cadangan.</string>
     <string name="corpsefinder_corpse_hint_common">Berkas ini memiliki nama yang umum dan kemungkinan masih berkaitan dengan aplikasi yang terpasang yang tidak diketahui oleh SD Maid.</string>
+    <string name="corpsefinder_risk_keeper_chip">Diinginkan</string>
+    <string name="corpsefinder_risk_common_chip">Umum</string>
+    <string name="corpsefinder_markers_dialog_title">Tentang penanda ini</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Tidak ada penanda</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Sisa standar. Umumnya aman untuk dihapus — file ini milik aplikasi yang tidak lagi terpasang.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder menemukan data yang ditinggalkan oleh aplikasi yang telah Anda copot. Data ini tidak lagi milik apa pun yang terpasang, jadi menghapusnya aman dan membebaskan ruang.</string>
+    <string name="tour_corpsefinder_row_body">Setiap item adalah sisa data dan aplikasi asalnya. Penanda menunjukkan seberapa yakin SD Maid bahwa aman untuk dihapus — ketuk ⓘ di atas untuk mengetahui arti penanda.</string>
 </resources>

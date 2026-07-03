@@ -36,6 +36,17 @@
         <item quantity="one">තීරණය නොකළ අයිතම %d පසුව සමාලෝචනය සඳහා ඉතිරි වනු ඇත.</item>
         <item quantity="other">තීරණය නොකළ අයිතම %d පසුව සමාලෝචනය සඳහා ඉතිරි වනු ඇත.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">මෙම සැසිය සම්පූර්ණ ගබඩා පරිමාවක් ඉලක්ක කරයි — මෙහි මකා දැමීම එම ගබඩාවේ සෑම ෆෝල්ඩරයකටම විහිදෙයි.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…සහ තවත් ෆෝල්ඩරයක් %d</item>
+        <item quantity="other">…සහ තවත් ෆෝල්ඩර් %d</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">මෙම ගොනු ස්ථිරවම මකා දැමෙනු ඇති බව මම තේරුම් ගනිමි.</string>
+    <string name="swiper_sensitive_root_warning_title">සම්පූර්ණ ගබඩාව ස්කෑන් කරන්නද?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s ස්කෑන් කිරීම මෙම ගබඩාවේ සෑම ගොනුවම අඩංගු කරයි — ඡායාරූප, ලිපි, බාගත් කිරීම්, යෙදුම් මාධ්‍ය සහ තවත් බොහෝමයක්. ඉදිරියට යන්නද?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">එසේ වුවද ඉදිරියට යන්න</string>
+    <string name="swiper_session_risky_label">සම්පූර්ණ-ගබඩා ස්කෑන්</string>
+    <string name="swiper_session_risky_info_message">මෙම සැසිය ගබඩා පරිමාවේ මූලය ඉලක්ක කරයි, එබැවින් එම ගබඩාවේ සෑම ගොනුවම ඇතුළත් වේ — ඡායාරූප, ලිපි, බාගත් කිරීම්, යෙදුම් මාධ්‍ය සහ තවත් බොහෝමයක්.\n\nසම්පූර්ණ-ගබඩා ස්කෑන්වලින් ඔබ සමාලෝචනය කිරීමට අදහස් නොකළ ගොනු ඇතුළුව බොහෝ අයිතම් ලබා දිය හැක. ස්කෑන් සීමිත කිරීමට ගොනු-ආකාර පෙරහනක් යොදවන්න.</string>
     <string name="swiper_delete_x_action">%1$d මකන්න</string>
     <string name="swiper_settings_swap_directions_title">ස්වයිප් දිශා මාරු කරන්න</string>
     <string name="swiper_settings_swap_directions_summary">තබා ගැනීමට වමට ස්වයිප්, මැකීමට දකුණට ස්වයිප්.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">මෙම සැසිය සඳහා නමක් ඇතුළත් කරන්න</string>
     <string name="swiper_sessions_current_sessions">වත්මන් සැසි</string>
     <string name="swiper_session_paths_label">මාර්ග</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…සහ තවත් %dක්</item>
+        <item quantity="other">…සහ තවත් %dක්</item>
+    </plurals>
     <string name="swiper_session_status_label">තත්වය</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d තබා ගැනීමට</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">පෙරහන් කළ: %1$s</string>
     <string name="swiper_session_no_matching_files">ගැළපෙන ගොනු හමු නොවිණි</string>
     <string name="swiper_open_externally_action">බාහිර යෙදුමකින් විවෘත කරන්න</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ඡායාරූපයක් ස්වයිප් කර එහි ඉරණම තීරණය කරන්න: එක පැත්තට තබා ගැනීමට හෝ මකා දැමීමට, ඉහළට මඟ හැරීමට, පහළට අස් කිරීමට. පහතින් ඇති බොත්තම් එයම කරයි — සහ කුමන පැත්ත කුමනක්දයි පෙන්වා දෙයි.</string>
+    <string name="tour_swiper_openin_body">මෙම බොත්තම ඡායාරූපය වෙනත් යෙදුමකින් විවෘත කරයි, එය තීරණය කිරීමට පෙර පරීක්ෂා කර බැලීමට පහසුය.</string>
+    <string name="tour_swiper_preview_body">සමීපව බැලීම සඳහා මෙම බොත්තම සම්පූර්ණ-තිර පෙරදසුනක් විවෘත කරයි.</string>
+    <string name="tour_swiper_actions_body">ස්වයිප් කිරීම කැමති නැද්ද? අපට බොත්තම් ද ඇත! \"මඟ හැරන්න\" එය පසුවට අනිශ්චිතව තබා ගනී, සහ \"මඟ හැරන්න\" දිගු ඔබන විට එක් ගොනුවක් ඉදිරි ස්කෑන්වලින් බැහැර කරයි. \"අස් කරන්න\" ඔබගේ අවසන් තේරීම ප්‍රතිවර්තනය කරයි.</string>
+    <string name="tour_swiper_review_body">ඔබගේ තබා ගැනීමේ සහ මකා දැමීමේ තේරීම් පමණක් තාවකාලිකව සංරක්ෂිත ය. සමාලෝචනය විවෘත කර ඒවා දෙස බලා ඔබ සූදානම් වූ විට මකා දැමීම් යෙදන්න.</string>
 </resources>

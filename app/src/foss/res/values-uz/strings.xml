@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE-ni yangilash</string>
     <string name="upgrades_dashcard_body">Qo\'shimcha xususiyatlarni oching va doimiy rivojlanishni qo\'llab-quvvatlash uchun homiy bo\'ling!</string>
     <string name="upgrades_dashcard_upgrade_action">Yangilash</string>
-    <string name="upgrade_screen_title">SD Maid-ni yaxshilash</string>
+    <string name="upgrade_screen_title">SD Maid\'ni qo\'llab-quvvatlash</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Doimiy rivojlanish faqat siz orqali mumkin.</string>
     <string name="upgrade_screen_how_title">Qanday yordam berish</string>
     <string name="upgrade_screen_how_body">Homiy bo\'ling va rivojlanishni sponsorlik qiling! Barcha qo\'shimcha xususiyatlarni faollashtirish va GitHub Sponsors profilimni ochish uchun quyidagi tugmani bosing.</string>
-    <string name="upgrade_screen_why_title">Bu sehr qiladi 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner o\'chirish funksiyasi 💯\n• Rejalashtirilgan operatsiyalar ⏰\n• Barcha vositalar uchun qo\'shimcha variantlar ⚙️\n• O\'zingizning o\'chirish qoidalaringiz ✍️\n• Motivatsiyalangan dasturchi 🧙\nva boshqalar…</string>
+    <string name="upgrade_screen_why_title">Yangilash imtiyozlari</string>
+    <string name="upgrade_screen_why_body">• Ilova keshlarini va keraksiz ma\'lumotlarni tozalang
+• Takroriy fayllarni o\'chiring
+• Rejalashtirilgan tozalashlarni yoqing
+• Maxsus filtrlar va tozalash qoidalarini yarating
+• Xotira sarfi tendensiyalari va tozalash tarixini kuzating
+• Ilovadagi ko\'proq xususiyat va boshqaruvlardan foydalaning
+• Ochiq manba ishlarini qo\'llab-quvvatlang</string>
     <string name="upgrade_screen_sponsor_action">Rivojlanishni sponsorlik qilish</string>
     <string name="upgrade_screen_sponsor_action_hint">Muqobil reklama, tahlil va Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ochiq manba rivojlanishini qo\'llab-quvvatlaganingiz uchun rahmat ❤️</string>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitar filtro com base na idade do arquivo (último tempo modificado). Deixe não definido para corresponder a qualquer idade.</string>
     <string name="systemcleaner_customfilter_import_action">Importar novo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro selecionado</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">O SystemCleaner encontra desperdício utilizando filtros genéricos. Existem regras pré-definidas para coisas como pastas vazias, registos residuais e miniaturas obsoletas. Visite as definições se quiser criar as suas próprias.</string>
+    <string name="tour_systemcleaner_filter_body">Cada linha é um filtro e o que encontrou. Abra os seus detalhes para ver exatamente quais ficheiros correspondem antes de eliminar qualquer coisa.</string>
 </resources>

@@ -37,7 +37,15 @@
     <string name="scheduler_notification_result_title">תזמון הסתיים</string>
     <string name="scheduler_notification_result_success_message">כל המשימות המתוזמנות פעלו בהצלחה.</string>
     <string name="scheduler_notification_result_failure_message">חלק מהמשימות המתוזמנות נכשלו או נתקלו בשגיאות. נסה להפעיל אותם ידנית.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">דולג, המסך היה כבוי או נעול</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ניקוי האפליקציות עלול להידלג</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ניקוי האפליקציות משתמש בשירות הנגישות, הדורש מסך פתוח. ריצות מתוזמנות כשההתקן נעול מדולגות.\n\nהשתמש ב-Shizuku או root לניקוי ברקע, או תזמן אתו לזמן שבו אתה משתמש בהתקן.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">אפליקציות מערכת עלולות להידלג</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku מנקה את רוב המטמונים ברקע, אך אפליקציות מערכת זקוקות לשירות הנגישות, הדורש מסך פתוח. כאשר \"כלול אפליקציות מערכת\" מופעל, אלה מודלגות כשהמכשיר נעול.\n\nכבה את \"כלול אפליקציות מערכת\", או הפעל את לוח הזמנים כשהמכשיר פתוח.</string>
     <string name="scheduler_commands_after_schedule_label">פקודות לאחר תזמון</string>
     <string name="scheduler_commands_after_schedule_desc">פקודות מעטפת אנדרואיד שיבוצעו בסוף התזמון.</string>
     <string name="scheduler_battery_optimization_hint">שקול להשבית את אופטימיזציית הסוללה עבור SD Maid אם אתה נתקל בבעיות בביצוע ברקע.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid יכול לנקות לפי לוח זמנים. בחר זמן ואילו כלים יפעלו, והוא יעשה את העבודה ברקע, (כמעט) ללא צורך לפתוח את האפליקציה.</string>
+    <string name="tour_scheduler_create_body">הקש כאן כדי ליצור לוח זמנים חדש, ואז הגדר מתי הוא יפעל ואילו כלים לכלול.</string>
 </resources>

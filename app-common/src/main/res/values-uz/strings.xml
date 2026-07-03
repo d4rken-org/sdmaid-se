@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Tushundim</string>
     <string name="general_fix_action">Tuzatish</string>
     <string name="general_set_up_action">O\'rnatish</string>
+    <string name="general_unavailable_label">Mavjud emas</string>
     <string name="general_edit_action">Tahrirlash</string>
     <string name="general_na_label">Mavjud emas</string>
     <string name="general_empty_label">Bo\'sh</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Navbatda</string>
     <string name="general_progress_deleting">O\'chirilmoqda</string>
     <string name="general_progress_deleting_x">%s o\'chirilmoqda</string>
+    <string name="general_sort_by_title">Saralash mezoni</string>
     <string name="general_sort_reverse_action">Teskari saralash rejimi</string>
+    <string name="general_sort_oldest_first">Avval eng eskisi</string>
+    <string name="general_sort_newest_first">Avval eng yangi</string>
+    <string name="general_sort_name_asc">Nom (A → Z)</string>
+    <string name="general_sort_size_desc">Avval eng kattasi</string>
     <string name="general_tag_system">Tizim</string>
+    <string name="general_navigate_up_action">Yuqoriga qaytish</string>
+    <string name="general_filter_action">Filtrlash</string>
+    <string name="general_filter_by_tags_label">Teglar bo\'yicha filtrlash</string>
+    <string name="general_filter_add_action">Filtr qo\'shish</string>
+    <string name="general_filter_remove_x_action">%s filtrini olib tashlash</string>
+    <string name="general_filter_empty_row_hint">Filtrlash uchun + belgisini bosing</string>
+    <string name="general_show_all_action">Barchasini ko\'rsatish</string>
     <string name="general_result_success_message">Muvaffaqiyatli bajarildi</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s joy bo\'shatildi.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Variantlar</string>
     <string name="general_details_label">Tafsilotlar</string>
     <string name="general_view_action">Ko\'rish</string>
+    <string name="general_open_action">Ochish</string>
+    <string name="general_configure_action">Sozlash</string>
     <string name="general_update_action">Yangilash</string>
     <string name="general_scan_action">Skanerlash</string>
     <string name="general_close_action">Yopish</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d narsa olib tashlandi</item>
     </plurals>
     <string name="general_search_action">Qidirish</string>
+    <string name="general_search_no_matches">Mos keluvchi natijalar yo\'q</string>
     <string name="general_open_system_settings_action">Tizim sozlamalarini ochish</string>
+    <string name="general_fast_scroller_action">Tezkor aylantirgich</string>
     <plurals name="result_x_items">
         <item quantity="one">%s narsa</item>
         <item quantity="other">%s narsa</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Xizmatni yoqish</string>
     <string name="general_undo_action">Bekor qilish</string>
     <string name="general_list_select_all_action">Barchasini tanlash</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d ta tanlangan</item>
+        <item quantity="other">%d ta tanlangan</item>
+    </plurals>
     <string name="general_path_label">Yo\'l</string>
     <string name="general_type_label">Turi</string>
     <string name="general_size_label">Hajmi</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Xato haqida xabar berish</string>
     <string name="general_error_ipc_deadobject_title">Xizmat aloqasi uzildi</string>
     <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
+    <string name="general_error_upgrade_required_title">Pro versiyasi kerak</string>
+    <string name="general_error_upgrade_required_description">Bu Pro xususiyati. Undan foydalanish uchun SD Maid SE\'ni yangilang.</string>
     <string name="general_user_label_owner">Egasi</string>
     <string name="general_user_label_system">Tizim</string>
     <string name="setup_title">Sozlash</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Xavf darajasi</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="appcontrol_systemsettings_open_title">Sozlamalarni ko\'rsatish</string>
+    <string name="ui_theme_color_sunset_label">Quyosh botishi</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Bu xususiyat root ruxsatini talab qiladi, ammo SD Maid bu qurilmada uni ololmadi.</string>
+    <string name="access_blocked_root_declined">Bu xususiyat root ruxsatini talab qiladi. Uni sozlash ekrani orqali yoqishingiz mumkin.</string>
+    <string name="access_blocked_root_or_shizuku">Bu xususiyat root yoki Shizuku ruxsatini talab qiladi, ammo bu qurilmada mavjud emas.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Yaroqsiz zaxira nusxasi fayli</string>
+    <string name="backup_restore_error_invalid_body">Bu fayl yaroqli SD Maid zaxira nusxasi emas yoki buzilgan.</string>
+    <string name="backup_restore_error_version_body">Bu zaxira nusxasi SD Maid\'ning yangiroq versiyasida yaratilgan. Iltimos, ilovani yangilang va qayta urinib ko\'ring.</string>
+    <string name="backup_restore_error_restore_failed_title">Tiklash amalga oshmadi</string>
+    <string name="backup_restore_error_restore_failed_body">Quyidagi qismlarni tiklab bo\'lmadi: %1$s. Oldingi konfiguratsiyangiz saqlangan va uni qaytarish mumkin.</string>
+    <string name="backup_restore_error_safety_title">Tiklash boshlanmadi</string>
+    <string name="backup_restore_error_safety_body">SD Maid joriy konfiguratsiyangizning xavfsizlik nusxasini saqlay olmadi, shuning uchun hech narsa o\'zgartirilmadi.</string>
+    <string name="backup_restore_error_busy_title">Iltimos, kuting</string>
+    <string name="backup_restore_error_busy_body">Tozalash vazifasi yoki boshqa zaxira amaliyoti hozir bajarilmoqda. U tugagach, qayta urinib ko\'ring.</string>
+    <string name="backup_restore_error_schema_title">Mos kelmaydigan zaxira nusxasi</string>
+    <string name="backup_restore_error_schema_body">Zaxira nusxasining ma\'lumotlar bazasi formati SD Maid\'ning ushbu versiyasiga mos kelmaydi. Tarix ma\'lumotlarini tiklash faqat bir xil ilova versiyalari orasida qo\'llab-quvvatlanadi.</string>
 </resources>

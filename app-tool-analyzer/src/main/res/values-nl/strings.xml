@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Een tweede opslag, meestal een verwisselbare SD-kaart. Bevat mediabestanden en gegevens van apps die dit ondersteunen.</string>
     <string name="analyzer_storage_type_tertiary_title">Draagbare opslag</string>
     <string name="analyzer_storage_type_tertiary_description">Een draagbare opslag, bijv. een USB-stick die op je USB-poort is aangesloten.</string>
+    <string name="analyzer_storage_identifier_internal">Interne opslag</string>
     <string name="analyzer_storage_content_title">Inhoud van de opslag</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Ruimte die wordt ingenomen door geïnstalleerde apps en hun gegevens (d.w.z. toepassingsbestanden, gegevens en caches).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Systeem-apps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
     <string name="analyzer_storage_content_type_system_other_label">Andere</string>
     <string name="analyzer_storage_content_type_system_info">Bestanden die niet in de categorieën Apps of Gebruikersbestanden passen. Alleen bladeren — verwijderen wordt niet ondersteund. Sommige gebieden zijn mogelijk onvolledig vanwege toegangsbeperkingen.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Bestanden kunnen op dit moment niet worden gekoppeld aan de apps die ze bezitten. Groottes worden alleen ter referentie weergegeven — verwijdering, filters en Swiper zijn uitgeschakeld.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systeembestanden en andere gegevens waartoe SD Maid geen toegang had of die niet gecategoriseerd konden worden. Het besturingssysteem beperkt het weergeven van de inhoud van sommige gebieden.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan vrijgemaakt worden door de app te verwijderen of te archiveren (beschikbaar op nieuwere Android-versie).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Deze app neemt %1$s in beslag op \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Deze app is gearchiveerd.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Bekijk wat je opslag werkelijk opvult. De Analyzer geeft een overzicht van waar je ruimte heen gaat. Elk van deze kaarten is een opslagchip op je apparaat.</string>
+    <string name="tour_analyzer_storage_body">Open een opslagruimte om deze in apps, media en bestanden in te delen, tik vervolgens herhaaldelijk om de grootste ruimtevreters op te sporen.</string>
 </resources>

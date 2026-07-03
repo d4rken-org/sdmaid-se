@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Satıp alıwdı qálpine keltiriw ushın \"Satıp alıwdı qálpine keltiriw\" variantın paydalanıń. Másele dawam etse, Google Play keshin tazalaw hám qurılmańızdı qayta júklep kórıń.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro alıw</string>
     <string name="upgrade_screen_preamble">SD Maid de reklama joq hám paydalanıwshı maǵlıwmatların satpaydı. Meniń jumısım siz tárepinen qárejelep turıladı ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Artıqmashlıqlar</string>
-    <string name="upgrade_screen_benefits_body">• Ilova tazalaw 💯\n• Rejelestirilgen ámeliyatlar ⏰\n• Barlıq ásbaplar ushın qosımsha variantlar ⚙️\n• Óz óshiriw qaǵıydalarıńız ✍️\n• Motivaciyalanǵan baǵdarlamashı 🧙\nhám basqa…</string>
+    <string name="upgrade_screen_benefits_title">Jetilistiriw payda</string>
+    <string name="upgrade_screen_benefits_body">• Qosımsha keshi hám keregi joq derekterdi tazalaw\n• Qos qusılǵan fayllardı aliw\n• Kestelengen tazalawlardı qosıw\n• Óz filtrleriń hám tazalaw qaǵıydaların jaratıw\n• Saqlaw orın tenderciyasın hám tazalaw tariyxın baqlaw\n• Qosımshada kóbirek mümkinshilik hám basqarıw\n• Dawam etip atırǵan islep shıǵarıwdı qollap-quwatlaw</string>
     <string name="upgrade_screen_how_title">Variantlar</string>
     <string name="upgrade_screen_how_body">Siz bir mártelik satıp alıw hám arzanıraq jıllıq jazılıw arasınan tańlawıńız múmkin.\nJazılıw tegin 14 kúnlik sınaqtan baslanadı, keyin jılına bir ret tólem alınadı. Sınaq hám jazılıw qálegen waqıtta biykar etilıwi múmkin.\nBirdey funkciyalar, tek hárbir bahalaw modelleri.</string>
+    <string name="upgrade_screen_subscription_offer_title">Jıllıq jazılıw</string>
+    <string name="upgrade_screen_iap_offer_title">Bir márte satıp alıw</string>
+    <string name="upgrade_screen_offer_recommended">Usınıladı</string>
+    <string name="upgrade_screen_offers_unavailable_message">Baǵalar házir júklenip bolmadı. Google Play-di tekserip, biraz waqıttan keyin qayta urınıń.</string>
     <string name="upgrade_screen_subscription_trial_action">Tegin 14 kúnlik sınaqdı baslaw</string>
     <string name="upgrade_screen_subscription_action">Jazılıw</string>
     <string name="upgrade_screen_subscription_action_hint">Jazılıw jılına %s turadı.</string>

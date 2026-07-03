@@ -8,6 +8,8 @@ SD Maid ຈະສະແດງໃຫ້ເຫັນຢ່າງຊັດເຈນ
 
 ຈະບໍ່ມີການດຳເນີນການໃດາໂດຍບໍ່ໄດ້ຮັບການອະນຸມັດຈາກຜູ້ໃຊ້ລ່ວງໜ້າ. ບໍລິການນີ້ສາມາຖປິດໃຊ້ງານໄດ້ຕາມໃຈໂດຍບໍ່ມີຜົນກະທົບໃດາ.</string>
     <string name="automation_screenoverlay_explanation">SD Maid ກຳລັງໂຕ້ຕອບກັບອຸປະກອນຂອງທ່ານ. ບໍ່ສາມາຖໃຊ້ໜ້າຈອໃນເວລາດຽວກັນໄດ້. ລໍຖ້າຈນກ່ວາການດຳເນີນງານສຳເລີດຫລືອຍົກເລີກ.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid ກຳລັງໂຕ້ຕອບກັບອຸປະກອນຂອງທ່ານ. ບໍ່ສາມາດໃຊ້ຫນ້າຈໍພ້ອມກັນໄດ້. ລໍ່ຖ້າຈົນກ່ວາການດໍາເນີນການສົມບູນ ຫຼືກົດປຸ່ມ Home ເພື່ອຍົກເລີກ.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid ກຳລັງໃຊ້ງານກັບອຸປະກອນຂອງທ່ານ. ບໍ່ສາມາດໃຊ້ໜ້າຈໍໄດ້ໃນເວລາດຽວກັນ. ລໍ່ຖ້າຈົນກວ່າການດຳເນີນການສິ້ນສຸດ.</string>
     <string name="automation_active_title">SD Maid ກຳລັງເຮັດວຽກ</string>
     <string name="automation_error_no_consent_title">ຂໍ້ຜິດພາດການອັດຕະໂນມັດ</string>
     <string name="automation_error_no_consent_body">ບໍລິການການເຂ້າຫາຍັງບໍ່ໄດ້ຕັ້ງຄ່າ. ສຳເລີດການຕັ້ງຄ່າແລ້ວໃຫ້ຄວາມຍິນຍອມ.</string>
@@ -27,6 +29,8 @@ SD Maid ຈະສະແດງໃຫ້ເຫັນຢ່າງຊັດເຈນ
     <string name="automation_error_scheduler_body">ໜ້າທີ່ຕັ້ງເວລາໄດ້ພະຍາຍາມໃຊ້ບໍລິການການເຂ້າຫາ, ແຕ່ບໍ່ສາມາຖໃຊ້ງານໄດ້. ຖ້າທ່ານບໍ່ຕ້ອງການນີ້, ປິດໃຊ້ຕົວເລືອກ \"ບໍລິການການເຂ້າຫາ\" ໃນການຕັ້ງຄ່າ scheduler.</string>
     <string name="automation_error_no_settings_title">ໜ້າຈອການຕັ້ງຄ່າບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
     <string name="automation_error_no_settings_body">ແອັບລະບົບນີ້ບໍ່ມີໜ້າຈອການຕັ້ງຄ່າ. ການລ້າງ cache ຜ່ານບໍລິການການເຂ້າຫາບໍ່ສາມາຖທຳໄດ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>
+    <string name="automation_error_interference_title">ບລັອກໜ້າຈໍການຕັ້ງຄ່າ</string>
+    <string name="automation_error_interference_body">ແອັບຯອື່ນ (%1$s) ກຳລັງບລັອກໜ້າຈໍການຕັ້ງຄ່າລະບົບ, ສະນັ້ນ SD Maid ບໍ່ສາມາດສືບຕໍ່ໄດ້. ປິດໃຊ້ງານ app-lock ຫຼືການປົກປ້ອງໜ້າຈໍຂອງແອັບຯນັ້ນສໍາລັບການຕັ້ງຄ່າລະບົບ, ແລ້ວລອງໃໝ່.</string>
     <string name="automation_loading">ກຳລັງກະກຽມການອັດຕະໂນມັດຜ່ານບໍລິການການເຂ້າຫາ</string>
     <string name="automation_progress_find_ok_confirmation">ພະຍາຍາມຍືນຍັນການດຳເນີນງານກ່ອນໜ້າ (ຄຳສຳຄັນ: %s)</string>
 </resources>

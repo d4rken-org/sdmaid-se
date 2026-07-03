@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Planlæggeren er færdig</string>
     <string name="scheduler_notification_result_success_message">Alle planlagte opgaver blev kørt.</string>
     <string name="scheduler_notification_result_failure_message">Nogle planlagte opgaver mislykkedes eller stødte på fejl. Prøv at køre dem manuelt.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Sprunget over, skærmen var slukket eller låst</string>
+    <string name="scheduler_acs_screenlocked_hint_title">App-rengøring kan blive sprunget over</string>
+    <string name="scheduler_acs_screenlocked_hint_body">App-rengøring bruger tilgængelighedstjenesten, som kræver, at skærmen er låst op. Planlagte kørsler, mens enheden er låst, springes over.
+
+Brug Shizuku eller root til baggrundsrengøring, eller planlæg det til en tid, hvor du bruger enheden.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systemapps kan blive sprunget over</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku rengør de fleste caches i baggrunden, men systemapps skal bruge tilgængelighedstjenesten, som kræver, at skærmen er låst op. Med \"Medtag systemapps\" aktiveret springes de over, når enheden er låst.
+
+Deaktiver \"Medtag systemapps\", eller kør planen, mens enheden er låst op.</string>
     <string name="scheduler_commands_after_schedule_label">Kommandoer efter tidsplanen</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell-kommandoer, der udføres til sidst i en tidsplan.</string>
     <string name="scheduler_battery_optimization_hint">Overvej at deaktivere batterioptimering for SD Maid, hvis du oplever problemer med udførelse i baggrunden.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid kan rengøre efter en tidsplan. Vælg et tidspunkt og hvilke værktøjer der skal køre, og det udfører arbejdet i baggrunden – (næsten) ingen grund til at åbne appen.</string>
+    <string name="tour_scheduler_create_body">Tryk her for at oprette en ny tidsplan, indstil derefter hvornår den skal køre, og hvilke værktøjer der skal medtages.</string>
 </resources>

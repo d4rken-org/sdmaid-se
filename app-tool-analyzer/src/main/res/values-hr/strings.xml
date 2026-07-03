@@ -30,6 +30,7 @@
     <string name="analyzer_storage_type_secondary_description">Sekundarna pohrana, obično uklonjiva SD kartica. Sadrži medijske datoteke i podatke iz aplikacija koje to podržavaju.</string>
     <string name="analyzer_storage_type_tertiary_title">Prijenosna pohrana</string>
     <string name="analyzer_storage_type_tertiary_description">Prijenosna pohrana, npr. memorijski pogon priključen na USB priključak.</string>
+    <string name="analyzer_storage_identifier_internal">Interna pohrana</string>
     <string name="analyzer_storage_content_title">Sadržaj pohrane</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacije</string>
     <string name="analyzer_storage_content_type_app_description">Prostor koji zauzimaju instalirane aplikacije i njihovi podaci (tj. datoteke aplikacija, podaci i predmemorije).</string>
@@ -40,6 +41,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikacije sustava i sistemski podaci. Aplikacije i podaci drugih korisnika, ako je na ovom uređaju postavljeno više korisničkih računa.</string>
     <string name="analyzer_storage_content_type_system_other_label">Ostalo</string>
     <string name="analyzer_storage_content_type_system_info">Datoteke koje ne odgovaraju kategorijama Aplikacije ili Korisničke datoteke. Samo pregled — brisanje nije podržano. Neka područja mogu biti nepotpuna zbog ograničenja pristupa.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Datoteke se ne mogu povezati s aplikacijama kojima pripadaju. Veličine se prikazuju samo kao referencija — brisanje, filtri i Swiper su onemogućeni.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistemske datoteke i drugi podaci kojima SD Maid nije mogao pristupiti ili ih kategorizirati. Operativni sustav ograničava popis sadržaja nekih područja.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
     <string name="analyzer_storage_content_app_code_description">Datoteke aplikacije, biblioteke i resursi. Ovaj se prostor može osloboditi deinstaliranjem aplikacije ili njenim arhiviranjem (dostupno u novijim verzijama Androida).</string>
@@ -52,4 +54,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ova aplikacija zauzima %1$s na \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ova je aplikacija arhivirana.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s u 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Pogledajte što zapravo popunjava vašu pohranu. Analyzer mapira kamo ide vaš prostor. Svaka od ovih kartica je čip za pohranu na vašem uređaju.</string>
+    <string name="tour_analyzer_storage_body">Otvorite pohranu da je razložite na aplikacije, medije i datoteke, zatim nastavite dodirivati da pronađete najveće krivce.</string>
 </resources>

@@ -31,6 +31,16 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d รายการที่ยังไม่ตัดสินใจจะยังคงอยู่สำหรับตรวจสอบภายหลัง</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">เซสชันนี้กำหนดเป้าหมายไปยังพื้นที่จัดเก็บข้อมูลทั้งไดรฟ์ — การลบที่นี่ครอบคลุมทุกโฟลเดอร์บนที่จัดเก็บข้อมูลนั้น</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…และ %d โฟลเดอร์เพิ่มเติม</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ฉันเข้าใจว่าไฟล์เหล่านี้จะถูกลบอย่างถาวร</string>
+    <string name="swiper_sensitive_root_warning_title">สแกนที่เก็บข้อมูลทั้งหมดหรือไม่</string>
+    <string name="swiper_sensitive_root_warning_message">การสแกน %1$s รวมถึงทุกไฟล์ในที่เก็บข้อมูลนี้ — รูปภาพ เอกสาร ดาวน์โหลด สื่อแอป และอื่นๆ ต้องการดำเนินการต่อหรือไม่</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ดำเนินการต่อ</string>
+    <string name="swiper_session_risky_label">การสแกนที่เก็บข้อมูลทั้งหมด</string>
+    <string name="swiper_session_risky_info_message">เซสชันนี้มุ่งเป้าไปที่รากของพื้นที่จัดเก็บข้อมูล ดังนั้นทุกไฟล์ในที่จัดเก็บข้อมูลนั้นจึงอยู่ในขอบเขต — รูปภาพ เอกสาร ดาวน์โหลด สื่อแอป และอื่นๆ\n\nการสแกนพื้นที่จัดเก็บทั้งหมดอาจให้ผลลัพธ์จำนวนมาก รวมถึงไฟล์ที่คุณอาจไม่ได้ตั้งใจจะตรวจสอบ ใช้ตัวกรองประเภทไฟล์เพื่อจำกัดขอบเขตการสแกน</string>
     <string name="swiper_delete_x_action">ลบ %1$d</string>
     <string name="swiper_settings_swap_directions_title">สลับทิศทางปัด</string>
     <string name="swiper_settings_swap_directions_summary">ปัดซ้ายเพื่อเก็บ ขวาเพื่อลบ</string>
@@ -65,6 +75,9 @@
     <string name="swiper_session_rename_hint">ป้อนชื่อสำหรับเซสชันนี้</string>
     <string name="swiper_sessions_current_sessions">เซสชันปัจจุบัน</string>
     <string name="swiper_session_paths_label">เส้นทาง</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…และอีก %d รายการ</item>
+    </plurals>
     <string name="swiper_session_status_label">สถานะ</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d ที่จะเก็บ</item>
@@ -129,4 +142,10 @@
     <string name="swiper_file_type_filter_summary">กรองแล้ว: %1$s</string>
     <string name="swiper_session_no_matching_files">ไม่พบไฟล์ที่ตรงกัน</string>
     <string name="swiper_open_externally_action">เปิดในแอปภายนอก</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ปัดรูปภาพเพื่อตัดสินชะตากรรม: ปัดไปด้านข้างเพื่อเก็บหรือลบ ปัดขึ้นเพื่อข้าม ปัดลงเพื่อยกเลิก ปุ่มด้านล่างทำสิ่งเดียวกัน และแสดงให้เห็นว่าด้านไหนคืออะไร</string>
+    <string name="tour_swiper_openin_body">ปุ่มนี้เปิดรูปภาพในแอปอื่น สะดวกสำหรับตรวจสอบก่อนตัดสินใจ</string>
+    <string name="tour_swiper_preview_body">ปุ่มนี้เปิดตัวอย่างแบบเต็มหน้าจอเพื่อดูใกล้ชิดยิ่งขึ้น</string>
+    <string name="tour_swiper_actions_body">ไม่ชอบการปัดใช่ไหม เรามีปุ่มให้ใช้ด้วย! ข้ามจะปล่อยให้ยังไม่ตัดสินใจไว้ก่อน และกดค้างที่ข้ามจะยกเว้นไฟล์จากการสแกนในอนาคต ยกเลิกจะย้อนกลับตัวเลือกล่าสุดของคุณ</string>
+    <string name="tour_swiper_review_body">ตัวเลือกการเก็บและลบของคุณจะถูกเก็บไว้ชั่วคราว เปิดหน้าตรวจสอบเพื่อตรวจทานและใช้การลบเมื่อคุณพร้อม</string>
 </resources>

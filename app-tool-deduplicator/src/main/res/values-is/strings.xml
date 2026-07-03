@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Eyða öllu nema einu eintaki í hverju völdu setti tvítekinna skráa?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Eyða öllum skrám í hverju völdu setti tvítekinna skráa? Engin skrá verður eftir!</string>
     <string name="deduplicator_delete_all_toggle_msg">Eyða öllum eintökum. Engin skrá verður eftir!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Eyða %1$d afriti í þessu mengi og freisar %2$s? Geymt afrit stendur eftir.</item>
+        <item quantity="other">Eyða %1$d afritum í þessu mengi og freisar %2$s? Geymt afrit stendur eftir.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s til að losa</string>
+    <string name="deduplicator_action_delete_set">Eyða tvítekið mengi</string>
+    <string name="deduplicator_action_open_preview">Opna forskoðun</string>
+    <string name="deduplicator_marked_for_deletion">Merkt til eyðingar</string>
+    <string name="deduplicator_cluster_preview_image">Forskoðun á tvíteknu mengi</string>
+    <string name="deduplicator_selection_keep_one_required">Að minnsta kosti ein skrá fyrir hvert sett tvítekinna hluta verður að vera eftir. Virkjaðu \"Gera \'Eyða öllu\' mögulegt\" í stillingum til að hnekkja þessu.</string>
     <string name="deduplicator_progress_comparing_files">Beri saman skrár</string>
     <string name="deduplicator_details_cluster_title">Sett tvítekinna</string>
     <string name="deduplicator_matches_exact_label">Nákvæm eintök</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kjósa minni skrár</string>
     <string name="deduplicator_view_mode_groups_label">Hópar</string>
     <string name="deduplicator_view_mode_directories_label">Möppur</string>
+    <string name="tour_deduplicator_details_cluster_body">Þessar skrár virðast allar vera sami hlutur eða miðlunarinnihald, þyrping tvítekinna hluta.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Skrám með þessari táknmynd verður eytt; skráin sem eftir er í hópnum er sú sem SD Maid heldur. Þú getur breytt því hvernig varhaldarinn er valinn í stillingum eyðingarstefnunnar.</string>
 </resources>

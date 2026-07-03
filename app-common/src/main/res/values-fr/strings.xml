@@ -28,21 +28,15 @@
     <string name="general_gotit_action">J’ai compris</string>
     <string name="general_fix_action">Corriger</string>
     <string name="general_set_up_action">Configurer</string>
+    <string name="general_unavailable_label">Indisponible</string>
     <string name="general_edit_action">Modifier</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Vide</string>
     <string name="general_new_badge_label">Nouveau</string>
     <string name="general_dismiss_action">Ignorer</string>
-    
     <string name="general_manage_action">Gérer</string>
-    
     <string name="general_error_label">Erreur</string>
-    
     <string name="general_upgrade_action">Passer Pro</string>
-    
-    
-    <string name="general_filter_action">Filtrer</string>
-    
     <string name="general_refresh_action">Actualiser</string>
     <string name="general_progress_searching">Recherche…</string>
     <string name="general_progress_generating_searchpaths">Génération des chemins de recherche</string>
@@ -71,18 +65,21 @@
     <string name="general_progress_queued">En attente</string>
     <string name="general_progress_deleting">Suppression</string>
     <string name="general_progress_deleting_x">Suppression de %s</string>
-    
     <string name="general_sort_by_title">Trier par</string>
-    
     <string name="general_sort_reverse_action">Mode de tri inversé</string>
     <string name="general_sort_oldest_first">Dates plus anciennes en premier</string>
     <string name="general_sort_newest_first">Dates plus récentes en premier</string>
     <string name="general_sort_name_asc">Nom (A → Z)</string>
     <string name="general_sort_size_desc">Plus grandes tailles en premier</string>
-    
     <string name="general_tag_system">Système</string>
+    <string name="general_navigate_up_action">Remonter</string>
+    <string name="general_filter_action">Filtrer</string>
+    <string name="general_filter_by_tags_label">Filtrer par étiquettes</string>
+    <string name="general_filter_add_action">Ajouter un filtre</string>
+    <string name="general_filter_remove_x_action">Supprimer le filtre %s</string>
+    <string name="general_filter_empty_row_hint">Appuyez sur + pour filtrer</string>
+    <string name="general_show_all_action">Tout afficher</string>
     <string name="general_result_success_message">L’opération est réussie</string>
-    
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s libéré.</item>
         <item quantity="other">%s libérés.</item>
@@ -90,13 +87,14 @@
     <string name="general_options_label">Options</string>
     <string name="general_details_label">Détails</string>
     <string name="general_view_action">Afficher</string>
+    <string name="general_open_action">Ouvrir</string>
+    <string name="general_configure_action">Configurer</string>
     <string name="general_update_action">Mettre à jour</string>
     <string name="general_scan_action">Analyser</string>
     <string name="general_close_action">Fermer</string>
     <string name="general_delete_action">Supprimer</string>
     <string name="general_delete_selected_action">Supprimer les éléments choisis</string>
     <string name="general_show_details_action">Afficher les détails</string>
-    <string name="general_show_all_action">Tout afficher</string>
     <string name="general_toggle_layout_mode">Changer le mode d’affichage</string>
     <string name="general_delete_confirmation_title">Confirmer la suppression</string>
     <string name="general_delete_confirmation_message_x">Supprimer « %s » ?</string>
@@ -109,16 +107,14 @@
         <item quantity="other">%d éléments ont été supprimés.</item>
     </plurals>
     <string name="general_remove_action">Supprimer</string>
-    
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un élément a été supprimé</item>
         <item quantity="other">%d éléments ont été supprimés</item>
     </plurals>
-    
-    
     <string name="general_search_action">Chercher</string>
-    
+    <string name="general_search_no_matches">Aucun résultat</string>
     <string name="general_open_system_settings_action">Ouvrir les paramètres système</string>
+    <string name="general_fast_scroller_action">Défilement rapide</string>
     <plurals name="result_x_items">
         <item quantity="one">%s élément</item>
         <item quantity="other">%s éléments</item>
@@ -137,12 +133,15 @@
     </plurals>
     <string name="general_info_label">Renseignements</string>
     <string name="general_count_label">Quantité</string>
-    
     <string name="general_more_info_action">Plus de précisions</string>
     <string name="general_grant_access_action">Accorder l’accès</string>
     <string name="general_enable_service_action">Activer le service</string>
     <string name="general_undo_action">Annuler</string>
     <string name="general_list_select_all_action">Tout choisir</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d sélectionné</item>
+        <item quantity="other">%d sélectionnés</item>
+    </plurals>
     <string name="general_path_label">Chemin</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Taille</string>
@@ -150,7 +149,6 @@
     <string name="general_exclude_selected_action">Exclure les éléments choisis</string>
     <string name="general_device_label">Appareil</string>
     <string name="general_settings_title">Paramètres</string>
-    
     <string name="general_hints_label">Avis</string>
     <string name="file_type_symbolic_link">Lien</string>
     <string name="file_type_directory">Dossier</string>
@@ -177,11 +175,11 @@
     <string name="general_error_report_bug_action">Signaler un bogue</string>
     <string name="general_error_ipc_deadobject_title">La connexion au serveur est perdue</string>
     <string name="general_error_ipc_deadobject_description">La connexion à un service essentiel (p. ex. Magisk, Shizuku ou d’autres services au niveau du système) a été perdue de manière inattendue. Redémarrez votre appareil. Si le problème persiste, cherchez les mises à jour ou contactez-moi pour que je puisse le corriger.</string>
+    <string name="general_error_upgrade_required_title">Version Pro requise</string>
+    <string name="general_error_upgrade_required_description">C’est une fonction Pro. Veuillez mettre à jour SD Maid SE pour l’utiliser.</string>
     <string name="general_user_label_owner">Propriétaire</string>
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>
-    
-    
     <string name="general_include_multiuser_label">Inclure d’autres utilisateurs</string>
     <string name="general_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
     <string name="general_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
@@ -204,5 +202,22 @@
     <string name="settings_category_risklevel">Niveau de risque</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Afficher les paramètres</string>
-    
+    <string name="ui_theme_color_sunset_label">Sunset</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Cette fonction nécessite l’accès root, mais SD Maid n’a pas pu l’obtenir sur cet appareil.</string>
+    <string name="access_blocked_root_declined">Cette fonction nécessite l’accès root. Vous pouvez l’activer via l’écran de configuration.</string>
+    <string name="access_blocked_root_or_shizuku">Cette fonctionnalité nécessite l’accès root ou Shizuku, qui n’est pas disponible sur cet appareil.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Fichier de sauvegarde invalide</string>
+    <string name="backup_restore_error_invalid_body">Ce fichier n’est pas une sauvegarde SD Maid valide ou est corrompu.</string>
+    <string name="backup_restore_error_version_body">Cette sauvegarde a été créée avec une version plus récente de SD Maid. Veuillez mettre à jour l’application et réessayer.</string>
+    <string name="backup_restore_error_restore_failed_title">La restauration a échoué</string>
+    <string name="backup_restore_error_restore_failed_body">Ces parties n’ont pas pu être restaurées : %1$s. Votre configuration précédente a été sauvegardée et peut être restaurée.</string>
+    <string name="backup_restore_error_safety_title">Restauration non démarrée</string>
+    <string name="backup_restore_error_safety_body">SD Maid n’a pas pu créer une sauvegarde de sécurité de votre configuration actuelle, c’est pourquoi rien n’a été modifié.</string>
+    <string name="backup_restore_error_busy_title">Veuillez patienter</string>
+    <string name="backup_restore_error_busy_body">Une tâche de nettoyage ou une autre opération de sauvegarde est actuellement en cours. Réessayez quand elle sera terminée.</string>
+    <string name="backup_restore_error_schema_title">Sauvegarde incompatible</string>
+    <string name="backup_restore_error_schema_body">Le format de base de données de la sauvegarde ne correspond pas à cette version de SD Maid. La restauration des données historiques n’est prise en charge qu’entre les versions identiques de l’appli.</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Käyttäjät, joilla on erityisiä saavutettavuustarpeita, voivat ottaa tämän palvelun käyttöön, jotta SD Maid voi automatisoida tehtäviä, jotka muutoin vaatisivat ikävää manuaalista käyttäjän vuorovaikutusta (esim. välimuistin poisto).\n\nEsimerkki: Jos kehität SD Maidia pysäyttämään useita sovelluksia, SD Maid voi käyttää tätä palvelua kunkin sovelluksen asetusnäytön avaamiseen, \'Pakota pysäytys\' -painikkeen löytämiseen ja sen napauttamiseen.\n\nSD Maid näyttää aina selvästi, milloin käyttää tätä palvelua ja tarjoaa helpon tavan käyttäjälle perua mikä tahansa vuorovaikutus välittömästi.\n\nMitään toimintoja ei suoriteta ilman käyttäjän ennakkohyväksyntää. Tämä palvelu voidaan poistaa käytöstä milloin tahansa ilman haittavaikutuksia.</string>
     <string name="automation_screenoverlay_explanation">SD Maid on vuorovaikutuksessa laitteesi kanssa. Näyttöä ei voi käyttää samaan aikaan. Odota, kunnes toiminto on valmis tai peruuta se.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid on vuorovaikutuksessa laitteesi kanssa. Näytön käyttäminen samanaikaisesti ei ole mahdollista. Odota kunnes toiminto on valmis tai paina Koti-painiketta peruuttaaksesi.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid on vuorovaikutuksessa laitteesi kanssa. Näytön käyttäminen samanaikaisesti ei ole mahdollista. Odota kunnes toiminto on valmis.</string>
     <string name="automation_active_title">SD Maid työskentelee</string>
     <string name="automation_error_no_consent_title">Automaatiovirhe</string>
     <string name="automation_error_no_consent_body">Saavutettavuuspalvelua ei ole määritetty. Suorita asennus loppuun ja anna suostumus.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Ajoitettu tehtävä yritti käyttää esteettömyyspalvelua, mutta se ei ollut käytettävissä. Jos et tarvitse tätä, poista käytöstä \"Esteettömyyspalvelu\"-vaihtoehto ajastimen asetuksista.</string>
     <string name="automation_error_no_settings_title">Asetuksia ei löytynyt</string>
     <string name="automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
+    <string name="automation_error_interference_title">Asetuksien näyttö on estetty</string>
+    <string name="automation_error_interference_body">Toinen sovellus (%1$s) estää järjestelmän asetuksien näytön, joten SD Maid ei voi jatkaa. Poista kyseisen sovelluksen lukitus tai näytön suojaus järjestelmän asetuksille ja yritä uudelleen.</string>
     <string name="automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>
     <string name="automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
 </resources>

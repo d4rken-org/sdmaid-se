@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ଫାଇଲ୍ ବୟସ (ଶେଷ ସଂଶୋଧିତ ସମୟ) ଆଧାରରେ ମ୍ୟାଚ୍ ସୀମିତ କରନ୍ତୁ। ଯେକୌଣସି ବୟସ ସହ ମ୍ୟାଚ୍ କରିବା ପାଇଁ ଅସେଟ୍ ଛାଡନ୍ତୁ।</string>
     <string name="systemcleaner_customfilter_import_action">ନୂତନ ଫିଲ୍ଟର ଆମଦାନି କରନ୍ତୁ</string>
     <string name="systemcleaner_customfilter_export_action">ନିର୍ବାଚିତ ଫିଲ୍ଟର ରପ୍ତାନି କରନ୍ତୁ</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ଆପ୍ ଅନିର୍ଦ୍ଦିଷ୍ଟ ଫିଲ୍ଟର ବ୍ୟବହାର କରି ଜଙ୍କ ଖୋଜିଥାଏ। ଖାଲି ଫୋଲ୍ଡର, ଅବଶିଷ୍ଟ ଲଗ ଏବଂ ପୁରାତନ ଥମ୍ବନେଲ ଭଳି ଜିନିସ ପାଇଁ ପୂର୍ବ-ନିର୍ମିତ ନିୟମ ରହିଛି। ଆପଣ ନିଜର ସୃଷ୍ଟି କରିବାକୁ ଚାହିଂଲେ ସେଟିଂସ ପରିଦର୍ଶନ କରନ୍ତୁ।</string>
+    <string name="tour_systemcleaner_filter_body">ପ୍ରତ୍ୟେକ ଧାଡ଼ି ଏକ ଫିଲ୍ଟର ଏବଂ ଏହା ୟାହା ଖୋଜିଲା ତାହା। ୟେକୌଣସି ଜିନିଷ ଲିଭାଇବା ପୂର୍ବରୁ ଠିକ୍ କେଉଞ୍ଚ ଫାଇଲଗୁଡ଼ିକ ମେଳ ଖାଇଛି ତାହା ଦେଖିବା ପାଇଁ ଏହାର ବିବରଣ ଖୋଲନ୍ତୁ।</string>
 </resources>

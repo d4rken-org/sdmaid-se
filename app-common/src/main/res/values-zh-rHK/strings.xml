@@ -28,6 +28,7 @@
     <string name="general_gotit_action">瞭解了</string>
     <string name="general_fix_action">修正</string>
     <string name="general_set_up_action">設定</string>
+    <string name="general_unavailable_label">無法使用</string>
     <string name="general_edit_action">編輯</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空白</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">在佇列中</string>
     <string name="general_progress_deleting">正在刪除</string>
     <string name="general_progress_deleting_x">正在刪除 %s</string>
+    <string name="general_sort_by_title">排序方式</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
+    <string name="general_sort_oldest_first">最舊優先</string>
+    <string name="general_sort_newest_first">最新優先</string>
+    <string name="general_sort_name_asc">名稱（A → Z）</string>
+    <string name="general_sort_size_desc">最大優先</string>
     <string name="general_tag_system">系統</string>
+    <string name="general_navigate_up_action">向上導覽</string>
+    <string name="general_filter_action">過濾器</string>
+    <string name="general_filter_by_tags_label">依標籤過濾</string>
+    <string name="general_filter_add_action">新增過濾器</string>
+    <string name="general_filter_remove_x_action">移除 %s 過濾器</string>
+    <string name="general_filter_empty_row_hint">輕按 + 即可過濾</string>
+    <string name="general_show_all_action">全部顯示</string>
     <string name="general_result_success_message">作業成功</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已釋放 %s 空間。</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">選項</string>
     <string name="general_details_label">詳細資料</string>
     <string name="general_view_action">檢視</string>
+    <string name="general_open_action">開啟</string>
+    <string name="general_configure_action">設定</string>
     <string name="general_update_action">更新</string>
     <string name="general_scan_action">掃描</string>
     <string name="general_close_action">關閉</string>
@@ -93,7 +108,9 @@
         <item quantity="other">%d 個項目已移除</item>
     </plurals>
     <string name="general_search_action">搜尋</string>
+    <string name="general_search_no_matches">沒有相符項目</string>
     <string name="general_open_system_settings_action">開啟系統設定</string>
+    <string name="general_fast_scroller_action">快速捲軸</string>
     <plurals name="result_x_items">
         <item quantity="other">%s 個項目</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">啟用服務</string>
     <string name="general_undo_action">復原</string>
     <string name="general_list_select_all_action">全部選取</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">%d 個已選取</item>
+    </plurals>
     <string name="general_path_label">路徑</string>
     <string name="general_type_label">類型</string>
     <string name="general_size_label">大小</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">報告錯誤</string>
     <string name="general_error_ipc_deadobject_title">服務連線中斷</string>
     <string name="general_error_ipc_deadobject_description">與重要服務（例如 Magisk、Shizuku 或其他系統級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續存在，請檢查更新或聯絡我以便修復。</string>
+    <string name="general_error_upgrade_required_title">需要專業版</string>
+    <string name="general_error_upgrade_required_description">這是專業版功能。請升級 SD Maid SE 以使用此功能。</string>
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">風險層級</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="appcontrol_systemsettings_open_title">顯示設定</string>
+    <string name="ui_theme_color_sunset_label">日落</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">此功能需要 Root 存取權限，但 SD Maid 無法在此裝置上取得該權限。</string>
+    <string name="access_blocked_root_declined">此功能需要 Root 存取。您可以透過設定畫面啟用它。</string>
+    <string name="access_blocked_root_or_shizuku">此功能需要 Root 或 Shizuku 存取，但此裝置上無法使用。</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">無效的備份檔案</string>
+    <string name="backup_restore_error_invalid_body">此檔案不是有效的 SD Maid 備份或已損毀。</string>
+    <string name="backup_restore_error_version_body">此備份是用 SD Maid 較新版本建立的。請更新應用程式並重試。</string>
+    <string name="backup_restore_error_restore_failed_title">還原失敗</string>
+    <string name="backup_restore_error_restore_failed_body">無法還原這些部分：%1$s。您先前的設定已儲存，可以復原。</string>
+    <string name="backup_restore_error_safety_title">還原未開始</string>
+    <string name="backup_restore_error_safety_body">SD Maid 無法儲存您目前設定的安全快照，因此未進行任何變更。</string>
+    <string name="backup_restore_error_busy_title">請稍候</string>
+    <string name="backup_restore_error_busy_body">正在進行清理工作或備份操作。請在完成後重試。</string>
+    <string name="backup_restore_error_schema_title">備份不相容</string>
+    <string name="backup_restore_error_schema_body">備份的資料庫格式與此版本的 SD Maid 不相符。只支援在相同的應用程式版本之間還原歷史資料。</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Razumem!</string>
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Nastavi</string>
+    <string name="general_unavailable_label">Ni na voljo</string>
     <string name="general_edit_action">Uredi</string>
     <string name="general_na_label">Ni na voljo.</string>
     <string name="general_empty_label">Prazno</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">V čakalni vrsti</string>
     <string name="general_progress_deleting">Brisanje</string>
     <string name="general_progress_deleting_x">Brisanje %s</string>
+    <string name="general_sort_by_title">Razvrsti po</string>
     <string name="general_sort_reverse_action">Obratni vrstni red razvrščanja</string>
+    <string name="general_sort_oldest_first">Najprej najstarejše</string>
+    <string name="general_sort_newest_first">Najprej najnovejše</string>
+    <string name="general_sort_name_asc">Ime (A → Ž)</string>
+    <string name="general_sort_size_desc">Najprej največje</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_navigate_up_action">Pomik navzgor</string>
+    <string name="general_filter_action">Filter</string>
+    <string name="general_filter_by_tags_label">Filtriraj po oznakah</string>
+    <string name="general_filter_add_action">Dodaj filter</string>
+    <string name="general_filter_remove_x_action">Odstrani filter %s</string>
+    <string name="general_filter_empty_row_hint">Tapnite + za filtriranje</string>
+    <string name="general_show_all_action">Prikaži vse</string>
     <string name="general_result_success_message">Opravilo je bilo uspešno.</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Sproščenih je bilo %s.</item>
@@ -76,6 +89,8 @@
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Pokaži</string>
+    <string name="general_open_action">Odpri</string>
+    <string name="general_configure_action">Konfiguriraj</string>
     <string name="general_update_action">Posodobi</string>
     <string name="general_scan_action">Preglej</string>
     <string name="general_close_action">Zapri</string>
@@ -105,7 +120,9 @@
         <item quantity="other">Odstranjenih je bilo %d predmetov.</item>
     </plurals>
     <string name="general_search_action">Išči</string>
+    <string name="general_search_no_matches">Ni zadetkov</string>
     <string name="general_open_system_settings_action">Odpri sistemske nastavitve</string>
+    <string name="general_fast_scroller_action">Hitri drsnik</string>
     <plurals name="result_x_items">
         <item quantity="one">%s predmet</item>
         <item quantity="two">%s predmeta</item>
@@ -137,6 +154,12 @@
     <string name="general_enable_service_action">Omogoči storitev</string>
     <string name="general_undo_action">Razveljavi</string>
     <string name="general_list_select_all_action">Izberi vse</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d izbran</item>
+        <item quantity="two">%d izbrana</item>
+        <item quantity="few">%d izbrani</item>
+        <item quantity="other">%d izbranih</item>
+    </plurals>
     <string name="general_path_label">Pot</string>
     <string name="general_type_label">Vrsta</string>
     <string name="general_size_label">Velikost</string>
@@ -176,6 +199,8 @@
     <string name="general_error_report_bug_action">Prijavi napako</string>
     <string name="general_error_ipc_deadobject_title">Povezava s storitvijo je prekinjena</string>
     <string name="general_error_ipc_deadobject_description">Povezava s kritično storitvijo (npr. Magisk, Shizuku ali druge sistemske storitve) je bila nepričakovano prekinjena. Prosimo, ponovno zaženite napravo. Če se težava ponavlja, preverite posodobitve ali me kontaktirajte, da lahko težavo odpravim.</string>
+    <string name="general_error_upgrade_required_title">Potrebna je različica Pro</string>
+    <string name="general_error_upgrade_required_description">To je funkcija različice Pro. Za uporabo nadgradite SD Maid SE.</string>
     <string name="general_user_label_owner">Lastnik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Nastavi</string>
@@ -203,4 +228,22 @@
     <string name="settings_category_risklevel">Raven tveganja</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Prikaži nastavitve</string>
+    <string name="ui_theme_color_sunset_label">Sončni zahod</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ta funkcija zahteva skrbniški dostop, ki ga SD Maid na tej napravi ni uspel pridobiti.</string>
+    <string name="access_blocked_root_declined">Ta funkcija potrebuje skrbniški dostop. Lahko ga omogočite prek zaslona nastavitev.</string>
+    <string name="access_blocked_root_or_shizuku">Ta funkcija potrebuje skrbniški dostop ali dostop Shizuku, ki ni na voljo na tej napravi.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Neveljavna datoteka varnostne kopije</string>
+    <string name="backup_restore_error_invalid_body">Ta datoteka ni veljavna varnostna kopija SD Maid ali je poškodovana.</string>
+    <string name="backup_restore_error_version_body">Ta varnostna kopija je bila ustvarjena z novejšo različico SD Maid. Posodobite aplikacijo in poskusite znova.</string>
+    <string name="backup_restore_error_restore_failed_title">Obnovitev ni uspela</string>
+    <string name="backup_restore_error_restore_failed_body">Teh delov ni bilo mogoče obnoviti: %1$s. Vaša prejšnja konfiguracija je bila shranjena in jo je mogoče obnoviti.</string>
+    <string name="backup_restore_error_safety_title">Obnovitev se ni začela</string>
+    <string name="backup_restore_error_safety_body">SD Maid ni mogel shraniti varnostnega posnetka vaše trenutne konfiguracije, zato se ni nič spremenilo.</string>
+    <string name="backup_restore_error_busy_title">Počakajte</string>
+    <string name="backup_restore_error_busy_body">Trenutno se izvaja naloga čiščenja ali druga operacija varnostnega kopiranja. Poskusite znova, ko se zaključi.</string>
+    <string name="backup_restore_error_schema_title">Nezdružljiva varnostna kopija</string>
+    <string name="backup_restore_error_schema_body">Oblika podatkovne zbirke varnostne kopije se ne ujema s to različico SD Maida. Obnovitev podatkov zgodovine je mogoča le med enakima različicama aplikacije.</string>
 </resources>

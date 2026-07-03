@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Скористайтеся опцією «Відновити покупку», щоб відновити свою покупку. Якщо проблема не зникає, спробуйте очистити кеш Google Play і перезавантажити пристрій.</string>
     <string name="upgrade_screen_title">Отримати SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не має реклами та не продає дані користувачів. Моя робота фінансується вами ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Переваги</string>
-    <string name="upgrade_screen_benefits_body">• Очищення додатків 💯\n• Операції по розкладу ⏰\n• Додаткові опції для всіх інструментів ⚙️\n• Ваші власні правила видалення ✍️\n• Мотивований розробник 🧙\nі не тільки…</string>
+    <string name="upgrade_screen_benefits_title">Переваги оновлення</string>
+    <string name="upgrade_screen_benefits_body">• Очищення кешу додатків і витратних даних\n• Видалення дубльованих файлів\n• Активація запланованих очищень\n• Створення користувацьких фільтрів і правил очищення\n• Відстеження тенденцій зберігання та історії очищення\n• Більше функцій і елементів керування у всій програмі\n• Підтримка подальшого розвитку</string>
     <string name="upgrade_screen_how_title">Параметри</string>
     <string name="upgrade_screen_how_body">Ви можете вибрати між одноразовою покупкою та дешевшою річною підпискою.\nПідписка починається з безкоштовної 14-денної пробної версії, після чого з вас стягуватиметься плата раз на рік. Пробну версію та підписку можна скасувати в будь-який час.\nОдні й ті ж функції, тільки різні моделі ціноутворення.</string>
+    <string name="upgrade_screen_subscription_offer_title">Річна підписка</string>
+    <string name="upgrade_screen_iap_offer_title">Купити один раз</string>
+    <string name="upgrade_screen_offer_recommended">Рекомендовано</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ціни зараз не вдалося завантажити. Перевірте Google Play і спробуйте ще раз через деякий час.</string>
     <string name="upgrade_screen_subscription_trial_action">Розпочати безкоштовний 14-денний пробний період</string>
     <string name="upgrade_screen_subscription_action">Підписатися</string>
     <string name="upgrade_screen_subscription_action_hint">Вартість підписки становить %s на рік.</string>

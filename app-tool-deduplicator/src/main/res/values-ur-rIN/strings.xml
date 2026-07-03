@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں ایک کاپی چھوڑ کر باقی تمام ڈیلیٹ کریں؟</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ڈپلیکیٹ فائلوں کے ہر منتخب سیٹ میں تمام فائلیں ڈیلیٹ کریں؟ کوئی فائل باقی نہیں رہے گی!</string>
     <string name="deduplicator_delete_all_toggle_msg">تمام کاپیاں ڈیلیٹ کریں۔ کوئی فائل باقی نہیں رہے گی!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">اس سیٹ میں %1$d نقل کو حذف کریں، %2$s خالی کریں؟ محفوظ شدہ کاپی باقی رہتی ہے۔</item>
+        <item quantity="other">اس سیٹ میں %1$d نقلوں کو حذف کریں، %2$s خالی کریں؟ محفوظ شدہ کاپی باقی رہتی ہے۔</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s خالی کرنے کے قابل</string>
+    <string name="deduplicator_action_delete_set">نقل سیٹ کو حذف کریں</string>
+    <string name="deduplicator_action_open_preview">پریویو کھولیں</string>
+    <string name="deduplicator_marked_for_deletion">حذف کے لیے نشان زد</string>
+    <string name="deduplicator_cluster_preview_image">نقل سیٹ کی پریویو</string>
+    <string name="deduplicator_selection_keep_one_required">ہر نقل سیٹ میں کم از کم ایک فائل برقرار رہنی چاہیے۔ سیٹنگز میں \"تمام کو حذف کرنا ممکن بنائیں\" کو فعال کریں۔</string>
     <string name="deduplicator_progress_comparing_files">فائلوں کی موازنہ</string>
     <string name="deduplicator_details_cluster_title">ڈپلیکیٹس کا سیٹ</string>
     <string name="deduplicator_matches_exact_label">بالکل طور پر کاپیاں</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">چھوٹی فائلوں کو ترجیح دیں</string>
     <string name="deduplicator_view_mode_groups_label">گروپس</string>
     <string name="deduplicator_view_mode_directories_label">فولڈرز</string>
+    <string name="tour_deduplicator_details_cluster_body">یہ تمام فائلیں ایک جیسی چیز یا میڈیا مواد لگتی ہیں، نقلوں کا ایک گروہ۔</string>
+    <string name="tour_deduplicator_details_delete_mark_body">اس نشان والی فائلیں حذف کی جائیں گی؛ گروپ میں باقی رہنے والی فائل وہ ہے جسے SD Maid برقرار رکھتا ہے۔ آپ حذف کرنے کی حکمت عملی کی سیٹنگز میں تبدیل کر سکتے ہیں کہ کون سی فائل برقرار رہے۔</string>
 </resources>

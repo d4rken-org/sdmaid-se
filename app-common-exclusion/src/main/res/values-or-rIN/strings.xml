@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">ବହିଷ୍କାର ପରିଚାଳକ</string>
     <string name="exclusion_manager_desc">ଫାଇଲ୍ ଏବଂ ଆପ୍ ବାଦ୍ ପକାଇବା ପରିଚାଳନା କରିବା।</string>
-    <string name="exclusion_explanation_body1">SD Maid ର କାର୍ଯ୍ୟରୁ ଫାଇଲ ଏବଂ ଆପ୍ସକୁ ବାଦ୍ ଦିଅନ୍ତୁ।</string>
-    <string name="exclusion_add_new_hint">ପ୍ରଥମେ SD Maid କୁ ଖୋଜିବାକୁ ଦେଇ ଏବଂ ତାପରେ ଆପଣ ବାଦ୍ ଦେବାକୁ ଚାହୁଁଥିବା ଫଳାଫଳରେ କନ୍‌ଟେକ୍ସଟ୍ ମେନୁ ବ୍ୟବହାର କରି ନୂତନ ବହିଷ୍କାର ଯୋଗ କରନ୍ତୁ।</string>
+    <string name="exclusion_explanation_body1">ଫାଇଲ ଏବଂ ଆପ୍ଗୁଡ଼ିକୁ SD Maid ର ସାଧନରୁ ରକ୍ଷା କରିବା ପାଇଁ ବାଦ ଦିଅନ୍ତୁ, କିମ୍ବା ଅପ୍ରାସଙ୍ଗିକ ଆଇଟେମଗୁଡ଼ିକୁ ଛାଡ଼ି ଅପରେସନ୍ ଦ୍ରୁତ କରିବା ପାଇଁ।</string>
+    <string name="exclusion_add_new_hint">ଏପର୍ୟନ୍ତ କୌଣସି ବହିଷ୍କୃତି ନାହିଁ। ଗୋଟିଏ ତୈରି କରିବା ପାଇଁ + ବଟନ୍ ବ୍ୟବହାର କରନ୍ତୁ, କିମ୍ବା ୟେକୌଣସି ସାଧନର ଫଳାଫଳରୁ ଆଇଟେମଗୁଡ଼ିକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
     <string name="exclusion_create_action">ବହିଷ୍କାର ସୃଷ୍ଟି କରନ୍ତୁ</string>
     <string name="exclusion_edit_action">ବହିଷ୍କାର ସମ୍ପାଦନା କରନ୍ତୁ</string>
     <string name="exclusion_type_package">ଆପ୍ ବହିଷ୍କାର</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">ବହିଷ୍କାର ରପ୍ତାନୀ କରନ୍ତୁ</string>
     <string name="exclusion_create_pkg_hint">ଆପ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ AppControl ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="exclusion_create_path_hint">ପାଥ୍ ବହିଷ୍କାର ସୃଷ୍ଟି କରିବା ପାଇଁ StorageAnalyzer ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
+    <string name="exclusion_create_segment_hint">ଏକ ନାମ ଖଣ୍ଡ ସହିତ ମେଳାଇ ଦିଅନ୍ତୁ, ୟେପରି \"DCIM/Camera\"।</string>
     <string name="exclusion_show_defaults_action">ଡିଫଲ୍ଟ ଦେଖାନ୍ତୁ</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d ବର୍ଜନ ଆମଦାନୀ ହୋଇଛି</item>
+        <item quantity="other">%d ବର୍ଜନ ଆମଦାନୀ ହୋଇଛି</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d ବର୍ଜନ ରପ୍ତାନୀ ହୋଇଛି</item>
+        <item quantity="other">%d ବର୍ଜନ ରପ୍ତାନୀ ହୋଇଛି</item>
+    </plurals>
 </resources>

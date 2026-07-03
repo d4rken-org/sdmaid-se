@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">次要儲存空間，通常是卸除式 SD 卡。包含媒體檔案和受支援的應用程式資料。</string>
     <string name="analyzer_storage_type_tertiary_title">可攜式儲存</string>
     <string name="analyzer_storage_type_tertiary_description">一種可攜式儲存裝置，例如插入 USB 連接埠的隨身碟。</string>
+    <string name="analyzer_storage_identifier_internal">內部儲存空間</string>
     <string name="analyzer_storage_content_title">儲存空間內容</string>
     <string name="analyzer_storage_content_type_app_label">應用程式</string>
     <string name="analyzer_storage_content_type_app_description">已安裝的應用程式及其資料 (即應用程式檔案、資料和快取) 佔用的空間。</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
     <string name="analyzer_storage_content_type_system_other_label">其他</string>
     <string name="analyzer_storage_content_type_system_info">不屬於應用程式或使用者檔案類別的檔案。僅供瀏覽——不支援刪除。由於存取限制，部分區域可能不完整。</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">檔案目前無法與其擁有者應用程式相符。大小僅供參考 — 刪除、篩選和 Swiper 已停用。</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid 無法存取或分類的系統檔案和其他資料。作業系統限制列出某些區域的內容。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
     <string name="analyzer_storage_content_app_code_description">應用程式的檔案、函式庫和資源。可以透過解除安裝應用程式或將其封存（適用於較新版的 Android 系統）來釋放這些空間。</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">這個應用程式在「%2$s」上佔用了 %1$s。</string>
     <string name="analyzer_app_details_app_is_archived">此應用程式已被封存。</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s（7天內）</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">查看實際佔用您儲存空間的內容。Analyzer 會標示您的空間如何分配。您設備上的每張卡片都代表一個儲存磁碟。</string>
+    <string name="tour_analyzer_storage_body">開啟儲存空間可將其細分為應用程式、媒體和檔案，然後繼續點按以找出佔用最多空間的項目。</string>
 </resources>

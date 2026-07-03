@@ -41,6 +41,18 @@
         <item quantity="few">%d neodlučene stavke ostat će za kasniji pregled.</item>
         <item quantity="other">%d neodlučenih stavki ostat će za kasniji pregled.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Ova sesija ciljava cijeli volumen pohrane — brisanje ovdje obuhvaća sve mape na toj pohrani.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…i još %d mapa</item>
+        <item quantity="few">…i još %d mape</item>
+        <item quantity="other">…i još %d mapa</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Razumijem da će ove datoteke biti trajno obrisane.</string>
+    <string name="swiper_sensitive_root_warning_title">Skenirati cijelo pohranište?</string>
+    <string name="swiper_sensitive_root_warning_message">Skeniranje %1$s obuhvaća svaku datoteku na ovom pohraništu — fotografije, dokumente, preuzete datoteke, medije aplikacija i više. Nastaviti?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Nastavite svejedno</string>
+    <string name="swiper_session_risky_label">Skeniranje cijelog pohraništa</string>
+    <string name="swiper_session_risky_info_message">Ova sesija ciljuje korijen volumena pohraništa, pa je svaka datoteka na tom pohraništu u dosegu — fotografije, dokumente, preuzete datoteke, medije aplikacija i više.\n\nSkeniranje cijelog pohraništa može vratiti mnoge stavke, uključujući datoteke koje možda niste namjeravali pregledati. Primijenite filter tipa datoteke kako biste sužili skeniranje.</string>
     <string name="swiper_delete_x_action">Izbriši %1$d</string>
     <string name="swiper_settings_swap_directions_title">Zamijeni smjerove prevlačenja</string>
     <string name="swiper_settings_swap_directions_summary">Prevucite lijevo za zadržavanje, desno za brisanje.</string>
@@ -85,6 +97,11 @@
     <string name="swiper_session_rename_hint">Unesite naziv za ovu sesiju</string>
     <string name="swiper_sessions_current_sessions">Trenutne sesije</string>
     <string name="swiper_session_paths_label">Putanje</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…i još %d</item>
+        <item quantity="few">…i još %d</item>
+        <item quantity="other">…i još %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Stanje</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d za zadržati</item>
@@ -159,4 +176,10 @@
     <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
     <string name="swiper_session_no_matching_files">Nisu pronađene odgovarajuće datoteke</string>
     <string name="swiper_open_externally_action">Otvori u vanjskoj aplikaciji</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Prevucite fotografiju kako biste odlučili njezinu sudbinu: ulijevo ili udesno za čuvanje ili brisanje, gore za preskakanje, dolje za vraćanje. Donji gumbi rade istu stvar — i pokazuju koja je strana za što.</string>
+    <string name="tour_swiper_openin_body">Ovaj gumb otvara fotografiju u drugoj aplikaciji — praktično je provjeriti prije nego što se odlučite.</string>
+    <string name="tour_swiper_preview_body">Ovaj gumb otvara prikaz cijelog ekrana za bliži pogled.</string>
+    <string name="tour_swiper_actions_body">Ne sviđa vam se prevlačenje? Imamo i gumbe! Preskakanje odgađa odluku za kasnije, a dugo pritiskanje na Preskakanje isključuje datoteku iz budućih skeniranja. Vraćanje poništava vašu zadnju odluku.</string>
+    <string name="tour_swiper_review_body">Vaše odluke o čuvanju i brisanju su samo privremeno spremljene. Otvorite Pregled kako biste ih pregledali i primijenili brisanja kada budete spremni.</string>
 </resources>

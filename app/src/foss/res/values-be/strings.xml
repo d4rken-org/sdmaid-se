@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Абнавіць SD Maid SE</string>
     <string name="upgrades_dashcard_body">Адкрыйце дадатковыя функцыі і станьце спонсарам, каб падтрымаць далейшую распрацоўку!</string>
     <string name="upgrades_dashcard_upgrade_action">Абнавіць</string>
-    <string name="upgrade_screen_title">Палепшыць SD Maid</string>
+    <string name="upgrade_screen_title">Падтрымаць SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid не мае рэкламы і не прадае даныя карыстальнікаў. Далейшая распрацоўка магчыма толькі дзякуючы вам.</string>
     <string name="upgrade_screen_how_title">Як дапамагчы</string>
     <string name="upgrade_screen_how_body">Станьце спонсарам распрацоўкі! Націсніце кнопку ніжэй, каб актывіраваць усе дадатковыя функцыі і адкрыць мой профіль на GitHub Sponsors.</string>
-    <string name="upgrade_screen_why_title">Вы атрымліваеце 🪄</string>
-    <string name="upgrade_screen_why_body">• Функцыянал для чысткі праграм 💯\n• Запланаваныя аперацыі ⏰\n• Дадатковыя параметры для ўсіх інструментаў ⚙️\n• Карыстальніцкія правілы выдалення ✍️\n• Матываваны распрацоўшчык 🧙\nі шмат чаго іншага…</string>
+    <string name="upgrade_screen_why_title">Перавагі абнаўлення</string>
+    <string name="upgrade_screen_why_body">• Ачышчаць кэш праграм і непатрэбныя дадзеныя
+• Выдаляць дублікаты файлаў
+• Уключыць запланаваныя ачышткі
+• Стварыць ўласныя фільтры і правілы ачысткі
+• Адследжваць тэндэнцыі сховішча і гісторыю ачысткі
+• Дадатковыя функцыі і кантролі па ўсёй праграме
+• Падтрымка адкрытага зыходнага кода</string>
     <string name="upgrade_screen_sponsor_action">Падтрымаць распрацоўку</string>
     <string name="upgrade_screen_sponsor_action_hint">Альтэрнатыва - рэклама, аналітыка і Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Дзякуй за падтрымку распрацоўкі з адкрытым зыходным кодам ❤️</string>

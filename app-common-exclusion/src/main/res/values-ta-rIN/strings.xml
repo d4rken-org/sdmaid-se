@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">விலக்கல் மேலாளர்</string>
     <string name="exclusion_manager_desc">கோப்பு மற்றும் பயன்பாட்டு விலக்கல்களை நிர்வகிக்கவும்.</string>
-    <string name="exclusion_explanation_body1">கோப்புகள் மற்றும் பயன்பாடுகளை SD Maid இன் செயல்பாடுகளிலிருந்து விலக்கவும்.</string>
-    <string name="exclusion_add_new_hint">முதலில் SD Maid தேடவிட்டு, பின்னர் நீங்கள் விலக்க விரும்பும் முடிவில் சந்தர்ப்ப பட்டியைப் பயன்படுத்தி புதிய விலக்கல்களைச் சேர்க்கவும்.</string>
+    <string name="exclusion_explanation_body1">கோப்புகள் மற்றும் பயன்பாடுகளை விலக்கி SD Maid இன் கருவிகளிலிருந்து பாதுகாக்கவும் அல்லது பொருத்தமற்ற உருப்படிகளைத் தவிர்த்து செயல்பாடுகளை வேகமாக்கவும்.</string>
+    <string name="exclusion_add_new_hint">இன்னும் விலக்கல்கள் இல்லை. + பொத்தானைப் பயன்படுத்தி ஒன்றை உருவாக்கவும், அல்லது எந்த கருவியின் முடிவுகளிலிருந்தும் உருப்படிகளை விலக்கவும்.</string>
     <string name="exclusion_create_action">விலக்கலை உருவாக்கு</string>
     <string name="exclusion_edit_action">விலக்கலைத் தருணி</string>
     <string name="exclusion_type_package">பயன்பாட்டு விலக்கல்</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">விலக்கல்களை ஏற்றுமதி</string>
     <string name="exclusion_create_pkg_hint">பயன்பாட்டு விலக்கல்களை உருவாக்க AppControl கருவியைப் பயன்படுத்தவும்.</string>
     <string name="exclusion_create_path_hint">பாதை விலக்கல்களை உருவாக்க StorageAnalyzer கருவியைப் பயன்படுத்தவும்.</string>
+    <string name="exclusion_create_segment_hint">பெயர் பகுதியை பொருத்துங்கள், உதாரணமாக \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">இயல்புகளைக் காட்டு</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d விலக்கல் இறக்குமதி செய்யப்பட்டது</item>
+        <item quantity="other">%d விலக்கல்கள் இறக்குமதி செய்யப்பட்டன</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d விலக்கல் ஏற்றுமதி செய்யப்பட்டது</item>
+        <item quantity="other">%d விலக்கல்கள் ஏற்றுமதி செய்யப்பட்டன</item>
+    </plurals>
 </resources>

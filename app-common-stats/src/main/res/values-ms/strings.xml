@@ -37,4 +37,6 @@
     <string name="stats_storage_type_primary">Storan utama</string>
     <string name="stats_storage_type_secondary">Storan sekunder</string>
     <string name="stats_storage_type_portable">Storan mudah alih</string>
+    <string name="stats_space_history_delete_storage_title">Padam sejarah storan?</string>
+    <string name="stats_space_history_delete_storage_desc">Semua data trend untuk storan ini akan dipadam secara kekal.</string>
 </resources>

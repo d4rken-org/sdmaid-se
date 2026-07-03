@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">അജ്ഞാത ഉടമ</string>
     <string name="corpsefinder_corpse_hint_keeper">ഇതിന്റെ ഉടമ അൺഇൻസ്‌റ്റോൾ ചെയ്‌തിരിക്കുന്നെങ്കിലും, ഈ ഇനത്തിൽ നിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന ഡേറ്റ ഉണ്ടായിരിക്കാം, ഉദാ: ഫോട്ടോകൾ അല്ലെങ്കിൽ ബാക്കപ്പുകൾ.</string>
     <string name="corpsefinder_corpse_hint_common">ഈ ഇനത്തിന് വളരെ പൊതുവായ പേരുണ്ട്, ഇത് SD Maid-ന് അറിയാത്ത ഇൻസ്‌റ്റോൾ ചെയ്ത ആപ്പുകൾക്ക് ഉള്ളതായിരിക്കാം.</string>
+    <string name="corpsefinder_risk_keeper_chip">ആഗ്രഹണീയമായ</string>
+    <string name="corpsefinder_risk_common_chip">സാധാരണ</string>
+    <string name="corpsefinder_markers_dialog_title">ഈ മാർക്കറുകളെ കുറിച്ച്</string>
+    <string name="corpsefinder_markers_dialog_normal_label">മാർക്കർ ഇല്ല</string>
+    <string name="corpsefinder_markers_dialog_normal_description">സാധാരണ അവശിഷ്ടം. സാധാരണയായി നീക്കം ചെയ്യാൻ സുരക്ഷിതമാണ് — ഈ ഫയലുകൾ അൺഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾക്കുള്ളത്.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder നിങ്ങൾ ഇതിനകം അൺഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ വിട്ടുപോയ ഡാറ്റ കണ്ടെത്തുന്നു. ഇത് നിലവിലുള്ള ഏതെങ്കിലും ആപ്പിനും സ്വന്തമല്ല, അതിനാൽ ഇത് നീക്കം ചെയ്യുന്നത് സുരക്ഷിതമാണ് കൂടാതെ സ്ഥലം ലഭ്യമാക്കുന്നു.</string>
+    <string name="tour_corpsefinder_row_body">ഓരോ ഇനവും അവശിഷ്ട ഡാറ്റയും അത് വന്ന ആപ്പും ആണ്. നീക്കം ചെയ്യാൻ സുരക്ഷിതമാണെന്ന് SD Maid എത്ര ഉറപ്പാണ് എന്നത് മാർക്കർ സൂചിപ്പിക്കുന്നു — മാർക്കറുകൾ എന്താണ് എന്നറിയാൻ മുകളിലെ ⓘ ടാപ്പ് ചെയ്യുക.</string>
 </resources>

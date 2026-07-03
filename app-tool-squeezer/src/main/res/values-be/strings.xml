@@ -25,11 +25,23 @@
         <item quantity="many">%d няўдала</item>
         <item quantity="other">%d няўдала</item>
     </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d захаван без змен (метадата не могла быць захавана)</item>
+        <item quantity="few">%d захаваны без змен (метадата не могла быць захавана)</item>
+        <item quantity="many">%d захаваны без змен (метадата не могла быць захавана)</item>
+        <item quantity="other">%d захаваны без змен (метадата не могла быць захавана)</item>
+    </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d файл прапушчаны (недаступны)</item>
         <item quantity="few">%d файлы прапушчаны (недаступныя)</item>
         <item quantity="many">%d файлаў прапушчана (недаступна)</item>
         <item quantity="other">%d файлаў прапушчана (недаступна)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d пропалы (HDR/глыбіня захавана)</item>
+        <item quantity="few">%d пропалыя (HDR/глыбіня захавана)</item>
+        <item quantity="many">%d пропалыя (HDR/глыбіня захавана)</item>
+        <item quantity="other">%d пропалыя (HDR/глыбіня захавана)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d элемент выбраны</item>
@@ -37,8 +49,6 @@
         <item quantity="many">%d элементаў выбрана</item>
         <item quantity="other">%d элементаў выбрана</item>
     </plurals>
-    
-    
     <string name="squeezer_min_size_title">Мінімальны памер файла</string>
     <string name="squeezer_min_size_description">Прапускаць файлы, меншыя за гэты памер.</string>
     <string name="squeezer_min_age_title">Мінімальны час стварэння файла</string>
@@ -56,12 +66,16 @@
     <string name="squeezer_type_jpeg_description">Уключыць выявы JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Уключыць выявы WebP (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Уключаць выявы HEIC/HEIF (.heic, .heif). Дата, месцазнаходжанне і іншыя метаданыя EXIF захоўваюцца. Карты ўзмацнення HDR, дадзеныя глыбіні і спадарожныя файлы Live/Motion Photo немагчыма захаваць; шматкадравыя файлы прапускаюцца.</string>
     <string name="squeezer_type_video_title">MP4 Відэа</string>
     <string name="squeezer_type_video_description">Уключаць відэафайлы MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Прапускаць раней сціснутыя</string>
     <string name="squeezer_skip_compressed_description">Прапускаць файлы, якія ўжо былі сціснуты SD Maid.</string>
     <string name="squeezer_exif_marker_title">Запісаць маркер EXIF</string>
     <string name="squeezer_exif_marker_description">Дадае маркер у поле EXIF карыстальніцкага каментарыя ​выявы для прадухілення паўторнага сціскання, нават калі гісторыя сціскання ачышчана.</string>
+    <string name="squeezer_include_lossy_aux_title">Сціскаць фота з HDR і глыбінёй</string>
+    <string name="squeezer_include_lossy_aux_description">Па змаўчанні выключана: фота з картай ўзмацнення HDR або дадзенымі глыбіні/партрэта прапускаюцца, каб яны не страцілі гэтыя дадзеныя. Уключыце, каб сціскаць іх, дзе гэта магчыма, — яны страцяць карту ўзмацнення HDR або дадзеныя глыбіні. Некаторыя шматкадравыя фота HEIC ў любым выпадку застаюцца абароненымі.</string>
     <string name="squeezer_estimated_savings_format">~%s эканоміі</string>
     <string name="squeezer_no_savings_expected">Абмежаваная эканомія</string>
     <string name="squeezer_current_size_format">Памер: %s</string>
@@ -93,6 +107,12 @@
     <string name="squeezer_compare_action">Паглядзець параўнанне</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена носьбіцаў для сціску.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Няма медыяфайлаў для сціскання — %d фота HDR/depth была пропушчана. Уключыце «Сціскаць фота HDR &amp; depth» ў параметрах, каб яе уключыць.</item>
+        <item quantity="few">Няма медыяфайлаў для сціскання — %d фота HDR/depth былі пропушчаны. Уключыце «Сціскаць фота HDR &amp; depth» ў параметрах, каб іх уключыць.</item>
+        <item quantity="many">Няма медыяфайлаў для сціскання — %d фота HDR/depth было пропушчана. Уключыце «Сціскаць фота HDR &amp; depth» ў параметрах, каб іх уключыць.</item>
+        <item quantity="other">Няма медыяфайлаў для сціскання — %d фота HDR/depth было пропушчана. Уключыце «Сціскаць фота HDR &amp; depth» ў параметрах, каб іх уключыць.</item>
+    </plurals>
     <string name="squeezer_setup_warning">Сціск назаўжды зніжае якасць для эканоміі месца на носьбіце. Гэтае дзеянне немагчыма адмяніць. Уважліва праверце налады перад пачаткам.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d месца не можа выкарыстоўвацца для сціску і было выдалена. Сціск патрабуе прамога доступу да ўнутранай памяці.</item>
@@ -105,9 +125,8 @@
     <string name="squeezer_setup_paths_default">Выберыце папкі для пошуку</string>
     <string name="squeezer_setup_quality_title">Якасць сціскання</string>
     <string name="squeezer_setup_age_title">Мінімальны час стварэння</string>
-    
     <string name="squeezer_setup_start_action">Пачаць сканіраванне</string>
-    <string name="squeezer_quality_hint_very_low">Якасць ніжэй за 40% можа прывесці да стварэння непрыдатных для выкарыстання выяў.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">Якасць ніжэй за 40% можа прывесці да стварэння непрыдатных для выкарыстання выяў.</string>
     <string name="squeezer_quality_hint_low">Ніжэйшая якасць дазваляе сэканоміць больш месца, але можа прывесці да з\'яўлення бачных артэфактаў.</string>
     <string name="squeezer_quality_hint_high">Вельмі высокая якасць забяспечвае мінімальную эканомію прасторы.</string>
     <string name="squeezer_quality_hint_normal">Збалансаваная якасць і эканомія прасторы.</string>
@@ -117,6 +136,9 @@
         <item quantity="many">Не менш за %d дзён</item>
         <item quantity="other">Не менш за %d дзён</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Прыкладная эканомія ~%d%% для выяў</string>
+    <string name="squeezer_estimated_savings_percent">Ацэначная эканомія ~%d%% для файлаў JPEG</string>
     <string name="squeezer_onboarding_got_it">Зразумела</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer паўторна сціскае вашыя фота і відэа, каб яны займалі менш месца. Файлы застаюцца прыдатнымі для выкарыстання, проста меншымі, і кожны паказвае сваю прыблізную эканомію.</string>
+    <string name="tour_squeezer_compress_body">Сціскайце усё адразу тут або націсніце на асобны элемент, каб сціснуць толькі яго. Доўгае націсканне, каб выбраць некалькі. Вы заўсёды ўбачыце папярэдні прагляд, перш чым што-небудзь зменіцца.</string>
 </resources>

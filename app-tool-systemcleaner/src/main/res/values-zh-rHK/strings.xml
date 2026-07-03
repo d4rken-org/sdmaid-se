@@ -98,4 +98,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案年齡（最後修改時間）限制符合項目。留空以符合任何年齡。</string>
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
     <string name="systemcleaner_customfilter_export_action">匯出選取的過濾器</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner 使用通用篩選條件尋找垃圾檔案。現成規則涵蓋空資料夾、遺留日誌和過期縮圖等項目。如果您想建立自己的規則，請造訪設定。</string>
+    <string name="tour_systemcleaner_filter_body">每一列都是篩選條件及其發現的項目。開啟其詳細資料可確切查看哪些檔案相符，再進行刪除。</string>
 </resources>

@@ -8,4 +8,16 @@
         <item quantity="other">%d baner valgt</item>
     </plurals>
     <string name="picker_home_action">Dataområder</string>
+    <string name="tour_action_next">Neste</string>
+    <string name="tour_action_previous">Forrige</string>
+    <string name="tour_action_done">Ferdig</string>
+    <string name="tour_action_cancel">Hopp over</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Hoppe over turen?</string>
+    <string name="tour_confirm_message">Du kan aktivere turer på nytt når som helst fra Innstillinger.</string>
+    <string name="tour_confirm_continue">Fortsett omvisning</string>
+    <string name="tour_confirm_dont_show_this_tour">Ikke vis denne omvisningen igjen</string>
+    <string name="tour_confirm_disable_all">Deaktiver alle omvisninger</string>
+    <string name="navigation_unknown_destination_title">Kommer snart</string>
+    <string name="navigation_unknown_destination_message">Denne skjermen migreres fortsatt til det nye brukergrensesnittet.</string>
 </resources>

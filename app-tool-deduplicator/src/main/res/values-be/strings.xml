@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Выдаліць усе копіі, акрамя адной, у кожнай выбранай пары дублікатаў файлаў?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Выдаліць усе файлы ў кожнай выбранай пары дублікатаў? Не застанецца ніводнага файла!</string>
     <string name="deduplicator_delete_all_toggle_msg">Выдаліць усе копіі. Не застанецца ніводнага файла!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Выдаліць %1$d дублікат у гэтым наборе, вызваляючы %2$s? Захавана копія застаецца.</item>
+        <item quantity="few">Выдаліць %1$d дублікаты у гэтым наборе, вызваляючы %2$s? Захавана копія застаецца.</item>
+        <item quantity="many">Выдаліць %1$d дублікатаў у гэтым наборе, вызваляючы %2$s? Захавана копія застаецца.</item>
+        <item quantity="other">Выдаліць %1$d дублікатаў у гэтым наборе, вызваляючы %2$s? Захавана копія застаецца.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s можна вызваліць</string>
+    <string name="deduplicator_action_delete_set">Выдаліць набор дублікатаў</string>
+    <string name="deduplicator_action_open_preview">Адкрыць папярэдні прагляд</string>
+    <string name="deduplicator_marked_for_deletion">Адзначана для выдалення</string>
+    <string name="deduplicator_cluster_preview_image">Папярэдні прагляд набору дублікатаў</string>
+    <string name="deduplicator_selection_keep_one_required">У кожным наборы дублікатаў павінен застацца прынамсі адзін файл. Каб абыйсці гэта абмежаванне, ўключыце ў наладах опцыю «Дазволіць \'Delete all\'».</string>
     <string name="deduplicator_progress_comparing_files">Параўнанне файлаў</string>
     <string name="deduplicator_details_cluster_title">Пара дублікатаў</string>
     <string name="deduplicator_matches_exact_label">Дакладныя копіі</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Перавага меншым файлам</string>
     <string name="deduplicator_view_mode_groups_label">Групы</string>
     <string name="deduplicator_view_mode_directories_label">Папкі</string>
+    <string name="tour_deduplicator_details_cluster_body">Усе гэтыя файлы, здаецца, з\'яўляюцца адным і тым жа элементам або медыяматэрыялам — групай дублікатаў.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Файлы з гэтай іконкай будуць выдалены; астатні файл у групе — той, які пакідае SD Maid. Вы можаце змяніць спосаб выбару файла, які застаецца, у наладах стратэгіі выдалення.</string>
 </resources>

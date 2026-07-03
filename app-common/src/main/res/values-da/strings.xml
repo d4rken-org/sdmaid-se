@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Forstået</string>
     <string name="general_fix_action">Fix</string>
     <string name="general_set_up_action">Opsæt</string>
+    <string name="general_unavailable_label">Ikke tilgængelig</string>
     <string name="general_edit_action">Rediger</string>
     <string name="general_na_label">Ikke tilgængeligt</string>
     <string name="general_empty_label">Tom</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">I kø</string>
     <string name="general_progress_deleting">Sletter</string>
     <string name="general_progress_deleting_x">Sletter %s</string>
+    <string name="general_sort_by_title">Sortér efter</string>
     <string name="general_sort_reverse_action">Omvendt sorteringstilstand</string>
+    <string name="general_sort_oldest_first">Ældste først</string>
+    <string name="general_sort_newest_first">Nyeste først</string>
+    <string name="general_sort_name_asc">Navn (A → Z)</string>
+    <string name="general_sort_size_desc">Størst først</string>
     <string name="general_tag_system">System</string>
+    <string name="general_navigate_up_action">Gå op</string>
+    <string name="general_filter_action">Filtrér</string>
+    <string name="general_filter_by_tags_label">Filtrer efter tags</string>
+    <string name="general_filter_add_action">Tilføj filter</string>
+    <string name="general_filter_remove_x_action">Fjern %s filter</string>
+    <string name="general_filter_empty_row_hint">Tryk + for at filtrere</string>
+    <string name="general_show_all_action">Vis alle</string>
     <string name="general_result_success_message">Operation lykkedes</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Frigjort %s plads.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Indstillinger</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Vis</string>
+    <string name="general_open_action">Åbn</string>
+    <string name="general_configure_action">Konfigurér</string>
     <string name="general_update_action">Opdater</string>
     <string name="general_scan_action">Scan</string>
     <string name="general_close_action">Luk</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d elementer blev fjernet</item>
     </plurals>
     <string name="general_search_action">Søg</string>
+    <string name="general_search_no_matches">Ingen resultater</string>
     <string name="general_open_system_settings_action">Åbn systemindstillinger</string>
+    <string name="general_fast_scroller_action">Hurtig scroller</string>
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
         <item quantity="other">%s elementer</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Aktivér tjeneste</string>
     <string name="general_undo_action">Fortryd</string>
     <string name="general_list_select_all_action">Vælg alle</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d valgt</item>
+        <item quantity="other">%d valgt</item>
+    </plurals>
     <string name="general_path_label">Sti</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Størrelse</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Rapportér fejl</string>
     <string name="general_error_ipc_deadobject_title">Tjenesteforbindelse tabt</string>
     <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart din enhed. Hvis problemet fortsætter, søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
+    <string name="general_error_upgrade_required_title">Pro-versionen påkrævet</string>
+    <string name="general_error_upgrade_required_description">Dette er en Pro-funktion. Opgrader venligst SD Maid SE for at bruge den.</string>
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Risikoniveau</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Vis indstillinger</string>
+    <string name="ui_theme_color_sunset_label">Solnedgang</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Denne funktion kræver root-adgang, men SD Maid kunne ikke få det på denne enhed.</string>
+    <string name="access_blocked_root_declined">Denne funktion kræver root-adgang. Du kan aktivere det via opsætningsskærmen.</string>
+    <string name="access_blocked_root_or_shizuku">Denne funktion kræver root- eller Shizuku-adgang, som ikke er tilgængelig på denne enhed.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Ugyldig sikkerhedskopi-fil</string>
+    <string name="backup_restore_error_invalid_body">Denne fil er ikke en gyldig SD Maid-sikkerhedskopi eller er beskadiget.</string>
+    <string name="backup_restore_error_version_body">Denne sikkerhedskopi blev oprettet med en nyere version af SD Maid. Opdater venligst appen og prøv igen.</string>
+    <string name="backup_restore_error_restore_failed_title">Gendannelse mislykkedes</string>
+    <string name="backup_restore_error_restore_failed_body">Disse dele kunne ikke gendannes: %1$s. Din tidligere konfiguration blev gemt og kan bringes tilbage.</string>
+    <string name="backup_restore_error_safety_title">Gendannelse ikke startet</string>
+    <string name="backup_restore_error_safety_body">SD Maid kunne ikke gemme et sikkerhedsøjeblikksbillede af din nuværende konfiguration, så intet blev ændret.</string>
+    <string name="backup_restore_error_busy_title">Vent venligst</string>
+    <string name="backup_restore_error_busy_body">En rengøringsopgave eller en anden sikkerhedskopiering kører i øjeblikket. Prøv igen, når den er færdig.</string>
+    <string name="backup_restore_error_schema_title">Inkompatibel sikkerhedskopi</string>
+    <string name="backup_restore_error_schema_body">Sikkerhedskopiens databaseformat matcher ikke denne version af SD Maid. Gendannelse af historiedata understøttes kun mellem identiske app-versioner.</string>
 </resources>

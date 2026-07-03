@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Pianificazione completata</string>
     <string name="scheduler_notification_result_success_message">Tutte le attività pianificate sono state eseguite con successo.</string>
     <string name="scheduler_notification_result_failure_message">Alcune attività pianificate sono fallite o hanno riscontrato errori. Provare ad eseguirle manualmente.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Saltato, lo schermo era spento o bloccato</string>
+    <string name="scheduler_acs_screenlocked_hint_title">La pulizia delle app potrebbe essere saltata</string>
+    <string name="scheduler_acs_screenlocked_hint_body">La pulizia delle app utilizza il servizio di accessibilità, che richiede lo schermo sbloccato. Le esecuzioni pianificate mentre il dispositivo è bloccato vengono saltate.\n\nUsa Shizuku o root per la pulizia in background, oppure pianificala per quando stai utilizzando il dispositivo.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Le app di sistema potrebbero essere saltate</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku pulisce la maggior parte delle cache in background, ma le app di sistema richiedono il servizio di accessibilità, che ha bisogno dello schermo sbloccato. Con “Includi app di sistema” attivo, vengono saltate quando il dispositivo è bloccato.\n\nDisattiva “Includi app di sistema”, oppure esegui la pianificazione mentre il dispositivo è sbloccato.</string>
     <string name="scheduler_commands_after_schedule_label">Comandi post-pianificazione</string>
     <string name="scheduler_commands_after_schedule_desc">Comandi del terminale di Android che verranno eseguiti alla fine di una pianificazione.</string>
     <string name="scheduler_battery_optimization_hint">Si consiglia di disattivare l\'ottimizzazione batteria per SD Maid se riscontrano problemi con l\'esecuzione in background.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid può pulire secondo una pianificazione. Scegli l’ora e gli strumenti da eseguire, e farà il lavoro in background, (quasi) senza necessità di aprire l’app.</string>
+    <string name="tour_scheduler_create_body">Tocca qui per creare una nuova pianificazione, quindi imposta quando eseguirla e quali strumenti includere.</string>
 </resources>

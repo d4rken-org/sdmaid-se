@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Brukere med spesielle behov for tilgjengelighet kan aktivere denne tjenesten for å la SD Maid automatisere oppgaver som ellers ville kreve kjedelig manuell brukerhandling (f.eks. sletting av hurtigbuffere).\n\nEksempel: Hvis du instruerer SD Maid til å stoppe flere apper, kan SD Maid bruke denne tjenesten for å åpne instillingsskjermen til hver app, finne \"Tving stopp\"-knappen og trykke på den.\n\nSD Maid vil alltid vise tydelig ved bruk av denne tjenesten, og gir brukeren en enkel måte å avbryte enhver handling umiddelbart.\n\nIngen handlinger vil bli utført uten godkjenning fra brukeren på forhånd. Denne tjenesten kan deaktiveres igjen når som helst uten negative effekter.</string>
     <string name="automation_screenoverlay_explanation">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er fullført eller avbryt den.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er ferdig, eller trykk på Hjem-knappen for å avbryte.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid samhandler med enheten din. Det er ikke mulig å bruke skjermen samtidig. Vent til operasjonen er ferdig.</string>
     <string name="automation_active_title">SD Maid jobber</string>
     <string name="automation_error_no_consent_title">Automatiseringsfeil</string>
     <string name="automation_error_no_consent_body">Tilgjengelighetstjeneste er ikke satt opp. Fullfør oppsettet og gi samtykke.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">En planlagt oppgave prøvde å bruke tilgjengelighetstjenesten, men den var utilgjengelig. Hvis du ikke trenger dette, deaktiver alternativet \"Tilgjengelighetstjeneste\" i planleggerinnstillingene.</string>
     <string name="automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
     <string name="automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
+    <string name="automation_error_interference_title">Innstillingsskjermen er blokkert</string>
+    <string name="automation_error_interference_body">En annen app (%1$s) blokkerer systeminnstillingsskjermen, så SD Maid kan ikke fortsette. Deaktiver app-låsen eller skjermvernbeskyttelsen for systeminnstillingene, og prøv igjen.</string>
     <string name="automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
     <string name="automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
 </resources>

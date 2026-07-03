@@ -28,6 +28,7 @@
     <string name="general_gotit_action">बुझे</string>
     <string name="general_fix_action">ठिक गर्नुहोस्</string>
     <string name="general_set_up_action">सेटअप गर्नुहोस्</string>
+    <string name="general_unavailable_label">उपलब्ध छैन</string>
     <string name="general_edit_action">सम्पादन गर्नुहोस्</string>
     <string name="general_na_label">उपलब्ध छैन</string>
     <string name="general_empty_label">खाली</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">लाइनमा</string>
     <string name="general_progress_deleting">मेटाउँदै</string>
     <string name="general_progress_deleting_x">%s मेटाउँदै</string>
+    <string name="general_sort_by_title">यसद्वारा क्रमबद्ध गर्नुहोस्</string>
     <string name="general_sort_reverse_action">उल्टो क्रमबद्ध मोड</string>
+    <string name="general_sort_oldest_first">पुरानो पहिले</string>
+    <string name="general_sort_newest_first">नयाँ पहिले</string>
+    <string name="general_sort_name_asc">नाम (अ → ज्ञ)</string>
+    <string name="general_sort_size_desc">सबैभन्दा ठूलो पहिले</string>
     <string name="general_tag_system">सिस्टम</string>
+    <string name="general_navigate_up_action">माथि जानुहोस्</string>
+    <string name="general_filter_action">फिल्टर गर्नुहोस्</string>
+    <string name="general_filter_by_tags_label">ट्यागहरू अनुसार फिल्टर गर्नुहोस्</string>
+    <string name="general_filter_add_action">फिल्टर थप्नुहोस्</string>
+    <string name="general_filter_remove_x_action">%s फिल्टर हटाउनुहोस्</string>
+    <string name="general_filter_empty_row_hint">फिल्टर गर्नको लागि + ट्याप गर्नुहोस्</string>
+    <string name="general_show_all_action">सबै देखाउनुहोस्</string>
     <string name="general_result_success_message">सफलतापूर्वक सम्पन्न</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ठाउँ खाली गरियो।</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">विकल्पहरू</string>
     <string name="general_details_label">विवरणहरू</string>
     <string name="general_view_action">हेर्नुहोस्</string>
+    <string name="general_open_action">खोल्नुहोस्</string>
+    <string name="general_configure_action">कन्फिगर गर्नुहोस्</string>
     <string name="general_update_action">अपडेट गर्नुहोस्</string>
     <string name="general_scan_action">स्क्यान गर्नुहोस्</string>
     <string name="general_close_action">बन्द गर्नुहोस्</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d वस्तुहरू हटाइए</item>
     </plurals>
     <string name="general_search_action">खोज्नुहोस्</string>
+    <string name="general_search_no_matches">कुनै मेलखाने छैन</string>
     <string name="general_open_system_settings_action">सिस्टम सेटिङहरू खोल्नुहोस्</string>
+    <string name="general_fast_scroller_action">छिटो स्क्रोलर</string>
     <plurals name="result_x_items">
         <item quantity="one">%s वस्तु</item>
         <item quantity="other">%s वस्तुहरू</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">सेवा सक्षम गर्नुहोस्</string>
     <string name="general_undo_action">पूर्ववत गर्नुहोस्</string>
     <string name="general_list_select_all_action">सबै चयन गर्नुहोस्</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d चयन गरिएको</item>
+        <item quantity="other">%d चयन गरिएका</item>
+    </plurals>
     <string name="general_path_label">पथ</string>
     <string name="general_type_label">प्रकार</string>
     <string name="general_size_label">साइज</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">बग रिपोर्ट गर्नुहोस्</string>
     <string name="general_error_ipc_deadobject_title">सेवा जडान हराएको</string>
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जस्तै Magisk, Shizuku, वा अन्य सिस्टम-स्तर सेवाहरू) को जडान अप्रत्याशित रूपमा हराएको छ। कृपया आफ्नो उपकरण पुनः सुरु गर्नुहोस्। यदि समस्या कायम रह्यो भने, अपडेटहरू जाँच्नुहोस् वा मलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="general_error_upgrade_required_title">Pro संस्करण आवश्यक छ</string>
+    <string name="general_error_upgrade_required_description">यो एक Pro सुविधा हो। यसलाई प्रयोग गर्नको लागि कृपया SD Maid SE लाई अपग्रेड गर्नुहोस्।</string>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">प्रणाली</string>
     <string name="setup_title">सेटअप</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">जोखिम स्तर</string>
     <string name="settings_category_filter">फिल्टर</string>
     <string name="appcontrol_systemsettings_open_title">सेटिङहरू देखाउनुहोस्</string>
+    <string name="ui_theme_color_sunset_label">सूर्यास्त</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">यो सुविधालाई root पहुँच चाहिन्छ, तर SD Maid यस उपकरणमा यो प्राप्त गर्न सकेन।</string>
+    <string name="access_blocked_root_declined">यो सुविधालाई root पहुँच चाहिन्छ। तपाईं यसलाई सेटअप स्क्रिनमार्फत सक्षम गर्न सक्नुहुन्छ।</string>
+    <string name="access_blocked_root_or_shizuku">यो सुविधालाई root वा Shizuku पहुँच चाहिन्छ, जुन यस उपकरणमा उपलब्ध छैन।</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">अमान्य ब्याकअप फाइल</string>
+    <string name="backup_restore_error_invalid_body">यो फाइल मान्य SD Maid ब्याकअप होइन वा दूषित छ।</string>
+    <string name="backup_restore_error_version_body">यो ब्याकअप SD Maid को नयाँ संस्करणको साथ बनाइएको थियो। कृपया अनुप्रयोग अद्यावधिक गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="backup_restore_error_restore_failed_title">पुनर्स्थापन विफल भयो</string>
+    <string name="backup_restore_error_restore_failed_body">यी भागहरू पुनर्स्थापित गर्न सकिएन: %1$s। तपाईंको अघिल्लो कन्फिगरेसन सुरक्षित गरिएको थियो र यसलाई फिर्ता ल्याउन सकिन्छ।</string>
+    <string name="backup_restore_error_safety_title">पुनर्स्थापन शुरु भएन</string>
+    <string name="backup_restore_error_safety_body">SD Maid तपाईंको वर्तमान कन्फिगरेसनको सुरक्षा स्न्यापसट सुरक्षित गर्न सकेन, त्यसैले कुनै पनि परिवर्तन गरिएन।</string>
+    <string name="backup_restore_error_busy_title">कृपया प्रतीक्षा गर्नुहोस्</string>
+    <string name="backup_restore_error_busy_body">एक सफाई कार्य वा अन्य ब्याकअप अपरेशन हाल चलिरहेको छ। यो समाप्त भएपछी पुनः प्रयास गर्नुहोस्।</string>
+    <string name="backup_restore_error_schema_title">असामंजस्यपूर्ण ब्याकअप</string>
+    <string name="backup_restore_error_schema_body">ब्याकअपको डेटाबेस ढाँचा SD Maid को यो संस्करणसँग मेल खाइरहेको छैन। इतिहास डेटा पुनर्स्थापन केवल समान अनुप्रयोग संस्करणहरू बीचमा समर्थित छ।</string>
 </resources>

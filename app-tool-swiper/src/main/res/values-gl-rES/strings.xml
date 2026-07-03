@@ -36,6 +36,17 @@
         <item quantity="one">%d elemento sen decidir permanecerá para revisión posterior.</item>
         <item quantity="other">%d elementos sen decidir permanecerán para revisión posterior.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Esta sesión diríxese a un volume de almacenamento completo — eliminar aquí abarca cada carpeta nese almacenamento.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…e %d carpeta máis</item>
+        <item quantity="other">…e %d carpetas máis</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Entendo que estes ficheiros serán eliminados permanentemente.</string>
+    <string name="swiper_sensitive_root_warning_title">Escanear o almacenamento completo?</string>
+    <string name="swiper_sensitive_root_warning_message">O escaneo de %1$s inclúe cada ficheiro neste almacenamento — fotos, documentos, descargas, multimedia da aplicación e moito máis. Continúas?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continúa de todas formas</string>
+    <string name="swiper_session_risky_label">Escaneo de todo o almacenamento</string>
+    <string name="swiper_session_risky_info_message">Esta sesión apunta á raíz dun volume de almacenamento, polo que cada ficheiro nese almacenamento está en alcance — fotos, documentos, descargas, multimedia da aplicación e moito máis.\n\nOs escaneos de todo o almacenamento poden devolver moitos elementos, incluíndo ficheiros que quizais non tiñas intención de revisar. Aplica un filtro de tipo de ficheiro para reducir o escaneo.</string>
     <string name="swiper_delete_x_action">Eliminar %1$d</string>
     <string name="swiper_settings_swap_directions_title">Intercambiar direccións de deslizamento</string>
     <string name="swiper_settings_swap_directions_summary">Deslizar á esquerda para gardar, á dereita para eliminar.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Introduce un nome para esta sesión</string>
     <string name="swiper_sessions_current_sessions">Sesións actuais</string>
     <string name="swiper_session_paths_label">Rutas</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…e %d máis</item>
+        <item quantity="other">…e %d máis</item>
+    </plurals>
     <string name="swiper_session_status_label">Estado</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d para gardar</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">Non se atoparon ficheiros coincidentes</string>
     <string name="swiper_open_externally_action">Abrir nunha aplicación externa</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Pasa un dedo sobre unha foto para decidir o seu destino: Lateral para mantelo ou eliminalo, arriba para saltalo, abaixo para desfacelo. Os botóns abaixo fan o mesmo — e amosan cal é cada lado.</string>
+    <string name="tour_swiper_openin_body">Este botón abre a foto noutra aplicación, práctico para comprobala antes de decidir.</string>
+    <string name="tour_swiper_preview_body">Este botón abre unha vista previa de pantalla completa para ver con máis detalle.</string>
+    <string name="tour_swiper_actions_body">Non che gusta pasar co dedo? Tamén temos botóns! Saltar deixaa sen decidir para máis tarde, e manter premido Saltar exclúeo dos escaneos futuros. Desfacer reverte a túa última elección.</string>
+    <string name="tour_swiper_review_body">As túas opcións de manter e eliminar están só en borrador. Abre Revisión para revisalas e aplicarlas cando esteas listo.</string>
 </resources>

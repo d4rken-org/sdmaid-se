@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Slette alle bortsett fra en kopi i hvert valgt sett med dupliserte filer?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Slette alle filene i hvert valgt sett med dupliserte filer? Ingen fil blir igjen!</string>
     <string name="deduplicator_delete_all_toggle_msg">Slett alle kopier. Ingen fil blir igjen!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Slett %1$d duplikat i dette settet, frigjør %2$s? Den beholdte kopien blir værende.</item>
+        <item quantity="other">Slett %1$d duplikater i dette settet, frigjør %2$s? Den beholdte kopien blir værende.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s som kan frigjøres</string>
+    <string name="deduplicator_action_delete_set">Slett duplikatsettet</string>
+    <string name="deduplicator_action_open_preview">Åpne forhåndsvisning</string>
+    <string name="deduplicator_marked_for_deletion">Markert for sletting</string>
+    <string name="deduplicator_cluster_preview_image">Forhåndsvisning av duplikatsettet</string>
+    <string name="deduplicator_selection_keep_one_required">Minst én fil per duplikatset må gjenstå. Slå på \"Gjør \'Slett alt\' mulig\" i innstillinger for å overstyre dette.</string>
     <string name="deduplicator_progress_comparing_files">Sammenligner filer</string>
     <string name="deduplicator_details_cluster_title">Sett med duplikater</string>
     <string name="deduplicator_matches_exact_label">Nøyaktige kopier</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Foretrekk mindre filer</string>
     <string name="deduplicator_view_mode_groups_label">Grupper</string>
     <string name="deduplicator_view_mode_directories_label">Mapper</string>
+    <string name="tour_deduplicator_details_cluster_body">Disse filene ser ut til å være det samme elementet eller medieinnhold, en gruppe duplikater.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Filer med dette ikonet blir slettet; den gjenværende filen i gruppen er den som SD Maid beholder. Du kan endre hvordan den som beholdes velges i innstillingene for slettingsstrategi.</string>
 </resources>

@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">Penjadual selesai</string>
     <string name="scheduler_notification_result_success_message">Semua tugas berjadual berjalan dengan jayanya.</string>
     <string name="scheduler_notification_result_failure_message">Beberapa tugas berjadual gagal atau menghadapi ralat. Cuba jalankan secara manual.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Dilangkau, skrin telah mati atau terkunci</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Pembersihan apl mungkin dilangkau</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Pembersihan apl menggunakan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Larian berjadual apabila peranti terkunci akan dilangkau.
+
+Gunakan Shizuku atau root untuk pembersihan latar belakang, atau jadualkan apabila anda sedang menggunakan peranti.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Apl sistem mungkin dilangkau</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku membersihkan kebanyakan cache di latar belakang, tetapi apl sistem memerlukan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Dengan \"Sertakan apl sistem\" dihidupkan, apl tersebut dilangkau apabila peranti terkunci.
+
+Matikan \"Sertakan apl sistem\", atau jalankan jadual semasa peranti dibuka kunci.</string>
     <string name="scheduler_commands_after_schedule_label">Arahan selepas jadual</string>
     <string name="scheduler_commands_after_schedule_desc">Arahan shell Android yang akan dilaksanakan pada akhir jadual.</string>
     <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk melumpuhkan pengoptimuman bateri untuk SD Maid jika anda menghadapi masalah dengan pelaksanaan latar belakang.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid boleh membersihkan mengikut jadual. Pilih waktu dan alat mana yang dijalankan, dan ia melakukan kerja di latar belakang, (hampir) tidak perlu membuka aplikasi.</string>
+    <string name="tour_scheduler_create_body">Ketik di sini untuk membuat jadual baharu, kemudian tetapkan bila ia dijalankan dan alat mana untuk disertakan.</string>
 </resources>

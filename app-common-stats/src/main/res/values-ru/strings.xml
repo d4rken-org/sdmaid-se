@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Основное хранилище</string>
     <string name="stats_storage_type_secondary">Дополнительное хранилище</string>
     <string name="stats_storage_type_portable">Съёмный накопитель</string>
+    <string name="stats_space_history_delete_storage_title">Удалить историю хранилища?</string>
+    <string name="stats_space_history_delete_storage_desc">Все данные об этом хранилище будут окончательно удалены.</string>
 </resources>

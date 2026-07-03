@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Nâng cấp SD Maid SE</string>
     <string name="upgrades_dashcard_body">Mở khóa các tính năng bổ sung và trở thành người bảo trợ để hỗ trợ sự phát triển liên tục!</string>
     <string name="upgrades_dashcard_upgrade_action">Nâng cấp</string>
-    <string name="upgrade_screen_title">Cải thiện SD Maid</string>
+    <string name="upgrade_screen_title">Hỗ trợ SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Chỉ có bạn mới có thể tiếp tục phát triển.</string>
     <string name="upgrade_screen_how_title">Làm thế nào để giúp đỡ</string>
     <string name="upgrade_screen_how_body">Trở thành người bảo trợ và tài trợ phát triển! Nhấp vào nút bên dưới để kích hoạt tất cả các tính năng bổ sung và mở hồ sơ Nhà tài trợ GitHub của tôi.</string>
-    <string name="upgrade_screen_why_title">Điều này gợi lên 🪄</string>
-    <string name="upgrade_screen_why_body">• Chức năng xóa AppCleaner 💯\n• Hoạt động theo lịch trình ⏰\n• Tùy chọn bổ sung cho tất cả các công cụ ⚙️\n• Quy tắc xóa của riêng bạn ✍️\n• Nhà phát triển năng động 🧙\nvà hơn thế nữa…</string>
+    <string name="upgrade_screen_why_title">Lợi ích nâng cấp</string>
+    <string name="upgrade_screen_why_body">• Xóa bộ nhớ cache ứng dụng và dữ liệu không cần thiết\n• Xóa các tệp trùng lặp\n• Bật dọn dẹp theo lịch\n• Tạo bộ lọc tùy chỉnh và quy tắc dọn dẹp\n• Theo dõi xu hướng lưu trữ và lịch sử dọn dẹp\n• Nhiều tính năng và điều khiển hơn trên toàn ứng dụng\n• Hỗ trợ công việc mã nguồn mở</string>
     <string name="upgrade_screen_sponsor_action">Tài trợ nhà phát triển</string>
     <string name="upgrade_screen_sponsor_action_hint">Giải pháp thay thế là quảng cáo, phân tích và Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Cảm ơn bạn đã hỗ trợ phát triển mã nguồn mở ❤️</string>

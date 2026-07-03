@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">استخدم خيار \"استعادة المُشتَرَى\" لاستعادة عملية الشراء الخاصة بك. إذا استمرت المشكلة، حاول مسح ذاكرة التخزين المؤقت لـ Google Play وإعادة تشغيل جهازك.</string>
     <string name="upgrade_screen_title">احصل على SD Maid SE الاحترافي</string>
     <string name="upgrade_screen_preamble">لا يعرض SD Maid أية إعلانات ولا يبيع بيانات المستخدم. يتم تمويل عملي من قِبَلكم ❤️.</string>
-    <string name="upgrade_screen_benefits_title">المميزات</string>
-    <string name="upgrade_screen_benefits_body">• تنظيف التطبيق 💯\n • عمليات مجدولة ⏰\n• خيارات إضافية لجميع الأدوات ⚙️\n• قواعد الحذف الخاصة بك ✍️\n• مطور متحمس 🧙\n والمزيد…</string>
+    <string name="upgrade_screen_benefits_title">فوائد الترقية</string>
+    <string name="upgrade_screen_benefits_body">• تنظيف ذاكرات التطبيقات المؤقتة والبيانات غير الضرورية\n• إزالة الملفات المكررة\n• تفعيل التنظيف المجدول\n• إنشاء عوامل تصفية مخصصة وقواعد التنظيف\n• تتبع اتجاهات التخزين وسجل التنظيف\n• مزيد من الميزات والتحكم في جميع أنحاء التطبيق\n• دعم التطوير المستمر</string>
     <string name="upgrade_screen_how_title">الخيارات</string>
     <string name="upgrade_screen_how_body">يمكنك الاختيار بين شراء مرّة واحدة واشتراك سنوي أرخص.\nيبدأ الاشتراك بالتجربة المجانية لمدة 14 يوما، وبعد ذلك ستتقاضى رسوما مرة واحدة في السنة. يمكن إلغاء التجربة والاشتراك في أي وقت.\nنفس الميزات لكن بنماذج تسعير مختلفة.</string>
+    <string name="upgrade_screen_subscription_offer_title">الاشتراك السنوي</string>
+    <string name="upgrade_screen_iap_offer_title">شراء مرة واحدة</string>
+    <string name="upgrade_screen_offer_recommended">موصى به</string>
+    <string name="upgrade_screen_offers_unavailable_message">لا يمكن تحميل الأسعار الآن. تحقق من Google Play وحاول مرة أخرى بعد قليل.</string>
     <string name="upgrade_screen_subscription_trial_action">بدء التجربة المجانية لمدة 14 يوماً</string>
     <string name="upgrade_screen_subscription_action">اشتراك</string>
     <string name="upgrade_screen_subscription_action_hint">الاشتراك يكلف %s لكل سنة.</string>

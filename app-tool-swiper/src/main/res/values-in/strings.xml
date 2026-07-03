@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d item belum diputuskan akan tetap ada untuk ditinjau nanti.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Sesi ini menargetkan seluruh volume penyimpanan — menghapus di sini mencakup setiap folder di penyimpanan tersebut.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…dan %d folder lagi</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Saya memahami file-file ini akan dihapus secara permanen.</string>
+    <string name="swiper_sensitive_root_warning_title">Pindai seluruh penyimpanan?</string>
+    <string name="swiper_sensitive_root_warning_message">Pemindaian %1$s mencakup setiap file di penyimpanan ini — foto, dokumen, unduhan, media aplikasi, dan lainnya. Lanjutkan?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Lanjutkan saja</string>
+    <string name="swiper_session_risky_label">Pemindaian seluruh penyimpanan</string>
+    <string name="swiper_session_risky_info_message">Sesi ini menargetkan root volume penyimpanan, jadi setiap file di penyimpanan tersebut berada dalam jangkauan — foto, dokumen, unduhan, media aplikasi, dan lainnya.
+
+Pemindaian seluruh penyimpanan dapat mengembalikan banyak item, termasuk file yang mungkin tidak ingin Anda tinjau. Terapkan filter tipe file untuk mempersempit pemindaian.</string>
     <string name="swiper_delete_x_action">Hapus %1$d</string>
     <string name="swiper_settings_swap_directions_title">Tukar arah geser</string>
     <string name="swiper_settings_swap_directions_summary">Geser ke kiri untuk simpan, geser ke kanan untuk hapus.</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">Masukkan nama untuk sesi ini</string>
     <string name="swiper_sessions_current_sessions">Sesi saat ini</string>
     <string name="swiper_session_paths_label">Jalur</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…dan %d lagi</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d untuk disimpan</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">Difilter: %1$s</string>
     <string name="swiper_session_no_matching_files">Tidak ada file yang cocok ditemukan</string>
     <string name="swiper_open_externally_action">Buka di aplikasi eksternal</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Geser foto untuk memutuskan nasibnya: Menyamping untuk menyimpan atau menghapus, ke atas untuk lewati, ke bawah untuk batalkan. Tombol di bawah melakukan hal yang sama — dan menunjukkan sisi mana yang mana.</string>
+    <string name="tour_swiper_openin_body">Tombol ini membuka foto di aplikasi lain, berguna untuk memeriksanya sebelum memutuskan.</string>
+    <string name="tour_swiper_preview_body">Tombol ini membuka pratinjau layar penuh untuk melihat lebih dekat.</string>
+    <string name="tour_swiper_actions_body">Tidak suka menggeser? Kami juga punya tombol! Lewati membiarkannya belum diputuskan untuk nanti, dan menekan lama Lewati mengecualikan file dari pemindaian masa depan. Batalkan mengembalikan pilihan terakhir Anda.</string>
+    <string name="tour_swiper_review_body">Pilihan menyimpan dan menghapus Anda hanya dipersiapkan. Buka Tinjau untuk meninjau pilihan dan terapkan penghapusan saat Anda siap.</string>
 </resources>

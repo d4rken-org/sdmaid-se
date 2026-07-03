@@ -33,6 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">Antrinė atmintis, įprasta nuimama SD kortelė. Turi laikmenų failus ir duomenis iš ją palaikantų programų.</string>
     <string name="analyzer_storage_type_tertiary_title">Keliū laikmenų atmintis</string>
     <string name="analyzer_storage_type_tertiary_description">Keliū laikmenų atmintis, pvz. \"flash drive\" įjungta į jūsų USB prievadą.</string>
+    <string name="analyzer_storage_identifier_internal">Vidinė saugykla</string>
     <string name="analyzer_storage_content_title">Atminties turinys</string>
     <string name="analyzer_storage_content_type_app_label">Programos</string>
     <string name="analyzer_storage_content_type_app_description">Vieta, užimama įdiegtomis programomis ir jų duomenimis (t.y. programos failais, duomenimis ir talpyklomis).</string>
@@ -43,6 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">Sistemos programos ir sistemos duomenys. Programos ir duomenys iš kitų vartotojų, jei šiame įrenginyje nustatytos kelios vartotojų paskyros.</string>
     <string name="analyzer_storage_content_type_system_other_label">Kita</string>
     <string name="analyzer_storage_content_type_system_info">Failai, kurie netinka programų ar vartotojo failų kategorijoms. Tik naršymas — ištrynimas nepalaikomas. Kai kurios sritys gali būti neišsamios dėl prieigos apribojimų.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Šiuo metu failai negali būti susieti su jų savininko programomis. Dydžiai rodomi tik kaip nuoroda – naikinimas, filtrai ir Swiper yra išjungti.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sisteminiai failai ir kiti duomenys, kurių SD Maid negalėjo pasiekti ar suskirstyti į kategorijas. Operatė sistema riboja kai kurių sričių turinio peržiūrą.</string>
     <string name="analyzer_storage_content_app_code_label">Programos kodas</string>
     <string name="analyzer_storage_content_app_code_description">Programos failai, bibliotekos ir ištekliai. Ši vieta gali būti atlaisvinta išdiegiant programą arba ją archyvuojant (galima naujesnose Android versijose).</string>
@@ -55,4 +57,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ši programa užima %1$s „%2$s“.</string>
     <string name="analyzer_app_details_app_is_archived">Ši programa yra archyvuota.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s per 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Pažiūrėkite, kas iš tiesų užima jūsų saugyklą. Analyzer nusako, kur eina jūsų vieta. Kiekviena kortelė – jūsų įrenginio saugyklos dalis.</string>
+    <string name="tour_analyzer_storage_body">Atidarykite saugyklą, kad ją suskaidytumėte į programas, mediją ir failus, tada toliau bakstelėkite, norėdami rasti didžiausius dydžio šaltinius.</string>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">ਆਪਣੀ ਖਰੀਦ ਨੂੰ ਰੀਸਟੋਰ ਕਰਨ ਲਈ \"ਖਰੀਦਦਾਰੀ ਰੀਸਟੋਰ ਕਰੋ\" ਵਿਕਲਪ ਵਰਤੋ। ਜੇ ਸਮੱਸਿਆ ਬਣੀ ਰਹਿੰਦੀ ਹੈ, ਤਾਂ Google Play ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਅਤੇ ਆਪਣੀ ਡਿਵਾਈਸ ਰੀਸਟਾਰਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="upgrade_screen_preamble">SD Maid ਵਿੱਚ ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ ਹਨ ਅਤੇ ਇਹ ਉਪਭੋਗਤਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ। ਮੇਰਾ ਕੰਮ ਤੁਹਾਡੇ ਦੁਆਰਾ ਵਿੱਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ❤️।</string>
-    <string name="upgrade_screen_benefits_title">ਲਾਭ</string>
-    <string name="upgrade_screen_benefits_body">• ਐਪ ਕਲੀਨਿੰਗ 💯\n• ਨਿਯਮਤ ਕਾਰਵਾਈਆਂ ⏰\n• ਸਾਰੇ ਟੂਲਸ ਲਈ ਵਾਧੂ ਵਿਕਲਪ ⚙️\n• ਤੁਹਾਡੇ ਆਪਣੇ ਮਿਟਾਉਣ ਦੇ ਨਿਯਮ ✍️\n• ਇੱਕ ਪ੍ਰੇਰਿਤ ਡਿਵੈਲਪਰ 🧙\nਅਤੇ ਹੋਰ…</string>
+    <string name="upgrade_screen_benefits_title">ਅਪਗ੍ਰੇਡ ਲਾਭ</string>
+    <string name="upgrade_screen_benefits_body">• ਐਪ ਕੈਸ਼ ਅਤੇ ਖਰਚ ਕਰਨ ਯੋਗ ਡੇਟਾ ਸਾਫ ਕਰੋ
+• ਡੁਪਲੀਕੇਟ ਫਾਇਲਾਂ ਹਟਾਓ
+• ਨਿਰਧਾਰਿਤ ਸਫਾਈ ਨੂੰ ਸਮਰਥ ਬਣਾਓ
+• ਕਸਟਮ ਫਿਲਟਰ ਅਤੇ ਸਫਾਈ ਨਿਯਮ ਬਣਾਓ
+• ਸਟੋਰੇਜ ਰੁਝਾਨਾਂ ਅਤੇ ਸਫਾਈ ਇਤਿਹਾਸ ਨੂੰ ਟ੍ਰੈਕ ਕਰੋ
+• ਐਪ ਭਰ ਵਿੱਚ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਤੇ ਨਿਯੰਤਰਣ
+• ਨਿਰੰਤਰ ਵਿਕਾਸ ਨੂੰ ਸਮਰਥਨ ਦਿਓ</string>
     <string name="upgrade_screen_how_title">ਵਿਕਲਪ</string>
     <string name="upgrade_screen_how_body">ਤੁਸੀਂ ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਅਤੇ ਸਸਤੀ ਸਾਲਾਨਾ ਗਾਹਕੀ ਵਿੱਚੋਂ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ।\nਗਾਹਕੀ 14-ਦਿਨਾਂ ਦੇ ਮੁਫਤ ਟ੍ਰਾਇਲ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ, ਜਿਸ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਸਾਲ ਵਿੱਚ ਇੱਕ ਵਾਰ ਚਾਰਜ ਕੀਤਾ ਜਾਵੇਗਾ। ਟ੍ਰਾਇਲ ਅਤੇ ਗਾਹਕੀ ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।\nਉਹੀ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਸਿਰਫ ਵੱਖਰੇ ਮੁੱਲ ਨਿਰਧਾਰਣ ਮਾਡਲ।</string>
+    <string name="upgrade_screen_subscription_offer_title">ਸਾਲਾਨਾ ਗ੍ਰਾਹਕੀ</string>
+    <string name="upgrade_screen_iap_offer_title">ਇੱਕ ਵਾਰ ਖਰੀਦੋ</string>
+    <string name="upgrade_screen_offer_recommended">ਸਿਫ਼ਾਰਿਸ਼ੀ</string>
+    <string name="upgrade_screen_offers_unavailable_message">ਕੀਮਤਾਂ ਇਸ ਸਮੇਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ। Google Play ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਇੱਕ ਪਲ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="upgrade_screen_subscription_trial_action">ਮੁਫਤ 14-ਦਿਨਾਂ ਦਾ ਟ੍ਰਾਇਲ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="upgrade_screen_subscription_action">ਗਾਹਕੀ ਲਓ</string>
     <string name="upgrade_screen_subscription_action_hint">ਗਾਹਕੀ ਦੀ ਲਾਗਤ %s ਪ੍ਰਤੀ ਸਾਲ ਹੈ।</string>

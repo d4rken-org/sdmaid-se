@@ -33,6 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">Sekundární úložiště, obvykle vyměnitelná SD karta. Obsahuje mediální soubory a data z aplikací, které jej podporují.</string>
     <string name="analyzer_storage_type_tertiary_title">Přenosné úložiště</string>
     <string name="analyzer_storage_type_tertiary_description">Přenosné úložiště, např. flash disk připojen k USB.</string>
+    <string name="analyzer_storage_identifier_internal">Interní úložiště</string>
     <string name="analyzer_storage_content_title">Obsah úložiště</string>
     <string name="analyzer_storage_content_type_app_label">Aplikace</string>
     <string name="analyzer_storage_content_type_app_description">Prostor obsazený instalovanými aplikacemi a jejich daty (např. soubory aplikace, data a mezipaměť).</string>
@@ -43,6 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">Systémové aplikace a systémová data. Aplikace a data od jiných uživatelů, pokud je v tomto zařízení nastaveno více uživatelských účtů.</string>
     <string name="analyzer_storage_content_type_system_other_label">Ostatní</string>
     <string name="analyzer_storage_content_type_system_info">Soubory, které nespadají do kategorií Aplikace nebo Uživatelské soubory. Pouze procházení — mazání není podporováno. Některé oblasti mohou být neúplné z důvodu omezení přístupu.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Soubory nyní nelze přiřadit příslušným aplikacím. Velikosti jsou zobrazeny pouze pro referenci — smazání, filtry a Swiper jsou zakázány.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systémové soubory a další data, ke kterým SD Maid nemohl přistupovat nebo je zařadit. Operační systém omezuje výpis obsahu některých oblastí.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikace</string>
     <string name="analyzer_storage_content_app_code_description">Soubory aplikace, knihovny a prostředky. Tento prostor může být uvolněn odinstalováním aplikace nebo její archivací (dostupné v novějších verzích Android).</string>
@@ -55,4 +57,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Tato aplikace zabírá %1$s v \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Tato aplikace byla archivována.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Podívejte se, co ve skutečnosti zabírá místo v úložišti. Analyzer mapuje, kam vaše místo odchází. Každá z těchto karet je paměťový čip na vašem zařízení.</string>
+    <string name="tour_analyzer_storage_body">Otevřete úložiště a rozdělte jej na aplikace, média a soubory, pak pokračujte v hledání největších viníků.</string>
 </resources>

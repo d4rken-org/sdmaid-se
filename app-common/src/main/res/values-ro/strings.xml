@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Am înțeles</string>
     <string name="general_fix_action">Repară</string>
     <string name="general_set_up_action">Configurare</string>
+    <string name="general_unavailable_label">Indisponibil</string>
     <string name="general_edit_action">Editează</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Gol</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">În coadă</string>
     <string name="general_progress_deleting">Se sterge</string>
     <string name="general_progress_deleting_x">Se șterge %s</string>
+    <string name="general_sort_by_title">Sortare după</string>
     <string name="general_sort_reverse_action">Modul de sortare inversă</string>
+    <string name="general_sort_oldest_first">Cele mai vechi primele</string>
+    <string name="general_sort_newest_first">Cele mai noi primele</string>
+    <string name="general_sort_name_asc">Nume (A → Z)</string>
+    <string name="general_sort_size_desc">Cele mai mari primele</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_navigate_up_action">Navighează în sus</string>
+    <string name="general_filter_action">Filtrează</string>
+    <string name="general_filter_by_tags_label">Filtrează după etichete</string>
+    <string name="general_filter_add_action">Adaugă filtru</string>
+    <string name="general_filter_remove_x_action">Elimină filtrul %s</string>
+    <string name="general_filter_empty_row_hint">Apasă + pentru a filtra</string>
+    <string name="general_show_all_action">Arată tot</string>
     <string name="general_result_success_message">Operațiune cu succes</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">S-a eliberat %s spațiu.</item>
@@ -75,6 +88,8 @@
     <string name="general_options_label">Opțiuni</string>
     <string name="general_details_label">Detalii</string>
     <string name="general_view_action">Vezi</string>
+    <string name="general_open_action">Deschide</string>
+    <string name="general_configure_action">Configurează</string>
     <string name="general_update_action">Actualizează</string>
     <string name="general_scan_action">Scanează</string>
     <string name="general_close_action">Închide</string>
@@ -101,7 +116,9 @@
         <item quantity="other">%d elemente au fost eliminate</item>
     </plurals>
     <string name="general_search_action">Caută</string>
+    <string name="general_search_no_matches">Nicio potrivire</string>
     <string name="general_open_system_settings_action">Deschide setările de sistem</string>
+    <string name="general_fast_scroller_action">Scroller rapid</string>
     <plurals name="result_x_items">
         <item quantity="one">%s articol</item>
         <item quantity="few">%s articole</item>
@@ -129,6 +146,11 @@
     <string name="general_enable_service_action">Activează serviciul</string>
     <string name="general_undo_action">Anulă</string>
     <string name="general_list_select_all_action">Selectare tot</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d selectat</item>
+        <item quantity="few">%d selectați</item>
+        <item quantity="other">%d selectați</item>
+    </plurals>
     <string name="general_path_label">Cale</string>
     <string name="general_type_label">Tip</string>
     <string name="general_size_label">Dimensiune</string>
@@ -165,6 +187,8 @@
     <string name="general_error_report_bug_action">Raportare problemă</string>
     <string name="general_error_ipc_deadobject_title">Conexiune la servicii pierdută</string>
     <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Shizuku sau alte servicii la nivel de sistem) au fost pierdute în mod neașteptat. Vă rugăm să reporniți dispozitivul. Dacă problema persistă, verificați dacă există actualizări sau contactați-mă, astfel încât să o pot rezolva.</string>
+    <string name="general_error_upgrade_required_title">Versiune Pro necesară</string>
+    <string name="general_error_upgrade_required_description">Aceasta este o funcție Pro. Te rog să faci upgrade la SD Maid SE pentru a o utiliza.</string>
     <string name="general_user_label_owner">Proprietar</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Parte de configurare</string>
@@ -191,4 +215,22 @@
     <string name="settings_category_risklevel">Nivel de risc</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Arată setările</string>
+    <string name="ui_theme_color_sunset_label">Apus</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Această funcție necesită acces root, dar SD Maid nu a putut să-l obțină pe acest dispozitiv.</string>
+    <string name="access_blocked_root_declined">Această funcție necesită acces root. Poți să-l activezi din ecranul de configurare.</string>
+    <string name="access_blocked_root_or_shizuku">Această funcție necesită acces root sau Shizuku, care nu este disponibil pe acest dispozitiv.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Fișier de copie de siguranță nevalid</string>
+    <string name="backup_restore_error_invalid_body">Acest fișier nu este o copie de siguranță validă a SD Maid sau este corupt.</string>
+    <string name="backup_restore_error_version_body">Această copie de siguranță a fost creată cu o versiune mai nouă a SD Maid. Te rog să actualizezi aplicația și să încerci din nou.</string>
+    <string name="backup_restore_error_restore_failed_title">Restaurarea a eșuat</string>
+    <string name="backup_restore_error_restore_failed_body">Aceste componente nu au putut fi restaurate: %1$s. Configurația anterioară a fost salvată și poate fi recuperată.</string>
+    <string name="backup_restore_error_safety_title">Restaurarea nu a fost pornită</string>
+    <string name="backup_restore_error_safety_body">SD Maid nu a putut salva o copie de siguranță a configurației tale actuale, deci nimic nu a fost modificat.</string>
+    <string name="backup_restore_error_busy_title">Te rog așteaptă</string>
+    <string name="backup_restore_error_busy_body">O sarcină de curățare sau o altă operație de copiere de siguranță se execută în prezent. Încearcă din nou când s-a terminat.</string>
+    <string name="backup_restore_error_schema_title">Copie de siguranță incompatibilă</string>
+    <string name="backup_restore_error_schema_body">Formatul bazei de date al copiei de siguranță nu se potrivește cu această versiune a SD Maid. Restaurarea datelor istoricului este suportată doar între versiunile identice ale aplicației.</string>
 </resources>

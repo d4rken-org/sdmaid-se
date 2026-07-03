@@ -10,4 +10,16 @@
         <item quantity="other">נבחרו %d נתיבים</item>
     </plurals>
     <string name="picker_home_action">אזורי נתונים</string>
+    <string name="tour_action_next">הבא</string>
+    <string name="tour_action_previous">הקודם</string>
+    <string name="tour_action_done">סיום</string>
+    <string name="tour_action_cancel">דלג</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">לדלג על הסיור?</string>
+    <string name="tour_confirm_message">ניתן להפעיל סיורים מחדש בכל עת מהגדרות.</string>
+    <string name="tour_confirm_continue">המשך בסיור</string>
+    <string name="tour_confirm_dont_show_this_tour">אל תציג סיור זה</string>
+    <string name="tour_confirm_disable_all">השבת את כל הסיורים</string>
+    <string name="navigation_unknown_destination_title">בקרוב</string>
+    <string name="navigation_unknown_destination_message">מסך זה עדיין בתהליך מעבר לממשק החדש.</string>
 </resources>

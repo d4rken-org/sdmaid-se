@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Upravitelj izuzetaka</string>
     <string name="exclusion_manager_desc">Upravljajte izuzecima datoteka i aplikacija.</string>
-    <string name="exclusion_explanation_body1">Izuzmite datoteke i aplikacije iz operacija SD Maida.</string>
-    <string name="exclusion_add_new_hint">Dodajte nove izuzetke tako da prvo pustite SD Maid da traži, a zatim koristite kontekstni izbornik na rezultatu koji želite izuzeti.</string>
+    <string name="exclusion_explanation_body1">Isključite datoteke i aplikacije kako biste ih zaštitili od SD Maid alata, ili kako biste preskočili nevažne stavke i ubrzali operacije.</string>
+    <string name="exclusion_add_new_hint">Još nema isključenja. Koristite + gumb kako biste stvorili jedno, ili isključite stavke iz rezultata bilo kojeg alata.</string>
     <string name="exclusion_create_action">Stvori izuzetak</string>
     <string name="exclusion_edit_action">Uredi izuzetak</string>
     <string name="exclusion_type_package">Izuzimanje aplikacije</string>
@@ -24,5 +24,16 @@
     <string name="exclusion_export_action">Izvezi izuzetke</string>
     <string name="exclusion_create_pkg_hint">Upotrijebite alat Kontrola aplikacija za stvaranje izuzetaka aplikacija.</string>
     <string name="exclusion_create_path_hint">Upotrijebite alat \"Analizator pohrane\" za stvaranje izuzetaka putanja.</string>
+    <string name="exclusion_create_segment_hint">Pronađite segment imena, npr. \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Prikaži zadano</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d isključenje uvezeno</item>
+        <item quantity="few">%d isključenja uvezena</item>
+        <item quantity="other">%d isključenja uvezeno</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d isključenje izvezeno</item>
+        <item quantity="few">%d isključenja izvezena</item>
+        <item quantity="other">%d isključenja izvezeno</item>
+    </plurals>
 </resources>

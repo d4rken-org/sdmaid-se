@@ -36,6 +36,17 @@
         <item quantity="one">%d qərarsız element sonrakı nəzərdən keçirmə üçün qalacaq.</item>
         <item quantity="other">%d qərarsız element sonrakı nəzərdən keçirmə üçün qalacaq.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Bu sessiya bütün saxlama cildi hədəf almış — burada silmə həmin saxlamada hər bir qovluğa yayılır.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…və %d daha qovluq</item>
+        <item quantity="other">…və %d daha qovluq</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Mən başa düşürəm ki, bu fayllar daimi olaraq silinəcəkdir.</string>
+    <string name="swiper_sensitive_root_warning_title">Bütün saxlamanı skanlamaq?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s-in skanlanması bu saxlamadakı hər bir faylı — fotoları, sənədləri, endirmələri, tətbiq mediyasını və daha çoxunu daxil edir. Davam etmək?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Yenə də davam et</string>
+    <string name="swiper_session_risky_label">Bütün saxlamanın skanlanması</string>
+    <string name="swiper_session_risky_info_message">Bu oturuş saxlama həcminin kökünə yönəldilmişdir, buna görə də bu saxlamadakı hər bir fayl əhatə dairəsindədir — fotolar, sənədlər, endirmələr, tətbiq mediyası və daha çoxu.\n\nBütün saxlama skanları çoxlu element qaytara bilər, o cümlədən baxmaq niyyətində olmadığınız fayllar daxil olmaqla. Skanı daraltmaq üçün fayl növünə görə filtr tətbiq edin.</string>
     <string name="swiper_delete_x_action">%1$d sil</string>
     <string name="swiper_settings_swap_directions_title">Sürüşdürmə istiqamətlərini dəyiş</string>
     <string name="swiper_settings_swap_directions_summary">Saxlamaq üçün sola, silmək üçün sağa sürüşdürün.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Bu sessiya üçün ad daxil edin</string>
     <string name="swiper_sessions_current_sessions">Mövcud sessiyalar</string>
     <string name="swiper_session_paths_label">Yollar</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…və %d daha</item>
+        <item quantity="other">…və %d daha</item>
+    </plurals>
     <string name="swiper_session_status_label">Vəziyyət</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d saxlanacaq</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Filtrləndi: %1$s</string>
     <string name="swiper_session_no_matching_files">Uyğun fayl tapılmadı</string>
     <string name="swiper_open_externally_action">Xərici tətbibdə aç</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Bir fotonu sürüşdürərək onun taləyini həll edin: saxlamaq və ya silmək üçün yana, keçmək üçün yuxarı, geri almaq üçün aşağı sürüşdürün. Aşağıdakı düymələr də eynisini edir — və hansı tərəfin nə olduğunu göstərir.</string>
+    <string name="tour_swiper_openin_body">Bu düymə fotonu başqa bir tətbiqdə açır, qərar verməzdən əvvəl yoxlamaq üçün əlverişlidir.</string>
+    <string name="tour_swiper_preview_body">Bu düymə daha yaxından baxmaq üçün tam ekran önizləməsi açır.</string>
+    <string name="tour_swiper_actions_body">Sürüşdürməyi bəyənmirsiniz? Düymələrimiz də var! Keç düyməsi qərarı sonraya saxlayır, Keç düyməsinə uzun basmaq isə faylı gələcək skanlardan çıxarır. Geri al son seçiminizi ləğv edir.</string>
+    <string name="tour_swiper_review_body">Saxlama və silmə seçimləriniz yalnız hazırlanmış vəziyyətdədir. Nəzərdən Keçir bölməsini açaraq onları yoxlayın və silməyə hazır olduğunuzda tətbiq edin.</string>
 </resources>

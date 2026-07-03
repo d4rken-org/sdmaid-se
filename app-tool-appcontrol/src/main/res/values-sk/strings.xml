@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Veľkosť</string>
     <string name="appcontrol_list_sortmode_screentime_label">Čas obrazovky</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Veľkosti aplikácií sú odhadované z dôvodu výkonu. Pre presnejšie údaje použite nástroj Analyzátor úložiska.</string>
+    <string name="appcontrol_list_filteroptions_label">Možnosti filtrovania</string>
+    <string name="appcontrol_list_fastscroller_action">Rýchly posúvač</string>
     <string name="appcontrol_progress_uninstalling_app">Odinštaluje sa</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikácia bola odinštalovaná</item>
@@ -139,4 +141,8 @@
     <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
     <string name="shortcut_appcontrol_short">Kontrola aplikácií</string>
     <string name="shortcut_appcontrol_long">Správa nainštalovaných aplikácií</string>
+    <string name="tour_appcontrol_search_body">Vyhľadajte aplikáciu podľa názvu. Užitočné na zariadeniach s mnohými nainštalovanými aplikáciami.</string>
+    <string name="tour_appcontrol_filter_body">Zúžte zoznam podľa aplikácií používateľa/systému, stavu povolenia, nedávnej aktivity a ďalších. Aktívne filtre sa tu zobrazujú ako čipy.</string>
+    <string name="tour_appcontrol_sort_body">Zoraďte aplikácie podľa názvu, dátumu inštalácie, poslednej aktualizácie, veľkosti alebo času na obrazovke. Klepnutím na rovnakú možnosť zmeňte smer.</string>
+    <string name="tour_appcontrol_app_row_body">Klepnite na aplikáciu, aby ste otvorili jej podrobnosti a dostupné akcie. Dlhým stlačením začnite výber a používajte hromadné akcie.</string>
 </resources>

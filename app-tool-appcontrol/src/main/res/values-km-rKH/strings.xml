@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">ទំហំ</string>
     <string name="appcontrol_list_sortmode_screentime_label">សម្អែវេលាស្វើសហន្តៀឧបករណ៍</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ទំហំកម្មវិធីត្រូវបានប័តិម្ឡ័លសម្រាប់លក្ខណៈសម្វ័ង។ ប្រើបរស់ឡាឡ់ StorageAnalyzer សម្រាប់តិន្នន័យផ័ត់ពិតជាង។</string>
+    <string name="appcontrol_list_filteroptions_label">ជម្រើសប័ន្ទ័វរង់</string>
+    <string name="appcontrol_list_fastscroller_action">ឧបករណ៍រំកិលលឿន</string>
     <string name="appcontrol_progress_uninstalling_app">កំពុងដកតិត្តាក់កម្មវិធី</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d កម្មវិធីត្រូវបានដកតិត្តាក់</item>
@@ -109,4 +111,8 @@
     <string name="appcontrol_item_installedat_x_label">បានដំឡើងនៅ: %s</string>
     <string name="shortcut_appcontrol_short">ការគ្រប់គ្រងកម្មវិធី</string>
     <string name="shortcut_appcontrol_long">គ្រប់គ្រងកម្មវិធីដែលបានដំឡើង</string>
+    <string name="tour_appcontrol_search_body">ស្វែងរកកម្មវិធីតាមឈ្មោះ។ មានប្រយោជន៍នៅលើឧបករណ៍ដែលមានកម្មវិធីដែលបានដំឡើងច្រើន។</string>
+    <string name="tour_appcontrol_filter_body">កាត់បន្ថយបញ្ជីដោយកម្មវិធីអ្នកប្រើប្រាស់/ប្រព័ន្ធ ស្ថានភាពបើក/បិទ សកម្មភាពថ្មីៗ និងច្រើនទៀត។ តម្រងសកម្មបង្ហាញនៅទីនេះជាបន្ទះ។</string>
+    <string name="tour_appcontrol_sort_body">រៀបចំកម្មវិធីតាមឈ្មោះ កាលបរិច្ឆេទដំឡើង ការធ្វើបច្ចុប្បន្នភាពចុងក្រោយ ទំហំ ឬពេលវេលានៅលើអេក្រង់។ ចុចជម្រើសដដែលដើម្បីប្តូរទិសដៅ។</string>
+    <string name="tour_appcontrol_app_row_body">ចុចលើកម្មវិធីដើម្បីបើកលម្អិតរបស់វា និងសកម្មភាពដែលមាន។ ចុចយូរដើម្បីចាប់ផ្តើមការជ្រើសរើស និងប្រើសកម្មភាពជាក្រុម។</string>
 </resources>

@@ -104,4 +104,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничение совпадений на основе возраста файла (времени последнего изменения). Оставьте пустым для любого возраста.</string>
     <string name="systemcleaner_customfilter_import_action">Импорт нового фильтра</string>
     <string name="systemcleaner_customfilter_export_action">Экспорт выбранного фильтра</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner находит мусор, используя универсальные фильтры. Существуют готовые правила для пустых папок, оставшихся журналов и устаревших миниатюр. Посетите параметры, если вы хотите создать свои собственные.</string>
+    <string name="tour_systemcleaner_filter_body">Каждая строка — это фильтр и его результаты. Откройте детали, чтобы увидеть точно, какие файлы совпадают, перед тем как что-либо удалять.</string>
 </resources>

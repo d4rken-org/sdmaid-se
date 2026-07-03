@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
-    <string name="upgrade_screen_benefits_title">ጥቅሞች</string>
-    <string name="upgrade_screen_benefits_body">• የመተግበሪያ ጽዳት 💯\n• የተመደበ አሠራሮች ⏰\n• ለሁሉም መሣሪያዎች ተጨማሪ አማራጮች ⚙️\n• የራስዎ የመሰረዝ ደንቦች ✍️\n• ተነሳሽ ገንቢ 🧙\nእና ተጨማሪ…</string>
+    <string name="upgrade_screen_benefits_title">የአሻሪ ጥቅማጥቅሞች</string>
+    <string name="upgrade_screen_benefits_body">• የመተግበሪያ ቅሪተ አዋጅ እና ሊወገድ የሚችል ውሂብ ንጹህ ያድርጉ
+• ተመሳሳይ ፋይሎች ያስወግዱ
+• የታቀዱ ንጹህ ሥራዎች ያንቁ
+• ብጁ ማጣሪያ እና የንጹህ ሥራ ህጎች ይፍጠሩ
+• የማከማቻ አዝማሚያ እና የንጹህ ሥራ ታሪክ ይከታተሉ
+• በመተግበሪያው ላይ ተጨማሪ ባህሪዎች እና ቁጥጥር
+• ቀጣይ ልማት ድጋፍ</string>
     <string name="upgrade_screen_how_title">አማራጮች</string>
     <string name="upgrade_screen_how_body">በአንድ ጊዜ ግዢ እና በርካሽ የዓመታዊ ደንበኝነት መካከል መምረጥ ይችላሉ።\nደንበኝነቱ በነፃ የ14 ቀን ሙከራ ይጀምራል፣ ከዚያ በኋላ በዓመት አንድ ጊዜ ይከፈላሉ። ሙከራ እና ደንበኝነት በማንኛውም ጊዜ ሊሰረዝ ይችላል።\nተመሳሳይ ባህሪያት፣ የተለያዩ የዋጋ አሰጣጥ ሞዴሎች ብቻ።</string>
+    <string name="upgrade_screen_subscription_offer_title">ዓመታዊ ምዝገባ</string>
+    <string name="upgrade_screen_iap_offer_title">አንድ ጊዜ ይገዙ</string>
+    <string name="upgrade_screen_offer_recommended">የሚመከር</string>
+    <string name="upgrade_screen_offers_unavailable_message">ዋጋዎች አሁን ሊጫኑ አልቻሉም። Google Play ይመልከቱ እና ከአጭር ጊዜ በኋላ እንደገና ሞክሩ።</string>
     <string name="upgrade_screen_subscription_trial_action">ነፃ የ14 ቀን ሙከራ ይጀምሩ</string>
     <string name="upgrade_screen_subscription_action">ይመዝገቡ</string>
     <string name="upgrade_screen_subscription_action_hint">ደንበኝነቱ በዓመት %s ያስከፍላል።</string>

@@ -37,7 +37,19 @@
     <string name="scheduler_notification_result_title">Plánování dokončeno</string>
     <string name="scheduler_notification_result_success_message">Všechny naplánované úlohy proběhly úspěšně.</string>
     <string name="scheduler_notification_result_failure_message">Některé naplánované úlohy selhaly nebo došlo k chybám. Zkuste je spustit ručně.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Přeskočeno, obrazovka byla vypnutá nebo uzamčená</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Čištění aplikací může být přeskočeno</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Čištění aplikací používá službu zpřístupnění, která vyžaduje odemknutou obrazovku. Naplánovaná spuštění, když je zařízení uzamčeno, jsou přeskočena.
+
+Pro čištění na pozadí použijte Shizuku nebo root, nebo jej naplánujte na čas, kdy zařízení používáte.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systémové aplikace mohou být přeskočeny</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku čistí většinu mezipaměti na pozadí, ale systémové aplikace potřebují službu zpřístupnění, která vyžaduje odemknutou obrazovku. Když je „Zahrnout systémové aplikace“ zapnuto, jsou tyto přeskočeny, když je zařízení uzamčeno.
+
+Vypněte „Zahrnout systémové aplikace“ nebo spusťte plán, když je zařízení odemčeno.</string>
     <string name="scheduler_commands_after_schedule_label">Příkazy po naplánování</string>
     <string name="scheduler_commands_after_schedule_desc">Příkazy Android shell, které budou provedeny na konci plánu.</string>
     <string name="scheduler_battery_optimization_hint">Zvažte vypnutí optimalizace baterie pro SD Maid, pokud narazíte na problémy se spuštěním na pozadí.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid může čistit podle plánu. Vyberte čas a které nástroje se mají spustit, a provádí práci na pozadí – (skoro) bez nutnosti otevírat aplikaci.</string>
+    <string name="tour_scheduler_create_body">Klepněte sem a vytvořte nový plán, poté nastavte, kdy se spustí, a které nástroje zahrnout.</string>
 </resources>

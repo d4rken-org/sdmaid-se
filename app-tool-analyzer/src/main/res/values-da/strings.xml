@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Et sekundært lager, normalt et udtageligt SD-kort. Indeholder mediefiler og data fra apps, som understøtter det.</string>
     <string name="analyzer_storage_type_tertiary_title">Flytbart lager</string>
     <string name="analyzer_storage_type_tertiary_description">En flytbar lagerenhed, f.eks. et USB-drev tilsluttet din USB-port.</string>
+    <string name="analyzer_storage_identifier_internal">Internt lager</string>
     <string name="analyzer_storage_content_title">Lagerindhold</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>
     <string name="analyzer_storage_content_type_app_description">Plads optaget af installerede apps og deres data (dvs. programfiler, data og cacher).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Systemapps og -data. Apps og data fra andre brugere, hvis enheden har flere brugerkonti.</string>
     <string name="analyzer_storage_content_type_system_other_label">Andet</string>
     <string name="analyzer_storage_content_type_system_info">Filer der ikke passer ind i kategorierne Apps eller Brugerfiler. Gennemse kun — sletning understøttes ikke. Nogle områder kan være ufuldstændige på grund af adgangsbegrænsninger.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Filer kan ikke matches til de apps, som ejer dem lige nu. Størrelser vises kun til reference — sletning, filtre og Swiper er deaktiveret.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systemfiler og andre data, som SD Maid ikke kunne få adgang til eller kategorisere. Operativsystemet begrænser visningen af indholdet i nogle områder.</string>
     <string name="analyzer_storage_content_app_code_label">Appkode</string>
     <string name="analyzer_storage_content_app_code_description">Programfiler, biblioteker og ressourcer. Denne plads kan frigøres ved at afinstallere eller arkivere appen (tilgængelig på nyere Android-versioner).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne app optager %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denne app er blevet arkiveret.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Se hvad der reelt fylder dit lager op. Analyzer kortlægger, hvor din plads går hen. Hvert af disse kort er en lagerenhed på din enhed.</string>
+    <string name="tour_analyzer_storage_body">Åbn et lager for at opdele det i apps, medier og filer, og fortsæt derefter med at trykke for at finde de største synderne.</string>
 </resources>

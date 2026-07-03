@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">דחוס תמונות כדי לחסוך מקום אחסון.</string>
+    <string name="squeezer_explanation_short">דחס תמונות וסרטונים כדי לחסוך שטח אחסון.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">נמצאה תמונה %d</item>
-        <item quantity="two">נמצאו %d תמונות</item>
-        <item quantity="many">נמצאו %d תמונות</item>
-        <item quantity="other">נמצאו %d תמונות</item>
+        <item quantity="one">%d פריט נמצא</item>
+        <item quantity="two">%d פריטים נמצאו</item>
+        <item quantity="many">%d פריטים נמצאו</item>
+        <item quantity="other">%d פריטים נמצאו</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">ניתן לחסוך ~%s</item>
@@ -14,32 +14,68 @@
         <item quantity="other">ניתן לחסוך ~%s</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">נדחסה תמונה %d</item>
-        <item quantity="two">נדחסו %d תמונות</item>
-        <item quantity="many">נדחסו %d תמונות</item>
-        <item quantity="other">נדחסו %d תמונות</item>
+        <item quantity="one">%d פריט דחוס</item>
+        <item quantity="two">%d פריטים דחוסים</item>
+        <item quantity="many">%d פריטים דחוסים</item>
+        <item quantity="other">%d פריטים דחוסים</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d נכשל</item>
+        <item quantity="two">%d נכשלו</item>
+        <item quantity="many">%d נכשלו</item>
+        <item quantity="other">%d נכשלו</item>
+    </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d נשמר ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
+        <item quantity="two">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
+        <item quantity="many">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
+        <item quantity="other">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d קובץ דלוג (לא נגיש)</item>
+        <item quantity="two">%d קובצים דלוגים (לא נגישים)</item>
+        <item quantity="many">%d קובצים דלוגים (לא נגישים)</item>
+        <item quantity="other">%d קובצים דלוגים (לא נגישים)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d הושמט (HDR/עומק נשמר)</item>
+        <item quantity="two">%d הושמטו (HDR/עומק נשמר)</item>
+        <item quantity="many">%d הושמטו (HDR/עומק נשמר)</item>
+        <item quantity="other">%d הושמטו (HDR/עומק נשמר)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">נבחרה תמונה %d</item>
-        <item quantity="two">נבחרו %d תמונות</item>
-        <item quantity="many">נבחרו %d תמונות</item>
-        <item quantity="other">נבחרו %d תמונות</item>
+        <item quantity="one">%d פריט נבחר</item>
+        <item quantity="two">%d פריטים נבחרים</item>
+        <item quantity="many">%d פריטים נבחרים</item>
+        <item quantity="other">%d פריטים נבחרים</item>
     </plurals>
     <string name="squeezer_min_size_title">גודל קובץ מינימלי</string>
-    <string name="squeezer_min_size_description">דלג על תמונות קטנות מגודל זה.</string>
+    <string name="squeezer_min_size_description">דלג על קבצים קטנים מגודל זה.</string>
     <string name="squeezer_min_age_title">גיל קובץ מינימלי</string>
-    <string name="squeezer_min_age_description">כלול רק תמונות ישנות מגיל זה.</string>
-    <string name="squeezer_compression_settings_label">הגדרות דחיסה</string>
-    <string name="squeezer_quality_description">איכות נמוכה יותר פירושה גודל קובץ קטן יותר אך איכות תמונה מופחתת.</string>
-    <string name="squeezer_types_category_label">סוגי תמונות</string>
+    <string name="squeezer_min_age_description">כלול רק קבצים ישנים יותר מגיל זה.</string>
+    <string name="squeezer_compression_settings_label">כללי</string>
+    <string name="squeezer_quality_label">איכות</string>
+    <string name="squeezer_quality_title">איכות דחיסה</string>
+    <string name="squeezer_quality_description">איכות נמוכה יותר פירושה גודל קובץ קטן יותר אך איכות ויזואלית מופחתת.</string>
+    <string name="squeezer_quality_example_format">דוגמה: תמונת %1$s → חוסך ~%2$s באיכות %3$d%%</string>
+    <string name="squeezer_quality_warning_low">איכות נמוכה עלולה לגרום לעיוותים נראים.</string>
+    <string name="squeezer_quality_warning_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
+    <string name="squeezer_types_category_label">הגדרות תמונה</string>
+    <string name="squeezer_video_settings_category_label">הגדרות וידאו</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">כלול תמונות JPEG ‏(.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">כלול תמונות WebP ‏(.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">כלול תמונות HEIC/HEIF (.heic, .heif). תאריך, מיקום ונתוני EXIF אחרים נשמרים. לא ניתן לשמר מפות HDR, נתוני עומק ותמונות Live/Motion Photo נלוות; קבצים רב-תמונתיים מדולגים.</string>
+    <string name="squeezer_type_video_title">MP4 Video</string>
+    <string name="squeezer_type_video_description">כלול קבצי וידאו MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">דלג על שנדחסו בעבר</string>
-    <string name="squeezer_skip_compressed_description">דלג על תמונות שכבר נדחסו על ידי SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">דלג על קבצים שכבר דוחסו על ידי SD Maid.</string>
     <string name="squeezer_exif_marker_title">כתוב סמן EXIF</string>
     <string name="squeezer_exif_marker_description">הוסף סמן לשדה הערת המשתמש EXIF של התמונה כדי למנוע דחיסה חוזרת גם אם היסטוריית הדחיסה נמחקת.</string>
+    <string name="squeezer_include_lossy_aux_title">דחוס תמונות HDR &amp; עומק</string>
+    <string name="squeezer_include_lossy_aux_description">כבוי כברירת מחדל: תמונות עם מפת HDR או נתוני עומק/דיוקן מדולגות כדי שלא תשטחנה. הפעל כדי לדחוס אותן כאשר אפשר — הן יאבדו את מפת ה-HDR או נתוני העומק שלהן. חלק מתמונות HEIC רב-תמונתיות נשארות מוגנות בכל מקרה.</string>
     <string name="squeezer_estimated_savings_format">~%s חיסכון</string>
     <string name="squeezer_no_savings_expected">חיסכון מוגבל</string>
     <string name="squeezer_current_size_format">גודל: %s</string>
@@ -48,6 +84,8 @@
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>
     <string name="squeezer_preview_total_size">גודל כולל</string>
     <string name="squeezer_preview_estimated_savings">חיסכון משוער</string>
+    <string name="squeezer_compress_confirmation_title">לדחוס את הפריטים הנבחרים?</string>
+    <string name="squeezer_compress_confirmation_message">פעולה זו תחליף את הקבצים המקוריים בגרסאות דחוסות. לא ניתן לבטל פעולה זו.</string>
     <string name="squeezer_history_title">היסטוריית דחיסה</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">פריט %1$d (%2$s)</item>
@@ -57,19 +95,38 @@
     </plurals>
     <string name="squeezer_history_empty">אין היסטוריית דחיסה</string>
     <string name="squeezer_history_clear_title">נקה היסטוריית דחיסה</string>
-    <string name="squeezer_history_clear_message">פעולה זו תאפשר דחיסה חוזרת של תמונות שנדחסו בעבר. התמונות עצמן לא מושפעות.</string>
+    <string name="squeezer_history_clear_message">פעולה זו תאפשר לדחוס מחדש קבצים שדוחסו בעבר. הקבצים עצמם אינם מושפעים.</string>
+    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
+    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
     <string name="squeezer_onboarding_original_label">מקור</string>
     <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
+    <string name="squeezer_onboarding_video_original_label">פריים וידאו</string>
+    <string name="squeezer_onboarding_video_compressed_label">תצוגה מקדימית (משוערת)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">איכות הווידאו בפועל עשויה להיות שונה</string>
+    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
-    <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
+    <string name="squeezer_result_empty_message">לא נמצאו מדיה ניתנים לדחיסה.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">אין מדיה לדחיסה — %d תמונת HDR/עומק דולגה. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותה.</item>
+        <item quantity="two">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
+        <item quantity="many">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
+        <item quantity="other">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
+    </plurals>
+    <string name="squeezer_setup_warning">הדחיסה מפחיתה את האיכות לצמיתות כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק את ההגדרות בקפידה לפני ההתחלה.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">לא ניתן להשתמש ב-%d מיקום לדחיסה והוא הוסר. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
+        <item quantity="two">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
+        <item quantity="many">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
+        <item quantity="other">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">Media Squeeze מפחית את גודל הקבצים של תמונות וסרטונים כדי לפנות שטח אחסון. פעולה זו מפחיתה את האיכות לצמיתות ולא ניתן לבטלה. בדוק את ההגדרות בקפידה לפני ההתחלה.</string>
     <string name="squeezer_setup_paths_title">חיפוש מיקומים</string>
     <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
     <string name="squeezer_setup_quality_title">איכות דחיסה</string>
     <string name="squeezer_setup_age_title">גיל מינימלי</string>
     <string name="squeezer_setup_start_action">התחל סריקה</string>
-    <string name="squeezer_quality_hint_very_low">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
     <string name="squeezer_quality_hint_low">איכות נמוכה יותר חוסכת יותר מקום אך עלולה לגרום לעיוותים נראים לעין.</string>
     <string name="squeezer_quality_hint_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
     <string name="squeezer_quality_hint_normal">איכות וחיסכון במקום מאוזנים.</string>
@@ -79,5 +136,9 @@
         <item quantity="many">לפחות %d ימים</item>
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
+    <string name="squeezer_estimated_savings_percent">חסכון משוער של ~%d%% לקבצי JPEG</string>
+    <string name="squeezer_onboarding_got_it">הבנתי</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer דוחסת מחדש את התמונות וסרטוני הוידאו שלך כדי שיתפסו פחות מקום. הקבצים נשארים שמישים, רק קטנים יותר, וכל אחד מציג את החסכון המשוער שלו.</string>
+    <string name="tour_squeezer_compress_body">דחוס הכל בבת אחת כאן, או הקש על פריט יחיד כדי להקטין רק אותו. הקש הקשה ארוכה כדי לבחור כמה פריטים. תמיד תראה תצוגה מקדימה לפני כל שינוי.</string>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Use a opção \"Restaurar a compra\" para restaurar sua compra. Se o problema persistir, tente limpar o cache do Google Play e reiniciar o seu dispositivo.</string>
     <string name="upgrade_screen_title">Obtenha o SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados de usuários. Meu trabalho é financiado por você ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Vantagens</string>
-    <string name="upgrade_screen_benefits_body">• Limpeza de aplicativos 💯\n• Operações agendadas ⏰\n• Opções extras para todas as ferramentas ⚙️\n• Suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
+    <string name="upgrade_screen_benefits_title">Benefícios da atualização</string>
+    <string name="upgrade_screen_benefits_body">• Limpar caches do aplicativo e dados descartáveis
+• Remover arquivos duplicados
+• Ativar limpezas programadas
+• Criar filtros personalizados e regras de limpeza
+• Rastrear tendências de armazenamento e histórico de limpeza
+• Mais recursos e controles em todo o aplicativo
+• Apoiar o desenvolvimento contínuo</string>
     <string name="upgrade_screen_how_title">Opções</string>
     <string name="upgrade_screen_how_body">Você pode escolher entre uma compra única ou uma assinatura anual mais barata.\nA assinatura começa com um teste gratuito de 14 dias, após o qual você será cobrado uma vez por ano. Teste e assinatura são canceláveis a qualquer momento.\nAs mesmas funcionalidades, apenas diferentes modelos de preços.</string>
+    <string name="upgrade_screen_subscription_offer_title">Assinatura anual</string>
+    <string name="upgrade_screen_iap_offer_title">Comprar uma vez</string>
+    <string name="upgrade_screen_offer_recommended">Recomendado</string>
+    <string name="upgrade_screen_offers_unavailable_message">Os preços não puderam ser carregados no momento. Verifique o Google Play e tente novamente em breve.</string>
     <string name="upgrade_screen_subscription_trial_action">Iniciar teste gratuito de 14 dias</string>
     <string name="upgrade_screen_subscription_action">Se inscrever</string>
     <string name="upgrade_screen_subscription_action_hint">A assinatura custa %s por ano.</string>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Skrap alles behalwe een kopie in elke gekiesde stel duplikaat lêers?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Skrap alle lêers in elke gekiesde stel duplikaat lêers? Geen lêer bly oor nie!</string>
     <string name="deduplicator_delete_all_toggle_msg">Skrap alle kopieë. Geen lêer bly oor nie!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Verwyder %1$d duplikaat in hierdie stel, wat %2$s spasie vrymaak? Die kopie wat behou word, bly.</item>
+        <item quantity="other">Verwyder %1$d duplikate in hierdie stel, wat %2$s spasie vrymaak? Die kopie wat behou word, bly.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s vrymaakbaar</string>
+    <string name="deduplicator_action_delete_set">Verwyder duplikaatstel</string>
+    <string name="deduplicator_action_open_preview">Oopmaak voorskouing</string>
+    <string name="deduplicator_marked_for_deletion">Gemerk vir verwydering</string>
+    <string name="deduplicator_cluster_preview_image">Duplikaatstel voorskouing</string>
+    <string name="deduplicator_selection_keep_one_required">Ten minste een lêer per duplikaatstel moet oorbly. Aktiveer \"Maak \'Verwyder alles\' moontlik\" in instellings om dit te oorskryf.</string>
     <string name="deduplicator_progress_comparing_files">Vergelyk lêers</string>
     <string name="deduplicator_details_cluster_title">Stel van duplikate</string>
     <string name="deduplicator_matches_exact_label">Presiese kopieë</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Verkies kleiner lêers</string>
     <string name="deduplicator_view_mode_groups_label">Groepe</string>
     <string name="deduplicator_view_mode_directories_label">Gidse</string>
+    <string name="tour_deduplicator_details_cluster_body">Hierdie lêers lyk almal na dieselfde item of media-inhoud, \'n tros duplikate.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Lêers met hierdie ikoon sal verwyder word; die oorblywende lêer in die groep is die een wat SD Maid behou. U kan verander hoe die bewaarder gekies word in die verwyderingstrategie-instellings.</string>
 </resources>

@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Actualizar SD Maid SE</string>
     <string name="upgrades_dashcard_body">¡Desbloquea las funciones adicionales y conviértete en patrocinador para apoyar el desarrollo continuo!</string>
     <string name="upgrades_dashcard_upgrade_action">Actualizar</string>
-    <string name="upgrade_screen_title">Mejora SD Maid</string>
+    <string name="upgrade_screen_title">Apoyar SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid no tiene anuncios y no vende los datos de los usuarios. El desarrollo continuo solo es posible gracias a ti.</string>
     <string name="upgrade_screen_how_title">Como ayudar</string>
     <string name="upgrade_screen_how_body">¡Conviértete en patrocinador y patrocina el desarrollo! Toque el botón de abajo para activar todas las funciones adicionales y abrir mi perfil de Patrocinadores de GitHub.</string>
-    <string name="upgrade_screen_why_title">Esto sugiere 🪄</string>
-    <string name="upgrade_screen_why_body">• Limpieza de aplicaciones 💯\n• Operaciones programadas ⏰\n• Opciones extras para todas las herramientas ⚙️\n• Tus propias reglas de eliminación ✍️\n• Un desarrollador motivado 🧙\n y mucho más…</string>
+    <string name="upgrade_screen_why_title">Beneficios de la actualización</string>
+    <string name="upgrade_screen_why_body">• Limpia cachés de aplicaciones y datos innecesarios
+• Elimina archivos duplicados
+• Habilita limpiezas programadas
+• Crea filtros personalizados y reglas de limpieza
+• Rastrea tendencias de almacenamiento e historial de limpieza
+• Más funciones y controles en toda la aplicación
+• Apoya el trabajo de código abierto</string>
     <string name="upgrade_screen_sponsor_action">Patrocinadores</string>
     <string name="upgrade_screen_sponsor_action_hint">La alternativa son los anuncios, las analíticas y Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gracias por apoyar el desarrollo del código abierto ❤️</string>

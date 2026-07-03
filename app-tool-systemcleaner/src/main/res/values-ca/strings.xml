@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limita les coincidències segons l\'antiguitat del fitxer (hora de l\'última modificació). Deixeu-ho sense definir per a coincidir amb qualsevol antiguitat.</string>
     <string name="systemcleaner_customfilter_import_action">Importa un filtre nou</string>
     <string name="systemcleaner_customfilter_export_action">Exporta el filtre seleccionat</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">El Netejador del sistema troba escombraries mitjançant filtres no específics d\'aplicació. Hi ha regles predefinides per a coses com carpetes buides, registres residuals i miniatures obsoletes. Visita la configuració si vols crear-ne de pròpies.</string>
+    <string name="tour_systemcleaner_filter_body">Cada fila és un filtre i el que ha trobat. Obre els detalls per veure exactament quins fitxers coincideixen abans de suprimir res.</string>
 </resources>

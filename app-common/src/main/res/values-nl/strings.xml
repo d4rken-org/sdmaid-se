@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Begrepen</string>
     <string name="general_fix_action">Repareren</string>
     <string name="general_set_up_action">Instellen</string>
+    <string name="general_unavailable_label">Niet beschikbaar</string>
     <string name="general_edit_action">Bewerken</string>
     <string name="general_na_label">NVT</string>
     <string name="general_empty_label">Leeg</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">In de wachtrij</string>
     <string name="general_progress_deleting">Verwijderen</string>
     <string name="general_progress_deleting_x">Verwijderen %s</string>
+    <string name="general_sort_by_title">Sorteren op</string>
     <string name="general_sort_reverse_action">Omgekeerde sorteermodus</string>
+    <string name="general_sort_oldest_first">Oudste eerst</string>
+    <string name="general_sort_newest_first">Nieuwste eerst</string>
+    <string name="general_sort_name_asc">Naam (A → Z)</string>
+    <string name="general_sort_size_desc">Grootste eerst</string>
     <string name="general_tag_system">Systeem</string>
+    <string name="general_navigate_up_action">Omhoog navigeren</string>
+    <string name="general_filter_action">Filter</string>
+    <string name="general_filter_by_tags_label">Filteren op tags</string>
+    <string name="general_filter_add_action">Filter toevoegen</string>
+    <string name="general_filter_remove_x_action">%s filter verwijderen</string>
+    <string name="general_filter_empty_row_hint">Tik + om te filteren</string>
+    <string name="general_show_all_action">Toon alles</string>
     <string name="general_result_success_message">Bewerking geslaagd</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ruimte vrijgemaakt.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Opties</string>
     <string name="general_details_label">Details</string>
     <string name="general_view_action">Weergave</string>
+    <string name="general_open_action">Openen</string>
+    <string name="general_configure_action">Configureren</string>
     <string name="general_update_action">Updaten</string>
     <string name="general_scan_action">Scannen</string>
     <string name="general_close_action">Sluiten</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d items zijn verwijderd</item>
     </plurals>
     <string name="general_search_action">Zoeken</string>
+    <string name="general_search_no_matches">Geen overeenkomsten</string>
     <string name="general_open_system_settings_action">Systeeminstellingen openen</string>
+    <string name="general_fast_scroller_action">Snelle scroller</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s items</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Dienst inschakelen</string>
     <string name="general_undo_action">Ongedaan maken</string>
     <string name="general_list_select_all_action">Selecteer alles</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d geselecteerd</item>
+        <item quantity="other">%d geselecteerd</item>
+    </plurals>
     <string name="general_path_label">Pad</string>
     <string name="general_type_label">Type</string>
     <string name="general_size_label">Grootte</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Bug melden</string>
     <string name="general_error_ipc_deadobject_title">Serviceverbinding verbroken</string>
     <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
+    <string name="general_error_upgrade_required_title">Pro-versie vereist</string>
+    <string name="general_error_upgrade_required_description">Dit is een Pro-functie. Upgrade SD Maid SE om het te gebruiken.</string>
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
     <string name="setup_title">Instelling</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Risico niveau</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
+    <string name="ui_theme_color_sunset_label">Zonsondergang</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Deze functie vereist root-toegang, maar SD Maid kon deze op dit apparaat niet verkrijgen.</string>
+    <string name="access_blocked_root_declined">Deze functie vereist root-toegang. Je kunt dit inschakelen via het instellingenscherm.</string>
+    <string name="access_blocked_root_or_shizuku">Deze functie vereist root- of Shizuku-toegang, wat niet beschikbaar is op dit apparaat.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Ongeldig back-upbestand</string>
+    <string name="backup_restore_error_invalid_body">Dit bestand is geen geldige SD Maid back-up of is beschadigd.</string>
+    <string name="backup_restore_error_version_body">Deze back-up is gemaakt met een nieuwere versie van SD Maid. Werk de app bij en probeer het opnieuw.</string>
+    <string name="backup_restore_error_restore_failed_title">Herstel mislukt</string>
+    <string name="backup_restore_error_restore_failed_body">Deze onderdelen konden niet worden hersteld: %1$s. Uw vorige configuratie is opgeslagen en kan worden teruggebracht.</string>
+    <string name="backup_restore_error_safety_title">Herstel niet gestart</string>
+    <string name="backup_restore_error_safety_body">SD Maid kon geen veiligheidsmomentopname van uw huidige configuratie opslaan, dus er is niets gewijzigd.</string>
+    <string name="backup_restore_error_busy_title">Even geduld</string>
+    <string name="backup_restore_error_busy_body">Er wordt momenteel een schoonmaaktaak of een andere back-upbewerking uitgevoerd. Probeer het opnieuw wanneer dit is voltooid.</string>
+    <string name="backup_restore_error_schema_title">Incompatibele back-up</string>
+    <string name="backup_restore_error_schema_body">De databaseindeling van de back-up komt niet overeen met deze versie van SD Maid. Geschiedenisgegevens terugzetten wordt alleen ondersteund tussen identieke app-versies.</string>
 </resources>

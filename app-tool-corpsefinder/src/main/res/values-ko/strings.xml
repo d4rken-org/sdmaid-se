@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">소유자 알 수 없음</string>
     <string name="corpsefinder_corpse_hint_keeper">이 항목에는 사진이나 백업 파일과 같이 저장하고자 하는 데이터가 포함될 수 있습니다.</string>
     <string name="corpsefinder_corpse_hint_common">이 항목은 매우 흔한 이름을 가집니다. 때문에 SD Maid에서 알 수 없는 아직 설치되어 있는 앱의 파일이 포함될 수 있습니다.</string>
+    <string name="corpsefinder_risk_keeper_chip">권장됨</string>
+    <string name="corpsefinder_risk_common_chip">일반</string>
+    <string name="corpsefinder_markers_dialog_title">이러한 마커에 대해</string>
+    <string name="corpsefinder_markers_dialog_normal_label">마커 없음</string>
+    <string name="corpsefinder_markers_dialog_normal_description">표준 잔여 데이터. 일반적으로 안전하게 제거할 수 있습니다. 이 파일들은 더 이상 설치되지 않은 앱에 속합니다.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder는 이미 제거한 앱들이 남겨놓은 데이터를 찾습니다. 이제 설치된 어떤 앱에도 속하지 않으므로 제거해도 안전하고 공간을 확보할 수 있습니다.</string>
+    <string name="tour_corpsefinder_row_body">각 항목은 잔여 데이터와 그것이 나온 앱입니다. 마커는 SD Maid가 제거해도 안전한지에 대해 얼마나 확신하는지를 보여줍니다 — 맨 위의 ⓘ를 탭하여 마커의 의미를 알아보세요.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ගොනු වයස (අවසන් වෙනස් කළ වේලාව) මත පදනම්ව ගැළපීම් සීමා කරන්න. ඕනෑම වයසකට ගැළපීමට සැකසීමෙන් තොරව තබන්න.</string>
     <string name="systemcleaner_customfilter_import_action">නව පෙරණ අරමුණු කරන්න</string>
     <string name="systemcleaner_customfilter_export_action">සිරැසූ පෙරණ නිර්යාත කරන්න</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner යෙදුම විශේෂ නොවන පෙරහන් භාවිතා කරමින් කුණු සොයා ගනී. හිස් ෆෝල්ඩර්, ඉතිරි ලඝු-සටහන් සහ පැරණි රූපදර්ශන වැනි දේ සූදානම් නීති පවතී. ඔබටම නීති සැදීමට අවශ්‍ය නම් සැකසීම් වෙත පිවිසෙන්න.</string>
+    <string name="tour_systemcleaner_filter_body">එක එක පේළිය පෙරහනක් සහ එය සොයා ගත්තේ කුමක් දැයි සඳහන් කරයි. මකා දැමීමට පෙර නිවැරදිව කුමන ගොනු ගැළපෙන්නේදයි දැන ගැනීමට එහි විස්තර විවෘත කරන්න.</string>
 </resources>

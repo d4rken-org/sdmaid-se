@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Менеджер винятків</string>
     <string name="exclusion_manager_desc">Керуйте винятками файлів і додатків.</string>
-    <string name="exclusion_explanation_body1">Виключити файли та додатки з операцій SD Maid.</string>
-    <string name="exclusion_add_new_hint">Додайте нові винятки, спочатку дозволивши SD Maid виконати пошук, а потім використовуючи контекстне меню на результаті, який ви хочете виключити.</string>
+    <string name="exclusion_explanation_body1">Виключіть файли та додатки, щоб захистити їх від інструментів SD Maid, або щоб пропустити неактуальні елементи та пришвидшити операції.</string>
+    <string name="exclusion_add_new_hint">Поки що виключень немає. Використайте кнопку +, щоб створити одне, або виключіть елементи з результатів будь-якого інструменту.</string>
     <string name="exclusion_create_action">Створити виняток</string>
     <string name="exclusion_edit_action">Редагувати виняток</string>
     <string name="exclusion_type_package">Виняток додатка</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Винятки для експорту</string>
     <string name="exclusion_create_pkg_hint">Використовуйте інструмент \"Управління додатками\" для створення винятків для додатків.</string>
     <string name="exclusion_create_path_hint">Використовуйте інструмент \"Аналізатор сховища\" для створення винятків шляхів.</string>
+    <string name="exclusion_create_segment_hint">Збігається з сегментом назви, наприклад «DCIM/Camera».</string>
     <string name="exclusion_show_defaults_action">Показати за замовчуванням</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d виключення імпортовано</item>
+        <item quantity="few">%d виключення імпортовано</item>
+        <item quantity="many">%d виключень імпортовано</item>
+        <item quantity="other">%d виключень імпортовано</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d виключення експортовано</item>
+        <item quantity="few">%d виключення експортовано</item>
+        <item quantity="many">%d виключень експортовано</item>
+        <item quantity="other">%d виключень експортовано</item>
+    </plurals>
 </resources>

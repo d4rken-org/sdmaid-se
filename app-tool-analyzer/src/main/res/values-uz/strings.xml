@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Ikkilamchi xotira, odatda olinadigan SD karta. Media fayllar va uni qo\'llab-quvvatlaydigan ilovalardan ma\'lumotlarni o\'z ichiga oladi.</string>
     <string name="analyzer_storage_type_tertiary_title">Ko\'chma xotira</string>
     <string name="analyzer_storage_type_tertiary_description">Ko\'chma xotira, masalan, USB portingizga ulangan flesh-disk.</string>
+    <string name="analyzer_storage_identifier_internal">Ichki xotira</string>
     <string name="analyzer_storage_content_title">Xotira tarkibi</string>
     <string name="analyzer_storage_content_type_app_label">Ilovalar</string>
     <string name="analyzer_storage_content_type_app_description">O\'rnatilgan ilovalar va ularning ma\'lumotlari tomonidan egallangan joy (ya\'ni ilova fayllari, ma\'lumotlar va keshlar).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Tizim ilovalari va tizim ma\'lumotlari. Agar ushbu qurilmada bir nechta foydalanuvchi hisobi o\'rnatilgan bo\'lsa, boshqa foydalanuvchilarning ilovalari va ma\'lumotlari.</string>
     <string name="analyzer_storage_content_type_system_other_label">Boshqa</string>
     <string name="analyzer_storage_content_type_system_info">Ilovalar yoki Foydalanuvchi fayllari toifalariga mos kelmaydigan fayllar. Faqat ko\'rish — o\'chirish qo\'llab-quvvatlanmaydi. Ba\'zi bo\'limlar kirish cheklovlari sababli to\'liq bo\'lmasligi mumkin.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Fayllarni hozircha ularga tegishli ilovalar bilan moslashtirib bo\'lmaydi. O\'lchamlar faqat ma\'lumot uchun ko\'rsatiladi — o\'chirish, filtrlar va Swiper o\'chirilgan.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid kira olmagan yoki toifalay olmagan tizim fayllari va boshqa ma\'lumotlar. Operatsion tizim ba\'zi bo\'limlar mazmunini ko\'rsatishni cheklaydi.</string>
     <string name="analyzer_storage_content_app_code_label">Ilova kodi</string>
     <string name="analyzer_storage_content_app_code_description">Ilova fayllari, kutubxonalar va resurslar. Bu joyni ilovani o\'chirish yoki arxivlash orqali bo\'shatish mumkin (yangi Android versiyalarida mavjud).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ushbu ilova \"%2$s\" da %1$s joy egallaydi.</string>
     <string name="analyzer_app_details_app_is_archived">Ushbu ilova arxivlangan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 kunda</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Xotirangizni haqiqatda nima to\'ldirayotganini ko\'ring. Analyzer joyingiz qayerga sarflanayotganini xaritada ko\'rsatadi. Ushbu kartalarning har biri qurilmangizdagi xotira chipini bildiradi.</string>
+    <string name="tour_analyzer_storage_body">Xotirani ilovalar, media va fayllarga ajratish uchun uni oching, so\'ng eng ko\'p joy egallaganlarni topish uchun bosishda davom eting.</string>
 </resources>

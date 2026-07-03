@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Тодорхойгүй эзэмшигч</string>
     <string name="corpsefinder_corpse_hint_keeper">Энэ зүйл нь эзэмшигч нь устгагдсан ч хадгалахыг хүсэж болох өгөгдөл агуулж болно, жишээ нь зурагнууд эсвэл нөөцлөлтүүд.</string>
     <string name="corpsefinder_corpse_hint_common">Энэ зүйл маш нийтлэг нэртэй бөгөөд SD Maid-д мэдэгдэхгүй суулгагдсан аппуудад хамаарч болно.</string>
+    <string name="corpsefinder_risk_keeper_chip">Хүсэмжтэй</string>
+    <string name="corpsefinder_risk_common_chip">Нийтлэг</string>
+    <string name="corpsefinder_markers_dialog_title">Эдгээр тэмдэглэлүүдийн тухай</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Тэмдэглэл байхгүй</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Стандарт үлдэгдэл. Ерөнхийдөө устгахад аюлгүй — эдгээр файлууд суулгаагүй апп-уудаас үлдэгдсэн файлууд юм.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder нь та аль хэдийн устгасан апп-уудаас үлдэгдсэн мэдээллийг олдог. Энэ мэдээлэл суулгасан ямар ч зүйлд хамаарахгүй тул устгах нь аюлгүй бөгөөд санг чөлөөлдөг.</string>
+    <string name="tour_corpsefinder_row_body">Үзүүлэлт бүр нь үлдэгдсэн мэдээлэл ба түүний гаралтай апп юм. Маркер нь SD Maid-ийн устгахад аюлгүй гэдэгт хэр итгэлтэй байгааг харуулдаг — маркерын утгыг мэдэхийн тулд дээрх ☉ дарна.</string>
 </resources>

@@ -37,7 +37,19 @@
     <string name="scheduler_notification_result_title">Planuotuvas baigė</string>
     <string name="scheduler_notification_result_success_message">Visos planuotos užduotys įvykdytos sėkmingai.</string>
     <string name="scheduler_notification_result_failure_message">Kai kurios planuotos užduotys nepavyko arba susidarė klaidų. Pabandykite jas vykdyti rankiniu būdu.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Praleista, ekranas buvo išjungtas arba užrakintas</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Programos valymas gali būti praleistas</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Programos valymas naudoja pasiekiamumo paslaugą, kuriai reikia atrakinto ekrano. Suplanuoti paleidimai, kai įrenginys yra užrakintas, yra praleidžiami.
+
+Naudokite Shizuku arba root foniniam valymui, arba suplanuokite jį tam laikui, kai naudojate įrenginį.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sisteminės programos gali būti praleistos</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku dažniausiai išvalo talpyklas fone, tačiau sisteminėms programoms reikalinga pasiekiamumo paslauga, kuriai reikia atrakinto ekrano. Kai įjungta \"Įtraukti sistemines programas\", jos praleidžiamos, kai įrenginys užrakintas.
+
+Išjunkite \"Įtraukti sistemines programas\" arba paleiskite tvarkaraštį, kai ekranas atrakintas.</string>
     <string name="scheduler_commands_after_schedule_label">Komandos po tvarkaraočės</string>
     <string name="scheduler_commands_after_schedule_desc">Android apvalkalo komandos, kurios bus įvykdytos tvarkaraočės pabaigoje.</string>
     <string name="scheduler_battery_optimization_hint">Svarstykite išjungti akumuliatoriaus optimizavimą SD Maid, jei patiriate problemų su foniniu vykdymu.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid gali atlikti valymą pagal grafiką. Pasirinkite laiką ir kurie įrankiai turėtų veikti, o programa darbą atliks fone – (beveik) nereikia atidarinėti programos.</string>
+    <string name="tour_scheduler_create_body">Palieskite čia norėdami sukurti naują grafiką, tada nustatykite, kada jis turėtų veikti ir kuriuos įrankius įtraukti.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">لێکدانەوەکان سنووردار بکە بەپێی تەمەنی فایل (کاتی دوایین گۆڕان). بەتاڵ بهێڵەوە بۆ گونجاندن لەگەڵ هەر تەمەنێک.</string>
     <string name="systemcleaner_customfilter_import_action">هاوردن new filter</string>
     <string name="systemcleaner_customfilter_export_action">هەناردن selected filter</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner پێکی دەدۆزێتەوە بە بەکارهێنانی پالاوتنی ناتایبەتی بە ئەپلیکێشن. یاسای ئامادەکراو هەیە بۆ شتی وەک فۆڵدەری بەتاڵ، تۆمارە بەجێماوەکان و وێنەکانی کوچکی کۆن. سەردانی رێکخستنەکان بکە ئەگەر دەتەوێت یاسای خۆت درووست بکەیت.</string>
+    <string name="tour_systemcleaner_filter_body">هەر ریزێک پالاوتنێکە و ئەوەی دۆزیویەتەوە. وردەکاریەکانی بکەوە بۆ بینینی دوروست کام فایلەکان لێی دەگونجێن پێش ئەوەی هیچ شتێک بسڕیتەوە.</string>
 </resources>

@@ -36,6 +36,19 @@
         <item quantity="one">%d päättämätön kohde jää myöhempää tarkistusta varten.</item>
         <item quantity="other">%d päättämätöntä kohdetta jää myöhempää tarkistusta varten.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Tämä istunto kohdistuu koko tallennustilavuudelle – poistaminen tässä vaikuttaa kaikkiin kansioihin tallennustilalla.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ja %d kansio lisää</item>
+        <item quantity="other">…ja %d kansiota lisää</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Ymmärrän, että nämä tiedostot poistetaan pysyvästi.</string>
+    <string name="swiper_sensitive_root_warning_title">Skannaa koko tallennustila?</string>
+    <string name="swiper_sensitive_root_warning_message">Tallennustilan %1$s skannaus sisältää kaikki tiedostot — valokuvat, asiakirjat, lataukset, sovellusten media ja muut. Jatka?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Jatka silti</string>
+    <string name="swiper_session_risky_label">Koko tallennustilan skannaus</string>
+    <string name="swiper_session_risky_info_message">Tämä istunto kohdistuu tallennustilan juureen, joten kaikki sen tiedostot ovat soveltamisalalla — valokuvat, asiakirjat, lataukset, sovellusten media ja muut.
+
+Koko tallennustilan skannaus voi palauttaa paljon kohteita, mukaan lukien tiedostoja, joita et ehkä aio tarkistaa. Rajaa skannaus tiedostotyyppisuodattimella.</string>
     <string name="swiper_delete_x_action">Poista %1$d</string>
     <string name="swiper_settings_swap_directions_title">Vaihda pyyhkäisysuunnat</string>
     <string name="swiper_settings_swap_directions_summary">Pyyhkäise vasemmalle säilyttääksesi, oikealle poistaaksesi.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Anna nimi tälle istunnolle</string>
     <string name="swiper_sessions_current_sessions">Nykyiset istunnot</string>
     <string name="swiper_session_paths_label">Polut</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ja yksi lisää</item>
+        <item quantity="other">…ja %d lisää</item>
+    </plurals>
     <string name="swiper_session_status_label">Tila</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d säilytettävä</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Suodatettu: %1$s</string>
     <string name="swiper_session_no_matching_files">Vastaavia tiedostoja ei löydy</string>
     <string name="swiper_open_externally_action">Avaa ulkoisessa sovelluksessa</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Pyyhkäise valokuvaa päättääksesi sen kohtalosta: sivuille säilyttääksesi tai poistaaksesi, ylös ohittaaksesi, alas kumotaksesi. Painikkeet alla tekevät saman — ja näyttävät, kumpi puoli tekee mitä.</string>
+    <string name="tour_swiper_openin_body">Tämä painike avaa valokuvan toisessa sovelluksessa, mikä on kätevää tarkistukseen ennen päätöstä.</string>
+    <string name="tour_swiper_preview_body">Tämä painike avaa koko näytön esikatselun tarkempaa katselua varten.</string>
+    <string name="tour_swiper_actions_body">Etkö pidä pyyhkäisystä? Meillä on myös painikkeet! Ohita jättää sen päättämättömäksi myöhemmäksi, ja Ohita-painikkeen pitkä painallus sulkee tiedoston pois tulevista skannauksista. Kumoa palauttaa viimeisen valintasi.</string>
+    <string name="tour_swiper_review_body">Säilytä ja poisto -valinnat ovat vain vaiheessa. Avaa Katsaus tarkastellaksesi niitä ja suorita poistot, kun olet valmis.</string>
 </resources>

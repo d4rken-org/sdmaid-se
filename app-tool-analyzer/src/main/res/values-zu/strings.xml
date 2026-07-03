@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Isitoreji sesibili, ngokuvamile ikhadi le-SD elisusekayo. Siqukethe amafayela emidiya nedatha evela ezinhlelweni zokusebenza ezisisekelayo.</string>
     <string name="analyzer_storage_type_tertiary_title">Isitoreji esiphathekayo</string>
     <string name="analyzer_storage_type_tertiary_description">Isitoreji esiphathekayo, isib. i-flash drive enamathiselwe emnyangweni wakho we-USB.</string>
+    <string name="analyzer_storage_identifier_internal">Isitoreji sangaphakathi</string>
     <string name="analyzer_storage_content_title">Okuqukethwe yisitoreji</string>
     <string name="analyzer_storage_content_type_app_label">Izinhlelo zokusebenza</string>
     <string name="analyzer_storage_content_type_app_description">Isikhala esihlalwa yizinhlelo zokusebenza ezifakiwe nedatha yazo (okuyinto, amafayela ezinhlelo zokusebenza, idatha nama-cache).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Izinhlelo zokusebenza zesistimu nedatha yesistimu. Izinhlelo zokusebenza nedatha kwabanye abasebenzisi, uma ama-akhawunti abasebenzisi ambalwa esetiwe kule divayisi.</string>
     <string name="analyzer_storage_content_type_system_other_label">Okunye</string>
     <string name="analyzer_storage_content_type_system_info">Amafayela angafaneli izigaba ze-Apps noma izifayela zomsebenzisi. Bhrowza kuphela — ukususa akusekelelwa. Ezinye izindawo zingaba nekhona okuswelekayo ngenxa yemikhawulo yokungena.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Izifayela azikwazi ukuhlanganyela namaaphu anayo ngalesi sikhathi. Isixinda sikhombiswe njengombhalo kuphela — ukususa, izihlungi ne-Swiper azisebenzeli.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Amafayela esikhungo namanye idatha i-SD Maid engakwazi ukungena noma ukuhlukanisa. Uhlelo lwokusebenza luvimba ukubhaliswa kwamazwi ezindaweni ezithile.</string>
     <string name="analyzer_storage_content_app_code_label">Ikhodi yohlelo</string>
     <string name="analyzer_storage_content_app_code_description">Amafayela ohlelo, amathala ezincwadi nezinsiza. Lesi sikhala singakhululwa ngokususa uhlelo noma ngokusibekela (sitholakala kwinguqulo entsha ye-Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Lolu hlelo luhlala ku-%1$s ku-\"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Lolu hlelo lubekelwe.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ngo-7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Bona okuzala umhlangano wesitopeji sakho. I-Analyzer ikhombisa lapho indawo sakho iyadlula. Ngulunye lwale makadi yindawo yesitholeyo kumatshini akho.</string>
+    <string name="tour_analyzer_storage_body">Vula isitoreji ukuze uhlukanise ibe ama-app, amatheme nemafayela, bese uphakamisele omunye okhuluma kakhulu.</string>
 </resources>

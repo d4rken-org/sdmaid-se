@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Boresha SD Maid SE</string>
     <string name="upgrades_dashcard_body">Fungua vipengele vya ziada na uwe mfumo wa kuunga mkono maendeleo ya kuendelea!</string>
     <string name="upgrades_dashcard_upgrade_action">Boresha</string>
-    <string name="upgrade_screen_title">Boresha SD Maid</string>
+    <string name="upgrade_screen_title">Saidia SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za mtumiaji. Maendeleo ya kuendelea yanawezekana tu kwa njia yako.</string>
     <string name="upgrade_screen_how_title">Jinsi ya kusaidia</string>
     <string name="upgrade_screen_how_body">Kuwa mfumo na mfadhili wa maendeleo! Gusa kitufe kilicho hapa chini ili kuwezesha vipengele vyote vya ziada na kufungua wasifu wangu wa GitHub Sponsors.</string>
-    <string name="upgrade_screen_why_title">Hii inafanya uchawi 🪄</string>
-    <string name="upgrade_screen_why_body">• Utendaji wa kufuta wa AppCleaner 💯\n• Shughuli zilizopangwa ⏰\n• Chaguo za ziada kwa zana zote ⚙️\n• Kanuni zako za kufuta ✍️\n• Msanidi programu mwenye motisha 🧙\nna zaidi…</string>
+    <string name="upgrade_screen_why_title">Faida za kuboresha</string>
+    <string name="upgrade_screen_why_body">• Safisha akiba za programu na data isiyohitajika
+• Ondoa faili nakala
+• Washa usafishaji uliopangwa
+• Unda vichujio vya kibinafsi na sheria za usafishaji
+• Fuatilia mielekeo ya hifadhi na historia ya usafishaji
+• Vipengele na vidhibiti zaidi katika programu nzima
+• Saidia kazi ya chanzo huria</string>
     <string name="upgrade_screen_sponsor_action">Faidhi maendeleo</string>
     <string name="upgrade_screen_sponsor_action_hint">Mbadala ni matangazo, uchambuzi na Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Asante kwa kuunga mkono maendeleo ya chanzo wazi ❤️</string>

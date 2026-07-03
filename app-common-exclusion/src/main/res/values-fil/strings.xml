@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Tagapamahala ng pagbubukod</string>
     <string name="exclusion_manager_desc">Pamahalaan ang mga file at app exclusion.</string>
-    <string name="exclusion_explanation_body1">I-exclude ang mga file at app mula sa mga operasyon ng SD Maid.</string>
-    <string name="exclusion_add_new_hint">Magdagdag ng mga bagong exclusion sa pamamagitan ng unang pagpapasearch sa SD Maid at pagkatapos gamitin ang context menu sa resulta na gusto ninyong i-exclude.</string>
+    <string name="exclusion_explanation_body1">Ibukod ang mga file at app upang protektahan ang mga ito mula sa mga tool ng SD Maid, o upang lampasan ang hindi nauugnay na mga item at mapabilis ang mga operasyon.</string>
+    <string name="exclusion_add_new_hint">Walang mga pagbubukod pa. Gamitin ang + button upang lumikha ng isa, o ibukod ang mga item mula sa mga resulta ng anumang tool.</string>
     <string name="exclusion_create_action">Gumawa ng exclusion</string>
     <string name="exclusion_edit_action">I-edit ang exclusion</string>
     <string name="exclusion_type_package">Pagbubukod ng app</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">I-export ang mga exclusion</string>
     <string name="exclusion_create_pkg_hint">Gamitin ang AppControl tool para gumawa ng mga app exclusion.</string>
     <string name="exclusion_create_path_hint">Gamitin ang StorageAnalyzer tool para gumawa ng mga path exclusion.</string>
+    <string name="exclusion_create_segment_hint">Tumugma ang isang bahagi ng pangalan, tulad ng \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Ipakita ang mga default</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d pagbubukod ang na-import</item>
+        <item quantity="other">%d mga pagbubukod ang na-import</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d pagbubukod ang na-export</item>
+        <item quantity="other">%d mga pagbubukod ang na-export</item>
+    </plurals>
 </resources>

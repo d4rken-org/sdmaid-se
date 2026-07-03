@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestore delle esclusioni</string>
     <string name="exclusion_manager_desc">Gestisci file e app da escludere.</string>
-    <string name="exclusion_explanation_body1">Escludi file e app dalle operazioni di SD Maid.</string>
-    <string name="exclusion_add_new_hint">Aggiungi nuove esclusioni lasciando prima che SD Maid cerchi i risultati e poi escludi ciò che desideri dal menu contestuale.</string>
+    <string name="exclusion_explanation_body1">Escludi file e app per proteggerli dagli strumenti di SD Maid, oppure salta elementi irrilevanti e velocizza le operazioni.</string>
+    <string name="exclusion_add_new_hint">Nessuna esclusione ancora. Usa il pulsante + per crearne una, oppure escludi elementi dai risultati di qualsiasi strumento.</string>
     <string name="exclusion_create_action">Crea esclusione</string>
     <string name="exclusion_edit_action">Modifica esclusione</string>
     <string name="exclusion_type_package">Esclusione app</string>
@@ -25,5 +25,14 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="exclusion_export_action">Esporta esclusioni</string>
     <string name="exclusion_create_pkg_hint">Utilizzare lo strumento AppControl per creare esclusioni di app.</string>
     <string name="exclusion_create_path_hint">Utilizzare lo strumento StorageAnalyzer per creare esclusioni di percorsi.</string>
+    <string name="exclusion_create_segment_hint">Corrisponde a un segmento di nome, come \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Mostra predefiniti</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d esclusione importata</item>
+        <item quantity="other">%d esclusioni importate</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d esclusione esportata</item>
+        <item quantity="other">%d esclusioni esportate</item>
+    </plurals>
 </resources>

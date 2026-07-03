@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Asosiy xotira</string>
     <string name="stats_storage_type_secondary">Ikkilamchi xotira</string>
     <string name="stats_storage_type_portable">Ko\'chma xotira</string>
+    <string name="stats_space_history_delete_storage_title">Saqlash tarixini o\'chirishmi?</string>
+    <string name="stats_space_history_delete_storage_desc">Ushbu saqlash uchun barcha trend ma\'lumotlari butunlay o\'chiriladi.</string>
 </resources>

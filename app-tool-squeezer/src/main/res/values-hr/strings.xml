@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Komprimirajte slike kako biste uštedili prostor za pohranu.</string>
+    <string name="squeezer_explanation_short">Komprimiraj slike i videozapise kako biste uštedjeli prostor za pohranu.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d slika pronađena</item>
-        <item quantity="few">%d slike pronađene</item>
-        <item quantity="other">%d slika pronađeno</item>
+        <item quantity="one">%d stavka pronađena</item>
+        <item quantity="few">%d stavke pronađene</item>
+        <item quantity="other">%d stavki pronađeno</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s se može uštedjeti</item>
@@ -12,30 +12,62 @@
         <item quantity="other">~%s se može uštedjeti</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d slika komprimirana</item>
-        <item quantity="few">%d slike komprimirane</item>
-        <item quantity="other">%d slika komprimirano</item>
+        <item quantity="one">%d stavka komprimirana</item>
+        <item quantity="few">%d stavke komprimirane</item>
+        <item quantity="other">%d stavki komprimirano</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d neuspješan</item>
+        <item quantity="few">%d neuspješna</item>
+        <item quantity="other">%d neuspješnih</item>
+    </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d je ostalo nepromijenjeno (metapodaci nisu mogli biti sačuvani)</item>
+        <item quantity="few">%d su ostala nepromijenjena (metapodaci nisu mogli biti sačuvani)</item>
+        <item quantity="other">%d je ostalo nepromijenjeno (metapodaci nisu mogli biti sačuvani)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d datoteka preskočena (nije dostupna)</item>
+        <item quantity="few">%d datoteke preskočene (nisu dostupne)</item>
+        <item quantity="other">%d datoteka preskočeno (nije dostupno)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d je preskočeno (HDR/dubina sačuvana)</item>
+        <item quantity="few">%d su preskočena (HDR/dubina sačuvana)</item>
+        <item quantity="other">%d je preskočeno (HDR/dubina sačuvana)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d slika odabrana</item>
-        <item quantity="few">%d slike odabrane</item>
-        <item quantity="other">%d slika odabrano</item>
+        <item quantity="one">%d stavka odabrana</item>
+        <item quantity="few">%d stavke odabrane</item>
+        <item quantity="other">%d stavki odabrano</item>
     </plurals>
     <string name="squeezer_min_size_title">Minimalna veličina datoteke</string>
-    <string name="squeezer_min_size_description">Preskoči slike manje od ove veličine.</string>
+    <string name="squeezer_min_size_description">Preskoči datoteke manje od ove veličine.</string>
     <string name="squeezer_min_age_title">Minimalna starost datoteke</string>
-    <string name="squeezer_min_age_description">Uključi samo slike starije od ove starosti.</string>
-    <string name="squeezer_compression_settings_label">Postavke kompresije</string>
-    <string name="squeezer_quality_description">Niža kvaliteta znači manju veličinu datoteke, ali smanjenu kvalitetu slike.</string>
-    <string name="squeezer_types_category_label">Vrste slika</string>
+    <string name="squeezer_min_age_description">Uključi samo datoteke starije od ove dobi.</string>
+    <string name="squeezer_compression_settings_label">Općenito</string>
+    <string name="squeezer_quality_label">Kvaliteta</string>
+    <string name="squeezer_quality_title">Kvaliteta kompresije</string>
+    <string name="squeezer_quality_description">Niža kvaliteta znači manju veličinu datoteke, ali smanjenu vizualnu kvalitetu.</string>
+    <string name="squeezer_quality_example_format">Primjer: %1$s slika → ušteda ~%2$s pri %3$d%% kvalitete</string>
+    <string name="squeezer_quality_warning_low">Niže kvalitete mogu uzrokovati vidljive artefakte.</string>
+    <string name="squeezer_quality_warning_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
+    <string name="squeezer_types_category_label">Postavke slika</string>
+    <string name="squeezer_video_settings_category_label">Postavke videozapisa</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Uključi JPEG slike (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Uključi WebP slike (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Uključi HEIC/HEIF slike (.heic, .heif). Datum, lokacija i ostali EXIF metapodaci se čuvaju. HDR mape, dubinski podaci i Live/Motion Photo dodatne slike ne mogu biti sačuvani; datoteke s više slika se preskaču.</string>
+    <string name="squeezer_type_video_title">MP4 videozapis</string>
+    <string name="squeezer_type_video_description">Uključi MP4 videodatoteke (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Preskoči prethodno komprimirane</string>
-    <string name="squeezer_skip_compressed_description">Preskoči slike koje je SD Maid već komprimirao.</string>
+    <string name="squeezer_skip_compressed_description">Preskoči datoteke koje je SD Maid već komprimirao.</string>
     <string name="squeezer_exif_marker_title">Zapiši EXIF marker</string>
     <string name="squeezer_exif_marker_description">Dodaj marker u polje komentara korisnika EXIF slike kako bi se spriječila ponovna kompresija čak i ako se povijest kompresije obriše.</string>
+    <string name="squeezer_include_lossy_aux_title">Komprimiraj HDR i dubinske fotografije</string>
+    <string name="squeezer_include_lossy_aux_description">Isključeno prema zadanim postavkama: fotografije s HDR mapom ili dubinskim/portret podacima se preskaču kako se ne bi sploštile. Omogućite kompresiju gdje je moguće — izgubit će HDR mapu ili dubinske podatke. Neke HEIC fotografije s više slika ostaju zaštićene bez obzira na ovu postavku.</string>
     <string name="squeezer_estimated_savings_format">~%s uštede</string>
     <string name="squeezer_no_savings_expected">Ograničena ušteda</string>
     <string name="squeezer_current_size_format">Veličina: %s</string>
@@ -44,6 +76,8 @@
     <string name="squeezer_preview_dialog_title">Potvrdi kompresiju</string>
     <string name="squeezer_preview_total_size">Ukupna veličina</string>
     <string name="squeezer_preview_estimated_savings">Procijenjena ušteda</string>
+    <string name="squeezer_compress_confirmation_title">Komprimirati odabrane stavke?</string>
+    <string name="squeezer_compress_confirmation_message">Ovo će zamijeniti originalne datoteke komprimiranim verzijama. Ova radnja se ne može poništiti.</string>
     <string name="squeezer_history_title">Povijest kompresije</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d stavka (%2$s)</item>
@@ -52,19 +86,36 @@
     </plurals>
     <string name="squeezer_history_empty">Nema povijesti kompresije</string>
     <string name="squeezer_history_clear_title">Obriši povijest kompresije</string>
-    <string name="squeezer_history_clear_message">Ovo će omogućiti ponovnu kompresiju prethodno komprimiranih slika. Same slike nisu pogođene.</string>
+    <string name="squeezer_history_clear_message">Ovo će omogućiti ponovnu kompresiju prethodno komprimiranih datoteka. Same datoteke neće biti pogođene.</string>
+    <string name="squeezer_onboarding_title">O kompresiji slika</string>
+    <string name="squeezer_onboarding_message">Kompresija slika smanjuje veličinu datoteke uklanjanjem vizualnih detalja. Ovaj proces je nepovratan - originalna kvaliteta se ne može vratiti.\n\nEvo pregleda kako će vaše slike izgledati:</string>
     <string name="squeezer_onboarding_original_label">Originalno</string>
     <string name="squeezer_onboarding_compressed_label">Nakon kompresije</string>
+    <string name="squeezer_onboarding_video_original_label">Videosličica</string>
+    <string name="squeezer_onboarding_video_compressed_label">Pregled (približan)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">Stvarna kvaliteta videozapisa može se razlikovati</string>
+    <string name="squeezer_onboarding_quality_label">Kvaliteta: %d%%</string>
     <string name="squeezer_compare_action">Pogledaj usporedbu</string>
     <string name="squeezer_no_example_found">Nema slika u odabranim putanjama.</string>
-    <string name="squeezer_result_empty_message">Nema slika za kompresiju.</string>
-    <string name="squeezer_setup_explanation">Kompresija medija smanjuje veličinu datoteka slika kako bi oslobodila prostor. Ovo trajno smanjuje kvalitetu slike i ne može se poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
+    <string name="squeezer_result_empty_message">Nije pronađen medij koji se može komprimirati.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Nema medija za kompresiju — %d HDR/dubinska fotografija je preskočena. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da je uključiš.</item>
+        <item quantity="few">Nema medija za kompresiju — %d HDR/dubinske fotografije su preskočene. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da ih uključiš.</item>
+        <item quantity="other">Nema medija za kompresiju — %d HDR/dubinskih fotografija je preskočeno. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da ih uključiš.</item>
+    </plurals>
+    <string name="squeezer_setup_warning">Kompresija trajno smanjuje kvalitetu kako bi uštedjela prostor za pohranu. Ovo se ne može poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">%d lokacija ne može se koristiti za kompresiju i uklonjena je. Kompresija zahtijeva izravan pristup internoj pohrani.</item>
+        <item quantity="few">%d lokacije ne mogu se koristiti za kompresiju i uklonjene su. Kompresija zahtijeva izravan pristup internoj pohrani.</item>
+        <item quantity="other">%d lokacija ne može se koristiti za kompresiju i uklonjene su. Kompresija zahtijeva izravan pristup internoj pohrani.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">Media Squeeze smanjuje veličinu datoteka slika i videozapisa kako bi oslobodio prostor za pohranu. Ovo trajno smanjuje kvalitetu i ne može se poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
     <string name="squeezer_setup_paths_title">Lokacije pretraživanja</string>
     <string name="squeezer_setup_paths_default">Odaberite mape za pretraživanje</string>
     <string name="squeezer_setup_quality_title">Kvaliteta kompresije</string>
     <string name="squeezer_setup_age_title">Minimalna starost</string>
     <string name="squeezer_setup_start_action">Pokreni skeniranje</string>
-    <string name="squeezer_quality_hint_very_low">Kvaliteta ispod 40% može stvoriti neupotrebljive slike.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">Kvaliteta ispod 40% može stvoriti neupotrebljive slike.</string>
     <string name="squeezer_quality_hint_low">Niža kvaliteta štedi više prostora ali može uzrokovati vidljive artefakte.</string>
     <string name="squeezer_quality_hint_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
     <string name="squeezer_quality_hint_normal">Uravnotežena kvaliteta i ušteda prostora.</string>
@@ -73,5 +124,9 @@
         <item quantity="few">Najmanje %d dana stara</item>
         <item quantity="other">Najmanje %d dana stara</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Procjenjena ušteda od ~%d%% za JPEG datoteke</string>
+    <string name="squeezer_estimated_savings_percent">Procijenjeno ~%d%% uštede za JPEG datoteke</string>
+    <string name="squeezer_onboarding_got_it">U redu</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer ponovno kompresira vaše fotografije i videozapise kako bi zauzimali manje prostora. Datoteke ostaju upotrebljive, samo manje, a svaka pokazuje procijenjenu uštedu.</string>
+    <string name="tour_squeezer_compress_body">Komprimiraj sve odjednom ovdje ili dodirni jednu stavku da smanjiš samo tu. Dugim pritiskom odaberi više stavki. Uvijek ćeš vidjeti pretpregled prije nego što se bilo što promijeni.</string>
 </resources>

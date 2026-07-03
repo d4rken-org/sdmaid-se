@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Gunakan pilihan \"Pulihkan pembelian\" untuk memulihkan pembelian anda. Jika masalah berterusan, cuba kosongkan cache Google Play dan mulakan semula peranti anda.</string>
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Kelebihan</string>
-    <string name="upgrade_screen_benefits_body">• Pembersihan aplikasi 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\dan banyak lagi…</string>
+    <string name="upgrade_screen_benefits_title">Faedah peningkatan</string>
+    <string name="upgrade_screen_benefits_body">• Bersihkan cache aplikasi dan data yang boleh dibuang
+• Alih keluar fail pendua
+• Dayakan pembersihan berjadual
+• Buat penapis tersuai dan peraturan pembersihan
+• Jejak arah aliran penyimpanan dan sejarah pembersihan
+• Lebih banyak ciri dan kawalan di seluruh aplikasi
+• Sokong pembangunan yang berterusan</string>
     <string name="upgrade_screen_how_title">Pilihan</string>
     <string name="upgrade_screen_how_body">Anda boleh memilih antara pembelian sekali dan langganan tahunan yang lebih murah.\nLangganan bermula dengan percubaan 14 hari percuma, selepas itu anda akan dicaj sekali setahun. Percubaan dan langganan boleh dibatalkan pada bila-bila masa.\nCiri yang sama, cuma model harga yang berbeza.</string>
+    <string name="upgrade_screen_subscription_offer_title">Langganan tahunan</string>
+    <string name="upgrade_screen_iap_offer_title">Beli sekali</string>
+    <string name="upgrade_screen_offer_recommended">Disyorkan</string>
+    <string name="upgrade_screen_offers_unavailable_message">Harga tidak dapat dimuatkan sekarang. Periksa Google Play dan cuba lagi dalam sesaat.</string>
     <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan 14 hari percuma</string>
     <string name="upgrade_screen_subscription_action">Langgan</string>
     <string name="upgrade_screen_subscription_action_hint">Kos langganan %s setahun.</string>

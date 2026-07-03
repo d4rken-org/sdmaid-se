@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">\"구매 복원\" 옵션을 사용하여 구매를 복원하세요. 문제가 계속되면 Google Play 캐시를 지우고 기기를 재시작해 보세요.</string>
     <string name="upgrade_screen_title">SD Maid SE 프로 구매</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다. ❤️</string>
-    <string name="upgrade_screen_benefits_title">장점</string>
-    <string name="upgrade_screen_benefits_body">• 앱 청소 💯\n• 작동 예약 ⏰\n• 모든 도구에서의 추가 설정 ⚙️\n• 사용자 지정 삭제 규칙 ✍️\n• 행복한 개발자 🧙\n 외 다수...</string>
+    <string name="upgrade_screen_benefits_title">업그레이드 혜택</string>
+    <string name="upgrade_screen_benefits_body">• 앱 캐시 및 불필요한 데이터 정리
+• 중복 파일 제거
+• 예약된 정리 활성화
+• 사용자 정의 필터 및 정리 규칙 만들기
+• 저장소 추세 및 정리 기록 추적
+• 앱 전체에서 더 많은 기능 및 제어
+• 지속적인 개발 지원</string>
     <string name="upgrade_screen_how_title">옵션</string>
     <string name="upgrade_screen_how_body">연간 구독형과 영구 구매 중 선택할 수 있습니다.\n구독 시 14일 무료 평가판 이후 매년 요금이 청구됩니다. 평가판 및 구독 모두 언제든 취소할 수 있습니다.\n영구 구매와 구독형 사이 기능의 차이는 없습니다.</string>
+    <string name="upgrade_screen_subscription_offer_title">연간 구독</string>
+    <string name="upgrade_screen_iap_offer_title">한 번 구입</string>
+    <string name="upgrade_screen_offer_recommended">권장</string>
+    <string name="upgrade_screen_offers_unavailable_message">지금 가격을 불러올 수 없습니다. Google Play를 확인하고 잠시 후 다시 시도해주세요.</string>
     <string name="upgrade_screen_subscription_trial_action">14일 무료 평가판 시작</string>
     <string name="upgrade_screen_subscription_action">구독하기</string>
     <string name="upgrade_screen_subscription_action_hint">구독은 매년 %s 가 청구됩니다.</string>

@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Le programmateur a terminé</string>
     <string name="scheduler_notification_result_success_message">Toutes vos tâches programmées ont été effectuées correctement.</string>
     <string name="scheduler_notification_result_failure_message">Certaines tâches ont échoué ou des erreurs sont survenues. Tentez de les effectuer manuellement.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Ignoré, l’écran était éteint ou verrouillé</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Le nettoyage des applis peut être ignoré</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Le nettoyage des applis utilise le service d’accessibilité, qui nécessite que l’écran soit déverrouillé. Les exécutions planifiées quand l’appareil est verrouillé sont ignorées.
+
+Utilisez Shizuku ou root pour le nettoyage en arrière-plan, ou planifiez-le pour quand vous utilisez l’appareil.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Les applis système peuvent être ignorées</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku nettoie la plupart des caches en arrière-plan, mais les applis système nécessitent le service d’accessibilité, qui nécessite que l’écran soit déverrouillé. Avec « Inclure les applis système » activée, celles-ci sont ignorées quand l’appareil est verrouillé.
+
+Désactivez « Inclure les applis système » ou exécutez le planning sans verrou.</string>
     <string name="scheduler_commands_after_schedule_label">Commandes postprogrammation</string>
     <string name="scheduler_commands_after_schedule_desc">Commandes de l’interpréteur de commandes Android qui seront exécutées en fin de programmation.</string>
     <string name="scheduler_battery_optimization_hint">Envisagez de désactiver les optimisations de la batterie pour SD Maid si vous rencontrez des problèmes d’exécution en arrière-plan.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid peut nettoyer selon un planning. Choisissez une heure et les outils à exécuter, et elle fera le travail en arrière-plan, (presque) pas besoin d’ouvrir l’appli.</string>
+    <string name="tour_scheduler_create_body">Appuyez ici pour créer un nouveau planning, puis définissez quand il s’exécute et les outils à inclure.</string>
 </resources>

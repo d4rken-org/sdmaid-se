@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Sử dụng tùy chọn \"Khôi phục giao dịch mua\" để khôi phục giao dịch mua của bạn. Nếu vấn đề vẫn tiếp diễn, hãy thử xóa bộ nhớ đệm Google Play và khởi động lại thiết bị của bạn.</string>
     <string name="upgrade_screen_title">Nhận SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Lợi thế</string>
-    <string name="upgrade_screen_benefits_body">• Dọn dẹp ứng dụng 💯\n• Hoạt động theo lịch trình ⏰\n• Tùy chọn bổ sung cho tất cả các công cụ ⚙️\n• Quy tắc xóa của riêng bạn ✍️\n• Một nhà phát triển năng động 🧙\nvà hơn thế nữa…</string>
+    <string name="upgrade_screen_benefits_title">Lợi ích nâng cấp</string>
+    <string name="upgrade_screen_benefits_body">• Làm sạch bộ nhớ đệm ứng dụng và dữ liệu không cần thiết\n• Xóa các tập tin trùng lặp\n• Bật quét định kỳ\n• Tạo các bộ lọc tùy chỉnh và quy tắc quét\n• Theo dõi xu hướng lưu trữ và lịch sử quét\n• Nhiều tính năng và điều khiển khác trên ứng dụng\n• Hỗ trợ phát triển liên tục</string>
     <string name="upgrade_screen_how_title">Tùy chọn</string>
     <string name="upgrade_screen_how_body">Bạn có thể chọn giữa mua một lần và đăng ký hàng năm rẻ hơn.\nĐăng ký bắt đầu bằng bản dùng thử miễn phí 14 ngày, sau đó bạn sẽ bị tính phí một lần mỗi năm. Bản dùng thử và đăng ký có thể bị hủy bất kỳ lúc nào.\nTính năng giống nhau, chỉ khác mô hình định giá.</string>
+    <string name="upgrade_screen_subscription_offer_title">Gói đăng ký hàng năm</string>
+    <string name="upgrade_screen_iap_offer_title">Mua một lần</string>
+    <string name="upgrade_screen_offer_recommended">Được đề xuất</string>
+    <string name="upgrade_screen_offers_unavailable_message">Không thể tải giá lúc này. Kiểm tra Google Play và thử lại trong giây lát.</string>
     <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử 14 ngày miễn phí</string>
     <string name="upgrade_screen_subscription_action">Đăng ký</string>
     <string name="upgrade_screen_subscription_action_hint">Chi phí đăng ký %s mỗi năm.</string>

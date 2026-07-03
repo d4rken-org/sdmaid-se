@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">በእያንዳንዱ የተመረጠ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ከአንድ ኮፒ በስተቀር ሁሉንም ይሰረዙ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">በእያንዳንዱ የተመረጠ የተመሳሳይ ፋይሎች ስብስብ ውስጥ ያሉ ሁሉንም ፋይሎች ይሰረዙ? ምንም ፋይል አይቀርም!</string>
     <string name="deduplicator_delete_all_toggle_msg">ሁሉንም ኮፒዎች ስረዝ። ምንም ፋይል አይቀርም!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">በዚህ ስብስብ ውስጥ %1$d ተደጋጋሚ ሰርዛ፣ %2$s ይወቃል? የተቀመጠው ቅዳደ ይቆያል።</item>
+        <item quantity="other">በዚህ ስብስብ ውስጥ %1$d ተደጋጋሚዎች ሰርዛ፣ %2$s ይወቃል? የተቀመጠው ቅዳደ ይቆያል።</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ሊወገድ ይችል</string>
+    <string name="deduplicator_action_delete_set">ተደጋጋሚ ስብስብ ሰርዝ</string>
+    <string name="deduplicator_action_open_preview">ቅድመ እይታ ክፈት</string>
+    <string name="deduplicator_marked_for_deletion">ለመሰረዝ ተወሰነ</string>
+    <string name="deduplicator_cluster_preview_image">ተደጋጋሚ ስብስብ ቅድመ እይታ</string>
+    <string name="deduplicator_selection_keep_one_required">ከእያንዳንዱ ተመሳሳይ ስብስብ ቢያንስ አንድ ፋይል ሊቆይ ይገባል። ለመሸነፍ በቅንብሮች ውስጥ ሁሉንም ሰርዝ ይቻላል ያንቁ።</string>
     <string name="deduplicator_progress_comparing_files">ፋይሎችን በማወዳደር ላይ</string>
     <string name="deduplicator_details_cluster_title">የተመሳሳዮች ስብስብ</string>
     <string name="deduplicator_matches_exact_label">ትክክለኛ ኮፒዎች</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ትንንሽ ፋይሎችን ይመርጡ</string>
     <string name="deduplicator_view_mode_groups_label">ቡድኖች</string>
     <string name="deduplicator_view_mode_directories_label">ማህደሮች</string>
+    <string name="tour_deduplicator_details_cluster_body">እነዚህ ፋይሎች ሁሉ ተመሳሳይ ዓይነት ወይም ሚዲያ ይዝት ይመስላሉ፡ የተመሳሳይ ስብስብ።</string>
+    <string name="tour_deduplicator_details_delete_mark_body">በዚህ አዶ ያለ ፋይሎች ይሰረዛሉ፤ በቡድኑ ውስጥ የቀረው ፋይል SD Maid ያቆየው ነው። በመሰረዣ ስትራቴጂ ቅንብር ውስጥ ተጠባቢ እንዴት እንደተመረጠ መቀየር ይችላሉ።</string>
 </resources>

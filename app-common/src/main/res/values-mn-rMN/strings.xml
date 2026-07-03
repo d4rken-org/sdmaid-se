@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Ойлголоо</string>
     <string name="general_fix_action">Засах</string>
     <string name="general_set_up_action">Тохируулах</string>
+    <string name="general_unavailable_label">Боломжгүй</string>
     <string name="general_edit_action">Засах</string>
     <string name="general_na_label">Байхгүй</string>
     <string name="general_empty_label">Хоосон</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Дарааллд</string>
     <string name="general_progress_deleting">Устгаж байна</string>
     <string name="general_progress_deleting_x">%s устгаж байна</string>
+    <string name="general_sort_by_title">Эрэмбэлэх шалгуур</string>
     <string name="general_sort_reverse_action">Урвуу эрэмбэлэх горим</string>
+    <string name="general_sort_oldest_first">Эхэлсэн огноогоор</string>
+    <string name="general_sort_newest_first">Шинэ эхэлж</string>
+    <string name="general_sort_name_asc">Нэр (А → Я)</string>
+    <string name="general_sort_size_desc">Хамгийн том эхэлж</string>
     <string name="general_tag_system">Систем</string>
+    <string name="general_navigate_up_action">Дээшээ явах</string>
+    <string name="general_filter_action">Шүүлтүүр</string>
+    <string name="general_filter_by_tags_label">Шошгоор шүүх</string>
+    <string name="general_filter_add_action">Шүүлтүүр нэмэх</string>
+    <string name="general_filter_remove_x_action">%s шүүлтүүрийг хасах</string>
+    <string name="general_filter_empty_row_hint">Шүүхийн тулд + дээр дарна уу</string>
+    <string name="general_show_all_action">Бүгдийг харуулах</string>
     <string name="general_result_success_message">Амжилттай гүйцэтгэгдсэн</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s зай чөлөөлөгдсөн.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Сонголтууд</string>
     <string name="general_details_label">Дэлгэрэнгүй</string>
     <string name="general_view_action">Харах</string>
+    <string name="general_open_action">Нээх</string>
+    <string name="general_configure_action">Тохируулах</string>
     <string name="general_update_action">Шинэчлэх</string>
     <string name="general_scan_action">Скан хийх</string>
     <string name="general_close_action">Хаах</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d зүйл хасагдсан</item>
     </plurals>
     <string name="general_search_action">Хайх</string>
+    <string name="general_search_no_matches">Таарах зүйл байхгүй</string>
     <string name="general_open_system_settings_action">Системийн тохиргоо нээх</string>
+    <string name="general_fast_scroller_action">Хурдан гулсагч</string>
     <plurals name="result_x_items">
         <item quantity="one">%s зүйл</item>
         <item quantity="other">%s зүйл</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Үйлчилгээ идэвхжүүлэх</string>
     <string name="general_undo_action">Буцаах</string>
     <string name="general_list_select_all_action">Бүгдийг сонгох</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d сонгосон</item>
+        <item quantity="other">%d сонгосон</item>
+    </plurals>
     <string name="general_path_label">Зам</string>
     <string name="general_type_label">Төрөл</string>
     <string name="general_size_label">Хэмжээ</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Алдаа мэдээлэх</string>
     <string name="general_error_ipc_deadobject_title">Үйлчилгээний холболт тасарсан</string>
     <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээний холболт (жишээ нь Magisk, Shizuku эсвэл бусад системийн түвшний үйлчилгээнүүд) гэнэт тасарсан. Төхөөрөмжөө дахин эхлүүлнэ үү. Хэрэв асуудал үргэлжилвэл шинэчлэлийг шалгаж эсвэл надтай холбогдоно уу.</string>
+    <string name="general_error_upgrade_required_title">Pro хувилбар шаардлагатай</string>
+    <string name="general_error_upgrade_required_description">Энэ нь Pro функц юм. Үүнийг ашиглахын тулд SD Maid SE-г шинэчлэнэ үү.</string>
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Тохиргоо</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Эрсдлийн түвшин</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="appcontrol_systemsettings_open_title">Тохиргоог харуулах</string>
+    <string name="ui_theme_color_sunset_label">Нарны жаргал</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Энэ функц root-ийн эрхтэй байхыг шаарддаг ч SD Maid энэ төхөөрөмжид үүнийг авч чадсангүй.</string>
+    <string name="access_blocked_root_declined">Энэ функц root-ийн эрхтэй байхыг шаарддаг. Та үүнийг суулгалтын дэлгэцээс идэвхжүүлж болно.</string>
+    <string name="access_blocked_root_or_shizuku">Энэ функц root эсвэл Shizuku-ийн эрхтэй байхыг шаарддаг ч энэ төхөөрөмжид ашиглах боломжгүй байна.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Нөөц хуулбарын файл хүчингүй</string>
+    <string name="backup_restore_error_invalid_body">Энэ файл нь хүчин төгстөй SD Maid нөөц хуулбар биш эсвэл эвдэрсэн байна.</string>
+    <string name="backup_restore_error_version_body">Энэ нөөц хуулбар SD Maid-ийн шинэ хувилбартай үүсгэгдсэн байна. Апп-г шинэчлэж, дахин оролдоно уу.</string>
+    <string name="backup_restore_error_restore_failed_title">Сэргээлт амжилтгүй</string>
+    <string name="backup_restore_error_restore_failed_body">Эдгээр хэсэгүүдийг сэргээх боломжгүй байсан: %1$s. Таны өмнөх тохиргоо хадгалагдсан бөгөөд буцаах боломжтой байна.</string>
+    <string name="backup_restore_error_safety_title">Сэргээлт эхлээгүй</string>
+    <string name="backup_restore_error_safety_body">SD Maid таны одоогийн тохиргооны аюлгүй хуулбар хадгалах боломжгүй байсан тул юу ч өөрчлөгдөөгүй.</string>
+    <string name="backup_restore_error_busy_title">Хүлээнэ үү</string>
+    <string name="backup_restore_error_busy_body">Цэвэрлэх ажил эсвэл өөр нөөц хуулбар үйл ажиллагаа одоо явж байна. Дууссаны дараа дахин оролдоно уу.</string>
+    <string name="backup_restore_error_schema_title">Нийцэхгүй нөөц хуулбар</string>
+    <string name="backup_restore_error_schema_body">Нөөц хуулбарын өгөгдлийн сан формат энэ SD Maid хувилбартай тохирохгүй байна. Түүхийн өгөгдлийг сэргээх нь ижил аппын хувилбарын хооронд л дэмжигддэг.</string>
 </resources>

@@ -41,6 +41,20 @@
         <item quantity="few">%d неодлучене ставке ће остати за каснији преглед.</item>
         <item quantity="other">%d неодлучених ставки ће остати за каснији преглед.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Ова сеанса циља целу јединицу складишта — брисање овде обухвата сваку фасциклу на том складишту.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…и још %d фасцикла</item>
+        <item quantity="few">…и још %d фасцикле</item>
+        <item quantity="other">…и још %d фасцикли</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Разумем да ће ове датотеке бити трајно избрисане.</string>
+    <string name="swiper_sensitive_root_warning_title">Скенирати целу складишну јединицу?</string>
+    <string name="swiper_sensitive_root_warning_message">Скенирање %1$s обухвата све датотеке на овој складишној јединици — фотографије, документа, преузимања, медије апликација и више. Наставити?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Свеједно наставити</string>
+    <string name="swiper_session_risky_label">Скенирање целе складишне јединице</string>
+    <string name="swiper_session_risky_info_message">Ова сеанса циља на корен складишне јединице, тако да су све датотеке на тој складишној јединици обухваћене — фотографије, документа, преузимања, медије апликација и више.
+
+Скенирања целе складишне јединице могу вратити много ставки, укључујући датотеке које можда нисте намеравали да прегледате. Примените филтер врсте датотеке да бисте сузили скенирање.</string>
     <string name="swiper_delete_x_action">Обриши %1$d</string>
     <string name="swiper_settings_swap_directions_title">Замени правце превлачења</string>
     <string name="swiper_settings_swap_directions_summary">Превуци лево за задржавање, десно за брисање.</string>
@@ -85,6 +99,11 @@
     <string name="swiper_session_rename_hint">Унесите име за ову сесију</string>
     <string name="swiper_sessions_current_sessions">Тренутне сесије</string>
     <string name="swiper_session_paths_label">Путање</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…и још %d</item>
+        <item quantity="few">…и још %d</item>
+        <item quantity="other">…и још %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Статус</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d за задржавање</item>
@@ -159,4 +178,10 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Нису пронађене одговарајуће датотеке</string>
     <string name="swiper_open_externally_action">Отвори у спољашњој апликацији</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Клизните по фотографији да одлучите њену судбину: боком да задржите или избришете, нагоре да прескочите, надоле да опозовете. Дугмади испод раде исто — и показују која страна је која.</string>
+    <string name="tour_swiper_openin_body">Ово дугме отвара фотографију у другој апликацији, практично за проверавање пре него што одлучите.</string>
+    <string name="tour_swiper_preview_body">Ово дугме отвара преглед преко целог екрана за детаљнији поглед.</string>
+    <string name="tour_swiper_actions_body">Не волите клизање? Имамо и дугмаде! Прескочи оставља одлуку за касније, а дуг притисак на дугме Прескочи искључује датотеку из будућих скенирања. Опозови враћа вашу последњу одлуку.</string>
+    <string name="tour_swiper_review_body">Ваши избори за задржавање и брисање су само припремлјени. Отворите Преглед да их проверите и примените брисања када будете спремни.</string>
 </resources>

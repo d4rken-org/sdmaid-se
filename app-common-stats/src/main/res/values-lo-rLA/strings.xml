@@ -37,4 +37,6 @@
     <string name="stats_storage_type_primary">ບ່ອນເກັບຂໍ້ມູນຫຼັກ</string>
     <string name="stats_storage_type_secondary">ບ່ອນເກັບຂໍ້ມູນສຳຮອງ</string>
     <string name="stats_storage_type_portable">ບ່ອນເກັບຂໍ້ມູນແບບພົກພາ</string>
+    <string name="stats_space_history_delete_storage_title">ລົບປະຫວັດການເກັບຮັກສາ?</string>
+    <string name="stats_space_history_delete_storage_desc">ຂໍ້ມູນທ່າອ່ຽງທັງໝົດສຳລັບການເກັບຮັກສານີ້ຈະຖືກລົບຖາວອນ.</string>
 </resources>

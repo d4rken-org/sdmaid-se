@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">اپنی خریداری بحال کرنے کے لیے \"خریداری بحال کریں\" کا اختیار استعمال کریں۔ اگر مسئلہ برقرار رہے تو Google Play کیش صاف کرنے اور اپنا آلہ دوبارہ شروع کرنے کی کوشش کریں۔</string>
     <string name="upgrade_screen_title">SD Maid SE Pro حاصل کریں</string>
     <string name="upgrade_screen_preamble">SD Maid میں کوئی اشتہارات نہیں ہیں اور صارف کا ڈیٹا نہیں بیچتا۔ میرا کام آپ کی طرف سے مالی اعانت فراہم کیا جاتا ہے ❤️۔</string>
-    <string name="upgrade_screen_benefits_title">فوائد</string>
-    <string name="upgrade_screen_benefits_body">• ایپ کی صفائی 💯\n• شیڈول شدہ آپریشنز ⏰\n• تمام ٹولز کے لیے اضافی اختیارات ⚙️\n• آپ کے اپنے حذف کرنے کے اصول ✍️\n• ایک متحرک ڈیولپر 🧙\nاور مزید…</string>
+    <string name="upgrade_screen_benefits_title">اپ گریڈ کے فوائد</string>
+    <string name="upgrade_screen_benefits_body">• ایپ کیشز اور غیر ضروری ڈیٹا صاف کریں\n• نقل شدہ فائلوں کو ہٹائیں\n• شیڈول شدہ صفائی کو فعال کریں\n• اپنی مرضی کے فلٹرز اور صفائی کے اصول بنائیں\n• اسٹوریج رجحانات اور صفائی کی ہسٹری کو ٹریک کریں\n• ایپ میں مزید خصوصیات اور کنٹرولز\n• جاری ترقی کو سپورٹ کریں</string>
     <string name="upgrade_screen_how_title">اختیارات</string>
     <string name="upgrade_screen_how_body">آپ ایک بار کی خریداری اور سستی سالانہ سبسکرپشن کے درمیان انتخاب کر سکتے ہیں۔\nسبسکرپشن 14 دن کی مفت آزمائش کے ساتھ شروع ہوتی ہے، جس کے بعد آپ سے سال میں ایک بار چارج کیا جائے گا۔ آزمائش اور سبسکرپشن کسی بھی وقت منسوخ کی جا سکتی ہے۔\nیکساں فیچرز، صرف مختلف قیمتوں کے ماڈل۔</string>
+    <string name="upgrade_screen_subscription_offer_title">سالانہ رکنیت</string>
+    <string name="upgrade_screen_iap_offer_title">ایک بار خریدیں</string>
+    <string name="upgrade_screen_offer_recommended">سفارش کردہ</string>
+    <string name="upgrade_screen_offers_unavailable_message">قیمتیں فی الوقت لوڈ نہیں ہو سکیں۔ Google Play کو چیک کریں اور کچھ دیر میں دوبارہ کوشش کریں۔</string>
     <string name="upgrade_screen_subscription_trial_action">14 دن کی مفت آزمائش شروع کریں</string>
     <string name="upgrade_screen_subscription_action">سبسکرائب کریں</string>
     <string name="upgrade_screen_subscription_action_hint">سبسکرپشن کی قیمت %s سالانہ ہے۔</string>

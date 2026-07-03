@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Erabili \"Berreskuratu erosketa\" aukera zure erosketa berreskuratzeko. Arazoak jarraitzen badu, saiatu Google Play katxea garbitzen eta zure gailua berrabiarazten.</string>
     <string name="upgrade_screen_title">SD Maid Pro lortu</string>
     <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Abantailak</string>
-    <string name="upgrade_screen_benefits_body">• Garbitzeko aplikazioa 💯\n• Programatutako eragiketak ⏰\n• Aukera gehigarriak erraminta guztietarako⚙️\n• Zure ezabaketa-arau propioak ✍️\n• Garatzaile motibatua 🧙\nEta gehiago…</string>
+    <string name="upgrade_screen_benefits_title">Hobekuntza onurak</string>
+    <string name="upgrade_screen_benefits_body">• Aplikazioaren cacheak eta deskargarriak diren datuak garbitu\n• Fitxategi bikoizak kendu\n• Garbiketa programatuak gaitu\n• Pertsonalizatutako iragazkiak eta garbiketa arauak sortu\n• Biltegiaren joera eta garbiketa historika jarraitu\n• Aplikazio osoaren zehar ezaugarri eta kontrol gehiago\n• Garapen jarraituaren laguntza</string>
     <string name="upgrade_screen_how_title">Ezarpenak</string>
     <string name="upgrade_screen_how_body">Aukera dezakezu erosketa bakarra eta urteko harpidetza merkeagoa.\nHarpidetza 14 eguneko doako epaiketa batekin hasten da. Ondoren, urtean behin kobratuko duzu. Epaiketa eta harpidetza edozein unetan ezeztatu daitezke.\nEzaugarri berdinak, prezio eredu desberdinak.</string>
+    <string name="upgrade_screen_subscription_offer_title">Urteko harpidetza</string>
+    <string name="upgrade_screen_iap_offer_title">Behin erosi</string>
+    <string name="upgrade_screen_offer_recommended">Gomendatua</string>
+    <string name="upgrade_screen_offers_unavailable_message">Prezioak ezin izan dira kargatu orain. Begiratu Google Play eta beranduago saiatu berriro.</string>
     <string name="upgrade_screen_subscription_trial_action">14 eguneko proba doan hasi</string>
     <string name="upgrade_screen_subscription_action">Harpidetu</string>
     <string name="upgrade_screen_subscription_action_hint">Harpidetza urtero %s-ko prezioa du.</string>

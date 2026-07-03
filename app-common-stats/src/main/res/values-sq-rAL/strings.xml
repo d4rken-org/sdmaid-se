@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Magazina primare</string>
     <string name="stats_storage_type_secondary">Magazina sekondare</string>
     <string name="stats_storage_type_portable">Ruajtja e lëvizshme</string>
+    <string name="stats_space_history_delete_storage_title">Fshi historikun e ruajtjes?</string>
+    <string name="stats_space_history_delete_storage_desc">Të gjitha të dhënat e trendit për këtë hapësirë ruaëtëse do të fshihen përgjithmonë.</string>
 </resources>

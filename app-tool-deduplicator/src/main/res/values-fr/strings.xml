@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Supprimer tous les exemplaires sauf un dans chaque jeu de fichiers dupliqués choisi ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Supprimer tous les fichiers de chaque jeu de fichiers dupliqués choisi ? Il ne restera aucun fichier !</string>
     <string name="deduplicator_delete_all_toggle_msg">Supprimer tous les exemplaires ? Il ne restera aucun fichier !</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Supprimer %1$d doublon dans cet ensemble, en libérant %2$s ? La copie conservée reste.</item>
+        <item quantity="other">Supprimer %1$d doublons dans cet ensemble, en libérant %2$s ? La copie conservée reste.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s libérable</string>
+    <string name="deduplicator_action_delete_set">Supprimer l’ensemble de doublons</string>
+    <string name="deduplicator_action_open_preview">Ouvrir l’aperçu</string>
+    <string name="deduplicator_marked_for_deletion">Marqué pour suppression</string>
+    <string name="deduplicator_cluster_preview_image">Aperçu de l’ensemble de doublons</string>
+    <string name="deduplicator_selection_keep_one_required">Au moins un fichier par ensemble de doublons doit rester. Activez « Rendre \'Supprimer tout\' possible » dans les paramètres pour contourner.</string>
     <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
     <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
     <string name="deduplicator_matches_exact_label">Copies identiques</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Préférer les fichiers plus petits</string>
     <string name="deduplicator_view_mode_groups_label">Groupes</string>
     <string name="deduplicator_view_mode_directories_label">Dossiers</string>
+    <string name="tour_deduplicator_details_cluster_body">Ces fichiers semblent tous être le même élément ou contenu multimédia, un groupe de doublons.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Les fichiers avec cette icône seront supprimés ; le fichier restant du groupe est celui que SD Maid conserve. Vous pouvez modifier la façon dont le fichier à conserver est choisi dans les paramètres de stratégie de suppression.</string>
 </resources>

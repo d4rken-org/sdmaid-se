@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Төлөвлөгч дууссан</string>
     <string name="scheduler_notification_result_success_message">Бүх төлөвлөгдсөн даалгаврууд амжилттай гүйцэтгэгдсэн.</string>
     <string name="scheduler_notification_result_failure_message">Зарим төлөвлөгдсөн даалгаврууд амжилтгүй болсон эсвэл алдаатай тулгарсан. Гар аргаар ажиллуулж үзнэ үү.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Алгасагдсан, дэлгэц унтраалттай эсвэл түгжээтэй байв</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Апп цэвэрлэлт алгасагдаж болно</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Апп цэвэрлэлт нь хүртээмжийн үйлчилгээг ашиглдаг бөгөөд үүнд дэлгэцийг түгжээнээс сулгах шаардлагатай. Төхөөрөмж түгжээтэй байх үед хуваарилагдсан ажиллагаа алгасагдана.
+
+Фоон цэвэрлэлтийн хувьд Shizuku эсвэл root ашиглана уу, эсвэл төхөөрөмж ашиглаж байх үед хуваарилана уу.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системийн аппууд алгасагдаж болно</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku фонд дээр ихэнх кэшийг цэвэрлэдэг боловч системийн апп-ууд хүртээмжийн үйлчилгээ шаардлагатай бөгөөд энэ нь дэлгэцийг сулгаагүй байх ёстой. \"Системийн апп-уудыг оруулах\" асаалттай байх үед төхөөрөмж түгжигдсэн үед тэдгээр нь алгасагдана.
+
+\"Системийн апп-уудыг оруулах\"-ыг унтраа, эсвэл хуваарийг төхөөрөмж түгжигдсэн байх үед ажиллуулна.</string>
     <string name="scheduler_commands_after_schedule_label">Төлөвлөгчийн дараах командууд</string>
     <string name="scheduler_commands_after_schedule_desc">Хуваарийн төгсгөлд гүйцэтгэгдэх Android бүрх командууд.</string>
     <string name="scheduler_battery_optimization_hint">Хэрэв аръанд ажиллахад асуудал байвал, SD Maid-ийн цэнэгийн оптимчлаллыг унтрахыг анхаарлаж үзүүлээрэй.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid хуваарийн дагуу цэвэрлж чадна. Цагийг болон ажиллах хэрэгслүүдийг сонгоно уу, дараа нь энэ нь фон дээр ажлаа гүйцэтгэнэ, апп-ыг бараг л нээх шаардлагагүй байна.</string>
+    <string name="tour_scheduler_create_body">Шинэ хуваарь үүсгэхийн тулд энд дарна уу, дараа нь энэ хэзээ ажиллах цаг болон аль хэрэгслүүдийг оруулахыг тохирно уу.</string>
 </resources>

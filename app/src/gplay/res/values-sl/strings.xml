@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Uporabite možnost \"Obnovi nakup\" za obnovitev nakupa. Če težava ne mine, poskusite počistiti predpomnilnik Google Play in ponovno zagnati napravo.</string>
     <string name="upgrade_screen_title">Dobi SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid je brez oglasov in ne prodaja uporabniških podatkov.  Moje delo financirajo uporabniki. ❤️</string>
-    <string name="upgrade_screen_benefits_title">Prednosti</string>
-    <string name="upgrade_screen_benefits_body">• Čiščenje programov 💯\n• opravila po urniku ⏰\n• dodatne možnosti v vseh orodjih ⚙️\n• lastna pravila brisanja ✍️\n• motiviran razvijalec 🧙\nin več …</string>
+    <string name="upgrade_screen_benefits_title">Prednosti nadgradnje</string>
+    <string name="upgrade_screen_benefits_body">• Očisti predpomnilnike aplikacij in nepotrebne podatke\n• Odstrani podvojene datoteke\n• Omogoči načrtovane čistilne operacije\n• Ustvari prilagojene filtre in pravila čiščenja\n• Spremljaj trende shranjevanja in zgodovino čiščenja\n• Več funkcij in nadzora v vseh delih aplikacije\n• Podpri nadaljnji razvoj</string>
     <string name="upgrade_screen_how_title">Možnosti</string>
     <string name="upgrade_screen_how_body">Izbirate lahko med enkratnim nakupom in cenejšo letno naročnino.\nNaročnina se začne z brezplačnim 14-dnevnim preizkusom, nakar vam zaračunam enkrat na leto.  Preizkus in naročnino lahko kadarkoli prekličete.\nIste funkcije, samo različni načini plačevanja.</string>
+    <string name="upgrade_screen_subscription_offer_title">Letna naročnina</string>
+    <string name="upgrade_screen_iap_offer_title">Enkratni nakup</string>
+    <string name="upgrade_screen_offer_recommended">Priporočeno</string>
+    <string name="upgrade_screen_offers_unavailable_message">Cen trenutno ni bilo mogoče naložiti. Preverite Google Play in poskusite znova čez nekaj trenutkov.</string>
     <string name="upgrade_screen_subscription_trial_action">Začni 14-dnevni preizkus</string>
     <string name="upgrade_screen_subscription_action">Naroči se</string>
     <string name="upgrade_screen_subscription_action_hint">Naročnina stane %s na leto.</string>

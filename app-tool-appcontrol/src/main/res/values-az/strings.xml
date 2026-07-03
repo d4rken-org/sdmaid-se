@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Ölçü</string>
     <string name="appcontrol_list_sortmode_screentime_label">Ekran vaxtı</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Tətbiq ölçüləri performans səbəbləri üçün təxmin edilir. Daha dəqiq məlumat üçün StorageAnalyzer alətindən istifadə edin.</string>
+    <string name="appcontrol_list_filteroptions_label">Filter seçimləri</string>
+    <string name="appcontrol_list_fastscroller_action">Tez sürüşdürmə</string>
     <string name="appcontrol_progress_uninstalling_app">Tətbiq silinir</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d tətbiq silindi</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Quraşdırılma tarixi: %s</string>
     <string name="shortcut_appcontrol_short">Tətbiq İdarəetməsi</string>
     <string name="shortcut_appcontrol_long">Quraşdırılmış tətbiqləri idarə et</string>
+    <string name="tour_appcontrol_search_body">Tətbiqi adı ilə axtarın. Çoxlu quraşdırılmış tətbiqin olduğu cihazlarda faydalıdır.</string>
+    <string name="tour_appcontrol_filter_body">Siyahını istifadəçi/sistem tətbiqləri, fəallaşdırma vəziyyəti, son fəaliyyət və s. ilə filtrləyin. Aktiv filtrləri burada etiket şəklində görəcəksiniz.</string>
+    <string name="tour_appcontrol_sort_body">Tətbiqləri ada, quraşdırma tarixinə, son yenilənməyə, ölçüyə və ya ekran vaxtına görə sıralayın. Sıralamağı dəyişmək üçün eyni seçimə toxunun.</string>
+    <string name="tour_appcontrol_app_row_body">Tətbiqin detallarını və mövcud əməliyyatlarını açmaq üçün ona toxunun. Seçimi başlatmaq üçün uzun müddət basıb tutun və kütləvi əməliyyatlardan istifadə edin.</string>
 </resources>

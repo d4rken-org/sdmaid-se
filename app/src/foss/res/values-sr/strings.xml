@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Надогради SD Maid SE</string>
     <string name="upgrades_dashcard_body">Откључај додатне функције и постани покровитељ да подржиш континуирани развој!</string>
     <string name="upgrades_dashcard_upgrade_action">Надогради</string>
-    <string name="upgrade_screen_title">Побољшај SD Maid</string>
+    <string name="upgrade_screen_title">Подржи SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Континуирани развој је могућ само захваљујући вама.</string>
     <string name="upgrade_screen_how_title">Како помоћи</string>
     <string name="upgrade_screen_how_body">Постаните покровитељ и спонзоришите развој! Додирните дугме испод да активирате све додатне функције и отворите мој GitHub Sponsors профил.</string>
-    <string name="upgrade_screen_why_title">Ово ствара магију 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner функционалност брисања 💯\n• Заказане операције ⏰\n• Додатне опције за све алате ⚙️\n• Ваша правила брисања ✍️\n• Мотивисан програмер 🧙\nи више…</string>
+    <string name="upgrade_screen_why_title">Предности надоградње</string>
+    <string name="upgrade_screen_why_body">• Очисти кеш апликација и непотребне податке\n• Уклони дуплиране датотеке\n• Омогући заказана чишћења\n• Направи прилагођене филтере и правила за чишћење\n• Прати трендове складиштења и историју чишћења\n• Више функција и опција кроз апликацију\n• Подржи развој отвореног софтвера</string>
     <string name="upgrade_screen_sponsor_action">Спонзориши развој</string>
     <string name="upgrade_screen_sponsor_action_hint">Алтернатива су рекламе, аналитика и Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Хвала вам што подржавате развој отвореног кода ❤️</string>

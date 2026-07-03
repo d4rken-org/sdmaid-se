@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Gebruikers met spesiale toeganklikheid behoeftes kan hierdie diens aktiveer om SD Maid toe te laat om take te outomatiseer wat andersins vervelige handmatige gebruiker interaksie sou vereis (bv. kas skrapping).\n\nVoorbeeld: As jy SD Maid opdrag gee om verskeie toepassings te stop dan kan SD Maid hierdie diens gebruik om elke toepassing se instellings skerm oop te maak, die \'Dwing Stop\' knoppie te vind en dit te tik.\n\nSD Maid sal altyd prominent wys wanneer hierdie diens gebruik word en \'n maklike manier vir die gebruiker voorsien om enige interaksie onmiddellik te kanselleer.\n\nGeen aksies sal uitgevoer word sonder voorafgaande gebruiker goedkeuring nie. Hierdie diens kan te eniger tyd weer gedeaktiveer word sonder nadelige gevolge.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interaksie met jou toestel. Dit is nie moontlik om die skerm terselfdertyd te gebruik nie. Wag totdat die bewerking klaar is of kanselleer dit.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid is besig om met jou toestel in wisselwerking te tree. Dit is nie moontlik om die skerm terselfdertyd te gebruik nie. Wag totdat die bewerking klaar is, of druk die Tuisknop om te kanselleer.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid is besig om met jou toestel in wisselwerking te tree. Dit is nie moontlik om die skerm terselfdertyd te gebruik nie. Wag totdat die bewerking klaar is.</string>
     <string name="automation_active_title">SD Maid werk</string>
     <string name="automation_error_no_consent_title">Outomatisering fout</string>
     <string name="automation_error_no_consent_body">Toeganklikheid diens is nie opgestel nie. Voltooi die opstelling en gee toestemming.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">\'n Geskeduleerde taak het probeer om die toeganklikheidsdiens te gebruik, maar dit was nie beskikbaar nie. As jy dit nie nodig het nie, skakel die opsie \"Toeganklikheidsdiens\" in die skeduleringsinstellings af.</string>
     <string name="automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
     <string name="automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
+    <string name="automation_error_interference_title">Instellingskerm geblokkeer</string>
+    <string name="automation_error_interference_body">Nog \'n app (%1$s) blokkeer die stelselinstellingskerm, dus kan SD Maid nie voortgaan nie. Deaktiveer daardie app se app-slot of skermbeskerming vir die stelselinstellings, en probeer dan weer.</string>
     <string name="automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
     <string name="automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
 </resources>

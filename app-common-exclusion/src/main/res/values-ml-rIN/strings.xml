@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">ഒഴിവാക്കൽ മാനേജർ</string>
     <string name="exclusion_manager_desc">ഫയർം ആപ്പ് ഒഴിവാക്കലുകൾ മാനേജ് ചെയ്യുക.</string>
-    <string name="exclusion_explanation_body1">SD Maidന്റെ പ്രവർത്തനങ്ങളിൽ നിന്ന് ഫയലുകൺം ആപ്പുകൺം ഒഴിവാക്കുക.</string>
-    <string name="exclusion_add_new_hint">ആദ്യം SD Maid സ്കാൻ ചെയ്യിച്ച് ഒഴിവാക്കൈക്കാൻ കാംക്ഷിക്കുന്ന ഫലത്തിൽ കോണ്ടെക്സ്റ് മെനു ഉപയോഗിച്ച് പുതിയ ഒഴിവാക്കലുകൾ ചേർക്കുക.</string>
+    <string name="exclusion_explanation_body1">ഫയലുകളെയും ആപ്പുകളെയും SD Maid ന്റെ ടൂളുകളിൽ നിന്ന് സുരക്ഷിതരായി നിലനിർത്താൻ ഒഴിവാക്കുക, അല്ലെങ്കിൽ അപ്രസാക്തമായ വസ്തുക്കൾ ഒഴിവാക്കി പ്രവർത്തനങ്ങൾ വേഗപ്പെടുത്തുക.</string>
+    <string name="exclusion_add_new_hint">ഇതുവരെ ഒഴിവാക്കലുകളില്ല. ഒരെണ്ണം സൃഷ്ടിക്കാൻ + ബട്ടൻ ഉപയോഗിക്കുക, അല്ലെങ്കിൽ എതെങ്കിലും ടൂളിന്റെ ഫലങ്ങളിൽ നിന്ന് വസ്തുക്കൾ ഒഴിവാക്കുക.</string>
     <string name="exclusion_create_action">ഒഴിവാക്കൽ സൃഷ്ടിക്കുക</string>
     <string name="exclusion_edit_action">ഒഴിവാക്കൽ എഡിറ്റ് ചെയ്യുക</string>
     <string name="exclusion_type_package">ആപ്പ് ഒഴിവാക്കൽ</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">ഒഴിവാക്കലുകൾ എക്സ്പോർട് ചെയ്യുക</string>
     <string name="exclusion_create_pkg_hint">ആപ്പ് ഒഴിവാക്കലുകൾ സൃഷ്ടിക്കാൻ AppControl ടൂൾ ഉപയോഗിക്കുക.</string>
     <string name="exclusion_create_path_hint">പാത് ഒഴിവാക്കലുകൾ സൃഷ്ടിക്കാൻ StorageAnalyzer ടൂൾ ഉപയോഗിക്കുക.</string>
+    <string name="exclusion_create_segment_hint">\"DCIM/Camera\" പോലെ ഒരു നാമ ഭാഗം പൊരുത്തപ്പെടുത്തുക.</string>
     <string name="exclusion_show_defaults_action">ഡിഫോൺൽട് കാണിക്കുക</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d ഒഴിവാക്കൽ ഇമ്പോർട്ട് ചെയ്യപ്പെട്ടു</item>
+        <item quantity="other">%d ഒഴിവാക്കലുകൾ ഇമ്പോർട്ട് ചെയ്യപ്പെട്ടു</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d ഒഴിവാക്കൽ എക്സ്പോർട്ട് ചെയ്യപ്പെട്ടു</item>
+        <item quantity="other">%d ഒഴിവാക്കലുകൾ എക്സ്പോർട്ട് ചെയ്യപ്പെട്ടു</item>
+    </plurals>
 </resources>

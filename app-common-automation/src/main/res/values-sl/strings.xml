@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Uporabniki s posebnimi potrebami lahko to storitev omogočijo, da SD Maidu dovolijo samodejno izvajanje opravil, ki bi drugače zahtevale podrobno ročno upravljanje (npr. brisanje predpomnilnika).\n\nPrimer: če SD Maidu naročite ustavitev več programov, potem SD Maid lahko to storitev uporabi, da odpre nastavitve vsakega programa, poišče gumb \'Vsili ustavitev\' in klikne na njega.\n\nSD Maid se bo ob uporabi te storitve vedno prikazal in uporabniku ponudil enostaven način za takojšnji preklic upravljanja.\n\nNobeno dejanje se ne bo opravilo brez odobritve uporabnika. To storitev lahko kadarkoli onemogočite brez negativnih učinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid upravlja z vašo napravo.  Med tem časom ne morete uporabljati zaslona.  Počakajte, da se opravilo konča ali ga prekličite.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid upravlja vašo napravo. Hkratna uporaba zaslona ni mogoča. Počakajte, da se operacija zaključi, ali pritisnite gumb Domov za preklic.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid upravlja vašo napravo. Hkratna uporaba zaslona ni mogoča. Počakajte, da se operacija zaključi.</string>
     <string name="automation_active_title">SD Maid opravlja naloge</string>
     <string name="automation_error_no_consent_title">Napaka samodejnih dejanj</string>
     <string name="automation_error_no_consent_body">Storitev dostopnosti ni nastavljena.  Dokončajte nastavitev in odobrite uporabo.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Načrtovana naloga je poskušala uporabiti storitev dostopnosti, ki pa ni bila na voljo. Če tega ne potrebujete, onemogočite možnost »Storitev dostopnosti« v nastavitvah razporejevalnika.</string>
     <string name="automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
     <string name="automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="automation_error_interference_title">Zaslon nastavitev je blokiran</string>
+    <string name="automation_error_interference_body">Druga aplikacija (%1$s) blokira zaslon sistemskih nastavitev, zato SD Maid ne more nadaljevati. Onemogočite zaklepanje aplikacije ali zaščito zaslona za sistemske nastavitve, nato poskusite znova.</string>
     <string name="automation_loading">Pripravljanje samodejni dejanj preko storitve dostopnosti</string>
     <string name="automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
 </resources>

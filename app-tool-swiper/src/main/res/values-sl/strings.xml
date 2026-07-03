@@ -46,6 +46,19 @@
         <item quantity="few">%d neodločeni predmeti bodo ostali za kasnejši pregled.</item>
         <item quantity="other">%d neodločenih predmetov bo ostalo za kasnejši pregled.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Ta seja se nanaša na celoten prostor za shranjevanje — brisanje tukaj vključuje vse mape na tem prostoru.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…in %d dodatna mapa</item>
+        <item quantity="two">…in %d dodatni mapi</item>
+        <item quantity="few">…in %d dodatne mape</item>
+        <item quantity="other">…in %d dodatnih map</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Razumem, da bodo te datoteke trajno izbrisane.</string>
+    <string name="swiper_sensitive_root_warning_title">Pregledati celotno shrambo?</string>
+    <string name="swiper_sensitive_root_warning_message">Pregledovanje %1$s vključuje vsako datoteko na tej shrambi — fotografije, dokumente, prenose, medijske datoteke aplikacij in drugo. Nadaljevati?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Vseeno nadaljuj</string>
+    <string name="swiper_session_risky_label">Pregled cele shrambe</string>
+    <string name="swiper_session_risky_info_message">Ta seja je namenjena korenu shrambe, zato je v obsegu vsaka datoteka na tej shrambi — fotografije, dokumenti, prenosi, medijske datoteke aplikacij in drugo.\n\nPregledi cele shrambe lahko vrnejo veliko predmetov, tudi datoteke, ki jih morda niste nameravali pregledati. Uporabite filter vrste datotek, da omejite pregled.</string>
     <string name="swiper_delete_x_action">Izbriši %1$d</string>
     <string name="swiper_settings_swap_directions_title">Zamenjaj smeri vlečenja</string>
     <string name="swiper_settings_swap_directions_summary">Povlecite levo za ohranitev, desno za izbris.</string>
@@ -95,6 +108,12 @@
     <string name="swiper_session_rename_hint">Vnesite ime za to sejo.</string>
     <string name="swiper_sessions_current_sessions">Trenutne seje</string>
     <string name="swiper_session_paths_label">Poti</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…in še %d</item>
+        <item quantity="two">…in še %d</item>
+        <item quantity="few">…in še %d</item>
+        <item quantity="other">…in še %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Stanje</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d za ohranitev</item>
@@ -174,4 +193,10 @@
     <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
     <string name="swiper_session_no_matching_files">Ni ujemajočih se datotek.</string>
     <string name="swiper_open_externally_action">Odpri v zunanjem programu</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Podrsajte fotografijo, da se odločite o njeni usodi: postrani za ohranitev ali izbris, navzgor za preskok, navzdol za razveljavitev. Spodnji gumbi počnejo enako — in prikažejo, katera stran je katera.</string>
+    <string name="tour_swiper_openin_body">Ta gumb odpre fotografijo v drugi aplikaciji, priročno za preverjanje pred odločitvijo.</string>
+    <string name="tour_swiper_preview_body">Ta gumb odpre celozaslonski predogled za podrobnejši pogled.</string>
+    <string name="tour_swiper_actions_body">Vam drsenje ni všeč? Imamo tudi gumbe! Preskoči pusti fotografijo neodločeno za kasneje, dolg pritisk na Preskoči pa datoteko izloči iz prihodnjih pregledov. Razveljavi prekliče vašo zadnjo izbiro.</string>
+    <string name="tour_swiper_review_body">Vaše izbire za ohranitev in brisanje so le pripravljene. Odprite Pregled, da jih pregledate in izvedete brisanje, ko ste pripravljeni.</string>
 </resources>

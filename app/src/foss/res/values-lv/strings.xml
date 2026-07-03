@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Uzlabojiet SD Maid SE</string>
     <string name="upgrades_dashcard_body">Atslēdziet papildu funkcijas un kļūstiet par aizbildni, lai atbalstītu turpmāko attīstību!</string>
     <string name="upgrades_dashcard_upgrade_action">Uzlabot</string>
-    <string name="upgrade_screen_title">Uzlabot SD Maid</string>
+    <string name="upgrade_screen_title">Atbalstīt SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Turpmākā attīstība ir iespējama tikai pateicoties jums.</string>
     <string name="upgrade_screen_how_title">Kā palīdzēt</string>
     <string name="upgrade_screen_how_body">Kļūstiet par aizbildni un sponsorējiet attīstību! Pieskarieties pogas zemāk, lai aktivizētu visas papildu funkcijas un atvērtu manu GitHub Sponsors profilu.</string>
-    <string name="upgrade_screen_why_title">Tas rada burvību 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner dzēšanas funkcionalitāte 💯\n• Plānotās darbības ⏰\n• Papildu opcijas visiem rīkiem ⚙️\n• Jūsu dzēšanas noteikumi ✍️\n• Motivēts izstrādātājs 🧙\nun vēl vairāk…</string>
+    <string name="upgrade_screen_why_title">Jaunināšanas priekšrocības</string>
+    <string name="upgrade_screen_why_body">• Iztīrīt lietotņu kešu un nevajadzīgos datus
+• Noņemt dublētos failus
+• Iespējot plānotos tīrīšanas darbus
+• Izveidot pielāgotus filtrus un tīrīšanas noteikumus
+• Izsekot krātuves tendences un tīrīšanas vēsturi
+• Vairāk funkciju un vadības iespēju lietotnē
+• Atbalstīt atvērtā koda darbu</string>
     <string name="upgrade_screen_sponsor_action">Sponsorēt attīstību</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatīva ir reklāmas, analītika un Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Paldies par atklātā koda attīstības atbalstīšanu ❤️</string>

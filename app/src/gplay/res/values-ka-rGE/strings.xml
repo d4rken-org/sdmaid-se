@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">გამოიყენეთ \"შეძენის აღდგენა\" ვარიანტი თქვენი შეძენის აღსადგენად. თუ პრობლემა გრძელდება, სცადეთ Google Play-ის ქეშის გასუფთავება და მოწყობილობის გადატვირთვა.</string>
     <string name="upgrade_screen_title">მიიღეთ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს. ჩემი სამუშაო თქვენ აფინანსებთ ❤️.</string>
-    <string name="upgrade_screen_benefits_title">უპირატესობები</string>
-    <string name="upgrade_screen_benefits_body">• აპლიკაციის გაწმენდა 💯\n• დაგეგმილი ოპერაციები ⏰\n• დამატებითი ვარიანტები ყველა ხელსაწყოსთვის ⚙️\n• თქვენი წაშლის წესები ✍️\n• მოტივირებული დეველოპერი 🧙\nდა სხვა…</string>
+    <string name="upgrade_screen_benefits_title">განახლების უპირატესობები</string>
+    <string name="upgrade_screen_benefits_body">• აპის კეშისა და ზედმეტი მონაცემების გაწმენდა
+• დუბლირებული ფაილების წაშლა
+• დაგეგმილი გაწმენდის ჩართვა
+• მომხმარებლის ფილტრები და გაწმენდის წესების შექმნა
+• შენახვის ტენდენციების და გაწმენდის ისტორიის მეთვალყურება
+• მეტი ფუნქციები და კონტროლი აპის მასშტაბით
+• განვითარების გაგრძელების მხარდაჭერა</string>
     <string name="upgrade_screen_how_title">ვარიანტები</string>
     <string name="upgrade_screen_how_body">თქვენ შეგიძლიათ აირჩიოთ ერთჯერად შეძენასა და უფრო იაფ წლიურ გამოწერას შორის.\nგამოწერა იწყება უფასო 14-დღიანი საცდელი პერიოდით, რის შემდეგაც წელიწადში ერთხელ დაგეკისრებათ გადახდა. საცდელი და გამოწერა ნებისმიერ დროს შეიძლება გაუქმდეს.\nიგივე ფუნქციები, უბრალოდ განსხვავებული ფასების მოდელები.</string>
+    <string name="upgrade_screen_subscription_offer_title">წლიური გამოწერა</string>
+    <string name="upgrade_screen_iap_offer_title">ერთჯერადი ყიდვა</string>
+    <string name="upgrade_screen_offer_recommended">რეკომენდირებული</string>
+    <string name="upgrade_screen_offers_unavailable_message">ფასები ამ მომენტში ვერ ჩატვირთა. Google Play-ს შეამოწმეთ და ცოტა ხნის შემდეგ ხელახლა სცადეთ.</string>
     <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო 14-დღიანი საცდელი</string>
     <string name="upgrade_screen_subscription_action">გამოწერა</string>
     <string name="upgrade_screen_subscription_action_hint">გამოწერა ღირს %s წელიწადში.</string>

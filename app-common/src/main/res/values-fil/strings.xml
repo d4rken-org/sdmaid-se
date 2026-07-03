@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Kuha ko</string>
     <string name="general_fix_action">Ayusin</string>
     <string name="general_set_up_action">I-set up</string>
+    <string name="general_unavailable_label">Hindi Available</string>
     <string name="general_edit_action">Baguhin</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Walang laman</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Nakapila</string>
     <string name="general_progress_deleting">Binubura</string>
     <string name="general_progress_deleting_x">Binubura ang %s</string>
+    <string name="general_sort_by_title">Pagbukud-bukurin ayon sa</string>
     <string name="general_sort_reverse_action">Baligtarin ang pagkakaayos</string>
+    <string name="general_sort_oldest_first">Pinakamatanda muna</string>
+    <string name="general_sort_newest_first">Pinakabago muna</string>
+    <string name="general_sort_name_asc">Pangalan (A → Z)</string>
+    <string name="general_sort_size_desc">Pinakamalaki muna</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Pataas</string>
+    <string name="general_filter_action">Salain</string>
+    <string name="general_filter_by_tags_label">I-filter gamit ang mga tag</string>
+    <string name="general_filter_add_action">Magdagdag ng filter</string>
+    <string name="general_filter_remove_x_action">Tanggalin ang %s filter</string>
+    <string name="general_filter_empty_row_hint">Tapikin ang + para mag-filter</string>
+    <string name="general_show_all_action">Ipakita lahat</string>
     <string name="general_result_success_message">Matagumpay ang operasyon</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Na-free na ang %s na espasyo.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Mga opsyon</string>
     <string name="general_details_label">Mga detalye</string>
     <string name="general_view_action">Tingnan</string>
+    <string name="general_open_action">Buksan</string>
+    <string name="general_configure_action">I-configure</string>
     <string name="general_update_action">Mag-update</string>
     <string name="general_scan_action">Mag-scan</string>
     <string name="general_close_action">Isara</string>
@@ -97,7 +112,9 @@
         <item quantity="other">Natanggal ang %d na item</item>
     </plurals>
     <string name="general_search_action">Maghanap</string>
+    <string name="general_search_no_matches">Walang tugma</string>
     <string name="general_open_system_settings_action">Buksan ang mga setting ng sistema</string>
+    <string name="general_fast_scroller_action">Mabilis na scroller</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s item</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Buksan ang serbisyo</string>
     <string name="general_undo_action">I-undo</string>
     <string name="general_list_select_all_action">Piliin lahat</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d napili</item>
+        <item quantity="other">%d napili</item>
+    </plurals>
     <string name="general_path_label">Path</string>
     <string name="general_type_label">Uri</string>
     <string name="general_size_label">Laki</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">I-report ang bug</string>
     <string name="general_error_ipc_deadobject_title">Naputol ang Koneksyon sa Serbisyo</string>
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
+    <string name="general_error_upgrade_required_title">Kinakailangan ang Pro version</string>
+    <string name="general_error_upgrade_required_description">Ito ay Pro feature. Mangyaring i-upgrade ang SD Maid SE upang gamitin ito.</string>
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Pag-setup</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Antas ng panganib</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>
+    <string name="ui_theme_color_sunset_label">Paglubog</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ang feature na ito ay nangangailangan ng root access, pero ang SD Maid ay hindi makakakuha nito sa device na ito.</string>
+    <string name="access_blocked_root_declined">Ang feature na ito ay nangangailangan ng root access. Maaari mong i-enable ito sa pamamagitan ng setup screen.</string>
+    <string name="access_blocked_root_or_shizuku">Ang feature na ito ay nangangailangan ng root o Shizuku access, na hindi available sa device na ito.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Walang bisa na backup file</string>
+    <string name="backup_restore_error_invalid_body">Ang file na ito ay hindi valid na SD Maid backup o sira.</string>
+    <string name="backup_restore_error_version_body">Ang backup na ito ay ginawa gamit ang mas bagong version ng SD Maid. Mangyaring i-update ang app at subukan ulit.</string>
+    <string name="backup_restore_error_restore_failed_title">Nabigong i-restore</string>
+    <string name="backup_restore_error_restore_failed_body">Ang mga bahaging ito ay hindi maaaring i-restore: %1$s. Ang iyong nakaraang configuration ay na-save at maaaring ibalik.</string>
+    <string name="backup_restore_error_safety_title">Ang restore ay hindi pa nagsimula</string>
+    <string name="backup_restore_error_safety_body">Ang SD Maid ay hindi makapag-save ng safety snapshot ng iyong configuration, kaya walang binago.</string>
+    <string name="backup_restore_error_busy_title">Mangyaring maghintay</string>
+    <string name="backup_restore_error_busy_body">Isang cleaning task o ibang backup operation ang tumatakbo. Subukan ulit pagkatapos matapos.</string>
+    <string name="backup_restore_error_schema_title">Hindi compatible na backup</string>
+    <string name="backup_restore_error_schema_body">Ang format ng database ng backup ay hindi tumutugma sa bersyong ito ng SD Maid. Ang pagbabalik ng history data ay suportado lamang sa pagitan ng magkaparehong bersyon ng app.</string>
 </resources>

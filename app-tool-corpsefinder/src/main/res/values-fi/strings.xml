@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Tuntematon omistaja</string>
     <string name="corpsefinder_corpse_hint_keeper">Tämä kohde saattaa sisältää tietoja, jotka haluat säilyttää huolimatta siitä, että sen omistaja on poistettu, esim. valokuvia tai varmuuskopioita.</string>
     <string name="corpsefinder_corpse_hint_common">Tällä kohteella on hyvin yleinen nimi ja se voi kuulua vielä asennettuihin sovelluksiin, joita SD Maid ei tunne.</string>
+    <string name="corpsefinder_risk_keeper_chip">Toivottava</string>
+    <string name="corpsefinder_risk_common_chip">Yleinen</string>
+    <string name="corpsefinder_markers_dialog_title">Tietoja näistä merkinnöistä</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Ei merkkiä</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Tavallinen jäänne. Yleensä turvallista poistaa — nämä tiedostot kuuluvat sovelluksille, joita ei ole enää asennettuna.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder löytää tiedot, jotka jäivät jäljelle sovelluksista, jotka olet jo poistanut. Koska ne eivät kuulu enää yhdellekään asennetulle sovellukselle, niiden poistaminen on turvallista ja vapauttaa tilaa.</string>
+    <string name="tour_corpsefinder_row_body">Jokainen kohde on jäljelle jäänyttä dataa ja sovellus, josta se tuli. Merkki näyttää, kuinka varma SD Maid on siitä, että sen poistaminen on turvallista — napauta ⓘ yläosassa saadaksesi lisätietoa merkkien merkityksestä.</string>
 </resources>

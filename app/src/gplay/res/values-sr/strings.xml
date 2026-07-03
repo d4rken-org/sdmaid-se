@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Користите опцију \"Врати куповину\" да бисте вратили куповину. Ако проблем и даље постоји, покушајте да обришете Google Play кеш и рестартујете уређај.</string>
     <string name="upgrade_screen_title">Набавите SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Мој рад финансирате ви ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Предности</string>
-    <string name="upgrade_screen_benefits_body">• Чишћење апликација 💯\n• Заказане операције ⏰\n• Додатне опције за све алате ⚙️\n• Ваша правила брисања ✍️\n• Мотивисан програмер 🧙\nи још много тога…</string>
+    <string name="upgrade_screen_benefits_title">Предности надоградње</string>
+    <string name="upgrade_screen_benefits_body">• Очисти кеш апликација и непотребне податке\n• Уклони дуплиране датотеке\n• Омогући заказана чишћења\n• Направи прилагођене филтере и правила чишћења\n• Прати трендове складиштења и историју чишћења\n• Више функција и контрола у целој апликацији\n• Подржи настављени развој</string>
     <string name="upgrade_screen_how_title">Опције</string>
     <string name="upgrade_screen_how_body">Можете бирати између једнократне куповине и јефтиније годишње претплате.\nПретплата почиње са бесплатним 14-дневним пробним периодом, након чега ће вам бити наплаћено једном годишње. Пробни период и претплата се могу отказати у било које време.\nИсте функције, само различити модели цена.</string>
+    <string name="upgrade_screen_subscription_offer_title">Годишња претплата</string>
+    <string name="upgrade_screen_iap_offer_title">Купи једном</string>
+    <string name="upgrade_screen_offer_recommended">Препоручено</string>
+    <string name="upgrade_screen_offers_unavailable_message">Цене тренутно нису могле бити учитане. Проверите Google Play и покушајте поново за тренутак.</string>
     <string name="upgrade_screen_subscription_trial_action">Започни бесплатни 14-дневни пробни период</string>
     <string name="upgrade_screen_subscription_action">Претплати се</string>
     <string name="upgrade_screen_subscription_action_hint">Претплата кошта %s годишње.</string>

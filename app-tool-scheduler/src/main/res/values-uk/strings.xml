@@ -37,7 +37,19 @@
     <string name="scheduler_notification_result_title">Планувальник завершив роботу</string>
     <string name="scheduler_notification_result_success_message">Всі заплановані завдання успішно виконані.</string>
     <string name="scheduler_notification_result_failure_message">Деякі заплановані завдання не вдалося виконати або виникли помилки. Спробуйте запустити їх вручну.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Пропущено, екран був вимкнений або заблокований</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Очищення програм може бути пропущено</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Очищення програм використовує службу спеціальних можливостей, яка потребує розблокованого екрану. Заплановані запуски, поки пристрій заблоковано, пропускаються.
+
+Використовуйте Shizuku або root для очищення у фоні, або заплануйте це на час, коли ви користуєтесь пристроєм.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системні програми можуть бути пропущені</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku очищує більшість кешів у фоні, але системним програмам потрібна служба спеціальних можливостей, яка потребує розблокованого екрану. З увімкненою опцією «Увімкнути системні програми» вони пропускаються, коли пристрій заблоковано.
+
+Вимкніть «Увімкнути системні програми» або запустіть розклад при розблокованому пристрої.</string>
     <string name="scheduler_commands_after_schedule_label">Команди після розкладу</string>
     <string name="scheduler_commands_after_schedule_desc">Команди оболонки Android, які будуть виконані в кінці розкладу.</string>
     <string name="scheduler_battery_optimization_hint">Якщо у вас виникають проблеми з фоновим виконанням, спробуйте вимкнути оптимізацію батареї для SD Maid.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid може очищувати за розкладом. Виберіть час і які інструменти запускати, і вона виконає роботу у фоні, (майже) без потреби відкривати програму.</string>
+    <string name="tour_scheduler_create_body">Торкніться тут, щоб створити новий розклад, потім встановіть, коли він запускається та які інструменти включити.</string>
 </resources>

@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">ద్వితీయ స్టోరేజీ, సాధారణంగా తెగెదుదారి చేసే SD కార్డ్. దీనిని మద్దతు చేసే యాప్‌ల నుంచి మీడియా ఫైల్‌లు మరియు డేటా ఉంటాయి.</string>
     <string name="analyzer_storage_type_tertiary_title">పోర్టేబల్ స్టోరేజీ</string>
     <string name="analyzer_storage_type_tertiary_description">పోర్టేబల్ స్టోరేజీ, ఉదా. మీ USB పోర్ట్‌లో ప్లగ్ చేసిన ఫ్లాష్ డ్రైవ్.</string>
+    <string name="analyzer_storage_identifier_internal">అంతర్గత నిల్వ</string>
     <string name="analyzer_storage_content_title">స్టోరేజీ కంటెంట్</string>
     <string name="analyzer_storage_content_type_app_label">యాప్‌లు</string>
     <string name="analyzer_storage_content_type_app_description">ఇన్‌స్టాల్ చేయబడిన యాప్‌లు మరియు వాటి డేటా ఆక్రమించిన స్థలం (అంటే అప్లికేషన్ ఫైల్‌లు, డేటా మరియు క్యాషేలు).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">సిస్టం యాప్‌లు మరియు సిస్టం డేటా. ఈ పరికరంలో ఎక్కువ వినియోగదారు ఖాతాలు సెట్ చేసి ఉంటే, ఇతర వినియోగదారుల నుంచి యాప్‌లు మరియు డేటా.</string>
     <string name="analyzer_storage_content_type_system_other_label">ఇతర</string>
     <string name="analyzer_storage_content_type_system_info">Apps లేదా వినియోగదారు ఫైళ్ళ వర్గాలలో సరిపోని ఫైళ్ళు. బ్రౌజ్ మాత్రమే — తొలగింపు మద్దతు లేదు. యాక్సెస్ పరిమితుల కారణంగా కొన్ని ప్రాంతాలు అసంపూర్ణంగా ఉండవచ్చు.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ఫైల్‌లను వాటిని సొంతం చేసుకున్న యాప్‌లకు సరిపోల సాధ్యం కాలేదు. పరిమాణాలు సూచన కోసం మాత్రమే చూపబడ్డాయి — తొలగింపు, ఫిల్టర్‌లు మరియు Swiper నిలిపివేయబడ్డాయి.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid యాక్సెస్ చేయలేకపోయిన లేదా వర్గీకరించలేకపోయిన సిస్టమ్ ఫైళ్ళు మరియు ఇతర డేటా. ఆపరేటింగ్ సిస్టమ్ కొన్ని ప్రాంతాల కంటెంట్‌లను జాబితా చేయడాన్ని నిరోధిస్తుంది.</string>
     <string name="analyzer_storage_content_app_code_label">యాప్ కోడ్</string>
     <string name="analyzer_storage_content_app_code_description">అప్లికేషన్ ఫైల్‌లు, లైబ్రరీలు మరియు రిసోర్సెస్. యాప్‌ను అనిన్‌స్టాల్ చేయడం లేదా ఆర్కైవ్ చేయడం (కొత్త Android వెర్షన్‌లో అనుపలబ్ధం) ద్వారా ఈ స్థలాన్ని విడుదల చేయవచ్చు.</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ఈ యాప్ \"%2$s\"లో %1$s ను ఆక్రమించింది.</string>
     <string name="analyzer_app_details_app_is_archived">ఈ యాప్ ఆర్కైవ్ చేయబడింది.</string>
     <string name="analyzer_storage_trend_delta_in_7d">7 రోజుల్లో %s</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">మీ నిల్వ ఏ విధంగా నిండుతున్నదో చూడండి. విశ్లేషకం మీ స్థలం ఎక్కడకు వెళ్లిందో మ్యాప్ చేస్తుంది. ఈ ప్రతిఒక్క కార్డు మీ పరికరంలో ఒక నిల్వ చిప్.</string>
+    <string name="tour_analyzer_storage_body">నిల్వను తెరిచి దానిని యాప్‌లు, మీడియా మరియు ఫైల్‌లుగా విభజించండి, ఆపై నిల్వను ఎక్కువగా ఆక్రమించిన వాటిని ట్రాక్ చేయడానికి నొక్కడం కొనసాగించండి.</string>
 </resources>

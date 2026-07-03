@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">අචාන මාලිකයා</string>
     <string name="corpsefinder_corpse_hint_keeper">මෙම අයිතමේ මාලිකයා අසථාපනය කැරී හොන්දැ ඔබට හාරා ගැනීමට ඇශ්ට වෛ හැකි දත්ත ඇතුල් විය හැකිය, උදා. ෆායාකැර නකඬත් පසුක්පත.</string>
     <string name="corpsefinder_corpse_hint_common">මෙම අයිතමට ඉතා පෙළිචිට නමක් ඇද අතර SD Maid නොදැනන දැනටමත් සථාපනය කැරී යෙදුම්වලට පායැන් නැති විය හැකිය.</string>
+    <string name="corpsefinder_risk_keeper_chip">අභිලෂණීය</string>
+    <string name="corpsefinder_risk_common_chip">සාමාන්‍ය</string>
+    <string name="corpsefinder_markers_dialog_title">මෙම සලකුණු ගැන</string>
+    <string name="corpsefinder_markers_dialog_normal_label">ලකුණු නැත</string>
+    <string name="corpsefinder_markers_dialog_normal_description">සම්මත අවශේෂය. සාමාන්‍යයෙන් ඉවත් කිරීමට ආරක්ෂිතයි — මෙම ගොනු තවදුරටත් ස්ථාපනය කර නොමැති යෙදුම්වලට අයත් වේ.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ඔබ දැනටමත් ස්ථාපනය ඉවත් කර ඇති යෙදුම් මගින් ඉතිරි කරන ලද දත්ත සොයා ගනී. එය තවදුරටත් ස්ථාපිත කිසිවකට අයත් නොවන බැවින්, එය ඉවත් කිරීම ආරක්ෂිත වන අතර ඉඩ නිදහස් කරයි.</string>
+    <string name="tour_corpsefinder_row_body">සෑම අයිතමයක්ම ඉතිරි දත්ත සහ එය පැමිණි යෙදුමයි. එය ඉවත් කිරීම කොතරම් ආරක්ෂිතද යන්න පිළිබඳ SD Maid ගේ විශ්වාසය ලකුණින් දැක්වේ — ලකුණුවල අර්ථය ඉගෙන ගැනීමට ඉහළ ⓘ ටැප් කරන්න.</string>
 </resources>

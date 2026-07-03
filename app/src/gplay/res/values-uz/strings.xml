@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Xaridni tiklash uchun \"Xaridni tiklash\" variantidan foydalaning. Muammo davom etsa, Google Play keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ni oling</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Afzalliklar</string>
-    <string name="upgrade_screen_benefits_body">• Ilovalarni tozalash 💯\n• Rejalashtirilgan operatsiyalar ⏰\n• Barcha vositalar uchun qo\'shimcha variantlar ⚙️\n• O\'zingizning o\'chirish qoidalaringiz ✍️\n• Motivatsiyalangan dasturchi 🧙\nva yana ko\'p narsalar…</string>
+    <string name="upgrade_screen_benefits_title">Yangilash imtiyozlari</string>
+    <string name="upgrade_screen_benefits_body">• Ilova keshlarini va keraksiz ma\'lumotlarni tozalang
+• Takroriy fayllarni o\'chiring
+• Rejalashtirilgan tozalashlarni yoqing
+• Maxsus filtrlar va tozalash qoidalarini yarating
+• Xotira sarfi tendensiyalari va tozalash tarixini kuzating
+• Ilovadagi ko\'proq xususiyat va boshqaruvlardan foydalaning
+• Ilova rivojlanishini qo\'llab-quvvatlang</string>
     <string name="upgrade_screen_how_title">Variantlar</string>
     <string name="upgrade_screen_how_body">Siz bir martalik xarid va arzonroq yillik obuna o\'rtasida tanlov qilishingiz mumkin.\nObuna bepul 14 kunlik sinov davri bilan boshlanadi, shundan so\'ng sizdan yiliga bir marta to\'lov olinadi. Sinov va obunani istalgan vaqtda bekor qilish mumkin.\nXuddi shu xususiyatlar, faqat turli narx modellari.</string>
+    <string name="upgrade_screen_subscription_offer_title">Yillik obuna</string>
+    <string name="upgrade_screen_iap_offer_title">Bir martalik xarid</string>
+    <string name="upgrade_screen_offer_recommended">Tavsiya etiladi</string>
+    <string name="upgrade_screen_offers_unavailable_message">Narxlarni hozircha yuklab bo\'lmadi. Google Play\'ni tekshiring va birozdan so\'ng qayta urinib ko\'ring.</string>
     <string name="upgrade_screen_subscription_trial_action">Bepul 14 kunlik sinovni boshlang</string>
     <string name="upgrade_screen_subscription_action">Obuna bo\'ling</string>
     <string name="upgrade_screen_subscription_action_hint">Obuna yiliga %s turadi.</string>

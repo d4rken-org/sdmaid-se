@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Uppfæra SD Maid SE</string>
     <string name="upgrades_dashcard_body">Opnaðu viðbótareiginleika og vertu styrktaraðili til að styðja áframhaldandi þróun!</string>
     <string name="upgrades_dashcard_upgrade_action">Uppfæra</string>
-    <string name="upgrade_screen_title">Bæta SD Maid</string>
+    <string name="upgrade_screen_title">Styðja SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Áframhaldandi þróun er aðeins möguleg fyrir þig.</string>
     <string name="upgrade_screen_how_title">Hvernig á að hjálpa</string>
     <string name="upgrade_screen_how_body">Vertu styrktaraðili og styrktu þróun! Ýttu á hnappinn hér að neðan til að virkja alla viðbótareiginleika og opna GitHub Sponsors prófílinn minn.</string>
-    <string name="upgrade_screen_why_title">Þetta framkallar 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner eyðingarvirkni 💯\n• Skipulagðar aðgerðir ⏰\n• Aukaléttir fyrir öll verkfæri ⚙️\n• Þínar eigin eyðingarreglur ✍️\n• Hvataður forritari 🧙\nog fleira…</string>
+    <string name="upgrade_screen_why_title">Kostir uppfærslu</string>
+    <string name="upgrade_screen_why_body">• Hreinsa böf forrita og þær gagnalátar\n• Fjarlægja afrit af skrám\n• Virkja tímasetta hreinsun\n• Búa til sérsniðnar síur og hreinsunarreglur\n• Rekja gagnageymsluþróun og hreinsunarsögu\n• Fleiri eiginleikar og stýringar um allt forritið\n• Styðja opinn hugbúnað</string>
     <string name="upgrade_screen_sponsor_action">Styrkja þróun</string>
     <string name="upgrade_screen_sponsor_action_hint">Valkosturinn eru auglýsingar, greiningar og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Takk fyrir að styðja opinn hugbúnaðarþróun ❤️</string>

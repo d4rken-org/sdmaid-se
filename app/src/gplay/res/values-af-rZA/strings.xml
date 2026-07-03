@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Gebruik die \"Herstel aankoop\"-opsie om jou aankoop te herstel. As die probleem voortduur, probeer om die Google Play-kas skoon te maak en jou toestel te herbegin.</string>
     <string name="upgrade_screen_title">Kry SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie. My werk word deur jou gefinansier ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Voordele</string>
-    <string name="upgrade_screen_benefits_body">• Toepassing skoonmaak 💯\n• Geskeduleerde bewerkings ⏰\n• Ekstra opsies vir alle gereedskap ⚙️\n• Jou eie uitvee reëls ✍️\n• \'n Gemotiveerde ontwikkelaar 🧙\nen meer…</string>
+    <string name="upgrade_screen_benefits_title">Upgrade voordele</string>
+    <string name="upgrade_screen_benefits_body">• Maak app-caches en vervangbare data skoon
+• Verwyder duplikaatlêers
+• Aktiveer geplande opskoning
+• Skep pasgemaakte filters en opskoonreëls
+• Spoor opslagneigings en opskooningsgeskiedenis op
+• Meer funksies en kontroles regdeur die app
+• Steun voortdurende ontwikkeling</string>
     <string name="upgrade_screen_how_title">Opsies</string>
     <string name="upgrade_screen_how_body">Jy kan kies tussen \'n eenmalige aankoop en \'n goedkoper jaarlikse inskrywing.\nDie inskrywing begin met \'n gratis 14-dag proeftydperk, waarna jy een keer per jaar gehef sal word. Proef en inskrywing kan te eniger tyd gekanselleer word.\nDieselfde funksies, net verskillende prysmodelle.</string>
+    <string name="upgrade_screen_subscription_offer_title">Jaarlikse inskrywing</string>
+    <string name="upgrade_screen_iap_offer_title">Koop eenmalig</string>
+    <string name="upgrade_screen_offer_recommended">Aanbeveel</string>
+    <string name="upgrade_screen_offers_unavailable_message">Pryse kon nie nou gelaai word nie. Kontroleer Google Play en probeer oor \'n oomblik weer.</string>
     <string name="upgrade_screen_subscription_trial_action">Begin gratis 14-dag proef</string>
     <string name="upgrade_screen_subscription_action">Teken in</string>
     <string name="upgrade_screen_subscription_action_hint">Die inskrywing kos %s per jaar.</string>

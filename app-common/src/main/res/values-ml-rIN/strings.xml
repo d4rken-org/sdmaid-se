@@ -28,6 +28,7 @@
     <string name="general_gotit_action">മനസ്സിലായി</string>
     <string name="general_fix_action">ശരിയാക്കുക</string>
     <string name="general_set_up_action">സജ്ജീകരിക്കുക</string>
+    <string name="general_unavailable_label">ലഭ്യമല്ല</string>
     <string name="general_edit_action">തിരുത്തുക</string>
     <string name="general_na_label">ലഭ്യമല്ല</string>
     <string name="general_empty_label">ശൂന്യം</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">ക്യൂവിൽ</string>
     <string name="general_progress_deleting">ഡിലീറ്റ് ചെയ്യുന്നു</string>
     <string name="general_progress_deleting_x">%s ഡിലീറ്റ് ചെയ്യുന്നു</string>
+    <string name="general_sort_by_title">അടുക്കുക ഇതനുസരിച്ച്</string>
     <string name="general_sort_reverse_action">റിവേഴ്സ് സോർട്ട് മോഡ്</string>
+    <string name="general_sort_oldest_first">പഴയത് ആദ്യം</string>
+    <string name="general_sort_newest_first">പുതിയത് ആദ്യം</string>
+    <string name="general_sort_name_asc">പേര് (A → Z)</string>
+    <string name="general_sort_size_desc">ഏറ്റവും വലുത് ആദ്യം</string>
     <string name="general_tag_system">സിസ്റ്റം</string>
+    <string name="general_navigate_up_action">മുകളിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക</string>
+    <string name="general_filter_action">ഫില്‍റ്റര്‍</string>
+    <string name="general_filter_by_tags_label">ട്യാഗ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക</string>
+    <string name="general_filter_add_action">ഫിൽട്ടർ ചേർക്കുക</string>
+    <string name="general_filter_remove_x_action">%s ഫിൽട്ടർ നീക്കം ചെയ്യുക</string>
+    <string name="general_filter_empty_row_hint">ഫിൽട്ടർ ചെയ്യാൻ + അമർത്തുക</string>
+    <string name="general_show_all_action">എല്ലാം കാണിക്കുക</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s സ്ഥലം സ്വതന്ത്രമാക്കി.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">ഓപ്ഷനുകൾ</string>
     <string name="general_details_label">വിശദാംശങ്ങൾ</string>
     <string name="general_view_action">കാഴ്ചകൾ</string>
+    <string name="general_open_action">തുറക്കുക</string>
+    <string name="general_configure_action">ക്രമീകരിക്കുക</string>
     <string name="general_update_action">അപ്ഡേറ്റ്</string>
     <string name="general_scan_action">സ്കാൻ ചെയ്യുക</string>
     <string name="general_close_action">അടയ്ക്കുക</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്തു</item>
     </plurals>
     <string name="general_search_action">തിരയുക</string>
+    <string name="general_search_no_matches">പൊരുത്തപ്പെടുന്നവ ഇല്ല</string>
     <string name="general_open_system_settings_action">സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കുക</string>
+    <string name="general_fast_scroller_action">വേഗതയുള്ള സ്ക്രോളർ</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ഇനം</item>
         <item quantity="other">%s items</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">സേവനം പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="general_undo_action">പഴയപടിയാക്കുക</string>
     <string name="general_list_select_all_action">എല്ലാം തിരഞ്ഞെടുക്കുക</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d തിരഞ്ഞെടുത്തു</item>
+        <item quantity="other">%d തിരഞ്ഞെടുത്തു</item>
+    </plurals>
     <string name="general_path_label">പാത</string>
     <string name="general_type_label">ടൈപ്പ്</string>
     <string name="general_size_label">വലുപ്പം</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">ബഗ് റിപ്പോർട്ട് ചെയ്യുക</string>
     <string name="general_error_ipc_deadobject_title">സേവന കണക്ഷൻ നഷ്ടപ്പെട്ടു</string>
     <string name="general_error_ipc_deadobject_description">ഒരു നിർണായക സേവനത്തിലേക്കുള്ള കണക്ഷൻ (ഉദാ. Magisk, Shizuku, അല്ലെങ്കിൽ മറ്റ് സിസ്റ്റം-ലെവൽ സേവനങ്ങൾ) അപ്രതീക്ഷിതമായി നഷ്ടപ്പെട്ടു. ദയവായി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക. പ്രശ്നം തുടരുകയാണെങ്കിൽ, അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുക അല്ലെങ്കിൽ എന്നെ ബന്ധപ്പെടുക.</string>
+    <string name="general_error_upgrade_required_title">പ്രോ പതിപ്പ് ആവശ്യമാണ്</string>
+    <string name="general_error_upgrade_required_description">ഇത് പ്രോ ഫീച്ചറാണ്. ഇത് ഉപയോഗിക്കുവാൻ SD Maid SE അപ്ഗ്രേഡ് ചെയ്യുക.</string>
     <string name="general_user_label_owner">ഉടമ</string>
     <string name="general_user_label_system">സിസ്റ്റം</string>
     <string name="setup_title">സെറ്റപ്പ്</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">റിസ്ക് ലെവൽ</string>
     <string name="settings_category_filter">ഫിൽട്ടർ</string>
     <string name="appcontrol_systemsettings_open_title">ക്രമീകരണങ്ങൾ കാണിക്കുക</string>
+    <string name="ui_theme_color_sunset_label">സൂര്യാസ്തമയം</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">ഈ ഫീച്ചറിന് റൂട്ട് ആക്സസ് ആവശ്യമാണ്, എന്നാൽ SD Maid ഈ ഉപകരണത്തിൽ അത് നേടാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="access_blocked_root_declined">ഈ ഫീച്ചറിന് റൂട്ട് ആക്സസ് ആവശ്യമാണ്. നിങ്ങൾക്ക് സെറ്റപ്പ് സ്ക്രീൻ വഴി ഇത് സജ്ജമാക്കാൻ കഴിയും.</string>
+    <string name="access_blocked_root_or_shizuku">ഈ ഫീച്ചറിന് റൂട്ട് അല്ലെങ്കിൽ Shizuku ആക്സസ് ആവശ്യമാണ്, ഇത് ഈ ഉപകരണത്തിൽ ലഭ്യമായിട്ടില്ല.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">അസാധുവായ ബാക്കപ്പ് ഫയൽ</string>
+    <string name="backup_restore_error_invalid_body">ഈ ഫയൽ സാധുവായ SD Maid ബാക്കപ്പ് അല്ലെങ്കിൽ കേടായതാണ്.</string>
+    <string name="backup_restore_error_version_body">ഈ ബാക്കപ്പ് SD Maid യുടെ ഒരു പുതിയ പതിപ്പ് ഉപയോഗിച്ച് സൃഷ്ടിക്കപ്പെട്ടു. ദയവായി അപ്ലിക്കേഷൻ അപ്ഡേറ്റ് ചെയ്യുക കൂടാതെ വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="backup_restore_error_restore_failed_title">പുനഃസ്ഥാപനം പരാജയപ്പെട്ടു</string>
+    <string name="backup_restore_error_restore_failed_body">ഈ ഭാഗങ്ങൾ പുനഃസ്ഥാപിക്കാൻ കഴിഞ്ഞില്ല: %1$s. നിങ്ങളുടെ മുമ്പത്തെ ക്രമീകരണം സംരക്ഷിക്കപ്പെട്ട് തിരികെ കൊണ്ടുവരാൻ കഴിയും.</string>
+    <string name="backup_restore_error_safety_title">പുനഃസ്ഥാപനം ആരംഭിക്കപ്പെട്ടില്ല</string>
+    <string name="backup_restore_error_safety_body">SD Maid നിങ്ങളുടെ നിലവിലെ ക്രമീകരണത്തിന്റെ ഒരു സുരക്ഷാ സ്നാപ്പ്‌ഷോട്ട് സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല, അതിനാൽ ഒന്നും മാറ്റപ്പെട്ടില്ല.</string>
+    <string name="backup_restore_error_busy_title">ദയവായി കാത്തിരിക്കുക</string>
+    <string name="backup_restore_error_busy_body">ഒരു ശുദ്ധിയന്ത്രണ ജോലി അല്ലെങ്കിൽ മറ്റൊരു ബാക്കപ്പ് പ്രവർത്തനം നിലവിൽ പ്രവർത്തിക്കുകയാണ്. അത് പൂർത്തിയായിക്കഴിഞ്ഞാൽ വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="backup_restore_error_schema_title">അനുയോജ്യമല്ലാത്ത ബാക്കപ്പ്</string>
+    <string name="backup_restore_error_schema_body">ബാക്കപ്പിന്റെ ഡാറ്റാബേസ് ഫോർമാറ്റ് SD Maid ന്റെ ഈ പതിപ്പുമായി പൊരുത്തപ്പെടുന്നില്ല. ചരിത്ര ഡാറ്റ പുനഃസ്ഥാപനം സമാന അപ്ലിക്കേഷൻ പതിപ്പുകള് തമ്മിൽ മാത്രം പിന്തുണയ്ക്കപ്പെടുന്നു.</string>
 </resources>

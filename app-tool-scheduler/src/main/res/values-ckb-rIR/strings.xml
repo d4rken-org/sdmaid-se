@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">زامانبەست تەواو بوو</string>
     <string name="scheduler_notification_result_success_message">هەموو کارە زامانکراوەکان بە سەرکەوتوویی ئەنجامدران.</string>
     <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered هەڵەs. Try running them manually.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">تێپەڕێندراو، سەرگێڵە کوژراو یان قوفلکراو بوو</string>
+    <string name="scheduler_acs_screenlocked_hint_title">پاکسازیی ئەپلیکێشن دەکرێت تێپەڕێندراو بێت</string>
+    <string name="scheduler_acs_screenlocked_hint_body">پاکسازیی ئەپلیکێشن خزمەتی دەسترسیی بەکاردێنێت، کە پێویستی بە کوژراوەوەی سەرگێڵە هەیە. کارە دەستۦێکراوەکان کاتێک دەستگەیەکە قوفلکراوە تێپەڕێندراو دەکرێن.
+
+Shizuku یان root بەکاربھێنە بۆ پاکسازیی پاشەکێوی، یان دەستۦێکراوی بکە بۆ کاتێک کە دەستگەیەکە بەکاردێنی.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">ئەپلیکێشنە سیستەمیەکان دەکرێت تێپەڕێندراو ببن</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku زۆربەی کاشەکان لە پاشەوە پاک دەکاتەوە، بەڵام ئەپلیکێشنە سیستەمیەکان پێویستی بە خزمەتی دەسترسیی هەیە، کە پێویستی بە کوژراوەوەی سەرگێڵە هەیە. بە چالاککردنی \"تێدخستنی ئەپلیکێشنە سیستەمیەکان\"، ئەوانە تێپەڕێندراو دەکرێن کاتێک دەستگەیەکە قوفلکراوە.
+
+\"تێدخستنی ئەپلیکێشنە سیستەمیەکان\" خاموش بکە، یان دەستۦێکراوەکە بەردەوام بە کاتێک کە قوفل نیە.</string>
     <string name="scheduler_commands_after_schedule_label">فەرمانە دواسەرە زامانەکان</string>
     <string name="scheduler_commands_after_schedule_desc">فەرمانەکانی پێستەی ئەندرۆید کە لە کۆتایی زامانەکدا ئەنجام دەدرێن.</string>
     <string name="scheduler_battery_optimization_hint">چاودێری بکە بۆ ناچالاککردنی بهینەکردنی باتری بۆ SD Maid ئەگەر کێشەت لەگەڵ ئەنجامدانی پاشەخانەدا هەبێت.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid دەتوانێت لە سەر دەستۦێکراوێک پاک بکاتەوە. کاتجێک و ئامرازە کام کاردەکەن هەڵبژێرە، لە پاشەوەدا کارەکە دەکات، پێویستی (تەواو) بۆ کردنەوەی ئەپلیکێشن نیە.</string>
+    <string name="tour_scheduler_create_body">لێرە داکێشە بۆ درووستکردنی دەستۦێکراوێکی نوێ، دوایی دابنێ کاتێک کار دەکات و کام ئامرازەکان تێدخرابکرێت.</string>
 </resources>

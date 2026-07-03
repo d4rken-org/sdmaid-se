@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Dimensiune</string>
     <string name="appcontrol_list_sortmode_screentime_label">Timp ecran pornit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
+    <string name="appcontrol_list_filteroptions_label">Opțiuni pentru filtre</string>
+    <string name="appcontrol_list_fastscroller_action">Derulator rapid</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplicație a fost dezinstalată</item>
@@ -129,4 +131,8 @@
     <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
     <string name="shortcut_appcontrol_short">Controlul Aplicațiilor</string>
     <string name="shortcut_appcontrol_long">Gestionați aplicațiile instalate</string>
+    <string name="tour_appcontrol_search_body">Caută o aplicație după nume. Util pe dispozitivele cu multe aplicații instalate.</string>
+    <string name="tour_appcontrol_filter_body">Restrânge lista după aplicații de utilizator/sistem, stare de activare, activitate recentă și altele. Filtrele active apar ca chipuri aici.</string>
+    <string name="tour_appcontrol_sort_body">Ordonează aplicațiile după nume, dată de instalare, ultima actualizare, dimensiune sau timp de ecran. Apasă pe aceeași opțiune pentru a inversa direcția.</string>
+    <string name="tour_appcontrol_app_row_body">Apasă pe o aplicație pentru a deschide detaliile și acțiunile disponibile. Apasă lung pentru a începe o selecție și a folosi acțiuni în masă.</string>
 </resources>

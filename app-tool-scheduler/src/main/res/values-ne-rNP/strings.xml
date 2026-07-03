@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">शेड्युलर सम्पन्न भयो</string>
     <string name="scheduler_notification_result_success_message">सबै अनुसूचित कार्यहरू सफलतापूर्वक चलाइए।</string>
     <string name="scheduler_notification_result_failure_message">केही अनुसूचित कार्यहरू विफल भयो वा त्रुटिहरूको सामना गरियो। तिनलाई म्यानुअली चलाउने प्रयास गर्नुहोस्।</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">छोडिएको, स्क्रिन बन्द वा लक गरिएको थियो</string>
+    <string name="scheduler_acs_screenlocked_hint_title">एप सफाईलाई छोडिन सक्छ</string>
+    <string name="scheduler_acs_screenlocked_hint_body">एप सफाईले पहुँचयोग्यता सेवा प्रयोग गर्छ, जसलाई स्क्रिन अनलक गरिएको आवश्यक छ। डिभाइस लक गरिएको बेलामा अनुसूचित चलनहरू छोडिइन्छन्।
+
+पृष्ठभूमि सफाईको लागि Shizuku वा root प्रयोग गर्नुहोस्, वा तपाईं डिभाइस प्रयोग गर्दा अनुसूचित गर्नुहोस्।</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">प्रणाली एपहरूलाई छोडिन सक्छ</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ले अधिकांश क्यासहरू पृष्ठभूमिमा सफाई गर्छ, तर प्रणाली एपहरूलाई पहुँच्योग्यता सेवा चाहिन्छ, जसलाई स्क्रिन अनलक गरिएको आवश्यक छ। \"प्रणाली एपहरू समावेश गर्नुहोस्\" सक्षम हुँदा, डिभाइस लक गरिएको बेलामा तिनीहरू छोडिइन्छन्।
+
+\"प्रणाली एपहरू समावेश गर्नुहोस्\" बन्द गर्नुहोस्, वा अनलक गरिएको बेलामा अनुसूची चलाउनुहोस्।</string>
     <string name="scheduler_commands_after_schedule_label">अनुसूचन-पश्चात आदेशहरू</string>
     <string name="scheduler_commands_after_schedule_desc">Android शेल आदेशहरू जो अनुसूचनको अन्तमा कार्यान्वयन हुनेछन्।</string>
     <string name="scheduler_battery_optimization_hint">यदि तपाईंले पृष्ठभूमि कार्यान्वयनमा समस्या अनुभव गर्नुहुन्छ भने SD Maid को लागि ब्याटरी अनुकूलन अक्षम गर्न विचार गर्नुहोस्।</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid अनुसूचीमा सफाई गर्न सक्छ। समय र चलाउने उपकरणहरू छान्नुहोस्, र यसले पृष्ठभूमिमा काम गर्छ, (लगभग) एप खोल्न आवश्यक छैन।</string>
+    <string name="tour_scheduler_create_body">नयाँ अनुसूची बनाउन यहाँ ट्याप गर्नुहोस्, त्यसपछि यो कहिले चल्छ र कुन उपकरणहरू समावेश गर्ने भनी सेट गर्नुहोस्।</string>
 </resources>

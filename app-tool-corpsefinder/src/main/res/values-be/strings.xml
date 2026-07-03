@@ -62,4 +62,12 @@
     <string name="corpsefinder_owner_unknown">Невядомы ўладальнік</string>
     <string name="corpsefinder_corpse_hint_keeper">Гэты элемент можа змяшчаць даныя, якія вы захочаце захаваць, нягледзячы на ​​​​выдаленне яго ўладальніка, напрыклад, фатаграфіі або рэзервовыя копіі.</string>
     <string name="corpsefinder_corpse_hint_common">Гэты элемент мае вельмі распаўсюджаную назву і можа належаць усталяваным праграмам, пра якія SD Maid не ведае.</string>
+    <string name="corpsefinder_risk_keeper_chip">Пажадана</string>
+    <string name="corpsefinder_risk_common_chip">Звычайны</string>
+    <string name="corpsefinder_markers_dialog_title">Аб гэтых маркерах</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Без маркера</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Стандартны рэшткавы файл. Звычайна бяспечна выдаліць — гэтыя файлы належаць прыкладанням, якія больш не ўсталяваныя.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder знаходзіць дадзеныя, пакінутыя прыкладаннямі, якія вы ўжо выдалілі. Яны больш не належаць нічому ўсталяванаму, таму выдаленне бяспечнае і вызваляе месца.</string>
+    <string name="tour_corpsefinder_row_body">Кожны элемент — гэта рэшткавыя дадзеныя і прыкладанне, з якога яны паходзяць. Маркер паказвае, наколькі SD Maid упэўнена, што іх бяспечна выдаліць — націсніце ⓘ уверсе, каб даведацца, што азначаюць маркеры.</string>
 </resources>

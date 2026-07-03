@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Meneja wa kutengwa</string>
     <string name="exclusion_manager_desc">Dhibiti kutengwa kwa faili na programu.</string>
-    <string name="exclusion_explanation_body1">Tenga faili na programu kutoka shughuli za SD Maid.</string>
-    <string name="exclusion_add_new_hint">Ongeza kutengwa kupya kwa kwanza kuruhusu SD Maid kutafuta kisha kutumia menyu ya muktadha kwenye matokeo unayotaka kutenga.</string>
+    <string name="exclusion_explanation_body1">Ondoa faili na programu ili kuzilinda dhidi ya zana za SD Maid, au kuruka vitu visivyohusika na kuharakisha shughuli.</string>
+    <string name="exclusion_add_new_hint">Hakuna uondoaji bado. Tumia kitufe cha + kuunda mmoja, au ondoa vipengele kutoka matokeo ya zana yoyote.</string>
     <string name="exclusion_create_action">Unda kutengwa</string>
     <string name="exclusion_edit_action">Hariri kutengwa</string>
     <string name="exclusion_type_package">Kutengwa kwa programu</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Hamisha kutengwa</string>
     <string name="exclusion_create_pkg_hint">Tumia zana ya Udhibiti wa Programu kuunda kutengwa kwa programu.</string>
     <string name="exclusion_create_path_hint">Tumia zana ya Kichambua Hifadhi kuunda kutengwa kwa njia.</string>
+    <string name="exclusion_create_segment_hint">Linganisha sehemu ya jina, kama \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Onyesha za msingi</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">Kipengele %d kilichotengwa kimeagizwa</item>
+        <item quantity="other">Vipengele %d vilivyotengwa vimeagizwa</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">Kipengele %d kilichotengwa kimehamishwa</item>
+        <item quantity="other">Vipengele %d vilivyotengwa vimehamishwa</item>
+    </plurals>
 </resources>

@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Tímasetjari kláraður</string>
     <string name="scheduler_notification_result_success_message">Öll áætluð verkefni voru keyrð.</string>
     <string name="scheduler_notification_result_failure_message">Sum áætluð verkefni mistókust eða lentu í villum. Prófaðu að keyra þau handvirkt.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Sleppt, skjárinn var slokknuður eða læstar</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Forritahreinsun getur verið sleppt</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Forritahreinsun notar aðgengiþbærðisjtónustuna, sem krefst þess að skjárinn sé opinn. Tímasettar keyrslur meðan tækið er læst eru sleppar.\n\nNotaðu Shizuku eða root fyrir bakgrunnshreinsun, eða tímasettu það fyrir þgar þú ert að nota tækið.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Kerfisforrit geta verið sleppt</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku hreinsar flest skyndiminni í bakgrunni, en kerfisforrit þarfnast aðgengiþbærðisjtónustunnar, sem krefst þess að skjárinn sé opinn. Það \"Taka kerfisforrit með\" er virkt eru þau sleppt þgar tækið er læst.\n\nSlökkþu á \"Taka kerfisforrit með\", eða keyrðu áætlunina meðan skjárinn er opinn.</string>
     <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
     <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
     <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid getur hreinsað samkvæmt áætlun. Veldu tíma og hvaða tól eiga að keyra, og það gerir vinnuna í bakgrunni — næstum enga þörf á að opna appið.</string>
+    <string name="tour_scheduler_create_body">Ýttu hér til að búa til nýja áætlun, stilltu svo hvenær hún keyrir og hvaða tól á að taka með.</string>
 </resources>

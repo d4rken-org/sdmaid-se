@@ -39,7 +39,15 @@
     <string name="scheduler_notification_result_title">انتهت الجدولة</string>
     <string name="scheduler_notification_result_success_message">تمت جميع المهام المجدولة بنجاح.</string>
     <string name="scheduler_notification_result_failure_message">بعض المهام المجدولة فشلت أو واجهت أخطاء. حاول تشغيلها يدويا.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">تم التخطي، الشاشة كانت مغلقة أو مقفلة</string>
+    <string name="scheduler_acs_screenlocked_hint_title">قد يتم تخطي تنظيف التطبيق</string>
+    <string name="scheduler_acs_screenlocked_hint_body">يستخدم تنظيف التطبيق خدمة الوصول، التي تتطلب فتح قفل الشاشة. يتم تخطي التشغيل المجدول أثناء قفل الجهاز.\n\nاستخدم Shizuku أو الجذر للتنظيف في الخلفية، أو جدوله للوقت الذي تستخدم فيه الجهاز.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">قد يتم تخطي تطبيقات النظام</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ينظف Shizuku معظم الذاكرات المؤقتة في الخلفية، لكن تطبيقات النظام تحتاج إلى خدمة الوصول، والتي تتطلب فتح قفل الشاشة. عندما يكون \"تضمين تطبيقات النظام\" مُفعّلاً، يتم تخطيها عند قفل الجهاز.\n\nعطّل \"تضمين تطبيقات النظام\"، أو شغّل الجدول عندما يكون الجهاز غير مقفول.</string>
     <string name="scheduler_commands_after_schedule_label">أوامر ما بعد الجدولة</string>
     <string name="scheduler_commands_after_schedule_desc">أوامر هيكل أندرويد التي ستُنفَّذ في نهاية الجدول الزمني.</string>
     <string name="scheduler_battery_optimization_hint">فكر في تعطيل تحسينات البطارية لـ SD Maid إذا واجهت مشكلات في التنفيذ في الخلفية.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">يمكن لـ SD Maid التنظيف وفقاً لجدول زمني. اختر وقتاً والأدوات التي تريد تشغيلها، وستقوم بالعمل في الخلفية دون الحاجة تقريباً لفتح التطبيق.</string>
+    <string name="tour_scheduler_create_body">اضغط هنا لإنشاء جدول زمني جديد، ثم عيّن وقت التشغيل والأدوات المراد تضمينها.</string>
 </resources>

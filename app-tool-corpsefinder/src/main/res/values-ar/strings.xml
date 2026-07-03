@@ -70,4 +70,12 @@
     <string name="corpsefinder_owner_unknown">مالك غير معروف</string>
     <string name="corpsefinder_corpse_hint_keeper">قد يحتوي هذا العنصر على بيانات تريد الاحتفاظ بها بالرغم من إلغاء تثبيت مالكها ، على سبيل المثال الصور أو النسخ الاحتياطية.</string>
     <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>
+    <string name="corpsefinder_risk_keeper_chip">مرغوب</string>
+    <string name="corpsefinder_risk_common_chip">شائع</string>
+    <string name="corpsefinder_markers_dialog_title">حول هذه المؤشرات</string>
+    <string name="corpsefinder_markers_dialog_normal_label">بدون مؤشر</string>
+    <string name="corpsefinder_markers_dialog_normal_description">بقايا قياسية. عموماً آمنة للإزالة — هذه الملفات تنتمي إلى تطبيقات تم إلغاء تثبيتها.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">يكتشف CorpseFinder البيانات المتروكة من التطبيقات التي أزلت تثبيتها بالفعل. لا تنتمي هذه البيانات إلى أي تطبيق مثبت الآن، لذا من الآمن إزالتها وستحرر مساحة.</string>
+    <string name="tour_corpsefinder_row_body">كل عنصر يمثل بيانات متبقية من تطبيق. يعرض المؤشر مدى ثقة SD Maid بأمان الإزالة — اضغط على ⓘ في الأعلى لمعرفة معنى المؤشرات.</string>
 </resources>

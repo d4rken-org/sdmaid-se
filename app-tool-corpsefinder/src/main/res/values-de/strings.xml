@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Unbekannter Besitzer</string>
     <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die Du behalten möchtest, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
     <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>
+    <string name="corpsefinder_risk_keeper_chip">Wünschenswert</string>
+    <string name="corpsefinder_risk_common_chip">Häufig</string>
+    <string name="corpsefinder_markers_dialog_title">Über diese Markierungen</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Keine Markierung</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standardreste. Im Allgemeinen sicher zu entfernen – diese Dateien gehören zu Apps, die nicht mehr installiert sind.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder findet Daten, die von Apps hinterlassen wurden, die Sie bereits deinstalliert haben. Sie gehören nicht mehr zu etwas Installiertem, daher ist das Entfernen sicher und gibt Speicherplatz frei.</string>
+    <string name="tour_corpsefinder_row_body">Jedes Element sind Restdaten und die App, von der diese stammen. Der Marker zeigt, wie sicher SD Maid ist, dass das Löschen sicher ist — tippen Sie auf das ⓘ oben, um zu erfahren, was die Marker bedeuten.</string>
 </resources>

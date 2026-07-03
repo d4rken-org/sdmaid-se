@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Maht</string>
     <string name="appcontrol_list_sortmode_screentime_label">Ekraaniaeg</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rakenduse mahtu uuritakse jõudluse eesmärkidel. Täpsemad andmed saad hoiustamisruumi analüüsijaga.</string>
+    <string name="appcontrol_list_filteroptions_label">Filtri valikud</string>
+    <string name="appcontrol_list_fastscroller_action">Kiirkerimine</string>
     <string name="appcontrol_progress_uninstalling_app">Rakenduse eemaldamine</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d rakendus eemaldati</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
     <string name="shortcut_appcontrol_short">Rakenduste haldamine</string>
     <string name="shortcut_appcontrol_long">Paigaldatud rakenduste haldamine</string>
+    <string name="tour_appcontrol_search_body">Otsige rakendust nime järgi. Kasulik seadmetes, millel on palju paigaldatud rakendusi.</string>
+    <string name="tour_appcontrol_filter_body">Kitsendage nimekirja kasutaja-/süsteemirakenduste, lubamise seisundi, hiljutise tegevuse ja muu järgi. Aktiivsed filtrid kuvatakse siin kiibidena.</string>
+    <string name="tour_appcontrol_sort_body">Sorteeri rakendused nime, installimiskuupäeva, viimase uuenduse, suuruse või ekraaniaja järgi. Sama valikut puudutades muudad järjestuse.</string>
+    <string name="tour_appcontrol_app_row_body">Puuduta rakendust, et avada selle üksikasjad ja saadaolevad toimingud. Pikk puudutamine alustab valimist ja lubab kasutada hulktoiminguid.</string>
 </resources>

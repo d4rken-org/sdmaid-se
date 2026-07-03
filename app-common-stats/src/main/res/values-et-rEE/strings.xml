@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Peamine hoiustamisruum</string>
     <string name="stats_storage_type_secondary">Teisejärguline hoiustamisruum</string>
     <string name="stats_storage_type_portable">Kaasaskantav hoiustamisruum</string>
+    <string name="stats_space_history_delete_storage_title">Kustuta salvestusruumi ajalugu?</string>
+    <string name="stats_space_history_delete_storage_desc">Kõik selle salvestusruumi trendiandmed kustutatakse jäädavalt.</string>
 </resources>

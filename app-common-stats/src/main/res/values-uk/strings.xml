@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Основне сховище</string>
     <string name="stats_storage_type_secondary">Додаткове сховище</string>
     <string name="stats_storage_type_portable">Портативне сховище</string>
+    <string name="stats_space_history_delete_storage_title">Видалити історію сховища?</string>
+    <string name="stats_space_history_delete_storage_desc">Усі дані тенденцій для цього сховища буде остаточно видалено.</string>
 </resources>

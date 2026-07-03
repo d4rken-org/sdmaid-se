@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Programmadore finidu</string>
     <string name="scheduler_notification_result_success_message">Totu is tareas programmadas sunt eseguidas cun sutzessu.</string>
     <string name="scheduler_notification_result_failure_message">Calchìzas tareas programmadas sunt falladas o ant agatadu errores. Prova a is eseguire manualmente.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Saltadu, sa schermata era ispenta o blocada</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Sa limpidura de is aplicatziones podent essiri saltadas</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Sa limpidura de is aplicatziones impiet sa servitztu de accessibilidade, chi precisa sa schermata desblocada. Is executziones programadas mentre su dispositivu est blocadu sunt saltadas.
+
+Imprea Shizuku o su radiga para sa limpidura in fundus, o programma candu ses impreande su dispositivu.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Is aplicatziones de sistema podent essiri saltadas</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku limpiat sa maioria de is cache in fundus, ma is aplicatziones de sistema precisant sa servitztu de accessibilidade, chi precisa sa schermata desblocada. Cun \"Inclui is aplicatziones de sistema\" pizadu, aquilas sunt saltadas candu su dispositivu est blocadu.
+
+Disativa \"Inclui is aplicatziones de sistema\", o executa sa programma mentre desblocadu.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos a pustis de sa programmadura</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android chi ant a èssere eseguidos a sa fine de una programmadura.</string>
     <string name="scheduler_battery_optimization_hint">Cunsidera de disabilitare is otìmizatziones de baterìa pro SD Maid si esperimentas problemas cun s\'esecutzione in frundu.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid podet limpiere in sa programma. Sceidi unu tempus e cuales obritas irrint, e fait su traballu in fundus, (quasi) non est necessariu abrixi s\'app.</string>
+    <string name="tour_scheduler_create_body">Tocca innoghe para creare una noa programma, alora defini candu irrit e cuales obritas includire.</string>
 </resources>

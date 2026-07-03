@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Tańlanǵan hárbir dublikat fayllar toplamında birewden basqa barlıǵın öshirip taslama?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Tańlap alınǵan qosnísha fayllar toplamındaǵı barlıq fayllar óshirilsin be? Birde-bir fayl qalmastı!</string>
     <string name="deduplicator_delete_all_toggle_msg">Barlıq kóshirmelerdi óshir. Birde-bir fayl qalmaydı!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">%1$d dublikattı bul toplamnan óshiriw, %2$s bosatıladı? Saqlanǵan nusqa qaladı.</item>
+        <item quantity="other">%1$d dublikattı bul toplamnan óshiriw, %2$s bosatıladı? Saqlanǵan nusqa qaladı.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s bosatılıwı mümkin</string>
+    <string name="deduplicator_action_delete_set">Dublikat toplamın óshiriw</string>
+    <string name="deduplicator_action_open_preview">Aldın kóriwdi ashıw</string>
+    <string name="deduplicator_marked_for_deletion">Óshiriw ushın belgilengen</string>
+    <string name="deduplicator_cluster_preview_image">Dublikat toplamınıń aldın kóriwi</string>
+    <string name="deduplicator_selection_keep_one_required">Hár bir dublikat toplamında keminde bir fayl qalıwı kerek. Bunı biykarlaw ushın sazlamalarda “\'Barlıǵın óshiriw\'di mümkin qıl” degendi qosıń.</string>
     <string name="deduplicator_progress_comparing_files">Fayllar salıstırılıwda</string>
     <string name="deduplicator_details_cluster_title">Qosníshalar toplamı</string>
     <string name="deduplicator_matches_exact_label">Tolıq kóshirmeler</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kishi fayllar artıqsha ko\'riledi</string>
     <string name="deduplicator_view_mode_groups_label">Toparlar</string>
     <string name="deduplicator_view_mode_directories_label">Papkalar</string>
+    <string name="tour_deduplicator_details_cluster_body">Bul fayllardıń hámmesi bir zat yamasa media mazmunı sıyaqlı kórinedi, dublikatlar toplamı.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Bul belgisi bar fayllar óshiriledi; toparda qalatuǵın fayl SD Maid saqlaytuǵın fayl. Saqlanatuǵınıń qalay tańlanatuǵının óshiriw strategiyası sazlamalarında ózgertip alasız.</string>
 </resources>

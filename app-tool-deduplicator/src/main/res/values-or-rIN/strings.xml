@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ନିର୍ବାଚିତ ପ୍ରତ୍ୟେକ ନକଲ ଫାଇଲ ସେଟରେ ଗୋଟିଏ କପି ବ୍ୟତୀତ ସବୁ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ନିର୍ବାଚିତ ପ୍ରତ୍ୟେକ ନକଲ ଫାଇଲ ସେଟରେ ସମସ୍ତ ଫାଇଲ ଡିଲିଟ୍ କରିବେ? କୌଣସି ଫାଇଲ ବାକି ରହିବ ନାହିଁ!</string>
     <string name="deduplicator_delete_all_toggle_msg">ସମସ୍ତ କପି ଡିଲିଟ୍ କରନ୍ତୁ। କୌଣସି ଫାଇଲ ବାକି ରହିବ ନାହିଁ!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">ଏହି ସେଟରେ %1$d ଡୁପ୍ଲିକେଟ ଅପସାରଣ କରନ୍ତୁ, %2$s ମୁକ୍ତ କରନ୍ତୁ? ରଖାୟାଇଥିବା କପି ରହିବ।</item>
+        <item quantity="other">ଏହି ସେଟରେ %1$d ଡୁପ୍ଲିକେଟଗୁଡ଼ିକ ଅପସାରଣ କରନ୍ତୁ, %2$s ମୁକ୍ତ କରନ୍ତୁ? ରଖାୟାଇଥିବା କପି ରହିବ।</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ମୁକ୍ତ ୟୋଗ୍ୟ</string>
+    <string name="deduplicator_action_delete_set">ଡୁପ୍ଲିକେଟ ସେଟ ଅପସାରଣ କରନ୍ତୁ</string>
+    <string name="deduplicator_action_open_preview">ପୂର୍ବଦର୍ଶନ ଖୋଲନ୍ତୁ</string>
+    <string name="deduplicator_marked_for_deletion">ଅପସାରଣ ପାଇଁ ଚିହ୍ନିତ</string>
+    <string name="deduplicator_cluster_preview_image">ଡୁପ୍ଲିକେଟ ସେଟ ପୂର୍ବଦର୍ଶନ</string>
+    <string name="deduplicator_selection_keep_one_required">ପ୍ରତ୍ୟେକ ଡୁପ୍ଲିକେଟ ସେଟରେ ଅନ୍ତତଃ ଗୋଟିଏ ଫାଇଲ ରହିବା ଆବଶ୍ୟକ। ଏହାକୁ ଅତିକ୍ରମ କରିବାକୁ ସେଟିଂସରେ \"ସମସ୍ତ ଡିଲିଟ ସମ୍ଭବ କରନ୍ତୁ\" ସକ୍ଷମ କରନ୍ତୁ।</string>
     <string name="deduplicator_progress_comparing_files">ଫାଇଲ ତୁଳନା କରୁଛି</string>
     <string name="deduplicator_details_cluster_title">ନକଲଗୁଡ଼ିକର ସେଟ୍</string>
     <string name="deduplicator_matches_exact_label">ସଠିକ କପିଗୁଡ଼ିକ</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ଛୋଟ ଫାଇଲ୍ ପସନ୍ଦ କରନ୍ତୁ</string>
     <string name="deduplicator_view_mode_groups_label">ଗୋଷ୍ଠୀ</string>
     <string name="deduplicator_view_mode_directories_label">ଫୋଲ୍ଡର</string>
+    <string name="tour_deduplicator_details_cluster_body">ଏହି ଫାଇଲଗୁଡ଼ିକ ସବୁ ଏକ ଅଭିନ୍ନ ବସ୍ତୁ ବା ମିଡିଆ ବିଷୟବସ୍ତୁर ଡୁପ୍ଲିକେଟଗୁଡ଼ିକर ଏକ ଗୁଚ୍ଛ ମନେହୁଏ।</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ଏହି ଆଇକନ ସହିତ ଫାଇଲଗୁଡ଼ିକ ଡିଲିଟ ହେବ; ଗୋଷ୍ଠୀରେ ଅବଶିଷ୍ଟ ଫାଇଲ ୟାହାକୁ SD Maid ରଖେ। ଆପଣ ଡିଲିଟ ରଣନୀତି ସେଟିଂସରେ ରକ୍ଷକ ମନୋନୀତ ପଦ୍ଧତି ପରିବର୍ତନ କରିପାରେ।</string>
 </resources>

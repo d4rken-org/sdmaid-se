@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Izmantojiet opciju \"Atjaunot pirkumu\", lai atjaunotu pirkumu. Ja problēma saglabājas, mēģiniet notīrīt Google Play kešatmiņu un restartēt ierīci.</string>
     <string name="upgrade_screen_title">Iegūstiet SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Mans darbs tiek finansēts no jūsu puses ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Priekšrocības</string>
-    <string name="upgrade_screen_benefits_body">• Lietotņu tīrīšana 💯\n• Ieplānotas darbības ⏰\n• Papildu opcijas visiem rīkiem ⚙️\n• Jūsu dzēšanas noteikumi ✍️\n• Motivēts izstrādātājs 🧙\nun vēl vairāk…</string>
+    <string name="upgrade_screen_benefits_title">Jaunināšanas priekšrocības</string>
+    <string name="upgrade_screen_benefits_body">• Notīrīt aplikāciju kešu un nevajadzīgus datus
+• Noņemt dubultus failus
+• Iespējot plānotus tīrīšanas darbus
+• Izveidot pielāgotus filtrus un tīrīšanas noteikumus
+• Sekot glabāšanas tendencēm un tīrīšanas vēsturei
+• Vairāk funkciju un vadības iespēju visā aplikācijā
+• Atbalsts turpinātai attīstībai</string>
     <string name="upgrade_screen_how_title">Opcijas</string>
     <string name="upgrade_screen_how_body">Varat izvēlēties starp vienreizēju pirkumu un lētāku gada abonementu.\nAbonements sākas ar bezmaksas 14 dienu izmēģinājuma periodu, pēc kura jums tiks iekasēta maksa reizi gadā. Izmēģinājumu un abonementu var atcelt jebkurā laikā.\nTas pašas funkcijas, tikai dažādi cenu modeļi.</string>
+    <string name="upgrade_screen_subscription_offer_title">Gada abonements</string>
+    <string name="upgrade_screen_iap_offer_title">Pirkt vienu reizi</string>
+    <string name="upgrade_screen_offer_recommended">Ieteicams</string>
+    <string name="upgrade_screen_offers_unavailable_message">Cenas šobrīd nevarēja tikt ielādētas. Pārbaudiet Google Play un mēģiniet vēlreiz pēc brīža.</string>
     <string name="upgrade_screen_subscription_trial_action">Sāciet bezmaksas 14 dienu izmēģinājumu</string>
     <string name="upgrade_screen_subscription_action">Abonēt</string>
     <string name="upgrade_screen_subscription_action_hint">Abonements maksā %s gadā.</string>

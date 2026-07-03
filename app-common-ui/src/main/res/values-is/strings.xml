@@ -8,4 +8,16 @@
         <item quantity="other">%d slóðir valdar</item>
     </plurals>
     <string name="picker_home_action">Gagnasvæði</string>
+    <string name="tour_action_next">Næst</string>
+    <string name="tour_action_previous">Fyrri</string>
+    <string name="tour_action_done">Lokið</string>
+    <string name="tour_action_cancel">Sleppa</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Sleppa skoðuninni?</string>
+    <string name="tour_confirm_message">Þú getur endurvirkjað skoðanir hvenær sem er úr Stillingum.</string>
+    <string name="tour_confirm_continue">Halda áfram</string>
+    <string name="tour_confirm_dont_show_this_tour">Ekki sýna þennan túr</string>
+    <string name="tour_confirm_disable_all">Slökkva á öllum túrum</string>
+    <string name="navigation_unknown_destination_title">Kemur flótlega</string>
+    <string name="navigation_unknown_destination_message">Þessi skjár er ennþá að flytjast til nýja viðmótsins.</string>
 </resources>

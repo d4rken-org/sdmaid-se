@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Poikkeusten hallinta</string>
     <string name="exclusion_manager_desc">Hallitse tiedosto- ja sovelluspoikkeuksia.</string>
-    <string name="exclusion_explanation_body1">Sulje tiedostot ja sovellukset pois SD Maidin toiminnoista.</string>
-    <string name="exclusion_add_new_hint">Lisää uusia poikkeuksia antamalla SD Maidin ensin etsiä ja käyttämällä sitten pikavalikkoa tuloksessa, jonka haluat sulkea pois.</string>
+    <string name="exclusion_explanation_body1">Poissulje tiedostoja ja sovelluksia suojataksesi ne SD Maidin työkaluilta, tai ohita asiaankuulumattomia kohteita nopeuttaaksesi toimintoja.</string>
+    <string name="exclusion_add_new_hint">Ei poissulkemisia vielä. Käytä +-painiketta luodaksesi yhden, tai poissulje kohteita minkä tahansa työkalun tuloksista.</string>
     <string name="exclusion_create_action">Luo poikkeus</string>
     <string name="exclusion_edit_action">Muokkaa poikkeusta</string>
     <string name="exclusion_type_package">Sovelluspoikkeus</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Vie poikkeukset</string>
     <string name="exclusion_create_pkg_hint">Käytä Sovellusten hallinta -työkalua sovelluspoikkeusten luomiseen.</string>
     <string name="exclusion_create_path_hint">Käytä Tallennustilan analysaattoria polkupoikkeusten luomiseen.</string>
+    <string name="exclusion_create_segment_hint">Vastaa nimen segmentille, kuten \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Näytä oletukset</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d poissulkeminen tuotu</item>
+        <item quantity="other">%d poissulkemista tuotu</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d poissulkeminen viety</item>
+        <item quantity="other">%d poissulkemista viety</item>
+    </plurals>
 </resources>

@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">მეორადი მეხსიერება, ჩვეულებრივ მოსაშორებელი SD ბარათი. შეიცავს მედია ფაილებს და მონაცემებს აპებიდან, რომლებიც მას მხარს უჭერენ.</string>
     <string name="analyzer_storage_type_tertiary_title">პორტატული მეხსიერება</string>
     <string name="analyzer_storage_type_tertiary_description">პორტატული მეხსიერება, მაგ. USB პორტში ჩართული ფლეშ დრაივი.</string>
+    <string name="analyzer_storage_identifier_internal">შიდა მეხსიერება</string>
     <string name="analyzer_storage_content_title">მეხსიერების შინაარსი</string>
     <string name="analyzer_storage_content_type_app_label">აპები</string>
     <string name="analyzer_storage_content_type_app_description">ადგილი, რომელიც დაკავებულია დაინსტალირებული აპებით და მათი მონაცემებით (მაგ. აპლიკაციის ფაილები, მონაცემები და ქეშები).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">სისტემური აპები და სისტემური მონაცემები. აპები და მონაცემები სხვა მომხმარებლებისგან, თუ ამ მოწყობილობაზე დაყენებულია რამდენიმე მომხმარებლის ანგარიში.</string>
     <string name="analyzer_storage_content_type_system_other_label">სხვა</string>
     <string name="analyzer_storage_content_type_system_info">ფაილები, რომლებიც არ შეესაბამება აპლიკაციების ან მომხმარებლის ფაილების კატეგორიებს. მხოლოდ დათვალიერება — წაშლა არ არის მხარდაჭერილი. ზოგიერთი სფერო შეიძლება არასრული იყოს წვდომის შეზღუდვების გამო.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ფაილები ვერ უკავშირდება აპლიკაციებს, რომლებსაც ეკუთვნის ამ მომენტში. ზომები მხოლოდ მითითებისთვის არის ნაჩვენები — წაშლა, ფილტრები და Swiper გამორთულია.</string>
     <string name="analyzer_storage_content_type_system_other_desc">სისტემური ფაილები და სხვა მონაცემები, რომლებზეც SD Maid-ს არ ჰქონდა წვდომა ან ვერ დაახარისეთ. ოპერაციული სისტემა ზღუდავს ზოგიერთი სფეროს შინაარსის ჩამოთვლას.</string>
     <string name="analyzer_storage_content_app_code_label">აპის კოდი</string>
     <string name="analyzer_storage_content_app_code_description">აპლიკაციის ფაილები, ბიბლიოთეკები და რესურსები. ეს ადგილი შეიძლება განთავისუფლდეს აპის წაშლით ან დაარქივებით (ხელმისაწვდომია Android-ის ახალ ვერსიებზე).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ეს აპი იკავებს %1$s \"%2$s\"-ზე.</string>
     <string name="analyzer_app_details_app_is_archived">ეს აპი დაარქივებულია.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 დღეში</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ნახეთ, რა ავსებს რეალურად თქვენს მეხსიერებას. Analyzer აჩვენებს, სად იხარჯება თქვენი ადგილი. თითოეული ეს ბარათი არის მეხსიერების ჩიპი თქვენს მოწყობილობაზე.</string>
+    <string name="tour_analyzer_storage_body">გახსენით მეხსიერება, რომ დაყოთ იგი აპლიკაციებად, მედიად და ფაილებად, შემდეგ განაგრძეთ შეხება უდიდესი დამნაშავეების საძებნად.</string>
 </resources>

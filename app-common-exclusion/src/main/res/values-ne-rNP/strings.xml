@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">बहिष्करण प्रबन्धक</string>
     <string name="exclusion_manager_desc">फाइल र अनुप्रयोग बहिष्करणहरू प्रबन्ध गर्नुहोस्।</string>
-    <string name="exclusion_explanation_body1">SD Maid को संचालनबाट फाइलहरू र अनुप्रयोगहरू बहिष्कार गर्नुहोस्।</string>
-    <string name="exclusion_add_new_hint">पहिले SD Maid लाई खोजी गर्न दिएर त्यसपछि बहिष्कार गर्न चाहनुभएको परिणाममा सन्दर्भ मेनु प्रयोग गरेर नयाँ बहिष्करणहरू थप्नुहोस्।</string>
+    <string name="exclusion_explanation_body1">SD Maid को उपकरणहरूबाट तिनीहरूलाई सुरक्षित राख्न वा असम्बन्धित वस्तुहरू छोड्न र कार्यहरू गति बढ़ाउन फाइल र एपहरू बाहिर राख्नुहोस्।</string>
+    <string name="exclusion_add_new_hint">अझै कुनै अपवाद छैन। एउटा बनाउन + बटन प्रयोग गर्नुहोस्, वा कुनै पनि उपकरणको नतिजाबाट वस्तुहरू अपवाद गर्नुहोस्।</string>
     <string name="exclusion_create_action">बहिष्कार बनाउनुहोस्</string>
     <string name="exclusion_edit_action">बहिष्कार सम्पादन गर्नुहोस्</string>
     <string name="exclusion_type_package">अनुप्रयोग बहिष्करण</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">बहिष्कारहरू निर्यात गर्नुहोस्</string>
     <string name="exclusion_create_pkg_hint">AppControl उपकरण प्रयोग गरी अनुप्रयोग बहिष्कार बनाउनुहोस्।</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer उपकरण प्रयोग गरी पथ बहिष्कार बनाउनुहोस्।</string>
+    <string name="exclusion_create_segment_hint">नाम खण्डसँग मेल खाउनुहोस्, जस्तै \"DCIM/Camera\"।</string>
     <string name="exclusion_show_defaults_action">पूर्वनिर्धारितहरू देखाउनुहोस्</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d अपवाद आयात गरिएको</item>
+        <item quantity="other">%d अपवादहरू आयात गरिएका</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d अपवाद निर्यात गरिएको</item>
+        <item quantity="other">%d अपवादहरू निर्यात गरिएका</item>
+    </plurals>
 </resources>

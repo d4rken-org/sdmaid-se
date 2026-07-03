@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Abasebenzisi abanezidingo ezikhethekile zokufinyelela bangavula le nsiza ukuvumela i-SD Maid ukuthi izenzekelise imisebenzi engadinga ukusebenzisana komsebenzisi okudinayo (isib. ukususwa kwe-cache).\n\nIsibonelo: Uma uyala i-SD Maid ukuthi imise izinhlelo eziningi khona-ke i-SD Maid ingasebenzisa le nsiza ukuvula isikrini sezilungiselelo zohlelo ngalunye, ithole inkinobho ethi \'Misa Ngamandla\' bese iyithepha.\n\nI-SD Maid izohlala ikhombisa ngokusobala lapho isebenzisa le nsiza futhi inikeze indlela elula kumsebenzisi yokukansela noma yikuphi ukuxhumana ngokushesha.\n\nAkukho zenzo ezizokwenziwa ngaphandle kokuvunywa komsebenzisi ngaphambilini. Le nsiza ingakhutshazwa futhi nganoma yisiphi isikhathi ngaphandle kwemiphumela emibi.</string>
     <string name="automation_screenoverlay_explanation">I-SD Maid ixhumana nedivayisi yakho. Akunakwenzeka ukusebenzisa isikrini ngesikhathi esifanayo. Linda kuze kuqedwe umsebenzi noma uwukhansele.</string>
+    <string name="automation_screenoverlay_explanation_tv">I-SD Maid ixhumana nedivayisi yakho. Akunakwenzeka ukusebenzisa isikrini ngesikhathi esifanayo. Linda kuze kuqedwe umsebenzi, noma cindeza inkinobho ye-Home ukuyikhansela.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">I-SD Maid ixhumana nedivayisi yakho. Akunakwenzeka ukusebenzisa isikrini ngesikhathi esifanayo. Linda kuze kuqedwe umsebenzi.</string>
     <string name="automation_active_title">I-SD Maid iyasebenza</string>
     <string name="automation_error_no_consent_title">Iphutha lokuzenzelela</string>
     <string name="automation_error_no_consent_body">Insiza yokufinyelela ayihleliwe. Qedela ukuhlela bese unikeza imvume.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Umsebenzi ohlelelwe uzame ukusebenzisa insizakalo yokufinyelela, kodwa yayingekho. Uma ungayidinga, khubaza inketho ye-\"Insizakalo yokufinyelela\" ezilungiselelweni zohlelomsebenzi.</string>
     <string name="automation_error_no_settings_title">Isikrini sezilungiselelo asitholakali</string>
     <string name="automation_error_no_settings_body">Le nhlelo yesistimu ayinaso isikrini sezilungiselelo. Ukusula i-cache ngensiza yokufinyelela akukwazeki. Yikhiphe ukuze usheshise ukusula i-cache.</string>
+    <string name="automation_error_interference_title">Isikrini sezithandathu sivaliwe</string>
+    <string name="automation_error_interference_body">Enye iapp (%1$s) ibvimile isikrini yezithandathu zohlelo, ngakho I-SD Maid ayikwazi ukuqhubeka. Khubaza i-app-lock noma okuvikela isikrini salowa app zezithandathu zohlelo, bese uzama futhi.</string>
     <string name="automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
     <string name="automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
 </resources>

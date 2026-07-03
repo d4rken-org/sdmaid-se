@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">Penyimpanan sekunder, biasanya sebuah kartu SD yang dapat dicabut. Berisi file-file media dan data dari aplikasi-aplikasi yang mendukung.</string>
     <string name="analyzer_storage_type_tertiary_title">Penyimpanan eksternal</string>
     <string name="analyzer_storage_type_tertiary_description">Penyimpanan eksternal, misal. flash drive yang dicolokkan ke port USB Anda.</string>
+    <string name="analyzer_storage_identifier_internal">Penyimpanan internal</string>
     <string name="analyzer_storage_content_title">Isi penyimpanan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
     <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
     <string name="analyzer_storage_content_type_system_other_label">Lainnya</string>
     <string name="analyzer_storage_content_type_system_info">File yang tidak sesuai dengan kategori Aplikasi atau File Pengguna. Jelajahi saja — penghapusan tidak didukung. Beberapa area mungkin tidak lengkap karena pembatasan akses.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">File tidak dapat dicocokkan dengan aplikasi yang memilikinya saat ini. Ukuran ditampilkan hanya untuk referensi — penghapusan, filter, dan Swiper dinonaktifkan.</string>
     <string name="analyzer_storage_content_type_system_other_desc">File sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem operasi membatasi pencantuman isi beberapa area.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini dapat dibebaskan dengan mencopot pemasangan aplikasi atau mengarsipkannya (tersedia pada versi Android yang lebih baru).</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Lihat apa yang benar-benar mengisi penyimpanan Anda. Analyzer memetakan ke mana ruang Anda pergi. Setiap kartu ini adalah chip penyimpanan di perangkat Anda.</string>
+    <string name="tour_analyzer_storage_body">Buka penyimpanan untuk memecahnya menjadi aplikasi, media, dan file, lalu terus ketuk untuk melacak penyebab terbesar.</string>
 </resources>

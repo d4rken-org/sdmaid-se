@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">अपनी खरीदारी पुनर्स्थापित करने के लिए \"खरीदारी पुनर्स्थापित करें\" विकल्प का उपयोग करें। यदि समस्या बनी रहती है, तो Google Play कैश साफ़ करने और अपना डिवाइस रीस्टार्ट करने का प्रयास करें।</string>
     <string name="upgrade_screen_title">SD मेड SE प्रो प्राप्त करें</string>
     <string name="upgrade_screen_preamble">SD Maid के पास कोई विज्ञापन नहीं है और वह उपयोगकर्ता डेटा नहीं बेचती है। मेरा काम आपके द्वारा वित्तपोषित है ❤️।</string>
-    <string name="upgrade_screen_benefits_title">लाभ</string>
-    <string name="upgrade_screen_benefits_body">• ऐप सफाई 💯\n• निर्धारित संचालन ⏰\n• सभी टूल के लिए अतिरिक्त विकल्प ⚙️\n• आपके अपने मिटाने के नियम ✍️\n• एक प्रेरित डेवलपर 🧙\nऔर बहुत कुछ…</string>
+    <string name="upgrade_screen_benefits_title">अपग्रेड लाभ</string>
+    <string name="upgrade_screen_benefits_body">• ऐप कैश और व्यय किए जाने योग्य डेटा साफ़ करें\n• डुप्लिकेट फ़ाइलें हटाएं\n• अनुसूचित सफाई सक्षम करें\n• कस्टम फ़िल्टर और सफाई नियम बनाएं\n• भंडारण प्रवृत्तियों और सफाई इतिहास ट्रैक करें\n• ऐप में अधिक सुविधाएं और नियंत्रण\n• निरंतर विकास का समर्थन करें</string>
     <string name="upgrade_screen_how_title">विकल्प</string>
     <string name="upgrade_screen_how_body">आप एक बार की खरीद और एक सस्ती वार्षिक सदस्यता के बीच चयन कर सकते हैं।\nसदस्यता 14 दिनों के निःशुल्क परीक्षण के साथ शुरू होती है, जिसके बाद आपसे प्रति वर्ष एक बार शुल्क लिया जाएगा। परीक्षण और सदस्यता किसी भी समय रद्द की जा सकती है।\n सुविधाएं वही हैं, बस मूल्य निर्धारण मॉडल अलग हैं।</string>
+    <string name="upgrade_screen_subscription_offer_title">वार्षिक सदस्यता</string>
+    <string name="upgrade_screen_iap_offer_title">एक बार खरीदें</string>
+    <string name="upgrade_screen_offer_recommended">अनुशंसित</string>
+    <string name="upgrade_screen_offers_unavailable_message">कीमतें अभी लोड नहीं की जा सकीं। Google Play की जांच करें और कुछ क्षणों में फिर से कोशिश करें।</string>
     <string name="upgrade_screen_subscription_trial_action">14 दिन का निःशुल्क परीक्षण प्रारंभ करें</string>
     <string name="upgrade_screen_subscription_action">सदस्यता लें</string>
     <string name="upgrade_screen_subscription_action_hint">सदस्यता का मूल्य %s प्रति वर्ष है।</string>

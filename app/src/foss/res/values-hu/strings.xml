@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE frissítése</string>
     <string name="upgrades_dashcard_body">Fedezze fel a további funkciókat, és legyen patron támogató, hogy támogassa a folyamatos fejlesztést!</string>
     <string name="upgrades_dashcard_upgrade_action">Frissítés</string>
-    <string name="upgrade_screen_title">Az SD Maid fejlesztése</string>
+    <string name="upgrade_screen_title">SD Maid támogatása</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A folyamatos fejlődést csak Ön teszi lehetővé.</string>
     <string name="upgrade_screen_how_title">Hogyan lehet segíteni</string>
     <string name="upgrade_screen_how_body">Legyen patron támogató és szponzorálja a fejlesztést! Kattintson az alábbi gombra az összes extra funkció aktiválásához és a GitHub Sponsors profilom megnyitásához.</string>
-    <string name="upgrade_screen_why_title">Ez varázsol 🪄</string>
-    <string name="upgrade_screen_why_body">AlkalmazásTiszító törlési funkció 💯\n• Ütemezett műveletek ⏰\n• Extra lehetőségek minden eszközhöz ⚙️\n• Saját törlési szabályok ✍️\n• Motivált fejlesztő 🧙\nés több…</string>
+    <string name="upgrade_screen_why_title">Frissítés előnyei</string>
+    <string name="upgrade_screen_why_body">• Alkalmazás gyorsítótárai és egyéb adatok törlése
+• Duplikált fájlok eltávolítása
+• Ütemezett tisztítások engedélyezése
+• Egyéni szűrők és tisztítási szabályok létrehozása
+• Tárolási trendek és tisztítási előzmények követése
+• További funkciók és vezérlések az alkalmazásban
+• Nyílt forráskódú munka támogatása</string>
     <string name="upgrade_screen_sponsor_action">Szponzori fejlesztés</string>
     <string name="upgrade_screen_sponsor_action_hint">Az alternatívák a hirdetések, az elemzések és a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Köszönjük, hogy támogatod a nyílt forráskódú fejlesztést ❤️</string>

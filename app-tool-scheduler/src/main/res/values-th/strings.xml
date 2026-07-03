@@ -34,7 +34,15 @@
     <string name="scheduler_notification_result_title">ตัวจัดตารางเวลาเสร็จสิ้น</string>
     <string name="scheduler_notification_result_success_message">งานตามตารางทั้งหมดทำงานสำเร็จ</string>
     <string name="scheduler_notification_result_failure_message">งานตามตารางบางงานล้มเหลวหรือพบข้อผิดพลาด ลองทำงานด้วยตนเอง</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">ข้ามไป หน้าจอปิดหรือล็อกอยู่</string>
+    <string name="scheduler_acs_screenlocked_hint_title">การทำความสะอาดแอปอาจถูกข้าม</string>
+    <string name="scheduler_acs_screenlocked_hint_body">การทำความสะอาดแอปใช้บริการการเข้าถึง ซึ่งต้องให้หน้าจอปลดล็อก การทำงานตามกำหนดเวลาขณะที่อุปกรณ์ถูกล็อกจะถูกข้าม\n\nใช้ Shizuku หรือ root สำหรับการทำความสะอาดในพื้นหลัง หรือกำหนดเวลาให้ทำงานตอนที่คุณกำลังใช้อุปกรณ์</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">แอประบบอาจถูกข้าม</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ทำความสะอาดแคชส่วนใหญ่ในพื้นหลัง แต่แอประบบต้องใช้บริการการเข้าถึง ซึ่งต้องให้หน้าจอปลดล็อก เมื่อเปิด \"รวมแอประบบ\" ไว้ แอปเหล่านั้นจะถูกข้ามเมื่ออุปกรณ์ถูกล็อก\n\nปิด \"รวมแอประบบ\" หรือรันกำหนดการขณะปลดล็อกอยู่</string>
     <string name="scheduler_commands_after_schedule_label">คำสั่งหลังตาราง</string>
     <string name="scheduler_commands_after_schedule_desc">คำสั่ง Android shell ที่จะถูกทำงานเมื่อสิ้นสุดตาราง</string>
     <string name="scheduler_battery_optimization_hint">พิจารณาปิดการปรับปรุงแบตเตอรี่สำหรับ SD Maid หากคุณพบปัญหาการทำงานในพื้นหลัง</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid สามารถทำความสะอาดตามตารางเวลาได้ เลือกเวลาและเครื่องมือที่ต้องการ แล้วมันจะทำงานในพื้นหลัง เกือบไม่ต้องเปิดแอปเลย</string>
+    <string name="tour_scheduler_create_body">แตะที่นี่เพื่อสร้างตารางเวลาใหม่ จากนั้นตั้งเวลาที่จะทำงาน และเลือกเครื่องมือที่จะรวม</string>
 </resources>

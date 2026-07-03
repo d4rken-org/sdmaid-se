@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">ម៉ឡាកការ់​មិន​ត្រួវ​បាន</string>
     <string name="corpsefinder_corpse_hint_keeper">ធាតុ​នេះ​អាច​ប័តក​ដ័តា​ដែល​អ្នក​ចង់​រក្សាទុក​តែ​ម៉ឡាកការ់​បាន​ត៖លើក​ ឧ.​រូបថែ​ ប្រក​សម្រួល។</string>
     <string name="corpsefinder_corpse_hint_common">ធាតុ​នេះ​មាន​ច័ន្នំ​សាមាញ្ញ​នឹង​អាច​ជាក់​កម្មវិធី​ដែល​នឹង​រក្សា​ SD Maid មិន​ត្រួវបាន។</string>
+    <string name="corpsefinder_risk_keeper_chip">ចង់បាន</string>
+    <string name="corpsefinder_risk_common_chip">ទូទៅ</string>
+    <string name="corpsefinder_markers_dialog_title">អំពីសម្គាល់ទាំងនេះ</string>
+    <string name="corpsefinder_markers_dialog_normal_label">គ្មានសម្គាល់</string>
+    <string name="corpsefinder_markers_dialog_normal_description">សំណល់ស្តង់ដារ។ ជាទូទៅមានសុវត្ថិភាពក្នុងការលុបចោល — ឯកសារទាំងនេះជាកម្មសិទ្ធិរបស់កម្មវិធីដែលលែងដំឡើងទៀតទេ។</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder រកឃើញទិន្នន័យដែលបានទុកក្រោយដោយកម្មវិធីដែលអ្នកបានលុបចោលរួចហើយ។ វាលែងជាកម្មសិទ្ធិរបស់អ្វីដែលដំឡើងទេ ដូច្នេះការលុបចោលវាមានសុវត្ថិភាព ហើយដោះលែងលំហ។</string>
+    <string name="tour_corpsefinder_row_body">ធាតុនីមួយៗគឺទិន្នន័យដែលបានទុកក្រោយ និងកម្មវិធីដែលវាមកពី។ សម្គាល់បង្ហាញថាតើ SD Maid ប្រាកដប្រាម់ប៉ុណ្ណាថាវាល្អប្រើក្នុងការលុបចោល — ចុចលើ ⓘ នៅលើកំពូលដើម្បីស្វាងយល់ថាសម្គាល់មានន័យថាម្តេច។</string>
 </resources>

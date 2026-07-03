@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">ഷെഡ്യൂർ പൂർത്തിയായി</string>
     <string name="scheduler_notification_result_success_message">ഷെഡ്യൂർ ചെയ്ത എല്ലാ ടാസ്ക്കുകളും വിജയകരമായി പൂർത്തിയായി.</string>
     <string name="scheduler_notification_result_failure_message">ചില ഷെഡ്യൂർ ടാസ്ക്കുകൾ പരാജയപ്പെടുകയോ പിശകുകൾ നേരിടുകയോ ചെയ്തു. അവ കൈയാർ നടത്തി പരീക്ഷിക്കുക.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">ഒഴിവാക്കി, സ്ക്രീൻ ഓഫായിരുന്നു അല്ലെങ്കിൽ ലോക്ക് ചെയ്തിരുന്നു</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ആപ്പ് ക്ലീനിങ് ഒഴിവാക്കപ്പെടാം</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ആപ്പ് ക്ലീനിങ് ആക്സസിബിലിറ്റി സേവനം ഉപയോഗിക്കുന്നു, അതിന് സ്ക്രീൻ അൻലോക്ക് ചെയ്യേണ്ടതാണ്. ഉപകരണം ലോക്ക് ചെയ്തിരിക്കുമ്പോൾ ഷെഡ്യൂൾ ചെയ്ത പ്രവർത്തനങ്ങൾ ഒഴിവാക്കുന്നു.
+
+പശ്ചാത്തല ക്ലീനിങ്ഗിന് Shizuku അല്ലെങ്കിൽ root ഉപയോഗിക്കുക, അല്ലെങ്കിൽ നിങ്ങൾ ഉപകരണം ഉപയോഗിക്കുമ്പോൾ അത് ഷെഡ്യൂൾ ചെയ്യുക.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">സിസ്റ്റം ആപ്പ്സ് ഒഴിവാക്കപ്പെടാം</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku പശ്ചാത്തലത്തിൽ മിക്ക കാഷുകളും ശുചീകരിക്കുന്നു, പക്ഷേ സിസ്റ്റം ആപ്പ്സ് ആക്സസിബിലിറ്റി സേവനം ആവശ്യപ്പെടുന്നു, അതിന് സ്ക്രീൻ അൻലോക്ക് ചെയ്യേണ്ടതാണ്. \"സിസ്റ്റം ആപ്പ്സ് ഉൾപ്പെടുത്തുക\" ഓണായിരിക്കുമ്പോൾ, ഉപകരണം ലോക്ക് ചെയ്തിരിക്കുമ്പോൾ അവ ഒഴിവാക്കുന്നു.
+
+\"സിസ്റ്റം ആപ്പ്സ് ഉൾപ്പെടുത്തുക\" ഒട്ടാക്കുക, അല്ലെങ്കിൽ അൻലോക്ക് ചെയ്തിരിക്കുമ്പോൾ ഷെഡ്യൂൾ പ്രവർത്തിപ്പിക്കുക.</string>
     <string name="scheduler_commands_after_schedule_label">ഷെഡ്യൂർ ശേഷം കമാന്ഡുകൾ</string>
     <string name="scheduler_commands_after_schedule_desc">ഷെഡ്യൂർ അവസാനിക്കുമ്പോൾ നടപ്പിലാക്കുന്ന Android ഷെൽ കമാന്ഡുകൾ.</string>
     <string name="scheduler_battery_optimization_hint">പശ്ചാത്തല എക്സിക്യൂഷനിൽ പ്രശ്നങ്ങൾ അനുഭവിക്കുന്നുവെങ്കിൽ SD Maid-ന്റെ ബാറ്ററി ഓപ്ടിമൈസേഷൻ പ്രവർത്തനരഹിതമാക്കുന്നത് പരിഗണിക്കുക.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid ഒരു ഷെഡ്യൂളിനിടെ ശുചീകരണം നടത്താനാകും. ഒരു സമയം തിരഞ്ഞെടുത്ത് ഏതെല്ലാം ടൂളുകൾ പ്രവർത്തിക്കണമെന്നു നിശ്ചയിച്ച്, അത് പശ്ചാത്തലത്തിൽ പ്രവർത്തനം നടത്തും — അപ്ലിക്കേഷൻ തുറക്കേണ്ടതില്ല.</string>
+    <string name="tour_scheduler_create_body">ഒരു പുതിയ ഷെഡ്യൂൾ സൃഷ്ടിക്കാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക, പിന്നെ അത് എപ്പോൾ പ്രവർത്തിക്കണമെന്നും എതെല്ലാം ടൂളുകൾ ഉൾപ്പെടുത്താമെന്നും നിശ്ചയിക്കുക.</string>
 </resources>

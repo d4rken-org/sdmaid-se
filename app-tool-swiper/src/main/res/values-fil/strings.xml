@@ -36,6 +36,19 @@
         <item quantity="one">%d hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
         <item quantity="other">%d mga hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Ang session na ito ay nakatuon sa isang buong storage volume — ang pag-delete dito ay sumasaklaw sa bawat folder sa storage na iyon.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…at %d pang folder</item>
+        <item quantity="other">…at %d pang mga folder</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Nauunawaan ko na ang mga file na ito ay magiging permanenteng mabubura.</string>
+    <string name="swiper_sensitive_root_warning_title">I-scan ang buong imbakan?</string>
+    <string name="swiper_sensitive_root_warning_message">Ang pag-scan ng %1$s ay kasama ang bawat file sa imbakang ito — mga larawan, dokumento, download, app media, at marami pa. Magpatuloy?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Magpatuloy pa rin</string>
+    <string name="swiper_session_risky_label">Pag-scan ng buong imbakan</string>
+    <string name="swiper_session_risky_info_message">Ang session na ito ay nakatuon sa root ng isang storage volume, kaya bawat file sa storage na iyon ay nasa saklaw — mga larawan, dokumento, download, app media, at iba pa.
+
+Ang pag-scan ng buong imbakan ay maaaring magbalik ng maraming item, kabilang ang mga file na hindi mo layunin na suriin. Mag-apply ng filter ng uri ng file upang bawasan ang pag-scan.</string>
     <string name="swiper_delete_x_action">I-delete %1$d</string>
     <string name="swiper_settings_swap_directions_title">Magpalit ng direksyon ng swipe</string>
     <string name="swiper_settings_swap_directions_summary">Mag-swipe pakaliwa upang itabi, pakanan upang i-delete.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Maglagay ng pangalan para sa session na ito</string>
     <string name="swiper_sessions_current_sessions">Mga kasalukuyang session</string>
     <string name="swiper_session_paths_label">Mga Path</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…at %d pa</item>
+        <item quantity="other">…at %d pa</item>
+    </plurals>
     <string name="swiper_session_status_label">Katayuan</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d itatabi</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Nai-filter: %1$s</string>
     <string name="swiper_session_no_matching_files">Walang nahanap na katugmang mga file</string>
     <string name="swiper_open_externally_action">Buksan sa panlabas na app</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">I-swipe ang larawan upang magdesisyon ng kanyang kapalaran: Pahigit upang panatilihin o tanggalin, pataas upang laktawan, pababa upang bawiin. Ang mga button sa ibaba ay gumagawa ng pareho — at nagpapakita kung aling panig ang alin.</string>
+    <string name="tour_swiper_openin_body">Ang button na ito ay nagbubukas ng larawan sa ibang app, praktikal upang tingnan ito bago magdesisyon.</string>
+    <string name="tour_swiper_preview_body">Ang button na ito ay nagbubukas ng full-screen preview para sa mas malapit na pagtingin.</string>
+    <string name="tour_swiper_actions_body">Ayaw mo ng pag-swipe? Mayroon din kaming mga button! Ang Skip ay nag-iiwan nito na hindi napagdesisyunan para sa mamaya, at ang mahabang pagpindot sa Skip ay ibinabukod ang file mula sa mga susunod na pag-scan. Ang Undo ay binabawi ang iyong huling pagpipilian.</string>
+    <string name="tour_swiper_review_body">Ang iyong mga pagpili na panatilihin at alisin ay nasa yugto lamang. Buksan ang Review upang suriin ang mga ito at ilapat ang mga pagbubura kapag handa ka na.</string>
 </resources>

@@ -62,4 +62,12 @@
     <string name="corpsefinder_owner_unknown">Neznámý vlastník</string>
     <string name="corpsefinder_corpse_hint_keeper">Tato položka může obsahovat data, která chcete zachovat, přestože byl její vlastník odinstalován, např. fotografie nebo zálohy.</string>
     <string name="corpsefinder_corpse_hint_common">Tato položka má velmi běžný název a mohla by patřit k dosud nainstalovaným aplikacím, které SD Maid nezná.</string>
+    <string name="corpsefinder_risk_keeper_chip">Žádoucí</string>
+    <string name="corpsefinder_risk_common_chip">Běžné</string>
+    <string name="corpsefinder_markers_dialog_title">O těchto značkách</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Bez značky</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standardní zbytky. Obvykle bezpečné k odstranění — tyto soubory patří aplikacím, které již nejsou nainstalovány.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder nalezne data opuštěná aplikacemi, které jste již odinstalovali. Nepatří již ničemu nainstalovanému, takže jeho odstranění je bezpečné a uvolní místo.</string>
+    <string name="tour_corpsefinder_row_body">Každá položka je zbývající data a aplikace, ze které pochází. Značka ukazuje, jak si je SD Maid jistá, že je bezpečné je odstranit — klepněte na ⓘ v horní části a dozvíte se, co značky znamenají.</string>
 </resources>

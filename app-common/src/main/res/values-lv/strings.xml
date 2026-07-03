@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Sapratu</string>
     <string name="general_fix_action">Labot</string>
     <string name="general_set_up_action">Iestatīt</string>
+    <string name="general_unavailable_label">Nav pieejams</string>
     <string name="general_edit_action">Rediģēt</string>
     <string name="general_na_label">Nav pieejams</string>
     <string name="general_empty_label">Tukšs</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Rindā</string>
     <string name="general_progress_deleting">Dzēšana</string>
     <string name="general_progress_deleting_x">Dzēš %s</string>
+    <string name="general_sort_by_title">Kārtot pēc</string>
     <string name="general_sort_reverse_action">Apgrieztais kārtošanas režīms</string>
+    <string name="general_sort_oldest_first">Vispirms vecākie</string>
+    <string name="general_sort_newest_first">Vispirms jaunākie</string>
+    <string name="general_sort_name_asc">Nosaukums (A → Z)</string>
+    <string name="general_sort_size_desc">Vispirms lielākie</string>
     <string name="general_tag_system">Sistēma</string>
+    <string name="general_navigate_up_action">Pārvietoties uz augšu</string>
+    <string name="general_filter_action">Filtrēt</string>
+    <string name="general_filter_by_tags_label">Filtrēt pēc etiķetēm</string>
+    <string name="general_filter_add_action">Pievienot filtru</string>
+    <string name="general_filter_remove_x_action">Noņemt %s filtru</string>
+    <string name="general_filter_empty_row_hint">Pieskarieties + lai filtrētu</string>
+    <string name="general_show_all_action">Rādīt visu</string>
     <string name="general_result_success_message">Operācija veiksmīga</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="zero">Atbrīvots %s vieta.</item>
@@ -75,6 +88,8 @@
     <string name="general_options_label">Opcijas</string>
     <string name="general_details_label">Sīkāka informācija</string>
     <string name="general_view_action">Skatīt</string>
+    <string name="general_open_action">Atvērt</string>
+    <string name="general_configure_action">Konfigurēt</string>
     <string name="general_update_action">Atjaunināt</string>
     <string name="general_scan_action">Skenēt</string>
     <string name="general_close_action">Aizvērt</string>
@@ -101,7 +116,9 @@
         <item quantity="other">%d vienumi tika noņemti</item>
     </plurals>
     <string name="general_search_action">Meklēt</string>
+    <string name="general_search_no_matches">Nav atbilstību</string>
     <string name="general_open_system_settings_action">Atvērt sistēmas iestatījumus</string>
+    <string name="general_fast_scroller_action">Ātrā ritēšana</string>
     <plurals name="result_x_items">
         <item quantity="zero">%s vienums</item>
         <item quantity="one">%s vienums</item>
@@ -129,6 +146,11 @@
     <string name="general_enable_service_action">Iespējot pakalpojumu</string>
     <string name="general_undo_action">Atsaukt</string>
     <string name="general_list_select_all_action">Izvēlēties visu</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="zero">%d izvēlēti</item>
+        <item quantity="one">%d izvēlēts</item>
+        <item quantity="other">%d izvēlēti</item>
+    </plurals>
     <string name="general_path_label">Ceļš</string>
     <string name="general_type_label">Tips</string>
     <string name="general_size_label">Izmērs</string>
@@ -165,6 +187,8 @@
     <string name="general_error_report_bug_action">Ziņot par kļūdu</string>
     <string name="general_error_ipc_deadobject_title">Pakalpojuma savienojums zaudēts</string>
     <string name="general_error_ipc_deadobject_description">Savienojums ar kritiski svarīgu pakalpojumu (piemēram, Magisk, Shizuku vai citi sistēmas līmeņa pakalpojumi) tika negaidīti zaudēts. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
+    <string name="general_error_upgrade_required_title">Nepieciešama Pro versija</string>
+    <string name="general_error_upgrade_required_description">Šī ir Pro funkcija. Lūdzu, atjauniniet SD Maid SE, lai to izmantotu.</string>
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
     <string name="setup_title">Iestatīšana</string>
@@ -191,4 +215,22 @@
     <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="settings_category_filter">Filtrēt</string>
     <string name="appcontrol_systemsettings_open_title">Rādīt iestatījumus</string>
+    <string name="ui_theme_color_sunset_label">Saulriets</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Šai funkcijai nepieciešama saknes piekļuve, bet SD Maid to nevarēja iegūt šajā ierīcē.</string>
+    <string name="access_blocked_root_declined">Šī iespēja prasa saknes piekļuvi. Varat to iespējot iestatīšanas ekrānā.</string>
+    <string name="access_blocked_root_or_shizuku">Šī iespēja prasa saknes vai Shizuku piekļuvi, kas nav pieejama šajā ierīcē.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Nederīgs rezerves kopijas fails</string>
+    <string name="backup_restore_error_invalid_body">Šis fails nav derīga SD Maid rezerves kopija vai ir bojāts.</string>
+    <string name="backup_restore_error_version_body">Šī rezerves kopija tika izveidota ar jaunāku SD Maid versiju. Lūdzu, atjauniniet lietotni un mēģiniet vēlreiz.</string>
+    <string name="backup_restore_error_restore_failed_title">Atjaunošana neveiksmīga</string>
+    <string name="backup_restore_error_restore_failed_body">Šīs daļas nevarēja atjaunot: %1$s. Jūsu iepriekšējā konfigurācija tika saglabāta un var tikt atjaunota.</string>
+    <string name="backup_restore_error_safety_title">Atjaunošana nesākta</string>
+    <string name="backup_restore_error_safety_body">SD Maid nevarēja saglabāt drošības kopiju no jūsu pašreizējās konfigurācijas, tāpēc nekas netika mainīts.</string>
+    <string name="backup_restore_error_busy_title">Lūdzu, uzgaidiet</string>
+    <string name="backup_restore_error_busy_body">Pašlaik darbojas tīrīšanas uzdevums vai cita rezerves kopijas operācija. Mēģiniet vēlreiz, kad tā būs pabeigta.</string>
+    <string name="backup_restore_error_schema_title">Nesaderīga rezerves kopija</string>
+    <string name="backup_restore_error_schema_body">Rezerves kopijas datu bāzes formāts neatbilst šai SD Maid versijai. Vēstures datu atjaunošana tiek atbalstīta tikai starp identiskām lietotnes versijām.</string>
 </resources>

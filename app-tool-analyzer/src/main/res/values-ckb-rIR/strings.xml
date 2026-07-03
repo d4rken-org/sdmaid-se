@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">حەزداریەکی دووەم، بەمعمولا کارتی SD کە دەرهێنرێت. فایلە میدیاکان و داتای بەرنامەکانی پشتیوانیکەرەوەی تێدایە.</string>
     <string name="analyzer_storage_type_tertiary_title">ئەمبارەی گواستراوە</string>
     <string name="analyzer_storage_type_tertiary_description">ئەمبارەی گواستراوە، بۆ نموونە فلاش درایڤ کراوتەناو پۆرتی USB.</string>
+    <string name="analyzer_storage_identifier_internal">بیرگەی ناوەندی</string>
     <string name="analyzer_storage_content_title">ناوەڕۆکی حەزداری</string>
     <string name="analyzer_storage_content_type_app_label">ئەپەکان</string>
     <string name="analyzer_storage_content_type_app_description">شوێنی داگیرکراو بەرنامە دامەزراوەکان و داتاکانیان (بەوانەش فایلی بەرنامە، داتا و کاچێکان).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">بەرنامە و داتاکانی سیستەم. بەرنامە و داتای بەکارهێنەرانی تر، ئەگەر چەندین هەژمار لەسەر ئەم ئامێرە ڕێکخراوبێن.</string>
     <string name="analyzer_storage_content_type_system_other_label">تر</string>
     <string name="analyzer_storage_content_type_system_info">فایلەکانی کە لە سەردەستەی بەرنامەکان یان فایلەکانی بەکارهێنەر ناگنجنەن. بێنین تەنھا ― سماچکردن پشتیوانیکرینیکەوە نییە. هەندێکێ ناحێگەکانی ھەندێکەکان لە هەگیری دەسترسی ناتەواو دەبێت.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">فایلەکان ناتوانرێن بگونجێندرێن بە ئەپلیکێشنەکانی خاوەنیان ئێستا. قەبارەکان تەنیا بۆ زانیاری نیشاندراون — سڕینەوە، پالاوتنەکان و Swiper ناچالاکن.</string>
     <string name="analyzer_storage_content_type_system_other_desc">فایلەکانی سیستەم و داتای ترەکە SD Maid دەسترسیی پێنێوابوو یان بەخشبەندیكردنییمن. سیستەمەکەی ڤەرمانروایی کۆمساییکێش ناوەكانی هەندێکێ ناحێگەکان بیست.</string>
     <string name="analyzer_storage_content_app_code_label">کۆدی بەرنامە</string>
     <string name="analyzer_storage_content_app_code_description">فایلەکانی بەرنامە، کتێبخانەکان و سەرچاوەکان. ئەم شوێنە دەتوانرێت بە لابردنی بەرنامەکە یان ئەرشیفکردنی ئازاد بکرێتەوە (بەردەستە لە وەرزیانی نویتری ئەندرۆید).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ئەم ئەپە %1$s لەسەر \"%2$s\" دەیگێرێت.</string>
     <string name="analyzer_app_details_app_is_archived">ئەم ئەپە ئەرشیفکراوە.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s لە ٧ ڕۆژدا</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ببینە کە چی بە راستی بیرگەکەت پر دەکات. Analyzer نیشاندەدات کە جێگاکەت بۆ کوێ دەچێت. هەرێک لەم کارتانە تشیپێکی بیرگەیە لەسەر دەستگاکەت.</string>
+    <string name="tour_analyzer_storage_body">بیرگەیەک بکەرەوە بۆ جیاکردنەوە بۆ ناو بەرنامە، مێدیا و فایلەکاندا، پاشان بەردەوام داکێشە بۆ دۆزینەوەی گەورەترین هۆکار.</string>
 </resources>

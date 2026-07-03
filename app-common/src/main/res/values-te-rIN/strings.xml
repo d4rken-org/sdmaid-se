@@ -28,6 +28,7 @@
     <string name="general_gotit_action">అర్థమైంది</string>
     <string name="general_fix_action">పరిష్కరించండి</string>
     <string name="general_set_up_action">సెటప్ చేయండి</string>
+    <string name="general_unavailable_label">అందుబాటులో లేదు</string>
     <string name="general_edit_action">సవరించండి</string>
     <string name="general_na_label">అ/లే</string>
     <string name="general_empty_label">ఖాళీ</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">వరుసలో</string>
     <string name="general_progress_deleting">తొలగిస్తుంది</string>
     <string name="general_progress_deleting_x">%s తొలగిస్తుంది</string>
+    <string name="general_sort_by_title">దీని ద్వారా క్రమబద్ధీకరించు</string>
     <string name="general_sort_reverse_action">రివర్స్ సార్ట్ మోడ్</string>
+    <string name="general_sort_oldest_first">పాతవి ముందు</string>
+    <string name="general_sort_newest_first">కొత్తవి ముందు</string>
+    <string name="general_sort_name_asc">పేరు (A → Z)</string>
+    <string name="general_sort_size_desc">పెద్దవి ముందు</string>
     <string name="general_tag_system">సిస్టం</string>
+    <string name="general_navigate_up_action">పైకి నావిగేట్ చేయండి</string>
+    <string name="general_filter_action">ఫిల్టర్ చేయండి</string>
+    <string name="general_filter_by_tags_label">ట్యాగ్‌ల ద్వారా ఫిల్టర్ చేయండి</string>
+    <string name="general_filter_add_action">ఫిల్టర్ జోడించండి</string>
+    <string name="general_filter_remove_x_action">%s ఫిల్టర్ను తీసివేయండి</string>
+    <string name="general_filter_empty_row_hint">ఫిల్టర్ చేయడానికి + ను ట్యాప్ చేయండి</string>
+    <string name="general_show_all_action">అన్నిటినీ చూపించండి</string>
     <string name="general_result_success_message">విజయవంతంగా పూర్తయింది</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s స్థలం ఖాళీ చేయబడింది.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">ఎంపికలు</string>
     <string name="general_details_label">వివరాలు</string>
     <string name="general_view_action">చూడండి</string>
+    <string name="general_open_action">తెరవండి</string>
+    <string name="general_configure_action">కాన్ఫిగర్ చేయండి</string>
     <string name="general_update_action">అప్‌డేట్ చేయండి</string>
     <string name="general_scan_action">స్కాన్ చేయండి</string>
     <string name="general_close_action">మూసివేయి</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d వస్తువులు తీసివేయబడ్డాయి</item>
     </plurals>
     <string name="general_search_action">వెతకండి</string>
+    <string name="general_search_no_matches">సరిపోలిక లేదు</string>
     <string name="general_open_system_settings_action">సిస్టమ్ సెట్టింగ్‌లను తెరవండి</string>
+    <string name="general_fast_scroller_action">వేగవంతమైన స్క్రోలర్</string>
     <plurals name="result_x_items">
         <item quantity="one">%s వస్తువు</item>
         <item quantity="other">%s వస్తువులు</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">సేవను ప్రారంభించండి</string>
     <string name="general_undo_action">రద్దుచేయండి</string>
     <string name="general_list_select_all_action">అన్నింటినీ ఎంచుకోండి</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d ఎంచుకోబడింది</item>
+        <item quantity="other">%d ఎంచుకోబడ్డాయి</item>
+    </plurals>
     <string name="general_path_label">మార్గం</string>
     <string name="general_type_label">రకం</string>
     <string name="general_size_label">పరిమాణం</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">బగ్ రిపోర్ట్ చేయండి</string>
     <string name="general_error_ipc_deadobject_title">సేవా కనెక్షన్ కోల్పోయింది</string>
     <string name="general_error_ipc_deadobject_description">క్రిటికల్ సేవకు (ఉదా. Magisk, Shizuku, లేదా ఇతర సిస్టమ్-స్థాయి సేవలు) కనెక్షన్ అనుకోకుండా కోల్పోయింది. దయచేసి మీ పరికరాన్ని రీస్టార్ట్ చేయండి. సమస్య కొనసాగితే, అప్‌డేట్‌లను తనిఖీ చేయండి లేదా దాన్ని పరిష్కరించడానికి నన్ను సంప్రదించండి.</string>
+    <string name="general_error_upgrade_required_title">Pro సంస్కరణ అవసరం</string>
+    <string name="general_error_upgrade_required_description">ఇది Pro ఫీచర్. దీనిని ఉపయోగించడానికి దయచేసి SD Maid SE ను అప్‌గ్రేడ్ చేయండి.</string>
     <string name="general_user_label_owner">యజమాని</string>
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
     <string name="settings_category_filter">ఫిల్టర్</string>
     <string name="appcontrol_systemsettings_open_title">సెట్టింగ్స్ చూపించండి</string>
+    <string name="ui_theme_color_sunset_label">సూర్యాస్తమయం</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">ఈ ఫీచర్‌కు రూట్ యాక్సెస్ అవసరం, కానీ SD Maid ఈ పరికరంపై దానిని పొందలేకపోయింది.</string>
+    <string name="access_blocked_root_declined">ఈ ఫీచర్‌కు రూట్ యాక్సెస్ అవసరం. మీరు సెటఅప్ స్క్రీన్ ద్వారా దీన్ని ఎనేబుల్ చేయవచ్చు.</string>
+    <string name="access_blocked_root_or_shizuku">ఈ ఫీచర్‌కు రూట్ లేదా షిజుకు యాక్సెస్ అవసరం, ఇది ఈ పరికరంలో అందుబాటులో లేనిది.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">చెల్లని బ్యాకప్ ఫైల్</string>
+    <string name="backup_restore_error_invalid_body">ఈ ఫైల్ చెల్లని SD Maid బ్యాకప్ కాదు లేదా విపత్తుకు గురయ్యుంది.</string>
+    <string name="backup_restore_error_version_body">ఈ బ్యాకప్ SD Maid యొక్క కొత్త సంస్కరణతో సృష్టించబడింది. దయచేసి యాప్‌ను అప్‌డేట్ చేసి మళ్ళీ ప్రయత్నించండి.</string>
+    <string name="backup_restore_error_restore_failed_title">పునరుద్ధరణ విఫలమైంది</string>
+    <string name="backup_restore_error_restore_failed_body">ఈ భాగాలను పునరుద్ధరించలేము: %1$s. మీ మునుపటి కాన్ఫిగరేషన్ సేవ్ చేయబడింది మరియు తిరిగి తీసుకురావచ్చు.</string>
+    <string name="backup_restore_error_safety_title">పునరుద్ధరణ ప్రారంభం కాలేదు</string>
+    <string name="backup_restore_error_safety_body">SD Maid మీ ప్రస్తుత కాన్ఫిగరేషన్ యొక్క భద్రతా స్నాప్‌షాట్‌ను సేవ్ చేయలేకపోయింది, కాబట్టి ఏమీ మార్చబడలేదు.</string>
+    <string name="backup_restore_error_busy_title">దయచేసి ఎదురుచూడండి</string>
+    <string name="backup_restore_error_busy_body">ఒక శుభ్రత చేసే పని లేదా మరో బ్యాకప్ ఆపరేషన్ ప్రస్తుతం నడుస్తోంది. అది పూర్తయ్యాక మళ్ళీ ప్రయత్నించండి.</string>
+    <string name="backup_restore_error_schema_title">సరిపోని బ్యాకప్</string>
+    <string name="backup_restore_error_schema_body">బ్యాకప్ డేటాబేస్ ఫార్మాట్ SD Maid యొక్క ఈ సంస్కరణకు సరిపోలలేదు. చరిత్ర డేటాను పునరుద్ధరించడం సమానమైన యాప్ సంస్కరణల మధ్య మాత్రమే సమర్థితం.</string>
 </resources>

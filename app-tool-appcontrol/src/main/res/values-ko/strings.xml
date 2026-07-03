@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">크기</string>
     <string name="appcontrol_list_sortmode_screentime_label">화면 시간</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">앱 크기는 성능상의 이유로 추정된 것입니다. 보다 정확한 데이터를 확인하려면 StorageAnalyzer tool을 사용하세요.</string>
+    <string name="appcontrol_list_filteroptions_label">필터 설정</string>
+    <string name="appcontrol_list_fastscroller_action">빠른 스크롤러</string>
     <string name="appcontrol_progress_uninstalling_app">앱 제거하기</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d 앱을 제거했습니다.</item>
@@ -109,4 +111,8 @@
     <string name="appcontrol_item_installedat_x_label">설치일: %s</string>
     <string name="shortcut_appcontrol_short">앱 관리</string>
     <string name="shortcut_appcontrol_long">설치된 앱 관리</string>
+    <string name="tour_appcontrol_search_body">앱을 이름으로 검색합니다. 설치된 앱이 많은 기기에서 유용합니다.</string>
+    <string name="tour_appcontrol_filter_body">사용자/시스템 앱, 활성화 상태, 최근 활동 등으로 목록을 좍힍니다. 활성 필터는 여기에 칩으로 표시됩니다.</string>
+    <string name="tour_appcontrol_sort_body">이름, 설치 날짜, 마지막 업데이트, 크기 또는 화면 사용 시간으로 앱을 정렬합니다. 같은 옵션을 다시 탭하여 방향을 바꿉니다.</string>
+    <string name="tour_appcontrol_app_row_body">앱을 탭하여 세부사항과 사용 가능한 작업을 엽니다. 길게 누르면 선택을 시작하고 일괄 작업을 사용할 수 있습니다.</string>
 </resources>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">سڕینەوە all but one copy in each selected set of duplicate files?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">سڕینەوە all files in each selected set of duplicate files? نەخێر file is left over!</string>
     <string name="deduplicator_delete_all_toggle_msg">سڕینەوە all copies. نەخێر file is left over!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">سڕینەوەی %1$d دووپلیکەت لەم کۆمەڵە، ئازادکردنی %2$s؟ کۆپیی ماوە دەمێنێتەوە.</item>
+        <item quantity="other">سڕینەوەی %1$d دووپلیکەتەکان لەم کۆمەڵە، ئازادکردنی %2$s؟ کۆپیی ماوە دەمێنێتەوە.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s دەتوانرێت ئازاد بکرێت</string>
+    <string name="deduplicator_action_delete_set">سڕینەوەی کۆمەڵەی دووپلیکەت</string>
+    <string name="deduplicator_action_open_preview">پێشبینینی کردنەوە</string>
+    <string name="deduplicator_marked_for_deletion">نیشاندراو بۆ سڕینەوە</string>
+    <string name="deduplicator_cluster_preview_image">پێشبینینی کۆمەڵەی دووپلیکەت</string>
+    <string name="deduplicator_selection_keep_one_required">بەندی کەم یەک فایل لە هەرێک کۆمەڵەی دووپلیکەت پێویستە بمێنێتەوە. \"سڕینەوەی هەموو ئەمکان بکە\" لە رێکخستندا چالاک بکە بۆ زاڵداکردنەوە.</string>
     <string name="deduplicator_progress_comparing_files">Comparing فایلs</string>
     <string name="deduplicator_details_cluster_title">کۆمەلی دووبارەکان</string>
     <string name="deduplicator_matches_exact_label">کۆپیەکانی تەواو</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">فایلە بچووکەکان پێشتر بگرە</string>
     <string name="deduplicator_view_mode_groups_label">کۆمەڵەکان</string>
     <string name="deduplicator_view_mode_directories_label">بوخچەکان</string>
+    <string name="tour_deduplicator_details_cluster_body">ئەم فایلانە هەموویان دەردەکەون وەک یەک خالە یان ناوەڕۆکی مێدیایی یەکتر، کۆمەڵێکی دووپلیکەت.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">فایلەکان بەم ئایکۆنە سڕێندراون; فایلە ماوەکەی لە گرووپەکدا ئەوەیە کە SD Maid دەیپارێزێت. دەتوانیت بگۆڕیت چۆن پارێزەر هەڵدەبژێردرێت لە رێکخستنی ئامرازی سڕینەوە.</string>
 </resources>

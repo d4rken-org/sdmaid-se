@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">计划任务已完成</string>
     <string name="scheduler_notification_result_success_message">所有计划任务均成功运行。</string>
     <string name="scheduler_notification_result_failure_message">部分计划任务运行失败或遇到错误。请尝试手动运行。</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">已跳过，屏幕已关闭或已锁定</string>
+    <string name="scheduler_acs_screenlocked_hint_title">应用清理可能会被跳过</string>
+    <string name="scheduler_acs_screenlocked_hint_body">应用清理使用无障碍服务，该服务需要屏幕处于解锁状态。在设备锁定时安排的运行会被跳过。
+
+使用 Shizuku 或 Root 进行后台清理，或在您使用设备时安排清理。</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">系统应用可能会被跳过</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku 在后台清理大多数缓存，但系统应用需要无障碍服务，该服务需要屏幕处于解锁状态。启用“Include system apps”时，设备锁定时会跳过这些应用。
+
+关闭“Include system apps”，或在解锁时运行计划任务。</string>
     <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
     <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
     <string name="scheduler_battery_optimization_hint">如果您遇到后台执行问题，请考虑禁用 SD Maid 电池优化。</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid 可以按计划清理。选择运行时间和包含的工具，它将在后台执行任务（几乎）无需打开应用。</string>
+    <string name="tour_scheduler_create_body">点击此处创建新计划，然后设置运行时间和包含的工具。</string>
 </resources>

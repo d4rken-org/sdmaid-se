@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Uaktualnij SD Maid SE</string>
     <string name="upgrades_dashcard_body">Odblokuj dodatkowe funkcje i zostań patronem, aby wesprzeć dalszy rozwój!</string>
     <string name="upgrades_dashcard_upgrade_action">Uaktualnij</string>
-    <string name="upgrade_screen_title">Uaktualnij SD Maid</string>
+    <string name="upgrade_screen_title">Wesprzyj SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid nie ma reklam i nie sprzedaje danych użytkowników. Rozwój jest możliwy dzięki tobie.</string>
     <string name="upgrade_screen_how_title">Jak pomóc</string>
     <string name="upgrade_screen_how_body">Zostań patronem i sponsorem rozwoju! Dotknij przycisku poniżej, aby aktywować wszystkie dodatkowe funkcje i otworzyć mój profil sponsorów GitHub.</string>
-    <string name="upgrade_screen_why_title">To wywołuje 🪄</string>
-    <string name="upgrade_screen_why_body">• Sprzątanie aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne zasady usuwania ✍️\n• Motywacja programisty 🧙\ni wiele więcej…</string>
+    <string name="upgrade_screen_why_title">Korzyści z ulepszenia</string>
+    <string name="upgrade_screen_why_body">• Czyść pamięci podręczne aplikacji i zbędne dane\n• Usuń zduplikowane pliki\n• Włącz zaplanowane czyszczenia\n• Utwórz niestandardowe filtry i reguły czyszczenia\n• Śledź trendy magazynowania i historię czyszczenia\n• Więcej funkcji i opcji kontroli w całej aplikacji\n• Wsparcie dla pracy open-source</string>
     <string name="upgrade_screen_sponsor_action">Wesprzyj rozwój</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatywą są reklamy, analityka i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Dziękuję za wsparcie rozwoju oprogramowania otwarto źródłowego❤️</string>

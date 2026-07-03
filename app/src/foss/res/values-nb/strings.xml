@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Oppgrader SD Maid SE</string>
     <string name="upgrades_dashcard_body">Lås opp flere funksjoner og bli en patron for å støtte utviklingen videre!</string>
     <string name="upgrades_dashcard_upgrade_action">Oppgrader</string>
-    <string name="upgrade_screen_title">Forbedre SD Maid</string>
+    <string name="upgrade_screen_title">Støtt SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid har ingen annonser og selger ikke brukerdata. Fortsatt utvikling er bare mulig ved hjelp av deg.</string>
     <string name="upgrade_screen_how_title">Hvordan hjelpe</string>
     <string name="upgrade_screen_how_body">Bli en patron og støtt utviklingen! Trykk på knappen under for å aktivere alle ekstra funksjoner og åpne sponsorprofilen min på GitHub.</string>
-    <string name="upgrade_screen_why_title">Dette tryller 🪄</string>
-    <string name="upgrade_screen_why_body">• Sletting i Apprenser 💯\n• Planlagte handlinger ⏰\n• Ekstra alternativer for alle verktøy ⚙️\n• Dine egne regler for sletting ✍️\n• En motivert utvikler 🧙\nog mer…</string>
+    <string name="upgrade_screen_why_title">Oppgraderingsfordeler</string>
+    <string name="upgrade_screen_why_body">• Rens applagre og unødvendig data
+• Fjern duplikatfiler
+• Aktiver planlagte opprydninger
+• Lag egendefinerte filtre og opprydningsregler
+• Spor lagringstrender og opprydningshistorikk
+• Flere funksjoner og kontroller i hele appen
+• Støtt åpen kildekode-arbeid</string>
     <string name="upgrade_screen_sponsor_action">Støtt utviklingen</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativet er annonser, analyser og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Takk for at du støtter utviklingen som har åpen kildekode ❤️</string>

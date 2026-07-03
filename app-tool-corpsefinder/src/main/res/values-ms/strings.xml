@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">Pemilik tidak dikenali</string>
     <string name="corpsefinder_corpse_hint_keeper">Item ini mungkin mengandungi data yang anda ingin simpan walaupun pemiliknya dinyahpasang, mis. foto atau sandaran.</string>
     <string name="corpsefinder_corpse_hint_common">Item ini mempunyai nama yang sangat biasa dan mungkin tergolong dalam aplikasi yang masih dipasang yang tidak diketahui oleh SD Maid.</string>
+    <string name="corpsefinder_risk_keeper_chip">Diingini</string>
+    <string name="corpsefinder_risk_common_chip">Biasa</string>
+    <string name="corpsefinder_markers_dialog_title">Mengenai penanda ini</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Tanpa penanda</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Sisa piawai. Secara amnya selamat dibuang — fail-fail ini adalah milik aplikasi yang tidak lagi dipasang.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder mencari data yang ditinggalkan oleh aplikasi yang telah anda nyahpasang. Ia tidak lagi milik sebarang aplikasi yang terpasang, jadi memadamkannya adalah selamat dan membebaskan ruang.</string>
+    <string name="tour_corpsefinder_row_body">Setiap item ialah data sisa dan aplikasi asalnya. Penanda menunjukkan sejauh mana keyakinan SD Maid bahawa ia selamat untuk dibuang — ketik ⓘ di bahagian atas untuk mengetahui maksud penanda.</string>
 </resources>

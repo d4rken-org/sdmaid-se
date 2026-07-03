@@ -58,4 +58,12 @@
     <string name="corpsefinder_owner_unknown">Nepoznat vlasnik</string>
     <string name="corpsefinder_corpse_hint_keeper">Ova stavka može sadržavati podatke koje želite zadržati iako je njen vlasnik deinstaliran, npr. fotografije ili sigurnosne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ova stavka ima vrlo uobičajeno ime i mogla bi pripadati još instaliranim aplikacijama koje SD Maid ne poznaje.</string>
+    <string name="corpsefinder_risk_keeper_chip">Poželjno</string>
+    <string name="corpsefinder_risk_common_chip">Uobičajeno</string>
+    <string name="corpsefinder_markers_dialog_title">O tim oznakama</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Nema oznake</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standardni ostatak. Općenito sigurno ukloniti — te datoteke pripadaju aplikacijama koje više nisu instalirane.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder pronalazi podatke koje su ostavile aplikacije koje ste već deinstalirali. Više ne pripada ničemu što je instalirano, pa je uklanjanje sigurno i oslobođa prostor.</string>
+    <string name="tour_corpsefinder_row_body">Svaka stavka je preostali podatak i aplikacija iz koje je došla. Oznaka pokazuje koliko je SD Maid siguran da je sigurno ukloniti — dodirnite ⓘ na vrhu da saznate što oznake znače.</string>
 </resources>

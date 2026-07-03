@@ -41,6 +41,20 @@
         <item quantity="one">%d neizlemta vieniba paliks vēlākai pārbaudei.</item>
         <item quantity="other">%d neizlemtas vienibas paliks vēlākai pārbaudei.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Šī sesija mērķē uz veselu krātuves apjomu — dzēšana šeit sniedzas uz katru mapi šajā krātuvē.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="zero">…un vēl %d mapes</item>
+        <item quantity="one">…un vēl %d mape</item>
+        <item quantity="other">…un vēl %d mapes</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Es saprotu, ka šie faili tiks neatgriezeniski dzēsti.</string>
+    <string name="swiper_sensitive_root_warning_title">Skenēt visu krātuvi?</string>
+    <string name="swiper_sensitive_root_warning_message">Skenējot %1$s, tiek iekļauti visi faili šajā krātuvē — fotogrāfijas, dokumenti, lejupielādes, lietotnes multimēdija un daudz kas cits. Turpināt?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Turpināt jebkurā gadījumā</string>
+    <string name="swiper_session_risky_label">Visas krātuves skenēšana</string>
+    <string name="swiper_session_risky_info_message">Šī sesija mērķē uz krātuves apjoma sakni, tāpēc visi faili šajā krātuvē ir iekļauti — fotogrāfijas, dokumenti, lejupielādes, lietotnes multimēdija un daudz kas cits.
+
+Visas krātuves skenēšana var atgriezt daudzus vienumus, tostarp failus, kurus iespējams neplānojāt pārskatīt. Piemērojiet failu tipa filtru, lai sašaurinātu skenēšanu.</string>
     <string name="swiper_delete_x_action">Dzēst %1$d</string>
     <string name="swiper_settings_swap_directions_title">Mainīt velkšanas virzienus</string>
     <string name="swiper_settings_swap_directions_summary">Velciet pa kreisi, lai saglabātu, pa labi, lai dzēstu.</string>
@@ -85,6 +99,11 @@
     <string name="swiper_session_rename_hint">Ievadiet šīs sesijas nosaukumu</string>
     <string name="swiper_sessions_current_sessions">Pašreizējās sesijas</string>
     <string name="swiper_session_paths_label">Ceļi</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="zero">…un %d vairāk</item>
+        <item quantity="one">…un %d vairāk</item>
+        <item quantity="other">…un %d vairāk</item>
+    </plurals>
     <string name="swiper_session_status_label">Stāvoklis</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="zero">%d saglabāt</item>
@@ -168,4 +187,10 @@ Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. 
     <string name="swiper_file_type_filter_summary">Filtrēts: %1$s</string>
     <string name="swiper_session_no_matching_files">Nav atrasts neviens atbilstošs fails</string>
     <string name="swiper_open_externally_action">Atvērt ārējā lietotne</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Velciet fotogrāfiju, lai izlēmtu: uz sāniem — paturēt vai dzēst, uz augšu — izlaist, uz leju — atsaukt. Tālāk esošās pogas darīs to pašu — un rādīs, kura puse ir kura.</string>
+    <string name="tour_swiper_openin_body">Šī poga atver fotogrāfiju citā lietotnē — ērti ir to pārbaudīt pirms izlēmes.</string>
+    <string name="tour_swiper_preview_body">Šī poga atver pilnekrāna priekšskatījumu, lai apskatītu detalizētāk.</string>
+    <string name="tour_swiper_actions_body">Nevēlaties vilkt? Mums ir arī pogas! Izlaist atstāj to neizlēmtu vēlākam, un ilgs spiediens uz Izlaist izslēdz failu no turpmākajām skenēšanām. Atsaukt atceļ jūsu pēdējo izvēli.</string>
+    <string name="tour_swiper_review_body">Jūsu saglabāšanas un dzēšanas izvēles ir tikai uzkrātas. Atveriet Pārskatu, lai tās pārskatītu un piemērotu dzēšanas darbības, kad esat gatavs.</string>
 </resources>

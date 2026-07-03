@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Dosya yaşına (son değiştirme zamanı) göre eşleşmeleri sınırlayın. Herhangi bir yaşı eşleştirmek için ayarlamayın.</string>
     <string name="systemcleaner_customfilter_import_action">Yeni filtreyi içe aktar</string>
     <string name="systemcleaner_customfilter_export_action">Seçili filtreyi dışa aktar</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner uygulamaya özgü olmayan filtreler kullanarak çöpler bulur. Boş klasörler, kalan günlükler ve eski küçük resimler gibi şeyler için hazır kurallar vardır. Kendi kurallarınızı oluşturmak isterseniz ayarları ziyaret edin.</string>
+    <string name="tour_systemcleaner_filter_body">Her satır bir filtre ve onun bulduklarını gösterir. Herhangi bir şey silmeden önce tam olarak hangi dosyaların eşleştiğini görmek için ayrıntılarını açın.</string>
 </resources>

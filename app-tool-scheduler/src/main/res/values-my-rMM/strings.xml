@@ -34,7 +34,15 @@
     <string name="scheduler_notification_result_title">ဆုံးဆေးပြီးသောသည်</string>
     <string name="scheduler_notification_result_success_message">ဆုံးဆေးခြယ်စိုးများအားလုံး အအကြေးများ ပြမည့်ပြမည့် အလုပ်ဆောင်ချပြီးသည်။</string>
     <string name="scheduler_notification_result_failure_message">ဆုံးဆေးခြယ်စိုးများအချား အချားများ မအစားတွေနေရာပြီးသည် သိုမရှိပါ။ ကိုယ်ကိုယ် အလုပ်ဆောင်ချပြမည့်တွက်အသုံးချသည်။</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">ကျော်လွှားခံခဲ့သည် - မျက်နှာပြင် ပိတ်သို့မဟုတ် သော့ခတ်ထားခြင်း</string>
+    <string name="scheduler_acs_screenlocked_hint_title">app သန့်စင်မှု ကျော်လွှားနိုင်သည်</string>
+    <string name="scheduler_acs_screenlocked_hint_body">app သန့်စင်ခြင်းသည် အသုံးပြုခွင့် ဆက်စပ်မှုကို အသုံးပြုသည်၊ ယင်းသည် မျက်နှာပြင်ကို လွှင့်ထုတ်ရန် လိုအပ်သည်။ ကိရိယာကို သော့ခတ်ထားခြင်းတွင် စီစဉ်ထားသည့် လည်ပတ်မှုများသည် ကျော်လွှားပြီးခဲ့သည်။\n\nနောက်ခံတွင် သန့်စင်ရန်အတွက် Shizuku သို့မဟုတ် root ကို အသုံးပြုပါ၊ သို့မဟုတ် ကိရိယာကို အသုံးပြုနေစဉအခါအတွက် အချိန်ဇယား စီစဉ်ပါ။</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">စနစ်တမ်း app များ ကျော်လွှားနိုင်သည်</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku သည် အများစုကဲ့သို့သော ကက်ယ်များကို နောက်ခံတွင် သန့်စင်သည်၊ သို့သော်လည်း စနစ်တမ်း app များသည် အသုံးပြုခွင့် ဆက်စပ်မှုကို လိုအပ်သည်၊ ယင်းသည် မျက်နှာပြင်ကို လွှင့်ထုတ်ရန် လိုအပ်သည်။ \"Include system apps\" ကို ဖွင့်ထားသည့်အခါ၊ ယင်းတို့သည် ကိရိယာကို သော့ခတ်ထားခြင်းတွင် ကျော်လွှားပြီးခဲ့သည်။\n\n\"Include system apps\" ကို ပိတ်ထားပါ၊ သို့မဟုတ် မျက်နှာပြင် လွှင့်ထုတ်ထားသည့်အခါ အချိန်ဇယားကို လည်ပတ်ပါ။</string>
     <string name="scheduler_commands_after_schedule_label">ဆုံးဆေးပြီးသော အမှတ်ချစိုး</string>
     <string name="scheduler_commands_after_schedule_desc">ဆုံးဆေးပြီးသောက် ဆုံးဆေးတွင် အလုပ်ဆောင်ချမည်သော Android shell ခြစ်ချများ။</string>
     <string name="scheduler_battery_optimization_hint">နောက်ချတွင် ပြပြီးသော ပြည့်ဟာများရှိပါက SD Maid အတွက် ဘုးတေရဪ အဆေးခြသည်ကို ပိဤက်ချခြင်းမှပြမေကြချသည်။</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid သည် အချိန်ဇယားအလိုက် သန့်ရှင်းနိုင်သည်။ အချိန်နှင့် မည်သည့်ကိရိယာများ အသုံးပြုမည်ကိုရွေးချယ်ပါ။ ၎င်းသည် နောက်ခံတွင် လုပ်ဆောင်ပြီး app ကို (စုံလင်စွာ) ဖွင့်ရန်မလိုအပ်ပါ။</string>
+    <string name="tour_scheduler_create_body">အချိန်ဇယားသစ် ဖန်တီးရန် ဤတွင် နှိပ်ပါ။ ထို့နောက် ၎င်းမည်သည့်အချိန်တွင် ပြုလုပ်မည်နှင့် မည်သည့်ကိရိယာများ ထည့်သွင်းမည်ကို သတ်မှတ်ပါ။</string>
 </resources>

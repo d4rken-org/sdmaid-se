@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Használd a \"Vásárlás visszaállítása\" lehetőséget a vásárlás visszaállításához. Ha a probléma továbbra is fennáll, próbáld meg törölni a Google Play gyorsítótárát és újraindítani a készüléked.</string>
     <string name="upgrade_screen_title">Szerezze be az SD Maid SE Pro-t</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Előnyök</string>
-    <string name="upgrade_screen_benefits_body">• Alkalmazások tisztítása 💯\n• Ütemezett műveletek ⏰\n• Extra lehetőségek minden eszközhöz ⚙️\n• Saját törlési szabályok ✍️\n• Motivált fejlesztő 🧙\nés több…</string>
+    <string name="upgrade_screen_benefits_title">Frissítés előnyei</string>
+    <string name="upgrade_screen_benefits_body">• Az alkalmazás gyorsítótárainak és felesleges adatainak törlése
+• Duplikált fájlok eltávolítása
+• Ütemezett tisztítások engedélyezése
+• Egyéni szűrők és tisztítási szabályok létrehozása
+• Tárolóhelyek trendjeinek és tisztítási előzményeinek nyomon követése
+• További funkciók és vezérlőelemek az alkalmazásban
+• A folyamatos fejlesztés támogatása</string>
     <string name="upgrade_screen_how_title">Lehetőségek</string>
     <string name="upgrade_screen_how_body">Választhat az egyszeri vásárlás és az olcsóbb éves előfizetés között.\nAz előfizetés egy 14 napos ingyenes próbaverzióval kezdődik, amely után évente egyszer kerül felszámításra. A próbaidőszak és az előfizetés bármikor lemondható.\nAzonos funkciók, csak különböző árképzési modellek.</string>
+    <string name="upgrade_screen_subscription_offer_title">Éves előfizetés</string>
+    <string name="upgrade_screen_iap_offer_title">Egyszeri vásárlás</string>
+    <string name="upgrade_screen_offer_recommended">Ajánlott</string>
+    <string name="upgrade_screen_offers_unavailable_message">Az árak jelenleg nem tölthetők be. Ellenőrizze a Google Play oldalt, és próbálja újra egy pillanat múlva.</string>
     <string name="upgrade_screen_subscription_trial_action">Ingyenes 14 napos próbaidőszak indítása</string>
     <string name="upgrade_screen_subscription_action">Iratkozz fel</string>
     <string name="upgrade_screen_subscription_action_hint">Az előfizetés évi %s.</string>

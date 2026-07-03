@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Actualizați SD Maid SE</string>
     <string name="upgrades_dashcard_body">Deblochează funcții suplimentare și devino un patron pentru a suporta dezvoltarea continuată!</string>
     <string name="upgrades_dashcard_upgrade_action">Actualizează</string>
-    <string name="upgrade_screen_title">Îmbunătățește SD Maid</string>
+    <string name="upgrade_screen_title">Susține SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Dezvoltarea continuată este numai posibilă făcută de tine.</string>
     <string name="upgrade_screen_how_title">Cum să ajuți</string>
     <string name="upgrade_screen_how_body">Deveniți un patron și o dezvoltare a sponsorului! Apăsați butonul de mai jos pentru a activa toate caracteristicile suplimentare și deschideți profilul meu GitHub Sponsors.</string>
-    <string name="upgrade_screen_why_title">Acesta evocă 🪄</string>
-    <string name="upgrade_screen_why_body">• Funcția Curățare Aplicații 💯\n• Operații programate ⏰\n• Opțiuni extra pentru toate opțiunile ⚙️\n• Regulile tale pentru ștergere ✍️\n• Un dezvoltator motivat 🧙\nși multe altele...</string>
+    <string name="upgrade_screen_why_title">Beneficii upgrade</string>
+    <string name="upgrade_screen_why_body">• Curăță cache-urile și datele nerelevante ale aplicațiilor\n• Elimină fișierele duplicate\n• Activează curățări programate\n• Creează filtre personalizate și reguli de curățare\n• Urmărește tendințele de stocare și istoricul curățării\n• Mai multe funcții și controale în toată aplicația\n• Susține munca open-source</string>
     <string name="upgrade_screen_sponsor_action">Sponsorizează dezvoltarea</string>
     <string name="upgrade_screen_sponsor_action_hint">O alternativă sunt reclamele, analizele și Google Play🙁</string>
     <string name="upgrade_screen_thanks_toast">Mulțumesc că îmi suporți această dezvoltare open-source❤️</string>

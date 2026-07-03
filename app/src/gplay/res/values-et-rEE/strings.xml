@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Ostu taastamiseks kasuta „Taasta ost“ valikut. Mure püsimisel ürita tühjendada Google Play vahemälu ja taaskäivitada seadet.</string>
     <string name="upgrade_screen_title">Hankige SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Minu tööd toetate teie ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Eelised</string>
-    <string name="upgrade_screen_benefits_body">• rakenduse puhastamine 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
+    <string name="upgrade_screen_benefits_title">Uuendamise eelised</string>
+    <string name="upgrade_screen_benefits_body">• Puhasta rakenduste vahemälu ja mittevajalikud andmed\n• Eemalda duplikaadfailid\n• Luba ajastatud puhastused\n• Loo kohandatud filtrid ja puhastusreeglid\n• Jälgi salvestusruumi trende ja puhastuse ajalugu\n• Rohkem funktsioone ja kontrollimise võimalusi kogu rakenduses\n• Toeta jätkuvat arendamist</string>
     <string name="upgrade_screen_how_title">Valikud</string>
     <string name="upgrade_screen_how_body">Saate valida ühekordse ostu ja odavama aastatellimuse vahel.\nTellimus algab 14 päevase prooviperioodiga, pärast seda võetakse raha korra aastas. Prooviperioodi ja tellimust saab tühistada igal ajal.\nSamad võimalused, erineb vaid hinnastamismudel.</string>
+    <string name="upgrade_screen_subscription_offer_title">Aastane tellimus</string>
+    <string name="upgrade_screen_iap_offer_title">Osta korra</string>
+    <string name="upgrade_screen_offer_recommended">Soovitatav</string>
+    <string name="upgrade_screen_offers_unavailable_message">Hinnad ei saanud praegu laadida. Kontrolli Google Play\'d ja proovi mõne hetke pärast uuesti.</string>
     <string name="upgrade_screen_subscription_trial_action">Alustage tasuta 14 päevast prooviperioodi</string>
     <string name="upgrade_screen_subscription_action">Telli</string>
     <string name="upgrade_screen_subscription_action_hint">Tellimus maksab %s aastas.</string>

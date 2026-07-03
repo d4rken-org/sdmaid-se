@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">אחסון ראשי</string>
     <string name="stats_storage_type_secondary">אחסון משני</string>
     <string name="stats_storage_type_portable">אחסון נייד</string>
+    <string name="stats_space_history_delete_storage_title">למחוק היסטוריית אחסון?</string>
+    <string name="stats_space_history_delete_storage_desc">כל נתוני המגמה עבור אחסון זה יימחקו לצמיתות.</string>
 </resources>

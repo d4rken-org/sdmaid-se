@@ -8,4 +8,16 @@
         <item quantity="other">%d kiválasztott útvonal</item>
     </plurals>
     <string name="picker_home_action">Adatterületek</string>
+    <string name="tour_action_next">Következő</string>
+    <string name="tour_action_previous">Előző</string>
+    <string name="tour_action_done">Kész</string>
+    <string name="tour_action_cancel">Kihagyás</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Kihagyja a bemutatót?</string>
+    <string name="tour_confirm_message">A bemutatókat a Beállításokban bármikor újra engedélyezheti.</string>
+    <string name="tour_confirm_continue">Bemutató folytatása</string>
+    <string name="tour_confirm_dont_show_this_tour">Ne jelenítse meg ezt a bemutatót</string>
+    <string name="tour_confirm_disable_all">Minden bemutató letiltása</string>
+    <string name="navigation_unknown_destination_title">Hamarosan elérhető</string>
+    <string name="navigation_unknown_destination_message">Ez a képernyő még az új felhasználói felületre való áttelepítés alatt áll.</string>
 </resources>

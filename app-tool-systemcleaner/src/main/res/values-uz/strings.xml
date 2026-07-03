@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl yoshiga qarab mosliklarni cheklash (oxirgi o\'zgartirish vaqti). Har qanday yoshga mos kelish uchun bo\'sh qoldiring.</string>
     <string name="systemcleaner_customfilter_import_action">Yangi filtrni import qilish</string>
     <string name="systemcleaner_customfilter_export_action">Tanlangan filtrni eksport qilish</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ilovaga xos bo\'lmagan filtrlar yordamida axlat fayllarni topadi. Bo\'sh papkalar, qoldiq jurnal fayllari va eskirgan miniaturalar kabi narsalar uchun tayyor qoidalar mavjud. O\'z qoidangizni yaratmoqchi bo\'lsangiz, sozlamalarga kiring.</string>
+    <string name="tour_systemcleaner_filter_body">Har bir qator bitta filtr va u topgan narsalarni bildiradi. Biror narsani o\'chirishdan oldin qaysi fayllar mos kelishini aniq ko\'rish uchun uning tafsilotlarini oching.</string>
 </resources>

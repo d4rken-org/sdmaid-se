@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">সময়সূচী সমাপ্ত</string>
     <string name="scheduler_notification_result_success_message">সমস্ত নির্ধারিত কাজ সফলভাবে চালিত হয়েছে৷</string>
     <string name="scheduler_notification_result_failure_message">কিছু নির্ধারিত কাজ ব্যর্থ হয়েছে বা ত্রুটির সম্মুখীন হয়েছে। এগুলোকে নিজে নিজে চালানোর চেষ্টা করুন।</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">এড়িয়ে যাওয়া হয়েছে, স্ক্রিন বন্ধ ছিল বা লক করা ছিল</string>
+    <string name="scheduler_acs_screenlocked_hint_title">অ্যাপ পরিষ্কার করা এড়িয়ে যাওয়া যেতে পারে</string>
+    <string name="scheduler_acs_screenlocked_hint_body">অ্যাপ পরিষ্কার করা অ্যাক্সেসিবিলিটি সেবা ব্যবহার করে, যা স্ক্রিন আনলক করা প্রয়োজন। ডিভাইস লক করা থাকলে নির্ধারিত চালু এড়িয়ে যাওয়া হয়।
+
+ব্যাকগ্রাউন্ড পরিষ্কারের জন্য Shizuku বা root ব্যবহার করুন, অথবা যখন আপনি ডিভাইস ব্যবহার করছেন তখনের জন্য সময়সূচী করুন।</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">সিস্টেম অ্যাপ এড়িয়ে যাওয়া যেতে পারে</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku বেশিরভাগ ক্যাশ ব্যাকগ্রাউন্ডে পরিষ্কার করে, কিন্তু সিস্টেম অ্যাপগুলির অ্যাক্সেসিবিলিটি সেবা প্রয়োজন, যা স্ক্রিন আনলক করা প্রয়োজন। \"সিস্টেম অ্যাপ অন্তর্ভুক্ত করুন\" চালু থাকলে, ডিভাইস লক করা থাকলে সেগুলি এড়িয়ে যাওয়া হয়।
+
+\"সিস্টেম অ্যাপ অন্তর্ভুক্ত করুন\" বন্ধ করুন, অথবা আনলক অবস্থায় সময়সূচী চালান।</string>
     <string name="scheduler_commands_after_schedule_label">পোস্ট-শিডিউল কমান্ড</string>
     <string name="scheduler_commands_after_schedule_desc">অ্যান্ড্রয়েড শেল কমান্ড যা একটি সময়সূচীর শেষে কার্যকর করা হবে।</string>
     <string name="scheduler_battery_optimization_hint">আপনি যদি ব্যাকগ্রাউন্ড এক্সিকিউশনে সমস্যা অনুভব করেন তবে SD মেইডের জন্য ব্যাটারি অপ্টিমাইজেশন অক্ষম করার কথা বিবেচনা করুন।</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid একটি সময়সূচী অনুযায়ী পরিষ্কার করতে পারে। একটি সময় বেছে নিন এবং কোন সরঞ্জামগুলি চলবে তা বেছে নিন, এবং এটি পটভূমিতে কাজটি করে, (প্রায়) অ্যাপটি খোলার প্রয়োজন নেই।</string>
+    <string name="tour_scheduler_create_body">এখানে ট্যাপ করুন একটি নতুন সময়সূচী তৈরি করতে, তারপর এটি কখন চলবে এবং কোন সরঞ্জামগুলি অন্তর্ভুক্ত করতে তা সেট করুন।</string>
 </resources>

@@ -8,4 +8,16 @@
         <item quantity="other">%d asukohta valitud</item>
     </plurals>
     <string name="picker_home_action">Andmekogud</string>
+    <string name="tour_action_next">Järgmine</string>
+    <string name="tour_action_previous">Eelmine</string>
+    <string name="tour_action_done">Valmis</string>
+    <string name="tour_action_cancel">Jäta vahele</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Jäta tuur vahele?</string>
+    <string name="tour_confirm_message">Saate tuurid seadete kaudu igal ajal uuesti lubada.</string>
+    <string name="tour_confirm_continue">Jätka tuuri</string>
+    <string name="tour_confirm_dont_show_this_tour">Ära kuva seda tuuri</string>
+    <string name="tour_confirm_disable_all">Keela kõik tuurid</string>
+    <string name="navigation_unknown_destination_title">Peagi saadaval</string>
+    <string name="navigation_unknown_destination_message">See kuva on endiselt uuele kasutajaliidesele üleviimisel.</string>
 </resources>

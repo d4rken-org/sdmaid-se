@@ -33,6 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">Дадатковае сховішча, звычайна здымная карта памяці. Змяшчае медыяфайлы і даныя з праграм, якія падтрымліваюць гэта.</string>
     <string name="analyzer_storage_type_tertiary_title">Партатыўнае сховішча</string>
     <string name="analyzer_storage_type_tertiary_description">Партатыўнае сховішча, напр. флэш-дыск, падключаны да порта USB.</string>
+    <string name="analyzer_storage_identifier_internal">Унутранае сховішча</string>
     <string name="analyzer_storage_content_title">Змест сховішча</string>
     <string name="analyzer_storage_content_type_app_label">Праграмы</string>
     <string name="analyzer_storage_content_type_app_description">Месца, занятае ўсталяванымі праграмамі і іх данымі (напр., файламі праграм, данымі і кэшам).</string>
@@ -43,6 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">Сістэмныя праграмы і сістэмныя даныя. Праграмы і даныя іншых карыстальнікаў, калі на гэтай прыладзе маецца некалькі ўліковых запісаў.</string>
     <string name="analyzer_storage_content_type_system_other_label">Іншае</string>
     <string name="analyzer_storage_content_type_system_info">Файлы, якія не адносяцца да катэгорый «Праграмы» або «Файлы карыстальніка». Толькі прагляд — выдаленне не падтрымліваецца. Некаторыя вобласці могуць быць няпоўнымі з-за абмежаванняў доступу.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">У дадзены мамент файлы немагчыма супаставіць з прыкладаннямі, якім яны належаць. Памеры паказаны толькі для даведкі — выдаленне, фільтры і Swiper адключаны.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Сістэмныя файлы і іншыя даныя, да якіх SD Maid не мог атрымаць доступ або катэгарызаваць. Аперацыйная сістэма абмяжоўвае пералічэнне змесціва некаторых вобласцей.</string>
     <string name="analyzer_storage_content_app_code_label">Праграмы код</string>
     <string name="analyzer_storage_content_app_code_description">Файлы праграм, бібліятэкі і рэсурсы. Гэта месца можна вызваліць, выдаліўшы праграму або перамясціць яе ў архіў (даступна ў навейшых версіях Android).</string>
@@ -55,4 +57,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Гэта праграма займае %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Гэта праграма перамешчана ў архіў.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7д</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Даведайцеся, што насамрэч запаўняе ваша сховішча. Analyzer паказвае, куды ідзе месца. Кожная з гэтых картак — гэта чып сховішча на вашай прыладзе.</string>
+    <string name="tour_analyzer_storage_body">Адкрыйце сховішча, каб разбіць яго на прыкладанні, медыя і файлы, а потым працягвайце націскаць, каб знайсці найбуйнейшыя прычыны.</string>
 </resources>

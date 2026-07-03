@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Notendur með sérstakar aðgengisþarfir geta virkjað þessa þjónustu til að leyfa SD Maid að sjálfvirka verkefni sem annars myndu krefjast leiðinlegrar handvirkrar notendaviðrásar (t.d. eyðing skyndiminnis).\n\nDæmi: Ef þú gefur SD Maid fyrirmæli um að stöðva mörg forrit þá getur SD Maid notað þessa þjónustu til að opna stillingaskjá hvers forrits, finna \'Þvinga stopp\' hnappinn og ýta á hann.\n\nSD Maid mun alltaf sýna áberandi þegar þessi þjónusta er notuð og veita auðvelda leið fyrir notandann til að hætta við hvaða víxlverkun sem er strax.\n\nEngar aðgerðir verða framkvæmdar án fyrirfram samþykkis notanda. Hægt er að gera þessa þjónustu óvirka hvenær sem er án skaðlegra áhrifa.</string>
     <string name="automation_screenoverlay_explanation">SD Maid er í samskiptum við tækið þitt. Ekki er hægt að nota skjáinn á sama tíma. Bíddu þar til aðgerðin er lokið eða hættu við hana.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid hefur samskipti við tækið þitt. Það er ekki hægt að nota skjáinn á sama tíma. Bídду þar til aðgerðinni er lokið eða þttu á Home-hnappinn til að hætta við.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid hefur samskipti við tækið þitt. Það er ekki hægt að nota skjáinn á sama tíma. Bídду þar til aðgerðinni er lokið.</string>
     <string name="automation_active_title">SD Maid er að vinna</string>
     <string name="automation_error_no_consent_title">Villa í sjálfvirkni</string>
     <string name="automation_error_no_consent_body">Aðgengisþjónusta er ekki uppsett. Ljúktu uppsetningunni og veittu samþykki.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Áætlað verkefni reyndi að nota aðgengisþJónustuna, en hún var ekki tiltæk. Ef þú þarft ekki þetta, slökktu á valkostinum \"ÁðgengisþJónusta\" í stillingum tímasetningarinnar.</string>
     <string name="automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
     <string name="automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+    <string name="automation_error_interference_title">Stillingar lokaðar</string>
+    <string name="automation_error_interference_body">Annað forrit (%1$s) er að loka fyrir stillingaskjá kerfisins, þannig að SD Maid getur ekki haldið áfram. Ógiltu appalás eða skjávernd þess forrits fyrir kerfistillingarnar og reyndu aftur.</string>
     <string name="automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
     <string name="automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
 </resources>

@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Upravitelj izjem</string>
     <string name="exclusion_manager_desc">Upravljaj z izjemami datotek in programov.</string>
-    <string name="exclusion_explanation_body1">Izključi datoteke in programe iz opravil SD Maida.</string>
-    <string name="exclusion_add_new_hint">Dodajte nove izjeme z iskanjem in uporabo vsebinskega menija na rezultatih, ki jih želite izključiti.</string>
+    <string name="exclusion_explanation_body1">Izvzemite datoteke in aplikacije, da jih zaščitite pred orodji SD Maid, ali preskočite nepomembne predmete in pospešite delovanje.</string>
+    <string name="exclusion_add_new_hint">Trenutno ni izjem. Uporabite gumb + za ustvarjanje izjeme ali izvzemite predmete iz rezultatov katerega koli orodja.</string>
     <string name="exclusion_create_action">Ustvari izjemo</string>
     <string name="exclusion_edit_action">Uredi izjemo</string>
     <string name="exclusion_type_package">Izključi program</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Izvozi izključitve</string>
     <string name="exclusion_create_pkg_hint">Za ustvarjanje izključitev programov uporabite orodje \'Nadzor programov\'.</string>
     <string name="exclusion_create_path_hint">Za ustvarjanje izključitev poti uporabite orodje \'Analizator shrambe\'.</string>
+    <string name="exclusion_create_segment_hint">Ujemite segment imena, kot je »DCIM/Camera«.</string>
     <string name="exclusion_show_defaults_action">Prikaži privzete</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d izjema uvožena</item>
+        <item quantity="two">%d izjemi uvoženi</item>
+        <item quantity="few">%d izjeme uvožene</item>
+        <item quantity="other">%d izjem uvoženih</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d izjema izvožena</item>
+        <item quantity="two">%d izjemi izvoženi</item>
+        <item quantity="few">%d izjeme izvožene</item>
+        <item quantity="other">%d izjem izvoženih</item>
+    </plurals>
 </resources>

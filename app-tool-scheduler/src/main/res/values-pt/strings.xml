@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Tarefa agendada finalizada</string>
     <string name="scheduler_notification_result_success_message">Todas as tarefas agendadas foram executadas com sucesso.</string>
     <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Ignorado, o ecrã estava desligado ou bloqueado</string>
+    <string name="scheduler_acs_screenlocked_hint_title">A limpeza de aplicações pode ser ignorada</string>
+    <string name="scheduler_acs_screenlocked_hint_body">A limpeza de aplicações utiliza o serviço de acessibilidade, que necessita do ecrã desbloqueado. As execuções agendadas enquanto o dispositivo está bloqueado são ignoradas.
+
+Utilize o Shizuku ou acesso root para limpeza em segundo plano, ou agende-a para quando estiver a usar o dispositivo.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">As aplicações do sistema podem ser ignoradas</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">O Shizuku limpa a maioria das caches em segundo plano, mas as aplicações do sistema necessitam do serviço de acessibilidade, que necessita do ecrã desbloqueado. Com \"Incluir aplicações do sistema\" ativado, essas são ignoradas quando o dispositivo está bloqueado.
+
+Desative \"Incluir aplicações do sistema\", ou execute o agendamento enquanto o dispositivo está desbloqueado.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos pós tarefas agendadas</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell do Android que serão executados no final de uma tarefa agendada.</string>
     <string name="scheduler_battery_optimization_hint">Considere desativar as otimizações de bateria para o SD Maid se tiver problemas com execução em segundo plano.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">O SD Maid pode fazer limpezas agendadas. Escolha o momento e as ferramentas a executar, e o trabalho ocorre em segundo plano, (quase) sem necessidade de abrir a aplicação.</string>
+    <string name="tour_scheduler_create_body">Toque aqui para criar um novo agendamento, depois defina quando deve executar e quais ferramentas incluir.</string>
 </resources>

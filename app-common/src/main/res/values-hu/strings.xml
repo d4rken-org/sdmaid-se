@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Megvan</string>
     <string name="general_fix_action">Javítás</string>
     <string name="general_set_up_action">Beállítás</string>
+    <string name="general_unavailable_label">Nem elérhető</string>
     <string name="general_edit_action">Szerkesztés</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Üres</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Sorban</string>
     <string name="general_progress_deleting">Törlés</string>
     <string name="general_progress_deleting_x">%s törlése</string>
+    <string name="general_sort_by_title">Rendezés alapja</string>
     <string name="general_sort_reverse_action">Fordított rendezési mód</string>
+    <string name="general_sort_oldest_first">Legrégebbi először</string>
+    <string name="general_sort_newest_first">Legújabb először</string>
+    <string name="general_sort_name_asc">Név (A → Z)</string>
+    <string name="general_sort_size_desc">Legnagyobb először</string>
     <string name="general_tag_system">Rendszer</string>
+    <string name="general_navigate_up_action">Felfelé navigálás</string>
+    <string name="general_filter_action">Szűrő</string>
+    <string name="general_filter_by_tags_label">Szűrés címkék szerint</string>
+    <string name="general_filter_add_action">Szűrő hozzáadása</string>
+    <string name="general_filter_remove_x_action">%s szűrő eltávolítása</string>
+    <string name="general_filter_empty_row_hint">Szűréshez koppintson a + gombra</string>
+    <string name="general_show_all_action">Összes megjelenítése</string>
     <string name="general_result_success_message">A művelet sikeres</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s hely felszabadult.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Beállítások</string>
     <string name="general_details_label">Részletek</string>
     <string name="general_view_action">Megtekintés</string>
+    <string name="general_open_action">Megnyitás</string>
+    <string name="general_configure_action">Beállítás</string>
     <string name="general_update_action">Frissítés</string>
     <string name="general_scan_action">Vizsgálás</string>
     <string name="general_close_action">Bezár</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d elemet eltávolítottuk</item>
     </plurals>
     <string name="general_search_action">Keresés</string>
+    <string name="general_search_no_matches">Nincs találat</string>
     <string name="general_open_system_settings_action">Rendszerbeállítások megnyitása</string>
+    <string name="general_fast_scroller_action">Gyors görgetés</string>
     <plurals name="result_x_items">
         <item quantity="one">%s elem</item>
         <item quantity="other">%s elemek</item>
@@ -126,6 +143,10 @@
     <string name="general_enable_service_action">Szolgáltatás engedélyezése</string>
     <string name="general_undo_action">Visszavonás</string>
     <string name="general_list_select_all_action">Összes kijelölése</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d kiválasztva</item>
+        <item quantity="other">%d kiválasztva</item>
+    </plurals>
     <string name="general_path_label">Útvonal</string>
     <string name="general_type_label">Típus</string>
     <string name="general_size_label">Méret</string>
@@ -159,6 +180,8 @@
     <string name="general_error_report_bug_action">Hiba jelentése</string>
     <string name="general_error_ipc_deadobject_title">Szolgáltatás kapcsolat elveszett</string>
     <string name="general_error_ipc_deadobject_description">Egy kritikus szolgáltatáshoz (pl. Magisk, Shizuku vagy más rendszerszintű szolgáltatások) való kapcsolat váratlanul megszakadt. Kérjük, indítsa újra az eszközét. Ha a probléma továbbra is fennáll, ellenőrizze a frissítéseket, vagy lépjen kapcsolatba velem, hogy kijavíthassam.</string>
+    <string name="general_error_upgrade_required_title">Pro verzió szükséges</string>
+    <string name="general_error_upgrade_required_description">Ez egy Pro funkció. Kérjük, frissítse az SD Maid SE-t a használatához.</string>
     <string name="general_user_label_owner">Tulajdonos</string>
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>
@@ -184,4 +207,22 @@
     <string name="settings_category_risklevel">Kockázati szint</string>
     <string name="settings_category_filter">Szűrő</string>
     <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
+    <string name="ui_theme_color_sunset_label">Napnyugta</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ez a funkció root hozzáférést igényel, de az SD Maid nem tudta megszerezni ezen az eszközön.</string>
+    <string name="access_blocked_root_declined">Ez a funkció root hozzáférést igényel. Engedélyezheti a beállítási képernyőn.</string>
+    <string name="access_blocked_root_or_shizuku">Ez a funkció root vagy Shizuku hozzáférést igényel, amely nem érhető el ezen az eszközön.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Érvénytelen biztonsági mentési fájl</string>
+    <string name="backup_restore_error_invalid_body">Ez a fájl nem egy érvényes SD Maid biztonsági mentés, vagy sérült.</string>
+    <string name="backup_restore_error_version_body">Ez a biztonsági mentés az SD Maid egy újabb verziójával lett létrehozva. Kérjük, frissítse az alkalmazást, majd próbálkozzon újra.</string>
+    <string name="backup_restore_error_restore_failed_title">A visszaállítás sikertelen</string>
+    <string name="backup_restore_error_restore_failed_body">Ezek a részek nem állíthatók vissza: %1$s. Az Ön korábbi konfigurációja mentésre került, és visszahozható.</string>
+    <string name="backup_restore_error_safety_title">A visszaállítás nem indult el</string>
+    <string name="backup_restore_error_safety_body">Az SD Maid nem tudott egy biztonsági pillanatképet készíteni az Ön aktuális konfigurációjáról, így semmi sem változott.</string>
+    <string name="backup_restore_error_busy_title">Kérjük, várjon</string>
+    <string name="backup_restore_error_busy_body">Egy tisztítási feladat vagy egy másik biztonsági mentési művelet jelenleg fut. Próbálja újra, amikor befejeződött.</string>
+    <string name="backup_restore_error_schema_title">Inkompatibilis biztonsági mentés</string>
+    <string name="backup_restore_error_schema_body">A biztonsági mentés adatbázis-formátuma nem felel meg az SD Maid ezen verziójának. Az előzményadatok visszaállítása csak azonos alkalmazásverziók között támogatott.</string>
 </resources>

@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Archivio principale</string>
     <string name="stats_storage_type_secondary">Archivio secondario</string>
     <string name="stats_storage_type_portable">Archiviazione portatile</string>
+    <string name="stats_space_history_delete_storage_title">Eliminare la cronologia di archiviazione?</string>
+    <string name="stats_space_history_delete_storage_desc">Tutti i dati di tendenza per questa archiviazione verranno eliminati definitivamente.</string>
 </resources>

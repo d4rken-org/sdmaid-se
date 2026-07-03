@@ -36,6 +36,17 @@
         <item quantity="one">%d నిర్ణయించని అంశం తర్వాత సమీక్ష కోసం ఉంటుంది.</item>
         <item quantity="other">%d నిర్ణయించని అంశాలు తర్వాత సమీక్ష కోసం ఉంటాయి.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ఈ సెషన్ మొత్తం స్టోరేజ్ వాల్యూమ్‌ను లక్ష్యంగా చేస్తుంది — ఇక్కడ తొలగిస్తే ఆ స్టోరేజ్‌లోని ప్రతి ఫోల్డర్కు విస్తరిస్తుంది.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…మరియు %d మరిన్ని ఫోల్డర్</item>
+        <item quantity="other">…మరియు %d మరిన్ని ఫోల్డర్‌లు</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ఈ ఫైలులు శాశ్వతంగా తొలగించబడతాయని నేను అర్థం చేసుకున్నాను.</string>
+    <string name="swiper_sensitive_root_warning_title">సంపూర్ణ స్టోరేజ్‌ను స్కాన్ చేయాలా?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$sని స్కాన్ చేయడం ఈ స్టోరేజ్‌లోని ప్రతిదీ కలిగి ఉంటుంది — ఫోటోలు, డాక్యుమెంట్‌లు, డౌన్‌లోడ్‌లు, యాప్ మీడియా మరియు ఇంకా చాలా. కొనసాగించాలా?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">అయినప్పటికీ కొనసాగించండి</string>
+    <string name="swiper_session_risky_label">సంపూర్ణ-స్టోరేజ్ స్కాన్</string>
+    <string name="swiper_session_risky_info_message">ఈ సెషన్ స్టోరేజ్ వాల్యూమ్ యొక్క రూట్‌ను లక్ష్యంగా చేసుకుంటుంది, కాబట్టి ఆ స్టోరేజ్‌లోని ప్రతిదీ స్కోప్‌లో ఉంటుంది — ఫోటోలు, డాక్యుమెంట్‌లు, డౌన్‌లోడ్‌లు, యాప్ మీడియా మరియు ఇంకా చాలా.\n\nసంపూర్ణ-స్టోరేజ్ స్కాన్‌లు చాలా ఐటెమ్‌లను తిరిగి ఇవ్వగలవు, మీరు సమీక్షించాలని కోరని ఫైల్‌లతో సహా. స్కాన్‌ను సంకుచితం చేయడానికి ఫైల్-టైప్ ఫిల్టర్‌ను వర్తింపజేయండి.</string>
     <string name="swiper_delete_x_action">%1$d తొలగించు</string>
     <string name="swiper_settings_swap_directions_title">స్వైప్ దిశలు మార్చు</string>
     <string name="swiper_settings_swap_directions_summary">ఉంచడానికి ఎడమకు, తొలగించడానికి కుడికి స్వైప్ చేయండి.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">ఈ సెషన్ కోసం పేరు నమోదు చేయండి</string>
     <string name="swiper_sessions_current_sessions">ప్రస్తుత సెషన్‌లు</string>
     <string name="swiper_session_paths_label">పాథ్‌లు</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…మరియు %d మరిది</item>
+        <item quantity="other">…మరియు %d మరెన్నో</item>
+    </plurals>
     <string name="swiper_session_status_label">స్థితి</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d ఉంచాల్సింది</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">వడపోయబడినవి: %1$s</string>
     <string name="swiper_session_no_matching_files">సరిపోలే ఫైల్స్ కనుగొనబడలేదు</string>
     <string name="swiper_open_externally_action">బాహ్య యాప్‌లో తెరవండి</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ఫోటోను స్వైప్ చేయండి దాని విధిని నిర్ణయించుకోవడానికి: పక్కకు ఉంచుకోవడానికి లేదా తొలగించడానికి, పైకి దాటవేయడానికి, క్రిందకి రద్దు చేయడానికి. క్రింద ఉన్న బటన్‌లు కూడా అదే చేస్తాయి — మరియు ఎటు ఏదియో చూపుతాయి.</string>
+    <string name="tour_swiper_openin_body">ఈ బటన్ ఫోటోను మరో యాప్‌లో తెరుస్తుంది, నిర్ణయం చేయకముందు చెక్ చేయడానికి సౌకర్యకరమైనది.</string>
+    <string name="tour_swiper_preview_body">ఈ బటన్ పూర్తి-స్క్రీన్ ప్రీవ్యూను తెరుస్తుంది దగ్గరగా చూడటానికి.</string>
+    <string name="tour_swiper_actions_body">స్వైపింగ్ ఇష్టం లేదా? మాకు బటన్‌లు కూడా ఉన్నాయి! దాటవేయడం దానిని తరువాత నిర్ణయించకుండా ఉంచుతుంది, మరియు దాటవేయడంపై దీర్ఘకాలికంగా నొక్కడం భవిష్యత్ స్కాన్‌ల నుండి ఫైల్‌ను మినహాయిస్తుంది. రద్దు చేయడం మీ చివరి ఎంపికను వెనుకకు తిప్పుతుంది.</string>
+    <string name="tour_swiper_review_body">మీ నిలుపుకోవటం మరియు తొలగించటం ఎంచుకున్న అంశాలు ఇంకా వర్తింపజేయబడలేదు. సమీక్ష తెరిచి, వాటిని సమీక్షించండి మరియు మీరు సిద్ధమైనప్పుడు తొలగింపులను వర్తింపజేయండి.</string>
 </resources>

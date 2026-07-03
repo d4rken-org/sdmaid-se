@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">ذخیره‌سازی ثانویه، که معمولاً یک کارت SD قابل جابجایی است. شامل فایل‌های رسانه‌ای و داده‌های برنامه‌هایی است که از آن پشتیبانی می‌کنند.</string>
     <string name="analyzer_storage_type_tertiary_title">فضای ذخیره‌سازی قابل‌حمل</string>
     <string name="analyzer_storage_type_tertiary_description">یک فضای ذخیره‌سازی قابل حمل، مانند یک فلش درایو که به پورت USB شما متصل شده.</string>
+    <string name="analyzer_storage_identifier_internal">حافظه داخلی</string>
     <string name="analyzer_storage_content_title">محتوای فضای ذخیره‌سازی</string>
     <string name="analyzer_storage_content_type_app_label">برنامه‌</string>
     <string name="analyzer_storage_content_type_app_description">فضای اشغالی توسط برنامه‌های نصب شده و داده‌های آن‌ها (یعنی فایل‌های برنامه، داده‌ها و کش‌ها).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">برنامه های سیستم و داده های سیستم و سایر کاربران، در صورتی که چندین حساب کاربری در این دستگاه تنظیم شده باشد.</string>
     <string name="analyzer_storage_content_type_system_other_label">بقیه</string>
     <string name="analyzer_storage_content_type_system_info">فایل‌هایی که در دسته‌بندی برنامه‌ها یا فایل‌های کاربر جای نمی‌گیرند. فقط مرور — حذف پشتیبانی نمی‌شود. برخی بخش‌ها ممکن است به دلیل محدودیت دسترسی ناقص باشند.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">فایل‌ها را نمی‌توان در حال حاضر با برنامه‌هایی که مالک آنها هستند مطابقت داد. اندازه‌ها فقط برای مرجع نمایش داده می‌شوند — حذف، فیلترها و Swiper غیرفعال هستند.</string>
     <string name="analyzer_storage_content_type_system_other_desc">فایل‌های سیستمی و سایر داده‌هایی که SD Maid قادر به دسترسی یا دسته‌بندی آن‌ها نبود. سیستم‌عامل فهرست‌کردن محتوای برخی بخش‌ها را محدود می‌کند.</string>
     <string name="analyzer_storage_content_app_code_label">کد برنامه</string>
     <string name="analyzer_storage_content_app_code_description">فایل‌های برنامه، کتابخانه‌ها و منابع. این فضا را می‌توان با حذف برنامه یا بایگانی آن آزاد کرد (این امکان در نسخه‌های جدیدتر اندروید وجود دارد).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">این برنامه %1$s بر روی \"%2$s\" را اشغال کرده.</string>
     <string name="analyzer_app_details_app_is_archived">این برنامه بایگانی شده است.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s در ۷ روز</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ببینید واقعاً چه چیزی حافظه شما را پر می‌کند. Analyzer نشان می‌دهد فضای شما کجا می‌رود. هر کدام از این کارت‌ها یک چیپ حافظه روی دستگاه شما است.</string>
+    <string name="tour_analyzer_storage_body">یک حافظه را باز کنید تا آن را به برنامه‌ها، رسانه و فایل‌ها تقسیم کنید، سپس به ضربه زدن ادامه دهید تا بزرگ‌ترین عوامل را پیدا کنید.</string>
 </resources>

@@ -36,6 +36,19 @@
         <item quantity="one">%d अनिर्णीत आइटम बाद में समीक्षा के लिए रहेगा।</item>
         <item quantity="other">%d अनिर्णीत आइटम बाद में समीक्षा के लिए रहेंगे।</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">यह सत्र पूरे स्टोरेज वॉल्यूम को लक्षित करता है — यहाँ हटाना उस स्टोरेज पर सभी फोल्डर को प्रभावित करता है।</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…और %d अन्य फ़ोल्डर</item>
+        <item quantity="other">…और %d अन्य फ़ोल्डर</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">मैं समझता हूँ कि ये फ़ाइलें स्थायी रूप से हटा दी जाएंगी।</string>
+    <string name="swiper_sensitive_root_warning_title">पूरे स्टोरेज को स्कैन करें?</string>
+    <string name="swiper_sensitive_root_warning_message">स्कैनिंग %1$s में इस स्टोरेज की सभी फ़ाइलें शामिल हैं — फ़ोटो, दस्तावेज़, डाउनलोड, ऐप मीडिया और बहुत कुछ। जारी रखें?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">वैसे भी जारी रखें</string>
+    <string name="swiper_session_risky_label">संपूर्ण स्टोरेज स्कैन</string>
+    <string name="swiper_session_risky_info_message">यह सत्र स्टोरेज वॉल्यूम के रूट को लक्ष्य करता है, इसलिए उस स्टोरेज की सभी फ़ाइलें दायरे में हैं — फ़ोटो, दस्तावेज़, डाउनलोड, ऐप मीडिया और बहुत कुछ।
+
+संपूर्ण स्टोरेज स्कैन कई आइटम लौटा सकते हैं, जिनमें वह फ़ाइलें शामिल हैं जिन्हें आप समीक्षा करना नहीं चाहते थे। स्कैन को सीमित करने के लिए एक फ़ाइल-प्रकार फ़िल्टर लागू करें।</string>
     <string name="swiper_delete_x_action">%1$d हटाएं</string>
     <string name="swiper_settings_swap_directions_title">स्वाइप दिशाएं बदलें</string>
     <string name="swiper_settings_swap_directions_summary">रखने के लिए बाएं स्वाइप करें, हटाने के लिए दाएं।</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">इस सत्र के लिए एक नाम दर्ज करें</string>
     <string name="swiper_sessions_current_sessions">वर्तमान सत्र</string>
     <string name="swiper_session_paths_label">पथ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…और %d अन्य</item>
+        <item quantity="other">…और %d अन्य</item>
+    </plurals>
     <string name="swiper_session_status_label">स्थिति</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d रखने के लिए</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">फ़िल्टर किया गया: %1$s</string>
     <string name="swiper_session_no_matching_files">कोई मिलान फ़ाइलें नहीं मिलीं</string>
     <string name="swiper_open_externally_action">बाहरी एप में खोलें</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">किसी फ़ोटो को स्वाइप करें और इसका भाग्य तय करें: बगल में रखने या हटाने के लिए, ऊपर स्किप करने के लिए, नीचे पूर्ववत करने के लिए। नीचे दिए गए बटन भी वही करते हैं — और दिखाते हैं कि कौन सी तरफ कौन सी है।</string>
+    <string name="tour_swiper_openin_body">यह बटन फ़ोटो को किसी अन्य ऐप में खोलता है, तय करने से पहले इसकी जांच के लिए उपयोगी है।</string>
+    <string name="tour_swiper_preview_body">यह बटन अधिक बारीकी से देखने के लिए पूर्ण-स्क्रीन पूर्वावलोकन खोलता है।</string>
+    <string name="tour_swiper_actions_body">स्वाइपिंग पसंद नहीं? हमारे पास बटन भी हैं! स्किप इसे बाद के लिए अनिर्णीत रखता है, और स्किप को लंबे समय तक दबाने से भविष्य की स्कैन से किसी फ़ाइल को बाहर रखा जाता है। पूर्ववत आपकी पिछली पसंद को वापस करता है।</string>
+    <string name="tour_swiper_review_body">आपकी रखने और हटाने की पसंद केवल चरणबद्ध हैं। उन्हें देखने के लिए समीक्षा खोलें और जब आप तैयार हों तो हटाना लागू करें।</string>
 </resources>

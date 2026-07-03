@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Менаџер на исклучоци</string>
     <string name="exclusion_manager_desc">Управувајте со исклучоци за датотеки и апликации.</string>
-    <string name="exclusion_explanation_body1">Исклучете датотеки и апликации од операциите на SD Maid.</string>
-    <string name="exclusion_add_new_hint">Додајте нови исклучоци со прво пуштање на SD Maid да пребара и потоа користење на контекстното мени на резултатот што сакате да го исклучите.</string>
+    <string name="exclusion_explanation_body1">Исклучете датотеки и апликации за да ги заштитите од алатките на SD Maid, или за да ги прескочите неважните ставки и да ги забрзате операциите.</string>
+    <string name="exclusion_add_new_hint">Сè уште нема исклучувања. Користете го копчето + за да создадете едно, или исклучете ставки од резултатите на која било алатка.</string>
     <string name="exclusion_create_action">Создади исклучок</string>
     <string name="exclusion_edit_action">Уреди исклучок</string>
     <string name="exclusion_type_package">Исклучок за апликација</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Извези исклучоци</string>
     <string name="exclusion_create_pkg_hint">Користете ја алатката AppControl за создавање исклучоци за апликации.</string>
     <string name="exclusion_create_path_hint">Користете ја алатката StorageAnalyzer за создавање исклучоци за патеки.</string>
+    <string name="exclusion_create_segment_hint">Се совпаѓа со дел од името, на пр. „DCIM/Camera“.</string>
     <string name="exclusion_show_defaults_action">Прикажи стандардни</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d исклучување увезено</item>
+        <item quantity="other">%d исклучувања увезени</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d исклучување извезено</item>
+        <item quantity="other">%d исклучувања извезени</item>
+    </plurals>
 </resources>

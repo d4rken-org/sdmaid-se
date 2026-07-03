@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Padam semua kecuali satu salinan dalam set fail pendua yang dipilih?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Padam semua fail dalam setiap set fail pendua yang dipilih? Tiada fail yang tinggal!</string>
     <string name="deduplicator_delete_all_toggle_msg">Padam semua salinan</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">Padamkan %1$d pendua dalam set ini, membebaskan %2$s? Salinan yang disimpan tetap ada.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s boleh dibebaskan</string>
+    <string name="deduplicator_action_delete_set">Padamkan set pendua</string>
+    <string name="deduplicator_action_open_preview">Buka pratonton</string>
+    <string name="deduplicator_marked_for_deletion">Ditanda untuk dipadam</string>
+    <string name="deduplicator_cluster_preview_image">Pratonton set pendua</string>
+    <string name="deduplicator_selection_keep_one_required">Sekurang-kurangnya satu fail setiap set duplikat mesti dikekalkan. Dayakan \"Buat \'Padam semua\' mungkin\" dalam tetapan untuk mengatasi.</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan fail</string>
     <string name="deduplicator_details_cluster_title">Butiran kelompok</string>
     <string name="deduplicator_matches_exact_label">Salinan tepat</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Utamakan fail lebih kecil</string>
     <string name="deduplicator_view_mode_groups_label">Kumpulan</string>
     <string name="deduplicator_view_mode_directories_label">Folder</string>
+    <string name="tour_deduplicator_details_cluster_body">Fail-fail ini semuanya nampak seperti item atau kandungan media yang sama, kelompok duplikat.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Fail dengan ikon ini akan dipadamkan; fail yang tinggal dalam kumpulan ialah yang SD Maid simpan. Anda boleh mengubah cara penjaga dipilih dalam tetapan strategi pemadaman.</string>
 </resources>

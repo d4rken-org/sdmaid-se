@@ -8,4 +8,16 @@
         <item quantity="other">%d шлях сонгогдсон</item>
     </plurals>
     <string name="picker_home_action">Өгөгдлийн бүсүүд</string>
+    <string name="tour_action_next">Дараа</string>
+    <string name="tour_action_previous">Өмнөх</string>
+    <string name="tour_action_done">Дуусав</string>
+    <string name="tour_action_cancel">Алгасах</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Аялалыг алгасах уу?</string>
+    <string name="tour_confirm_message">Та аливаа цагт Тохиргооноос аялалыг дахин идэвхжүүлэх боломжтой.</string>
+    <string name="tour_confirm_continue">Аялалыг үргэлжлүүлэх</string>
+    <string name="tour_confirm_dont_show_this_tour">Энэ аялалыг харуулахгүй байх</string>
+    <string name="tour_confirm_disable_all">Бүх аялалыг идэвхгүй болгох</string>
+    <string name="navigation_unknown_destination_title">Удахгүй ирэх</string>
+    <string name="navigation_unknown_destination_message">Энэ дэлгэц шинэ интерфейс рүү шилжүүлж байгаа байна.</string>
 </resources>

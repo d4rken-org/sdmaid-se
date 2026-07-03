@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Poistetaanko kaikki paitsi yksi kopio jokaisesta valitusta kaksoistiedostojen sarjasta?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Poistetaanko kaikki tiedostot jokaisesta valitusta kaksoistiedostojen sarjasta? Yhtään tiedostoa ei jää jäljelle!</string>
     <string name="deduplicator_delete_all_toggle_msg">Poista kaikki kopiot. Yhtään tiedostoa ei jää jäljelle!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Poistetaanko %1$d kopio tässä joukossa ja vapautetaanko %2$s? Säilytettävä kopio pysyy.</item>
+        <item quantity="other">Poistetaanko %1$d kopioita tässä joukossa ja vapautetaanko %2$s? Säilytettävä kopio pysyy.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s vapautettavissa</string>
+    <string name="deduplicator_action_delete_set">Poista kopioiden joukko</string>
+    <string name="deduplicator_action_open_preview">Avaa esikatselu</string>
+    <string name="deduplicator_marked_for_deletion">Merkitty poistettavaksi</string>
+    <string name="deduplicator_cluster_preview_image">Kopioiden joukon esikatselu</string>
+    <string name="deduplicator_selection_keep_one_required">Jokaisessa kaksoiskappalejoukossa on säilytettävä vähintään yksi tiedosto. Ota asetuksista käyttöön ”Tee \'Poista kaikki\' mahdolliseksi” ohittaaksesi tämän rajoituksen.</string>
     <string name="deduplicator_progress_comparing_files">Vertaillaan tiedostoja</string>
     <string name="deduplicator_details_cluster_title">Kaksoiskappaleiden sarja</string>
     <string name="deduplicator_matches_exact_label">Tarkat kopiot</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Suosi pienempiä tiedostoja</string>
     <string name="deduplicator_view_mode_groups_label">Ryhmät</string>
     <string name="deduplicator_view_mode_directories_label">Kansiot</string>
+    <string name="tour_deduplicator_details_cluster_body">Nämä tiedostot näyttävät olevan sama kohde tai mediasisältö, kaksoiskappaleiden joukko.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Tämän kuvakkeen omaavat tiedostot poistetaan; ryhmässä jäljelle jäävä tiedosto on se, jonka SD Maid säilyttää. Voit muuttaa, kuinka säilytettävä tiedosto valitaan poistostrategian asetuksista.</string>
 </resources>

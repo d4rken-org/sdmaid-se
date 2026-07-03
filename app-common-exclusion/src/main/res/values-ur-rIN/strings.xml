@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">استثنا مینیجر</string>
     <string name="exclusion_manager_desc">فائل اور ایپ استثنائات کا انتظام کریں۔</string>
-    <string name="exclusion_explanation_body1">فائلوں اور ایپس کو SD Maid کی کارروائیوں سے خارج کریں۔</string>
-    <string name="exclusion_add_new_hint">پہلے SD Maid کو تلاش کرنے دیں اور پھر اس نتیجے پر کنٹیکسٹ مینو استعمال کرکے نئے استثنائات شامل کریں جسے آپ خارج کرنا چاہتے ہیں۔</string>
+    <string name="exclusion_explanation_body1">SD Maid کے ٹولز سے فائلوں اور ایپس کی حفاظت کے لیے انہیں استثنائی کریں، یا غیر متعلقہ اشیاء کو چھوڑ کر کارروائیوں کو تیز کریں۔</string>
+    <string name="exclusion_add_new_hint">ابھی کوئی استثناء نہیں۔ ایک بنانے کے لیے + بٹن استعمال کریں، یا کسی بھی ٹول کے نتائج سے اشیاء کو استثنا کریں۔</string>
     <string name="exclusion_create_action">استثنا بنائیں</string>
     <string name="exclusion_edit_action">استثنا تبدیل کریں</string>
     <string name="exclusion_type_package">ایپ استثنا</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">استثنائات ایکسپورٹ کریں</string>
     <string name="exclusion_create_pkg_hint">ایپ استثنائات بنانے کے لیے AppControl ٹول استعمال کریں۔</string>
     <string name="exclusion_create_path_hint">پاتھ استثنائات بنانے کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
+    <string name="exclusion_create_segment_hint">ایک نام کے حصے سے موافقت کریں، جیسے \"DCIM/Camera\"۔</string>
     <string name="exclusion_show_defaults_action">ڈیفالٹس دکھائیں</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d استثناء درآمد کیا گیا</item>
+        <item quantity="other">%d استثناءات درآمد کی گئیں</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d استثناء برآمد کیا گیا</item>
+        <item quantity="other">%d استثناءات برآمد کی گئیں</item>
+    </plurals>
 </resources>

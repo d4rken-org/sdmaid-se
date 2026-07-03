@@ -37,4 +37,6 @@
     <string name="stats_storage_type_primary">Bộ nhớ chính</string>
     <string name="stats_storage_type_secondary">Bộ nhớ thứ cấp</string>
     <string name="stats_storage_type_portable">Bộ lưu trữ di động</string>
+    <string name="stats_space_history_delete_storage_title">Xóa lịch sử bộ nhớ?</string>
+    <string name="stats_space_history_delete_storage_desc">Tất cả dữ liệu xu hướng cho bộ nhớ này sẽ bị xóa vĩnh viễn.</string>
 </resources>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Të fshihen të gjitha, përveç një kopjeje në çdo grup të përzgjedhur skedarësh dublikatë?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Të fshihen të gjithë skedarët në çdo grup të përzgjedhur skedarësh dublikatë? Asnjë skedar nuk ka mbetur!</string>
     <string name="deduplicator_delete_all_toggle_msg">Fshini të gjitha kopjet. Asnjë skedar nuk ka mbetur!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Fshij %1$d dublikat në këtë bashkësi, duke liruar %2$s? Kopja e ruajtur mbetet.</item>
+        <item quantity="other">Fshij %1$d dublikate në këtë bashkësi, duke liruar %2$s? Kopja e ruajtur mbetet.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s për tu liruar</string>
+    <string name="deduplicator_action_delete_set">Fshij bashkësinë e dublikateve</string>
+    <string name="deduplicator_action_open_preview">Hap paraparjen</string>
+    <string name="deduplicator_marked_for_deletion">Shënuar për fshirje</string>
+    <string name="deduplicator_cluster_preview_image">Paraparje e bashkësisë së dublikateve</string>
+    <string name="deduplicator_selection_keep_one_required">Të paktën një skedar në çdo grup duplikatesh duhet të mbetet. Aktivizoni \"Bëj të mundur fshirjen e të gjithëve\" në cilësimet për ta anashkaluar këtë kufizim.</string>
     <string name="deduplicator_progress_comparing_files">Krahasimi i skedarëve</string>
     <string name="deduplicator_details_cluster_title">Set duplikatesh</string>
     <string name="deduplicator_matches_exact_label">Kopje ekzakte</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Dosje</string>
+    <string name="tour_deduplicator_details_cluster_body">Këto skedarë duket se janë i njëjti element ose përmbajtje mediumi, një grup duplikatesh.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Skedarët me këtë ikonë do të fshihen; skedari i mbetur në grup është ai që SD Maid e ruan. Mund të ndryshoni se si zgjidhet skedari në cilësimet e strategjisë të fshirjes.</string>
 </resources>

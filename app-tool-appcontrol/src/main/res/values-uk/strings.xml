@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Розмір</string>
     <string name="appcontrol_list_sortmode_screentime_label">Екранний час</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Розміри додатків оцінюються з міркувань продуктивності. Використовуйте інструмент Аналізатор сховища для отримання більш точних даних.</string>
+    <string name="appcontrol_list_filteroptions_label">Параметри фільтрування</string>
+    <string name="appcontrol_list_fastscroller_action">Швидка прокрутка</string>
     <string name="appcontrol_progress_uninstalling_app">Видалення додатка</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d додаток було видалено</item>
@@ -139,4 +141,8 @@
     <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
     <string name="shortcut_appcontrol_short">Контроль додатків</string>
     <string name="shortcut_appcontrol_long">Керувати встановленими додатками</string>
+    <string name="tour_appcontrol_search_body">Пошук програми за назвою. Корисно на пристроях з багатьма встановленими програмами.</string>
+    <string name="tour_appcontrol_filter_body">Звузьте список за користувацькими/системними програмами, станом увімкнення, останньою активністю та іншим. Активні фільтри відображаються як мітки.</string>
+    <string name="tour_appcontrol_sort_body">Впорядкуйте програми за назвою, датою встановлення, датою останнього оновлення, розміром або часом екрана. Натисніть ту ж опцію, щоб змінити напрямок.</string>
+    <string name="tour_appcontrol_app_row_body">Натисніть на програму, щоб відкрити її деталі та доступні дії. Довго натисніть для початку вибору та використання групових дій.</string>
 </resources>

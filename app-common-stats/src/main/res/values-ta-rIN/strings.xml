@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">முதன்மை சேமிப்பு</string>
     <string name="stats_storage_type_secondary">இரண்டாம் நிலை சேமிப்பு</string>
     <string name="stats_storage_type_portable">கையடக்க சேமிப்பு</string>
+    <string name="stats_space_history_delete_storage_title">சேமிப்பக வரலாற்றை நீக்கவா?</string>
+    <string name="stats_space_history_delete_storage_desc">இந்த சேமிப்பகத்திற்கான அனைத்து போக்கு தரவும் நிரந்தரமாக நீக்கப்படும்.</string>
 </resources>

@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Isang secondary storage, karaniwang removable SD card. Naglalaman ng mga media file at data mula sa mga app na sumusuporta dito.</string>
     <string name="analyzer_storage_type_tertiary_title">Portable na storage</string>
     <string name="analyzer_storage_type_tertiary_description">Isang portable storage, halimbawa flash drive na nakakabit sa inyong USB port.</string>
+    <string name="analyzer_storage_identifier_internal">Internal na imbakan</string>
     <string name="analyzer_storage_content_title">Nilalaman ng storage</string>
     <string name="analyzer_storage_content_type_app_label">Mga app</string>
     <string name="analyzer_storage_content_type_app_description">Space na ginagamit ng mga naka-install na app at kanilang data (ibig sabihin application files, data at caches).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Mga system app at system data. Mga app at data mula sa ibang mga user, kung may mga user account na naka-set sa device na ito.</string>
     <string name="analyzer_storage_content_type_system_other_label">Iba</string>
     <string name="analyzer_storage_content_type_system_info">Mga file na hindi akma sa kategorya ng Apps o User files. Browse lamang — hindi sinusuportahan ang pagtanggal. Maaaring hindi kumpleto ang ilang lugar dahil sa mga paghihigpit sa access.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Ang mga file ay hindi maaaring ma-match sa mga app na nag-own sa kanila ngayon. Ang mga sukat ay ipinapakita lamang para sa referensya — hindi available ang deletion, filters at Swiper.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Mga system file at iba pang data na hindi ma-access o ma-kategorya ng SD Maid. Nililimitahan ng operating system ang paglilista ng mga nilalaman ng ilang lugar.</string>
     <string name="analyzer_storage_content_app_code_label">Code ng app</string>
     <string name="analyzer_storage_content_app_code_description">Mga application file, library at resource. Ang space na ito ay maaaring ma-free sa pamamagitan ng pag-uninstall ng app o pag-archive nito (available sa mas bagong Android version).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ang app na ito ay sumusukat ng %1$s sa \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ang app na ito ay naka-archive.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s sa loob ng 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Makita kung ano ang tunay na kumukuha ng iyong storage. Ang Analyzer ay nagbibigay ng mapa kung saan napupunta ang iyong espasyo. Bawat isa sa mga cardong ito ay kumakatawan sa isang storage chip sa iyong device.</string>
+    <string name="tour_analyzer_storage_body">Magbukas ng storage upang i-breakdown ito sa mga apps, media at files, pagkatapos ay magpatuloy na mag-tap upang mahanap ang pinakamalaking item.</string>
 </resources>

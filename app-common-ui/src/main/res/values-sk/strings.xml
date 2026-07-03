@@ -10,4 +10,16 @@
         <item quantity="other">%d ciest vybraných</item>
     </plurals>
     <string name="picker_home_action">Dátové oblasti</string>
+    <string name="tour_action_next">Ďalej</string>
+    <string name="tour_action_previous">Predchádzajúce</string>
+    <string name="tour_action_done">Hotovo</string>
+    <string name="tour_action_cancel">Preskočiť</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Preskočiť prehliadku?</string>
+    <string name="tour_confirm_message">Prehliadky môžete kedykoľvek znova aktivovať v Nastaveniach.</string>
+    <string name="tour_confirm_continue">Pokračovať v prehliadke</string>
+    <string name="tour_confirm_dont_show_this_tour">Nezobrazovať túto prehliadku</string>
+    <string name="tour_confirm_disable_all">Vypnúť všetky prehliadky</string>
+    <string name="navigation_unknown_destination_title">Čoskoro</string>
+    <string name="navigation_unknown_destination_message">Táto obrazovka sa stále migruje na nové používateľské rozhranie.</string>
 </resources>

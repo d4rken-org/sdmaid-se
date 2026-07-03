@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">مدير الاستبعاد</string>
     <string name="exclusion_manager_desc">إدارة استثناءات الملفات والتطبيقات.</string>
-    <string name="exclusion_explanation_body1">استبعاد الملفات والتطبيقات من عمليات SD Maid.</string>
-    <string name="exclusion_add_new_hint">أضف استثناءات جديدة عن طريق السماح أولاً لـ SD Maid بالبحث ثم استخدام قائمة السياق في النتيجة التي تريد استبعادها.</string>
+    <string name="exclusion_explanation_body1">استبعد الملفات والتطبيقات لحمايتها من أدوات SD Maid، أو لتخطي العناصر غير ذات الصلة وتسريع العمليات.</string>
+    <string name="exclusion_add_new_hint">لا توجد استثناءات حتى الآن. استخدم زر + لإنشاء واحد، أو استبعد العناصر من نتائج أي أداة.</string>
     <string name="exclusion_create_action">إنشاء استبعاد</string>
     <string name="exclusion_edit_action">تعديل الاستبعاد</string>
     <string name="exclusion_type_package">التطبيقات المستثناة</string>
@@ -24,5 +24,22 @@
     <string name="exclusion_export_action">تصدير استثناءات</string>
     <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
     <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
+    <string name="exclusion_create_segment_hint">طابق جزءاً من الاسم، مثل \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">إظهار الافتراضي</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="zero">لم يتم استيراد أي استثناء</item>
+        <item quantity="one">%d استثناء مستورد</item>
+        <item quantity="two">%d استثناء مستورد</item>
+        <item quantity="few">%d استثناءات مستوردة</item>
+        <item quantity="many">%d استثناء مستورد</item>
+        <item quantity="other">%d استثناء مستورد</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="zero">لم يتم تصدير أي استثناء</item>
+        <item quantity="one">%d استثناء مصدّر</item>
+        <item quantity="two">%d استثناء مصدّر</item>
+        <item quantity="few">%d استثناءات مصدّرة</item>
+        <item quantity="many">%d استثناء مصدّر</item>
+        <item quantity="other">%d استثناء مصدّر</item>
+    </plurals>
 </resources>

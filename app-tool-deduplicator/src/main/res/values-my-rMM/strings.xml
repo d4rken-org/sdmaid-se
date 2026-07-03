@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီတွင် မိတ္တူ တစ်ခုမှလွဲ၍ အားလုံးကို ဖျက်မလား။</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီရှိ ဖိုင် အားလုံးကို ဖျက်မလား။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
     <string name="deduplicator_delete_all_toggle_msg">မိတ္တူ အားလုံး ဖျက်ပါ။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">ဒီအစုထဲရှိ %1$d ခုတူညီများကို ဖျက်ပြီး %2$s လွတ်လပ်စေမည်သည် ဖျက်သည်လား။ ကျန်ထားသည့် ကူးယူမှု ကျန်သည်။</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s လွတ်လပ်နိုင်သည်</string>
+    <string name="deduplicator_action_delete_set">တူညီအစုကို ဖျက်ခြင်း</string>
+    <string name="deduplicator_action_open_preview">အစမ်းကြည့်မှု ဖွင့်ခြင်း</string>
+    <string name="deduplicator_marked_for_deletion">ဖျက်ရန်အတွက် အညွှန်းဖြစ်တားသည်</string>
+    <string name="deduplicator_cluster_preview_image">တူညီအစု အစမ်းကြည့်မှု</string>
+    <string name="deduplicator_selection_keep_one_required">ကူးတည့်မှုအစုတစ်ခုလျှင် ဖိုင်အနည်းဆုံးတစ်ခုသည်ကျန်ရှိရမည်။ အဆိုပါအခွင့်အရေးကိုအပြန်အလှန်ပြောင်းလဲရန်ချိန်ညှိချက်များတွင် \"အားလုံးဖျက်ခွင့်ပြုခြင်း\" ကိုဖွင့်ထားပါ။</string>
     <string name="deduplicator_progress_comparing_files">ဖိုင်များ နှိုင်းယှဉ်နေသည်</string>
     <string name="deduplicator_details_cluster_title">ပွားသော ဖိုင်များ အစု</string>
     <string name="deduplicator_matches_exact_label">တိကျသော မိတ္တူများ</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">သေးသောဖိုင်များကို ဦးစားပေးပါ</string>
     <string name="deduplicator_view_mode_groups_label">အုပ်စုများ</string>
     <string name="deduplicator_view_mode_directories_label">ဖိုင်တွဲများ</string>
+    <string name="tour_deduplicator_details_cluster_body">ဤဖိုင်များအားလုံးသည်တူညီသောအရာသို့မဟုတ်မီဒီယာအကြောင်းအရာအနည်းငယ်ကဲ့သို့ထင်ရှားသည်၊ ကူးတည့်မှုများ၏အုပ်စုတစ်ခုဖြစ်သည်။</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ဤအိုင်ကွန်ပါဖိုင်များကိုဖျက်လိုက်မည်ဖြစ်သည်။ အုပ်စုမှကျန်ရှိသောဖိုင်သည် SD Maid ကသိမ်းဆည်းထားသည်။ ဖျက်ခြင်းဗျူဟာချိန်ညှိချက်များတွင်သိမ်းဆည်းသူများကိုရွေးချယ်သည့်နည်းလမ်းကိုပြောင်းလဲနိုင်သည်။</string>
 </resources>

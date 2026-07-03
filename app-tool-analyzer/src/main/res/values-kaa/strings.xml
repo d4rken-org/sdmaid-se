@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Qosımsha saqlaw orını, ádetde shıǵarıp alınǵan SD karta. Media fayllar hám onı qollap-quwatlaytuǵın baǵdarlamalar maǵlıwmatların óz ishine aladı.</string>
     <string name="analyzer_storage_type_tertiary_title">Kósip júriwshi saqlaw orını</string>
     <string name="analyzer_storage_type_tertiary_description">Kósip júriwshi saqlaw orını, mısalı, USB portıńızǵa jalǵanǵan flesh-disk.</string>
+    <string name="analyzer_storage_identifier_internal">Ishki saqlaw orını</string>
     <string name="analyzer_storage_content_title">Saqlaw mazmunı</string>
     <string name="analyzer_storage_content_type_app_label">Qosımshalar</string>
     <string name="analyzer_storage_content_type_app_description">Ornatılǵan baǵdarlamalar hám olardıń maǵlıwmatları iyelep turǵan orın (yaǵnıy baǵdarlama faylları, maǵlıwmatlar hám keshler).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Sistema baǵdarlamaları hám sistema maǵlıwmatları. Eger bul qurılmada bir neshe paydalanıwshı akkauntı ornatılǵan bolsa, basqa paydalanıwshılardıń baǵdarlamaları hám maǵlıwmatları.</string>
     <string name="analyzer_storage_content_type_system_other_label">Басқа</string>
     <string name="analyzer_storage_content_type_system_info">Қолланбалар яки Пайдаланыўшы файллары категорияларына тиймейтуғын файллар. Тек қараў мүмкин — өширіў қолланбайды. Кириў шекленгенлиги себепли кейбир аймақлар толық болмауы мүмкин.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Fayllardı olardıń iyesi bolǵan qosımshalarǵa sáykestiriw házir mümkin emes. Ólshemler tek maǵlıwmat ushın kórsetiledi — óshiriw, filtrlew hám Swiper óshirilgen.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid кириў яки категорияға бөле алмаған системалық файллар ҳәм басқа мәліметлер. Операциялық система кейбир аймақлардың мазмунын тизимлеўди шеклейди.</string>
     <string name="analyzer_storage_content_app_code_label">Qosımsha kodı</string>
     <string name="analyzer_storage_content_app_code_description">Baǵdarlama faylları, kitapxanalar hám resurslar. Bul orındı baǵdarlamanı óshiriw yamasa arxivlew arqalı bosatıw múmkin (jańa Android nusqalarında bar).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Bul baǵdarlama \"%2$s\" ústinde %1$s orın iyeleydi.</string>
     <string name="analyzer_app_details_app_is_archived">Bul baǵdarlama arxivlangan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 күнде</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Saqlaw orınıńızdı haqıyqatında ne toltırıp atırǵanın kóriń. Analyzer orınıńız qayaqqa ketip atırǵanın kórsetedi. Bul kartalardıń hár qaysısı qurılǵańızdaǵı saqlaw chipi.</string>
+    <string name="tour_analyzer_storage_body">Qosımshalarǵa, mediaǵa hám fayllarǵa bólip kóriw ushın saqlaw orının ashıń, soń eń úlken orın jewshilerdi tabıw ushın basıp barıń.</string>
 </resources>

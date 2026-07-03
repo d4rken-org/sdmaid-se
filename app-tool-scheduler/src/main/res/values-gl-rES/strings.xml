@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Programador finalizado</string>
     <string name="scheduler_notification_result_success_message">Todas as tarefas programadas executáronse correctamente.</string>
     <string name="scheduler_notification_result_failure_message">Algunhas tarefas programadas fallaron ou atoparon erros. Probe a executalas manualmente.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Saltado, a pantalla estaba apagada ou bloqueada</string>
+    <string name="scheduler_acs_screenlocked_hint_title">A limpeza de aplicacións pode omitirse</string>
+    <string name="scheduler_acs_screenlocked_hint_body">A limpeza de aplicacións usa o servizo de accesibilidade, que necesita a pantalla desbloqueada. As execucións programadas mentres o dispositivo estea bloqueado omítense.\n\nUsa Shizuku ou root para limpeza en segundo plano, ou planifícao para cando esteas a usar o dispositivo.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">As aplicacións do sistema poden omitirse</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku limpa a maioría das cachés en segundo plano, pero as aplicacións do sistema necesitan o servizo de accesibilidade, que necesita a pantalla desbloqueada. Con \"Incluír aplicacións do sistema\" activado, esas omítense cando o dispositivo estea bloqueado.\n\nDesactiva \"Incluír aplicacións do sistema\", ou executa a programación mentres estea desbloqueada.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos posteriores á programación</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos shell de Android que se executarán ao final dunha programación.</string>
     <string name="scheduler_battery_optimization_hint">Considere desactivar as optimizacións de batería para SD Maid se experimenta problemas coa execución en segundo plano.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid pode limpar segundo unha programación. Escolle unha hora e que ferramentas executar, e fai o traballo en segundo plano, case sen necesidade de abrir a aplicación.</string>
+    <string name="tour_scheduler_create_body">Toca aquí para crear unha nova programación, despois establece cando se executa e que ferramentas incluír.</string>
 </resources>

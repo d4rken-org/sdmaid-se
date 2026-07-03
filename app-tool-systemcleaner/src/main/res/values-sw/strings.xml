@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Punguza matokeo kulingana na umri wa faili (wakati wa mwisho wa kubadilishwa). Acha bila kuweka ili kulingana na umri wowote.</string>
     <string name="systemcleaner_customfilter_import_action">Leta kichungi kipya</string>
     <string name="systemcleaner_customfilter_export_action">Hamisha kichungi kilichochaguliwa</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner hupata takataka kwa kutumia vichujio visivyo mahususi kwa programu. Kuna sheria tayari kwa mambo kama folda tupu, kumbukumbu zilizobaki na picha ndogo za zamani. Tembelea mipangilio ukitaka kutengeneza zako mwenyewe.</string>
+    <string name="tour_systemcleaner_filter_body">Kila safu ni kichujio na kile kilichopatikana. Fungua maelezo yake kuona hasa faili zipi zinazolingana kabla ya kufuta chochote.</string>
 </resources>

@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">删除每组选定的重复文件中除一份副本之外的所有副本？</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">删除每组选定的重复文件中的所有文件？这将不会留下任何文件！</string>
     <string name="deduplicator_delete_all_toggle_msg">删除所有副本，这将不会留下任何文件！</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">删除此集合中的 %1$d 个重复项，释放 %2$s？保留的副本将保留。</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">可释放 %1$s</string>
+    <string name="deduplicator_action_delete_set">删除重复项集合</string>
+    <string name="deduplicator_action_open_preview">打开预览</string>
+    <string name="deduplicator_marked_for_deletion">已标记为待删除</string>
+    <string name="deduplicator_cluster_preview_image">重复项集合预览</string>
+    <string name="deduplicator_selection_keep_one_required">每个重复文件集合中至少必须保留一个文件。在设置中启用“使‘全部删除’成为可能”来覆盖此限制。</string>
     <string name="deduplicator_progress_comparing_files">正在比较文件</string>
     <string name="deduplicator_details_cluster_title">重复组</string>
     <string name="deduplicator_matches_exact_label">完全相同</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">偏好较小文件</string>
     <string name="deduplicator_view_mode_groups_label">分组</string>
     <string name="deduplicator_view_mode_directories_label">文件夹</string>
+    <string name="tour_deduplicator_details_cluster_body">这些文件似乎都是相同的项目或媒体内容，属于一个重复文件集。</string>
+    <string name="tour_deduplicator_details_delete_mark_body">带有此图标的文件将被删除；组中保留的文件是由 SD Maid 选择的。您可以在删除策略设置中更改保留文件的选择方式。</string>
 </resources>

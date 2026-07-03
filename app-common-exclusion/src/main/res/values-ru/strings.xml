@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Исключения</string>
     <string name="exclusion_manager_desc">Управление исключениями файлов и приложений.</string>
-    <string name="exclusion_explanation_body1">Исключение файлов и приложений из задач SD Maid.</string>
-    <string name="exclusion_add_new_hint">Чтобы добавить новые исключения, позвольте SD Maid выполнить поиск, а затем воспользуйтесь контекстным меню результата, который Вы хотите исключить.</string>
+    <string name="exclusion_explanation_body1">Исключите файлы и приложения, чтобы защитить их от инструментов SD Maid, или пропустите ненужные элементы и ускорьте операции.</string>
+    <string name="exclusion_add_new_hint">Нет исключений. Используйте кнопку +, чтобы создать исключение, или исключите элементы из результатов любого инструмента.</string>
     <string name="exclusion_create_action">Создать исключение</string>
     <string name="exclusion_edit_action">Редактировать исключение</string>
     <string name="exclusion_type_package">Исключение приложения</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Экспорт исключений</string>
     <string name="exclusion_create_pkg_hint">Используйте Менеджер для создания исключений приложений.</string>
     <string name="exclusion_create_path_hint">Используйте Анализ памяти для создания исключений путей.</string>
+    <string name="exclusion_create_segment_hint">Совпадение сегмента пути, например «DCIM/Camera».</string>
     <string name="exclusion_show_defaults_action">Показать значения по умолчанию</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d исключение импортировано</item>
+        <item quantity="few">%d исключения импортированы</item>
+        <item quantity="many">%d исключений импортировано</item>
+        <item quantity="other">%d исключений импортировано</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d исключение экспортировано</item>
+        <item quantity="few">%d исключения экспортированы</item>
+        <item quantity="many">%d исключений экспортировано</item>
+        <item quantity="other">%d исключений экспортировано</item>
+    </plurals>
 </resources>

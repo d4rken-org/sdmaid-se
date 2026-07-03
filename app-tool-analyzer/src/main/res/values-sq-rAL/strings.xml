@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Një hapësirë ​​ruajtëse shtesë ose dytësore, zakonisht një kartë SD e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
     <string name="analyzer_storage_type_tertiary_title">Magazinim portativ(i jashtëm)</string>
     <string name="analyzer_storage_type_tertiary_description">Një ruajtje portative, p.sh. një flash drive i lidhur në portën tuaj USB.</string>
+    <string name="analyzer_storage_identifier_internal">Ruajtja e brendshme</string>
     <string name="analyzer_storage_content_title">Përmbajtja e magazinës</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacionet</string>
     <string name="analyzer_storage_content_type_app_description">Hapësira e zënë nga aplikacionet e instaluara dhe të dhënat e tyre (d.m.th. skedarët e aplikacioneve, të dhënat dhe memoriet e fshehta).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikacionet e sistemit dhe të dhënat e sistemit. Aplikacionet dhe të dhënat nga përdoruesit e tjerë, nëse në këtë pajisje janë caktuar disa llogari përdoruesish.</string>
     <string name="analyzer_storage_content_type_system_other_label">Tjetër</string>
     <string name="analyzer_storage_content_type_system_info">Skedarë që nuk i përshtaten kategorive Aplikacione ose Skedarë të përdoruesit. Shfletim i vetëm — fshirja nuk mbështet. Disa zona mund të jenë të paplotë për shkak të kufizimeve të aksesit.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Skedarët nuk mund të përputhen me aplikacionet që i zotërojnë tani. Madhësitë tregohen vetëm për referim — fshirja, filtrat dhe Swiper janë të çaktivizuar.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Skedarë të sistemit dhe të dhëna të tjera që SD Maid nuk mund t’i aksesojë ose kategorizojë. Sistemi operativ kufizon listimin e përbajtjes në disa zona.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
     <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ky aplikacion zë %1$s në \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ky aplikacion është arkivuar.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s në 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Shihni se çfarë po mbush ruajtjen tuaj. Analyzer hartëzon se ku shkon hapësira juaj. Secila nga këto kartela është një çip ruajtjeje në pajisjen tuaj.</string>
+    <string name="tour_analyzer_storage_body">Hapni një ruajtje për ta ndarë në aplikacione, media dhe skedarë, pastaj vazhdoni të prekni për të zbuluar më të mëdhenjtë përgjegjës.</string>
 </resources>

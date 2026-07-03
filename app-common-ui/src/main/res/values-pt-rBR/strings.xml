@@ -8,4 +8,16 @@
         <item quantity="other">%d caminhos selecionados</item>
     </plurals>
     <string name="picker_home_action">Áreas de dados</string>
+    <string name="tour_action_next">Próximo</string>
+    <string name="tour_action_previous">Anterior</string>
+    <string name="tour_action_done">Concluído</string>
+    <string name="tour_action_cancel">Pular</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Pular o tour guiado?</string>
+    <string name="tour_confirm_message">Você pode reativar os tours guiados a qualquer momento nas Configurações.</string>
+    <string name="tour_confirm_continue">Continuar tour</string>
+    <string name="tour_confirm_dont_show_this_tour">Não mostrar este tour</string>
+    <string name="tour_confirm_disable_all">Desativar todos os tours</string>
+    <string name="navigation_unknown_destination_title">Em breve</string>
+    <string name="navigation_unknown_destination_message">Esta tela ainda está sendo migrada para a nova interface.</string>
 </resources>

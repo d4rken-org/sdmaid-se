@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Lehen mailako biltegiratzea</string>
     <string name="stats_storage_type_secondary">Bigarren mailako biltegiratzea</string>
     <string name="stats_storage_type_portable">Biltegiratze eramangarria</string>
+    <string name="stats_space_history_delete_storage_title">Biltegiratze-historia ezabatu?</string>
+    <string name="stats_space_history_delete_storage_desc">Biltegiratze honetarako joera-datu guztiak betirako ezabatuko dira.</string>
 </resources>

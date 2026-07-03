@@ -46,6 +46,21 @@
         <item quantity="many">%d невизначених елементів залишаться для подальшого перегляду.</item>
         <item quantity="other">%d невизначених елементів залишаться для подальшого перегляду.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Цей сеанс спрямований на весь обсяг сховища — видалення тут охоплює кожну папку на цьому сховищі.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…та ще %d папка</item>
+        <item quantity="few">…та ще %d папки</item>
+        <item quantity="many">…та ще %d папок</item>
+        <item quantity="other">…та ще %d папок</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Я розумію, що ці файли будуть остаточно видалені.</string>
+    <string name="swiper_sensitive_root_warning_title">Сканувати все сховище?</string>
+    <string name="swiper_sensitive_root_warning_message">Сканування %1$s включає кожен файл на цьому сховищі — фото, документи, завантаження, медіа додатків та інше. Продовжити?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Продовжити в будь-якому разі</string>
+    <string name="swiper_session_risky_label">Сканування всього сховища</string>
+    <string name="swiper_session_risky_info_message">Цей сеанс спрямований на корінь обсягу сховища, тому кожен файл на цьому сховищі потрапляє в охоплення — фото, документи, завантаження, медіа додатків та інше.
+
+Сканування всього сховища може повернути багато елементів, включаючи файли, які ви, можливо, не мали на увазі переглядати. Застосуйте фільтр за типом файлу, щоб звузити сканування.</string>
     <string name="swiper_delete_x_action">Видалити %1$d</string>
     <string name="swiper_settings_swap_directions_title">Змінити напрямок прокручування</string>
     <string name="swiper_settings_swap_directions_summary">Проведіть пальцем вліво, щоб зберегти, вправо, щоб видалити.</string>
@@ -95,6 +110,12 @@
     <string name="swiper_session_rename_hint">Введіть назву для цієї сесії</string>
     <string name="swiper_sessions_current_sessions">Поточні сесії</string>
     <string name="swiper_session_paths_label">Шляхи</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…та ще %d</item>
+        <item quantity="few">…та ще %d</item>
+        <item quantity="many">…та ще %d</item>
+        <item quantity="other">…та ще %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Стан</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d для збереження</item>
@@ -174,4 +195,10 @@
     <string name="swiper_file_type_filter_summary">Відфільтровано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не знайдено відповідних файлів</string>
     <string name="swiper_open_externally_action">Відкрити у зовнішньому додатку</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Проведіть по фото, щоб вирішити його долю: вбік — щоб зберегти або видалити, вгору — щоб пропустити, вниз — щоб скасувати. Кнопки нижче роблять те саме — і показують, з якого боку що.</string>
+    <string name="tour_swiper_openin_body">Ця кнопка відкриває фото в іншій програмі, щоб перевірити його перед тим, як вирішити.</string>
+    <string name="tour_swiper_preview_body">Ця кнопка відкриває повноекранний попередній перегляд для детальнішого перегляду.</string>
+    <string name="tour_swiper_actions_body">Не подобається гортання? У нас є й кнопки! Пропустити залишає його невирішеним на потім, а довге натиснення на Пропустити виключить його з майбутніх сканувань. Скасувати повертає вашу останню дію.</string>
+    <string name="tour_swiper_review_body">Ваші вибори збереження та видалення лише підготовлені. Відкрийте Перевірку, щоб їх переглянути та застосувати видалення, коли будете готові.</string>
 </resources>

@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Rozmiar</string>
     <string name="appcontrol_list_sortmode_screentime_label">Czas przed ekranem</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względu na wydajność. Aby uzyskać dokładniejsze dane, użyj narzędzia Analizowanie pamięci.</string>
+    <string name="appcontrol_list_filteroptions_label">Opcje filtrowania</string>
+    <string name="appcontrol_list_fastscroller_action">Szybkie przewijanie</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">Odinstalowano %d aplikację</item>
@@ -139,4 +141,8 @@
     <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
     <string name="shortcut_appcontrol_short">Aplikacje</string>
     <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
+    <string name="tour_appcontrol_search_body">Wyszukaj aplikację według nazwy. Przydatne na urządzeniach z wieloma zainstalowanymi aplikacjami.</string>
+    <string name="tour_appcontrol_filter_body">Zawęź listę według aplikacji użytkownika/systemu, stanu włączenia, ostatniej aktywności i wiele więcej. Aktywne filtry pojawiają się tutaj jako chipy.</string>
+    <string name="tour_appcontrol_sort_body">Sortuj aplikacje według nazwy, daty instalacji, ostatniej aktualizacji, rozmiaru lub czasu ekranu. Naciśnij tę samą opcję, aby zmienić kierunek.</string>
+    <string name="tour_appcontrol_app_row_body">Naciśnij aplikację, aby otworzyć jej szczegóły i dostępne akcje. Długie naciśnięcie umożliwia zaznaczenie i korzystanie z akcji zbiorczych.</string>
 </resources>

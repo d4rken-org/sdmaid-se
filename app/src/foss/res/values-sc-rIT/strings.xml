@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Atualizare SD Maid SE</string>
     <string name="upgrades_dashcard_body">Aberri funtzionalidades addizionales e diventa patronu pro sustènnere su isvilupu continuadu!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizare</string>
-    <string name="upgrade_screen_title">Menzorare SD Maid</string>
+    <string name="upgrade_screen_title">Suporta SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid no tenet pubblicidade e no vendet datos de s\'usuàriu. S\'isvilupu continuadu est possìbile solamente gràtzias a tene.</string>
     <string name="upgrade_screen_how_title">Comente agiudare</string>
     <string name="upgrade_screen_how_body">Diventa patronu e sponsoriza s\'isvilupu! Tocca su butone in bassu pro ativare totu sas funtzionalidades addizionales e abèrrere su profilu meu de GitHub Sponsors.</string>
-    <string name="upgrade_screen_why_title">Custu fait màgia 🪄</string>
-    <string name="upgrade_screen_why_body">• Funtzionalidade de cantzelladura de AppCleaner 💯\n• Operatziones programadas ⏰\n• Optziones addizionales pro totu sos ainas ⚙️\n• Règulas tuas de cantzelladura ✍️\n• Isviluppadore motivadu 🧙\ne àteru…</string>
+    <string name="upgrade_screen_why_title">Vantaggios de s\'aggiornamentu</string>
+    <string name="upgrade_screen_why_body">• Pulire caches de appas e datos che non servin
+• Bogare figas duplicadas
+• Abiliziare pulizie programadas
+• Creare filtros personalizados e règulas de pulizia
+• Monitorare tendensias de armazenamentu e istòria de pulizie
+• Pius funzionalitades e controlos in tota s\'appligazzione
+• Suporta sa laboro de íbera software</string>
     <string name="upgrade_screen_sponsor_action">Sponsoriza s\'isvilupu</string>
     <string name="upgrade_screen_sponsor_action_hint">S\'alternativa sunt sa pubblicidade, s\'anàlisi e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gràtzias pro sustènnere s\'isvilupu de còdighe abertu ❤️</string>

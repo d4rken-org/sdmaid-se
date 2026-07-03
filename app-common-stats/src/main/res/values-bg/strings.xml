@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Основно хранилище</string>
     <string name="stats_storage_type_secondary">Вторично хранилище</string>
     <string name="stats_storage_type_portable">Преносимо хранилище</string>
+    <string name="stats_space_history_delete_storage_title">Изтриване на историята на хранилището?</string>
+    <string name="stats_space_history_delete_storage_desc">Всички данни за тенденции за това хранилище ще бъдат премахнато изтрити.</string>
 </resources>

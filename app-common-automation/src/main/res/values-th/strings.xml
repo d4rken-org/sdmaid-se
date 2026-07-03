@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">ผู้ใช้ที่มีความต้องการการเข้าถึงพิเศษสามารถเปิดใช้งานบริการนี้เพื่อให้ SD Maid ทำงานอัตโนมัติในงานที่อาจต้องการการกระทำด้วยตนเองที่น่าเบื่อ (เช่น การลบแคช)\n\nตัวอย่าง: หากคุณสั่งให้ SD Maid หยุดแอพหลายตัว SD Maid สามารถใช้บริการนี้เพื่อเปิดหน้าจอการตั้งค่าของแต่ละแอพ หาปุ่ม \"Force Stop\" และแตะมัน\n\nSD Maid จะแสดงอย่างชัดเจนเสมอเมื่อใช้บริการนี้และให้วิธีง่ายๆ สำหรับผู้ใช้ในการยกเลิกการโต้ตอบทันที\n\nจะไม่มีการดำเนินการใดๆ โดยไม่ได้รับอนุมัติจากผู้ใช้ก่อน บริการนี้สามารถปิดใช้งานอีกครั้งได้ตลอดเวลาโดยไม่มีผลกระทบที่ไม่พึงประสงค์</string>
     <string name="automation_screenoverlay_explanation">SD Maid กำลังโต้ตอบกับอุปกรณ์ของคุณ ไม่สามารถใช้งานหน้าจอพร้อมกันได้ รอจนกว่าการดำเนินการจะเสร็จสิ้นหรือยกเลิก</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid กำลังโต้ตอบกับอุปกรณ์ของคุณ ไม่สามารถใช้หน้าจอได้ในเวลาเดียวกัน รอจนกว่าการดำเนินการจะเสร็จสิ้น หรือกดปุ่ม Home เพื่อยกเลิก</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid กำลังโต้ตอบกับอุปกรณ์ของคุณ ไม่สามารถใช้หน้าจอได้ในเวลาเดียวกัน รอจนกว่าการดำเนินการจะเสร็จสิ้น</string>
     <string name="automation_active_title">SD Maid กำลังทำงาน</string>
     <string name="automation_error_no_consent_title">ข้อผิดพลาดการทำงานอัตโนมัติ</string>
     <string name="automation_error_no_consent_body">บริการความสามารถในการเข้าถึงยังไม่ได้ตั้งค่า ทำการตั้งค่าให้เสร็จสมบูรณ์และให้สิทธิ์</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">งานที่กำหนดเวลาไว้พยายามใช้บริการการช่วยเหลือการเข้าถึง แต่ไม่พร้อมใช้งาน หากคุณไม่ต้องการสิ่งนี้ ให้ปิดใช้งานตัวเลือก \"บริการการช่วยเหลือการเข้าถึง\" ในการตั้งค่าตัวกำหนดเวลา</string>
     <string name="automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
     <string name="automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
+    <string name="automation_error_interference_title">หน้าจอการตั้งค่าถูกปิดกั้น</string>
+    <string name="automation_error_interference_body">แอปอื่น (%1$s) กำลังปิดกั้นหน้าจอการตั้งค่าระบบ ดังนั้น SD Maid จึงไม่สามารถดำเนินการต่อได้ ปิดการล็อกแอปหรือการป้องกันหน้าจอของแอปนั้นสำหรับการตั้งค่าระบบ จากนั้นลองใหม่</string>
     <string name="automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
     <string name="automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
 </resources>

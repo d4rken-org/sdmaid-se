@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">גודל</string>
     <string name="appcontrol_list_sortmode_screentime_label">זמן מסך</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">גדלי האפליקציות משוערים מסיבות של ביצועים. השתמש בכלי מנתח אחסון לקבלת נתונים מדויקים יותר.</string>
+    <string name="appcontrol_list_filteroptions_label">אפשרויות סינון</string>
+    <string name="appcontrol_list_fastscroller_action">גלילה מהירה</string>
     <string name="appcontrol_progress_uninstalling_app">מסיר התקנה של אפליקציה</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">אפליקציה %d הוסרה</item>
@@ -139,4 +141,8 @@
     <string name="appcontrol_item_installedat_x_label">הותקן ב: %s</string>
     <string name="shortcut_appcontrol_short">ניהול אפליקציות</string>
     <string name="shortcut_appcontrol_long">נהל אפליקציות מותקנות</string>
+    <string name="tour_appcontrol_search_body">חפש אפליקציה לפי שם. שימושי כשיש הרבה אפליקציות מותקנות בהתקן.</string>
+    <string name="tour_appcontrol_filter_body">צמצם את הרשימה לפי אפליקציות משתמש/מערכת, מצב הפעלה, פעילות אחרונה, ועוד. מסננים פעילים מופיעים כתגיות כאן.</string>
+    <string name="tour_appcontrol_sort_body">סדר אפליקציות לפי שם, תאריך התקנה, עדכון אחרון, גודל או זמן מסך. הקש על אותה אפשרות כדי להפוך את הכיוון.</string>
+    <string name="tour_appcontrol_app_row_body">הקש על אפליקציה כדי לפתוח את הפרטים שלה והפעולות הזמינות. הקש הקשה ארוכה כדי להתחיל בחירה ולהשתמש בפעולות קבוצתיות.</string>
 </resources>

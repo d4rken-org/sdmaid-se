@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Hifadhi ya pili, kawaida kadi ya SD inayoweza kuondolewa. Ina faili za vyombo na data kutoka programu zinazoisaidia.</string>
     <string name="analyzer_storage_type_tertiary_title">Hifadhi ya kubeba</string>
     <string name="analyzer_storage_type_tertiary_description">Hifadhi ya kubeba, k.m. kiunga cha flash kilichounganishwa kwenye mlango wako wa USB.</string>
+    <string name="analyzer_storage_identifier_internal">Hifadhi ya ndani</string>
     <string name="analyzer_storage_content_title">Maudhui ya hifadhi</string>
     <string name="analyzer_storage_content_type_app_label">Programu</string>
     <string name="analyzer_storage_content_type_app_description">Nafasi inayotumika na programu zilizosakinishwa na data zao (yaani faili za programu, data na akiba).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Programu za mfumo na data ya mfumo. Programu na data kutoka watumiaji wengine, ikiwa akaunti nyingi za watumiaji zimewekwa kwenye kifaa hiki.</string>
     <string name="analyzer_storage_content_type_system_other_label">Nyingine</string>
     <string name="analyzer_storage_content_type_system_info">Faili ambazo hazifai katika kategoria za Programu au faili za Mtumiaji. Vinjari tu — kufuta hakusaidiwi. Baadhi ya maeneo yanaweza kuwa hayakamiliki kwa sababu ya vikwazo vya ufikiaji.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Faili haziwezi kulinganishwa na programu zinazomiliki kwa sasa. Ukubwa unaonyeshwa kwa marejeleo tu — ufutaji, vichujio na Swiper vimezimwa.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Faili za mfumo na data nyingine ambayo SD Maid haikuweza kufikia au kuainisha. Mfumo wa uendeshaji unazuia kuorodhesha maudhui ya baadhi ya maeneo.</string>
     <string name="analyzer_storage_content_app_code_label">Msimbo wa programu</string>
     <string name="analyzer_storage_content_app_code_description">Faili za programu, maktaba na rasilimali. Nafasi hii inaweza kufunguliwa kwa kuondoa programu au kuihifadhi (inapatikana kwenye toleo jipya la Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Programu hii inatumia %1$s kwenye \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Programu hii imehifadhiwa.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s katika siku 7</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Tazama kinachojaza hifadhi yako kwa kweli. Analyzer huonyesha mahali nafasi yako inakoenda. Kila kadi hapa ni kipande cha hifadhi kwenye kifaa chako.</string>
+    <string name="tour_analyzer_storage_body">Fungua hifadhi ili kuigawanya katika programu, media na faili, kisha endelea kugusa ili kubaini vyanzo vikubwa zaidi.</string>
 </resources>

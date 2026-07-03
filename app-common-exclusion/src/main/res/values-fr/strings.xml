@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestionnaire d’exclusions</string>
     <string name="exclusion_manager_desc">Gérer les exclusions de fichiers et d’applis.</string>
-    <string name="exclusion_explanation_body1">Excluez des fichiers et applis des opérations de SD Maid.</string>
-    <string name="exclusion_add_new_hint">Ajoutez de nouvelles exclusions en laissant d\'abord SD Maid effectuer une recherche, puis en utilisant le menu contextuel du résultat que vous voulez exclure.</string>
+    <string name="exclusion_explanation_body1">Excluez des fichiers et des applis pour les protéger des outils de SD Maid, ou pour ignorer les éléments non pertinents et accélérer les opérations.</string>
+    <string name="exclusion_add_new_hint">Aucune exclusion pour le moment. Utilisez le bouton + pour en créer une, ou excluez des éléments de n’importe quel résultat d’outil.</string>
     <string name="exclusion_create_action">Créer une exclusion</string>
     <string name="exclusion_edit_action">Modifier l’exclusion</string>
     <string name="exclusion_type_package">Exclusion d’applis</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Exporter les exclusions</string>
     <string name="exclusion_create_pkg_hint">Utilisez le « Vérificateur d’applis » pour exclure des applis.</string>
     <string name="exclusion_create_path_hint">Utilisez l’« Analyseur de mémoire » pour exclure des chemins.</string>
+    <string name="exclusion_create_segment_hint">Correspondre à un segment de nom, comme « DCIM/Camera ».</string>
     <string name="exclusion_show_defaults_action">Afficher les valeurs par défaut</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exclusion importée</item>
+        <item quantity="other">%d exclusions importées</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exclusion exportée</item>
+        <item quantity="other">%d exclusions exportées</item>
+    </plurals>
 </resources>

@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">ثانوی اسٹوریج، عام طور پر ہٹانے کے قابل SD کارڈ۔ میڈیا فائلیں اور ایپس کا ڈیٹا جو اس کی حمایت کرتے ہیں پر مشتمل۔</string>
     <string name="analyzer_storage_type_tertiary_title">پورٹابل اسٹوریج</string>
     <string name="analyzer_storage_type_tertiary_description">پورٹابل اسٹوریج، جیسے آپ کے USB پورٹ میں لگائی گئی فلیش ڈرائیو۔</string>
+    <string name="analyzer_storage_identifier_internal">اندرونی اسٹوریج</string>
     <string name="analyzer_storage_content_title">اسٹوریج کا مواد</string>
     <string name="analyzer_storage_content_type_app_label">ایپس</string>
     <string name="analyzer_storage_content_type_app_description">انسٹال شدہ ایپس اور ان کے ڈیٹا کے ذریعے قبضہ میں لی گئی جگہ (یعنی ایپلیکیشن فائلیں، ڈیٹا اور کیشیز)۔</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">سسٹم ایپس اور سسٹم ڈیٹا۔ دوسرے صارفین کے ایپس اور ڈیٹا، اگر اس ڈیوائس پر کئی صارف اکاؤنٹس سیٹ ہیں۔</string>
     <string name="analyzer_storage_content_type_system_other_label">دیگر</string>
     <string name="analyzer_storage_content_type_system_info">وہ فائلیں جو ایپس یا صارف کی فائلوں کے زمروں میں فٹ نہیں ہوتیں۔ صرف براؤز کریں — حذف کرنا سپورٹ نہیں ہے۔ رسائی کی پابندیوں کی وجہ سے کچھ علاقے نامکمل ہو سکتے ہیں۔</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">فائلوں کو ابھی ان ایپس سے منسلک نہیں کیا جا سکتا جو ان کے مالک ہیں۔ سائزز صرف حوالہ کے لیے دکھائے جاتے ہیں — حذف کرنا، فلٹرز اور Swiper غیر فعال ہیں۔</string>
     <string name="analyzer_storage_content_type_system_other_desc">سسٹم فائلیں اور دیگر ڈیٹا جن تک SD Maid رسائی یا درجہ بندی نہیں کر سکا۔ آپریٹنگ سسٹم کچھ علاقوں کے مواد کی فہرست کو محدود کرتا ہے۔</string>
     <string name="analyzer_storage_content_app_code_label">ایپ کوڈ</string>
     <string name="analyzer_storage_content_app_code_description">ایپلیکیشن فائلیں، لائبریریز اور ریسورسز۔ یہ جگہ ایپ کو ان انسٹال کرنے یا آرکائیو کرنے سے آزاد کی جا سکتی ہے (نئے Android ورژن پر دستیاب)۔</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">یہ ایپ \"%2$s\" پر %1$s قبضہ میں لیے ہوئے ہے۔</string>
     <string name="analyzer_app_details_app_is_archived">یہ ایپ آرکائیو کیا گیا ہے۔</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ۷ دنوں میں</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">دیکھیں کہ آپ کی اسٹوریج کو اصل میں کیا بھر رہا ہے۔ Analyzer دکھاتا ہے کہ آپ کی جگہ کہاں جاتی ہے۔ ان میں سے ہر ایک کارڈ آپ کے ڈیوائس پر ایک اسٹوریج چپ ہے۔</string>
+    <string name="tour_analyzer_storage_body">اسٹوریج کھولیں تاکہ اسے ایپس، میڈیا اور فائلوں میں تقسیم کریں، پھر سب سے بڑے مسائل کو ڈھونڈنے کے لیے ٹیپ کرتے رہیں۔</string>
 </resources>

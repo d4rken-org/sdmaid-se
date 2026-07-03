@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Eliminar todas menos unha copia en cada conxunto seleccionado de ficheiros duplicados?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Eliminar todos os ficheiros en cada conxunto seleccionado de ficheiros duplicados? Non quedará ningún ficheiro!</string>
     <string name="deduplicator_delete_all_toggle_msg">Eliminar todas as copias. Non quedará ningún ficheiro!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Eliminar %1$d duplicado neste conxunto, liberando %2$s? A copia gardada permanece.</item>
+        <item quantity="other">Eliminar %1$d duplicados neste conxunto, liberando %2$s? A copia gardada permanece.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s liberable</string>
+    <string name="deduplicator_action_delete_set">Eliminar conxunto de duplicados</string>
+    <string name="deduplicator_action_open_preview">Abrir vista previa</string>
+    <string name="deduplicator_marked_for_deletion">Marcado para eliminar</string>
+    <string name="deduplicator_cluster_preview_image">Vista previa do conxunto de duplicados</string>
+    <string name="deduplicator_selection_keep_one_required">Debe permanecer polo menos un ficheiro en cada conxunto de duplicados. Activa \"Facer posible \'Eliminar todos\'\" nos axustes para omitir isto.</string>
     <string name="deduplicator_progress_comparing_files">Comparando ficheiros</string>
     <string name="deduplicator_details_cluster_title">Conxunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias exactas</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir ficheiros máis pequenos</string>
     <string name="deduplicator_view_mode_groups_label">Grupos</string>
     <string name="deduplicator_view_mode_directories_label">Cartafoles</string>
+    <string name="tour_deduplicator_details_cluster_body">Estes ficheiros parecen ser o mesmo elemento ou contido multimedia, un conxunto de duplicados.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Os ficheiros con esta icona serán eliminados; o ficheiro que queda no grupo é o que SD Maid garda. Podes cambiar como se escolle o que se garda nos axustes da estratexia de eliminación.</string>
 </resources>

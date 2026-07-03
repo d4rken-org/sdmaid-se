@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Mwenye asiyejulikana</string>
     <string name="corpsefinder_corpse_hint_keeper">Kipengee hiki kinaweza kuwa na data unayotaka kuhifadhi licha ya mmiliki wake kuondolewa, k.m. picha au nakala za hifadhi.</string>
     <string name="corpsefinder_corpse_hint_common">Kipengee hiki kina jina la kawaida sana na kinaweza kuwa cha programu bado zilizosakinishwa ambazo SD Maid hazijui.</string>
+    <string name="corpsefinder_risk_keeper_chip">Inapendekezwa</string>
+    <string name="corpsefinder_risk_common_chip">Kawaida</string>
+    <string name="corpsefinder_markers_dialog_title">Kuhusu alama hizi</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Hakuna alama</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Mabaki ya kawaida. Kwa ujumla ni salama kuondoa — faili hizi ni za programu ambazo hazijasakinishwa tena.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder hupata data iliyoachwa na programu ulizokwisha kuzisanidua. Haihusiani tena na chochote kilichosakinishwa, hivyo kuiondoa ni salama na huachilia nafasi.</string>
+    <string name="tour_corpsefinder_row_body">Kila kipengele ni data iliyobaki na programu inayotoka kwayo. Alama huonyesha kiwango cha uhakika cha SD Maid kuwa ni salama kuondoa — gusa ⓘ juu ili kujifunza maana ya alama.</string>
 </resources>

@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE ଅପଗ୍ରେଡ କରନ୍ତୁ</string>
     <string name="upgrades_dashcard_body">ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ଅନଲକ କରନ୍ତୁ ଏବଂ ନିରନ୍ତର ବିକାଶକୁ ସମର୍ଥନ କରିବା ପାଇଁ ଜଣେ ପୃଷ୍ଠପୋଷକ ହୋଇଯାଆନ୍ତୁ!</string>
     <string name="upgrades_dashcard_upgrade_action">ଅପଗ୍ରେଡ କରନ୍ତୁ</string>
-    <string name="upgrade_screen_title">SD Maid ଉନ୍ନତ କରନ୍ତୁ</string>
+    <string name="upgrade_screen_title">SD Maid ସମର୍ଥନ କରନ୍ତୁ</string>
     <string name="upgrade_screen_preamble">SD Maid ରେ କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ ଏବଂ ବ୍ୟବହାରକାରୀ ତଥ୍ୟ ବିକ୍ରି କରେ ନାହିଁ। ନିରନ୍ତର ବିକାଶ କେବଳ ଆପଣଙ୍କ ଦ୍ୱାରା ସମ୍ଭବ।</string>
     <string name="upgrade_screen_how_title">କିପରି ସାହାଯ୍ୟ କରିବେ</string>
     <string name="upgrade_screen_how_body">ଜଣେ ପୃଷ୍ଠପୋଷକ ହୋଇଯାଆନ୍ତୁ ଏବଂ ବିକାଶକୁ ପ୍ରାୟୋଜନ କରନ୍ତୁ! ସମସ୍ତ ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ସକ୍ରିୟ କରିବା ଏବଂ ମୋର GitHub Sponsors ପ୍ରୋଫାଇଲ ଖୋଲିବା ପାଇଁ ନିମ୍ନର ବଟନ ଦବାନ୍ତୁ।</string>
-    <string name="upgrade_screen_why_title">ଏହା ଯାଦୁ କରେ 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner ଡିଲିଟ ଫଙ୍କସନାଲିଟି 💯\n• ସମୟସୂଚୀ ଅନୁଯାୟୀ କାର୍ଯ୍ୟ ⏰\n• ସମସ୍ତ ଉପକରଣ ପାଇଁ ଅତିରିକ୍ତ ବିକଳ୍ପ ⚙️\n• ଆପଣଙ୍କର ନିଜସ୍ୱ ଡିଲିଟ ନିୟମ ✍️\n• ଉତ୍ସାହିତ ଡେଭେଲପର 🧙\nଏବଂ ଅଧିକ…</string>
+    <string name="upgrade_screen_why_title">ଅପଗ୍ରେଡ ସୁବିଧା</string>
+    <string name="upgrade_screen_why_body">• ଆପ୍ର ଥଇ ଏବଂ ଅପରିହାର୍ୟ୍ୟ ତଥ୍ୟ ସଫା କରନ୍ତୁ
+• ନକଲ ଫାଇଲ ଅପସାରଣ କରନ୍ତୁ
+• ଅନୁସୂଚୀତ ପରିଷ୍କାରକରଣ ସକ୍ଷମ କରନ୍ତୁ
+• ଅନୁକୂଳିତ ଫିଲ୍ଟର ଏବଂ ପରିଷ୍କାରକରଣ ନିୟମ ତୈରି କରନ୍ତୁ
+• ସଂଚୟନ ପ୍ରବୃତ୍ତି ଏବଂ ପରିଷ୍କାରକରଣ ଇତିହାସ ଦେଖନ୍ତୁ
+• ସାରା ଆପ୍ ମଧ୍ୟରେ ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ନିୟନ୍ତ୍ରଣ
+• ଓପେନ୍-ସୋର୍ସ କାମକୁ ସମର୍ଥନ କରନ୍ତୁ</string>
     <string name="upgrade_screen_sponsor_action">ବିକାଶକୁ ପ୍ରାୟୋଜନ କରନ୍ତୁ</string>
     <string name="upgrade_screen_sponsor_action_hint">ବିକଳ୍ପ ହେଉଛି ବିଜ୍ଞାପନ, ବିଶ୍ଳେଷଣ ଏବଂ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ମୁକ୍ତ ଉତ୍ସ ଵିକାଶକୁ ସମର୍ଥନ କରିଥିବାରୁ ଧନ୍ୟଵାଦ ❤️</string>

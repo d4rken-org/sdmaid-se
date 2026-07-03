@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Teisejärguline hoiuruum, tavaliselt eemaldatav SD-kaart. Sisaldab seda toetavat meediafaile ja rakenduste andmeid.</string>
     <string name="analyzer_storage_type_tertiary_title">Kaasaskantav mälu</string>
     <string name="analyzer_storage_type_tertiary_description">Näiteks USB-pessa pistetud mälupulk.</string>
+    <string name="analyzer_storage_identifier_internal">Sisemine salvestusruum</string>
     <string name="analyzer_storage_content_title">Hoiustatav sisu</string>
     <string name="analyzer_storage_content_type_app_label">Rakendused</string>
     <string name="analyzer_storage_content_type_app_description">Paigaldatud rakenduste ja nende andmete (nt rakenduse failid, andmed ja vahemälud) hoiuruum.</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Muude kasutajate rakendused ja andmed, kui seadmes on seadistatud mitu kasutajakontot.</string>
     <string name="analyzer_storage_content_type_system_other_label">Muu</string>
     <string name="analyzer_storage_content_type_system_info">Failid, mis ei kuulu rakenduste ega kasutajafailide kategooriatesse. Ainult sirvimine — kustutamine pole toetatud. Mõned alad võivad olla mittetäielikud juurdepääsupiirangute tõttu.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Faile ei saa praegu siduda neile kuuluvate rakendustega. Suurused on näidatud ainult viitamiseks — kustutamine, filtrid ja Swiper on keelatud.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Süsteemifailid ja muud andmed, millele SD Maid ei saanud juurde pääseda ega kategoriseerida. Operatsioonisüsteem piirab mõnede alade sisu loetlemist.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
     <string name="analyzer_storage_content_app_code_description">Rakenduse failid, teegid ja allikad. Sellle ruumi vabastamiseks eemaldage rakendus või arhiveerige see (saadaval uusimas Androidi versioonis).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Sellele rakendusele kuulub kohas \"%2$s\" %1$s.</string>
     <string name="analyzer_app_details_app_is_archived">See rakendus on arhiveeritud.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7p-ga</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Vaata, mis tegelikult sinu salvestusruumi täidab. Analüsaator näitab, kuhu sinu ruum läheb. Iga see kaart on sinu seadmes olev salvestusseade.</string>
+    <string name="tour_analyzer_storage_body">Ava salvestusruum, et jagada see rakendusteks, meediaks ja failideks, seejärel mine üha sügavamale, et leida suurimad süüdlased.</string>
 </resources>

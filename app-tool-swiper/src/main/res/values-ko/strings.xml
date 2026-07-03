@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d개의 미결정 항목은 나중에 검토하기 위해 남습니다.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">이 세션은 전체 저장소 볼륨을 대상으로 합니다 — 여기서 삭제하면 해당 저장소의 모든 폴더에 영향을 미칩니다.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…그 외 %d개 폴더</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">이 파일들이 영구 삭제될 것임을 이해합니다.</string>
+    <string name="swiper_sensitive_root_warning_title">전체 스토리지를 스캔할까요?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s 스캔에는 이 스토리지의 모든 파일(사진, 문서, 다운로드, 앱 미디어 등)이 포함됩니다. 계속할까요?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">그래도 계속</string>
+    <string name="swiper_session_risky_label">전체 스토리지 스캔</string>
+    <string name="swiper_session_risky_info_message">이 세션은 스토리지 볼륨의 루트를 대상으로 하므로 해당 스토리지의 모든 파일(사진, 문서, 다운로드, 앱 미디어 등)이 범위에 포함됩니다.
+
+전체 스토리지 스캔은 검토하지 않으려던 파일을 포함하여 많은 항목을 반환할 수 있습니다. 파일 유형 필터를 적용하여 스캔 범위를 좋히세요.</string>
     <string name="swiper_delete_x_action">%1$d개 삭제</string>
     <string name="swiper_settings_swap_directions_title">스와이프 방향 바꾸기</string>
     <string name="swiper_settings_swap_directions_summary">왼쪽으로 스와이프하여 유지, 오른쪽으로 스와이프하여 삭제.</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">이 세션의 이름을 입력하세요</string>
     <string name="swiper_sessions_current_sessions">현재 세션</string>
     <string name="swiper_session_paths_label">경로</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…그리고 %d개 더</item>
+    </plurals>
     <string name="swiper_session_status_label">상태</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d개 유지</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">필터링됨: %1$s</string>
     <string name="swiper_session_no_matching_files">일치하는 파일을 찾을 수 없습니다</string>
     <string name="swiper_open_externally_action">외부 앱에서 열기</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">사진을 스와이프하여 선택하세요: 좌우로 보관 또는 삭제, 위로 건너뛰기, 아래로 실행 취소. 아래 버튼도 동일하게 작동하며 어느 쪽이 어떤 기능인지 표시합니다.</string>
+    <string name="tour_swiper_openin_body">이 버튼은 사진을 다른 앱에서 열어주므로 결정하기 전에 확인할 수 있습니다.</string>
+    <string name="tour_swiper_preview_body">이 버튼은 전체 화면 미리보기를 열어 더 자세히 볼 수 있습니다.</string>
+    <string name="tour_swiper_actions_body">스와이프가 마음에 들지 않으신가요? 버튼도 있습니다! 건너뛰기를 누르면 나중에 결정하도록 남겨두고, 건너뛰기를 길게 누르면 파일을 향후 스캔에서 제외합니다. 실행 취소를 누르면 마지막 선택을 되돌립니다.</string>
+    <string name="tour_swiper_review_body">보관 및 삭제 선택은 임시로만 저장됩니다. 검토를 열어 확인한 후 준비가 되면 삭제를 적용하세요.</string>
 </resources>

@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
     <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>
     <string name="stats_storage_type_portable">पोर्टेबल भण्डारण</string>
+    <string name="stats_space_history_delete_storage_title">भण्डारण इतिहास मेटाउने?</string>
+    <string name="stats_space_history_delete_storage_desc">यस भण्डारणका सबै ट्रेन्ड डेटा स्थायी रूपमा मेटाइनेछ।</string>
 </resources>

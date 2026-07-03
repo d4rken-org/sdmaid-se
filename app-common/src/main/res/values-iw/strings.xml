@@ -28,6 +28,7 @@
     <string name="general_gotit_action">הבנתי</string>
     <string name="general_fix_action">תקן</string>
     <string name="general_set_up_action">הגדרה</string>
+    <string name="general_unavailable_label">לא זמין</string>
     <string name="general_edit_action">עריכה</string>
     <string name="general_na_label">לא זמין</string>
     <string name="general_empty_label">ריק</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">בתור</string>
     <string name="general_progress_deleting">מוחק</string>
     <string name="general_progress_deleting_x">מוחק %s</string>
+    <string name="general_sort_by_title">מיין לפי</string>
     <string name="general_sort_reverse_action">מצב סידור הפוך</string>
+    <string name="general_sort_oldest_first">הישנים ביותר תחילה</string>
+    <string name="general_sort_newest_first">החדשים ביותר תחילה</string>
+    <string name="general_sort_name_asc">שם (א → ת)</string>
+    <string name="general_sort_size_desc">הגדולים ביותר תחילה</string>
     <string name="general_tag_system">מערכת</string>
+    <string name="general_navigate_up_action">נווט למעלה</string>
+    <string name="general_filter_action">סינון</string>
+    <string name="general_filter_by_tags_label">סנן לפי תגיות</string>
+    <string name="general_filter_add_action">הוסף סנן</string>
+    <string name="general_filter_remove_x_action">הסר סנן %s</string>
+    <string name="general_filter_empty_row_hint">הקש על + כדי לסנן</string>
+    <string name="general_show_all_action">הצג הכל</string>
     <string name="general_result_success_message">הפעולה בוצעה בהצלחה</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">שוחרר %s מהמכשיר.</item>
@@ -76,6 +89,8 @@
     <string name="general_options_label">הגדרות</string>
     <string name="general_details_label">פרטים</string>
     <string name="general_view_action">הצג</string>
+    <string name="general_open_action">פתח</string>
+    <string name="general_configure_action">הגדר</string>
     <string name="general_update_action">עדכן</string>
     <string name="general_scan_action">סריקה</string>
     <string name="general_close_action">סגור</string>
@@ -105,7 +120,9 @@
         <item quantity="other">%d פריטים הוסרו</item>
     </plurals>
     <string name="general_search_action">חיפוש</string>
+    <string name="general_search_no_matches">אין תוצאות</string>
     <string name="general_open_system_settings_action">פתח הגדרות מכשיר</string>
+    <string name="general_fast_scroller_action">גלילה מהירה</string>
     <plurals name="result_x_items">
         <item quantity="one">%s פריט</item>
         <item quantity="two">%s פריטים</item>
@@ -137,6 +154,12 @@
     <string name="general_enable_service_action">הפעלת שירות</string>
     <string name="general_undo_action">בטל</string>
     <string name="general_list_select_all_action">בחר הכל</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d נבחר</item>
+        <item quantity="two">%d נבחרים</item>
+        <item quantity="many">%d נבחרים</item>
+        <item quantity="other">%d נבחרים</item>
+    </plurals>
     <string name="general_path_label">נתיב</string>
     <string name="general_type_label">סוג</string>
     <string name="general_size_label">גודל</string>
@@ -176,6 +199,8 @@
     <string name="general_error_report_bug_action">דווח על באג</string>
     <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
+    <string name="general_error_upgrade_required_title">נדרשת גרסת Pro</string>
+    <string name="general_error_upgrade_required_description">זו תכונה בגרסת Pro. אנא שדרג את SD Maid SE כדי להשתמש בה.</string>
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
     <string name="setup_title">הגדרה</string>
@@ -203,4 +228,22 @@
     <string name="settings_category_risklevel">רמת סיכון</string>
     <string name="settings_category_filter">סינון</string>
     <string name="appcontrol_systemsettings_open_title">הגדרות האפליקציה</string>
+    <string name="ui_theme_color_sunset_label">שקיעה</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">תכונה זו דורשת גישת root, אך SD Maid לא הצליחה להשיגה בהתקן זה.</string>
+    <string name="access_blocked_root_declined">תכונה זו דורשת גישת root. ניתן להפעיל אותה דרך מסך ההגדרה.</string>
+    <string name="access_blocked_root_or_shizuku">תכונה זו דורשת גישת root או Shizuku, שאינה זמינה בהתקן זה.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">קובץ גיבוי שגוי</string>
+    <string name="backup_restore_error_invalid_body">קובץ זה אינו קובץ גיבוי חוקי של SD Maid או שהוא פגום.</string>
+    <string name="backup_restore_error_version_body">גיבוי זה נוצר בגרסה חדשה יותר של SD Maid. אנא עדכן את האפליקציה ונסה שוב.</string>
+    <string name="backup_restore_error_restore_failed_title">שחזור נכשל</string>
+    <string name="backup_restore_error_restore_failed_body">חלקים אלה לא יכלו להיות מושחזרים: %1$s. התצורה הקודמת שלך נשמרה וניתן להחזירה.</string>
+    <string name="backup_restore_error_safety_title">השחזור לא התחיל</string>
+    <string name="backup_restore_error_safety_body">SD Maid לא הצליחה לשמור תמונת בטיחות של התצורה הנוכחית שלך, לכן דבר לא שונה.</string>
+    <string name="backup_restore_error_busy_title">אנא המתן</string>
+    <string name="backup_restore_error_busy_body">משימת ניקיון או פעולת גיבוי אחרת פועלת כעת. נסה שוב כשהיא תסתיים.</string>
+    <string name="backup_restore_error_schema_title">גיבוי לא תואם</string>
+    <string name="backup_restore_error_schema_body">פורמט מסד הנתונים של הגיבוי לא תואם לגרסה זו של SD Maid. שחזור נתוני ההיסטוריה נתמך רק בין גרסאות אפליקציה זהות.</string>
 </resources>

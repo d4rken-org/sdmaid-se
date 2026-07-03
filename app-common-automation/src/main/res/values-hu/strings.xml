@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">A speciális kisegítő lehetőségeket igénylő felhasználók engedélyezhetik ezt a szolgáltatást, hogy az SD Maid automatizálja azokat a feladatokat, amelyek egyébként fárasztó manuális felhasználói beavatkozást igényelnének (pl. a gyorsítótár törlése).\n\nPélda: Ha utasítja az SD Maid szolgáltatást több alkalmazás leállítására, akkor az SD Maid ezt használhatja szolgáltatást az egyes alkalmazások beállítási képernyőjének megnyitásához, keresse meg a \"Kényszerített leállítás\" gombot, és kattintson rá.\n\nAz SD Maid mindig jól látható lesz, amikor ezt a szolgáltatást használja, és egyszerű módot kínál a felhasználónak az interakció azonnali megszakítására.\n\nNem műveleteket a felhasználó előzetes jóváhagyása nélkül hajtják végre. Ez a szolgáltatás bármikor újra letiltható káros hatások nélkül.</string>
     <string name="automation_screenoverlay_explanation">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik, vagy törölje azt.</string>
+    <string name="automation_screenoverlay_explanation_tv">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik, vagy nyomja meg a Home gombot a lemondáshoz.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik.</string>
     <string name="automation_active_title">Az SD Maid működik</string>
     <string name="automation_error_no_consent_title">Automatizálási hiba</string>
     <string name="automation_error_no_consent_body">A kisegítő lehetőségek szolgáltatása nincs beállítva. Fejezze be a beállítást és adja meg a hozzájárulását.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Egy ütemezett feladat megpróbálta használni az akadálymentességi szolgáltatást, de az nem volt elérhető. Ha erre nincs szüksége, tiltsa le az \"Akadálymentességi szolgáltatás\" lehetőséget az ütemező beállításaiban.</string>
     <string name="automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
     <string name="automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
+    <string name="automation_error_interference_title">Beállítások képernyője blokkolva</string>
+    <string name="automation_error_interference_body">Egy másik alkalmazás (%1$s) blokkolja a rendszerbeállítások képernyőjét, ezért az SD Maid nem tud folytatni. Tiltsa le az alkalmazás app-lock vagy képernyővédelmi funkcióját a rendszerbeállítások számára, majd próbálja újra.</string>
     <string name="automation_loading">Automatizálás előkészítése az akadálymentesítési szolgáltatáson keresztül</string>
     <string name="automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
 </resources>

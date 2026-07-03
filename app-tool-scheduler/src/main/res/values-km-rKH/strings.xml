@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">ការរង្វាំបានប័រចប់</string>
     <string name="scheduler_notification_result_success_message">ការងារត័ត្រូទាំងនាំត្រូវបានជៅកជ័យ។</string>
     <string name="scheduler_notification_result_failure_message">ការងារខ្ឡើនមួយបានប័កស្ខាល ឬប័ត្រងកៀស។ ស្វែងដែលប័រើរត្រងដ្តី។</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">បានរំលង ដោយសារអេក្រង់បានបិទ ឬចាក់សោ</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ការសម្អាតកម្មវិធីអាចត្រូវបានរំលង</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ការសម្អាតកម្មវិធីប្រើប្រាស់សេវាកម្មលទ្ធភាពប្រើប្រាស់ ដែលត្រូវការឱ្យអេក្រង់មិនចាក់សោ។ ការដំណើរការតាមកាលវិភាគខណៈពេលដែលឧបករណ៍ត្រូវបានចាក់សោត្រូវបានរំលង។
+
+ប្រើ Shizuku ឬ root សម្រាប់ការសម្អាតផ្ទៃខាងក្រោយ ឬកំណត់ពេលវេលាវាសម្រាប់ពេលដែលអ្នកកំពុងប្រើឧបករណ៍។</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">កម្មវិធីប្រព័ន្ធអាចត្រូវបានរំលង</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku សម្អាតឃ្លាំងភាគច្រើនក្នុងផ្ទៃខាងក្រោយ ប៉ុន្តែកម្មវិធីប្រព័ន្ធត្រូវការសេវាកម្មលទ្ធភាពប្រើប្រាស់ ដែលត្រូវការឱ្យអេក្រង់មិនចាក់សោ។ ដោយបើក \"រួមបញ្ចូលកម្មវិធីប្រព័ន្ធ\" ធាតុទាំងនោះត្រូវបានរំលងនៅពេលដែលឧបករណ៍ត្រូវបានចាក់សោ។
+
+បិទ \"រួមបញ្ចូលកម្មវិធីប្រព័ន្ធ\" ឬដំណើរការកាលវិភាគខណៈពេលដែលមិនចាក់សោ។</string>
     <string name="scheduler_commands_after_schedule_label">កំរំផ័ន្ក័ស់បញ្ជាការរង្វាំ</string>
     <string name="scheduler_commands_after_schedule_desc">កំរំផ័ន្ក័ស់ Android ដែលត្រូវបានដំឡើរនៅចុងការរង្វាំ។</string>
     <string name="scheduler_battery_optimization_hint">សូមគិតជ្រើសបិតការអនុវាត់នៃឡើងសម្រាប់ SD Maid ប័ប័រអ្នកប័ត្រងបានកៀសនឹងការដែលវាគ្រើបល។</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid អាចសម្អាតតាមកាលវិភាគ។ ជ្រើសរើសពេលវេលា និងឧបករណ៍ដែលត្រូវដំណើរការ ហើយវាធ្វើការក្នុងផ្ទៃខាងក្រោយ (ស្ទើរតែ) មិនចាំបាច់បើកកម្មវិធីទេ។</string>
+    <string name="tour_scheduler_create_body">ចុចលើនេះដើម្បីបង្កើតកាលវិភាគថ្មី បន្ទាប់មកកំណត់ពេលដែលវាដំណើរការ និងឧបករណ៍ដែលត្រូវរាប់បញ្ចូល។</string>
 </resources>

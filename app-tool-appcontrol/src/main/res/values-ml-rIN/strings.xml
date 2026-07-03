@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">വലിപ്പം</string>
     <string name="appcontrol_list_sortmode_screentime_label">സ്ക്രീൻ സമയം</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ആപ്പ് വലിപ്പങ്ങൾ പ്രകടനകാരണങ്ങൾക്കായി കണക്കാക്കല്പിക്കപ്പെടുന്നു. കൂടുതൽ കൃത്യമായ ഡേറ്റക്കായി StorageAnalyzer ടൂൾ ഉപയോഗിക്കുക.</string>
+    <string name="appcontrol_list_filteroptions_label">ഫിൽടർ ഓപ്ഷൻസ്</string>
+    <string name="appcontrol_list_fastscroller_action">വേഗതയുള്ള സ്ക്രോളർ</string>
     <string name="appcontrol_progress_uninstalling_app">ആപ്പ് അൻ ഇൻസ്റ്റാൾ ചെയ്യുന്നു</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ആപ്പ് അൻഇൻസ്റ്റാൾ ചെയ്തു</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">ഇൻസ്റ്റാൾ ചെയ്തത്: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ മാനേജ് ചെയ്യുക</string>
+    <string name="tour_appcontrol_search_body">പേരായി ഒരു ആപ്പ് തിരയുക. പല ആപ്പുകളും ഇൻസ്റ്റാളും ചെയ്തിരിക്കുന്ന ഉപകരണങ്ങളിൽ ഉപയോഗപ്രദമാണ്.</string>
+    <string name="tour_appcontrol_filter_body">ഉപയോക്തൃ/സിസ്റ്റം ആപ്പുകൾ, സജ്ജീകൃത അവസ്ഥ, സമീപകാല പ്രവർത്തനം എന്നിവയുടെ അടിസ്ഥാനത്തിൽ ലിസ്റ്റ് ഫിൽട്ടർ ചെയ്യുക. സജ്ജമായ ഫിൽട്ടറുകൾ ഇവിടെ ചിപ്പുകളായി കാണപ്പെടുന്നു.</string>
+    <string name="tour_appcontrol_sort_body">പേര്, ഇൻസ്റ്റാള് തീയതി, അവസാനത്തെ അപ്ഡേറ്റ്, വലിപ്പം, അല്ലെങ്കിൽ സ്ക്രീൻ സമയം എന്നിവയുടെ അടിസ്ഥാനത്തിൽ ആപ്പുകൾ ക്രമപ്പെടുത്തുക. ദിശ മാറ്റാൻ അതേ ഓപ്ഷനിൽ ടാപ് ചെയ്യുക.</string>
+    <string name="tour_appcontrol_app_row_body">ഒരു ആപ്പിൽ ടാപ് ചെയ്യുന്നത് അതിന്റെ വിശദാംശങ്ങളും ലഭ്യമായ പ്രവർത്തനങ്ങളും തുറക്കുന്നു. തിരഞ്ഞെടുക്കൽ ആരംഭിക്കാനും കൂട്ടായ പ്രവർത്തനങ്ങൾ ഉപയോഗിക്കാനും ദീർഘമായി അമർത്തുക.</string>
 </resources>

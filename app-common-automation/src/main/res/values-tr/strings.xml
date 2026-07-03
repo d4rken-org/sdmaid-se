@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Farklı uygulamaların önbelleklerini sırayla temizlemek gibi sıkıcı ve tekrarlayan işlemleri yapmak istemeyen veya kendine özel erişilebilirlik kuralı oluşturmak isteyen kullanıcılar için SD Maid erişilebilirlik hizmetini kullanarak bu işlemleri otomatikleştirebilir.\n\nÖrneğin birden fazla uygulamayı zorla durdurmak isterseniz bu hizmet sayesinde SD Maid\'e her bir uygulama için ayarlar ekranını açmasını ve ardından zorla durdurmasını öğretebilirsiniz.\n\nSD Maid bu hizmeti kullandığı her zaman ekranda bir uyarı ve istenildiği takdirde işlemin derhal iptal edilebilmesi için bir tuş gösterir.\n\nÖncesinde kullanıcı onayı olmaksızın hiçbir işlem yapılmayacaktır. Bu hizmeti istediğiniz zaman devre dışı bırakılabilirsiniz, olumsuz bir etkisi olmaz.</string>
     <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid cihazınızla etkileşim kuruyor. Aynı anda ekranı kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal etmek için Ana ekran düğmesine basın.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid cihazınızla etkileşim kuruyor. Aynı anda ekranı kullanmak mümkün değildir. İşlem bitene kadar bekleyin.</string>
     <string name="automation_active_title">SD Maid çalışıyor</string>
     <string name="automation_error_no_consent_title">Otomasyon hatası</string>
     <string name="automation_error_no_consent_body">Erişilebilirlik hizmeti kurulmamış. Kurulumu tamamlayın ve izin verin.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Bir zamanlanmış görev erişilebilirlik servisini kullanmaya çalıştı ama servis mevcut değildi. Erişilebilirlik servisine ihtiyacın yoksa zamanlama ayarlarından \"Erişilebilirlik servisi\" ayarını devre dışı bırak.</string>
     <string name="automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
     <string name="automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
+    <string name="automation_error_interference_title">Ayarlar ekranı engellenmiş</string>
+    <string name="automation_error_interference_body">Başka bir uygulama (%1$s) sistem ayarları ekranını engelliyor, bu nedenle SD Maid devam edemiyor. O uygulamanın sistem ayarları için uygulama kilidini veya ekran korumasını devre dışı bırakın ve yeniden deneyin.</string>
     <string name="automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
     <string name="automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
 </resources>

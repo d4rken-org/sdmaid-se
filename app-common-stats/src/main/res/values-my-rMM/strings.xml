@@ -37,4 +37,6 @@
     <string name="stats_storage_type_primary">မူလသိုလှောင်မှု</string>
     <string name="stats_storage_type_secondary">ဒုတိယသိုလှောင်မှု</string>
     <string name="stats_storage_type_portable">လွယ်ကူစွာသယ်နိုင်သော သိုလှောင်မှု</string>
+    <string name="stats_space_history_delete_storage_title">သိုလှောင်မှု မှတ်တမ်းကို ဖျက်မလား?</string>
+    <string name="stats_space_history_delete_storage_desc">ဤသိုလှောင်မှုအတွက် ခေတ်ရေစီးကြောင်း ဒေတာအားလုံးကို အပြီးအပိုင် ဖျက်မည်။</string>
 </resources>

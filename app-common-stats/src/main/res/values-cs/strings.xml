@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Primární úložiště</string>
     <string name="stats_storage_type_secondary">Sekundární úložiště</string>
     <string name="stats_storage_type_portable">Přenosné úložiště</string>
+    <string name="stats_space_history_delete_storage_title">Smazat historii úložiště?</string>
+    <string name="stats_space_history_delete_storage_desc">Všechna data trendů pro toto úložiště budou trvale smazána.</string>
 </resources>

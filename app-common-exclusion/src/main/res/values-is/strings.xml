@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Útilokunarstjóri</string>
     <string name="exclusion_manager_desc">Stjórna skrá- og forritaútilokunun.</string>
-    <string name="exclusion_explanation_body1">Útiloka skrár og forrit frá aðgerðum SD Maid.</string>
-    <string name="exclusion_add_new_hint">Bættu við nýjum útilokunun með því að láta SD Maid leita fyrst og síðan nota samhengisvalmynd á niðurstöðuna sem þú vilt útiloka.</string>
+    <string name="exclusion_explanation_body1">Útilokaðu skrár og forrit til að vernda þaú frá verkfærum SD Maid, eða til að sleppa óviðeigandi hlutum og flýta fyrir aðgerðum.</string>
+    <string name="exclusion_add_new_hint">Engar útilokanir ennþá. Notaðu + hnappinn til að búa til eina, eða útilokauð hluti frá niðurstöðum hvers verkfæris.</string>
     <string name="exclusion_create_action">Búa til útilokun</string>
     <string name="exclusion_edit_action">Breyta útilokun</string>
     <string name="exclusion_type_package">Forritaútilokun</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Flytja út útilokanir</string>
     <string name="exclusion_create_pkg_hint">Notaðu AppControl verkfærið til að búa til forritaútilokanir.</string>
     <string name="exclusion_create_path_hint">Notaðu StorageAnalyzer verkfærið til að búa til slóðaútilokanir.</string>
+    <string name="exclusion_create_segment_hint">Samsvara hluta af heiti, eins og \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Sýna sjálfgefnar</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d útilokun flutt inn</item>
+        <item quantity="other">%d útilokanir fluttar inn</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d útilokun flutt út</item>
+        <item quantity="other">%d útilokanir fluttar út</item>
+    </plurals>
 </resources>

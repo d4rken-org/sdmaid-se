@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">द्वितीयक संग्रहण स्थान जैसे SD कार्ड।</string>
     <string name="analyzer_storage_type_tertiary_title">तृतीयक संग्रहण</string>
     <string name="analyzer_storage_type_tertiary_description">तृतीयक संग्रहण स्थान जैसे USB ड्राइव।</string>
+    <string name="analyzer_storage_identifier_internal">आंतरिक संग्रहण</string>
     <string name="analyzer_storage_content_title">संग्रहण सामग्री</string>
     <string name="analyzer_storage_content_type_app_label">ऐप्स</string>
     <string name="analyzer_storage_content_type_app_description">इंस्टॉल किए गए ऐप्स और उनके डेटा द्वारा कब्जाया गया स्थान (यानी एप्लिकेशन फ़ाइलें, डेटा और कैश)।</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">सिस्टम ऐप्स और सिस्टम डेटा। अन्य उपयोगकर्ताओं के ऐप्स और डेटा, यदि इस डिवाइस पर कई उपयोगकर्ता खाते सेट हैं।</string>
     <string name="analyzer_storage_content_type_system_other_label">अन्य</string>
     <string name="analyzer_storage_content_type_system_info">वे फ़ाइलें जो एप्स या उपयोगकर्ता फ़ाइलें श्रेणियों में फिट नहीं होतीं। केवल ब्राउज़ करें — हटाना समर्थित नहीं है। कुछ क्षेत्र पहुंच प्रतिबंधों के कारण अधूरे हो सकते हैं।</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">फ़ाइलों को उन ऐप्स से मेल नहीं खाया जा सकता जो उनके मालिक हैं। आकार केवल संदर्भ के लिए दिए गए हैं — हटाना, फ़िल्टर और Swiper अक्षम हैं।</string>
     <string name="analyzer_storage_content_type_system_other_desc">सिस्टम फ़ाइलें और अन्य डेटा जिन्हें SD Maid एक्सेस या वर्गीकृत नहीं कर सका। ऑपरेटिंग सिस्टम कुछ क्षेत्रों की सामग्री सूचीबद्ध करने पर प्रतिबंध लगाता है।</string>
     <string name="analyzer_storage_content_app_code_label">ऐप कोड</string>
     <string name="analyzer_storage_content_app_code_description">एप्लिकेशन फ़ाइलें, लाइब्रेरी और संसाधन। ऐप को अनइंस्टॉल करके या संग्रहीत करके (नए Android संस्करण पर उपलब्ध) इस स्थान को मुक्त किया जा सकता है।</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">यह ऐप \"%2$s\" पर %1$s में रहता है।</string>
     <string name="analyzer_app_details_app_is_archived">यह ऐप संग्रहीत किया गया है।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 दिनों में</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">देखें कि आपके स्टोरेज को वास्तव में क्या भर रहा है। Analyzer दिखाता है कि आपकी जगह कहां जाती है। इनमें से प्रत्येक कार्ड आपके डिवाइस पर एक स्टोरेज चिप है।</string>
+    <string name="tour_analyzer_storage_body">इसे ऐप्स, मीडिया और फ़ाइलों में विभाजित करने के लिए किसी स्टोरेज को खोलें, फिर सबसे बड़ी समस्याओं को ढूंढने के लिए लगातार टैप करते रहें।</string>
 </resources>

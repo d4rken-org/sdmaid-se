@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">ඔබගේ මිලදී ගැනීම ප්‍රතිසාධනය කිරීමට \"මිලදී ගැනීම ප්‍රතිසාධනය කරන්න\" විකල්පය භාවිතා කරන්න. ගැටලුව දිගටම පවතී නම්, Google Play හැඹිලිය මකා ඔබගේ උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ලබා ගන්න</string>
     <string name="upgrade_screen_preamble">SD Maid හි දැන්වීම් නැති අතර පරිශීලක දත්ත විකුණන්නේ නැත. මගේ වැඩ ඔබ විසින් මූල්‍යාධාර සපයයි ❤️.</string>
-    <string name="upgrade_screen_benefits_title">වාසි</string>
-    <string name="upgrade_screen_benefits_body">• යෙදුම් පිරිසිදු කිරීම 💯\n• සැලසුම්ගත මෙහෙයුම් ⏰\n• සියලුම මෙවලම් සඳහා අමතර විකල්ප ⚙️\n• ඔබගේම මකාදැමීමේ නීති ✍️\n• අභිප්‍රේරිත සංවර්ධකයෙක් 🧙\nසහ තවත්…</string>
+    <string name="upgrade_screen_benefits_title">උසස් කිරීමේ ප්‍රතිලාභ</string>
+    <string name="upgrade_screen_benefits_body">• යෙදුම් කෑෂ් සහ අනවශ්‍ය දත්ත පිරිසිදු කරන්න\n• අනුපිටපත් ගොනු ඉවත් කරන්න\n• කාලසටහන්ගත පිරිසිදු කිරීම් සක්‍රීය කරන්න\n• අභිරුචි පෙරහන් සහ පිරිසිදු කිරීමේ නීති සාදන්න\n• ගබඩා ප්‍රවණතා සහ පිරිසිදු කිරීමේ ඉතිහාසය නිරීක්ෂණය කරන්න\n• යෙදුම පුරා තවත් විශේෂාංග සහ පාලන\n• අඛණ්ඩ සංවර්ධනයට සහාය වන්න</string>
     <string name="upgrade_screen_how_title">විකල්ප</string>
     <string name="upgrade_screen_how_body">ඔබට එක් වරක් මිලදී ගැනීමක් සහ මිල අඩු වාර්ෂික දායකත්වයක් අතර තෝරා ගත හැක.\nදායකත්වය දින 14ක නොමිලේ අත්හදා බැලීමක් සමඟ ආරම්භ වන අතර, ඉන්පසු ඔබට වසරකට වරක් අය කෙරේ. අත්හදා බැලීම සහ දායකත්වය ඕනෑම වේලාවක අවලංගු කළ හැක.\nඑකම විශේෂාංග, මිල ගණන් ආකෘති පමණක් වෙනස්.</string>
+    <string name="upgrade_screen_subscription_offer_title">වාර්ෂික දායකත්වය</string>
+    <string name="upgrade_screen_iap_offer_title">එකවර මිලට ගන්න</string>
+    <string name="upgrade_screen_offer_recommended">නිර්දේශිත</string>
+    <string name="upgrade_screen_offers_unavailable_message">මිල දැනට පූරණය කළ නොහැකි විය. Google Play පරීක්ෂා කර මොහොතකින් නැවත උත්සාහ කරන්න.</string>
     <string name="upgrade_screen_subscription_trial_action">දින 14ක නොමිලේ අත්හදා බැලීම ආරම්භ කරන්න</string>
     <string name="upgrade_screen_subscription_action">දායක වන්න</string>
     <string name="upgrade_screen_subscription_action_hint">දායකත්වය වසරකට %s වැය වේ.</string>

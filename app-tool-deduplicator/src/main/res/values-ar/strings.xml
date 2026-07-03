@@ -53,6 +53,20 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">حذف جميع النسخ باستثناء نسخة واحدة في كل مجموعة مختارة من الملفات المكررة؟</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">حذف جميع الملفات في كل مجموعة مختارة من الملفات المكررة؟ لا يوجد ملف متبقي!</string>
     <string name="deduplicator_delete_all_toggle_msg">حذف جميع النسخ. لا يوجد ملف متبقي!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="zero">حذف %1$d نسخة مكررة من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+        <item quantity="one">حذف %1$d نسخة مكررة من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+        <item quantity="two">حذف %1$d نسختين مكررتين من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+        <item quantity="few">حذف %1$d نسخ مكررة من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+        <item quantity="many">حذف %1$d نسخة مكررة من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+        <item quantity="other">حذف %1$d نسخة مكررة من هذه المجموعة، وتحرير %2$s؟ ستبقى النسخة المحفوظة.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s قابل للتحرير</string>
+    <string name="deduplicator_action_delete_set">حذف مجموعة النسخ المكررة</string>
+    <string name="deduplicator_action_open_preview">فتح المعاينة</string>
+    <string name="deduplicator_marked_for_deletion">محدد للحذف</string>
+    <string name="deduplicator_cluster_preview_image">معاينة مجموعة النسخ المكررة</string>
+    <string name="deduplicator_selection_keep_one_required">يجب أن يبقى ملف واحد على الأقل لكل مجموعة نسخ مكررة. فعّل \"اجعل \'حذف الكل\' ممكناً\" في الإعدادات للتجاوز.</string>
     <string name="deduplicator_progress_comparing_files">مقارنة الملفات</string>
     <string name="deduplicator_details_cluster_title">مجموعة من النُسخة المتكررة</string>
     <string name="deduplicator_matches_exact_label">نُسخة طبق الاصل</string>
@@ -90,4 +104,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">تفضيل الملفات الأصغر</string>
     <string name="deduplicator_view_mode_groups_label">مجموعات</string>
     <string name="deduplicator_view_mode_directories_label">المجلدات</string>
+    <string name="tour_deduplicator_details_cluster_body">يبدو أن جميع هذه الملفات عبارة عن نسخ مكررة من نفس العنصر أو محتوى وسائط.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">سيتم حذف الملفات التي تحمل هذه الأيقونة؛ الملف المتبقي في المجموعة هو الملف الذي تحتفظ به SD Maid. يمكنك تغيير طريقة اختيار الملف المحتفظ به في إعدادات استراتيجية الحذف.</string>
 </resources>

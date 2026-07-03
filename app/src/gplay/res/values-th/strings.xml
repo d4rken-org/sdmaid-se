@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">ใช้ตัวเลือก \"กู้คืนการซื้อ\" เพื่อกู้คืนการซื้อของคุณ หากปัญหายังคงอยู่ ให้ลองล้างแคช Google Play และรีสตาร์ทอุปกรณ์ของคุณ</string>
     <string name="upgrade_screen_title">รับ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลผู้ใช้ งานของฉันได้รับการสนับสนุนทางการเงินจากคุณ ❤️</string>
-    <string name="upgrade_screen_benefits_title">ข้อดี</string>
-    <string name="upgrade_screen_benefits_body">• การทำความสะอาดแอป 💯\n• การดำเนินการตามตารางเวลา ⏰\n• ตัวเลือกเพิ่มเติมสำหรับเครื่องมือทั้งหมด ⚙️\n• กฎการลบของคุณเอง ✍️\n• นักพัฒนาที่มีแรงบันดาลใจ 🧙\nและอื่นๆ อีกมากมาย…</string>
+    <string name="upgrade_screen_benefits_title">ประโยชน์ของการอัปเกรด</string>
+    <string name="upgrade_screen_benefits_body">• ล้างแคชแอปพลิเคชันและข้อมูลที่ไม่จำเป็น\n• ลบไฟล์ที่ซ้ำกัน\n• เปิดใช้งานการล้างข้อมูลตามกำหนดเวลา\n• สร้างตัวกรองที่กำหนดเองและกฎการล้าง\n• ติดตามแนวโน้มการจัดเก็บข้อมูลและประวัติการล้าง\n• คุณสมบัติและการควบคุมเพิ่มเติมในแอปพลิเคชัน\n• สนับสนุนการพัฒนาอย่างต่อเนื่อง</string>
     <string name="upgrade_screen_how_title">ตัวเลือก</string>
     <string name="upgrade_screen_how_body">คุณสามารถเลือกระหว่างการซื้อครั้งเดียวและการสมัครสมาชิกรายปีที่ถูกกว่า\nการสมัครสมาชิกเริ่มต้นด้วยการทดลองใช้ฟรี 14 วัน หลังจากนั้นคุณจะถูกเรียกเก็บเงินปีละครั้ง การทดลองและการสมัครสมาชิกสามารถยกเลิกได้ตลอดเวลา\nฟีเจอร์เดียวกัน เพียงแต่โมเดลราคาที่แตกต่างกัน</string>
+    <string name="upgrade_screen_subscription_offer_title">การสมัครสมาชิกรายปี</string>
+    <string name="upgrade_screen_iap_offer_title">ซื้อครั้งเดียว</string>
+    <string name="upgrade_screen_offer_recommended">แนะนำ</string>
+    <string name="upgrade_screen_offers_unavailable_message">ไม่สามารถโหลดราคาได้ในขณะนี้ ตรวจสอบ Google Play และลองใหม่อีกครั้งในอีกสักครู่</string>
     <string name="upgrade_screen_subscription_trial_action">เริ่มทดลองใช้ฟรี 14 วัน</string>
     <string name="upgrade_screen_subscription_action">สมัครสมาชิก</string>
     <string name="upgrade_screen_subscription_action_hint">การสมัครสมาชิกค่าใช้จ่าย %s ต่อปี</string>

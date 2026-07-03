@@ -33,6 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">אחסון משני, בדרך כלל כרטיס SD נשלף. מכיל קבצי מדיה ונתונים מאפליקציות התומכות בכך.</string>
     <string name="analyzer_storage_type_tertiary_title">אחסון נייד</string>
     <string name="analyzer_storage_type_tertiary_description">אחסון נייד, למשל. כונן הבזק מחובר ליציאת ה-USB שלך.</string>
+    <string name="analyzer_storage_identifier_internal">אחסון פנימי</string>
     <string name="analyzer_storage_content_title">תוכן אחסון</string>
     <string name="analyzer_storage_content_type_app_label">יישומים</string>
     <string name="analyzer_storage_content_type_app_description">מקום תפוס על ידי אפליקציות מותקנות והנתונים שלהן (כלומר קבצי יישומים, נתונים ומטמונים).</string>
@@ -43,6 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">אפליקציות מערכת ונתוני מערכת. אפליקציות ונתונים ממשתמשים אחרים, אם מוגדרים מספר חשבונות משתמש במכשיר זה.</string>
     <string name="analyzer_storage_content_type_system_other_label">אחר</string>
     <string name="analyzer_storage_content_type_system_info">קבצים שאינם מתאימים לקטגוריות אפליקציות או קבצי משתמש. עיון בלבד — מחיקה אינה נתמכת. ייתכן שחלק מהאזורים אינם שלמים עקב הגבלות גישה.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">לא ניתן כרגע להתאים קבצים לאפליקציות שבבעלותן. הגדלים מוצגים לצורך התייחסות בלבד — מחיקה, מסננים ו-Swiper מושבתים.</string>
     <string name="analyzer_storage_content_type_system_other_desc">קבצי מערכת ונתונים אחרים ש-SD Maid לא יכלה לגשת אליהם או לסווג. מערכת ההפעלה מגבילה את רישום תכולת חלק מהאזורים.</string>
     <string name="analyzer_storage_content_app_code_label">קוד אפליקציה</string>
     <string name="analyzer_storage_content_app_code_description">קבצי אפליקציות, ספריות ומשאבים. מקום זה יכול להתפנות על ידי הסרת האפליקציה או אירכובה (זמין בגירסאות אנדרואיד חדשות).</string>
@@ -55,4 +57,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">אפליקציה זו תופסת %1$s ב-\"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">אפליקציה זו הועבר לארכיון.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ב-7 ימים</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ראה מה בעצם ממלא את האחסון שלך. Analyzer ממפה היכן המקום שלך הולך. כל אחד מהכרטיסים האלה הוא שבב אחסון בהתקן שלך.</string>
+    <string name="tour_analyzer_storage_body">פתח אחסון כדי לפרק אותו ליישומים, מדיה וקבצים, ואז המשך להקש כדי לאתר אחר האשמים הגדולים ביותר.</string>
 </resources>

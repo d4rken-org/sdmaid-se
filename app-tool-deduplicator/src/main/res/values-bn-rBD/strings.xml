@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের সমস্ত ফাইল মুছে ফেলবেন? কোন ফাইল বাকি নেই!</string>
     <string name="deduplicator_delete_all_toggle_msg">সব কপি মুছুন. কোন ফাইল বাকি নেই!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">এই সেটে %1$d ডুপ্লিকেট মুছুন, %2$s খালি করুন? রাখা কপিটি থাকবে।</item>
+        <item quantity="other">এই সেটে %1$d ডুপ্লিকেট মুছুন, %2$s খালি করুন? রাখা কপিটি থাকবে।</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s মুক্তযোগ্য</string>
+    <string name="deduplicator_action_delete_set">ডুপ্লিকেট সেট মুছুন</string>
+    <string name="deduplicator_action_open_preview">পূর্বরূপ খুলুন</string>
+    <string name="deduplicator_marked_for_deletion">মুছে ফেলার জন্য চিহ্নিত</string>
+    <string name="deduplicator_cluster_preview_image">ডুপ্লিকেট সেট পূর্বরূপ</string>
+    <string name="deduplicator_selection_keep_one_required">প্রতিটি ডুপ্লিকেট সেটে কমপক্ষে একটি ফাইল অবশ্যই থাকতে হবে। এটি বাতিল করতে সেটিংসে \"সব মুছে ফেলা সম্ভব করুন\" সক্ষম করুন।</string>
     <string name="deduplicator_progress_comparing_files">ফাইল তুলনা করা হচ্ছে</string>
     <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
     <string name="deduplicator_matches_exact_label">হুবহু কপি</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ছোট ফাইল পছন্দ করুন</string>
     <string name="deduplicator_view_mode_groups_label">গ্রুপ</string>
     <string name="deduplicator_view_mode_directories_label">ফোল্ডার</string>
+    <string name="tour_deduplicator_details_cluster_body">এই ফাইলগুলি সবই একই আইটেম বা মিডিয়া কন্টেন্ট বলে মনে হয়, ডুপ্লিকেটের একটি ক্লাস্টার।</string>
+    <string name="tour_deduplicator_details_delete_mark_body">এই আইকন সহ ফাইলগুলি মুছে ফেলা হবে; গ্রুপে থাকা বাকি ফাইলটি হল যেটি SD Maid রাখে। আপনি মুছে ফেলার কৌশল সেটিংসে কীভাবে রক্ষক নির্বাচিত হয় তা পরিবর্তন করতে পারেন।</string>
 </resources>

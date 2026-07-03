@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Grootte</string>
     <string name="appcontrol_list_sortmode_screentime_label">Schermtijd</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-grootes worden geschat om prestatieredenen. Gebruik de StorageAnalyzer-tool voor nauwkeurigere gegevens.</string>
+    <string name="appcontrol_list_filteroptions_label">Filter opties</string>
+    <string name="appcontrol_list_fastscroller_action">Snelle scroller</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app werd verwijderd</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="shortcut_appcontrol_short">App-bediening</string>
     <string name="shortcut_appcontrol_long">Geïnstalleerde apps beheren</string>
+    <string name="tour_appcontrol_search_body">Zoeken naar een app op naam. Handig op apparaten met veel geïnstalleerde apps.</string>
+    <string name="tour_appcontrol_filter_body">Verfijn de lijst op gebruikers-/systeemapps, ingeschakelde status, recente activiteit en meer. Actieve filters verschijnen hier als chips.</string>
+    <string name="tour_appcontrol_sort_body">Sorteer apps op naam, installatiedatum, laatste update, grootte of schermtijd. Tik op dezelfde optie om de richting om te keren.</string>
+    <string name="tour_appcontrol_app_row_body">Tik op een app om de details en beschikbare acties te openen. Lang indrukken om een selectie te starten en bulkacties te gebruiken.</string>
 </resources>

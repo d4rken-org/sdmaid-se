@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Správce výjimek</string>
     <string name="exclusion_manager_desc">Správa výjimek souborů a aplikací.</string>
-    <string name="exclusion_explanation_body1">Vyloučení souborů a aplikací z operací aplikace SD Maid.</string>
-    <string name="exclusion_add_new_hint">Novou výjimku přidáte tak, že nejprve necháte SD Maid vyhledávat a poté pomocí kontextové nabídky vyberete výsledek, který chcete vyloučit.</string>
+    <string name="exclusion_explanation_body1">Vylučte soubory a aplikace, abyste je chránili před nástroji SD Maid, nebo přeskočte nepotřebné položky a zrychlete operace.</string>
+    <string name="exclusion_add_new_hint">Zatím žádné výjimky. Vytvořte si jednu pomocí tlačítka +, nebo vyloučete položky z výsledků libovolného nástroje.</string>
     <string name="exclusion_create_action">Vytvořit výjimku</string>
     <string name="exclusion_edit_action">Upravit výjimku</string>
     <string name="exclusion_type_package">Aplikace ve výjimkách</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Exportovat výjimky</string>
     <string name="exclusion_create_pkg_hint">K vytvoření výjimek aplikací použijte nástroj Správce aplikací.</string>
     <string name="exclusion_create_path_hint">K vytvoření výjimek cest použijte nástroj Analyzátor úložiště.</string>
+    <string name="exclusion_create_segment_hint">Shoduje se s částí názvu, např. \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Zobrazit výchozí</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d výjimka importována</item>
+        <item quantity="few">%d výjimky importovány</item>
+        <item quantity="many">%d výjimek importováno</item>
+        <item quantity="other">%d výjimek importováno</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d výjimka exportována</item>
+        <item quantity="few">%d výjimky exportovány</item>
+        <item quantity="many">%d výjimek exportováno</item>
+        <item quantity="other">%d výjimek exportováno</item>
+    </plurals>
 </resources>

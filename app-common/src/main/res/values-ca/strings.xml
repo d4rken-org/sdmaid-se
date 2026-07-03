@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Entesos</string>
     <string name="general_fix_action">Corregeix-ho</string>
     <string name="general_set_up_action">Configura</string>
+    <string name="general_unavailable_label">No disponible</string>
     <string name="general_edit_action">Edita</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Buit</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">A la cua</string>
     <string name="general_progress_deleting">S\'està eliminant</string>
     <string name="general_progress_deleting_x">S\'està suprimint %s</string>
+    <string name="general_sort_by_title">Ordena per</string>
     <string name="general_sort_reverse_action">Mode d\'ordenació inversa</string>
+    <string name="general_sort_oldest_first">Primer els més antics</string>
+    <string name="general_sort_newest_first">Primer els més actuals</string>
+    <string name="general_sort_name_asc">Nom (A → Z)</string>
+    <string name="general_sort_size_desc">Els més grans primer</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Navega cap amunt</string>
+    <string name="general_filter_action">Filtra</string>
+    <string name="general_filter_by_tags_label">Filtra per etiquetes</string>
+    <string name="general_filter_add_action">Afegeix filtre</string>
+    <string name="general_filter_remove_x_action">Elimina el filtre %s</string>
+    <string name="general_filter_empty_row_hint">Toca + per filtrar</string>
+    <string name="general_show_all_action">Mostra-ho tot</string>
     <string name="general_result_success_message">Operació realitzada amb èxit</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">S\'ha alliberat %s d\'espai.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Opcions</string>
     <string name="general_details_label">Detalls</string>
     <string name="general_view_action">Mostra</string>
+    <string name="general_open_action">Obre</string>
+    <string name="general_configure_action">Configura</string>
     <string name="general_update_action">Actualitza</string>
     <string name="general_scan_action">Escaneja</string>
     <string name="general_close_action">Tanca</string>
@@ -97,7 +112,9 @@
         <item quantity="other">S\'han eliminat %d elements</item>
     </plurals>
     <string name="general_search_action">Cerca</string>
+    <string name="general_search_no_matches">Cap coincidència</string>
     <string name="general_open_system_settings_action">Obre la configuració del sistema</string>
+    <string name="general_fast_scroller_action">Desplaçador ràpid</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ítem</item>
         <item quantity="other">%s ítems</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Activa el servei</string>
     <string name="general_undo_action">Desfés</string>
     <string name="general_list_select_all_action">Selecciona-ho tot</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d seleccionat</item>
+        <item quantity="other">%d seleccionats</item>
+    </plurals>
     <string name="general_path_label">Ruta</string>
     <string name="general_type_label">Tipus</string>
     <string name="general_size_label">Mida</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Informa d\'un error</string>
     <string name="general_error_ipc_deadobject_title">S\'ha perdut la connexió amb el servei</string>
     <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
+    <string name="general_error_upgrade_required_title">Versió Pro requerida</string>
+    <string name="general_error_upgrade_required_description">Aquesta és una funció Pro. Actualitza SD Maid SE per usar-la.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuració</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Nivell de risc</string>
     <string name="settings_category_filter">Filtra</string>
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
+    <string name="ui_theme_color_sunset_label">Posta de sol</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Aquesta funció necessita accés «root», però SD Maid no ha pogut obtenir-lo en aquest dispositiu.</string>
+    <string name="access_blocked_root_declined">Aquesta funció necessita accés «root». Pots habilitar-lo a través de la pantalla de configuració.</string>
+    <string name="access_blocked_root_or_shizuku">Aquesta funció necessita accés «root» o Shizuku, que no està disponible en aquest dispositiu.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Fitxer de còpia de seguretat no vàlid</string>
+    <string name="backup_restore_error_invalid_body">Aquest fitxer no és una còpia de seguretat vàlida de SD Maid o està corrupte.</string>
+    <string name="backup_restore_error_version_body">Aquesta còpia de seguretat es va crear amb una versió més nova de SD Maid. Actualitza l\'aplicació i torna-ho a provar.</string>
+    <string name="backup_restore_error_restore_failed_title">La restauració ha fallat</string>
+    <string name="backup_restore_error_restore_failed_body">No s\'han pogut restaurar aquestes parts: %1$s. La teva configuració anterior s\'ha desat i es pot recuperar.</string>
+    <string name="backup_restore_error_safety_title">Restauració no iniciada</string>
+    <string name="backup_restore_error_safety_body">SD Maid no ha pogut desar una còpia de seguretat de la teva configuració actual, per tant no s\'ha canviat res.</string>
+    <string name="backup_restore_error_busy_title">Espera, si us plau</string>
+    <string name="backup_restore_error_busy_body">Hi ha una tasca de neteja o una altra operació de còpia de seguretat en execució. Torna-ho a intentar quan hagi finalitzat.</string>
+    <string name="backup_restore_error_schema_title">Còpia de seguretat incompatible</string>
+    <string name="backup_restore_error_schema_body">El format de la base de dades de la còpia de seguretat no coincideix amb aquesta versió de SD Maid. La restauració de dades de l\'historial només és compatible entre versions idèntiques de l\'aplicació.</string>
 </resources>

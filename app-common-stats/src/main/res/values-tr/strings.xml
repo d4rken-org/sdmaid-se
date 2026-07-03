@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Birincil depolama</string>
     <string name="stats_storage_type_secondary">İkincil depolama</string>
     <string name="stats_storage_type_portable">Taşınabilir depolama</string>
+    <string name="stats_space_history_delete_storage_title">Depolama geçmişi silinsin mi?</string>
+    <string name="stats_space_history_delete_storage_desc">Bu depolama alanına ait tüm trend verileri kalıcı olarak silinecek.</string>
 </resources>

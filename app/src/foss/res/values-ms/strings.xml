@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Naik taraf SD Maid SE</string>
     <string name="upgrades_dashcard_body">Buka kunci ciri tambahan dan menjadi penaung untuk menyokong pembangunan berterusan!</string>
     <string name="upgrades_dashcard_upgrade_action">Naik taraf</string>
-    <string name="upgrade_screen_title">Tingkatkan SD Maid</string>
+    <string name="upgrade_screen_title">Sokong SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Pembangunan berterusan hanya boleh dilakukan oleh anda.</string>
     <string name="upgrade_screen_how_title">Bagaimana untuk membantu</string>
     <string name="upgrade_screen_how_body">Menjadi penaung dan penaja pembangunan! Ketik butang di bawah untuk mengaktifkan semua ciri tambahan dan buka profil Penaja GitHub saya.</string>
-    <string name="upgrade_screen_why_title">Ini menimbulkan 🪄</string>
-    <string name="upgrade_screen_why_body">• Fungsi pemadaman AppCleaner 💯\n• Operasi berjadual ⏰\n• Pilihan tambahan untuk semua alatan ⚙️\n• Peraturan pemadaman anda sendiri ✍️\n• Pembangun yang bermotivasi 🧙\ndan banyak lagi…</string>
+    <string name="upgrade_screen_why_title">Faedah peningkatan</string>
+    <string name="upgrade_screen_why_body">• Bersihkan cache aplikasi dan data yang boleh dibuang
+• Alih keluar fail pendua
+• Dayakan pembersihan berjadual
+• Buat penapis tersuai dan peraturan pembersihan
+• Jejak arah aliran penyimpanan dan sejarah pembersihan
+• Lebih banyak ciri dan kawalan di seluruh aplikasi
+• Sokong kerja sumber terbuka</string>
     <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya ialah iklan, analitik dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih kerana menyokong pembangunan sumber terbuka ❤️</string>

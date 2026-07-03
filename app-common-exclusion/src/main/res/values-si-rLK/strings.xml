@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">බැහැර කිරීම් මෙහෙයුම්</string>
     <string name="exclusion_manager_desc">ගොනු සහ යෙදුම් බැහැර කිරීම් අනුශාසනය කරන්න.</string>
-    <string name="exclusion_explanation_body1">SD Maid ගේ මෙහෙයුම්වලින් ගොනු සහ යෙදුම් බැහැර කරන්න.</string>
-    <string name="exclusion_add_new_hint">මුලින් SD Maid සොයා ගෙන්න අතර ඔබ බැහැර කිරීමට අකමැති ප්‍රතිෆලයම පිළිබද මෙනුව භාවිතා කිරීමෙන් නව බැහැර කිරීම් ඇතුළත් කරන්න.</string>
+    <string name="exclusion_explanation_body1">SD Maid හි මෙවලම්වලින් කොටස් බේරා ගැනීමට, හෝ අසම්බන්ධිත අයිතම් ඉවත් කර මෙහෙයුම් වේගවත් කිරීමට ගොනු සහ යෙදුම් බැහැර කරන්න.</string>
+    <string name="exclusion_add_new_hint">තවම බැහැරකිරීම් නැත. එකක් සැදීමට + බොත්තම භාවිතා කරන්න, හෝ ඕනෑම මෙවලමේ ප්‍රතිළලවලින් අයිතම් බැහැර කරන්න.</string>
     <string name="exclusion_create_action">බැහැර කිරීම සාදන්න</string>
     <string name="exclusion_edit_action">බැහැර කිරීම සංපාදනය කරන්න</string>
     <string name="exclusion_type_package">යෙදුම් බැහැර කිරීම</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">බැහැර කිරීම් නිර්යාත කරන්න</string>
     <string name="exclusion_create_pkg_hint">යෙදුම් බැහැර කිරීම් සාදන්න සඳහා AppControl මෙවලම භාවිතා කරන්න.</string>
     <string name="exclusion_create_path_hint">මාර්ග බැහැර කිරීම් සාදන්න සඳහා StorageAnalyzer මෙවලම භාවිතා කරන්න.</string>
+    <string name="exclusion_create_segment_hint">\"DCIM/Camera\" වැනි, නම් කොටසකට ගැළපෙන්න.</string>
     <string name="exclusion_show_defaults_action">පෙරනිමි පෙනන්න</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">බැහැර කිරීම %dක් ආනයනය කරන ලදී</item>
+        <item quantity="other">බැහැර කිරීම් %dක් ආනයනය කරන ලදී</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">බැහැර කිරීම %dක් අපනයනය කරන ලදී</item>
+        <item quantity="other">බැහැර කිරීම් %dක් අපනයනය කරන ලදී</item>
+    </plurals>
 </resources>

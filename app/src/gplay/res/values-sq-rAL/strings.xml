@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Përdorni opsionin \"Rivendos blerjen\" për të rivendosur blerjen tuaj. Nëse problemi vazhdon, provoni të pastroni cache-in e Google Play dhe të rinisni pajisjen tuaj.</string>
     <string name="upgrade_screen_title">Merr SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit. Puna ime financohet nga ju ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Avantazhet</string>
-    <string name="upgrade_screen_benefits_body">• Pastrimi i aplikacioneve 💯\n• Operacionet e planifikuara ⏰\n• Opsione shtesë për të gjitha mjetet ⚙️\n• Rregullat tuaja të fshirjes ✍️\n• Një zhvillues i motivuar 🧙\ndhe më shumë…</string>
+    <string name="upgrade_screen_benefits_title">Përfitimet e përmirësimit</string>
+    <string name="upgrade_screen_benefits_body">• Pastroni gyra të aplikacioneve dhe të dhëna të harxhueshme
+• Hiqni skedarë të dyfishta
+• Aktivizoni pastrimin e planifikuar
+• Krijoni filtra dhe rregulla pastrimi të personalizuara
+• Ndiqni tendencat e hapësirës ruajtëse dhe historikun e pastrimit
+• Më shumë veçori dhe kontroll në të gjithë aplikacionin
+• Mbështetni zhvillimin e vazhdueshëm</string>
     <string name="upgrade_screen_how_title">Opsione</string>
     <string name="upgrade_screen_how_body">Mund të zgjedhësh midis një blerjeje të një herëshme dhe një abonimi vjetor më të lirë.\nAbonimi fillon me një provë falas 14-ditore, pas së cilës do të tarifohesh një herë në vit. Prova dhe abonimi janë të anulueshme në çdo kohë.\nTë njëjtat veçori, vetëm modele të ndryshme çmimesh.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abonim vjetor</string>
+    <string name="upgrade_screen_iap_offer_title">Blej njëherë</string>
+    <string name="upgrade_screen_offer_recommended">Rekomanduar</string>
+    <string name="upgrade_screen_offers_unavailable_message">Çmimet nuk mund të ngarkohen tani. Kontrolloni Google Play dhe provoni përsëri pas një momenti.</string>
     <string name="upgrade_screen_subscription_trial_action">Filloni provën falas 14-ditore</string>
     <string name="upgrade_screen_subscription_action">Abonohu</string>
     <string name="upgrade_screen_subscription_action_hint">Abonimi kushton %s në vit.</string>

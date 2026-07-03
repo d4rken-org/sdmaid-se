@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Túsinikli</string>
     <string name="general_fix_action">Ońlaw ushın</string>
     <string name="general_set_up_action">Ornatıw</string>
+    <string name="general_unavailable_label">Jetimsiz</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
     <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Gezekte</string>
     <string name="general_progress_deleting">Óshiriw</string>
     <string name="general_progress_deleting_x">%s óshiriw</string>
+    <string name="general_sort_by_title">Сортлаў тәртиби</string>
     <string name="general_sort_reverse_action">Tartıplew modesin teskers etew</string>
+    <string name="general_sort_oldest_first">Ең ески биринши</string>
+    <string name="general_sort_newest_first">Ең жаңа биринши</string>
+    <string name="general_sort_name_asc">Ат (А → Я)</string>
+    <string name="general_sort_size_desc">Ең үлкен биринши</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Joqarı qarap barıw</string>
+    <string name="general_filter_action">Filtr</string>
+    <string name="general_filter_by_tags_label">Belgiler boyınsha súzgilew</string>
+    <string name="general_filter_add_action">Súzgi qosıw</string>
+    <string name="general_filter_remove_x_action">%s súzgisin óshiriw</string>
+    <string name="general_filter_empty_row_hint">Súzgilew ushın + basıń</string>
+    <string name="general_show_all_action">Barlıǵın kórsetew</string>
     <string name="general_result_success_message">Amal jetiskerli</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s orın bostatıldı.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Tańlawlar</string>
     <string name="general_details_label">Egjeyli maǵlıwmatlar</string>
     <string name="general_view_action">Kóriw</string>
+    <string name="general_open_action">Ashıw</string>
+    <string name="general_configure_action">Sazlaw</string>
     <string name="general_update_action">Jańalaw</string>
     <string name="general_scan_action">Skanerlew</string>
     <string name="general_close_action">Жабу</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d element alıp taslaldı</item>
     </plurals>
     <string name="general_search_action">Izlew</string>
+    <string name="general_search_no_matches">Sáykeslik joq</string>
     <string name="general_open_system_settings_action">Sistema sazlawların ashıw</string>
+    <string name="general_fast_scroller_action">Tez júgiriw paneli</string>
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
         <item quantity="other">%s element</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Xızmetti qosıw</string>
     <string name="general_undo_action">Biykarlaw</string>
     <string name="general_list_select_all_action">Barlıǵın tańlaw</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d tańlangan</item>
+        <item quantity="other">%d tańlangan</item>
+    </plurals>
     <string name="general_path_label">Jol</string>
     <string name="general_type_label">Túr</string>
     <string name="general_size_label">Kólem</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Qáte haqqında xabar beriw</string>
     <string name="general_error_ipc_deadobject_title">Xızmet baylanısı úzildi</string>
     <string name="general_error_ipc_deadobject_description">Mánisli xızmetke (masalan, Magisk, Shizuku, yamasa basqa sistema darajasındaǵı xızmetler) baylanıs kútilmegen túrde úzildi. Qurılmańızdı qayta júklań. Eger máselerni dawam etse, jańartıwlardı tekseriń yamasa mańa ádepki ústinde ózi sheshimni tapıw ushın xabar beriń.</string>
+    <string name="general_error_upgrade_required_title">Pro nusqası kerek</string>
+    <string name="general_error_upgrade_required_description">Bul — Pro mümkinshiligi. Onı paydalanıw ushın SD Maid SE-ni jartılay etip jetilistiriń.</string>
     <string name="general_user_label_owner">Iye</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Qáwip dárejesi</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="appcontrol_systemsettings_open_title">Sazlawlardı kórsetiw</string>
+    <string name="ui_theme_color_sunset_label">Qubılgıw</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Bul mümkinshilik root qatnaswın talap etedi, biraq SD Maid onı bul qurılǵada ala almadı.</string>
+    <string name="access_blocked_root_declined">Bul mümkinshilik root qatnaswın talap etedi. Onı sazlaw ekranınan qosa alasız.</string>
+    <string name="access_blocked_root_or_shizuku">Bul mümkinshilik root yamasa Shizuku qatnaswın talap etedi, olar bul qurılǵada joq.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Jaramsız záxira faylı</string>
+    <string name="backup_restore_error_invalid_body">Bul fayl SD Maidtiń durıs záxirası emes yamasa buzılǵan.</string>
+    <string name="backup_restore_error_version_body">Bul záxira SD Maidtiń jańa nusqasında jasalǵan. Qosımshanı jańalap, qayta urınıń.</string>
+    <string name="backup_restore_error_restore_failed_title">Qayta tiklew sátsiz boldı</string>
+    <string name="backup_restore_error_restore_failed_body">Bul bólekler qayta tiklenbedi: %1$s. Aldınǵı konfiguraciyańız saqlandı hám qayta tiklenip alınadı.</string>
+    <string name="backup_restore_error_safety_title">Qayta tiklew baslanbadı</string>
+    <string name="backup_restore_error_safety_body">SD Maid házirgi konfiguraciyańızdıń qawipsizlik súwretin saqlay almadı, sonlıqtan hesh nárse ózgermedi.</string>
+    <string name="backup_restore_error_busy_title">Kútiń, ótinemiz</string>
+    <string name="backup_restore_error_busy_body">Tazalaw tapsırması yamasa basqa záxiralaw ámeli házir orınlanıp atır. Ol tamamlanǵanda qayta urınıń.</string>
+    <string name="backup_restore_error_schema_title">Sáykes kelmeytuǵın záxira</string>
+    <string name="backup_restore_error_schema_body">Záxiranıń maǵlıwmatlar bazası formatı SD Maidtiń bul nusqasına sáykes kelmeydi. Tariyx maǵlıwmatların qayta tiklew tek birdey qosımsha nusqaları arasında qollab-quwatlanadı.</string>
 </resources>

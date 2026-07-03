@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">İkinci yaddaş, adətən çıxarıla bilən SD kart. Media faylları və onu dəstəkləyən tətbiqlərin məlumatlarını ehtiva edir.</string>
     <string name="analyzer_storage_type_tertiary_title">Portativ yaddaş</string>
     <string name="analyzer_storage_type_tertiary_description">Portativ yaddaş, məsələn USB portunuza qoşulmuş fləş sürücü.</string>
+    <string name="analyzer_storage_identifier_internal">Daxili saxlama</string>
     <string name="analyzer_storage_content_title">Yaddaş məzmunu</string>
     <string name="analyzer_storage_content_type_app_label">Tətbiqlər</string>
     <string name="analyzer_storage_content_type_app_description">Quraşdırılmış tətbiqlər və onların məlumatları tərəfindən tutulan yer (yəni tətbiq faylları, məlumatları və keşləri).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Sistem tətbiqləri və sistem məlumatları. Bu cihazda bir neçə istifadəçi hesabı qurulubsa, digər istifadəçilərin tətbiqləri və məlumatları.</string>
     <string name="analyzer_storage_content_type_system_other_label">Digər</string>
     <string name="analyzer_storage_content_type_system_info">Tətbiqliər və ya İstifadəçi faylları kateqoriyalarına uyğun olmayan fayllar. Yalnız baxış — silinmə dəstəklənmir. Giriş məhdudiyyətləri səbəbindən bəzi sahələr natamam ola bilər.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Faylları onlara sahib olan tətbiqlərlə əlaqələndirmək hazırda mümkün deyil. Ölçülər yalnız istinad üçün göstərilir — silmə, filtrləri və Swiper deaktivdir.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid-in daxil ola bilmədiyi və ya kateqoriyalaşdıra bilmədiyi sistem faylları və digər məlumatlar. Əməliyyat sistemi bəzi sahələrin məzmununu siyahıya almaqı məhdudlaşdırır.</string>
     <string name="analyzer_storage_content_app_code_label">Tətbiq kodu</string>
     <string name="analyzer_storage_content_app_code_description">Tətbiq faylları, kitabxanalar və resurslar. Bu yer tətbiqi silərek və ya arxivləyərək (yeni Android versiyalarında mövcuddur) azad edilə bilər.</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Bu tətbiq \"%2$s\"da %1$s tutur.</string>
     <string name="analyzer_app_details_app_is_archived">Bu tətbiq arxivlənib.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 gündə</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Saxlamanızın nə ilə doldurulmuş olduğunu görün. Analyzer sahənizin harada istifadə olunduğunu göstərir. Bu kartlardan hər biri cihazınızdakı saxlama çipidir.</string>
+    <string name="tour_analyzer_storage_body">Bir saxlamayı açın, onu tətbiqlərə, mediaya və fayllara bölün, sonra ən böyük yer işğal edənləri tapmaq üçün toxunmağa davam edin.</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">خاص رسائی ضروریات والے صارفین اس سروس کو فعال کر سکتے ہیں تاکہ SD Maid کو ایسے کام شامل کرنے کی اجازت دی جا سکے جو بصورت دیگر بوریॅ دستی صارف برقراری کی ضرورت ہوگی (مثل کیش ڈیلیٹ)۔\n\nمثال: اگر آپ SD Maid کو متعدد ایپس بند کرنے کا کہیں تو SD Maid اس سروس کا استعمال کرکے ہر ایپ کی سیٹنگز سکرین کھول سکتا ہے، \'Force Stop\' بٹن تلاش کر سکتا ہے اور اسے ٹیپ کر سکتا ہے۔\n\nSD Maid ہمیشہ اس سروس کا استعمال کرتے وقت نمایاں نظر آئے گا اور صارف کو فوری طور پر کوئی بھی برقراری منسوخ کرنے کا آسان طریقہ فراہم کرے گا۔\n\nبنا صارف کی پیشین منظوری کے کوئی عمل انجام نہیں دیا جائے گا۔ یہ سروس کسی بھی وقت دوبارہ بنا نقصان اثرات کے بند کی جا سکتی ہے۔</string>
     <string name="automation_screenoverlay_explanation">SD Maid آپ کے ڈیوائس کے ساتھ برقراری کر رہا ہے۔ اسی وقت سکرین کا استعمال ممکن نہیں۔ آپریشن مکمل ہونے کا انتظار کریں یا اسے منسوخ کریں۔</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid آپ کے ڈیوائس کے ساتھ تعامل میں ہے۔ ایک ہی وقت میں اسکرین کا استعمال ممکن نہیں ہے۔ کارروائی کے مکمل ہونے تک انتظار کریں، یا منسوخ کرنے کے لیے ہوم بٹن دبائیں۔</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid آپ کے ڈیوائس کے ساتھ تعامل میں ہے۔ ایک ہی وقت میں اسکرین کا استعمال ممکن نہیں ہے۔ کارروائی کے مکمل ہونے تک انتظار کریں۔</string>
     <string name="automation_active_title">SD Maid کام کر رہا ہے</string>
     <string name="automation_error_no_consent_title">آٹومیشن کی خرابی</string>
     <string name="automation_error_no_consent_body">رسائی سروس سیٹ اپ نہیں ہے۔ سیٹ اپ مکمل کریں اور رضامندی دیں۔</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">ایک شیڈول شدہ ٹاسک نے ایکسیسیبلٹی سرویس استعمال کرنے کی کوشش کی، لیکن یہ دستیاب نہیں تھی۔ اگر آپ کو اس کی ضرورت نہیں، تو شیڈولر سیٹنگز میں «ایکسیسیبلٹی سرویس» آپشن کو غیر فعال کریں۔</string>
     <string name="automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
     <string name="automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+    <string name="automation_error_interference_title">سیٹنگز اسکرین مسدود ہے</string>
+    <string name="automation_error_interference_body">ایک اور ایپ (%1$s) سسٹم سیٹنگز کی اسکرین کو روک رہی ہے، اس لیے SD Maid جاری نہیں رہ سکتی۔ اس ایپ کا ایپ لاک یا سسٹم سیٹنگز کی اسکرین حفاظت غیر فعال کریں، پھر دوبارہ کوشش کریں۔</string>
     <string name="automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
     <string name="automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
 </resources>

@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">မသိသော ပိုင်ရှင်</string>
     <string name="corpsefinder_corpse_hint_keeper">ဤအရာသည် ပိုင်ရှင် အက်ပ်ကို ဖြုတ်ထားသော်လည်း သိမ်းထားလိုသော ဒေတာများ ပါဝင်နိုင်သည်၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် အရန်သိမ်းဆည်းမှုများ။</string>
     <string name="corpsefinder_corpse_hint_common">ဤအရာသည် အလွန်အသုံးများသော အမည်ရှိပြီး SD Maid မသိသော ထည့်သွင်းထားဆဲ အက်ပ်များ၏ ပိုင်ဆိုင်မှု ဖြစ်နိုင်သည်။</string>
+    <string name="corpsefinder_risk_keeper_chip">လိုအပ်သော</string>
+    <string name="corpsefinder_risk_common_chip">ပုံမှန်</string>
+    <string name="corpsefinder_markers_dialog_title">ဤအညွှန်းများအကြောင်း</string>
+    <string name="corpsefinder_markers_dialog_normal_label">အညွှန်းမရှိ</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ရိုးရာ အကျန်။ ယေဘုယျအားဖြင့် ဖျက်ရန် လုံခြုံသည် — ဤ ဖိုင်များသည် လွှင့်ထုတ်ပြီးသော app များထံမှ ဖြစ်သည်။</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder သည် သင် ဒီမှာလွှင့်ထုတ်ပြီးသော app များထံမှ ကျန်ရှိသည့် ဒေတာကို ရှာဖွေသည်။ ယင်းသည် ထည့်သွင်းထားသည့် အရာအတွက် အလျှင်းမဖြစ်တည်ခြင်းကြောင့် ၎င်းကို ဖျက်ခြင်းသည် လုံခြုံပြီး နေရာကို လွတ်လပ်စေသည်။</string>
+    <string name="tour_corpsefinder_row_body">အရာတစ်ခုစီသည် ကျန်ရှိသည့် ဒေတာ နှင့် ၎င်းမှ ဖြစ်သည့် app ဖြစ်သည်။ အညွှန်းသည် SD Maid သည် ၎င်းကို ဖျက်ရန် လုံခြုံသည်ဟု မည်မျှ စိတ်ချသည်ကို ပြသသည် — အညွှန်းများ၏ အနက်အဓိပ္ပါယ် သိရှိရန် အပေါ်ရှိ ⓘ ကို နှိပ်ပါ။</string>
 </resources>

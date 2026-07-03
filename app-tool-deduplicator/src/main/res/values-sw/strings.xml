@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Futa nakala zote isipokuwa moja katika kila seti iliyochaguliwa ya faili za nakala?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Futa faili zote katika kila seti iliyochaguliwa ya faili za nakala? Hakuna faili inayobaki!</string>
     <string name="deduplicator_delete_all_toggle_msg">Futa nakala zote. Hakuna faili inayobaki!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Futa nakala %1$d katika seti hii, ukiachilia %2$s? Nakala iliyohifadhiwa inabaki.</item>
+        <item quantity="other">Futa nakala %1$d katika seti hii, ukiachilia %2$s? Nakala iliyohifadhiwa inabaki.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s inaweza kuachiliwa</string>
+    <string name="deduplicator_action_delete_set">Futa seti ya nakala</string>
+    <string name="deduplicator_action_open_preview">Fungua muonekano</string>
+    <string name="deduplicator_marked_for_deletion">Imewekwa alama ya kufutwa</string>
+    <string name="deduplicator_cluster_preview_image">Muonekano wa seti ya nakala</string>
+    <string name="deduplicator_selection_keep_one_required">Angalau faili moja katika kila seti ya nakala lazima ibaki. Washa \"Fanya \'Futa zote\' iwezekane\" katika mipangilio ili kuondoa kizuizi hiki.</string>
     <string name="deduplicator_progress_comparing_files">Inalinganisha faili</string>
     <string name="deduplicator_details_cluster_title">Seti ya nakala</string>
     <string name="deduplicator_matches_exact_label">Nakala kamili</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Pendelea mafaili madogo</string>
     <string name="deduplicator_view_mode_groups_label">Vikundi</string>
     <string name="deduplicator_view_mode_directories_label">Folda</string>
+    <string name="tour_deduplicator_details_cluster_body">Faili hizi zote zinaonekana kuwa kitu kimoja au maudhui sawa ya media, kundi la nakala.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Faili zenye aikoni hii zitafutwa; faili inayobaki katika kundi ndiyo inayohifadhiwa na SD Maid. Unaweza kubadilisha jinsi faili inayohifadhiwa inavyochaguliwa katika mipangilio ya mkakati wa kufuta.</string>
 </resources>

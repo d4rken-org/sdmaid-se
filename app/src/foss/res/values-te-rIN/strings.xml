@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE అప్‌గ్రేడ్ చేయండి</string>
     <string name="upgrades_dashcard_body">అదనపు ఫీచర్లను అన్‌లాక్ చేసి, నిరంతర అభివృద్ధికి మద్దతు ఇవ్వడానికి పేట్రన్ అవ్వండి!</string>
     <string name="upgrades_dashcard_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>
-    <string name="upgrade_screen_title">SD Maid మెరుగుపరచండి</string>
+    <string name="upgrade_screen_title">SD Maidను సపోర్టు చేయండి</string>
     <string name="upgrade_screen_preamble">SD Maid లో ప్రకటనలు లేవు మరియు వినియోగదారు డేటాను అమ్మదు. నిరంతర అభివృద్ధి మీ వల్లనే సాధ్యం.</string>
     <string name="upgrade_screen_how_title">ఎలా సహాయం చేయాలి</string>
     <string name="upgrade_screen_how_body">పేట్రన్ అవ్వండి మరియు అభివృద్ధిని స్పాన్సర్ చేయండి! అన్ని అదనపు ఫీచర్లను యాక్టివేట్ చేయడానికి మరియు నా GitHub Sponsors ప్రొఫైల్‌ను తెరవడానికి దిగువ బటన్‌ను నొక్కండి.</string>
-    <string name="upgrade_screen_why_title">ఇది మ్యాజిక్ చేస్తుంది 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner డిలీట్ ఫంక్షనాలిటీ 💯\n• షెడ్యూల్డ్ ఆపరేషన్స్ ⏰\n• అన్ని టూల్స్ కోసం అదనపు ఆప్షన్స్ ⚙️\n• మీ స్వంత డిలీషన్ రూల్స్ ✍️\n• మోటివేటెడ్ డెవలపర్ 🧙\nమరియు మరిన్ని…</string>
+    <string name="upgrade_screen_why_title">అప్‌గ్రేడ్ ప్రయోజనాలు</string>
+    <string name="upgrade_screen_why_body">• యాప్ కెష్‌లు మరియు వృధా డేటాను శుద్ధి చేయండి\n• డూప్లికేట్ ఫైళ్ళను తీసివేయండి\n• నిర్ధారిత శుద్ధీకరణలను ప్రారంభించండి\n• కస్టమ్ ఫిల్టర్‌లను మరియు శుద్ధీకరణ నియమాలను సృష్టించండి\n• నిల్వ ట్రెండ్‌ల మరియు శుద్ధీకరణ చరిత్రను ట్రాక్ చేయండి\n• యాప్ అంతటా మరిన్ని ఫీచర్‌లు మరియు నియంత్రణలు\n• ఓపెన్-సోర్స్ కార్యకు సపోర్టు చేయండి</string>
     <string name="upgrade_screen_sponsor_action">అభివృద్ధిని స్పాన్సర్ చేయండి</string>
     <string name="upgrade_screen_sponsor_action_hint">ప్రత్యామనాయం ప్రకటనలు, అనలిటిక్స్ మరియు Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ఓపెన్ సోర్స్ అభివృద్ధికి మద్దతు ఇచ్చినందుకు ధన్యవాదాలు ❤️</string>

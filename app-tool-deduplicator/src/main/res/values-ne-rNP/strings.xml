@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">चयन गरिएका डुप्लिकेट फाइलहरूका प्रत्येक सेटमा एक प्रति बाहेक सबै मेटाउनुहुन्छ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">चयन गरिएका डुप्लिकेट फाइलहरूका प्रत्येक सेटमा सबै फाइलहरू मेटाउनुहुन्छ? कुनै फाइल बाँकी रहँदैन!</string>
     <string name="deduplicator_delete_all_toggle_msg">सबै प्रतिहरू मेटाउनुहोस्। कुनै फाइल बाँकी रहँदैन!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">यो समूहमा %1$d डुप्लिकेट हटाउनुहोस्, %2$s मुक्त गर्दै? राखिएको प्रति रहन्छ।</item>
+        <item quantity="other">यो समूहमा %1$d डुप्लिकेटहरू हटाउनुहोस्, %2$s मुक्त गर्दै? राखिएको प्रति रहन्छ।</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s मुक्त गर्न सकिन्छ</string>
+    <string name="deduplicator_action_delete_set">डुप्लिकेट सेट हटाउनुहोस्</string>
+    <string name="deduplicator_action_open_preview">पूर्वावलोकन खोल्नुहोस्</string>
+    <string name="deduplicator_marked_for_deletion">हटाउनको लागि चिह्नित</string>
+    <string name="deduplicator_cluster_preview_image">डुप्लिकेट सेट पूर्वावलोकन</string>
+    <string name="deduplicator_selection_keep_one_required">कम्तिमा एक फाइल प्रत्येक डुप्लिकेट सेटमा रहनु आवश्यक छ। अधिरोह गर्न सेटिङ्समा \"\'सबै मेट्नु\' सम्भव बनाउनुहोस्\" सक्षम गर्नुहोस्।</string>
     <string name="deduplicator_progress_comparing_files">फाइलहरू तुलना गर्दै</string>
     <string name="deduplicator_details_cluster_title">डुप्लिकेटहरूको सेट</string>
     <string name="deduplicator_matches_exact_label">सटीक प्रतिहरू</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">साना फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
     <string name="deduplicator_view_mode_groups_label">समूहहरू</string>
     <string name="deduplicator_view_mode_directories_label">फोल्डरहरू</string>
+    <string name="tour_deduplicator_details_cluster_body">यी सबै फाइलहरू एउटै वस्तु वा मिडिया सामग्री, डुप्लिकेटहरूको समूह जस्तो देखिन्छ।</string>
+    <string name="tour_deduplicator_details_delete_mark_body">यस आइकनको साथ फाइलहरू हटाइनेछन्; समूहमा बाँकी फाइल SD Maid ले राख्ने हो। तपाईं हटाउने रणनीति सेटिङ्समा राख्ने फाइल कसरी छानिन्छ भन्ने परिवर्तन गर्न सक्नुहुन्छ।</string>
 </resources>

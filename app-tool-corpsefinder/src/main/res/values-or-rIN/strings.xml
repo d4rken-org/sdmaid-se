@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">ଅଜଣା ମାଲିକ</string>
     <string name="corpsefinder_corpse_hint_keeper">ଏହି ଆଇଟମ୍ ରେ ଏପରି ଡାଟା ଥାଇପାରେ ଯାହାକୁ ଆପଣ ଏହାର ମାଲିକ ଅନଇନଷ୍ଟଲ୍ ହେଲେ ମଧ୍ୟ ରଖିବାକୁ ଚାହିଁପାରନ୍ତି, ଯଥା ଫଟୋ କିମ୍ବା ବ୍ୟାକଅପ୍।</string>
     <string name="corpsefinder_corpse_hint_common">ଏହି ଆଇଟମ୍ ର ଏକ ବହୁତ ସାଧାରଣ ନାମ ଅଛି ଏବଂ ଏହା SD Maid ଜାଣିନଥିବା ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସର ହୋଇପାରେ।</string>
+    <string name="corpsefinder_risk_keeper_chip">ଇଚ୍ଛନୀୟ</string>
+    <string name="corpsefinder_risk_common_chip">ସାଧାରଣ</string>
+    <string name="corpsefinder_markers_dialog_title">ଏହି ମାର୍କରଗୁଡ଼ିକ ବିଷୟରେ</string>
+    <string name="corpsefinder_markers_dialog_normal_label">ଚିହ୍ନ ନାହିଁ</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ମାନକ ଅବଶେଷ। ସାଧାରଣତଃ ଅପସାରଣ କରିବାକୁ ସୁରକ୍ଷିତ — ଏହି ଫାଇଲଗୁଡ଼ିକ ଅସଂସ୍ଥାପିତ ଆପ୍ୟଗୁଡ଼ିକର।</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ଆପଣ ଏଲେ ଅସଂସ୍ଥାପନ କରିଥିବା ଆପ୍ୟଗୁଡ଼ିକ ଦ୍ଵାରା ଛାଡ଼ିୟାଇଥିବା ଡାଟା ଖୋଜେ। ଏହା ଆଉ ସଂସ୍ଥାପିତ କୌଣସି ଜିନିସ ସହ ସଂୟୁକ୍ତ ନୁହେଁ, ତେଣୁ ଏହା ଅପସାରଣ କରିବା ନିରାପଦ ଏବଂ ସ୍ଥାନ ମୁକ୍ତ କରେ।</string>
+    <string name="tour_corpsefinder_row_body">ପ୍ରତ୍ୟେକ ବିଷୟବସ୍ତୁ ଅବଶେଷ ଡାଟା ଏବଂ ଏହା ୟେଉଞ୍ଚ ଆପ୍ୟରୁ ଆସିଥିଲା। ମାର୍କରଟି ଦେଖାଏ ୟେ SD Maid ଏହା ଅପସାରଣ କରିବା ନିରାପଦ ବୋଲି କେତେ ନିଶ୍ଚିତ — ମାର୍କରଗୁଡ଼ିକର ଅର୍ଥ ଜାଣିବାକୁ ଉପରେ ⓘ ଟ୍ୟାପ କରନ୍ତୁ।</string>
 </resources>

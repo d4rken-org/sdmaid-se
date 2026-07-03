@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">除外管理</string>
     <string name="exclusion_manager_desc">ファイルとアプリの除外を管理します。</string>
-    <string name="exclusion_explanation_body1">SD Maidの操作からファイルとアプリを除外します。</string>
-    <string name="exclusion_add_new_hint">SD Maid検索を許可してから、除外したい結果のコンテキストメニューを使用して新しい除外を追加します。</string>
+    <string name="exclusion_explanation_body1">SD Maidのツールから保護するか、無関係なアイテムをスキップして操作を高速化するために、ファイルとアプリを除外します。</string>
+    <string name="exclusion_add_new_hint">まだ除外がありません。+ボタンを使用して作成するか、任意のツールの結果からアイテムを除外してください。</string>
     <string name="exclusion_create_action">除外を作成</string>
     <string name="exclusion_edit_action">除外を編集</string>
     <string name="exclusion_type_package">除外アプリ</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">除外をエクスポート</string>
     <string name="exclusion_create_pkg_hint">AppControl ツールを使用して、アプリケーションの除外を作成します。</string>
     <string name="exclusion_create_path_hint">ストレージ解析ツールを使用して、パス除外を作成します。</string>
+    <string name="exclusion_create_segment_hint">「DCIM/Camera」のような名前セグメントにマッチします。</string>
     <string name="exclusion_show_defaults_action">デフォルトを表示</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d 除外がインポートされました</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d 除外がエクスポートされました</item>
+    </plurals>
 </resources>

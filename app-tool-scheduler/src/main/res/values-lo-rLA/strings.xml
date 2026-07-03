@@ -34,7 +34,15 @@
     <string name="scheduler_notification_result_title">ຕັວຈັດຕາຣາງເວລາສຳເລີດແລ້ວ</string>
     <string name="scheduler_notification_result_success_message">ງານຕາຣາງເວລາທັງຫມົດທໍາງານສຳເລີດ.</string>
     <string name="scheduler_notification_result_failure_message">ງານຕາຣາງເວລາບາງอັນລ້ວເຫລວ ຫຼືພົບຂໍ້ຜິດພາດ. ລອງທໍາງານດ້ວຍຕນເອງ.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">ຂ້າມໄປ, ໝ້າຈໍປິດຫລືລັອກ.</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ການທຳຄວາມສະອາດແອັບສາມາດຂ້າມໄປໄດ້.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ການທຳຄວາມສະອາດແອັບໃຊ້ການບໍລິການເຂົ້າເຖິງ ເຊິ່ງຕ້ອງການປົດລັອກໝ້າຈໍ. ການແລ່ນທີ່ຕັ້ງຕາຕະລາງໃນຂະໝາທີ່ອຸປະກອນຖືກລັອກຈະຖືກຂ້າມໄປ.\n\nໃຊ້ Shizuku ຫລື root ສຳຫລັບການທຳຄວາມສະອາດໃນພື້ນໝລັງ, ຫລືຕັ້ງຕາຕະລາງມັນສຳລັບເວລາທີ່ທ່ານໃຊ້ອຸປະກອນ.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">ແອັບລະບົບອາດຈະຖືກຂ້າມໄປ.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ທຳຄວາມສະອາດເກືອບສ່ວນໃໝຍໃນພື້ນໝລັງ ແຕ່ແອັບລະບົບຕ້ອງການການບໍລິການເຂົ້າເຖິງ ຊຶ່ງຕ້ອງການປົດລັອກໝ້າຈໍ. ເມື່ອເປິດໃຊ້ \"ລວມແອັບລະບົບ\" ສິ່ງເຫຼັ່ານັ້ນຈະຖືກຂ້າມໄປເມື່ອອຸປະກອນຖືກລັອກ.\n\nປິດ \"ລວມແອັບລະບົບ\" ຫລືແລ່ນຕັ້ງຕາຕະລາງໃນຂະໝາທີ່ປົດລັອກ.</string>
     <string name="scheduler_commands_after_schedule_label">ຄໍາສັ່ງຫຼັງຕາຣາງເວລາ</string>
     <string name="scheduler_commands_after_schedule_desc">ຄໍາສັ່ງ Android shell ທີ່ຈະຖືກທໍາງານໃນຕອນສິ້ນສຸດຂອງຕາຣາງເວລາ.</string>
     <string name="scheduler_battery_optimization_hint">ຄວຣປິດການອະນຸຖານອອປຕິໃໂຊ່ນແບດເຕອີສຳລັບ SD Maid ຖ້າທ່ານພົບປັຍຫາກັບການທໍາງານໃນພື້ນຫລັງ.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid ສາມາດທຳຄວາມສະອາດໄດ້ຕາມຕາຕະລາງ. ເລືອກເວລາ ແລະເຄື່ອງມືໃດທີ່ຈະແລ່ນ, ແລະມັນຈະທຳວີກໃນພື້ນໝລັງ, (ປານຈະ) ບໍ່ຈຳເປັນຕ້ອງເປີດແອັບ.</string>
+    <string name="tour_scheduler_create_body">ແຕະບ່ອນນີ້ເພື່ອສ້າງຕາຕະລາງໃໝ່, ຈາກນັ້ນກຳໝົດວ່າມັນຈະແລ່ນເມື່ອໃດ ແລະເຄື່ອງມືໃດທີ່ຈະລວມ.</string>
 </resources>

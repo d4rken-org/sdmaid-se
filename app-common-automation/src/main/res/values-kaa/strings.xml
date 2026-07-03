@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Arnawlı jetimdilik kereksinishlerge iye paydalanıwshılar bul xızmetdi qosıp, SD Maid qa basqasha qolayız qol menen ótkeriletugın tapsırmalardy avtomatlashtırıwǵa ruxsat bere aladı (mısalı, kesh óshiriw).\n\nMısal: Eger siz SD Maid qa bir neshe qosımshalardy toqtatıwdı buyırsańız, SD Maid bul xızmet arqalı hár bir qosımshanıń sazlamalar ekranın ashıp, \'Májbúriy toqtatıw\' túymesin tabıp, onı basa aladı.\n\nSD Maid bul xızmetdi paydalanǵanda hámme waqıt kórinip turadı hám paydalanıwshıǵa qálegen waqıtta óz-ara tásirlesiw di toqtatıw imkaniyatın beredi.\n\nHesh qanday háreketler paydalanıwshınıń aldın ala ruxsatısız orınlanbaydı. Bul xızmet qálegen waqıtta hesh qanday keri tásirlerdi keltirmesten óshirilip qoyılıwı múmkin.</string>
     <string name="automation_screenoverlay_explanation">SD Maid qurılmańız benen óz-ara tásirleste. Ekrannan bir waqıtta paydalanıw múmkin emes. Ámeliyat tamamlanǵansha kútiń yamasa onı biykar etiń.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid qurılǵańız benen isles atır. Sol waqıtta ekrandı paydalanıw mümkin emes. Ámel tamamlanǵanǵa shekem kútiń, yamasa biykarlaw ushın Úy dúgmesin basıń.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid qurılǵańız benen isles atır. Sol waqıtta ekrandı paydalanıw mümkin emes. Ámel tamamlanǵanǵa shekem kútiń.</string>
     <string name="automation_active_title">SD Maid islep atır</string>
     <string name="automation_error_no_consent_title">Avtomatlashtırıw qátesi</string>
     <string name="automation_error_no_consent_body">Jetimdilik xızmeti ornatılmaǵan. Ornatıwdı tamamlań hám razılıq beriń.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Jaдwallangıan wazıypa ádewsillik xizmetinen paydalanmaı urindı, biraq ol jetkerleksiz edi. Bul kerekli bolmasa, jallaw baplamalaríndagı \"Ádewsillik xizmeti\" tańlamansi taslaw.</string>
     <string name="automation_error_no_settings_title">Parametrler ekranı jetimli emes</string>
     <string name="automation_error_no_settings_body">Bul sistema qosımshasında parametrler ekranı joq. Jetimlilik qullıǵı arqalı keş tazalaw múmkin emes. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
+    <string name="automation_error_interference_title">Sazlamalar ekranı bógetlengen</string>
+    <string name="automation_error_interference_body">Basqa qosımsha (%1$s) sistema sazlamalar ekranın bógetlep atır, sonlıqtan SD Maid dawam ete almaydi. Sol qosımshanıń qulpın yamasa ekran qorǵawın sistema sazlamaları ushın óshiriń, soń qayta urınıń.</string>
     <string name="automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>
     <string name="automation_progress_find_ok_confirmation">Aldıńǵı háreketin tastıyıqlaw ǵáreketi (gilt sözler: %s)</string>
 </resources>

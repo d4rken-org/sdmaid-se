@@ -10,4 +10,16 @@
         <item quantity="other">Wybrano %d ścieżki</item>
     </plurals>
     <string name="picker_home_action">Obszary danych</string>
+    <string name="tour_action_next">Dalej</string>
+    <string name="tour_action_previous">Wstecz</string>
+    <string name="tour_action_done">Zrobione</string>
+    <string name="tour_action_cancel">Pomiń</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Pominąć przewodnik?</string>
+    <string name="tour_confirm_message">Przewodniki możesz ponownie włączyć w dowolnym momencie z Ustawień.</string>
+    <string name="tour_confirm_continue">Kontynuuj przewodnik</string>
+    <string name="tour_confirm_dont_show_this_tour">Nie pokazuj tego przewodnika</string>
+    <string name="tour_confirm_disable_all">Wyłącz wszystkie przewodniki</string>
+    <string name="navigation_unknown_destination_title">Wkrótce</string>
+    <string name="navigation_unknown_destination_message">Ten ekran jest nadal migrowany do nowego interfejsu użytkownika.</string>
 </resources>

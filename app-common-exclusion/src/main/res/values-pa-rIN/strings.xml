@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">ਬਾਹਰੀਕਰਣ ਮੈਨੇਜਰ</string>
     <string name="exclusion_manager_desc">ਫਾਈਲ ਅਤੇ ਐਪ ਬਾਹਰੀਕਰਣ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ।</string>
-    <string name="exclusion_explanation_body1">SD Maid ਦੇ ਕਾਰਜਾਂ ਤੋਂ ਫਾਈਲਾਂ ਅਤੇ ਐਪਾਂ ਨੂੰ ਬਾਹਰ ਰੱਖੋ।</string>
-    <string name="exclusion_add_new_hint">ਪਹਿਲਾਂ SD Maid ਨੂੰ ਖੋਜ ਕਰਨ ਦਿਓ ਅਤੇ ਫਿਰ ਉਸ ਨਤੀਜੇ \'ਤੇ ਪ੍ਰਸੰਗ ਮੀਨੂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਨਵੇਂ ਬਾਹਰੀਕਰਣ ਸ਼ਾਮਲ ਕਰੋ ਜਿਸਨੂੰ ਤੁਸੀਂ ਬਾਹਰ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ।</string>
+    <string name="exclusion_explanation_body1">SD Maid ਦੇ ਸਾਧਨਾਂ ਤੋਂ ਉਨ੍ਹਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਣ ਲਈ ਜਾਂ ਗੈਰ-ਸੰਬੰਧਤ ਆਈਟਮਾਂ ਨੂੰ ਛੱਡਣ ਅਤੇ ਕਾਰਜਾਂ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਫਾਈਲਾਂ ਅਤੇ ਐਪਸ ਨੂੰ ਬਾਹਰ ਰੱਖੋ।</string>
+    <string name="exclusion_add_new_hint">ਅਜੇ ਕੋਈ ਬਾਹਰ ਰੱਖਣਾ ਨਹੀਂ। ਇੱਕ ਬਣਾਉਣ ਲਈ + ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜਾਂ ਕਿਸੇ ਵੀ ਸਾਧਨ ਦੇ ਨਤੀਜਿਆਂ ਵਿੱਚੋਂ ਆਈਟਮਾਂ ਨੂੰ ਬਾਹਰ ਰੱਖੋ।</string>
     <string name="exclusion_create_action">ਬਾਹਰੀਕਰਣ ਬਣਾਓ</string>
     <string name="exclusion_edit_action">ਬਾਹਰੀਕਰਣ ਸੰਪਾਦਿਤ ਕਰੋ</string>
     <string name="exclusion_type_package">ਐਪ ਬਾਹਰੀਕਰਣ</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">ਬਾਹਰੀਕਰਣ ਨਿਰਯਾਤ ਕਰੋ</string>
     <string name="exclusion_create_pkg_hint">ਐਪ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ AppControl ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="exclusion_create_path_hint">ਮਾਰਗ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ StorageAnalyzer ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
+    <string name="exclusion_create_segment_hint">ਨਾਮ ਦੇ ਇੱਕ ਹਿੱਸੇ ਨਾਲ ਮੇਲ ਕਰੋ, ਜਿਵੇਂ \"DCIM/Camera\"।</string>
     <string name="exclusion_show_defaults_action">ਮੂਲ ਦਿਖਾਓ</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d ਬਾਹਰੀਕਰਣ ਆਯਾਤ ਕੀਤਾ ਗਿਆ</item>
+        <item quantity="other">%d ਬਾਹਰੀਕਰਣ ਆਯਾਤ ਕੀਤੇ ਗਏ</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d ਬਾਹਰੀਕਰਣ ਨਿਰਯਾਤ ਕੀਤਾ ਗਿਆ</item>
+        <item quantity="other">%d ਬਾਹਰੀਕਰਣ ਨਿਰਯਾਤ ਕੀਤੇ ਗਏ</item>
+    </plurals>
 </resources>

@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Хэмжээ</string>
     <string name="appcontrol_list_sortmode_screentime_label">Дэлгэцийн цаг</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Гүйцэтгийн шалтгаараас аппын хэмжээг төсөөлдөж тооцолдого. Илүү нарийн өгөгдөлд StorageAnalyzer багажийг ашигла.</string>
+    <string name="appcontrol_list_filteroptions_label">Шүүгах сонгоо</string>
+    <string name="appcontrol_list_fastscroller_action">Хурдан гулсагч</string>
     <string name="appcontrol_progress_uninstalling_app">Аппыг устгаж байна</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d апп устгагдсан</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Суулгасан огно: %s</string>
     <string name="shortcut_appcontrol_short">Апп удирдлага</string>
     <string name="shortcut_appcontrol_long">Суулгасан аппуудыг удирдах</string>
+    <string name="tour_appcontrol_search_body">Апп-ыг нэрээр хайх. Олон апп суулгасан төхөөрөмжид ашиглахад хэрэгтэй.</string>
+    <string name="tour_appcontrol_filter_body">Жагсаалтыг хэрэглэгч/системийн апп, идэвхийг төлөв, сүүлийн үйл ажиллагаа болон бусад зүйлээр нарийсгана. Идэвхтэй шүүлтүүрүүд энд чип хэлбэрээр гарч ирдэг.</string>
+    <string name="tour_appcontrol_sort_body">Апп-уудыг нэр, суулгах огноо, сүүлийн шинэчлэл, хэмжээ, эсвэл экраны цаг хугацаагаар эрэмбэлнэ. Чиглэлийг ергүүлэхийн тулд ижил сонголтыг товшино.</string>
+    <string name="tour_appcontrol_app_row_body">Апп-ын дэлгэрэнгүй мэдээ болон боломжтой үйлдлүүдийг нээхийн тулд апп дээр товшино. Урт дарах замаар сонголтыг эхлүүлж, олон сонголтын үйлдлүүд ашиглана.</string>
 </resources>

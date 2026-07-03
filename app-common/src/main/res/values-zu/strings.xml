@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Ngiyaqonda</string>
     <string name="general_fix_action">Lungisa</string>
     <string name="general_set_up_action">Setha</string>
+    <string name="general_unavailable_label">Akutholakali</string>
     <string name="general_edit_action">Hlela</string>
     <string name="general_na_label">Akutholakali</string>
     <string name="general_empty_label">Akunalutho</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Emgqeni</string>
     <string name="general_progress_deleting">Iyasusa</string>
     <string name="general_progress_deleting_x">Susa %s</string>
+    <string name="general_sort_by_title">Hlunga ngo</string>
     <string name="general_sort_reverse_action">Imodi yokuhlungana okuphambene</string>
+    <string name="general_sort_oldest_first">Omdala kuqala</string>
+    <string name="general_sort_newest_first">Omusha kuqala</string>
+    <string name="general_sort_name_asc">Igama (A → Z)</string>
+    <string name="general_sort_size_desc">Olukhulu kuqala</string>
     <string name="general_tag_system">Uhlelo</string>
+    <string name="general_navigate_up_action">Hamba phezulu</string>
+    <string name="general_filter_action">Hlola</string>
+    <string name="general_filter_by_tags_label">Hlela ngezilebhu</string>
+    <string name="general_filter_add_action">Engeza isifaka</string>
+    <string name="general_filter_remove_x_action">Susa %s isifaka</string>
+    <string name="general_filter_empty_row_hint">Thinta + ukuhlela</string>
+    <string name="general_show_all_action">Bonisa konke</string>
     <string name="general_result_success_message">Kuqedwe ngempumelelo</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Isikhala se-%s sikhululiwe.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Izinketho</string>
     <string name="general_details_label">Imininingwane</string>
     <string name="general_view_action">Buka</string>
+    <string name="general_open_action">Vula</string>
+    <string name="general_configure_action">Lungisa</string>
     <string name="general_update_action">Buyekeza</string>
     <string name="general_scan_action">Scanna</string>
     <string name="general_close_action">Vala</string>
@@ -97,7 +112,9 @@
         <item quantity="other">Izinto ezingu-%d zisusiwe</item>
     </plurals>
     <string name="general_search_action">Sesha</string>
+    <string name="general_search_no_matches">Azikho okufana</string>
     <string name="general_open_system_settings_action">Vula izilungiselelo zesistimu</string>
+    <string name="general_fast_scroller_action">I-scroller esheshile</string>
     <plurals name="result_x_items">
         <item quantity="one">Into eyi-%s</item>
         <item quantity="other">Izinto ezingu-%s</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Nika amandla insizakalo</string>
     <string name="general_undo_action">Hlehlisa</string>
     <string name="general_list_select_all_action">Khetha konke</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d ekhethiwe</item>
+        <item quantity="other">%d ekhethiwe</item>
+    </plurals>
     <string name="general_path_label">Indlela</string>
     <string name="general_type_label">Uhlobo</string>
     <string name="general_size_label">Usayizi</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Bika iphutha</string>
     <string name="general_error_ipc_deadobject_title">Ukuxhuma Kwensizakalo Kulahlekile</string>
     <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
+    <string name="general_error_upgrade_required_title">Inguqulo ye-Pro yenelekile</string>
+    <string name="general_error_upgrade_required_description">Lena inguqulo ye-Pro. Ngiyacela uku-upgrade i-SD Maid SE ukuze ukwazi ukuyisebenzisa.</string>
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Izinga lengozi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="appcontrol_systemsettings_open_title">Bonisa izilungiselelo</string>
+    <string name="ui_theme_color_sunset_label">Kutsha</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Lena inguqulo idinga i-root access, kodwa i-SD Maid ayikwazanga ukuyithola kule device.</string>
+    <string name="access_blocked_root_declined">Lesi feature sidinga ikhona ye-root. Ungalinika nge-setup screen.</string>
+    <string name="access_blocked_root_or_shizuku">Lesi feature sidinga ikhona ye-root noma ye-Shizuku, ayikho kule divisi.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">I-backup file engavumelekile</string>
+    <string name="backup_restore_error_invalid_body">Leli file asilona i-backup ye-SD Maid evumelekile noma lisiphukile.</string>
+    <string name="backup_restore_error_version_body">Le backup yenziwe nge-version entsha ye-SD Maid. Sicela ukhulise i-app bese uzama futhi.</string>
+    <string name="backup_restore_error_restore_failed_title">Ukubuyisela kuhlulekile</string>
+    <string name="backup_restore_error_restore_failed_body">Lezi zinti azinakubuyiswa: %1$s. I-configuration yakho eyedlule isiyigcinile futhi ingabuyiswa.</string>
+    <string name="backup_restore_error_safety_title">Ukubuyisela akuqalile</string>
+    <string name="backup_restore_error_safety_body">I-SD Maid ayikwazanga ukugcina isithombe se-safety se-configuration yakho yamanje, ngakho lutho alushintshwe.</string>
+    <string name="backup_restore_error_busy_title">Sicela ulinde</string>
+    <string name="backup_restore_error_busy_body">Umsebenzi wokusola noma omunye umsebenzi wokubuyela uyaqhubeka njengalokhu. Zama futhi uma kuqedile.</string>
+    <string name="backup_restore_error_schema_title">Okubuyela okungahambisani</string>
+    <string name="backup_restore_error_schema_body">Ifomu ledatabase yokubuyela ayihambelani nale inguqulo ye-SD Maid. Ukubuyela idatha yomlando kusekelwa kuphela phakathi kwezinhlobo zoku-app ezifanayo.</string>
 </resources>

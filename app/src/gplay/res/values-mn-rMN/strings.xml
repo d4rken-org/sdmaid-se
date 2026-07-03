@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Худалдан авалтаа сэргээхийн тулд \"Худалдан авалтыг сэргээх\" сонголтыг ашиглана уу. Асуудал арилахгүй бол Google Play кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro авах</string>
     <string name="upgrade_screen_preamble">SD Maid зар сурталчилгаагүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй. Миний ажлыг та санхүүжүүлдэг ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Давуу талууд</string>
-    <string name="upgrade_screen_benefits_body">• Апп цэвэрлэгээ 💯\n• Төлөвлөсөн үйлдлүүд ⏰\n• Бүх багаж хэрэгсэлд зориулсан нэмэлт сонголтууд ⚙️\n• Өөрийн устгах дүрмүүд ✍️\n• Урам зоригтой хөгжүүлэгч 🧙\nбусад…</string>
+    <string name="upgrade_screen_benefits_title">Шинэчлэлийн ашигууд</string>
+    <string name="upgrade_screen_benefits_body">• Аппын кэш болон устах боломжтой өгөгдлийг цэвэрлэх\n• Давхар файлуудыг хасах\n• Төлөвлөгдсөн цэвэрлэлтийг идэвхжүүлэх\n• Жишиг шүүлтүүр болон цэвэрлэлтийн дүрэм үүсгэх\n• Сан ашиглалтын чиг хандлага болон цэвэрлэлтийн түүхийг хүргүүлэх\n• Аппын бүхэлд нь олон функц болон удирдлага\n• Үргэлжлүүлэн хөгжүүлэхийг дэмжих</string>
     <string name="upgrade_screen_how_title">Сонголтууд</string>
     <string name="upgrade_screen_how_body">Та нэг удаагийн худалдан авалт болон хямд жилийн захиалгын хооронд сонгох боломжтой.\nЗахиалга нь 14 хоногийн үнэ төлбөргүй туршилтаар эхэлдэг бөгөөд үүний дараа танаас жилд нэг удаа төлбөр авна. Туршилт болон захиалгыг хүссэн үедээ цуцалж болно.\nИжил боломжууд, зөвхөн өөр үнийн загварууд.</string>
+    <string name="upgrade_screen_subscription_offer_title">Жилийн захиалга</string>
+    <string name="upgrade_screen_iap_offer_title">Нэг удаа худалдаж авах</string>
+    <string name="upgrade_screen_offer_recommended">Санал болгосон</string>
+    <string name="upgrade_screen_offers_unavailable_message">Үнэ одоо ачаалж чадаагүй байна. Google Play-г шалгаж дахин оролдоно уу.</string>
     <string name="upgrade_screen_subscription_trial_action">14 хоногийн үнэ төлбөргүй туршилт эхлүүлэх</string>
     <string name="upgrade_screen_subscription_action">Захиалах</string>
     <string name="upgrade_screen_subscription_action_hint">Захиалга жилд %s өртөгтэй.</string>

@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Salbuespen-kudeatzailea</string>
     <string name="exclusion_manager_desc">Kudeatu fitxategi eta aplikazio salbuespenak.</string>
-    <string name="exclusion_explanation_body1">Baztertu fitxategiak eta aplikazioak SD Maid-en eragiketetatik.</string>
-    <string name="exclusion_add_new_hint">Gehitu salbuespen berriak lehenik SD Maid-i bilatzen utzi eta ondoren baztertu nahi duzun emaitzaren testuinguru-menua erabiliz.</string>
+    <string name="exclusion_explanation_body1">Baztertu fitxategiak eta aplikazioak SD Maiden tresnetatik babesteko, edo ez garrantzitsua diren elementuak saltatzeko eta eragiketak azkartzeko.</string>
+    <string name="exclusion_add_new_hint">Bazterketarik ez oraindik. Erabili + botoia bat sortzeko, edo elementuak edozein tresnaren emaitzatik baztertzeko.</string>
     <string name="exclusion_create_action">Sortu salbuespena</string>
     <string name="exclusion_edit_action">Editatu salbuespena</string>
     <string name="exclusion_type_package">Aplikazio-salbuespena</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Esportatu salbuespenak</string>
     <string name="exclusion_create_pkg_hint">Erabili AppControl tresna aplikazio-salbuespenak sortzeko.</string>
     <string name="exclusion_create_path_hint">Erabili StorageAnalyzer tresna bide-salbuespenak sortzeko.</string>
+    <string name="exclusion_create_segment_hint">Izena segmentuan batuta, adibidez \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Erakutsi lehenetsiak</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d bazterketa inportatuta</item>
+        <item quantity="other">%d bazterketa inportatuta</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d bazterketa esportatuta</item>
+        <item quantity="other">%d bazterketa esportatuta</item>
+    </plurals>
 </resources>

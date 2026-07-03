@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Menaxheri i përjashtimit</string>
     <string name="exclusion_manager_desc">Menaxho përjashtimet e skedarëve dhe aplikacioneve.</string>
-    <string name="exclusion_explanation_body1">Përjashtoni skedarët dhe aplikacionet nga operacionet e SD Maid.</string>
-    <string name="exclusion_add_new_hint">Shtoni përjashtime të reja duke e lënë fillimisht SD Maid të kërkojë dhe më pas duke përdorur menynë e kontekstit në rezultatin që dëshironi të përjashtoni.</string>
+    <string name="exclusion_explanation_body1">Përjashtojini skedarët dhe aplikacionet për t\'i mbrojtur ato nga mjetet e SD Maid, ose për të anashkaluar artikujt e parëndësishëm dhe për të përshpejtuar operacionet.</string>
+    <string name="exclusion_add_new_hint">Ende nuk ka përjashtime. Përdorni butonin + për të krijuar një, ose përjashtoni artikujt nga rezultatet e ndonjë mjeti.</string>
     <string name="exclusion_create_action">Krijo përjashtim</string>
     <string name="exclusion_edit_action">Redakto përjashtimin</string>
     <string name="exclusion_type_package">Përjashtimi i aplikacionit</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Eksporto përjashtimet</string>
     <string name="exclusion_create_pkg_hint">Përdorni mjetin AppControl për të krijuar përjashtime të aplikacioneve.</string>
     <string name="exclusion_create_path_hint">Përdorni mjetin StorageAnalyzer për të krijuar përjashtime të shtigjeve.</string>
+    <string name="exclusion_create_segment_hint">Përputhni një segment emri, si \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Shfaq parazgjedhjet</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d përjashtim u importua</item>
+        <item quantity="other">%d përjashtime u importuan</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d përjashtim u eksportua</item>
+        <item quantity="other">%d përjashtime u eksportuan</item>
+    </plurals>
 </resources>

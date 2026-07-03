@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Josparlaushı tamamlandı</string>
     <string name="scheduler_notification_result_success_message">Barlıq josparlangan tapshırıqlar tabıslı orınlandı.</string>
     <string name="scheduler_notification_result_failure_message">Bazi josparlangan tapshırıqlar sátsiz bolıp yáki qateler keszikti. Olarıń qoldan orınlag̱anıŋızın sinag̱ıŋ.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Ótkerip jiberildi, ekran óshirilgen yamasa qulıplanǵan edi</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Qosımsha tazalaw ótkerip jiberiliwi mümkin</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Qosımsha tazalaw arnawlı qatnaswı xızmetin qollanadı, oǵan ekrannıń ashıq bolıwı kerek. Qurılǵa qulıplanǵan waqıtta rejelestirilgen orınlanıwlar ótkerip jiberiledi.\n\nFon tazalaw ushın Shizuku yamasa root qollanıń, yamasa onı qurılǵanı paydalanıp atırǵan waqtıńızǵa rejelestiriń.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistema qosımshaları ótkerip jiberiliwi mümkin</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku kóp keshlerdi fonda tazalaydi, biraq sistema qosımshaları arnawlı qatnaswı xızmetin talap etedi, oǵan ekrannıń ashıq bolıwı kerek. “Sistema qosımshaların qosıw” iske qosılǵanda, olar qurılǵa qulıplanǵanda ótkerip jiberiledi.\n\n“Sistema qosımshaların qosıw”-di óshiriń, yamasa rejeni qurılǵa ashıq waqıtta orınlańız.</string>
     <string name="scheduler_commands_after_schedule_label">Josparlaw keŋinen buyrıqlar</string>
     <string name="scheduler_commands_after_schedule_desc">Josparlaw axırında orınlanag̱an Android shell buyrıqları.</string>
     <string name="scheduler_battery_optimization_hint">Fondag̱ı orınlaw menen máséleler bolsa, SD Maid úśin batareya optimizaciyasın óshiriwdi qarastırıŋ.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid reje boyınsha tazalay aladı. Waqıttı hám qaysı qurallardıń isleytuǵının tańlań, sonda ol jumıstı fonda orınlaydı, qosımshanı ashıwdıń derlik keregi joq.</string>
+    <string name="tour_scheduler_create_body">Jańa reje jaratıw ushın mında basıń, soń onıń qashan isleytuǵının hám qaysı qurallardı qamtıytuǵının belgileń.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">கோப்பு வயது (கடைசி மாற்றிய நேரம்) அடிப்படையில் பொருத்தங்களை வரம்பிடு. எந்த வயதிலும் பொருத்த அமைக்காமல் விடவும்.</string>
     <string name="systemcleaner_customfilter_import_action">புதிய வடிகட்டியை இறக்குமதி செய்</string>
     <string name="systemcleaner_customfilter_export_action">தேர்ந்தெடுத்த வடிகட்டியை ஏற்றுமதி செய்</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner பொது வடிப்பிகளைப் பயன்படுத்தி குப்பையைக் கண்டறியும். வெறும் கோப்புறைகள், மீதமுள்ள பதிவுகள் மற்றும் பழைய சிறுபடங்கள் போன்றவற்றுக்கு தயாரான விதிகள் உள்ளன. நீங்கள் உங்கள் சொந்தமாக உருவாக்க விரும்பினால் அமைப்புகளை பார்வையிடவும்.</string>
+    <string name="tour_systemcleaner_filter_body">ஒவ்வொரு வரிசையும் ஒரு வடிப்பி மற்றும் அது கண்டறிந்தது. நீங்கள் எதையும் நீக்குவதற்கு முன் எந்த கோப்புகள் பொருந்துகின்றன என்பதை தெளிவாக பார்க்க அதன் விவரங்களைத் திறக்கவும்.</string>
 </resources>

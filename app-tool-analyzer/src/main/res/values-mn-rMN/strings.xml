@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Хоёрдолгох SD карт зэрэг хүн санаа. Медиа файлууд болон үүнийг дэмжиглэх аппуудын өгөгдөлийг агуулна.</string>
     <string name="analyzer_storage_type_tertiary_title">Зөөвчлэх санаа</string>
     <string name="analyzer_storage_type_tertiary_description">Зөөвчлэх санаа, жишээ нь USB портонд холбосон флэш драйв.</string>
+    <string name="analyzer_storage_identifier_internal">Дотоод сан</string>
     <string name="analyzer_storage_content_title">Хадгалах сангийн агуулга</string>
     <string name="analyzer_storage_content_type_app_label">Аппликешнүүд</string>
     <string name="analyzer_storage_content_type_app_description">Суулагдсан аппууд болон тэдгээрийн хэвийг эзласан зай (өөрөөр хэрэглүүрийн файл, өгөгдөл болон кэш).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Системийн аппууд болон өгөгдөл. Энэ төхөөрөмжт олон харилцааны аппууд болон өгөгдөл, энэ төхөөрөмжт олон хэрэглэгчдийн бүлтгүүд хэрэглэгчийн бүртгэс өгөгдөлдэх аппууд болон өгөгдөл.</string>
     <string name="analyzer_storage_content_type_system_other_label">Бусад</string>
     <string name="analyzer_storage_content_type_system_info">Аппууд эсвэл Хэрэглэгчийн файлуудын ангилалд багтахгүй файлууд. Зөвхөн харах боломжтой — устгах дэмжигдэхгүй. Хандалтын хязгаарлалтаас шалтгаалан зарим хэсэг дутуу байж болно.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Файлуудыг одоо эзэмшдэг апп-тай тохируулж чаддаггүй. Хэмжээ нь зөвхөн лавлагааны хувьд харуулагдаж байна — устгах, шүүлтүүр ба Swiper идэвхгүй байдаг.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid хандаж чадаагүй буюу ангилж чадаагүй системийн файлууд болон бусад өгөгдөл. Үйлдлийн систем зарим хэсгийн агуулгыг жагсаахыг хязгаарладаг.</string>
     <string name="analyzer_storage_content_app_code_label">Аппын код</string>
     <string name="analyzer_storage_content_app_code_description">Аппликацийн файл, номдаллагууд болон нөөц. Аппыг устгах эсвэл архивлахад (шинэ Android хувилбарт боломжтой) зайг чөлөөлж болно.</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Энэ апп \"%2$s\" дээр %1$s езлаад байна.</string>
     <string name="analyzer_app_details_app_is_archived">Энэ апп архивлагдсан.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 хоногт</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Танай санг юу дүүргэж байгаагаа үзнэ үү. Analyzer нь танай зай хаана явж байгаагаа харуулдаг. Эдгээр карт тус бүр нь таны төхөөрөмжийн сан юм.</string>
+    <string name="tour_analyzer_storage_body">Санг нээж апп, медиа ба файл болгон задалж, дараа нь хамгийн их зай эзэлсэн зүйлүүдийг олохын тулд дахин дахин дарна.</string>
 </resources>

@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">ตัวจัดการยกเว้น</string>
     <string name="exclusion_manager_desc">จัดการการยกเว้นไฟล์และแอพ</string>
-    <string name="exclusion_explanation_body1">ยกเว้นไฟล์และแอพจากการดำเนินการของ SD Maid</string>
-    <string name="exclusion_add_new_hint">เพิ่มการยกเว้นใหม่โดยให้ SD Maid ค้นหาก่อน แล้วใช้เมนูบริบทกับผลลัพธ์ที่คุณต้องการยกเว้น</string>
+    <string name="exclusion_explanation_body1">ยกเว้นไฟล์และแอปเพื่อป้องกันจากเครื่องมือของ SD Maid หรือเพื่อข้ามรายการที่ไม่เกี่ยวข้องและเร่งการดำเนินการ</string>
+    <string name="exclusion_add_new_hint">ยังไม่มีการยกเว้น ใช้ปุ่ม + เพื่อสร้าง หรือยกเว้นรายการจากผลลัพธ์ของเครื่องมือใดๆ</string>
     <string name="exclusion_create_action">สร้างการยกเว้น</string>
     <string name="exclusion_edit_action">แก้ไขการยกเว้น</string>
     <string name="exclusion_type_package">การยกเว้นแอพ</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">ส่งออกการยกเว้น</string>
     <string name="exclusion_create_pkg_hint">ใช้เครื่องมือ AppControl เพื่อสร้างการยกเว้นแอพ</string>
     <string name="exclusion_create_path_hint">ใช้เครื่องมือ StorageAnalyzer เพื่อสร้างการยกเว้นเส้นทาง</string>
+    <string name="exclusion_create_segment_hint">จับคู่ส่วนของชื่อ เช่น \"DCIM/Camera\"</string>
     <string name="exclusion_show_defaults_action">แสดงค่าเริ่มต้น</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">นำเข้า %d ข้อยกเว้น</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">ส่งออก %d ข้อยกเว้น</item>
+    </plurals>
 </resources>

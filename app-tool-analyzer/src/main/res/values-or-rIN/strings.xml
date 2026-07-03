@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">ଏକ ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍, ସାଧାରଣତଃ ଏକ ଅପସାରଣ-ଯୋଗ୍ୟ SD card। ଯହିଁରେ ସମର୍ଥିତ ଆପ୍‌ଗୁଡ଼ିକର ମିଡ଼ିଆ ଫାଇଲ୍ ଏବଂ ତଥ୍ୟ ରହିଥାଏ।</string>
     <string name="analyzer_storage_type_tertiary_title">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
     <string name="analyzer_storage_type_tertiary_description">ଏକ ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍, ଯେପରିକି ଆପଣଙ୍କ USB ପୋର୍ଟରେ ଲଗାଯାଇଥିବା ଫ୍ଲାସ୍ ଡ୍ରାଇଭ୍।</string>
+    <string name="analyzer_storage_identifier_internal">ଆଭ୍ୟନ୍ତରୀଣ ସଂଗ୍ରହାଳୟ</string>
     <string name="analyzer_storage_content_title">ଷ୍ଟୋରେଜ୍ ଵିଷୟଵସ୍ତୁ</string>
     <string name="analyzer_storage_content_type_app_label">ଆପ୍ସ</string>
     <string name="analyzer_storage_content_type_app_description">ଇନ୍‌ଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ଏବଂ ସେମାନଙ୍କ ଡାଟା (ଯଥା ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଡାଟା ଏବଂ କ୍ୟାସ୍) ଦ୍ୱାରା ଦଖଲ ହୋଇଥିବା ସ୍ଥାନ।</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">ସିଷ୍ଟମ୍ ଆପ୍ସ ଏବଂ ସିଷ୍ଟମ୍ ଡାଟା। ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କ ଆପ୍ସ ଏବଂ ଡାଟା, ଯଦି ଏହି ଉପକରଣରେ ଅନେକ ଉପଭୋକ୍ତା ଆକାଉଣ୍ଟ ସେଟ୍ ହୋଇଛି।</string>
     <string name="analyzer_storage_content_type_system_other_label">ଅନ୍ୟ</string>
     <string name="analyzer_storage_content_type_system_info">ଯେଉଁ ଫାଇଲଗୁଡ଼ିକ Apps ବା User files ବର୍ଗରେ ପଡ଼େ ନାହିଁ। କେବଳ ଦେଖିହେବ — ବିଲୋପ ସମର୍ଥିତ ନୁହେଁ। ପ୍ରବେଶ ସୀମାବଦ୍ଧତା ହେତୁ କିଛି କ୍ଷେତ୍ର ଅସମ୍ପୂର୍ଣ୍ଣ ହୋଇ ପାରେ।</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ଫାଇଲଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ସେମାନଙ୍କୁ ମାଲିକାନା କରୁଥିବା ଆପ୍ଲିକେଶନଗୁଡ଼ିକ ସହିତ ମିଳିପାରିବେ ନାହିଁ। ଆକାରଗୁଡ଼ିକ କେବଳ ସନ୍ଦର୍ଭ ଭିତ୍ତିରେ ଦେଖାଇ ୟାଇଛି — ଡିଲିଟ, ଫିଲ୍ଟର ଏବଂ Swiper ନିଷ୍କ୍ରିୟ।</string>
     <string name="analyzer_storage_content_type_system_other_desc">ସିଷ୍ଟମ ଫାଇଲ ଓ ଅନ୍ୟ ତଥ୍ୟ ଯାହା SD Maid ଆକ୍ସେସ ବା ବର୍ଗ ନିର୍ଣ୍ଣୟ କରି ପାରି ନାହିଁ। ଅପରେଟିଂ ସିଷ୍ଟମ କିଛି କ୍ଷେତ୍ରର ବିଷୟ ତାଲିକା ଉପରେ ସୀମା ଲଗାଏ।</string>
     <string name="analyzer_storage_content_app_code_label">ଆପ୍ କୋଡ୍</string>
     <string name="analyzer_storage_content_app_code_description">ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଲାଇବ୍ରେରୀ ଏବଂ ରିସୋର୍ସ। ଆପ୍କୁ ଅନ୍‌ଇନ୍‌ଷ୍ଟଲ୍ କରି କିମ୍ବା ଆର୍କାଇଭ୍ କରି (ନୂତନ Android ସଂସ୍କରଣରେ ଉପଲବ୍ଧ) ଏହି ସ୍ଥାନ ମୁକ୍ତ କରାଯାଇପାରିବ।</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ଏହି ଆପ୍ \"%2$s\"ରେ %1$s ଦଖଲ କରିଛି।</string>
     <string name="analyzer_app_details_app_is_archived">ଏହି ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ୭ ଦିନ ମଧ୍ୟରେ</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ଆପଣଙ୍କ ସଂଗ୍ରହାଳୟକୁ ବାସ୍ତବିକ କ\'ଣ ପୂର୍ଣ କରୁଛି ତାହା ଦେଖନ୍ତୁ। Analyzer ଦେଖାଏ ଆପଣଙ୍କ ସ୍ଥାନ କେଉଞ୍ଚକୁ ୟାଏ। ଏହି ପ୍ରତ୍ୟେକ କାର୍ଡ ଆପଣଙ୍କ ଡିଭାଇସରେ ଏକ ସଂଗ୍ରହାଳୟ ଚିପ୍।</string>
+    <string name="tour_analyzer_storage_body">ଏକ ସଂଗ୍ରହାଳୟ ଖୋଲନ୍ତୁ ଏବଂ ଏହାକୁ ଆପ୍ଲିକେଶନ, ମିଡିଆ ଏବଂ ଫାଇଲରେ ବିଭାଜିତ କରନ୍ତୁ, ତାପରେ ସବୁଠାରୁ ବଡ଼ ଦୋଷୀ ଖୋଜିବାକୁ ଟ୍ୟାପିଂ ଜାରୀ ରଖନ୍ତୁ।</string>
 </resources>

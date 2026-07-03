@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">额外的存储空间，通常为外置 SD 卡。包含媒体文件和受支持应用的数据。</string>
     <string name="analyzer_storage_type_tertiary_title">便携式存储</string>
     <string name="analyzer_storage_type_tertiary_description">便携式存储，例如插入 USB 接口的闪存盘。</string>
+    <string name="analyzer_storage_identifier_internal">内部存储</string>
     <string name="analyzer_storage_content_title">存储内容</string>
     <string name="analyzer_storage_content_type_app_label">应用</string>
     <string name="analyzer_storage_content_type_app_description">已安装应用及其数据占用的空间（例如应用文件、数据和缓存）。</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
     <string name="analyzer_storage_content_type_system_other_label">其他</string>
     <string name="analyzer_storage_content_type_system_info">不属于应用或用户文件类别的文件。仅供浏览——不支持删除。由于访问限制，某些区域可能不完整。</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">目前无法将文件匹配到拥有它们的应用。大小仅供参考——删除、过滤和 Swiper 已禁用。</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid 无法访问或分类的系统文件和其他数据。操作系统限制了对某些区域内容的列出。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
     <string name="analyzer_storage_content_app_code_description">应用程序的文件、依赖库和资源。此空间可以通过卸载应用程序或将其存档（在较新的安卓版本上）从而释放。</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">此应用在“%2$s”上占用了 %1$s</string>
     <string name="analyzer_app_details_app_is_archived">此应用已被归档。</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s（7天内）</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">了解实际占用您存储空间的内容。Analyzer 会显示您的存储空间分布情况。这些卡片中的每一个都代表您设备上的一个存储标签。</string>
+    <string name="tour_analyzer_storage_body">打开存储位置以将其细分为应用、媒体和文件，然后继续点击以找出最大的占用者。</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Ulertuta</string>
     <string name="general_fix_action">Konpondu</string>
     <string name="general_set_up_action">Konfiguratu</string>
+    <string name="general_unavailable_label">Ez-eskuragarria</string>
     <string name="general_edit_action">Editatu</string>
     <string name="general_na_label">E/E</string>
     <string name="general_empty_label">Hutsik</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Ilaran</string>
     <string name="general_progress_deleting">Ezabatzen</string>
     <string name="general_progress_deleting_x">%s ezabatzen</string>
+    <string name="general_sort_by_title">Ordenatu honen arabera</string>
     <string name="general_sort_reverse_action">Alderantzizko ordenazio modua</string>
+    <string name="general_sort_oldest_first">Zaharrenak lehenik</string>
+    <string name="general_sort_newest_first">Berrienak lehenik</string>
+    <string name="general_sort_name_asc">Izena (A → Z)</string>
+    <string name="general_sort_size_desc">Handienak lehenik</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Gora joan</string>
+    <string name="general_filter_action">Iragazki</string>
+    <string name="general_filter_by_tags_label">Etiketez iragazki</string>
+    <string name="general_filter_add_action">Iragazki gehitu</string>
+    <string name="general_filter_remove_x_action">Kendu %s iragazki</string>
+    <string name="general_filter_empty_row_hint">Sakatu + iragazkitzeko</string>
+    <string name="general_show_all_action">Denak erakutsi</string>
     <string name="general_result_success_message">Eragiketa arrakastatsua</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s leku askatu da.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Aukerak</string>
     <string name="general_details_label">Xehetasunak</string>
     <string name="general_view_action">Ikusi</string>
+    <string name="general_open_action">Ireki</string>
+    <string name="general_configure_action">Konfiguratu</string>
     <string name="general_update_action">Eguneratu</string>
     <string name="general_scan_action">Eskaneatu</string>
     <string name="general_close_action">Itxi</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d elementu kendu dira</item>
     </plurals>
     <string name="general_search_action">Bilatu</string>
+    <string name="general_search_no_matches">Bat ez datorren emaitzarik</string>
     <string name="general_open_system_settings_action">Sistemaren ezarpenak ireki</string>
+    <string name="general_fast_scroller_action">Jarraitutik bizkorra</string>
     <plurals name="result_x_items">
         <item quantity="one">%s elementu</item>
         <item quantity="other">%s elementu</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Zerbitzua gaitu</string>
     <string name="general_undo_action">Desegin</string>
     <string name="general_list_select_all_action">Denak hautatu</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d hautatua</item>
+        <item quantity="other">%d hautatuak</item>
+    </plurals>
     <string name="general_path_label">Bidea</string>
     <string name="general_type_label">Mota</string>
     <string name="general_size_label">Tamaina</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Errore txostena</string>
     <string name="general_error_ipc_deadobject_title">Zerbitzuaren konexioa galdu da</string>
     <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
+    <string name="general_error_upgrade_required_title">Pro bertsioa beharrezkoa</string>
+    <string name="general_error_upgrade_required_description">Hau Pro ezaugarria da. Mesedez eguneratu SD Maid SE hau erabiltzeko.</string>
     <string name="general_user_label_owner">Jabea</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Konfigurazioa</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Arrisku-maila</string>
     <string name="settings_category_filter">Iragazkia</string>
     <string name="appcontrol_systemsettings_open_title">Erakutsi ezarpenak</string>
+    <string name="ui_theme_color_sunset_label">Ilunabarra</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ezaugarri honek root sarbidea behar du, baina SD Maidek ezin izan du lortu gailu honetan.</string>
+    <string name="access_blocked_root_declined">Ezaugarri hau root sarbidea behar du. Konfigurazio pantailan gaitu dezakezu.</string>
+    <string name="access_blocked_root_or_shizuku">Ezaugarri hau root sarbidea edo Shizuku sarbidea behar du, eta ez daude erabilgarri gailu honetan.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Babeskopia fitxategi baliogabea</string>
+    <string name="backup_restore_error_invalid_body">Fitxategi hau ez da SD Maid-en babeskopia baliozkoa, edo hondatuta dago.</string>
+    <string name="backup_restore_error_version_body">Babeskopia hau SD Maiden bertsio berriagoa sortua da. Eguneratu aplikazioa eta saiatu berriro.</string>
+    <string name="backup_restore_error_restore_failed_title">Leheneratzeak huts egin du</string>
+    <string name="backup_restore_error_restore_failed_body">Zati hauek ezin izan ziren leheneratu: %1$s. Aurretiko konfigurazioa gorde zen eta itzul daiteke.</string>
+    <string name="backup_restore_error_safety_title">Leheneratzea ez da hasi</string>
+    <string name="backup_restore_error_safety_body">SD Maidek ezin izan zuen zure uneko konfigurazio baten babeskopia sortu, beraz ez zen ezer aldatu.</string>
+    <string name="backup_restore_error_busy_title">Itxaron, mesedez</string>
+    <string name="backup_restore_error_busy_body">Garbitze-zeregin bat edo beste babeskopia-eragiketa bat exekutatzen ari da. Saiatu berriro bukatzen denean.</string>
+    <string name="backup_restore_error_schema_title">Bateragarria ez den babeskopia</string>
+    <string name="backup_restore_error_schema_body">Babeskopia-aren datu-basearen formatua ez dator bertsio honekin bat. Historia-datuen berreskurapena bertsio berdinaren artean bakarrik suportatu daiteke.</string>
 </resources>

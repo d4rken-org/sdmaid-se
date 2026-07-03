@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Rejalashtiruvchi tugallandi</string>
     <string name="scheduler_notification_result_success_message">Barcha rejalashtirilgan vazifalar muvaffaqiyatli bajarildi.</string>
     <string name="scheduler_notification_result_failure_message">Ba\'zi rejalashtirilgan vazifalar muvaffaqiyatsiz tugadi yoki xatolarga duch keldi. Ularni qo\'lda ishga tushirishga harakat qiling.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">O\'tkazib yuborildi, ekran o\'chiq yoki qulflangan edi</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Ilova tozalash o\'tkazib yuborilishi mumkin</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Ilova tozalash maxsus imkoniyatlar xizmatidan foydalanadi, bu esa ekran qulfdan chiqarilgan bo\'lishini talab qiladi. Qurilma qulflangan paytda rejalashtirilgan ishlar o\'tkazib yuboriladi.
+
+Fonda tozalash uchun Shizuku yoki root\'dan foydalaning yoki uni qurilmadan foydalanayotgan vaqtingizga rejalashtiring.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Tizim ilovalari o\'tkazib yuborilishi mumkin</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku aksariyat keshlarni fonda tozalaydi, ammo tizim ilovalari maxsus imkoniyatlar xizmatiga muhtoj, bu esa ekran qulfdan chiqarilgan bo\'lishini talab qiladi. \"Tizim ilovalarini qo\'shish\" yoqilgan bo\'lsa, qurilma qulflangan paytda ular o\'tkazib yuboriladi.
+
+\"Tizim ilovalarini qo\'shish\"ni o\'chiring yoki jadvalni qurilma qulfdan chiqarilgan paytda ishga tushiring.</string>
     <string name="scheduler_commands_after_schedule_label">Reja-keyingi buyruqlar</string>
     <string name="scheduler_commands_after_schedule_desc">Reja oxirida bajariladigan Android shell buyruqlari.</string>
     <string name="scheduler_battery_optimization_hint">Agar fon bajarilishida muammolarga duch kelsangiz, SD Maid uchun batareya optimallashtirishlarini o\'chirishni ko\'rib chiqing.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid jadval bo\'yicha tozalashi mumkin. Vaqtni va qaysi vositalar ishlashini tanlang, u fonda ishni bajaradi, ilovani (deyarli) ochish shart emas.</string>
+    <string name="tour_scheduler_create_body">Yangi jadval yaratish uchun shu yerga bosing, so\'ng uning qachon ishlashini va qaysi vositalarni o\'z ichiga olishini sozlang.</string>
 </resources>

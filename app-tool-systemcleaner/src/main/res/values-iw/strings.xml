@@ -104,4 +104,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
     <string name="systemcleaner_customfilter_import_action">ייבא פילטר חדש</string>
     <string name="systemcleaner_customfilter_export_action">ייצא פילטרים נבחרים</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner מוצא זבל באמצעות מסננים שאינם תלויים באפליקציה. קיימים כללים מוכנים מראש לדברים כמו תיקיות ריקות, יומנים שנותרו ותמונות ממוזערות ישנות. בקר בהגדרות אם ברצונך ליצור כללים משלך.</string>
+    <string name="tour_systemcleaner_filter_body">כל שורה היא מסנן ומה שהוא מצא. פתח את הפרטים שלו כדי לראות בדיוק אילו קבצים תואמים לפני שתמחק משהו.</string>
 </resources>

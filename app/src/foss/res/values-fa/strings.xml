@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">منبع‌آزاد</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">ارتقاء SD Maid SE</string>
     <string name="upgrades_dashcard_body">قفل ویژگی های اضافی را باز کنید و برای حمایت از توسعه مداوم، حامی شوید!</string>
     <string name="upgrades_dashcard_upgrade_action">ارتقاء</string>
-    <string name="upgrade_screen_title">بهبود خدمتکار SD</string>
+    <string name="upgrade_screen_title">حمایت از SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid هیچ تبلیغی ندارد و داده‌های کاربران را نمی‌فروشد. توسعه مستمر این برنامه فقط با حمایت شما ممکن است.</string>
     <string name="upgrade_screen_how_title">چگونه کمک کنیم</string>
     <string name="upgrade_screen_how_body">به حامی تبدیل شوید و توسعه را حمایت کنید! برای فعال کردن همه ویژگی‌های اضافی و باز کردن نمایه GitHub Sponsors من، روی دکمه زیر ضربه بزنید.</string>
-    <string name="upgrade_screen_why_title">آری، با این جادو ✨</string>
-    <string name="upgrade_screen_why_body">• پاکسازی برنامه‌ها 💯\n• عملیات زمان‌بندی شده ⏰\n• گزینه‌های اضافی برای همه ابزارها ⚙️\n• قوانین حذف خودتان ✍️\n• یک توسعه‌دهنده انگیزه‌مند 🧙\nو بیشتر...</string>
+    <string name="upgrade_screen_why_title">مزایای ارتقا</string>
+    <string name="upgrade_screen_why_body">• پاک‌سازی حافظهٔ نهان برنامه‌ها و داده‌های قابل حذف\n• حذف فایل‌های تکراری\n• فعال‌سازی پاک‌سازی‌های زمان‌بندی‌شده\n• ایجاد فیلتر و قوانین پاک‌سازی سفارشی\n• پیگیری روند ذخیره‌سازی و تاریخ پاک‌سازی\n• امکانات و کنترل‌های بیشتر در سراسر برنامه\n• حمایت از کار منبع‌باز</string>
     <string name="upgrade_screen_sponsor_action">حامی توسعه دهنده</string>
     <string name="upgrade_screen_sponsor_action_hint">جایگزین تبلیغات، تجزیه و تحلیل و Google Play 🙁 هستند</string>
     <string name="upgrade_screen_thanks_toast">از شما برای حمایت از توسعه منبع باز سپاسگزاریم ❤️</string>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">ଆପଣଙ୍କ କ୍ରୟ ପୁନଃସ୍ଥାପନ କରିବାକୁ \"କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ\" ବିକଳ୍ପ ବ୍ୟବହାର କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଜାରି ରହେ, Google Play କ୍ୟାଶ୍ ସଫା କରିବାକୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ପାଆନ୍ତୁ</string>
     <string name="upgrade_screen_preamble">SD Maid ରେ କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ ଏବଂ ବ୍ୟବହାରକାରୀ ତଥ୍ୟ ବିକ୍ରୟ କରେନାହିଁ। ମୋର କାର୍ଯ୍ୟ ଆପଣଙ୍କ ଦ୍ୱାରା ଅର୍ଥାୟନ ହୋଇଥାଏ ❤️।</string>
-    <string name="upgrade_screen_benefits_title">ସୁବିଧାଗୁଡ଼ିକ</string>
-    <string name="upgrade_screen_benefits_body">• ଆପ୍ ସଫା କରିବା 💯\n• ନିର୍ଧାରିତ କାର୍ଯ୍ୟକ୍ରମ ⏰\n• ସମସ୍ତ ସାଧନ ପାଇଁ ଅତିରିକ୍ତ ବିକଳ୍ପ ⚙️\n• ଆପଣଙ୍କର ନିଜସ୍ୱ ବିଲୋପନ ନିୟମ ✍️\n• ଏକ ପ୍ରେରିତ ଡେଭଲପର୍ 🧙\nଏବଂ ଆହୁରି ଅଧିକ…</string>
+    <string name="upgrade_screen_benefits_title">ଅପଗ୍ରେଡ ସୁବିଧା</string>
+    <string name="upgrade_screen_benefits_body">• ଆପ୍ର ଥଇ ଏବଂ ଅପରିହାର୍ଯ୍ୟ ତଥ୍ୟ ସଫା କରନ୍ତୁ
+• ନକଲ ଫାଇଲ ଅପସାରଣ କରନ୍ତୁ
+• ଅନୁସୂଚୀତ ପରିଷ୍କାରକରଣ ସକ୍ଷମ କରନ୍ତୁ
+• ଅନୁକୂଳିତ ଫିଲ୍ଟର ଏବଂ ପରିଷ୍କାରକରଣ ନିୟମ ତୈରି କରନ୍ତୁ
+• ସଂଚୟନ ପ୍ରବୃତ୍ତି ଏବଂ ପରିଷ୍କାରକରଣ ଇତିହାସ ଦେଖନ୍ତୁ
+• ସାରା ଆପ୍ ମଧ୍ୟରେ ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ନିୟନ୍ତ୍ରଣ
+• ନିରନ୍ତର ବିକାଶ ସମର୍ଥନ କରନ୍ତୁ</string>
     <string name="upgrade_screen_how_title">ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="upgrade_screen_how_body">ଆପଣ ଏକା-ଥରକ କ୍ରୟ ଓ ଶସ୍ତା ବାର୍ଷିକ ସଦସ୍ୟତା ମଧ୍ୟରୁ ଗୋଟିଏ ବାଛିପାରନ୍ତି।\nସଦସ୍ୟତା ଏକ ମାଗଣା ୧୪-ଦିନିଆ ପରୀକ୍ଷଣ ସହିତ ଆରମ୍ଭ ହୁଏ, ଯାହା ସରିବା ପରେ ଆପଣଙ୍କୁ ବର୍ଷକୁ ଥରେ ଚାର୍ଜ କରାଯିବ। ପରୀକ୍ଷଣ ଏବଂ ସଦସ୍ୟତା ଯେକୌଣସି ସମୟରେ ବାତିଲ୍ କରିହେବ।\nବୈଶିଷ୍ଟ୍ୟସବୁ ସମାନ, କେବଳ ଭିନ୍ନ ମୂଲ୍ୟ ଆଧାର କରି ମଡେଲ୍।</string>
+    <string name="upgrade_screen_subscription_offer_title">ବାର୍ଷିକ ଗ୍ରାହକତା</string>
+    <string name="upgrade_screen_iap_offer_title">ଏକ ଥର କିଣନ୍ତୁ</string>
+    <string name="upgrade_screen_offer_recommended">ସୁପାରିଶକୃତ</string>
+    <string name="upgrade_screen_offers_unavailable_message">ମୂଲ୍ୟ ଏଠାରେ ଲୋଡ୍ ହୋଇ ପାରିଲା ନାହିଁ। Google Play ଚେକ କରନ୍ତୁ ଏବଂ ଏକ ମୁହୂର୍ତ୍ତରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="upgrade_screen_subscription_trial_action">୧୪-ଦିନିଆ ମାଗଣା ପରୀକ୍ଷଣ ଆରମ୍ଭ କରିଦେଖନ୍ତୁ</string>
     <string name="upgrade_screen_subscription_action">ସଦସ୍ୟତା</string>
     <string name="upgrade_screen_subscription_action_hint">ସଦସ୍ୟତା ବର୍ଷକୁ %s ହେବ।</string>

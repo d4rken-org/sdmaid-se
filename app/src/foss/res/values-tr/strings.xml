@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE\'yi yükseltin</string>
     <string name="upgrades_dashcard_body">Ek özelliklerin kilidini açın ve sürekli gelişimi desteklemek için bir patron olun!</string>
     <string name="upgrades_dashcard_upgrade_action">Yükselt</string>
-    <string name="upgrade_screen_title">SD Maid\'i geliştirin</string>
+    <string name="upgrade_screen_title">SD Maid\'i Destekle</string>
     <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Sürekli gelişim sadece sizin tarafınızdan mümkün kılınır.</string>
     <string name="upgrade_screen_how_title">Nasıl yardım edilir</string>
     <string name="upgrade_screen_how_body">Patron ol ve gelişime sponsor ol! Tüm ekstra özellikleri etkinleştirmek ve GitHub Sponsorları profilimi açmak için aşağıdaki düğmeyi tıklayın.</string>
-    <string name="upgrade_screen_why_title">Bu çağrıştırıyor 🪄</string>
-    <string name="upgrade_screen_why_body">• Uygulama temizleme işlevi 💯\n• Planlanmış işlemler ⏰\n• Tüm araçlar için ekstra seçenekler ⚙️\n• Kendi silme kurallarınız ✍️\n• Motivasyonlu bir geliştirici 🧙\nve daha fazlası…</string>
+    <string name="upgrade_screen_why_title">Yükseltme Avantajları</string>
+    <string name="upgrade_screen_why_body">• Uygulama önbelleklerini ve gereksiz verileri temizle\n• Yinelenen dosyaları kaldır\n• Zamanlanmış temizlemeleri etkinleştir\n• Özel filtreler ve temizleme kuralları oluştur\n• Depolama eğilimlerini ve temizleme geçmişini takip et\n• Uygulama genelinde daha fazla özellik ve kontrol\n• Açık kaynak çalışmasını destekle</string>
     <string name="upgrade_screen_sponsor_action">Geliştirmeyi destekleyin</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifler reklamlar, analizler ve Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>

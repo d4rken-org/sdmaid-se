@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">साइज</string>
     <string name="appcontrol_list_sortmode_screentime_label">स्क्रिन समय</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">प्रदर्शन कारणहरूले गर्दा App साइजहरू अनुमानित छन्। थप सटीक डेटाका लागि StorageAnalyzer उपकरण प्रयोग गर्नुहोस्।</string>
+    <string name="appcontrol_list_filteroptions_label">फिल्टर विकल्पहरू</string>
+    <string name="appcontrol_list_fastscroller_action">द्रुत स्क्रोलर</string>
     <string name="appcontrol_progress_uninstalling_app">App हटाउँदै</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d अनुप्रयोग अनइन्स्टल गरियो</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">यसमा स्थापित: %s</string>
     <string name="shortcut_appcontrol_short">अनुप्रयोग नियन्त्रण</string>
     <string name="shortcut_appcontrol_long">स्थापित अनुप्रयोगहरू व्यवस्थापन गर्नुहोस्</string>
+    <string name="tour_appcontrol_search_body">नामले एप खोजी गर्नुहोस्। धेरै स्थापित एपहरू भएका उपकरणहरूमा उपयोगी।</string>
+    <string name="tour_appcontrol_filter_body">प्रयोगकर्ता/प्रणाली एपहरू, सक्षम अवस्था, हालैको कार्यकलाप, र अन्य अनुसार सूची फिल्टर गर्नुहोस्। सक्रिय फिल्टरहरू यहाँ चिप्सको रूपमा देखा पर्छन्।</string>
+    <string name="tour_appcontrol_sort_body">नाम, स्थापना मिति, अन्तिम अद्यावधिक, आकार, वा स्क्रिन समय द्वारा एपहरू क्रम गर्नुहोस्। दिशा फ्लिप गर्न एउटै विकल्प ट्याप गर्नुहोस्।</string>
+    <string name="tour_appcontrol_app_row_body">यसको विवरण र उपलब्ध कार्यहरू खोल्न एप ट्याप गर्नुहोस्। चयन सुरु गर्न र बल्क कार्यहरू प्रयोग गर्न लामो दबाउनुहोस्।</string>
 </resources>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Burahin ang lahat maliban sa isang kopya sa bawat napiling set ng mga doble na file?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Burahin ang lahat ng file sa bawat napiling set ng mga doble na file? Walang maiiwan!</string>
     <string name="deduplicator_delete_all_toggle_msg">Burahin ang lahat ng kopya. Walang maiiwan!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Alisin ang %1$d duplicate sa set na ito, na magbibigay ng %2$s? Ang nanatiling kopya ay manatili.</item>
+        <item quantity="other">Alisin ang %1$d duplicates sa set na ito, na magbibigay ng %2$s? Ang nanatiling kopya ay manatili.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s na maaaring burahin</string>
+    <string name="deduplicator_action_delete_set">Burahin ang duplicate set</string>
+    <string name="deduplicator_action_open_preview">Buksan ang preview</string>
+    <string name="deduplicator_marked_for_deletion">Markado para sa pagbabura</string>
+    <string name="deduplicator_cluster_preview_image">Paunang tingnan ng duplicate set</string>
+    <string name="deduplicator_selection_keep_one_required">Dapat na manatili ang kahit isang file sa bawat duplicate set. I-enable ang \"Make \'Delete all\' possible\" sa settings upang ma-override.</string>
     <string name="deduplicator_progress_comparing_files">Naghahambing ng mga file</string>
     <string name="deduplicator_details_cluster_title">Set ng mga doble</string>
     <string name="deduplicator_matches_exact_label">Eksaktong mga kopya</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Mas gusto ang mas maliliit na file</string>
     <string name="deduplicator_view_mode_groups_label">Mga grupo</string>
     <string name="deduplicator_view_mode_directories_label">Mga folder</string>
+    <string name="tour_deduplicator_details_cluster_body">Ang lahat ng mga file na ito ay parang iisang item o media content, isang cluster ng mga duplicate.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Ang mga file na may icon na ito ay ide-delete; ang natitirang file sa grupo ay ang file na pinapanatili ng SD Maid. Maaari mong baguhin kung paano pipiliin ang file sa deletion strategy settings.</string>
 </resources>

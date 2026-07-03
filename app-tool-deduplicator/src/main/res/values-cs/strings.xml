@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Smazat všechny kopie kromě jedné v každé vybrané sadě duplicitních souborů?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Smazat všechny soubory v každé vybrané sadě duplicitních souborů? Žádný soubor nezůstane!</string>
     <string name="deduplicator_delete_all_toggle_msg">Smazat všechny kopie. Žádný soubor nezůstane!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Odstranit %1$d duplikát v této sadě, uvolnit %2$s? Udržená kopie zůstane.</item>
+        <item quantity="few">Odstranit %1$d duplikáty v této sadě, uvolnit %2$s? Udržená kopie zůstane.</item>
+        <item quantity="many">Odstranit %1$d duplikátů v této sadě, uvolnit %2$s? Udržená kopie zůstane.</item>
+        <item quantity="other">Odstranit %1$d duplikátů v této sadě, uvolnit %2$s? Udržená kopie zůstane.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s k uvolnění</string>
+    <string name="deduplicator_action_delete_set">Smazat sadu duplikátů</string>
+    <string name="deduplicator_action_open_preview">Otevřít náhled</string>
+    <string name="deduplicator_marked_for_deletion">Označeno k smazání</string>
+    <string name="deduplicator_cluster_preview_image">Náhled sady duplikátů</string>
+    <string name="deduplicator_selection_keep_one_required">V každé sadě duplikátů musí zůstat alespoň jeden soubor. Povolte v nastavení „Umožnit smazat vše“ pro přepsání.</string>
     <string name="deduplicator_progress_comparing_files">Porovnávání souborů</string>
     <string name="deduplicator_details_cluster_title">Sady duplikátů</string>
     <string name="deduplicator_matches_exact_label">Přesné kopie</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Upřednostnit menší soubory</string>
     <string name="deduplicator_view_mode_groups_label">Skupiny</string>
     <string name="deduplicator_view_mode_directories_label">Složky</string>
+    <string name="tour_deduplicator_details_cluster_body">Tyto soubory se všechny zdají být stejnou položkou nebo mediálním obsahem, shluk duplikátů.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Soubory s touto ikonou budou smazány; zbývající soubor ve skupině je ten, který si SD Maid ponechá. Způsob výběru ponechávaného souboru můžete změnit v nastavení strategie mazání.</string>
 </resources>

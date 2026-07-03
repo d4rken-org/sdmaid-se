@@ -36,6 +36,17 @@
         <item quantity="one">%d óákveðinn hlutur verður eftir til yfirferðar síðar.</item>
         <item quantity="other">%d óákveðnir hlutir verða eftir til yfirferðar síðar.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Þessi lota beinist að heilu geymslurúmi — eyðing hér spannar allar möppur á þeirri geymslu.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…og %d fleiri mappa</item>
+        <item quantity="other">…og %d fleiri möppur</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Ég skil að þessum skrám verður eytt varanlega.</string>
+    <string name="swiper_sensitive_root_warning_title">Skanna alla geymslu?</string>
+    <string name="swiper_sensitive_root_warning_message">Skönnun %1$s felur í sér allar skrár á þessari geymslu — myndir, skjöl, niðurhal, forritamiðlun og fleira. Halda áfram?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Halda áfram engu að síður</string>
+    <string name="swiper_session_risky_label">Skönnun á allri geymslu</string>
+    <string name="swiper_session_risky_info_message">Þessi umferð miðar á rót geymslurýmis, þannig að allar skrár á þeirri geymslu eru innan sviðs — myndir, skjöl, niðurhal, forritamiðlun og fleira.\n\nSkönnun á allri geymslu getur skilað mörgum hlutum, þar með talið skrám sem þú gætir ekki haft ætlað þer að endurskoða. Notaðu afmörkun skráarteg. til að þrængja skönnunina.</string>
     <string name="swiper_delete_x_action">Eyða %1$d</string>
     <string name="swiper_settings_swap_directions_title">Skipta um strjúkuáttir</string>
     <string name="swiper_settings_swap_directions_summary">Strjúktu til vinstri til að halda, til hægri til að eyða.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Sláðu inn nafn á þessari lotu</string>
     <string name="swiper_sessions_current_sessions">Núverandi lotur</string>
     <string name="swiper_session_paths_label">Slóðir</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…og %d til viðbótar</item>
+        <item quantity="other">…og %d til viðbótar</item>
+    </plurals>
     <string name="swiper_session_status_label">Staða</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d til að halda</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Síað: %1$s</string>
     <string name="swiper_session_no_matching_files">Engar samsvarandi skrár fundust</string>
     <string name="swiper_open_externally_action">Opna í utanaðkomandi forriti</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Strjúktu mynd til að ákveða örlög hennar: Til hliðar til að halda eða eyða, upp til að sleppa, niður til að afturkalla. Takkarnir hér að neðan gera það sama — og sýna hvaða hlið er hvað.</string>
+    <string name="tour_swiper_openin_body">Þessi takki opnar myndina í öðru forriti, hentugt til að athuga hana áður en ákveðið er.</string>
+    <string name="tour_swiper_preview_body">Þessi takki opnar forskoðun á fullum skjá fyrir nánari skoðun.</string>
+    <string name="tour_swiper_actions_body">Líkar ekki að strjúka? Við erum með takka líka! Sleppa skilur þetta eftir óákveðið fyrir seinna, og löng þrýsting á Sleppa útilokar skrá frá komandi skönnunum. Afturkalla afturkallar síðasta val þitt.</string>
+    <string name="tour_swiper_review_body">Haldbær og eyðingarval þín eru aðeins til skoðunar. Opnaðu Yfirlit til að yfirfara þaú og framkvæma eyðingarnar þgar þú ert tilbúin.</string>
 </resources>

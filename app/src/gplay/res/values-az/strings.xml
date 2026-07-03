@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Alışınızı bərpa etmək üçün \"Alışı bərpa et\" seçimindən istifadə edin. Problem davam edərsə, Google Play keşini təmizləyin və cihazınızı yenidən başladın.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro əldə edin</string>
     <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Mənim işim sizin tərəfinizdən maliyyələşdirilir ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Üstünlüklər</string>
-    <string name="upgrade_screen_benefits_body">• Tətbiq təmizləmə 💯\n• Planlaşdırılmış əməliyyatlar ⏰\n• Bütün alətlər üçün əlavə seçimlər ⚙️\n• Öz silmə qaydalarınız ✍️\n• Motivasiyalı tərtibatçı 🧙\nvə daha çox…</string>
+    <string name="upgrade_screen_benefits_title">Yüksəltmə üstünlükləri</string>
+    <string name="upgrade_screen_benefits_body">• Tətbiq keşləri və tələb olunmayan məlumatları təmizləyin\n• Təkrarlanan faylları silin\n• Planlaşdırılmış təmizləmələri aktivləşdirin\n• Xüsusi filtrlər və təmizləmə qaydaları yaradın\n• Saxlama tendensiyalarını və təmizləmə tarixçəsini izləyin\n• Tətbiq daxilində daha çox xüsusiyyət və nəzarət\n• Davamlı inkişafı dəstəkləyin</string>
     <string name="upgrade_screen_how_title">Seçimlər</string>
     <string name="upgrade_screen_how_body">Siz birdəfəlik alış və daha ucuz illik abunə arasında seçim edə bilərsiniz.\nAbunə pulsuz 14 günlük sınaq ilə başlayır, bundan sonra ildə bir dəfə ödəniş edəcəksiniz. Sınaq və abunə istənilən vaxt ləğv edilə bilər.\nEyni xüsusiyyətlər, sadəcə fərqli qiymət modelləri.</string>
+    <string name="upgrade_screen_subscription_offer_title">İllik abonəlik</string>
+    <string name="upgrade_screen_iap_offer_title">Bir dəfə al</string>
+    <string name="upgrade_screen_offer_recommended">Tövsiyə edilən</string>
+    <string name="upgrade_screen_offers_unavailable_message">Qiymətlər hazırda yüklənə bilmədi. Google Play-ı yoxlayın və bir az sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_subscription_trial_action">Pulsuz 14 günlük sınağa başlayın</string>
     <string name="upgrade_screen_subscription_action">Abunə olun</string>
     <string name="upgrade_screen_subscription_action_hint">Abunə ildə %s başa gəlir.</string>

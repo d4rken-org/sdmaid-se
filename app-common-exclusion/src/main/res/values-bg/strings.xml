@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Мениджър на изключения</string>
     <string name="exclusion_manager_desc">Управление на изключения на файлове и приложения.</string>
-    <string name="exclusion_explanation_body1">Изключете файлове и приложения от операциите на SD Maid.</string>
-    <string name="exclusion_add_new_hint">Добавете нови изключения, като първо оставите SD Maid да търси и след това използвайте контекстното меню върху резултата, който искате да изключите.</string>
+    <string name="exclusion_explanation_body1">Изключете файлове и приложения, за да ги защитите от инструментите на SD Maid, или прескочете неуместни елементи и ускорете операциите.</string>
+    <string name="exclusion_add_new_hint">Все още няма изключвания. Използвайте бутона +, за да създадете едно, или изключете елементи от резултатите на който и да е инструмент.</string>
     <string name="exclusion_create_action">Създаване на изключение</string>
     <string name="exclusion_edit_action">Редактиране на изключение</string>
     <string name="exclusion_type_package">Изключване на приложение</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Експортиране на изключения</string>
     <string name="exclusion_create_pkg_hint">Използвайте инструмента AppControl за създаване на изключения за приложения.</string>
     <string name="exclusion_create_path_hint">Използвайте инструмента StorageAnalyzer за създаване на изключения за пътища.</string>
+    <string name="exclusion_create_segment_hint">Съвпадение с част от името, напр. „DCIM/Camera“.</string>
     <string name="exclusion_show_defaults_action">Показване на стандартните</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d изключване е импортирано</item>
+        <item quantity="other">%d изключвания са импортирани</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d изключване е експортирано</item>
+        <item quantity="other">%d изключвания са експортирани</item>
+    </plurals>
 </resources>

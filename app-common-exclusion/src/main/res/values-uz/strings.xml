@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Chiqarish menejeri</string>
     <string name="exclusion_manager_desc">Fayl va ilova chiqarishlarini boshqarish.</string>
-    <string name="exclusion_explanation_body1">Fayllar va ilovalarni SD Maid operatsiyalaridan chiqarib tashlash.</string>
-    <string name="exclusion_add_new_hint">Avval SD Maid ni qidirishga ruxsat berish, so\'ngra chiqarmoqchi bo\'lgan natijada kontekst menyusidan foydalanish orqali yangi chiqarishlarni qo\'shing.</string>
+    <string name="exclusion_explanation_body1">Fayllar va ilovalarni SD Maid vositalaridan himoyalash uchun yoki ahamiyatsiz elementlarni o\'tkazib yuborib amallarni tezlashtirish uchun istisno qiling.</string>
+    <string name="exclusion_add_new_hint">Hozircha istisnolar yo\'q. Yangisini yaratish uchun + tugmasidan foydalaning yoki istalgan vosita natijalaridan elementlarni istisno qiling.</string>
     <string name="exclusion_create_action">Chiqarishni yaratish</string>
     <string name="exclusion_edit_action">Chiqarish tahriri</string>
     <string name="exclusion_type_package">Ilova chiqarishi</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Chiqarishlarni eksport qilish</string>
     <string name="exclusion_create_pkg_hint">Ilova chiqarishlarini yaratish uchun AppControl vositasidan foydalaning.</string>
     <string name="exclusion_create_path_hint">Yo\'l chiqarishlarini yaratish uchun StorageAnalyzer vositasidan foydalaning.</string>
+    <string name="exclusion_create_segment_hint">Nom bo\'lagiga mos keladi, masalan \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Standartlarni ko\'rsatish</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d ta istisno import qilindi</item>
+        <item quantity="other">%d ta istisno import qilindi</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d ta istisno eksport qilindi</item>
+        <item quantity="other">%d ta istisno eksport qilindi</item>
+    </plurals>
 </resources>

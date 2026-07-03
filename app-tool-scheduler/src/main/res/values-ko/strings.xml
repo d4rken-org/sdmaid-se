@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">스케쥴 완료</string>
     <string name="scheduler_notification_result_success_message">스케줄된 모든 작업을 성공적으로 완료했습니다.</string>
     <string name="scheduler_notification_result_failure_message">일부 예약된 작업이 실패했거나 오류가 발생했습니다. 수동으로 실행해 보세요.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">건너뜀, 화면이 꺼져 있거나 잠김</string>
+    <string name="scheduler_acs_screenlocked_hint_title">앱 정리가 건너뛰어질 수 있습니다</string>
+    <string name="scheduler_acs_screenlocked_hint_body">앱 정리는 접근성 서비스를 사용하며, 화면이 잠금 해제된 상태에서만 작동합니다. 기기가 잠금 상태에서 실행되는 예약된 정리는 건너뜁니다.
+
+백그라운드 정리를 위해 Shizuku 또는 루트를 사용하거나, 기기를 사용할 때 예약하세요.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">시스템 앱이 건너뛰어질 수 있습니다</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku는 대부분의 캐시를 백그라운드에서 정리하지만, 시스템 앱은 접근성 서비스가 필요하며 화면이 잠금 해제된 상태에서만 작동합니다. \"시스템 앱 포함\"이 켜져 있으면 기기가 잠금 상태일 때 건너뜁니다.
+
+\"시스템 앱 포함\"을 끄거나, 화면이 잠금 해제된 상태에서 예약을 실행하세요.</string>
     <string name="scheduler_commands_after_schedule_label">일정 후 명령</string>
     <string name="scheduler_commands_after_schedule_desc">일정이 끝날 때 실행되는 Android shell 명령입니다.</string>
     <string name="scheduler_battery_optimization_hint">이 기능이 제대로 작동하려면 SD Maid에 대한 배터리 최적화를 비활성화해야 할 수 있습니다.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid는 일정에 따라 정리할 수 있습니다. 시간과 실행할 도구를 선택하면 백그라운드에서 작동하며 앱을 거의 열 필요가 없습니다.</string>
+    <string name="tour_scheduler_create_body">여기를 눌러 새로운 일정을 만든 다음, 언제 실행되고 어떤 도구를 포함할지 설정하세요.</string>
 </resources>

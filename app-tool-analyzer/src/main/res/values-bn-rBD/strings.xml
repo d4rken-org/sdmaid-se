@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">একটি সেকেন্ডারি স্টোরেজ, সাধারণত একটি অপসারণযোগ্য SD কার্ড৷ এটি সমর্থন করে এমন অ্যাপ থেকে মিডিয়া ফাইল এবং ডেটা রয়েছে।</string>
     <string name="analyzer_storage_type_tertiary_title">পোর্টেবল স্টোরেজ</string>
     <string name="analyzer_storage_type_tertiary_description">একটি পোর্টেবল স্টোরেজ, যেমন একটি ফ্ল্যাশ ড্রাইভ আপনার ইউএসবি পোর্টে প্লাগ করা হয়েছে.</string>
+    <string name="analyzer_storage_identifier_internal">অভ্যন্তরীণ স্টোরেজ</string>
     <string name="analyzer_storage_content_title">স্টোরেজ উপাদান</string>
     <string name="analyzer_storage_content_type_app_label">অ্যাপ</string>
     <string name="analyzer_storage_content_type_app_description">ইনস্টল করা অ্যাপ এবং তাদের ডেটা (যেমন অ্যাপ্লিকেশন ফাইল, ডেটা এবং ক্যাশে) দ্বারা স্থান দখল করা।</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">সিস্টেম অ্যাপস এবং সিস্টেম ডেটা। এই ডিভাইসে একাধিক ব্যবহারকারীর অ্যাকাউন্ট সেট করা থাকলে অন্যান্য ব্যবহারকারীর অ্যাপ এবং ডেটা।</string>
     <string name="analyzer_storage_content_type_system_other_label">অন্যান্য</string>
     <string name="analyzer_storage_content_type_system_info">ফাইলগুলি যা Apps বা User files বিভাগে পড়ে না। শুধুমাত্র ব্রাউজ করুন — মুছে ফেলা সমর্থিত নয়। অ্যাক্সেস সীমাবদ্ধতার কারণে কিছু এলাকা অসম্পূর্ণ হতে পারে।</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">এখন ফাইলগুলি তাদের মালিক অ্যাপগুলির সাথে মেলানো যায় না। আকারগুলি শুধুমাত্র রেফারেন্সের জন্য দেখানো হয় — মুছে ফেলা, ফিল্টার এবং Swiper অক্ষম করা হয়েছে।</string>
     <string name="analyzer_storage_content_type_system_other_desc">সিস্টেম ফাইল এবং অন্যান্য ডেটা যা SD Maid অ্যাক্সেস করতে বা শ্রেণীবদ্ধ করতে পারেনি। অপারেটিং সিস্টেম কিছু এলাকার বিষয়বস্তু তালিকাভুক্ত করা সীমাবদ্ধ করে।</string>
     <string name="analyzer_storage_content_app_code_label">অ্যাপ কোড</string>
     <string name="analyzer_storage_content_app_code_description">অ্যাপ্লিকেশন ফাইল, লাইব্রেরি এবং সম্পদ. অ্যাপটি আনইনস্টল করে বা আর্কাইভ করে (নতুন Android সংস্করণে উপলব্ধ) এই স্থানটি খালি করা যেতে পারে।</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">এই অ্যাপটি \"%2$s\" এ %1$s দখল করে।</string>
     <string name="analyzer_app_details_app_is_archived">এই অ্যাপটি আর্কাইভ করা হয়েছে।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ৭ দিনে</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">আপনার স্টোরেজ আসলে কী দ্বারা পূর্ণ হচ্ছে তা দেখুন। Analyzer আপনার স্পেস কোথায় যায় তা ম্যাপ করে। এই কার্ডগুলির প্রতিটি আপনার ডিভাইসের একটি স্টোরেজ চিপ।</string>
+    <string name="tour_analyzer_storage_body">একটি স্টোরেজ খুলুন এটিকে অ্যাপ, মিডিয়া এবং ফাইলে ভেঙে ফেলতে, তারপর সবচেয়ে বড় অপরাধীদের ট্র্যাক করতে ট্যাপ করতে থাকুন।</string>
 </resources>

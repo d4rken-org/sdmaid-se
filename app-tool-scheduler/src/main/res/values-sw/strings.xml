@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Mpangaji umemaliza</string>
     <string name="scheduler_notification_result_success_message">Kazi zote zilizopangwa zimetekelezwa kwa mafanikio.</string>
     <string name="scheduler_notification_result_failure_message">Baadhi ya kazi zilizopangwa zimeshindwa au zimekutana na makosa. Jaribu kuzitekeleza kwa mkono.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Imerukwa, skrini ilikuwa imezimwa au imefungwa</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Usafishaji wa programu unaweza kurukwa</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Usafishaji wa programu hutumia huduma ya ufikivu, ambayo inahitaji skrini ifunguliwe. Miendesho iliyopangwa wakati kifaa kimefungwa hurukwa.
+
+Tumia Shizuku au root kwa usafishaji wa nyuma ya pazia, au uipange kwa wakati unapotumia kifaa.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Programu za mfumo zinaweza kurukwa</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku husafisha akiba nyingi nyuma ya pazia, lakini programu za mfumo zinahitaji huduma ya ufikivu, ambayo inahitaji skrini ifunguliwe. Ikiwa \"Jumuisha programu za mfumo\" imewashwa, hizo hurukwa wakati kifaa kimefungwa.
+
+Zima \"Jumuisha programu za mfumo\", au endesha ratiba wakati skrini imefunguliwa.</string>
     <string name="scheduler_commands_after_schedule_label">Amri za baada ya ratiba</string>
     <string name="scheduler_commands_after_schedule_desc">Amri za shell za Android ambazo zitatekelezwa mwishoni mwa ratiba.</string>
     <string name="scheduler_battery_optimization_hint">Fikiria kuzima maboresho ya betri kwa SD Maid ikiwa unakutana na matatizo ya utekelezaji wa mandharinyuma.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid inaweza kusafisha kwa ratiba. Chagua wakati na zana zipi za kuendesha, na itafanya kazi nyuma ya pazia, (karibu) bila haja ya kufungua programu.</string>
+    <string name="tour_scheduler_create_body">Gusa hapa kuunda ratiba mpya, kisha weka ni lini itaendeshwa na zana zipi za kujumuisha.</string>
 </resources>

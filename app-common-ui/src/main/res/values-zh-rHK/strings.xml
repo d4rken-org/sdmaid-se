@@ -7,4 +7,16 @@
         <item quantity="other">已選擇 %d 個路徑</item>
     </plurals>
     <string name="picker_home_action">資料區域</string>
+    <string name="tour_action_next">下一步</string>
+    <string name="tour_action_previous">上一步</string>
+    <string name="tour_action_done">完成</string>
+    <string name="tour_action_cancel">跳過</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">跳過導引參觀？</string>
+    <string name="tour_confirm_message">您可以隨時從設定重新啟用導引參觀。</string>
+    <string name="tour_confirm_continue">繼續導引參觀</string>
+    <string name="tour_confirm_dont_show_this_tour">不要顯示此導引參觀</string>
+    <string name="tour_confirm_disable_all">停用所有導引參觀</string>
+    <string name="navigation_unknown_destination_title">即將推出</string>
+    <string name="navigation_unknown_destination_message">此畫面仍在移轉至新使用者介面。</string>
 </resources>

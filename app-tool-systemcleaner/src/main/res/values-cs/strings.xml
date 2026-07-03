@@ -104,4 +104,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Omezit shodu podle stáří souboru (naposledy upraveno). Pro jakékoliv stáří nenastavujte.</string>
     <string name="systemcleaner_customfilter_import_action">Importovat nový filtr</string>
     <string name="systemcleaner_customfilter_export_action">Exportovat vybraný filtr</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">Nástroj SystemCleaner hledá nepotřebné soubory pomocí obecných filtrů. Existují připravená pravidla pro věci jako prázdné složky, zbytečné protokoly a zastaralé miniatury. Navštivte nastavení, pokud si chcete vytvořit vlastní.</string>
+    <string name="tour_systemcleaner_filter_body">Každý řádek představuje filtr a jeho výsledky. Otevřete podrobnosti a podívejte se, které soubory se shodují, než je odstraníte.</string>
 </resources>

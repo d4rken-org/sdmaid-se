@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Сонгосон давхардах файлуудын бүлгт нэг нэг нэг файлас бусдыг устгах уу?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Сонгосон давхардах файлуудын бүл файлыг устгах уу? Нэг нэг файл үлдэхгүй!</string>
     <string name="deduplicator_delete_all_toggle_msg">Бүх копийг устгах. Нэг нэг файл үлдэхгүй!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Энэ багцаас %1$d давхардлыг устгахуу? %2$s сувалжүүлэнэ. Үлдсэн хуулбар хэвээр үлдэнэ.</item>
+        <item quantity="other">Энэ багцаас %1$d давхардлуудыг устгахуу? %2$s сувалжүүлэнэ. Үлдсэн хуулбар хэвээр үлдэнэ.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s чөлөвтүүлж болох</string>
+    <string name="deduplicator_action_delete_set">Давхардсан сэтийг устгах</string>
+    <string name="deduplicator_action_open_preview">Урьдчилсан дүрсийг нээх</string>
+    <string name="deduplicator_marked_for_deletion">Устгахаар тэмдэглэгдсэн</string>
+    <string name="deduplicator_cluster_preview_image">Давхардсан сэтийн урьдчилсан дүрс</string>
+    <string name="deduplicator_selection_keep_one_required">Давхардсан сэт бүрээс дор хаяж нэг файл үлдэх ёстой. Үүнийг өөрчлөхийн тулд тохиргооны хэсэгт «Бүгдийг устгахыг боломжтой болгох» сонголтыг идэвхжүүлнэ.</string>
     <string name="deduplicator_progress_comparing_files">Файлуудыг харьцуулж байна</string>
     <string name="deduplicator_details_cluster_title">Давхардах файлын багц</string>
     <string name="deduplicator_matches_exact_label">Ян копиууд</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Жижиг файлыг эрхүлээх</string>
     <string name="deduplicator_view_mode_groups_label">Бүлгүүд</string>
     <string name="deduplicator_view_mode_directories_label">Фолдерууд</string>
+    <string name="tour_deduplicator_details_cluster_body">Эдгээр файлууд нь ижил зүйл эсвэл медиа контент шиг харагдаж байна, давхардсан кластер юм.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Энэ дүрстэй файлууд устгагдах болно; бүлэгт үлдсэн файл нь SD Maid-ийн хадгалсан файл юм. Та устгах стратегийн тохиргооны хэсэгт хадгалагчийг сонгох аргаа өөрчилж болно.</string>
 </resources>

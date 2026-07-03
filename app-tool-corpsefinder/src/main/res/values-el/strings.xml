@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Άγνωστος ιδιοκτήτης</string>
     <string name="corpsefinder_corpse_hint_keeper">Αυτό το στοιχείο μπορεί να περιέχει δεδομένα που θέλετε να διατηρήσετε παρά την απεγκατάσταση του κατόχου του, π.χ. φωτογραφίες ή αντίγραφα ασφαλείας.</string>
     <string name="corpsefinder_corpse_hint_common">Αυτό το στοιχείο έχει ένα πολύ κοινό όνομα και θα μπορούσε να ανήκει σε ακόμα εγκατεστημένες εφαρμογές που η SD Maid δεν γνωρίζει.</string>
+    <string name="corpsefinder_risk_keeper_chip">Επιθυμητό</string>
+    <string name="corpsefinder_risk_common_chip">Κοινό</string>
+    <string name="corpsefinder_markers_dialog_title">Σχετικά με αυτούς τους δείκτες</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Χωρίς δείκτη</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Τυπικά υπολείμματα. Γενικώς ασφαλή για αφαίρεση — αυτά τα αρχεία ανήκουν σε εφαρμογές που δεν είναι πλέον εγκατεστημένες.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">Η Εύρεση υπολειμμάτων βρίσκει δεδομένα που έχουν μείνει από εφαρμογές που έχετε ήδη απεγκαταστήσει. Δεν ανήκει πλέον σε κάτι που είναι εγκατεστημένο, επομένως η αφαίρεσή του είναι ασφαλής και ελευθερώνει χώρο.</string>
+    <string name="tour_corpsefinder_row_body">Κάθε στοιχείο είναι υπολειπόμενα δεδομένα και η εφαρμογή από την οποία προέρχεται. Ο δείκτης δείχνει πόσο σίγουρο είναι το SD Maid ότι είναι ασφαλές να αφαιρεθεί — πατήστε το ⓘ στην κορυφή για να μάθετε τι σημαίνουν οι δείκτες.</string>
 </resources>

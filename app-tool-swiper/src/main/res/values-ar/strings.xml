@@ -56,6 +56,21 @@
         <item quantity="many">%d عنصرًا لم يُقرر بشأنه سيبقى للمراجعة لاحقًا.</item>
         <item quantity="other">%d عنصر لم يُقرر بشأنه سيبقى للمراجعة لاحقًا.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">تستهدف هذه الجلسة وحدة تخزين كاملة — الحذف هنا يشمل كل مجلد على هذا التخزين.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="zero">…و%d مجلد آخر</item>
+        <item quantity="one">…و%d مجلد آخر</item>
+        <item quantity="two">…و%d مجلدين آخرين</item>
+        <item quantity="few">…و%d مجلدات أخرى</item>
+        <item quantity="many">…و%d مجلد آخر</item>
+        <item quantity="other">…و%d مجلد آخر</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">أنا أفهم أن هذه الملفات سيتم حذفها بشكل دائم.</string>
+    <string name="swiper_sensitive_root_warning_title">مسح التخزين بالكامل؟</string>
+    <string name="swiper_sensitive_root_warning_message">يتضمن مسح %1$s كل ملف على هذا التخزين — صور ومستندات وتنزيلات ووسائط تطبيقات والمزيد. هل تريد المتابعة؟</string>
+    <string name="swiper_sensitive_root_warning_continue_action">تابع على أي حال</string>
+    <string name="swiper_session_risky_label">مسح التخزين بالكامل</string>
+    <string name="swiper_session_risky_info_message">تستهدف هذه الجلسة جذر وحدة تخزين، لذا فإن كل ملف على هذا التخزين يقع ضمن النطاق — صور ومستندات وتنزيلات ووسائط تطبيقات والمزيد.\n\nيمكن لمسح التخزين الكامل أن يرجع عدداً من العناصر، بما في ذلك الملفات التي قد لا تكون قد قصدت مراجعتها. طبق مرشح نوع الملف لتضييق نطاق المسح.</string>
     <string name="swiper_delete_x_action">حذف %1$d</string>
     <string name="swiper_settings_swap_directions_title">تبديل اتجاهات التمرير</string>
     <string name="swiper_settings_swap_directions_summary">مرر لليسار للاحتفاظ، لليمين للحذف.</string>
@@ -115,6 +130,14 @@
     <string name="swiper_session_rename_hint">أدخل اسمًا لهذه الجلسة</string>
     <string name="swiper_sessions_current_sessions">الجلسات الحالية</string>
     <string name="swiper_session_paths_label">المسارات</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="zero">…و %d آخر</item>
+        <item quantity="one">…و %d آخر</item>
+        <item quantity="two">…و %d آخران</item>
+        <item quantity="few">…و %d أخرى</item>
+        <item quantity="many">…و %d آخر</item>
+        <item quantity="other">…و %d آخر</item>
+    </plurals>
     <string name="swiper_session_status_label">الحالة</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="zero">%d للاحتفاظ</item>
@@ -204,4 +227,10 @@
     <string name="swiper_file_type_filter_summary">تمت التصفية: %1$s</string>
     <string name="swiper_session_no_matching_files">لم يتم العثور على ملفات مطابقة</string>
     <string name="swiper_open_externally_action">فتح في تطبيق خارجي</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">امسح صورة لتحديد مصيرها: جانباً للاحتفاظ أو الحذف، لأعلى للتخطي، لأسفل للتراجع. تفعل الأزرار أدناه الشيء ذاته — وتوضح أي جانب هو أي جانب.</string>
+    <string name="tour_swiper_openin_body">هذا الزر يفتح الصورة في تطبيق آخر، مفيد للتحقق منها قبل الاختيار.</string>
+    <string name="tour_swiper_preview_body">هذا الزر يفتح معاينة ملء الشاشة لإلقاء نظرة أقرب.</string>
+    <string name="tour_swiper_actions_body">لا تفضل المسح بالإصبع؟ لدينا أزرار أيضاً! تخطي يتركها غير محددة لوقت لاحق، والضغط لفترة طويلة على تخطي يستبعد الملف من الفحوصات المستقبلية. التراجع يعيد اختيارك الأخير.</string>
+    <string name="tour_swiper_review_body">خياراتك في الاحتفاظ والحذف مرحلية فقط. افتح المراجعة لمراجعتها وتطبيق الحذف عندما تكون مستعداً.</string>
 </resources>

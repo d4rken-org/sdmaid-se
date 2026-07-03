@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">బహిష్కరణ మ్యానేజర్</string>
     <string name="exclusion_manager_desc">ఫైల్ మరియు యాప్ బహిష్కరణలను నిర్వహించండి.</string>
-    <string name="exclusion_explanation_body1">SD Maid ఆపరేషన్‌ల నుంచి ఫైల్‌లు మరియు యాప్‌లను బహిష్కరించండి.</string>
-    <string name="exclusion_add_new_hint">ముందు SD Maid ను వెతకడానికి అనుమతించి, ఆ తరువాత మీరు బహిష్కరించాలనుకునే ఫలితంలో కంటెక్స్ట్ మెనును ఉపయోగించి కొత్త బహిష్కరణలను చేర్చండి.</string>
+    <string name="exclusion_explanation_body1">SD Maid సాధనాల నుండి ఫైళ్ళు మరియు యాప్‌లను రక్షించటానికి లేదా సంబంధం లేని అంశాలను దాటిపోవటానికి మరియు కార్యకలాపాలను వేగవంతం చేయటానికి వాటిని మినహాయించండి.</string>
+    <string name="exclusion_add_new_hint">ఇంకా మినహాయింపులు లేవు. ఒకటి సృష్టించటానికి + బటన్‌ను ఉపయోగించండి, లేదా ఏదైనా సాధనం ఫలితాల నుండి అంశాలను మినహాయించండి.</string>
     <string name="exclusion_create_action">బహిష్కరణను సృష్టించండి</string>
     <string name="exclusion_edit_action">బహిష్కరణను ఎడిట్ చేయండి</string>
     <string name="exclusion_type_package">యాప్ బహిష్కరణ</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">బహిష్కరణలను ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="exclusion_create_pkg_hint">యాప్ బహిష్కరణలను సృష్టించడానికి AppControl టూల్‌ను ఉపయోగించండి.</string>
     <string name="exclusion_create_path_hint">పాథ్ బహిష్కరణలను సృష్టించడానికి StorageAnalyzer టూల్‌ను ఉపయోగించండి.</string>
+    <string name="exclusion_create_segment_hint">పేరు సెగ్మెంట్‌ను సరిపోల్చండి, \"DCIM/Camera\" వంటిది.</string>
     <string name="exclusion_show_defaults_action">డిఫాల్ట్‌లను చూపించండి</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d మినహాయన దిగుమతి చేయబడింది</item>
+        <item quantity="other">%d మినహాయనలు దిగుమతి చేయబడ్డాయి</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d మినహాయన ఎగుమతి చేయబడింది</item>
+        <item quantity="other">%d మినహాయనలు ఎగుమతి చేయబడ్డాయి</item>
+    </plurals>
 </resources>

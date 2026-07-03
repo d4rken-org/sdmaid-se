@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">ဒုတိယ သိုလှောင်မှု၊ ပုံမှန် ဖယ်ရှားနိုင်သော SD ကတ်။ မီဒီယာဖိုင်များနှင့် ထောက်ပံ့ပိုးသော အပ်ပ်များတာ် ဒေတာ ပါဝင်သည်။</string>
     <string name="analyzer_storage_type_tertiary_title">သယ်ဆောင်နိုင်သော သိုလှောင်မှု</string>
     <string name="analyzer_storage_type_tertiary_description">သယ်ဆောင်နိုင်သော သိုလှောင်မှု၊ ဥပမာ - USB port တွင် တပ်ဆင်ထားသော flash drive။</string>
+    <string name="analyzer_storage_identifier_internal">အတွင်းပိုင်းသိုလှောင်ခန်း</string>
     <string name="analyzer_storage_content_title">သိုလှောင်မှု အကြောင်အရာ</string>
     <string name="analyzer_storage_content_type_app_label">အပ်ပ်များ</string>
     <string name="analyzer_storage_content_type_app_description">ထည့်သွင်းထားသော အပ်ပ်များနှင့် ဒေတာ (application ဖိုင်များ၊ ဒေတာနှင့် cache များ) မှ လွှမ်းမိုးသော နေရာ။</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">စနစ်အပ်ပ်များနှင့် စနစ်ဒေတာ။ ဤကိရိယာတွင် အသုံးပြု အကောင်အည်းများစွာ သတ်မှတ်ထားလျှင် အခြားအသုံးပြုသူများမှ အပ်ပ်များနှင့် ဒေတာ။</string>
     <string name="analyzer_storage_content_type_system_other_label">အခြား</string>
     <string name="analyzer_storage_content_type_system_info">Apps သို့မဟုတ် အသုံးပြုသူဖိုင်များ အမျိုးအစားများတွင် မကိုက်ညီသော ဖိုင်များ။ ကြည့်ရှုရန်သာ — ဖျက်ခြင်းကို ပံ့ပိုးမထားပါ။ ဝင်ရောက်ခွင့် ကန့်သတ်ချက်များကြောင့် အချို့နေရာများ မပြည့်စုံနိုင်ပါ။</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ဖိုင်များကိုလက်ရှိတွင်သူတို့ကိုပိုင်ဆိုင်သည့်အက်ပ်များ၏အခြေအနေတွင်ကိုက်ညီအောင်ခွင့်မပြုနိုင်ပါ။ အရွယ်အစားများကိုကိုးကားခြင်းအတွက်သာပြသည်။ ဖျက်ခြင်း၊စစ်ထုတ်များနှင့် Swiper တို့ကိုပိတ်ထားသည်။</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid ဝင်ရောက်၍ မရသော သို့မဟုတ် အမျိုးအစားခွဲ၍ မရသော စနစ်ဖိုင်များနှင့် အခြားဒေတာ။ ကွန်ပျူတာ စစ်ဆင်ရေး စနစ်သည် အချို့နေရာများ၏ အကြောင်းအရာများကို ကြည့်ရှုခွင့် ကန့်သတ်ထားသည်။</string>
     <string name="analyzer_storage_content_app_code_label">အပ်ပ် ကုဒ်</string>
     <string name="analyzer_storage_content_app_code_description">Application ဖိုင်များ၊ library များနှင့် အရင်းအမြစ်များ။ ဤနေရာကို အပ်ပ်ကို ဖြုတ်ချပြီး သို့မဟုတ် မြှုပ်သိမ်းခြင်းဖြင့် (Android ဗားရှင်းအသစ်တွင် ရနိုင်သည်) ရှင်းလင်းနိုင်သည်။</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ဤအက်ပ်သည် \"%2$s\" တွင် %1$s ယူထားသည်။</string>
     <string name="analyzer_app_details_app_is_archived">ဤအက်ပ်ကို မှတ်တမ်းတင်ထားသည်။</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ၇ ရက်အတွင်း</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">သင်၏သိုလှောင်ခန်းအားအမှန်တကယ်ဖြည့်သွင်းစေသည့်အရာများကိုကြည့်ပါ။ Analyzer သည်သင်၏နေရာကြေးခြင်းအားမြေပုံဆွဲသည်။ ဤကဒ်များတစ်ခုစီသည်သင်၏စက်ပစ္စည်းတွင်သိုလှောင်ခန်းခွဲခြင်းတစ်ခုဖြစ်သည်။</string>
+    <string name="tour_analyzer_storage_body">သိုလှောင်ခန်းတစ်ခုကိုဖွင့်၍အက်ပ်များ၊ မီဒီယာ နှင့်ဖိုင်များဖြင့်ခွဲခြမ်းစိတ်ဖြာပါ။ ထို့နောက်နေရာအများဆုံးခွဲခြုံစုံလင်သောအရာများရှာဖွေရန်အဆက်အစပ်ထိုးတွန်းပါ။</string>
 </resources>

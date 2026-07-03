@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">ልዩ የተደራሽነት ፍላጎቶች ያላቸው ተጠቃሚዎች SD Maidን ያለዚያ ደካማ የእጅ ተጠቃሚ ጣልቃ ገብነት የሚፈልጉ ተግባራትን (ለምሳሌ የመሸፈኛ ስረዛ) ራሱን እንዲያደርግ ለመፍቀድ ይህንን አገልግሎት ማስቻል ይችላሉ።\n\nምሳሌ: SD Maidን ብዙ መተግበሪያዎችን እንዲያቆም ካዘዙ ማለት SD Maid ይህንን አገልግሎት ለመጠቀም የእያንዳንዱን መተግበሪያ ቅንብሮች ማያ ሊከፍት፣ \'በግዳጅ አቁም\' ቁልፍን ሊያገኝና ሊነካው ይችላል።\n\nSD Maid ይህንን አገልግሎት በሚጠቀምበት ጊዜ ሁልጊዜ በግልጽ ያሳያል እንዲሁም ተጠቃሚው ማንኛውንም ጣልቃ ገብነት ወዲያውኑ ለመተው ቀላል መንገድ ይሰጣል።\n\nያለቀደሙ የተጠቃሚ ፍቃድ ምንም ተግባራት አይከናወኑም። ይህ አገልግሎት ያለምንም አሉታዊ ውጤቶች በማንኛውም ጊዜ እንደገና ሊሰናከል ይችላል።</string>
     <string name="automation_screenoverlay_explanation">SD Maid ከመሣሪያዎ ጋር እየተገናኘ ነው። በተመሳሳይ ጊዜ ማያውን መጠቀም አይቻልም። ተግባሩ እስከሚጠናቀቅ ይጠብቁ ወይም ይሰርዙት።</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid ከመሣሪያዎ ጋር እየተገናኘ ነው። በተመሳሳይ ጊዜ ማያውን መጠቀም አይቻልም። ተግባሩ እስከሚጠናቀቅ ይጠብቁ ወይም ተግባሩን ለመሰወር Home ቁልፍን ይጫኑ።</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid ከመሣሪያዎ ጋር እየተገናኘ ነው። በተመሳሳይ ጊዜ ማያውን መጠቀም አይቻልም። ተግባሩ እስከሚጠናቀቅ ይጠብቁ።</string>
     <string name="automation_active_title">SD Maid በመስራት ላይ ነው</string>
     <string name="automation_error_no_consent_title">የራሳዊነት ስህተት</string>
     <string name="automation_error_no_consent_body">ተደራሽነት አገልግሎት አልተቀናጀም። ማዋቀሪያውን ያጠናቅቁና ስምምነት ይስጡ።</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">የቀጠሮ ተግባር ተደራሽነት አገልግሎቱን ለመጠቀም ሞከረ፣ ነገር ግን አልተገኘም። ይህ ካላስፈለገዎ፣ የቀጠሮ ቅንብሮች ውስጥ \"ተደራሽነት አገልግሎት\" አማራጩን ያሰናክሉ።</string>
     <string name="automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
     <string name="automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="automation_error_interference_title">ቅንቅ ማያ ታግዷል</string>
+    <string name="automation_error_interference_body">ሌላ መተግበሪያ (%1$s) የስርዓት ቅንቅን ማያ እያገደ ነው፣ ስለዚህ SD Maid መቀጠል አይችልም። የዚያ መተግበሪያ app-lock ወይም የማያ ጥበቃን ለስርዓት ቅንቅ ያሳጥሩ፣ ከዚያ እንደገና ይሞክሩ።</string>
     <string name="automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
     <string name="automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
 </resources>

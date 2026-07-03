@@ -37,7 +37,19 @@
     <string name="scheduler_notification_result_title">Планіроўшчык завяршыў працу</string>
     <string name="scheduler_notification_result_success_message">Усе запланаваныя задачы паспяхова выкананы.</string>
     <string name="scheduler_notification_result_failure_message">Некаторыя запланаваныя задачы не выкананы або пры іх выкананні ўзніклі памылкі. Паспрабуйце запусціць іх уручную.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Пропушчана, экран быў выключаны або заблакіраваны</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Чыстка прыложэнняў можа быць пропушчана</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Чыстка прыложэнняў выкарыстоўвае сэрвіс адступнасці, які патрабуе разблакавання экрана. Заплаланаваныя запускі, пакуль прыстасаванне заблакіравана, пропускаюцца.
+
+Выкарыстоўвайце Shizuku або root для фонавай чыстццы, ці заплануйце яе на час, калі вы карыстаецеся прыстасаваннем.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Сістэмныя прыложэнні могуць быць пропушчаны</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku чыстіць большасць кэшаў на фоне, але сістэмныя прыложэнні патрабуюць сэрвіса адступнасці, які патрабуе разблакавання экрана. Калі ўключэна опцыя \"Уключыць сістэмныя прыложэнні\", яны пропускаюцца, калі прыстасаванне заблакіравана.
+
+Выключыце опцыю \"Уключыць сістэмныя прыложэнні\" ці запусціце распісанне, пакуль экран разблакаваны.</string>
     <string name="scheduler_commands_after_schedule_label">Каманды пасля раскладу</string>
     <string name="scheduler_commands_after_schedule_desc">Каманды сістэмы Android, якія будуць выкананы пасля раскладу.</string>
     <string name="scheduler_battery_optimization_hint">Падумайце аб адключэнні аптымізацыі батарэі для SD Maid, калі ў вас узніклі праблемы з фонавым выкананнем.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid можа чысціць па распісанню. Выберыце час і якія інструменты запускаць, і яна выконвае работу на фоне, (практычна) няма неабходнасці адчыняць прыложэнне.</string>
+    <string name="tour_scheduler_create_body">Дакраніцеся тут, каб стварыць новае распісанне, потым задайце, калі яно запускаецца, і якія інструменты уключыць.</string>
 </resources>

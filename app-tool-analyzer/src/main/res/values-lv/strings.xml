@@ -30,6 +30,7 @@
     <string name="analyzer_storage_type_secondary_description">Sekundārā krātuve, parāsti nōninamā SD karte. Satur multivides failus un datus no lietotnēm, kas to atbalsta.</string>
     <string name="analyzer_storage_type_tertiary_title">Pārnosāmā krātuve</string>
     <string name="analyzer_storage_type_tertiary_description">Pārnosāmā krātuve, piem., zibatmiņa, kas pievienota USB portam.</string>
+    <string name="analyzer_storage_identifier_internal">Iekšējā krātuve</string>
     <string name="analyzer_storage_content_title">Krātuves saturs</string>
     <string name="analyzer_storage_content_type_app_label">Lietotnes</string>
     <string name="analyzer_storage_content_type_app_description">Instalēto lietotnes un to datu aizņemtais vieta (t.i., lietotnes faili, dati un kešatmiņas).</string>
@@ -40,6 +41,7 @@
     <string name="analyzer_storage_content_type_system_description">Sistēmas lietotnes un sistēmas dati. Citu lietotāju lietotnes un dati, ja šajā ierīcē ir uzstādīti vairāki lietotāja konti.</string>
     <string name="analyzer_storage_content_type_system_other_label">Cits</string>
     <string name="analyzer_storage_content_type_system_info">Faili, kas neietilpst kategorijās Lietotnes vai Lietotāja faili. Tikai pārlūkošana — dzēšana netiek atbalstīta. Dažas jomas var būt nepilnīgas piekļušanas ierobežojumu dēļ.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Failus pašlaik nevar saskaņot ar to lietotnēm, kurām tie pieder. Izmēri tiek rādīti tikai informācijai — dzēšana, filtri un Swiper ir atspējoti.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistēmas faili un citi dati, kuriem SD Maid nevarēja piekļūt vai tos kategorizēt. Operētājsistēma ierobežo dažu apgabalu satura uzskaitīšanu.</string>
     <string name="analyzer_storage_content_app_code_label">Lietotnes kods</string>
     <string name="analyzer_storage_content_app_code_description">Lietotnes faili, bibliotēkas un resursi. Šo vietu var atbrīvot, atinstalējot lietotni vai arhivējot to (pieejams jaunākās Android versijās).</string>
@@ -52,4 +54,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 dienās</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Apskatiet, kas patiesībā aizņem jūsu krātuvi. Analyzer parāda, kur tiek izmantota jūsu vieta. Katra no šīm kartītēm ir krātuves čips jūsu ierīcē.</string>
+    <string name="tour_analyzer_storage_body">Atveriet krātuvi, lai sadalītu to lietotņu, multivides un failu kategorijās, pēc tam turpiniet pieskarties, lai atrastu lielos vietas patērētājus.</string>
 </resources>

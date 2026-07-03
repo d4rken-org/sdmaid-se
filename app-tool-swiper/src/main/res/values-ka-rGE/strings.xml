@@ -36,6 +36,19 @@
         <item quantity="one">%d გადაუწყვეტელი ელემენტი დარჩება მოგვიანებით გადასახედად.</item>
         <item quantity="other">%d გადაუწყვეტელი ელემენტი დარჩება მოგვიანებით გადასახედად.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ეს სესია ეხება მთელი საცავის მოცულობას — აქ წაშლა ვრცელდება ამ საცავის ყველა ფოლდერზე.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…და %d მეტი ფოლდერი</item>
+        <item quantity="other">…და %d მეტი ფოლდერი</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">მესმის, რომ ეს ფაილები სამუდამოდ წაიშლება.</string>
+    <string name="swiper_sensitive_root_warning_title">მთელი საცავის სკანირება?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s-ის სკანირება მოიცავს ამ საცავის ყველა ფაილს — ფოტოებს, დოკუმენტებს, ჩამოტვირთვებს, აპის მედიას და სხვა. გაგრძელდეს?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">მაინც გაგრძელდეს</string>
+    <string name="swiper_session_risky_label">მთელი საცავის სკანირება</string>
+    <string name="swiper_session_risky_info_message">ეს სესია მიმართულია საცავის ფესვებისკენ, ამიტომ ამ საცავის ყველა ფაილი სკანირების ფარგლებში მოხვდება — ფოტოები, დოკუმენტები, ჩამოტვირთვები, აპის მედია და სხვა.
+
+მთელი საცავის სკანირება შეიძლება დაბრუნდეს ბევრი ელემენტი, მათ შორის ფაილები, რომლებიც ალბათ არ გსურთ გადახედვა. გამოიყენეთ ფაილის ტიპის ფილტრი სკანირების შევიწროებისთვის.</string>
     <string name="swiper_delete_x_action">%1$d-ის წაშლა</string>
     <string name="swiper_settings_swap_directions_title">გადაფურცვლის მიმართულებების შეცვლა</string>
     <string name="swiper_settings_swap_directions_summary">მარცხნივ გადაფურცვლა შესანახად, მარჯვნივ წასაშლელად.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">შეიყვანეთ ამ სესიის სახელი</string>
     <string name="swiper_sessions_current_sessions">მიმდინარე სესიები</string>
     <string name="swiper_session_paths_label">გზები</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…და %d მეტი</item>
+        <item quantity="other">…და %d მეტი</item>
+    </plurals>
     <string name="swiper_session_status_label">სტატუსი</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d შესანახი</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">გაფილტრული: %1$s</string>
     <string name="swiper_session_no_matching_files">შესაბამისი ფაილები ვერ მოიძებნა</string>
     <string name="swiper_open_externally_action">გარე აპლიკაციაში გახსნა</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">გადაფურცლეთ ფოტო რათა განსაზღვროთ მისი ბედი: გვერდზე შესანახად ან წასაშლელად, ზემოთ გამოსატოვებლად, ქვემოთ დასაბრუნებლად. ქვემოთ მდებარე ღილაკები იგივეს აკეთებენ — და გიჩვენებთ რომელი მხარე რომელია.</string>
+    <string name="tour_swiper_openin_body">ეს ღილაკი ხსნის ფოტოს სხვა აპში — მოსახერხებელია რომ გადამოწმოთ მას გადაწყვეტილებამდე.</string>
+    <string name="tour_swiper_preview_body">ეს ღილაკი ხსნის სრული ეკრანის გადახედვას უფრო ახლო დათვალიერებისთვის.</string>
+    <string name="tour_swiper_actions_body">არ მოგწონთ გადაფურცვლა? ჩვენც გვაქვს ღილაკები! გამოტოვება ტოვებს მას გადაუწყვეტელს მოგვიანებით, ხოლო გამოტოვების ხანგრძლივი დაჭერა გამორიცხავს ფაილს მომავალი სკანირებიდან. დაბრუნება უბრუნებს თქვენს ბოლო არჩევანს.</string>
+    <string name="tour_swiper_review_body">თქვენი შენახვის და წაშლის არჩევანი მხოლოდ დროებით შენახულია. გახსენით მიმოხილვა მათ გადასახედად და წაშლებისთვის, როდესაც მზად იქნებით.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничи совпаѓања врз основа на старост на датотека (време на последна промена). Оставете го непоставено за совпаѓање на било која старост.</string>
     <string name="systemcleaner_customfilter_import_action">Увези нов филтер</string>
     <string name="systemcleaner_customfilter_export_action">Извези избран филтер</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner наоѓа ѓубре користејќи неспецифични филтри за апликации. Постојат готови правила за работи како празни папки, преостанати дневници и застарени минијатури. Посетете ги поставките ако сакате да создадете свое.</string>
+    <string name="tour_systemcleaner_filter_body">Секој ред е филтер и она што го наоѓа. Отворете ги неговите детали за да видите точно кои датотеки се совпаѓаат пред да избришете нешто.</string>
 </resources>

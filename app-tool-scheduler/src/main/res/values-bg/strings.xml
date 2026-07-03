@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Планировчикът завърши</string>
     <string name="scheduler_notification_result_success_message">Всички планирани задачи се изпълниха успешно.</string>
     <string name="scheduler_notification_result_failure_message">Някои планирани задачи се провалиха или срещнаха грешки. Опитайте да ги стартирате ръчно.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Пропуснато, екранът беше изключен или заключен</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Почистването на приложенията може да бъде пропуснато</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Почистването на приложенията използва услугата за достъпност, която изисква отключен екран. Планираните стартирания, докато устройството е заключено, се пропускат.
+
+Използвайте Shizuku или root за фоново почистване, или го планирайте за момент, в който използвате устройството.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системните приложения могат да бъдат пропуснати</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku почиства повечетото кешове в фонов режим, но системните приложения изискват услугата за достъпност, която изисква отключен екран. С „Включване на системни приложения“ включено, те се пропускат, когато устройството е заключено.
+
+Изключете „Включване на системни приложения“, или стартирайте разписанието, докато е отключено.</string>
     <string name="scheduler_commands_after_schedule_label">Команди след график</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell команди, които ще бъдат изпълнени в края на график.</string>
     <string name="scheduler_battery_optimization_hint">Помислете за деактивиране на оптимизациите на батерията за SD Maid, ако срещате проблеми с изпълнението на заден план.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid може да чисти по график. Изберете време и кои инструменти да се използват, и то ще работи в фона, (почти) без да отваряте приложението.</string>
+    <string name="tour_scheduler_create_body">Докоснете тук, за да създадете нов график, след това определете кога да се изпълнява и кои инструменти да включите.</string>
 </resources>

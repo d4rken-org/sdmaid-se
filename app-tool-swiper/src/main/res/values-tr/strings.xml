@@ -36,6 +36,17 @@
         <item quantity="one">%d kararsız öğe daha sonra incelenmek üzere kalacaktır.</item>
         <item quantity="other">%d kararsız öğe daha sonra incelenmek üzere kalacaktır.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Bu oturum tüm bir depolama hacmini hedefler — burada silme, o depolamadaki tüm klasörleri kapsar.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ve %d klasör daha</item>
+        <item quantity="other">…ve %d klasör daha</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Bu dosyaların kalıcı olarak silineceğini anlıyorum.</string>
+    <string name="swiper_sensitive_root_warning_title">Tüm depolama taransın mı?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s taraması, bu depolamadaki her dosyayı kapsar — fotoğraflar, belgeler, indirmeler, uygulama medyası ve daha fazlası. Devam edilsin mi?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Yine de devam et</string>
+    <string name="swiper_session_risky_label">Tüm depolama taraması</string>
+    <string name="swiper_session_risky_info_message">Bu oturum bir depolama biriminin kökünü hedefler, bu nedenle bu depolamadaki her dosya kapsam içindedir — fotoğraflar, belgeler, indirilenler, uygulama medyası ve daha fazlası.\n\nTüm depolama taramaları, incelemek istemeyebileceğiniz dosyalar da dahil olmak üzere birçok öğe döndürebilir. Taramayı daraltmak için bir dosya türü filtresi uygulayın.</string>
     <string name="swiper_delete_x_action">%1$d sil</string>
     <string name="swiper_settings_swap_directions_title">Kaydırma yönlerini değiştir</string>
     <string name="swiper_settings_swap_directions_summary">Saklamak için sola, silmek için sağa kaydırın.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Bu oturum için bir ad girin</string>
     <string name="swiper_sessions_current_sessions">Mevcut oturumlar</string>
     <string name="swiper_session_paths_label">Yollar</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ve %d daha</item>
+        <item quantity="other">…ve %d daha</item>
+    </plurals>
     <string name="swiper_session_status_label">Durum</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d saklanacak</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Filtrelenmiş: %1$s</string>
     <string name="swiper_session_no_matching_files">Eşleşen dosya bulunamadı</string>
     <string name="swiper_open_externally_action">Harici uygulamada aç</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Bir fotoğrafı kaydırarak kaderini belirleyin: Saklamak veya silmek için yanlara, atlamak için yukarı, geri almak için aşağı. Aşağıdaki düğmeler aynısını yapar — ve hangi tarafın ne olduğunu gösterir.</string>
+    <string name="tour_swiper_openin_body">Bu düğme fotoğrafı başka bir uygulamada açar, karar vermeden önce kontrol etmek için kullanışlıdır.</string>
+    <string name="tour_swiper_preview_body">Bu düğme daha yakından bakmak için tam ekran bir önizleme açar.</string>
+    <string name="tour_swiper_actions_body">Kaydırmaktan hoşlanmıyor musunuz? Düğmelerimiz de var! Atla, kararı sonraya bırakarak dosyayı belirsiz bırakır; Atla\'ya uzun basmak ise dosyayı gelecekteki taramalardan hariç tutar. Geri Al, son seçiminizi geri alır.</string>
+    <string name="tour_swiper_review_body">Saklama ve silme seçimleriniz yalnızca hazırlanmış durumdadır. Bunları gözden geçirmek ve hazır olduğunuzda silmeleri uygulamak için İncele\'yi açın.</string>
 </resources>

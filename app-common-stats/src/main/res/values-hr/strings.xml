@@ -41,4 +41,6 @@
     <string name="stats_storage_type_primary">Primarna pohrana</string>
     <string name="stats_storage_type_secondary">Sekundarna pohrana</string>
     <string name="stats_storage_type_portable">Prijenosna pohrana</string>
+    <string name="stats_space_history_delete_storage_title">Izbrisati povijest pohrane?</string>
+    <string name="stats_space_history_delete_storage_desc">Svi podaci o trendovima za ovu pohranu bit će trajno izbrisani.</string>
 </resources>

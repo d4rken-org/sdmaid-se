@@ -37,7 +37,15 @@
     <string name="scheduler_notification_result_title">Harmonogram zakończony</string>
     <string name="scheduler_notification_result_success_message">Wszystkie zaplanowane zadania zostały pomyślnie uruchomione.</string>
     <string name="scheduler_notification_result_failure_message">Niektóre zaplanowane zadania nie powiodły się lub wystąpiły błędy. Spróbuj uruchomić je ręcznie.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Pominięte, ekran był wyłączony lub zablokowany</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Czyszczenie aplikacji może zostać pominięte</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Czyszczenie aplikacji korzysta z usługi dostępności, która wymaga odblokowanego ekranu. Zaplanowane uruchomienia, gdy urządzenie jest zablokowane, są pomijane.\n\nUżyj Shizuku lub root do czyszczenia w tle, lub zaplanuj to na czas, gdy używasz urządzenia.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Aplikacje systemowe mogą zostać pominięte</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku czyści większość pamięci podręcznych w tle, ale aplikacje systemowe wymagają usługi ułatwień dostępu, która wymaga odblokowanego ekranu. Gdy opcja „Uwzględniaj aplikacje systemowe” jest włączona, są one pomijane, gdy urządzenie jest zablokowane.\n\nWyłącz opcję „Uwzględniaj aplikacje systemowe” lub uruchom harmonogram, gdy ekran jest odblokowany.</string>
     <string name="scheduler_commands_after_schedule_label">Polecenia po harmonogramie</string>
     <string name="scheduler_commands_after_schedule_desc">Polecenia powłoki Androida, które będą wykonywane na końcu harmonogramu.</string>
     <string name="scheduler_battery_optimization_hint">Rozważ wyłączenie optymalizacji baterii dla SD Maid, jeśli wystąpią problemy z działaniem w tle.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid może czyścić według harmonogramu. Wybierz czas i które narzędzia uruchomić, a ona zrobi resztę w tle – (prawie) bez otwierania aplikacji.</string>
+    <string name="tour_scheduler_create_body">Stuknij tutaj, aby utworzyć nowy harmonogram, a następnie ustaw, kiedy ma być uruchamiany i które narzędzia uwzględnić.</string>
 </resources>

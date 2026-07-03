@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">이미지를 압축하여 저장 공간을 절약합니다.</string>
+    <string name="squeezer_explanation_short">이미지와 동영상을 압축하여 저장 공간을 절약합니다.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d개의 이미지 발견</item>
+        <item quantity="other">%d개 항목 발견됨</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="other">~%s 절약 가능</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d개의 이미지 압축됨</item>
+        <item quantity="other">%d개 항목 압축됨</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="other">%d개 실패</item>
+    </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="other">%d개 유지됨 (메타데이터를 보존할 수 없음)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="other">%d개 파일 건너뜀 (접근 불가)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="other">%d개 건너뜀 (HDR/깊이 보존됨)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d개의 이미지 선택됨</item>
+        <item quantity="other">%d개 항목 선택됨</item>
     </plurals>
     <string name="squeezer_min_size_title">최소 파일 크기</string>
-    <string name="squeezer_min_size_description">이 크기보다 작은 이미지를 건너뜁니다.</string>
+    <string name="squeezer_min_size_description">이 크기보다 작은 파일은 건너뜁니다.</string>
     <string name="squeezer_min_age_title">최소 파일 기간</string>
-    <string name="squeezer_min_age_description">이 기간보다 최근의 이미지만 포함합니다.</string>
-    <string name="squeezer_compression_settings_label">압축 설정</string>
-    <string name="squeezer_quality_description">낮은 품질은 파일 크기가 작아지지만 이미지 품질이 저하됩니다.</string>
-    <string name="squeezer_types_category_label">이미지 유형</string>
+    <string name="squeezer_min_age_description">이 기간보다 오래된 파일만 포함합니다.</string>
+    <string name="squeezer_compression_settings_label">일반</string>
+    <string name="squeezer_quality_label">품질</string>
+    <string name="squeezer_quality_title">압축 품질</string>
+    <string name="squeezer_quality_description">낮은 품질은 파일 크기를 줄이지만 시각적 품질도 낮아집니다.</string>
+    <string name="squeezer_quality_example_format">예시: %1$s 이미지 → %3$d%% 품질에서 ~%2$s 절약</string>
+    <string name="squeezer_quality_warning_low">낮은 품질은 눈에 보이는 아티팩트를 유발할 수 있습니다.</string>
+    <string name="squeezer_quality_warning_high">매우 높은 품질은 공간 절약이 거의 없습니다.</string>
+    <string name="squeezer_types_category_label">이미지 설정</string>
+    <string name="squeezer_video_settings_category_label">동영상 설정</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG 이미지 (.jpg, .jpeg)를 포함합니다.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP 이미지 (.webp)를 포함합니다.</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">HEIC/HEIF 이미지(.heic, .heif) 포함. 날짜, 위치 및 기타 EXIF 메타데이터가 유지됩니다. HDR 게인 맵, 깊이 데이터 및 Live/Motion Photo 관련 파일은 보존할 수 없습니다. 다중 이미지 파일은 건너뜁니다.</string>
+    <string name="squeezer_type_video_title">MP4 Video</string>
+    <string name="squeezer_type_video_description">MP4 동영상 파일(.mp4)을 포함합니다.</string>
     <string name="squeezer_skip_compressed_title">이미 압축된 파일 건너뛰기</string>
-    <string name="squeezer_skip_compressed_description">SD Maid에 의해 이미 압축된 이미지를 건너뜁니다.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid에서 이미 압축된 파일은 건너뜁니다.</string>
     <string name="squeezer_exif_marker_title">EXIF 마커 기록</string>
     <string name="squeezer_exif_marker_description">압축 기록이 삭제되더라도 재압축을 방지하기 위해 이미지의 EXIF 사용자 코멘트 필드에 마커를 추가합니다.</string>
+    <string name="squeezer_include_lossy_aux_title">HDR &amp; 깊이 사진 압축</string>
+    <string name="squeezer_include_lossy_aux_description">기본적으로 꿄: HDR 게인 맵 또는 깊이/포트레이트 데이터가 있는 사진은 손상되지 않도록 건너뜁니다. 가능한 한 압축하도록 활성화하면 HDR 게인 맵 또는 깊이 데이터가 손실됩니다. 일부 다중 이미지 HEIC 사진은 어챌 수 없이 보호됩니다.</string>
     <string name="squeezer_estimated_savings_format">~%s 절약</string>
     <string name="squeezer_no_savings_expected">절약 효과 미미</string>
     <string name="squeezer_current_size_format">크기: %s</string>
@@ -36,30 +60,49 @@
     <string name="squeezer_preview_dialog_title">압축 확인</string>
     <string name="squeezer_preview_total_size">총 크기</string>
     <string name="squeezer_preview_estimated_savings">예상 절약량</string>
+    <string name="squeezer_compress_confirmation_title">선택된 항목을 압축하시겠습니까?</string>
+    <string name="squeezer_compress_confirmation_message">원본 파일이 압축 버전으로 교체됩니다. 이 작업은 취소할 수 없습니다.</string>
     <string name="squeezer_history_title">압축 기록</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d개 항목 (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">압축 기록 없음</string>
     <string name="squeezer_history_clear_title">압축 기록 삭제</string>
-    <string name="squeezer_history_clear_message">이전에 압축된 이미지를 다시 압축할 수 있게 됩니다. 이미지 자체에는 영향이 없습니다.</string>
+    <string name="squeezer_history_clear_message">이전에 압축된 파일을 다시 압축할 수 있게 됩니다. 파일 자체에는 영향이 없습니다.</string>
+    <string name="squeezer_onboarding_title">이미지 압축 소개</string>
+    <string name="squeezer_onboarding_message">이미지 압축은 시각적 세부 사항을 제거하여 파일 크기를 줄입니다. 이 과정은 되돌릴 수 없습니다 - 원래 품질을 복원할 수 없습니다.\n\n이미지가 어떻게 보일지 미리보기:</string>
     <string name="squeezer_onboarding_original_label">원본</string>
     <string name="squeezer_onboarding_compressed_label">압축 후</string>
+    <string name="squeezer_onboarding_video_original_label">동영상 프레임</string>
+    <string name="squeezer_onboarding_video_compressed_label">미리보기 (근사치)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">실제 동영상 품질은 다를 수 있습니다</string>
+    <string name="squeezer_onboarding_quality_label">품질: %d%%</string>
     <string name="squeezer_compare_action">비교 보기</string>
     <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
-    <string name="squeezer_result_empty_message">압축 가능한 이미지를 찾을 수 없습니다.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze는 저장 공간을 확보하기 위해 이미지 파일 크기를 줄입니다. 이미지 품질이 영구적으로 저하되며 되돌릴 수 없습니다. 시작하기 전에 설정을 주의 깊게 확인하세요.</string>
+    <string name="squeezer_result_empty_message">압축 가능한 미디어를 찾을 수 없습니다.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="other">압축할 미디어가 없음 — HDR/깊이 사진 %d개가 건너뛰었습니다. 설정에서 \"HDR &amp; 깊이 사진 압축\"을 활성화하여 포함하세요.</item>
+    </plurals>
+    <string name="squeezer_setup_warning">압축은 저장 공간 절약을 위해 품질을 영구적으로 낙십니다. 이 작업은 취소할 수 없습니다. 시작하기 전에 설정을 주의 깊게 검토하세요.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="other">%d개의 위치는 압축에 사용할 수 없어 제거되었습니다. 압축을 위해서는 내부 저장소에 직접 접근이 필요합니다.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">미디어 스쿈즈는 이미지와 동영상의 파일 크기를 줄여 저장 공간을 확보합니다. 이 작업은 품질을 영구적으로 낙심으며 취소할 수 없습니다. 시작하기 전에 설정을 주의 깊게 검토하세요.</string>
     <string name="squeezer_setup_paths_title">검색 위치</string>
     <string name="squeezer_setup_paths_default">검색할 폴더 선택</string>
     <string name="squeezer_setup_quality_title">압축 품질</string>
     <string name="squeezer_setup_age_title">최소 기간</string>
     <string name="squeezer_setup_start_action">스캔 시작</string>
-    <string name="squeezer_quality_hint_very_low">40% 미만의 품질은 사용할 수 없는 이미지를 생성할 수 있습니다.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">40% 미만의 품질은 사용할 수 없는 이미지를 생성할 수 있습니다.</string>
     <string name="squeezer_quality_hint_low">낮은 품질은 더 많은 공간을 절약하지만 눈에 보이는 아티팩트가 발생할 수 있습니다.</string>
     <string name="squeezer_quality_hint_high">매우 높은 품질은 공간 절약이 거의 없습니다.</string>
     <string name="squeezer_quality_hint_normal">품질과 공간 절약의 균형.</string>
     <plurals name="squeezer_min_age_x_days">
         <item quantity="other">최소 %d일 경과</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG 파일에 대해 ~%d%% 절약 예상</string>
+    <string name="squeezer_estimated_savings_percent">JPEG 파일의 예상 ~%d%% 절감</string>
+    <string name="squeezer_onboarding_got_it">확인</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer는 사진과 동영상을 다시 압축하여 공간을 덜 차지하도록 합니다. 파일은 그대로 사용 가능하지만 크기가 작아지며, 각각 예상 절감량이 표시됩니다.</string>
+    <string name="tour_squeezer_compress_body">여기서 모든 항목을 한 번에 압축하거나 단일 항목을 탭하여 해당 항목만 줄입니다. 여러 항목을 선택하려면 길게 누르세요. 변경되기 전에 항상 미리보기를 볼 수 있습니다.</string>
 </resources>

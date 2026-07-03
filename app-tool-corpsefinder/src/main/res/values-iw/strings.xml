@@ -62,4 +62,12 @@
     <string name="corpsefinder_owner_unknown">בעלים לא ידוע</string>
     <string name="corpsefinder_corpse_hint_keeper">פריט זה עשוי להכיל נתונים שברצונך לשמור למרות שהבעלים שלו הוסר, למשל. תמונות או גיבויים.</string>
     <string name="corpsefinder_corpse_hint_common">לפריט זה יש שם נפוץ מאוד ויכול להיות שייך לאפליקציות שעדיין מותקנות ש-SD Maid לא מכיר.</string>
+    <string name="corpsefinder_risk_keeper_chip">רצוי</string>
+    <string name="corpsefinder_risk_common_chip">נפוץ</string>
+    <string name="corpsefinder_markers_dialog_title">על הסמנים הללו</string>
+    <string name="corpsefinder_markers_dialog_normal_label">אין סמן</string>
+    <string name="corpsefinder_markers_dialog_normal_description">שריד סטנדרטי. בדרך כלל בטוח להסיר — קבצים אלה שייכים לאפליקציות שכבר אינן מותקנות.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder מוצא נתונים שנותרו מאפליקציות שכבר הסרת. זה כבר לא שייך לשום דבר מותקן, כך שהסרתו בטוחה ומשחררת מקום.</string>
+    <string name="tour_corpsefinder_row_body">כל פריט הוא נתוני שארית והאפליקציה שממנה הוא הגיע. הסמן מראה כמה SD Maid בטוח שזה בטוח להסיר — הקש על ה-ⓘ בחלק העליון כדי ללמוד מה הסמנים אומרים.</string>
 </resources>

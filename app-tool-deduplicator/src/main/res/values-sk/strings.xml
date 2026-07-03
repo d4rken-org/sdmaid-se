@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Chcete odstrániť všetky kópie okrem jednej v každej vybranej skupine duplicitných súborov?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Odstrániť všetky súbory v každej vybranej skupine duplicitných súborov? Nezostane žiadny súbor!</string>
     <string name="deduplicator_delete_all_toggle_msg">Odstrániť všetky kópie. Nezostane žiadny súbor!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Odstrániť %1$d duplikát v tejto sade, čím sa uvoľní %2$s? Ponechaná kópia zostane.</item>
+        <item quantity="few">Odstrániť %1$d duplikáty v tejto sade, čím sa uvoľní %2$s? Ponechaná kópia zostane.</item>
+        <item quantity="many">Odstrániť %1$d duplikátov v tejto sade, čím sa uvoľní %2$s? Ponechaná kópia zostane.</item>
+        <item quantity="other">Odstrániť %1$d duplikátov v tejto sade, čím sa uvoľní %2$s? Ponechaná kópia zostane.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s sa dá uvoľniť</string>
+    <string name="deduplicator_action_delete_set">Zmazať sadu duplikátov</string>
+    <string name="deduplicator_action_open_preview">Otvoriť náhľad</string>
+    <string name="deduplicator_marked_for_deletion">Označené na zmazanie</string>
+    <string name="deduplicator_cluster_preview_image">Náhľad sady duplikátov</string>
+    <string name="deduplicator_selection_keep_one_required">V každej sade duplikátov musí zostať aspoň jeden súbor. V nastaveniach zapnite „Umožniť ‘Zmazať všetko’“, aby ste toto prekonali.</string>
     <string name="deduplicator_progress_comparing_files">Porovnávanie súborov</string>
     <string name="deduplicator_details_cluster_title">Skupina duplikátov</string>
     <string name="deduplicator_matches_exact_label">Presné kópie</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Uprednostniť menšie súbory</string>
     <string name="deduplicator_view_mode_groups_label">Skupiny</string>
     <string name="deduplicator_view_mode_directories_label">Priečinky</string>
+    <string name="tour_deduplicator_details_cluster_body">Všetky tieto súbory sa zdajú byť rovnakou položkou alebo mediálnym obsahom – skupina duplikátov.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Súbory s touto ikonou budú zmazané; súbor, ktorý v skupine zostane, si ponechá SD Maid. V nastaveniach stratégie zmazávania si môžete zmeniť, ktorý súbor zostane.</string>
 </resources>

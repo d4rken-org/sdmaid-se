@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">مدیر اسثناء</string>
     <string name="exclusion_manager_desc">مدیریت فایل ها و برنامه های مستثناء</string>
-    <string name="exclusion_explanation_body1">مستثنی کردن فایل‌ها و برنامه‌ها از عملیات‌های SD Maid.</string>
-    <string name="exclusion_add_new_hint">ابتدا به SD Maid اجازه دهید جستجو کند و سپس از منوی زمینه در نتیجه ای که می خواهید حذف کنید، استثناهای جدید اضافه کنید.</string>
+    <string name="exclusion_explanation_body1">فایل‌ها و برنامه‌ها را استثنا کنید تا از ابزارهای SD Maid محفوظ بمانند، یا موارد نامربوط را نادیده بگیرید و عملیات را سریع‌تر کنید.</string>
+    <string name="exclusion_add_new_hint">هنوز استثنایی وجود ندارد. از دکمه + استفاده کنید تا یکی ایجاد کنید، یا موارد را از نتایج هر ابزار استثنا کنید.</string>
     <string name="exclusion_create_action">ایجاد استثناء</string>
     <string name="exclusion_edit_action">ویرایش استثناء</string>
     <string name="exclusion_type_package">استثناء برنامه</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">صادرات استثناء</string>
     <string name="exclusion_create_pkg_hint">از ابزار کنترل برنامه برای ایجاد استثناءهای برنامه استفاده کنید.</string>
     <string name="exclusion_create_path_hint">از ابزار آنالیز ذخیره‌سازی برای ایجاد استثناءهای مسیر استفاده کنید.</string>
+    <string name="exclusion_create_segment_hint">مطابقت با قسمتی از نام، مانند «DCIM/Camera»</string>
     <string name="exclusion_show_defaults_action">نمایش پیش‌فرض</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d استثنا وارد شد</item>
+        <item quantity="other">%d استثنا وارد شدند</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d استثنا صادر شد</item>
+        <item quantity="other">%d استثنا صادر شدند</item>
+    </plurals>
 </resources>

@@ -8,4 +8,16 @@
         <item quantity="other">%d ਮਾਰਗ ਚੁਣੇ ਗਏ</item>
     </plurals>
     <string name="picker_home_action">ਡਾਟਾ ਖੇਤਰ</string>
+    <string name="tour_action_next">ਅਗਲਾ</string>
+    <string name="tour_action_previous">ਪਿਛਲਾ</string>
+    <string name="tour_action_done">ਮੁਕੰਮਲ</string>
+    <string name="tour_action_cancel">ਛੱਡੋ</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">ਟੂਰ ਛੱਡ ਦਿਓ?</string>
+    <string name="tour_confirm_message">ਤੁਸੀਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਕਦੇ ਵੀ ਟੂਰ ਨੂੰ ਮੁੜ-ਸਮਰਥ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="tour_confirm_continue">ਟੂਰ ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="tour_confirm_dont_show_this_tour">ਇਹ ਟੂਰ ਨਾ ਦਿਖਾਓ</string>
+    <string name="tour_confirm_disable_all">ਸਾਰੇ ਟੂਰ ਅਸਮਰਥ ਕਰੋ</string>
+    <string name="navigation_unknown_destination_title">ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ</string>
+    <string name="navigation_unknown_destination_message">ਇਹ ਸਕ੍ਰੀਨ ਅਜੇ ਵੀ ਨਵੇਂ UI ਵਿੱਚ ਤਬਦੀਲ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ।</string>
 </resources>

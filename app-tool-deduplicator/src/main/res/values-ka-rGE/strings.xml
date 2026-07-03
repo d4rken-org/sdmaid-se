@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">წაიშალოს ყველა ასლი ერთის გარდა თითოეულ არჩეულ ნაკრებში დუბლიკატი ფაილებისა?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">წაიშალოს ყველა ფაილი თითოეულ არჩეულ ნაკრებში დუბლიკატი ფაილებისა? ფაილი არ რჩება!</string>
     <string name="deduplicator_delete_all_toggle_msg">ყველა ასლის წაშლა. ფაილი არ რჩება!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">წავშალო %1$d დუბლიკატი ამ ნაკრებში და გავათავისუფლო %2$s? შენახული ასლი დარჩება.</item>
+        <item quantity="other">წავშალო %1$d დუბლიკატი ამ ნაკრებში და გავათავისუფლო %2$s? შენახული ასლი დარჩება.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s მოსახსნელი</string>
+    <string name="deduplicator_action_delete_set">დუბლიკატების ნაკრების წაშლა</string>
+    <string name="deduplicator_action_open_preview">წინასწარი ნახვის გახსნა</string>
+    <string name="deduplicator_marked_for_deletion">წაშლისთვის მონიშნული</string>
+    <string name="deduplicator_cluster_preview_image">დუბლიკატების ნაკრების წინასწარი ნახვა</string>
+    <string name="deduplicator_selection_keep_one_required">თითოეული დუბლიკატის ნაკრებში მინიმუმ ერთი ფაილი უნდა დარჩეს. ჩართეთ პარამეტრებში \"გააკეთეთ \'ყველას წაშლა\' შესაძლებელი\" გადალახვისთვის.</string>
     <string name="deduplicator_progress_comparing_files">ფაილების შედარება</string>
     <string name="deduplicator_details_cluster_title">დუბლიკატების ნაკრები</string>
     <string name="deduplicator_matches_exact_label">ზუსტი ასლები</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">პატარა ფაილების უპირატესობა</string>
     <string name="deduplicator_view_mode_groups_label">ჯგუფები</string>
     <string name="deduplicator_view_mode_directories_label">საქაღალდეები</string>
+    <string name="tour_deduplicator_details_cluster_body">ეს ფაილები გამოიყურებიან ერთი და იგივე ელემენტი ან მედია-კონტენტი, დუბლიკატების ჯგუფი.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ამ ხატულათი მონიშნული ფაილები წაიშლება; ჯგუფში დარჩენილი ფაილი არის ის, რომელსაც SD Maid ინახავს. თქვენ შეგიძლიათ წაშლის სტრატეგიის პარამეტრებში შეცვალოთ რომელი ფაილი დარჩება.</string>
 </resources>

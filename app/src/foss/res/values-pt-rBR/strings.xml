@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Atualizar SD Maid SE</string>
     <string name="upgrades_dashcard_body">Desbloqueie recursos adicionais e torne-se um patrão para apoiar o desenvolvimento contínuo!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizar</string>
-    <string name="upgrade_screen_title">Melhorar SD Maid</string>
+    <string name="upgrade_screen_title">Apoiar SD Maid</string>
     <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados do usuário. O desenvolvimento contínuo só é possível por você.</string>
     <string name="upgrade_screen_how_title">Como ajudar</string>
     <string name="upgrade_screen_how_body">Torne-se um patrocinador e financie o desenvolvimento! Clique no botão abaixo para ativar todos os recursos extras e abrir meu perfil Github Sponsors.</string>
-    <string name="upgrade_screen_why_title">Isso evoca 🪄</string>
-    <string name="upgrade_screen_why_body">Funcionalidade de exclusão do AppCleaner 💯\n• Operações agendadas ⏰\n• Opções extras para todas as ferramentas ⚙️\n• Suas próprias regras de exclusão ✍️\n• Um desenvolvedor motivado 🧙\ne mais…</string>
+    <string name="upgrade_screen_why_title">Vantagens da atualização</string>
+    <string name="upgrade_screen_why_body">• Limpar caches de apps e dados desnecessários
+• Remover arquivos duplicados
+• Ativar limpezas agendadas
+• Criar filtros personalizados e regras de limpeza
+• Acompanhar tendências de armazenamento e histórico de limpeza
+• Mais recursos e controles em todo o app
+• Apoiar trabalho de código aberto</string>
     <string name="upgrade_screen_sponsor_action">Desenvolvimento do patrocinador</string>
     <string name="upgrade_screen_sponsor_action_hint">A alternativa são anúncios, análises e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Obrigado por apoiar o desenvolvimento de código aberto ❤️</string>

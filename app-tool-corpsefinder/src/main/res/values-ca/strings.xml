@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Propietari desconegut</string>
     <string name="corpsefinder_corpse_hint_keeper">Aquest element pot contenir dades que voleu conservar tot i que el seu propietari s\'hagi desinstal·lat, p. ex. fotos o còpies de seguretat.</string>
     <string name="corpsefinder_corpse_hint_common">Aquest element té un nom molt comú i podria pertànyer a aplicacions encara instal·lades que l\'SD Maid no coneix.</string>
+    <string name="corpsefinder_risk_keeper_chip">Desitjable</string>
+    <string name="corpsefinder_risk_common_chip">Comú</string>
+    <string name="corpsefinder_markers_dialog_title">Sobre aquests marcadors</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Cap marcador</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Residu estàndard. Generalment segur d\'eliminar — aquests fitxers pertanyen a aplicacions que ja no estan instal·lades.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">El Cercador de brossa troba dades deixades per aplicacions que ja has desinstal·lat. Ja no pertanyen a res instal·lat, així que eliminar-les és segur i allibera espai.</string>
+    <string name="tour_corpsefinder_row_body">Cada element mostra dades residuals i l\'app d\'on provenen. El marcador mostra la confiança que té SD Maid que és segur eliminar-lo — toca la ⓘ a la part superior per saber què signifiquen els marcadors.</string>
 </resources>

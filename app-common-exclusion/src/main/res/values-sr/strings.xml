@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Менаџер искључења</string>
     <string name="exclusion_manager_desc">Управљај искључењима датотека и апликација.</string>
-    <string name="exclusion_explanation_body1">Искључи датотеке и апликације из операција СД Чистача.</string>
-    <string name="exclusion_add_new_hint">Додај нова искључења тако што ћете најпре пустити СД Чистач да претражи, а затим користити контекстни мени на резултату који желите искључити.</string>
+    <string name="exclusion_explanation_body1">Искључите датотеке и апликације да их заштитите од SD Maid алата, или да прескочите неважне ставке и убрзате операције.</string>
+    <string name="exclusion_add_new_hint">Још увек нема искључења. Користите + дугме да направите једно, или искључите ставке из резултата било ког алата.</string>
     <string name="exclusion_create_action">Креирај искључење</string>
     <string name="exclusion_edit_action">Уреди искључење</string>
     <string name="exclusion_type_package">Искључење апликације</string>
@@ -24,5 +24,16 @@
     <string name="exclusion_export_action">Извези искључења</string>
     <string name="exclusion_create_pkg_hint">Користите алатку Контрола апликација да креирате искључења апликација.</string>
     <string name="exclusion_create_path_hint">Користите алатку Анализатор складишта да креирате искључења путања.</string>
+    <string name="exclusion_create_segment_hint">Одговара сегменту имена, нпр. „DCIM/Camera”.</string>
     <string name="exclusion_show_defaults_action">Прикажи подразумевана</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d искључење увезено</item>
+        <item quantity="few">%d искључења увезена</item>
+        <item quantity="other">%d искључења увезено</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d искључење извезено</item>
+        <item quantity="few">%d искључења извезена</item>
+        <item quantity="other">%d искључења извезено</item>
+    </plurals>
 </resources>

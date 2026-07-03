@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">මුලික ආචයනය</string>
     <string name="stats_storage_type_secondary">ද්විතීය ආචයනය</string>
     <string name="stats_storage_type_portable">ජංගම ආචයනය</string>
+    <string name="stats_space_history_delete_storage_title">ගබඩා ඉතිහාසය මකන්නද?</string>
+    <string name="stats_space_history_delete_storage_desc">මෙම ගබඩාව සඳහා සියලු ප්‍රවණතා දත්ත ස්ථිරවම මකා දැමෙනු ඇත.</string>
 </resources>

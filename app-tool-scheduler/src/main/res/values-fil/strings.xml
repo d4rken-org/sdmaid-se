@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Tapos na ang scheduler</string>
     <string name="scheduler_notification_result_success_message">Lahat ng naka-schedule na task ay matagumpay na nag-run.</string>
     <string name="scheduler_notification_result_failure_message">Ang ilang naka-schedule na task ay nabigo o nakatagpo ng mga error. Subukang patakbuhin ito nang mano-mano.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Nalaktawan, ang screen ay naka-off o naka-lock</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Ang app cleaning ay maaaring malaktawan</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Ang app cleaning ay gumagamit ng accessibility service, na kailangan ng naka-unlock na screen. Ang mga nakaplanong pagpapatakbo habang naka-lock ang device ay nalalaktawan.
+
+Gamitin ang Shizuku o root para sa background cleaning, o iskedyul ito para sa oras na gumagamit mo ang device.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Ang system apps ay maaaring malaktawan</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Ang Shizuku ay naglilinis ng karamihan ng caches sa background, ngunit ang system apps ay kailangan ng accessibility service, na kailangan ng naka-unlock na screen. Kapag \"Include system apps\" ay naka-on, ang mga iyon ay nalalaktawan kapag naka-lock ang device.
+
+I-off ang \"Include system apps\", o patakbuhin ang schedule habang naka-unlock.</string>
     <string name="scheduler_commands_after_schedule_label">Mga utos pagkatapos ng iskedyul</string>
     <string name="scheduler_commands_after_schedule_desc">Mga Android shell command na iae-execute sa dulo ng isang schedule.</string>
     <string name="scheduler_battery_optimization_hint">Isaalang-alang ang pag-disable ng battery optimization para sa SD Maid kung makakatagpo ninyo ng mga problema sa background execution.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">Ang SD Maid ay maaaring mag-clean ayon sa schedule. Pumili ng oras at kung aling tools ang tatakbo, at ginagawa nito ang trabaho sa background, (halos) walang pangangailangan na buksan ang app.</string>
+    <string name="tour_scheduler_create_body">I-tap dito upang lumikha ng bagong schedule, pagkatapos ay itakda kung kailan ito tatakbo at kung aling tools ang isasama.</string>
 </resources>

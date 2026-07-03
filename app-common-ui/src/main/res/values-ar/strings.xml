@@ -12,4 +12,16 @@
         <item quantity="other">تم تحديد مسارات %d</item>
     </plurals>
     <string name="picker_home_action">مناطق البيانات</string>
+    <string name="tour_action_next">التالي</string>
+    <string name="tour_action_previous">السابق</string>
+    <string name="tour_action_done">تم</string>
+    <string name="tour_action_cancel">تخطي</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">تخطي الجولة؟</string>
+    <string name="tour_confirm_message">يمكنك إعادة تفعيل الجولات في أي وقت من الإعدادات.</string>
+    <string name="tour_confirm_continue">متابعة الجولة</string>
+    <string name="tour_confirm_dont_show_this_tour">عدم عرض هذه الجولة</string>
+    <string name="tour_confirm_disable_all">تعطيل جميع الجولات</string>
+    <string name="navigation_unknown_destination_title">قريباً</string>
+    <string name="navigation_unknown_destination_message">هذه الشاشة لا تزال قيد الترحيل إلى واجهة المستخدم الجديدة.</string>
 </resources>

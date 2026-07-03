@@ -44,6 +44,17 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Ştergeţi toate copiile cu excepţia câte o copie din fiecare set selectat de fişiere duplicate?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Ştergeţi toate fişierele din fiecare set selectat de fişiere duplicate? Nu a mai rămas nici un fişier!</string>
     <string name="deduplicator_delete_all_toggle_msg">Ştergeţi toate copiile. Nici un fişier nu a rămas înapoi!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Ștergi %1$d duplicat din acest set, eliberând %2$s? Copia păstrată rămâne.</item>
+        <item quantity="few">Ștergi %1$d duplicate din acest set, eliberând %2$s? Copia păstrată rămâne.</item>
+        <item quantity="other">Ștergi %1$d de duplicate din acest set, eliberând %2$s? Copia păstrată rămâne.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s de eliberat</string>
+    <string name="deduplicator_action_delete_set">Șterge setul de duplicate</string>
+    <string name="deduplicator_action_open_preview">Deschide previzualizare</string>
+    <string name="deduplicator_marked_for_deletion">Marcat pentru ștergere</string>
+    <string name="deduplicator_cluster_preview_image">Previzualizare set de duplicate</string>
+    <string name="deduplicator_selection_keep_one_required">Cel puțin un fișier per set de duplicate trebuie să rămână. Activează \"Fă posibil \'Șterge tot\'\" în setări pentru a ignora.</string>
     <string name="deduplicator_progress_comparing_files">Compararea fişierelor</string>
     <string name="deduplicator_details_cluster_title">Set de dubluri</string>
     <string name="deduplicator_matches_exact_label">Copii exacte</string>
@@ -81,4 +92,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferați fișierele mici</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Foldere</string>
+    <string name="tour_deduplicator_details_cluster_body">Aceste fișiere par să fie același element sau conținut media, un grup de duplicate.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Fișierele cu această pictogramă vor fi șterse; fișierul rămas din grup este cel pe care SD Maid îl păstrează. Poți schimba cum este ales păstrătorul în setările strategiei de ștergere.</string>
 </resources>

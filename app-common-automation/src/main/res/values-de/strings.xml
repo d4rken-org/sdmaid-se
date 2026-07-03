@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten mühsame manuelle Benutzerinteraktionen erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid dies verwenden, um den Einstellungsbildschirm jeder App zu öffnen, nach der Schaltfläche „Stoppen erzwingen“ zu suchen und darauf zu tippen.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nEs werden keine Aktionen ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid interagiert mit Ihrem Gerät. Es ist nicht möglich, den Bildschirm gleichzeitig zu nutzen. Warten Sie, bis der Vorgang abgeschlossen ist, oder drücken Sie die Home-Taste zum Abbrechen.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid interagiert mit Ihrem Gerät. Es ist nicht möglich, den Bildschirm gleichzeitig zu nutzen. Warten Sie, bis der Vorgang abgeschlossen ist.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
     <string name="automation_error_no_consent_body">Der Bedienungshilfe-Service ist nicht eingerichtet. Schließ die Einrichtung ab und bestätige die Verwendung.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Eine geplante Aufgabe hat versucht, den Bedienungshilfen-Dienst zu verwenden, aber er war nicht verfügbar. Wenn du das nicht benötigst, deaktiviere die Option \"Bedienungshilfen-Dienst\" in den Planer-Einstellungen.</string>
     <string name="automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
     <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+    <string name="automation_error_interference_title">Einstellungsbildschirm blockiert</string>
+    <string name="automation_error_interference_body">Eine andere App (%1$s) blockiert den Systemeinstellungsbildschirm, daher kann SD Maid nicht fortfahren. Deaktivieren Sie die App-Sperre oder den Bildschirmschutz dieser App für die Systemeinstellungen und versuchen Sie es erneut.</string>
     <string name="automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
 </resources>

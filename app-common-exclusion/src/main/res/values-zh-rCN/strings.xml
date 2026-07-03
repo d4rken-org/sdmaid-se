@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">管理排除项</string>
     <string name="exclusion_manager_desc">管理排除的文件和应用。</string>
-    <string name="exclusion_explanation_body1">将文件和应用从 SD Maid 的操作中排除。</string>
-    <string name="exclusion_add_new_hint">可按如下操作添加排除项：使用 SD Maid 进行搜索；在搜索结果中选择您想要排除的内容。</string>
+    <string name="exclusion_explanation_body1">排除文件和应用以保护它们免受 SD Maid 工具的影响，或跳过无关项目并加快操作速度。</string>
+    <string name="exclusion_add_new_hint">暂无排除项。使用 + 按钮创建一个，或从任何工具的结果中排除项目。</string>
     <string name="exclusion_create_action">创建排除项</string>
     <string name="exclusion_edit_action">编辑排除项</string>
     <string name="exclusion_type_package">排除应用</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">导出排除项</string>
     <string name="exclusion_create_pkg_hint">使用应用控制工具来创建应用排除项。</string>
     <string name="exclusion_create_path_hint">使用储存分析工具来创建路径排除项。</string>
+    <string name="exclusion_create_segment_hint">匹配名称段，例如“DCIM/Camera”。</string>
     <string name="exclusion_show_defaults_action">默认</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">已导入 %d 个排除项</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">已导出 %d 个排除项</item>
+    </plurals>
 </resources>

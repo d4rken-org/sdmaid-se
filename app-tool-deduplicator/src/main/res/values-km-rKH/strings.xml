@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">លុប​កំពិល័​ថ័ល​នើស​ក្នុង​សែសែ​ជ័រ​ជ័រ​ដែល​បាន​ជ្រើស៴</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">លុប​កំពិល័​តែងហអ់​នៅ​ក្នុង​សែសែ​ជ័រ​ជ័រ​ដែល​បាន​ជ្រើស៴ មិន​មាន​កំពិល័​នើស​តើស!</string>
     <string name="deduplicator_delete_all_toggle_msg">លុប​ចំនួន​តែងហអ់។ មិន​មាន​កំពិល័​នើស​តើស!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">លុបចោល %1$d ច្បាប់ចម្លងនៅក្នុងសំណុំនេះ ដោះលែង %2$s? ច្បាប់ចម្លងដែលរក្សាទុកនឹងស្ថិត។</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s អាចលុបចោលបាន</string>
+    <string name="deduplicator_action_delete_set">លុបចោលសំណុំច្បាប់ចម្លង</string>
+    <string name="deduplicator_action_open_preview">បើកបង្ហាញមុន</string>
+    <string name="deduplicator_marked_for_deletion">សម្គាល់សម្រាប់លុបចោល</string>
+    <string name="deduplicator_cluster_preview_image">បង្ហាញមុនសំណុំច្បាប់ចម្លង</string>
+    <string name="deduplicator_selection_keep_one_required">ត្រូវរក្សាឯកសារយ៉ាងហោចណាស់មួយក្នុងសំណុំឯកសារដដែល។ បើក \"ធ្វើឱ្យលុបបានទាំងអស់\" ក្នុងការកំណត់ដើម្បីលើស។</string>
     <string name="deduplicator_progress_comparing_files">កំពុង​ប្រើប្រាស់​កំពិល័</string>
     <string name="deduplicator_details_cluster_title">សែសែ​ដែល​ជ័រ​ជ័រ</string>
     <string name="deduplicator_matches_exact_label">ចំនួន​កឹប​​ដឹក​គ្នា</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ពេញចិត្តឯកសារតូច</string>
     <string name="deduplicator_view_mode_groups_label">ក្រុម</string>
     <string name="deduplicator_view_mode_directories_label">ថត</string>
+    <string name="tour_deduplicator_details_cluster_body">ឯកសារទាំងនេះហាក់ដូចជាធាតុឬខ្លឹមសារដូចគ្នា ដែលជាក្រុមឯកសារដដែល។</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ឯកសារដែលមាននិមិត្តសញ្ញានេះនឹងត្រូវបានលុប ឯកសារដែលនៅសល់ក្នុងក្រុមគឺជាឯកសារដែល SD Maid រក្សាទុក។ អ្នកអាចផ្លាស់ប្តូរវិធីជ្រើសរើសឯកសារដែលរក្សាទុកនៅក្នុងការកំណត់យុទ្ធសាស្ត្រលុប។</string>
 </resources>

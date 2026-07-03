@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">ଆକାର</string>
     <string name="appcontrol_list_sortmode_screentime_label">ସ୍କ୍ରିନ୍ ସମୟ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">କାର୍ଯ୍ୟକ୍ଷମତା କାରଣରୁ ଆପ୍ ଆକାରଗୁଡ଼ିକ ଆନୁମାନିକ। ଅଧିକ ସଠିକ ଡାଟା ପାଇଁ StorageAnalyzer ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
+    <string name="appcontrol_list_filteroptions_label">ଫିଲ୍ଟର ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="appcontrol_list_fastscroller_action">ଶୀଘ୍ର ସ୍କ୍ରୋଲର</string>
     <string name="appcontrol_progress_uninstalling_app">ଆପ୍ ଅନଇନଷ୍ଟଲ କରୁଛି</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ଆପ୍ ଅନଇନଷ୍ଟଲ୍ ହୋଇଛି</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା: %s</string>
     <string name="shortcut_appcontrol_short">ଆପ୍ ନିୟନ୍ତ୍ରଣ</string>
     <string name="shortcut_appcontrol_long">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="tour_appcontrol_search_body">ନାମ ଅନୁୟାୟୀ ଏକ ଆପ୍ ଖୋଜନ୍ତୁ। ଅନେକ ସଂସ୍ଥାପିତ ଆପ୍ ସହିତ ଡିଭାଇସରେ ଉପୟୋଗୀ।</string>
+    <string name="tour_appcontrol_filter_body">ଚାଳକ/ସିଷ୍ଟମ ଆପ୍, ସକ୍ଷମ ଅବସ୍ଥା, ସାମ୍ପ୍ରତିକ କାର୍ୟକଲାପ ଏବଂ ଅଧିକ ଦ୍ଵାରା ତାଲିକାକୁ ସଂକୀର୍ଣ୍ଣ କରନ୍ତୁ। ସକ୍ରିୟ ଫିଲ୍ଟରଗୁଡ଼ିକ ଏଠାରେ ଚିପ୍ସ ଭାବରେ ଦେଖାୟାଏ।</string>
+    <string name="tour_appcontrol_sort_body">ଆପ୍ଗୁଡ଼ିକୁ ନାମ, ସଂସ୍ଥାପନ ତାରିଖ, ଶେଷ ଅପଡେଟ, ଆକାର ବା ସ୍କ୍ରିନ ସମୟ ଅନୁୟାୟୀ ଅର୍ଡର କରନ୍ତୁ। ଦିକ ଫ୍ଲିପ କରିବା ପାଇଁ ସମାନ ବିକଳ୍ପ ଟ୍ୟାପ କରନ୍ତୁ।</string>
+    <string name="tour_appcontrol_app_row_body">ଏକ ଆପ୍ ଟ୍ୟାପ କରନ୍ତୁ ଏହାର ବିବରଣ ଏବଂ ଉପଲବ୍ଧ କାର୍ୟଗୁଡ଼ିକ ଖୋଲିବା ପାଇଁ। ଏକ ଚୟନ ଶୁରୁ କରିବା ଏବଂ ବହୁ-ଆଚରଣ ବ୍ୟବହାର କରିବା ପାଇଁ ଦୀର୍ଘ ଦବାନ୍ତୁ।</string>
 </resources>

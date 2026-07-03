@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Iyesi belgisiz</string>
     <string name="corpsefinder_corpse_hint_keeper">Bul zat aplikatıonı tastalg̣an bolatında de saqlaw kerek bolg̣an maglıwmat boluwı mumkin, masalan fotolar yaki záxirelendürüwler.</string>
     <string name="corpsefinder_corpse_hint_common">Bul zat keng taralg̣an atlı, SD Maid bilmegen aktiv applicationlarg̣a tegisli boluwı mumkin.</string>
+    <string name="corpsefinder_risk_keeper_chip">Arzıwlı</string>
+    <string name="corpsefinder_risk_common_chip">Áddiy</string>
+    <string name="corpsefinder_markers_dialog_title">Bul belgiler haqqında</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Belgi joq</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standart qaldıq. Ádette alıp taslaw qáwipsiz — bul fayllar endi ornatılmaǵan qosımshalarǵa tiyisli.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder siz endi ornatpaǵan qosımshalar qaldırǵan maǵlıwmatlardı tabadı. Ol endi hesh bir ornatılǵan nársege tiyisli emes, sonlıqtan onı alıp taslaw qáwipsiz hám orın bosatadı.</string>
+    <string name="tour_corpsefinder_row_body">Hár bir element — qaldıq maǵlıwmat hám ol shıqqan qosımsha. Belgi SD Maidtiń onı alıp taslawdıń qáwipsiz ekenine qanshama isenimli ekenin kórsetedi — belgilerdiń mánisin bilw ushın joqarıdaǵı ⓘ ni basıń.</string>
 </resources>

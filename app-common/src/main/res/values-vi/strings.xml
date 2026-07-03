@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Đã hiểu</string>
     <string name="general_fix_action">Sửa lỗi</string>
     <string name="general_set_up_action">Thiết lập</string>
+    <string name="general_unavailable_label">Không có sẵn</string>
     <string name="general_edit_action">Sửa</string>
     <string name="general_na_label">Không có sẵn</string>
     <string name="general_empty_label">Trống</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Đang chờ</string>
     <string name="general_progress_deleting">Đang xóa</string>
     <string name="general_progress_deleting_x">Đang xoá %s</string>
+    <string name="general_sort_by_title">Sắp xếp theo</string>
     <string name="general_sort_reverse_action">Chế độ sắp xếp ngược</string>
+    <string name="general_sort_oldest_first">Cũ nhất trước</string>
+    <string name="general_sort_newest_first">Mới nhất trước</string>
+    <string name="general_sort_name_asc">Tên (A → Z)</string>
+    <string name="general_sort_size_desc">Lớn nhất trước</string>
     <string name="general_tag_system">Hệ thống</string>
+    <string name="general_navigate_up_action">Quay lại</string>
+    <string name="general_filter_action">Bộ lọc</string>
+    <string name="general_filter_by_tags_label">Lọc theo thẻ</string>
+    <string name="general_filter_add_action">Thêm bộ lọc</string>
+    <string name="general_filter_remove_x_action">Xóa bộ lọc %s</string>
+    <string name="general_filter_empty_row_hint">Nhấn + để lọc</string>
+    <string name="general_show_all_action">Hiển thị tất cả</string>
     <string name="general_result_success_message">Thao tác thành công</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">Đã giải phóng %s dung lượng.</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">Tùy chọn</string>
     <string name="general_details_label">Chi tiết</string>
     <string name="general_view_action">Xem</string>
+    <string name="general_open_action">Mở</string>
+    <string name="general_configure_action">Cấu hình</string>
     <string name="general_update_action">Cập nhật</string>
     <string name="general_scan_action">Quét</string>
     <string name="general_close_action">Đóng</string>
@@ -93,7 +108,9 @@
         <item quantity="other">%d mục đã bị xóa</item>
     </plurals>
     <string name="general_search_action">Tìm kiếm</string>
+    <string name="general_search_no_matches">Không có kết quả khớp</string>
     <string name="general_open_system_settings_action">Mở cài đặt hệ thống</string>
+    <string name="general_fast_scroller_action">Thanh cuộn nhanh</string>
     <plurals name="result_x_items">
         <item quantity="other">%s mục</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">Bật dịch vụ</string>
     <string name="general_undo_action">Hoàn tác</string>
     <string name="general_list_select_all_action">Chọn tất cả</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">%d đã chọn</item>
+    </plurals>
     <string name="general_path_label">Đường dẫn</string>
     <string name="general_type_label">Loại</string>
     <string name="general_size_label">Kích thước</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">Báo cáo lỗi</string>
     <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
     <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="general_error_upgrade_required_title">Yêu cầu phiên bản Pro</string>
+    <string name="general_error_upgrade_required_description">Đây là tính năng Pro. Vui lòng nâng cấp SD Maid SE để sử dụng nó.</string>
     <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">Mức độ rủi ro</string>
     <string name="settings_category_filter">Bộ lọc</string>
     <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
+    <string name="ui_theme_color_sunset_label">Hoàng hôn</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Tính năng này cần quyền truy cập root, nhưng SD Maid không thể lấy được trên thiết bị này.</string>
+    <string name="access_blocked_root_declined">Tính năng này cần quyền truy cập root. Bạn có thể bật nó qua màn hình thiết lập.</string>
+    <string name="access_blocked_root_or_shizuku">Tính năng này cần quyền truy cập root hoặc Shizuku, nhưng không khả dụng trên thiết bị này.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Tệp sao lưu không hợp lệ</string>
+    <string name="backup_restore_error_invalid_body">Tệp này không phải là một bản sao lưu SD Maid hợp lệ hoặc bị hỏng.</string>
+    <string name="backup_restore_error_version_body">Bản sao lưu này được tạo với phiên bản SD Maid mới hơn. Vui lòng cập nhật ứng dụng và thử lại.</string>
+    <string name="backup_restore_error_restore_failed_title">Khôi phục không thành công</string>
+    <string name="backup_restore_error_restore_failed_body">Các phần này không thể được khôi phục: %1$s. Cấu hình trước đây của bạn đã được lưu và có thể được khôi phục.</string>
+    <string name="backup_restore_error_safety_title">Khôi phục chưa bắt đầu</string>
+    <string name="backup_restore_error_safety_body">SD Maid không thể lưu ảnh chụp an toàn của cấu hình hiện tại của bạn, vì vậy không có gì thay đổi.</string>
+    <string name="backup_restore_error_busy_title">Vui lòng chờ</string>
+    <string name="backup_restore_error_busy_body">Một tác vụ dọn dẹp hoặc hoạt động sao lưu khác đang chạy. Hãy thử lại khi nó hoàn thành.</string>
+    <string name="backup_restore_error_schema_title">Sao lưu không tương thích</string>
+    <string name="backup_restore_error_schema_body">Định dạng cơ sở dữ liệu của sao lưu không khớp với phiên bản SD Maid này. Khôi phục dữ liệu lịch sử chỉ được hỗ trợ giữa các phiên bản ứng dụng giống hệt nhau.</string>
 </resources>

@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">スケジューラが完了しました</string>
     <string name="scheduler_notification_result_success_message">すべてのスケジュールされたタスクが正常に実行されました。</string>
     <string name="scheduler_notification_result_failure_message">スケジュールされたタスクの一部で失敗またはエラーが発生しました。手動で実行してください。</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">スキップされました。スクリーンがオフまたはロックされていました。</string>
+    <string name="scheduler_acs_screenlocked_hint_title">アプリクリーニングがスキップされる可能性があります</string>
+    <string name="scheduler_acs_screenlocked_hint_body">アプリクリーニングはユーザー補助サービスを使用しますが、このサービスはスクリーンをロック解除する必要があります。デバイスがロックされている間の予定実行はスキップされます。
+
+バックグラウンドクリーニングにはShizukuまたはrootを使用するか、デバイスを使用している時間に予定してください。</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">システムアプリはスキップされる可能性があります</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizukuはほとんどのキャッシュをバックグラウンドでクリーニングしますが、システムアプリはユーザー補助サービスが必要で、スクリーンをロック解除する必要があります。「システムアプリを含める」がオンの場合、デバイスがロックされているときはスキップされます。
+
+「システムアプリを含める」をオフにするか、ロック解除中にスケジュールを実行してください。</string>
     <string name="scheduler_commands_after_schedule_label">ポストスケジュール コマンド</string>
     <string name="scheduler_commands_after_schedule_desc">スケジュールの最後に実行される Android シェルコマンド。</string>
     <string name="scheduler_battery_optimization_hint">SD Maidがバックグラウンドで正常に動作しない場合は、バッテリー最適化をオフにすることをご検討ください。</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maidはスケジュールに基づいてクリーニングできます。実行時間とツールを選択すれば、バックグラウンドで実行され、アプリを開く必要がほぼありません。</string>
+    <string name="tour_scheduler_create_body">ここをタップして新しいスケジュールを作成し、実行時間と含めるツールを設定します。</string>
 </resources>

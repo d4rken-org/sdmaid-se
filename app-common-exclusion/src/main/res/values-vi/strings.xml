@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Quản lý loại trừ</string>
     <string name="exclusion_manager_desc">Quản lý loại trừ tệp và ứng dụng.</string>
-    <string name="exclusion_explanation_body1">Loại trừ các tệp và ứng dụng khỏi hoạt động của SD Maid.</string>
-    <string name="exclusion_add_new_hint">Thêm các loại trừ mới bằng cách trước tiên cho phép SD Maid tìm kiếm, sau đó sử dụng menu ngữ cảnh trên kết quả bạn muốn loại trừ.</string>
+    <string name="exclusion_explanation_body1">Loại trừ các tệp và ứng dụng để bảo vệ chúng khỏi các công cụ của SD Maid, hoặc để bỏ qua các mục không liên quan và tăng tốc độ hoạt động.</string>
+    <string name="exclusion_add_new_hint">Chưa có loại trừ nào. Sử dụng nút + để tạo một loại trừ, hoặc loại trừ các mục từ kết quả của bất kỳ công cụ nào.</string>
     <string name="exclusion_create_action">Tạo loại trừ</string>
     <string name="exclusion_edit_action">Chỉnh sửa loại trừ</string>
     <string name="exclusion_type_package">Loại trừ ứng dụng</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">Xuất các loại trừ</string>
     <string name="exclusion_create_pkg_hint">Sử dụng công cụ AppControl để tạo loại trừ ứng dụng.</string>
     <string name="exclusion_create_path_hint">Sử dụng công cụ StorageAnalyzer để tạo loại trừ đường dẫn.</string>
+    <string name="exclusion_create_segment_hint">Khớp với một phần tên, chẳng hạn như \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Hiển thị mặc định</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d loại trừ được nhập</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d loại trừ được xuất</item>
+    </plurals>
 </resources>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Alle bis auf eine Kopie in jedem ausgewählten Satz doppelter Dateien löschen?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Alle Dateien in jedem ausgewählten Satz doppelter Dateien löschen? Es bleibt keine Datei übrig!</string>
     <string name="deduplicator_delete_all_toggle_msg">Alle Kopien löschen. Es bleibt keine Datei übrig!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">%1$d Duplikat in diesem Satz löschen und %2$s freigeben? Die beibehaltene Kopie bleibt.</item>
+        <item quantity="other">%1$d Duplikate in diesem Satz löschen und %2$s freigeben? Die beibehaltene Kopie bleibt.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s freigebbar</string>
+    <string name="deduplicator_action_delete_set">Duplikatgruppe löschen</string>
+    <string name="deduplicator_action_open_preview">Vorschau öffnen</string>
+    <string name="deduplicator_marked_for_deletion">Zum Löschen markiert</string>
+    <string name="deduplicator_cluster_preview_image">Duplikatgruppen-Vorschau</string>
+    <string name="deduplicator_selection_keep_one_required">Mindestens eine Datei pro Duplikatgruppe muss erhalten bleiben. Aktivieren Sie „Alles löschen ermöglichen“ in den Einstellungen, um diese Einschränkung zu umgehen.</string>
     <string name="deduplicator_progress_comparing_files">Dateien vergleichen</string>
     <string name="deduplicator_details_cluster_title">Satz Duplikate</string>
     <string name="deduplicator_matches_exact_label">Exakte Kopien</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere Dateien bevorzugen</string>
     <string name="deduplicator_view_mode_groups_label">Gruppen</string>
     <string name="deduplicator_view_mode_directories_label">Ordner</string>
+    <string name="tour_deduplicator_details_cluster_body">Diese Dateien scheinen alle dasselbe Element oder denselben Medieninhalt zu sein – eine Gruppe von Duplikaten.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Dateien mit diesem Symbol werden gelöscht; die verbleibende Datei in der Gruppe ist die, die SD Maid behält. Sie können in den Einstellungen der Löschstrategie ändern, welche Datei behalten wird.</string>
 </resources>

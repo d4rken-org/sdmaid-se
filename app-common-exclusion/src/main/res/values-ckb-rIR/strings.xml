@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">بەڕێوەبەری دەرخستنەکان</string>
     <string name="exclusion_manager_desc">پالپشتی بیکار هێنانی پاڵاوتن بۆ پەڕگە و بەرنامە.</string>
-    <string name="exclusion_explanation_body1">پەڕگە و بەرنامەکان پاڵاوتن بکە لە کاری SD Maid.</string>
-    <string name="exclusion_add_new_hint">دەرخستنی نوێ زیاد بکە بە یەکەم ڕێگەدانی SD Maid بۆ گەڕان، پاشان مێنیوی تێکڕا بەکاربێنە لەسەر ئەنجامەکەی کە دەتەوێت دەربکەیت.</string>
+    <string name="exclusion_explanation_body1">فایل و ئەپلیکێشنەکان بخەژێ لە ئامرازەکانی SD Maid بپارێزە، یان بۆ تێپەڕاندنی شتە ناپێوەندەکان و خێراکردنی کردارەکان.</string>
+    <string name="exclusion_add_new_hint">هێشتا هیچ بخەژێیەک نیە. دوگمەی + بەکاربھێنە بۆ درووستکردنی یەکێک، یان کردارەکان لە ئەنجامی هەر ئامرازێک بخەژێ.</string>
     <string name="exclusion_create_action">دروستکردنی دەرخستن</string>
     <string name="exclusion_edit_action">پالپشتی پاڵاوتن دەست بکە</string>
     <string name="exclusion_type_package">ئەپ exclusion</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">هەناردن exclusions</string>
     <string name="exclusion_create_pkg_hint">کۆمەڵە AppControl بەکاربهێنە بۆ دروستکردنی پاڵاوتنی بەرنامە.</string>
     <string name="exclusion_create_path_hint">کۆمەڵە StorageAnalyzer بەکاربهێنە بۆ دروستکردنی پاڵاوتنی ڕێ.</string>
+    <string name="exclusion_create_segment_hint">بڕگەیەکی ناو یاریدە بکە، وەک \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">نیشاندان defaults</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d دەرەترکردن هاوردەکرا</item>
+        <item quantity="other">%d دەرەترکردن هاوردەکران</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d دەرەترکردن هەناردەکرا</item>
+        <item quantity="other">%d دەرەترکردن هەناردەکران</item>
+    </plurals>
 </resources>

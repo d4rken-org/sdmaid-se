@@ -44,6 +44,17 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Dzēst visas kopijas, izjemot vienu, katrā atlasītajā dublikātu kopumā?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Dzēst visus failus katrā atlasītajā dublikātu kopumā? Neviens fails netiek atstāts!</string>
     <string name="deduplicator_delete_all_toggle_msg">Dzēst visas kopijas. Neviens fails netiek atstāts!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="zero">Dzēst %1$d dubultojumus šajā kopā, atbrīvojot %2$s? Saglabātā kopija paliek.</item>
+        <item quantity="one">Dzēst %1$d dubultojumu šajā kopā, atbrīvojot %2$s? Saglabātā kopija paliek.</item>
+        <item quantity="other">Dzēst %1$d dubultojumus šajā kopā, atbrīvojot %2$s? Saglabātā kopija paliek.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s atbrīvojama</string>
+    <string name="deduplicator_action_delete_set">Dzēst dubultojumu kopu</string>
+    <string name="deduplicator_action_open_preview">Atvērt priekšskatījumu</string>
+    <string name="deduplicator_marked_for_deletion">Atzīmēts dzēšanai</string>
+    <string name="deduplicator_cluster_preview_image">Dubultojumu kopas priekšskatījums</string>
+    <string name="deduplicator_selection_keep_one_required">Katrā dublietu kopā jāpaliek vismaz vienam failam. Lai to mainītu, iestatījumos ieslēdziet „Padarīt \'Dzēst visu\' iespējamu“.</string>
     <string name="deduplicator_progress_comparing_files">Failu salīdzīnāšana</string>
     <string name="deduplicator_details_cluster_title">Dublikātu kopa</string>
     <string name="deduplicator_matches_exact_label">Precizas kopijas</string>
@@ -81,4 +92,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Dot priekšroku mazākiem failiem</string>
     <string name="deduplicator_view_mode_groups_label">Grupas</string>
     <string name="deduplicator_view_mode_directories_label">Mapes</string>
+    <string name="tour_deduplicator_details_cluster_body">Visi šie faili izskatās kā viens un tas pats priekšmets vai multivides saturs — dublietu klasteris.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Faili ar šo ikonu tiks dzēsti; atlikušais fails grupā ir tas, kuru patur SD Maid. Varat mainīt, kā tiek atlasīts paturamais fails, dzēšanas stratēģijas iestatījumos.</string>
 </resources>

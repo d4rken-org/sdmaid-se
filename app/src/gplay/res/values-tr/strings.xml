@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Satın alma işleminizi geri yüklemek için \"Satın almayı geri yükle\" seçeneğini kullanın. Sorun devam ederse, Google Play önbelleğini temizlemeyi ve cihazınızı yeniden başlatmayı deneyin.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro\'yu edinin</string>
     <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Çalışmalarım sizler tarafından finanse edilmektedir ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Avantajlar</string>
-    <string name="upgrade_screen_benefits_body">Uygulama temizleme 💯\n• Planlanmış işlemler ⏰\n• Tüm araçlar için ekstra seçenekler ⚙️\n• Kendi silme kurallarınız ✍️\n• Motivasyonlu bir geliştirici 🧙\nve daha fazlası…</string>
+    <string name="upgrade_screen_benefits_title">Yükseltme Avantajları</string>
+    <string name="upgrade_screen_benefits_body">• Uygulama önbelleğini ve kullanılmayan verileri temizle\n• Yinelenen dosyaları kaldır\n• Zamanlı temizlikleri etkinleştir\n• Özel filtreler ve temizlik kuralları oluştur\n• Depolama eğilimlerini ve temizlik geçmişini takip et\n• Uygulamada daha fazla özellik ve kontrol\n• Süregelen geliştirmeyi destekle</string>
     <string name="upgrade_screen_how_title">Seçenekler</string>
     <string name="upgrade_screen_how_body">Tek seferlik satın alma ile daha ucuz olan yıllık abonelik arasında seçim yapabilirsiniz.\nAbonelik 14 günlük ücretsiz deneme ile başlar ve sonrasında yılda bir kez ücretlendirilirsiniz. Deneme ve abonelik her zaman iptal edilebilir.\nAynı özellikler, sadece farklı fiyatlandırma modelleri.</string>
+    <string name="upgrade_screen_subscription_offer_title">Yıllık Abonelik</string>
+    <string name="upgrade_screen_iap_offer_title">Bir kez satın al</string>
+    <string name="upgrade_screen_offer_recommended">Önerilen</string>
+    <string name="upgrade_screen_offers_unavailable_message">Fiyatlar şu anda yüklenemedi. Google Play\'i kontrol edin ve bir dakika sonra tekrar deneyin.</string>
     <string name="upgrade_screen_subscription_trial_action">14 günlük ücretsiz denemeyi başlat</string>
     <string name="upgrade_screen_subscription_action">Abone ol</string>
     <string name="upgrade_screen_subscription_action_hint">Abonelik ücreti yıllık %s\'dir.</string>

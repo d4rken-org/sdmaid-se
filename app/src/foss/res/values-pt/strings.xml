@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Upgrade do SD Maid</string>
     <string name="upgrades_dashcard_body">Desbloqueie funcionalidades extra e torne-se um patrono para apoiar o desenvolvimento contínuo!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizar</string>
-    <string name="upgrade_screen_title">Melhore o SD Maid</string>
+    <string name="upgrade_screen_title">Apoiar o SD Maid</string>
     <string name="upgrade_screen_preamble">O SD Maid não tem anúncios e não vende dados dos utilizadores. O desenvolvimento contínuo só é possível consigo.</string>
     <string name="upgrade_screen_how_title">Como ajudar</string>
     <string name="upgrade_screen_how_body">Torne-se um patrono e patrocine o desenvolvimento! Clique no botão abaixo para ativar todas as funcionalidades extra e abrir o meu perfil nos Patrocinadores GitHub.</string>
-    <string name="upgrade_screen_why_title">Isto conjura 🪄</string>
-    <string name="upgrade_screen_why_body">• Limpeza das aplicações 💯 \n• Agendamento de operações ⏰\n• Opções extra para todas as ferramentas ⚙️\n• Criação das suas regras ✍️\n• U programador motivado 🧙\ne mais…</string>
+    <string name="upgrade_screen_why_title">Benefícios de atualizar</string>
+    <string name="upgrade_screen_why_body">• Limpar caches de aplicações e dados descartáveis
+• Remover ficheiros duplicados
+• Ativar limpezas agendadas
+• Criar filtros e regras de limpeza personalizados
+• Acompanhar tendências de armazenamento e histórico de limpeza
+• Mais funcionalidades e controlos na aplicação
+• Apoiar o trabalho de código aberto</string>
     <string name="upgrade_screen_sponsor_action">Patrocine o desenvolvimento</string>
     <string name="upgrade_screen_sponsor_action_hint">A alternativa são anúncios, análises e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Obrigado por apoiar o desenvolvimento de código aberto ❤️</string>

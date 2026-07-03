@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">ເຈ້າຂອງທີ່ບໍ່ຮູ້</string>
     <string name="corpsefinder_corpse_hint_keeper">ລາຍການນີ້ອາດມີຂໍ້ມູລທີ່ທ່ານຕ້ອງການເກັບໄວ້ ເຖິງວ່າເຈ້າຂອງຈະຖອນການຕິດຕັ້ງ, ເຊ່ນ: ຮູບຖ່າຍ ຫລືອ ການສຳຮອງ.</string>
     <string name="corpsefinder_corpse_hint_common">ລາຍການນີ້ມີຊື່ທີ່ທົ່ວໄປຫຼາຍ ແລະອາດເປັນຂອງແອັບทີ່ຍັງຕິດຕັ້ງຢູ່ທີ່ SD Maid ບໍ່ຮູ້ຈັກ.</string>
+    <string name="corpsefinder_risk_keeper_chip">ຕ້ອງການ</string>
+    <string name="corpsefinder_risk_common_chip">ທົ່ວໄປ</string>
+    <string name="corpsefinder_markers_dialog_title">ກ່ຽວກັບເຄື່ອງໝາຍເຫຼົ່ານີ້</string>
+    <string name="corpsefinder_markers_dialog_normal_label">ບໍ່ມີເຄື່ອງໝາຍ</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ສິ່ງຕົກຄ້າງມາດຕະຖານ. ໂດຍທົ່ວໄປແມ່ນປອດໄພທີ່ຈະລຶບ — ໄຟລ໌ເຫຼົ່ານີ້ເປັນຂອງແອັບຯທີ່ບໍ່ໄດ້ຕິດຕັ້ງອີກຕໍ່ໄປ.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ຊອກຫາຂໍ້ມູນທີ່ຖືກປະໄວ້ໂດຍແອັບຯທີ່ທ່ານໄດ້ຖອນການຕິດຕັ້ງແລ້ວ. ມັນບໍ່ໄດ້ສັງກັດກັບສິ່ງໃດທີ່ຕິດຕັ້ງໄວ້ອີກຕໍ່ໄປ, ສະນັ້ນການລຶບມັນຈຶ່ງປອດໄພ ແລະ ຫລຸດພື້ນທີ່ເກັບຂໍ້ມູນ.</string>
+    <string name="tour_corpsefinder_row_body">ລາຍການແຕ່ລະລາຍການແມ່ນຂໍ້ມູນທີ່ຕົກຄ້າງ ແລະ ແອັບຯທີ່ມັນມາຈາກ. ເຄື່ອງໝາຍສະແດງຄວາມເຊື່ອໝັ້ນໃຈຂອງ SD Maid ວ່າມັນປອດໄພທີ່ຈະລຶບ — ແຕະ ⓘ ຢູ່ເທິງສຸດເພື່ອຮຽນຮູ້ຄວາມໝາຍຂອງເຄື່ອງໝາຍ.</string>
 </resources>

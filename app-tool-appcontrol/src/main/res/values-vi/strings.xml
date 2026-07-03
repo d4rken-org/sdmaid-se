@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Kích thước</string>
     <string name="appcontrol_list_sortmode_screentime_label">Thời gian sử dụng màn hình</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Kích thước ứng dụng được ước tính vì lý do hiệu suất. Sử dụng công cụ StorageAnalyzer để có dữ liệu chính xác hơn.</string>
+    <string name="appcontrol_list_filteroptions_label">Tùy chọn bộ lọc</string>
+    <string name="appcontrol_list_fastscroller_action">Thanh cuộn nhanh</string>
     <string name="appcontrol_progress_uninstalling_app">Đang gỡ cài đặt ứng dụng</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d ứng dụng đã được gỡ cài đặt</item>
@@ -109,4 +111,8 @@
     <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
     <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
     <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
+    <string name="tour_appcontrol_search_body">Tìm kiếm ứng dụng theo tên. Hữu ích trên các thiết bị có nhiều ứng dụng được cài đặt.</string>
+    <string name="tour_appcontrol_filter_body">Thu hẹp danh sách theo ứng dụng người dùng/hệ thống, trạng thái bật, hoạt động gần đây và hơn thế nữa. Các bộ lọc đang hoạt động sẽ hiển thị dưới dạng chip ở đây.</string>
+    <string name="tour_appcontrol_sort_body">Sắp xếp ứng dụng theo tên, ngày cài đặt, cập nhật cuối cùng, kích thước hoặc thời gian dùng màn hình. Nhấn cùng một tùy chọn để đảo chiều sắp xếp.</string>
+    <string name="tour_appcontrol_app_row_body">Nhấn vào ứng dụng để mở chi tiết và các hành động khả dụng. Nhấn giữ để bắt đầu lựa chọn và sử dụng các hành động hàng loạt.</string>
 </resources>

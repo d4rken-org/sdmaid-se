@@ -73,6 +73,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Julkiset ja yksityiset oletusvälimuistit. Ei suoraan saavutettavissa, mutta voidaan poistaa epäsuorasti (esim. saavutettavuuspalvelun kautta).</string>
     <string name="appcleaner_automation_unavailable_title">Automaatio ei käytettävissä</string>
     <string name="appcleaner_automation_unavailable_body">Automaattinen siivous ei ole käytettävissä tälle sovellukselle.</string>
+    <string name="appcleaner_delete_confirmation_message_x">Poista %d tiedostoa?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>
         <item quantity="other">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>

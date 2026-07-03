@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">کاربران با نیازهای دسترسی ویژه می‌توانند این سرویس را فعال کنند تا SD Maid وظایفی را که به طور معمول نیاز به تعامل دستی خسته‌کننده دارند (مانند حذف کش) خودکار کند.\n\nمثال: اگر به SD Maid دستور دهید که چند برنامه را متوقف کند، SD Maid می‌تواند از این سرویس استفاده کند تا صفحه تنظیمات هر برنامه را باز کند، دکمه «توقف اجباری» را پیدا کند و آن را فشار دهد.\n\nSD Maid همیشه هنگام استفاده از این سرویس به طور واضح نشان می‌دهد و راهی آسان برای کاربر فراهم می‌کند تا هر تعاملی را بلافاصله لغو کند.\n\nهیچ اقدامی بدون تأیید قبلی کاربر انجام نخواهد شد. این سرویس را می‌توان در هر زمان بدون اثرات منفی دوباره غیرفعال کرد.</string>
     <string name="automation_screenoverlay_explanation">SD Maid با دستگاه شما در حال تعامل است. استفاده از صفحه نمایش به طور همزمان ممکن نیست. منتظر بمانید تا عملیات به پایان برسد یا آن را لغو کنید.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid با دستگاه شما در حال تعامل است. استفاده از صفحه‌نمایش در همان زمان امکان‌پذیر نیست. تا زمان اتمام عملیات منتظر بمانید یا دکمه Home را برای لغو فشار دهید.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid با دستگاه شما در حال تعامل است. استفاده از صفحه‌نمایش در همان زمان امکان‌پذیر نیست. تا زمان اتمام عملیات منتظر بمانید.</string>
     <string name="automation_active_title">SD Maid در حال کارکردن است</string>
     <string name="automation_error_no_consent_title">خطا خودکارسازی</string>
     <string name="automation_error_no_consent_body">سرویس دسترسی تنظیم نشده است. تنظیمات را کامل کنید و اجازه دهید.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">یک وظیفه برنامه‌ریزی‌شده تلاش کرد از سرویس دسترس‌پذیری استفاده کند، اما در دسترس نبود. اگر به این نیاز ندارید، گزینه «سرویس دسترس‌پذیری» را در تنظیمات زمان‌بند غیرفعال کنید.</string>
     <string name="automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
     <string name="automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
+    <string name="automation_error_interference_title">صفحه تنظیمات مسدود است</string>
+    <string name="automation_error_interference_body">برنامه دیگری (%1$s) صفحه تنظیمات سیستم را مسدود کرده است، بنابراین SD Maid نمی‌تواند ادامه دهد. قفل برنامه یا محافظت صفحه آن برنامه را برای تنظیمات سیستم غیرفعال کنید، سپس دوباره تلاش کنید.</string>
     <string name="automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
     <string name="automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
 </resources>

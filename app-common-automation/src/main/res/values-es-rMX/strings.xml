@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir que SD Maid automatice tareas que de otro modo requerirían interacción manual tediosa del usuario (por ejemplo, eliminación de caché).\n\nEjemplo: Si instruyes a SD Maid para detener múltiples aplicaciones, entonces SD Maid puede usar este servicio para abrir la pantalla de configuración de cada aplicación, encontrar el botón \'Forzar detención\' y tocarlo.\n\nSD Maid siempre mostrará prominentemente cuando use este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción inmediatamente.\n\nNo se realizarán acciones sin aprobación previa del usuario. Este servicio puede deshabilitarse nuevamente en cualquier momento sin efectos adversos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible usar la pantalla al mismo tiempo. Espera hasta que la operación termine o cancélala.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid está interactuando con tu dispositivo. No es posible usar la pantalla al mismo tiempo. Espera a que termine la operación o presiona el botón Inicio para cancelar.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid está interactuando con tu dispositivo. No es posible usar la pantalla al mismo tiempo. Espera a que termine la operación.</string>
     <string name="automation_active_title">SD Maid está trabajando</string>
     <string name="automation_error_no_consent_title">Error de automatización</string>
     <string name="automation_error_no_consent_body">El servicio de accesibilidad no está configurado. Completa la configuración y otorga consentimiento.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Una tarea programada intentó usar el servicio de accesibilidad, pero no estaba disponible. Si no lo necesitas, desactiva la opción \"Servicio de accesibilidad\" en la configuración del programador.</string>
     <string name="automation_error_no_settings_title">Pantalla de configuración no disponible</string>
     <string name="automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
+    <string name="automation_error_interference_title">Pantalla de configuración bloqueada</string>
+    <string name="automation_error_interference_body">Otra aplicación (%1$s) está bloqueando la pantalla de configuración del sistema, por lo que SD Maid no puede continuar. Desactiva el bloqueo de aplicación o la protección de pantalla de esa aplicación para la configuración del sistema e inténtalo de nuevo.</string>
     <string name="automation_loading">Preparando automatización a través del servicio de accesibilidad</string>
     <string name="automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
 </resources>

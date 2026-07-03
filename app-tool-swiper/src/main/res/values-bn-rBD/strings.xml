@@ -36,6 +36,19 @@
         <item quantity="one">%d অনির্ধারিত আইটেম পরবর্তী পর্যালোচনার জন্য থাকবে।</item>
         <item quantity="other">%d অনির্ধারিত আইটেম পরবর্তী পর্যালোচনার জন্য থাকবে।</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">এই সেশনটি একটি সম্পূর্ণ স্টোরেজ ভলিউমকে লক্ষ্য করে — এখানে মুছে ফেলা সেই স্টোরেজের প্রতিটি ফোল্ডার জুড়ে বিস্তৃত।</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…এবং %d আরও ফোল্ডার</item>
+        <item quantity="other">…এবং %d আরও ফোল্ডার</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">আমি বুঝি যে এই ফাইলগুলি স্থায়ীভাবে মুছে ফেলা হবে।</string>
+    <string name="swiper_sensitive_root_warning_title">সম্পূর্ণ স্টোরেজ স্ক্যান করবেন?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s স্ক্যান করলে এই স্টোরেজের সব ফাইল অন্তর্ভুক্ত হবে — ছবি, ডকুমেন্ট, ডাউনলোড, অ্যাপ মিডিয়া এবং আরও অনেক কিছু। চালিয়ে যাবেন?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">তবুও চালিয়ে যান</string>
+    <string name="swiper_session_risky_label">সম্পূর্ণ স্টোরেজ স্ক্যান</string>
+    <string name="swiper_session_risky_info_message">এই সেশনটি একটি স্টোরেজ ভলিউমের রুটকে লক্ষ্য করে, তাই সেই স্টোরেজের সব ফাইল স্কোপে রয়েছে — ছবি, ডকুমেন্ট, ডাউনলোড, অ্যাপ মিডিয়া এবং আরও অনেক কিছু।
+
+সম্পূর্ণ স্টোরেজ স্ক্যান অনেক আইটেম ফেরত দিতে পারে, যার মধ্যে এমন ফাইলও থাকতে পারে যা আপনি পর্যালোচনা করতে বিবেচনা করেননি। স্ক্যানকে সীমিত করতে একটি ফাইল-ধরন ফিল্টার প্রয়োগ করুন।</string>
     <string name="swiper_delete_x_action">%1$d মুছুন</string>
     <string name="swiper_settings_swap_directions_title">সোয়াইপ দিক অদলবদল</string>
     <string name="swiper_settings_swap_directions_summary">রাখতে বামে সোয়াইপ, মুছতে ডানে।</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">এই সেশনের জন্য একটি নাম লিখুন</string>
     <string name="swiper_sessions_current_sessions">বর্তমান সেশন</string>
     <string name="swiper_session_paths_label">পাথ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…এবং %d আরও</item>
+        <item quantity="other">…এবং %d আরও</item>
+    </plurals>
     <string name="swiper_session_status_label">অবস্থা</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d রাখতে হবে</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">ফিল্টার করা হয়েছে: %1$s</string>
     <string name="swiper_session_no_matching_files">কোনো মিলসম্পন্ন ফাইল পাওয়া যায়নি</string>
     <string name="swiper_open_externally_action">বাহ্যিক অ্যাপে খুলুন</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">একটি ফটো সোয়াইপ করুন এর ভাগ্য সিদ্ধান্ত নিতে: পাশে রাখতে বা মুছতে, উপরে এড়িয়ে যেতে, নীচে পূর্বাবস্থায় ফিরতে। নীচের বোতামগুলি একই কাজ করে — এবং কোন বোতাম কোনটি তা দেখায়।</string>
+    <string name="tour_swiper_openin_body">এই বোতাম ফটোটি অন্য অ্যাপে খোলে, সিদ্ধান্ত নেওয়ার আগে এটি পরীক্ষা করার জন্য সুবিধাজনক।</string>
+    <string name="tour_swiper_preview_body">এই বোতাম আরও কাছ থেকে দেখার জন্য একটি পূর্ণ-স্ক্রিন প্রিভিউ খোলে।</string>
+    <string name="tour_swiper_actions_body">সোয়াইপ পছন্দ করেন না? আমাদের বোতামও আছে! স্কিপ এটিকে পরে সিদ্ধান্তহীন রেখে দেয়, এবং স্কিপে দীর্ঘ-চাপ দিলে একটি ফাইল ভবিষ্যতের স্ক্যান থেকে বাদ যায়। আনডু আপনার শেষ পছন্দ ফিরিয়ে আনে।</string>
+    <string name="tour_swiper_review_body">আপনার রাখা এবং মুছে ফেলার পছন্দগুলি এখনও শুধু প্রস্তুতিতে আছে। পর্যালোচনা খুলুন সেগুলি দেখতে এবং যখন আপনি প্রস্তুত হবেন তখন মুছে ফেলাগুলি প্রয়োগ করুন।</string>
 </resources>

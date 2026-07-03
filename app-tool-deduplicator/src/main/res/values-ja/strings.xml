@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">重複ファイルの選択された各セットで、1つのコピーを除いてすべてを削除しますか？</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">重複ファイルの選択した各セット内のすべてのファイルを削除しますか？ファイルが残っていません！</string>
     <string name="deduplicator_delete_all_toggle_msg">すべてのコピーを削除します。残りのファイルはありません！</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">このセット内の%1$d件の重複を削除して%2$sを解放しますか？保持されたコピーは残ります。</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s 解放可能</string>
+    <string name="deduplicator_action_delete_set">重複セットを削除</string>
+    <string name="deduplicator_action_open_preview">プレビューを開く</string>
+    <string name="deduplicator_marked_for_deletion">削除対象にマーク済み</string>
+    <string name="deduplicator_cluster_preview_image">重複セットのプレビュー</string>
+    <string name="deduplicator_selection_keep_one_required">重複セットごとに少なくとも1つのファイルが残っている必要があります。設定で「『すべてを削除』を可能にする」を有効にしてこれをオーバーライドしてください。</string>
     <string name="deduplicator_progress_comparing_files">ファイルの比較</string>
     <string name="deduplicator_details_cluster_title">重複のセット</string>
     <string name="deduplicator_matches_exact_label">正確なコピー</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">小さいファイルを優先</string>
     <string name="deduplicator_view_mode_groups_label">グループ</string>
     <string name="deduplicator_view_mode_directories_label">フォルダ</string>
+    <string name="tour_deduplicator_details_cluster_body">これらのファイルはすべて同じアイテムまたはメディアコンテンツのように見え、重複のクラスタです。</string>
+    <string name="tour_deduplicator_details_delete_mark_body">このアイコンのファイルは削除されます。グループ内の残りのファイルはSD Maidが保持するものです。削除戦略の設定で、保持ファイルの選択方法を変更できます。</string>
 </resources>

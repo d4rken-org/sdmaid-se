@@ -37,7 +37,15 @@
     <string name="scheduler_notification_result_title">Urnik je končan.</string>
     <string name="scheduler_notification_result_success_message">Vsa načrtovana opravila so se uspešno izvedla.</string>
     <string name="scheduler_notification_result_failure_message">Nekatera načrtovana opravila se niso uspešno končala ali so naletela na napake.  Poizkusite jih ročno zagnati.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Preskočeno, zaslon je bil izklopljen ali zaklenjen</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Čiščenje aplikacij se lahko preskoči</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Čiščenje aplikacij uporablja storitev dostopnosti, ki potrebuje odklenjen zaslon. Načrtovani teki, medtem ko je naprava zaklenjena, se preskočijo.\n\nZa čiščenje v ozadju uporabite Shizuku ali root, ali pa ga načrtujte za čas, ko uporabljate napravo.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistemske aplikacije se lahko preskočijo</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku čisti večino predpomnilnikov v ozadju, vendar sistemske aplikacije potrebujejo storitev dostopnosti, ki potrebuje odklenjen zaslon. Če je »Vključi sistemske aplikacije« vklopljeno, se te preskočijo, ko je naprava zaklenjena.\n\nIzklopite »Vključi sistemske aplikacije« ali zaženite načrt, medtem ko je naprava odklenjena.</string>
     <string name="scheduler_commands_after_schedule_label">Ukazi, ki se izvedejo po urniku</string>
     <string name="scheduler_commands_after_schedule_desc">Ukazi Androidove lupine, ki bodo izvedeni po koncu urnika.</string>
     <string name="scheduler_battery_optimization_hint">Če opazite težave z izvajanjem v ozadju, lahko za SD Maid onemogočite optimizacijo energije.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid lahko čisti po urniku. Izberite čas in katera orodja se izvajajo, aplikacija pa to opravi v ozadju – (skoraj) ni potrebe po odpiranju aplikacije.</string>
+    <string name="tour_scheduler_create_body">Pritisnite tukaj za ustvarjanje novega urnika, nato pa nastavite, kdaj se bo izvajal in katera orodja naj vključuje.</string>
 </resources>

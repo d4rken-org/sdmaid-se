@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Dueño desconocido</string>
     <string name="corpsefinder_corpse_hint_keeper">Este elemento puede contener datos que querés conservar a pesar de que su propietario ha sido desinstalado, por ejemplo, fotos o copias de seguridad.</string>
     <string name="corpsefinder_corpse_hint_common">Este elemento tiene un nombre muy común y podría pertenecer a aplicaciones todavía instaladas que SD Maid no conoce.</string>
+    <string name="corpsefinder_risk_keeper_chip">Deseable</string>
+    <string name="corpsefinder_risk_common_chip">Común</string>
+    <string name="corpsefinder_markers_dialog_title">Acerca de estos marcadores</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Sin marcador</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Remanente estándar. Generalmente es seguro eliminar — estos archivos pertenecen a aplicaciones que ya no están instaladas.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder encuentra datos dejados por aplicaciones que ya desinstalaste. Ya no pertenecen a nada instalado, por lo que eliminarlos es seguro y libera espacio.</string>
+    <string name="tour_corpsefinder_row_body">Cada elemento es datos remanentes y la aplicación de la que proviene. El marcador muestra cuán seguro está SD Maid de que es seguro eliminar — tocá el ⓘ en la parte superior para aprender qué significan los marcadores.</string>
 </resources>

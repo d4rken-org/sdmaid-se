@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Асноўнае сховішча</string>
     <string name="stats_storage_type_secondary">Дадатковае сховішча</string>
     <string name="stats_storage_type_portable">Партатыўнае сховішча</string>
+    <string name="stats_space_history_delete_storage_title">Выдаліць гісторыю сховішча?</string>
+    <string name="stats_space_history_delete_storage_desc">Усе трэндавыя даныя для гэтага сховішча будуць назаўжды выдалены.</string>
 </resources>

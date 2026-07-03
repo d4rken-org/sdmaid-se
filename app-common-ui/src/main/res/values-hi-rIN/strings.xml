@@ -8,4 +8,16 @@
         <item quantity="other">%d पथ चयनित</item>
     </plurals>
     <string name="picker_home_action">डेटा क्षेत्र</string>
+    <string name="tour_action_next">अगला</string>
+    <string name="tour_action_previous">पिछला</string>
+    <string name="tour_action_done">पूर्ण</string>
+    <string name="tour_action_cancel">छोड़ें</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">टूर छोड़ दें?</string>
+    <string name="tour_confirm_message">आप किसी भी समय सेटिंग्स से टूर को फिर से सक्षम कर सकते हैं।</string>
+    <string name="tour_confirm_continue">टूर जारी रखें</string>
+    <string name="tour_confirm_dont_show_this_tour">इस टूर को फिर से न दिखाएं</string>
+    <string name="tour_confirm_disable_all">सभी टूर को बंद करें</string>
+    <string name="navigation_unknown_destination_title">जल्द ही आ रहा है</string>
+    <string name="navigation_unknown_destination_message">यह स्क्रीन अभी भी नए यूआई में माइग्रेट की जा रही है।</string>
 </resources>

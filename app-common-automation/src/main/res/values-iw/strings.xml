@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">משתמשים עם צרכי נגישות מיוחדים יכולים לאפשר לשירות זה לאפשר ל-SD Maid לבצע אוטומציה של משימות שאחרות היו דורשות אינטראקציה ידנית מייגעת של המשתמש (למשל מחיקת מטמון).\n\nדוגמה: אם תורות ל-SD Maid לעצור מספר אפליקציות, SD Maid יכולה להשתמש בשירות זה כדי לפתוח כל מסך הגדרות אפליקציות, מצא את הלחצן \'כפוף עצירה קלה\' והקש עליו.\n\nתמיד יספק את הדרך הבולטת ל-SD Maid כדי להשתמש בשירות הזה. כל אינטראקציה מיידית.\n\nלא יבוצעו פעולות ללא אישור מראש של המשתמש. שירות זה יכול להיות מושבת שוב בכל עת ללא השפעות שליליות.</string>
     <string name="automation_screenoverlay_explanation">SD Maid מקיימת אינטראקציה עם המכשיר שלך. לא ניתן להשתמש במסך בו זמנית. המתן עד לסיום הפעולה או בטל אותה.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid מקיים אינטראקציה עם ההתקן שלך. לא ניתן להשתמש במסך בו זמנית. המתן עד שהפעולה תסתיים, או לחץ על כפתור הבית כדי לבטל.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid מקיים אינטראקציה עם ההתקן שלך. לא ניתן להשתמש במסך בו זמנית. המתן עד שהפעולה תסתיים.</string>
     <string name="automation_active_title">SD Maid עובד</string>
     <string name="automation_error_no_consent_title">שגיאת אוטומציה</string>
     <string name="automation_error_no_consent_body">שירות הנגישות אינו מוגדר. השלם את ההגדרה ותן הסכמה.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">משימה מתוזמנת ניסתה להשתמש בשירות הנגישות, אך הוא לא היה זמין. אם אינך זקוק לכך, השבת את האפשרות \"שירות נגישות\" בהגדרות המתזמן.</string>
     <string name="automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
     <string name="automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
+    <string name="automation_error_interference_title">מסך ההגדרות חסום</string>
+    <string name="automation_error_interference_body">אפליקציה אחרת (%1$s) חוסמת את מסך הגדרות המערכת, כך ש-SD Maid לא יכול להמשיך. בטל את נעילת האפליקציה או הגנת המסך של אפליקציה זו עבור הגדרות המערכת, ואז נסה שוב.</string>
     <string name="automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
     <string name="automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
 </resources>

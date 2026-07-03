@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Zamanlayıcı tamamlandı</string>
     <string name="scheduler_notification_result_success_message">Tüm zamanlanmış görevler başarıyla çalıştı.</string>
     <string name="scheduler_notification_result_failure_message">Bazı zamanlanmış görevler başarısız oldu veya hatalarla karşılaştı. Bunları manuel olarak çalıştırmayı deneyin.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Atlandı, ekran kapalıydı veya kilitliydi</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Uygulama temizliği atlanabilir</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Uygulama temizliği, ekranın kilidinin açılması gereken erişilebilirlik hizmetini kullanır. Planlanan çalışmalar cihaz kilitliyken atlanır.\n\nArka planda temizlik için Shizuku veya root kullanın ya da cihazı kullanırken çalışması için planlayın.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistem uygulamaları atlanabilir</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku arka planda çoğu önbelleği temizler, ancak sistem uygulamaları ekranın kilidinin açılması gereken erişilebilirlik hizmetine ihtiyaç duyar. \"Sistem uygulamalarını dahil et\" açıkken, cihaz kilitliyken bunlar atlanır.\n\n\"Sistem uygulamalarını dahil et\" seçeneğini kapatın veya planlanan işlemi kilit açıkken çalıştırın.</string>
     <string name="scheduler_commands_after_schedule_label">Program sonrası komutlar</string>
     <string name="scheduler_commands_after_schedule_desc">Bir zamanlamanın sonunda çalıştırılacak Android shell komutları.</string>
     <string name="scheduler_battery_optimization_hint">Uygulamanın arka planda çalışmasıyla ilgili sorunlar yaşıyorsanız SD Maid için batarya optimizasyonlarını kapatmayı deneyebilirsiniz.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid zamanlanmış temizlik yapabilir. Bir zaman seçin ve hangi araçların çalışacağını belirleyin, gerisi arka planda yapılır, uygulamayı açmaya (neredeyse) gerek yok.</string>
+    <string name="tour_scheduler_create_body">Yeni bir zamanlama oluşturmak için buraya dokunun, ardından ne zaman çalışacağını ve hangi araçları ekleyeceğini ayarlayın.</string>
 </resources>

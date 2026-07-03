@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">فائل کی عمر (آخری ترمیم کا وقت) کی بنیاد پر نتائج محدود کریں۔ کسی بھی عمر سے ملاپ کے لیے غیر مقرر چھوڑیں۔</string>
     <string name="systemcleaner_customfilter_import_action">نیا فلٹر امپورٹ کریں</string>
     <string name="systemcleaner_customfilter_export_action">منتخب فلٹر ایکسپورٹ کریں</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ایپ سے غیر مختص فلٹرز استعمال کرتے ہوئے فضول تلاش کرتا ہے۔ خالی فولڈرز، بقایا لاگز اور پرانے تھمب نیلز جیسی چیزوں کے لیے تیار شدہ اصول موجود ہیں۔ اگر آپ اپنا بنانا چاہتے ہیں تو سیٹنگز ملاحظہ کریں۔</string>
+    <string name="tour_systemcleaner_filter_body">ہر قطار ایک فلٹر ہے اور اس نے کیا تلاش کیا۔ کوئی چیز حذف کرنے سے پہلے تفصیلات دیکھیں کہ کون سی فائلیں موافق ہیں۔</string>
 </resources>

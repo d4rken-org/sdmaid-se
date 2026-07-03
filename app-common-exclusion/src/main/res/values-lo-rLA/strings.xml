@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">ຕັວຈັດການການທ່ອນຂ້າມ</string>
     <string name="exclusion_manager_desc">ຈັດການການທ່ອນຂ້າມໄຟລ໌ ແວແອັບ.</string>
-    <string name="exclusion_explanation_body1">ທ່ອນຂ້າມໄຟລ໌ ແວແອັບຈາກການດຳເນີນງານຂອງ SD Maid.</string>
-    <string name="exclusion_add_new_hint">ເພິ່ມການທ່ອນຂ້າມໃຫມ່ໂດຍກ່ອນອະນຸຍາດເພື່ອ໊່ວຄ້ນຫາ ຈາກນັ້ນໃຊ້ເມນູ Context ບນຜລລັບທີ່ຕ້ອງການທ່ອນຂ້າມ.</string>
+    <string name="exclusion_explanation_body1">ຍົກເວັ້ນໄຟລ໌ ແລະ app ເພື່ອປົກປ້ອງພວກມັນຈາກເຄື່ອງມືຂອງ SD Maid, ຫລືຂ້າມລາຍການທີ່ບໍ່ກ່ຽວຂ້ອງ ແລະ ເລັ່ງການດຳເນີນການ.</string>
+    <string name="exclusion_add_new_hint">ບໍ່ມີຂໍ້ຍົກເວັ້ນເທື່ອ. ໃຊ້ປຸ່ມ + ເພື່ອສ້າງ, ຫລືຍົກເວັ້ນລາຍການຈາກຜົນລັບຂອງເຄື່ອງມືໃດໜຶ່ງ.</string>
     <string name="exclusion_create_action">ສ້າງການທ່ອນຂ້າມ</string>
     <string name="exclusion_edit_action">ແກ້ໄຂການທ່ອນຂ້າມ</string>
     <string name="exclusion_type_package">ການທ່ອນຂ້າມແອັບ</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">ສ່ອອກການທ່ອນຂ້າມ</string>
     <string name="exclusion_create_pkg_hint">ໃຊ້ເຄື່ອງມື AppControl ເພື່ອສ້າງການທ່ອນຂ້າມແອັບ.</string>
     <string name="exclusion_create_path_hint">ໃຊ້ເຄື່ອງມື StorageAnalyzer ເພື່ອສ້າງການທ່ອນຂ້າມທາງ.</string>
+    <string name="exclusion_create_segment_hint">ກົງກັບສ່ວນຂອງຊື່, ເຊັ່ນ \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">ແສດງຄ່າເຣີ່ມຕ້ນ</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d ຂໍ້ຍົກເວັ້ນທີ່ນຳເຂົ້າ</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d ຂໍ້ຍົກເວັ້ນທີ່ສົ່ງອອກ</item>
+    </plurals>
 </resources>

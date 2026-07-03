@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">Chủ sở hữu không xác định</string>
     <string name="corpsefinder_corpse_hint_keeper">Mục này có thể chứa dữ liệu bạn muốn giữ mặc dù chủ sở hữu của nó đã bị gỡ cài đặt, ví dụ: ảnh hoặc bản sao lưu.</string>
     <string name="corpsefinder_corpse_hint_common">Mục này có một tên rất phổ biến và có thể thuộc về các ứng dụng vẫn được cài đặt mà SD Maid không biết.</string>
+    <string name="corpsefinder_risk_keeper_chip">Mong muốn</string>
+    <string name="corpsefinder_risk_common_chip">Phổ biến</string>
+    <string name="corpsefinder_markers_dialog_title">Về những dấu hiệu này</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Không có dấu hiệu</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Dư thừa tiêu chuẩn. Thường an toàn để xóa — các tệp này thuộc về các ứng dụng không còn được cài đặt.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder tìm dữ liệu bị bỏ lại bởi các ứng dụng mà bạn đã gỡ cài đặt. Nó không còn thuộc về bất kỳ ứng dụng nào được cài đặt, vì vậy xóa nó là an toàn và giải phóng không gian.</string>
+    <string name="tour_corpsefinder_row_body">Mỗi mục là dữ liệu dư thừa và ứng dụng mà nó thuộc về. Dấu hiệu cho thấy SD Maid tự tin như thế nào rằng việc xóa nó là an toàn — nhấn vào ⓘ ở trên cùng để tìm hiểu ý nghĩa của các dấu hiệu.</string>
 </resources>

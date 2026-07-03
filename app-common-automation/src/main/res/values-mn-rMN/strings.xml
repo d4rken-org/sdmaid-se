@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Тусгай хандалтын хэрэгцээтэй хэрэглэгчид SD Maid-д өөрийн биеэр хийх шаардлагатай байсан ажлуудыг автоматжуулах боломж олгохын тулд энэ үйлчилгээг идэвхжүүлж болно (жишээ нь: кэш устгах).\n\nЖишээ: Хэрэв та SD Maid-д олон аппыг зогсоохыг тушаавал SD Maid энэ үйлчилгээгээр дамжуулан тус бүрийн аппын тохиргооны дэлгэц нээж, \'Хүчээр зогсоох\' товчийг олж дарна.\n\nSD Maid энэ үйлчилгээг ашиглаж байгаа үед үргэлж тодоор харуулж, хэрэглэгчид хүссэн үедээ хэрэглэлийг цуцлах боломжийг хялбараар олгоно.\n\nХэрэглэгчийн урьдчилсан зөвшөөрөлгүйгээр ямар ч үйлдэл хийгдэхгүй. Энэ үйлчилгээг хэзээ ч сөрөг үр дагаваргүйгээр дахин идэвхгүй болгож болно.</string>
     <string name="automation_screenoverlay_explanation">SD Maid таны төхөөрөмжтэй харилцаж байна. Дэлгэцийг нэгэн зэрэг ашиглах боломжгүй. Үйлдэл дуусах хүртэл хүлээх эсвэл цуцлах.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid таны төхөөрөмжтэй харилцж байна. Экранг нэгэн зэрэг ашиглах боломжгүй. Үйлдэл дуусахыг хүлээ эсвэл цуцлахын тулд Home товчлуурыг дарна уу.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid таны төхөөрөмжтэй харилцж байна. Экранг нэгэн зэрэг ашиглах боломжгүй. Үйлдэл дуусахыг хүлээгүү.</string>
     <string name="automation_active_title">SD Maid ажиллаж байна</string>
     <string name="automation_error_no_consent_title">Автоматжуулалтын алдаа</string>
     <string name="automation_error_no_consent_body">Хандалтын үйлчилгээ тохируулаагүй байна. Тохиргоог дуусгаж зөвшөөрөл өгнө үү.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Төлөвлөгөөт даалал хандалтын үйлчилгээ ашиглахыг оролдсон боловч үйлчилгээ ажиллахгүй байв. Хэрэв энэ шаардлагагүй бол төлөвлөгчийн тохиргоонд \"Хандалтын үйлчилгээ\" сонгоог идэвхгүй болго.</string>
     <string name="automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
     <string name="automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
+    <string name="automation_error_interference_title">Тохиргооны экран хаагдсан</string>
+    <string name="automation_error_interference_body">Өөр апп (%1$s) системийн тохиргооны экранг хааж байгаа тул SD Maid үргэлжлүүлэх боломжгүй. Тэр аппын апп-түгжээ эсвэл системийн тохиргооны экраны хамгаалалтыг идэвхгүй болгоод дахин оролдоно уу.</string>
     <string name="automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>
     <string name="automation_progress_find_ok_confirmation">Өмнөх үйлдлийг баталгаажуулахыг оролдож байна (үг үеүд: %s)</string>
 </resources>

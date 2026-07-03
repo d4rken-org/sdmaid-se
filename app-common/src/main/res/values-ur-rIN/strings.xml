@@ -28,6 +28,7 @@
     <string name="general_gotit_action">سمجھ گیا</string>
     <string name="general_fix_action">حل کریں</string>
     <string name="general_set_up_action">سیٹ اپ کریں</string>
+    <string name="general_unavailable_label">دستیاب نہیں</string>
     <string name="general_edit_action">تبدیلی کریں</string>
     <string name="general_na_label">دستیاب نہیں</string>
     <string name="general_empty_label">خالی</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">قطار میں</string>
     <string name="general_progress_deleting">حذف کر رہا ہے</string>
     <string name="general_progress_deleting_x">%s حذف کر رہا ہے</string>
+    <string name="general_sort_by_title">ترتیب بذریعہ</string>
     <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
+    <string name="general_sort_oldest_first">پرانا پہلے</string>
+    <string name="general_sort_newest_first">نیا پہلے</string>
+    <string name="general_sort_name_asc">نام (الف → ے)</string>
+    <string name="general_sort_size_desc">سب سے بڑا پہلے</string>
     <string name="general_tag_system">سسٹم</string>
+    <string name="general_navigate_up_action">اوپر جائیں</string>
+    <string name="general_filter_action">فلٹر کریں</string>
+    <string name="general_filter_by_tags_label">ٹیگز کے ذریعے فلٹر کریں</string>
+    <string name="general_filter_add_action">فلٹر شامل کریں</string>
+    <string name="general_filter_remove_x_action">%s فلٹر ہٹائیں</string>
+    <string name="general_filter_empty_row_hint">فلٹر کرنے کے لیے + پر ٹیپ کریں</string>
+    <string name="general_show_all_action">سب دکھائیں</string>
     <string name="general_result_success_message">کامیابی سے مکمل</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s جگہ آزاد کی گئی۔</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">اختیارات</string>
     <string name="general_details_label">تفصیلات</string>
     <string name="general_view_action">دیکھیں</string>
+    <string name="general_open_action">کھولیں</string>
+    <string name="general_configure_action">ترتیب دیں</string>
     <string name="general_update_action">اپ ڈیٹ کریں</string>
     <string name="general_scan_action">اسکین کریں</string>
     <string name="general_close_action">بند کریں</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d آئٹمز ہٹاے گئے</item>
     </plurals>
     <string name="general_search_action">تلاش کریں</string>
+    <string name="general_search_no_matches">کوئی مماثل نہیں</string>
     <string name="general_open_system_settings_action">سسٹم سیٹنگز کھولیں</string>
+    <string name="general_fast_scroller_action">تیز اسکرولر</string>
     <plurals name="result_x_items">
         <item quantity="one">%s آئٹم</item>
         <item quantity="other">%s آئٹمز</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">سروس فعال کریں</string>
     <string name="general_undo_action">واپس کریں</string>
     <string name="general_list_select_all_action">سب منتخب کریں</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d منتخب</item>
+        <item quantity="other">%d منتخب</item>
+    </plurals>
     <string name="general_path_label">راستہ</string>
     <string name="general_type_label">قسم</string>
     <string name="general_size_label">سائز</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">بگ کی رپورٹ کریں</string>
     <string name="general_error_ipc_deadobject_title">سروس کنکشن ضائع</string>
     <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
+    <string name="general_error_upgrade_required_title">Pro ورژن ضروری ہے</string>
+    <string name="general_error_upgrade_required_description">یہ ایک Pro خصوصیت ہے۔ براہ کرم SD Maid SE کو اپ گریڈ کریں تاکہ اسے استعمال کر سکیں۔</string>
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
     <string name="setup_title">سیٹ اپ</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">خطرے کی سطح</string>
     <string name="settings_category_filter">فلٹر</string>
     <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
+    <string name="ui_theme_color_sunset_label">غروب</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">اس خصوصیت کو روٹ رسائی درکار ہے، لیکن SD Maid اسے اس آلے پر حاصل نہیں کر سکا۔</string>
+    <string name="access_blocked_root_declined">یہ خصوصیت روٹ رسائی کی ضرورت ہے۔ آپ اسے سیٹ اپ اسکرین کے ذریعے فعال کر سکتے ہیں۔</string>
+    <string name="access_blocked_root_or_shizuku">یہ خصوصیت روٹ یا Shizuku رسائی کی ضرورت ہے، جو اس ڈیوائس پر دستیاب نہیں ہے۔</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">غلط بیک اپ فائل</string>
+    <string name="backup_restore_error_invalid_body">یہ فائل SD Maid کا درست بیک اپ نہیں ہے یا خراب ہے۔</string>
+    <string name="backup_restore_error_version_body">یہ بیک اپ SD Maid کے ایک نئے ورژن کے ساتھ بنایا گیا تھا۔ براہ کرم ایپ کو اپڈیٹ کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="backup_restore_error_restore_failed_title">بحال کرنا ناکام</string>
+    <string name="backup_restore_error_restore_failed_body">یہ حصے بحال نہیں کیے جا سکے: %1$s۔ آپ کی پچھلی ترتیب محفوظ کر دی گئی تھی اور اسے واپس لایا جا سکتا ہے۔</string>
+    <string name="backup_restore_error_safety_title">بحال کرنا شروع نہیں ہوا</string>
+    <string name="backup_restore_error_safety_body">SD Maid آپ کی موجودہ ترتیب کا حفاظتی اسنیپ شاٹ محفوظ نہیں کر سکا، اس لیے کچھ بھی تبدیل نہیں ہوا۔</string>
+    <string name="backup_restore_error_busy_title">براہ کرم انتظار کریں</string>
+    <string name="backup_restore_error_busy_body">ایک صفائی کا کام یا دوسری بیک اپ کی کارروائی فی الوقت چل رہی ہے۔ جب یہ مکمل ہو جائے تو دوبارہ کوشش کریں۔</string>
+    <string name="backup_restore_error_schema_title">غیر موافق بیک اپ</string>
+    <string name="backup_restore_error_schema_body">بیک اپ کا ڈیٹا بیس فارمیٹ SD Maid کے اس ورژن سے مطابقت نہیں رکھتا۔ تاریخ کے ڈیٹا کی بحالی صرف یکساں ایپ ورژنز کے درمیان ممکن ہے۔</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">विशेष पहुंच आवश्यकताओं वाले उपयोगकर्ता इस सेवा को सक्षम कर सकते हैं ताकि SD Maid उन कार्यों को स्वचालित कर सके जिन्हें अन्यथा थकाऊ मैन्युअल उपयोगकर्ता इंटरेक्शन की आवश्यकता होगी (जैसे कैश मिटाना)।\n\nउदाहरण: यदि आप SD Maid को कई ऐप्स को रोकने का निर्देश देते हैं तो SD Maid इस सेवा का उपयोग करके प्रत्येक ऐप की सेटिंग्स स्क्रीन खोल सकता है, \'Force Stop\' बटन ढूंढ सकता है और उसे टैप कर सकता है।\n\nSD Maid हमेशा इस सेवा के उपयोग को स्पष्ट रूप से दिखाएगा और उपयोगकर्ता को तुरंत किसी भी इंटरेक्शन को रद्द करने का आसान तरीका प्रदान करेगा।\n\nउपयोगकर्ता की पूर्व स्वीकृति के बिना कोई कार्रवाई नहीं की जाएगी। इस सेवा को किसी भी समय बिना किसी प्रतिकूल प्रभाव के फिर से अक्षम किया जा सकता है।</string>
     <string name="automation_screenoverlay_explanation">SD मेड आपके डिवाइस के साथ सहभागिता कर रही है। एक ही समय में स्क्रीन का उपयोग करना संभव नहीं है। ऑपरेशन समाप्त होने तक प्रतीक्षा करें या इसे रद्द करें।</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid आपके डिवाइस के साथ इंटरैक्ट कर रहा है। एक ही समय में स्क्रीन का उपयोग करना संभव नहीं है। संचालन समाप्त होने तक प्रतीक्षा करें, या रद्द करने के लिए होम बटन दबाएं।</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid आपके डिवाइस के साथ इंटरैक्ट कर रहा है। एक ही समय में स्क्रीन का उपयोग करना संभव नहीं है। संचालन समाप्त होने तक प्रतीक्षा करें।</string>
     <string name="automation_active_title">SD मेड कार्य कर रही है</string>
     <string name="automation_error_no_consent_title">स्वचालन त्रुटि</string>
     <string name="automation_error_no_consent_body">अभिगम्यता सेवा व्यवस्थित नहीं है। व्यवस्था पूर्ण करें और सहमति दें।</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">एक निर्धारित कार्य ने एक्सेसिबिलिटी सेवा का उपयोग करने का प्रयास किया, लेकिन यह उपलब्ध नहीं थी। यदि आपको इसकी आवश्यकता नहीं है, तो शेड्यूलर सेटिंग में \"एक्सेसिबिलिटी सेवा\" विकल्प को अक्षम करें।</string>
     <string name="automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
     <string name="automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
+    <string name="automation_error_interference_title">सेटिंग्स स्क्रीन ब्लॉक की गई है</string>
+    <string name="automation_error_interference_body">एक अन्य ऐप (%1$s) सिस्टम सेटिंग्स स्क्रीन को ब्लॉक कर रहा है, इसलिए SD Maid जारी नहीं रख सकता। सिस्टम सेटिंग्स के लिए उस ऐप के ऐप-लॉक या स्क्रीन सुरक्षा को अक्षम करें, फिर फिर से प्रयास करें।</string>
     <string name="automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
     <string name="automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
 </resources>

@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Ordutegia amaituta</string>
     <string name="scheduler_notification_result_success_message">Planifikatutako ataza guztiak arrakastaz exekutatu dira.</string>
     <string name="scheduler_notification_result_failure_message">Planifikatutako ataza batzuek huts egin dute edo erroreak jaso dituzte. Saiatu eskuz exekutatzen.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Saltatua, pantaila itzalia edo blokeaturik zegoen</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Aplikazioen garbitzea saltatu ahal da</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Aplikazioen garbitzeak eskuragarritasun-zerbitzua erabiltzen du, eta pantaila desblokeaturik egon behar du. Programatutako exekuzioak gailua blokeaturik dagoenean saltatzen dira.\n\nErabili Shizuku edo root atzean garbitzeko, edo programatu zure gailua erabiltzen duzunean.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistemako aplikazioak saltatu ahal dira</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizukuk cache gehienak atzean garbitzen ditu, baina sistemako aplikazioak eskuragarritasun-zerbitzua behar dute, eta pantaila desblokeaturik egon behar du. \"Sistemako aplikazioak sartu\" aktibatuta dagoenean, horiek saltatzen dira gailua blokeaturik dagoenean.\n\nDesaktibatu \"Sistemako aplikazioak sartu\", edo exekutatu programazioa desblokeaturik.</string>
     <string name="scheduler_commands_after_schedule_label">Ordutegiaren osteko komandoak</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell komandoak ordutegiaren amaieran exekutatuko direnak.</string>
     <string name="scheduler_battery_optimization_hint">Kontuan izan bateria-optimizazioak SD Maid-entzat desgaitzea atzeko planoan exekuzioan arazoak badituzu.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maidek ordutegiaren arabera garbitu dezake. Aukeratu ordua eta zein tresna exekutatuko diren, eta atzean lana egiten du, ia ez da aplikazioa irekitzeko beharrik.</string>
+    <string name="tour_scheduler_create_body">Sakatu hemen ordutegi berri bat sortzeko, ondoren zehaztu noiz exekutatuko den eta zein tresna sartuko diren.</string>
 </resources>

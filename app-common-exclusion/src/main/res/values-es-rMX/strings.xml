@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestor de exclusiones</string>
     <string name="exclusion_manager_desc">Gestionar exclusiones de archivos y aplicaciones.</string>
-    <string name="exclusion_explanation_body1">Excluir archivos y aplicaciones de las operaciones de SD Maid.</string>
-    <string name="exclusion_add_new_hint">Agrega nuevas exclusiones permitiendo primero que SD Maid busque y luego usando el menú contextual en el resultado que quieras excluir.</string>
+    <string name="exclusion_explanation_body1">Excluye archivos y apps para protegerlos de las herramientas de SD Maid, o para omitir elementos irrelevantes y acelerar operaciones.</string>
+    <string name="exclusion_add_new_hint">Sin exclusiones aún. Usa el botón + para crear una, o excluye elementos de los resultados de cualquier herramienta.</string>
     <string name="exclusion_create_action">Crear exclusión</string>
     <string name="exclusion_edit_action">Editar exclusión</string>
     <string name="exclusion_type_package">Exclusión de aplicación</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Exportar exclusiones</string>
     <string name="exclusion_create_pkg_hint">Usa la herramienta Control de Aplicaciones para crear exclusiones de aplicaciones.</string>
     <string name="exclusion_create_path_hint">Usa la herramienta Analizador de Almacenamiento para crear exclusiones de ruta.</string>
+    <string name="exclusion_create_segment_hint">Coincide con un segmento de nombre, como \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Mostrar predeterminados</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exclusión importada</item>
+        <item quantity="other">%d exclusiones importadas</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exclusión exportada</item>
+        <item quantity="other">%d exclusiones exportadas</item>
+    </plurals>
 </resources>

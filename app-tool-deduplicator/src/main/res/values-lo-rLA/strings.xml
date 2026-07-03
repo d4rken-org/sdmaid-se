@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ລຶ້ທຸກສຳເນົາ ຍົກເວັ້ນໜຶ່ງ ໃນແຕ່ລະຊຸດทີ່ເລືອກຂອງໄຟລ໌ทີ່ຊ້າກັນ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ລຶ້ໄຟລ໌ທັງໜມດໃນແຕ່ລະຊຸດທີ່ເລືອກຂອງໄຟລ໌ທີ່ຊ້າກັນ? ບໍ່ມີໄຟລ໌ເຫລືອ!</string>
     <string name="deduplicator_delete_all_toggle_msg">ລຶ້ທຸກສຳເນົາ. ບໍ່ມີໄຟລ໌ເຫລືອ!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">ລົບ %1$d ຣະເບີດຜໍ່າ ໃນຊຸດນີ້, ປະຫລາດ %2$s? ສຳເນົາທີ່ຖືກຮັກສາໄວ້ຍັງຄົງຢູ່.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ສາມາດລົບໄດ້</string>
+    <string name="deduplicator_action_delete_set">ລົບຊຸດຣະເບີດຜໍ່າ</string>
+    <string name="deduplicator_action_open_preview">ເປີດກະບອກມອງ</string>
+    <string name="deduplicator_marked_for_deletion">ໝາຍສຳຫລັບການລົບ</string>
+    <string name="deduplicator_cluster_preview_image">ກະບອກມອງຊຸດຣະເບີດຜໍ່າ</string>
+    <string name="deduplicator_selection_keep_one_required">ຕ້ອງເກັບໄວ້ຍ່າງນໍ້ຍໝຶ່ງໄຟລ໌ຕໍ່ຊຸດຣະເບີດຜໍ່າ. ເປິດໃຊ້ \"ເຮັດໃຫ້ຖອນລົບທັງໝົດ ເປັນໄປໄດ້\" ໃນການຕັ້ງຄ່າເພື່ອຂ້າມໄປ.</string>
     <string name="deduplicator_progress_comparing_files">ກຳລັງປຽບທຽຍໄຟລ໌</string>
     <string name="deduplicator_details_cluster_title">ຊຸດຂອງສຳເນົາทີ່ຊ້າກັນ</string>
     <string name="deduplicator_matches_exact_label">ສຳເນົາທີ່ຖືກຕ້ອງ</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ຕ້ອງການໄຟລ໌ທີ່ນ້ອຍກວ່າ</string>
     <string name="deduplicator_view_mode_groups_label">ກຸ່ມ</string>
     <string name="deduplicator_view_mode_directories_label">ໂຟນເດີ</string>
+    <string name="tour_deduplicator_details_cluster_body">ໄຟລ໌ທັງໝົດນີ້ປະກໍດວ່າເປັນລາຍການ ຫຼື ເນື້າຫາສື່ອດຽວກັນ, ກຸ່ມຕຽນຕົນໃຫຍ່.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ໄຟລ໌ທີ່ມີໄອຄອນນີ້ຈະຖືກລົບ; ໄຟລ໌ທີ່ຍັງຄົງເຫືອຍູ່ໃນກຸ່ມ ແມ່ນສິ່ງທີ່ SD Maid ຮັກສາໄວ້. ທ່ານສາມາດປ່ຽນວິທີການເລືອກຜູ້ຮັກສາໄວ້ໃນການຕັ້ງຄ່າກົນໄກການລົບ.</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="general_gotit_action">확인</string>
     <string name="general_fix_action">해결</string>
     <string name="general_set_up_action">설정하기</string>
+    <string name="general_unavailable_label">사용 불가</string>
     <string name="general_edit_action">수정</string>
     <string name="general_na_label">해당 없음</string>
     <string name="general_empty_label">비어 있음</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">대기 중</string>
     <string name="general_progress_deleting">삭제 중</string>
     <string name="general_progress_deleting_x">%s 삭제중</string>
+    <string name="general_sort_by_title">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
+    <string name="general_sort_oldest_first">오래된 것 먼저</string>
+    <string name="general_sort_newest_first">최신 것 먼저</string>
+    <string name="general_sort_name_asc">이름 (A → Z)</string>
+    <string name="general_sort_size_desc">큰 것 먼저</string>
     <string name="general_tag_system">시스템</string>
+    <string name="general_navigate_up_action">위로 탐색</string>
+    <string name="general_filter_action">필터</string>
+    <string name="general_filter_by_tags_label">태그별로 필터</string>
+    <string name="general_filter_add_action">필터 추가</string>
+    <string name="general_filter_remove_x_action">%s 필터 제거</string>
+    <string name="general_filter_empty_row_hint">+ 탭하여 필터</string>
+    <string name="general_show_all_action">모두 보기</string>
     <string name="general_result_success_message">작업 성공</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">%s 공간을 확보했습니다.</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">옵션</string>
     <string name="general_details_label">세부사항</string>
     <string name="general_view_action">보기</string>
+    <string name="general_open_action">열기</string>
+    <string name="general_configure_action">설정</string>
     <string name="general_update_action">업데이트</string>
     <string name="general_scan_action">스캔</string>
     <string name="general_close_action">닫기</string>
@@ -93,7 +108,9 @@
         <item quantity="other">%d개 항목을 제거하였습니다</item>
     </plurals>
     <string name="general_search_action">검색</string>
+    <string name="general_search_no_matches">일치하는 항목 없음</string>
     <string name="general_open_system_settings_action">시스템 설정 열기</string>
+    <string name="general_fast_scroller_action">빠른 스크롤러</string>
     <plurals name="result_x_items">
         <item quantity="other">%s개 항목</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">서비스 활성화</string>
     <string name="general_undo_action">실행취소</string>
     <string name="general_list_select_all_action">모두 선택</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">%d개 선택됨</item>
+    </plurals>
     <string name="general_path_label">위치</string>
     <string name="general_type_label">종류</string>
     <string name="general_size_label">크기</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">버그 신고</string>
     <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
     <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="general_error_upgrade_required_title">Pro 버전 필요</string>
+    <string name="general_error_upgrade_required_description">이것은 Pro 기능입니다. SD Maid SE를 업그레이드하여 사용하세요.</string>
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">위험 수준</string>
     <string name="settings_category_filter">필터</string>
     <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
+    <string name="ui_theme_color_sunset_label">일몰</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">이 기능은 루트 접근이 필요하지만 이 기기에서 SD Maid가 루트를 획득할 수 없습니다.</string>
+    <string name="access_blocked_root_declined">이 기능은 루트 접근이 필요합니다. 설정 화면에서 활성화할 수 있습니다.</string>
+    <string name="access_blocked_root_or_shizuku">이 기능은 루트 또는 Shizuku 접근이 필요하지만 이 기기에서 사용할 수 없습니다.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">유효하지 않은 백업 파일</string>
+    <string name="backup_restore_error_invalid_body">이 파일은 유효한 SD Maid 백업이 아니거나 손상되었습니다.</string>
+    <string name="backup_restore_error_version_body">이 백업은 최신 버전의 SD Maid로 생성되었습니다. 앱을 업데이트하고 다시 시도하세요.</string>
+    <string name="backup_restore_error_restore_failed_title">복원 실패</string>
+    <string name="backup_restore_error_restore_failed_body">이러한 부분은 복원할 수 없습니다: %1$s. 이전 구성이 저장되었으며 다시 가져올 수 있습니다.</string>
+    <string name="backup_restore_error_safety_title">복원이 시작되지 않음</string>
+    <string name="backup_restore_error_safety_body">SD Maid가 현재 구성의 안전 스냅샷을 저장할 수 없어서 아무것도 변경되지 않았습니다.</string>
+    <string name="backup_restore_error_busy_title">잠깐만 기다려주세요</string>
+    <string name="backup_restore_error_busy_body">청소 작업 또는 다른 백업 작업이 현재 실행 중입니다. 완료되면 다시 시도하세요.</string>
+    <string name="backup_restore_error_schema_title">호환되지 않는 백업</string>
+    <string name="backup_restore_error_schema_body">백업의 데이터베이스 형식이 이 버전의 SD Maid와 일치하지 않습니다. 기록 데이터 복원은 동일한 앱 버전 간에만 지원됩니다.</string>
 </resources>

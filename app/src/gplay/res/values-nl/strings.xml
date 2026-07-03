@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Gebruik de optie \'Aankoop herstellen\' om uw aankoop te herstellen. Als het probleem aanhoudt, probeer dan de cache van Google Play te wissen en uw apparaat opnieuw op te starten.</string>
     <string name="upgrade_screen_title">Verkrijg SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens. Mijn werk wordt door jou gefinancierd.</string>
-    <string name="upgrade_screen_benefits_title">Voordelen</string>
-    <string name="upgrade_screen_benefits_body">• App opschonen 💯\n• Geplande bewerkingen ⏰\n• Extra opties voor alle gereedschap ⚙️\n• Je eigen verwijderingsregels ✍️\n• Een gemotiveerde ontwikkelaar 🧙\nen meer…</string>
+    <string name="upgrade_screen_benefits_title">Voordelen van upgrade</string>
+    <string name="upgrade_screen_benefits_body">• App-caches en wegwerpgegevens opschonen\n• Dubbele bestanden verwijderen\n• Geplande opruimingen inschakelen\n• Aangepaste filters en opruimingsregels maken\n• Opslagtrends en opruimingsgeschiedenis volgen\n• Meer functies en besturingselementen in de hele app\n• Voortgezette ontwikkeling ondersteunen</string>
     <string name="upgrade_screen_how_title">Opties</string>
     <string name="upgrade_screen_how_body">Je kunt kiezen tussen een eenmalige aankoop en een goedkoper jaarabonnement.\nHet abonnement begint met een gratis proefperiode van 14 dagen, waarna u eenmaal per jaar in rekening wordt gebracht. Proef en abonnement zijn op elk moment opzegbaar.\nDezelfde functies, alleen verschillende prijsmodellen.</string>
+    <string name="upgrade_screen_subscription_offer_title">Jaarlijks abonnement</string>
+    <string name="upgrade_screen_iap_offer_title">Eenmalig kopen</string>
+    <string name="upgrade_screen_offer_recommended">Aanbevolen</string>
+    <string name="upgrade_screen_offers_unavailable_message">Prijzen kunnen nu niet worden geladen. Controleer Google Play en probeer het straks opnieuw.</string>
     <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode van 14 dagen</string>
     <string name="upgrade_screen_subscription_action">Abonneren</string>
     <string name="upgrade_screen_subscription_action_hint">Het abonnement kost %s per jaar.</string>

@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Ajastatu lõppes</string>
     <string name="scheduler_notification_result_success_message">Kõik ajastatud ülesanded lõppesid edukalt.</string>
     <string name="scheduler_notification_result_failure_message">Osad ajastatud ülesanded nurjusid või sattusid vea otsa. Üritage neid ise teha.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Jäetud vahele, kuva oli välja lülitatud või lukus</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Rakenduste puhastamine võib jääda vahele</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Rakenduste puhastamine kasutab juurdepääsetavusteenust, mis nõuab ekraani avamist. Ajastatud käitamised, kui seade on lukus, jäetakse vahele.\n\nKasuta Shizukut või root\'i taustapuhastamiseks, või planeeri see ajaks, kui sa seadet kasutad.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Süsteemirakendused võivad jääda vahele</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku puhastab enamikku vahemälu taustal, kuid süsteemirakendused vajavad juurdepääsetavusteenust, mis nõuab ekraani avamist. Kui \"Kaasa süsteemirakendused\" on sisse lülitatud, need jäetakse vahele, kui seade on lukus.\n\nLülita välja \"Kaasa süsteemirakendused\" või käivita ajastus, kui seade on avatud.</string>
     <string name="scheduler_commands_after_schedule_label">Käsud pärast ajastajat</string>
     <string name="scheduler_commands_after_schedule_desc">Androidi shellikäsud, mis käivituvad pärast ajastaja tegevust.</string>
     <string name="scheduler_battery_optimization_hint">Taustatoimingute probleemide puhul keelake SD Maidi jaoks aku optimeerimine.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid saab ajastamisel puhastada. Vali aeg ja millised tööriistad käivituvad, ning see teeb töö taustal – (peaaegu) pole vaja rakendust avada.</string>
+    <string name="tour_scheduler_create_body">Puuduta siin, et luua uus ajastus, siis määra, millal see käivitub ja millised tööriistad kaasata.</string>
 </resources>

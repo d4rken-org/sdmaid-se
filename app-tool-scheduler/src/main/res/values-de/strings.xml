@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Planer beendet</string>
     <string name="scheduler_notification_result_success_message">Alle geplanten Aufgaben wurden erfolgreich ausgeführt.</string>
     <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Übersprungen, Bildschirm war aus oder gesperrt</string>
+    <string name="scheduler_acs_screenlocked_hint_title">App-Reinigung kann übersprungen werden</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Die App-Reinigung nutzt den Barrierefreiheitsdienst, der einen entsperrten Bildschirm benötigt. Geplante Läufe werden übersprungen, wenn das Gerät gesperrt ist.\n\nVerwenden Sie Shizuku oder Root für Hintergrund-Reinigung, oder planen Sie die Ausführung für wenn Sie das Gerät nutzen.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">System-Apps können übersprungen werden</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku bereinigt die meisten Caches im Hintergrund, aber System-Apps benötigen den Barrierefreiheitsdienst, der einen entsperrten Bildschirm benötigt. Wenn „System-Apps einschließen“ aktiviert ist, werden diese übersprungen, wenn das Gerät gesperrt ist.\n\nDeaktivieren Sie „System-Apps einschließen“, oder führen Sie den Zeitplan aus, wenn das Gerät entsperrt ist.</string>
     <string name="scheduler_commands_after_schedule_label">Befehle nach Zeitplan</string>
     <string name="scheduler_commands_after_schedule_desc">Androide Shell-Befehle, die am Ende eines Zeitplans ausgeführt werden.</string>
     <string name="scheduler_battery_optimization_hint">Erwäge die Deaktivierung der Batterieoptimierungen für SD Maid, wenn bei der Hintergrundausführung Probleme auftreten.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid kann nach einem Zeitplan reinigen. Wählen Sie einen Zeitpunkt und die gewünschten Tools, und die App erledigt die Arbeit im Hintergrund – (fast) kein Grund, die App zu öffnen.</string>
+    <string name="tour_scheduler_create_body">Tippen Sie hier, um einen neuen Zeitplan zu erstellen, und stellen Sie dann ein, wann er ausgeführt wird und welche Tools einzubeziehen sind.</string>
 </resources>

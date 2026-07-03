@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Използвайте опцията \"Възстановете покупката\", за да възстановите покупката си. Ако проблемът продължава, опитайте да изчистите кеша на Google Play и да рестартирате устройството си.</string>
     <string name="upgrade_screen_title">Получете SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid няма реклами и не продава потребителски данни. Работата ми се финансира от вас ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Предимства</string>
-    <string name="upgrade_screen_benefits_body">• Почистване на приложения 💯\n• Планирани операции ⏰\n• Допълнителни опции за всички инструменти ⚙️\n• Вашите собствени правила за изтриване ✍️\n• Мотивиран разработчик 🧙\nи още…</string>
+    <string name="upgrade_screen_benefits_title">Предимства на надстройката</string>
+    <string name="upgrade_screen_benefits_body">• Почистване на кешове на приложения и разходни данни
+• Премахване на дублирани файлове
+• Активиране на планирани почиствания
+• Създаване на персонализирани филтри и правила за почистване
+• Проследяване на тенденциите в съхранилището и историята на почистване
+• Повече функции и контроли в приложението
+• Подкрепа на продължаващото развитие</string>
     <string name="upgrade_screen_how_title">Опции</string>
     <string name="upgrade_screen_how_body">Можете да избирате между еднократна покупка и по-евтин годишен абонамент.\nАбонаментът започва с безплатен 14-дневен пробен период, след което ще бъдете таксувани веднъж годишно. Пробният период и абонаментът могат да бъдат анулирани по всяко време.\nСъщи функции, просто различни ценови модели.</string>
+    <string name="upgrade_screen_subscription_offer_title">Годишен абонамент</string>
+    <string name="upgrade_screen_iap_offer_title">Еднократна покупка</string>
+    <string name="upgrade_screen_offer_recommended">Препоръчано</string>
+    <string name="upgrade_screen_offers_unavailable_message">Цените не могат да бъдат заредени в момента. Проверете Google Play и опитайте отново след малко.</string>
     <string name="upgrade_screen_subscription_trial_action">Започнете безплатен 14-дневен пробен период</string>
     <string name="upgrade_screen_subscription_action">Абонирайте се</string>
     <string name="upgrade_screen_subscription_action_hint">Абонаментът струва %s годишно.</string>

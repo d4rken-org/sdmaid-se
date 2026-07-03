@@ -36,6 +36,19 @@
         <item quantity="one">%d uavgjort element vil forbli for senere gjennomgang.</item>
         <item quantity="other">%d uavgjorte elementer vil forbli for senere gjennomgang.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Denne økten gjelder et helt lagringsvolum – sletting her spenner over alle mapper på den lagringen.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…og %d flere mappe</item>
+        <item quantity="other">…og %d flere mapper</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Jeg forstår at disse filene vil bli permanent slettet.</string>
+    <string name="swiper_sensitive_root_warning_title">Skanne hele lagringen?</string>
+    <string name="swiper_sensitive_root_warning_message">Skanningen av %1$s inkluderer hver fil på denne lagringen — bilder, dokumenter, nedlastinger, app-media og mer. Fortsette?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Fortsett likevel</string>
+    <string name="swiper_session_risky_label">Full lagringsskanning</string>
+    <string name="swiper_session_risky_info_message">Denne økten retter seg mot roten av et lagringsvolum, så hver fil på dette volumet er omfattet — bilder, dokumenter, nedlastinger, app-media og mer.
+
+Full lagringsskanning kan returnere mange elementer, inkludert filer du kanskje ikke mente å gjennomgå. Bruk et filtypsfilter for å begrense skanningen.</string>
     <string name="swiper_delete_x_action">Slett %1$d</string>
     <string name="swiper_settings_swap_directions_title">Bytt sveiperetninger</string>
     <string name="swiper_settings_swap_directions_summary">Sveip til venstre for å beholde, til høyre for å slette.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Skriv inn et navn for denne økten</string>
     <string name="swiper_sessions_current_sessions">Gjeldende økter</string>
     <string name="swiper_session_paths_label">Stier</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…og %d til</item>
+        <item quantity="other">…og %d til</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d å beholde</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Filtrert: %1$s</string>
     <string name="swiper_session_no_matching_files">Ingen samsvarende filer funnet</string>
     <string name="swiper_open_externally_action">Åpne i ekstern app</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Sveip et foto for å avgjøre dets skjebne: Til siden for å beholde eller slette, opp for å hoppe over, ned for å angre. Knappene under gjør det samme — og viser hvilken side som er hva.</string>
+    <string name="tour_swiper_openin_body">Denne knappen åpner fotoet i en annen app, praktisk for å sjekke det før du bestemmer deg.</string>
+    <string name="tour_swiper_preview_body">Denne knappen åpner en fullskjermforhåndsvisning for en nærmere titt.</string>
+    <string name="tour_swiper_actions_body">Liker du ikke å sveipe? Vi har knapper også! Hopp over lar det være uavgjort til senere, og langtrykk på Hopp over utelukker en fil fra fremtidige skanninger. Angre gjenoppretter ditt siste valg.</string>
+    <string name="tour_swiper_review_body">Valg for å beholde og slette er bare midlertidig lagret. Åpne Gjennomgang for å gå gjennom dem og bruk slettingene når du er klar.</string>
 </resources>

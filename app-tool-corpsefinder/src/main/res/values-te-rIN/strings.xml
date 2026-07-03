@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">తెలియని స్వామి</string>
     <string name="corpsefinder_corpse_hint_keeper">ఈ అంశం దాని స్వామి అనిన్‌స్టాల్ చేయబడినా మీరు ఉంచుకోవలసిన డేటాను కలిగి ఉండవచ్చు, ఉదా. ఫోటోలు లేదా బ్యాకప్లు.</string>
     <string name="corpsefinder_corpse_hint_common">ఈ అంశం చాలా సాధారణ పేరును కలిగి ఉంది మరియు SD Maid కు తెలియని ఇన్నూ ఇన్‌స్టాల్ చేయబడిన యాప్‌లకు చెందవచ్చు.</string>
+    <string name="corpsefinder_risk_keeper_chip">కోరదగినది</string>
+    <string name="corpsefinder_risk_common_chip">సాధారణ</string>
+    <string name="corpsefinder_markers_dialog_title">ఈ గుర్తుల గురించి</string>
+    <string name="corpsefinder_markers_dialog_normal_label">గుర్తు లేనిది</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ప్రామాణిక అవశేషం. సాధారణంగా తీసివేయడానికి సురక్షితం — ఈ ఫైల్‌లు ఇకపై ఇన్‌స్టాల్ చేయని అనువర్తనాలకు చెందినవి.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder మీరు అన్‌ఇన్‌స్టాల్ చేసిన అనువర్తనాలచే వదిలిపోయిన డేటాను కనుగొంటుంది. ఇది ఇకపై ఏ ఇన్‌స్టాల్ చేసిన దానికీ చెందినిది కాదు, కాబట్టి దానిని తీసివేయడం సురక్షితం మరియు స్థలాన్ని విడిపిస్తుంది.</string>
+    <string name="tour_corpsefinder_row_body">ప్రతి అంశం అవశేష డేటా మరియు దానిని సృష్టించిన అనువర్తనం. గుర్తు దానిని తీసివేయడం సురక్షితమని SD Maid ఎంత నిశ్చితం అని చూపుతుంది — గుర్తుల అర్థం తెలుసుకోవడానికి పైన ⓘ నొక్కండి.</string>
 </resources>

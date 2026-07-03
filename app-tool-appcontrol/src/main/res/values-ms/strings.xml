@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Saiz</string>
     <string name="appcontrol_list_sortmode_screentime_label">Masa skrin</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Penyusunan mengikut saiz mungkin perlahan pada sesetengah peranti</string>
+    <string name="appcontrol_list_filteroptions_label">Pilihan penapis</string>
+    <string name="appcontrol_list_fastscroller_action">Penggulir Pantas</string>
     <string name="appcontrol_progress_uninstalling_app">Menyahpasang aplikasi</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d aplikasi telah dinyahpasang</item>
@@ -109,4 +111,8 @@
     <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="shortcut_appcontrol_short">Kawalan Aplikasi</string>
     <string name="shortcut_appcontrol_long">Urus aplikasi yang dipasang</string>
+    <string name="tour_appcontrol_search_body">Cari apl mengikut nama. Berguna pada peranti dengan banyak apl yang dipasang.</string>
+    <string name="tour_appcontrol_filter_body">Saring senarai mengikut apl pengguna/sistem, keadaan diaktifkan, aktiviti terkini, dan banyak lagi. Penapis aktif muncul sebagai cip di sini.</string>
+    <string name="tour_appcontrol_sort_body">Susun apl mengikut nama, tarikh pemasangan, kemas kini terakhir, saiz, atau masa penggunaan skrin. Ketik pilihan yang sama untuk menukar arah.</string>
+    <string name="tour_appcontrol_app_row_body">Ketik apl untuk membuka butiran dan tindakan yang tersedia. Tekan lama untuk memulakan pemilihan dan gunakan tindakan berkumpulan.</string>
 </resources>

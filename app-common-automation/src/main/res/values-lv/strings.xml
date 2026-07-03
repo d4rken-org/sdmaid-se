@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Lietotāji ar īpašām pieejamības vajadzībām var iespējot šo pakalpojumu, lai ļautu SD Maid automatizēt uzdevumus, kas citādi prasītu garlaicīgu manuālu mijiedarbību (piem. kešatmiņas dzēšanu).\n\nPiemērs: Ja jūs dodat SD Maid norādījumu apturēt vairākas lietotnes, tad SD Maid var izmantot šo pakalpojumu, lai atvērtu katras lietotnes iestatījumu ekrānu, atrastu pogu \'Piespiedu apturēšana\' un to nospiestu.\n\nSD Maid vienmēr pamanāmi rādīs, kad šis pakalpojums tiek izmantots, un nodrošinās vienkāršu veidu, kā lietotājs var nekavējoties atcelt jebkuru mijiedarbību.\n\nNeviena darbība netiks veikta bez iepriekšējas lietotāja piekrišanas. Šo pakalpojumu var atspējot jebkurā laikā bez nelabvēlīgām sekām.</string>
     <string name="automation_screenoverlay_explanation">SD Maid mijiedarbojas ar jūsu ierīci. Nav iespējams vienlaicīgi izmantot ekrānu. Gaidiet, līdz darbība ir pabeigta, vai atceliet to.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid mijiedarbojas ar jūsu ierīci. Pašlaik nav iespējams izmantot ekrānu. Gaidiet, līdz darbība tiks pabeigta, vai nospiediet Sākums pogu, lai atceltu.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid mijiedarbojas ar jūsu ierīci. Pašlaik nav iespējams izmantot ekrānu. Gaidiet, līdz darbība tiks pabeigta.</string>
     <string name="automation_active_title">SD Maid strādā</string>
     <string name="automation_error_no_consent_title">Automātizācijas kļūda</string>
     <string name="automation_error_no_consent_body">Pieejamības pakalpojums nav iestatīts. Pabeidziet iestatīšanu un sniedziet piekrišanu.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Ieplānots uzdevums mēģināja izmantot pieejamības pakalpojumu, taču tas nebija pieejams. Ja tas jums nav vajadzīgs, atspējojiet opciju \"Pieejamības pakalpojums\" plānotāja iestatījumos.</string>
     <string name="automation_error_no_settings_title">Iestatījumu ekrāns nav pieejams</string>
     <string name="automation_error_no_settings_body">Šai sistēmas lietotnei nav iestatījumu ekrāna. Kešatmiņas notīrīšana, izmantojot pieejamības pakalpojumu, nav iespējama. Izslēdziet to, lai paātrinātu kešatmiņas notīrīšanu.</string>
+    <string name="automation_error_interference_title">Iestatījumu ekrāns ir bloķēts</string>
+    <string name="automation_error_interference_body">Cita lietotne (%1$s) bloķē sistēmas iestatījumu ekrānu, tāpēc SD Maid nevar turpināt. Atspējojiet šīs lietotnes bloķējumu vai ekrāna aizsardzību sistēmas iestatījumiem, pēc tam mēģiniet vēlreiz.</string>
     <string name="automation_loading">Tiek sagatavota automātizācija, izmantojot pieejamības pakalpojumu</string>
     <string name="automation_progress_find_ok_confirmation">Mēģina apstiprināt iepriekšējo darbību (atslēgvārdi: %s)</string>
 </resources>

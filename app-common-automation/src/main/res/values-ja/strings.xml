@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">特別なアクセシビリティを必要とするユーザーは、このサービスを有効にすることで、通常はユーザーによる面倒な手動操作を必要とするタスク (例: キャッシュの削除など) を、SD Maidが自動化できるようにします。\n\n例: 複数のアプリを停止するようにSD Maidを操作した場合、SD Maidはこのサービスを使用して各アプリ設定画面を開き、\'強制停止\' ボタンを見つけてクリックします。\n\nSD Maidは、このサービスを使用しているときに常に目立つように表示し、ユーザーが操作を即座にキャンセルするための簡単な方法を提供します。\n\nユーザーの事前承認なしには、いかなる操作も実行されません。このサービスは悪影響を及ぼすことなくいつでも再度無効にすることができます。</string>
     <string name="automation_screenoverlay_explanation">SD Maid はデバイスと相互作用しています。同時に画面を使用することはできません。 操作が完了するかキャンセルされるまで待ちます。</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maidがデバイスと通信しています。同時に画面を使用することはできません。操作が完了するまで待つか、ホームボタンを押してキャンセルしてください。</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maidがデバイスと通信しています。同時に画面を使用することはできません。操作が完了するまで待ってください。</string>
     <string name="automation_active_title">SD Maidは稼動中です</string>
     <string name="automation_error_no_consent_title">自動化のエラー</string>
     <string name="automation_error_no_consent_body">ユーザー補助サービスが設定されていません。セットアップを完了し、同意を得てください。</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">スケジュールされたタスクがアクセシビリティサービスを使用しようとしましたが、利用できませんでした。これが不要な場合は、スケジューラー設定の「アクセシビリティサービス」オプションを無効にしてください。</string>
     <string name="automation_error_no_settings_title">設定画面が利用できません</string>
     <string name="automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
+    <string name="automation_error_interference_title">設定画面がブロックされています</string>
+    <string name="automation_error_interference_body">別のアプリ(%1$s)がシステム設定画面をブロックしているため、SD Maidは続行できません。そのアプリのアプリロックまたはシステム設定のスクリーン保護を無効にして、もう一度試してください。</string>
     <string name="automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
 </resources>

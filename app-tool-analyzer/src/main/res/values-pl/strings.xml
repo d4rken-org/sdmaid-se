@@ -33,6 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">Pamięć dodatkowa, zwykle wymienna karta SD. Zawiera pliki multimedialne i dane z aplikacji, które je obsługują.</string>
     <string name="analyzer_storage_type_tertiary_title">Pamięć przenośna</string>
     <string name="analyzer_storage_type_tertiary_description">Pamięć przenośna, np. pendrive podłączony do portu USB.</string>
+    <string name="analyzer_storage_identifier_internal">Pamięć wewnętrzna</string>
     <string name="analyzer_storage_content_title">Zawartość pamięci</string>
     <string name="analyzer_storage_content_type_app_label">Aplikacje</string>
     <string name="analyzer_storage_content_type_app_description">Przestrzeń zajmowana przez zainstalowane aplikacje i ich dane (np. pliki, dane oraz pamięć podręczną aplikacji).</string>
@@ -43,6 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikacje systemowe i dane systemowe. Aplikacje i dane od innych użytkowników, jeśli na tym urządzeniu ustawiono kilka kont użytkowników.</string>
     <string name="analyzer_storage_content_type_system_other_label">Inne</string>
     <string name="analyzer_storage_content_type_system_info">Pliki, które nie pasują do kategorii Aplikacje ani Pliki użytkownika. Tylko przeglądanie — usuwanie nie jest obsługiwane. Niektóre obszary mogą być niepełne z powodu ograniczeń dostępu.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Nie można teraz dopasować plików do aplikacji, które je posiadają. Rozmiary są wyświetlane wyłącznie dla orientacji — usuwanie, filtry i Swiper są wyłączone.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Pliki systemowe i inne dane, do których SD Maid nie miał dostępu ani nie mógł ich sklasyfikować. System operacyjny ogranicza możliwość wyświetlania zawartości niektórych obszarów.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
     <string name="analyzer_storage_content_app_code_description">Pliki aplikacji, biblioteki i zasoby. Przestrzeń, która może zostać uwolniona przez odinstalowanie aplikacji lub jej archiwizację (dostępne w nowszej wersji Androida).</string>
@@ -55,4 +57,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikacja zajmuje %1$s na \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikacja została zarchiwizowana.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s w 7 dni</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Zobacz, co naprawdę zajmuje Twoją pamięć. Analyzer pokazuje, gdzie trafia Twoja przestrzeń. Każda z tych kart to chip pamięci na Twoim urządzeniu.</string>
+    <string name="tour_analyzer_storage_body">Otwórz pamięć, aby podzielić ją na aplikacje, multimedia i pliki, a następnie stale dotykaj, aby znaleźć największych sprawców.</string>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Tumia chaguo la \"Rejesha ununuzi\" kurejesha ununuzi wako. Ikiwa tatizo linaendelea, jaribu kusafisha akiba ya Google Play na kuanzisha upya kifaa chako.</string>
     <string name="upgrade_screen_title">Pata SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za watumiaji. Kazi yangu inafadhiliwa na wewe ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Faida</string>
-    <string name="upgrade_screen_benefits_body">• Usafishaji wa programu 💯\n• Shughuli zilizoratibiwa ⏰\n• Chaguo za ziada kwa zana zote ⚙️\n• Sheria zako za kufuta ✍️\n• Msanidi programu mwenye motisha 🧙\nna zaidi…</string>
+    <string name="upgrade_screen_benefits_title">Faida za kuboresha</string>
+    <string name="upgrade_screen_benefits_body">• Safisha hifadhi ya programu na data inayoweza kutupwa
+• Ondoa faili nakala
+• Washa usafishaji uliopangwa
+• Unda vichujio vya kibinafsi na sheria za usafishaji
+• Fuatilia mielekeo ya hifadhi na historia ya usafishaji
+• Vipengele na vidhibiti zaidi katika programu nzima
+• Saidia maendeleo endelevu</string>
     <string name="upgrade_screen_how_title">Chaguo</string>
     <string name="upgrade_screen_how_body">Unaweza kuchagua kati ya ununuzi wa mara moja na usajili wa kila mwaka ulio rahisi zaidi.\nUsajili unaanza na majaribio ya bure ya siku 14, baada ya hapo utalipishwa mara moja kwa mwaka. Majaribio na usajili vinaweza kufutwa wakati wowote.\nVipengele sawa, tu mifano tofauti ya bei.</string>
+    <string name="upgrade_screen_subscription_offer_title">Usajili wa mwaka</string>
+    <string name="upgrade_screen_iap_offer_title">Nunua mara moja</string>
+    <string name="upgrade_screen_offer_recommended">Inapendekezwa</string>
+    <string name="upgrade_screen_offers_unavailable_message">Bei hazikuweza kupakiwa kwa sasa. Angalia Google Play na ujaribu tena baada ya muda mfupi.</string>
     <string name="upgrade_screen_subscription_trial_action">Anza majaribio ya bure ya siku 14</string>
     <string name="upgrade_screen_subscription_action">Jisajili</string>
     <string name="upgrade_screen_subscription_action_hint">Usajili ungharimu %s kwa mwaka.</string>

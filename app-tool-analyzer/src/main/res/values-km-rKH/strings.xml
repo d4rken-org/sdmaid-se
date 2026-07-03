@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">តំហំផ័ឡកស្ថានទីបន្ថែម ជាបកតិជាយជាកាត់ SD ដែលដោនចើញបាន។ រួមបានឯកសារមេឌៀ និងតិន្នន័យពីកម្មវិធីដែលថ្នាក់វា។</string>
     <string name="analyzer_storage_type_tertiary_title">តំហំផ័ឡកត្រចឹឡត្រង់</string>
     <string name="analyzer_storage_type_tertiary_description">តំហំផ័ឡកត្រចឹឡត្រង់ ដូចជា flash drive ដែលផ័ឡកឫយ់ USB អ្នក។</string>
+    <string name="analyzer_storage_identifier_internal">ឧបករណ៍ផ្ទុកខាងក្នុង</string>
     <string name="analyzer_storage_content_title">មាតិកាត់តំហំផ័ឡក</string>
     <string name="analyzer_storage_content_type_app_label">កម្មវិធី</string>
     <string name="analyzer_storage_content_type_app_description">ទំហំទឹកដោយកម្មវិធីដែលបានតិត្តាក់ និងតិន្នន័យរបស់វា លានប្រើបរស់ឯកសារកម្មវិធី តិន្នន័យ និងកែវ័ល់។</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">កម្មវិធីប្រព័ន្ធ និងតិន្នន័យប្រព័ន្ធ។ កម្មវិធី និងតិន្នន័យពីអ្នកប្រើផសេងតីតែ ប័ត័បានកំណត់គណនីអ្នកប្រើជាច្រើននៅឧបករណ៍នេ។</string>
     <string name="analyzer_storage_content_type_system_other_label">ដទៃ</string>
     <string name="analyzer_storage_content_type_system_info">ឯកសារ​ដែល​មិន​សម​នឹង​ប្រភេទ​កម្មវិធី​ឬ​ឯកសារ​អ្នក​ប្រើ​ប្រាស់។ ចូលមើល​ប៉ុណ្ណោះ — មិន​គាំទ្រ​ការ​លុប​ទេ។ តំបន់​ខ្លះ​អាច​មិន​ពេញ​លេញ​ដោយ​សារ​ការ​កំណត់​ការ​ចូល​ប្រើ​ប្រាស់។</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ឯកសារមិនអាចផ្គូផ្គងទៅកម្មវិធីដែលគ្រប់គ្រងវាបានទេ។ ទំហំត្រូវបានបង្ហាញសម្រាប់ឯកសារយោងប៉ុណ្ណោះ — ការលុប តម្រង និង Swiper ត្រូវបានបិទ។</string>
     <string name="analyzer_storage_content_type_system_other_desc">ឯកសារ​ប្រព័ន្ធ​និង​ទិន្នន័យ​ផ្សេង​ទៀត​ដែល SD Maid មិន​អាច​ចូល​ប្រើ​ឬ​វិភាគ​បាន។ ប្រព័ន្ធ​ប្រតិបត្តិការ​រឹត​ត្បិត​ការ​រាយ​ឈ្មោះ​មាតិកា​នៃ​តំបន់​ខ្លះ។</string>
     <string name="analyzer_storage_content_app_code_label">សង្កើតកម្មវិធី</string>
     <string name="analyzer_storage_content_app_code_description">ឯកសារកម្មវិធី ប័ន្ទាក និងសម្ភអ្ល។ ស្ថានទែនេហើឡ់ឯនល័យដោយការដកតិត្តាក់កម្មវិធី អ្វីដកទែនក្រឹត់វា អ្ល័នង់ឯកសារវា បន្ថែមនៅវៀរសន់ Android ថ្មីប័ត។</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">កម្មវិធីនេកំពុង %1$s នៅលើ \"%2$s\"។</string>
     <string name="analyzer_app_details_app_is_archived">កម្មវិធីនេត្រូវបានឈាកជៅកន្ល័យ។</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ក្នុង 7ថ្ងៃ</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">មើលលម្អិតថាតើផ្នែកណាដែលកំពុងបំពេញឧបករណ៍ផ្ទុករបស់អ្នក។ Analyzer បង្ហាញលម្អិតថាកន្លែងណាដែលទំហំរបស់អ្នកត្រូវបានប្រើប្រាស់។ កាតនីមួយៗគឺជាឧបករណ៍ផ្ទុកមួយក្នុងឧបករណ៍របស់អ្នក។</string>
+    <string name="tour_analyzer_storage_body">បើកឧបករណ៍ផ្ទុក ដើម្បីបែងចែកវាទៅកម្មវិធី ប្រព័ន្ធផ្សព្វផ្សាយ និងឯកសារ បន្ទាប់មកបន្តចុចដើម្បីរកឯកសារធំបំផុត។</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
     <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
+    <string name="automation_screenoverlay_explanation_tv">يتفاعل SD Maid مع جهازك الآن. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى انتهاء العملية أو اضغط زر الصفحة الرئيسية للإلغاء.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">يتفاعل SD Maid مع جهازك الآن. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى انتهاء العملية.</string>
     <string name="automation_active_title">SD Maid يعمل</string>
     <string name="automation_error_no_consent_title">خطأ في الأتمتة</string>
     <string name="automation_error_no_consent_body">لم يتم إعداد خدمة الوصول. أكمل الإعداد وامنح الموافقة.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">حاولت مهمة مجدولة استخدام خدمة إمكانية الوصول، لكنها لم تكن متاحة. إذا لم تكن بحاجة إلى ذلك، فقم بتعطيل خيار \"خدمة إمكانية الوصول\" في إعدادات المجدول.</string>
     <string name="automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
     <string name="automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+    <string name="automation_error_interference_title">شاشة الإعدادات محجوبة</string>
+    <string name="automation_error_interference_body">يحجب تطبيق آخر (%1$s) شاشة إعدادات النظام، لذا لا يمكن لـ SD Maid الاستمرار. عطّل قفل التطبيق أو حماية الشاشة لإعدادات النظام في هذا التطبيق، ثم جرّب مرة أخرى.</string>
     <string name="automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
     <string name="automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
 </resources>

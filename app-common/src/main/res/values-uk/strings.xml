@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Зрозуміло</string>
     <string name="general_fix_action">Виправити</string>
     <string name="general_set_up_action">Налаштування</string>
+    <string name="general_unavailable_label">Недоступно</string>
     <string name="general_edit_action">Редагувати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">У черзі</string>
     <string name="general_progress_deleting">Видалення</string>
     <string name="general_progress_deleting_x">Видалення %s</string>
+    <string name="general_sort_by_title">Сортувати за</string>
     <string name="general_sort_reverse_action">Зворотне сортування</string>
+    <string name="general_sort_oldest_first">Спочатку найстаріші</string>
+    <string name="general_sort_newest_first">Спочатку найновіші</string>
+    <string name="general_sort_name_asc">Ім\'я (А → Я)</string>
+    <string name="general_sort_size_desc">Спочатку найбільші</string>
     <string name="general_tag_system">Система</string>
+    <string name="general_navigate_up_action">Перейти вгору</string>
+    <string name="general_filter_action">Фільтр</string>
+    <string name="general_filter_by_tags_label">Фільтрувати за тегами</string>
+    <string name="general_filter_add_action">Додати фільтр</string>
+    <string name="general_filter_remove_x_action">Видалити фільтр %s</string>
+    <string name="general_filter_empty_row_hint">Натисніть + для фільтрування</string>
+    <string name="general_show_all_action">Показати все</string>
     <string name="general_result_success_message">Операція успішна</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Звільніть %s місця.</item>
@@ -76,6 +89,8 @@
     <string name="general_options_label">Опції</string>
     <string name="general_details_label">Подробиці</string>
     <string name="general_view_action">Дивитися</string>
+    <string name="general_open_action">Відкрити</string>
+    <string name="general_configure_action">Налаштувати</string>
     <string name="general_update_action">Оновлення</string>
     <string name="general_scan_action">Сканувати</string>
     <string name="general_close_action">Закрити</string>
@@ -105,7 +120,9 @@
         <item quantity="other">%d елементів було видалено</item>
     </plurals>
     <string name="general_search_action">Пошук</string>
+    <string name="general_search_no_matches">Немає відповідностей</string>
     <string name="general_open_system_settings_action">Відкрити системні налаштування</string>
+    <string name="general_fast_scroller_action">Швидка прокрутка</string>
     <plurals name="result_x_items">
         <item quantity="one">%s елемент</item>
         <item quantity="few">%s елементів</item>
@@ -137,6 +154,12 @@
     <string name="general_enable_service_action">Увімкнути службу</string>
     <string name="general_undo_action">Скасувати</string>
     <string name="general_list_select_all_action">Вибрати все</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d вибрано</item>
+        <item quantity="few">%d вибрано</item>
+        <item quantity="many">%d вибрано</item>
+        <item quantity="other">%d вибрано</item>
+    </plurals>
     <string name="general_path_label">Шлях</string>
     <string name="general_type_label">Тип</string>
     <string name="general_size_label">Розмір</string>
@@ -176,6 +199,8 @@
     <string name="general_error_report_bug_action">Повідомити про помилку</string>
     <string name="general_error_ipc_deadobject_title">З’єднання з сервісом втрачено</string>
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
+    <string name="general_error_upgrade_required_title">Потрібна версія Pro</string>
+    <string name="general_error_upgrade_required_description">Це функція Pro. Будь ласка, оновіть SD Maid SE, щоб її використовувати.</string>
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Налаштування</string>
@@ -203,4 +228,22 @@
     <string name="settings_category_risklevel">Рівень ризику</string>
     <string name="settings_category_filter">Фільтр</string>
     <string name="appcontrol_systemsettings_open_title">Показати налаштування</string>
+    <string name="ui_theme_color_sunset_label">Захід</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ця функція потребує root доступу, але SD Maid не зміг його отримати на цьому пристрої.</string>
+    <string name="access_blocked_root_declined">Ця функція потребує root доступу. Ви можете увімкнути його на екрані налаштування.</string>
+    <string name="access_blocked_root_or_shizuku">Ця функція потребує прав доступу root або Shizuku, які недоступні на цьому пристрої.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Недійсний файл резервної копії</string>
+    <string name="backup_restore_error_invalid_body">Цей файл не є дійсною резервною копією SD Maid або пошкоджений.</string>
+    <string name="backup_restore_error_version_body">Цю резервну копію було створено з новішою версією SD Maid. Будь ласка, оновіть додаток і спробуйте ще раз.</string>
+    <string name="backup_restore_error_restore_failed_title">Відновлення не вдалося</string>
+    <string name="backup_restore_error_restore_failed_body">Ці частини не вдалося відновити: %1$s. Ваша попередня конфігурація була збережена і може бути відновлена.</string>
+    <string name="backup_restore_error_safety_title">Відновлення не розпочато</string>
+    <string name="backup_restore_error_safety_body">SD Maid не змогла зберегти резервний знімок вашої поточної конфігурації, тому нічого не було змінено.</string>
+    <string name="backup_restore_error_busy_title">Будь ласка, зачекайте</string>
+    <string name="backup_restore_error_busy_body">Наразі виконується завдання очищення або інша операція резервного копіювання. Спробуйте ще раз, коли вона завершиться.</string>
+    <string name="backup_restore_error_schema_title">Несумісна резервна копія</string>
+    <string name="backup_restore_error_schema_body">Формат бази даних резервної копії не відповідає цій версії SD Maid. Відновлення даних історії підтримується лише між однаковими версіями додатку.</string>
 </resources>

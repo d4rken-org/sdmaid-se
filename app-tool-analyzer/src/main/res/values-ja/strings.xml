@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">セカンダリストレージ、通常はリムーバブルSDカード。メディアファイルとそれをサポートするアプリからのデータが含まれています。</string>
     <string name="analyzer_storage_type_tertiary_title">ポータブルストレージ</string>
     <string name="analyzer_storage_type_tertiary_description">USBポートに差し込まれたフラッシュドライブなどのポータブルストレージ</string>
+    <string name="analyzer_storage_identifier_internal">内部ストレージ</string>
     <string name="analyzer_storage_content_title">ストレージコンテンツ</string>
     <string name="analyzer_storage_content_type_app_label">アプリ</string>
     <string name="analyzer_storage_content_type_app_description">インストールされたアプリとそのデータ(すなわち、アプリケーションファイル、データ、キャッシュ)によって占有されます。</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">システムアプリとシステムデータ。この端末で複数のユーザーアカウントが設定されている場合、他のユーザーからのアプリとデータ。</string>
     <string name="analyzer_storage_content_type_system_other_label">その他</string>
     <string name="analyzer_storage_content_type_system_info">「アプリ」または「ユーザーファイル」カテゴリに該当しないファイルです。閲覧のみ可能 — 削除はサポートされていません。アクセス制限により一部のエリアが不完全な場合があります。</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ファイルは現在、それらを所有するアプリと照合できません。サイズは参考用のみ表示されます。削除、フィルタ、およびSwiperは無効になっています。</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid がアクセスまたは分類できなかったシステムファイルやその他のデータです。オペレーティングシステムにより、一部のエリアの内容一覧はアクセスが制限されています。</string>
     <string name="analyzer_storage_content_app_code_label">アプリコード</string>
     <string name="analyzer_storage_content_app_code_description">アプリのファイル、ライブラリ、リソースが含まれます。この領域は、アプリをアンインストールするか、アーカイブ（新しいAndroidバージョンで利用可能）することで解放できます。</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">このアプリは%2$sの \"%1$s\" を占めています。</string>
     <string name="analyzer_app_details_app_is_archived">このアプリはアーカイブ済みです。</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s（7日間）</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">あなたのストレージを実際に埋めているものを確認しましょう。Analyzerはあなたのスペースがどこに使われているかをマップ化します。これらの各カードはあなたのデバイスのストレージチップです。</string>
+    <string name="tour_analyzer_storage_body">ストレージを開いてアプリ、メディア、ファイルに分解し、タップし続けて最大の原因を突き止めます。</string>
 </resources>

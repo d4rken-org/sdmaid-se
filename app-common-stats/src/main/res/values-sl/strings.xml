@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Primarna pomnilniška naprava</string>
     <string name="stats_storage_type_secondary">Sekundarna pomnilniška naprava</string>
     <string name="stats_storage_type_portable">Prenosna pomnilniška naprava</string>
+    <string name="stats_space_history_delete_storage_title">Izbriši zgodovino pomnilnika?</string>
+    <string name="stats_space_history_delete_storage_desc">Vsi podatki o trendih za ta pomnilnik bodo trajno izbrisani.</string>
 </resources>

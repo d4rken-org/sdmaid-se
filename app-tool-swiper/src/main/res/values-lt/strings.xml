@@ -46,6 +46,21 @@
         <item quantity="many">%d nusprendimo elementų liks vėlesnei peraižai.</item>
         <item quantity="other">%d neapsisprendusių elementų bus palikta vėlesnei peržiūrai.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Šis seansas skirtas visam saugojimo tūriui – trynimas čia apima kiekvieną aplanką tame saugojime.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ir dar %d aplankas</item>
+        <item quantity="few">…ir dar %d aplankai</item>
+        <item quantity="many">…ir dar %d aplankų</item>
+        <item quantity="other">…ir dar %d aplankų</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Aš suprantu, kad šie failai bus visam laikui ištrinti.</string>
+    <string name="swiper_sensitive_root_warning_title">Nuskaityti visą saugyklą?</string>
+    <string name="swiper_sensitive_root_warning_message">Nuskaitant %1$s bus apimti visi failai šioje saugykloje — nuotraukos, dokumentai, atsisiuntimai, programų medija ir dar daugiau. Tęsti?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Vis tiek tęsti</string>
+    <string name="swiper_session_risky_label">Viso saugyklos nuskaitymas</string>
+    <string name="swiper_session_risky_info_message">Šis seansas apima saugyklos šaknį, todėl visi failai toje saugykloje yra apimami — nuotraukos, dokumentai, atsisiuntimai, programų medija ir daugiau.
+
+Viso saugyklos nuskaitymai gali grąžinti daug elementų, įskaitant failų, kurių galbūt neketinote peržiūrėti. Norėdami susiaurinti nuskaitymo sritį, taikykite failų tipo filtrą.</string>
     <string name="swiper_delete_x_action">Ištrinti %1$d</string>
     <string name="swiper_settings_swap_directions_title">Pakeisti braukimo kryptis</string>
     <string name="swiper_settings_swap_directions_summary">Braukti kairėn, kad palikti, dešinėn, kad ištrinti.</string>
@@ -95,6 +110,12 @@
     <string name="swiper_session_rename_hint">Įveskite seanso pavadinimą</string>
     <string name="swiper_sessions_current_sessions">Dabaritiniai seansai</string>
     <string name="swiper_session_paths_label">Keliai</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ir %d daugiau</item>
+        <item quantity="few">…ir %d daugiau</item>
+        <item quantity="many">…ir %d daugiau</item>
+        <item quantity="other">…ir %d daugiau</item>
+    </plurals>
     <string name="swiper_session_status_label">Būsena</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d pasilaikyti</item>
@@ -174,4 +195,10 @@
     <string name="swiper_file_type_filter_summary">Filtruota: %1$s</string>
     <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
     <string name="swiper_open_externally_action">Atidaryti išorine programa</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Perbraukite nuotrauką, kad nuspręstumėte jos likimą: šonuose — norėdami ją pasilikti arba ištrinti, aukštyn — norėdami praleisti, žemyn — norėdami anuliuoti. Žemiau esantys mygtukai daro tą patį — ir parodo, kuri pusė yra kuri.</string>
+    <string name="tour_swiper_openin_body">Šis mygtukas atidaro nuotrauką kitoje programoje — patogus būdas ją patikrinti prieš nusprendžiant.</string>
+    <string name="tour_swiper_preview_body">Šis mygtukas atidaro pilną ekrano peržiūrą, kad geriau pamatytumėte.</string>
+    <string name="tour_swiper_actions_body">Nepatinka perbraukimas? Turime ir mygtukus! Praleisti palieka jį neapibrėžtą vėliau, o ilgai spaudžiant Praleisti, failas nebus nuskaitomas ateityje. Anuliuoti anuliuoja jūsų paskutinį pasirinkimą.</string>
+    <string name="tour_swiper_review_body">Jūsų pasirinkimai išsaugoti ir ištrinti yra tik paruošti. Atidarykite Peržiūrą, kad juos peržiūrėtumėte ir pritaikytumėte, kai būsite pasirengę.</string>
 </resources>

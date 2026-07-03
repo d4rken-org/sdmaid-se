@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">升級 SD Maid SE</string>
     <string name="upgrades_dashcard_body">解鎖額外功能，並成為贊助者，以支持持續開發！</string>
     <string name="upgrades_dashcard_upgrade_action">升級</string>
-    <string name="upgrade_screen_title">改善 SD 女僕</string>
+    <string name="upgrade_screen_title">支持 SD Maid</string>
     <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。持續的開發由你們所支援。</string>
     <string name="upgrade_screen_how_title">如何協助</string>
     <string name="upgrade_screen_how_body">成為贊助者並贊助開發！輕觸下面的按鈕，啟用所有額外功能，並開啟我的 Github 贊助者設定檔。</string>
-    <string name="upgrade_screen_why_title">此如魔術一般 🪄</string>
-    <string name="upgrade_screen_why_body">• 應用清理器刪除的功能 💯\n• 排程作業 ⏰\n• 所有工具的額外選項 ⚙️\n• 您的專屬刪除規則 ✍️\n• 一位積極的開發人員 🧙\n以及更多…</string>
+    <string name="upgrade_screen_why_title">升級優點</string>
+    <string name="upgrade_screen_why_body">• 清理應用程式快取和可清除的資料
+• 移除重複的檔案
+• 啟用排定的清理
+• 建立自訂篩選和清理規則
+• 追蹤儲存空間趨勢和清理歷史記錄
+• 應用程式各處提供更多功能和控制選項
+• 支持開源工作</string>
     <string name="upgrade_screen_sponsor_action">贊助開發</string>
     <string name="upgrade_screen_sponsor_action_hint">替代品為廣告、分析和 Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">感謝您對開放原始碼開發的支持 ❤️</string>

@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Përdoruesit me nevoja të veçanta aksesueshmërie mund ta mundësojnë këtë shërbim që të lejojë SD Maid të automatizojë detyrat që përndryshe do të kërkonin ndërveprim manual të lodhshëm të përdoruesit (p.sh. fshirjen e memories së fshehtë).\n\nShembull: Nëse e udhëzon SD Maid të ndalojë shumë aplikacione, atëherë SD Maid mund ta përdorë këtë shërbimi për të hapur ekranin e cilësimeve të çdo aplikacioni, gjeni butonin \"Ndalo me forcë\" dhe prekeni lehtë.\n\nSD Maid do të shfaqet gjithmonë në mënyrë të dukshme kur përdor këtë shërbim dhe do të ofrojë një mënyrë të thjeshtë për përdoruesin që të anulojë menjëherë çdo ndërveprim.\n\nAsnjë veprim do të kryhen pa miratimin paraprak të përdoruesit. Ky shërbim mund të çaktivizohet përsëri në çdo kohë pa efekte negative.</string>
     <string name="automation_screenoverlay_explanation">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë ose anuloni atë.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë, ose shtypni butonin Home për të anuluar.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë.</string>
     <string name="automation_active_title">SD Maid po punon</string>
     <string name="automation_error_no_consent_title">Gabim automatizimi</string>
     <string name="automation_error_no_consent_body">Shërbimi i aksesueshmërisë nuk është konfiguruar. Plotësoni konfigurimin dhe jepni pëlqimin.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Një detyrë e planifikuar u përpoq të përdorte shërbimin e aksesueshmërisë, por nuk ishte i disponueshëm. Nëse nuk keni nevojë për këtë, çaktivizoni opsionin \"Shërbimi i aksesueshmërisë\" në cilësimet e planifikuesit.</string>
     <string name="automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
     <string name="automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+    <string name="automation_error_interference_title">Ekrani i cilësimeve është bllokuar</string>
+    <string name="automation_error_interference_body">Një aplikacion tjetër (%1$s) po bllokon ekranin e cilësimeve të sistemit, kështu SD Maid nuk mund të vazhdojë. Çaktivizoni bllokimin e aplikacionit ose mbrojtjen e ekranit të atij aplikacioni në cilësimet e sistemit, pastaj përpiquni përsëri.</string>
     <string name="automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
 </resources>

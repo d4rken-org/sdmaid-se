@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Kizárás kezelő</string>
     <string name="exclusion_manager_desc">Fájl- és alkalmazáskizárások kezelése.</string>
-    <string name="exclusion_explanation_body1">Fájlok és alkalmazások kizárása az SD Maid műveleteiből.</string>
-    <string name="exclusion_add_new_hint">Adjon hozzá új kizárásokat úgy, hogy először engedélyezi az SD Maid keresést, majd használja a helyi menüt a kizárni kívánt találatnál.</string>
+    <string name="exclusion_explanation_body1">Fájlok és alkalmazások kizárása az SD Maid eszközeitől való védelmük érdekében, vagy irreleváns elemek kihagyásához és műveletek felgyorsításához.</string>
+    <string name="exclusion_add_new_hint">Még nincsenek kizárások. Használja a + gombot egy létrehozásához, vagy zárjon ki elemeket bármely eszköz eredményeiből.</string>
     <string name="exclusion_create_action">Kizárás létrehozása</string>
     <string name="exclusion_edit_action">Kizárás szerkesztése</string>
     <string name="exclusion_type_package">Alkalmazás kizárása</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Kivételek exportálása</string>
     <string name="exclusion_create_pkg_hint">Használd az AppVezérlő eszközt az alkalmazások kizárásának létrehozásához.</string>
     <string name="exclusion_create_path_hint">Használd a TárhelyElemző eszközt az elérési útvonal-kizárások létrehozásához.</string>
+    <string name="exclusion_create_segment_hint">Névrész egyeztetése, például \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Alapértelmezések megjelenítése</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d kizárás importálva</item>
+        <item quantity="other">%d kizárás importálva</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d kizárás exportálva</item>
+        <item quantity="other">%d kizárás exportálva</item>
+    </plurals>
 </resources>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE-г шинэчлэх</string>
     <string name="upgrades_dashcard_body">Нэмэлт боломжуудыг нээж, тасралтгүй хөгжлийг дэмжихийн тулд ивээн тэтгэгч болоорой!</string>
     <string name="upgrades_dashcard_upgrade_action">Шинэчлэх</string>
-    <string name="upgrade_screen_title">SD Maid-г сайжруулах</string>
+    <string name="upgrade_screen_title">SD Maid-г дэмжих</string>
     <string name="upgrade_screen_preamble">SD Maid-д зар сурталчилгаа байхгүй бөгөөд хэрэглэгчийн мэдээллийг зардаггүй. Тасралтгүй хөгжил зөвхөн таны тусламжтайгаар боломжтой.</string>
     <string name="upgrade_screen_how_title">Хэрхэн тусламж үзүүлэх</string>
     <string name="upgrade_screen_how_body">Ивээн тэтгэгч болж хөгжлийг дэмжээрэй! Бүх нэмэлт боломжуудыг идэвхжүүлж, миний GitHub Sponsors профайлыг нээхийн тулд доорх товчийг дарна уу.</string>
-    <string name="upgrade_screen_why_title">Энэ нь ид шидтэй 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner устгах функц 💯\n• Төлөвлөсөн үйлдлүүд ⏰\n• Бүх хэрэгслийн нэмэлт сонголтууд ⚙️\n• Таны өөрийн устгах дүрэм ✍️\n• Сэдэлтэй хөгжүүлэгч 🧙\nболон бусад…</string>
+    <string name="upgrade_screen_why_title">Сайжруулалтын давуу тал</string>
+    <string name="upgrade_screen_why_body">• Аппын кэш болон устах боломжтой өгөгдлийг цэвэрлэх\n• Давхар файлуудыг хасах\n• Төлөвлөгдсөн цэвэрлэлтийг идэвхжүүлэх\n• Жишиг шүүлтүүр болон цэвэрлэлтийн дүрэм үүсгэх\n• Сан ашиглалтын чиг хандлага болон цэвэрлэлтийн түүхийг хүргүүлэх\n• Аппын бүхэлд нь олон функц болон удирдлага\n• Нээлттэй эхтэй ажлыг дэмжих</string>
     <string name="upgrade_screen_sponsor_action">Хөгжлийг дэмжих</string>
     <string name="upgrade_screen_sponsor_action_hint">Өөр сонголт бол зар сурталчилгаа, шинжилгээ, Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Нээлттэй эхийн хөгжлийг дэмжсэнд баярлалаа ❤️</string>

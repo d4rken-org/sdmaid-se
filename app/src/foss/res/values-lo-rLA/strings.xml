@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">ອັບເກຣດ SD Maid SE</string>
     <string name="upgrades_dashcard_body">ປົດລັອກຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ກາຍເປັນຜູ້ອຸປະຖໍາເພື່ອສະໜັບສະໜູນການພັດທະນາຢ່າງຕໍ່ເນື່ອງ!</string>
     <string name="upgrades_dashcard_upgrade_action">ອັບເກຣດ</string>
-    <string name="upgrade_screen_title">ປັບປຸງ SD Maid</string>
+    <string name="upgrade_screen_title">ສະໝັບສະໝູນ SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະ ບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ການພັດທະນາຢ່າງຕໍ່ເນື່ອງແມ່ນເປັນໄປໄດ້ດ້ວຍທ່ານເທົ່ານັ້ນ.</string>
     <string name="upgrade_screen_how_title">ວິທີການຊ່ວຍເຫຼືອ</string>
     <string name="upgrade_screen_how_body">ກາຍເປັນຜູ້ອຸປະຖໍາ ແລະ ໃຫ້ການສະໜັບສະໜູນການພັດທະນາ! ກົດປຸ່ມຂ້າງລຸ່ມເພື່ອເປີດໃຊ້ງານຄຸນສົມບັດເພີ່ມເຕີມທັງໝົດ ແລະ ເປີດໂປຣໄຟລ໌ GitHub Sponsors ຂອງຂ້ອຍ.</string>
-    <string name="upgrade_screen_why_title">ສິ່ງນີ້ເຮັດໃຫ້ເກີດມະຫັດສະຈັນ 🪄</string>
-    <string name="upgrade_screen_why_body">• ຟັງຊັນການລຶບຂອງ AppCleaner 💯\n• ການດໍາເນີນງານຕາມກໍານົດເວລາ ⏰\n• ຕົວເລືອກເພີ່ມເຕີມສໍາລັບເຄື່ອງມືທັງໝົດ ⚙️\n• ກົດລະບຽບການລຶບຂອງທ່ານເອງ ✍️\n• ນັກພັດທະນາທີ່ມີແຮງຈູງໃຈ 🧙\nແລະ ອື່ນໆອີກ…</string>
+    <string name="upgrade_screen_why_title">ປະໂຫຍດຂອງການຍົກລະດັບ</string>
+    <string name="upgrade_screen_why_body">• ລຶບລ້າງແຄຊ໊ຂອງແອັບ ແລະ ຂໍ້ມູນທີ່ບໍ່ຈຳເປັນ
+• ລຶບລ້າງໄຟລ೫ທີ່ຊ້ຳກັນ
+• ເປີດໃຊ້ການລຶບລ້າງຕາມກຳໝົດເວລາ
+• ສ້າງຕົວກອງທີ່ກຳໝົດເອງ ແລະ ກໍດລະບີບການລຶບລ້າງ
+• ຕິດຕາມແນວໂນ້ມຂໍ້ມູນ ແລະ ປະໝັດການລຶບລ້າງ
+• ຄຸນສົມບັດ ແລະ ການຄວບຄຸມເພີ່ມເຕີມທໍ່ວທັງແອັບ
+• ສະໝັບສະໝູນຜົນງານເປິດເຜີຍ</string>
     <string name="upgrade_screen_sponsor_action">ສະໜັບສະໜູນການພັດທະນາ</string>
     <string name="upgrade_screen_sponsor_action_hint">ທາງເລືອກແມ່ນໂຄສະນາ, ການວິເຄາະ ແລະ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ຂອບໃຈສໍາລັບການສະໜັບສະໜູນການພັດທະນາແຫຼ່ງເປີດ ❤️</string>

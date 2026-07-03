@@ -28,6 +28,7 @@
     <string name="general_gotit_action">နား လည်ပါပြီ</string>
     <string name="general_fix_action">ပြင်ဆင်ပါ</string>
     <string name="general_set_up_action">စနစ်ထည့်သွင်းပါ</string>
+    <string name="general_unavailable_label">မရှိနိုင်သည်</string>
     <string name="general_edit_action">တည်းဖြတ်ပါ</string>
     <string name="general_na_label">မရှိပါ</string>
     <string name="general_empty_label">ဗလာ</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">အစီအစဉ်တွင်</string>
     <string name="general_progress_deleting">ဖျက်နေပါသည်</string>
     <string name="general_progress_deleting_x">%s ကိုဖျက်နေပါသည်</string>
+    <string name="general_sort_by_title">စီရင်မည့် အခြေခံ</string>
     <string name="general_sort_reverse_action">ပြောင်းပြန်စီစဉ်ရန်မုဒ်</string>
+    <string name="general_sort_oldest_first">အဟောင်းဆုံးကို ဦးစွာ</string>
+    <string name="general_sort_newest_first">အသစ်ဆုံးကို ဦးစွာ</string>
+    <string name="general_sort_name_asc">နာမည် (A → Z)</string>
+    <string name="general_sort_size_desc">အကြီးဆုံးကို ဦးစွာ</string>
     <string name="general_tag_system">စနစ်</string>
+    <string name="general_navigate_up_action">အထက်သို့ သွားရန်</string>
+    <string name="general_filter_action">စစ်ထုတ်ပါ</string>
+    <string name="general_filter_by_tags_label">အညွှန်းများဖြင့် စစ်ထုတ်ရန်</string>
+    <string name="general_filter_add_action">စစ်ထုတ်ကိရိယာ ထည့်သွင်ရန်</string>
+    <string name="general_filter_remove_x_action">%s စစ်ထုတ်ကိရိယာ ဖျက်ရန်</string>
+    <string name="general_filter_empty_row_hint">+ ကို ထိပြီး စစ်ထုတ်ရန်</string>
+    <string name="general_show_all_action">အားလုံးပြပါ</string>
     <string name="general_result_success_message">အောင်မြင်စွာ လုပ်ဆောင်ပြီးပါပြီ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">%s နေရာလွတ်ပြီးပါပြီ။</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">ရွေးချယ်မှုများ</string>
     <string name="general_details_label">အသေးစိတ်</string>
     <string name="general_view_action">ကြည့်ပါ</string>
+    <string name="general_open_action">ဖွင့်ရန်</string>
+    <string name="general_configure_action">ပြင်ဆင်ရန်</string>
     <string name="general_update_action">အပ်ဒိတ်လုပ်ပါ</string>
     <string name="general_scan_action">စကင်န်လုပ်ပါ</string>
     <string name="general_close_action">ပိတ်ရန်</string>
@@ -93,7 +108,9 @@
         <item quantity="other">%d ခုကို ဖယ်ရှားပြီးပါပြီ</item>
     </plurals>
     <string name="general_search_action">ရှာဖွေပါ</string>
+    <string name="general_search_no_matches">ကိုက်ညီမှု မရှိ</string>
     <string name="general_open_system_settings_action">စနစ်ဆက်တင်းဖွင့်ပါ</string>
+    <string name="general_fast_scroller_action">လျင်မြန်သော စာရွက်လှည်း</string>
     <plurals name="result_x_items">
         <item quantity="other">%s ခု</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">ဝန်ဆောင်မှုကို ဖွင့်ပါ</string>
     <string name="general_undo_action">ပြန်လုပ်ပါ</string>
     <string name="general_list_select_all_action">အားလုံးရွေးချယ်ပါ</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">%d ခု ရွေးချယ်ထားသည်</item>
+    </plurals>
     <string name="general_path_label">လမ်းကြောင်း</string>
     <string name="general_type_label">အမျိုးအစား</string>
     <string name="general_size_label">အရွယ်အစား</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">အမှားတင်ပြပါ</string>
     <string name="general_error_ipc_deadobject_title">ဝန်ဆောင်မှုချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်</string>
     <string name="general_error_ipc_deadobject_description">အရေးကြီးသောဝန်ဆောင်မှု (ဥပမာ - Magisk, Shizuku, သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှုသည် မျှော်လင့်မထားစွာ ပြတ်တောက်သွားပါသည်။ သင့်စက်ပစ္စည်းကို ပြန်လည်စတင်ပါ။ အကယ်၍ ပြဿနာ ဆက်လက်ဖြစ်ပေါ်နေပါက အပ်ဒိတ်များကို စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ။</string>
+    <string name="general_error_upgrade_required_title">Pro ဗားရှင်း လိုအပ်သည်</string>
+    <string name="general_error_upgrade_required_description">ဤသည်မှာ Pro လုပ်ဆောင်ချက်ဖြစ်သည်။ ၎င်းကိုအသုံးပြုရန် SD Maid SE အား အဆင့်မြှင့်တင်ပါ။</string>
     <string name="general_user_label_owner">ပိုင်ရှင်</string>
     <string name="general_user_label_system">စနစ်</string>
     <string name="setup_title">တပ်ဆင်မှု</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
     <string name="appcontrol_systemsettings_open_title">ဆက်တင်များပြပါ</string>
+    <string name="ui_theme_color_sunset_label">နေဝင်ချိန်</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">ဤလုပ်ဆောင်ချက်သည် root အခွင့်အရေး လိုအပ်သည်၊ သို့သော်လည်း SD Maid သည် ဤကိရိယာတွင် ၎င်းကိုရယူမရသည်။</string>
+    <string name="access_blocked_root_declined">ဤလုပ်ဆောင်ချက်သည် root အခွင့်အရည်လိုအပ်သည်။ သင်သည် အစ်တန်းမျက်နှာပြင်မှတစ်ဆင့် ၎င်းကိုဖွင့်နိုင်သည်။</string>
+    <string name="access_blocked_root_or_shizuku">ဤလုပ်ဆောင်ချက်သည် root သို့မဟုတ် Shizuku အခွင့်အရည်လိုအပ်သည်၊ ၎င်းသည်ဤကိရိယာတွင်မရှိပါ။</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">မမှန်ကန်သောအရန်သိမ်းဆည်းမှုဖိုင်</string>
+    <string name="backup_restore_error_invalid_body">ဤဖိုင်သည် SD Maid အရန်သိမ်းဆည်းမှုမဟုတ်ပါ သို့မဟုတ် ယိုယွင်းပါသည်။</string>
+    <string name="backup_restore_error_version_body">ဤအရန်သိမ်းဆည်းမှုကို SD Maid ၏ အသစ်ထွက်ဖြန့်ဝေမှုဖြင့် ဖန်တီးခဲ့သည်။ အက်ပ်လီကေးရှင်းကို အဆင့်မြှင့်တင်ပြီး ထပ်မံစမ်းသပ်ပါ။</string>
+    <string name="backup_restore_error_restore_failed_title">ပြန်လည်ရယူမှု မအောင်မြင်ခဲ့ပါ</string>
+    <string name="backup_restore_error_restore_failed_body">ဤအစိတ်အပိုင်းများကို ပြန်လည်ရယူ၍မရပါ: %1$s။ သင်၏အစီအစဉ်ကို သိမ်းဆည်းခဲ့သည်ပြီး ပြန်လည်သုံးစွဲနိုင်သည်။</string>
+    <string name="backup_restore_error_safety_title">ပြန်လည်ရယူမှု စတင်မထားပါ</string>
+    <string name="backup_restore_error_safety_body">SD Maid သည် သင်၏လက်ရှိအစီအစဉ်၏ဘေးကင်းစောင့်ရှောက်မှုတစ်ခုကိုသိမ်းဆည်းနိုင်ခြင်းမရှိသည်။ ထို့ကြောင့် အဘယ်အရာမျှမပြောင်းလဲခဲ့ပါ။</string>
+    <string name="backup_restore_error_busy_title">စောင့်ဆိုင်းပါ</string>
+    <string name="backup_restore_error_busy_body">သန့်စင်ခြင်း အလုပ်စဉ် သို့မဟုတ် တစ်ခြား backup လုပ်ဆောင်ချက် လက်ရှိတွင် လည်ပတ်နေသည်။ အပြီးမြောက်သည့်အခါ ထပ်မံကြိုးစားပါ။</string>
+    <string name="backup_restore_error_schema_title">လိုက်ဖက်မသော backup</string>
+    <string name="backup_restore_error_schema_body">Backup ၏ database ပုံစံသည် SD Maid ၏ ဤဗားရှင်းနှင့် မကိုက်ညီပါ။ သမိုင်းအချက်အလက်ကို ပြန်လည်ရယူခြင်းသည် အတူတူ app ဗားရှင်းများကြားတွင်သာ ရရှိနိုင်ပါသည်။</string>
 </resources>

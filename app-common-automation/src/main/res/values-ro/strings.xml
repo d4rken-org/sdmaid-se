@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot permite acestui serviciu să permită SD Maid să automatizeze sarcini care altfel ar necesita interacțiunea manuală dificilă a utilizatorului (e.. ştergere cache).\n\nExemplu: Dacă dați instrucțiuni de ajutor SD pentru a opri mai multe aplicații, atunci ajutorul SD poate folosi acest serviciu pentru a deschide ecranul de setări al fiecărei aplicații, găsește butonul „Oprește forțata” și apasă pe el.\n\nSD Maid va arăta întotdeauna în mod vizibil când se utilizează acest serviciu și va oferi o modalitate ușoară utilizatorului de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interacționează cu dispozitivul dvs. Nu este posibil să utilizați ecranul în același timp. Așteptați până la finalizarea operației sau anulați-o.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid interacționează cu dispozitivul tău. Nu este posibil să folosești ecranul în același timp. Așteaptă până când operația se termină sau apasă butonul Home pentru a anula.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid interacționează cu dispozitivul tău. Nu poți folosi ecranul în același timp. Așteaptă până se termină operația.</string>
     <string name="automation_active_title">SD Maid funcționează</string>
     <string name="automation_error_no_consent_title">Eroare de automatizare</string>
     <string name="automation_error_no_consent_body">Serviciul de accesibilitate nu este configurat. Finalizați configurarea și acordați consimțământul.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">O sarcină programată a încercat să utilizeze serviciul de accesibilitate, dar acesta era indisponibil. Dacă nu aveți nevoie de aceasta, dezactivați opțiunea „Serviciu de accesibilitate” în setările programatorului.</string>
     <string name="automation_error_no_settings_title">Setări ecran indisponibil</string>
     <string name="automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="automation_error_interference_title">Ecran de setări blocat</string>
+    <string name="automation_error_interference_body">O altă aplicație (%1$s) blochează ecranul de setări de sistem, deci SD Maid nu poate continua. Dezactivează blocarea de aplicație sau protecția de ecran pentru setările de sistem, apoi încearcă din nou.</string>
     <string name="automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
 </resources>

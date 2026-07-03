@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Entendi</string>
     <string name="general_fix_action">Corrigir</string>
     <string name="general_set_up_action">Configurar</string>
+    <string name="general_unavailable_label">Indisponível</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">Não encontrado</string>
     <string name="general_empty_label">Vazio</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Na fila</string>
     <string name="general_progress_deleting">Apagando</string>
     <string name="general_progress_deleting_x">Apagando %s</string>
+    <string name="general_sort_by_title">Ordenar por</string>
     <string name="general_sort_reverse_action">Modo de classificação inversa</string>
+    <string name="general_sort_oldest_first">Mais antigos primeiro</string>
+    <string name="general_sort_newest_first">Mais recentes primeiro</string>
+    <string name="general_sort_name_asc">Nome (A → Z)</string>
+    <string name="general_sort_size_desc">Maiores primeiro</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Voltar</string>
+    <string name="general_filter_action">Filtrar</string>
+    <string name="general_filter_by_tags_label">Filtrar por etiquetas</string>
+    <string name="general_filter_add_action">Adicionar filtro</string>
+    <string name="general_filter_remove_x_action">Remover filtro %s</string>
+    <string name="general_filter_empty_row_hint">Toque em + para filtrar</string>
+    <string name="general_show_all_action">Exibir tudo</string>
     <string name="general_result_success_message">Operação bem sucedida</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s de espaço liberado.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Opções</string>
     <string name="general_details_label">Detalhes</string>
     <string name="general_view_action">Ver</string>
+    <string name="general_open_action">Abrir</string>
+    <string name="general_configure_action">Configurar</string>
     <string name="general_update_action">Atualizar</string>
     <string name="general_scan_action">Escanear</string>
     <string name="general_close_action">Fechar</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d itens foram removidos</item>
     </plurals>
     <string name="general_search_action">Buscar</string>
+    <string name="general_search_no_matches">Nenhum resultado</string>
     <string name="general_open_system_settings_action">Abrir configurações do sistema</string>
+    <string name="general_fast_scroller_action">Rolagem rápida</string>
     <plurals name="result_x_items">
         <item quantity="one">%s item</item>
         <item quantity="other">%s itens</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Ativar serviço</string>
     <string name="general_undo_action">Desfazer</string>
     <string name="general_list_select_all_action">Selecionar todos</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d selecionado</item>
+        <item quantity="other">%d selecionados</item>
+    </plurals>
     <string name="general_path_label">Caminho</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Tamanho</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Reportar erro</string>
     <string name="general_error_ipc_deadobject_title">Conexão de serviço perdida</string>
     <string name="general_error_ipc_deadobject_description">A conexão com um serviço crítico (por exemplo, Magisk, Shizuku, ou outros serviços ao nível do sistema) foi inesperadamente perdida. Por favor, reinicie seu dispositivo. Se o problema persistir, verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="general_error_upgrade_required_title">Versão Pro necessária</string>
+    <string name="general_error_upgrade_required_description">Este é um recurso Pro. Atualize o SD Maid SE para usá-lo.</string>
     <string name="general_user_label_owner">Proprietário</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuração</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Nível de risco</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="appcontrol_systemsettings_open_title">Mostrar configurações</string>
+    <string name="ui_theme_color_sunset_label">Pôr do sol</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Este recurso precisa de acesso root, mas o SD Maid não conseguiu obtê-lo neste dispositivo.</string>
+    <string name="access_blocked_root_declined">Este recurso precisa de acesso root. Você pode ativá-lo pela tela de configuração.</string>
+    <string name="access_blocked_root_or_shizuku">Este recurso precisa de acesso root ou Shizuku, que não está disponível neste dispositivo.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Arquivo de backup inválido</string>
+    <string name="backup_restore_error_invalid_body">Este arquivo não é um backup válido do SD Maid ou está corrompido.</string>
+    <string name="backup_restore_error_version_body">Este backup foi criado com uma versão mais recente do SD Maid. Por favor, atualize o app e tente novamente.</string>
+    <string name="backup_restore_error_restore_failed_title">Restauração falhou</string>
+    <string name="backup_restore_error_restore_failed_body">Estas partes não puderam ser restauradas: %1$s. Sua configuração anterior foi salva e pode ser recuperada.</string>
+    <string name="backup_restore_error_safety_title">Restauração não iniciada</string>
+    <string name="backup_restore_error_safety_body">SD Maid não conseguiu salvar um snapshot de segurança da sua configuração atual, então nada foi alterado.</string>
+    <string name="backup_restore_error_busy_title">Por favor, aguarde</string>
+    <string name="backup_restore_error_busy_body">Uma tarefa de limpeza ou outra operação de backup está sendo executada. Tente novamente quando terminar.</string>
+    <string name="backup_restore_error_schema_title">Backup incompatível</string>
+    <string name="backup_restore_error_schema_body">O formato de banco de dados do backup não corresponde a esta versão do SD Maid. A restauração de dados de histórico é apenas compatível entre versões idênticas do aplicativo.</string>
 </resources>

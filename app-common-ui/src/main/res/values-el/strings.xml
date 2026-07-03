@@ -8,4 +8,16 @@
         <item quantity="other">Επιλέχθηκαν %d διαδρομές</item>
     </plurals>
     <string name="picker_home_action">Περιοχές δεδομένων</string>
+    <string name="tour_action_next">Επόμενο</string>
+    <string name="tour_action_previous">Προηγούμενο</string>
+    <string name="tour_action_done">Τέλος</string>
+    <string name="tour_action_cancel">Παράλειψη</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Παράλειψη της περιήγησης;</string>
+    <string name="tour_confirm_message">Μπορείτε να ενεργοποιήσετε ξανά τις περιηγήσεις οποτεδήποτε από τις Ρυθμίσεις.</string>
+    <string name="tour_confirm_continue">Συνέχεια περιήγησης</string>
+    <string name="tour_confirm_dont_show_this_tour">Να μη δειχθεί αυτή η περιήγηση</string>
+    <string name="tour_confirm_disable_all">Απενεργοποίηση όλων των περιηγήσεων</string>
+    <string name="navigation_unknown_destination_title">Σύντομα</string>
+    <string name="navigation_unknown_destination_message">Αυτή η οθόνη μεταφέρεται ακόμα στο νέο UI.</string>
 </resources>

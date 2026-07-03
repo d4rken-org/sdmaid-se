@@ -36,6 +36,19 @@
         <item quantity="one">%d αναποφάσιστο αντικείμενο θα παραμείνει για μεταγενέστερη αξιολόγηση.</item>
         <item quantity="other">%d αναποφάσιστα αντικείμενα θα παραμείνουν για μεταγενέστερη αξιολόγηση.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Αυτή η λειτουργία αφορά ολόκληρο τον όγκο αποθήκευσης — η διαγραφή εδώ εκτείνεται σε κάθε φάκελο αυτής της αποθήκευσης.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…και %d ακόμη φάκελος</item>
+        <item quantity="other">…και %d ακόμη φάκελοι</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Καταλαβαίνω ότι τα αρχεία αυτά θα διαγραφούν μόνιμα.</string>
+    <string name="swiper_sensitive_root_warning_title">Σάρωση ολόκληρης της αποθήκευσης;</string>
+    <string name="swiper_sensitive_root_warning_message">Η σάρωση του %1$s περιλαμβάνει κάθε αρχείο αυτής της αποθήκευσης — φωτογραφίες, έγγραφα, λήψεις, μέσα εφαρμογών και άλλα. Συνέχεια;</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Συνέχεια ούτως ή άλλως</string>
+    <string name="swiper_session_risky_label">Σάρωση ολόκληρης αποθήκευσης</string>
+    <string name="swiper_session_risky_info_message">Αυτή η περίοδος στοχεύει τη ρίζα ενός τόμου αποθήκευσης, επομένως κάθε αρχείο σε αυτήν την αποθήκη είναι στο εύρος — φωτογραφίες, έγγραφα, λήψεις, μέσα εφαρμογών και πολλά άλλα.
+
+Οι σαρώσεις ολόκληρης αποθήκης μπορούν να επιστρέψουν πολλά στοιχεία, συμπεριλαμβανομένων αρχείων που μπορεί να μην σκοπεύετε να εξετάσετε. Εφαρμόστε ένα φίλτρο τύπου αρχείου για να περιορίσετε τη σάρωση.</string>
     <string name="swiper_delete_x_action">Διαγραφή %1$d</string>
     <string name="swiper_settings_swap_directions_title">Εναλλαγή κατευθύνσεων σάρωσης</string>
     <string name="swiper_settings_swap_directions_summary">Σάρωση αριστερά για διατήρηση, δεξιά για διαγραφή.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Εισάγετε ένα όνομα για αυτή τη συνεδρία</string>
     <string name="swiper_sessions_current_sessions">Τρέχουσες συνεδρίες</string>
     <string name="swiper_session_paths_label">Διαδρομές</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…και %d ακόμη</item>
+        <item quantity="other">…και %d ακόμη</item>
+    </plurals>
     <string name="swiper_session_status_label">Κατάσταση</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d για διατήρηση</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Φιλτραρισμένα: %1$s</string>
     <string name="swiper_session_no_matching_files">Δεν βρέθηκαν αντίστοιχα αρχεία</string>
     <string name="swiper_open_externally_action">Άνοιγμα σε εξωτερική εφαρμογή</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Σύρετε μια φωτογραφία για να αποφασίσετε την τύχη της: Πλάγια για να διατηρήσετε ή να διαγράψετε, πάνω για παράλειψη, κάτω για αναίρεση. Τα κουμπιά παρακάτω κάνουν το ίδιο — και δείχνουν ποια πλευρά είναι ποια.</string>
+    <string name="tour_swiper_openin_body">Αυτό το κουμπί ανοίγει τη φωτογραφία σε άλλη εφαρμογή, χρήσιμο για να την ελέγξετε πριν αποφασίσετε.</string>
+    <string name="tour_swiper_preview_body">Αυτό το κουμπί ανοίγει μια προεπισκόπηση σε πλήρη οθόνη για πιο προσεκτική εξέταση.</string>
+    <string name="tour_swiper_actions_body">Δεν σας αρέσει το σύρσιμο; Έχουμε και κουμπιά! Το Παράλειψη το αφήνει αναπόφασιστο για αργότερα, και το παρατεταμένο πάτημα στο Παράλειψη αποκλείει ένα αρχείο από μελλοντικές σαρώσεις. Το Αναίρεση ανακαλεί την τελευταία σας επιλογή.</string>
+    <string name="tour_swiper_review_body">Οι επιλογές διατήρησης και διαγραφής σας είναι μόνο προσωρινές. Ανοίξτε την Ανασκόπηση για να τις ελέγξετε και να εφαρμόσετε τις διαγραφές όταν είστε έτοιμοι.</string>
 </resources>

@@ -36,6 +36,17 @@
         <item quantity="one">%d elementu erabaki gabe geratuko da geroago berrikusteko.</item>
         <item quantity="other">%d elementu erabaki gabe geratuko dira geroago berrikusteko.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Saio honek biltegi bolumen osoa hartzen du — hemen ezabatzeak biltegiaren karpeta guztia estaltzen du.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…eta %d karpeta gehiago</item>
+        <item quantity="other">…eta %d karpeta gehiago</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Badakit fitxategi hauek betirako ezabatuko direla.</string>
+    <string name="swiper_sensitive_root_warning_title">Biltegi osoa bilatu?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s bilaketak biltegiko fitxategi guztiak sartzen ditu — argazkiak, dokumentuak, deskargatutakoak, aplikazioen multimedia, eta gehiago. Jarraitu?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Jarraitu hala ere</string>
+    <string name="swiper_session_risky_label">Biltegi osoaren bilaketa</string>
+    <string name="swiper_session_risky_info_message">Saio honetan biltegiaren erroa bilatzen denez, biltegiko fitxategi guztiak sartuta daude — argazkiak, dokumentuak, deskargatutakoak, aplikazioen multimedia, eta gehiago.\n\nBiltegi osoaren bilaketak elementu asko itzul ditzakete, berrikustea ez duzun fitxategiak barne. Bilaketa estutatzeko fitxategi-motaren iragazkia aplikatu.</string>
     <string name="swiper_delete_x_action">Ezabatu %1$d</string>
     <string name="swiper_settings_swap_directions_title">Aldatu irristatzeko norabideak</string>
     <string name="swiper_settings_swap_directions_summary">Irrist egin ezkerrera gordetzeko, eskuinera ezabatzeko.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Sartu izen bat saio honentzat</string>
     <string name="swiper_sessions_current_sessions">Uneko saioak</string>
     <string name="swiper_session_paths_label">Bideak</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…eta %d gehiago</item>
+        <item quantity="other">…eta %d gehiago</item>
+    </plurals>
     <string name="swiper_session_status_label">Egoera</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d gordetzeko</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Iragazita: %1$s</string>
     <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
     <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Irristatu argazkia zer egin behar den erabakitzeko: albo batean eduki edo ezabatu, gora saltatu, behera desegin. Beheko botoiek bera egiten dute — eta zer albo den erakusten dute.</string>
+    <string name="tour_swiper_openin_body">Botoi honek argazkia beste aplikazioan irekitzen du, oso baliagarria erabaki baino lehen begiratzeko.</string>
+    <string name="tour_swiper_preview_body">Botoi honek pantaila osoan aurreikuspena irekitzen du, hurbilagotik begiratzeko.</string>
+    <string name="tour_swiper_actions_body">Irristatzea ez zaizu atsegin? Botoiak ere baditugu! Jauzi fitxategia erabakigabea uzten du, eta Jauzi luzean sakatuta fitxategia etorkizuneko bilaketa guztietatik kanporatzen du. Desegin zure azken aukera itzultzen du.</string>
+    <string name="tour_swiper_review_body">Zure mantendu eta ezabatu aukerak zintzo batean daude. Ireki Berrikuspen-a horien gainean joateko eta ezabaketak aplikatzeko prest zaudenean.</string>
 </resources>

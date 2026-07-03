@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Вторично хранилище, обикновено сменяема SD карта. Съдържа медийни файлове и данни от приложения, които го подкрепят.</string>
     <string name="analyzer_storage_type_tertiary_title">Преносимо хранилище</string>
     <string name="analyzer_storage_type_tertiary_description">Преносимо хранилище, напр. флаш устройство, включено в USB порта.</string>
+    <string name="analyzer_storage_identifier_internal">Вътрешно хранилище</string>
     <string name="analyzer_storage_content_title">Съдържание на хранилището</string>
     <string name="analyzer_storage_content_type_app_label">Приложения</string>
     <string name="analyzer_storage_content_type_app_description">Място, заето от инсталирани приложения и техните данни (т.е. файлове на приложения, данни и кешове).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Системни приложения и системни данни. Приложения и данни от други потребители, ако са настроени няколко потребителски акаунта на това устройство.</string>
     <string name="analyzer_storage_content_type_system_other_label">Друго</string>
     <string name="analyzer_storage_content_type_system_info">Файлове, които не попадат в категориите Приложения или Потребителски файлове. Само преглеждане — изтриването не се поддържа. Някои области може да са непълни поради ограничения достъп.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Файловете не могат да бъдат съпоставени с приложенията, които ги притежават в момента. Размерите се показват само за справка — изтриването, филтрите и Swiper са деактивирани.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Системни файлове и други данни, до които SD Maid не може да получи достъп или да категоризира. Операционната система ограничава изброяването на съдържанието на някои области.</string>
     <string name="analyzer_storage_content_app_code_label">Код на приложение</string>
     <string name="analyzer_storage_content_app_code_description">Файлове на приложения, библиотеки и ресурси. Това място може да бъде освободено чрез деинсталиране на приложението или архивирането му (налично в по-нови версии на Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Това приложение заема %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Това приложение е архивирано.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дни</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Вижте какво действително запълва вашето хранилище. Analyzer показва къде отива вашето място. Всяка от тези карти е чип за съхранение на вашето устройство.</string>
+    <string name="tour_analyzer_storage_body">Отворете хранилище, за да го разградите на приложения, медия и файлове, след което продължавайте да докосвате, за да намерите най-големите виновници.</string>
 </resources>

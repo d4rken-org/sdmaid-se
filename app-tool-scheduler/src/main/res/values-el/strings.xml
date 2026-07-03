@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Ο προγραμματισμός ολοκληρώθηκε</string>
     <string name="scheduler_notification_result_success_message">Όλες οι προγραμματισμένες εργασίες εκτελέστηκαν με επιτυχία.</string>
     <string name="scheduler_notification_result_failure_message">Ορισμένες προγραμματισμένες εργασίες απέτυχαν ή αντιμετώπισαν σφάλματα. Δοκιμάστε να τις εκτελέσετε χειροκίνητα.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Παραλείφθηκε, η οθόνη ήταν κλειστή ή κλειδωμένη</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Ο καθαρισμός εφαρμογής μπορεί να παραλειφθεί</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Ο καθαρισμός εφαρμογής χρησιμοποιεί την υπηρεσία προσβασιμότητας, η οποία απαιτεί την ξεκλείδωση της οθόνης. Οι προγραμματισμένες εκτελέσεις ενώ η συσκευή είναι κλειδωμένη παραλείπονται.
+
+Χρησιμοποιήστε το Shizuku ή root για καθαρισμό στο παρασκήνιο, ή προγραμματίστε το για όταν χρησιμοποιείτε τη συσκευή.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Οι εφαρμογές συστήματος μπορεί να παραλειφθούν</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Το Shizuku καθαρίζει τις περισσότερες προσωρινές μνήμες στο παρασκήνιο, αλλά οι εφαρμογές συστήματος χρειάζονται την υπηρεσία προσβασιμότητας, η οποία απαιτεί την ξεκλείδωση της οθόνης. Με το «Συμπερίληψη εφαρμογών συστήματος» ενεργοποιημένο, αυτές παραλείπονται όταν η συσκευή είναι κλειδωμένη.
+
+Απενεργοποιήστε το «Συμπερίληψη εφαρμογών συστήματος», ή εκτελέστε το πρόγραμμα ενώ είναι ξεκλείδωτη.</string>
     <string name="scheduler_commands_after_schedule_label">Εντολές μετά από το χρονοδιάγραμμα</string>
     <string name="scheduler_commands_after_schedule_desc">Εντολές κελύφους Android που θα εκτελεστούν στο τέλος ενός χρονοδιαγράμματος.</string>
     <string name="scheduler_battery_optimization_hint">Εάν αντιμετωπίζετε προβλήματα με την εκτέλεση στο παρασκήνιο, εξετάστε το ενδεχόμενο να απενεργοποιήσετε τις βελτιστοποιήσεις μπαταρίας για το SD Maid.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">Το SD Maid μπορεί να καθαρίσει βάσει προγράμματος. Επιλέξτε μια ώρα και ποια εργαλεία θα εκτελεστούν, και κάνει τη δουλειά στο παρασκήνιο, (σχεδόν) χωρίς να χρειαστεί να ανοίξετε την εφαρμογή.</string>
+    <string name="tour_scheduler_create_body">Αγγίξτε εδώ για να δημιουργήσετε ένα νέο πρόγραμμα, στη συνέχεια ορίστε πότε θα εκτελείται και ποια εργαλεία θα συμπεριληφθούν.</string>
 </resources>

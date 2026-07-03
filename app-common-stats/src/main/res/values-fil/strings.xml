@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Pangunahing imbakan</string>
     <string name="stats_storage_type_secondary">Pangalawang imbakan</string>
     <string name="stats_storage_type_portable">Portable na imbakan</string>
+    <string name="stats_space_history_delete_storage_title">Burahin ang kasaysayan ng storage?</string>
+    <string name="stats_space_history_delete_storage_desc">Lahat ng trend data para sa storage na ito ay permanenteng mabubura.</string>
 </resources>

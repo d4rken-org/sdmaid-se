@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">למחוק תוצאות בכל הכלים?</string>
+    <string name="dashboard_hero_freeable_headline">ניתן לפנות %1$s</string>
+    <string name="dashboard_hero_freed_headline">%1$s שוחרר</string>
+    <string name="dashboard_hero_freeable_x_items">ניתן להסיר %1$s</string>
+    <string name="dashboard_hero_freed_x_items">הוסר %1$s</string>
+    <string name="dashboard_hero_freeable_hint">הקש על הכפתור כדי לפנות מקום. הקש על שבב כדי לבדוק תחילה.</string>
+    <string name="dashboard_hero_freed_hint">הקש על שבב לפרטים.</string>
+    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
+    <string name="dashboard_hero_scanned_timestamp_description">נסרק %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">שוחרר %1$s</string>
     <string name="dashboard_settings_category">לוח בקרה</string>
     <string name="dashboard_motd_title">הודעה מהמפתח</string>
     <string name="dashboard_settings_oneclick_title">מצב לחיצה-אחת</string>
@@ -14,7 +23,26 @@
     <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>
     <string name="debug_debuglog_record_action">שמירת קובץ לוג</string>
     <string name="debug_debuglog_stop_action">הפסקת הקלטה</string>
+    <string name="debug_debuglog_sensitive_information_label">מידע רגיש</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים.</string>
+    <string name="debug_debuglog_screen_subtitle">ייצוא מידע ניפוי לפתרון בעיות</string>
+    <string name="debug_logview_screen_title">מציג יומן</string>
+    <string name="debug_logview_pause_action">השהייה (הקפאת חוצץ)</string>
+    <string name="debug_logview_resume_action">המשך</string>
+    <string name="debug_logview_copy_action">העתק יומן</string>
+    <string name="debug_logview_collapse_action">צמצם</string>
+    <string name="debug_logview_close_action">סגור את לוח היומן</string>
+    <string name="debug_logview_resize_action">שנה גודל</string>
+    <string name="debug_logview_more_action">אפשרויות נוספות</string>
+    <string name="debug_logview_level_action">רמת יומן</string>
+    <string name="debug_logview_clear_action">נקה את המאגר</string>
+    <string name="debug_logview_search_prev_action">התאמה קודמת</string>
+    <string name="debug_logview_search_next_action">התאמה הבאה</string>
+    <string name="debug_logview_jump_to_bottom_action">קפוץ לאחרון</string>
+    <string name="debug_logview_paused_msg">מושהה — המאגר קפוא</string>
+    <string name="debug_logview_paused_dropped_msg">מושהה — %1$d שורות חדשות דולגו</string>
+    <string name="debug_logview_copied_msg">היומן הועתק ללוח</string>
+    <string name="debug_logview_share_label">שתף יומן</string>
     <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
     <string name="debug_debuglog_screen_session_path_label">נתיב הפעלה</string>
     <string name="debug_debuglog_screen_log_files_label">קבצי יומן</string>
@@ -55,7 +83,9 @@
         <item quantity="many">%d משימות בתור</item>
         <item quantity="other">%d משימות בתור</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
     <string name="tasks_result_subtext">תוצאת המשימה</string>
+    <string name="tasks_result_failed_msg">המשימה לא הסתיימה בהצלחה.</string>
     <string name="tasks_timeout_error_label">המשימה פגה</string>
     <string name="tasks_timeout_error_desc">המשימה ארכה זמן רב מדי והופסקה. אנא נסה שוב.</string>
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
@@ -74,13 +104,18 @@
     <string name="onboarding_setup_title">התקנה</string>
     <string name="onboarding_setup_body1">SD Maid תחפש בכל אזורי הנתונים הנגישים.</string>
     <string name="onboarding_setup_body2">מה נגיש תלוי במכשיר שלך, בגרסת האנדרואיד וההרשאות המוענקות.</string>
-    <string name="onboarding_setup_body3">התחל להשתמש ב-SD Maid על ידי הגדרת גישה לאזורים שיש לחפש.</string>
+    <string name="onboarding_setup_body4">הגדרות ברירת המחדל של SD Maid בטוחות וקפדניות, ומציעות איזון טוב לרוב המשתמשים.</string>
+    <string name="onboarding_setup_body5">לתוצאות מקיפות יותר, בקר בהגדרות של כל כלי והתאם אותן לפי העדפותיך.</string>
+    <string name="onboarding_setup_body3">התחל להשתמש ב-SD Maid על ידי הגדרת גישה.</string>
     <string name="onboarding_setup_continue_action">הגדר גישה</string>
+    <string name="onboarding_setup_tours_enabled_label">הצג סיורים מודריכים</string>
+    <string name="onboarding_setup_tours_enabled_explanation">סיור מודרך קצר של כל תכונה בעת פתיחתה.</string>
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_category_other_label">אחר</string>
     <string name="settings_sponsor_development_title">פיתוח חסות</string>
     <string name="settings_sponsor_development_summary">הפוך לפטרון ואפשר את המשך הפיתוח.</string>
+    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">כללי</string>
     <string name="general_settings_desc">שינויים כללים המשפיעים על כל האפליקציה.</string>
     <string name="settings_category_ui_label">ממשק משתמש</string>
@@ -93,6 +128,12 @@
     <string name="ui_theme_style_setting_explanation">סגנון הצבע המשמש בעת עיצוב האפליקציה.</string>
     <string name="ui_theme_style_default_label">ברירת מחדל</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">ניגודיות בינונית</string>
+    <string name="ui_theme_style_highcontrast_label">ניגודיות גבוהה</string>
+    <string name="ui_theme_color_setting_label">צבע ערכת הנושא</string>
+    <string name="ui_theme_color_setting_explanation">לוח הצבעים המשמש לעיצוב האפליקציה.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">צבעים מסופקים על ידי Material You מטפת שלך.</string>
+    <string name="ui_theme_color_value_system">צבעי המערכת</string>
     <string name="ui_previews_title">תצוגה מקדימה לקובץ</string>
     <string name="ui_previews_summary">הצג תצוגות מקדימות של קבצים בכל הכלים (למשל תמונות ממוזערות של תמונה ווידאו).</string>
     <string name="ui_language_override_label">שפת האפליקציה</string>
@@ -179,9 +220,9 @@
     <string name="setup_root_card_title">הרשאות רוט</string>
     <string name="setup_root_card_body">האם SD Maid צריך להשתמש בגישת רוט אם היא זמינה? ניתן להשתמש בגישת רוט לבדיקת תיקיות מערכת נוספות ונתוני יישומים פרטיים.</string>
     <string name="setup_root_state_ready_label">גישת רוט מוכנה.</string>
-    <string name="setup_root_state_waiting_label">ממתין לגישה רוט.</string>
-    <string name="setup_root_enable_root_use_label">השתמש בהרשאות רוט אם אפשרי</string>
-    <string name="setup_root_disable_root_use_label">אל תשתמש בהרשאות רוט</string>
+    <string name="setup_root_state_waiting_label">גישת Root אינה זמינה.</string>
+    <string name="setup_root_enable_root_use_label">נסה להשתמש בגישת Root</string>
+    <string name="setup_root_disable_root_use_label">לא ביצעתי root להתקן שלי</string>
     <string name="setup_root_card_body2">זמין רק במכשירים עם רוט. אם לא ביצעת את השינוי הזה, המכשיר שלך אינו רוט ולהגדרה הזו אין השפעה.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">אפשר ל-SD Maid להשתמש ב- Shizuku במידת האפשר כדי לשפר תוצאות ולאפשר תכונות.</string>
@@ -190,11 +231,12 @@
 SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_shizuku_state_ready_label">קישור Shizuku מוכן.</string>
     <string name="setup_shizuku_state_waiting_label">מחכה לקישור עם Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">השתמש ב- Shizuku אם זמין</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">נסה להשתמש ב-Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">אל תשתמש בShizuku</string>
     <string name="setup_dismiss_hint">תוכל למצוא שוב את מסך ההגדרה דרך תפריט ההגדרות.</string>
     <string name="setup_permission_granted_label">ההרשאה ניתנה</string>
     <string name="setup_permission_error_label">שגיאת הרשאה</string>
+    <string name="setup_inventory_invalid_label">רשימת יישומים לא תקינה</string>
     <string name="setup_usagestats_title">סטטיסטיקות שימוש</string>
     <string name="setup_usagestats_body">הרשאת סטטיסטיקת השימוש מעניקה גישה לפרטי אפליקציה נוספים. SD Maid משתמש בו כדי לקבוע גדלי מטמון נוספים.</string>
     <string name="setup_usagestats_hint">נדרש עבור מחיקת מטמון מבוססת שירות נגישות.</string>
@@ -217,9 +259,14 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_acs_disallow_hint">אם תשנה את דעתך, תוכל לשנות אפשרות זו שוב על ידי כניסה להגדרות והפעלה מחדש של ההגדרה.</string>
     <string name="setup_acs_appops_restriction_title">הגדרות מוגבלות</string>
     <string name="setup_acs_appops_restriction_body">לא יכול להפעיל את שירות הנגישות של SD Maids? Android 13+ עשוי להחיל הגבלות על אפליקציות שאינן מותקנות דרך Google Play. הסר את ההגבלות הללו מדף הפרטים של המערכת עבור SD Maid. האפשרות נמצאת בתפריט ההקשר בפינה השמאלית העליונה.</string>
+    <string name="setup_acs_advanced_protection_title">חסום על ידי Advanced Protection</string>
+    <string name="setup_acs_advanced_protection_body">Advanced Protection של Android חוסם את שירות ההנגשה של SD Maid ב-Android 17 ואילך, לכן לא ניתן להפעיל אותו כאשר Advanced Protection פעיל. הקש על עזרה לפרטים נוספים ולאלטרנטיבות.</string>
     <string name="setup_inventory_card_title">מלאי אפליקציות</string>
     <string name="setup_inventory_card_body">SD Maid צריך לדעת אילו אפליקציות יש לך כדי למצוא קבצים שאינם שייכים לאף אפליקציה מותקנת.</string>
     <string name="setup_inventory_card_extra">חפש הרשאה בשם \"רשימת אפליקציות\" או \"שאילתה בכל החבילות\".</string>
+    <string name="setup_inventory_limitation_title">מגבלה אפשרית בהתקן</string>
+    <string name="setup_inventory_limitation_body">המערכת החזירה רשימה חלקית של יישומים מותקנים, למרות שנראה כי ניתנו ההרשאות הדרושות.</string>
+    <string name="setup_inventory_limitation_body2">חלק מההתקנים (לדוגמה HarmonyOS) אף פעם לא מספקים רשימה שלמה של יישומים. כדי להגן על הנתונים שלך, כלים הקשורים ליישומים נשארים מושבתים, אך עדיין תוכל/י לצפות בשימוש באחסון עם פחות פרטים.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid לא מצאה אזורי נתונים שניתן לסרוק. השלמת את ההגדרה?</string>
     <string name="dataarea_warningcard_label">איזורי מידע</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>
@@ -227,6 +274,13 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
+    <string name="debug_card_description">אבחון מפתחים והחלפות זמן ריצה. כרטיס זה מופיע רק כאשר מצב ניפוי השגיאות מופעל.</string>
+    <string name="debug_card_section_diagnostics">אבחון</string>
+    <string name="debug_card_section_reload">טען מחדש</string>
+    <string name="debug_card_trace_mode_title">רישום עקיבה</string>
+    <string name="debug_card_trace_mode_desc">יומנים מפורטים שלב אחר שלב. מאט את האפליקציה באופן ניכר.</string>
+    <string name="debug_card_dryrun_mode_title">מצב סימולציה</string>
+    <string name="debug_card_dryrun_mode_desc">סימולציה של ניקוי — קבצים נסרקים אך דבר לא נמחק.</string>
     <string name="debug_card_areas_reload_action">טען מחדש אזורי נתונים</string>
     <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
     <string name="debug_card_root_test_action">בדוק root</string>
@@ -272,5 +326,52 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
     <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ב-7 ימים</string>
-    <!-- Shorter versions for side-by-side display -->
+    <string name="tour_dashboard_overview_body">זה לוח הבקרה שלך, מסך הבית של SD Maid. כל כלי ופעולה נמצאים על כרטיס כאן.</string>
+    <string name="tour_dashboard_setup_body">כרטיס ההגדרה מופיע כאשר יש משהו להגדיר. פתח אותו ופתור את הבעיות כדי ש-SD Maid יוכל לעשות יותר. אפשר גם להגיע להגדרה מתוך הגדרות, אם תסגור אותו.</string>
+    <string name="tour_dashboard_tools_body">פתח כרטיס של כלי לקבלת פרטים. פעולות סריקה ומחיקה נמצאות בכל כרטיס, פרטים מופיעים ברגע שסריקה מוצאת משהו.</string>
+    <string name="tour_dashboard_main_action_body">הכפתור הגדול בתחתית הוא פעולת ההקשה האחת. הקשה אחת לסריקה, הקשה אחת לניקוי, בכל הכלים האוטומטיים.</string>
+    <string name="tour_dashboard_manual_tools_body">חלק מהכלים, כמו Swiper, אינם אוטומטיים, הם מציעים תהליך עבודה מודרך שאתה עובר בעצמך.</string>
+    <string name="tour_dashboard_settings_body">ברירות המחדל של SD Maid הן שמרניות ובטוחות. כל מכשיר שונה קצת, אז התאם את ההגדרות כדי להשיג יותר ממנו.</string>
+    <string name="tour_setup_intro_body">כל כרטיס במסך זה הוא הרשאה ש-SD Maid יכול להשתמש בה. כולן אופציונליות, אך יותר הרשאות פירושן יותר תכונות וסריקות יסודיות יותר. ללא אף אחת, רוב הכלים ימצאו מעט לניקוי.</string>
+    <string name="general_settings_reset_guided_tours_label">אפס סיורים מודריכים</string>
+    <string name="general_settings_reset_guided_tours_summary">הצג את כל הסיורים המודריכים שוב בפעם הבאה שתבקר במסך שלהם. גם מפעיל מחדש את כל הסיורים אם כיבית אותם בעבר.</string>
+    <string name="widget_home_title">SD Maid</string>
+    <string name="widget_home_description">שימוש באחסון וניקוי בהקשה אחת</string>
+    <string name="widget_home_storage_internal">פנימי</string>
+    <string name="widget_home_storage_external">חיצוני</string>
+    <string name="widget_home_freed_label">שוחרר: %1$s</string>
+    <string name="widget_home_clean_action">נקה</string>
+    <string name="widget_home_working">בעבודה…</string>
+    <string name="widget_home_unavailable">אחסון לא זמין</string>
+    <string name="shortcut_onetap_started">סריקה &amp; מחיקה התחילו…</string>
+    <string name="shortcut_onetap_nothing_enabled">לא הופעלו כלים של הקשה אחת</string>
+    <!-- Config backup & restore -->
+    <string name="backup_restore_title">גיבוי &amp; שחזור</string>
+    <string name="backup_restore_desc">שמור את ההגדרות והתצורה שלך לקובץ, או שחזר אותן</string>
+    <string name="backup_restore_export_title">צור גיבוי</string>
+    <string name="backup_restore_export_desc">שמור הגדרות, חריגויות, לוחות זמנים ומסננים מותאמים אישית לקובץ</string>
+    <string name="backup_restore_import_title">שחזר גיבוי</string>
+    <string name="backup_restore_import_desc">טען תצורה מקובץ גיבוי</string>
+    <string name="backup_restore_export_success">הגיבוי נוצר</string>
+    <string name="backup_restore_export_partial">הגיבוי נוצר, אך החלקים הבאים נכשלו: %1$s</string>
+    <string name="backup_restore_restore_success">הגיבוי שוחזר</string>
+    <string name="backup_restore_restore_failed">השחזור נכשל (%1$s). התצורה הקודמת שלך נשמרה.</string>
+    <string name="backup_restore_undo_action">ביטול</string>
+    <string name="backup_restore_recovery_title">שחזר את התצורה הקודמת</string>
+    <string name="backup_restore_recovery_desc">צילום בטיחות משחזור שלא הושלם זמין</string>
+    <string name="backup_restore_confirm_title">לשחזר את הגיבוי הזה?</string>
+    <string name="backup_restore_confirm_created">נוצר: %1$s</string>
+    <string name="backup_restore_confirm_source">מ-SD Maid %1$s ב-%2$s (Android %3$s)</string>
+    <string name="backup_restore_mode_label">מצב שחזור</string>
+    <string name="backup_restore_mode_merge">מזג</string>
+    <string name="backup_restore_mode_merge_desc">הוסף את הגיבוי על גבי התצורה הנוכחית שלך</string>
+    <string name="backup_restore_mode_replace">החלף</string>
+    <string name="backup_restore_mode_replace_desc">אפס את התצורה הנוכחית שלך, ואז החל את הגיבוי</string>
+    <string name="backup_restore_warn_version_body">גיבוי זה מ-SD Maid %1$s, אך אתה על %2$s. שחזור נתמך רשמית רק בין גרסאות זהות.</string>
+    <string name="backup_restore_warn_android_body">גיבוי זה נוצר ב-Android %1$s, אך במכשיר זה פועל Android %2$s.</string>
+    <string name="backup_restore_warn_device_body">גיבוי זה נוצר במכשיר אחר (%1$s לעומת %2$s).</string>
+    <string name="backup_restore_warn_flavor_body">גיבוי זה מגרסת יישום שונה (%1$s לעומת %2$s).</string>
+    <string name="backup_restore_warn_history_body">נתוני ההיסטוריה של גיבוי זה (סטטיסטיקה, היסטוריית דחיסה, מפגשי החלקה) הם מגרסת יישום שונה ולא ניתן לשחזר אותם. כל שאר הדברים יוחזרו.</string>
+    <string name="backup_restore_ack_understand">אני מבין ורוצה להמשיך</string>
+    <string name="backup_restore_action_restore">שחזר</string>
 </resources>

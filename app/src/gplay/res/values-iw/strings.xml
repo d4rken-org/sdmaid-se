@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">השתמש באפשרות \"שחזור רכישה\" כדי לשחזר את הרכישה שלך. אם הבעיה נמשכת, נסה לנקות את המטמון של Google Play ולהפעיל מחדש את המכשיר שלך.</string>
     <string name="upgrade_screen_title">רכוש SD Maid SE פרו</string>
     <string name="upgrade_screen_preamble">SD Maid ללא מודעות ואינה מוכרת נתוני משתמשים. העבודה שלי ממומנת על ידך ❤️.</string>
-    <string name="upgrade_screen_benefits_title">יתרונות</string>
-    <string name="upgrade_screen_benefits_body">• ניקוי אפליקציות 💯\n• פעולות מתוזמנות ⏰\n• אפשרויות נוספות לכל הכלים ⚙️\n• כללי המחיקה שלך ✍️\n• מפתח בעל מוטיבציה 🧙\nועוד...</string>
+    <string name="upgrade_screen_benefits_title">יתרונות שדרוג</string>
+    <string name="upgrade_screen_benefits_body">• ניקוי מטמוני יישום ונתונים בני הוצאה\n• הסרת קבצים כפולים\n• הפעלת ניקויים מתוזמנים\n• יצירת מסננים מותאמים אישית וכללי ניקוי\n• מעקב אחר מגמות אחסון והיסטוריית ניקוי\n• עוד תכונות ובקרות ברחבי היישום\n• תמיכה בהמשך הפיתוח</string>
     <string name="upgrade_screen_how_title">הגדרות</string>
     <string name="upgrade_screen_how_body">אתה יכול לבחור בין רכישה חד פעמית לבין מנוי שנתי זול יותר.\nהמינוי מתחיל בניסיון חינם של 14 יום, ולאחר מכן תחויב פעם בשנה. גרסת ניסיון ומנוי ניתנים לביטול בכל עת.\nאותן תכונות, רק דגמי תמחור שונים.</string>
+    <string name="upgrade_screen_subscription_offer_title">מנוי שנתי</string>
+    <string name="upgrade_screen_iap_offer_title">קנה פעם אחת</string>
+    <string name="upgrade_screen_offer_recommended">מומלץ</string>
+    <string name="upgrade_screen_offers_unavailable_message">לא ניתן היה לטעון מחירים כעת. בדוק ב-Google Play ונסה שוב בעוד רגע.</string>
     <string name="upgrade_screen_subscription_trial_action">התחילו 14 ימי ניסיון</string>
     <string name="upgrade_screen_subscription_action">הירשם כמנוי</string>
     <string name="upgrade_screen_subscription_action_hint">המנוי עולה %s לשנה.</string>

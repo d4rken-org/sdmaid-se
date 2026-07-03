@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Anladım</string>
     <string name="general_fix_action">Onar</string>
     <string name="general_set_up_action">Kur</string>
+    <string name="general_unavailable_label">Kullanılamaz</string>
     <string name="general_edit_action">Düzenle</string>
     <string name="general_na_label">Yok</string>
     <string name="general_empty_label">Boş</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Sırada</string>
     <string name="general_progress_deleting">Siliniyor</string>
     <string name="general_progress_deleting_x">%s siliniyor</string>
+    <string name="general_sort_by_title">Sıralama ölçütü</string>
     <string name="general_sort_reverse_action">Ters sıralama modu</string>
+    <string name="general_sort_oldest_first">Önce en eski</string>
+    <string name="general_sort_newest_first">Önce en yeni</string>
+    <string name="general_sort_name_asc">Ad (A → Z)</string>
+    <string name="general_sort_size_desc">Önce en büyük</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_navigate_up_action">Yukarı git</string>
+    <string name="general_filter_action">Filtre</string>
+    <string name="general_filter_by_tags_label">Etiketlere göre filtrele</string>
+    <string name="general_filter_add_action">Filtre ekle</string>
+    <string name="general_filter_remove_x_action">%s filtresini kaldır</string>
+    <string name="general_filter_empty_row_hint">Filtrelemek için + tuşuna dokunun</string>
+    <string name="general_show_all_action">Hepsini göster</string>
     <string name="general_result_success_message">İşlem başarılı</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s alan serbest bırakıldı.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Seçenekler</string>
     <string name="general_details_label">Detaylar</string>
     <string name="general_view_action">Bak</string>
+    <string name="general_open_action">Aç</string>
+    <string name="general_configure_action">Yapılandır</string>
     <string name="general_update_action">Güncelle</string>
     <string name="general_scan_action">Tara</string>
     <string name="general_close_action">Kapat</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d öğe kaldırıldı</item>
     </plurals>
     <string name="general_search_action">Ara</string>
+    <string name="general_search_no_matches">Eşleşme yok</string>
     <string name="general_open_system_settings_action">Sistem ayarlarını aç</string>
+    <string name="general_fast_scroller_action">Hızlı kaydırıcı</string>
     <plurals name="result_x_items">
         <item quantity="one">%s öğe</item>
         <item quantity="other">%s öğeler</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Hizmeti etkinleştir</string>
     <string name="general_undo_action">Geri al</string>
     <string name="general_list_select_all_action">Tümünü Seç</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d seçili</item>
+        <item quantity="other">%d seçili</item>
+    </plurals>
     <string name="general_path_label">Yol</string>
     <string name="general_type_label">Tür</string>
     <string name="general_size_label">Boyut</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Hata bildir</string>
     <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
     <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="general_error_upgrade_required_title">Pro sürümü gerekli</string>
+    <string name="general_error_upgrade_required_description">Bu bir Pro özelliğidir. Bunu kullanmak için lütfen SD Maid SE\'yi yükseltin.</string>
     <string name="general_user_label_owner">Sahibi</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Kur</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Risk Seviyesi</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
+    <string name="ui_theme_color_sunset_label">Gün Batımı</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Bu özellik root erişimi gerektiriyor, ancak SD Maid bu cihazda erişim sağlayamadı.</string>
+    <string name="access_blocked_root_declined">Bu özellik root erişimi gerektiriyor. Bunu kurulum ekranından etkinleştirebilirsiniz.</string>
+    <string name="access_blocked_root_or_shizuku">Bu özellik root veya Shizuku erişimi gerektiriyor ve bu cihazda mevcut değil.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Geçersiz yedekleme dosyası</string>
+    <string name="backup_restore_error_invalid_body">Bu dosya geçerli bir SD Maid yedek değildir veya bozuktur.</string>
+    <string name="backup_restore_error_version_body">Bu yedek, SD Maid\'in daha yeni bir sürümüyle oluşturuldu. Lütfen uygulamayı güncelleyin ve tekrar deneyin.</string>
+    <string name="backup_restore_error_restore_failed_title">Geri yükleme başarısız oldu</string>
+    <string name="backup_restore_error_restore_failed_body">Bu bölümler geri yüklenemedi: %1$s. Önceki yapılandırmanız kaydedildi ve geri getirilebilir.</string>
+    <string name="backup_restore_error_safety_title">Geri yükleme başlatılmadı</string>
+    <string name="backup_restore_error_safety_body">SD Maid mevcut yapılandırmanızın güvenlik anlık görüntüsünü kaydedememiştir, bu nedenle hiçbir şey değiştirilmemiştir.</string>
+    <string name="backup_restore_error_busy_title">Lütfen bekleyin</string>
+    <string name="backup_restore_error_busy_body">Bir temizleme görevi veya başka bir yedekleme işlemi çalışmaktadır. Tamamlandığında tekrar deneyin.</string>
+    <string name="backup_restore_error_schema_title">Uyumlu olmayan yedek</string>
+    <string name="backup_restore_error_schema_body">Yedeklemenin veritabanı biçimi bu SD Maid sürümüyle eşleşmiyor. Geçmiş verilerinin geri yüklenmesi yalnızca aynı uygulama sürümleri arasında desteklenir.</string>
 </resources>

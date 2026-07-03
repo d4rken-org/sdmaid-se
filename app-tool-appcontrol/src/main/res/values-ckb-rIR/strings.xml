@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">قەبارە</string>
     <string name="appcontrol_list_sortmode_screentime_label">کاتی شاشە</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ئەپ sizes are estimated for performance reasons. Use the ناحیەکانAnalyzer tool for more accurate data.</string>
+    <string name="appcontrol_list_filteroptions_label">پاڵاوتن options</string>
+    <string name="appcontrol_list_fastscroller_action">گۆڕانەوەی خێرا</string>
     <string name="appcontrol_progress_uninstalling_app">لابردنی دامەزراندنing app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ئەپ لادرایەوە</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">دامەزراوە لە: %s</string>
     <string name="shortcut_appcontrol_short">کۆنترۆڵی ئەپ</string>
     <string name="shortcut_appcontrol_long">بەڕەوانی ئەپە دامەزراوەکان</string>
+    <string name="tour_appcontrol_search_body">بە ناوی ئەپلیکێشنێک بگەڕێ. لە دەستگەکاندا سوودمەندە کە زۆر ئەپلیکێشنی دامەزراویان هەیە.</string>
+    <string name="tour_appcontrol_filter_body">لیستەکە بە ئەپلیکێشنی بەکارهێنەر/سیستەم، دۆخی چالاک، چالاکی نوێی و زیاتر پال بکەوە. پالاوتنە چالاکەکان لێرە بە شێوەی تاگ دیار دەبن.</string>
+    <string name="tour_appcontrol_sort_body">ئەپلیکێشنەکان بە ناو، بەرواری دامەزراندن، نوێکاریی دوایین، قەبارە یان کاتی پەردە رێزدا بکە. داکێشە لەسەر هەمان هەڵبژاردە بۆ گۆڕینی ئاراستە.</string>
+    <string name="tour_appcontrol_app_row_body">داکێشە لەسەر ئەپلیکێشنێک بۆ کردنەوەی وردەکاری و کردارە بەردەستەکانی. داکێشەی درێژ بۆ دەستپێکردنی هەڵبژاردنێک و بەکارهێنانی کردارە کۆمەلەکان.</string>
 </resources>

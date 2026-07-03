@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">البرمجيات الحرة (FOSS)</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">ترقية SD Maid SE</string>
     <string name="upgrades_dashcard_body">افتح ميزات إضافية وكن راعياً لدعم التطوير المستمر!</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>
-    <string name="upgrade_screen_title">تحسين SD Maid</string>
+    <string name="upgrade_screen_title">دعم SD Maid</string>
     <string name="upgrade_screen_preamble">لا تحتوي SD Maid على إعلانات ولا يبيع بيانات المستخدم. التطوير المستمر ممكن فقط بواسطتك.</string>
     <string name="upgrade_screen_how_title">كيف أساعدك</string>
     <string name="upgrade_screen_how_body">كن داعما وراعيا للتطوير! انقر على الزر أدناه لتفعيل جميع الميزات الإضافية وفتح ملفي الخاص برعاة GitHub.</string>
-    <string name="upgrade_screen_why_title">هذا يستحضر 🪄</string>
-    <string name="upgrade_screen_why_body">•خيار تنظيف التطبيقات 💯\n • عمليات مجدولة ⏰\n• خيارات إضافية لجميع الأدوات ⚙️\n• قواعد الحذف الخاصة بك ✍️\n• مطور متحمس 🧙\n والمزيد…</string>
+    <string name="upgrade_screen_why_title">فوائد الترقية</string>
+    <string name="upgrade_screen_why_body">• تنظيف ذاكرات التطبيقات المؤقتة والبيانات غير الضرورية\n• إزالة الملفات المكررة\n• تفعيل التنظيف المجدول\n• إنشاء عوامل تصفية مخصصة وقواعد التنظيف\n• تتبع اتجاهات التخزين وسجل التنظيف\n• مزيد من الميزات والتحكم في جميع أنحاء التطبيق\n• دعم العمل مفتوح المصدر</string>
     <string name="upgrade_screen_sponsor_action">ادعم التطوير</string>
     <string name="upgrade_screen_sponsor_action_hint">البديل هو الإعلانات والتحليلات و Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">شكراً على دعمك لتطوير المصادر المفتوحة ❤️</string>

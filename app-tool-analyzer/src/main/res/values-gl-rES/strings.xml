@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Un almacenamento secundario, normalmente unha tarxeta SD extraíble. Contén ficheiros multimedia e datos de aplicacións que o admiten.</string>
     <string name="analyzer_storage_type_tertiary_title">Almacenamento portátil</string>
     <string name="analyzer_storage_type_tertiary_description">Un almacenamento portátil, por exemplo, unha unidade flash conectada ao seu porto USB.</string>
+    <string name="analyzer_storage_identifier_internal">Almacenamento interno</string>
     <string name="analyzer_storage_content_title">Contido do almacenamento</string>
     <string name="analyzer_storage_content_type_app_label">Aplicacións</string>
     <string name="analyzer_storage_content_type_app_description">Espazo ocupado polas aplicacións instaladas e os seus datos (é dicir, ficheiros de aplicación, datos e cachés).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplicacións e datos do sistema. Aplicacións e datos doutros usuarios, se hai varias contas de usuario configuradas neste dispositivo.</string>
     <string name="analyzer_storage_content_type_system_other_label">Outros</string>
     <string name="analyzer_storage_content_type_system_info">Ficheiros que non se axustan ás categorías de Aplicacións ou Ficheiros de usuario. Só navegación — non se admite a eliminación. Algunhas áreas poden estar incompletas debido a restricións de acceso.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Os ficheiros non se poden vincular ás aplicacións que os posen agora. Os tamaños móstranse só como referencia — a eliminación, os filtros e Swiper están desactivados.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Ficheiros do sistema e outros datos aos que SD Maid non puido acceder ou clasificar. O sistema operativo restrinxe a lista dos contidos dalgunhas áreas.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicación</string>
     <string name="analyzer_storage_content_app_code_description">Ficheiros de aplicación, bibliotecas e recursos. Este espazo pódese liberar desinstalando a aplicación ou arquivándoa (dispoñible en versións máis recentes de Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Esta aplicación ocupa %1$s en \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Esta aplicación foi arquivada.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s en 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Mira que é o que realmente está enchendo o teu almacenamento. Analyzer amosa onde vai o teu espazo. Cada unha destas tarxetas é un chip de almacenamento no teu dispositivo.</string>
+    <string name="tour_analyzer_storage_body">Abre un almacenamento para desglosalo en aplicacións, multimedia e ficheiros, logo segue tocando para atopar os maiores culpables.</string>
 </resources>

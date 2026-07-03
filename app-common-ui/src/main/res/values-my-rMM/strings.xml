@@ -7,4 +7,16 @@
         <item quantity="other">%d ပောထ် ရွေးချယ်ပြီးသည်</item>
     </plurals>
     <string name="picker_home_action">တဪဖိုင်နေရာများ</string>
+    <string name="tour_action_next">ရှေ့သို့</string>
+    <string name="tour_action_previous">ယခင်သို့</string>
+    <string name="tour_action_done">ပြီးပါပြီ</string>
+    <string name="tour_action_cancel">ကျော်သွားပါ</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">ခရီးစဉ်ကို ကျော်သွားမည်လား?</string>
+    <string name="tour_confirm_message">သင်သည် ဆက်တင်များမှ ခရီးစဉ်များကို အချိန်အခါတွင် ပြန်ဖွင့်နိုင်သည်။</string>
+    <string name="tour_confirm_continue">ထပ်မံ ဆက်လက်ရန်</string>
+    <string name="tour_confirm_dont_show_this_tour">ဤလည်ပတ်မှုကို မျက်နှာစကာ မပြပါနှင့်</string>
+    <string name="tour_confirm_disable_all">လည်ပတ်မှုအားလုံးကို ပိတ်ဆိုင်းရန်</string>
+    <string name="navigation_unknown_destination_title">မကြေးမီ လာမည်</string>
+    <string name="navigation_unknown_destination_message">ဤမျက်နှာပြင်သည် အသစ်သော အသုံးပြုသူ အင့်ဂာရပ်သို့ အလယ်အလတ် ပြောင်းလဲလုပ်ဆောင်နေသေးသည်။</string>
 </resources>

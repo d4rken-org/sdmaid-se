@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Planner is klaar</string>
     <string name="scheduler_notification_result_success_message">Alle geplande taken werden succesvol uitgevoerd.</string>
     <string name="scheduler_notification_result_failure_message">Sommige geplande taken zijn mislukt of er zijn fouten opgetreden. Probeer ze handmatig uit te voeren.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Overgeslagen, scherm was uit of vergrendeld</string>
+    <string name="scheduler_acs_screenlocked_hint_title">App-reiniging kan worden overgeslagen</string>
+    <string name="scheduler_acs_screenlocked_hint_body">App-reiniging gebruikt de toegankelijkheidsservice, waarvoor het scherm moet zijn ontgrendeld. Geplande taken terwijl het apparaat is vergrendeld, worden overgeslagen.\n\nGebruik Shizuku of root voor achtergrondreiniging, of plan het in voor wanneer je het apparaat gebruikt.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systeemapps kunnen worden overgeslagen</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku reinigt de meeste caches op de achtergrond, maar systeemapps hebben de toegankelijkheidsservice nodig, waarvoor het scherm moet zijn ontgrendeld. Als \'Systeemapps opnemen\' is ingeschakeld, worden deze overgeslagen wanneer het apparaat is vergrendeld.\n\nZet \'Systeemapps opnemen\' uit, of voer het schema uit terwijl het apparaat is ontgrendeld.</string>
     <string name="scheduler_commands_after_schedule_label">Opdrachten na het plannen</string>
     <string name="scheduler_commands_after_schedule_desc">Android-shellopdrachten die aan het einde van een planning worden uitgevoerd.</string>
     <string name="scheduler_battery_optimization_hint">Overweeg om batterij-optimalisaties voor SD Maid uit te schakelen als je problemen ondervindt met uitvoering op de achtergrond.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid kan volgens een schema schoonmaken. Kies een moment en welke hulpmiddelen moeten worden uitgevoerd, en het werk gebeurt op de achtergrond — je hoeft de app (bijna) niet te openen.</string>
+    <string name="tour_scheduler_create_body">Tik hier om een nieuw schema te maken, stel vervolgens in wanneer het wordt uitgevoerd en welke hulpmiddelen moeten worden opgenomen.</string>
 </resources>

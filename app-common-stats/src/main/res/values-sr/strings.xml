@@ -41,4 +41,6 @@
     <string name="stats_storage_type_primary">Примарно складиште</string>
     <string name="stats_storage_type_secondary">Секундарно складиште</string>
     <string name="stats_storage_type_portable">Преносиво складиште</string>
+    <string name="stats_space_history_delete_storage_title">Обрисати историју складиштења?</string>
+    <string name="stats_space_history_delete_storage_desc">Сви подаци о трендовима за ово складиште биће трајно обрисани.</string>
 </resources>

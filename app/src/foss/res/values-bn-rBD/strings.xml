@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE আপগ্রেড করুন</string>
     <string name="upgrades_dashcard_body">অতিরিক্ত ফিচার আনলক করুন এবং ক্রমাগত বিকাশকে সমর্থন করার জন্য একজন পৃষ্ঠপোষক হন!</string>
     <string name="upgrades_dashcard_upgrade_action">আপগ্রেড করুন</string>
-    <string name="upgrade_screen_title">উন্নতি করুন SD Maid</string>
+    <string name="upgrade_screen_title">SD Maid সমর্থন করুন</string>
     <string name="upgrade_screen_preamble">SD Maid কোনো বিজ্ঞাপন নেই এবং ব্যবহারকারীর ডেটা বিক্রি করে না। ক্রমাগত উন্নয়ন শুধুমাত্র আপনার দ্বারা সম্ভব হয়েছে.</string>
     <string name="upgrade_screen_how_title">কিভাবে সাহায্য করতে পারি</string>
     <string name="upgrade_screen_how_body">একটি পৃষ্ঠপোষক এবং স্পনসর উন্নয়ন হয়ে! সমস্ত অতিরিক্ত বৈশিষ্ট্য সক্রিয় করতে নীচের বোতামটি আলতো চাপুন এবং আমার GitHub স্পনসর প্রোফাইল খুলুন।</string>
-    <string name="upgrade_screen_why_title">জাদু 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner মুছে ফেলার কার্যকারিতা 💯\n• নির্ধারিত ক্রিয়াকলাপ ⏰\n• সমস্ত সরঞ্জামের জন্য অতিরিক্ত বিকল্প ⚙️\n• আপনার নিজস্ব মুছে ফেলার নিয়ম ✍️\n• একজন অনুপ্রাণিত বিকাশকারী 🧙\এবং আরও…</string>
+    <string name="upgrade_screen_why_title">আপগ্রেডের সুবিধা</string>
+    <string name="upgrade_screen_why_body">• অ্যাপ ক্যাশ এবং অপ্রয়োজনীয় ডেটা পরিষ্কার করুন
+• ডুপ্লিকেট ফাইল সরান
+• নির্ধারিত পরিষ্কারের অনুমতি দিন
+• কাস্টম ফিল্টার এবং পরিষ্কার নিয়ম তৈরি করুন
+• স্টোরেজ প্রবণতা এবং পরিষ্কার ইতিহাস ট্র্যাক করুন
+• অ্যাপ জুড়ে আরও বৈশিষ্ট্য এবং নিয়ন্ত্রণ
+• ওপেন-সোর্স কাজকে সমর্থন করুন</string>
     <string name="upgrade_screen_sponsor_action">স্পনসর ডেভলপমেন্ট</string>
     <string name="upgrade_screen_sponsor_action_hint">বিকল্প হল বিজ্ঞাপন, বিশ্লেষণ এবং Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ওপেন সোর্স ডেভেলপমেন্ট সমর্থন করার জন্য আপনাকে ধন্যবাদ ❤️</string>

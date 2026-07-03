@@ -98,4 +98,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Giới hạn kết qủa khớp dựa trên thời gian tạo tệp (thời gian sửa đổi lần cuối). Để trống nếu muốn khớp với bất kỳ thời gian tạo tệp nào.</string>
     <string name="systemcleaner_customfilter_import_action">Nhập bộ lọc mới</string>
     <string name="systemcleaner_customfilter_export_action">Xuất bộ lọc đã chọn</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner tìm kiếm rác bằng các bộ lọc không cụ thể cho ứng dụng. Các quy tắc có sẵn tồn tại cho những thứ như thư mục trống, nhật ký còn sót lại và hình thu nhỏ cũ. Truy cập cài đặt nếu bạn muốn tạo riêng của mình.</string>
+    <string name="tour_systemcleaner_filter_body">Mỗi hàng là một bộ lọc và những gì nó tìm thấy. Mở chi tiết của nó để xem chính xác những tệp nào phù hợp trước khi bạn xóa bất cứ thứ gì.</string>
 </resources>

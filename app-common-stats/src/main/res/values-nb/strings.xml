@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Primærlagring</string>
     <string name="stats_storage_type_secondary">Sekundærlagring</string>
     <string name="stats_storage_type_portable">Bærbar lagring</string>
+    <string name="stats_space_history_delete_storage_title">Slett lagringshistorikk?</string>
+    <string name="stats_space_history_delete_storage_desc">Alle trenddata for dette lageret vil bli permanent slettet.</string>
 </resources>

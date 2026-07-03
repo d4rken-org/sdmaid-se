@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">தேதி நிர்ணாயகர் முடிந்தது</string>
     <string name="scheduler_notification_result_success_message">அனைத்து திட்டமிடப்பட்ட பணிகளும் வெற்றிகரமாக இயங்கின.</string>
     <string name="scheduler_notification_result_failure_message">சில திட்டமிடப்பட்ட பணிகள் தோல்வியடைந்தன அல்லது பிழைகளைச் சந்தித்தன. அவற்றை கையால் இயக்க முயற்சிக்கவும்.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">தவிர்க்கப்பட்டது, திரை முடக்கப்பட்டிருந்தது அல்லது பூட்டப்பட்டிருந்தது</string>
+    <string name="scheduler_acs_screenlocked_hint_title">பயன்பாட்டு சுத்திகரிப்பு தவிர்க்கப்படலாம்</string>
+    <string name="scheduler_acs_screenlocked_hint_body">பயன்பாட்டு சுத்திகரிப்பு அணுகல் சேவையைப் பயன்படுத்துகிறது, இதற்கு திரை திறக்கப்பட வேண்டும். சாதனம் பூட்டப்பட்டுள்ளபோது திட்டமிடப்பட்ட இயக்கங்கள் தவிர்க்கப்படுகின்றன.
+
+பின்னணி சுத்திகரிப்புக்கு Shizuku அல்லது root ஐப் பயன்படுத்தவும், அல்லது நீங்கள் சாதனத்தைப் பயன்படுத்திக் கொண்டிருக்கும்போது அதை திட்டமிடவும்.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">கணினி பயன்பாடுகள் தவிர்க்கப்படலாம்</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku பெரும்பாலான கேஷ்களை பின்னணியில் சுத்தம் செய்கிறது, ஆனால் சிஸ்டம் பயன்பாடுகளுக்கு அணுகல் சேவை தேவைப்படுகிறது, இதற்கு திரை திறந்திருக்க வேண்டும். \"சிஸ்டம் பயன்பாடுகளைச் சேர்க்கவும்\" இயக்கப்பட்டிருக்கும்போது, சாதனம் பூட்டப்பட்டிருக்கும்போது அவை தவிர்க்கப்படுகிறது.
+
+\"சிஸ்டம் பயன்பாடுகளைச் சேர்க்கவும்\" ஐ முடக்கவும், அல்லது சாதனம் திறந்திருக்கும்போது அட்டவணையை இயக்கவும்.</string>
     <string name="scheduler_commands_after_schedule_label">தேதியின் பின் கட்டளைகள்</string>
     <string name="scheduler_commands_after_schedule_desc">தேதியின் அந்திம ஆளாக நிறைவேற்றப்படும் Android கெல் கட்டளைகள்.</string>
     <string name="scheduler_battery_optimization_hint">பின்னணி நிறைவேற்றத்தில் சிக்கல்களைச் சந்தித்தால் SD Maid இன் பாட்டரி மேலேற்றத்தை முடக்குவதைக் கருதில் கொள்ளவும்.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid ஒரு அட்டவணையின்படி சுத்தம் செய்ய முடியும். ஒரு நேரத்தையும் எந்த கருவிகள் இயக்கப்படுவது என்பதையும் தேர்ந்தெடுக்கவும், பின்னர் இது பின்னணியில் வேலையைச் செய்கிறது, (கிட்டத்தட்ட) பயன்பாட்டைத் திறக்க அவசியம் இல்லை.</string>
+    <string name="tour_scheduler_create_body">ஒரு புதிய அட்டவணையை உருவாக்க இங்கே தட்டவும், பின்னர் அது எப்போது இயக்கப்படும் மற்றும் எந்த கருவிகளைச் சேர்க்க வேண்டும் என்பதை அமைக்கவும்.</string>
 </resources>

@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Správca vylúčení</string>
     <string name="exclusion_manager_desc">Spravujte vylúčenia súborov a aplikácií.</string>
-    <string name="exclusion_explanation_body1">Vylúčte súbory a aplikácie z operácií SD Maid.</string>
-    <string name="exclusion_add_new_hint">Pridajte nové vylúčenia tak, že najprv necháte SD Maid vyhľadať a potom použijete kontextové menu na výsledku, ktorý chcete vylúčiť.</string>
+    <string name="exclusion_explanation_body1">Vylúčte súbory a aplikácie, aby ste ich ochránili pred nástrojmi SD Maid, alebo aby ste preskočili irelevantné položky a urýchlili operácie.</string>
+    <string name="exclusion_add_new_hint">Zatiaľ žiadne vylúčenia. Pomocou tlačidla + vytvorte jedno alebo vylúčte položky z výsledkov ľubovoľného nástroja.</string>
     <string name="exclusion_create_action">Vytvorte vylúčenie</string>
     <string name="exclusion_edit_action">Upraviť vylúčenie</string>
     <string name="exclusion_type_package">Vylúčenie aplikácie</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Exportovať vylúčenia</string>
     <string name="exclusion_create_pkg_hint">Na vytvorenie vylúčení aplikácií použite nástroj Kontrola aplikácií.</string>
     <string name="exclusion_create_path_hint">Na vytvorenie vylúčení ciest použite nástroj Analyzátor úložiska.</string>
+    <string name="exclusion_create_segment_hint">Zhoda časti názvu, napríklad „DCIM/Camera“.</string>
     <string name="exclusion_show_defaults_action">Zobraziť predvolené</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d vylúčenie importované</item>
+        <item quantity="few">%d vylúčenia importované</item>
+        <item quantity="many">%d vylúčení importovaných</item>
+        <item quantity="other">%d vylúčení importovaných</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d vylúčenie exportované</item>
+        <item quantity="few">%d vylúčenia exportované</item>
+        <item quantity="many">%d vylúčení exportovaných</item>
+        <item quantity="other">%d vylúčení exportovaných</item>
+    </plurals>
 </resources>

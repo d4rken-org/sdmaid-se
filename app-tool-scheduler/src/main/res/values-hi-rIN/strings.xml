@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">शेड्यूलर समाप्त</string>
     <string name="scheduler_notification_result_success_message">सभी शेड्यूल किए गए कार्य सफलतापूर्वक चले।</string>
     <string name="scheduler_notification_result_failure_message">कुछ शेड्यूल किए गए कार्य असफल हुए या त्रुटियों का सामना करना पड़ा। उन्हें मैन्युअल रूप से चलाने का प्रयास करें।</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">छोड़ दिया गया, स्क्रीन बंद या लॉक थी</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ऐप सफाई को छोड़ा जा सकता है</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ऐप सफाई एक्सेसिबिलिटी सेवा का उपयोग करती है, जिसके लिए स्क्रीन अनलॉक की आवश्यकता है। डिवाइस लॉक होने के दौरान शेड्यूल किए गए रन को छोड़ दिया जाता है।
+
+बैकग्राउंड सफाई के लिए Shizuku या रूट का उपयोग करें, या इसे उस समय के लिए शेड्यूल करें जब आप डिवाइस का उपयोग कर रहे हों।</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">सिस्टम ऐप्स को छोड़ा जा सकता है</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku बैकग्राउंड में अधिकांश कैश को साफ करता है, लेकिन सिस्टम ऐप्स को एक्सेसिबिलिटी सेवा की आवश्यकता है, जिसके लिए स्क्रीन अनलॉक की आवश्यकता है। \"Include system apps\" चालू होने पर, डिवाइस लॉक होने पर उन्हें छोड़ दिया जाता है।
+
+\"Include system apps\" को बंद करें, या शेड्यूल को अनलॉक होने पर चलाएं।</string>
     <string name="scheduler_commands_after_schedule_label">पोस्ट-शेड्यूल कमांड</string>
     <string name="scheduler_commands_after_schedule_desc">Android शेल कमांड जो एक शेड्यूल के अंत में निष्पादित की जाएंगी।</string>
     <string name="scheduler_battery_optimization_hint">यदि आप बैकग्राउंड निष्पादन के साथ समस्याओं का सामना करते हैं तो SD Maid के लिए बैटरी अनुकूलन अक्षम करने पर विचार करें।</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid एक शेड्यूल पर सफाई कर सकता है। एक समय चुनें और कौन से टूल चलाएं, और यह बैकग्राउंड में काम करता है, ऐप खोलने की लगभग कोई आवश्यकता नहीं है।</string>
+    <string name="tour_scheduler_create_body">एक नया शेड्यूल बनाने के लिए यहां टैप करें, फिर सेट करें कि यह कब चलेगा और कौन से टूल शामिल करने हैं।</string>
 </resources>

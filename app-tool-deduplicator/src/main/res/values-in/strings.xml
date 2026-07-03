@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Hapus semua kecuali satu salinan dari setiap set file duplikat yang dipilih?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Hapus semua file dari setiap set duplikat yang dipilih? Tidak ada file yang tersisa!</string>
     <string name="deduplicator_delete_all_toggle_msg">Hapus semua salinan. Tidak ada file lagi yang tersisa!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">Hapus %1$d duplikat dalam set ini, membebaskan %2$s? Salinan yang disimpan tetap ada.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s dapat dibebaskan</string>
+    <string name="deduplicator_action_delete_set">Hapus set duplikat</string>
+    <string name="deduplicator_action_open_preview">Buka pratinjau</string>
+    <string name="deduplicator_marked_for_deletion">Ditandai untuk dihapus</string>
+    <string name="deduplicator_cluster_preview_image">Pratinjau set duplikat</string>
+    <string name="deduplicator_selection_keep_one_required">Setidaknya satu file per set duplikat harus tetap ada. Aktifkan opsi \"Izinkan \'Hapus semua\'\" di pengaturan untuk mengesampingkan ini.</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan file</string>
     <string name="deduplicator_details_cluster_title">Set duplikat</string>
     <string name="deduplicator_matches_exact_label">Salinan yang persis</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Utamakan file yang lebih kecil</string>
     <string name="deduplicator_view_mode_groups_label">Grup</string>
     <string name="deduplicator_view_mode_directories_label">Folder</string>
+    <string name="tour_deduplicator_details_cluster_body">File-file ini semuanya tampak menjadi item yang sama atau konten media, sebuah kluster duplikat.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">File dengan ikon ini akan dihapus; file yang tersisa di grup adalah file yang SD Maid simpan. Anda dapat mengubah cara file yang disimpan dipilih dalam pengaturan strategi penghapusan.</string>
 </resources>

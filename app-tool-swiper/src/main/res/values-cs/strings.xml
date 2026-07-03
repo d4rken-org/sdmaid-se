@@ -46,6 +46,21 @@
         <item quantity="many">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
         <item quantity="other">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Tato relace se zaměřuje na celý svazek úložiště — odstranění zde zahrnuje každou složku na tomto úložišti.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…a %d další složka</item>
+        <item quantity="few">…a %d další složky</item>
+        <item quantity="many">…a %d dalších složek</item>
+        <item quantity="other">…a %d dalších složek</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Rozumím, že tyto soubory budou trvale odstraněny.</string>
+    <string name="swiper_sensitive_root_warning_title">Skenovat celé úložiště?</string>
+    <string name="swiper_sensitive_root_warning_message">Skenování %1$s zahrnuje každý soubor na tomto úložišti — fotografie, dokumenty, soubory ke stažení, mediální data aplikace a další. Pokračovat?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Přesto pokračovat</string>
+    <string name="swiper_session_risky_label">Skenování celého úložiště</string>
+    <string name="swiper_session_risky_info_message">Tato relace se zaměřuje na kořen svazku úložiště, takže každý soubor na tomto úložišti je v rozsahu — fotografie, dokumenty, soubory ke stažení, mediální data aplikace a další.
+
+Skenování celého úložiště může vrátit mnoho položek, včetně souborů, které jste možná neměli v úmyslu zkontrolovat. Použijte filtr typu souboru, abyste skenování zúžili.</string>
     <string name="swiper_delete_x_action">Smazat %1$d</string>
     <string name="swiper_settings_swap_directions_title">Prohodit směr přejetí</string>
     <string name="swiper_settings_swap_directions_summary">Přejetím doleva zachovat, doprava pro odstranění.</string>
@@ -95,6 +110,12 @@
     <string name="swiper_session_rename_hint">Zadejte název pro tuto relaci</string>
     <string name="swiper_sessions_current_sessions">Aktuální relace</string>
     <string name="swiper_session_paths_label">Cesty</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…a %d další</item>
+        <item quantity="few">…a %d další</item>
+        <item quantity="many">…a %d dalších</item>
+        <item quantity="other">…a %d dalších</item>
+    </plurals>
     <string name="swiper_session_status_label">Stav</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d k ponechání</item>
@@ -174,4 +195,10 @@
     <string name="swiper_file_type_filter_summary">Filtrováno: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenalezeny žádné odpovídající soubory</string>
     <string name="swiper_open_externally_action">Otevřít v externí aplikaci</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Přejeďte fotkou a rozhodněte o jejím osudu: Stranou ji ponecháte nebo smažete, nahoru ji přeskočíte, dolů ji vrátíte. Tlačítka níže dělají totéž — a ukazují, která strana je která.</string>
+    <string name="tour_swiper_openin_body">Toto tlačítko otevře fotografii v jiné aplikaci, užitečné pro kontrolu před rozhodnutím.</string>
+    <string name="tour_swiper_preview_body">Toto tlačítko otevře náhled na celou obrazovku pro podrobnější pohled.</string>
+    <string name="tour_swiper_actions_body">Nelíbí se vám přejíždění? Máme i tlačítka! Přeskočit ponechá soubor nerozhodnutý na později a dlouhé stisknutí Přeskočit vylučuje soubor z budoucích skenů. Vrátit zpět vrátí vaši poslední volbu.</string>
+    <string name="tour_swiper_review_body">Vaše volby ponechat a smazat jsou pouze připraveny. Otevřete Přehled, abyste je prošli a aplikovali smazání, až budete připraveni.</string>
 </resources>

@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">მგეგმავი დასრულდა</string>
     <string name="scheduler_notification_result_success_message">ყველა დაგეგმილი ამოცანა წარმატებით შესრულდა.</string>
     <string name="scheduler_notification_result_failure_message">ზოგიერთი დაგეგმილი ამოცანა ვერ შესრულდა ან წააწყდა შეცდომებს. სცადეთ მათი მანუალური გაშვება.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">გამოტოვებული, ეკრანი იყო გამორთული ან დაკეტილი</string>
+    <string name="scheduler_acs_screenlocked_hint_title">აპლიკაციის გასუფთავება შეიძლება გამოტოვდეს</string>
+    <string name="scheduler_acs_screenlocked_hint_body">აპლიკაციის გასუფთავება იყენებს ხელმისაწვდომობის სერვისს, რომელიც საჭიროებს ეკრანის ხსნას. დაგეგმილი პროცესი, როდესაც მოწყობილობა დაკეტილია, გამოტოვებულია.
+
+გამოიყენეთ Shizuku ან root ფონური გასუფთავებისთვის, ან დაგეგმეთ ის დროისთვის, როდესაც მოწყობილობას იყენებთ.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">სისტემური აპლიკაციები შეიძლება გამოტოვდეს</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ქეშის უმეტესობას გასუფთავებს ფონურად, მაგრამ სისტემური აპლიკაციები საჭიროებენ ხელმისაწვდომობის სერვისს, რომელიც საჭიროებს ეკრანის ხსნას. „სისტემური აპლიკაციების ჩართვა\" ჩართულის დროს, ისინი გამოტოვებულია, როდესაც მოწყობილობა დაკეტილია.
+
+გამორთე „სისტემური აპლიკაციების ჩართვა\", ან გააშვი განრიგი ხსნილი მოწყობილობის დროს.</string>
     <string name="scheduler_commands_after_schedule_label">პოსტ-განრიგის ბრძანებები</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell ბრძანებები, რომლებიც შესრულდება განრიგის ბოლოს.</string>
     <string name="scheduler_battery_optimization_hint">განიხილეთ SD Maid-ისთვის ბატარეის ოპტიმიზაციის გათიშვა, თუ გაქვთ პრობლემები ფონური შესრულებით.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid შეიძლება გაასუფთავოს განრიგით. აირჩიე დრო და რომელი ხელსაწყოები გაეშვა, და ის ფონურად შეასრულებს მუშაობას — აპლიკაციის გახსნის საჭიროება (თითქმის) არ იქნება.</string>
+    <string name="tour_scheduler_create_body">შეეხეთ აქ ახალი განრიგის შესაქმნელად, შემდეგ დააყენეთ როდის გაეშვება და რომელი ხელსაწყოები უნდა იყოს ჩართული.</string>
 </resources>

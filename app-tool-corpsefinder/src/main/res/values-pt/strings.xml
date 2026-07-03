@@ -55,4 +55,12 @@ Recursos dos jogos.</string>
     <string name="corpsefinder_owner_unknown">Proprietário desconhecido</string>
     <string name="corpsefinder_corpse_hint_keeper">Este item pode conter dados que deseja manter apesar do seu proprietário estar desinstalado, por exemplo, fotos ou backups.</string>
     <string name="corpsefinder_corpse_hint_common">Este item tem um nome muito comum e pode pertencer a apps instalados que o SD Maid não conhece.</string>
+    <string name="corpsefinder_risk_keeper_chip">Desejável</string>
+    <string name="corpsefinder_risk_common_chip">Comum</string>
+    <string name="corpsefinder_markers_dialog_title">Sobre estes marcadores</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Sem marcador</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Resíduo padrão. Geralmente seguro remover — estes ficheiros pertencem a aplicações que já não estão instaladas.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">O CorpseFinder encontra dados deixados por aplicações que já não estão instaladas. Como já não pertencem a nada que está instalado, removê-los é seguro e liberta espaço.</string>
+    <string name="tour_corpsefinder_row_body">Cada item consiste em dados restantes e na aplicação de origem. O marcador mostra o nível de confiança do SD Maid na segurança da remoção — toque no ⓘ no topo para compreender o significado dos marcadores.</string>
 </resources>

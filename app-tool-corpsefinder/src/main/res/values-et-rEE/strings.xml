@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Teadmata omanik</string>
     <string name="corpsefinder_corpse_hint_keeper">See võib sisaldada hoiustamist väärt andmeid, olgugi et selle omanik eemaldatakse, nt pilte või varundusi.</string>
     <string name="corpsefinder_corpse_hint_common">Sellel on levinud nimi ja see võib kuuluda praegu paigaldatud rakendustele, mida SD Maid ei tea.</string>
+    <string name="corpsefinder_risk_keeper_chip">Soovituslik</string>
+    <string name="corpsefinder_risk_common_chip">Tavaline</string>
+    <string name="corpsefinder_markers_dialog_title">Markerite kohta</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Markerit pole</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standardne jääk. Tavaliselt ohutu eemaldada – need failid kuuluvad rakendustele, mida ei ole enam installitud.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder leiab andmeid, mille on jätnud rakendused, mida olete juba desinstalleerinud. See ei kuulu enam ühelegi installeeritud rakendusele, nii et selle eemaldamine on ohutu ja vabastab ruumi.</string>
+    <string name="tour_corpsefinder_row_body">Iga kirje esindab jääkandmeid ja rakendust, millest need pärinevad. Marker näitab, kui kindel SD Maid on, et seda on ohutu eemaldada — puudutage ⓘ ülaosas, et saada teada, mida markerid tähendavad.</string>
 </resources>

@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">مالک نامشخص</string>
     <string name="corpsefinder_corpse_hint_keeper">این مورد ممکن است حاوی داده‌هایی باشد که می‌خواهید نگه دارید حتی با اینکه مالک آن حذف شده است، به عنوان مثال، عکس‌ها یا پشتیبان‌ها.</string>
     <string name="corpsefinder_corpse_hint_common">این مورد دارای نام بسیار رایجی است و ممکن است متعلق به برنامه‌هایی باشد که هنوز نصب هستند و SD Maid آن‌ها را نمی‌شناسد.</string>
+    <string name="corpsefinder_risk_keeper_chip">مطلوب</string>
+    <string name="corpsefinder_risk_common_chip">رایج</string>
+    <string name="corpsefinder_markers_dialog_title">درباره این علامت‌ها</string>
+    <string name="corpsefinder_markers_dialog_normal_label">بدون نشانه</string>
+    <string name="corpsefinder_markers_dialog_normal_description">باقی‌مانده معمولی. معمولاً حذف آن امن است — این فایل‌ها متعلق به برنامه‌هایی هستند که دیگر نصب نیستند.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder داده‌هایی را می‌یابد که برنامه‌هایی که قبلاً حذف کرده‌اید به جا گذاشته‌اند. دیگر متعلق به هیچ برنامه نصب‌شده‌ای نیست، بنابراین حذف آن امن است و فضا را آزاد می‌کند.</string>
+    <string name="tour_corpsefinder_row_body">هر مورد داده‌ای باقی‌مانده و برنامه‌ای است که از آن نشأت گرفته است. نشانه نشان می‌دهد که SD Maid چقدر مطمئن است که حذف آن امن است — ⓘ در بالا را لمس کنید تا معنای نشانه‌ها را بیاموزید.</string>
 </resources>

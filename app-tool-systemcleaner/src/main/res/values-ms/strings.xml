@@ -21,6 +21,7 @@
     <string name="systemcleaner_filter_emptydirectories_label">Direktori kosong</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Direktori yang kosong dan tidak mengandungi fail atau sub-direktori.</string>
     <string name="systemcleaner_filter_screenshots_label">Tangkapan skrin</string>
+    <string name="systemcleaner_filter_screenshots_summary">Tangkapan skrin yang disimpan dalam direktori tangkapan skrin lalai.</string>
     <string name="systemcleaner_filter_trashed_label">Fail dalam tong sampah</string>
     <string name="systemcleaner_filter_trashed_summary">Fail yang telah dibuang ke tong sampah sistem atau aplikasi.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Umur tangkapan skrin</string>
@@ -97,4 +98,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Hadkan padanan berdasarkan umur fail (masa pengubahsuaian terakhir). Biarkan tidak ditetapkan untuk memadankan sebarang umur.</string>
     <string name="systemcleaner_customfilter_import_action">Import penapis tersuai</string>
     <string name="systemcleaner_customfilter_export_action">Eksport penapis tersuai</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner menemui sampah menggunakan penapis umum bukan khusus apl. Peraturan sedia ada untuk perkara seperti folder kosong, log tertinggal, dan lakaran kecil usang. Lawati tetapan jika anda ingin membuat sendiri.</string>
+    <string name="tour_systemcleaner_filter_body">Setiap baris ialah penapis dan apa yang ditemuinya. Buka butirannya untuk melihat dengan jelas fail mana yang sepadan sebelum anda memadam apa-apa.</string>
 </resources>

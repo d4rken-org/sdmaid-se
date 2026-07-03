@@ -8,4 +8,16 @@
         <item quantity="other">%d percorsi selezionati</item>
     </plurals>
     <string name="picker_home_action">Aree di dati</string>
+    <string name="tour_action_next">Avanti</string>
+    <string name="tour_action_previous">Precedente</string>
+    <string name="tour_action_done">Fatto</string>
+    <string name="tour_action_cancel">Salta</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Saltare il tour?</string>
+    <string name="tour_confirm_message">Puoi riabilitare i tour in qualsiasi momento dalle Impostazioni.</string>
+    <string name="tour_confirm_continue">Continua il tour</string>
+    <string name="tour_confirm_dont_show_this_tour">Non mostrare questo tour</string>
+    <string name="tour_confirm_disable_all">Disabilita tutti i tour</string>
+    <string name="navigation_unknown_destination_title">Presto disponibile</string>
+    <string name="navigation_unknown_destination_message">Questa schermata è ancora in fase di migrazione alla nuova interfaccia.</string>
 </resources>

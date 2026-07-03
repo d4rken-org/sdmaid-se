@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Големина</string>
     <string name="appcontrol_list_sortmode_screentime_label">Време на екран</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Големините на апликациите се проценети заради перформанси. Користете ја алатката StorageAnalyzer за попрецизни податоци.</string>
+    <string name="appcontrol_list_filteroptions_label">Опции за филтрирање</string>
+    <string name="appcontrol_list_fastscroller_action">Брз скролер</string>
     <string name="appcontrol_progress_uninstalling_app">Деинсталирање апликација</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d апликација е деинсталирана</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Инсталирана на: %s</string>
     <string name="shortcut_appcontrol_short">Контрола на апликации</string>
     <string name="shortcut_appcontrol_long">Управувај со инсталирани апликации</string>
+    <string name="tour_appcontrol_search_body">Пребарајте апликација по име. Корисно е на уреди со многу инсталирани апликации.</string>
+    <string name="tour_appcontrol_filter_body">Ограничете ја листата по кориснички/системски апликации, статус на активирање, скорешна активност и повеќе. Активните филтри се појавуваат како чипови овде.</string>
+    <string name="tour_appcontrol_sort_body">Подредете апликации по име, датум на инсталирање, последно ажурирање, големина или време на екран. Допрете ја истата опција за да го промените правецот.</string>
+    <string name="tour_appcontrol_app_row_body">Допрете апликација за да ги отворите нејзините детали и достапните акции. Долг допир за да започнете избор и да користите групни акции.</string>
 </resources>

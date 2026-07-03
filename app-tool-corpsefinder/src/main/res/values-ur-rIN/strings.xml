@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">نامعلوم مالک</string>
     <string name="corpsefinder_corpse_hint_keeper">اس آئٹم میں ایسا ڈیٹا ہو سکتا ہے جسے آپ رکھنا چاہیں حالانکہ اس کا مالک انانسٹال ہو گیا ہے، جیسے فوٹوز یا بیک اپس۔</string>
     <string name="corpsefinder_corpse_hint_common">اس آئٹم کا بہت عام نام ہے اور یہ ابھی بھی انسٹال شدہ ایپس سے تعلق رکھ سکتا ہے جن کے بارے میں SD Maid کو علم نہیں۔</string>
+    <string name="corpsefinder_risk_keeper_chip">مطلوبہ</string>
+    <string name="corpsefinder_risk_common_chip">عام</string>
+    <string name="corpsefinder_markers_dialog_title">ان نشانات کے بارے میں</string>
+    <string name="corpsefinder_markers_dialog_normal_label">کوئی نشان نہیں</string>
+    <string name="corpsefinder_markers_dialog_normal_description">معیاری بقایا۔ عام طور پر ہٹانا محفوظ ہے — یہ فائلیں ایسی ایپس سے تعلق رکھتی ہیں جو اب انسٹال نہیں ہیں۔</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ایسی ایپس کے ڈیٹا کو تلاش کرتا ہے جو آپ نے پہلے ہی ان انسٹال کی ہیں۔ یہ اب کسی انسٹال شدہ چیز سے تعلق نہیں رکھتا، اس لیے اسے ہٹانا محفوظ ہے اور جگہ خالی کرتا ہے۔</string>
+    <string name="tour_corpsefinder_row_body">ہر چیز بقایا ڈیٹا اور وہ ایپ ہے جس سے یہ آیا۔ نشان یہ ظاہر کرتا ہے کہ SD Maid کو کتنا اعتماد ہے کہ اسے ہٹانا محفوظ ہے — اوپر ⓘ پر ٹیپ کریں نشانات کا مطلب جاننے کے لیے۔</string>
 </resources>

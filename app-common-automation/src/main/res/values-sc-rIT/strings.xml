@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Usuàrios cun netzessidades ispetziales de atzessibilidade podent abilitare custu servitziu pro permitere a SD Maid de automatizare tareas chi altriementu diant richì²dere una interatzione manualle tèdiosa de usuàriu (es. cantzelladura de cache).\n\nEsempru: Si cumandas a SD Maid de firmmare múltiplas aplicatziones, SD Maid podet impreare custu servitziu pro abèrrere sa ischermada de impostatziones de cada aplicatzione, agatare su butone \'Firmmare a sa fortza\' e intuccae·lu.\n\nSD Maid sempre at a ammustrare de manera prominente cando est impreende custu servitziu e at a dare una manera façile pro s\'usuàriu de annullare cale si siat interatzione immediatamente.\n\nPeruna atzione at a èssere eseguida chene aprovada priore de s\'usuàriu. Custu servitziu podet èssere disabilitadu torra a cale si siat momentu chene efetos negativos.</string>
     <string name="automation_screenoverlay_explanation">SD Maid est interaghende cun su dispositivu tuo. No est possìbile impreare s\'ischermada in su matessi tempus. Aspeta fintzas a chi s\'operatzione siat finida o annulla·la.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid est interatzende con su tou dispositivu. No est possibile usare sa schermata a sa istessa ora. Spetta fintzas a cando sa operatzione at finidu, o piga su butone Home para antzellare.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid est interatzende con su tou dispositivu. No est possibile usare sa schermata a sa istessa ora. Spetta fintzas a cando sa operatzione at finidu.</string>
     <string name="automation_active_title">SD Maid est trabalende</string>
     <string name="automation_error_no_consent_title">Errore de automatizatzione</string>
     <string name="automation_error_no_consent_body">Su servìtziu de accessibilidade no est configuradu. Cumpleta sa configuratzione e dai su consèntidu.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Una tarèa programmada at provadu a usare su servìtziu de accessibilidade, ma non fiat disponi»le. Si non ti bisòngiat custu, disabilita s\'optzione \"Servìtziu de accessibilidade\" in sas impostatziones de su programadore.</string>
     <string name="automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
     <string name="automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
+    <string name="automation_error_interference_title">Schermata de impostatziones blocada</string>
+    <string name="automation_error_interference_body">Una otra aplicatzione (%1$s) est blocande sa schermata de impostatziones de sistema, duncas SD Maid no podet prosiguire. Disativa su bloccu de s\' aplicatzione o sa proteatzione de schermata pro is impostatziones de sistema, dopo torna a proare.</string>
     <string name="automation_loading">Preparende s\'automatizatzione tràmite su servitziu de atzessibilidade</string>
     <string name="automation_progress_find_ok_confirmation">Provende a cunfirmare s\'atzione in antis (faeddos crae: %s)</string>
 </resources>

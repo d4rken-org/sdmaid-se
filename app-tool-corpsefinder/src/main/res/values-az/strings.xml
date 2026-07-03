@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Naməlum sahib</string>
     <string name="corpsefinder_corpse_hint_keeper">Bu element sahıbi silinməsinə baxmayaraq saxlamaq istəyə biləcəyiniz məlumatları əhatə edə bilər, məsələn, şəkillər və ya yedekləmələr.</string>
     <string name="corpsefinder_corpse_hint_common">Bu elementin çox ümumi adı var və SD Maid-in tanımadığı hələ də quraşdırılmış tətbiqlərə aid ola bilər.</string>
+    <string name="corpsefinder_risk_keeper_chip">Arzuolunan</string>
+    <string name="corpsefinder_risk_common_chip">Ümumi</string>
+    <string name="corpsefinder_markers_dialog_title">Bu markerlər haqqında</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Marker yoxdur</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standart qalıq. Ümumiyyətlə silmək təhlükəsizdir — bu fayllar artıq silinmiş tətbiqlərə aiddir.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder artıq sildiyiniz tətbiqlərdən qalan məlumatları tapır. Bu məlumat artıq quraşdırılmış heç bir tətbiqə aid deyil, ona görə onu silmək təhlükəsizdir və yer azad edir.</string>
+    <string name="tour_corpsefinder_row_body">Hər bir element qalıq məlumat və onun gəldiyi tətbiqdir. Marker SD Maid-in bunu silmənin təhlükəsiz olduğuna nə qədər əmin olduğunu göstərir — markerlərin mənasını öyrənmək üçün yuxarıdakı ⓘ-yə toxunun.</string>
 </resources>

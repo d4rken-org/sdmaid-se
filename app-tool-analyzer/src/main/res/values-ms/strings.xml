@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">Storan luaran seperti kad SD</string>
     <string name="analyzer_storage_type_tertiary_title">Lain-lain</string>
     <string name="analyzer_storage_type_tertiary_description">Storan tambahan atau storan rangkaian</string>
+    <string name="analyzer_storage_identifier_internal">Penyimpanan dalaman</string>
     <string name="analyzer_storage_content_title">Kandungan storan</string>
     <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
     <string name="analyzer_storage_content_type_app_description">Ruang yang diduduki oleh aplikasi yang dipasang dan datanya (iaitu fail aplikasi, data dan cache).</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akaun pengguna ditetapkan pada peranti ini.</string>
     <string name="analyzer_storage_content_type_system_other_label">Lain-lain</string>
     <string name="analyzer_storage_content_type_system_info">Fail yang tidak sesuai dalam kategori Aplikasi atau fail Pengguna. Layar sahaja — pemadaman tidak disokong. Sesetengah kawasan mungkin tidak lengkap disebabkan sekatan akses.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Fail tidak dapat dipadankan dengan aplikasi yang memilikinya pada masa ini. Saiz ditunjukkan untuk rujukan sahaja — pemadaman, penapis dan Swiper dilumpuhkan.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fail sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem pengendalian menyekat penyenaraian kandungan sesetengah kawasan.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini boleh dibebaskan dengan menyahpasang aplikasi atau mengarkibkannya (tersedia pada versi Android yang lebih baharu).</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarkibkan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Lihat apa yang benar-benar memenuhi penyimpanan anda. Analyzer memetakan tempat ruang anda pergi. Setiap kad ini ialah cip penyimpanan pada peranti anda.</string>
+    <string name="tour_analyzer_storage_body">Buka penyimpanan untuk membahagikannya kepada aplikasi, media dan fail, kemudian terus ketuk untuk mengesan penyebab terbesar.</string>
 </resources>

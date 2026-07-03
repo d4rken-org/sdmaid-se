@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">未知所有者</string>
     <string name="corpsefinder_corpse_hint_keeper">虽然此项的所有者已被卸载，但仍可能包含您想要保留的数据，如照片或备份。</string>
     <string name="corpsefinder_corpse_hint_common">此项的文件名很常见，有可能属于 SD Maid 不知道的未卸载应用。</string>
+    <string name="corpsefinder_risk_keeper_chip">推荐</string>
+    <string name="corpsefinder_risk_common_chip">常见</string>
+    <string name="corpsefinder_markers_dialog_title">关于这些标记</string>
+    <string name="corpsefinder_markers_dialog_normal_label">无标记</string>
+    <string name="corpsefinder_markers_dialog_normal_description">标准残留。通常可以安全删除 — 这些文件属于已卸载的应用。</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder 查找已卸载应用留下的数据。这些数据不再属于任何已安装的应用，所以删除它们是安全的，并且可以释放空间。</string>
+    <string name="tour_corpsefinder_row_body">每个项目都是残留数据及其所来自的应用。标记显示 SD Maid 对删除其安全性的信心程度 — 点击顶部的 ⓘ 了解标记的含义。</string>
 </resources>

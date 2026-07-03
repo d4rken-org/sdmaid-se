@@ -36,6 +36,17 @@
         <item quantity="one">%d unentschiedenes Element bleibt zur späteren Überprüfung.</item>
         <item quantity="other">%d unentschiedene Elemente bleiben zur späteren Überprüfung.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Diese Sitzung zielt auf ein ganzes Speichervolumen ab – das Löschen hier umfasst jeden Ordner auf diesem Speicher.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…und %d weiterer Ordner</item>
+        <item quantity="other">…und %d weitere Ordner</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Mir ist bewusst, dass diese Dateien endgültig gelöscht werden.</string>
+    <string name="swiper_sensitive_root_warning_title">Gesamten Speicher scannen?</string>
+    <string name="swiper_sensitive_root_warning_message">Das Scannen von %1$s umfasst jede Datei auf diesem Speicher – Fotos, Dokumente, Downloads, App-Medien und mehr. Fortfahren?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Trotzdem fortfahren</string>
+    <string name="swiper_session_risky_label">Ganzspeicher-Scan</string>
+    <string name="swiper_session_risky_info_message">Diese Sitzung erfasst das gesamte Speichervolumen, daher befinden sich alle Dateien auf diesem Speicher im Geltungsbereich – Fotos, Dokumente, Downloads, App-Medien und mehr.\n\nGanzspeicher-Scans können viele Elemente zurückgeben, einschließlich Dateien, die Sie möglicherweise nicht überprüfen wollten. Wenden Sie einen Dateityp-Filter an, um den Scan einzugrenzen.</string>
     <string name="swiper_delete_x_action">%1$d löschen</string>
     <string name="swiper_settings_swap_directions_title">Wischrichtungen tauschen</string>
     <string name="swiper_settings_swap_directions_summary">Nach links wischen zum Behalten, nach rechts zum Löschen.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Einen Namen für diese Sitzung eingeben</string>
     <string name="swiper_sessions_current_sessions">Aktuelle Sitzungen</string>
     <string name="swiper_session_paths_label">Pfade</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…und %d weitere</item>
+        <item quantity="other">…und %d weitere</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d zum Behalten</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Gefiltert: %1$s</string>
     <string name="swiper_session_no_matching_files">Keine passenden Dateien gefunden</string>
     <string name="swiper_open_externally_action">In externer App öffnen</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Wischen Sie über ein Foto, um über sein Schicksal zu entscheiden: Seitwärts zum Behalten oder Löschen, nach oben zum Überspringen, nach unten zum Rückgängigmachen. Die Schaltflächen unten machen dasselbe – und zeigen, welche Seite welche ist.</string>
+    <string name="tour_swiper_openin_body">Diese Schaltfläche öffnet das Foto in einer anderen App – praktisch zum Überprüfen vor Ihrer Entscheidung.</string>
+    <string name="tour_swiper_preview_body">Diese Schaltfläche öffnet eine Vollbildvorschau zum genaueren Betrachten.</string>
+    <string name="tour_swiper_actions_body">Mögen Sie das Wischen nicht? Wir haben auch Schaltflächen! Mit „Überspringen“ bleibt die Entscheidung für später offen, und das lange Drücken von „Überspringen“ schließt eine Datei aus zukünftigen Scans aus. „Rückgängig“ macht Ihre letzte Wahl rückgängig.</string>
+    <string name="tour_swiper_review_body">Ihre Beibehaltungs- und Löschentscheidungen sind nur vorgemerkt. Öffnen Sie die Überprüfung, um diese durchzugehen und die Löschungen anzuwenden, wenn Sie bereit sind.</string>
 </resources>

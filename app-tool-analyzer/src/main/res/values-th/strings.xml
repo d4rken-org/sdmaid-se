@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">พื้นที่จัดเก็บรอง โดยทั่วไปคือ SD card ที่ถอดได้ ประกอบด้วยไฟล์มีเดียและข้อมูลจากแอพที่รองรับ</string>
     <string name="analyzer_storage_type_tertiary_title">พื้นที่จัดเก็บแบบพกพา</string>
     <string name="analyzer_storage_type_tertiary_description">พื้นที่จัดเก็บแบบพกพา เช่น แฟลชไดรฟ์ที่เสียบเข้าปอร์ต USB</string>
+    <string name="analyzer_storage_identifier_internal">ที่เก็บข้อมูลภายใน</string>
     <string name="analyzer_storage_content_title">เนื้อหาในพื้นที่จัดเก็บ</string>
     <string name="analyzer_storage_content_type_app_label">แอพ</string>
     <string name="analyzer_storage_content_type_app_description">พื้นที่ที่ถูกใช้โดยแอพที่ติดตั้งและข้อมูลของพวกมัน (ไฟล์แอพพลิเคชัน, ข้อมูล, และแคช)</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">แอพระบบและข้อมูลระบบ แอพและข้อมูลจากผู้ใช้คนอื่น หากมีบัญชีผู้ใช้หลายบัญชีบนอุปกรณ์นี้</string>
     <string name="analyzer_storage_content_type_system_other_label">อื่นๆ</string>
     <string name="analyzer_storage_content_type_system_info">ไฟล์ที่ไม่เข้าหมวดหมู่แอปหรือไฟล์ผู้ใช้ เรียกดูเท่านั้น — ไม่รองรับการลบ บางพื้นที่อาจไม่ครบถ้วนเนื่องจากข้อจำกัดในการเข้าถึง</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ไฟล์ไม่สามารถจับคู่กับแอปที่เป็นเจ้าของได้ในขณะนี้ ขนาดจะแสดงเพื่อการอ้างอิงเท่านั้น — การลบ ตัวกรอง และ Swiper ถูกปิดใช้งาน</string>
     <string name="analyzer_storage_content_type_system_other_desc">ไฟล์ระบบและข้อมูลอื่นๆ ที่ SD Maid ไม่สามารถเข้าถึงหรือจัดหมวดหมู่ได้ ระบบปฏิบัติการจำกัดการแสดงรายการเนื้อหาของบางพื้นที่</string>
     <string name="analyzer_storage_content_app_code_label">โค้ดแอพ</string>
     <string name="analyzer_storage_content_app_code_description">ไฟล์แอพพลิเคชัน, ไลบรารี และทรัพยากร สามารถลบพื้นที่นี้ได้โดยถอนการติดตั้งแอพหรือเก็บแอพไว้ (ใช้ได้ใน Android รุ่นใหม่)</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">แอพนี้ใช้พื้นที่ %1$s บน \"%2$s\"</string>
     <string name="analyzer_app_details_app_is_archived">แอพนี้ถูกเก็บไว้แล้ว</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ใน 7 วัน</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">ดูว่าอะไรกำลังเติมพื้นที่จัดเก็บของคุณจริงๆ Analyzer แสดงแผนที่ว่าพื้นที่ของคุณหายไปไหน การ์ดแต่ละใบนี้คือชิปการจัดเก็บข้อมูลบนอุปกรณ์ของคุณ</string>
+    <string name="tour_analyzer_storage_body">เปิดที่เก็บข้อมูลเพื่อแบ่งออกเป็นแอป สื่อ และไฟล์ จากนั้นแตะต่อไปเรื่อยๆ เพื่อติดตามหาตัวการที่กินพื้นที่มากที่สุด</string>
 </resources>

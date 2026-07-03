@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d 个未决定的项目将保留供日后审查。</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">此会话针对整个存储卷 — 在此处删除将跨越该存储上的每个文件夹。</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…及另外 %d 个文件夹</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">我明白这些文件将被永久删除。</string>
+    <string name="swiper_sensitive_root_warning_title">扫描整个存储空间？</string>
+    <string name="swiper_sensitive_root_warning_message">扫描 %1$s 将包括此存储空间上的所有文件 — 照片、文档、下载内容、应用媒体等。是否继续？</string>
+    <string name="swiper_sensitive_root_warning_continue_action">仍然继续</string>
+    <string name="swiper_session_risky_label">全存储空间扫描</string>
+    <string name="swiper_session_risky_info_message">此会话针对存储卷的根目录，因此该存储空间上的所有文件都在范围内 — 照片、文档、下载内容、应用媒体等。
+
+全存储空间扫描可能会返回许多项目，包括您可能不想审查的文件。应用文件类型过滤器来缩小扫描范围。</string>
     <string name="swiper_delete_x_action">删除 %1$d</string>
     <string name="swiper_settings_swap_directions_title">交换滑动方向</string>
     <string name="swiper_settings_swap_directions_summary">向左滑动保留，向右滑动删除。</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">为此会话输入名称</string>
     <string name="swiper_sessions_current_sessions">当前会话</string>
     <string name="swiper_session_paths_label">路径</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…还有 %d 个</item>
+    </plurals>
     <string name="swiper_session_status_label">状态</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d 个待保留</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">已筛选：%1$s</string>
     <string name="swiper_session_no_matching_files">未找到匹配文件</string>
     <string name="swiper_open_externally_action">在外部应用中打开</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">滑动照片来决定其去向：向左右滑动保留或删除，向上滑动跳过，向下滑动撤销。下面的按钮效果相同 — 并显示各边代表什么。</string>
+    <string name="tour_swiper_openin_body">此按钮在另一个应用中打开照片，便于在决定前检查。</string>
+    <string name="tour_swiper_preview_body">此按钮打开全屏预览以便更仔细地查看。</string>
+    <string name="tour_swiper_actions_body">不喜欢滑动？我们也有按钮！跳过会使其保持待定以便稍后处理，长按跳过会将文件从以后的扫描中排除。撤销会还原您的上次选择。</string>
+    <string name="tour_swiper_review_body">您的保留和删除选择仅处于暂存状态。打开审核以查看它们，并在准备好时应用删除。</string>
 </resources>

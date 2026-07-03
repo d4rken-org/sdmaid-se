@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Watumiaji wenye mahitaji maalum ya ufikiaji wanaweza kuwezesha huduma hii ili kuruhusu SD Maid kuotomatisha kazi ambazo vinginevyo zingehitaji mwingiliano wa mtumiaji wa mkono unaochosha (k.m. kufuta akiba).\n\nMfano: Ikiwa utamwagiza SD Maid kusimamisha programu nyingi basi SD Maid inaweza kutumia huduma hii kufungua skrini ya mipangilio ya kila programu, kupata kitufe cha \'Simamisha kwa Nguvu\' na kuibonyeza.\n\nSD Maid itaonyesha kila wakati kwa wazi inapotumia huduma hii na kutoa njia rahisi kwa mtumiaji kughairi mwingiliano wowote mara moja.\n\nHakuna vitendo vitakavyotekelezwa bila idhini ya awali ya mtumiaji. Huduma hii inaweza kuzimwa tena wakati wowote bila madhara.</string>
     <string name="automation_screenoverlay_explanation">SD Maid inaingiliana na kifaa chako. Haiwezekani kutumia skrini wakati huo huo. Subiri mpaka shughuli iimalize au ighairie.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid inaingiliana na kifaa chako. Haiwezekani kutumia skrini wakati huo huo. Subiri hadi operesheni imalizike, au bonyeza kitufe cha Nyumbani ili kukatiza.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid inaingiliana na kifaa chako. Haiwezekani kutumia skrini wakati huo huo. Subiri hadi operesheni imalizike.</string>
     <string name="automation_active_title">SD Maid inafanya kazi</string>
     <string name="automation_error_no_consent_title">Kosa la uotomatishaji</string>
     <string name="automation_error_no_consent_body">Huduma ya ufikiaji haijasanidiwa. Kamilisha usanidi na toa idhini.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Kazi iliyopangwa ilijaribu kutumia huduma ya ufikiaji, lakini haikupatikana. Ikiwa huhitaji hii, zima chaguo la \"Huduma ya ufikiaji\" katika mipangilio ya kipanga ratiba.</string>
     <string name="automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
     <string name="automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
+    <string name="automation_error_interference_title">Skrini ya mipangilio imezuiwa</string>
+    <string name="automation_error_interference_body">Programu nyingine (%1$s) inazuia skrini ya mipangilio ya mfumo, hivyo SD Maid haiwezi kuendelea. Zima kifungo cha programu au ulinzi wa skrini wa programu hiyo kwa mipangilio ya mfumo, kisha ujaribu tena.</string>
     <string name="automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
     <string name="automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
 </resources>

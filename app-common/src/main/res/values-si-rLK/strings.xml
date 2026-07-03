@@ -28,6 +28,7 @@
     <string name="general_gotit_action">තේරුණා</string>
     <string name="general_fix_action">නිවැරදි කරන්න</string>
     <string name="general_set_up_action">සකසන්න</string>
+    <string name="general_unavailable_label">ලබා ගත නොහැකි</string>
     <string name="general_edit_action">සංස්කරණය කරන්න</string>
     <string name="general_na_label">නැත</string>
     <string name="general_empty_label">හිස්</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">පෙළගස්සා</string>
     <string name="general_progress_deleting">මකමින්</string>
     <string name="general_progress_deleting_x">%s මකමින්</string>
+    <string name="general_sort_by_title">අනුව වර්ගීකරණය</string>
     <string name="general_sort_reverse_action">ප්‍රතිලෝම වර්ග ක්‍රමය</string>
+    <string name="general_sort_oldest_first">පැරණිතම මුලින්</string>
+    <string name="general_sort_newest_first">නවතම මුලින්</string>
+    <string name="general_sort_name_asc">නම (A → Z)</string>
+    <string name="general_sort_size_desc">විශාලතම මුලින්</string>
     <string name="general_tag_system">පද්ධතිය</string>
+    <string name="general_navigate_up_action">ඉහළට යන්න</string>
+    <string name="general_filter_action">පෙරහන් කරන්න</string>
+    <string name="general_filter_by_tags_label">ටැග අනුව පෙරන්න</string>
+    <string name="general_filter_add_action">පෙරහන එකතු කරන්න</string>
+    <string name="general_filter_remove_x_action">%s පෙරහන ඉවත් කරන්න</string>
+    <string name="general_filter_empty_row_hint">පෙරීම සඳහා + ස්පර්ශ කරන්න</string>
+    <string name="general_show_all_action">සියල්ල පෙන්වන්න</string>
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ඉඩ නිදහස් කළා.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">විකල්ප</string>
     <string name="general_details_label">විස්තර</string>
     <string name="general_view_action">බලන්න</string>
+    <string name="general_open_action">විවෘත කරන්න</string>
+    <string name="general_configure_action">වින්‍යාස කරන්න</string>
     <string name="general_update_action">යාවත්කාලීන කරන්න</string>
     <string name="general_scan_action">ස්කෑන් කරන්න</string>
     <string name="general_close_action">වසන්න</string>
@@ -97,7 +112,9 @@
         <item quantity="other">අයිතම %d ක් ඉවත් කරන ලදී</item>
     </plurals>
     <string name="general_search_action">සොයන්න</string>
+    <string name="general_search_no_matches">ගැලපීම් නැත</string>
     <string name="general_open_system_settings_action">පද්ධති සැකසීම් විවෘත කරන්න</string>
+    <string name="general_fast_scroller_action">වේගවත් ස්ක්‍රෝලර්</string>
     <plurals name="result_x_items">
         <item quantity="one">අයිතම %s ක්</item>
         <item quantity="other">අයිතම %s ක්</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">සේවාව සක්‍රිය කරන්න</string>
     <string name="general_undo_action">අහෝසි කරන්න</string>
     <string name="general_list_select_all_action">සියල්ල තෝරන්න</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%dක් තෝරාගෙන ඇත</item>
+        <item quantity="other">%dක් තෝරාගෙන ඇත</item>
+    </plurals>
     <string name="general_path_label">මාර්ගය</string>
     <string name="general_type_label">වර්ගය</string>
     <string name="general_size_label">ප්‍රමාණය</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">දෝෂ වාර්තා කරන්න</string>
     <string name="general_error_ipc_deadobject_title">සේවා සම්බන්ධතාවය නැති විය</string>
     <string name="general_error_ipc_deadobject_description">වැදගත් සේවාවකට (උදා: Magisk, Shizuku, හෝ වෙනත් පද්ධති මට්ටමේ සේවා) සම්බන්ධතාවය අනපේක්ෂිතව නැති විය. කරුණාකර ඔබගේ උපකරණය නැවත ආරම්භ කරන්න. ගැටලුව දිගටම පවතින්නේ නම්, යාවත්කාලීන පරීක්ෂා කරන්න හෝ එය නිවැරදි කිරීම සඳහා මා සම්බන්ධ කරගන්න.</string>
+    <string name="general_error_upgrade_required_title">Pro සංස්කරණය අවශ්‍යයි</string>
+    <string name="general_error_upgrade_required_description">මෙය Pro විශේෂතාවයකි. එය භාවිතා කිරීමට SD Maid SE උසස් කරන්න.</string>
     <string name="general_user_label_owner">හිමිකරු</string>
     <string name="general_user_label_system">පද්ධතිය</string>
     <string name="setup_title">පිහිටුවීම</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
     <string name="settings_category_filter">පෙරණය</string>
     <string name="appcontrol_systemsettings_open_title">සැකසීම් පෙනන්න</string>
+    <string name="ui_theme_color_sunset_label">සූර්යාස්තමනය</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">මෙම විශේෂතාවට Root ප්‍රවේශය අවශ්‍යයි, නමුත් SD Maid හට එය මෙම උපාංගයේ ලබා ගත නොහැකි විය.</string>
+    <string name="access_blocked_root_declined">මෙම විශේෂතාවට Root ප්‍රවේශ අවශ්‍ය වේ. ඔබට සැකසුම් තිරය හරහා එය සක්‍රීය කළ හැක.</string>
+    <string name="access_blocked_root_or_shizuku">මෙම විශේෂතාවට Root හෝ Shizuku ප්‍රවේශ අවශ්‍ය වේ, එය මෙම උපාංගයේ ලබා ගත නොහැක.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">අවලංගු උපස්ථ ගොනුව</string>
+    <string name="backup_restore_error_invalid_body">මෙම ගොනුව වලංගු SD Maid උපස්ථයක් නොවේ, නැතහොත් විනාශ වී ඇත.</string>
+    <string name="backup_restore_error_version_body">මෙම උපස්ථය SD Maid හි නවතර අනුවාදයක් සමඟ නිර්මාණය කරන ලදී. කරුණාකර යෙදුම යාවත්කාලීන කර නැවත උත්සාහ කරන්න.</string>
+    <string name="backup_restore_error_restore_failed_title">නැවත ස්ථාපනය අසාර්ථක විය</string>
+    <string name="backup_restore_error_restore_failed_body">මෙම කොටස් නැවත ස්ථාපනය කළ නොහැක: %1$s. ඔබේ පෙර වින්‍යාසය සුරකින ලද අතර නැවත ගෙන ඒමට හැකිය.</string>
+    <string name="backup_restore_error_safety_title">නැවත ස්ථාපනය ආරම්භ කළේ නැත</string>
+    <string name="backup_restore_error_safety_body">SD Maid ඔබේ වර්තමාන වින්‍යාසයේ ආරක්ෂිත සුරුක්කුවක් සංරක්ෂණය කිරීමට හැකි වූයේ නැත, එබැවින් කිසිවක් වෙනස් කෙරුණු නැත.</string>
+    <string name="backup_restore_error_busy_title">කරුණාකර රැඳී සිටින්න</string>
+    <string name="backup_restore_error_busy_body">පිරිසිදු කිරීමේ කාර්යක්‍රමයක් හෝ වෙනත් උපස්ථ ක්‍රියාවලිය දැනට ක්‍රියාත්මක වෙමින් පවතී. එය අවසන් වූ පසු නැවත උත්සාහ කරන්න.</string>
+    <string name="backup_restore_error_schema_title">නොගැළපෙන උපස්ථ</string>
+    <string name="backup_restore_error_schema_body">උපස්ථයේ දත්ත සමුදාය ස්වරූපය SD Maid හි මෙම අනුවාදයට ගැළපෙන්නේ නැත. ඉතිහාස දත්ත ප්‍රතිස්ථාපනය කිරීම එකම යෙදුම් අනුවාද අතර පමණක් සහාය කරනු ලැබේ.</string>
 </resources>

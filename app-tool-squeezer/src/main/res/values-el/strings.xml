@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Συμπίεση εικόνων για εξοικονόμηση αποθηκευτικού χώρου.</string>
+    <string name="squeezer_explanation_short">Συμπίεση εικόνων και βίντεο για εξοικονόμηση αποθηκευτικού χώρου.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">Βρέθηκε %d εικόνα</item>
-        <item quantity="other">Βρέθηκαν %d εικόνες</item>
+        <item quantity="one">Βρέθηκε %d στοιχείο</item>
+        <item quantity="other">Βρέθηκαν %d στοιχεία</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s μπορεί να εξοικονομηθεί</item>
         <item quantity="other">~%s μπορούν να εξοικονομηθούν</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d εικόνα συμπιέστηκε</item>
-        <item quantity="other">%d εικόνες συμπιέστηκαν</item>
+        <item quantity="one">%d στοιχείο συμπιέστηκε</item>
+        <item quantity="other">%d στοιχεία συμπιέστηκαν</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d απέτυχε</item>
+        <item quantity="other">%d απέτυχαν</item>
+    </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d αρχείο διατηρήθηκε χωρίς αλλαγές (τα μεταδεδομένα δεν μπόρεσαν να διατηρηθούν)</item>
+        <item quantity="other">%d αρχεία διατηρήθηκαν χωρίς αλλαγές (τα μεταδεδομένα δεν μπόρεσαν να διατηρηθούν)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d αρχείο παραλείφθηκε (μη προσβάσιμο)</item>
+        <item quantity="other">%d αρχεία παραλείφθηκαν (μη προσβάσιμα)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d αρχείο παραλείφθηκε (HDR/βάθος διατηρήθηκε)</item>
+        <item quantity="other">%d αρχεία παραλείφθηκαν (HDR/βάθος διατηρήθηκε)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d εικόνα επιλεγμένη</item>
-        <item quantity="other">%d εικόνες επιλεγμένες</item>
+        <item quantity="one">%d στοιχείο επιλεγμένο</item>
+        <item quantity="other">%d στοιχεία επιλεγμένα</item>
     </plurals>
     <string name="squeezer_min_size_title">Ελάχιστο μέγεθος αρχείου</string>
-    <string name="squeezer_min_size_description">Παράλειψη εικόνων μικρότερων από αυτό το μέγεθος.</string>
+    <string name="squeezer_min_size_description">Παράλειψη αρχείων μικρότερων από αυτό το μέγεθος.</string>
     <string name="squeezer_min_age_title">Ελάχιστη ηλικία αρχείου</string>
-    <string name="squeezer_min_age_description">Συμπερίληψη μόνο εικόνων παλαιότερων από αυτή την ηλικία.</string>
-    <string name="squeezer_compression_settings_label">Ρυθμίσεις συμπίεσης</string>
-    <string name="squeezer_quality_description">Χαμηλότερη ποιότητα σημαίνει μικρότερο μέγεθος αρχείου αλλά μειωμένη ποιότητα εικόνας.</string>
-    <string name="squeezer_types_category_label">Τύποι εικόνων</string>
+    <string name="squeezer_min_age_description">Συμπερίληψη μόνο αρχείων παλαιότερων από αυτή την ηλικία.</string>
+    <string name="squeezer_compression_settings_label">Γενικά</string>
+    <string name="squeezer_quality_label">Ποιότητα</string>
+    <string name="squeezer_quality_title">Ποιότητα συμπίεσης</string>
+    <string name="squeezer_quality_description">Χαμηλότερη ποιότητα σημαίνει μικρότερο μέγεθος αρχείου αλλά μειωμένη οπτική ποιότητα.</string>
+    <string name="squeezer_quality_example_format">Παράδειγμα: %1$s εικόνα → εξοικονομεί ~%2$s σε %3$d%% ποιότητα</string>
+    <string name="squeezer_quality_warning_low">Χαμηλότερες ποιότητες μπορεί να προκαλέσουν ορατά τεχνουργήματα.</string>
+    <string name="squeezer_quality_warning_high">Πολύ υψηλή ποιότητα παρέχει ελάχιστη εξοικονόμηση χώρου.</string>
+    <string name="squeezer_types_category_label">Ρυθμίσεις εικόνας</string>
+    <string name="squeezer_video_settings_category_label">Ρυθμίσεις βίντεο</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Συμπερίληψη εικόνων JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Συμπερίληψη εικόνων WebP (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Συμπεριλάβετε εικόνες HEIC/HEIF (.heic, .heif). Η ημερομηνία, η τοποθεσία και άλλα μεταδεδομένα EXIF διατηρούνται. Οι χάρτες κέρδους HDR, τα δεδομένα βάθους και τα αδέλφια Live/Motion Photo δεν μπορούν να διατηρηθούν· τα αρχεία πολλαπλών εικόνων παραλείπονται.</string>
+    <string name="squeezer_type_video_title">MP4 Video</string>
+    <string name="squeezer_type_video_description">Συμπερίληψη αρχείων βίντεο MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Παράλειψη ήδη συμπιεσμένων</string>
-    <string name="squeezer_skip_compressed_description">Παράλειψη εικόνων που έχουν ήδη συμπιεστεί από το SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Παράλειψη αρχείων που έχουν ήδη συμπιεστεί από το SD Maid.</string>
     <string name="squeezer_exif_marker_title">Εγγραφή δείκτη EXIF</string>
     <string name="squeezer_exif_marker_description">Προσάρτηση ενός δείκτη στο πεδίο σχολίων χρήστη EXIF της εικόνας για την αποτροπή επανασυμπίεσης ακόμη και αν εκκαθαριστεί το ιστορικό συμπίεσης.</string>
+    <string name="squeezer_include_lossy_aux_title">Συμπίεση φωτογραφιών HDR &amp; βάθους</string>
+    <string name="squeezer_include_lossy_aux_description">Απενεργοποιημένο από προεπιλογή: οι φωτογραφίες με χάρτη κέρδους HDR ή δεδομένα βάθους/πορτρέτου παραλείπονται ώστε να μην ισοπεδωθούν. Ενεργοποιήστε για να τις συμπιέσετε όπου είναι δυνατόν — θα χάσουν το χάρτη κέρδους HDR ή τα δεδομένα βάθους τους. Ορισμένες φωτογραφίες HEIC με πολλές εικόνες παραμένουν προστατευμένες ούτως ή άλλως.</string>
     <string name="squeezer_estimated_savings_format">~%s εξοικονόμηση</string>
     <string name="squeezer_no_savings_expected">Περιορισμένη εξοικονόμηση</string>
     <string name="squeezer_current_size_format">Μέγεθος: %s</string>
@@ -40,6 +68,8 @@
     <string name="squeezer_preview_dialog_title">Επιβεβαίωση συμπίεσης</string>
     <string name="squeezer_preview_total_size">Συνολικό μέγεθος</string>
     <string name="squeezer_preview_estimated_savings">Εκτιμώμενη εξοικονόμηση</string>
+    <string name="squeezer_compress_confirmation_title">Συμπίεση επιλεγμένων στοιχείων;</string>
+    <string name="squeezer_compress_confirmation_message">Αυτό θα αντικαταστήσει τα αρχικά αρχεία με συμπιεσμένες εκδόσεις. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="squeezer_history_title">Ιστορικό συμπίεσης</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d στοιχείο (%2$s)</item>
@@ -47,19 +77,34 @@
     </plurals>
     <string name="squeezer_history_empty">Κανένα ιστορικό συμπίεσης</string>
     <string name="squeezer_history_clear_title">Εκκαθάριση ιστορικού συμπίεσης</string>
-    <string name="squeezer_history_clear_message">Αυτό θα επιτρέψει σε εικόνες που έχουν ήδη συμπιεστεί να συμπιεστούν ξανά. Οι ίδιες οι εικόνες δεν επηρεάζονται.</string>
+    <string name="squeezer_history_clear_message">Αυτό θα επιτρέψει σε αρχεία που έχουν ήδη συμπιεστεί να συμπιεστούν ξανά. Τα ίδια τα αρχεία δεν επηρεάζονται.</string>
+    <string name="squeezer_onboarding_title">Σχετικά με τη Συμπίεση Εικόνων</string>
+    <string name="squeezer_onboarding_message">Η συμπίεση εικόνων μειώνει το μέγεθος αρχείου αφαιρώντας οπτική λεπτομέρεια. Αυτή η διαδικασία είναι μη αναστρέψιμη - η αρχική ποιότητα δεν μπορεί να αποκατασταθεί.\n\nΑκολουθεί μια προεπισκόπηση του πώς θα μοιάζουν οι εικόνες σας:</string>
     <string name="squeezer_onboarding_original_label">Πρωτότυπο</string>
     <string name="squeezer_onboarding_compressed_label">Μετά τη συμπίεση</string>
+    <string name="squeezer_onboarding_video_original_label">Καρέ βίντεο</string>
+    <string name="squeezer_onboarding_video_compressed_label">Προεπισκόπηση (κατά προσέγγιση)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">Η πραγματική ποιότητα βίντεο μπορεί να διαφέρει</string>
+    <string name="squeezer_onboarding_quality_label">Ποιότητα: %d%%</string>
     <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="squeezer_no_example_found">Δεν βρέθηκαν εικόνες στις επιλεγμένες διαδρομές.</string>
-    <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμες εικόνες.</string>
-    <string name="squeezer_setup_explanation">Το Media Squeeze μειώνει το μέγεθος αρχείου εικόνων για εξοικονόμηση αποθηκευτικού χώρου. Αυτό μειώνει μόνιμα την ποιότητα εικόνας και δεν μπορεί να αναιρεθεί. Ελέγξτε προσεκτικά τις ρυθμίσεις σας πριν ξεκινήσετε.</string>
+    <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμα αρχεία πολυμέσων.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Χωρίς μέσα προς συμπίεση — %d φωτογραφία HDR/βάθους παραλείφθηκε. Ενεργοποιήστε τη «Συμπίεση φωτογραφιών HDR &amp; βάθους» στις ρυθμίσεις για να την συμπεριλάβετε.</item>
+        <item quantity="other">Χωρίς μέσα προς συμπίεση — %d φωτογραφίες HDR/βάθους παραλείφθηκαν. Ενεργοποιήστε τη «Συμπίεση φωτογραφιών HDR &amp; βάθους» στις ρυθμίσεις για να τις συμπεριλάβετε.</item>
+    </plurals>
+    <string name="squeezer_setup_warning">Η συμπίεση μειώνει μόνιμα την ποιότητα για εξοικονόμηση αποθηκευτικού χώρου. Αυτό δεν μπορεί να αναιρεθεί. Ελέγξτε προσεκτικά τις ρυθμίσεις σας πριν ξεκινήσετε.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">%d τοποθεσία δεν μπορεί να χρησιμοποιηθεί για συμπίεση και αφαιρέθηκε. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
+        <item quantity="other">%d τοποθεσίες δεν μπορούν να χρησιμοποιηθούν για συμπίεση και αφαιρέθηκαν. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">Το Media Squeeze μειώνει το μέγεθος αρχείου εικόνων και βίντεο για εξοικονόμηση αποθηκευτικού χώρου. Αυτό μειώνει μόνιμα την ποιότητα και δεν μπορεί να αναιρεθεί. Ελέγξτε προσεκτικά τις ρυθμίσεις σας πριν ξεκινήσετε.</string>
     <string name="squeezer_setup_paths_title">Τοποθεσίες αναζήτησης</string>
     <string name="squeezer_setup_paths_default">Επιλέξτε φακέλους για αναζήτηση</string>
     <string name="squeezer_setup_quality_title">Ποιότητα συμπίεσης</string>
     <string name="squeezer_setup_age_title">Ελάχιστη ηλικία</string>
     <string name="squeezer_setup_start_action">Έναρξη σάρωσης</string>
-    <string name="squeezer_quality_hint_very_low">Ποιότητα κάτω από 40% μπορεί να δημιουργήσει αχρησιμοποίητες εικόνες.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">Ποιότητα κάτω από 40% μπορεί να δημιουργήσει αχρησιμοποίητες εικόνες.</string>
     <string name="squeezer_quality_hint_low">Χαμηλότερη ποιότητα εξοικονομεί περισσότερο χώρο αλλά μπορεί να προκαλέσει ορατά τεχνουργήματα.</string>
     <string name="squeezer_quality_hint_high">Πολύ υψηλή ποιότητα παρέχει ελάχιστη εξοικονόμηση χώρου.</string>
     <string name="squeezer_quality_hint_normal">Ισορροπημένη ποιότητα και εξοικονόμηση χώρου.</string>
@@ -68,4 +113,8 @@
         <item quantity="other">Τουλάχιστον %d ημέρες παλιό</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Εκτιμώμενη ~%d%% εξοικονόμηση για αρχεία JPEG</string>
+    <string name="squeezer_onboarding_got_it">Το κατάλαβα</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Το Squeezer συμπιέζει ξανά τις φωτογραφίες και τα βίντεό σας ώστε να καταλαμβάνουν λιγότερο χώρο. Τα αρχεία παραμένουν χρήσιμα, απλώς μικρότερα, και κάθε ένα εμφανίζει την εκτιμώμενη εξοικονόμησή του.</string>
+    <string name="tour_squeezer_compress_body">Συμπιέστε τα πάντα ταυτόχρονα εδώ ή πατήστε ένα μόνο στοιχείο για να συμπιέσετε μόνο αυτό. Πατήστε παρατεταμένα για να επιλέξετε πολλά. Θα δείτε πάντα μια προεπισκόπηση πριν αλλάξει κάτι.</string>
 </resources>

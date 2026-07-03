@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Uitsluiting bestuurder</string>
     <string name="exclusion_manager_desc">Bestuur lêer en toepassing uitsluitings.</string>
-    <string name="exclusion_explanation_body1">Sluit lêers en toepassings uit van SD Maid se bewerkings.</string>
-    <string name="exclusion_add_new_hint">Voeg nuwe uitsluitings by deur eers SD Maid te laat soek en dan die konteks menu op die resultaat wat jy wil uitsluit te gebruik.</string>
+    <string name="exclusion_explanation_body1">Sluit lêers en apps uit om hulle teen SD Maid se gereedskap te beskerm, of om irrelevante items oor te slaan en bewerkings te versnel.</string>
+    <string name="exclusion_add_new_hint">Nog geen uitsluitings nie. Gebruik die + knop om een te skep, of sluit items van enige gereedskap se resultate uit.</string>
     <string name="exclusion_create_action">Skep uitsluiting</string>
     <string name="exclusion_edit_action">Wysig uitsluiting</string>
     <string name="exclusion_type_package">Toepassing uitsluiting</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Voer uitsluitings uit</string>
     <string name="exclusion_create_pkg_hint">Gebruik die AppControl gereedskap om toepassing uitsluitings te skep.</string>
     <string name="exclusion_create_path_hint">Gebruik die StorageAnalyzer gereedskap om pad uitsluitings te skep.</string>
+    <string name="exclusion_create_segment_hint">Ooreenstem met \'n naamdeel, soos \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Wys versteks</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d uitsluiting ingevoer</item>
+        <item quantity="other">%d uitsluitings ingevoer</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d uitsluiting uitgevoer</item>
+        <item quantity="other">%d uitsluitings uitgevoer</item>
+    </plurals>
 </resources>

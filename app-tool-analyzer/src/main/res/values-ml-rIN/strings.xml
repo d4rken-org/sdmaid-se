@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">ഒരു ദ്വിതീയ സ്റ്റോറേജ്, സാധാരണമായി ഠിർഞ്ഞേടുക്കാവുന്ന SD കാർഡ്. മീഡിയ ഫയലുകൾപ്പും ഇത് പിംതുണ്ണ ആപ്പുകളിൽ നിന്നുള്ള ഡേറ്റയും ഇതിൽ അടങ്ങുന്നു.</string>
     <string name="analyzer_storage_type_tertiary_title">പോർട്ടെബിൽ സ്റ്റോറേജ്</string>
     <string name="analyzer_storage_type_tertiary_description">ഒരു പോർട്ടെബിൽ സ്റ്റോറേജ്, ഉദാ. USB പോർട്ടിൽ പ്ലഗ് ചെയ്ത ഒരു ഫ്ലാഷ് ഡ്രൈവ്.</string>
+    <string name="analyzer_storage_identifier_internal">ആന്തരിക സംഭരണം</string>
     <string name="analyzer_storage_content_title">സ്റ്റോറേജ് ഉള്ളടക്കം</string>
     <string name="analyzer_storage_content_type_app_label">ആപ്പുകൾ</string>
     <string name="analyzer_storage_content_type_app_description">ഇന്സ്റ്റോൾ ചെയ്ത ആപ്പുകൾം അവയുടെ ഡേറ്റയും ഉപയോഗിക്കുന്ന സ്ഥലം (അതായത് ആപ്ലിക്കേഷൻ ഫയലുകൾ, ഡേറ്റ, ക്യാഷ്ക്കുകൾ).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">സിസ്റ്റം ആപ്പുകൾം സിസ്റ്റം ഡേറ്റയും. ഈ ഉപകരണത്തിൽ പല ഉപയോക്തൃ അക്കൗണ്ടുകൾ സെറ്റ് ചെയ്തിട്ടുണ്ടെങ്കിൽ, മറ്റ ഉപയോക്താകളിൽ നിന്നുള്ള ആപ്പുകൾം ഡേറ്റയും.</string>
     <string name="analyzer_storage_content_type_system_other_label">മറ്റുള്ളവ</string>
     <string name="analyzer_storage_content_type_system_info">ആപ്പുകൾ അല്ലെങ്കിൽ ഉപയോക്തൃ ഫയൽ വിഭാഗങ്ങളിൽ പെടാത്ത ഫയലുകൾ. ബ്രൗസ് മാത്രം — ഇല്ലാതാക്കൽ പിന്തുണയ്ക്കുന്നില്ല. ആക്സസ് നിയന്ത്രണങ്ങൾ കാരണം ചില മേഖലകൾ അപൂർണ്ണമായിരിക്കാം.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">ഫയലുകൾ ഇപ്പോൾ അവയെ ഉടമസ്ഥരായ ആപ്പുകളുമായി പൊരുത്തപ്പെടുത്താൻ കഴിയുന്നില്ല. വലുപ്പം പരാമർശത്തിനായി മാത്രമാണ് കാണിക്കുന്നത് — ഇല്ലാതാക്കൽ, ഫിൽട്ടറുകളും സ്വിപ്പറും പ്രവർത്തനരഹിതമാണ്.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid-ന് ആക്സസ് ചെയ്യാനോ വർഗ്ഗീകരിക്കാനോ കഴിയാത്ത സിസ്റ്റം ഫയലുകളും മറ്റ് ഡേറ്റയും. ചില മേഖലകളുടെ ഉള്ളടക്കങ്ങൾ ലിസ്റ്റ് ചെയ്യുന്നത് ഓപ്പറേറ്റിംഗ് സിസ്റ്റം നിയന്ത്രിക്കുന്നു.</string>
     <string name="analyzer_storage_content_app_code_label">ആപ്പ് കോഡ്</string>
     <string name="analyzer_storage_content_app_code_description">ആപ്ലിക്കേഷൻ ഫയലുകൾ, ലൈബ്രറികൾ, റിസോർസുകൾ. ആപ്പ് അനിന്സ്റ്റോൾ ചെയ്ത് അഥവാ ആർക്കൈവ് ചെയ്ത് ഈ സ്ഥലം ശൂന്യമാക്കാം (പുതിയ Android പതിപ്പിൽ ലഭ്യം).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ഈ ആപ്പ് \"%2$s\"-ൽ %1$s ഉപയോഗിക്കുന്നു.</string>
     <string name="analyzer_app_details_app_is_archived">ഈ ആപ്പ് ആർക്കൈവ് ചെയ്തിട്ടുണ്ട്.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 ദിവസത്തിൽ</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">നിങ്ങളുടെ സ്റ്റോറേജിൽ ശരിക്കും എന്താണ് നിറയിക്കുന്നതെന്ന് കാണുക. അനലൈസർ നിങ്ങളുടെ സ്ഥലം എങ്ങൊട്ട് പോകുന്നുവെന്ന് ദൃശ്യമാക്കുന്നു. ഈ കാർഡുകളിൽ ഓരോന്നും നിങ്ങളുടെ ഉപകരണത്തിലെ സ്റ്റോറേജ് ചിപ്പാണ്.</string>
+    <string name="tour_analyzer_storage_body">സ്റ്റോറേജ് തുറന്ന് ആപ്പുകൾ, മീഡിയ, ഫയലുകൾ എന്നിങ്ങനെ വിഭജിക്കുക, പിന്നെ ഏറ്റവും വലിയ ഇനങ്ങൾ കണ്ടെത്തുന്നതിന് ടാപ് ചെയ്യുന്നത് തുടരുക.</string>
 </resources>

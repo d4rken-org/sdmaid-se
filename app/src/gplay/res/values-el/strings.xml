@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Χρησιμοποιήστε την επιλογή \"Επαναφορά αγοράς\" για να επαναφέρετε την αγορά σας. Εάν το πρόβλημα παραμένει, δοκιμάστε να καθαρίσετε την προσωρινή μνήμη του Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
     <string name="upgrade_screen_title">Απόκτησε το SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid δεν έχει διαφημίσεις και δεν πωλεί τα δεδομένα των χρηστών. Η εργασία μου χρηματοδοτείται από εσάς ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Πλεονεκτήματα</string>
-    <string name="upgrade_screen_benefits_body">• Καθαρισμός εφαρμογών 💯\n• Προγραμματισμένες λειτουργίες ⏰\n• Επιπλέον επιλογές για όλα τα εργαλεία ⚙️\n• Οι κανόνες διαγραφής σας ✍️\n• Ένας προγραμματιστής με κίνητρο 🧙\nκαι περισσότερα…</string>
+    <string name="upgrade_screen_benefits_title">Πλεονεκτήματα αναβάθμισης</string>
+    <string name="upgrade_screen_benefits_body">• Καθαρισμός κρυφής μνήμης εφαρμογών και περιττών δεδομένων\n• Αφαίρεση διπλότυπων αρχείων\n• Ενεργοποίηση προγραμματισμένων καθαρισμών\n• Δημιουργία προσαρμοσμένων φίλτρων και κανόνων καθαρισμού\n• Παρακολούθηση τάσεων αποθήκευσης και ιστορικού καθαρισμού\n• Περισσότερες λειτουργίες και στοιχεία ελέγχου σε όλη την εφαρμογή\n• Υποστήριξη συνεχούς ανάπτυξης</string>
     <string name="upgrade_screen_how_title">Επιλογές</string>
     <string name="upgrade_screen_how_body">Μπορείτε να επιλέξετε μεταξύ μιας εφάπαξ αγοράς και μιας φθηνότερης ετήσιας συνδρομής.\nΗ συνδρομή ξεκινά με δωρεάν δοκιμή 14 ημερών, μετά την οποία θα χρεωθείτε μία φορά το χρόνο. Η δοκιμή και η συνδρομή ακυρώνονται ανά πάσα στιγμή.\nΊδια χαρακτηριστικά, απλά διαφορετικά μοντέλα τιμών.</string>
+    <string name="upgrade_screen_subscription_offer_title">Ετήσια συνδρομή</string>
+    <string name="upgrade_screen_iap_offer_title">Αγοράστε μία φορά</string>
+    <string name="upgrade_screen_offer_recommended">Συνιστώμενο</string>
+    <string name="upgrade_screen_offers_unavailable_message">Οι τιμές δεν μπόρεσαν να φορτωθούν αυτή τη στιγμή. Ελέγξτε το Google Play και προσπαθήστε ξανά σε λίγο.</string>
     <string name="upgrade_screen_subscription_trial_action">Ξεκινήστε δωρεάν δοκιμή 14 ημερών</string>
     <string name="upgrade_screen_subscription_action">Εγγραφή</string>
     <string name="upgrade_screen_subscription_action_hint">Η συνδρομή κοστίζει %s κάθε χρόνο.</string>

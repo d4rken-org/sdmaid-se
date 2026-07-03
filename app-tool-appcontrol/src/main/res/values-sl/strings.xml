@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Velikost</string>
     <string name="appcontrol_list_sortmode_screentime_label">Čas zaslona</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Velikosti programov se določajo zaradi zmogljivosti.  Za natančnejše podatke uporabite Analizatorja shrambe.</string>
+    <string name="appcontrol_list_filteroptions_label">Možnosti filtra</string>
+    <string name="appcontrol_list_fastscroller_action">Hitri drsnik</string>
     <string name="appcontrol_progress_uninstalling_app">Odstranjevanje programa</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d program je bil odstranjen.</item>
@@ -139,4 +141,8 @@
     <string name="appcontrol_item_installedat_x_label">Nameščeno dne: %s</string>
     <string name="shortcut_appcontrol_short">Nadzor programov</string>
     <string name="shortcut_appcontrol_long">Upravljaj z nameščenimi programi</string>
+    <string name="tour_appcontrol_search_body">Poiščite aplikacijo po imenu. Uporabno na napravah z veliko nameščenimi aplikacijami.</string>
+    <string name="tour_appcontrol_filter_body">Zožite seznam po uporabniških/sistemskih aplikacijah, stanju omogočenosti, nedavni aktivnosti in več. Aktivni filtri se tukaj prikažejo kot oznake.</string>
+    <string name="tour_appcontrol_sort_body">Razvrstite aplikacije po imenu, datumu namestitve, zadnji posodobitvi, velikosti ali času uporabe zaslona. Pritisnite isto možnost, da spremenite smer.</string>
+    <string name="tour_appcontrol_app_row_body">Pritisnite aplikacijo, da odprete njene podrobnosti in razpoložljiva dejanja. Dolgo pritisnite, da začnete izbiro in uporabite množična dejanja.</string>
 </resources>

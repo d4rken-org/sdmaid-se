@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Менеджар выключэнняў</string>
     <string name="exclusion_manager_desc">Кіраванне выключэннямі для файлаў і праграм.</string>
-    <string name="exclusion_explanation_body1">Выключэнне файлаў і праграм з аперацый SD Maid.</string>
-    <string name="exclusion_add_new_hint">Каб дадаць новыя выключэнні, спачатку дазвольце SD Maid выканаць пошук, а затым скарыстайцеся кантэкстным меню для рэзультату, які вы хочаце выключыць.</string>
+    <string name="exclusion_explanation_body1">Выключайце файлы і прыложенні каб абаронць іх ад інструментаў SD Maid, ці каб прапусцяць ненужныя элементы і паскорыць аперацыі.</string>
+    <string name="exclusion_add_new_hint">Пакуль няма выключэнняў. Выкарыстоўвайце кнопку + каб стварыць адно, ці выключыце элементы з вынікаў любога інструмента.</string>
     <string name="exclusion_create_action">Стварыць выключэнне</string>
     <string name="exclusion_edit_action">Рэдагаваць выключэнне</string>
     <string name="exclusion_type_package">Выключэнне праграмы</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Экспартаваць выключэнні</string>
     <string name="exclusion_create_pkg_hint">З дапамогай Менеджара стварыце выключэнні для праграм.</string>
     <string name="exclusion_create_path_hint">З дапамогай Аналізу сховішча стварыце выключэнні для шляхоў.</string>
+    <string name="exclusion_create_segment_hint">Адпавідаць сегменту назвы, напрыклад «DCIM/Camera».</string>
     <string name="exclusion_show_defaults_action">Паказаць значэнні па змаўчанні</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">Імпартавана %d выключэнне</item>
+        <item quantity="few">Імпартавана %d выключэння</item>
+        <item quantity="many">Імпартавана %d выключэнняў</item>
+        <item quantity="other">Імпартавана %d выключэнняў</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">Экспартавана %d выключэнне</item>
+        <item quantity="few">Экспартавана %d выключэння</item>
+        <item quantity="many">Экспартавана %d выключэнняў</item>
+        <item quantity="other">Экспартавана %d выключэнняў</item>
+    </plurals>
 </resources>

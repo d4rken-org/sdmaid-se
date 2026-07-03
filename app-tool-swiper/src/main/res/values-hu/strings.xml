@@ -36,6 +36,19 @@
         <item quantity="one">%d eldöntetlen elem marad későbbi áttekintésre.</item>
         <item quantity="other">%d eldöntetlen elem marad későbbi áttekintésre.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Ez a munkamenet egy teljes tárolókötet céljáként van beállítva — az itt történő törlés a tárolókötet összes mappáját érinti.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…és még %d mappa</item>
+        <item quantity="other">…és még %d mappa</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Megértettem, hogy ezek a fájlok véglegesen törölve lesznek.</string>
+    <string name="swiper_sensitive_root_warning_title">Az egész tárolóegységet átvizsgálja?</string>
+    <string name="swiper_sensitive_root_warning_message">A(z) %1$s vizsgálata ezen a tárolóegységen lévő összes fájlt tartalmazza — fényképeket, dokumentumokat, letöltéseket, alkalmazások médiáját és még sok mást. Folytatja?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Mégis folytatás</string>
+    <string name="swiper_session_risky_label">Teljes tárolóegység vizsgálata</string>
+    <string name="swiper_session_risky_info_message">Ez a munkamenet a tárolóegység gyökerét célozza meg, így a tárolóegységen lévő összes fájl az alkalmazás körébe tartozik — fényképek, dokumentumok, letöltések, alkalmazások médiája és egyéb.
+
+A teljes tárolóegység vizsgálata sok elemet adhat vissza, beleértve azokat a fájlokat, amelyeket talán nem szándékozott áttekinteni. Alkalmazzon fájltípus-szűrőt a vizsgálat szűkítéséhez.</string>
     <string name="swiper_delete_x_action">%1$d törlése</string>
     <string name="swiper_settings_swap_directions_title">Húzási irányok felcserélése</string>
     <string name="swiper_settings_swap_directions_summary">Balra húzás a megtartáshoz, jobbra a törléshez.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Add meg a munkamenet nevét</string>
     <string name="swiper_sessions_current_sessions">Jelenlegi munkamenetek</string>
     <string name="swiper_session_paths_label">Útvonalak</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…és %d további</item>
+        <item quantity="other">…és %d további</item>
+    </plurals>
     <string name="swiper_session_status_label">Állapot</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d megtartandó</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Szűrve: %1$s</string>
     <string name="swiper_session_no_matching_files">Nem található megfelelő fájl</string>
     <string name="swiper_open_externally_action">Megnyitás külső alkalmazásban</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Húzza végig az ujját egy fénykép felett, hogy eldöntse a sorsát: Oldalra a megtartáshoz vagy törléshez, felfelé a kihagyáshoz, lefelé a visszavonáshoz. Az alábbi gombok ugyanezt teszik — és megmutatják, melyik oldal melyik.</string>
+    <string name="tour_swiper_openin_body">Ez a gomb a fényképet egy másik alkalmazásban nyitja meg — hasznos lehet a döntés előtt ellenőrizni.</string>
+    <string name="tour_swiper_preview_body">Ez a gomb teljes képernyős előnézetet nyit meg a közelebbi megtekintéshez.</string>
+    <string name="tour_swiper_actions_body">Nem szereti az ujjműveletet? Nekünk is vannak gombjaink! A Kihagyás későbbre halasztja a döntést, a Kihagyás hosszú megnyomása pedig kizárja a fájlt a jövőbeli vizsgálatokból. A Visszavonás az utolsó döntést vonja vissza.</string>
+    <string name="tour_swiper_review_body">Az Ön megtartandó és törlendő elemei csak előkészítve vannak. Nyissa meg a Felülvizsgálatot, hogy átgondolja őket, és alkalmazza a törléseket, amikor készen áll.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner অ্যাপ-নির্দিষ্ট নয় এমন ফিল্টার ব্যবহার করে জঞ্জাল খুঁজে পায়। খালি ফোল্ডার, বাকি লগ এবং পুরানো থাম্বনেইলের মতো জিনিসগুলির জন্য প্রস্তুত-তৈরি নিয়ম বিদ্যমান। আপনার নিজের তৈরি করতে চাইলে সেটিংসে যান।</string>
+    <string name="tour_systemcleaner_filter_body">প্রতিটি সারি একটি ফিল্টার এবং এটি কি খুঁজে পেয়েছে তা দেখায়। আপনি কিছু মুছে ফেলার আগে ঠিক কোন ফাইলগুলি মিলছে তা দেখতে এর বিবরণ খুলুন।</string>
 </resources>

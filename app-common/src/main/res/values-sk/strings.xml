@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Rozumiem</string>
     <string name="general_fix_action">Opraviť</string>
     <string name="general_set_up_action">Nastaviť</string>
+    <string name="general_unavailable_label">Nedostupné</string>
     <string name="general_edit_action">Upraviť</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prázdne</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">V poradí</string>
     <string name="general_progress_deleting">Vymazávanie</string>
     <string name="general_progress_deleting_x">Odstraňuje sa %s</string>
+    <string name="general_sort_by_title">Zoradiť podľa</string>
     <string name="general_sort_reverse_action">Obrátený režim triedenia</string>
+    <string name="general_sort_oldest_first">Najstaršie ako prvé</string>
+    <string name="general_sort_newest_first">Najnovšie ako prvé</string>
+    <string name="general_sort_name_asc">Názov (A → Z)</string>
+    <string name="general_sort_size_desc">Najväčšie ako prvé</string>
     <string name="general_tag_system">Systém</string>
+    <string name="general_navigate_up_action">Navigovať nahor</string>
+    <string name="general_filter_action">Filter</string>
+    <string name="general_filter_by_tags_label">Filtrovať podľa značiek</string>
+    <string name="general_filter_add_action">Pridať filter</string>
+    <string name="general_filter_remove_x_action">Odstrániť filter %s</string>
+    <string name="general_filter_empty_row_hint">Klepnite na + pre filtrovanie</string>
+    <string name="general_show_all_action">Zobraziť všetko</string>
     <string name="general_result_success_message">Operácia úspešná</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Uvoľnila sa %s.</item>
@@ -76,6 +89,8 @@
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Zobraziť</string>
+    <string name="general_open_action">Otvoriť</string>
+    <string name="general_configure_action">Nastaviť</string>
     <string name="general_update_action">Aktualizovať</string>
     <string name="general_scan_action">Skenovať</string>
     <string name="general_close_action">Zavrieť</string>
@@ -105,7 +120,9 @@
         <item quantity="other">%d položiek bolo odstránených</item>
     </plurals>
     <string name="general_search_action">Hľadať</string>
+    <string name="general_search_no_matches">Žiadne zhody</string>
     <string name="general_open_system_settings_action">Otvoriť nastavenia systému</string>
+    <string name="general_fast_scroller_action">Rýchly posúvač</string>
     <plurals name="result_x_items">
         <item quantity="one">%s položka</item>
         <item quantity="few">%s položky</item>
@@ -137,6 +154,12 @@
     <string name="general_enable_service_action">Povoliť službu</string>
     <string name="general_undo_action">Vrátiť späť</string>
     <string name="general_list_select_all_action">Vybrať všetky</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d vybraný</item>
+        <item quantity="few">%d vybrané</item>
+        <item quantity="many">%d vybraných</item>
+        <item quantity="other">%d vybraných</item>
+    </plurals>
     <string name="general_path_label">Cesta</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Veľkosť</string>
@@ -176,6 +199,8 @@
     <string name="general_error_report_bug_action">Nahlásiť chybu</string>
     <string name="general_error_ipc_deadobject_title">Spojenie so službou sa pretržilo</string>
     <string name="general_error_ipc_deadobject_description">Spojenie s kritickou službou (napr. Magisk, Shizuku alebo iné systémové služby) sa neočakávane pretržilo. Prosím, reštartujte svoje zariadenie. Ak problém pretrváva, skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="general_error_upgrade_required_title">Vyžaduje sa Pro verzia</string>
+    <string name="general_error_upgrade_required_description">Toto je funkcia Pro. Prosím, aktualizujte SD Maid SE, aby ste ju mohli používať.</string>
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavenie</string>
@@ -203,4 +228,22 @@
     <string name="settings_category_risklevel">Úroveň rizika</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
+    <string name="ui_theme_color_sunset_label">Západ slnka</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Táto funkcia vyžaduje prístup root, ale SD Maid ho na tomto zariadení nemohol získať.</string>
+    <string name="access_blocked_root_declined">Táto funkcia vyžaduje prístup root. Môžete ho povoliť cez obrazovku nastavení.</string>
+    <string name="access_blocked_root_or_shizuku">Táto funkcia vyžaduje prístup root alebo Shizuku, ktoré nie sú dostupné na tomto zariadení.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Neplatný súbor zálohy</string>
+    <string name="backup_restore_error_invalid_body">Tento súbor nie je platná záloha SD Maid alebo je poškodený.</string>
+    <string name="backup_restore_error_version_body">Táto záloha bola vytvorená novšou verziou SD Maid. Prosím, aktualizujte aplikáciu a skúste znova.</string>
+    <string name="backup_restore_error_restore_failed_title">Obnovenie zlyhalo</string>
+    <string name="backup_restore_error_restore_failed_body">Tieto časti sa nedali obnoviť: %1$s. Vaša predchádzajúca konfigurácia bola uložená a dá sa obnoviť.</string>
+    <string name="backup_restore_error_safety_title">Obnovenie sa nezačalo</string>
+    <string name="backup_restore_error_safety_body">SD Maid nemohol uložiť bezpečnostnú snímku vašej aktuálnej konfigurácie, takže sa nič nezmenilo.</string>
+    <string name="backup_restore_error_busy_title">Prosím, čakajte</string>
+    <string name="backup_restore_error_busy_body">Čistiaca úloha alebo iná operácia zálohovania práve prebieha. Skúste znova, keď sa skončí.</string>
+    <string name="backup_restore_error_schema_title">Nekompatibilná záloha</string>
+    <string name="backup_restore_error_schema_body">Formát databázy zálohy sa nezhoduje s touto verziou SD Maid. Obnovenie historických údajov je podporované len medzi identickými verziami aplikácie.</string>
 </resources>

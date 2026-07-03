@@ -108,4 +108,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">تقييد المطابقات بناءً على عمر الملف (وقت آخر تعديل). اتركه فارغًا لمطابقة أي عمر.</string>
     <string name="systemcleaner_customfilter_import_action">استيراد مرشح جديد</string>
     <string name="systemcleaner_customfilter_export_action">تصدير المرشح المحدد</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">يجد SystemCleaner القمامة باستخدام مرشحات غير محددة للتطبيق. توجد قواعد جاهزة لأشياء مثل المجلدات الفارغة والسجلات المتبقية والصور المصغرة القديمة. قم بزيارة الإعدادات إذا أردت إنشاء قواعدك الخاصة.</string>
+    <string name="tour_systemcleaner_filter_body">كل صف هو مرشح وما عثر عليه. افتح تفاصيله لمعرفة الملفات التي تطابق بالضبط قبل حذف أي شيء.</string>
 </resources>

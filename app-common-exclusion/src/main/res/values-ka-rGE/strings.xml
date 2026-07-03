@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">გამონაკლისების მენეჯერი</string>
     <string name="exclusion_manager_desc">ფაილების და აპების გამონაკლისების მართვა.</string>
-    <string name="exclusion_explanation_body1">ფაილებისა და აპების გამორიცხვა SD Maid-ის ოპერაციებიდან.</string>
-    <string name="exclusion_add_new_hint">დაამატეთ ახალი გამონაკლისები ჯერ SD Maid-ის ძიების დაშვებით, შემდეგ კი კონტექსტის მენიუს გამოყენებით იმ შედეგზე, რომლის გამორიცხვაც გსურთ.</string>
+    <string name="exclusion_explanation_body1">გამორიცხეთ ფაილები და აპლიკაციები რათა დაიცვოთ ისინი SD Maid-ის ხელსაწყოებისგან, ან გამოტოვოთ არასაჭირო ელემენტები და დააჩქარეთ ოპერაციები.</string>
+    <string name="exclusion_add_new_hint">ჯერ არ არის გამორიცხვები. გამოიყენეთ + ღილაკს ერთის შესაქმნელად, ან გამორიცხეთ ელემენტები ნებისმიერი ხელსაწყოს შედეგებიდან.</string>
     <string name="exclusion_create_action">გამონაკლისის შექმნა</string>
     <string name="exclusion_edit_action">გამონაკლისის რედაქტირება</string>
     <string name="exclusion_type_package">აპის გამონაკლისი</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">გამონაკლისების ექსპორტი</string>
     <string name="exclusion_create_pkg_hint">გამოიყენეთ AppControl ხელსაწყო აპის გამონაკლისების შესაქმნელად.</string>
     <string name="exclusion_create_path_hint">გამოიყენეთ StorageAnalyzer ხელსაწყო გზის გამონაკლისების შესაქმნელად.</string>
+    <string name="exclusion_create_segment_hint">დაემთხვეთ სახელის სეგმენტს, მაგალითად „DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">ნაგულისხმევების ჩვენება</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d გამორიცხვა დაიმპორტირა</item>
+        <item quantity="other">%d გამორიცხვა დაიმპორტირა</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d გამორიცხვა გატანილი</item>
+        <item quantity="other">%d გამორიცხვა გატანილი</item>
+    </plurals>
 </resources>

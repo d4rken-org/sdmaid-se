@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Käytä \"Palauta ostos\" -vaihtoehtoa palauttaaksesi ostoksesi. Jos ongelma jatkuu, kokeile tyhjentää Google Play -välimuisti ja käynnistää laitteesi uudelleen.</string>
     <string name="upgrade_screen_title">Hanki SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Edut</string>
-    <string name="upgrade_screen_benefits_body">• Sovellusten siivous 💯\n• Ajoitetut toiminnot ⏰\n• Lisävaihtoehdot kaikille työkaluille ⚙️\n• Omat poistosäännöt ✍️\n• Motivoitunut kehittäjä 🧙\nja paljon muuta…</string>
+    <string name="upgrade_screen_benefits_title">Päivityksen edut</string>
+    <string name="upgrade_screen_benefits_body">• Tyhjennä sovelluksen välimuistit ja kertakäyttöiset tiedot
+• Poista kaksoistiedostot
+• Ota käyttöön ajoitetut siivoustyöt
+• Luo mukautetut suodattimet ja siivoussäännöt
+• Seuraa tallennustilan kehitystä ja siivoushistoriaa
+• Enemmän ominaisuuksia ja hallintavaihtoehtoja sovelluksessa
+• Tue sovelluksen jatkokehitystä</string>
     <string name="upgrade_screen_how_title">Vaihtoehdot</string>
     <string name="upgrade_screen_how_body">Voit valita kertaostoksen ja halvemman vuositilauksen välillä.\nTilaus alkaa ilmaisella 14 päivän kokeilujaksolla, jonka jälkeen sinua veloitetaan kerran vuodessa. Kokeilu ja tilaus voidaan peruuttaa milloin tahansa.\nSamat ominaisuudet, vain eri hinnoittelumallit.</string>
+    <string name="upgrade_screen_subscription_offer_title">Vuosittainen tilaus</string>
+    <string name="upgrade_screen_iap_offer_title">Osta kerran</string>
+    <string name="upgrade_screen_offer_recommended">Suositeltu</string>
+    <string name="upgrade_screen_offers_unavailable_message">Hintoja ei voitu ladata juuri nyt. Tarkista Google Play ja yritä uudelleen hetken kuluttua.</string>
     <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen 14 päivän kokeilu</string>
     <string name="upgrade_screen_subscription_action">Tilaa</string>
     <string name="upgrade_screen_subscription_action_hint">Tilaus maksaa %s vuodessa.</string>

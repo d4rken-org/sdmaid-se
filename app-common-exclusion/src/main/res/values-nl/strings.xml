@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Uitsluitingsbeheerder</string>
     <string name="exclusion_manager_desc">Bestands- en app-uitsluitingen beheren.</string>
-    <string name="exclusion_explanation_body1">Sluit bestanden en apps uit van SD Maid\'s activiteiten.</string>
-    <string name="exclusion_add_new_hint">Voeg nieuwe uitsluitingen toe door SD Maid eerst te laten zoeken en vervolgens het contextmenu te gebruiken op het resultaat dat je wilt uitsluiten.</string>
+    <string name="exclusion_explanation_body1">Sluit bestanden en apps uit om ze te beschermen tegen de hulpmiddelen van SD Maid, of om irrelevante items over te slaan en bewerkingen sneller te maken.</string>
+    <string name="exclusion_add_new_hint">Nog geen uitsluitingen. Gebruik de +-knop om er een aan te maken, of sluit items uit de resultaten van elk gereedschap uit.</string>
     <string name="exclusion_create_action">Uitsluiting creëren</string>
     <string name="exclusion_edit_action">Uitsluiting bewerken</string>
     <string name="exclusion_type_package">App-uitsluiting</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Export uitsluitingen</string>
     <string name="exclusion_create_pkg_hint">Gebruik de AppControl-tool om app uitsluitingen te maken.</string>
     <string name="exclusion_create_path_hint">Gebruik het hulpprogramma StorageAnalyzer om paduitsluitingen te maken.</string>
+    <string name="exclusion_create_segment_hint">Zoeken naar een naamsegment, zoals \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Toon standaardinstellingen</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d uitsluiting geïmporteerd</item>
+        <item quantity="other">%d uitsluitingen geïmporteerd</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d uitsluiting geëxporteerd</item>
+        <item quantity="other">%d uitsluitingen geëxporteerd</item>
+    </plurals>
 </resources>

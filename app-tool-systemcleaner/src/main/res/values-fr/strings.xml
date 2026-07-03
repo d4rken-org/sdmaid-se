@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limiter les correspondances en fonction de l’âge du fichier (date de dernière modification). Ne pas définir pour accepter tous les âges.</string>
     <string name="systemcleaner_customfilter_import_action">Importer un nouveau filtre</string>
     <string name="systemcleaner_customfilter_export_action">Exporter le filtre choisi</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner trouve des fichiers inutiles en utilisant des filtres non spécifiques à une appli. Des règles prêtes à l’emploi existent pour des éléments comme les dossiers vides, les journaux résiduels et les vignettes obsolètes. Accédez aux paramètres si vous souhaitez en créer.</string>
+    <string name="tour_systemcleaner_filter_body">Chaque ligne est un filtre et ce qu’il a trouvé. Ouvrez ses détails pour voir exactement quels fichiers correspondent avant de supprimer quoi que ce soit.</string>
 </resources>

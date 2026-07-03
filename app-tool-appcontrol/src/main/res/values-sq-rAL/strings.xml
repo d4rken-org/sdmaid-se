@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Madhësia</string>
     <string name="appcontrol_list_sortmode_screentime_label">Koha e ekranit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Madhësitë e aplikacioneve vlerësohen për arsye të performancës. Përdorni mjetin StorageAnalyzer për të dhëna më të sakta.</string>
+    <string name="appcontrol_list_filteroptions_label">Opsionet e filtrit</string>
+    <string name="appcontrol_list_fastscroller_action">Rrëshqitës i shpejtë</string>
     <string name="appcontrol_progress_uninstalling_app">Po çinstalon aplikacionin</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikacion u çinstalua</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Instaluar më: %s</string>
     <string name="shortcut_appcontrol_short">Kontrolli i aplikacionit</string>
     <string name="shortcut_appcontrol_long">Menaxho aplikacionet e instaluara</string>
+    <string name="tour_appcontrol_search_body">Kërkoni një aplikacion sipas emrit. Është e dobishme në pajisje me shumë aplikacione të instaluara.</string>
+    <string name="tour_appcontrol_filter_body">Zvogëloni listën sipas aplikacioneve të përdoruesit/sistemit, gjendjes së aktivizimit, aktivitetit të fundit, dhe më shumë. Filtrat aktivë shfaqen si çipe këtu.</string>
+    <string name="tour_appcontrol_sort_body">Renditni aplikacionet sipas emrit, datës së instalimit, përditësimit të fundit, madhësisë ose kohës në ekran. Prekni të njëjtën mundësi për të përmbysur drejtimin.</string>
+    <string name="tour_appcontrol_app_row_body">Prekni një aplikacion për të hapur detajet e tij dhe veprimet e disponueshme. Shtypje e gjatë për të filluar përzgjedhjen dhe përdorni veprimet në masë.</string>
 </resources>

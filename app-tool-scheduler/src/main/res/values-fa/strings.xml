@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">برنامه‌ زمان‌بندی به پایان رسید.</string>
     <string name="scheduler_notification_result_success_message">تمام وظایف زمان‌بندی شده با موفقیت اجرا شدند.</string>
     <string name="scheduler_notification_result_failure_message">برخی از وظایف زمان‌بندی شده با خطا مواجه شدند یا شکست خوردند. سعی کنید آنها را به صورت دستی اجرا کنید.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">رد شد، صفحه خاموش یا قفل بود</string>
+    <string name="scheduler_acs_screenlocked_hint_title">پاک‌سازی برنامه ممکن است رد شود</string>
+    <string name="scheduler_acs_screenlocked_hint_body">پاک‌سازی برنامه از سرویس دسترسی‌پذیری استفاده می‌کند که نیاز به باز بودن صفحه دارد. اجراهای زمان‌بندی‌شده زمانی که دستگاه قفل است رد می‌شوند.
+
+برای پاک‌سازی در پس‌زمینه از Shizuku یا روت استفاده کنید یا آن را برای زمانی که از دستگاه استفاده می‌کنید برنامه‌ریزی کنید.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">برنامه‌های سیستمی ممکن است رد شوند</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku بیشتر کش‌ها را در پس‌زمینه پاک‌سازی می‌کند، اما برنامه‌های سیستمی نیاز به سرویس دسترسی‌پذیری دارند که نیاز به باز بودن صفحه دارد. با فعال بودن «شامل‌کردن برنامه‌های سیستمی»، آن‌ها زمانی که دستگاه قفل است رد می‌شوند.
+
+«شامل‌کردن برنامه‌های سیستمی» را خاموش کنید یا جدول‌زمانی را زمانی که باز است اجرا کنید.</string>
     <string name="scheduler_commands_after_schedule_label">دستورات پس از زمان‌بندی</string>
     <string name="scheduler_commands_after_schedule_desc">دستورات Android Shell که در پایان یک زمانبندی اجرا خواهند شد.</string>
     <string name="scheduler_battery_optimization_hint">در صورت بروز مشکلات در اجرای پس‌زمینه، غیرفعال کردن بهینه‌سازی باتری برای SD Maid را در نظر بگیرید.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid می‌تواند بر اساس برنامه‌ای پاک‌سازی کند. یک زمان انتخاب کنید و تعیین کنید کدام ابزارها اجرا شوند، و این کار را در پس‌زمینه انجام می‌دهد، تقریباً نیازی نیست برنامه را باز کنید.</string>
+    <string name="tour_scheduler_create_body">اینجا را لمس کنید تا یک برنامه جدید ایجاد کنید، سپس تعیین کنید چه زمانی اجرا شود و کدام ابزارها را شامل کند.</string>
 </resources>

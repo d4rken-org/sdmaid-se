@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">መርሃ ግብር አዘጋጅ ተጠናቅቋል</string>
     <string name="scheduler_notification_result_success_message">ሁሉም የታቀዱ ተግባራት በተሳካ ሁኔታ ተሠርተዋል።</string>
     <string name="scheduler_notification_result_failure_message">አንዳንድ የታቀዱ ተግባራት ተሳሽተዋል ወይም ስህተቶች አጋጥመዋቸዋል። በእጅ ማስኬድ ይሞክሩ።</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">ተዝልላል፣ ስክሪኑ ጀፋ ወይም ተዘግቤ ነበር</string>
+    <string name="scheduler_acs_screenlocked_hint_title">የመተግበሪያ ንጽህና ሊዝል ይችላል</string>
+    <string name="scheduler_acs_screenlocked_hint_body">የመተግበሪያ ንጽህና ተደራሻነት አገልግሎት ይጠቅማል፣ ይህም ስክሪኑ የተከፈተ ይፈልጋል። መሣሪያው ተዘግቶ ባለበት ጊዜ የታቀደው ስራዎች ይቀራሉ።
+
+ለስውር ንጽህና Shizuku ወይም root ተጠቀሙ፣ ወይም መሣሪያውን በሚጠቀሙበት ጊዜ ያቀድሩ።</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">የስርዓት መተግበሪያዎች ሊዝሉ ይችላሉ</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ብዙዎችን ካሽ በስውር ይነጻል፣ ግን የስርዓት መተግበሪያዎች ተደራሻነት አገልግሎት ይፈልጋሉ፣ ይህም ስክሪኑ የተከፈተ ይፈልጋል። “የስርዓት መተግበሪያዎችን አክትት” በተክፍተበት ጊዜ፣ እነዝህ መሣሪያው ተዘግቶ ባለበት ጊዜ ይቀራሉ።
+
+“የስርዓት መተግበሪያዎችን አክትት”ን አጥፋ፣ ወይም መሣሪያው በተከፍተበት ጊዜ ታቀድን አስከድ።</string>
     <string name="scheduler_commands_after_schedule_label">ከመርሃ-ግብር በኋላ ትዕዛዞች</string>
     <string name="scheduler_commands_after_schedule_desc">በመርሃ ግብር መጨረሻ ላይ የሚከናወኑ የአንድሮይድ ሼል ትዕዛዞች።</string>
     <string name="scheduler_battery_optimization_hint">የበስተጀርባ አፈጻጸም ችግሮች ካጋጠሙዎት ለSD Maid ባትሪ ማሻሻያዎችን ማሰናከል ያስቡበት።</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid በመቀንቅ ሊነጽ ይችላል። ጊዜ ይምረጡ እና ምን መሳሪያዎች እንደሚሰሩ ይምረጡ፣ እናክነም ስራ በስደር ይሰራል፣ (ነባት በነባት) መተግበሪያውን መክፈት አይያሻግም።</string>
+    <string name="tour_scheduler_create_body">አዲስ መቀንቅ ለመፍጠር እዚህ ይጀኑ፣ ከዚያ ነበር ያለውን ጊዜ ያሰራል እና የይት መሳሪያዎችን ያስከትቱሉ።</string>
 </resources>

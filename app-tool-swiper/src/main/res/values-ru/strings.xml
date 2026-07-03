@@ -46,6 +46,19 @@
         <item quantity="many">%d нерешенных элем. будут отложены на более поздний срок.</item>
         <item quantity="other">%d нерешенных элем. будут отложены на более поздний срок.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Этот сеанс охватывает весь том хранилища — удаление здесь применяется ко всем папкам на этом хранилище.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…и ещё %d папка</item>
+        <item quantity="few">…и ещё %d папки</item>
+        <item quantity="many">…и ещё %d папок</item>
+        <item quantity="other">…и ещё %d папок</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Я понимаю, что эти файлы будут удалены безвозвратно.</string>
+    <string name="swiper_sensitive_root_warning_title">Сканировать всё хранилище?</string>
+    <string name="swiper_sensitive_root_warning_message">Сканирование %1$s включает все файлы на этом хранилище — фото, документы, загрузки, медиа приложений и многое другое. Продолжить?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Всё равно продолжить</string>
+    <string name="swiper_session_risky_label">Сканирование всего хранилища</string>
+    <string name="swiper_session_risky_info_message">Этот сеанс охватывает корень тома хранилища, поэтому все файлы на этом хранилище находятся в области действия — фото, документы, загрузки, медиа приложений и многое другое.\n\nСканирование всего хранилища может вернуть много элементов, включая файлы, которые вы, возможно, не планировали просматривать. Примените фильтр по типу файла, чтобы сузить область сканирования.</string>
     <string name="swiper_delete_x_action">Удалить %1$d</string>
     <string name="swiper_settings_swap_directions_title">Поменять направление свайпа</string>
     <string name="swiper_settings_swap_directions_summary">Проведите влево для сохранения, вправо для удаления.</string>
@@ -95,6 +108,12 @@
     <string name="swiper_session_rename_hint">Введите имя для сессии</string>
     <string name="swiper_sessions_current_sessions">Текущие сессии</string>
     <string name="swiper_session_paths_label">Пути</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…и ещё %d</item>
+        <item quantity="few">…и ещё %d</item>
+        <item quantity="many">…и ещё %d</item>
+        <item quantity="other">…и ещё %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Состояние</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d для сохранения</item>
@@ -174,4 +193,10 @@
     <string name="swiper_file_type_filter_summary">Отфильтровано: %1$s</string>
     <string name="swiper_session_no_matching_files">Соответствующие файлы не найдены</string>
     <string name="swiper_open_externally_action">Открыть во внешнем приложении</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Проведите пальцем по фотографии, чтобы решить её судьбу: в стороны — сохранить или удалить, вверх — пропустить, вниз — отменить. Кнопки ниже делают то же самое и показывают, какая сторона что делает.</string>
+    <string name="tour_swiper_openin_body">Эта кнопка открывает фотографию в другом приложении — удобно проверить перед выбором.</string>
+    <string name="tour_swiper_preview_body">Эта кнопка открывает полноэкранный просмотр для более внимательного рассмотрения.</string>
+    <string name="tour_swiper_actions_body">Не любите свайпить? Есть кнопки! «Пропустить» оставляет решение на потом, долгое нажатие на «Пропустить» исключает файл из будущих сканирований. «Отменить» отменяет ваш последний выбор.</string>
+    <string name="tour_swiper_review_body">Ваши выборы только подготовлены. Откройте Проверку, чтобы просмотреть их и применить удаления, когда будете готовы.</string>
 </resources>

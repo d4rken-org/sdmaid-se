@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Pengelola pengecualian</string>
     <string name="exclusion_manager_desc">Atur berkas dan pengecualian aplikasi.</string>
-    <string name="exclusion_explanation_body1">Kecualikan aplikasi dan berkas dari operasi SD Maid.</string>
-    <string name="exclusion_add_new_hint">Tambah pengecualian baru dengan mengizinkan SD Maid mencari dan menggunakan konteks menu pada hasil yang ingin Anda kecualikan.</string>
+    <string name="exclusion_explanation_body1">Kecualikan file dan aplikasi untuk melindunginya dari alat SD Maid, atau untuk melewatkan item yang tidak relevan dan mempercepat operasi.</string>
+    <string name="exclusion_add_new_hint">Belum ada pengecualian. Gunakan tombol + untuk membuat satu, atau kecualikan item dari hasil alat apa pun.</string>
     <string name="exclusion_create_action">Buat pengecualian</string>
     <string name="exclusion_edit_action">Ubah pengecualian</string>
     <string name="exclusion_type_package">Pengecualian aplikasi</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">Ekspor pengecualian</string>
     <string name="exclusion_create_pkg_hint">Gunakan alat PengendaliApp untuk membuat pengecualian app.</string>
     <string name="exclusion_create_path_hint">Gunakan alat PenganalisaPenyimpanan untuk membuat jejak pengecualian.</string>
+    <string name="exclusion_create_segment_hint">Cocokkan segmen nama, seperti \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Tampilkan bawaan</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d pengecualian diimpor</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d pengecualian diekspor</item>
+    </plurals>
 </resources>

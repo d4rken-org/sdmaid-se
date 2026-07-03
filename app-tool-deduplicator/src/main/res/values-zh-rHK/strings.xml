@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">你要刪除所選擇的重複文件組中的重複副本（保留一個副本）嗎？</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">你確定刪除所選擇的重複文件集的所有文件嗎？這將不會保留所選重覆文件集中的任何文件！</string>
     <string name="deduplicator_delete_all_toggle_msg">刪除所有文件。不會保留任何文件！</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">刪除此組中的 %1$d 個重複項目，釋放 %2$s？保留的副本會保留。</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s 可釋放</string>
+    <string name="deduplicator_action_delete_set">刪除重複項目組</string>
+    <string name="deduplicator_action_open_preview">開啟預覽</string>
+    <string name="deduplicator_marked_for_deletion">已標記待刪除</string>
+    <string name="deduplicator_cluster_preview_image">重複項目組預覽</string>
+    <string name="deduplicator_selection_keep_one_required">每個重複項目組合中必須保留至少一個檔案。在設定中啟用「讓「全部刪除」成為可能」以覆蓋此限制。</string>
     <string name="deduplicator_progress_comparing_files">正在比對文件</string>
     <string name="deduplicator_details_cluster_title">一組副本</string>
     <string name="deduplicator_matches_exact_label">精確副本</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">優先較小檔案</string>
     <string name="deduplicator_view_mode_groups_label">群組</string>
     <string name="deduplicator_view_mode_directories_label">資料夾</string>
+    <string name="tour_deduplicator_details_cluster_body">這些檔案看起來都是同一項目或媒體內容，是一組重複的檔案。</string>
+    <string name="tour_deduplicator_details_delete_mark_body">帶有此圖示的檔案將被刪除；組中保留的檔案是 SD Maid 保留的。您可以在刪除策略設定中變更選擇保留檔案的方式。</string>
 </resources>

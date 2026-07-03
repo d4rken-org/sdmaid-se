@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">သင့်ဝယ်ယူမှုကို ပြန်လည်ရယူရန် \"ဝယ်ယူမှုကို ပြန်လည်ရယူမည်\" ရွေးချယ်စရာကို အသုံးပြုပါ။ ပြဿနာ ဆက်လက်ရှိနေပါက Google Play cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
     <string name="upgrade_screen_title">SD Maid SE Pro ရယူပါ</string>
     <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပါ၊ အသုံးပြုသူဒေတာများကိုလည်း မရောင်းချပါ။ ကျွန်ုပ်၏အလုပ်ကို သင်မှ ငွေကြေးထောက်ပံ့ထားပါသည် ❤️။</string>
-    <string name="upgrade_screen_benefits_title">အကျိုးကျေးဇူးများ</string>
-    <string name="upgrade_screen_benefits_body">• အက်ပ်သန့်ရှင်းရေး 💯\n• အချိန်ဇယားချထားသော လုပ်ဆောင်မှုများ ⏰\n• ကိရိယာအားလုံးအတွက် အပိုရွေးချယ်စရာများ ⚙️\n• သင့်ကိုယ်ပိုင် ဖျက်သိမ်းမှု စည်းမျဉ်းများ ✍️\n• စိတ်အားထက်သန်သော developer 🧙\nနှင့် အခြား…</string>
+    <string name="upgrade_screen_benefits_title">အဆင့်မြှင့်တင်မှု အခွင့်အလျှောက်များ</string>
+    <string name="upgrade_screen_benefits_body">• အက်ပ် cache များ နှင့် အသုံးမပြုနိုင်သော ဒေတာများ စင်ကျယ်စေခြင်း\n• အတူတူ ဖိုင်များ ဖျက်ပစ်ခြင်း\n• အချိန်ဇယား စင်ကျယ်ခြင်းများ ဖြစ်စေခြင်း\n• စိတ်ကြိုက် စစ်ထုတ်များ နှင့် စင်ကျယ်ခြင်း စည်းမျဉ်းများ ဖန်တီးခြင်း\n• သိုလှောင်ချုပ်ထိန်း ပြောင်းလဲမှုများ နှင့် စင်ကျယ်ခြင်း မှတ်တမ်းများ အလှတ်အပြတ်ခြင်း\n• အက်ပ် တစ်လျှောက် ပိုသော ဝိသေသများ နှင့် ထိန်းချုပ်မှုများ\n• ဆက်လက်သော ဖွံ့ဖြိုးတိုးတက်မှုကို ကူညီခြင်း</string>
     <string name="upgrade_screen_how_title">ရွေးချယ်စရာများ</string>
     <string name="upgrade_screen_how_body">သင်သည် တစ်ကြိမ်တည်းဝယ်ယူမှုနှင့် ပိုမိုစျေးသက်သာသော နှစ်စဉ် subscription အကြား ရွေးချယ်နိုင်ပါသည်။\nSubscription သည် ၁၄ ရက် အခမဲ့အစမ်းသုံးခြင်းဖြင့် စတင်ပြီး၊ ထို့နောက် နှစ်စဉ်တစ်ကြိမ် ငွေကောက်ခံမည်။ အစမ်းသုံးခြင်းနှင့် subscription ကို အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။\nတူညီသော အင်္ဂါရပ်များ၊ စျေးနှုန်းပုံစံများသာ ကွဲပြားပါသည်။</string>
+    <string name="upgrade_screen_subscription_offer_title">နှစ်စဉ် အသုံးခွင့်ပြုခြင်း</string>
+    <string name="upgrade_screen_iap_offer_title">တစ်ကြိမ် ဝယ်ယူခြင်း</string>
+    <string name="upgrade_screen_offer_recommended">အကြံပြုထားသည်</string>
+    <string name="upgrade_screen_offers_unavailable_message">ဈေးနှုန်းများကို ယခုအချိန်တွင် ရယူ မလုပ်နိုင်ပါ။ Google Play ကို ကြည့်ရှုပြီး အနည်းငယ်နောက်ပိုင်းတွင် ထပ်မံကြိုးစားကြည့်ပါ။</string>
     <string name="upgrade_screen_subscription_trial_action">၁၄ ရက် အခမဲ့အစမ်းသုံးခြင်း စတင်မည်</string>
     <string name="upgrade_screen_subscription_action">Subscribe လုပ်မည်</string>
     <string name="upgrade_screen_subscription_action_hint">Subscription သည် နှစ်စဉ် %s ကျသင့်သည်။</string>

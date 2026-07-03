@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gerenciador de exceções</string>
     <string name="exclusion_manager_desc">Gerenciar exceções para arquivos e aplicativos.</string>
-    <string name="exclusion_explanation_body1">Excluir arquivos e apps das operações do SD Maid.</string>
-    <string name="exclusion_add_new_hint">Adicione novas exceções, deixando primeiro que o SD Maid busque e, em seguida, usando o menu de contexto no resultado que você deseja excluir.</string>
+    <string name="exclusion_explanation_body1">Exclua arquivos e aplicativos para protegê-los das ferramentas do SD Maid, ou para pular itens irrelevantes e acelerar as operações.</string>
+    <string name="exclusion_add_new_hint">Nenhuma exclusão ainda. Use o botão + para criar uma, ou exclua itens dos resultados de qualquer ferramenta.</string>
     <string name="exclusion_create_action">Criar uma exceção</string>
     <string name="exclusion_edit_action">Editar exceção</string>
     <string name="exclusion_type_package">Exceção para o aplicativo</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Exportar as exclusões</string>
     <string name="exclusion_create_pkg_hint">Use a ferramenta Controle de Aplicativo para criar exceções para aplicativos.</string>
     <string name="exclusion_create_path_hint">Use a ferramenta Analisador de Armazenamento para criar exceções para caminho de pasta.</string>
+    <string name="exclusion_create_segment_hint">Corresponder um segmento de nome, como \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Mostrar padrões</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exclusão importada</item>
+        <item quantity="other">%d exclusões importadas</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exclusão exportada</item>
+        <item quantity="other">%d exclusões exportadas</item>
+    </plurals>
 </resources>

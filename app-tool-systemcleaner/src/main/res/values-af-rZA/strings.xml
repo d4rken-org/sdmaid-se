@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultate op grond van lêerouderdom (laaste gewysigde tyd). Laat ongestel om enige ouderdom te pas.</string>
     <string name="systemcleaner_customfilter_import_action">Voer nuwe filter in</string>
     <string name="systemcleaner_customfilter_export_action">Voer gekiesde filter uit</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner vind rommel deur app-onspesifieke filters te gebruik. Voorbereide reëls bestaan vir dinge soos leë vouers, agtergeblewe logboeke en verouderde miniatuurbeelde. Besoek die instellings as jy jou eie wil skep.</string>
+    <string name="tour_systemcleaner_filter_body">Elke ry is \'n filter en wat dit gevind het. Maak sy besonderhede oop om presies te sien watter lêers ooreenstem voordat jy iets skrap.</string>
 </resources>

@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Sisäinen tallennustila</string>
     <string name="stats_storage_type_secondary">Ulkoinen tallennustila</string>
     <string name="stats_storage_type_portable">Siirrettävä tallennustila</string>
+    <string name="stats_space_history_delete_storage_title">Poistetaanko tallennustilan historia?</string>
+    <string name="stats_space_history_delete_storage_desc">Kaikki tämän tallennustilan trenditiedot poistetaan pysyvästi.</string>
 </resources>

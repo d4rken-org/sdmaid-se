@@ -8,6 +8,8 @@ SD Maid-ek beti nabarian erakutsiko du zerbitzu hau erabiltzen ari denean eta er
 
 Ez da inolako ekintzarik egingo erabiltzailearen aldez aurreko onespenaren gabe. Zerbitzu hau edozein unetan desgaitu daiteke ondorio kaltegarririk gabe.</string>
     <string name="automation_screenoverlay_explanation">SD Maid zure gailuarekin elkarreragiten ari da. Ezin da pantaila aldi berean erabili. Itxaron eragiketa amaitu arte edo utzi bertan behera.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid zure gailuarekin elkarean aritzen da. Ezinezkoa da pantaila aldi berean erabiltzea. Itxaron eragiketa bukatu arte, edo sakatu Home botoia bertan behera utzi.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid zure gailuarekin elkarean aritzen da. Ezinezkoa da pantaila aldi berean erabiltzea. Itxaron eragiketa bukatu arte.</string>
     <string name="automation_active_title">SD Maid lanean dabil</string>
     <string name="automation_error_no_consent_title">Automatizazio-errorea</string>
     <string name="automation_error_no_consent_body">Irisgarritasun-zerbitzua ez dago konfiguratuta. Osatu konfigurazioa eta eman baimena.</string>
@@ -27,6 +29,8 @@ Ez da inolako ekintzarik egingo erabiltzailearen aldez aurreko onespenaren gabe.
     <string name="automation_error_scheduler_body">Programatutako zeregin batek irisgarritasun-zerbitzua erabiltzen saiatu da, baina erabilgarri ez zegoen. Ez baduzu hau behar, desgaitu \"Irisgarritasun-zerbitzua\" aukera programatzailearen ezarpenetan.</string>
     <string name="automation_error_no_settings_title">Ezarpen-pantaila erabilgarri ez</string>
     <string name="automation_error_no_settings_body">Sistema-aplikazio honek ez du ezarpen-pantailarik. Cachea garbitzea irisgarritasun-zerbitzuaren bidez ez da posible. Baztertu azkartasuna areagotzeko cachea garbitzerakoan.</string>
+    <string name="automation_error_interference_title">Ezarpenen pantaila blokeatu da</string>
+    <string name="automation_error_interference_body">Beste aplikazio bat (%1$s) sistemaren ezarpenen pantaila blokeatu du, beraz SD Maid ezin jarraitu. Desgaitu aplikazio horren aplikazio-blokeoa edo pantaila-babesa sistemaren ezarpenentzat, orduan saiatu berriro.</string>
     <string name="automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
     <string name="automation_progress_find_ok_confirmation">Aurreko ekintza bermatzen saiatzen (gako-hitzak: %s)</string>
 </resources>

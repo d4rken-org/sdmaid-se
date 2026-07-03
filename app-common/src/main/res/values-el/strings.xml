@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Το κατάλαβα</string>
     <string name="general_fix_action">Διόρθωση</string>
     <string name="general_set_up_action">Ρύθμιση</string>
+    <string name="general_unavailable_label">Μη διαθέσιμο</string>
     <string name="general_edit_action">Επεξεργασία</string>
     <string name="general_na_label">Μη διαθέσιμο</string>
     <string name="general_empty_label">Κενό</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Σε αναμονή</string>
     <string name="general_progress_deleting">Διαγραφή</string>
     <string name="general_progress_deleting_x">Διαγραφή %s</string>
+    <string name="general_sort_by_title">Ταξινόμηση κατά</string>
     <string name="general_sort_reverse_action">Αντιστροφή λειτουργίας ταξινόμησης</string>
+    <string name="general_sort_oldest_first">Παλαιότερα πρώτα</string>
+    <string name="general_sort_newest_first">Νεότερα πρώτα</string>
+    <string name="general_sort_name_asc">Όνομα (Α → Ω)</string>
+    <string name="general_sort_size_desc">Μεγαλύτερα πρώτα</string>
     <string name="general_tag_system">Σύστημα</string>
+    <string name="general_navigate_up_action">Πλοήγηση προς τα πάνω</string>
+    <string name="general_filter_action">Φίλτρο</string>
+    <string name="general_filter_by_tags_label">Φιλτράρισμα κατά ετικέτες</string>
+    <string name="general_filter_add_action">Προσθήκη φίλτρου</string>
+    <string name="general_filter_remove_x_action">Κατάργηση φίλτρου %s</string>
+    <string name="general_filter_empty_row_hint">Πατήστε + για φιλτράρισμα</string>
+    <string name="general_show_all_action">Εμφάνιση όλων</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Απελευθερώθηκε %s χώρου.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Επιλογές</string>
     <string name="general_details_label">Λεπτομέρειες</string>
     <string name="general_view_action">Προβολή</string>
+    <string name="general_open_action">Άνοιγμα</string>
+    <string name="general_configure_action">Ρύθμιση</string>
     <string name="general_update_action">Ενημέρωση</string>
     <string name="general_scan_action">Σάρωση</string>
     <string name="general_close_action">Κλείσιμο</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d στοιχεία αφαιρέθηκαν</item>
     </plurals>
     <string name="general_search_action">Αναζήτηση</string>
+    <string name="general_search_no_matches">Κανένα αποτέλεσμα</string>
     <string name="general_open_system_settings_action">Άνοιγμα ρυθμίσεων συστήματος</string>
+    <string name="general_fast_scroller_action">Γρήγορη κύλιση</string>
     <plurals name="result_x_items">
         <item quantity="one">%s στοιχείο</item>
         <item quantity="other">%s στοιχεία</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Ενεργοποίηση υπηρεσίας</string>
     <string name="general_undo_action">Αναίρεση</string>
     <string name="general_list_select_all_action">Επιλογή όλων</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d επιλεγμένο</item>
+        <item quantity="other">%d επιλεγμένα</item>
+    </plurals>
     <string name="general_path_label">Διαδρομή</string>
     <string name="general_type_label">Τύπος</string>
     <string name="general_size_label">Μέγεθος</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Αναφορά σφάλματος</string>
     <string name="general_error_ipc_deadobject_title">Απώλεια Σύνδεσης Υπηρεσίας</string>
     <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
+    <string name="general_error_upgrade_required_title">Απαιτείται η έκδοση Pro</string>
+    <string name="general_error_upgrade_required_description">Αυτή είναι λειτουργία Pro. Αναβαθμίστε το SD Maid SE για να την χρησιμοποιήσετε.</string>
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
     <string name="setup_title">Εγκατάσταση</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
     <string name="settings_category_filter">Φίλτρο</string>
     <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
+    <string name="ui_theme_color_sunset_label">Δύση</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Αυτή η λειτουργία απαιτεί πρόσβαση root, αλλά το SD Maid δεν μπόρεσε να την αποκτήσει σε αυτήν τη συσκευή.</string>
+    <string name="access_blocked_root_declined">Αυτή η λειτουργία απαιτεί πρόσβαση root. Μπορείτε να την ενεργοποιήσετε μέσω της οθόνης ρύθμισης.</string>
+    <string name="access_blocked_root_or_shizuku">Αυτή η λειτουργία απαιτεί πρόσβαση root ή Shizuku, η οποία δεν είναι διαθέσιμη σε αυτήν τη συσκευή.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Μη έγκυρο αρχείο αντιγράφου ασφαλείας</string>
+    <string name="backup_restore_error_invalid_body">Αυτό το αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας του SD Maid ή είναι κατεστραμμένο.</string>
+    <string name="backup_restore_error_version_body">Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε με μια νεότερη έκδοση του SD Maid. Ενημερώστε την εφαρμογή και προσπαθήστε ξανά.</string>
+    <string name="backup_restore_error_restore_failed_title">Η επαναφορά απέτυχε</string>
+    <string name="backup_restore_error_restore_failed_body">Αυτά τα μέρη δεν μπόρεσαν να επαναφερθούν: %1$s. Η προηγούμενη διαμόρφωσή σας έχει αποθηκευτεί και μπορεί να επαναφερθεί.</string>
+    <string name="backup_restore_error_safety_title">Η επαναφορά δεν ξεκίνησε</string>
+    <string name="backup_restore_error_safety_body">Το SD Maid δεν μπόρεσε να αποθηκεύσει ένα στιγμιότυπο ασφαλείας της τρέχουσας διαμόρφωσής σας, γι\' αυτό δεν άλλαξε τίποτα.</string>
+    <string name="backup_restore_error_busy_title">Παρακαλώ περιμένετε</string>
+    <string name="backup_restore_error_busy_body">Μια εργασία καθαρισμού ή μια άλλη λειτουργία αντιγράφου ασφαλείας εκτελείται αυτήν τη στιγμή. Δοκιμάστε ξανά όταν τελειώσει.</string>
+    <string name="backup_restore_error_schema_title">Ασύμβατο αντίγραφο ασφαλείας</string>
+    <string name="backup_restore_error_schema_body">Η μορφή βάσης δεδομένων του αντιγράφου ασφαλείας δεν ταιριάζει με αυτήν την έκδοση του SD Maid. Η επαναφορά δεδομένων ιστορικού υποστηρίζεται μόνο μεταξύ πανομοιότυπων εκδόσεων εφαρμογής.</string>
 </resources>

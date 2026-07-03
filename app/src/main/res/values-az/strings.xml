@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələr silinsin?</string>
+    <string name="dashboard_hero_freeable_headline">%1$s azad edilə bilər</string>
+    <string name="dashboard_hero_freed_headline">%1$s azad edildi</string>
+    <string name="dashboard_hero_freeable_x_items">%1$s silinə bilər</string>
+    <string name="dashboard_hero_freed_x_items">%1$s silindi</string>
+    <string name="dashboard_hero_freeable_hint">Yeri azad etmək üçün düyməyə toxunun. Əvvəlcə yoxlamaq üçün çipə toxunun.</string>
+    <string name="dashboard_hero_freed_hint">Detallar üçün çipə toxunun.</string>
+    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
+    <string name="dashboard_hero_scanned_timestamp_description">%1$s skanlandı</string>
+    <string name="dashboard_hero_freed_timestamp_description">%1$s azad edildi</string>
     <string name="dashboard_settings_category">İdarəetmə paneli</string>
     <string name="dashboard_motd_title">Tərtibatçıdan bir mesaj</string>
     <string name="dashboard_settings_oneclick_title">Tək toxunuş rejimi</string>
@@ -14,9 +23,27 @@
     <string name="debug_debuglog_recording_progress">Xəta aşkarlama funksiyası (debug log) işləyir</string>
     <string name="debug_debuglog_record_action">Xəta aşkarlama funksiyasını işə sal</string>
     <string name="debug_debuglog_stop_action">Qeydi dayandır</string>
+    <string name="debug_debuglog_sensitive_information_label">Həssas Məlumatlar</string>
     <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar var (məs. fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibar etdiyiniz tərəflərlə paylaşın.</string>
+    <string name="debug_debuglog_screen_subtitle">Problemləri həll etmək üçün sazlama məlumatlarını ixrac edin</string>
+    <string name="debug_logview_screen_title">Jurnal Baxışçısı</string>
+    <string name="debug_logview_pause_action">Durdur (bufer dondur)</string>
+    <string name="debug_logview_resume_action">Davam et</string>
+    <string name="debug_logview_copy_action">Jurnalı kopyala</string>
+    <string name="debug_logview_collapse_action">Yığcamlaşdır</string>
+    <string name="debug_logview_close_action">Jurnal panelini bağla</string>
+    <string name="debug_logview_resize_action">Ölçüsünü dəyiş</string>
+    <string name="debug_logview_more_action">Daha çox seçimlər</string>
+    <string name="debug_logview_level_action">Jurnal səviyyəsi</string>
+    <string name="debug_logview_clear_action">Buferi təmizlə</string>
+    <string name="debug_logview_search_prev_action">Əvvəlki uyğunluq</string>
+    <string name="debug_logview_search_next_action">Sonrakı uyğunluq</string>
+    <string name="debug_logview_jump_to_bottom_action">Ən sonuna keç</string>
+    <string name="debug_logview_paused_msg">Pauzalanıb — bufer donmuş</string>
+    <string name="debug_logview_paused_dropped_msg">Pauzalanıb — %1$d yeni sətir atlanıb</string>
+    <string name="debug_logview_copied_msg">Log lövhəyə kopyalandı</string>
+    <string name="debug_logview_share_label">Logu paylaş</string>
     <string name="debug_debuglog_screen_title">Sazlama jurnalı</string>
-    
     <string name="debug_debuglog_screen_session_path_label">Sessiya yolu</string>
     <string name="debug_debuglog_screen_log_files_label">Jurnal faylları</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -40,7 +67,6 @@
     <string name="debug_debuglog_sessions_failed_zip_error_label">Uğursuz: sıxışdırma xətası</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Bu sazlama jurnalı sessiyasını silmək istəyirsiniz?</string>
     <string name="support_contact_post_send_message">Mesaj uğurla göndərildi?</string>
-    
     <string name="tasks_activity_notification_channel_label">Aktiv tapşırıqlar</string>
     <string name="tasks_activity_working_notification_title">SD Maid işləyir</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -53,6 +79,7 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Tapşırıq nəticələri</string>
     <string name="tasks_result_subtext">Tapşırıq nəticəsi</string>
+    <string name="tasks_result_failed_msg">Tapşırıq uğurla tamamlanmadı.</string>
     <string name="tasks_timeout_error_label">Tapşırığın vaxtı bitdi</string>
     <string name="tasks_timeout_error_desc">Tapşırıq çox uzun çəkdi və dayandırıldı. Zəhmət olmasa, yenidən cəhd edin.</string>
     <string name="onboarding_welcome_title">Xoş gəlmişsiniz</string>
@@ -68,20 +95,21 @@
     <string name="onboarding_versus_continue_action">Davam et</string>
     <string name="onboarding_privacy_title">Gizlilik</string>
     <string name="onboarding_privacy_body1">SD Maid-də reklamlar yoxdur və istifadəçi məlumatlarını satmır.</string>
-    
-    
-    
-    
     <string name="onboarding_setup_title">Quraşdır</string>
     <string name="onboarding_setup_body1">SD Maid bütün əlçatan məlumat sahələrinində axtarış edəcəkdir.</string>
     <string name="onboarding_setup_body2">Nəyə daxil olmaq mümkün olduğu cihazınıza, Android versiyanıza və verilən icazələrə bağlıdır.</string>
-    <string name="onboarding_setup_body3">Axtarılmalı olan sahələrə giriş quraşdıraraq SD Maid istifadə etməyə başlayın.</string>
+    <string name="onboarding_setup_body4">SD Maid-in standart parametrləri təhlükəsiz və hərtərəfli olmaq üçün tənzimlənilib, əksər istifadəçilər üçün yaxşı tarazlıq təklif edir.</string>
+    <string name="onboarding_setup_body5">Daha hərtərəfli nəticələr üçün hər bir alətin seçimlərinə keçin və onları istəməyiniz kimi tənzimləyin.</string>
+    <string name="onboarding_setup_body3">SD Maid-dən istifadə etməyə başlamaq üçün girişi ayarlayın.</string>
     <string name="onboarding_setup_continue_action">Girişi quraşdır</string>
+    <string name="onboarding_setup_tours_enabled_label">Bələdçi turlarını göstər</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Hər xüsusiyyəti açdığınız zaman sürətli bələdçi tur.</string>
     <string name="settings_privacy_policy_label">Gizlilik siyasəti</string>
     <string name="settings_privacy_policy_desc">Məlumatları məsuliyyətlə idarə etmək.</string>
     <string name="settings_category_other_label">Digər</string>
     <string name="settings_sponsor_development_title">İnkişafı dəstəklə</string>
     <string name="settings_sponsor_development_summary">Patrona çevrilin və davamlı inkişafı mümkün edin.</string>
+    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Ümumi</string>
     <string name="general_settings_desc">Bütün tətbiqi təsir edən ümumi tənzimlər.</string>
     <string name="settings_category_ui_label">İstifadəçi interfeysi</string>
@@ -94,6 +122,12 @@
     <string name="ui_theme_style_setting_explanation">Tətbiq temasından istifadə olunan rəng stili.</string>
     <string name="ui_theme_style_default_label">Standart</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Orta kontrast</string>
+    <string name="ui_theme_style_highcontrast_label">Yüksək kontrast</string>
+    <string name="ui_theme_color_setting_label">Tema rəngi</string>
+    <string name="ui_theme_color_setting_explanation">Tətbiq temasından istifadə olunan rəng paleti.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Rənglər Material You tərəfindən divar kağızınızdan təmin edilir.</string>
+    <string name="ui_theme_color_value_system">Sistem rəngləri</string>
     <string name="ui_previews_title">Fayl ön izləmələri</string>
     <string name="ui_previews_summary">Bütün alətlərdə fayl ön baxışlarını göstər (məsələn şəkil və video kiçik şəkillər).</string>
     <string name="ui_language_override_label">Tətbiq dili</string>
@@ -160,7 +194,6 @@
     <string name="setup_incomplete_card_title">Quraşdırma tamamlanmadı</string>
     <string name="setup_incomplete_card_body">Daha yaxşı nəticələr əldə etmək üçün SD Maid-in quraşdırılmasını tamamlayın.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid, quraşdırma problemlərini həll etməyə çalışır.</string>
-    
     <string name="setup_incomplete_card_continue_action">Quraşdırma davam et</string>
     <string name="setup_forcedshow_summary">Quraşdırma ekranını artıq tamamlanmış elementlərlə birlikdə yenidən göstər.</string>
     <string name="setup_checking_card_body">Funksionallığın və quraşdırmanın tamamlanmasının təsdiqlənməsi.</string>
@@ -177,9 +210,9 @@
     <string name="setup_root_card_title">Root (kök) icazəsi</string>
     <string name="setup_root_card_body">SD Maid, əlçatan olduqda root-dan istifadə etməlidirmi? Root icazəsi ilə gizli tətbiq məlumatlarını və əlavə sistem qovluqlarını yoxlamaq olar.</string>
     <string name="setup_root_state_ready_label">Root icazəsi hazırdır.</string>
-    <string name="setup_root_state_waiting_label">Root icazəsi üçün gözlənilir.</string>
-    <string name="setup_root_enable_root_use_label">Əgər mpvcuddursa, root-dan istifadə edin</string>
-    <string name="setup_root_disable_root_use_label">Root-dan istifadə etməyin</string>
+    <string name="setup_root_state_waiting_label">Root girişi mövcud deyil.</string>
+    <string name="setup_root_enable_root_use_label">Root girişini istifadə etməyə çalışın</string>
+    <string name="setup_root_disable_root_use_label">Cihazımı root etmədim</string>
     <string name="setup_root_card_body2">Yalnız köklənmiş rooted cihazlarda əlçatandır. Əgər bu modifikasiyanı etməmisinizsə, cihazınız köklənməyib və bu tənzimləmənin heç bir təsiri yoxdur.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Nəticələri yaxşılaşdırmaq və funksiyaları aktivləşdirmək üçün SD Maid-ə mümkün olan yerlərdə Shizuku istifadə etməyə icazə verin.</string>
@@ -187,11 +220,12 @@
     <string name="setup_shizuku_card_root_info">Shizuku-nun kök root girişi ilə birgə istifadəsi əlavə funksiyalar aktivləşdirmir, lakin etibarlılığı artırır. SD Maid ondan ehtiyat üsul kimi istifadə edəcək.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku linki hazırdır</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku linki üçün gözlənilir</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Mövcuddursa, Shizuku-dan istifadə edin</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Shizuku-dan istifadə etməyə çalışın</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku-dan istifadə etməyin</string>
     <string name="setup_dismiss_hint">Parametrlər menyusu vasitəsilə quraşdırma ekranını tapa bilərsiniz.</string>
     <string name="setup_permission_granted_label">Icazə verildi</string>
     <string name="setup_permission_error_label">İcazə xətası</string>
+    <string name="setup_inventory_invalid_label">Qeyri-etibarlı tətbiq siyahısı</string>
     <string name="setup_usagestats_title">İstifadə statistikası</string>
     <string name="setup_usagestats_body">İstifadə statistikası icazəsi daha çox tətbiq təfərrüatına giriş imkanı verir. SD Maid bunu əlavə keş ölçülərini müəyyən etmək üçün istifadə edir.</string>
     <string name="setup_usagestats_hint">Əlçatanlılıq xidməti əsasında keş silmə üçün tələb olunur.</string>
@@ -214,18 +248,28 @@
     <string name="setup_acs_disallow_hint">Fikrinizi dəyişsəniz, tənzimləmələrə daxil olaraq və quraşdırmanı yenidən başladaraq bu seçimi yenidən dəyişə bilərsiniz.</string>
     <string name="setup_acs_appops_restriction_title">Məhdudlaşdırılmış parametrlər</string>
     <string name="setup_acs_appops_restriction_body">SD Maid-in əlçatanlılıq xidmətini aktivləşdirə bilmirsiz? Android 13+ Google Play vasitəsilə quraşdırılmayan tətbiqlərə məhdudiyyətlər tətbiq edə bilər. Bu məhdudiyyətləri SD Maid üçün sistemin təfərrüat səhifəsindən qaldırın. Seçim yuxarı sağ küncdəki kontekst menyudadır.</string>
+    <string name="setup_acs_advanced_protection_title">Təkmilləşdirilmiş Qoruma tərəfindən bloklanıb</string>
+    <string name="setup_acs_advanced_protection_body">Android-in Təkmilləşdirilmiş Qoruması SD Maid-in əlçatımlılıq xidmətini Android 17 və daha yeni versiyalarda bloklayır, buna görə Təkmilləşdirilmiş Qoruma aktiv olarkən o aktivləşdirilə bilməz. Ətraflı məlumat və alternativlər üçün Kömək düyməsinə toxunun.</string>
     <string name="setup_inventory_card_title">Tətbiq siyahısı</string>
     <string name="setup_inventory_card_body">SD Maid heç bir quraşdırılmış tətbiqə aid olmayan faylları tapmaq üçün hansı tətbiqlərinizin olduğunu bilməlidir.</string>
     <string name="setup_inventory_card_extra">\"Tətbiq siyahısı\" və ya \"Bütün paketləri sorğula\" adlanan icazəni axtarın.</string>
+    <string name="setup_inventory_limitation_title">Mümkün cihaz məhdudiyyəti</string>
+    <string name="setup_inventory_limitation_body">Sistem, tələb olunan icazələr verilmiş görünsə də, quraşdırılmış tətbiqlərin natamam siyahısını qaytardı.</string>
+    <string name="setup_inventory_limitation_body2">Bəzi cihazlar (məs. HarmonyOS) heç vaxt tam tətbiq siyahısı təmin etmir. Məlumatlarınızı qorumaq üçün tətbiqlə bağlı alətlər deaktiv qalır, lakin saxlama istifadəsinə azaldılmış detallarla yenə də baxa bilərsiniz.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid skan edilə bilən heç bir məlumat sahəsi tapmadı. Quraşdırmanı tamamladınız?</string>
     <string name="dataarea_warningcard_label">Məlumat sahələri</string>
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_mode_label">Araşdırma rejimi</string>
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
-    
-    
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
+    <string name="debug_card_description">Tərtibatçı diaqnostikası və icra zamanı tənzimləmələri. Bu kart yalnız araşdırma rejimi aktiv olduqda görünür.</string>
+    <string name="debug_card_section_diagnostics">Diaqnostika</string>
+    <string name="debug_card_section_reload">Yenidən yüklə</string>
+    <string name="debug_card_trace_mode_title">İz izləmə jurnalı</string>
+    <string name="debug_card_trace_mode_desc">Ətraflı addım-addım jurnallar. Tətbiqi nəzərəçarpacaq şəkildə yavaşladır.</string>
+    <string name="debug_card_dryrun_mode_title">Sınaq rejimi</string>
+    <string name="debug_card_dryrun_mode_desc">Təmizləməni simulyasiya edin — fayllar skan edilir, lakin heç bir şey silinmir.</string>
     <string name="debug_card_areas_reload_action">Məlumat sahələrini yenidən yüklə</string>
     <string name="debug_card_pkgs_reload_action">Tətbiqləri yenidən yüklə</string>
     <string name="debug_card_root_test_action">Root yoxla</string>
@@ -236,9 +280,6 @@
     <string name="data_area_sdcard_label">SD kart</string>
     <string name="data_areas_label">Məlumat sahələri</string>
     <string name="data_areas_description">Məlumat sahələri cihazınızda SD Maid-in daxil ola biləcəyi yerləri təmsil edir. Android versiyanıza və verilən icazələrə əsasən müxtəlif məlumat sahələri mövcud ola bilər.</string>
-    
-    
-    
     <string name="updates_dashcard_title">Yeniləmə mövcuddur</string>
     <string name="updates_dashcard_body">Yeniləmə mövcuddur. Sizdə %1$s var və ən son versiya %2$s-dir.</string>
     <string name="translation_encourage_title">SD Maid tərcümə edin</string>
@@ -250,7 +291,6 @@
     <string name="updatecheck_setting_enabled_label">Yeniləmə yoxlaması</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-in daha yeni versiya mövcud olduğunu bildirmək üçün yeniləmələri yoxlamasına icazə ver.</string>
     <string name="device_settings_category">Cihaz</string>
-    
     <string name="review_app_review_action">Baxış</string>
     <string name="review_app_dismiss_action">Bəlkə sonra</string>
     <string name="review_app_body">SD Maid üçün rəy yazmaq istərdinizmi? ❤️</string>
@@ -271,5 +311,52 @@
     <string name="shortcuts_onetap_enabled_title">Tək toxunuşlu qısayol</string>
     <string name="shortcuts_onetap_enabled_summary">Tətbiq nişanına ikonuna uzun basdıqda \"Skan et + Sil\" qısayolunu göstər. Tək toxunuşlu idarə panelindəki eyni alətlərdən istifadə edir.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 gündə</string>
-    <!-- Shorter versions for side-by-side display -->
+    <string name="tour_dashboard_overview_body">Bu sizin panelinizdir, SD Maid-in ana ekranıdır. Hər bir alət və əməliyyat burada bir kartda yerləşir.</string>
+    <string name="tour_dashboard_setup_body">Quraşdırma kartı nə isə konfiqurasiya edilməli olduğu zaman görünür. Onu açın və məsələləri həll edin ki, SD Maid daha çox şey edə bilsin. Onu rədd etsəniz, quraşdırmaya tənzimləmələrdən də daxil ola bilərsiniz.</string>
+    <string name="tour_dashboard_tools_body">Detallar üçün alətin kartını açın. Skan və silmə əməliyyatları hər kartda yerləşir, skan nəyisə tapdıqda detallar görünür.</string>
+    <string name="tour_dashboard_main_action_body">Aşağıdakı böyük düymə tək toxunuşlu əməliyyatdır. Bir toxunuşla skan edin, bir toxunuşla təmizləyin – bütün avtomatik alətlər.</string>
+    <string name="tour_dashboard_manual_tools_body">Swiper kimi bəzi alətlər avtomatik deyil; siz özünüz addım-addım keçə biləcəyiniz rəhbər iş axını təklif edirlər.</string>
+    <string name="tour_dashboard_settings_body">SD Maid-in standart ayarları ehtiyatlı və təhlükəsizdir. Hər cihaz bir az fərqlidir, buna görə də daha çox fayda almaq üçün ayarları tənzimləyin.</string>
+    <string name="tour_setup_intro_body">Bu ekrandakı hər kart SD Maid-in istifadə edə biləcəyi icazədir. Hamısı seçimlidir, ancaq daha çox icazə daha çox xüsusiyyət və daha ətraflı skanlar deməkdir. Heç bir icazə olmadan, əksər alətlər çox az şey təmizləyə biləcəkdir.</string>
+    <string name="general_settings_reset_guided_tours_label">Rəhbər turları sıfırla</string>
+    <string name="general_settings_reset_guided_tours_summary">Sonrakı dəfə bu ekrana dönəndə bütün rəhbər turları yenidən göstərin. Əgər əvvəllər onları söndürmüsünüzsə, bütün turları yenidən aktivləşdirin.</string>
+    <string name="widget_home_title">SD Maid</string>
+    <string name="widget_home_description">Saxlama istifadəsi və tək toxunuşla təmizləmə</string>
+    <string name="widget_home_storage_internal">Daxili</string>
+    <string name="widget_home_storage_external">Xarici</string>
+    <string name="widget_home_freed_label">Azad edildi: %1$s</string>
+    <string name="widget_home_clean_action">Təmizlə</string>
+    <string name="widget_home_working">İşlənir…</string>
+    <string name="widget_home_unavailable">Saxlama əlçatan deyil</string>
+    <string name="shortcut_onetap_started">Skan &amp; silmə başladı…</string>
+    <string name="shortcut_onetap_nothing_enabled">Heç bir tək toxunuşlu alət aktiv deyil</string>
+    <!-- Config backup & restore -->
+    <string name="backup_restore_title">Ehtiyat Nüsxə &amp; Bərpa Et</string>
+    <string name="backup_restore_desc">Ayarlarınızı və konfiqurasiyasını faylda saxlayın və ya onları bərpa edin</string>
+    <string name="backup_restore_export_title">Ehtiyat nüsxə yarat</string>
+    <string name="backup_restore_export_desc">Ayarları, istisnaları, cədvəlləri və xüsusi filtrləri faylda saxlayın</string>
+    <string name="backup_restore_import_title">Ehtiyat nüsxəni bərpa et</string>
+    <string name="backup_restore_import_desc">Ehtiyat nüsxə faylından konfiqurasiyanı yüklə</string>
+    <string name="backup_restore_export_success">Ehtiyat nüsxə yaradıldı</string>
+    <string name="backup_restore_export_partial">Ehtiyat nüsxə yaradıldı, lakin bu hissələr uğursuz oldu: %1$s</string>
+    <string name="backup_restore_restore_success">Ehtiyat nüsxə bərpa edildi</string>
+    <string name="backup_restore_restore_failed">Bərpa uğursuz oldu (%1$s). Əvvəlki konfiqurasiyanız saxlanıldı.</string>
+    <string name="backup_restore_undo_action">Geri al</string>
+    <string name="backup_restore_recovery_title">Əvvəlki konfiqurasiyanı bərpa et</string>
+    <string name="backup_restore_recovery_desc">Bitməmiş bərpadan bir təhlükəsizlik ehtiyat nüsxəsi mövcuddur</string>
+    <string name="backup_restore_confirm_title">Bu ehtiyat nüsxəni bərpa et?</string>
+    <string name="backup_restore_confirm_created">Yaradıldı: %1$s</string>
+    <string name="backup_restore_confirm_source">SD Maid %1$s-dən %2$s tarixində (Android %3$s)</string>
+    <string name="backup_restore_mode_label">Bərpa rejimi</string>
+    <string name="backup_restore_mode_merge">Birləştir</string>
+    <string name="backup_restore_mode_merge_desc">Ehtiyat nüsxəni mövcud konfiqurasiyaya əlavə et</string>
+    <string name="backup_restore_mode_replace">Əvəz et</string>
+    <string name="backup_restore_mode_replace_desc">Mövcud konfiqurasiyanı sıfırla, sonra ehtiyat nüsxəni tətbiq et</string>
+    <string name="backup_restore_warn_version_body">Bu ehtiyat nüsxə SD Maid %1$s-dəndir, lakin siz %2$s-dəsiniz. Bərpa yalnız eyni versiyalar arasında rəsmi olaraq dəstəklənir.</string>
+    <string name="backup_restore_warn_android_body">Bu ehtiyat nüsxə Android %1$s-də yaradıldı, lakin bu cihaz Android %2$s-ni işlədir.</string>
+    <string name="backup_restore_warn_device_body">Bu ehtiyat nüsxə fərqli cihazda yaradıldı (%1$s / %2$s).</string>
+    <string name="backup_restore_warn_flavor_body">Bu ehtiyat nüsxə fərqli tətbiq versiyasındandır (%1$s / %2$s).</string>
+    <string name="backup_restore_warn_history_body">Bu ehtiyat nüsxənin tarix məlumatları (statistika, sıxlaşdırma tarixçəsi, sürüşdürmə seansları) fərqli tətbiq versiyasındandır və bərpa edilə bilməz. Qalanı bərpa ediləcəkdir.</string>
+    <string name="backup_restore_ack_understand">Başa düşdüm və davam etmək istəyirəm</string>
+    <string name="backup_restore_action_restore">Bərpa et</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="general_gotit_action">ገባኝ</string>
     <string name="general_fix_action">ጥግኙ</string>
     <string name="general_set_up_action">አዋቅር</string>
+    <string name="general_unavailable_label">ተግቢ ያልሆነ</string>
     <string name="general_edit_action">አርትዕ</string>
     <string name="general_na_label">የለም</string>
     <string name="general_empty_label">ባዶ</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">በወረፋ ውስጥ</string>
     <string name="general_progress_deleting">መሰረዝ</string>
     <string name="general_progress_deleting_x">%s መሰረዝ</string>
+    <string name="general_sort_by_title">በምን ይደርደር</string>
     <string name="general_sort_reverse_action">የእድገት ሁነታ ማሽከርከር</string>
+    <string name="general_sort_oldest_first">ቀድሞ የተፈጠረ አስቀድሞ</string>
+    <string name="general_sort_newest_first">በቅርብ ጊዜ የተፈጠረ አስቀድሞ</string>
+    <string name="general_sort_name_asc">ስም (ሀ → ፐ)</string>
+    <string name="general_sort_size_desc">ትልቁ አስቀድሞ</string>
     <string name="general_tag_system">ሲስተም</string>
+    <string name="general_navigate_up_action">ወደ ላይ ሂድ</string>
+    <string name="general_filter_action">ማርሽ</string>
+    <string name="general_filter_by_tags_label">በመለያዎች ማጣራት</string>
+    <string name="general_filter_add_action">ማጣሪያ ያክሉ</string>
+    <string name="general_filter_remove_x_action">%s ማጣሪያን ያስወግዱ</string>
+    <string name="general_filter_empty_row_hint">ለማጣራት + ይጀኑ</string>
+    <string name="general_show_all_action">ሁሉንም አሳይ</string>
     <string name="general_result_success_message">ክንዋኔ ተሳክቷል</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ቦታ ነፃ ተደርጓል።</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">አማራጮች</string>
     <string name="general_details_label">ዝርዝሮች</string>
     <string name="general_view_action">ይመልከቱ</string>
+    <string name="general_open_action">ክፍት</string>
+    <string name="general_configure_action">ቅንብር</string>
     <string name="general_update_action">ያዘምኑ</string>
     <string name="general_scan_action">ስካን</string>
     <string name="general_close_action">ዝጋ</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d ንጥሎች ተወግደዋል</item>
     </plurals>
     <string name="general_search_action">ፈልግ</string>
+    <string name="general_search_no_matches">ምንም ተዛማጅ</string>
     <string name="general_open_system_settings_action">የስርዓት ቅንብሮች ክፈት</string>
+    <string name="general_fast_scroller_action">ፋጣን ሰሪጥ</string>
     <plurals name="result_x_items">
         <item quantity="one">%s ንጥል</item>
         <item quantity="other">%s ንጥሎች</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">አገልግሎት አንቃ</string>
     <string name="general_undo_action">መልስ</string>
     <string name="general_list_select_all_action">ሁሉንም ምረጥ</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d የተምርጠ</item>
+        <item quantity="other">%d የተምርጠ</item>
+    </plurals>
     <string name="general_path_label">መንገድ</string>
     <string name="general_type_label">አይነት</string>
     <string name="general_size_label">መጠን</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">ስህተት ሪፖርት ያድርጉ</string>
     <string name="general_error_ipc_deadobject_title">የአገልግሎት ግንኙነት ጠፋ</string>
     <string name="general_error_ipc_deadobject_description">ከአስፈላጊ አገልግሎት (ምሳሌ Magisk፣ Shizuku፣ ወይም ሌሎች የስርዓት-ደረጃ አገልግሎቶች) ጋር ያለው ግንኙነት በሚያስደንቅ ሁኔታ ጠፋ። እባክዎ መሳሪያዎን እንደገና ይጀምሩ። ችግሩ ቢቀጥል፣ ለዝመናዎች ይፈትሹ ወይም ለማስተካከል ያገኙኝ።</string>
+    <string name="general_error_upgrade_required_title">Pro ስሪት ያስፍልጋል</string>
+    <string name="general_error_upgrade_required_description">ይህ የ Pro ባህሪይ ነው። እባክዎ SD Maid SE ን ለመጠቀም ያሻሽሉ።</string>
     <string name="general_user_label_owner">ባለቤት</string>
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
     <string name="settings_category_filter">ማጣሪያ</string>
     <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
+    <string name="ui_theme_color_sunset_label">ምሽት</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">ይህ ባህሪይ ሩት መዳረሻ ይጠይቅካል፣ ግን SD Maid ከዚህ መሳሪያ ላይ ማግኛት አልቻሉም።</string>
+    <string name="access_blocked_root_declined">ይህ ተግባር root ዳቅሊ ይፈልጋል። የሴቲንግ ማያ በኩል ማበጅ ይችላሉ።</string>
+    <string name="access_blocked_root_or_shizuku">ይህ ተግባር root ወይም Shizuku ዳቅሊ ይፈልጋል፣ ይህም በዚህ መሣሪያ ላይ አይገኝም።</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">ልክ ያልሆነ ምትክ ፋይል</string>
+    <string name="backup_restore_error_invalid_body">ይህ ፋይል ልክ ያለ SD Maid ምትክ አይደለም ወይም ተበላሸ ነው።</string>
+    <string name="backup_restore_error_version_body">ይህ ምትክ ከአዲስ SD Maid ስሪት ጋር ተሰራ ነበር። እባክህ መተግበሪያውን ያሳናሩ እና እንደገና ሞክር።</string>
+    <string name="backup_restore_error_restore_failed_title">ወደ ነበረበት ዝውውር አልተሳካም</string>
+    <string name="backup_restore_error_restore_failed_body">እነዚህ ክፍሎች ወደ ነበረበት ዝውውር አልቻሉም: %1$s። የእርስዎ ቀድሞ ቅንብብ ተቀምጦ ወደ ነበረበት ሊገባ ይችላል።</string>
+    <string name="backup_restore_error_safety_title">ወደ ነበረበት ዝውውር አልጀመረም</string>
+    <string name="backup_restore_error_safety_body">SD Maid የእርስዎ የአሁን ቅንብብ ደህንነታዊ ቅጅ ሊያቆይ አልቻለም፣ ስለዚህ ምንም ነገር አልተቀየረም።</string>
+    <string name="backup_restore_error_busy_title">እባክህ ጠብቅ</string>
+    <string name="backup_restore_error_busy_body">የ cleanup ተግባር ወይም ሌላ መጠባበቂያ ክወና በአሁኑ ወቅት እየሰራ ነው። ሲጠናቀቅ እንደገና ይሞክሩ።</string>
+    <string name="backup_restore_error_schema_title">ተስማሚ ያልሆነ መጠባበቂያ</string>
+    <string name="backup_restore_error_schema_body">የመጠባበቂያው ዳታቤዝ ቅርጸት ከዚህ SD Maid ስሪት ጋር አይዛመድም። ታሪክ መረጃ ወደ ነበበው ለመመለስ በተመሳሳይ የመተግበሪያ ስሪቶች መካከል ብቻ ይደገፋል።</string>
 </resources>

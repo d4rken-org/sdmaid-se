@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Tanlangan har bir takrorlangan fayllar to\'plamida bitta nusxadan tashqari hammasini o\'chirish kerakmi?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Tanlangan har bir takrorlangan fayllar to\'plamidagi barcha fayllarni o\'chirish kerakmi? Hech qanday fayl qolmaydi!</string>
     <string name="deduplicator_delete_all_toggle_msg">Barcha nusxalarni o\'chirish. Hech qanday fayl qolmaydi!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Ushbu to\'plamdagi %1$d ta nusxa o\'chirilib, %2$s bo\'shatilsinmi? Saqlanadigan nusxa qoladi.</item>
+        <item quantity="other">Ushbu to\'plamdagi %1$d ta nusxa o\'chirilib, %2$s bo\'shatilsinmi? Saqlanadigan nusxa qoladi.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s bo\'shatish mumkin</string>
+    <string name="deduplicator_action_delete_set">Nusxalar to\'plamini o\'chirish</string>
+    <string name="deduplicator_action_open_preview">Ko\'rib chiqishni ochish</string>
+    <string name="deduplicator_marked_for_deletion">O\'chirish uchun belgilangan</string>
+    <string name="deduplicator_cluster_preview_image">Nusxalar to\'plamini ko\'rib chiqish</string>
+    <string name="deduplicator_selection_keep_one_required">Har bir nusxalar to\'plamidan kamida bitta fayl qolishi kerak. Buni bekor qilish uchun sozlamalarda \"Barchasini o\'chirish\"ni yoqing.</string>
     <string name="deduplicator_progress_comparing_files">Fayllarni solishtirish</string>
     <string name="deduplicator_details_cluster_title">Takrorlanganlar to\'plami</string>
     <string name="deduplicator_matches_exact_label">Aniq nusxalar</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kichik fayllarni afzal ko\'rish</string>
     <string name="deduplicator_view_mode_groups_label">Guruhlar</string>
     <string name="deduplicator_view_mode_directories_label">Papkalar</string>
+    <string name="tour_deduplicator_details_cluster_body">Bu fayllarning barchasi bir xil element yoki media kontent, ya\'ni nusxalar to\'plami ko\'rinadi.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Ushbu belgiga ega fayllar o\'chiriladi; guruhda qolgan fayl SD Maid saqlab qoladigan fayldir. Qaysi nusxa saqlanishini tanlash usulini o\'chirish strategiyasi sozlamalarida o\'zgartirishingiz mumkin.</string>
 </resources>

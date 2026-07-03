@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Непознат сопственик</string>
     <string name="corpsefinder_corpse_hint_keeper">Оваа ставка може да содржи податоци кои сакате да ги задржите и покрај тоа што нејзиниот сопственик е деинсталиран, пр. фотографии или резервни копии.</string>
     <string name="corpsefinder_corpse_hint_common">Оваа ставка има многу вообичаено име и може да припаѓа на сè уште инсталирани апликации кои SD Maid не ги познава.</string>
+    <string name="corpsefinder_risk_keeper_chip">Пожелно</string>
+    <string name="corpsefinder_risk_common_chip">Често</string>
+    <string name="corpsefinder_markers_dialog_title">За овие маркери</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Нема маркер</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Стандарден остаток. Генерално е безбедно да се отстрани — овие датотеки припаѓаат на апликации кои веќе не се инсталирани.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder наоѓа податоци оставени од веќе деинсталирани апликации. Тие повеќе не припаѓаат на ништо инсталирано, затоа отстранувањето е безбедно и ослободува простор.</string>
+    <string name="tour_corpsefinder_row_body">Секоја ставка е преостанат податок и апликацијата од која потекнува. Маркерот покажува колку е сигурна SD Maid дека е безбедно да се отстрани — допрете го ⓘ на врвот за да дознаете што значат маркерите.</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Supratau</string>
     <string name="general_fix_action">Taisyti</string>
     <string name="general_set_up_action">Nustatyti</string>
+    <string name="general_unavailable_label">Nepasiekiama</string>
     <string name="general_edit_action">Redaguoti</string>
     <string name="general_na_label">Nėra</string>
     <string name="general_empty_label">Tuščia</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Eilėje</string>
     <string name="general_progress_deleting">Trinamas</string>
     <string name="general_progress_deleting_x">Trinamas %s</string>
+    <string name="general_sort_by_title">Rūšiuoti pagal</string>
     <string name="general_sort_reverse_action">Atvirkštinis rūšiavimo režimas</string>
+    <string name="general_sort_oldest_first">Seniausias pirmas</string>
+    <string name="general_sort_newest_first">Naujausias pirmas</string>
+    <string name="general_sort_name_asc">Pavadinimas (A → Z)</string>
+    <string name="general_sort_size_desc">Didžiausias pirmas</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Grįžti atgal</string>
+    <string name="general_filter_action">Filtruoti</string>
+    <string name="general_filter_by_tags_label">Filtruoti pagal žymes</string>
+    <string name="general_filter_add_action">Pridėti filtrą</string>
+    <string name="general_filter_remove_x_action">Pašalinti %s filtrą</string>
+    <string name="general_filter_empty_row_hint">Bakstelėkite + norėdami filtruoti</string>
+    <string name="general_show_all_action">Rodyti visus</string>
     <string name="general_result_success_message">Operacija sėkminga</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Atlaisvinta %s vietos.</item>
@@ -76,6 +89,8 @@
     <string name="general_options_label">Parinktys</string>
     <string name="general_details_label">Išsamiau</string>
     <string name="general_view_action">Peržiūrėti</string>
+    <string name="general_open_action">Atidaryti</string>
+    <string name="general_configure_action">Konfigūruoti</string>
     <string name="general_update_action">Atnaujinti</string>
     <string name="general_scan_action">Skenuoti</string>
     <string name="general_close_action">Uždaryti</string>
@@ -105,7 +120,9 @@
         <item quantity="other">Pašalinta %d elementų</item>
     </plurals>
     <string name="general_search_action">Ieškoti</string>
+    <string name="general_search_no_matches">Nėra atitikmenų</string>
     <string name="general_open_system_settings_action">Atidaryti sistemos nustatymus</string>
+    <string name="general_fast_scroller_action">Greitas slinkimas</string>
     <plurals name="result_x_items">
         <item quantity="one">%s elementas</item>
         <item quantity="few">%s elementai</item>
@@ -137,6 +154,12 @@
     <string name="general_enable_service_action">Įjungti paslaugą</string>
     <string name="general_undo_action">Atšaukti</string>
     <string name="general_list_select_all_action">Žymėti visus</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d pasirinktas</item>
+        <item quantity="few">%d pasirinkti</item>
+        <item quantity="many">%d pasirinkta</item>
+        <item quantity="other">%d pasirinkta</item>
+    </plurals>
     <string name="general_path_label">Kelias</string>
     <string name="general_type_label">Tipas</string>
     <string name="general_size_label">Dydis</string>
@@ -176,6 +199,8 @@
     <string name="general_error_report_bug_action">Pranešti apie klaidą</string>
     <string name="general_error_ipc_deadobject_title">Prarastas ryšys su paslauga</string>
     <string name="general_error_ipc_deadobject_description">Ryšys su kritiškai svarbia paslauga (pvz., Magisk, Shizuku ar kitomis sistemos paslaugomis) netikėtai nutrūko. Paleiskite įrenginį iš naujo. Jei problema išlieka, patikrinkite, ar yra atnaujinimų, arba kreipkitės į mane, kad galėčiau ją išspręsti.</string>
+    <string name="general_error_upgrade_required_title">Reikalinga Pro versija</string>
+    <string name="general_error_upgrade_required_description">Tai Pro funkcija. Norėdami ją naudoti, atnaujinkite SD Maid SE.</string>
     <string name="general_user_label_owner">Savininkas</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>
@@ -203,4 +228,22 @@
     <string name="settings_category_risklevel">Rizikos lygis</string>
     <string name="settings_category_filter">Filtras</string>
     <string name="appcontrol_systemsettings_open_title">Rodyti nustatymus</string>
+    <string name="ui_theme_color_sunset_label">Saulėlydis</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ši funkcija reikalauja root prieigos, tačiau SD Maid negalėjo gauti jos šiame įrenginyje.</string>
+    <string name="access_blocked_root_declined">Šiai funkcijai reikalinga root prieiga. Galite ją įjungti nustatymo ekrane.</string>
+    <string name="access_blocked_root_or_shizuku">Šiai funkcijai reikalinga root arba Shizuku prieiga, kuri nėra prieinama šiame įrenginyje.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Negaliojanti atsarginė kopija</string>
+    <string name="backup_restore_error_invalid_body">Šis failas nėra galiojanti SD Maid atsarginė kopija arba yra pažeistas.</string>
+    <string name="backup_restore_error_version_body">Ši atsarginė kopija buvo sukurta naujesne SD Maid versija. Atnaujinkite programą ir bandykite iš naujo.</string>
+    <string name="backup_restore_error_restore_failed_title">Atkūrimas nepavyko</string>
+    <string name="backup_restore_error_restore_failed_body">Šios dalys negali būti atkurtos: %1$s. Jūsų ankstesnė konfigūracija buvo išsaugota ir gali būti grąžinta.</string>
+    <string name="backup_restore_error_safety_title">Atkūrimas nepradėtas</string>
+    <string name="backup_restore_error_safety_body">SD Maid negalėjo išsaugoti jūsų dabartinės konfigūracijos saugumo nuotraukos, todėl niekas nebuvo pakeista.</string>
+    <string name="backup_restore_error_busy_title">Prašome palaukti</string>
+    <string name="backup_restore_error_busy_body">Šiuo metu vykdoma valymo užduotis arba kita atsarginės kopijos operacija. Bandykite dar kartą, kai ji bus baigta.</string>
+    <string name="backup_restore_error_schema_title">Nesuderinama atsarginė kopija</string>
+    <string name="backup_restore_error_schema_body">Atsarginės kopijos duomenų bazės formatas neatitinka šios SD Maid versijos. Istorijos duomenų atkūrimas palaikomas tik tarp identiškų programos versijų.</string>
 </resources>

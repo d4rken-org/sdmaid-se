@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Op één na alle exemplaren verwijderen in elke geselecteerde set dubbele bestanden?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Alle bestanden in elke geselecteerde set dubbele bestanden verwijderen? Er blijft geen bestand over!</string>
     <string name="deduplicator_delete_all_toggle_msg">Verwijder alle kopieën. Er blijft geen bestand over!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">%1$d duplicaat in deze set verwijderen, waardoor %2$s vrijkomt? Het behouden exemplaar blijft.</item>
+        <item quantity="other">%1$d duplicaten in deze set verwijderen, waardoor %2$s vrijkomt? Het behouden exemplaar blijft.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s vrijmaakbaar</string>
+    <string name="deduplicator_action_delete_set">Duplicatenset verwijderen</string>
+    <string name="deduplicator_action_open_preview">Voorbeeld openen</string>
+    <string name="deduplicator_marked_for_deletion">Gemarkeerd voor verwijdering</string>
+    <string name="deduplicator_cluster_preview_image">Voorbeeld duplicatenset</string>
+    <string name="deduplicator_selection_keep_one_required">Per duplicatenset moet minstens één bestand blijven. Schakel \'Alles verwijderen mogelijk maken\' in de instellingen in om dit te negeren.</string>
     <string name="deduplicator_progress_comparing_files">Bestanden vergelijken</string>
     <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Geef de voorkeur aan kleinere bestanden</string>
     <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
+    <string name="tour_deduplicator_details_cluster_body">Deze bestanden lijken allemaal hetzelfde item of dezelfde media-inhoud te zijn, een cluster van duplicaten.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Bestanden met dit pictogram worden verwijderd; het resterende bestand in de groep is degene die SD Maid behoudt. Je kunt in de instellingen voor verwijderingsstrategie wijzigen hoe het te behouden bestand wordt gekozen.</string>
 </resources>

@@ -8,4 +8,16 @@
         <item quantity="other">%d sökvägar valda</item>
     </plurals>
     <string name="picker_home_action">Dataområden</string>
+    <string name="tour_action_next">Nästa</string>
+    <string name="tour_action_previous">Tidigare</string>
+    <string name="tour_action_done">Klar</string>
+    <string name="tour_action_cancel">Hoppa över</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Hoppa över rundturen?</string>
+    <string name="tour_confirm_message">Du kan aktivera rundturer igen när som helst från Inställningar.</string>
+    <string name="tour_confirm_continue">Fortsätt rundvisningen</string>
+    <string name="tour_confirm_dont_show_this_tour">Visa inte denna rundvisning</string>
+    <string name="tour_confirm_disable_all">Inaktivera alla rundvisningar</string>
+    <string name="navigation_unknown_destination_title">Kommer snart</string>
+    <string name="navigation_unknown_destination_message">Den här skärmen migreras fortfarande till det nya användargränssnittet.</string>
 </resources>

@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Uteslutningshanterare</string>
     <string name="exclusion_manager_desc">Hantera fil- och apputeslutningar.</string>
-    <string name="exclusion_explanation_body1">Uteslut filer och appar från SD Maids operationer.</string>
-    <string name="exclusion_add_new_hint">Lägg till nya uteslutningar genom att först låta SD Maid söka och sedan använda kontextmenyn på resultatet du vill utesluta.</string>
+    <string name="exclusion_explanation_body1">Exkludera filer och appar för att skydda dem från SD Maids verktyg, eller för att hoppa över irrelevanta objekt och snabba upp åtgärderna.</string>
+    <string name="exclusion_add_new_hint">Inga exkluderingar än. Använd +-knappen för att skapa en, eller exkludera objekt från något verktygs resultat.</string>
     <string name="exclusion_create_action">Skapa uteslutning</string>
     <string name="exclusion_edit_action">Redigera uteslutning</string>
     <string name="exclusion_type_package">Apputeslutning</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Exportera uteslutningar</string>
     <string name="exclusion_create_pkg_hint">Använd AppControl-verktyget för att skapa apputeslutningar.</string>
     <string name="exclusion_create_path_hint">Använd StorageAnalyzer-verktyget för att skapa sökvägsuteslutningar.</string>
+    <string name="exclusion_create_segment_hint">Matcha ett namnsegment, som \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Visa standard</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exkludering importerad</item>
+        <item quantity="other">%d exkluderingar importerade</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exkludering exporterad</item>
+        <item quantity="other">%d exkluderingar exporterade</item>
+    </plurals>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">നിങ്ങളുടെ വാങ്ങല്‍ പുനഃസ്ഥാപിക്കാന്‍ \"വാങ്ങല്‍ പുനഃസ്ഥാപിക്കുക\" ഓപ്ഷന്‍ ഉപയോഗിക്കുക. പ്രശ്നം തുടരുകയാണെങ്കില്‍, Google Play കാഷെ മായ്‌ക്കാനും നിങ്ങളുടെ ഉപകരണം റീസ്റ്റാര്‍ട്ട് ചെയ്യാനും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_title">SD മെയ്ഡ് SE പ്രോ വാങ്ങുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല. എന്റെ ജോലി നിങ്ങൾ ധനസഹായം ചെയ്യുന്നു ❤️.</string>
-    <string name="upgrade_screen_benefits_title">പ്രയോജനങ്ങൾ</string>
-    <string name="upgrade_screen_benefits_body">• ആപ്പ് വൃത്തിയാക്കൽ 💯\n• ഷെഡ്യൂൾ ചെയ്ത പ്രവർത്തനങ്ങൾ ⏰\n• എല്ലാ ടൂളുകൾക്കുമുള്ള അധിക ഓപ്‌ഷനുകൾ ⚙️\n• നിങ്ങളുടെ സ്വന്തം ഇല്ലാതാക്കൽ നിയമങ്ങൾ ✍️\n• ഒരു പ്രചോദിത ഡെവലപ്പർ 🧙\nകൂടാതെ മറ്റും…</string>
+    <string name="upgrade_screen_benefits_title">അപ്ഗ്രേഡ് നേട്ടങ്ങൾ</string>
+    <string name="upgrade_screen_benefits_body">• അപ്ലിക്കേഷൻ കാഷെയും കാലാവധിക്ഷിപ്തമായ ഡാറ്റയും വൃത്തിയാക്കുക
+• നകലിയായ ഫയലുകൾ നീക്കം ചെയ്യുക
+• സമയാനുസൃത വൃത്തിയാക്കൽ പ്രവർത്തനക്ഷമമാക്കുക
+• ഇഷ്ടാനുസൃത ഫിൽട്ടറുകളും വൃത്തിയാക്കൽ നിയമങ്ങളും സൃഷ്ടിക്കുക
+• സംഭരണ പ്രവണതകളും വൃത്തിയാക്കൽ ചരിത്രവും ട്രാക്കുചെയ്യുക
+• അപ്ലിക്കേഷൻ ഉടനീളമുള്ള കൂടുതൽ സവിശേഷതകളും നിയന്ത്രണങ്ങളും
+• നിരന്തരമായ വികാസത്തെ പിന്തുണയ്ക്കുക</string>
     <string name="upgrade_screen_how_title">ഓപ്ഷനുകൾ</string>
     <string name="upgrade_screen_how_body">നിങ്ങൾക്ക് ഒറ്റത്തവണ വാങ്ങലിനും വിലകുറഞ്ഞ വാർഷിക സബ്‌സ്‌ക്രിപ്‌ഷനുമിടയിൽ തിരഞ്ഞെടുക്കാം.\nസബ്‌സ്‌ക്രിപ്‌ഷൻ സൗജന്യ 14-ദിവസ ട്രയലിൽ ആരംഭിക്കുന്നു, അതിനുശേഷം നിങ്ങളിൽ നിന്ന് വർഷത്തിലൊരിക്കൽ നിരക്ക് ഈടാക്കും. ട്രയലും സബ്‌സ്‌ക്രിപ്‌ഷനും എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാവുന്നതാണ്.\nഅതേ സവിശേഷതകൾ, വ്യത്യസ്ത വിലനിർണ്ണയ മോഡലുകൾ മാത്രം.</string>
+    <string name="upgrade_screen_subscription_offer_title">വാര്ഷിക സബ്സ്ക്രിപ്ഷൻ</string>
+    <string name="upgrade_screen_iap_offer_title">ഒരിക്കൽ വാങ്ങുക</string>
+    <string name="upgrade_screen_offer_recommended">ശുപാരിശ ചെയ്യപ്പെട്ടത്</string>
+    <string name="upgrade_screen_offers_unavailable_message">വിലകൾ ഇപ്പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Google Play പരിശോധിക്കുക, കുറച്ച് കാലത്തിനുശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_subscription_trial_action">സൗജന്യ 14-ദിവസ ട്രയൽ ആരംഭിക്കുക</string>
     <string name="upgrade_screen_subscription_action">സബ്‌സ്ക്രൈബ്</string>
     <string name="upgrade_screen_subscription_action_hint">സബ്‌സ്‌ക്രിപ്‌ഷന്റെ വില പ്രതിവർഷം %s ആണ്.</string>

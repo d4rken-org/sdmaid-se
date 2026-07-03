@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Cantzellare totu manca una còpia in cada grupu seletzionadu de documentos duplicados?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Cantzellare totu is documentos in cada grupu seletzionadu de documentos duplicados? Perunu documentu abarrat!</string>
     <string name="deduplicator_delete_all_toggle_msg">Cantzellare totu is còpias. Perunu documentu abarrat!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Bogara %1$d duplicadu in custu conuntu, liberando %2$s? Sa copia mantida restat.</item>
+        <item quantity="other">Bogara %1$d duplicados in custu conuntu, liberando %2$s? Sa copia mantida restat.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s liberabile</string>
+    <string name="deduplicator_action_delete_set">Bogara conuntu de duplicados</string>
+    <string name="deduplicator_action_open_preview">Abri prevista</string>
+    <string name="deduplicator_marked_for_deletion">Marcadu pro bogare</string>
+    <string name="deduplicator_cluster_preview_image">Prevista de conuntu de duplicados</string>
+    <string name="deduplicator_selection_keep_one_required">Almenu unu archiviu pro cadaunu grupu di dupplicados debit rimandere. Abilita \"Faghe \'Cantzellare totu\' possibbile\" in is preferentias pro suberare.</string>
     <string name="deduplicator_progress_comparing_files">Cumparende documentos</string>
     <string name="deduplicator_details_cluster_title">Grupu de duplicados</string>
     <string name="deduplicator_matches_exact_label">Còpias isatas</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Pràtzia archìvios prus minores</string>
     <string name="deduplicator_view_mode_groups_label">Grupos</string>
     <string name="deduplicator_view_mode_directories_label">Cartellas</string>
+    <string name="tour_deduplicator_details_cluster_body">Issos archivios aparent sa meisma cosa o cuntentu media, unu grupu di dupplicados.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Is archivios cun custu icone sunt cantzellados; s\'archiviu chi rimant in su grupu est cuelu chi SD Maid mantent. Podes cambiare comente si nomanat chi rimant in is preferentias de sa estrategia di cantzelladura.</string>
 </resources>

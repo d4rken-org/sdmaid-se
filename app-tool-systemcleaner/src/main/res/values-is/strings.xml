@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Takmarka samsvörun eftir aldri skráar (síðast breytt). Skildu eftir óstillt til að para við hvaða aldur sem er.</string>
     <string name="systemcleaner_customfilter_import_action">Flytja inn nýja síu</string>
     <string name="systemcleaner_customfilter_export_action">Flytja út valda síu</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner finnur rusl með því að nota almennar síur. Tilbúnar reglur eru fyrir hluti eins og tómar möppur, afgangs annála og úrelt þa eftir þumalmyndir. Farðu á stillingar ef þú vilt búa til þínar eigin.</string>
+    <string name="tour_systemcleaner_filter_body">Hver röð er sía og niðurstaan sem hún fann. Opnaðu smáatriði hennar til að sjá nákvæmlega hvaða skrár passa fyrir eyðingu.</string>
 </resources>

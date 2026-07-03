@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Tamaina</string>
     <string name="appcontrol_list_sortmode_screentime_label">Pantaila-denbora</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Aplikazioen tamainak estimatuta daude errendimendu arrazoengatik. Erabili StorageAnalyzer tresna datu zehatzagoak lortzeko.</string>
+    <string name="appcontrol_list_filteroptions_label">Iragazki-aukerak</string>
+    <string name="appcontrol_list_fastscroller_action">Desplazatzaile bizia</string>
     <string name="appcontrol_progress_uninstalling_app">Aplikazioa desinstalatzend</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikazio desinstalatu da</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Instalatuta: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Kudeatu instalatutako aplikazioak</string>
+    <string name="tour_appcontrol_search_body">Bilatu aplikazio bat izenaren bidez. Baliagarria da aplikazio asko instalatuta dituzten gailuetan.</string>
+    <string name="tour_appcontrol_filter_body">Estutzen du zerrenda erabiltzaile/sistema aplikazioetan, gaitzapen egoeran, azken jardueran eta gehiago. Aktiboak diren iragazkiak markaak gisa agertzen dira hemen.</string>
+    <string name="tour_appcontrol_sort_body">Ordenatu aplikazioak izenean, instalazio datan, azken eguneratzen, tamainan edo pantaila denborean. Sakatu aukera bera norabidea alderan aldatzeko.</string>
+    <string name="tour_appcontrol_app_row_body">Sakatu aplikazio bat bere xehetasunak eta erabilgarri dauden ekintzak irekitzeko. Luzaro sakatu hautapena hasteko eta talde ekintzak erabiltzeko.</string>
 </resources>

@@ -36,6 +36,17 @@
         <item quantity="one">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
         <item quantity="other">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Bul seans pútkil saqlaw kólemin nıshanaǵa aladı — mında óshiriw sol saqlaw ornındaǵı hár bir papkanı qamtıydı.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…hám taǵı %d papka</item>
+        <item quantity="other">…hám taǵı %d papka</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Men túsindim, bul fayllar tolıq óshiriledi.</string>
+    <string name="swiper_sensitive_root_warning_title">Saqlaw orınnıń hámmesin skanerlew me?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s skanerlew bul saqlaw orınındaǵı hár bir fayldı óz ishine aladı — súwretler, hújjetler, jüklep alınǵanlar, qosımsha medialar hám basqalar. Dawam etilsin be?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Sonda da dawam ettiriw</string>
+    <string name="swiper_session_risky_label">Pútkil saqlaw orının skanerlew</string>
+    <string name="swiper_session_risky_info_message">Bul seans saqlaw kóleminiń tiykarǵı papkasın nıshanaǵa aladı, sonlıqtan sol saqlaw orınındaǵı hár bir fayl qamtıladı — súwretler, hújjetler, jüklep alınǵanlar, qosımsha medialar hám basqalar.\n\nPútkil saqlaw skaneri kóp element qaytarıwı mümkin, sonıń ishinde siz qarap shıǵıwdı kózlemegen fayllar da bar. Skandı tarlatiw ushın fayl túri boyınsha filtr qollanıń.</string>
     <string name="swiper_delete_x_action">%1$d o\'shiriw</string>
     <string name="swiper_settings_swap_directions_title">Sıypaw baǵıtların almastırıw</string>
     <string name="swiper_settings_swap_directions_summary">Saqlap qalıw ushin shepke, o\'shiriw ushin ońǵa sıypatın\'.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Usı sessiya ushin at kiritin\'</string>
     <string name="swiper_sessions_current_sessions">Aǵımdaǵı sessiyalar</string>
     <string name="swiper_session_paths_label">Jollar</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…hám taǵı %d</item>
+        <item quantity="other">…hám taǵı %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Jaǵday</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d saqlap qalıw</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Súzginen ótkerilgen: %1$s</string>
     <string name="swiper_session_no_matching_files">Sáykes fayllar tabılmadı</string>
     <string name="swiper_open_externally_action">Sırtqı qosılmada ashıw</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Súwrettin taǵdirin sheshiw ushın onı súyriń: Qaptalǵa — saqlaw yamasa óshiriw, joqarıǵa — ótkerip jiberiw, tómenge — biykarlaw. Tómendegi dügmeler de sonı isleydi — hám qay tárep qaysı ekenin kórsetedi.</string>
+    <string name="tour_swiper_openin_body">Bul dügme súwretti basqa qosımshada ashadı, sheshim qabıllawdan aldın tekseriw ushın qolaylı.</string>
+    <string name="tour_swiper_preview_body">Bul dügme jaqınıraq kóriw ushın tolıq ekran aldın kóriwin ashadı.</string>
+    <string name="tour_swiper_actions_body">Súyriwdi jaqsı kórmeysiz be? Bizde dügmeler de bar! Ótkerip jiberiw onı keyinge qaldıradı, hám Ótkerip jiberiwdi uzaq basıw fayldı keleshek skanerlerden shıǵarıp taslaydi. Biykarlaw aqırǵı tańlawıńızdı qaytaradı.</string>
+    <string name="tour_swiper_review_body">Saqlaw hám óshiriw tańlawlarıńız tek belgilengen. Olardı kórip shıǵıw hám tayın bolǵanda óshiriwlerdi qollanıw ushın Kórip shıǵıwdı ashıń.</string>
 </resources>

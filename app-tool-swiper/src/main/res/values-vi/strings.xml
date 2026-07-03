@@ -31,6 +31,16 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d các mục chưa quyết định sẽ được giữ lại để xem xét sau.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Phiên này nhắm mục tiêu toàn bộ khối lưu trữ — xóa ở đây bao gồm mọi thư mục trên khối lưu trữ đó.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…và %d thư mục khác</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Tôi hiểu các tệp này sẽ bị xóa vĩnh viễn.</string>
+    <string name="swiper_sensitive_root_warning_title">Quét toàn bộ bộ nhớ?</string>
+    <string name="swiper_sensitive_root_warning_message">Quét %1$s bao gồm mọi tệp trên bộ nhớ này — ảnh, tài liệu, tải xuống, phương tiện ứng dụng, v.v. Tiếp tục?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Tiếp tục dù sao</string>
+    <string name="swiper_session_risky_label">Quét toàn bộ bộ nhớ</string>
+    <string name="swiper_session_risky_info_message">Phiên này nhắm mục tiêu vào gốc của một ổ lưu trữ, vì vậy mọi tệp trên ổ lưu trữ đó đều trong phạm vi — ảnh, tài liệu, tải xuống, phương tiện ứng dụng, v.v.\n\nQuét toàn bộ bộ nhớ có thể trả về nhiều mục, bao gồm cả các tệp bạn có thể không có ý định xem xét. Áp dụng bộ lọc loại tệp để thu hẹp quét.</string>
     <string name="swiper_delete_x_action">Xóa %1$d</string>
     <string name="swiper_settings_swap_directions_title">Đổi hướng vuốt</string>
     <string name="swiper_settings_swap_directions_summary">Vuốt sang trái để giữ lại, vuốt sang phải để xóa.</string>
@@ -65,6 +75,9 @@
     <string name="swiper_session_rename_hint">Nhập tên cho phiên này</string>
     <string name="swiper_sessions_current_sessions">Phiên hiện tại</string>
     <string name="swiper_session_paths_label">Đường dẫn</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…và %d cái khác</item>
+    </plurals>
     <string name="swiper_session_status_label">Trạng thái</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d để giữ lại</item>
@@ -129,4 +142,10 @@
     <string name="swiper_file_type_filter_summary">Đã lọc: %1$s</string>
     <string name="swiper_session_no_matching_files">Không tìm thấy tệp phù hợp</string>
     <string name="swiper_open_externally_action">Mở trong ứng dụng bên ngoài</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Vuốt ảnh để quyết định số phận của nó: Sang bên để giữ lại hoặc xóa, lên để bỏ qua, xuống để hoàn tác. Các nút bên dưới làm điều tương tự — và cho biết bên nào là bên nào.</string>
+    <string name="tour_swiper_openin_body">Nút này mở ảnh trong một ứng dụng khác, tiện lợi để kiểm tra trước khi quyết định.</string>
+    <string name="tour_swiper_preview_body">Nút này mở bản xem trước toàn màn hình để xem rõ hơn.</string>
+    <string name="tour_swiper_actions_body">Không thích vuốt? Chúng tôi cũng có các nút! Skip để lại nó chưa quyết định cho lần sau, và nhấn lâu Skip để loại trừ tệp khỏi các quét trong tương lai. Undo khôi phục lựa chọn cuối cùng của bạn.</string>
+    <string name="tour_swiper_review_body">Các lựa chọn giữ lại và xóa của bạn chỉ được ghi nhớ. Mở Review để xem lại chúng và áp dụng các xóa khi bạn sẵn sàng.</string>
 </resources>

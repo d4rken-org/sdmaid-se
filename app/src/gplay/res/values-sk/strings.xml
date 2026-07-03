@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Použite možnosť \"Obnoviť nákup\" na obnovenie vášho nákupu. Ak problém pretrváva, skúste vymazať vyrovnávaciu pamäť Google Play a reštartovať zariadenie.</string>
     <string name="upgrade_screen_title">Získajte SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje. Moja práca je financovaná vami ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Výhody</string>
-    <string name="upgrade_screen_benefits_body">• Čistenie aplikácií 💯\n• Plánované operácie ⏰\n• Ďalšie možnosti pre všetky nástroje ⚙️\n• Vaše vlastné pravidlá odstraňovania ✍️\n• Motivovaný vývojár 🧙\na ďalšie…</string>
+    <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
+    <string name="upgrade_screen_benefits_body">• Vyčistite vyrovnávacie pamäte aplikácií a nadbytočné dáta
+• Odstránite duplicitné súbory
+• Povoľte plánované čistenie
+• Vytvorte vlastné filtre a pravidlá čistenia
+• Sledujte trendy úložiska a históriu čistenia
+• Ďalšie funkcie a ovládanie v celej aplikácii
+• Podpora pokračujúceho vývoja</string>
     <string name="upgrade_screen_how_title">Možnosti</string>
     <string name="upgrade_screen_how_body">Môžete si vybrať medzi jednorazovým nákupom a lacnejším ročným odberom.\nPredplatné sa začína bezplatnou 14-dňovou skúšobnou verziou, po ktorej vám bude raz ročne účtovaný poplatok. Skúšobnú verziu a predplatné je možné kedykoľvek zrušiť.\nRovnaké funkcie, len iné cenové modely.</string>
+    <string name="upgrade_screen_subscription_offer_title">Ročné predplatné</string>
+    <string name="upgrade_screen_iap_offer_title">Kúpiť raz</string>
+    <string name="upgrade_screen_offer_recommended">Odporúčané</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ceny sa nedajú načítať práve teraz. Skontrolujte Google Play a skúste o chvíľu znova.</string>
     <string name="upgrade_screen_subscription_trial_action">Spustite bezplatnú 14-dňovú skúšobnú verziu</string>
     <string name="upgrade_screen_subscription_action">Predplatiť</string>
     <string name="upgrade_screen_subscription_action_hint">Predplatné stojí %s ročne.</string>

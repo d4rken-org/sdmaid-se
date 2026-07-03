@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl jasılıǵına (aqırǵı o\'zgertiw waqtı) tiykarlanıp na\'tiyjelerin sheklew. Qa\'legen jasılıqqa uyqas keliw ushin sazlanbastan qaldırın\'.</string>
     <string name="systemcleaner_customfilter_import_action">Жаңа сүзгиди импорт етиў</string>
     <string name="systemcleaner_customfilter_export_action">Таңдалған сүзгиди экспорт етиў</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner qosımshaǵa tán bolmaǵan filtrler arqalı kereksiz fayllardı tabadı. Bos papkalar, qaldıq jurnallar hám eski úlgi súwretler ushın tayın qaǵıydalar bar. Óz qaǵıydańızdı jaratıw ushın sazlamalarǵa barıń.</string>
+    <string name="tour_systemcleaner_filter_body">Hár bir qatar — bir filtr hám ol tapqan nárse. Hesh nárse óshirmesten aldın qaysı fayllardıń sáykes kelgenin anıq kóriw ushın onıń detalların ashıń.</string>
 </resources>

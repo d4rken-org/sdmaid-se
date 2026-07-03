@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
     <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>
     <string name="stats_storage_type_portable">Алмаламалы сақлау орны</string>
+    <string name="stats_space_history_delete_storage_title">Сақлаў тарийхын өшириу?</string>
+    <string name="stats_space_history_delete_storage_desc">Бул сақлаўға байланыслы барлық трендлик мәліметлер мәңгилик өширилетуғын болады.</string>
 </resources>

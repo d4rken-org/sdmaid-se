@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">使用「還原購買」選項來還原您的購買。如果問題持續，請嘗試清除 Google Play 快取並重新啟動您的裝置。</string>
     <string name="upgrade_screen_title">取得 SD 女僕 SE 專業版</string>
     <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。我的工作由你們資助❤️。</string>
-    <string name="upgrade_screen_benefits_title">優點</string>
-    <string name="upgrade_screen_benefits_body">• 應用程式清理 💯\n• 排程作業 ⏰\n• 所有工具的額外選項 ⚙️\n• 您的專屬刪除規則 ✍️\n• 一位積極的開發人員 🧙\n以及更多…</string>
+    <string name="upgrade_screen_benefits_title">升級優點</string>
+    <string name="upgrade_screen_benefits_body">• 清理應用程式快取和可清除的資料
+• 移除重複的檔案
+• 啟用排定的清理
+• 建立自訂篩選和清理規則
+• 追蹤儲存空間趨勢和清理歷史記錄
+• 應用程式各處提供更多功能和控制選項
+• 支持持續開發</string>
     <string name="upgrade_screen_how_title">選項</string>
     <string name="upgrade_screen_how_body">您可以選擇單次購買，也可以選擇更便宜的每年訂閱。\n訂閱開始時有 14 天的免費試用，之後每年計費。試用和訂閱可隨時取消。\n功能相同，僅有定價模式不同。</string>
+    <string name="upgrade_screen_subscription_offer_title">年度訂閱</string>
+    <string name="upgrade_screen_iap_offer_title">購買一次</string>
+    <string name="upgrade_screen_offer_recommended">推薦</string>
+    <string name="upgrade_screen_offers_unavailable_message">目前無法載入價格。請檢查 Google Play，稍後再試。</string>
     <string name="upgrade_screen_subscription_trial_action">開始 14 天免費試用</string>
     <string name="upgrade_screen_subscription_action">訂閱</string>
     <string name="upgrade_screen_subscription_action_hint">訂閱費用為 %s 每年。</string>

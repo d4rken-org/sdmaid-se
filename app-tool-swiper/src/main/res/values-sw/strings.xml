@@ -36,6 +36,19 @@
         <item quantity="one">Kipengele %d kisichoamuliwa kitabaki kwa ukaguzi wa baadaye.</item>
         <item quantity="other">Vipengele %d visivyoamuliwa vitabaki kwa ukaguzi wa baadaye.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Kipindi hiki kinalenga hifadhi nzima — kufuta hapa kunaenea kila folda kwenye hifadhi hiyo.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…na folda %d nyingine</item>
+        <item quantity="other">…na folda %d zaidi</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Ninafahamu faili hizi zitafutwa kabisa.</string>
+    <string name="swiper_sensitive_root_warning_title">Chunguza hifadhi nzima?</string>
+    <string name="swiper_sensitive_root_warning_message">Kuchunguza %1$s kunajumuisha kila faili kwenye hifadhi hii — picha, hati, vipakuliwa, media za programu, na zaidi. Endelea?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Endelea hata hivyo</string>
+    <string name="swiper_session_risky_label">Uchunguzi wa hifadhi nzima</string>
+    <string name="swiper_session_risky_info_message">Kipindi hiki kinalenga mzizi wa hifadhi, hivyo kila faili kwenye hifadhi hiyo kipo ndani ya upeo — picha, hati, vipakuliwa, media za programu, na zaidi.
+
+Uchunguzi wa hifadhi nzima unaweza kurudisha vitu vingi, vikiwemo faili ambazo huenda hukusudia kuvipitia. Tumia kichujio cha aina ya faili ili kupunguza uchunguzi.</string>
     <string name="swiper_delete_x_action">Futa %1$d</string>
     <string name="swiper_settings_swap_directions_title">Badilisha mwelekeo wa kutelezesha</string>
     <string name="swiper_settings_swap_directions_summary">Telezesha kushoto kuhifadhi, kulia kufuta.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Ingiza jina la kipindi hiki</string>
     <string name="swiper_sessions_current_sessions">Vipindi vya sasa</string>
     <string name="swiper_session_paths_label">Njia</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…na %d zaidi</item>
+        <item quantity="other">…na %d zaidi</item>
+    </plurals>
     <string name="swiper_session_status_label">Hali</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d ya kuhifadhi</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Zilizochujwa: %1$s</string>
     <string name="swiper_session_no_matching_files">Hakuna faili zinazofanana zilizopatikana</string>
     <string name="swiper_open_externally_action">Fungua katika programu ya nje</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Telezesha kidole kwenye picha ili kuamua hatima yake: pembeni kuweka au kufuta, juu kuruka, chini kutendua. Vitufe vilivyo chini vinafanya vivyo hivyo — na huonyesha upande upi ni upi.</string>
+    <string name="tour_swiper_openin_body">Kitufe hiki kinafungua picha katika programu nyingine, muhimu kwa kuiangalia kabla ya kuamua.</string>
+    <string name="tour_swiper_preview_body">Kitufe hiki kinafungua onyesho la skrini nzima kwa mwonekano wa karibu.</string>
+    <string name="tour_swiper_actions_body">Hupendi kutelezesha kidole? Tuna vitufe pia! Ruka huacha faili bila kuamuliwa kwa baadaye, na kushikilia Ruka kwa muda mrefu huondoa faili kutoka uchunguzi ujao. Tendua hurejesha chaguo lako la mwisho.</string>
+    <string name="tour_swiper_review_body">Chaguo zako za kuweka na kufuta ni za muda tu. Fungua Mapitio ili kuzipitia na kutekeleza ufutaji ukiwa tayari.</string>
 </resources>

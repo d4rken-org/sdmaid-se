@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Millora l\'SD Maid SE</string>
     <string name="upgrades_dashcard_body">Desbloquegeu funcions addicionals i convertiu-vos en mecenes per donar suport al continuïtat del suport!</string>
     <string name="upgrades_dashcard_upgrade_action">Millora</string>
-    <string name="upgrade_screen_title">Millora l\'SD Maid</string>
+    <string name="upgrade_screen_title">Dona suport a SD Maid</string>
     <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven dades d\'usuaris. El desenvolupament continuat només és possible gràcies a tots vosaltres.</string>
     <string name="upgrade_screen_how_title">Com ajudar</string>
     <string name="upgrade_screen_how_body">Convertiu-vos en mecenes i patrocinadors del desenvolupament! Toqueu el botó següent per activar totes les funcions addicionals i obrir el meu perfil de patrocinadors del GitHub.</string>
-    <string name="upgrade_screen_why_title">Això evoca 🪄</string>
-    <string name="upgrade_screen_why_body">• Neteja d\'aplicacions 💯\n• Operacions programades ⏰\n• Opcions extres per a totes les eines ⚙️\n• Les vostres pròpies regles d\'eliminació ✍️\n• Un desenvolupador motivat 🧙\ni molt més…</string>
+    <string name="upgrade_screen_why_title">Beneficis de l\'actualització</string>
+    <string name="upgrade_screen_why_body">• Neteja les memòries cau d\'aplicacions i dades descartables
+• Elimina fitxers duplicats
+• Activa les neteges programades
+• Crea filtres personalitzats i regles de neteja
+• Segueix les tendències d\'emmagatzematge i l\'historial de neteja
+• Més funcions i controls a tota l\'aplicació
+• Dona suport a la feina de codi obert</string>
     <string name="upgrade_screen_sponsor_action">Desenvolupament del patrocinador</string>
     <string name="upgrade_screen_sponsor_action_hint">L\'alternativa són els anuncis, les analítiques i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gràcies per donar suport al desenvolupament de codi obert ❤️</string>

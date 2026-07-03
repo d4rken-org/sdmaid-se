@@ -36,6 +36,17 @@
         <item quantity="one">%d elemento indeciso rimarrà per una revisione successiva.</item>
         <item quantity="other">%d elementi indecisi rimarranno per una revisione successiva.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Questa sessione riguarda un intero volume di archiviazione — l’eliminazione qui copre ogni cartella in tale archiviazione.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…e %d cartella in più</item>
+        <item quantity="other">…e %d cartelle in più</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Capisco che questi file verranno eliminati permanentemente.</string>
+    <string name="swiper_sensitive_root_warning_title">Scansionare l’intera archiviazione?</string>
+    <string name="swiper_sensitive_root_warning_message">La scansione di %1$s include ogni file in questa archiviazione — foto, documenti, download, contenuti multimediali dell’app e altro. Continuare?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continua comunque</string>
+    <string name="swiper_session_risky_label">Scansione dell’intera archiviazione</string>
+    <string name="swiper_session_risky_info_message">Questa sessione riguarda la radice di un volume di archiviazione, quindi ogni file in quella archiviazione è incluso — foto, documenti, download, contenuti multimediali dell’app e altro.\n\nLe scansioni dell’intera archiviazione possono restituire molti elementi, inclusi file che potresti non aver inteso di rivedere. Applica un filtro di tipo di file per limitare la scansione.</string>
     <string name="swiper_delete_x_action">Elimina %1$d</string>
     <string name="swiper_settings_swap_directions_title">Inverti direzioni di scorrimento</string>
     <string name="swiper_settings_swap_directions_summary">Scorri a sinistra per tenere, a destra per eliminare.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Inserisci un nome per questa sessione</string>
     <string name="swiper_sessions_current_sessions">Sessioni correnti</string>
     <string name="swiper_session_paths_label">Percorsi</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…e %d altro</item>
+        <item quantity="other">…e %d altri</item>
+    </plurals>
     <string name="swiper_session_status_label">Stato</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d da tenere</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Filtrati: %1$s</string>
     <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
     <string name="swiper_open_externally_action">Apri nell’app esterna</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Scorri una foto per deciderne il destino: di lato per tenere o eliminare, su per saltare, giù per annullare. I pulsanti qui sotto fanno lo stesso — e mostrano quale lato è quale.</string>
+    <string name="tour_swiper_openin_body">Questo pulsante apre la foto in un’altra app, utile per controllarla prima di decidere.</string>
+    <string name="tour_swiper_preview_body">Questo pulsante apre un’anteprima a schermo intero per uno sguardo più ravvicinato.</string>
+    <string name="tour_swiper_actions_body">Non ti piace scorrere? Abbiamo anche i pulsanti! Salta lo lascia indeciso per dopo, e premere a lungo Salta esclude un file dalle scansioni future. Annulla ripristina la tua ultima scelta.</string>
+    <string name="tour_swiper_review_body">Le tue scelte di mantenimento e cancellazione sono solo in sospeso. Apri Revisione per esaminarle e applicare le cancellazioni quando sei pronto.</string>
 </resources>

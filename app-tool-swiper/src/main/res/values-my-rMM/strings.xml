@@ -31,6 +31,16 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်သောခုများသည် နောက်ကျော်သုံးဖေအတွက် ကျန်ပါတ်မှုသည်။</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ဤအခေါ်အဝေါ်သည် သိုလှောင်ရန်အသုံးပြုသည့် အစုံတစ်ခုကို ပစ်မှတ်သည် — ဤနေရာတွင် ဖျက်သည့်အခါ အဆိုပါသိုလှောင်ရန်အသုံးပြုသည့်အတွက် ဖိုလ်ဒာအားလုံးကျော်ဖြတ်သည်။</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…နှင့် အခြားဖိုလ်ဒာများ %d ခု</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ကျွန်ုပ်နားလည်သည်။ ဤဖိုင်များသည် အပြဿနာဖြစ်ဖျက်ပစ်မည်သည်။</string>
+    <string name="swiper_sensitive_root_warning_title">စုစုပေါင်းသိုလှောင်ခန်းကို စကင်န်လုပ်မည်လား။</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s ကို စကင်န်လုပ်ခြင်းသည် ဤသိုလှောင်ခန်းရှိ ဖိုင်အားလုံးများ — ဓာတ်ပုံများ၊ စာဖရ်မ်များ၊ ဒေါင်းလုပ်ဒ်များ၊ app မီဒီယာ နှင့် အခြားများစွာ ပါဝင်သည်။ ဆက်လက်မည်လား။</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ဆက်လက်ပါ။</string>
+    <string name="swiper_session_risky_label">သိုလှောင်ခန်းအလုံးစုံ စကင်န်</string>
+    <string name="swiper_session_risky_info_message">ဤလုပ်ဆောင်မှုသည် သိုလှောင်ခန်း၏ အမြစ်သို့ ရည်ညွှန်းသည်၊ ထို့ကြောင့် ထိုသိုလှောင်ခန်းရှိ ဖိုင်အားလုံးများ အက်စမ်းအတွင်းရှိသည် — ဓာတ်ပုံများ၊ စာဖရ်မ်များ၊ ဒေါင်းလုပ်ဒ်များ၊ app မီဒီယာ နှင့် အခြားများစွာ။\n\nမြတ်စုန်းစီမံခန့်ခွဲမှု စကင်န်များသည် သင်ပြန်လည်သုံးသပ်ရန်မရည်ရွယ်သော ဖိုင်များ အပါအဝင် အရာများစွာ ပြန်လည်ပေးအပ်နိုင်သည်။ စကင်န်ကို အကျဉ်းချုပ်ရန် ဖိုင်အမျိုးအစားစစ်ထုတ်ခွဲခြားမှုကို သုံးစွဲပါ။</string>
     <string name="swiper_delete_x_action">%1$d ကို ဖက်ချလိုက်ပါ</string>
     <string name="swiper_settings_swap_directions_title">Swipe အလြာအဆြာ လဲစပြပြန်ပါ</string>
     <string name="swiper_settings_swap_directions_summary">သိုထားလုးကို ဆေးလိုက်ရန်ဆေး ဘ်နတ်ကိုအလြာဆေး ဆေးလိုက်ပါ၍ နတ်ကိုအလြာ ဖက်ချပါ။</string>
@@ -65,6 +75,9 @@
     <string name="swiper_session_rename_hint">ဤသှားရှားအတွက် အမည့်အသေးတစ်ခု ထည့်သွင်းပါ</string>
     <string name="swiper_sessions_current_sessions">လက်ရှိပြီးသော သှားရှားများ</string>
     <string name="swiper_session_paths_label">ပောထ်များ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">နှင့် %d အခြား</item>
+    </plurals>
     <string name="swiper_session_status_label">အခြေအနေ</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d ခု ဆေးလိုက်ရန်</item>
@@ -129,4 +142,10 @@
     <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
     <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
     <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ဓာတ်ပုံကို စွဲဆောင်ပြီး ၎င်း၏ကံစွမ်းကို ဆုံးဖြတ်ပါ - အလျှော့ခြင်းဖြင့် ထိန်းသိမ်းခြင်း သို့မဟုတ် ဖျက်သိမ်းခြင်း၊ အပေါ်သို့ အတည်းဖြန်ခြင်း၊ အောက်သို့ ပြန်လုပ်ပါ။ အောက်ခြင်းခလုတ်များသည် တူညီသည် - နှင့် မည်သည့်ဖက်သည် မည်ဖြစ်သည်ကို ပြသသည်။</string>
+    <string name="tour_swiper_openin_body">ဤခလုတ်သည် ဓာတ်ပုံကို အခြား app တွင် ဖွင့်သည်၊ ဆုံးဖြတ်မီ စစ်ဆေးရန် အဆင်ပြေသည်။</string>
+    <string name="tour_swiper_preview_body">ဤခလုတ်သည် ပိုမိုအနီးကပ်ကြည့်ရှုရန် အကျယ်အဝန်းအစမ်းချက်ကို ဖွင့်သည်။</string>
+    <string name="tour_swiper_actions_body">စွဲဆောင်ခြင်းကို နှစ်သက်မထားသလား။ ကျွန်ုပ်တို့တွင် ခလုတ်များလည်း ရှိသည်။ အတည်းဖြန်ခြင်းသည် အနာဂတ်အတွက် မဆုံးဖြတ်သည့်အတိုင်း ထားခြင်း ဖြစ်သည်၊ နှင့် အတည်းဖြန်ခြင်းကို ကြာမြင့်စွာ ကလစ်ခြင်းသည် ဖိုင်ကို အနာဂတ်စကင်န်များမှ ဖယ်ရှားသည်။ ပြန်လုပ်ခြင်းသည် သင်၏ နောက်ဆုံးရွေးချယ်မှုကို ပြန်ပြောင်းသည်။</string>
+    <string name="tour_swiper_review_body">သင်ရဲ့ သိမ်းဆည်းခြင်းနှင့် ဖျက်ခြင်းရွေးချယ်မှုများသည် အခြေခံအနေအထားသာ။ ၎င်းတို့ကိုပြန်လည်စူးစမ်းရန်နှင့် သင်အဆင်သင့်ရှိသည့်အခါ ဖျက်မှုများကိုအသုံးချရန် ပြန်လည်ကြည့်ရှုမှုကိုဖွင့်ပါ။</string>
 </resources>

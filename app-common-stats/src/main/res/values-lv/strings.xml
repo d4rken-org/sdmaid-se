@@ -41,4 +41,6 @@
     <string name="stats_storage_type_primary">Primārā krātuve</string>
     <string name="stats_storage_type_secondary">Sekundārā krātuve</string>
     <string name="stats_storage_type_portable">Pārnēsājamā krātuve</string>
+    <string name="stats_space_history_delete_storage_title">Dzēst krātuves vēsturi?</string>
+    <string name="stats_space_history_delete_storage_desc">Visi šīs krātuves tendences dati tiks neatgriezeniski dzēsti.</string>
 </resources>

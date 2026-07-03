@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Bigarren mailako biltegiratzea, normalean kengarria den SD txartel bat. Multimedia-fitxategiak eta hori onartzen duten aplikazioen datuak ditu.</string>
     <string name="analyzer_storage_type_tertiary_title">Biltegiratzea eramangarria</string>
     <string name="analyzer_storage_type_tertiary_description">Biltegiratzea eramangarria, adibidez, USB atakara konektatutako flash unitate bat.</string>
+    <string name="analyzer_storage_identifier_internal">Barne biltegia</string>
     <string name="analyzer_storage_content_title">Biltegiratzearen edukia</string>
     <string name="analyzer_storage_content_type_app_label">Aplikazioak</string>
     <string name="analyzer_storage_content_type_app_description">Instalatutako aplikazioek eta haien datuek hartutako lekua (hau da, aplikazio-fitxategiak, datuak eta cacheak).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Sistema-aplikazioak eta sistema-datuak. Beste erabiltzaileen aplikazioak eta datuak, gailu honetan hainbat erabiltzaile-kontu konfiguratuta badaude.</string>
     <string name="analyzer_storage_content_type_system_other_label">Bestelakoak</string>
     <string name="analyzer_storage_content_type_system_info">Aplikazio edo Erabiltzaile fitxategien kategorietara egokitzen ez diren fitxategiak. Arakatu soilik — ezabatzea ez da onartzen. Zenbait area ez da osoa sarbide mugapenak direla eta.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Fitxategiak ezin dira aplikazioekin lotzen orain. Neurriak erreferentzia gisa bakarrik agertzen dira — ezabatzea, filtroak eta Swiper desgaituta daude.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistema-fitxategiak eta SD Maid-ek atzitu edo sailkatu ezin dituen beste datu batzuk. Eragiketa-sistemak zenbait arearen edukia zerrendatzea mugatzen du.</string>
     <string name="analyzer_storage_content_app_code_label">Aplikazioaren kodea</string>
     <string name="analyzer_storage_content_app_code_description">Aplikazio-fitxategiak, liburutegiak eta baliabideak. Leku hau askatu daiteke aplikazioa desinstalatu edo artxibatuz (Android bertsio berrietan erabilgarri).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikazio honek %1$s hartzen du \"%2$s\"-n.</string>
     <string name="analyzer_app_details_app_is_archived">Aplikazio hau artxibatuta dago.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 egunetan</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Ikusi zer betetzen ari den zure biltegia benetan. Analyzer zure espazioa nora doan mapatzen du. Txartel bakoitza zure gailuko biltegiaren zatia da.</string>
+    <string name="tour_analyzer_storage_body">Ireki biltegia aplikazioetan, medietan eta fitxategietan banatzeko, orduan sakatu etengabe handiena erabiltzen dituena bilatzeko.</string>
 </resources>

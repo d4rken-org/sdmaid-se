@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">डुप्लिकेट फ़ाइलों के प्रत्येक चयनित सेट में एक को छोड़कर सभी प्रतियां मिटाएं?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">डुप्लिकेट फ़ाइलों के प्रत्येक चयनित सेट में सभी फ़ाइलें मिटाएं? कोई फ़ाइल शेष नहीं रहती!</string>
     <string name="deduplicator_delete_all_toggle_msg">सभी प्रतियां मिटाएं। कोई फ़ाइल शेष नहीं रहती!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">इस सेट में %1$d डुप्लिकेट हटाएं, %2$s खाली करें? रखी गई कॉपी रहती है।</item>
+        <item quantity="other">इस सेट में %1$d डुप्लिकेट हटाएं, %2$s खाली करें? रखी गई कॉपी रहती है।</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s मुक्त किया जा सकता है</string>
+    <string name="deduplicator_action_delete_set">डुप्लिकेट सेट हटाएं</string>
+    <string name="deduplicator_action_open_preview">पूर्वावलोकन खोलें</string>
+    <string name="deduplicator_marked_for_deletion">हटाने के लिए चिह्नित</string>
+    <string name="deduplicator_cluster_preview_image">डुप्लिकेट सेट पूर्वावलोकन</string>
+    <string name="deduplicator_selection_keep_one_required">डुप्लिकेट सेट में कम से कम एक फ़ाइल बनी रहनी चाहिए। इसे अनदेखा करने के लिए सेटिंग्स में \"Make \'Delete all\' possible\" को सक्षम करें।</string>
     <string name="deduplicator_progress_comparing_files">फ़ाइलों की तुलना की जा रही है</string>
     <string name="deduplicator_details_cluster_title">डुप्लिकेट का सेट</string>
     <string name="deduplicator_matches_exact_label">बिल्कुल मेल</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">छोटी फ़ाइलें प्राथमिकता</string>
     <string name="deduplicator_view_mode_groups_label">समूह</string>
     <string name="deduplicator_view_mode_directories_label">फ़ोल्डर</string>
+    <string name="tour_deduplicator_details_cluster_body">ये सभी फ़ाइलें एक ही आइटम या मीडिया सामग्री प्रतीत होती हैं, डुप्लिकेट्स का एक समूह।</string>
+    <string name="tour_deduplicator_details_delete_mark_body">इस आइकॉन वाली फ़ाइलें हटाई जाएंगी; समूह में शेष फ़ाइल वह है जिसे SD Maid रखता है। आप deletion strategy सेटिंग्स में कौन सी फ़ाइल रखी जाएगी यह बदल सकते हैं।</string>
 </resources>

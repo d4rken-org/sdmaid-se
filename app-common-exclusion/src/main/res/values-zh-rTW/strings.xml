@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">排除管理員</string>
     <string name="exclusion_manager_desc">管理檔案和應用程式排除。</string>
-    <string name="exclusion_explanation_body1">從 SD 女僕的作業中排除檔案和應用程式。</string>
-    <string name="exclusion_add_new_hint">透過先讓 SD 女僕搜尋，然後在您想要排除的結果上使用內容選單，這樣就可以新增排除項目。</string>
+    <string name="exclusion_explanation_body1">排除檔案和應用程式以保護它們免受 SD Maid 的工具影響，或跳過不相關的項目並加快操作速度。</string>
+    <string name="exclusion_add_new_hint">暫無排除項目。使用 + 按鈕建立排除項目，或從任何工具的結果中排除項目。</string>
     <string name="exclusion_create_action">建立排除</string>
     <string name="exclusion_edit_action">編輯排除</string>
     <string name="exclusion_type_package">應用程式排除</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">匯出排除</string>
     <string name="exclusion_create_pkg_hint">使用應用控制工具建立應用程式排除。</string>
     <string name="exclusion_create_path_hint">使用儲存分析器工具建立路徑排除。</string>
+    <string name="exclusion_create_segment_hint">符合名稱區段，例如「DCIM/Camera」。</string>
     <string name="exclusion_show_defaults_action">顯示預設</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d 個排除已匯入</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d 個排除已匯出</item>
+    </plurals>
 </resources>

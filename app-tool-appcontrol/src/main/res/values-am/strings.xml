@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">መጠን</string>
     <string name="appcontrol_list_sortmode_screentime_label">የማያ ጊዜ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">የመተግበሪያ መጠኖች ለአፈጻጸም ምክንያቶች ይገመታሉ። ለተጨማሪ ትክክለኛ ውሂብ StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
+    <string name="appcontrol_list_filteroptions_label">የማጣሪያ አማራጮች</string>
+    <string name="appcontrol_list_fastscroller_action">ፈጣን ስክሮላር</string>
     <string name="appcontrol_progress_uninstalling_app">መተግበሪያን በማጥፋት ላይ</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d መተግበሪያ ተጥፏል</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">የተጫነበት: %s</string>
     <string name="shortcut_appcontrol_short">የመተግበሪያ ቁጥጥር</string>
     <string name="shortcut_appcontrol_long">የተጫኑ መተግበሪያዎችን ያስተዳድሩ</string>
+    <string name="tour_appcontrol_search_body">ፕሮግራም በስም ለመፈለግ። ብዙ ተተከሉ ፕሮግራሞች ያሉበት ዲቫይስ ላይ ጠቃሚ።</string>
+    <string name="tour_appcontrol_filter_body">ዝርዝር በተጠቃሚ/ስርዓት ፕሮግራሞች፣ ነቅዋ ያለ ሁኔታ፣ የቅርብ ጊዜ ተግባር እና ሌሎች ማጠር። ንቁ ማጣሪያዎች እዚህ ሊታዩ ይችላሉ።</string>
+    <string name="tour_appcontrol_sort_body">ፕሮግራሞችን በስም፣ ተተከበበት ቀን፣ የመጨረሻ አሻሻል፣ መጠን ወይም ስክሪን ጊዜ ደርድር። ተመሳሳይ ምርጫ ሳብ አቅጣጫ ለመገልበጥ።</string>
+    <string name="tour_appcontrol_app_row_body">ፕሮግራም ሳብ ዝርዝሩን እና ከቻሌ ተግባር ክፍት። ሬጅም ሳብ ምርጫ ለማስጀምር እና ብዙ ተግባር ለመጠቀም።</string>
 </resources>

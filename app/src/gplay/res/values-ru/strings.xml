@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Используйте опцию \"Восстановить покупку\" для восстановления. Если проблема не устранена, попробуйте очистить кэш Google Play и перезагрузить устройство.</string>
     <string name="upgrade_screen_title">Получить SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не содержит рекламы и не продает данные пользователей. Моя работа финансируется Вами ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Преимущества</string>
-    <string name="upgrade_screen_benefits_body">• Очистка приложений 💯\n• Операции по расписанию ⏰\n• Дополнительные опции для всех инструментов ⚙️\n• Ваши собственные правила удаления ✍️\n• Мотивированный разработчик 🧙\nи многое другое…</string>
+    <string name="upgrade_screen_benefits_title">Преимущества обновления</string>
+    <string name="upgrade_screen_benefits_body">• Удаление кэша приложений и временных данных\n• Удаление дубликатов файлов\n• Включение автоматических очисток\n• Создание пользовательских фильтров и правил очистки\n• Отслеживание тенденций хранилища и истории очистки\n• Больше функций и возможностей управления во всём приложении\n• Поддержка непрерывного развития</string>
     <string name="upgrade_screen_how_title">Опции</string>
     <string name="upgrade_screen_how_body">Вы можете выбрать между разовой покупкой и более дешёвой годовой подпиской.\nПодписка начинается с бесплатного 14-дневного периода, после которого взимается один раз в год. Пробный период и подписка могут быть отменены в любое время.\nОдинаковые возможности, просто разные ценовые модели.</string>
+    <string name="upgrade_screen_subscription_offer_title">Годовая подписка</string>
+    <string name="upgrade_screen_iap_offer_title">Одноразовая покупка</string>
+    <string name="upgrade_screen_offer_recommended">Рекомендуется</string>
+    <string name="upgrade_screen_offers_unavailable_message">Не удалось загрузить цены. Проверьте Google Play и повторите попытку через некоторое время.</string>
     <string name="upgrade_screen_subscription_trial_action">Начать бесплатный 14-дневный период</string>
     <string name="upgrade_screen_subscription_action">Подписаться</string>
     <string name="upgrade_screen_subscription_action_hint">Стоимость подписки - %s в год.</string>

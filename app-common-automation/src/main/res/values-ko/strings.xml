@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">접근성 기능이 필요한 사용자는 이 서비스를 허용하여 일일이 수동으로 작동시켜야 하는 (캐시 삭제 같은) 기능들을 자동화할 수 있습니다.\n\n예를 들어 SD Maid가 여러 개의 앱을 중지해야 할 경우, SD Maid는 이 서비스를 사용하여 각 앱의 설정 화면을 띄운 뒤 강제 중지 버튼을 찾아 자동으로 누르게 됩니다.\n\nSD Maid는 이 기능을 사용할 때마다 이용자에게 이 기능을 실행할지 반드시 물어볼 것이며, 사용자는 언제든지 서비스 동작을 쉽게 중지할 수 있습니다.\n\n사용자의 동의 없이는 어떠한 동작도 실행되지 않습니다. 사용자는 큰 문제 없이 언제든지 이 기능을 끌 수 있습니다.</string>
     <string name="automation_screenoverlay_explanation">SD Maid가 화면과 상호작용하고 있습니다. 사용자가 지금 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 작업을 취소하세요.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid가 기기와 상호작용 중입니다. 동시에 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 홈 버튼을 눌러 취소하세요.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid가 기기와 상호작용 중입니다. 동시에 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리세요.</string>
     <string name="automation_active_title">SD Maid가 동작하고 있습니다</string>
     <string name="automation_error_no_consent_title">자동화 오류</string>
     <string name="automation_error_no_consent_body">접근성 서비스가 셋업되지 않았습니다. 셋업을 완료하고 사용에 동의해주세요.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">예약된 작업이 접근성 서비스를 사용하려 했으나 사용할 수 없었습니다. 필요하지 않으면 스케줄러 설정에서 \"접근성 서비스\" 옵션을 비활성화하세요.</string>
     <string name="automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
     <string name="automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="automation_error_interference_title">설정 화면이 차단됨</string>
+    <string name="automation_error_interference_body">다른 앱(%1$s)이 시스템 설정 화면을 차단하고 있어서 SD Maid가 계속할 수 없습니다. 해당 앱의 앱 잠금 또는 시스템 설정에 대한 화면 보호를 비활성화한 후 다시 시도하세요.</string>
     <string name="automation_loading">자동화 준비 중</string>
     <string name="automation_progress_find_ok_confirmation">이전 작업 확인 시도 중 (키워드: %s)</string>
 </resources>

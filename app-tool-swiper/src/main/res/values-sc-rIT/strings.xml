@@ -36,6 +36,19 @@
         <item quantity="one">%d elementu indetzisu at a abarrare pro sa revisione.</item>
         <item quantity="other">%d elementos indetzisos ant a abarrare pro sa revisione.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Custa sessione mirat su bolumine de armagadju intelu — is canculladuras dite tocant totu is cartelas de su bolumine.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…e %d cartella prus</item>
+        <item quantity="other">…e %d cartelas prus</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Comprendo chi custos ficheros seran cancullados de manera permanente.</string>
+    <string name="swiper_sensitive_root_warning_title">Scanniu tota sa memoria?</string>
+    <string name="swiper_sensitive_root_warning_message">Su scanniu de %1$s includit omni ficheru in sa memoria — fotografias, documentus, downloadus, media de s\'aplicatzione, e prus. Continuamos?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continua de totu</string>
+    <string name="swiper_session_risky_label">Scanniu de tota sa memoria</string>
+    <string name="swiper_session_risky_info_message">Sa sessione est indiriada a sa raighe de sa memoria, ita ca omni ficheru in sa memoria est in ambitu — fotografias, documentus, downloadus, media de s\'aplicatzione, e prus.
+
+Su scanniu de tota sa memoria diat potere torrare tantu elementos, inclusive ficheros chi non ti depas abere pensadu a rreviare. Aprica unu filtru de tzipu de ficheru pro angustare su scanniu.</string>
     <string name="swiper_delete_x_action">Cantzella %1$d</string>
     <string name="swiper_settings_swap_directions_title">Iscàmbia is diretzione de iscòrrimentu</string>
     <string name="swiper_settings_swap_directions_summary">Iscòrre a manu manca pro mantènnere, a manu destra pro cantzellare.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Inserta unu nòmine pro custa sessione</string>
     <string name="swiper_sessions_current_sessions">Sessiones atuales</string>
     <string name="swiper_session_paths_label">Caminos</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…e unu prus</item>
+        <item quantity="other">…e %d prus</item>
+    </plurals>
     <string name="swiper_session_status_label">Istadu</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d de mantènnere</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Filtradu: %1$s</string>
     <string name="swiper_session_no_matching_files">Nisciunu archiviu currispundente agatadu</string>
     <string name="swiper_open_externally_action">Aberi in app esterna</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Frisca una fotografica pro decidere sa sina: de banda pro tenere o scancellare, in artu pro sartare, in cascadu pro annullare. Os buttones de abaixu faghint sa medesimu — e mostrant cuai fronti est cuai.</string>
+    <string name="tour_swiper_openin_body">Custu buttone abrit sa fotografica in una atra aplicatzione, bon pro bidzare inanti de decidere.</string>
+    <string name="tour_swiper_preview_body">Custu buttone abrit una previsualizatzione in tota sa pantalla pro una guarda prus achosu.</string>
+    <string name="tour_swiper_actions_body">Non ti pighat de friscare? Nois temes buttones fintzas! Sartare lo lasshet indichisu pro pui tarde, e sa friczone larga de Sartare escludit unu ficheru dsos scannius futuros. Annullare revertit sa tua urtima scelta.</string>
+    <string name="tour_swiper_review_body">Is sellezioni tias de cusserbiri e borrai sunt solu preparadas. Abri Revisioni pro controllare e aplicare is borradas cand ses prontu.</string>
 </resources>

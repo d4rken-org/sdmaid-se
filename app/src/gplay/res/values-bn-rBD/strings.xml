@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">আপনার কেনাকাটা পুনরুদ্ধার করতে \"ক্রয় পুনরুদ্ধার\" বিকল্পটি ব্যবহার করুন। সমস্যা অব্যাহত থাকলে, Google Play ক্যাশ সাফ করুন এবং আপনার ডিভাইস পুনরায় চালু করুন।</string>
     <string name="upgrade_screen_title">Sd Maid এসই প্রো কিনুন</string>
     <string name="upgrade_screen_preamble">SD Maid এ কোনো বিজ্ঞাপন নেই এবং ব্যবহারকারীর ডেটা বিক্রি করে না। আমার কাজ আপনার অর্থায়ন দ্বারা করা হয় ❤️.</string>
-    <string name="upgrade_screen_benefits_title">সুবিধাসমূহ</string>
-    <string name="upgrade_screen_benefits_body">• অ্যাপ পরিষ্কার করা 💯\n• নির্ধারিত অপারেশন ⏰\n• সমস্ত টুলের জন্য অতিরিক্ত অপশন ⚙️\n• আপনার নিজস্ব মুছে ফেলার নিয়ম ✍️\n• একজন অনুপ্রাণিত ডেভলপার 🧙\nএছাড়া আরো অনেক কিছু…</string>
+    <string name="upgrade_screen_benefits_title">আপগ্রেড সুবিধা</string>
+    <string name="upgrade_screen_benefits_body">• অ্যাপ ক্যাশ এবং অপ্রয়োজনীয় ডেটা পরিষ্কার করুন
+• ডুপ্লিকেট ফাইল সরান
+• নির্ধারিত পরিষ্কারের অনুমতি দিন
+• কাস্টম ফিল্টার এবং পরিষ্কার নিয়ম তৈরি করুন
+• স্টোরেজ প্রবণতা এবং পরিষ্কার ইতিহাস ট্র্যাক করুন
+• অ্যাপ জুড়ে আরও বৈশিষ্ট্য এবং নিয়ন্ত্রণ
+• অব্যাহত উন্নয়নকে সমর্থন করুন</string>
     <string name="upgrade_screen_how_title">বিকল্পসমূহ</string>
     <string name="upgrade_screen_how_body">আপনি এককালীন ক্রয় এবং একটি সস্তা বার্ষিক সদস্যতার মধ্যে বেছে নিতে পারেন৷\nসাবস্ক্রিপশন বিনামূল্যে 14-দিনের ট্রায়াল দিয়ে শুরু করতে পারেন, তারপরে আপনাকে প্রতি বছরে একবার চার্জ করা হবে। ট্রায়াল এবং সাবস্ক্রিপশন যে কোন সময় বাতিলযোগ্য।\nএকই বৈশিষ্ট্য, শুধু ভিন্ন মূল্যের মডেল।</string>
+    <string name="upgrade_screen_subscription_offer_title">বার্ষিক সাবস্ক্রিপশন</string>
+    <string name="upgrade_screen_iap_offer_title">একবার কিনুন</string>
+    <string name="upgrade_screen_offer_recommended">সুপারিশকৃত</string>
+    <string name="upgrade_screen_offers_unavailable_message">দাম এখন লোড করা যায়নি। Google Play চেক করুন এবং একটু পরে আবার চেষ্টা করুন।</string>
     <string name="upgrade_screen_subscription_trial_action">বিনামূল্যে ১৪-দিনের ট্রায়াল শুরু করুন</string>
     <string name="upgrade_screen_subscription_action">সাবস্ক্রাইব করুন</string>
     <string name="upgrade_screen_subscription_action_hint">সাবস্ক্রিপশনে প্রতি এক বছরে %s খরচ হয়।</string>

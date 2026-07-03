@@ -36,6 +36,19 @@
         <item quantity="one">%d ਅਣ-ਫੈਸਲਾ ਆਈਟਮ ਬਾਅਦ ਵਿੱਚ ਸਮੀਖਿਆ ਲਈ ਰਹੇਗੀ।</item>
         <item quantity="other">%d ਅਣ-ਫੈਸਲਾ ਆਈਟਮਾਂ ਬਾਅਦ ਵਿੱਚ ਸਮੀਖਿਆ ਲਈ ਰਹਿਣਗੀਆਂ।</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ਇਹ ਸੈਸ਼ਨ ਪੂਰੀ ਸਟੋਰੇਜ ਵਾਲਯੂਮ ਨੂੰ ਨਿਸ਼ਾਨਾ ਬਣਾਉਂਦਾ ਹੈ — ਇੱਥੇ ਮਿਟਾਉਣਾ ਉਸ ਸਟੋਰੇਜ ਦੇ ਸਾਰੇ ਫੋਲਡਰਾਂ ਤੱਕ ਫੈਲਿਆ ਹੋਈ ਹੈ।</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ਅਤੇ %d ਹੋਰ ਫੋਲਡਰ</item>
+        <item quantity="other">…ਅਤੇ %d ਹੋਰ ਫੋਲਡਰ</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ਮੈਂ ਸਮਝਦਾ ਹਾਂ ਕਿ ਇਹ ਫਾਈਲਾਂ ਸਥਾਈ ਤੌਰ \'ਤੇ ਮਿਟਾ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ।</string>
+    <string name="swiper_sensitive_root_warning_title">ਸਾਰੀ ਸਟੋਰੇਜ ਨੂੰ ਸਕੈਨ ਕਰਾਂ?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s ਨੂੰ ਸਕੈਨ ਕਰਨਾ ਇਸ ਸਟੋਰੇਜ ਦੀਆਂ ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ — ਫੋਟੋਆਂ, ਦਸਤਾਵੇਜ਼, ਡਾਉਨਲੋਡ, ਐਪ ਮੀਡੀਆ, ਅਤੇ ਹੋਰ। ਜਾਰੀ ਰੱਖਾਂ?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ਵੈਸੇ ਵੀ ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="swiper_session_risky_label">ਸਮੁੱਚੀ ਸਟੋਰੇਜ ਸਕੈਨ</string>
+    <string name="swiper_session_risky_info_message">ਇਹ ਸੈਸ਼ਨ ਸਟੋਰੇਜ ਦੀ ਮੂਲ ਨੂੰ ਟਾਰਗਟ ਕਰਦਾ ਹੈ, ਇਸ ਲਈ ਉਸ ਸਟੋਰੇਜ ਦੀ ਹਰੇਕ ਫਾਈਲ ਸਕੋਪ ਵਿੱਚ ਆਉਂਦੀ ਹੈ — ਫੋਟੋਆਂ, ਦਸਤਾਵੇਜ਼, ਡਾਉਨਲੋਡ, ਐਪ ਮੀਡੀਆ, ਅਤੇ ਹੋਰ।
+
+ਸਮੁੱਚੀ ਸਟੋਰੇਜ ਸਕੈਨ ਬਹੁਤ ਸਾਰੀਆਂ ਚੀਜ਼ਾਂ ਵਾਪਸ ਕਰ ਸਕਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਉਹ ਫਾਈਲਾਂ ਸ਼ਾਮਲ ਹਨ ਜਿਨ੍ਹਾਂ ਦੀ ਤੁਸੀਂ ਸਮੀਖਿਆ ਕਰਨਾ ਨਹੀਂ ਚਾਹੁੰਦੇ। ਸਕੈਨ ਨੂੰ ਸੀਮਿਤ ਕਰਨ ਲਈ ਇੱਕ ਫਾਈਲ-ਕਿਸਮ ਫਿਲਟਰ ਲਾਗੂ ਕਰੋ।</string>
     <string name="swiper_delete_x_action">%1$d ਮਿਟਾਓ</string>
     <string name="swiper_settings_swap_directions_title">ਸਵਾਈਪ ਦਿਸ਼ਾਵਾਂ ਬਦਲੋ</string>
     <string name="swiper_settings_swap_directions_summary">ਰੱਖਣ ਲਈ ਖੱਬੇ, ਮਿਟਾਉਣ ਲਈ ਸੱਜੇ ਸਵਾਈਪ ਕਰੋ।</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">ਇਸ ਸੈਸ਼ਨ ਲਈ ਨਾਮ ਦਾਖਲ ਕਰੋ</string>
     <string name="swiper_sessions_current_sessions">ਮੌਜੂਦਾ ਸੈਸ਼ਨ</string>
     <string name="swiper_session_paths_label">ਮਾਰਗ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ਅਤੇ %d ਹੋਰ</item>
+        <item quantity="other">…ਅਤੇ %d ਹੋਰ</item>
+    </plurals>
     <string name="swiper_session_status_label">ਸਥਿਤੀ</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d ਰੱਖਣਾ</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">ਫ਼ਿਲਟਰ ਕੀਤਾ: %1$s</string>
     <string name="swiper_session_no_matching_files">ਕੋਈ ਮੇਲ ਖਾਂਦੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
     <string name="swiper_open_externally_action">ਬਾਹਰੀ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ਫੋਟੋ ਦੇ ਭਵਿੱਖ ਦਾ ਫੈਸਲਾ ਕਰਨ ਲਈ ਸਵਾਈਪ ਕਰੋ: ਪਾਸੇ ਰੱਖਣ ਜਾਂ ਮਿਟਾਉਣ ਲਈ, ਉੱਪਰ ਛੱਡਣ ਲਈ, ਹੇਠਾਂ ਅਣਕੀਤਾ ਕਰਨ ਲਈ। ਹੇਠੋਂ ਦਿੱਤੇ ਬਟਨ ਵੀ ਇਹੀ ਕਰਦੇ ਹਨ — ਅਤੇ ਦਿਖਾਉਂਦੇ ਹਨ ਕਿ ਕਿਹੜਾ ਪਾਸਾ ਕੀ ਹੈ।</string>
+    <string name="tour_swiper_openin_body">ਇਹ ਬਟਨ ਫੋਟੋ ਨੂੰ ਇੱਕ ਹੋਰ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹਦਾ ਹੈ, ਫੈਸਲਾ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਜਾਂਚਣ ਲਈ ਸੌਖਾਲਾ।</string>
+    <string name="tour_swiper_preview_body">ਇਹ ਬਟਨ ਨਜ਼ਦੀਕੀ ਤੋਂ ਦੇਖਣ ਲਈ ਪੂਰੀ ਸਕ੍ਰੀਨ ਪ੍ਰੀਵਿਊ ਖੋਲ੍ਹਦਾ ਹੈ।</string>
+    <string name="tour_swiper_actions_body">ਸਵਾਈਪ ਕਰਨਾ ਪਸੰਦ ਨਹੀਂ? ਸਾਡੇ ਕੋਲ ਬਟਨ ਵੀ ਹਨ! ਛੱਡੋ ਇਸ ਨੂੰ ਬਾਅਦ ਲਈ ਅਣਿੱਤ ਛੱਡ ਦਿੰਦਾ ਹੈ, ਅਤੇ ਛੱਡੋ ਨੂੰ ਲੰਬੇ ਸਮੇਂ ਲਈ ਦਬਾ ਕੇ ਇੱਕ ਫਾਈਲ ਨੂੰ ਭਵਿੱਖ ਦੀਆਂ ਸਕੈਨਾਂ ਤੋਂ ਬਾਹਰ ਕਰ ਦਿੰਦਾ ਹੈ। ਅਨਡੂ ਆਪਣੀ ਆਖਰੀ ਪਸੰਦ ਨੂੰ ਬਹਾਲ ਕਰਦਾ ਹੈ।</string>
+    <string name="tour_swiper_review_body">ਤੁਹਾਡੀਆਂ ਰੱਖਣ ਅਤੇ ਮਿਟਾਉਣ ਦੀਆਂ ਪਸੰਦਾਂ ਸਿਰਫ਼ ਸਟੇਜ ਕੀਤੀਆਂ ਹੋਈਆਂ ਹਨ। ਉਨ੍ਹਾਂ ਨੂੰ ਦੇਖਣ ਲਈ ਰਿਵਿਊ ਖੋਲ੍ਹੋ ਅਤੇ ਜਦੋਂ ਤੁਸੀਂ ਤਿਆਰ ਹੋ ਤਾਂ ਮਿਟਾਉਣਾ ਲਾਗੂ ਕਰੋ।</string>
 </resources>

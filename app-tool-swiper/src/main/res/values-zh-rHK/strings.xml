@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d 個未決定的項目將保留以供日後檢視。</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">此工作階段指向整個儲存空間 — 在此刪除會涵蓋該儲存空間上的每個資料夾。</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…及其他 %d 個資料夾</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">我了解這些檔案將被永久刪除。</string>
+    <string name="swiper_sensitive_root_warning_title">掃描整個儲存空間？</string>
+    <string name="swiper_sensitive_root_warning_message">掃描 %1$s 會包含此儲存空間上的每個檔案 — 相片、文件、下載項目、應用程式媒體等。繼續？</string>
+    <string name="swiper_sensitive_root_warning_continue_action">仍然繼續</string>
+    <string name="swiper_session_risky_label">完整儲存空間掃描</string>
+    <string name="swiper_session_risky_info_message">此工作階段針對儲存空間的根目錄，因此該儲存空間上的每個檔案都在範圍內 — 相片、文件、下載項目、應用程式媒體等。
+
+完整儲存空間掃描可能會傳回許多項目，包括您可能不打算檢查的檔案。套用檔案類型篩選器以縮小掃描範圍。</string>
     <string name="swiper_delete_x_action">刪除 %1$d</string>
     <string name="swiper_settings_swap_directions_title">交換滑動方向</string>
     <string name="swiper_settings_swap_directions_summary">向左滑動保留，向右滑動刪除。</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">輸入此工作階段的名稱</string>
     <string name="swiper_sessions_current_sessions">目前的工作階段</string>
     <string name="swiper_session_paths_label">路徑</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…以及 %d 個</item>
+    </plurals>
     <string name="swiper_session_status_label">狀態</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d 個待保留</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">滑動相片以決定其命運：橫向滑動可保留或刪除，向上滑動可跳過，向下滑動可復原。下方按鈕的功能相同 — 並標示哪一側代表哪項動作。</string>
+    <string name="tour_swiper_openin_body">此按鈕可在另一個應用程式中開啟相片，便於決定前先查看。</string>
+    <string name="tour_swiper_preview_body">此按鈕會開啟全螢幕預覽，以便更仔細地檢視。</string>
+    <string name="tour_swiper_actions_body">不喜歡滑動？我們也有按鈕！跳過會將其保留為待決定供日後檢視，長按跳過可將檔案從日後掃描中排除。復原會還原您上一個選擇。</string>
+    <string name="tour_swiper_review_body">您的保留及刪除選擇只是暫存。開啟「檢閱」查看它們，並在您準備好時套用刪除。</string>
 </resources>

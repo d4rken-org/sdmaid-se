@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Une mémoire secondaire, généralement une carte SD amovible. Comprend les fichiers multimédias et les données provenant d\'applis qui la prennent en charge.</string>
     <string name="analyzer_storage_type_tertiary_title">Support de stockage amovible</string>
     <string name="analyzer_storage_type_tertiary_description">Un support de stockage amovible, p. ex. une clé USB branchée sur votre port USB.</string>
+    <string name="analyzer_storage_identifier_internal">Stockage interne</string>
     <string name="analyzer_storage_content_title">Contenu de la mémoire</string>
     <string name="analyzer_storage_content_type_app_label">Applis</string>
     <string name="analyzer_storage_content_type_app_description">Espace occupé par les applis installées et leurs données (c.-à-d. les fichiers d\'appli, les données et les caches).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Applications système et données système. Applis et données d’autres utilisateurs, si plusieurs comptes utilisateur sont configurés sur cet appareil.</string>
     <string name="analyzer_storage_content_type_system_other_label">Autres</string>
     <string name="analyzer_storage_content_type_system_info">Fichiers qui ne correspondent pas aux catégories Applis ou Fichiers utilisateur. Navigation seulement, la suppression n’est pas prise en charge. Certaines zones peuvent être incomplètes en raison de restrictions d’accès.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Les fichiers ne peuvent pas être associés aux applis qui les possèdent pour le moment. Les tailles sont affichées à titre de référence uniquement — la suppression, les filtres et Swiper sont désactivés.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fichiers système et autres données auxquels SD Maid n’a pas pu accéder ou catégoriser. Le système d’exploitation restreint l’affichage du contenu de certaines zones.</string>
     <string name="analyzer_storage_content_app_code_label">Code de l’appli</string>
     <string name="analyzer_storage_content_app_code_description">Fichiers, bibliothèques et ressources de l’appli. Cet espace peut être libéré en la désinstallant ou en l’archivant (proposé sur les versions d’Android les plus récentes).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Cette appli occupe %1$s sur \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Cette appli a été archivée.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s en 7j</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Voyez ce qui remplit réellement votre stockage. L’Analyzer vous montre où va votre espace. Chacune de ces cartes est une puce de stockage sur votre appareil.</string>
+    <string name="tour_analyzer_storage_body">Ouvrez un stockage pour le répartir en applis, médias et fichiers, puis continuez à appuyer pour identifier les plus grands responsables.</string>
 </resources>

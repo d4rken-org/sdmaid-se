@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Ausschluss-Manager</string>
     <string name="exclusion_manager_desc">Datei- und App-Ausschlüsse verwalten.</string>
-    <string name="exclusion_explanation_body1">Dateien und Apps von den Operationen von SD Maid ausschließen.</string>
-    <string name="exclusion_add_new_hint">Füge neue Ausnahmen hinzu, indem Du zuerst SD Maid suchen lässt und dann das Kontextmenü für das Ergebnis verwendest, das Du ausschließen möchtest.</string>
+    <string name="exclusion_explanation_body1">Schließen Sie Dateien und Apps aus, um sie vor SD Maids Tools zu schützen, oder überspringen Sie irrelevante Elemente und beschleunigen Sie Vorgänge.</string>
+    <string name="exclusion_add_new_hint">Noch keine Ausschlüsse. Verwenden Sie die Schaltfläche +, um einen zu erstellen, oder schließen Sie Elemente aus den Ergebnissen eines beliebigen Tools aus.</string>
     <string name="exclusion_create_action">Ausschluss erstellen</string>
     <string name="exclusion_edit_action">Ausschluss bearbeiten</string>
     <string name="exclusion_type_package">App-Ausschluss</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Ausschlüsse exportieren</string>
     <string name="exclusion_create_pkg_hint">Verwende das App-Kontrolle-Tool, um App-Ausnahmen zu erstellen.</string>
     <string name="exclusion_create_path_hint">Verwende das Speicheranalyse-Tool, um Pfadausschlüsse zu erstellen.</string>
+    <string name="exclusion_create_segment_hint">Stimmt mit einem Namenssegment überein, wie „DCIM/Camera“.</string>
     <string name="exclusion_show_defaults_action">Standardwerte anzeigen</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d Ausschluss importiert</item>
+        <item quantity="other">%d Ausschlüsse importiert</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d Ausschluss exportiert</item>
+        <item quantity="other">%d Ausschlüsse exportiert</item>
+    </plurals>
 </resources>

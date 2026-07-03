@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Избрисати резултате у свим алаткама?</string>
+    <string name="dashboard_hero_freeable_headline">%1$s се може ослободити</string>
+    <string name="dashboard_hero_freed_headline">%1$s ослобођено</string>
+    <string name="dashboard_hero_freeable_x_items">%1$s се може уклонити</string>
+    <string name="dashboard_hero_freed_x_items">%1$s уклоњено</string>
+    <string name="dashboard_hero_freeable_hint">Додирните дугме да ослободите простор. Прво додирните чип да проверите.</string>
+    <string name="dashboard_hero_freed_hint">Додирните чип за детаље.</string>
+    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
+    <string name="dashboard_hero_scanned_timestamp_description">Сканирано %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">Ослобођено %1$s</string>
     <string name="dashboard_settings_category">Командна табла</string>
     <string name="dashboard_motd_title">Порука од аутора</string>
     <string name="dashboard_settings_oneclick_title">Режим једног клика</string>
@@ -14,7 +23,26 @@
     <string name="debug_debuglog_recording_progress">Снимање дневника за отклањање грешака</string>
     <string name="debug_debuglog_record_action">Снимите дневник отклањања грешака</string>
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
+    <string name="debug_debuglog_sensitive_information_label">Осетљиве информације</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама.</string>
+    <string name="debug_debuglog_screen_subtitle">Извезите информације за отклањање грешака</string>
+    <string name="debug_logview_screen_title">Приказивач логова</string>
+    <string name="debug_logview_pause_action">Паузирај (замрзни бафер)</string>
+    <string name="debug_logview_resume_action">Настави</string>
+    <string name="debug_logview_copy_action">Копирај лог</string>
+    <string name="debug_logview_collapse_action">Сажми</string>
+    <string name="debug_logview_close_action">Затвори панел са логовима</string>
+    <string name="debug_logview_resize_action">Промени величину</string>
+    <string name="debug_logview_more_action">Више опција</string>
+    <string name="debug_logview_level_action">Ниво лога</string>
+    <string name="debug_logview_clear_action">Обриши бафер</string>
+    <string name="debug_logview_search_prev_action">Претходно подударање</string>
+    <string name="debug_logview_search_next_action">Следеће подударање</string>
+    <string name="debug_logview_jump_to_bottom_action">Скочи на најновије</string>
+    <string name="debug_logview_paused_msg">Паузирано — бафер замрзнут</string>
+    <string name="debug_logview_paused_dropped_msg">Паузирано — пропуштено %1$d нових линија</string>
+    <string name="debug_logview_copied_msg">Дневник копиран у спремник</string>
+    <string name="debug_logview_share_label">Подели дневник</string>
     <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
     <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
     <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
@@ -52,7 +80,9 @@
         <item quantity="few">%d задатака на чекању</item>
         <item quantity="other">%d задатака на чекању</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">Резултати задатака</string>
     <string name="tasks_result_subtext">Резултат задатака</string>
+    <string name="tasks_result_failed_msg">Задатак није завршен успешно.</string>
     <string name="tasks_timeout_error_label">Задатак је истекао</string>
     <string name="tasks_timeout_error_desc">Задатак је трајао предуго и заустављен је. Молимо покушајте поново.</string>
     <string name="onboarding_welcome_title">Добродошли</string>
@@ -71,13 +101,18 @@
     <string name="onboarding_setup_title">Подешавање</string>
     <string name="onboarding_setup_body1">СД Чистач ће претражити све доступне области података.</string>
     <string name="onboarding_setup_body2">Шта је доступно зависи од Вашег уређаја, Андроид верзије и датих дозвола.</string>
-    <string name="onboarding_setup_body3">Почните користити SD Maid тако што ћете подесити приступ областима које треба претраживати.</string>
+    <string name="onboarding_setup_body4">SD Maid подразумеване поставке су подешене да буду сигурне и детаљне, пружајући добар баланс за већину корисника.</string>
+    <string name="onboarding_setup_body5">За детаљније резултате, посетите поставке сваког алата и прилагодите их по својој жељи.</string>
+    <string name="onboarding_setup_body3">Почните коришћење SD Maid постављањем приступа.</string>
     <string name="onboarding_setup_continue_action">Подесите приступ</string>
+    <string name="onboarding_setup_tours_enabled_label">Прикажи вођене туре</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Брза вођена тура сваке функције када је отворите.</string>
     <string name="settings_privacy_policy_label">Политика приватности</string>
     <string name="settings_privacy_policy_desc">Одговорно поступање са подацима.</string>
     <string name="settings_category_other_label">Остало</string>
     <string name="settings_sponsor_development_title">Спонзориши развој</string>
     <string name="settings_sponsor_development_summary">Постаните покровитељ и омогућите даљи развој.</string>
+    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Oпште</string>
     <string name="general_settings_desc">Општа подешавања која утичу на целу апликацију.</string>
     <string name="settings_category_ui_label">Кориснички интерфејс</string>
@@ -90,6 +125,12 @@
     <string name="ui_theme_style_setting_explanation">Боја и стил који се користе приликом темирања апликације.</string>
     <string name="ui_theme_style_default_label">Подразумевано</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Средњи контраст</string>
+    <string name="ui_theme_style_highcontrast_label">Висок контраст</string>
+    <string name="ui_theme_color_setting_label">Боја теме</string>
+    <string name="ui_theme_color_setting_explanation">Палета боја која се користи за стилизовање апликације.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Боје обезбеђује Material You на основу ваше позадине.</string>
+    <string name="ui_theme_color_value_system">Системске боје</string>
     <string name="ui_previews_title">Преглед датотека</string>
     <string name="ui_previews_summary">Прикажи преглед датотека у свим алаткама (нпр. сличице за слике и видео).</string>
     <string name="ui_language_override_label">Језик апликације</string>
@@ -174,9 +215,9 @@
     <string name="setup_root_card_title">Приступ суперкориснику</string>
     <string name="setup_root_card_body">Да ли СД Чистач треба да користи \"суперкорисник\" приступ ако је доступан? \"Суперкорисник\" приступ се може користити за проверу додатних системских фасцикли и података приватних апликација.</string>
     <string name="setup_root_state_ready_label">Приступ суперкориснику је спреман.</string>
-    <string name="setup_root_state_waiting_label">Чекање приступа суперкориснику.</string>
-    <string name="setup_root_enable_root_use_label">Користи \"суперкорисник\" приступ ако је доступан</string>
-    <string name="setup_root_disable_root_use_label">Немој користити \"супекорисник\" приступ</string>
+    <string name="setup_root_state_waiting_label">Root приступ није доступан.</string>
+    <string name="setup_root_enable_root_use_label">Покушајте да користите root приступ</string>
+    <string name="setup_root_disable_root_use_label">Нисам укорењивао свој уређај</string>
     <string name="setup_root_card_body2">Доступно једино не уре
 Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
@@ -185,11 +226,12 @@
     <string name="setup_shizuku_card_root_info">Shizuku у комбинацији са приступом суперкориснику не омогућава додатне функције, али побољшава поузданост. СД Чистач ће га користити као резервни метод.</string>
     <string name="setup_shizuku_state_ready_label">Линк за Shizuku је спреман.</string>
     <string name="setup_shizuku_state_waiting_label">Чека се линк за Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Користи Shizuku ако је могуће</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Покушајте да користите Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Екран за подешавање можете поново пронаћи преко менија подешавања.</string>
     <string name="setup_permission_granted_label">Дозвола одобрена</string>
     <string name="setup_permission_error_label">Грешка дозволе</string>
+    <string name="setup_inventory_invalid_label">Неважећа листа апликација</string>
     <string name="setup_usagestats_title">Статистика коришћења</string>
     <string name="setup_usagestats_body">Дозвола за статистику коришћења даје приступ више детаља о апликацији. СД Чистач је користи за одређивање додатних величина кеша.</string>
     <string name="setup_usagestats_hint">Потребно за приступачност сервиса за брисање кеша.</string>
@@ -212,9 +254,14 @@
     <string name="setup_acs_disallow_hint">Ако се предомислите, можете поново да промените ову опцију подешавањима.</string>
     <string name="setup_acs_appops_restriction_title">Ограничена подешавања</string>
     <string name="setup_acs_appops_restriction_body">Не можете омогућити услугу приступачности СД Чистача? Андроид 13+ може да примени ограничења на апликације које нису инсталиране преко Google Play-а. Уклоните ова ограничења у системским детаљима за СД Чистач. Опција се налази у менију у горњем десном углу.</string>
+    <string name="setup_acs_advanced_protection_title">Блокирано напредном заштитом</string>
+    <string name="setup_acs_advanced_protection_body">Android-ова напредна заштита блокира услугу приступачности SD Maid на Android 17 и новијим верзијама, па се не може омогућити док је напредна заштита укључена. Додирните Помоћ за детаље и алтернативе.</string>
     <string name="setup_inventory_card_title">Инвентар апликација</string>
     <string name="setup_inventory_card_body">СД Чистач треба да зна које апликације имате да би пронашао датотеке које не припадају ниједној инсталираној апликацији.</string>
     <string name="setup_inventory_card_extra">Потражите дозволу која се зове \"Листа апликација\" или \"Упит свих пакета\".</string>
+    <string name="setup_inventory_limitation_title">Могуће ограничење уређаја</string>
+    <string name="setup_inventory_limitation_body">Систем је вратио непотпуну листу инсталираних апликација, иако су дате потребне дозволе.</string>
+    <string name="setup_inventory_limitation_body2">Неки уређаји (нпр. HarmonyOS) никада не пружају потпуну листу апликација. Да би заштитили ваше податке, алати везани за апликације остају онеспособљени, али и даље можете видети употребу складишта са мањим детаљима.</string>
     <string name="dataarea_warningcard_empty_message">СД Чистач није пронашао ниједну област података која се може скенирати. Да ли сте завршили подешавање?</string>
     <string name="dataarea_warningcard_label">Подручја података</string>
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>
@@ -222,6 +269,13 @@
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
+    <string name="debug_card_description">Дијагностика програмера и замене времена извршавања. Ова картица се појављује само када је режим отклањања грешака омогућен.</string>
+    <string name="debug_card_section_diagnostics">Дијагностика</string>
+    <string name="debug_card_section_reload">Учитај поново</string>
+    <string name="debug_card_trace_mode_title">Детаљно логовање</string>
+    <string name="debug_card_trace_mode_desc">Опширни корак-по-корак записи. Видно успорава апликацију.</string>
+    <string name="debug_card_dryrun_mode_title">Пробни режим</string>
+    <string name="debug_card_dryrun_mode_desc">Симулирај чишћење — датотеке се скенирају, али ништа се не брише.</string>
     <string name="debug_card_areas_reload_action">Поново учитај области података</string>
     <string name="debug_card_pkgs_reload_action">Поново учитај апликације</string>
     <string name="debug_card_root_test_action">Тестирај root</string>
@@ -265,5 +319,52 @@
     <string name="shortcuts_onetap_enabled_title">Пречица једним кликом</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи пречицу \"Скенирај + Обриши\" при дугом притиску на иконицу апликације. Користи исте алатке као контролна табла једним кликом.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дана</string>
-    <!-- Shorter versions for side-by-side display -->
+    <string name="tour_dashboard_overview_body">Ово је твоја контролна табла, почетни екран SD Maid апликације. Сваки алат и операција се налазе на картици овде.</string>
+    <string name="tour_dashboard_setup_body">Картица за подешавање се појављује када треба нешто подесити. Отвори је и реши проблеме како би SD Maid могла да ради више. Можеш приступити подешавању и из подешавања, ако је одбациш.</string>
+    <string name="tour_dashboard_tools_body">Отвори картицу алата за детаље. Радње скенирања и брисања су на свакој картици, детаљи се појављују када скенирање пронађе нешто.</string>
+    <string name="tour_dashboard_main_action_body">Велико дугме на дну је акција једног додира. Један додир за скенирање, један додир за чишћење, сви аутоматски алати.</string>
+    <string name="tour_dashboard_manual_tools_body">Неки алати, попут Swiper, нису аутоматски, они нуде вођени радни ток кроз који корисник пролази.</string>
+    <string name="tour_dashboard_settings_body">Подразумеване вредности SD Maid-а су конзервативне и безбедне. Сваки уређај је мало другачији, па прилагодите подешавања да бисте добили више од њега.</string>
+    <string name="tour_setup_intro_body">Свака картица на овом екрану је дозвола коју SD Maid може користити. Све су опционалне, али више дозвола значи више функција и детаљније скенирање. Без њих, већина алата ће наћи мало тога за чишћење.</string>
+    <string name="general_settings_reset_guided_tours_label">Поново постави вођене туре</string>
+    <string name="general_settings_reset_guided_tours_summary">Прикажи све вођене туре поново следећи пут када посетите њихов екран. Такође поново омогућава све туре ако сте их раније искључили.</string>
+    <string name="widget_home_title">SD Maid</string>
+    <string name="widget_home_description">Употреба складишта и чишћење једним додиром</string>
+    <string name="widget_home_storage_internal">Унутрашњи</string>
+    <string name="widget_home_storage_external">Спољашњи</string>
+    <string name="widget_home_freed_label">Ослобођено: %1$s</string>
+    <string name="widget_home_clean_action">Очисти</string>
+    <string name="widget_home_working">Обрађивање…</string>
+    <string name="widget_home_unavailable">Складиште није доступно</string>
+    <string name="shortcut_onetap_started">Скенирање и брисање су започети…</string>
+    <string name="shortcut_onetap_nothing_enabled">Нема омогућених алата за чишћење једним додиром</string>
+    <!-- Config backup & restore -->
+    <string name="backup_restore_title">Резервна копија и враћање</string>
+    <string name="backup_restore_desc">Сачувајте своје поставке и конфигурацију у датотеку, или их вратите</string>
+    <string name="backup_restore_export_title">Направи резервну копију</string>
+    <string name="backup_restore_export_desc">Сачувај поставке, искључења, распореде и прилагођене филтере у датотеку</string>
+    <string name="backup_restore_import_title">Враћање резервне копије</string>
+    <string name="backup_restore_import_desc">Учитај конфигурацију из датотеке резервне копије</string>
+    <string name="backup_restore_export_success">Резервна копија је креирана</string>
+    <string name="backup_restore_export_partial">Резервна копија је креирана, али ови делови нису успели: %1$s</string>
+    <string name="backup_restore_restore_success">Резервна копија је враћена</string>
+    <string name="backup_restore_restore_failed">Враћање није успело (%1$s). Ваша претходна конфигурација је сачувана.</string>
+    <string name="backup_restore_undo_action">Опозови</string>
+    <string name="backup_restore_recovery_title">Опорави претходну конфигурацију</string>
+    <string name="backup_restore_recovery_desc">Доступан је безбедносни снимак из недовршеног враћања</string>
+    <string name="backup_restore_confirm_title">Вратити ову резервну копију?</string>
+    <string name="backup_restore_confirm_created">Направљено: %1$s</string>
+    <string name="backup_restore_confirm_source">Од SD Maid %1$s на %2$s (Android %3$s)</string>
+    <string name="backup_restore_mode_label">Режим враћања</string>
+    <string name="backup_restore_mode_merge">Спајање</string>
+    <string name="backup_restore_mode_merge_desc">Додајте резервну копију преко ваше тренутне конфигурације</string>
+    <string name="backup_restore_mode_replace">Замена</string>
+    <string name="backup_restore_mode_replace_desc">Ресетујте вашу тренутну конфигурацију, затим примените резервну копију</string>
+    <string name="backup_restore_warn_version_body">Ова резервна копија је из SD Maid %1$s, али ви сте на %2$s. Враћање је званично подржано само између идентичних верзија.</string>
+    <string name="backup_restore_warn_android_body">Ова резервна копија је направљена на Android %1$s, али овај уређај покреће Android %2$s.</string>
+    <string name="backup_restore_warn_device_body">Ова резервна копија је направљена на другом уређају (%1$s наспрам %2$s).</string>
+    <string name="backup_restore_warn_flavor_body">Ова резервна копија је из другачијег издања апликације (%1$s наспрам %2$s).</string>
+    <string name="backup_restore_warn_history_body">Историјски подаци ове резервне копије (статистика, историја компресије, сесије клизања) су из другачије верзије апликације и не могу се вратити. Све остало ће бити враћено.</string>
+    <string name="backup_restore_ack_understand">Разумем и желим да наставим</string>
+    <string name="backup_restore_action_restore">Врати</string>
 </resources>

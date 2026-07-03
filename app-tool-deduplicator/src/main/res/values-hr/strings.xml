@@ -44,6 +44,17 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Izbrisati sve osim jedne kopije u odabranim setovima dupliciranih datoteka?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Izbrisati sve datoteke u odabranim setovima dupliciranih datoteka? Neće ostati nijedna datoteka!</string>
     <string name="deduplicator_delete_all_toggle_msg">Izbriši sve duplikate. Neće ostati nijedna datoteka!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Obriši %1$d duplikat u ovom setu, oslobođajući %2$s? Zadržana kopija ostaje.</item>
+        <item quantity="few">Obriši %1$d duplikata u ovom setu, oslobođajući %2$s? Zadržana kopija ostaje.</item>
+        <item quantity="other">Obriši %1$d duplikata u ovom setu, oslobođajući %2$s? Zadržana kopija ostaje.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s moguće osloboditi</string>
+    <string name="deduplicator_action_delete_set">Obriši set duplikata</string>
+    <string name="deduplicator_action_open_preview">Otvori pregled</string>
+    <string name="deduplicator_marked_for_deletion">Označeno za brisanje</string>
+    <string name="deduplicator_cluster_preview_image">Pregled seta duplikata</string>
+    <string name="deduplicator_selection_keep_one_required">Najmanje jedna datoteka po setu duplikata mora ostati. Omogući \"Učini \'Obriši sve\' moguće\" u postavkama da zaobiđete ovo.</string>
     <string name="deduplicator_progress_comparing_files">Uspoređivanje datoteka</string>
     <string name="deduplicator_details_cluster_title">Set duplikata</string>
     <string name="deduplicator_matches_exact_label">Potpune kopije</string>
@@ -81,4 +92,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferiraj manje datoteke</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Mape</string>
+    <string name="tour_deduplicator_details_cluster_body">Čini se da su sve ove datoteke isti predmet ili medijski sadržaj, skupina duplikata.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Datoteke s ovom ikonom će biti obrisane; preostala datoteka u grupi je ona koju SD Maid čuva. Možete promijeniti kako se bira datoteka koja se zadržava u postavkama strategije brisanja.</string>
 </resources>

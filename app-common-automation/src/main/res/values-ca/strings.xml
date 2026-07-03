@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i toqueu-lo. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
     <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid està interaccionant amb el dispositiu. No és possible utilitzar la pantalla al mateix temps. Espera fins que l\'operació finalitzi o prem el botó d\'Inici per cancel·lar.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid està interaccionant amb el dispositiu. No és possible utilitzar la pantalla al mateix temps. Espera fins que l\'operació finalitzi.</string>
     <string name="automation_active_title">L\'SD Maid està en execució</string>
     <string name="automation_error_no_consent_title">Error d\'automatització</string>
     <string name="automation_error_no_consent_body">El servei d\'accessibilitat no està configurat. Completeu la configuració i doneu el consentiment.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Una tasca programada ha intentat utilitzar el servei d\'accessibilitat, però no estava disponible. Si no ho necessiteu, desactiveu l\'opció «Servei d\'accessibilitat» a la configuració del programador.</string>
     <string name="automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
     <string name="automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
+    <string name="automation_error_interference_title">Pantalla de configuració bloquejada</string>
+    <string name="automation_error_interference_body">Una altra app (%1$s) està bloquejant la pantalla de configuració del sistema, així que SD Maid no pot continuar. Desactiva el bloqueig d\'aplicacions o la protecció de pantalla d\'aquesta app per a la configuració del sistema i torna-ho a provar.</string>
     <string name="automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
     <string name="automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
 </resources>

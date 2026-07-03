@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">ძირითადი მეხსიერება</string>
     <string name="stats_storage_type_secondary">მეორადი მეხსიერება</string>
     <string name="stats_storage_type_portable">პორტატული მეხსიერება</string>
+    <string name="stats_space_history_delete_storage_title">წაიშალოს საცავის ისტორია?</string>
+    <string name="stats_space_history_delete_storage_desc">ამ საცავის ყველა ტენდენციის მონაცემი სამუდამოდ წაიშლება.</string>
 </resources>

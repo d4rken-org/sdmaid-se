@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>
     <string name="stats_storage_type_portable">Draagbare opslag</string>
+    <string name="stats_space_history_delete_storage_title">Opslaggeschiedenis verwijderen?</string>
+    <string name="stats_space_history_delete_storage_desc">Alle trendgegevens voor deze opslag worden permanent verwijderd.</string>
 </resources>

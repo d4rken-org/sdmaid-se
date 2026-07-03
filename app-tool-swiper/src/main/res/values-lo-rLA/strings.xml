@@ -31,6 +31,16 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d ລາຍການທີ່ຍັງຕັດສິນໃຈໄມ່ໄດ້ຈະເຫລືອໄວ້ສຳຫລັບການຕຣວຈສອບຘືເວລາ.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ສະໜັດນີ້ກຳໝົດໃຫ້ກັບພື້ນທີ່ຈັດເກັບຂໍ້ມູນທັງໝົດ — ການລຶບທີ່ນີ້ຈະກະທົບໂຟນເດີທຸກອັນໃນພື້ນທີ່ຈັດເກັບຂໍ້ມູນນັ້ນ.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…ແລະໂຟນເດີເພີ່ມເຕີມອີກ %d ອັນ</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ຂ້ອຍເຂົ້າໃຈວ່າໄຟລ໌ເຫຼັ່ານີ້ຈະຖືກລົບຖາວອນ.</string>
+    <string name="swiper_sensitive_root_warning_title">ກວດສອບພື້ນທີ່ຈັດເກັບຂໍ້ມູນທັງໝົດບໍ?</string>
+    <string name="swiper_sensitive_root_warning_message">ການກວດສອບ %1$s ປະກອບມີໄຟລ໌ທຸກອັນໃນພື້ນທີ່ຈັດເກັບຂໍ້ມູນນີ້ — ຮູບພາບ ເອກະສານ ລາຍການດາວໂຫລດ ສື່ກາງຂອງແອັບ ແລະອື່ນໆ. ຕໍ່ໄປບໍ?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ຕໍ່ໄປແນວໃດກໍ່ຕາມ</string>
+    <string name="swiper_session_risky_label">ການກວດສອບພື້ນທີ່ຈັດເກັບຂໍ້ມູນທັງໝົດ</string>
+    <string name="swiper_session_risky_info_message">ເສັດຊັນນີ້ກຳລັງສະແກນຕັ້ງແຕ່ຮາກຂອງບ່ອນເກັບຂໍ້ມູນ, ສະນັ້ນທຸກໄຟລ໌ໃນບ່ອນເກັບຂໍ້ມູນນັ້ນແມ່ນຢູ່ໃນຂອບເຂດ — ຮູບພາບ, ເອກະສານ, ການດາວໂຫລດ, ສື່ຂອງແອັບ, ແລະອື່ນໆ.\n\nການສະແກນບ່ອນເກັບຂໍ້ມູນທັງໝົດສາມາດສົ່ງຄືນລາຍການຫລາຍ, ລົມທັງໄຟລ໌ທີ່ທ່ານອາດຈະບໍ່ໄດ້ຕັ້ງໃຈທົບທວນ. ນຳໃຊ້ຕົວກັອງປະເພດໄຟລ໌ເພື່ອໝຸດຜ່ອນການສະແກນ.</string>
     <string name="swiper_delete_x_action">ລົບ %1$d</string>
     <string name="swiper_settings_swap_directions_title">ສົບສັບທິດອອກ</string>
     <string name="swiper_settings_swap_directions_summary">ສົບຊ້າຍເພື່ອເກັບ, ຂວາເພື່ອລົບ.</string>
@@ -65,6 +75,9 @@
     <string name="swiper_session_rename_hint">ປ້ອນຊື່ອສຳຫລັບເງາການນີ້</string>
     <string name="swiper_sessions_current_sessions">ເງາການປັຈຈຸບັນ</string>
     <string name="swiper_session_paths_label">ເສ້ນທາງ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…ແລະ %d ອື່ນໆ</item>
+    </plurals>
     <string name="swiper_session_status_label">ສະຖານະ</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d ທີ່ຈະເກັບ</item>
@@ -129,4 +142,10 @@
     <string name="swiper_file_type_filter_summary">ກອງແລ້ວ: %1$s</string>
     <string name="swiper_session_no_matching_files">ບໍ່ພົບໄຟລ໌ທີ່ກົງກັນ</string>
     <string name="swiper_open_externally_action">ເປີດໃນແອັບພາຍນອກ</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ປັດຮູບພາບເພື່ອຕັດສິນໃຈວ່າຈະເຮັດໝັງກັບມັນ: ປັດຂ້າງຄຝີງເພື່ອຮັກສາ ຫຼື ລົບ, ປັດຂຶ້ນເພື່ອຂ້າມ, ປັດລົງເພື່ອຍົກເລີກ. ປຸ່ມຍູ່ລຸ່ມນີ້ເຮັດແບບດຽວກັນ — ແລະສະແດງວ່າຝັ່ງໃດເປັນໄທໝົສະໄນ.</string>
+    <string name="tour_swiper_openin_body">ປຸ່ມນີ້ເປີດຮູບພາບໃນແອັບອື່ນ, ສະດວກສຳລັບກວດກາມັນກໍ່ນຕັດສິນໃຈ.</string>
+    <string name="tour_swiper_preview_body">ປຸ່ມນີ້ເປີດກະບອກມອງເຕັມໝ້າຈໍສຳລັບເບິ່ງໃກ້ໆ.</string>
+    <string name="tour_swiper_actions_body">ບໍ່ຊອບປັດ? ພວກເຮາມີປຸ່ມເຊັ່ນກັນ! ປຸ່ມຂ້າມປ່ອຍໃຫ້ມັນບໍ່ໄດ້ຕັດສິນໃຈສຳລັບທີຫລັງ, ແລະກົດຄ້າງປຸ່ມຂ້າມຈະລົບໄຟລ໌ອອກຈາກການສະແກນໃນອະນາຄົດ. ຍົກເລີກຄືນທາງເລືອກກໍ່ນໝ້າຂອງທ່ານ.</string>
+    <string name="tour_swiper_review_body">ທາງເລືອກຮັກສາ ແລະ ລົບຂອງທ່ານເປັນພຽງແຕ່ຈັດເກັບໄວ້. ເປີດການທົບທວນເພື່ອກວດສອບພວກມັນ ແລະ ນຳໃຊ້ການລົບເມື່ອທ່ານພ້ອມ.</string>
 </resources>

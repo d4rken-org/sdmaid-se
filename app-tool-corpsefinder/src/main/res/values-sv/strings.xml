@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Okänd ägare</string>
     <string name="corpsefinder_corpse_hint_keeper">Detta objekt kan innehålla data du vill behålla trots att dess ägare är avinstallerad, t.ex. foton eller säkerhetskopior.</string>
     <string name="corpsefinder_corpse_hint_common">Detta objekt har ett mycket vanligt namn och kan tillhöra fortfarande installerade appar som SD Maid inte känner till.</string>
+    <string name="corpsefinder_risk_keeper_chip">Önskvärd</string>
+    <string name="corpsefinder_risk_common_chip">Vanlig</string>
+    <string name="corpsefinder_markers_dialog_title">Om dessa markörer</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Ingen markör</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standardrester. Generellt säkert att ta bort — dessa filer tillhör appar som inte längre är installerade.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder hittar data som lämnats kvar av appar du redan avinstallerat. Det tillhör inte längre något installerat, så att ta bort det är säkert och frigör utrymme.</string>
+    <string name="tour_corpsefinder_row_body">Varje objekt är restdata och appen det kommer från. Markeringen visar hur säker SD Maid är på att det är säkert att ta bort — tryck på ⓘ överst för att lära dig vad markeringarna betyder.</string>
 </resources>

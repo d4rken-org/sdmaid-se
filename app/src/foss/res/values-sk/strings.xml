@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Inovovať SD Maid SE</string>
     <string name="upgrades_dashcard_body">Odomknite ďalšie funkcie a staňte sa patrónom na podporu ďalšieho vývoja!</string>
     <string name="upgrades_dashcard_upgrade_action">Inovovať</string>
-    <string name="upgrade_screen_title">Vylepšite SD Maid</string>
+    <string name="upgrade_screen_title">Podpora SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid nemá žiadne reklamy a nepredáva údaje používateľov. Neustály vývoj umožňujete len vy.</string>
     <string name="upgrade_screen_how_title">Ako pomôcť</string>
     <string name="upgrade_screen_how_body">Staňte sa patrónom a sponzorujte rozvoj! Klepnutím na tlačidlo nižšie aktivujete všetky ďalšie funkcie a otvoríte môj profil sponzorov GitHub.</string>
-    <string name="upgrade_screen_why_title">Toto vyčaruje 🪄</string>
-    <string name="upgrade_screen_why_body">• Funkcia odstraňovania AppCleaner 💯\n• Plánované operácie ⏰\n• Extra možnosti pre všetky nástroje ⚙️\n• Vaše vlastné pravidlá odstraňovania ✍️\n• Motivovaný vývojár 🧙\na ďalšie…</string>
+    <string name="upgrade_screen_why_title">Výhody upgradu</string>
+    <string name="upgrade_screen_why_body">• Vyčistite vyrovnávacie pamäte aplikácií a nadbytočné dáta
+• Odstránite duplicitné súbory
+• Povoľte plánované čistenie
+• Vytvorte vlastné filtre a pravidlá čistenia
+• Sledujte trendy úložiska a históriu čistenia
+• Ďalšie funkcie a ovládanie v celej aplikácii
+• Podpora open-source práce</string>
     <string name="upgrade_screen_sponsor_action">Sponzorovaný vývoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatívou sú reklamy, analytika a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ďakujem za podporu vývoja open-source ❤️</string>

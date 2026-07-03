@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">మీ కొనుగోలును పునరుద్ధరించడానికి \"కొనుగోలును పునరుద్ధరించండి\" ఎంపికను ఉపయోగించండి. సమస్య కొనసాగితే, Google Play కాష్‌ను క్లియర్ చేసి మీ పరికరాన్ని రీస్టార్ట్ చేయడానికి ప్రయత్నించండి.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro పొందండి</string>
     <string name="upgrade_screen_preamble">SD Maidకి ప్రకటనలు లేవు మరియు వినియోగదారు డేటాను విక్రయించదు. నా పని మీరు ఆర్థిక సహాయం చేస్తున్నారు ❤️.</string>
-    <string name="upgrade_screen_benefits_title">ప్రయోజనాలు</string>
-    <string name="upgrade_screen_benefits_body">• యాప్ క్లీనింగ్ 💯\n• షెడ్యూల్ చేసిన ఆపరేషన్లు ⏰\n• అన్ని టూల్స్ కోసం అదనపు ఎంపికలు ⚙️\n• మీ స్వంత తొలగింపు నియమాలు ✍️\n• ప్రేరేపిత డెవలపర్ 🧙\nమరియు మరిన్ని…</string>
+    <string name="upgrade_screen_benefits_title">అప్‌గ్రేడ్ ప్రయోజనాలు</string>
+    <string name="upgrade_screen_benefits_body">• యాప్ కాష్‌లు మరియు వ్యయవహ డేటాను శుభ్రపరచండి\n• నకిలీ ఫైల్‌లను తీసివేయండి\n• షెడ్యూల్ చేసిన శుభ్రీకరణలను ఎనేబుల్ చేయండి\n• కస్టమ్ ఫిల్టర్‌లు మరియు శుభ్రీకరణ నియమాలను సృష్టించండి\n• నిల్వ ధోరణులు మరియు శుభ్రీకరణ చరిత్రను ట్రాక్ చేయండి\n• యాప్ అంతటా మరిన్ని లక్షణాలు మరియు నియంత్రణలు\n• కొనసాగుతున్న అభివృద్ధికి మద్దతు</string>
     <string name="upgrade_screen_how_title">ఎంపికలు</string>
     <string name="upgrade_screen_how_body">మీరు ఒక్కసారి కొనుగోలు మరియు చౌకైన వార్షిక సబ్‌స్క్రిప్షన్ మధ్య ఎంచుకోవచ్చు.\nసబ్‌స్క్రిప్షన్ ఉచిత 14-రోజుల ట్రయల్‌తో ప్రారంభమవుతుంది, ఆ తర్వాత సంవత్సరానికి ఒకసారి మీకు ఛార్జ్ చేయబడుతుంది. ట్రయల్ మరియు సబ్‌స్క్రిప్షన్ ఎప్పుడైనా రద్దు చేయవచ్చు.\nఅదే ఫీచర్లు, కేవలం వేర్వేరు ధర నమూనాలు.</string>
+    <string name="upgrade_screen_subscription_offer_title">ఏటా సభ్యత్వం</string>
+    <string name="upgrade_screen_iap_offer_title">ఒక్కసారి కొనండి</string>
+    <string name="upgrade_screen_offer_recommended">సిఫారసు చేయబడింది</string>
+    <string name="upgrade_screen_offers_unavailable_message">ధరలు ఇప్పుడు లోడ్ చేయబడలేదు. Google Play చెక్ చేసి, కొద్దిసేపటికి ప్రయత్నించండి.</string>
     <string name="upgrade_screen_subscription_trial_action">ఉచిత 14-రోజుల ట్రయల్ ప్రారంభించండి</string>
     <string name="upgrade_screen_subscription_action">చందాదారులవండి</string>
     <string name="upgrade_screen_subscription_action_hint">ఏడాదికి చందా %s అవుతుంది.</string>

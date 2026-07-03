@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Хасалтын менежер</string>
     <string name="exclusion_manager_desc">Файл болон аппликешний хасалтуудыг удирдах.</string>
-    <string name="exclusion_explanation_body1">SD Maid-ын үйлдлээсээс файл ба аппыг хасах.</string>
-    <string name="exclusion_add_new_hint">SD Maid-ыг эхлээд хайлуулахыг зөвшөөрч хасахаар дүнийг контекст цэсэг ашиглан шинэ үлэдслэлт нэмэж.</string>
+    <string name="exclusion_explanation_body1">SD Maid-ийн хэрэгслүүдээс хамгаалахын тулд файл, апп-уудыг хасна, эсвэл ачаагүй зүйлсийг алгасаж үйлдлүүдийг хурдасгана.</string>
+    <string name="exclusion_add_new_hint">Одоохондоо ямар ч хасалт байхгүй. Нэгийг үүсгэхийн тулд + товчийг ашигла, эсвэл ямар ч хэрэгслийн үр дүнгээс зүйлсийг хасна.</string>
     <string name="exclusion_create_action">Үлэдслэлт үүсгэх</string>
     <string name="exclusion_edit_action">Үлэдслэлт засварлах</string>
     <string name="exclusion_type_package">Аппликешний хасалт</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Үлэдслэлтүүдийг экспортлох</string>
     <string name="exclusion_create_pkg_hint">AppControl багажийг ашиглан аппын үлэдслэлт үүсгээрэй.</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer багажийг ашиглан шляхын үлэдслэлт үүсгээрэй.</string>
+    <string name="exclusion_create_segment_hint">Нэрийн сегментийг тохируул, жишээ нь \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Ӯндөрчлөлтүүдийг үзүүлэх</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d үл оруулахыг импортлогдсон</item>
+        <item quantity="other">%d үл оруулахуудыг импортлогдсон</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d үл оруулахыг экспортлогдсон</item>
+        <item quantity="other">%d үл оруулахуудыг экспортлогдсон</item>
+    </plurals>
 </resources>

@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">আকার</string>
     <string name="appcontrol_list_sortmode_screentime_label">স্ক্রিন সময়</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
+    <string name="appcontrol_list_filteroptions_label">ফিল্টার অপশন</string>
+    <string name="appcontrol_list_fastscroller_action">দ্রুত স্ক্রলার</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d অ্যাপ আনইনস্টল করা হয়েছে</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
     <string name="shortcut_appcontrol_short">অ্যাপ নিয়ন্ত্রণ</string>
     <string name="shortcut_appcontrol_long">ইনস্টল করা অ্যাপগুলি পরিচালনা করুন</string>
+    <string name="tour_appcontrol_search_body">নাম অনুযায়ী একটি অ্যাপ খুঁজুন। অনেক ইনস্টল করা অ্যাপ সহ ডিভাইসগুলিতে দরকারী।</string>
+    <string name="tour_appcontrol_filter_body">ব্যবহারকারী/সিস্টেম অ্যাপ, সক্ষম অবস্থা, সাম্প্রতিক কার্যকলাপ এবং আরও অনেক কিছু দ্বারা তালিকা সংকীর্ণ করুন। সক্রিয় ফিল্টারগুলি এখানে চিপ হিসাবে প্রদর্শিত হয়।</string>
+    <string name="tour_appcontrol_sort_body">নাম, ইনস্টল করার তারিখ, সর্বশেষ আপডেট, আকার বা স্ক্রিন সময় অনুযায়ী অ্যাপ্লিকেশনগুলি সাজান। দিক পরিবর্তন করতে একই বিকল্পে ট্যাপ করুন।</string>
+    <string name="tour_appcontrol_app_row_body">একটি অ্যাপ ট্যাপ করুন এর বিবরণ এবং উপলব্ধ কর্ম দেখতে। একটি নির্বাচন শুরু করতে এবং বাল্ক কর্মগুলি ব্যবহার করতে দীর্ঘ-প্রেস করুন।</string>
 </resources>

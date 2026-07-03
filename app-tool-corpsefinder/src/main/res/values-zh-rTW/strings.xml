@@ -50,4 +50,12 @@
     <string name="corpsefinder_owner_unknown">未知擁有者</string>
     <string name="corpsefinder_corpse_hint_keeper">此項目可能包含您想要保留的資料，儘管它的擁有者已被解除安裝，例如相片或備份。</string>
     <string name="corpsefinder_corpse_hint_common">此項目有一個非常常見的名稱，可能屬於已安裝的應用程式，但 SD 女僕卻不知道。</string>
+    <string name="corpsefinder_risk_keeper_chip">可保留</string>
+    <string name="corpsefinder_risk_common_chip">常見</string>
+    <string name="corpsefinder_markers_dialog_title">關於這些標記</string>
+    <string name="corpsefinder_markers_dialog_normal_label">無標記</string>
+    <string name="corpsefinder_markers_dialog_normal_description">標準遺留物。通常可安全移除 — 這些檔案屬於已卸載的應用程式。</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">殘骸尋檢器會找出您已卸載的應用程式留下的資料。這些資料不屬於任何已安裝的應用程式，因此移除它是安全的，並可釋放空間。</string>
+    <string name="tour_corpsefinder_row_body">每一項都是來自某個應用程式的遺留資料。標記顯示 SD Maid 對移除該資料的安全性有多有信心 — 點按頂部的 ⓘ 來了解標記的含義。</string>
 </resources>

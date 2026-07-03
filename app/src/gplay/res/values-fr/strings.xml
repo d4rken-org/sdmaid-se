@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Utilisez l\'option « Rétablir l’achat ». Si le problème persiste, essayez de vider le cache de Google Play et de redémarrer votre appareil.</string>
     <string name="upgrade_screen_title">Obtenir SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ne présente aucune publicité et ne vend pas les données des utilisateurs. Mon travail est financé par vous ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Avantages</string>
-    <string name="upgrade_screen_benefits_body">• Nettoyage des applis 💯\n• Opérations planifiées ⏰\n• Options supplémentaires pour tous les outils ⚙️\n• Vos propres règles de suppression ✍️\n• Un développeur motivé 🧙\net plus…</string>
+    <string name="upgrade_screen_benefits_title">Avantages de la mise à niveau</string>
+    <string name="upgrade_screen_benefits_body">• Nettoyer les caches d’appli et les données superflues
+• Supprimer les fichiers en double
+• Activer les nettoyages planifiés
+• Créer des filtres personnalisés et des règles de nettoyage
+• Suivre les tendances de stockage et l’historique des nettoyages
+• Plus de fonctionnalités et de contrôles dans l’appli
+• Soutenir le développement continu</string>
     <string name="upgrade_screen_how_title">Options</string>
     <string name="upgrade_screen_how_body">Vous pouvez soit choisir un achat unique soit un abonnement annuel plus avantageux.\nL\'abonnement commence par une période d’essai gratuite de 14 jours, à l’issue de laquelle vous serez facturé une fois par an. L’essai et l’abonnement peuvent être annulés à tout moment.\nMêmes fonctions, mais des modèles de tarification différents.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abonnement annuel</string>
+    <string name="upgrade_screen_iap_offer_title">Acheter une fois</string>
+    <string name="upgrade_screen_offer_recommended">Recommandé</string>
+    <string name="upgrade_screen_offers_unavailable_message">Les prix n’ont pas pu être chargés en ce moment. Vérifiez Google Play et réessayez dans un instant.</string>
     <string name="upgrade_screen_subscription_trial_action">Commencer l’essai gratuit de 14 jours</string>
     <string name="upgrade_screen_subscription_action">M’abonner</string>
     <string name="upgrade_screen_subscription_action_hint">L’abonnement coûte %s par an.</string>

@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ਕੀ ਚੁਣੇ ਗਏ ਡੁਪਲੀਕੇਟ ਫਾਈਲਾਂ ਦੇ ਹਰੇਕ ਸੈੱਟ ਵਿੱਚ ਇੱਕ ਕਾਪੀ ਛੱਡ ਕੇ ਬਾਕੀ ਸਭ ਮਿਟਾਉਣੀਆਂ ਹਨ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ਕੀ ਚੁਣੇ ਗਏ ਡੁਪਲੀਕੇਟ ਫਾਈਲਾਂ ਦੇ ਹਰੇਕ ਸੈੱਟ ਵਿੱਚ ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ? ਕੋਈ ਫਾਈਲ ਬਾਕੀ ਨਹੀਂ ਰਹੇਗੀ!</string>
     <string name="deduplicator_delete_all_toggle_msg">ਸਾਰੀਆਂ ਕਾਪੀਆਂ ਮਿਟਾਓ। ਕੋਈ ਫਾਈਲ ਬਾਕੀ ਨਹੀਂ ਰਹੇਗੀ!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">ਇਸ ਸੈਟ ਵਿੱਚ %1$d ਨਕਲ ਹਟਾਓ, %2$s ਖਾਲੀ ਕਰੋ? ਰੱਖੀ ਗਈ ਕਾਪੀ ਬਚੀ ਰਹੇਗੀ।</item>
+        <item quantity="other">ਇਸ ਸੈਟ ਵਿੱਚ %1$d ਨਕਲਾਂ ਹਟਾਓ, %2$s ਖਾਲੀ ਕਰੋ? ਰੱਖੀ ਗਈ ਕਾਪੀ ਬਚੀ ਰਹੇਗੀ।</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ਖਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</string>
+    <string name="deduplicator_action_delete_set">ਨਕਲ ਸੈਟ ਹਟਾਓ</string>
+    <string name="deduplicator_action_open_preview">ਪ੍ਰੀਵਿਊ ਖੋਲ੍ਹੋ</string>
+    <string name="deduplicator_marked_for_deletion">ਹਟਾਉਣ ਲਈ ਨਿਸ਼ਾਨਬੱਧ</string>
+    <string name="deduplicator_cluster_preview_image">ਨਕਲ ਸੈਟ ਪ੍ਰੀਵਿਊ</string>
+    <string name="deduplicator_selection_keep_one_required">ਹਰੇਕ ਡੁਪਲੀਕੇਟ ਸੈਟ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਫਾਈਲ ਬਾਕੀ ਰਹਿਣੀ ਚਾਹੀਦੀ ਹੈ। ਇਸ ਨੂੰ ਬਦਲਣ ਲਈ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"Make \'Delete all\' possible\" ਨੂੰ ਸਮਰੱਥ ਕਰੋ।</string>
     <string name="deduplicator_progress_comparing_files">ਫਾਈਲਾਂ ਦੀ ਤੁਲਨਾ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="deduplicator_details_cluster_title">ਡੁਪਲੀਕੇਟਾਂ ਦਾ ਸੈੱਟ</string>
     <string name="deduplicator_matches_exact_label">ਬਿਲਕੁਲ ਸਮਾਨ ਕਾਪੀਆਂ</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ਛੋਟੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਤਰਜੀਹ ਦਿਓ</string>
     <string name="deduplicator_view_mode_groups_label">ਗਰੁੱਪ</string>
     <string name="deduplicator_view_mode_directories_label">ਫੋਲਡਰ</string>
+    <string name="tour_deduplicator_details_cluster_body">ਇਹ ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਇੱਕੋ ਆਈਟਮ ਜਾਂ ਮੀਡੀਆ ਸਮੱਗਰੀ ਜਾਪਦੀਆਂ ਹਨ, ਡੁਪਲੀਕੇਟਸ ਦਾ ਇੱਕ ਸਮੂਹ।</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ਇਸ ਆਈਕਨ ਵਾਲੀਆਂ ਫਾਈਲਾਂ ਮਿਟਾਈ ਜਾਣਗੀਆਂ; ਗਰੁੱਪ ਵਿੱਚ ਬਾਕੀ ਫਾਈਲ ਉਹ ਹੈ ਜੋ SD Maid ਰੱਖਦਾ ਹੈ। ਤੁਸੀਂ ਮਿਟਾਉਣ ਦੀ ਰਣਨੀਤੀ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਇਹ ਬਦਲ ਸਕਦੇ ਹੋ ਕਿ ਰੱਖੀ ਜਾਣ ਵਾਲੀ ਫਾਈਲ ਕਿਵੇਂ ਚੁਣੀ ਜਾਂਦੀ ਹੈ।</string>
 </resources>

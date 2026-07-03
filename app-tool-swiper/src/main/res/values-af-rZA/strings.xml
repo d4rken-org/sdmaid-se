@@ -36,6 +36,19 @@
         <item quantity="one">%d onbesliste item sal oorbly vir latere hersiening.</item>
         <item quantity="other">%d onbesliste items sal oorbly vir latere hersiening.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Hierdie sessie betref \'n hele opslagvolume — verwydering span hier oor elke vouer op daardie opslag.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…en %d verdere vouer</item>
+        <item quantity="other">…en %d verdere vouers</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Ek verstaan dat hierdie lêers permanent verwyder sal word.</string>
+    <string name="swiper_sensitive_root_warning_title">Skandeer hele opslag?</string>
+    <string name="swiper_sensitive_root_warning_message">Skandering van %1$s sluit alle lêers op hierdie opslag in — foto\'s, dokumente, aflaaie, app-media en meer. Gaan voort?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Gaan desondanks voort</string>
+    <string name="swiper_session_risky_label">Hele-opslagskandering</string>
+    <string name="swiper_session_risky_info_message">Hierdie sessie neem die wortel van \'n opslagvolume as doel, dus alle lêers op daardie opslag is in reikwydte — foto\'s, dokumente, aflaaie, app-media en meer.
+
+Volledige opslagskanderings kan baie items teruggee, insluitend lêers wat jy nie noodwendig wou hersien nie. Pas \'n lêertipe-filter toe om die skandering te beperk.</string>
     <string name="swiper_delete_x_action">Verwyder %1$d</string>
     <string name="swiper_settings_swap_directions_title">Ruil swieprigtings om</string>
     <string name="swiper_settings_swap_directions_summary">Swiep links om te hou, regs om te verwyder.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Voer \'n naam vir hierdie sessie in</string>
     <string name="swiper_sessions_current_sessions">Huidige sessies</string>
     <string name="swiper_session_paths_label">Paaie</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…en %d meer</item>
+        <item quantity="other">…en %d meer</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d om te hou</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Gefilteer: %1$s</string>
     <string name="swiper_session_no_matching_files">Geen ooreenstemmende lêers gevind nie</string>
     <string name="swiper_open_externally_action">Maak oop in eksterne program</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Veeg \'n foto opsy om sy noodlot te bepaal: sykant om te hou of te verwyder, op om oor te slaan, af om te ontdoen. Die knoppies hieronder doen dieselfde — en wys watter kant wat is.</string>
+    <string name="tour_swiper_openin_body">Hierdie knoppie open die foto in \'n ander app, nuttig om dit eers na te sien voordat jy besluit.</string>
+    <string name="tour_swiper_preview_body">Hierdie knoppie open \'n volskerm-voorskou vir \'n nader blik.</string>
+    <string name="tour_swiper_actions_body">Hou jy nie van veeg nie? Ons het ook knoppies! Slaan oor laat dit onbeslis vir later, en lank druk op Slaan oor sluit \'n lêer van toekomstige skanderings uit. Ontdoen maak jou laaste keuse ongedaan.</string>
+    <string name="tour_swiper_review_body">Jou hou- en skrap-keuses is slegs voorbereiding. Maak Review oop om dit deur te gaan en die skrappings toe te pas wanneer jy gereed is.</string>
 </resources>

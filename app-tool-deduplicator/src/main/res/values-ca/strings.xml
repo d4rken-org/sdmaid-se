@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Voleu suprimir totes les còpies menys una de cada conjunt seleccionat de fitxers duplicats?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Voleu suprimir tots els fitxers de cada conjunt seleccionat de fitxers duplicats? No sobra cap fitxer!</string>
     <string name="deduplicator_delete_all_toggle_msg">Suprimeix totes les còpies. No sobra cap fitxer!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Vols suprimir %1$d duplicat en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
+        <item quantity="other">Vols suprimir %1$d duplicats en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s alliberable</string>
+    <string name="deduplicator_action_delete_set">Elimina el conjunt de duplicats</string>
+    <string name="deduplicator_action_open_preview">Obre la previsualització</string>
+    <string name="deduplicator_marked_for_deletion">Marcat per a l\'eliminació</string>
+    <string name="deduplicator_cluster_preview_image">Previsualització del conjunt de duplicats</string>
+    <string name="deduplicator_selection_keep_one_required">Almenys un fitxer per conjunt de duplicats ha de romandre. Habilita «Permet ‘Eliminar-ho tot’» a la configuració per anul·lar-ho.</string>
     <string name="deduplicator_progress_comparing_files">Comparació de fitxers</string>
     <string name="deduplicator_details_cluster_title">Conjunt de duplicats</string>
     <string name="deduplicator_matches_exact_label">Còpies exactes</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefereix fitxers més petits</string>
     <string name="deduplicator_view_mode_groups_label">Grups</string>
     <string name="deduplicator_view_mode_directories_label">Carpetes</string>
+    <string name="tour_deduplicator_details_cluster_body">Aquests fitxers semblen ser el mateix element o contingut multimèdia, un clúster de duplicats.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Els fitxers amb aquesta icona s\'eliminaran; el fitxer restant del grup és el que SD Maid manté. Pots canviar els criteris de selecció en la configuració de l\'estratègia d\'eliminació.</string>
 </resources>

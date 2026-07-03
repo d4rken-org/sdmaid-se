@@ -28,6 +28,7 @@
     <string name="general_gotit_action">យល់ហើយ</string>
     <string name="general_fix_action">ជួសជុល</string>
     <string name="general_set_up_action">រៀបចំ</string>
+    <string name="general_unavailable_label">មិនមាន</string>
     <string name="general_edit_action">កែសម្រួល</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ទទេ</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">កំពុងចាំជួរ</string>
     <string name="general_progress_deleting">កំពុងលុប</string>
     <string name="general_progress_deleting_x">កំពុងលុប %s</string>
+    <string name="general_sort_by_title">តម្រៀបតាម</string>
     <string name="general_sort_reverse_action">ម៉ូតតម្រៀបបញ្ច្រាស</string>
+    <string name="general_sort_oldest_first">ចាស់ជាងមុន</string>
+    <string name="general_sort_newest_first">ថ្មីជាងគេ</string>
+    <string name="general_sort_name_asc">ឈ្មោះ (A → Z)</string>
+    <string name="general_sort_size_desc">ធំជាងគេ</string>
     <string name="general_tag_system">ប្រព័ន្ធ</string>
+    <string name="general_navigate_up_action">ឡើងលើ</string>
+    <string name="general_filter_action">តម្រង</string>
+    <string name="general_filter_by_tags_label">តម្រងតាមស្លាក</string>
+    <string name="general_filter_add_action">បន្ថែមតម្រង</string>
+    <string name="general_filter_remove_x_action">លុបតម្រង %s</string>
+    <string name="general_filter_empty_row_hint">ចុចលើ + ដើម្បីតម្រង</string>
+    <string name="general_show_all_action">បង្ហាញទាំងអស់</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ទំហំនៅទំនេរ %s។</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">ជម្រើស</string>
     <string name="general_details_label">ព័ត៌មានលម្អិត</string>
     <string name="general_view_action">មើល</string>
+    <string name="general_open_action">បើក</string>
+    <string name="general_configure_action">កំណត់រចនាសម្ព័ន្ធ</string>
     <string name="general_update_action">អាប់ដេត</string>
     <string name="general_scan_action">ស្គែន</string>
     <string name="general_close_action">បិទ</string>
@@ -93,7 +108,9 @@
         <item quantity="other">ធាតុចំនួន %d ត្រូវបានលុបចេញ</item>
     </plurals>
     <string name="general_search_action">ស្វែងរក</string>
+    <string name="general_search_no_matches">គ្មានលទ្ធផលផ្គូផ្គង</string>
     <string name="general_open_system_settings_action">បើកការកំណត់ប្រព័ន្ធ</string>
+    <string name="general_fast_scroller_action">ឧបករណ៍រំកិលលឿន</string>
     <plurals name="result_x_items">
         <item quantity="other">ធាតុចំនួន %s</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">ភ្ជាប់សេវាកម្ម</string>
     <string name="general_undo_action">អាន់ឌូ</string>
     <string name="general_list_select_all_action">រើសទាំងអស់</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">បានជ្រើស %d</item>
+    </plurals>
     <string name="general_path_label">ផ្លូវ</string>
     <string name="general_type_label">ប្រភេទ</string>
     <string name="general_size_label">ទំហំ</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">រាយការណ៍កំហុស</string>
     <string name="general_error_ipc_deadobject_title">ការតភ្ជាប់សេវាកម្មត្រូវបាត់បង់</string>
     <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មដែលមានហានិភ័យ(ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) អាចនឹងត្រូវបានបាត់បង់ដោយស្មានមិនដល់។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន សូមពិនិត្យការអាប់ដេត ឬទាក់ទងមកខ្ញុំ ដូច្នេះខ្ញុំអាចជួសជុលវាបាន។</string>
+    <string name="general_error_upgrade_required_title">ទាមទារកំណែ Pro</string>
+    <string name="general_error_upgrade_required_description">នេះគឺជាលក្ខណៈពិសេស Pro។ សូមលើកកម្ពស់ SD Maid SE ដើម្បីប្រើប្រាស់វា។</string>
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
     <string name="setup_title">រៀបចំ</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="settings_category_filter">តម្រង</string>
     <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
+    <string name="ui_theme_color_sunset_label">ល្ងាច</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root ប៉ុន្តែ SD Maid មិនបានទទួលបាននៅលើឧបករណ៍នេះទេ។</string>
+    <string name="access_blocked_root_declined">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root។ អ្នកអាចបើកវាតាមរយៈអេក្រង់ការរៀបចំ។</string>
+    <string name="access_blocked_root_or_shizuku">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root ឬ Shizuku ដែលមិនមាននៅលើឧបករណ៍នេះទេ។</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">ឯកសារបម្រុងទុកមិនត្រឹមត្រូវ</string>
+    <string name="backup_restore_error_invalid_body">ឯកសារនេះមិនមែនជាឯកសារបម្រុងទុក SD Maid ដែលមានសុពលភាព ឬខូច។</string>
+    <string name="backup_restore_error_version_body">ឯកសារបម្រុងទុកនេះត្រូវបានបង្កើតដោយកំណែ SD Maid ថ្មីបន្ថែមទៀត។ សូមធ្វើឱ្យកម្មវិធីឡើងថ្មី ហើយព្យាយាមម្តងទៀត។</string>
+    <string name="backup_restore_error_restore_failed_title">ការស្ដារវិញបានបរាជ័យ</string>
+    <string name="backup_restore_error_restore_failed_body">ផ្នែកទាំងនេះមិនអាចស្ដារវិញបាន៖ %1$s។ ការកំណត់រចនាសម្ព័ន្ធមុនរបស់អ្នកត្រូវបានរក្សាទុក ហើយអាចត្រឡប់មកវិញបាន។</string>
+    <string name="backup_restore_error_safety_title">ការស្ដារវិញមិនបានចាប់ផ្តើមទេ</string>
+    <string name="backup_restore_error_safety_body">SD Maid មិនអាចរក្សាទុកច្បាប់ចម្លងនៃការកំណត់រចនាសម្ព័ន្ធបច្ចុប្បន្នរបស់អ្នក ដូច្នេះគ្មានការផ្លាស់ប្តូរដែលបានធ្វើ។</string>
+    <string name="backup_restore_error_busy_title">សូមរង់ចាំ</string>
+    <string name="backup_restore_error_busy_body">កិច្ចការសម្អាតឬប្រតិបត្តិការបម្រុងទុកផ្សេងទៀតកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលដែលវាបានបញ្ចប់។</string>
+    <string name="backup_restore_error_schema_title">បម្រុងទុកមិនឆបគ្នា</string>
+    <string name="backup_restore_error_schema_body">ទម្រង់មូលដ្ឋានទិន្នន័យនៃការបម្រុងទុកមិនត្រូវគ្នាជាមួយកំណែ SD Maid នេះទេ។ ការស្ដារលើទិន្នន័យប្រវត្តិគឺគាំទ្របានតែរវាងកំណែកម្មវិធីដូចគ្នាប៉ុណ្ណោះ។</string>
 </resources>

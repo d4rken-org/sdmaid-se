@@ -98,4 +98,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ファイルの年齢（最終更新日時）に基づいてマッチを制限します。未設定の場合はすべての年齢にマッチします。</string>
     <string name="systemcleaner_customfilter_import_action">新しいフィルタをインポート</string>
     <string name="systemcleaner_customfilter_export_action">選択したフィルタをエクスポート</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">システムクリーナーは、アプリ非依存フィルターを使用してジャンクを検出します。空のフォルダー、残されたログ、古いサムネイルなど、既製のルールが存在します。独自に作成する場合は、設定にアクセスしてください。</string>
+    <string name="tour_systemcleaner_filter_body">各行はフィルターと検出結果です。削除する前に詳細を開いて、どのファイルが一致するかを正確に確認してください。</string>
 </resources>

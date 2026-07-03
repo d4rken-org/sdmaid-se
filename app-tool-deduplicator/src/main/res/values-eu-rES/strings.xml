@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Ezabatu kopia bat izan ezik hautatutako bikoiztuen multzo bakoitzean?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Ezabatu hautatutako bikoiztuen multzo bakoitzeko fitxategi guztiak? Ez da fitxategirik geratuko!</string>
     <string name="deduplicator_delete_all_toggle_msg">Ezabatu kopia guztiak. Ez da fitxategirik geratuko!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Ezabatu %1$d bikoiza multzo honetan, %2$s libratuz? Gordetako kopia mantentzen da.</item>
+        <item quantity="other">Ezabatu %1$d bikoiza multzo honetan, %2$s libratuz? Gordetako kopia mantentzen da.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s askagarria</string>
+    <string name="deduplicator_action_delete_set">Ezabatu bikoiza multzoa</string>
+    <string name="deduplicator_action_open_preview">Aurreikuspena ireki</string>
+    <string name="deduplicator_marked_for_deletion">Ezabatzeko markatua</string>
+    <string name="deduplicator_cluster_preview_image">Bikoiza multzoaren aurreikuspena</string>
+    <string name="deduplicator_selection_keep_one_required">Gutxienez fitxategi bat geratzen jarraitu behar du bikoizta-multzo bakoitzean. Gaitu \'Guztiak ezabatzea ahalgarri egitea\' ezarpenetan murriztapena gainditzeko.</string>
     <string name="deduplicator_progress_comparing_files">Fitxategiak alderatzen</string>
     <string name="deduplicator_details_cluster_title">Bikoiztuen multzoa</string>
     <string name="deduplicator_matches_exact_label">Kopia exactuak</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Hobetsi fitxategi txikiagoak</string>
     <string name="deduplicator_view_mode_groups_label">Taldeak</string>
     <string name="deduplicator_view_mode_directories_label">Karpetak</string>
+    <string name="tour_deduplicator_details_cluster_body">Fitxategi hauek guztiak gauza bera edo media edukia direla dirudi, bikoizten multzoa.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Ikur hau duten fitxategiak ezabatuko dira; taldean geratzen den fitxategia SD Maidek gordetzen duena da. Nola aukeratu duen gordetzen den fitxategia aldatu dezakezu ezabatze estrategia ezarpenetan.</string>
 </resources>

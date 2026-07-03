@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestor d\'exclusions</string>
     <string name="exclusion_manager_desc">Gestiona les exclusions de fitxers i aplicacions.</string>
-    <string name="exclusion_explanation_body1">Exclou fitxers i aplicacions de les operacions de l\'SD Maid.</string>
-    <string name="exclusion_add_new_hint">Afegiu noves exclusions deixant primer que l\'SD Maid cerqui i després utilitzant el menú contextual del resultat que voleu excloure.</string>
+    <string name="exclusion_explanation_body1">Exclou fitxers i aplicacions per protegir-los de les eines de SD Maid, o omet elements irrellevants per accelerar les operacions.</string>
+    <string name="exclusion_add_new_hint">Encara no hi ha exclusions. Fes servir el botó + per crear-ne una, o exclou elements dels resultats de qualsevol eina.</string>
     <string name="exclusion_create_action">Crea una exclusió</string>
     <string name="exclusion_edit_action">Edita l\'exclusió</string>
     <string name="exclusion_type_package">Exclusió d\'aplicacions</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Exporta exclusions</string>
     <string name="exclusion_create_pkg_hint">Utilitzeu l\'eina de Control d\'aplicacions per crear exclusions d\'aplicacions.</string>
     <string name="exclusion_create_path_hint">Utilitzeu l\'eina Analitzador d\'emmagatzematge per crear exclusions de rutes.</string>
+    <string name="exclusion_create_segment_hint">Coincideix amb un segment de nom, com \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Mostra els valors per defecte</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">S\'ha importat %d exclusió</item>
+        <item quantity="other">S\'han importat %d exclusions</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">S\'ha exportat %d exclusió</item>
+        <item quantity="other">S\'han exportat %d exclusions</item>
+    </plurals>
 </resources>

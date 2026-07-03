@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Eliminare tutto tranne una copia di ogni set dei file duplicati selezionati?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Eliminare tutti i file dei set di file duplicati selezionati? Nessun file rimarrà!</string>
     <string name="deduplicator_delete_all_toggle_msg">Eliminare tutte le copie. Nessun file rimarrà!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Elimina %1$d duplicato in questo set, liberando %2$s? La copia mantenuta rimane.</item>
+        <item quantity="other">Elimina %1$d duplicati in questo set, liberando %2$s? La copia mantenuta rimane.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s liberabile</string>
+    <string name="deduplicator_action_delete_set">Elimina set di duplicati</string>
+    <string name="deduplicator_action_open_preview">Apri anteprima</string>
+    <string name="deduplicator_marked_for_deletion">Contrassegnato per l’eliminazione</string>
+    <string name="deduplicator_cluster_preview_image">Anteprima set di duplicati</string>
+    <string name="deduplicator_selection_keep_one_required">Almeno un file per ogni set di duplicati deve rimanere. Abilita “Rendi possibile ‘Elimina tutti’” nelle impostazioni per ignorare questa regola.</string>
     <string name="deduplicator_progress_comparing_files">Confrontando i file</string>
     <string name="deduplicator_details_cluster_title">Set di duplicati</string>
     <string name="deduplicator_matches_exact_label">Copie identiche</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferisci file più piccoli</string>
     <string name="deduplicator_view_mode_groups_label">Gruppi</string>
     <string name="deduplicator_view_mode_directories_label">Cartelle</string>
+    <string name="tour_deduplicator_details_cluster_body">Questi file sembrano essere lo stesso elemento o contenuto multimediale, un gruppo di duplicati.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">I file con questa icona verranno eliminati; il file rimanente nel gruppo è quello che SD Maid conserva. Puoi cambiare come viene scelto il file da conservare nelle impostazioni della strategia di eliminazione.</string>
 </resources>

@@ -37,4 +37,6 @@
     <string name="stats_storage_type_primary">Penyimpanan utama</string>
     <string name="stats_storage_type_secondary">Penyimpanan cadangan</string>
     <string name="stats_storage_type_portable">Penyimpanan portabel</string>
+    <string name="stats_space_history_delete_storage_title">Hapus riwayat penyimpanan?</string>
+    <string name="stats_space_history_delete_storage_desc">Semua data tren untuk penyimpanan ini akan dihapus secara permanen.</string>
 </resources>

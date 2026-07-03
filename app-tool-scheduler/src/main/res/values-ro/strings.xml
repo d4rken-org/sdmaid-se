@@ -36,7 +36,15 @@
     <string name="scheduler_notification_result_title">Programator terminat</string>
     <string name="scheduler_notification_result_success_message">Toate sarcinile programate au fost rulate cu succes.</string>
     <string name="scheduler_notification_result_failure_message">Unele sarcini programate au eșuat sau au întâmpinat erori. Încercați să le rulați manual.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Omis, ecranul era stins sau blocat</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Curățarea aplicației poate fi omisă</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Curățarea aplicațiilor folosește serviciul de accesibilitate, care necesită ecranul deblocat. Rulările programate în timp ce dispozitivul este blocat sunt omise.\n\nFolosește Shizuku sau root pentru curățarea în fundal, sau programează-o pentru când folosești dispozitivul.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Aplicațiile de sistem pot fi omise</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku curăță majoritatea cache-urilor în fundal, dar aplicațiile de sistem necesită serviciul de accesibilitate, care necesită ecranul deblocat. Cu \"Include aplicații de sistem\" activat, acelea sunt omise când dispozitivul este blocat.\n\nDezactivează \"Include aplicații de sistem\", sau rulează programul cu ecranul deblocat.</string>
     <string name="scheduler_commands_after_schedule_label">Comenzi post-program</string>
     <string name="scheduler_commands_after_schedule_desc">Comenzi Android shell care vor fi executate la sfârșitul unui program.</string>
     <string name="scheduler_battery_optimization_hint">Luați în considerare dezactivarea optimizărilor bateriei pentru SD Maid dacă întâmpinați probleme cu execuția în fundal.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid poate curăța pe bază de program. Alege o oră și care instrumente să ruleze, și face munca în fundal, (aproape) fără nevoie să deschizi aplicația.</string>
+    <string name="tour_scheduler_create_body">Apasă aici pentru a crea un program nou, apoi setează când va rula și care instrumente să includă.</string>
 </resources>

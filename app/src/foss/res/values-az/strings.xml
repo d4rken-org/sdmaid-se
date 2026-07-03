@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">Açıq mənbəli proqram təminatı</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE-ni yüksəldin</string>
     <string name="upgrades_dashcard_body">Əlavə xüsusiyyətləri açın və davamlı inkişafı dəstəkləmək üçün himayədar olun!</string>
     <string name="upgrades_dashcard_upgrade_action">Yüksəlt</string>
-    <string name="upgrade_screen_title">SD Maid-i təkmilləşdirin</string>
+    <string name="upgrade_screen_title">SD Maid-i dəstəkləyin</string>
     <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Davamlı inkişaf yalnız sizin vasitənizlə mümkündür.</string>
     <string name="upgrade_screen_how_title">Necə kömək etmək</string>
     <string name="upgrade_screen_how_body">Himayədar olun və inkişafı sponsor edin! Bütün əlavə xüsusiyyətləri aktivləşdirmək və mənim GitHub Sponsors profilimi açmaq üçün aşağıdakı düyməni toxunun.</string>
-    <string name="upgrade_screen_why_title">Bu sehrdir 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner silmə funksiyası 💯\n• Planlaşdırılmış əməliyyatlar ⏰\n• Bütün alətlər üçün əlavə seçimlər ⚙️\n• Öz silmə qaydalarınız ✍️\n• Motivasiyalı tərtibatçı 🧙\nvə daha çox…</string>
+    <string name="upgrade_screen_why_title">Yüksəltmə faydaları</string>
+    <string name="upgrade_screen_why_body">• Tətbiq keşləri və tələb olunmayan məlumatları təmizləyin\n• Təkrarlanan faylları silin\n• Planlaşdırılmış təmizləmələri aktivləşdirin\n• Xüsusi filtrlər və təmizləmə qaydaları yaradın\n• Saxlama tendensiyalarını və təmizləmə tarixçəsini izləyin\n• Tətbiq daxilində daha çox xüsusiyyət və nəzarət\n• Açıq mənbə işini dəstəkləyin</string>
     <string name="upgrade_screen_sponsor_action">İnkişafı sponsor edin</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativ reklamlar, analitika və Google Play-dir 🙁</string>
     <string name="upgrade_screen_thanks_toast">Açıq mənbə inkişafını dəstəklədiyiniz üçün təşəkkür edirik ❤️</string>

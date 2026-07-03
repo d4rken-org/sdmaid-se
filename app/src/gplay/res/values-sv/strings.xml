@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Använd alternativet \"Återställ köp\" för att återställa ditt köp. Om problemet kvarstår, försök rensa Google Play-cachen och starta om enheten.</string>
     <string name="upgrade_screen_title">Skaffa SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid har inga annonser och säljer inte användardata. Mitt arbete finansieras av dig ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Fördelar</string>
-    <string name="upgrade_screen_benefits_body">• Apprengöring 💯\n• Schemalagda operationer ⏰\n• Extra alternativ för alla verktyg ⚙️\n• Dina egna raderingsregler ✍️\n• En motiverad utvecklare 🧙\noch mer…</string>
+    <string name="upgrade_screen_benefits_title">Uppgraderingsfördelar</string>
+    <string name="upgrade_screen_benefits_body">• Rensa app-cachar och onödig data
+• Ta bort duplicerade filer
+• Aktivera schemalagda rensningar
+• Skapa anpassade filter och rensningsregler
+• Spåra lagringstrender och rensningshistorik
+• Fler funktioner och kontroller i appen
+• Stöd för fortsatt utveckling</string>
     <string name="upgrade_screen_how_title">Alternativ</string>
     <string name="upgrade_screen_how_body">Du kan välja mellan ett engångsköp och en billigare årlig prenumeration.\nPrenumerationen börjar med en gratis 14-dagars testperiod, varefter du debiteras en gång per år. Test och prenumeration kan avbrytas när som helst.\nSamma funktioner, bara olika prismodeller.</string>
+    <string name="upgrade_screen_subscription_offer_title">Årsabonnemang</string>
+    <string name="upgrade_screen_iap_offer_title">Köp en gång</string>
+    <string name="upgrade_screen_offer_recommended">Rekommenderat</string>
+    <string name="upgrade_screen_offers_unavailable_message">Priserna kunde inte läsas in just nu. Kontrollera Google Play och försök igen om en stund.</string>
     <string name="upgrade_screen_subscription_trial_action">Starta gratis 14-dagars test</string>
     <string name="upgrade_screen_subscription_action">Prenumerera</string>
     <string name="upgrade_screen_subscription_action_hint">Prenumerationen kostar %s per år.</string>

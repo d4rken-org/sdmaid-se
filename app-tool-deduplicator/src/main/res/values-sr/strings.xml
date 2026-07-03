@@ -44,6 +44,17 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Обрисати све осим једне копије у сваком изабраном скупу дупликата?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Обрисати све датотеке у сваком изабраном скупу дупликата? Ниједна датотека неће остати!</string>
     <string name="deduplicator_delete_all_toggle_msg">Обриши све копије. Ниједна датотека неће остати!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Обришите %1$d дупликат у овом скупу, ослобађајући %2$s? Чувана копија остаје.</item>
+        <item quantity="few">Обришите %1$d дупликата у овом скупу, ослобађајући %2$s? Чувана копија остаје.</item>
+        <item quantity="other">Обришите %1$d дупликата у овом скупу, ослобађајући %2$s? Чувана копија остаје.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s могуће се ослободити</string>
+    <string name="deduplicator_action_delete_set">Обриши скуп дупликата</string>
+    <string name="deduplicator_action_open_preview">Отвори преглед</string>
+    <string name="deduplicator_marked_for_deletion">Означено за брисање</string>
+    <string name="deduplicator_cluster_preview_image">Преглед скупа дупликата</string>
+    <string name="deduplicator_selection_keep_one_required">Најмање једна датотека по скупу дупликата мора остати. Омогућите „Избриши све” у подешавањима да то заобиђете.</string>
     <string name="deduplicator_progress_comparing_files">Поређење датотека</string>
     <string name="deduplicator_details_cluster_title">Скуп дупликата</string>
     <string name="deduplicator_matches_exact_label">Тачне копије</string>
@@ -81,4 +92,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Преферирај мање датотеке</string>
     <string name="deduplicator_view_mode_groups_label">Групе</string>
     <string name="deduplicator_view_mode_directories_label">Фасцикле</string>
+    <string name="tour_deduplicator_details_cluster_body">Ове датотеке изгледају као иста ставка или медијски садржај, скуп дупликата.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Датотеке са овом иконом ће бити избрисане; датотека која остаје у групи је она коју SD Maid чува. Можете променити како се бира датотека која ће остати у подешавањима стратегије брисања.</string>
 </resources>

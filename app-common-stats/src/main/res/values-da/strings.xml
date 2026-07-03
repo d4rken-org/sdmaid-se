@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Primær lager</string>
     <string name="stats_storage_type_secondary">Sekundær lager</string>
     <string name="stats_storage_type_portable">Flytbart lager</string>
+    <string name="stats_space_history_delete_storage_title">Slet lagerhistorik?</string>
+    <string name="stats_space_history_delete_storage_desc">Alle trenddata for dette lager vil blive slettet permanent.</string>
 </resources>

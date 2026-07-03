@@ -8,4 +8,16 @@
         <item quantity="other">%d ପଥ ମନୋନୀତ</item>
     </plurals>
     <string name="picker_home_action">ଡାଟା କ୍ଷେତ୍ର</string>
+    <string name="tour_action_next">ଆଗେ</string>
+    <string name="tour_action_previous">ପଛେ</string>
+    <string name="tour_action_done">ସମ୍ପନ୍ନ</string>
+    <string name="tour_action_cancel">ଛାଡ଼ନ୍ତୁ</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">ଭ୍ରମଣ ଛାଡ଼ିବେ?</string>
+    <string name="tour_confirm_message">ଆପଣ ୟେକୌଣସି ସମୟରେ ସେଟିଂସ୍‌ରୁ ଭ୍ରମଣ ପୁନଃ ସକ୍ରିୟ କରିପାରିବେ।</string>
+    <string name="tour_confirm_continue">ଟୁର ଜାରି ରଖନ୍ତୁ</string>
+    <string name="tour_confirm_dont_show_this_tour">ଏହି ଟୁର ଦେଖାନ୍ତୁ ନାହିଁ</string>
+    <string name="tour_confirm_disable_all">ସମସ୍ତ ଟୁର ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+    <string name="navigation_unknown_destination_title">ଶୀଘ୍ର ଆସିବ</string>
+    <string name="navigation_unknown_destination_message">ଏହି ସ୍କ୍ରିନ ବର୍ତ୍ତମାନ ନୂତନ UI କୁ ସ୍ଥାନାନ୍ତରିତ ହେଉଛି।</string>
 </resources>

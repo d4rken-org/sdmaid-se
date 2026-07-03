@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">തിരഞ്ഞെടുത്ത ഓരോ ഡ്യൂപ്ലിക്കേറ്റ് ഫയൽ സെറ്റിലും ഒരു കോപ്പി ഒഴികെ ബാക്കിയെല്ലാം ഡിലീറ്റ് ചെയ്യണോ?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">തിരഞ്ഞെടുത്ത ഓരോ ഡ്യൂപ്ലിക്കേറ്റ് ഫയൽ സെറ്റിലെയും എല്ലാ ഫയലുകളും ഡിലീറ്റ് ചെയ്യണോ? ഒരു ഫയലും ബാക്കിയുണ്ടാകില്ല!</string>
     <string name="deduplicator_delete_all_toggle_msg">എല്ലാ കോപ്പികളും ഡിലീറ്റ് ചെയ്യുക. ഒരു ഫയലും ബാക്കിയുണ്ടാകില്ല!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">ഈ സെറ്റിൽ %1$d നകൽ ഇല്ലാതാക്കുക, %2$s ലഭ്യമാക്കുക? സൂക്ഷിക്കുന്ന പകർപ്പ് നിലനിൽക്കുന്നു.</item>
+        <item quantity="other">ഈ സെറ്റിൽ %1$d നകലുകൾ ഇല്ലാതാക്കുക, %2$s ലഭ്യമാക്കുക? സൂക്ഷിക്കുന്ന പകർപ്പ് നിലനിൽക്കുന്നു.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ലഭ്യമാക്കാവുന്നത്</string>
+    <string name="deduplicator_action_delete_set">ഡപ്ലിക്കേറ്റ് സെറ്റ് ഇല്ലാതാക്കുക</string>
+    <string name="deduplicator_action_open_preview">പ്രിവ്യൂ തുറക്കുക</string>
+    <string name="deduplicator_marked_for_deletion">ഇല്ലാതാക്കാനായി അടയാളപ്പെടുത്തിയത്</string>
+    <string name="deduplicator_cluster_preview_image">ഡപ്ലിക്കേറ്റ് സെറ്റ് പ്രിവ്യൂ</string>
+    <string name="deduplicator_selection_keep_one_required">ഓരോ ഡപ്ലിക്കേറ്റ് സെറ്റിലും കുറഞ്ഞത് ഒരു ഫയൽ ശേഷിക്കണം. അതിക്രമിക്കാൻ സെറ്റിംഗുകളിൽ \"എല്ലാം ഇല്ലാതാക്കൽ സാധ്യമാക്കുക\" സജ്ജമാക്കുക.</string>
     <string name="deduplicator_progress_comparing_files">ഫയലുകൾ താരതമ്യപ്പെടുത്തുന്നു</string>
     <string name="deduplicator_details_cluster_title">ഡ്യൂപ്ലിക്കേറ്റുകളുടെ സെറ്റ്</string>
     <string name="deduplicator_matches_exact_label">കൃത്യമായ പകർപ്പുകൾ</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ചെറിയ ഫയലുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="deduplicator_view_mode_groups_label">ഗ്രൂപ്പുകൾ</string>
     <string name="deduplicator_view_mode_directories_label">ഫോർഡർുകൾ</string>
+    <string name="tour_deduplicator_details_cluster_body">ഈ ഫയലുകൾ എല്ലാം ഒരേ ഇനം അല്ലെങ്കിൽ മീഡിയ ഉള്ളടക്കം ആണെന്ന് തോന്നുന്നു, ഡപ്ലിക്കേറ്റുകളുടെ ഒരു കൂട്ടം.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ഈ ഐക്കണുള്ള ഫയലുകൾ ഇല്ലാതാക്കപ്പെടും; ഗ്രൂപ്പിലെ ശേഷിച്ച ഫയൽ SD Maid സൂക്ഷിക്കുന്ന ഫയലാണ്. ഇല്ലാതാക്കൽ തന്ത്രം സെറ്റിംഗുകളിൽ എതു ഫയൽ സൂക്ഷിക്കണമെന്ന് നിങ്ങൾക്ക് മാറ്റാൻ കഴിയും.</string>
 </resources>

@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Распоредувачот заврши</string>
     <string name="scheduler_notification_result_success_message">Сите закажани задачи се извршија успешно.</string>
     <string name="scheduler_notification_result_failure_message">Некои закажани задачи не успеаја или наидоа на грешки. Обидете се да ги извршите рачно.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Прескокнато, екранот беше исклучен или заклучен</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Чистењето на апликациите може да биде прескокнато</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Чистењето на апликациите користи услуга за пристапност, која бара екранот да биде отклучен. Закажаните запускања кога уредот е заклучен се прескокнуваат.
+
+Користи Shizuku или root за позаденско чистење, или закажи го чистењето кога ќе го користиш уредот.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системските апликации може да бидат прескокнати</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ги чисти повеќето кешови во позадина, но системските апликации имаат потреба од услуга за пристапност, која бара екранот да биде отклучен. Кога „Вклучи системски апликации\" е вклучено, тие се прескокнуваат кога уредот е заклучен.
+
+Исклучи „Вклучи системски апликации\", или стартувај го распоредот кога уредот е отклучен.</string>
     <string name="scheduler_commands_after_schedule_label">Команди по распоред</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell команди кои ќе се извршат на крајот од распоредот.</string>
     <string name="scheduler_battery_optimization_hint">Размислете за исклучување на оптимизацијата на батеријата за SD Maid ако имате проблеми со извршување во заднина.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid може да чисти по распоред. Избери време и кои алатки да работат, и ќе направи работа во позадина, (скоро) без потреба да ја отвараш апликацијата.</string>
+    <string name="tour_scheduler_create_body">Допри овде за да креираш нов распоред, потоа постави кога да работи и кои алатки да ги вклучиш.</string>
 </resources>

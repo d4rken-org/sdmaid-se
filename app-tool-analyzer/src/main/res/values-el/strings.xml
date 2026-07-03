@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Ένας δευτερεύων αποθηκευτικός χώρος, συνήθως μια αφαιρούμενη κάρτα SD. Περιέχει αρχεία πολυμέσων και δεδομένα από εφαρμογές που το υποστηρίζουν.</string>
     <string name="analyzer_storage_type_tertiary_title">Φορητός χώρος αποθήκευσης</string>
     <string name="analyzer_storage_type_tertiary_description">Ένας φορητός χώρος αποθήκευσης, π.χ. μια μονάδα flash συνδέθηκε στη θύρα USB σας.</string>
+    <string name="analyzer_storage_identifier_internal">Εσωτερική αποθήκευση</string>
     <string name="analyzer_storage_content_title">Περιεχόμενο αποθηκευτικού χώρου</string>
     <string name="analyzer_storage_content_type_app_label">Εφαρμογές</string>
     <string name="analyzer_storage_content_type_app_description">Χώρος που καταλαμβάνεται από εγκατεστημένες εφαρμογές και τα δεδομένα τους (δηλαδή αρχεία εφαρμογών, δεδομένα και προσωρινές μνήμες).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
     <string name="analyzer_storage_content_type_system_other_label">Άλλο</string>
     <string name="analyzer_storage_content_type_system_info">Αρχεία που δεν ανήκουν στις κατηγορίες Εφαρμογές ή Αρχεία χρήστη. Μόνο περιήγηση — η διαγραφή δεν υποστηρίζεται. Ορισμένες περιοχές ενδέχεται να είναι ελλιπείς λόγω περιορισμών πρόσβασης.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Τα αρχεία δεν μπορούν να αντιστοιχιστούν στις εφαρμογές που τα κατέχουν αυτή τη στιγμή. Τα μεγέθη εμφανίζονται μόνο για αναφορά — η διαγραφή, τα φίλτρα και το Swiper είναι απενεργοποιημένα.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Αρχεία συστήματος και άλλα δεδομένα που το SD Maid δεν μπόρεσε να αποκτήσει πρόσβαση ή να κατηγοριοποιήσει. Το λειτουργικό σύστημα περιορίζει την εμφάνιση των περιεχομένων ορισμένων περιοχών.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
     <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, βιβλιοθήκες και πόροι. Αυτός ο χώρος μπορεί να ελευθερωθεί με την απεγκατάσταση της εφαρμογής ή την αρχειοθέτησή της (διατίθεται σε νεότερη έκδοση Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Αυτή η εφαρμογή έχει αρχειοθετηθεί.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s σε 7η</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Δείτε τι γεμίζει πραγματικά τον χώρο αποθήκευσής σας. Ο Αναλυτής χαρτογραφεί το σημείο όπου πηγαίνει ο χώρος σας. Κάθε μια από αυτές τις κάρτες αντιπροσωπεύει μια μονάδα αποθήκευσης στη συσκευή σας.</string>
+    <string name="tour_analyzer_storage_body">Ανοίξτε έναν χώρο αποθήκευσης για να τον αναλύσετε σε εφαρμογές, πολυμέσα και αρχεία, στη συνέχεια συνεχίστε να πατάτε για να εντοπίσετε τους μεγαλύτερους υπαίτιους.</string>
 </resources>

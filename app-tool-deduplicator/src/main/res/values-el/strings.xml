@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Διαγραφή όλων εκτός από ένα αντίγραφο σε κάθε επιλεγμένο σύνολο διπλότυπων αρχείων;</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Διαγραφή όλων των αρχείων σε κάθε επιλεγμένο σύνολο διπλότυπων αρχείων; Δε θα παραμείνει κανένα αρχείο!</string>
     <string name="deduplicator_delete_all_toggle_msg">Διαγραφή όλων των αντιγράφων. Δε θα παραμείνει κανένα αρχείο!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Διαγραφή %1$d διπλοτύπου σε αυτό το σύνολο, ελευθερώνοντας %2$s; Το διατηρημένο αντίγραφο παραμένει.</item>
+        <item quantity="other">Διαγραφή %1$d διπλοτύπων σε αυτό το σύνολο, ελευθερώνοντας %2$s; Το διατηρημένο αντίγραφο παραμένει.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ελευθερώσιμα</string>
+    <string name="deduplicator_action_delete_set">Διαγραφή συνόλου διπλοτύπων</string>
+    <string name="deduplicator_action_open_preview">Άνοιγμα προεπισκόπησης</string>
+    <string name="deduplicator_marked_for_deletion">Επισημασμένο για διαγραφή</string>
+    <string name="deduplicator_cluster_preview_image">Προεπισκόπηση συνόλου διπλοτύπων</string>
+    <string name="deduplicator_selection_keep_one_required">Τουλάχιστον ένα αρχείο ανά σύνολο διπλοτύπων πρέπει να παραμείνει. Ενεργοποιήστε το «Επιτρέψτε τη \'Διαγραφή όλων\'» στις ρυθμίσεις για να παρακάμψετε.</string>
     <string name="deduplicator_progress_comparing_files">Σύγκριση αρχείων</string>
     <string name="deduplicator_details_cluster_title">Σύνολο διπλότυπων</string>
     <string name="deduplicator_matches_exact_label">Ακριβή αντίγραφα</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Προτίμηση μικρότερων αρχείων</string>
     <string name="deduplicator_view_mode_groups_label">Ομάδες</string>
     <string name="deduplicator_view_mode_directories_label">Φάκελοι</string>
+    <string name="tour_deduplicator_details_cluster_body">Αυτά τα αρχεία φαίνεται να είναι το ίδιο στοιχείο ή περιεχόμενο πολυμέσων, μια ομάδα διπλότυπων.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Τα αρχεία με αυτό το εικονίδιο θα διαγραφούν. Το αρχείο που απομένει στην ομάδα είναι αυτό που διατηρεί το SD Maid. Μπορείτε να αλλάξετε τον τρόπο επιλογής του αρχείου που θα διατηρηθεί στις ρυθμίσεις στρατηγικής διαγραφής.</string>
 </resources>

@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Ismeretlen tulajdonos</string>
     <string name="corpsefinder_corpse_hint_keeper">Ez az elem tartalmazhat olyan adatokat, amelyeket meg szeretne őrizni annak ellenére, hogy a tulajdonosát eltávolították, pl. fényképeket vagy biztonsági másolatokat.</string>
     <string name="corpsefinder_corpse_hint_common">Ennek az elemnek nagyon gyakori a neve, és olyan még telepített alkalmazásokhoz tartozhat, amelyeket az SD Maid nem ismer.</string>
+    <string name="corpsefinder_risk_keeper_chip">Kívánatos</string>
+    <string name="corpsefinder_risk_common_chip">Gyakori</string>
+    <string name="corpsefinder_markers_dialog_title">Ezekről a jelölőkről</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Nincs jelölés</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Szokásos maradék. Általában biztonságos eltávolítani – ezek a fájlok olyan alkalmazásokhoz tartoznak, amelyeket már eltávolított.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">A CorpseFinder megtalálja az olyan alkalmazások által hagyott adatokat, amelyeket már eltávolított. Mivel ezek az adatok nem tartoznak semmilyen telepített alkalmazáshoz, biztonságos eltávolítani őket, és helyet szabadít fel.</string>
+    <string name="tour_corpsefinder_row_body">Minden elem egy-egy maradék adat és az abból származó alkalmazás. A jelölés mutatja, hogy az SD Maid mennyire biztos benne, hogy biztonságos eltávolítani – a tetején lévő ⓘ gombra koppintva megtudhatja, mit jelentenek a jelölések.</string>
 </resources>

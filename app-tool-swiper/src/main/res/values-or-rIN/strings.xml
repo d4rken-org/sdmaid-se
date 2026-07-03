@@ -36,6 +36,19 @@
         <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
         <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍‌ଗୁଡିକ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ଏହି ସେଶନ ଏକ ସମ୍ପୂର୍ଣ ସଞ୍ଚୟ ଭୋଲ୍ୟୁମକୁ ଲକ୍ଷ୍ୟ କରେ — ଏଠାରେ ଡିଲିଟ୍ କରିବା ସେହି ସଞ୍ଚୟର ସମସ୍ତ ଫୋଲ୍ଡରକୁ ଅନ୍ତର୍ଭୁକ୍ତ କରେ।</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ଏବଂ %d ଅଧିକ ଫୋଲ୍ଡର</item>
+        <item quantity="other">…ଏବଂ %d ଅଧିକ ଫୋଲ୍ଡର</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ମୁଁ ବୁଝିଲି ୟେ ଏହି ଫାଇଲଗୁଡ଼ିକ ସ୍ଥାୟୀଭାବେ ଡିଲିଟ୍ କରାୟାଇବେ।</string>
+    <string name="swiper_sensitive_root_warning_title">ସମ୍ପୂର୍ଣ୍ଣ ସଂରକ୍ଷଣ ସ୍ଥାନ ସ୍କ୍ୟାନ କରିବେ?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s ସ୍କ୍ୟାନ କରିବା ଏହି ସଂରକ୍ଷଣ ସ୍ଥାନରେ ଥିବା ସମସ୍ତ ଫାଇଲ ଅନ୍ତର୍ଭୁକ୍ତ କରେ — ଫଟୋ, ଡକୁମେଣ୍ଟ, ଡାଉନଲୋଡ, ଆପ୍ ମିଡିଆ ଆଦି। ଜାରି ରଖିବେ?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ତଥାପି ଜାରି ରଖନ୍ତୁ</string>
+    <string name="swiper_session_risky_label">ସଂପୂର୍ଣ୍ଣ-ସଂରକ୍ଷଣ ସ୍କ୍ୟାନ</string>
+    <string name="swiper_session_risky_info_message">ଏହି ସେସନ ଏକ ସଂରକ୍ଷଣ ଏଲାକାର ମୂଳଭାଗକୁ ଲକ୍ଷ୍ୟ କରେ, ତେଣୁ ସେଠାର ସମସ୍ତ ଫାଇଲ ଅନ୍ତର୍ଭୁକ୍ତ — ଫଟୋ, ଡକୁମେଣ୍ଟ, ଡାଉନଲୋଡ, ଆପ୍ ମିଡିଆ ଆଦି।
+
+ସଂପୂର୍ଣ୍ଣ-ସଂରକ୍ଷଣ ସ୍କ୍ୟାନ ଅନେକ ଆଇଟେମ ଫେରାଇ ଦେଇପାରେ, ଯେଉଁଥିରେ ଆପଣ ଦେଖିବାକୁ ଇଚ୍ଛା ନକରିଥିବା ଫାଇଲ ଭିତରେ ଥାଇପାରେ। ସ୍କ୍ୟାନକୁ ସଙ୍ଗୀନ କରିବା ପାଇଁ ଏକ ଫାଇଲ-ଧରଣ ଫିଲ୍ଟର ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="swiper_delete_x_action">%1$d ଡିଲିଟ୍ କରନ୍ତୁ</string>
     <string name="swiper_settings_swap_directions_title">ସ୍ୱାଇପ୍ ଦିଗ ବଦଳାନ୍ତୁ</string>
     <string name="swiper_settings_swap_directions_summary">ରଖିବା ପାଇଁ ବାମକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ, ଡିଲିଟ୍ ପାଇଁ ଡାହାଣକୁ।</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">ଏହି ସେସନ୍ ପାଇଁ ଏକ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</string>
     <string name="swiper_sessions_current_sessions">ବର୍ତ୍ତମାନ ସେସନ୍</string>
     <string name="swiper_session_paths_label">ପଥ</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ଏବଂ ଆଉ %d</item>
+        <item quantity="other">…ଏବଂ ଆଉ %d</item>
+    </plurals>
     <string name="swiper_session_status_label">ସ୍ଥିତି</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d ରଖିବା ପାଇଁ</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">ଫିଲ୍ଟର୍ ହୋଇଛି: %1$s</string>
     <string name="swiper_session_no_matching_files">କୌଣସି ମିଳୁଥିବା ଫାଇଲ ମିଳିଲା ନାହିଁ</string>
     <string name="swiper_open_externally_action">ବାହ୍ୟ ଆପ୍‌ରେ ଖୋଲନ୍ତୁ</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ଏକ ଫଟୋ ଖୁଞ୍ଚିକରି ତାର ବିଷୟରେ ନିଷ୍ପତ୍ତି ନେନ୍ତୁ: ରଖିବା ବା ଲିଭାଇବାକୁ ପାଶ୍ୱରେ, ଛାଡ଼ିଦେବାକୁ ଉପରକୁ, ଫେରାଇ ଆଣିବାକୁ ତଳକୁ। ତଳର ବଟନଗୁଡ଼ିକ ମଧ୍ୟ ସେହି ଜିନିଷ କରନ୍ତି — ଏବଂ ଦେଖାନ୍ତି କେଉଁ ପାଶ୍ୱ କେଉଁଠି।</string>
+    <string name="tour_swiper_openin_body">ଏହି ବଟନ ଫଟୋକୁ ଅନ୍ୟ ଏକ ଆପ୍‌ରେ ଖୋଲାଏ, ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଯାଞ୍ଚ କରିବା ଲାଗି ସୁବିଧାଜନକ।</string>
+    <string name="tour_swiper_preview_body">ଏହି ବଟନ ଭଲ ଭାବରେ ଦେଖିବା ପାଇଁ ଏକ ସଂପୂର୍ଣ୍ଣ-ସ୍କ୍ରିନ ପୂର୍ବାଦର୍ଶନ ଖୋଲାଏ।</string>
+    <string name="tour_swiper_actions_body">ଖୁଞ୍ଚାନା ଭାଲୋ ଲାଗୁ ନାହିଁ? ଆମ ପାଖରେ ବଟନ ମଧ୍ୟ ଅଛି! ଛାଡ଼ିଦେବା ଏହାକୁ ଆଗାମୀ ଲାଗି ଅନିଶ୍ଚିତ ରଖିଥାଏ, ଏବଂ ଛାଡ଼ିଦେବାକୁ ଦୀର୍ଘ ଦବାଇ ଏକ ଫାଇଲକୁ ଭବିଷ୍ୟତ ସ୍କ୍ୟାନରୁ ବାଦ ଦେଇଥାଏ। ଫେରାଇ ଆଣିବା ଆପଣଙ୍କର ଶେଷ ଚୟନକୁ ଖସାଇ ଦେଇଥାଏ।</string>
+    <string name="tour_swiper_review_body">ଆପଣଙ୍କ ରଖିବା ଏବଂ ଲିଭାଇବା ପସନ୍ଦଗୁଡ଼ିକ କେବଳ ପ୍ରସ୍ତୁତ ଅଛି। ସେଗୁଡ଼ିକୁ ଦେଖିବା ଏବଂ ଆପଣ ପ୍ରସ୍ତୁତ ହୋଇଥିବେ ସେତେବେଳେ ଲିଭାଣୁ ପ୍ରୟୋଗ କରିବା ପାଇଁ ସମୀକ୍ଷା ଖୋଲନ୍ତୁ।</string>
 </resources>

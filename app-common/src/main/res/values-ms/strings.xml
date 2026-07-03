@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Faham</string>
     <string name="general_fix_action">Baiki</string>
     <string name="general_set_up_action">Sediakan</string>
+    <string name="general_unavailable_label">Tidak tersedia</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Dalam barisan</string>
     <string name="general_progress_deleting">Memadam</string>
     <string name="general_progress_deleting_x">Memadam %s</string>
+    <string name="general_sort_by_title">Susun mengikut</string>
     <string name="general_sort_reverse_action">Mod isihan terbalik</string>
+    <string name="general_sort_oldest_first">Terlama dahulu</string>
+    <string name="general_sort_newest_first">Terbaru dahulu</string>
+    <string name="general_sort_name_asc">Nama (A → Z)</string>
+    <string name="general_sort_size_desc">Terbesar dahulu</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_navigate_up_action">Navigasi ke atas</string>
+    <string name="general_filter_action">Penapis</string>
+    <string name="general_filter_by_tags_label">Saring mengikut tag</string>
+    <string name="general_filter_add_action">Tambah penapis</string>
+    <string name="general_filter_remove_x_action">Alih keluar penapis %s</string>
+    <string name="general_filter_empty_row_hint">Sentuh + untuk penapis</string>
+    <string name="general_show_all_action">Tunjukkan semua</string>
     <string name="general_result_success_message">Operasi berjaya</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">Membebaskan %s ruang.</item>
@@ -73,6 +86,8 @@
     <string name="general_options_label">Pilihan</string>
     <string name="general_details_label">Butiran</string>
     <string name="general_view_action">Lihat</string>
+    <string name="general_open_action">Buka</string>
+    <string name="general_configure_action">Tetapkan</string>
     <string name="general_update_action">Kemas kini</string>
     <string name="general_scan_action">Imbas</string>
     <string name="general_close_action">Tutup</string>
@@ -93,7 +108,9 @@
         <item quantity="other">%d item telah dialih keluar</item>
     </plurals>
     <string name="general_search_action">Cari</string>
+    <string name="general_search_no_matches">Tiada padanan</string>
     <string name="general_open_system_settings_action">Buka tetapan sistem</string>
+    <string name="general_fast_scroller_action">Penggulung cepat</string>
     <plurals name="result_x_items">
         <item quantity="other">%s butiran</item>
     </plurals>
@@ -113,6 +130,9 @@
     <string name="general_enable_service_action">Dayakan perkhidmatan</string>
     <string name="general_undo_action">Buat asal</string>
     <string name="general_list_select_all_action">Pilih semua</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="other">%d dipilih</item>
+    </plurals>
     <string name="general_path_label">Laluan</string>
     <string name="general_type_label">Taip</string>
     <string name="general_size_label">Saiz</string>
@@ -143,6 +163,8 @@
     <string name="general_error_report_bug_action">Laporkan pepijat</string>
     <string name="general_error_ipc_deadobject_title">Sambungan Perkhidmatan Terputus</string>
     <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
+    <string name="general_error_upgrade_required_title">Versi Pro diperlukan</string>
+    <string name="general_error_upgrade_required_description">Ini adalah ciri Pro. Sila naik taraf SD Maid SE untuk menggunakannya.</string>
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Persediaan</string>
@@ -167,4 +189,22 @@
     <string name="settings_category_risklevel">Tahap risiko</string>
     <string name="settings_category_filter">Penyaring</string>
     <string name="appcontrol_systemsettings_open_title">Tunjukkan tetapan</string>
+    <string name="ui_theme_color_sunset_label">Matahari Terbenam</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Ciri ini memerlukan akses root, tetapi SD Maid tidak dapat memperolehnya pada peranti ini.</string>
+    <string name="access_blocked_root_declined">Ciri ini memerlukan akses root. Anda boleh mengaktifkannya melalui skrin persediaan.</string>
+    <string name="access_blocked_root_or_shizuku">Ciri ini memerlukan akses root atau Shizuku, yang tidak tersedia pada peranti ini.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Fail sandaran tidak sah</string>
+    <string name="backup_restore_error_invalid_body">Fail ini bukan sandaran SD Maid yang sah atau sudah rosak.</string>
+    <string name="backup_restore_error_version_body">Sandaran ini dibuat dengan versi SD Maid yang lebih baru. Sila kemaskini aplikasi dan cuba lagi.</string>
+    <string name="backup_restore_error_restore_failed_title">Pemulihan gagal</string>
+    <string name="backup_restore_error_restore_failed_body">Bahagian-bahagian ini tidak dapat dipulihkan: %1$s. Konfigurasi anda yang terdahulu telah disimpan dan boleh dikembalikan.</string>
+    <string name="backup_restore_error_safety_title">Pemulihan tidak dimulakan</string>
+    <string name="backup_restore_error_safety_body">SD Maid tidak dapat menyimpan tangkapan keselamatan konfigurasi anda yang semasa, jadi tiada apa yang diubah.</string>
+    <string name="backup_restore_error_busy_title">Sila tunggu</string>
+    <string name="backup_restore_error_busy_body">Tugas pembersihan atau operasi sandaran lain sedang berjalan. Cuba lagi apabila ia telah selesai.</string>
+    <string name="backup_restore_error_schema_title">Sandaran tidak serasi</string>
+    <string name="backup_restore_error_schema_body">Format pangkalan data sandaran tidak sepadan dengan versi SD Maid ini. Pemulihan data sejarah hanya disokong di antara versi aplikasi yang sama.</string>
 </resources>

@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_secondary">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_portable">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+    <string name="stats_space_history_delete_storage_title">ସଂଗ୍ରହ ଇତିହାସ ମୁଛିବେ?</string>
+    <string name="stats_space_history_delete_storage_desc">ଏହି ସଂଗ୍ରହ ପାଇଁ ସମସ୍ତ ଟ୍ରେଣ୍ଡ ତଥ୍ୟ ସ୍ଥାୟୀ ଭାବରେ ମୁଛି ଯିବ।</string>
 </resources>

@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Upgradovat SD Maid SE</string>
     <string name="upgrades_dashcard_body">Odemkněte další funkce a staňte se patronem, který podpoří další vývoj!</string>
     <string name="upgrades_dashcard_upgrade_action">Upgradovat</string>
-    <string name="upgrade_screen_title">Vylepšit SD Maid</string>
+    <string name="upgrade_screen_title">Podpořit SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Další vývoj je možný pouze díky vám.</string>
     <string name="upgrade_screen_how_title">Jak pomoci</string>
     <string name="upgrade_screen_how_body">Staňte se patronem a sponzorujte vývoj! Klepnutím na tlačítko níže aktivujete všechny extra funkce a otevřete můj sponzorský profil na GitHub.</string>
-    <string name="upgrade_screen_why_title">To vyvolá 🪄</string>
-    <string name="upgrade_screen_why_body">• Čištění aplikací 💯\n• Plánované operace ⏰\n• Další možnosti pro všechny nástroje ⚙️\n• Vaše vlastní pravidla pro mazání ✍️\n• Motivovaný vývojář 🧙\na další…</string>
+    <string name="upgrade_screen_why_title">Výhody upgradu</string>
+    <string name="upgrade_screen_why_body">• Vyčistěte mezipaměti aplikací a zbytečná data
+• Odstraňte duplicitní soubory
+• Povolte plánované čištění
+• Vytvořte vlastní filtry a pravidla čištění
+• Sledujte trendy úložiště a historii čištění
+• Více funkcí a ovládacích prvků v celé aplikaci
+• Podpořte open-source vývoj</string>
     <string name="upgrade_screen_sponsor_action">Sponzorovat vývoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativou jsou reklamy, analytika a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Děkuji vám za podporu vývoje open-source ❤️</string>

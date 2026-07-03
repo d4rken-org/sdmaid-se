@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">ໃຊ້ຕົວເລືອກ \"ກູ້ຄືນການຊື້\" ເພື່ອກູ້ຄືນການຊື້ຂອງທ່ານ. ຖ້າບັນຫາຍັງຄົງຢູ່, ລອງລ້າງແຄສ Google Play ແລະຣີສະຕາດອຸປະກອນຂອງທ່ານ.</string>
     <string name="upgrade_screen_title">ຮັບ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ວຽກຂອງຂ້ອຍໄດ້ຮັບການສະໜັບສະໜູນທາງການເງິນໂດຍທ່ານ ❤️.</string>
-    <string name="upgrade_screen_benefits_title">ຂໍ້ດີ</string>
-    <string name="upgrade_screen_benefits_body">• ການລ້າງແອັບ 💯\n• ການດຳເນີນງານທີ່ກຳນົດເວລາໄວ້ ⏰\n• ຕົວເລືອກເພີ່ມເຕີມສຳລັບທຸກເຄື່ອງມື ⚙️\n• ກົດລະບຽບການລຶບຂອງທ່ານເອງ ✍️\n• ນັກພັດທະນາທີ່ມີແຮງຈູງໃຈ 🧙\nແລະອື່ນໆ…</string>
+    <string name="upgrade_screen_benefits_title">ປະໂຫຍດຂອງການຍົກລະດັບ</string>
+    <string name="upgrade_screen_benefits_body">• ລຶບລ້າງແຄຊ໊ຂອງແອັບ ແລະ ຂໍ້ມູນທີ່ບໍ່ຈຳເປັນ
+• ລຶບລ້າງໄຟລ೫ທີ່ຊ້ຳກັນ
+• ເປີດໃຊ້ການລຶບລ້າງຕາມກຳໝົດເວລາ
+• ສ້າງຕົວກອງທີ່ກຳໝົດເອງ ແລະ ກໍດລະບີບການລຶບລ້າງ
+• ຕິດຕາມແນວໂນ້ມຂໍ້ມູນ ແລະ ປະໝັດການລຶບລ້າງ
+• ຄຸນສົມບັດ ແລະ ການຄວບຄຸມເພີ່ມເຕີມທໍ່ວທັງແອັບ
+• ສະໝັບສະໝູນການພັດທະນາຍ່າງຕໍ່ເນື່ອງ</string>
     <string name="upgrade_screen_how_title">ຕົວເລືອກ</string>
     <string name="upgrade_screen_how_body">ທ່ານສາມາດເລືອກລະຫວ່າງການຊື້ຄັ້ງດຽວ ແລະການສະໝັກສະມາຊິກປະຈຳປີທີ່ຖືກກວ່າ.\nການສະໝັກສະມາຊິກເລີ່ມຕົ້ນດ້ວຍການທົດລອງຟຣີ 14 ວັນ, ຫຼັງຈາກນັ້ນທ່ານຈະຖືກຮຽກເກັບເງິນປີລະຄັ້ງ. ການທົດລອງ ແລະການສະໝັກສະມາຊິກສາມາດຍົກເລີກໄດ້ທຸກເວລາ.\nຄຸນສົມບັດດຽວກັນ, ພຽງແຕ່ຮູບແບບລາຄາທີ່ແຕກຕ່າງກັນ.</string>
+    <string name="upgrade_screen_subscription_offer_title">ການສະໝັກປະຈຳປີ</string>
+    <string name="upgrade_screen_iap_offer_title">ຊື້ຄັ້ງດຽວ</string>
+    <string name="upgrade_screen_offer_recommended">ແນະນໍຳ</string>
+    <string name="upgrade_screen_offers_unavailable_message">ລາຄາບໍ່ສາມາດໂຫລດໄດ້ໃນຕອນນີ້. ກວດສອບ Google Play ແລະ ລອງໃໝມ່ອີກຄັ້ງໃນບາດກາວ.</string>
     <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງຟຣີ 14 ວັນ</string>
     <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກ</string>
     <string name="upgrade_screen_subscription_action_hint">ການສະໝັກສະມາຊິກລາຄາ %s ຕໍ່ປີ.</string>

@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Izbriši vse razen ene kopije v izbranih nizih podvojenih datotek?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Izbriši vse datoteke v izbranih nizih podvojenih datotek?  Nobena datoteka ne bo ostala!</string>
     <string name="deduplicator_delete_all_toggle_msg">Izbriši vse kopije.  Vse datoteke bodo izbrisane!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Izbrisati %1$d podvojeni element v tem naboru, sprostiti %2$s? Ohranjena kopija ostane.</item>
+        <item quantity="two">Izbrisati %1$d podvojena elementa v tem naboru, sprostiti %2$s? Ohranjena kopija ostane.</item>
+        <item quantity="few">Izbrisati %1$d podvojene elemente v tem naboru, sprostiti %2$s? Ohranjena kopija ostane.</item>
+        <item quantity="other">Izbrisati %1$d podvojenih elementov v tem naboru, sprostiti %2$s? Ohranjena kopija ostane.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s za sprostitev</string>
+    <string name="deduplicator_action_delete_set">Izbriši nabor podvojenih</string>
+    <string name="deduplicator_action_open_preview">Odpri predogled</string>
+    <string name="deduplicator_marked_for_deletion">Označeno za brisanje</string>
+    <string name="deduplicator_cluster_preview_image">Predogled nabora podvojenih</string>
+    <string name="deduplicator_selection_keep_one_required">V vsaki skupini podvojenih datotek mora ostati najmanj ena datoteka. Omogočite »Brisanje vseh« v nastavitvah, da to prepišete.</string>
     <string name="deduplicator_progress_comparing_files">Primerjanje datotek</string>
     <string name="deduplicator_details_cluster_title">Niz dvojnikov</string>
     <string name="deduplicator_matches_exact_label">Natančne kopije</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Daj prednost manjšim datotekam</string>
     <string name="deduplicator_view_mode_groups_label">Skupine</string>
     <string name="deduplicator_view_mode_directories_label">Mape</string>
+    <string name="tour_deduplicator_details_cluster_body">Vse te datoteke so videti kot ista postavka ali medijska vsebina — skupina podvojenih datotek.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Datoteke s to ikono bodo izbrisane; datoteka, ki ostane v skupini, je tista, ki jo ohrani SD Maid. Kako se izbere datoteka za ohranitev, lahko spremenite v nastavitvah strategije brisanja.</string>
 </resources>

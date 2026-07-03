@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a klepnúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
     <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid komunikuje s vaším zariadením. V rovnakom čase nie je možné používať obrazovku. Počkajte, kým sa operácia skončí, alebo stlačením tlačidla Domov zrušte operáciu.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid komunikuje s vaším zariadením. V rovnakom čase nie je možné používať obrazovku. Počkajte, kým sa operácia skončí.</string>
     <string name="automation_active_title">SD Maid pracuje</string>
     <string name="automation_error_no_consent_title">Chyba automatizácie</string>
     <string name="automation_error_no_consent_body">Služba dostupnosti nie je nastavená. Dokončite nastavenie a udeľte súhlas.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Plánovaná úloha sa pokúsila použiť službu dostupnosti, ale nebola dostupná. Ak to nepotrebujete, vypnite možnosť \"Služba dostupnosti\" v nastaveniach plánovača.</string>
     <string name="automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
     <string name="automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
+    <string name="automation_error_interference_title">Obrazovka nastavení je zablokovaná</string>
+    <string name="automation_error_interference_body">Iná aplikácia (%1$s) blokuje obrazovku nastavení systému, takže SD Maid nemôže pokračovať. Vypnite zámok aplikácie alebo ochranu obrazovky tejto aplikácie pre nastavenia systému a skúste znova.</string>
     <string name="automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
     <string name="automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
 </resources>

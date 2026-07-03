@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Başa düşdüm</string>
     <string name="general_fix_action">Düzəlt</string>
     <string name="general_set_up_action">Quraşdır</string>
+    <string name="general_unavailable_label">Əlçatmaz</string>
     <string name="general_edit_action">Redaktə et</string>
     <string name="general_na_label">Y/A</string>
     <string name="general_empty_label">Boş</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Növbədə</string>
     <string name="general_progress_deleting">Silinir</string>
     <string name="general_progress_deleting_x">%s silinir</string>
+    <string name="general_sort_by_title">Sıralama üzrə</string>
     <string name="general_sort_reverse_action">Tərsinə sıralama rejimi</string>
+    <string name="general_sort_oldest_first">Əvvəl köhnələr</string>
+    <string name="general_sort_newest_first">Əvvəl yenilər</string>
+    <string name="general_sort_name_asc">Ad (A → Z)</string>
+    <string name="general_sort_size_desc">Əvvəl böyüklər</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_navigate_up_action">Yuxarı get</string>
+    <string name="general_filter_action">Filtr</string>
+    <string name="general_filter_by_tags_label">Etiketlərə görə filtr</string>
+    <string name="general_filter_add_action">Filtr əlavə et</string>
+    <string name="general_filter_remove_x_action">%s filtrini silin</string>
+    <string name="general_filter_empty_row_hint">Filtrləmək üçün +-a toxunun</string>
+    <string name="general_show_all_action">Hamısını göstər</string>
     <string name="general_result_success_message">Əməliyyat uğurlu oldu</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s yer azad edildi.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Seçimlər</string>
     <string name="general_details_label">Təfərrüatlar</string>
     <string name="general_view_action">Baxış</string>
+    <string name="general_open_action">Aç</string>
+    <string name="general_configure_action">Ayarla</string>
     <string name="general_update_action">Yenilə</string>
     <string name="general_scan_action">Skan</string>
     <string name="general_close_action">Bağla</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d element çıxarıldı</item>
     </plurals>
     <string name="general_search_action">Axtar</string>
+    <string name="general_search_no_matches">Uyğunluq yoxdur</string>
     <string name="general_open_system_settings_action">Sistem parametrlərini aç</string>
+    <string name="general_fast_scroller_action">Cəld sürüşdürücü</string>
     <plurals name="result_x_items">
         <item quantity="one">%s element</item>
         <item quantity="other">%s element</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Xidməti aktiv et</string>
     <string name="general_undo_action">Geri al</string>
     <string name="general_list_select_all_action">Hamısını seç</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d seçildi</item>
+        <item quantity="other">%d seçildi</item>
+    </plurals>
     <string name="general_path_label">Yol</string>
     <string name="general_type_label">Növ</string>
     <string name="general_size_label">Ölçü</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Xəta bildir</string>
     <string name="general_error_ipc_deadobject_title">Xidmət Bağlantısı İtirildi</string>
     <string name="general_error_ipc_deadobject_description">Kritik xidmətlə (məsələn, Magisk, Shizuku və ya digər sistem səviyyəli xidmətlər) əlaqə gözlənilmədən kəsildi. Zəhmət olmasa cihazınızı yenidən başladın. Problem davam edərsə, yeniləmələri yoxlayın və ya problemi həll etməyim üçün mənə müraciət edin.</string>
+    <string name="general_error_upgrade_required_title">Pro versiyası tələb olunur</string>
+    <string name="general_error_upgrade_required_description">Bu, Pro xüsusiyyətidir. Bundan istifadə etmək üçün SD Maid SE-ni yüksəltməlisiniz.</string>
     <string name="general_user_label_owner">Sahib</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Quraşdır</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Risk səviyyəsi</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Parametrləri göstər</string>
+    <string name="ui_theme_color_sunset_label">Günəbatış</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Bu xüsusiyyət root dəstəyini tələb edir, lakin SD Maid bu cihazda onu əldə edə bilmədi.</string>
+    <string name="access_blocked_root_declined">Bu xüsusiyyət root girişinə ehtiyac duyur. Bunu quraşdırma ekranı vasitəsilə aktivləşdirə bilərsiniz.</string>
+    <string name="access_blocked_root_or_shizuku">Bu xüsusiyyət root və ya Shizuku girişinə ehtiyac duyur, lakin bu cihazda mövcud deyil.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Etibarsız ehtiyat nüsxə faylı</string>
+    <string name="backup_restore_error_invalid_body">Bu fayl keçərli SD Maid ehtiyat nüsxəsi deyil və ya zədələnmişdir.</string>
+    <string name="backup_restore_error_version_body">Bu ehtiyat nüsxəsi SD Maid-in yeni versiyası ilə yaradılmışdır. Zəhmət olmasa tətbiqi yeniləyin və yenidən cəhd edin.</string>
+    <string name="backup_restore_error_restore_failed_title">Bərpa uğursuz oldu</string>
+    <string name="backup_restore_error_restore_failed_body">Bu hissələr bərpa edilə bilmədi: %1$s. Sizin əvvəlki konfiqurasiya saxlanılmış və geri qaytarıla bilər.</string>
+    <string name="backup_restore_error_safety_title">Bərpa başlanmadı</string>
+    <string name="backup_restore_error_safety_body">SD Maid sizin cari konfiqurasiyanızın təhlükəsizlik anlıq görüntüsünü saxlaya bilmədi, buna görə heç bir şey dəyişdirilmədi.</string>
+    <string name="backup_restore_error_busy_title">Zəhmət olmasa gözləyin</string>
+    <string name="backup_restore_error_busy_body">Bir təmizləmə tapşırığı və ya başqa bir ehtiyat nüsxə əməliyyatı hazırda çalışır. Bitəndən sonra yenidən cəhd edin.</string>
+    <string name="backup_restore_error_schema_title">Uyğun olmayan ehtiyat nüsxə</string>
+    <string name="backup_restore_error_schema_body">Ehtiyat nüsxənin verilənlərin bazası formatı SD Maid-in bu versiyası ilə uyğun gəlmir. Tarix məlumatının bərpası yalnız eyni tətbiq versiyaları arasında dəstəklənir.</string>
 </resources>

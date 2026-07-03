@@ -102,4 +102,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ierobežojiet atbilsmes, pamatojoties uz faila vecumu (pēdējās izmainīšanas laiks). Atstajiet neiestatītu, lai atbilstu jebkuram vecumam.</string>
     <string name="systemcleaner_customfilter_import_action">Importēt jaunu filtru</string>
     <string name="systemcleaner_customfilter_export_action">Eksportēt atlasīto filtru</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner atrod atkritumus, izmantojot vispārīgus filtrus. Jau ir gatavi noteikumi tukšām mapēm, atlikušiem žurnāliem un novecojušām miniatūrbildēm. Apmeklējiet iestatījumus, ja vēlaties izveidot savus.</string>
+    <string name="tour_systemcleaner_filter_body">Katra rinda ir filtrs un tas, ko tas atrada. Atveriet tā detaļas, lai redzētu tieši, kuri faili atbilst, pirms kaut ko dzēšat.</string>
 </resources>

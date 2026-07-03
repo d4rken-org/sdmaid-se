@@ -41,6 +41,18 @@
         <item quantity="few">%d elemente indecise vor rămâne pentru revizuire ulterioară.</item>
         <item quantity="other">%d elemente indecise vor rămâne pentru revizuire ulterioară.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Această sesiune vizează un volum de stocare întreg — ștergerea aici se extinde la fiecare folder pe acea stocare.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…și încă %d folder</item>
+        <item quantity="few">…și încă %d foldere</item>
+        <item quantity="other">…și încă %d de foldere</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Înțeleg că aceste fișiere vor fi șterse permanent.</string>
+    <string name="swiper_sensitive_root_warning_title">Scanez toată stocarea?</string>
+    <string name="swiper_sensitive_root_warning_message">Scanarea %1$s include fiecare fișier de pe această stocare — fotografii, documente, descărcări, media aplicațiilor și altele. Continui?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continui oricum</string>
+    <string name="swiper_session_risky_label">Scanare a întregii stocări</string>
+    <string name="swiper_session_risky_info_message">Această sesiune vizează rădăcina unui volum de stocare, deci fiecare fișier de pe acel volum este inclus — fotografii, documente, descărcări, media aplicațiilor și altele.\n\nScanările complete pot returna multe elemente, inclusiv fișiere pe care este posibil să nu le fi intenționat să le revizuiești. Aplică un filtru după tip de fișier pentru a restrânge scanarea.</string>
     <string name="swiper_delete_x_action">Ștergeți %1$d</string>
     <string name="swiper_settings_swap_directions_title">Schimbați direcțiile de glisare</string>
     <string name="swiper_settings_swap_directions_summary">Trageți cu degetul spre stânga pentru a păstra, spre dreapta pentru a șterge.</string>
@@ -85,6 +97,11 @@
     <string name="swiper_session_rename_hint">Introduceți un nume pentru această sesiune</string>
     <string name="swiper_sessions_current_sessions">Sesiuni curente</string>
     <string name="swiper_session_paths_label">Căi</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…și încă %d</item>
+        <item quantity="few">…și încă %d</item>
+        <item quantity="other">…și încă %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Stare</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d de păstrat</item>
@@ -159,4 +176,10 @@
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">Nu s-au găsit fișiere corespunzătoare</string>
     <string name="swiper_open_externally_action">Deschide în aplicație externă</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Gliseză o fotografie pentru a decide soarta ei: Lateral pentru a păstra sau șterge, sus pentru a sări, jos pentru a anula. Butoanele de mai jos fac același lucru — și arată care latură este care.</string>
+    <string name="tour_swiper_openin_body">Acest buton deschide fotografia într-o altă aplicație, util pentru a o verifica înainte de a decide.</string>
+    <string name="tour_swiper_preview_body">Acest buton deschide o previzualizare pe ecran complet pentru o privire mai atentă.</string>
+    <string name="tour_swiper_actions_body">Nu-ți place să glisești? Avem și butoane! Sări lasă decizia pentru mai târziu, iar apăsarea lungă a Sări exclude un fișier din scanările viitoare. Anulează revine la alegerea ta anterioară.</string>
+    <string name="tour_swiper_review_body">Alegerile tale de păstrare și ștergere sunt doar pregătite. Deschide Revizuire pentru a le verifica și a aplica ștergerea când ești gata.</string>
 </resources>

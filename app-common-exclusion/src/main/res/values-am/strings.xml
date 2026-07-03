@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">የማስወገጃ አስተዳዳሪ</string>
     <string name="exclusion_manager_desc">የፋይልና የመተግበሪያ ማስወገጃዎችን አስተዳድር።</string>
-    <string name="exclusion_explanation_body1">ፋይሎችንና መተግበሪያዎችን ከSD Maid ተግባራት አስወግድ।</string>
-    <string name="exclusion_add_new_hint">አዲስ ማስወገጃዎችን በማስወገድ SD Maidን መጀመሪያ እንዲፈልግ እንዲሁም በማስወገድ የሚፈልጉትን ውጤት ላይ የሁኔታ ሜኑን በመጠቀም ይጨምሩ።</string>
+    <string name="exclusion_explanation_body1">ፋይሎችና ፕሮግራሞችን ወግጅ ከ SD Maid መሳሪያ ለመጠበቅ ወይም ግብር ያልሆነ ነገሮች ለመዝለል እና ሥራ ለማፋጥን።</string>
+    <string name="exclusion_add_new_hint">ገና ምንም ወግጅያ የለም። + ቁልፍ ተጠቅም አንድ ለመፍጠር ወይም ከየትኛውም መሳሪያ ውጠት ነገርች ወግጅ።</string>
     <string name="exclusion_create_action">ማስወገጃ ፍጠር</string>
     <string name="exclusion_edit_action">ማስወገጃን አርም</string>
     <string name="exclusion_type_package">የመተግበሪያ ማስወገጃ</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">ማስወገጃዎችን ላክ</string>
     <string name="exclusion_create_pkg_hint">የመተግበሪያ ማስወገጃዎችን ለመፍጠር AppControl መሳሪያን ይጠቀሙ።</string>
     <string name="exclusion_create_path_hint">የመንገድ ማስወገጃዎችን ለመፍጠር StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
+    <string name="exclusion_create_segment_hint">ስም ክፍልን ያግኑ፣ ለምሳሌ \"DCIM/Camera\"።</string>
     <string name="exclusion_show_defaults_action">ነባሪዎችን አሳይ</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d ማስወገጃ ወደውስጥ ተወሰደ</item>
+        <item quantity="other">%d ማስወገጃዎች ወደውስጥ ተወሰዱ</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d ማስወገጃ ወደውጪ ተላከ</item>
+        <item quantity="other">%d ማስወገጃዎች ወደውጪ ተላኩ</item>
+    </plurals>
 </resources>

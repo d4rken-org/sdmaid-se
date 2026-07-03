@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">अपवर्जन प्रबंधक</string>
     <string name="exclusion_manager_desc">फ़ाइल और ऐप अपवर्जन प्रबंधित करें।</string>
-    <string name="exclusion_explanation_body1">SD मेड के संचालन से फाइलों और ऐप्स को बाहर करें।</string>
-    <string name="exclusion_add_new_hint">पहले SD मेड को खोजने की अनुमति देकर और फिर उस परिणाम पर संदर्भ मेनू का उपयोग करके नए अपवर्जन जोड़ें, जिसे आप बाहर करना चाहते हैं।</string>
+    <string name="exclusion_explanation_body1">SD Maid के उपकरणों से उन्हें सुरक्षित करने के लिए फ़ाइलों और ऐप्स को बाहर करें, या अप्रासंगिक आइटमों को छोड़ने और संचालन को गति देने के लिए।</string>
+    <string name="exclusion_add_new_hint">अभी कोई बहिष्कार नहीं। एक बनाने के लिए + बटन का उपयोग करें, या किसी भी उपकरण के परिणामों से आइटमों को बाहर करें।</string>
     <string name="exclusion_create_action">अपवर्जन बनाएँ</string>
     <string name="exclusion_edit_action">अपवर्जन संपादित करें</string>
     <string name="exclusion_type_package">ऐप अपवर्जन में जोड़े</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">बहिष्करण निर्यात करें</string>
     <string name="exclusion_create_pkg_hint">ऐप अपवर्जन बनाने के लिए AppControl टूल का उपयोग करें।</string>
     <string name="exclusion_create_path_hint">पथ अपवर्जन बनाने के लिए StorageAnalyzer टूल का उपयोग करें।</string>
+    <string name="exclusion_create_segment_hint">एक नाम खंड से मेल खाएं, जैसे \"DCIM/Camera\"।</string>
     <string name="exclusion_show_defaults_action">डिफ़ॉल्ट दिखाएं</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d बहिष्करण आयात किया गया</item>
+        <item quantity="other">%d बहिष्करण आयात किए गए</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d बहिष्करण निर्यात किया गया</item>
+        <item quantity="other">%d बहिष्करण निर्यात किए गए</item>
+    </plurals>
 </resources>

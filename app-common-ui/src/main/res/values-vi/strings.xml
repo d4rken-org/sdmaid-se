@@ -7,4 +7,16 @@
         <item quantity="other">%d đường dẫn đã chọn</item>
     </plurals>
     <string name="picker_home_action">Vùng dữ liệu</string>
+    <string name="tour_action_next">Tiếp theo</string>
+    <string name="tour_action_previous">Trước</string>
+    <string name="tour_action_done">Xong</string>
+    <string name="tour_action_cancel">Bỏ qua</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Bỏ qua hướng dẫn?</string>
+    <string name="tour_confirm_message">Bạn có thể bật lại hướng dẫn bất cứ lúc nào từ Cài đặt.</string>
+    <string name="tour_confirm_continue">Tiếp tục hướng dẫn</string>
+    <string name="tour_confirm_dont_show_this_tour">Không hiển thị bài hướng dẫn này</string>
+    <string name="tour_confirm_disable_all">Tắt tất cả bài hướng dẫn</string>
+    <string name="navigation_unknown_destination_title">Sắp ra mắt</string>
+    <string name="navigation_unknown_destination_message">Màn hình này đang được chuyển sang giao diện mới.</string>
 </resources>

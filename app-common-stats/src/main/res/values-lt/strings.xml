@@ -43,4 +43,6 @@
     <string name="stats_storage_type_primary">Pagrindinė saugykla</string>
     <string name="stats_storage_type_secondary">Antrinė saugykla</string>
     <string name="stats_storage_type_portable">Nešiojama saugykla</string>
+    <string name="stats_space_history_delete_storage_title">Ištrinti saugyklos istoriją?</string>
+    <string name="stats_space_history_delete_storage_desc">Visi šios saugyklos tendencijų duomenys bus visam laikui ištrinti.</string>
 </resources>

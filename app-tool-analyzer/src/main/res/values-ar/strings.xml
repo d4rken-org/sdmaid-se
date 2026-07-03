@@ -39,6 +39,7 @@
     <string name="analyzer_storage_type_secondary_description">وحدة تخزين ثانوية، عادة بطاقة SD قابلة للإزالة. تحتوي على ملفات الوسائط والبيانات من التطبيقات التي تدعمها.</string>
     <string name="analyzer_storage_type_tertiary_title">وحدة تخزين محمولة</string>
     <string name="analyzer_storage_type_tertiary_description">وحدة تخزين محمولة، مثل محرك أقراص فلاش موصولة بمنفذ USB الخاص بك.</string>
+    <string name="analyzer_storage_identifier_internal">التخزين الداخلي</string>
     <string name="analyzer_storage_content_title">محتوى التخزين</string>
     <string name="analyzer_storage_content_type_app_label">التطبيقات</string>
     <string name="analyzer_storage_content_type_app_description">المساحة التي تشغلها التطبيقات المثبتة وبياناتها (أي ملفات التطبيقات، والبيانات والمخابئ).</string>
@@ -49,6 +50,7 @@
     <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا تم تعيين عدة حسابات للمستخدمين على هذا الجهاز.</string>
     <string name="analyzer_storage_content_type_system_other_label">أخرى</string>
     <string name="analyzer_storage_content_type_system_info">الملفات التي لا تنتمي إلى فئتَي التطبيقات أو ملفات المستخدم. للاستعراض فقط — الحذف غير مدعوم. قد تكون بعض المناطق غير مكتملة بسبب قيود الوصول.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">لا يمكن مطابقة الملفات مع التطبيقات التي تملكها حالياً. يتم عرض الأحجام للرجوع إليها فقط — الحذف والمرشحات وSwiper معطلة.</string>
     <string name="analyzer_storage_content_type_system_other_desc">ملفات النظام والبيانات الأخرى التي تعذّر على SD Maid الوصول إليها أو تصنيفها. يقيّد نظام التشغيل إمكانية سرد محتويات بعض المناطق.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. يمكن تحرير هذه المساحة عن طريق إلغاء تثبيت التطبيق أو أرشفته (متاحة على إصدارات أندرويد الأحدث).</string>
@@ -61,4 +63,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">تم أرشفة هذا التطبيق.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s في 7 أيام</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">انظر إلى ما يملأ التخزين فعلياً. يقوم Analyzer برسم خريطة توضح أين تذهب مساحتك. كل بطاقة من هذه البطاقات عبارة عن شريحة تخزين على جهازك.</string>
+    <string name="tour_analyzer_storage_body">افتح التخزين لتقسيمه إلى تطبيقات ووسائط وملفات، ثم واصل الضغط لتتبع أكبر المسؤولين.</string>
 </resources>

@@ -17,16 +17,22 @@
         <item quantity="one">%d mislukt</item>
         <item quantity="other">%d mislukt</item>
     </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d bestand behouden (metagegevens konden niet worden behouden)</item>
+        <item quantity="other">%d bestanden behouden (metagegevens konden niet worden behouden)</item>
+    </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d bestand overgeslagen (niet toegankelijk)</item>
         <item quantity="other">%d bestanden overgeslagen (niet toegankelijk)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d bestand overgeslagen (HDR/diepte behouden)</item>
+        <item quantity="other">%d bestanden overgeslagen (HDR/diepte behouden)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item geselecteerd</item>
         <item quantity="other">%d items geselecteerd</item>
     </plurals>
-    
-    
     <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
     <string name="squeezer_min_size_description">Sla bestanden kleiner dan deze grootte over.</string>
     <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
@@ -44,12 +50,16 @@
     <string name="squeezer_type_jpeg_description">Voeg JPEG-afbeeldingen (.jpg, .jpeg) toe.</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Voeg WebP-afbeeldingen (.webp) toe.</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Neem HEIC/HEIF-afbeeldingen (.heic, .heif) op. Datum, locatie en andere EXIF-metagegevens blijven behouden. HDR gain maps, dieptegegevens en Live/Motion Photo-verwanten kunnen niet worden behouden; bestanden met meerdere afbeeldingen worden overgeslagen.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
     <string name="squeezer_type_video_description">Inclusief MP4-videobestanden (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
     <string name="squeezer_skip_compressed_description">Sla bestanden over die al door SD Maid zijn gecomprimeerd.</string>
     <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
     <string name="squeezer_exif_marker_description">Voeg een markering toe aan het EXIF-opmerkingenveld van de afbeelding om hercompressie te voorkomen, zelfs als de compressiegeschiedenis wordt gewist.</string>
+    <string name="squeezer_include_lossy_aux_title">HDR &amp; dieptefoto\'s comprimeren</string>
+    <string name="squeezer_include_lossy_aux_description">Standaard uit: foto\'s met HDR-versterkingskaart of diepte-/portretgegevens worden overgeslagen zodat ze niet vereenvoudigd worden. Inschakelen om ze waar mogelijk te comprimeren — ze verliezen dan hun HDR-versterkingskaart of dieptegegevens. Sommige HEIC-foto\'s met meerdere afbeeldingen blijven toch beschermd.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
     <string name="squeezer_no_savings_expected">Beperkte besparing</string>
     <string name="squeezer_current_size_format">Grootte: %s</string>
@@ -79,6 +89,10 @@
     <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
     <string name="squeezer_result_empty_message">Geen comprimeerbare media gevonden.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Geen media om te comprimeren — %d HDR-/dieptefoto werd overgeslagen. Schakel \"Comprimeer HDR &amp; dieptefoto\'s\" in instellingen in om deze op te nemen.</item>
+        <item quantity="other">Geen media om te comprimeren — %d HDR-/dieptefoto\'s werden overgeslagen. Schakel \"Comprimeer HDR &amp; dieptefoto\'s\" in instellingen in om deze op te nemen.</item>
+    </plurals>
     <string name="squeezer_setup_warning">Compressie vermindert de kwaliteit permanent om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voor je begint.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locatie kan niet worden gebruikt voor compressie en is verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
@@ -89,9 +103,8 @@
     <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
     <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>
     <string name="squeezer_setup_age_title">Minimum leeftijd</string>
-    
     <string name="squeezer_setup_start_action">Scan starten</string>
-    <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
     <string name="squeezer_quality_hint_low">Lagere kwaliteit bespaart meer ruimte maar kan zichtbare artefacten veroorzaken.</string>
     <string name="squeezer_quality_hint_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
     <string name="squeezer_quality_hint_normal">Gebalanceerde kwaliteit en ruimtebesparing.</string>
@@ -99,6 +112,9 @@
         <item quantity="one">Minstens %d dag oud</item>
         <item quantity="other">Minstens %d dagen oud</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor afbeeldingen</string>
+    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
     <string name="squeezer_onboarding_got_it">Begrepen</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer comprimeert je foto\'s en video\'s opnieuw zodat ze minder ruimte innemen. De bestanden blijven bruikbaar, alleen kleiner, en elk bestand toont de geschatte besparing.</string>
+    <string name="tour_squeezer_compress_body">Comprimeer hier alles tegelijk, of tik op een enkel item om alleen dat item te verkleinen. Lange druk om meerdere items te selecteren. Je ziet altijd een voorbeeld voordat iets verandert.</string>
 </resources>

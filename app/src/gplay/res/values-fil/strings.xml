@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Gamitin ang \"I-restore ang pagbili\" na opsyon upang i-restore ang iyong binili. Kung magpapatuloy ang isyu, subukang i-clear ang Google Play cache at i-restart ang iyong aparato.</string>
     <string name="upgrade_screen_title">Kunin ang SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">Ang SD Maid ay walang mga ad at hindi nagbebenta ng data ng user. Ang aking trabaho ay pinopondohan mo ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Mga Benepisyo</string>
-    <string name="upgrade_screen_benefits_body">• Paglilinis ng app 💯\n• Mga naka-iskedyul na operasyon ⏰\n• Mga karagdagang opsyon para sa lahat ng mga tool ⚙️\n• Ang iyong sariling mga panuntunan sa pagbura ✍️\n• Isang motivated na developer 🧙\nat marami pa…</string>
+    <string name="upgrade_screen_benefits_title">Mga benepisyo ng pag-upgrade</string>
+    <string name="upgrade_screen_benefits_body">• Linisin ang app caches at disposable data
+• Alisin ang duplicate files
+• I-enable ang scheduled cleanups
+• Lumikha ng custom filters at cleanup rules
+• Subaybayan ang storage trends at cleanup history
+• Higit pang features at controls sa buong app
+• Suportahan ang patuloy na development</string>
     <string name="upgrade_screen_how_title">Mga Opsyon</string>
     <string name="upgrade_screen_how_body">Maaari kang pumili sa pagitan ng isang one-time na pagbili at isang mas murang taunang subscription.\nAng subscription ay nagsisimula sa libreng 14-araw na pagsubok, pagkatapos nito ay sisingilin ka ng isang beses bawat taon. Ang pagsubok at subscription ay maaaring kanselahin anumang oras.\nPareho ang mga feature, iba lang ang mga modelo ng pagpepresyo.</string>
+    <string name="upgrade_screen_subscription_offer_title">Taunang subscription</string>
+    <string name="upgrade_screen_iap_offer_title">Bumili nang isang beses</string>
+    <string name="upgrade_screen_offer_recommended">Inirerekomenda</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ang mga presyo ay hindi maaaring i-load ngayon. Tingnan ang Google Play at subukan ulit sa ilang sandali.</string>
     <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng 14-day trial</string>
     <string name="upgrade_screen_subscription_action">Mag-subscribe</string>
     <string name="upgrade_screen_subscription_action_hint">Ang subscription ay nagkakahalaga ng %s bawat taon.</string>

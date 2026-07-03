@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE をアップグレード</string>
     <string name="upgrades_dashcard_body">開発を続けるためパトロンになって追加機能を解除してください</string>
     <string name="upgrades_dashcard_upgrade_action">アップグレード</string>
-    <string name="upgrade_screen_title">SD Maid の改善</string>
+    <string name="upgrade_screen_title">SD Maidをサポート</string>
     <string name="upgrade_screen_preamble">SD Maidには広告がなく、ユーザーデータを販売することもありません。継続的な開発は、あなたのおかげで成り立っています。</string>
     <string name="upgrade_screen_how_title">協力するには</string>
     <string name="upgrade_screen_how_body">パトロンとスポンサーの開発になりましょう！下のボタンをタップすると、すべての追加機能が有効になり、GitHub Sponsors プロファイルを開きます。</string>
-    <string name="upgrade_screen_why_title">これは魔法のようです🪄</string>
-    <string name="upgrade_screen_why_body">• アプリクリーナー 💯\n• スケジュール動機能 ⏰\n• すべてのツールに追加オプション ⚙️\n• あなただけの削除ルール ✍️\n• 開発者を支援🧙\nその他機能も追加予定…</string>
+    <string name="upgrade_screen_why_title">アップグレード特典</string>
+    <string name="upgrade_screen_why_body">• アプリキャッシュと不要なデータを削除
+• 重複ファイルを削除
+• スケジュール済みクリーンアップを有効化
+• カスタムフィルターとクリーンアップルールを作成
+• ストレージの傾向とクリーンアップ履歴を追跡
+• アプリ全体でより多くの機能と制御
+• オープンソース開発をサポート</string>
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>

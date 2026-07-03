@@ -8,4 +8,16 @@
         <item quantity="other">%d پاتھز منتخب</item>
     </plurals>
     <string name="picker_home_action">ڈیٹا ایریاز</string>
+    <string name="tour_action_next">اگلا</string>
+    <string name="tour_action_previous">پچھلا</string>
+    <string name="tour_action_done">ہو گیا</string>
+    <string name="tour_action_cancel">چھوڑیں</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">ٹور کو چھوڑ دیں؟</string>
+    <string name="tour_confirm_message">آپ سیٹنگز سے کسی بھی وقت ٹورز کو دوبارہ فعال کر سکتے ہیں۔</string>
+    <string name="tour_confirm_continue">ٹور جاری رکھیں</string>
+    <string name="tour_confirm_dont_show_this_tour">اس ٹور کو دوبارہ نہ دکھائیں</string>
+    <string name="tour_confirm_disable_all">تمام ٹورز کو غیر فعال کریں</string>
+    <string name="navigation_unknown_destination_title">جلد آ رہا ہے</string>
+    <string name="navigation_unknown_destination_message">یہ اسکرین ابھی نئے UI میں منتقل ہو رہی ہے۔</string>
 </resources>

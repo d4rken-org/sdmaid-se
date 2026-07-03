@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">大小</string>
     <string name="appcontrol_list_sortmode_screentime_label">螢幕時間</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">應用程式大小是因節約效能原因而估計的，可使用儲存分析器工具以取得更精確的資料。</string>
+    <string name="appcontrol_list_filteroptions_label">過濾器選項</string>
+    <string name="appcontrol_list_fastscroller_action">快速捲軸</string>
     <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">已解除安裝 %d 個應用程式</item>
@@ -109,4 +111,8 @@
     <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="shortcut_appcontrol_short">程式控制</string>
     <string name="shortcut_appcontrol_long">管理已安裝的程式</string>
+    <string name="tour_appcontrol_search_body">按名稱查詢應用程式。在裝有許多已安裝應用程式的設備上很有用。</string>
+    <string name="tour_appcontrol_filter_body">按使用者/系統應用程式、啟用狀態、最近活動等縮小清單範圍。活動篩選條件在此顯示為標籤。</string>
+    <string name="tour_appcontrol_sort_body">按名稱、安裝日期、最近更新、大小或螢幕時間排序應用程式。點按同一選項可翻轉排序方向。</string>
+    <string name="tour_appcontrol_app_row_body">點按應用程式以開啟其詳細資料和可用操作。長按以開始選擇並使用批量操作。</string>
 </resources>

@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d 個の未決定アイテムは後でレビューするために残ります。</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">このセッションはストレージボリューム全体が対象です。ここで削除すると、そのストレージのすべてのフォルダが対象になります。</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…その他%dフォルダ</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">これらのファイルが完全に削除されることを理解しています。</string>
+    <string name="swiper_sensitive_root_warning_title">ストレージ全体をスキャンしますか？</string>
+    <string name="swiper_sensitive_root_warning_message">%1$sをスキャンすると、このストレージのすべてのファイル（写真、ドキュメント、ダウンロード、アプリメディアなど）が対象になります。続行しますか？</string>
+    <string name="swiper_sensitive_root_warning_continue_action">それでも続行する</string>
+    <string name="swiper_session_risky_label">ストレージ全体のスキャン</string>
+    <string name="swiper_session_risky_info_message">このセッションはストレージボリュームのルートが対象なので、そのストレージのすべてのファイル（写真、ドキュメント、ダウンロード、アプリメディアなど）が対象になります。
+
+ストレージ全体のスキャンでは、確認するつもりなかったファイルを含む多くの項目が返されることがあります。ファイルタイプフィルタを適用してスキャンを絞ります。</string>
     <string name="swiper_delete_x_action">%1$d 個を削除</string>
     <string name="swiper_settings_swap_directions_title">スワイプ方向を入れ替え</string>
     <string name="swiper_settings_swap_directions_summary">左にスワイプで保持、右にスワイプで削除。</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">このセッションの名前を入力</string>
     <string name="swiper_sessions_current_sessions">現在のセッション</string>
     <string name="swiper_session_paths_label">パス</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…その他%d件</item>
+    </plurals>
     <string name="swiper_session_status_label">状態</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d 個を保持</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">フィルター済み: %1$s</string>
     <string name="swiper_session_no_matching_files">一致するファイルが見つかりません</string>
     <string name="swiper_open_externally_action">外部アプリで開く</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">写真をスワイプして判断します。横スワイプで保持または削除、上スワイプでスキップ、下スワイプで戻します。下のボタンも同じ機能があり、どちらがどちらかを表示します。</string>
+    <string name="tour_swiper_openin_body">このボタンは写真を別のアプリで開きます。判断前に確認するのに便利です。</string>
+    <string name="tour_swiper_preview_body">このボタンで全画面プレビューを開いて、詳しく確認できます。</string>
+    <string name="tour_swiper_actions_body">スワイプが好みでなければボタンもあります！スキップは後で判断するため未決定のままにし、スキップを長押しするとファイルを今後のスキャンから除外します。戻すは最後の選択を元に戻します。</string>
+    <string name="tour_swiper_review_body">保持と削除の選択は一時的なものです。確認を開いて確認し、準備ができたら削除を適用してください。</string>
 </resources>

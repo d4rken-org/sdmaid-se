@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Xóa tất cả trừ một bản sao trong mỗi tập hợp tệp trùng lặp đã chọn?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Xóa tất cả các tệp trong mỗi tập hợp tệp trùng lặp đã chọn? Không có tập tin nào còn sót lại!</string>
     <string name="deduplicator_delete_all_toggle_msg">Xóa tất cả các bản sao. Không có tập tin nào còn sót lại!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">Xóa %1$d bản sao trong tập hợp này, giải phóng %2$s? Bản sao được giữ lại vẫn ở lại.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">Có thể giải phóng %1$s</string>
+    <string name="deduplicator_action_delete_set">Xóa tập hợp bản sao</string>
+    <string name="deduplicator_action_open_preview">Mở xem trước</string>
+    <string name="deduplicator_marked_for_deletion">Được đánh dấu để xóa</string>
+    <string name="deduplicator_cluster_preview_image">Xem trước tập hợp bản sao</string>
+    <string name="deduplicator_selection_keep_one_required">Phải giữ lại ít nhất một tệp trong mỗi bộ trùng lặp. Bật tùy chọn \"Cho phép \'Xóa tất cả\'\" trong cài đặt để ghi đè.</string>
     <string name="deduplicator_progress_comparing_files">So sánh các tập tin</string>
     <string name="deduplicator_details_cluster_title">Tập hợp các bản sao</string>
     <string name="deduplicator_matches_exact_label">Bản sao chính xác</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Ưu tiên các tệp có dung lượng nhỏ hơn</string>
     <string name="deduplicator_view_mode_groups_label">Nhóm</string>
     <string name="deduplicator_view_mode_directories_label">Thư mục</string>
+    <string name="tour_deduplicator_details_cluster_body">Những tệp này dường như là cùng một mục hoặc nội dung phương tiện, một cụm trùng lặp.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Các tệp có biểu tượng này sẽ bị xóa; tệp còn lại trong nhóm là tệp mà SD Maid giữ lại. Bạn có thể thay đổi cách chọn tệp giữ lại trong cài đặt chiến lược xóa.</string>
 </resources>

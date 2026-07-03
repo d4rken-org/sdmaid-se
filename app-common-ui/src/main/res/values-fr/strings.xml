@@ -8,4 +8,16 @@
         <item quantity="other">%d chemins ont été choisis</item>
     </plurals>
     <string name="picker_home_action">Zones des données</string>
+    <string name="tour_action_next">Suivant</string>
+    <string name="tour_action_previous">Précédent</string>
+    <string name="tour_action_done">Terminé</string>
+    <string name="tour_action_cancel">Ignorer</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Ignorer la visite guidée ?</string>
+    <string name="tour_confirm_message">Vous pouvez réactiver les visites guidées à tout moment dans Paramètres.</string>
+    <string name="tour_confirm_continue">Continuer la visite</string>
+    <string name="tour_confirm_dont_show_this_tour">Ne pas afficher cette visite guidée</string>
+    <string name="tour_confirm_disable_all">Désactiver toutes les visites guidées</string>
+    <string name="navigation_unknown_destination_title">Bientôt disponible</string>
+    <string name="navigation_unknown_destination_message">Cet écran est en cours de migration vers la nouvelle interface.</string>
 </resources>

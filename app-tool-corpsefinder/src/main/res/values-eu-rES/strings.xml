@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Jabe ezezaguna</string>
     <string name="corpsefinder_corpse_hint_keeper">Elementu honek jabea desinstalatu den arren gorde nahi dituzun datuak izan ditzake, adibidez, argazkiak edo babeskopiak.</string>
     <string name="corpsefinder_corpse_hint_common">Elementu honek izen oso arrunta du eta SD Maid-ek ezagutzen ez dituen oraindik instalatutako aplikazioei egon daiteke.</string>
+    <string name="corpsefinder_risk_keeper_chip">Desiragarria</string>
+    <string name="corpsefinder_risk_common_chip">Arrunta</string>
+    <string name="corpsefinder_markers_dialog_title">Marka hauei buruz</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Markarik ez</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Ohiko hondakina. Nahiko segurua da ezabatzea — fitxategi hauek desinstalatu diren aplikazioei dagozkien.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder-ek dagoeneko desinstalatu dituzun aplikazioek utzi dituzten datuak aurkitzen ditu. Ez dagokio jadanik instalatutako aplikazioari, beraz segurua dugu ezabatzea eta tokia askatzea.</string>
+    <string name="tour_corpsefinder_row_body">Bakoitza hondakina datua da eta bertatik datorren aplikazioa. Markak SD Maid-ek nola dago seguru dena ezabatzea den erakusten du — sakatu goiko ⓘ markek zer esan nahi duten ikasteko.</string>
 </resources>

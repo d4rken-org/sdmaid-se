@@ -36,6 +36,19 @@
         <item quantity="one">%d ያልተወሰነ ንጥል ለወደፊት ግምገማ ይቀራል።</item>
         <item quantity="other">%d ያልተወሰኑ ንጥሎች ለወደፊት ግምገማ ይቀራሉ።</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">ይህ ስብሰባ ሙሉ ማከመቻ ተጧምር — ወደ እዚህ ሰርዛ ሙሉ ፎልደር ያ ማከመቻ።</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…እና %d ተጨማሪ ፎልደር</item>
+        <item quantity="other">…እና %d ተጨማሪ ፎልደርዎች</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">ተርድቻላሁ እነዚህ ፋይሎች ለዝላሎም ይሰረዝሉ።</string>
+    <string name="swiper_sensitive_root_warning_title">ሙሉውን ማጠራቄሚያ ለመምርምር?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s ማጠራቄሚያ ሁሉንም ፋይሎች ይጨምራል — ፎቶዎች፣ ሰነዶች፣ ዳውንሎዶች፣ የመተግበሪያ ሚዲያ፣ እና ሌላ ብዙ ነገር። ቀጥል?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">ምንም እንካ ቀጥል</string>
+    <string name="swiper_session_risky_label">ሙሉ-ማጠራቄሚያ ስካን</string>
+    <string name="swiper_session_risky_info_message">ይህ ክፍሌ-ወቅት በማጠራቄሚያ ሥር ላይ ነው፣ ስለዚህ ሁሉም ፋይሎች በዚያ ማጠራቄሚያ ውስጥ ናቸው — ፎቶዎች፣ ሰነዶች፣ ዳውንሎዶች፣ የመተግበሪያ ሚዲያ፣ እና ሌላ ብዙ ነገር።
+
+ሙሉ-ማጠራቄሚያ ስካኖች ብዙ ንጥሎች መመለስ ይችላሉ፣ ለመመቀት የሚፈልጉውት መሳረት መቅዳሚት መቅዳሚት በመካውት ፋይሎችን የቀልቤ ስካንን ለማካነብ የፋይል-አይነት ማጣሪያ ይጠቀሙ።</string>
     <string name="swiper_delete_x_action">%1$d ሰርዝ</string>
     <string name="swiper_settings_swap_directions_title">የማንሸራተቻ አቅጣጫዎችን ይቀያይሩ</string>
     <string name="swiper_settings_swap_directions_summary">ለማስቀመጥ ወደ ግራ ያንሸራትቱ፣ ለመሰረዝ ወደ ቀኝ።</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">ለዚህ ክፍለ ጊዜ ስም ያስገቡ</string>
     <string name="swiper_sessions_current_sessions">ያሉ ክፍለ ጊዜዎች</string>
     <string name="swiper_session_paths_label">ዱካዎች</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…እና %d ተጩማሪ</item>
+        <item quantity="other">…እና %d ተጩማሪ</item>
+    </plurals>
     <string name="swiper_session_status_label">ሁኔታ</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d ለማስቀመጥ</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">ተጣርቷል: %1$s</string>
     <string name="swiper_session_no_matching_files">የሚዛመዱ ፋይሎች አልተገኙም</string>
     <string name="swiper_open_externally_action">በውጫዊ መተግበሪያ ክፈት</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ፎቶን ጠረግ አድርገው እድሉን ይወስኑ፦ ወደ ጎን ለማቆየት ወይም ለመሰረዝ፣ ወደ ላይ ለመዝለል፣ ወደ ታች ለመሻር። ከታች ያሉ ቁልፎች ተመሳሳይ ስራ ይሰራሉ — እና የትኛው ጎን የትኛው እንደሆነ ያሳያሉ።</string>
+    <string name="tour_swiper_openin_body">ይህ ቁልፍ ፎቶን በሌላ አፕ ውስጥ ይከፍታል፣ ከመወሰነ በፊት ለመምርምር።</string>
+    <string name="tour_swiper_preview_body">ይህ ቁልፍ ሙሉ ስክሪን ቅድመ-ይታ ይክፍታል ለቅርብ እይታ።</string>
+    <string name="tour_swiper_actions_body">መጥረግ አይወደውም? እያኑ ቁልፎች አሉን። እድል ሳይተወሰን ይተው ለሁኘታ ግዜ፣ እና ረዥም-መጫን እድል ፋይልን ከየት ስካኖች ይመልሱ። መልስ የቅድሚያ ምይታውን መልሱል።</string>
+    <string name="tour_swiper_review_body">ለመጠበቅ እና ለመሰረዝ ምርጫዎ ገና ተዘጋጅቷል ብቻ። ግምገማ ክፈት ፈልግላቸው እና ዝግጁ ሆነ ሰዝተሃቸውን አተግብር።</string>
 </resources>

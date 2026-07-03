@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Išėmimų tvarkytuvas</string>
     <string name="exclusion_manager_desc">Tvarkyti failų ir programų išėmimus.</string>
-    <string name="exclusion_explanation_body1">Iššaukti failus ir programas iš SD Maid operacijų.</string>
-    <string name="exclusion_add_new_hint">Pridėkite naujų išėmimų, pirma leisdami SD Maid ieškoti, o tada naudokite kontekstinio meniu parinktį rezultatui, kurį norite išimti.</string>
+    <string name="exclusion_explanation_body1">Neįtraukite failų ir programų, kad jas apsaugotumėte nuo SD Maid įrankių, arba kad praleistumėte nereikalingus elementus ir pagreitintumėte operacijas.</string>
+    <string name="exclusion_add_new_hint">Dar nėra išimčių. Naudokite + mygtuką, kad sukurtumėte vieną, arba neįtraukite elementų iš bet kokio įrankio rezultatų.</string>
     <string name="exclusion_create_action">Sukurti išėmimą</string>
     <string name="exclusion_edit_action">Redaguoti išėmimą</string>
     <string name="exclusion_type_package">Programos išėmimas</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Eksportuoti išėmimus</string>
     <string name="exclusion_create_pkg_hint">Naudokite įrankio AppControl programos išėmimams kurti.</string>
     <string name="exclusion_create_path_hint">Naudokite įrankio StorageAnalyzer kelio išėmimams kurti.</string>
+    <string name="exclusion_create_segment_hint">Atitikti pavadinimo dalį, pavyzdžiui, \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Rodyti numatytuosius</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d išimtis importuota</item>
+        <item quantity="few">%d išimtys importuotos</item>
+        <item quantity="many">%d išimčių importuota</item>
+        <item quantity="other">%d išimčių importuota</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d išimtis eksportuota</item>
+        <item quantity="few">%d išimtys eksportuotos</item>
+        <item quantity="many">%d išimčių eksportuota</item>
+        <item quantity="other">%d išimčių eksportuota</item>
+    </plurals>
 </resources>

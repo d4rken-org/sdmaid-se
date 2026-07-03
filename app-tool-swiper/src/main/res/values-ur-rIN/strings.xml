@@ -36,6 +36,17 @@
         <item quantity="one">%d غیر فیصلہ شدہ آئٹم بعد میں جائزے کے لیے رہے گا۔</item>
         <item quantity="other">%d غیر فیصلہ شدہ آئٹمز بعد میں جائزے کے لیے رہیں گے۔</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">یہ سیشن پورے سٹوریج والیوم کو نشانہ بناتا ہے — یہاں حذف کرنا اس سٹوریج پر ہر فولڈر کو شامل کرتا ہے۔</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…اور %d مزید فولڈر</item>
+        <item quantity="other">…اور %d مزید فولڈرز</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">میں سمجھتا ہوں کہ یہ فائلیں مستقل طور پر حذف کر دی جائیں گی۔</string>
+    <string name="swiper_sensitive_root_warning_title">پوری سٹوریج اسکین کریں؟</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s کو اسکین کرنا اس سٹوریج پر ہر فائل کو شامل کرتا ہے — تصاویر، دستاویزات، ڈاؤن لوڈ، ایپ میڈیا، اور بہت کچھ۔ جاری رکھیں؟</string>
+    <string name="swiper_sensitive_root_warning_continue_action">بہرحال جاری رکھیں</string>
+    <string name="swiper_session_risky_label">مکمل سٹوریج اسکین</string>
+    <string name="swiper_session_risky_info_message">یہ سیشن سٹوریج والیوم کی جڑ کو نشانہ بناتا ہے، اس لیے اس سٹوریج پر ہر فائل دائرہ کار میں ہے — تصاویر، دستاویزات، ڈاؤن لوڈ، ایپ میڈیا، اور بہت کچھ۔\n\nمکمل سٹوریج اسکین بہت ساری چیزیں واپس کر سکتے ہیں، بشمول ایسی فائلوں کے جن کا آپ کو جائزہ لینا مقصود نہ رہا ہو۔ اسکین کو محدود کرنے کے لیے فائل قسم کی فلٹر لاگو کریں۔</string>
     <string name="swiper_delete_x_action">%1$d حذف کریں</string>
     <string name="swiper_settings_swap_directions_title">سوائپ سمتیں تبدیل کریں</string>
     <string name="swiper_settings_swap_directions_summary">رکھنے کے لیے بائیں سوائپ، حذف کرنے کے لیے دائیں سوائپ۔</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">اس سیشن کے لیے نام درج کریں</string>
     <string name="swiper_sessions_current_sessions">موجودہ سیشنز</string>
     <string name="swiper_session_paths_label">پاتھز</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…اور %d مزید</item>
+        <item quantity="other">…اور %d مزید</item>
+    </plurals>
     <string name="swiper_session_status_label">حالت</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d رکھنا ہے</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
     <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
     <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">ایک تصویر کو سوائپ کریں اس کا مقدر طّے کرنے کے لیے: رکھنے یا حذف کرنے کے لیے بغل، چھوڑنے کے لیے اوپر، کالعدم کرنے کے لیے نیچے۔ نیچے کے بٹن بھی یہی کرتے ہیں — اور دکھاتے ہیں کہ کون سی طرف کون سی ہے۔</string>
+    <string name="tour_swiper_openin_body">یہ بٹن تصویر کو کسی دوسری ایپ میں کھولتا ہے، فیصلہ کرنے سے پہلے اسے چیک کرنا آسان ہے۔</string>
+    <string name="tour_swiper_preview_body">یہ بٹن قریب سے دیکھنے کے لیے ایک مکمل اسکرین پیش نظارہ کھولتا ہے۔</string>
+    <string name="tour_swiper_actions_body">سوائپنگ پسند نہیں؟ ہمارے پاس بٹن بھی ہیں! چھوڑنا اسے بعد کے لیے غیر فیصلہ شدہ چھوڑتا ہے، اور چھوڑنا بٹن کو طویل دبانے سے فائل مستقبل کے اسکینز سے خارج ہو جاتی ہے۔ کالعدم کریں آپ کی آخری پسند کو واپس کرتا ہے۔</string>
+    <string name="tour_swiper_review_body">آپ کے رکھنے اور حذف کرنے کے اختیارات ابھی منتظر ہیں۔ ان پر نظر ثانی کرنے کے لیے جائزہ کھولیں اور جب آپ تیار ہوں تو حذف کریں۔</string>
 </resources>

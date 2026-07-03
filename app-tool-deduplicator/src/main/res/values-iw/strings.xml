@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">למחוק את כל העותקים מלבד אחד בכל קבוצה שנבחרה של קבצים כפולים?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">למחוק את כל הקבצים בכל קבוצה שנבחרה של קבצים כפולים? לא נשאר קובץ!</string>
     <string name="deduplicator_delete_all_toggle_msg">מחק את כל העותקים. לא נשאר קובץ!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">מחק כפיל אחד (%1$d) בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
+        <item quantity="two">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
+        <item quantity="many">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
+        <item quantity="other">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s ניתן לשחרור</string>
+    <string name="deduplicator_action_delete_set">מחק קבוצת כפילויות</string>
+    <string name="deduplicator_action_open_preview">פתח תצוגה מקדימה</string>
+    <string name="deduplicator_marked_for_deletion">מסומן למחיקה</string>
+    <string name="deduplicator_cluster_preview_image">תצוגה מקדימה של קבוצת כפילויות</string>
+    <string name="deduplicator_selection_keep_one_required">חייב להישאר לפחות קובץ אחד בכל קבוצת כפילויות. הפעל את אפשרות \'haפעל מחיקת הכל\'\' בהגדרות כדי לעקוף.</string>
     <string name="deduplicator_progress_comparing_files">השוואת קבצים</string>
     <string name="deduplicator_details_cluster_title">רשימת כפילויות</string>
     <string name="deduplicator_matches_exact_label">עותקים מדויקים</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">העדף קבצים קטנים</string>
     <string name="deduplicator_view_mode_groups_label">קבוצות</string>
     <string name="deduplicator_view_mode_directories_label">תיקיות</string>
+    <string name="tour_deduplicator_details_cluster_body">כל הקבצים האלה נראים כאותו פריט או תוכן מדיה, אשכול של כפילויות.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">קבצים עם סמל זה יימחקו; הקובץ הנותר בקבוצה הוא זה ש-SD Maid משמר. ניתן לשנות כיצד נבחר הקובץ הנשמר בהגדרות אסטרטגיית המחיקה.</string>
 </resources>

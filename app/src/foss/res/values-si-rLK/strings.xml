@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE වැඩිදියුණු කරන්න</string>
     <string name="upgrades_dashcard_body">අමතර විශේෂාංග අඟුල හරිමින් අඛණ්ඩ සංවර්ධනයට සහාය වීමට අනුග්‍රාහකයෙකු වන්න!</string>
     <string name="upgrades_dashcard_upgrade_action">වැඩිදියුණු කරන්න</string>
-    <string name="upgrade_screen_title">SD Maid වැඩිදියුණු කරන්න</string>
+    <string name="upgrade_screen_title">SD Maid සඳහා සහාය දෙන්න</string>
     <string name="upgrade_screen_preamble">SD Maid හි දැන්වීම් නැති අතර පරිශීලක දත්ත අලෙවි නොකරයි. අඛණ්ඩ සංවර්ධනය ඔබ නිසා පමණක් හැකියාවක්.</string>
     <string name="upgrade_screen_how_title">උදව් කරන්නේ කෙසේද</string>
     <string name="upgrade_screen_how_body">අනුග්‍රාහකයෙකු වී සංවර්ධනයට අනුග්‍රහ කරන්න! සියලු අමතර විශේෂාංග සක්‍රිය කර මගේ GitHub Sponsors පැතිකඩ විවෘත කිරීමට පහත බොත්තම ස්පර්ශ කරන්න.</string>
-    <string name="upgrade_screen_why_title">මෙය මායාවක් කරයි 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner මකන ක්‍රියාකාරිත්වය 💯\n• උපලේඛනගත මෙහෙයුම් ⏰\n• සියලු මෙවලම් සඳහා අමතර විකල්ප ⚙️\n• ඔබේම මකන නීති ✍️\n• තිලිණියට්ගත සංවර්ධකයෙකු 🧙\nහා තවත්…</string>
+    <string name="upgrade_screen_why_title">උසස් කිරීමේ ප්‍රතිලාභ</string>
+    <string name="upgrade_screen_why_body">• යෙදුම් කෑෂ් සහ අනවශ්‍ය දත්ත පිරිසිදු කරන්න\n• අනුපිටපත් ගොනු ඉවත් කරන්න\n• කාලසටහන්ගත පිරිසිදු කිරීම් සක්‍රීය කරන්න\n• අභිරුචි පෙරහන් සහ පිරිසිදු කිරීමේ නීති සාදන්න\n• ගබඩා ප්‍රවණතා සහ පිරිසිදු කිරීමේ ඉතිහාසය නිරීක්ෂණය කරන්න\n• යෙදුම පුරා තවත් විශේෂාංග සහ පාලන\n• විවෘත කේතය සඳහා සහාය වන්න</string>
     <string name="upgrade_screen_sponsor_action">සංවර්ධනයට අනුග්‍රහය දෙන්න</string>
     <string name="upgrade_screen_sponsor_action_hint">විකල්පය දැන්වීම්, විශ්ලේෂණ සහ Google Play වේ 🙁</string>
     <string name="upgrade_screen_thanks_toast">විවෘත මූලාශ්‍ර සංවර්ධනයට සහාය දීම ගැන ස්තූතියි ❤️</string>

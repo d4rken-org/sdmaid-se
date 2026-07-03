@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">ముఖ్య స్టోరేజీ</string>
     <string name="stats_storage_type_secondary">ద్వితీయ స్టోరేజీ</string>
     <string name="stats_storage_type_portable">పోర్టేబుల్ స్టోరేజీ</string>
+    <string name="stats_space_history_delete_storage_title">స్టోరేజ్ చరిత్రను తొలగించాలా?</string>
+    <string name="stats_space_history_delete_storage_desc">ఈ స్టోరేజ్ కోసం అన్ని ట్రెండ్ డేటా శాశ్వతంగా తొలగించబడతాయి.</string>
 </resources>

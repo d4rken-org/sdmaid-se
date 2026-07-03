@@ -36,6 +36,19 @@
         <item quantity="one">%d obestämt objekt kvarstår för senare granskning.</item>
         <item quantity="other">%d obestämda objekt kvarstår för senare granskning.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Den här sessionen omfattar en hel lagringsvolym — radering här påverkar alla mappar på lagringen.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…och %d ytterligare mapp</item>
+        <item quantity="other">…och %d ytterligare mappar</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Jag förstår att dessa filer kommer att raderas permanent.</string>
+    <string name="swiper_sensitive_root_warning_title">Skanna hela lagringsutrymmet?</string>
+    <string name="swiper_sensitive_root_warning_message">Skanning av %1$s inkluderar varje fil på denna lagring — foton, dokument, nedladdningar, appmedier och mer. Fortsätta?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Fortsätt ändå</string>
+    <string name="swiper_session_risky_label">Skanning av hela lagringen</string>
+    <string name="swiper_session_risky_info_message">Den här sessionen riktar sig mot roten på en lagringsvolym, så varje fil på denna lagring är inom räckvidd — foton, dokument, nedladdningar, appmedier och mer.
+
+Skanningar av hela lagringen kan returnera många objekt, inklusive filer som du kanske inte avsåg att granska. Använd ett filtypsfilter för att begränsa skanningen.</string>
     <string name="swiper_delete_x_action">Ta bort %1$d</string>
     <string name="swiper_settings_swap_directions_title">Byt svepriktning</string>
     <string name="swiper_settings_swap_directions_summary">Svep vänster för att behålla, höger för att ta bort.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Ange ett namn för denna session</string>
     <string name="swiper_sessions_current_sessions">Aktuella sessioner</string>
     <string name="swiper_session_paths_label">Sökvägar</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…och %d till</item>
+        <item quantity="other">…och %d till</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d att behålla</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Filtrerat: %1$s</string>
     <string name="swiper_session_no_matching_files">Inga matchande filer hittades</string>
     <string name="swiper_open_externally_action">Öppna i extern app</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Svep ett foto för att bestämma dess öde: Åt sidan för att behålla eller ta bort, upp för att hoppa över, ned för att ångra. Knapparna nedan gör samma sak — och visar vilken sida som är vilken.</string>
+    <string name="tour_swiper_openin_body">Den här knappen öppnar fotot i en annan app, praktiskt för att kontrollera det innan du bestämmer dig.</string>
+    <string name="tour_swiper_preview_body">Den här knappen öppnar en helskärmsförhandsvisning för en närmare titt.</string>
+    <string name="tour_swiper_actions_body">Gillar du inte att svepa? Vi har knappar också! Hoppa över lämnar det obestämt för senare, och långt tryck på Hoppa över utesluter en fil från framtida skanningar. Ångra återställer ditt senaste val.</string>
+    <string name="tour_swiper_review_body">Dina val att behålla och ta bort är bara förberedda. Öppna Granskning för att granska dem och tillämpa borttagningarna när du är redo.</string>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Imprea s\'optzione \"Recùpera su cùmperu\" pro recuperare su cùmperu tuo. Si su problema sighit, proa a limpiare sa cache de Google Play e a torrare a allùghere su dispositivu tuo.</string>
     <string name="upgrade_screen_title">Otene SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Vantàgios</string>
-    <string name="upgrade_screen_benefits_body">• Lìmpia de aplicatziones 💯\n• Operatziones programadas ⏰\n• Optziones in prus pro totu sas ainas ⚙️\n• Sas règulas tuas de cantzelladura ✍️\n• Unu isviluppadore motivadu 🧙\ne àteru…</string>
+    <string name="upgrade_screen_benefits_title">Beneficios de s\'aggiornamentu</string>
+    <string name="upgrade_screen_benefits_body">• Netza sos caches de l\'app e sos datos despensuales
+• Borra sos archivos dopios
+• Abilita sos nettamientos programmados
+• Chrea filtros personalizados e regulas de nettamentu
+• Traccia sos trends de memoria e sa historia de sos nettamientos
+• Pius fechuras e controllos in tota l\'app
+• Suportu pro sa continuidade de su sviluppu</string>
     <string name="upgrade_screen_how_title">Optziones</string>
     <string name="upgrade_screen_how_body">Podes seberare intre unu cùmperu de una borta ebbia e un\'abbonamentu annuale prus baràtu.\nS\'abbonamentu cumintza cun una proa de badas de 14 dies, a pustis de custu ti diant cobràre una borta a s\'annu. Sa proa e s\'abbonamentu podent èssere cantzellados in cale si siat momentu.\nSas matèssias caraterìsticas, modelos de prètziu diferentes ebbia.</string>
+    <string name="upgrade_screen_subscription_offer_title">Suscritzione anuala</string>
+    <string name="upgrade_screen_iap_offer_title">Cumpra una volta</string>
+    <string name="upgrade_screen_offer_recommended">Recomendadu</string>
+    <string name="upgrade_screen_offers_unavailable_message">Sos prezos non sunt stados carrigados in custu momentu. Controlla Google Play e torrapa in un momentu.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa de badas de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Abbòna·ti</string>
     <string name="upgrade_screen_subscription_action_hint">S\'abbonamentu costat %s a s\'annu.</string>

@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Notaðu \"Endurheimta kaup\" valkostinn til að endurheimta kaupin þín. Ef vandamálið er viðvarandi, reyndu að hreinsa Google Play skyndiminni og endurræsa tækið þitt.</string>
     <string name="upgrade_screen_title">Fáðu SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Vinna mín er fjármögnuð af þér ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Kostir</string>
-    <string name="upgrade_screen_benefits_body">• App þrif 💯\n• Áætlaðar aðgerðir ⏰\n• Aukavalkostir fyrir öll verkfæri ⚙️\n• Þínar eigin eyðingarreglur ✍️\n• Hvataður þróunaraðili 🧙\nog fleira…</string>
+    <string name="upgrade_screen_benefits_title">Kostir uppfærslu</string>
+    <string name="upgrade_screen_benefits_body">• Hreinsa böf forrita og þær gagnaláta\n• Fjarlægja afrit af skrám\n• Virkja tímasetta hreinsun\n• Búa til sérsniðnar síur og hreinsunarreglur\n• Rekja gagnageymsluþróun og hreinsunarsögu\n• Fleiri eiginleikar og stýringar um allt forritið\n• Styðja áframhaldandi þróun</string>
     <string name="upgrade_screen_how_title">Valkostir</string>
     <string name="upgrade_screen_how_body">Þú getur valið á milli einskiptiskaupa og ódýrari árlegrar áskriftar.\nÁskriftin byrjar með ókeypis 14 daga prufu, eftir það verður þér rukkað einu sinni á ári. Prufan og áskrift er hægt að hætta við hvenær sem er.\nSömu eiginleikar, bara mismunandi verðlagslíkön.</string>
+    <string name="upgrade_screen_subscription_offer_title">Árleg áskrift</string>
+    <string name="upgrade_screen_iap_offer_title">Kaupa einu sinni</string>
+    <string name="upgrade_screen_offer_recommended">Mælt með</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ekki var hægt að hlaða verðum núna. Athugaðu Google Play og reyndu aftur eftir stund.</string>
     <string name="upgrade_screen_subscription_trial_action">Byrja ókeypis 14 daga prufu</string>
     <string name="upgrade_screen_subscription_action">Gerast áskrifandi</string>
     <string name="upgrade_screen_subscription_action_hint">Áskriftin kostar %s á ári.</string>

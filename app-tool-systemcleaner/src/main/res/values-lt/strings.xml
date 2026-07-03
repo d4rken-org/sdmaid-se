@@ -104,4 +104,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Riboti atitikmenis pagal failo amžių (paskutinio modifikavimo laiką). Laikykite nenustatytą, kad atitiktų bet kokio amžiaus.</string>
     <string name="systemcleaner_customfilter_import_action">Importuoti naują filtrą</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuoti pasirinktą filtrą</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner suranda atliekas naudodamas bendruosius filtrus. Paruoštos taisyklės skirtos tuštiems aplankams, likutiniams žurnalams ir pasenusioms miniatiūroms. Aplankykite nustatymus, jei norite susikurti savo.</string>
+    <string name="tour_systemcleaner_filter_body">Kiekviena eilutė yra filtras ir jo rezultatai. Atidarykite jo išsamią informaciją, kad pamatytumėte tiksliai kurie failai atitinka, prieš ką nors ištrinant.</string>
 </resources>

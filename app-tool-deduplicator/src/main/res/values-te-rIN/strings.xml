@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ఎంచుకొన్న ప్రతి డుప్లికేట్ ఫైల్‌ల సెట్‌లో ఒక కాపీ కలిపి మిగిలిన మిందినిన్ని తొలగించాలా?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ఎంచుకొన్న ప్రతి డుప్లికేట్ ఫైల్‌ల సెట్‌లో అన్ని ఫైల్‌లను తొలగించాలా? ఏ ఫైల్ కూడా మిగిలిపోదు!</string>
     <string name="deduplicator_delete_all_toggle_msg">అన్ని కాపీలను తొలగించండి. ఏ ఫైల్ కూడా మిగిలిపోదు!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">ఈ సమితిలో %1$d నకిలుని తీసివేయాలా, %2$s విడిపించుకుంటూ? ఉంచిన కాపీ ఉంటుంది.</item>
+        <item quantity="other">ఈ సమితిలో %1$d నకిలుల నుండి తీసివేయాలా, %2$s విడిపించుకుంటూ? ఉంచిన కాపీ ఉంటుంది.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s విడిపించదగినది</string>
+    <string name="deduplicator_action_delete_set">నకిలు సమితిని తీసివేయండి</string>
+    <string name="deduplicator_action_open_preview">ప్రివ్యూ తెరవండి</string>
+    <string name="deduplicator_marked_for_deletion">తీసివేయడానికి గుర్తించబడినవి</string>
+    <string name="deduplicator_cluster_preview_image">నకిలు సమితి ప్రివ్యూ</string>
+    <string name="deduplicator_selection_keep_one_required">ప్రతి నకిలు సెట్‌కు కనీసం ఒక ఫైల్ ఉండాలి. సెట్టింగ్‌లలో \"అన్నీ తీసివేయండి\" సాధ్యమైనదిని ఎనేబుల్ చేయండి.</string>
     <string name="deduplicator_progress_comparing_files">ఫైల్‌లను పోలిస్తోంది</string>
     <string name="deduplicator_details_cluster_title">డుప్లికేట్‌ల సెట్</string>
     <string name="deduplicator_matches_exact_label">పూర్తి సరియాన కాపీలు</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">చిన్న ఫైల్‌లకు ప్రాధాన్యత</string>
     <string name="deduplicator_view_mode_groups_label">సమూహాలు</string>
     <string name="deduplicator_view_mode_directories_label">ఫోల్డర్‌లు</string>
+    <string name="tour_deduplicator_details_cluster_body">ఈ ఫైల్‌లు అన్నీ ఒకే ఐటెమ్ లేదా మీడియా కంటెంట్‌గా అనిపిస్తున్నాయి, నకిలుల సమూహం.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ఈ చిహ్నం ఉన్న ఫైల్‌లు తొలగించబడతాయి; గ్రూపులో SD Maid ఉంచుకున్న ఫైల్ మిగిలి ఉంటుంది. తొలగింపు వ్యూహం సెట్టింగ్‌లలో ఏ ఫైల్‌ను ఉంచుకోవాలో మీరు మార్చవచ్చు.</string>
 </resources>

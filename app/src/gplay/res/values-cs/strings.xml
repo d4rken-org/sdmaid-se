@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Použijte možnost \"Obnovit nákup\" k obnovení nákupu. Pokud problém přetrvává, zkuste vyčistit mezipaměť Google Play a restartovat zařízení.</string>
     <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Výhody</string>
-    <string name="upgrade_screen_benefits_body">• Čištění aplikací 💯\n• Plánované operace ⏰\n• Další možnosti pro všechny nástroje ⚙️\n• Vaše vlastní pravidla pro mazání ✍️\n• Motivovaný vývojář 🧙\na další…</string>
+    <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
+    <string name="upgrade_screen_benefits_body">• Vyčistěte mezipaměti aplikací a zbytečná data
+• Odstraňte duplicitní soubory
+• Povolte plánované čištění
+• Vytvořte vlastní filtry a pravidla čištění
+• Sledujte trendy úložiště a historii čištění
+• Více funkcí a ovládacích prvků v aplikaci
+• Podpora pokračujícího vývoje</string>
     <string name="upgrade_screen_how_title">Možnosti</string>
     <string name="upgrade_screen_how_body">Můžete si vybrat mezi jednorázovým nákupem a levnějším ročním předplatným.\nPředplatné začíná bezplatnou 14denní zkušební dobou, po které vám bude účtován poplatek jednou ročně. Zkušební verzi a předplatné lze kdykoli zrušit.\nStejné funkce, jen odlišné cenové modely.</string>
+    <string name="upgrade_screen_subscription_offer_title">Roční předplatné</string>
+    <string name="upgrade_screen_iap_offer_title">Koupit jednou</string>
+    <string name="upgrade_screen_offer_recommended">Doporučeno</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ceny nelze načíst právě teď. Zkontrolujte Google Play a zkuste to za chvíli.</string>
     <string name="upgrade_screen_subscription_trial_action">Zahájit bezplatnou 14denní zkušební verzi</string>
     <string name="upgrade_screen_subscription_action">Předplatit</string>
     <string name="upgrade_screen_subscription_action_hint">Předplatné stojí %s za rok.</string>

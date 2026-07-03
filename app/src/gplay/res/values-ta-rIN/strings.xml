@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">உங்கள் வாங்குதலை மீட்டமைக்க \"வாங்குதலை மீட்டமை\" விருப்பத்தைப் பயன்படுத்தவும். சிக்கல் தொடர்ந்தால், Google Play தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>
     <string name="upgrade_screen_title">SD Maid SE Pro பெறுக</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்கவில்லை. எனது பணி உங்களால் நிதியளிக்கப்படுகிறது ❤️.</string>
-    <string name="upgrade_screen_benefits_title">நன்மைகள்</string>
-    <string name="upgrade_screen_benefits_body">• ஆப் சுத்தம் செய்தல் 💯\n• திட்டமிடப்பட்ட செயல்பாடுகள் ⏰\n• அனைத்து கருவிகளுக்கும் கூடுதல் விருப்பங்கள் ⚙️\n• உங்கள் சொந்த நீக்கும் விதிகள் ✍️\n• ஊக்கமளிக்கும் டெவலப்பர் 🧙\nமற்றும் பல…</string>
+    <string name="upgrade_screen_benefits_title">மேம்படுத்தல் நன்மைகள்</string>
+    <string name="upgrade_screen_benefits_body">• பயன்பாட்டு கேச் மற்றும் செலவிடக்கூடிய தகவல் சுத்தம் செய்யவும்
+• நகலெடுக்கப்பட்ட கோப்புகளை அகற்றவும்
+• திட்டமிடப்பட்ட சுத்தீகரணங்களை இயக்கவும்
+• தனிப்பயன் வடிப்பிகள் மற்றும் சுத்தம் செய்யும் விதிகளை உருவாக்கவும்
+• சேமிப்பக போக்குகள் மற்றும் சுத்தீகரணத் வரலாறுகளைக் கண்காணிக்கவும்
+• பயன்பாட்டு முழுவதும் கூடுதல் அம்சங்கள் மற்றும் கட்டுப்பாடுகள்
+• தொடர்ந்த வளர்ச்சிக்கு ஆதரவு</string>
     <string name="upgrade_screen_how_title">விருப்பங்கள்</string>
     <string name="upgrade_screen_how_body">நீங்கள் ஒரு முறை வாங்குதல் மற்றும் மலிவான வருடாந்திர சந்தா இடையே தேர்வு செய்யலாம்.\nசந்தா இலவச 14-நாள் சோதனையுடன் தொடங்குகிறது, அதன் பிறகு வருடத்திற்கு ஒருமுறை கட்டணம் வசூலிக்கப்படும். சோதனை மற்றும் சந்தா எப்போது வேண்டுமானாலும் ரத்து செய்யப்படலாம்.\nஅதே அம்சங்கள், வெவ்வேறு விலை மாதிரிகள் மட்டும்.</string>
+    <string name="upgrade_screen_subscription_offer_title">வருடாந்திர சந்தா</string>
+    <string name="upgrade_screen_iap_offer_title">ஒரு முறை வாங்கவும்</string>
+    <string name="upgrade_screen_offer_recommended">பரிந்துரைக்கப்பட்ட</string>
+    <string name="upgrade_screen_offers_unavailable_message">விலைகள் இப்போது ஏற்ற முடியவில்லை. Google Play ஐ சரிபார்க்கவும் மற்றும் சிறிது நேரத்தில் மீண்டும் முயற்சி செய்யவும்.</string>
     <string name="upgrade_screen_subscription_trial_action">இலவச 14-நாள் சோதனையைத் தொடங்கு</string>
     <string name="upgrade_screen_subscription_action">சந்தா</string>
     <string name="upgrade_screen_subscription_action_hint">சந்தா வருடத்திற்கு %s செலவாகும்.</string>

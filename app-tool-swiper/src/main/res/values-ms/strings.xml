@@ -31,6 +31,18 @@
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="other">%d item yang belum diputuskan akan kekal untuk semakan kemudian.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Sesi ini menyasarkan keseluruhan volum penyimpanan — pemadaman di sini merangkumi setiap folder pada penyimpanan itu.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="other">…dan %d folder lagi</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Saya memahami fail-fail ini akan dipadamkan secara kekal.</string>
+    <string name="swiper_sensitive_root_warning_title">Imbas seluruh storan?</string>
+    <string name="swiper_sensitive_root_warning_message">Mengimbas %1$s termasuk setiap fail dalam storan ini — foto, dokumen, muat turun, media apl, dan banyak lagi. Teruskan?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Teruskan sahaja</string>
+    <string name="swiper_session_risky_label">Imbas seluruh storan</string>
+    <string name="swiper_session_risky_info_message">Sesi ini menyasarkan akar volum storan, jadi setiap fail dalam storan itu berada dalam skop — foto, dokumen, muat turun, media apl, dan banyak lagi.
+
+Imbasan seluruh storan boleh mengembalikan banyak item, termasuk fail yang mungkin tidak anda maksudkan untuk disemak. Gunakan penapis jenis fail untuk mengecilkan imbasan.</string>
     <string name="swiper_delete_x_action">Padam %1$d</string>
     <string name="swiper_settings_swap_directions_title">Tukar arah leretan</string>
     <string name="swiper_settings_swap_directions_summary">Leret kiri untuk simpan, kanan untuk padam.</string>
@@ -65,6 +77,9 @@
     <string name="swiper_session_rename_hint">Masukkan nama untuk sesi ini</string>
     <string name="swiper_sessions_current_sessions">Sesi semasa</string>
     <string name="swiper_session_paths_label">Laluan</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="other">…dan %d lagi</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d untuk disimpan</item>
@@ -129,4 +144,10 @@
     <string name="swiper_file_type_filter_summary">Ditapis: %1$s</string>
     <string name="swiper_session_no_matching_files">Tiada fail yang sepadan ditemui</string>
     <string name="swiper_open_externally_action">Buka dalam aplikasi luaran</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Leret foto untuk memutuskan nasibnya: Leret ke sisi untuk simpan atau padam, ke atas untuk langkau, ke bawah untuk batal. Butang di bawah melakukan perkara yang sama — dan menunjukkan sisi mana untuk apa.</string>
+    <string name="tour_swiper_openin_body">Butang ini membuka foto dalam apl lain, berguna untuk memeriksanya sebelum memutuskan.</string>
+    <string name="tour_swiper_preview_body">Butang ini membuka pratonton skrin penuh untuk melihat lebih dekat.</string>
+    <string name="tour_swiper_actions_body">Tidak suka meleret? Ada butang juga! Langkau membiarkannya belum diputuskan untuk kemudian, dan tekan lama Langkau mengecualikannya daripada imbasan akan datang. Batal mengembalikan pilihan terakhir anda.</string>
+    <string name="tour_swiper_review_body">Pilihan simpan dan padam anda hanya disusun. Buka Semakan untuk meninjau pilihan dan amalkan pemadaman apabila anda sedia.</string>
 </resources>

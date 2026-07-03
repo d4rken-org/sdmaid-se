@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Planlegger ferdig</string>
     <string name="scheduler_notification_result_success_message">Alle planlagte oppgaver kjørte vellykket.</string>
     <string name="scheduler_notification_result_failure_message">Noen planlagte oppgaver mislyktes eller møtte feil. Prøv å kjøre dem manuelt.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Hoppet over, skjermen var av eller låst</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Apprensing kan hoppes over</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Apprensing bruker tilgjengelighetstjenesten, som krever at skjermen er låst opp. Planlagte kjøringer mens enheten er låst hoppes over.
+
+Bruk Shizuku eller rottilgang for bakgrunnsrensing, eller planlegg det til når du bruker enheten.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systemapper kan hoppes over</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku renser de fleste hurtigbuffere i bakgrunnen, men systemapper trenger tilgjengelighetstjenesten, som krever at skjermen er låst opp. Med \"Inkluder systemapper\" på hoppes disse over når enheten er låst.
+
+Slå av \"Inkluder systemapper\", eller kjør planen når enheten ikke er låst.</string>
     <string name="scheduler_commands_after_schedule_label">Kommandoer etter planlegging</string>
     <string name="scheduler_commands_after_schedule_desc">Android skall-kommandoer som vil bli utført på slutten av en tidsplan.</string>
     <string name="scheduler_battery_optimization_hint">Vurder å deaktivere batterioptimalisering for SD Maid hvis du opplever problemer med bakgrunnskjøring.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid kan rense på en tidsplan. Velg tidspunkt og hvilke verktøy som skal kjøres, og den gjør arbeidet i bakgrunnen, (nesten) uten at du trenger å åpne appen.</string>
+    <string name="tour_scheduler_create_body">Trykk her for å opprette en ny tidsplan, og angi når den kjøres og hvilke verktøy som skal inkluderes.</string>
 </resources>

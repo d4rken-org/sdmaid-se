@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">தேர்வு செய்யப்பட்ட ஒவ்வொரு நகல் கோப்பு தொகுதியிலும் ஒரு நகலை தவிர மற்ற அனைத்தையும் நீக்கவா?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">தேர்வு செய்யப்பட்ட ஒவ்வொரு நகல் கோப்பு தொகுதியிலும் உள்ள அனைத்து கோப்புகளையும் நீக்கவா? எந்த கோப்பும் மீதம் இருக்காது!</string>
     <string name="deduplicator_delete_all_toggle_msg">அனைத்து நகல்களையும் நீக்கு. எந்த கோப்பும் மீதம் இருக்காது!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">இந்தத் தொகுப்பில் %1$d நகலை அகற்றவா, %2$s வெளியிடுகிறது? வைக்கப்பட்ட நகல் இருந்துவிடும்.</item>
+        <item quantity="other">இந்தத் தொகுப்பில் %1$d நகல்களை அகற்றவா, %2$s வெளியிடுகிறது? வைக்கப்பட்ட நகல் இருந்துவிடும்.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s வெளியிடக் கூடிய</string>
+    <string name="deduplicator_action_delete_set">நகல் தொகுப்பை அகற்று</string>
+    <string name="deduplicator_action_open_preview">முன்னோட்டத்தைத் திற</string>
+    <string name="deduplicator_marked_for_deletion">நீக்கத்திற்கு குறிபடுத்தப்பட்டது</string>
+    <string name="deduplicator_cluster_preview_image">நகல் தொகுப்பு முன்னோட்டம்</string>
+    <string name="deduplicator_selection_keep_one_required">ஒவ்வொரு நகல் தொகுப்புக்கும் குறைந்தது ஒரு கோப்பு இருக்க வேண்டும். இதை மீற அமைப்புகளில் \"அனைத்தையும் நீக்க முடியுமாக உருவாக்கவும்\" இயக்கவும்.</string>
     <string name="deduplicator_progress_comparing_files">கோப்புகளை ஒப்பிடுகிறது</string>
     <string name="deduplicator_details_cluster_title">நகல்களின் தொகுதி</string>
     <string name="deduplicator_matches_exact_label">சரியான நகல்கள்</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">சிறிய கோப்புகளை விரும்பு</string>
     <string name="deduplicator_view_mode_groups_label">குழுக்கள்</string>
     <string name="deduplicator_view_mode_directories_label">கோப்புறைகள்</string>
+    <string name="tour_deduplicator_details_cluster_body">இந்தக் கோப்புகள் அனைத்தும் ஒரே உருப்படி அல்லது மீடியா உள்ளடக்கமாகத் தோன்றுகிறது, நகல்களின் கொத்து.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">இந்த ஐகனைக் கொண்ட கோப்புகள் நீக்கப்படும்; குழுவில் மீதமுள்ள கோப்பு SD Maid வைத்திருப்பது. நீக்கல் உத்தி அமைப்புகளில் சேர்ப்பவர் எவ்வாறு தேர்வு செய்யப்படுகிறார் என்பதை நீங்கள் மாற்றலாம்.</string>
 </resources>

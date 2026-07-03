@@ -28,21 +28,15 @@
     <string name="general_gotit_action">Selge!</string>
     <string name="general_fix_action">Paranda</string>
     <string name="general_set_up_action">Seadista</string>
+    <string name="general_unavailable_label">Pole saadaval</string>
     <string name="general_edit_action">Muuda</string>
     <string name="general_na_label">Puudub</string>
     <string name="general_empty_label">Tühi</string>
     <string name="general_new_badge_label">Uus</string>
     <string name="general_dismiss_action">Sulge</string>
-    
     <string name="general_manage_action">Halda</string>
-    
     <string name="general_error_label">Viga</string>
-    
     <string name="general_upgrade_action">Täienda</string>
-    
-    
-    <string name="general_filter_action">Filtreeri</string>
-    
     <string name="general_refresh_action">Värskenda</string>
     <string name="general_progress_searching">Otsin</string>
     <string name="general_progress_generating_searchpaths">Otsimiskohtade loomine</string>
@@ -71,18 +65,21 @@
     <string name="general_progress_queued">Järjekorras</string>
     <string name="general_progress_deleting">Kustutan</string>
     <string name="general_progress_deleting_x">%s kustutamine</string>
-    
     <string name="general_sort_by_title">Sordi:</string>
-    
     <string name="general_sort_reverse_action">Pööra järjestamisreziim pahupidi</string>
     <string name="general_sort_oldest_first">Vanemad ees</string>
     <string name="general_sort_newest_first">Uuemad ees</string>
     <string name="general_sort_name_asc">Nimi (A → Z)</string>
     <string name="general_sort_size_desc">Suurimad ees</string>
-    
     <string name="general_tag_system">Süsteem</string>
+    <string name="general_navigate_up_action">Liiguta ülespoole</string>
+    <string name="general_filter_action">Filtreeri</string>
+    <string name="general_filter_by_tags_label">Filtreeri siltide järgi</string>
+    <string name="general_filter_add_action">Lisa filter</string>
+    <string name="general_filter_remove_x_action">Eemalda %s filter</string>
+    <string name="general_filter_empty_row_hint">Puuduta + et filtreerida</string>
+    <string name="general_show_all_action">Kuva kõik</string>
     <string name="general_result_success_message">Edukas toiming</string>
-    
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vabastati %s ruumi.</item>
         <item quantity="other">Vabastati %s ruumi.</item>
@@ -90,13 +87,14 @@
     <string name="general_options_label">Valikud</string>
     <string name="general_details_label">Andmed</string>
     <string name="general_view_action">Vaade</string>
+    <string name="general_open_action">Ava</string>
+    <string name="general_configure_action">Seadista</string>
     <string name="general_update_action">Uuenda</string>
     <string name="general_scan_action">Skaneeri</string>
     <string name="general_close_action">Sulge</string>
     <string name="general_delete_action">Kustuta</string>
     <string name="general_delete_selected_action">Kustuta märgitud</string>
     <string name="general_show_details_action">Näita andmeid</string>
-    <string name="general_show_all_action">Kuva kõik</string>
     <string name="general_toggle_layout_mode">Muuda vaadet</string>
     <string name="general_delete_confirmation_title">Kinnita kustutamine</string>
     <string name="general_delete_confirmation_message_x">Kustuta \"%s\"?</string>
@@ -109,16 +107,14 @@
         <item quantity="other">Kustutati %d faili.</item>
     </plurals>
     <string name="general_remove_action">Eemalda</string>
-    
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Üks eemaldati</item>
         <item quantity="other">%d eemaldati</item>
     </plurals>
-    
-    
     <string name="general_search_action">Otsing</string>
-    
+    <string name="general_search_no_matches">Vastavusi pole</string>
     <string name="general_open_system_settings_action">Ava süsteemi seaded</string>
+    <string name="general_fast_scroller_action">Kiire kerimisriba</string>
     <plurals name="result_x_items">
         <item quantity="one">%s kirje</item>
         <item quantity="other">%s kirjet</item>
@@ -137,12 +133,15 @@
     </plurals>
     <string name="general_info_label">Teave</string>
     <string name="general_count_label">Kokku</string>
-    
     <string name="general_more_info_action">Lisateave</string>
     <string name="general_grant_access_action">Võimalda juurdepääs</string>
     <string name="general_enable_service_action">Luba teenus</string>
     <string name="general_undo_action">Tühista</string>
     <string name="general_list_select_all_action">Vali kõik</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d valitud</item>
+        <item quantity="other">%d valitud</item>
+    </plurals>
     <string name="general_path_label">Asukoht</string>
     <string name="general_type_label">Tüüp</string>
     <string name="general_size_label">Maht</string>
@@ -150,7 +149,6 @@
     <string name="general_exclude_selected_action">Erand valitud</string>
     <string name="general_device_label">Seade</string>
     <string name="general_settings_title">Seaded</string>
-    
     <string name="general_hints_label">Teade</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Kaust</string>
@@ -177,11 +175,11 @@
     <string name="general_error_report_bug_action">Teata veast</string>
     <string name="general_error_ipc_deadobject_title">Ühendus teenusega katkes</string>
     <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Shizuku või muu süsteemi tasemel oleva teenusega) katkes ootamatult. Taaskäivitage oma seade. Probleemi kordumisel kontrollige uuendusi või suhelge minuga, et saaksin seda parandada.</string>
+    <string name="general_error_upgrade_required_title">Pro versioon nõutud</string>
+    <string name="general_error_upgrade_required_description">See on Pro funktsioon. Palun uuenda SD Maid SE, et seda kasutada.</string>
     <string name="general_user_label_owner">Omanik</string>
     <string name="general_user_label_system">Süsteem</string>
     <string name="setup_title">Seadistamine</string>
-    
-    
     <string name="general_include_multiuser_label">Kaasa teisi kasutajaid</string>
     <string name="general_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendusi.</string>
     <string name="general_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
@@ -204,5 +202,22 @@
     <string name="settings_category_risklevel">Riskitase</string>
     <string name="settings_category_filter">Filtreeri</string>
     <string name="appcontrol_systemsettings_open_title">Näita seadeid</string>
-    
+    <string name="ui_theme_color_sunset_label">Loojang</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">See funktsioon vajab juurkasutaja juurdepääsu, kuid SD Maid ei saanud seda sellel seadmel hankida.</string>
+    <string name="access_blocked_root_declined">See funktsioon vajab juurkasutaja juurdepääsu. Saad selle lubada häälestamise ekraanis.</string>
+    <string name="access_blocked_root_or_shizuku">See funktsioon vajab juurkasutaja juurdepääsu või Shizuku juurdepääsu, mis pole sellel seadmel saadaval.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Vigane varukoopia fail</string>
+    <string name="backup_restore_error_invalid_body">See fail ei ole kehtiv SD Maid varukoopia või on see rikutud.</string>
+    <string name="backup_restore_error_version_body">See varukoopia loodi SD Maidi uuema versiooniga. Palun uuendage rakendust ja proovige uuesti.</string>
+    <string name="backup_restore_error_restore_failed_title">Taastamine nurjus</string>
+    <string name="backup_restore_error_restore_failed_body">Neid osi ei saanud taastada: %1$s. Teie eelmine konfiguratsioon salvestati ja selle saab tagasi tuua.</string>
+    <string name="backup_restore_error_safety_title">Taastamist ei alustatud</string>
+    <string name="backup_restore_error_safety_body">SD Maid ei saanud teie praeguse konfiguratsiooni ohutuskoopia salvestada, seega midagi ei muutunud.</string>
+    <string name="backup_restore_error_busy_title">Palun oodake</string>
+    <string name="backup_restore_error_busy_body">Puhastamistöö või muu varukoopia operatsioon käib praegu. Proovige uuesti, kui see on lõpetatud.</string>
+    <string name="backup_restore_error_schema_title">Ühildumatu varukoopia</string>
+    <string name="backup_restore_error_schema_body">Varukoopia andmebaasi vorming ei ühildu selle SD Maidi versiooniga. Ajaloo andmete taastamine on toetatud ainult identsete rakenduse versioonide vahel.</string>
 </resources>

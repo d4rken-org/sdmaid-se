@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestionadore de esclussiones</string>
     <string name="exclusion_manager_desc">Gestire esclussiones de documentos e aplicatziones.</string>
-    <string name="exclusion_explanation_body1">Esclutìghere documentos e aplicatziones dae is operatziones de SD Maid.</string>
-    <string name="exclusion_add_new_hint">Annanger esclussiones noas premeru lassende a SD Maid chircare e a pustis impreende su menu de contestu in su risultadu chi boles esclùdere.</string>
+    <string name="exclusion_explanation_body1">Escludi archivos e aplicatziones pro proteggerlis dae is istromentus de SD Maid, o pro sartai is elementos no relevantos e accelerai is operatziones.</string>
+    <string name="exclusion_add_new_hint">Nia esclussione ancora. Imprea su butone + pro creai una, o escludi is elementos dae is resultados de aniunu istromentus.</string>
     <string name="exclusion_create_action">Creare esclussione</string>
     <string name="exclusion_edit_action">Modificare esclussione</string>
     <string name="exclusion_type_package">Esclussione de aplicatzione</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Esportare esclussiones</string>
     <string name="exclusion_create_pkg_hint">Impreare s\'aina AppControl pro creare esclussiones de aplicatzione.</string>
     <string name="exclusion_create_path_hint">Impreare s\'aina Analizadore de Archìviu pro creare esclussiones de caminu.</string>
+    <string name="exclusion_create_segment_hint">Encontra un segmentu de nòmine, comente \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Ammustrare predefinidos</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d exclusione importada</item>
+        <item quantity="other">%d exclusiones importadas</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d exclusione esportada</item>
+        <item quantity="other">%d exclusiones esportadas</item>
+    </plurals>
 </resources>

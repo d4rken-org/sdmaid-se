@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Az ütemező végzett</string>
     <string name="scheduler_notification_result_success_message">Minden ütemezett feladat sikeresen futtatva.</string>
     <string name="scheduler_notification_result_failure_message">Néhány ütemezett feladat meghiúsult vagy hibákat észlelt. Próbálja meg manuálisan futtatni őket.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Kihagyva, a képernyő ki volt kapcsolva vagy zárolva volt</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Az alkalmazástisztítás kimaradhat</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Az alkalmazástisztítás a kisegítő lehetőségek szolgáltatást használja, amely megköveteli, hogy a képernyő fel legyen oldva. Az ütemezett futások, amikor az eszköz zárolva van, ki vannak hagyva.
+
+A háttérbeli tisztításhoz használja a Shizuku vagy a root hozzáférést, vagy ütemezze azt arra az időre, amikor használja az eszközt.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">A rendszeralkalmazások kimaradhatnak</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">A Shizuku a legtöbb gyorsítótárat megtisztítja a háttérben, de a rendszeralkalmazások a kisegítő lehetőségek szolgáltatást igénylik, amely megköveteli, hogy a képernyő fel legyen oldva. Ha a „Rendszeralkalmazások belefoglalása” be van kapcsolva, azok ki vannak hagyva, amikor az eszköz zárolva van.
+
+Kapcsolja ki a „Rendszeralkalmazások belefoglalása” lehetőséget, vagy futtassa az ütemezést feloldott állapotban.</string>
     <string name="scheduler_commands_after_schedule_label">Ütemezés utáni parancsok</string>
     <string name="scheduler_commands_after_schedule_desc">Android rendszerhéjparancsok, amelyek az ütemezés végén kerülnek végrehajtásra.</string>
     <string name="scheduler_battery_optimization_hint">Fontold meg az SD Maid akkumulátor-optimalizálás kikapcsolását, ha a háttérben történő végrehajtással kapcsolatos problémákat tapasztalsz.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">Az SD Maid ütemezés szerint megtisztíthat. Válassza ki az időpontot és mely eszközöket futtasson, és az alkalmazás a háttérben végzi el a munkát – (szinte) nincs szükség az alkalmazás megnyitására.</string>
+    <string name="tour_scheduler_create_body">Koppintson ide új ütemezés létrehozásához, majd állítsa be, hogy mikor fusson és mely eszközöket futtasson.</string>
 </resources>

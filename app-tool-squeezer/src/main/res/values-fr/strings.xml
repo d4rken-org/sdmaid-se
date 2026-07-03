@@ -17,16 +17,22 @@
         <item quantity="one">%d en échec</item>
         <item quantity="other">%d en échec</item>
     </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d conservé inchangé (les métadonnées n’ont pas pu être préservées)</item>
+        <item quantity="other">%d conservés inchangés (les métadonnées n’ont pas pu être préservées)</item>
+    </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d fichier ignoré (non accessible)</item>
         <item quantity="other">%d fichiers ignorés (non accessibles)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d ignoré (HDR/profondeur préservés)</item>
+        <item quantity="other">%d ignorés (HDR/profondeur préservés)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d élément choisi</item>
         <item quantity="other">%d éléments choisis</item>
     </plurals>
-    
-    
     <string name="squeezer_min_size_title">Taille minimale des fichiers</string>
     <string name="squeezer_min_size_description">Ignorer les fichiers plus petits que cette taille.</string>
     <string name="squeezer_min_age_title">Âge minimal des fichiers</string>
@@ -44,12 +50,16 @@
     <string name="squeezer_type_jpeg_description">Inclure les images JPEG (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inclure les images WebP (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Inclure les images HEIC/HEIF (.heic, .heif). La date, l’emplacement et les autres métadonnées EXIF sont conservés. Les cartes de gain HDR, les données de profondeur et les photos Live/Motion associées ne peuvent pas être préservées ; les fichiers multi-images sont ignorés.</string>
     <string name="squeezer_type_video_title">Vidéo MP4</string>
     <string name="squeezer_type_video_description">Inclure les fichiers vidéo MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Ignorer les images déjà compressées</string>
     <string name="squeezer_skip_compressed_description">Ignorer les fichiers déjà compressés par SD Maid.</string>
     <string name="squeezer_exif_marker_title">Écrire le marqueur EXIF</string>
     <string name="squeezer_exif_marker_description">Ajouter un marqueur au champ de commentaire utilisateur EXIF de l’image pour empêcher la recompression, même si l’historique de compression est effacé.</string>
+    <string name="squeezer_include_lossy_aux_title">Compresser les photos HDR et de profondeur</string>
+    <string name="squeezer_include_lossy_aux_description">Désactivé par défaut : les photos avec une cartographie de gain HDR ou des données de profondeur/portrait sont ignorées pour ne pas être aplaties. Activez cette option pour les compresser si possible — elles perdront leur cartographie de gain HDR ou leurs données de profondeur. Certaines photos HEIC multi-images restent protégées malgré tout.</string>
     <string name="squeezer_estimated_savings_format">~%s en moins</string>
     <string name="squeezer_no_savings_expected">Économies limitées</string>
     <string name="squeezer_current_size_format">Taille : %s</string>
@@ -79,6 +89,10 @@
     <string name="squeezer_compare_action">Afficher la comparaison</string>
     <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
     <string name="squeezer_result_empty_message">Aucun média compressible n’a été trouvé.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Aucun média à compresser — %d photo HDR/de profondeur a été ignorée. Activez « Compresser les photos HDR et de profondeur » dans les paramètres pour l’inclure.</item>
+        <item quantity="other">Aucun média à compresser — %d photos HDR/de profondeur ont été ignorées. Activez « Compresser les photos HDR et de profondeur » dans les paramètres pour les inclure.</item>
+    </plurals>
     <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d emplacement ne peut pas être utilisé pour la compression et a été supprimé. La compression nécessite un accès direct à la mémoire interne.</item>
@@ -89,9 +103,8 @@
     <string name="squeezer_setup_paths_default">Choisir les dossiers à explorer</string>
     <string name="squeezer_setup_quality_title">Qualité de compression</string>
     <string name="squeezer_setup_age_title">Âge minimal</string>
-    
     <string name="squeezer_setup_start_action">Lancer l’analyse</string>
-    <string name="squeezer_quality_hint_very_low">Une qualité inférieure à 40 % peut créer des images inutilisables.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">Une qualité inférieure à 40 % peut créer des images inutilisables.</string>
     <string name="squeezer_quality_hint_low">Une qualité inférieure permet d’économiser l’espace, mais peut entraîner des distortions visuelles.</string>
     <string name="squeezer_quality_hint_high">Une qualité très élevée réduit peu la taille du fichier.</string>
     <string name="squeezer_quality_hint_normal">Ratio équilibré qualité/espace.</string>
@@ -99,6 +112,9 @@
         <item quantity="one">Au moins %d jour</item>
         <item quantity="other">Au moins %d jours</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Économie estimée de ~%d %% pour les images</string>
+    <string name="squeezer_estimated_savings_percent">Économie probable de %d %% pour les fichiers JPEG</string>
     <string name="squeezer_onboarding_got_it">J’ai compris</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer re-compresse vos photos et vidéos pour qu’elles occupent moins de place. Les fichiers restent utilisables, juste plus petits, et chacun affiche son économie estimée.</string>
+    <string name="tour_squeezer_compress_body">Compressez tout d’un coup ici, ou appuyez sur un élément unique pour ne réduire que celui-ci. Appui long pour en sélectionner plusieurs. Vous verrez toujours un aperçu avant que quelque chose change.</string>
 </resources>

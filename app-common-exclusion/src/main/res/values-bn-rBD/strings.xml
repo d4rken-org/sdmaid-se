@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">বর্জন ব্যবস্থাপক</string>
     <string name="exclusion_manager_desc">ফাইল এবং অ্যাপ বর্জন পরিচালনা করুন।</string>
-    <string name="exclusion_explanation_body1">SD Maid-এর অপারেশন থেকে ফাইল এবং অ্যাপ বাদ দিন।</string>
-    <string name="exclusion_add_new_hint">প্রথমে SD Maid অনুসন্ধান করতে দিয়ে এবং তারপরে আপনি যে ফলাফলটি বাদ দিতে চান তার প্রসঙ্গ মেনু ব্যবহার করে নতুন বর্জন যোগ করুন।</string>
+    <string name="exclusion_explanation_body1">SD Maid এর সরঞ্জাম থেকে ফাইল এবং অ্যাপ্লিকেশন রক্ষা করতে বা অপ্রাসঙ্গিক আইটেমগুলি এড়িয়ে যেতে এবং অপারেশনগুলি দ্রুত করতে সেগুলি বাদ দিন।</string>
+    <string name="exclusion_add_new_hint">এখনও কোনো বাদ দেওয়া নেই। একটি তৈরি করতে + বোতাম ব্যবহার করুন, অথবা যেকোনো সরঞ্জামের ফলাফল থেকে আইটেমগুলি বাদ দিন।</string>
     <string name="exclusion_create_action">বর্জন তৈরি করুন</string>
     <string name="exclusion_edit_action">বর্জন সম্পাদনা করুন</string>
     <string name="exclusion_type_package">অ্যাপ বর্জন</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">এক্সপোর্ট এক্সক্লুশন</string>
     <string name="exclusion_create_pkg_hint">অ্যাপ এক্সক্লুশন তৈরি করতে AppControl টুল ব্যবহার করুন।</string>
     <string name="exclusion_create_path_hint">পাথ এক্সক্লুশন তৈরি করতে স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
+    <string name="exclusion_create_segment_hint">একটি নাম খণ্ড ম্যাচ করুন, যেমন \"DCIM/Camera\"।</string>
     <string name="exclusion_show_defaults_action">ডিফল্ট দেখান</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d বর্জন আমদানি করা হয়েছে</item>
+        <item quantity="other">%d বর্জনগুলি আমদানি করা হয়েছে</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d বর্জন রপ্তানি করা হয়েছে</item>
+        <item quantity="other">%d বর্জনগুলি রপ্তানি করা হয়েছে</item>
+    </plurals>
 </resources>

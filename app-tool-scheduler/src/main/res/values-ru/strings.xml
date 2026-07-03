@@ -37,7 +37,15 @@
     <string name="scheduler_notification_result_title">Планировщик завершен</string>
     <string name="scheduler_notification_result_success_message">Все запланированные задачи выполнены.</string>
     <string name="scheduler_notification_result_failure_message">Некоторые запланированные задачи не выполнены или выполнены с ошибками. Попробуйте запустить их вручную.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Пропущено, экран был выключен или заблокирован</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Очистка приложения может быть пропущена</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Очистка приложения использует службу специальных возможностей, которой требуется разблокированный экран. Запланированные запуски при блокировке устройства пропускаются.\n\nИспользуйте Shizuku или root для очистки в фоне либо запланируйте очистку на время, когда вы пользуетесь устройством.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системные приложения могут быть пропущены</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku очищает большинство кэшей в фоне, но системные приложения требуют службы специальных возможностей, которой требуется разблокированный экран. Если включена опция «Включить системные приложения», они пропускаются при блокировке устройства.\n\nОтключите опцию «Включить системные приложения» или запустите расписание при разблокированном устройстве.</string>
     <string name="scheduler_commands_after_schedule_label">Команды пост-расписания</string>
     <string name="scheduler_commands_after_schedule_desc">Команды оболочки Android, которые будут выполняться в конце расписания.</string>
     <string name="scheduler_battery_optimization_hint">Рассмотрите возможность отключения оптимизации батареи для SD Maid, если у Вас возникли проблемы с работой в фоне.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid может выполнять очистку по расписанию. Выберите время и какие инструменты запускать, и приложение выполнит работу в фоне, (почти) без необходимости открывать приложение.</string>
+    <string name="tour_scheduler_create_body">Коснитесь здесь, чтобы создать новое расписание, затем установите, когда оно будет запускаться и какие инструменты включить.</string>
 </resources>

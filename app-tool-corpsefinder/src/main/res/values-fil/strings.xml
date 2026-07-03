@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Hindi kilalang may-ari</string>
     <string name="corpsefinder_corpse_hint_keeper">Maaaring may data ang item na ito na gusto ninyong itago kahit na-uninstall na ang may-ari nito, hal. mga larawan o backup.</string>
     <string name="corpsefinder_corpse_hint_common">Ang item na ito ay may karaniwang pangalan at maaaring kabilang sa mga app na naka-install pa na hindi alam ng SD Maid.</string>
+    <string name="corpsefinder_risk_keeper_chip">Kanais-nais</string>
+    <string name="corpsefinder_risk_common_chip">Pangkaraniwan</string>
+    <string name="corpsefinder_markers_dialog_title">Tungkol sa mga marker na ito</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Walang marker</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Karaniwang natitira. Karaniwang ligtas na alisin — ang mga file na ito ay mula sa mga app na hindi na naka-install.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">Ang CorpseFinder ay nakahanap ng data na natitira mula sa mga app na iyong na-uninstall na. Hindi na ito kinikilala ng kahit anong naka-install na app, kaya ligtas itong alisin at nagbibigay ng libreng espasyo.</string>
+    <string name="tour_corpsefinder_row_body">Bawat item ay natitirang data at ang app na nagmula dito. Ang marker ay nagpapakita kung gaano kumpiyansa ang SD Maid na ligtas itong alisin — i-tap ang ⓘ sa itaas upang alaman ang kahulugan ng mga marker.</string>
 </resources>

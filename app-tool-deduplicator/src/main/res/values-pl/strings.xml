@@ -47,6 +47,18 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Usunąć wszystkie oprócz jednej kopii w każdym wybranym zestawie duplikatów?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Usunąć wszystkie pliki w każdym wybranym zestawie duplikatów? Nie pozostanie żaden plik!</string>
     <string name="deduplicator_delete_all_toggle_msg">Usuwanie wszystkich kopii. Nie pozostanie żaden plik!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Usunąć %1$d duplikat w tym zestawie, zwalniając %2$s? Zachowana kopia pozostaje.</item>
+        <item quantity="few">Usunąć %1$d duplikaty w tym zestawie, zwalniając %2$s? Zachowana kopia pozostaje.</item>
+        <item quantity="many">Usunąć %1$d duplikatów w tym zestawie, zwalniając %2$s? Zachowana kopia pozostaje.</item>
+        <item quantity="other">Usunąć %1$d duplikatów w tym zestawie, zwalniając %2$s? Zachowana kopia pozostaje.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s do zwolnienia</string>
+    <string name="deduplicator_action_delete_set">Usuń zestaw duplikatów</string>
+    <string name="deduplicator_action_open_preview">Otwórz podgląd</string>
+    <string name="deduplicator_marked_for_deletion">Oznaczono do usunięcia</string>
+    <string name="deduplicator_cluster_preview_image">Podgląd zestawu duplikatów</string>
+    <string name="deduplicator_selection_keep_one_required">W każdym zestawie duplikatów musi pozostać co najmniej jeden plik. Włącz „Zezwól na usunięcie wszystkich” w ustawieniach, aby to zastąpić.</string>
     <string name="deduplicator_progress_comparing_files">Porównywanie plików</string>
     <string name="deduplicator_details_cluster_title">Zestaw duplikatów</string>
     <string name="deduplicator_matches_exact_label">Dokładne kopie</string>
@@ -84,4 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferuj mniejsze pliki</string>
     <string name="deduplicator_view_mode_groups_label">Grupy</string>
     <string name="deduplicator_view_mode_directories_label">Foldery</string>
+    <string name="tour_deduplicator_details_cluster_body">Te pliki wyglądają na ten sam element lub treść multimedialną, skupienie duplikatów.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Pliki z tą ikoną zostaną usunięte; pozostały plik w grupie to ten, który zachowuje SD Maid. Możesz zmienić sposób wyboru pliku do zachowania w ustawieniach strategii usuwania.</string>
 </resources>

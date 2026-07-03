@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Hər seçilmiş dublikat fayllar dəstində bir nüsxədən başqa hamısını silinsinmi?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Hər seçilmiş dublikat fayllar dəstindəki bütün fayllar silinsinmi? Heç bir fayl qalmayacaq!</string>
     <string name="deduplicator_delete_all_toggle_msg">Bütün nüsxələri sil. Heç bir fayl qalmayacaq!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Bu dəstdə %1$d dublika sil, %2$s azad et? Saxlanılan nüsxə qalacaq.</item>
+        <item quantity="other">Bu dəstdə %1$d dublika sil, %2$s azad et? Saxlanılan nüsxə qalacaq.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s azad edilə bilər</string>
+    <string name="deduplicator_action_delete_set">Dublika dəstini sil</string>
+    <string name="deduplicator_action_open_preview">Önizləməni aç</string>
+    <string name="deduplicator_marked_for_deletion">Silmə üçün işarələndi</string>
+    <string name="deduplicator_cluster_preview_image">Dublika dəstinin önizləməsi</string>
+    <string name="deduplicator_selection_keep_one_required">Hər bir dublikat dəsti üçün ən azı bir fayl qalmalıdır. Parametrlərdə \"Hamısını Silməyi Mümkün Et\" seçimini aktivləşdirərək bu məhdudiyyəti ləğv edə bilərsiniz.</string>
     <string name="deduplicator_progress_comparing_files">Fayllar müqayisə edilir</string>
     <string name="deduplicator_details_cluster_title">Dublikatlar dəsti</string>
     <string name="deduplicator_matches_exact_label">Dəqiq nüsxələr</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Daha kiçik faylları üstün tut</string>
     <string name="deduplicator_view_mode_groups_label">Qruplar</string>
     <string name="deduplicator_view_mode_directories_label">Qovluqlar</string>
+    <string name="tour_deduplicator_details_cluster_body">Bu fayllar hamısı eyni maddə və ya media məzmun kimi görünür, bir dublikat toplusudur.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Bu ikonaya sahib fayllar silinəcəkdir; qrupda qalan fayl SD Maid tərəfindən saxlanılandır. Hansı faylın saxlanılacağını silmə strategiyası parametrlərində dəyişə bilərsiniz.</string>
 </resources>

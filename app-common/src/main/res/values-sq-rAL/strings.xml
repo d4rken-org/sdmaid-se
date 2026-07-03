@@ -28,6 +28,7 @@
     <string name="general_gotit_action">E kuptova</string>
     <string name="general_fix_action">Rregulloe</string>
     <string name="general_set_up_action">Konfiguro</string>
+    <string name="general_unavailable_label">I padisponueshëm</string>
     <string name="general_edit_action">Redakto</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Bosh</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Në radhë</string>
     <string name="general_progress_deleting">Po fshihet</string>
     <string name="general_progress_deleting_x">Po fshihet %s</string>
+    <string name="general_sort_by_title">Rendit sipas</string>
     <string name="general_sort_reverse_action">Modaliteti i renditjes së kundërt</string>
+    <string name="general_sort_oldest_first">Më të vjetrat fillimisht</string>
+    <string name="general_sort_newest_first">Më të rejat fillimisht</string>
+    <string name="general_sort_name_asc">Emri (A → Z)</string>
+    <string name="general_sort_size_desc">Më të mëdhatë fillimisht</string>
     <string name="general_tag_system">Sistemi</string>
+    <string name="general_navigate_up_action">Lëviz lart</string>
+    <string name="general_filter_action">Filtro</string>
+    <string name="general_filter_by_tags_label">Filtro sipas etiketave</string>
+    <string name="general_filter_add_action">Shto filtër</string>
+    <string name="general_filter_remove_x_action">Largoje filtrin %s</string>
+    <string name="general_filter_empty_row_hint">Prek + për të filtruar</string>
+    <string name="general_show_all_action">Shfaq të gjitha</string>
     <string name="general_result_success_message">Operation successful</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Çliroi %s hapësirë.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Opsione</string>
     <string name="general_details_label">Detajet</string>
     <string name="general_view_action">Pamje</string>
+    <string name="general_open_action">Hap</string>
+    <string name="general_configure_action">Konfiguro</string>
     <string name="general_update_action">Përditëso</string>
     <string name="general_scan_action">Skeno</string>
     <string name="general_close_action">Mbyll</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d artikuj u hoqën</item>
     </plurals>
     <string name="general_search_action">Kërko</string>
+    <string name="general_search_no_matches">Asnjë përputhje</string>
     <string name="general_open_system_settings_action">Hapni cilësimet e sistemit</string>
+    <string name="general_fast_scroller_action">Scrolleri i shpejtë</string>
     <plurals name="result_x_items">
         <item quantity="one">%s artikull</item>
         <item quantity="other">%s artikuj</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Aktivizo shërbimin</string>
     <string name="general_undo_action">Zhbëj</string>
     <string name="general_list_select_all_action">Selekto të gjitha</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d i zgjedhur</item>
+        <item quantity="other">%d të zgjedhur</item>
+    </plurals>
     <string name="general_path_label">Rrugë</string>
     <string name="general_type_label">Lloj</string>
     <string name="general_size_label">Madhësia</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Raporto gabim</string>
     <string name="general_error_ipc_deadobject_title">Lidhja e shërbimit u ndërpre</string>
     <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
+    <string name="general_error_upgrade_required_title">Kërkohet versioni Pro</string>
+    <string name="general_error_upgrade_required_description">Ky është një veçori Pro. Ju lutemi përditësoni SD Maid SE për ta përdorur atë.</string>
     <string name="general_user_label_owner">Pronari</string>
     <string name="general_user_label_system">Sistemi</string>
     <string name="setup_title">Konfigurim</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="appcontrol_systemsettings_open_title">Shfaq rregullime</string>
+    <string name="ui_theme_color_sunset_label">Perëndim dieli</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Kjo veçori kërkon qasje rrënjë, por SD Maid nuk mund ta merrte në këtë pajisje.</string>
+    <string name="access_blocked_root_declined">Kjo veçori kërkon akses root. Mund ta aktivizoni përmes ekranit të konfigurimit.</string>
+    <string name="access_blocked_root_or_shizuku">Kjo veçori kërkon akses root ose Shizuku, i cili nuk është i disponueshëm në këtë pajisje.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Skedar kopjeje sigurie jo i vlefshëm</string>
+    <string name="backup_restore_error_invalid_body">Ky skedar nuk është një kopje sigurie e vlefshme SD Maid ose është i korruptuar.</string>
+    <string name="backup_restore_error_version_body">Kjo kopje sigurie u krijua me një version më të ri të SD Maid. Ju lutemi përditësoni aplikacionin dhe provoni përsëri.</string>
+    <string name="backup_restore_error_restore_failed_title">Rivendosja dështoi</string>
+    <string name="backup_restore_error_restore_failed_body">Këto pjesë nuk mund të rivendosen: %1$s. Konfigurimi i mëparshëm u ruajt dhe mund të kthehet.</string>
+    <string name="backup_restore_error_safety_title">Rivendosja nuk ka filluar</string>
+    <string name="backup_restore_error_safety_body">SD Maid nuk arriti të ruante një pamje të sigurt të konfigurimit tuaj aktual, kështu që asgjë nuk u ndryshua.</string>
+    <string name="backup_restore_error_busy_title">Ju lutemi prisni</string>
+    <string name="backup_restore_error_busy_body">Një detyrë pastrimi ose një operacion tjetër kopje rezerve po xhirohet aktualisht. Përpiquni përsëri kur të ketë përfunduar.</string>
+    <string name="backup_restore_error_schema_title">Kopja rezerve e papajtueshme</string>
+    <string name="backup_restore_error_schema_body">Formati i bazës së të dhënave të kopjes rezerve nuk përputhet me këtë version të SD Maid. Rivendosja e të dhënave të historikut mbështetet vetëm midis versioneve identike të aplikacionit.</string>
 </resources>

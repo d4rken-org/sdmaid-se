@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">Penjadwal selesai</string>
     <string name="scheduler_notification_result_success_message">Semua tugas yang dijadwalkan berhasil dijalankan.</string>
     <string name="scheduler_notification_result_failure_message">Beberapa tugas terjadwal gagal atau mengalami kesalahan. Cobalah menjalankannya secara manual.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Dilewati, layar mati atau terkunci</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Pembersihan aplikasi mungkin dilewati</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Pembersihan aplikasi menggunakan layanan aksesibilitas, yang memerlukan layar terbuka. Menjalankan jadwal saat perangkat terkunci akan dilewati.
+
+Gunakan Shizuku atau root untuk pembersihan latar belakang, atau jadwalkan saat Anda menggunakan perangkat.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Aplikasi sistem mungkin dilewati</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku membersihkan sebagian besar cache di latar belakang, tetapi aplikasi sistem memerlukan layanan aksesibilitas, yang memerlukan layar terbuka. Dengan \"Include system apps\" aktif, aplikasi tersebut dilewati saat perangkat terkunci.
+
+Matikan \"Include system apps\", atau jalankan jadwal saat perangkat tidak terkunci.</string>
     <string name="scheduler_commands_after_schedule_label">Perintah pasca-penjadwalan</string>
     <string name="scheduler_commands_after_schedule_desc">Perintah shell Android yang akan dieksekusi pada akhir jadwal.</string>
     <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk menonaktifkan optimisasi baterai untuk SD Maid jika Anda mengalami masalah dengan penjalanan latar belakang.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid dapat membersihkan sesuai jadwal. Pilih waktu dan alat mana yang akan berjalan, dan SD Maid akan melakukan pekerjaan di latar belakang, (hampir) tidak perlu membuka aplikasi.</string>
+    <string name="tour_scheduler_create_body">Ketuk di sini untuk membuat jadwal baru, lalu atur kapan jadwal itu akan berjalan dan alat mana yang akan disertakan.</string>
 </resources>

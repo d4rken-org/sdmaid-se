@@ -62,4 +62,12 @@
     <string name="corpsefinder_owner_unknown">Neznan lastnik</string>
     <string name="corpsefinder_corpse_hint_keeper">Ta predmet lahko vsebuje podatke, ki bi jih želeli obdržati, čeprav se njihov lastnik odstranja, npr. fotografije ali varnostne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ta predmet ima zelo pogosto ime in bi lahko pripadal nameščenim programom, katere SD Maid ne pozna.</string>
+    <string name="corpsefinder_risk_keeper_chip">Zaželeno</string>
+    <string name="corpsefinder_risk_common_chip">Pogosto</string>
+    <string name="corpsefinder_markers_dialog_title">O teh oznakah</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Brez oznake</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Običajen ostanek. Običajno je varno za brisanje — te datoteke pripadajo aplikacijam, ki niso več nameščene.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">Iskalec trupel najde podatke, ki so ostali od aplikacij, ki ste jih že odstranili. Ne pripada več ničemer nameščenemu, zato je njihovo brisanje varno in sprosti prostor.</string>
+    <string name="tour_corpsefinder_row_body">Vsaka postavka je ostanek podatkov in aplikacija, iz katere izhaja. Oznaka prikazuje, kako prepričan je SD Maid, da je varno za brisanje — tapnite ⓘ na vrhu, da izveste, kaj pomenijo oznake.</string>
 </resources>

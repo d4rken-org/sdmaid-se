@@ -9,4 +9,16 @@
         <item quantity="other">%d căi selectate</item>
     </plurals>
     <string name="picker_home_action">Zone de date</string>
+    <string name="tour_action_next">Următor</string>
+    <string name="tour_action_previous">Anterior</string>
+    <string name="tour_action_done">Terminat</string>
+    <string name="tour_action_cancel">Omite</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Omiți turul?</string>
+    <string name="tour_confirm_message">Poți reactiva tururile oricând din Setări.</string>
+    <string name="tour_confirm_continue">Continuă turul</string>
+    <string name="tour_confirm_dont_show_this_tour">Nu afișa acest tur</string>
+    <string name="tour_confirm_disable_all">Dezactivează toate tururile</string>
+    <string name="navigation_unknown_destination_title">În curând</string>
+    <string name="navigation_unknown_destination_message">Acest ecran este în curs de migrare la noua interfață.</string>
 </resources>

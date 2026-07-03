@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Nimeelewa</string>
     <string name="general_fix_action">Rekebisha</string>
     <string name="general_set_up_action">Sanidi</string>
+    <string name="general_unavailable_label">Haipatikani</string>
     <string name="general_edit_action">Hariri</string>
     <string name="general_na_label">H/P</string>
     <string name="general_empty_label">Tupu</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Kwenye foleni</string>
     <string name="general_progress_deleting">Kufuta</string>
     <string name="general_progress_deleting_x">Kufuta %s</string>
+    <string name="general_sort_by_title">Panga kulingana na</string>
     <string name="general_sort_reverse_action">Hali ya kupanga kinyume</string>
+    <string name="general_sort_oldest_first">La zamani kwanza</string>
+    <string name="general_sort_newest_first">Jipya kwanza</string>
+    <string name="general_sort_name_asc">Jina (A → Z)</string>
+    <string name="general_sort_size_desc">Kubwa kwanza</string>
     <string name="general_tag_system">Mfumo</string>
+    <string name="general_navigate_up_action">Nenda juu</string>
+    <string name="general_filter_action">Chuja</string>
+    <string name="general_filter_by_tags_label">Chuja kwa lebo</string>
+    <string name="general_filter_add_action">Ongeza kichujio</string>
+    <string name="general_filter_remove_x_action">Ondoa kichujio cha %s</string>
+    <string name="general_filter_empty_row_hint">Gusa + ili kuchuja</string>
+    <string name="general_show_all_action">Onyesha vyote</string>
     <string name="general_result_success_message">Imekamilika kwa mafanikio</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Nafasi ya %s imeachiliwa.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Chaguo</string>
     <string name="general_details_label">Maelezo</string>
     <string name="general_view_action">Tazama</string>
+    <string name="general_open_action">Fungua</string>
+    <string name="general_configure_action">Sanidi</string>
     <string name="general_update_action">Sasisha</string>
     <string name="general_scan_action">Changanua</string>
     <string name="general_close_action">Funga</string>
@@ -97,7 +112,9 @@
         <item quantity="other">Vitu %d vimeondolewa</item>
     </plurals>
     <string name="general_search_action">Tafuta</string>
+    <string name="general_search_no_matches">Hakuna matokeo</string>
     <string name="general_open_system_settings_action">Fungua mipangilio ya mfumo</string>
+    <string name="general_fast_scroller_action">Kitelezo cha haraka</string>
     <plurals name="result_x_items">
         <item quantity="one">kitu %s</item>
         <item quantity="other">vitu %s</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Wezesha huduma</string>
     <string name="general_undo_action">Rejesha</string>
     <string name="general_list_select_all_action">Chagua vyote</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d iliyochaguliwa</item>
+        <item quantity="other">%d zimechaguliwa</item>
+    </plurals>
     <string name="general_path_label">Njia</string>
     <string name="general_type_label">Aina</string>
     <string name="general_size_label">Ukubwa</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Ripoti hitilafu</string>
     <string name="general_error_ipc_deadobject_title">Muunganisho wa Huduma Umepotea</string>
     <string name="general_error_ipc_deadobject_description">Muunganisho na huduma muhimu (k.m. Magisk, Shizuku, au huduma zingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali anzisha upya kifaa chako. Ikiwa tatizo linaendelea, angalia masasisho au niwasiliane nami ili niweze kulirekebisha.</string>
+    <string name="general_error_upgrade_required_title">Toleo la Pro linahitajika</string>
+    <string name="general_error_upgrade_required_description">Hii ni kipengele cha Pro. Tafadhali boresha SD Maid SE ili kukitumia.</string>
     <string name="general_user_label_owner">Mmiliki</string>
     <string name="general_user_label_system">Mfumo</string>
     <string name="setup_title">Usanidi</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Kiwango cha hatari</string>
     <string name="settings_category_filter">Kichungi</string>
     <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
+    <string name="ui_theme_color_sunset_label">Machweo</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Kipengele hiki kinahitaji ufikiaji wa root, lakini SD Maid haikuweza kuupata kwenye kifaa hiki.</string>
+    <string name="access_blocked_root_declined">Kipengele hiki kinahitaji ufikiaji wa root. Unaweza kukiwezesha kupitia skrini ya usanidi.</string>
+    <string name="access_blocked_root_or_shizuku">Kipengele hiki kinahitaji ufikiaji wa root au Shizuku, ambao haupatikani kwenye kifaa hiki.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Faili batili ya nakala rudufu</string>
+    <string name="backup_restore_error_invalid_body">Faili hili si nakala rudufu halali ya SD Maid au limeharibika.</string>
+    <string name="backup_restore_error_version_body">Nakala rudufu hii iliundwa kwa toleo jipya zaidi la SD Maid. Tafadhali sasisha programu na ujaribu tena.</string>
+    <string name="backup_restore_error_restore_failed_title">Urejeshaji haukufanikiwa</string>
+    <string name="backup_restore_error_restore_failed_body">Sehemu hizi hazikuweza kurejeshwa: %1$s. Usanidi wako wa awali ulihifadhiwa na unaweza kurejeshwa.</string>
+    <string name="backup_restore_error_safety_title">Urejeshaji haujaanza</string>
+    <string name="backup_restore_error_safety_body">SD Maid haikuweza kuhifadhi picha salama ya usanidi wako wa sasa, hivyo hakuna kilichobadilika.</string>
+    <string name="backup_restore_error_busy_title">Tafadhali subiri</string>
+    <string name="backup_restore_error_busy_body">Kazi ya kusafisha au operesheni nyingine ya nakala rudufu inaendelea. Jaribu tena baada ya kukamilika.</string>
+    <string name="backup_restore_error_schema_title">Nakala rudufu isiyolingana</string>
+    <string name="backup_restore_error_schema_body">Muundo wa hifadhidata wa nakala rudufu haulingani na toleo hili la SD Maid. Urejeshaji wa data ya historia unasaidiwa tu kati ya matoleo sawa ya programu.</string>
 </resources>

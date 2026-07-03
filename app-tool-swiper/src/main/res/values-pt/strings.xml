@@ -36,6 +36,19 @@
         <item quantity="one">%d item sem decisão permanecerá para revisão posterior.</item>
         <item quantity="other">%d itens sem decisão permanecerão para posterior análise.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Esta sessão destina-se a um volume de armazenamento completo — eliminar aqui abrange todas as pastas desse armazenamento.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…e mais %d pasta</item>
+        <item quantity="other">…e mais %d pastas</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Compreendo que estes ficheiros serão eliminados permanentemente.</string>
+    <string name="swiper_sensitive_root_warning_title">Analisar todo o armazenamento?</string>
+    <string name="swiper_sensitive_root_warning_message">Analisar %1$s inclui todos os ficheiros neste armazenamento — fotografias, documentos, transferências, dados de aplicações e muito mais. Continuar?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continuar mesmo assim</string>
+    <string name="swiper_session_risky_label">Análise completa do armazenamento</string>
+    <string name="swiper_session_risky_info_message">Esta sessão visa a raiz de um volume de armazenamento, portanto todos os ficheiros nesse armazenamento serão processados — fotografias, documentos, transferências, dados de aplicações e muito mais.
+
+As análises completas de armazenamento podem devolver muitos itens, incluindo ficheiros que pode não ter pretendido revisar. Aplique um filtro de tipo de ficheiro para reduzir o âmbito da análise.</string>
     <string name="swiper_delete_x_action">Apagar %1$d</string>
     <string name="swiper_settings_swap_directions_title">Inverter a direção da esfregona</string>
     <string name="swiper_settings_swap_directions_summary">Deslize a esfregona para a esquerda para manter, para a direita para excluir.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Digite um nome para esta sessão</string>
     <string name="swiper_sessions_current_sessions">Sessões atuais</string>
     <string name="swiper_session_paths_label">Caminhos</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…e mais %d</item>
+        <item quantity="other">…e mais %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Estado</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d para manter</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenhum ficheiro correspondente encontrado</string>
     <string name="swiper_open_externally_action">Abrir em aplicação externa</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Deslize uma foto para decidir o seu destino: para os lados para guardar ou apagar, para cima para ignorar, para baixo para desfazer. Os botões abaixo fazem o mesmo — e mostram qual é qual.</string>
+    <string name="tour_swiper_openin_body">Este botão abre a foto noutra aplicação, útil para verificar antes de decidir.</string>
+    <string name="tour_swiper_preview_body">Este botão abre uma pré-visualização em ecrã completo para uma visão mais detalhada.</string>
+    <string name="tour_swiper_actions_body">Não gosta de deslizar? Também temos botões! Ignorar deixa por decidir para depois, e pressionar longamente Ignorar exclui um ficheiro de futuras análises. Desfazer reverte a última escolha.</string>
+    <string name="tour_swiper_review_body">As opções de manter e eliminar estão apenas em fase de preparação. Abra Revisão para analisá-las e aplicar as eliminações quando estiver pronto.</string>
 </resources>

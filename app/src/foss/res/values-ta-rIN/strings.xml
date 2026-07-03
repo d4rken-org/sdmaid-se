@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE ஐ மேம்படுத்தவும்</string>
     <string name="upgrades_dashcard_body">கூடுதல் அம்சங்களைத் திறக்கவும் மற்றும் தொடர்ச்சியான மேம்பாட்டை ஆதரிக்க புரவலராக மாறவும்!</string>
     <string name="upgrades_dashcard_upgrade_action">மேம்படுத்தவும்</string>
-    <string name="upgrade_screen_title">SD Maid ஐ மேம்படுத்தவும்</string>
+    <string name="upgrade_screen_title">SD Maid ஐ ஆதரிக்கவும்</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்பனை செய்யாது. தொடர்ச்சியான மேம்பாடு உங்களால் மட்டுமே சாத்தியமாகும்.</string>
     <string name="upgrade_screen_how_title">எப்படி உதவுவது</string>
     <string name="upgrade_screen_how_body">புரவலராக மாறி மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்! அனைத்து கூடுதல் அம்சங்களையும் செயல்படுத்த மற்றும் எனது GitHub Sponsors சுயவிவரத்தைத் திறக்க கீழே உள்ள பொத்தானைத் தட்டவும்.</string>
-    <string name="upgrade_screen_why_title">இது மந்திரம் செய்கிறது 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner நீக்குதல் செயல்பாடு 💯\n• திட்டமிடப்பட்ட செயல்பாடுகள் ⏰\n• அனைத்து கருவிகளுக்கும் கூடுதல் விருப்பங்கள் ⚙️\n• உங்கள் சொந்த நீக்குதல் விதிகள் ✍️\n• உந்துதல் பெற்ற டெவலப்பர் 🧙\nமற்றும் பலவும்…</string>
+    <string name="upgrade_screen_why_title">மேம்பாட்டு நன்மைகள்</string>
+    <string name="upgrade_screen_why_body">• பயன்பாட்டு கேஷ்களையும் நீக்கக்கூடிய தரவையும் சுத்தம் செய்யவும்
+• நகல் கோப்புகளை அகற்றவும்
+• திட்டமிடப்பட்ட சுத்தங்களை செயல்படுத்தவும்
+• தனிப்பயன் வடிப்பான்கள் மற்றும் சுத்தி விதிகளை உருவாக்கவும்
+• சேமிப்பக போக்குகள் மற்றும் சுத்தி வரலாற்றைக் கண்காணிக்கவும்
+• பயன்பாட்டில் கூடுதல் சிறப்பியல்புகளும் கட்டுப்பாடுகளும்
+• திறந்த மூல பணிக்கு ஆதரவு</string>
     <string name="upgrade_screen_sponsor_action">மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்</string>
     <string name="upgrade_screen_sponsor_action_hint">மாற்று விளம்பரங்கள், பகுப்பாய்வுகள் மற்றும் Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">திறந்த மூல மேம்பாட்டை ஆதரித்ததற்கு நன்றி ❤️</string>

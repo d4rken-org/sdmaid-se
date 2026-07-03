@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">En sekundær lagring, vanligvis et flyttbart minnekort. Inneholder mediefiler og data fra apper som støtter det.</string>
     <string name="analyzer_storage_type_tertiary_title">Bærbar lagring</string>
     <string name="analyzer_storage_type_tertiary_description">En bærbar lagring, f.eks. en flash-stasjon koblet til USB-porten.</string>
+    <string name="analyzer_storage_identifier_internal">Internminne</string>
     <string name="analyzer_storage_content_title">Lagringsinnhold</string>
     <string name="analyzer_storage_content_type_app_label">Apper</string>
     <string name="analyzer_storage_content_type_app_description">Plass okkupert av installerte apper og deres data (dvs. applikasjonsfiler, data og buffere).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Systemapper og systemdata. Apper og data fra andre brukere, hvis flere brukerkontoer er angitt på denne enheten.</string>
     <string name="analyzer_storage_content_type_system_other_label">Andre</string>
     <string name="analyzer_storage_content_type_system_info">Filer som ikke passer inn i kategoriene Apper eller Brukerfiler. Bla gjennom bare — sletting støttes ikke. Noen områder kan være ufullstendige på grunn av tilgangsbegrensninger.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Filer kan ikke matches til appene som eier dem akkurat nå. Størrelser vises bare som referanse — sletting, filtre og Swiper er deaktivert.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systemfiler og andre data som SD Maid ikke kunne få tilgang til eller kategorisere. Operativsystemet begrenser opplistingen av innholdet i noen områder.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
     <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan frigjøres ved å avinstallere appen eller arkivere den (tilgjengelig på nyere Android-versjon).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne appen bruker %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denne appen er arkivert.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Se hva som faktisk fyller opp lagringen din. Analyzer kartlegger hvor plassen din går. Hvert av disse kortene er en lagringsenhet på enheten din.</string>
+    <string name="tour_analyzer_storage_body">Åpne en lagringsenhet for å dele den opp i apper, media og filer, og berør gjentatte ganger for å finne de største synderne.</string>
 </resources>

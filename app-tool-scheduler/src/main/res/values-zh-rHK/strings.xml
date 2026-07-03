@@ -34,7 +34,19 @@
     <string name="scheduler_notification_result_title">計劃任務已完成</string>
     <string name="scheduler_notification_result_success_message">所有計劃任務已成功運行。</string>
     <string name="scheduler_notification_result_failure_message">部分計劃任務失敗或遇到錯誤。請嘗試手動執行它們。</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">已略過，螢幕已關閉或已鎖定</string>
+    <string name="scheduler_acs_screenlocked_hint_title">應用程式清理可能會被略過</string>
+    <string name="scheduler_acs_screenlocked_hint_body">應用程式清理使用無障礙服務，此服務需要螢幕解鎖。裝置鎖定時的排定執行會被略過。
+
+使用 Shizuku 或 Root 進行背景清理，或在您使用裝置時排定執行。</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">系統應用程式可能會被略過</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku 在背景清理大多數快取，但系統應用程式需要無障礙服務，此服務需要螢幕解鎖。啟用「包含系統應用程式」時，裝置鎖定時這些應用程式會被略過。
+
+關閉「包含系統應用程式」，或在解鎖時執行排程。</string>
     <string name="scheduler_commands_after_schedule_label">排程後指令</string>
     <string name="scheduler_commands_after_schedule_desc">將在排程結束時執行的 Android shell 指令。</string>
     <string name="scheduler_battery_optimization_hint">此功能可能需要停用 SD 女僕的電池最佳化才能正常運作。</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid 可以按排程自動清理。選擇執行時間和要執行的工具，它會在背景執行工作，（幾乎）無需開啟應用程式。</string>
+    <string name="tour_scheduler_create_body">輕按此處以建立新排程，然後設定執行時間和要包括的工具。</string>
 </resources>

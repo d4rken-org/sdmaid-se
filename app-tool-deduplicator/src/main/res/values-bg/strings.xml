@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Изтриване на всички освен едно копие във всеки избран комплект дублирани файлове?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Изтриване на всички файлове във всеки избран комплект дублирани файлове? Няма да остане никакъв файл!</string>
     <string name="deduplicator_delete_all_toggle_msg">Изтриване на всички копия. Няма да остане никакъв файл!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Да се изтрие %1$d дубликат в този набор, освобождавайки %2$s? Запазеното копие остава.</item>
+        <item quantity="other">Да се изтрият %1$d дубликата в този набор, освобождавайки %2$s? Запазеното копие остава.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s за освобождаване</string>
+    <string name="deduplicator_action_delete_set">Изтриване на набор дубликати</string>
+    <string name="deduplicator_action_open_preview">Отваряне на преглед</string>
+    <string name="deduplicator_marked_for_deletion">Отбелязано за изтриване</string>
+    <string name="deduplicator_cluster_preview_image">Преглед на набор дубликати</string>
+    <string name="deduplicator_selection_keep_one_required">Поне един файл в набор дубликати трябва да остане. Активирайте „Make \'Delete all\' possible“ в настройките, за да отмените това.</string>
     <string name="deduplicator_progress_comparing_files">Сравняване на файлове</string>
     <string name="deduplicator_details_cluster_title">Комплект дубликати</string>
     <string name="deduplicator_matches_exact_label">Точни копия</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Предпочитане на по-малки файлове</string>
     <string name="deduplicator_view_mode_groups_label">Групи</string>
     <string name="deduplicator_view_mode_directories_label">Папки</string>
+    <string name="tour_deduplicator_details_cluster_body">Всички тези файлове изглежда са един и същ елемент или мултимедийно съдържание, куп дубликати.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Файловете с тази икона ще бъдат изтрити; оставащият файл в групата е този, който SD Maid пази. Можете да промените начина, по който се избира пазеният файл, в настройките на стратегията за изтриване.</string>
 </resources>

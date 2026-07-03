@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Brugere med særlige tilgængelighedsbehov kan aktivere denne tjeneste, så SD Maid kan automatisere opgaver, der ellers kræver kedelig manuel brugerinteraktion (f.eks. cachesletning).\n\nEksempel: Hvis du beder SD Maid om at stoppe flere apps, bruges tjenesten til at åbne hver apps’ indstillingsskærme, finde knappen \"Gennemtving Stop\" og trykke på den.\n\nSD Maid viser altid tydeligt, når tjenesten bruges, og giver brugeren mulighed for straks at annullere enhver interaktion.\n\nIngen handlinger udføres uden brugerens forudgående godkendelse. Tjenesten kan til enhver tid deaktiveres uden konsekvenser.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagerer med din enhed. Skærmen kan ikke bruges samtidig. Vent, indtil handlingen er fuldført, eller afbryd den.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid interagerer med din enhed. Det er ikke muligt at bruge skærmen på samme tid. Vent, indtil operationen er færdig, eller tryk på Hjem-knappen for at annullere.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid interagerer med din enhed. Det er ikke muligt at bruge skærmen på samme tid. Vent, indtil operationen er færdig.</string>
     <string name="automation_active_title">SD Maid arbejder</string>
     <string name="automation_error_no_consent_title">Automatiseringsfejl</string>
     <string name="automation_error_no_consent_body">Tilgængelighedstjenesten er ikke opsat. Fuldfør opsætningen, og giv din tilladelse.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">En planlagt opgave forsøgte at bruge tilgængelighedstjenesten, men den var ikke tilgængelig. Hvis du ikke har brug for dette, skal du deaktivere indstillingen \"Tilgængelighedstjeneste\" i planlæggerindstillingerne.</string>
     <string name="automation_error_no_settings_title">Indstillingsskærm utilgængelig</string>
     <string name="automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
+    <string name="automation_error_interference_title">Indstillingsskærm blokeret</string>
+    <string name="automation_error_interference_body">En anden app (%1$s) blokerer systemindstillingsskærmen, så SD Maid kan ikke fortsætte. Deaktiver denne apps app-lås eller skærmbeskyttelse for systemindstillingerne, og prøv derefter igen.</string>
     <string name="automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
     <string name="automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
 </resources>

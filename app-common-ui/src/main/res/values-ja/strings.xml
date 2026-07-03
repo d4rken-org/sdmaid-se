@@ -7,4 +7,16 @@
         <item quantity="other">%d個のパスが選択されました</item>
     </plurals>
     <string name="picker_home_action">データ領域</string>
+    <string name="tour_action_next">次へ</string>
+    <string name="tour_action_previous">前へ</string>
+    <string name="tour_action_done">完了</string>
+    <string name="tour_action_cancel">スキップ</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">ツアーをスキップしますか？</string>
+    <string name="tour_confirm_message">設定からいつでもツアーを再度有効にできます。</string>
+    <string name="tour_confirm_continue">ツアーを続行</string>
+    <string name="tour_confirm_dont_show_this_tour">このツアーを表示しない</string>
+    <string name="tour_confirm_disable_all">すべてのツアーを無効にする</string>
+    <string name="navigation_unknown_destination_title">近日公開予定</string>
+    <string name="navigation_unknown_destination_message">このスクリーンはまだ新しいUIへ移行中です。</string>
 </resources>

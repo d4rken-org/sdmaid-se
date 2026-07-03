@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">Naudokite parinktį \"Atkurti pirkimą\", kad atkurtumėte savo pirkimą. Jei problema išlieka, pabandykite išvalyti Google Play talpyklą ir paleisti įrenginį iš naujo.</string>
     <string name="upgrade_screen_title">Gaukite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Privalumai</string>
-    <string name="upgrade_screen_benefits_body">• Programų valymas 💯\n• Suplanuotos operacijos ⏰\n• Papildomi parametrai visiems įrankiams ⚙️\n• Jūsų trynimo taisyklės ✍️\n• Motyvuotas kūrėjas 🧙\nir daugiau…</string>
+    <string name="upgrade_screen_benefits_title">Atnaujinimo privalumai</string>
+    <string name="upgrade_screen_benefits_body">• Išvalyti programų talpyklas ir nereikalingus duomenis
+• Pašalinti pasikartojančius failus
+• Įjungti suplanuotą valymą
+• Sukurti pasirinktinus filtrus ir valytojo taisykles
+• Sekti saugyklos tendencijas ir valytojo istoriją
+• Daugiau funkcijų ir valdymo galimybių visoje programoje
+• Remti tolesnę programėlės plėtrą</string>
     <string name="upgrade_screen_how_title">Parinktys</string>
     <string name="upgrade_screen_how_body">Galite rinktis tarp vienkartinio pirkimo ir pigesnės metinės prenumeratos.\nPrenumerata prasideda nemokamuoju 14 dienų bandomuoju laikotarpiu, po kurio jums bus imamas mokestis kartą per metus. Bandomasis laikotarpis ir prenumerata gali būti atšaukti bet kada.\nTos pačios funkcijos, tik skirtingi kainų modeliai.</string>
+    <string name="upgrade_screen_subscription_offer_title">Metinė prenumerata</string>
+    <string name="upgrade_screen_iap_offer_title">Nusipirkti vieną kartą</string>
+    <string name="upgrade_screen_offer_recommended">Rekomenduojama</string>
+    <string name="upgrade_screen_offers_unavailable_message">Šiuo metu nepavyko įkelti kainų. Patikrinkite Google Play ir po kurio laiko bandykite dar kartą.</string>
     <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą 14 dienų bandomąjį laikotarpį</string>
     <string name="upgrade_screen_subscription_action">Prenumeruoti</string>
     <string name="upgrade_screen_subscription_action_hint">Prenumerata kainuoja %s per metus.</string>

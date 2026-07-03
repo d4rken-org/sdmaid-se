@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">شیڈیولر مکمل</string>
     <string name="scheduler_notification_result_success_message">تمام شیڈیول شدہ کام کامیابی سے چلے۔</string>
     <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">چھوڑ دیا گیا، اسکرین بند تھی یا لاک تھی</string>
+    <string name="scheduler_acs_screenlocked_hint_title">ایپ صفائی چھوڑ دی جا سکتی ہے</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ایپ صفائی رسائی کی سہولت استعمال کرتی ہے، جس کے لیے اسکرین کو کھلا ہونا ضروری ہے۔ جب ڈیوائس لاک ہو تو شیڈول شدہ رن چھوڑ دیے جاتے ہیں۔\n\nپس منظر میں صفائی کے لیے Shizuku یا root استعمال کریں، یا اسے ڈیوائس استعمال کرتے وقت شیڈول کریں۔</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">سسٹم ایپس چھوڑ دیے جا سکتے ہیں</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku پس منظر میں زیادہ تر کیشز صاف کرتا ہے، لیکن سسٹم ایپس کو رسائی کی سہولت کی ضرورت ہے، جس کے لیے اسکرین کا کھلا ہونا ضروری ہے۔ \"سسٹم ایپس شامل کریں\" آن ہونے پر، جب ڈیوائس لاک ہو تو یہ چھوڑ دیے جاتے ہیں۔\n\n\"سسٹم ایپس شامل کریں\" کو بند کریں، یا اسکرین کھلی ہونے پر شیڈول چلائیں۔</string>
     <string name="scheduler_commands_after_schedule_label">شیڈیول کے بعد کے کمانڈز</string>
     <string name="scheduler_commands_after_schedule_desc">Android شیل کمانڈز جو شیڈیول کے اختتام پر تعین کیے جائیں گے۔</string>
     <string name="scheduler_battery_optimization_hint">اگر آپ کو پس منظر کی تکمیل میں مسائل کا سامنا ہو تو SD Maid کے لیے بیٹری آپٹیمائزیشن بند کرنے پر غور کریں۔</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid شیڈول کے مطابق صفائی کر سکتا ہے۔ وقت منتخب کریں اور کون سے ٹولز چلانے ہیں یہ طے کریں، اور یہ پس منظر میں کام کرے گا، ایپ کو کھولنے کی (تقریباً) کوئی ضرورت نہیں۔</string>
+    <string name="tour_scheduler_create_body">نیا شیڈول بنانے کے لیے یہاں ٹیپ کریں، پھر یہ سیٹ کریں کہ یہ کب چلے اور کون سے ٹولز شامل ہوں۔</string>
 </resources>

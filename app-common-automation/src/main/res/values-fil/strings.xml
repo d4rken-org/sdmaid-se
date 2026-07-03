@@ -8,6 +8,8 @@ Palaging malinaw na ipapakita ng SD Maid kung kailan ginagamit ang service na it
 
 Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disable ulit ang service na ito anumang oras nang walang masamang epekto.</string>
     <string name="automation_screenoverlay_explanation">Nakikipag-ugnayan ang SD Maid sa inyong device. Hindi maaaring gamitin ang screen sa parehong oras. Maghintay hanggang matapos ang operasyon o kanselahin ito.</string>
+    <string name="automation_screenoverlay_explanation_tv">Nakikipag-ugnayan ang SD Maid sa iyong device. Hindi posible na gamitin ang screen sa parehong oras. Maghintay hanggang matapos ang operasyon, o pindutin ang Home button upang kanselahin.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">Nakikipag-ugnayan ang SD Maid sa iyong device. Hindi posible na gamitin ang screen sa parehong oras. Maghintay hanggang matapos ang operasyon.</string>
     <string name="automation_active_title">Tumatrabaho ang SD Maid</string>
     <string name="automation_error_no_consent_title">Error sa automation</string>
     <string name="automation_error_no_consent_body">Hindi naka-set up ang accessibility service. Kumpletuhin ang setup at magbigay ng consent.</string>
@@ -27,6 +29,8 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="automation_error_scheduler_body">Sinubukan ng isang naka-iskedyul na gawain na gamitin ang accessibility service, ngunit hindi ito available. Kung hindi mo ito kailangan, i-disable ang opsyong \"Accessibility service\" sa mga setting ng scheduler.</string>
     <string name="automation_error_no_settings_title">Hindi available ang Settings screen</string>
     <string name="automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
+    <string name="automation_error_interference_title">Ang Settings screen ay naka-block</string>
+    <string name="automation_error_interference_body">Ang ibang app (%1$s) ay naghahadlang sa system settings screen, kaya hindi maaaring magpatuloy ang SD Maid. I-disable ang app-lock o screen protection ng app na iyon para sa system settings, pagkatapos subukan ulit.</string>
     <string name="automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
     <string name="automation_progress_find_ok_confirmation">Sinusubukan na i-confirm ang nakaraang aksyon (mga keyword: %s)</string>
 </resources>

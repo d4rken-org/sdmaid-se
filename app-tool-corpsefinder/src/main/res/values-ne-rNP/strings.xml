@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">अज्ञात मालिक</string>
     <string name="corpsefinder_corpse_hint_keeper">यो वस्तुमा त्यसको मालिक अनइन्स्टल भएको भएतापनि तपाईंले राख्न चाहनुभएको डेटा हुन सक्छ, जस्तै फोटो वा ब्याकअप।</string>
     <string name="corpsefinder_corpse_hint_common">यो वस्तुको धेरै सामान्य नाम छ र यो अझै स्थापित एप्सको हुन सक्छ जुन SD Maid लाई थाहा छैन।</string>
+    <string name="corpsefinder_risk_keeper_chip">वांछनीय</string>
+    <string name="corpsefinder_risk_common_chip">सामान्य</string>
+    <string name="corpsefinder_markers_dialog_title">यी मार्करहरू बारे</string>
+    <string name="corpsefinder_markers_dialog_normal_label">कुनै मार्कर छैन</string>
+    <string name="corpsefinder_markers_dialog_normal_description">मानक अवशेष। हटाउन सामान्यतः सुरक्षित — यी फाइलहरू अब स्थापित नभएका अनुप्रयोगहरूको हुन्।</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ले तपाईंले पहिले नै अनइन्स्टल गरेका अनुप्रयोगहरूद्वारा छोडिएको डेटा खोज्छ। यो अब कुनै पनि स्थापित कुराको नहुन्छ, त्यसैले यो हटाउन सुरक्षित छ र स्थान मुक्त गर्छ।</string>
+    <string name="tour_corpsefinder_row_body">प्रत्येक वस्तु अवशेष डेटा र यो कहाँबाट आएको अनुप्रयोग हो। मार्करले देखाउँछ कि SD Maid कति आत्मविश्वास छ कि यो हटाउन सुरक्षित छ — मार्करहरूको अर्थ जान्नको लागि शीर्षमा ⓘ ट्याप गर्नुहोस्।</string>
 </resources>

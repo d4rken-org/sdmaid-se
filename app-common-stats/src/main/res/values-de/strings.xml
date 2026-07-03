@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Primärspeicher</string>
     <string name="stats_storage_type_secondary">Sekundärspeicher</string>
     <string name="stats_storage_type_portable">Tragbarer Speicher</string>
+    <string name="stats_space_history_delete_storage_title">Speicherverlauf löschen?</string>
+    <string name="stats_space_history_delete_storage_desc">Alle Verlaufsdaten für diesen Speicher werden dauerhaft gelöscht.</string>
 </resources>

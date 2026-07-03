@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Tamaño</string>
     <string name="appcontrol_list_sortmode_screentime_label">Tiempo de pantalla</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Los tamaños de las aplicaciones son estimados por razones de rendimiento. Usa la herramienta Analizador de Almacenamiento para datos más precisos.</string>
+    <string name="appcontrol_list_filteroptions_label">Opciones de filtro</string>
+    <string name="appcontrol_list_fastscroller_action">Desplazador rápido</string>
     <string name="appcontrol_progress_uninstalling_app">Desinstalando aplicación</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplicación fue desinstalada</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Instalado en: %s</string>
     <string name="shortcut_appcontrol_short">Control de Aplicaciones</string>
     <string name="shortcut_appcontrol_long">Gestionar las aplicaciones instaladas</string>
+    <string name="tour_appcontrol_search_body">Busca una app por nombre. Útil en dispositivos con muchas apps instaladas.</string>
+    <string name="tour_appcontrol_filter_body">Filtra la lista por apps de usuario/sistema, estado habilitado, actividad reciente y más. Los filtros activos aparecen como etiquetas aquí.</string>
+    <string name="tour_appcontrol_sort_body">Ordena apps por nombre, fecha de instalación, última actualización, tamaño o tiempo en pantalla. Toca la misma opción para invertir la dirección.</string>
+    <string name="tour_appcontrol_app_row_body">Toca una app para abrir sus detalles y acciones disponibles. Presiona largo para iniciar una selección y usa acciones en lote.</string>
 </resources>

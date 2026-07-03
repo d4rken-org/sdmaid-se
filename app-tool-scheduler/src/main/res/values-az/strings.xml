@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">Planlayıcı tamamlandı</string>
     <string name="scheduler_notification_result_success_message">Bütün planlaşdırılmış tapşırıqlar uğurla işlədi.</string>
     <string name="scheduler_notification_result_failure_message">Bəzi planlaşdırılmış tapşırıqlar uğursuz oldu və ya xətalarla qarşılaşdı. Onları əl ilə işlətməyi cəhd edin.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Atlandı, ekran söndürülmüş və ya kilidli idi</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Tətbiq təmizliyi atlana bilər</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Tətbiq təmizliyi əlçatımlılıq xidmətindən istifadə edir, bu da ekranın kilidsiz olmasını tələb edir. Cihaz kilidli olduğu zaman planlaşdırılmış işlər atlanır.\n\nArxa fonda təmizləmə üçün Shizuku və ya root istifadə edin, ya da onu cihazdan istifadə etdiyiniz vaxta planlaşdırın.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistem tətbiqləri atlana bilər</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku əksər keşləri arxa fonda təmizləyir, lakin sistem tətbiqləri əlçatımlılıq xidmətinə ehtiyac duyur, bu da ekranın kilidsiz olmasını tələb edir. \"Sistem tətbiqlərini daxil et\" aktivdirsə, cihaz kilidli olduğu zaman bunlar atlanır.\n\n\"Sistem tətbiqlərini daxil et\" seçimini söndürün, ya da cədvəli cihaz kilidsiz olduğu zaman işə salın.</string>
     <string name="scheduler_commands_after_schedule_label">Plan sonrası əmrlər</string>
     <string name="scheduler_commands_after_schedule_desc">Planın sonunda icra ediləcək Android shell əmrləri.</string>
     <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi düşünün.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid cədvəl üzrə təmizləmə edə bilər. Bir vaxt və hansı alətlərin işləyəcəyini seçin, o da işi arxa fonda görəcək — demək olar ki, tətbiqi açmağa ehtiyac qalmayacaq.</string>
+    <string name="tour_scheduler_create_body">Yeni cədvəl yaratmaq üçün buraya toxunun, sonra nə vaxt işləyəcəyini və hansı alətlərin daxil olacağını təyin edin.</string>
 </resources>

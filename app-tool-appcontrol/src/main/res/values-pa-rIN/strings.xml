@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">ਆਕਾਰ</string>
     <string name="appcontrol_list_sortmode_screentime_label">ਸਕ੍ਰੀਨ ਸਮਾਂ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ਕਾਰਗੁਜ਼ਾਰੀ ਕਾਰਨਾਂ ਕਰਕੇ ਐਪ ਦੇ ਆਕਾਰ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਇਆ ਜਾਂਦਾ ਹੈ। ਵਧੇਰੇ ਸਟੀਕ ਡਾਟਾ ਲਈ StorageAnalyzer ਟੂਲ ਵਰਤੋ।</string>
+    <string name="appcontrol_list_filteroptions_label">ਫਿਲਟਰ ਵਿਕਲਪ</string>
+    <string name="appcontrol_list_fastscroller_action">ਤੇਜ਼ ਸਕ੍ਰੋਲਰ</string>
     <string name="appcontrol_progress_uninstalling_app">ਐਪ ਨੂੰ ਅਣਸਥਾਪਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ਐਪ ਅਣਸਥਾਪਿਤ ਕੀਤੀ ਗਈ</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">ਸਥਾਪਿਤ: %s</string>
     <string name="shortcut_appcontrol_short">ਐਪ ਕੰਟਰੋਲ</string>
     <string name="shortcut_appcontrol_long">ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ</string>
+    <string name="tour_appcontrol_search_body">ਇੱਕ ਐਪ ਨੂੰ ਨਾਮ ਦੁਆਰਾ ਲੱਭੋ। ਬਹੁਤ ਸਾਰੀਆਂ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਸ ਵਾਲੀਆਂ ਡਿਵਾਇਸਾਂ \'ਤੇ ਲਾਭਦਾਇਕ।</string>
+    <string name="tour_appcontrol_filter_body">ਸੂਚੀ ਨੂੰ ਯੂਜ਼ਰ/ਸਿਸਟਮ ਐਪਸ, ਸਮਰਥ ਸਥਿਤੀ, ਸਭ ਤੋਂ ਹਾਲੀਆ ਕਾਰਜਕਲਾਪ, ਅਤੇ ਹੋਰ ਕੁਝ ਦੁਆਰਾ ਸੀਮਿਤ ਕਰੋ। ਸਰਗਰਮ ਫਿਲਟਰ ਇੱਥੇ ਚਿਪਸ ਦੇ ਤੌਰ \'ਤੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।</string>
+    <string name="tour_appcontrol_sort_body">ਨਾਮ, ਇੰਸਟਾਲ ਮਿਤੀ, ਆਖਰੀ ਅਪਡੇਟ, ਸਾਈਜ਼, ਜਾਂ ਸਕ੍ਰੀਨ ਸਮਾਂ ਦੁਆਰਾ ਐਪਸ ਨੂੰ ਆਰਡਰ ਦਿਓ। ਦਿਸ਼ਾ ਪਲਟਾਉਣ ਲਈ ਉਸੇ ਵਿਕਲਪ ਨੂੰ ਟੈਪ ਕਰੋ।</string>
+    <string name="tour_appcontrol_app_row_body">ਇਸ ਦੇ ਵੇਰਵੇ ਅਤੇ ਉਪਲਬਧ ਕਾਰਜ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪ ਨੂੰ ਟੈਪ ਕਰੋ। ਚੋਣ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਲੰਬੇ ਸਮੇਂ ਲਈ ਦਬਾਓ ਅਤੇ ਸਮੂਹੀ ਕਾਰਜ ਵਰਤੋ।</string>
 </resources>

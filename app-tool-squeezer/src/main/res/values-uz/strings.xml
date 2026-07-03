@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Joy tejash uchun rasmlarni siqish.</string>
+    <string name="squeezer_explanation_short">Xotira bo\'shatish uchun rasm va videolarni siqing.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d rasm topildi</item>
-        <item quantity="other">%d rasm topildi</item>
+        <item quantity="one">%d element topildi</item>
+        <item quantity="other">%d element topildi</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s tejash mumkin</item>
         <item quantity="other">~%s tejash mumkin</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d rasm siqildi</item>
-        <item quantity="other">%d rasm siqildi</item>
+        <item quantity="one">%d element siqildi</item>
+        <item quantity="other">%d element siqildi</item>
+    </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d muvaffaqiyatsiz</item>
+        <item quantity="other">%d muvaffaqiyatsiz</item>
+    </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d ta o\'zgarishsiz saqlandi (metama\'lumotlarni saqlab qolib bo\'lmadi)</item>
+        <item quantity="other">%d ta o\'zgarishsiz saqlandi (metama\'lumotlarni saqlab qolib bo\'lmadi)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d fayl o\'tkazib yuborildi (mavjud emas)</item>
+        <item quantity="other">%d fayl o\'tkazib yuborildi (mavjud emas)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d ta o\'tkazib yuborildi (HDR/chuqurlik saqlanib qoldi)</item>
+        <item quantity="other">%d ta o\'tkazib yuborildi (HDR/chuqurlik saqlanib qoldi)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d rasm tanlandi</item>
-        <item quantity="other">%d rasm tanlandi</item>
+        <item quantity="one">%d element tanlandi</item>
+        <item quantity="other">%d element tanlandi</item>
     </plurals>
     <string name="squeezer_min_size_title">Minimal fayl hajmi</string>
-    <string name="squeezer_min_size_description">Bu hajmdan kichik rasmlarni o\'tkazib yuborish.</string>
+    <string name="squeezer_min_size_description">Ushbu o\'lchamdan kichik fayllarni o\'tkazib yuboring.</string>
     <string name="squeezer_min_age_title">Minimal fayl yoshi</string>
-    <string name="squeezer_min_age_description">Faqat bu yoshdan katta rasmlarni qo\'shish.</string>
-    <string name="squeezer_compression_settings_label">Siqish sozlamalari</string>
-    <string name="squeezer_quality_description">Past sifat kichikroq fayl hajmini anglatadi, lekin rasm sifati pasayadi.</string>
-    <string name="squeezer_types_category_label">Rasm turlari</string>
+    <string name="squeezer_min_age_description">Faqat ushbu yoshdan katta fayllarni qo\'shing.</string>
+    <string name="squeezer_compression_settings_label">Umumiy</string>
+    <string name="squeezer_quality_label">Sifat</string>
+    <string name="squeezer_quality_title">Siqish sifati</string>
+    <string name="squeezer_quality_description">Past sifat fayl hajmini kichraytiradi, lekin ko\'rinish sifatini pasaytiradi.</string>
+    <string name="squeezer_quality_example_format">Misol: %1$s rasm → %3$d%% sifatda ~%2$s tejaydi</string>
+    <string name="squeezer_quality_warning_low">Past sifat ko\'rinadigan artefaktlarni keltirib chiqarishi mumkin.</string>
+    <string name="squeezer_quality_warning_high">Juda yuqori sifat minimal joy tejaydi.</string>
+    <string name="squeezer_types_category_label">Rasm sozlamalari</string>
+    <string name="squeezer_video_settings_category_label">Video sozlamalari</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG rasmlarni qo\'shish (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP rasmlarni qo\'shish (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">HEIC/HEIF rasm fayllarini (.heic, .heif) qo\'shish. Sana, joylashuv va boshqa EXIF metama\'lumotlari saqlanadi. HDR kuchayish xaritalari, chuqurlik ma\'lumotlari va Live/Motion Photo qo\'shimchalarini saqlab qolib bo\'lmaydi; ko\'p rasmli fayllar o\'tkazib yuboriladi.</string>
+    <string name="squeezer_type_video_title">MP4 Video</string>
+    <string name="squeezer_type_video_description">MP4 video fayllarini qo\'shing (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Oldin siqilganlarni o\'tkazib yuborish</string>
-    <string name="squeezer_skip_compressed_description">SD Maid tomonidan allaqachon siqilgan rasmlarni o\'tkazib yuborish.</string>
+    <string name="squeezer_skip_compressed_description">SD Maid tomonidan allaqachon siqilgan fayllarni o\'tkazib yuboring.</string>
     <string name="squeezer_exif_marker_title">EXIF belgisini yozish</string>
     <string name="squeezer_exif_marker_description">Siqish tarixi tozalansa ham qayta siqishni oldini olish uchun rasmning EXIF foydalanuvchi izoh maydoniga belgi qo\'shish.</string>
+    <string name="squeezer_include_lossy_aux_title">HDR &amp; chuqurlik rasmlarini siqish</string>
+    <string name="squeezer_include_lossy_aux_description">Sukut bo\'yicha o\'chirilgan: HDR kuchayish xaritasi yoki chuqurlik/portret ma\'lumotiga ega rasmlar tekislanmasligi uchun o\'tkazib yuboriladi. Iloji bo\'lgan joyda ularni siqish uchun yoqing — bunda ular HDR kuchayish xaritasi yoki chuqurlik ma\'lumotini yo\'qotadi. Ba\'zi ko\'p rasmli HEIC fayllari baribir himoyalangan bo\'lib qoladi.</string>
     <string name="squeezer_estimated_savings_format">~%s tejash</string>
     <string name="squeezer_no_savings_expected">Cheklangan tejash</string>
     <string name="squeezer_current_size_format">Hajm: %s</string>
@@ -40,6 +68,8 @@
     <string name="squeezer_preview_dialog_title">Siqishni tasdiqlash</string>
     <string name="squeezer_preview_total_size">Umumiy hajm</string>
     <string name="squeezer_preview_estimated_savings">Taxminiy tejash</string>
+    <string name="squeezer_compress_confirmation_title">Tanlangan elementlarni siqishmi?</string>
+    <string name="squeezer_compress_confirmation_message">Bu asl fayllarni siqilgan versiyalar bilan almashtiradi. Bu amalni bekor qilib bo\'lmaydi.</string>
     <string name="squeezer_history_title">Siqish tarixi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -47,19 +77,34 @@
     </plurals>
     <string name="squeezer_history_empty">Siqish tarixi yo\'q</string>
     <string name="squeezer_history_clear_title">Siqish tarixini tozalash</string>
-    <string name="squeezer_history_clear_message">Bu oldin siqilgan rasmlarni qayta siqish imkonini beradi. Rasmlarning o\'zlari ta\'sirlanmaydi.</string>
+    <string name="squeezer_history_clear_message">Bu ilgari siqilgan fayllarni qayta siqish imkonini beradi. Fayllarning o\'zi ta\'sirlanmaydi.</string>
+    <string name="squeezer_onboarding_title">Rasmlarni siqish haqida</string>
+    <string name="squeezer_onboarding_message">Rasmlarni siqish vizual tafsilotlarni olib tashlash orqali fayl hajmini kamaytiradi. Bu jarayon qaytarib bo\'lmaydi - asl sifatni tiklash mumkin emas.\n\nRasmlaringiz qanday ko\'rinishini ko\'ring:</string>
     <string name="squeezer_onboarding_original_label">Asl</string>
     <string name="squeezer_onboarding_compressed_label">Siqishdan keyin</string>
+    <string name="squeezer_onboarding_video_original_label">Video kadri</string>
+    <string name="squeezer_onboarding_video_compressed_label">Ko\'rinish (taxminiy)</string>
+    <string name="squeezer_onboarding_video_quality_disclaimer">Haqiqiy video sifati farq qilishi mumkin</string>
+    <string name="squeezer_onboarding_quality_label">Sifat: %d%%</string>
     <string name="squeezer_compare_action">Solishtirishni ko\'rish</string>
     <string name="squeezer_no_example_found">Tanlangan yo\'llarda rasmlar topilmadi.</string>
-    <string name="squeezer_result_empty_message">Siqilishi mumkin bo\'lgan rasmlar topilmadi.</string>
-    <string name="squeezer_setup_explanation">Media Siqish rasmlar hajmini kamaytirish orqali xotira joyini bo\'shatadi. Bu rasm sifatini doimiy ravishda kamaytiradi va qaytarib bo\'lmaydi. Boshlashdan oldin sozlamalaringizni diqqat bilan tekshiring.</string>
+    <string name="squeezer_result_empty_message">Siqilishi mumkin bo\'lgan media topilmadi.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Siqish uchun media yo\'q — %d ta HDR/chuqurlik rasmi o\'tkazib yuborildi. Ularni ham qo\'shish uchun sozlamalarda \"HDR &amp; chuqurlik rasmlarini siqish\"ni yoqing.</item>
+        <item quantity="other">Siqish uchun media yo\'q — %d ta HDR/chuqurlik rasmi o\'tkazib yuborildi. Ularni ham qo\'shish uchun sozlamalarda \"HDR &amp; chuqurlik rasmlarini siqish\"ni yoqing.</item>
+    </plurals>
+    <string name="squeezer_setup_warning">Siqish xotirani tejash uchun sifatni doimiy ravishda kamaytiradi. Bu amalni bekor qilib bo\'lmaydi. Boshlashdan oldin sozlamalaringizni diqqat bilan ko\'rib chiqing.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">%d manzilni siqish uchun ishlatib bo\'lmadi va olib tashlandi. Siqish ichki xotiraga to\'g\'ridan-to\'g\'ri kirish imkonini talab qiladi.</item>
+        <item quantity="other">%d manzilni siqish uchun ishlatib bo\'lmadi va olib tashlandi. Siqish ichki xotiraga to\'g\'ridan-to\'g\'ri kirish imkonini talab qiladi.</item>
+    </plurals>
+    <string name="squeezer_setup_explanation">Media Squeeze rasmlar va videolarning fayl hajmini kamaytiradi. Bu sifatni doimiy ravishda kamaytiradi va bekor qilib bo\'lmaydi. Boshlashdan oldin sozlamalaringizni diqqat bilan ko\'rib chiqing.</string>
     <string name="squeezer_setup_paths_title">Qidiruv joylari</string>
     <string name="squeezer_setup_paths_default">Qidirish uchun papkalarni tanlash</string>
     <string name="squeezer_setup_quality_title">Siqish sifati</string>
     <string name="squeezer_setup_age_title">Minimal yosh</string>
     <string name="squeezer_setup_start_action">Skanerlashni boshlash</string>
-    <string name="squeezer_quality_hint_very_low">40% dan past sifat foydalanib bo\'lmaydigan rasmlar yaratishi mumkin.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">40% dan past sifat foydalanib bo\'lmaydigan rasmlar yaratishi mumkin.</string>
     <string name="squeezer_quality_hint_low">Past sifat ko\'proq joy tejaydi, lekin ko\'rinadigan artefaktlar paydo bo\'lishi mumkin.</string>
     <string name="squeezer_quality_hint_high">Juda yuqori sifat minimal joy tejaydi.</string>
     <string name="squeezer_quality_hint_normal">Sifat va joy tejash muvozanati.</string>
@@ -67,5 +112,9 @@
         <item quantity="one">Kamida %d kunlik</item>
         <item quantity="other">Kamida %d kunlik</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG fayllar uchun taxminan ~%d%% tejash</string>
+    <string name="squeezer_estimated_savings_percent">JPEG fayllar uchun taxminan ~%d%% tejash kutilmoqda</string>
+    <string name="squeezer_onboarding_got_it">Tushundim</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer rasmlar va videolaringizni qayta siqib, kamroq joy egallashini ta\'minlaydi. Fayllar foydalanishga yaroqli bo\'lib qoladi, faqat kichikroq bo\'ladi, va har biri taxminiy tejamini ko\'rsatadi.</string>
+    <string name="tour_squeezer_compress_body">Shu yerda hammasini birdaniga siqing yoki faqat bittasini kichraytirish uchun uni bosing. Bir nechtasini tanlash uchun uzoq bosib turing. Har qanday o\'zgarishdan oldin doim ko\'rib chiqish imkoniyati bo\'ladi.</string>
 </resources>

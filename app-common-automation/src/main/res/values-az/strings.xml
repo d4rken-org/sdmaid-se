@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Xüsusi əlçatanlıq ehtiyacları olan istifadəçilər SD Maid-in əks halda yorucu əl istifadəçi müdaxiləsi tələb edən tapşırıqları avtomatlaşdırmasına icazə vermək üçün bu xidməti aktivləşdirə bilərlər.</string>
     <string name="automation_screenoverlay_explanation">SD Maid cihazınızla qarşılıqlı əlaqədədir. Eyni vaxtda ekranı istifadə etmək mümkün deyil. Əməliyyat bitənə qədər gözləyin və ya ləğv edin.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid cihazınızla əlaqə saxlayır. Ekranı eyni zamanda istifadə etmək mümkün deyil. Əməliyyat bitənə qədər gözləyin və ya ləğv etmək üçün Ev düyməsini basın.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid cihazınızla əlaqə saxlayır. Ekranı eyni zamanda istifadə etmək mümkün deyil. Əməliyyat bitənə qədər gözləyin.</string>
     <string name="automation_active_title">SD Maid işləyir</string>
     <string name="automation_error_no_consent_title">Avtomatlaşdırma xətası</string>
     <string name="automation_error_no_consent_body">Əlçatanlıq xidməti qurulmayıb. Quraşdırmanı tamamlayın və razılıq verin.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Planlaşdırılmış tapşırıq əlçatanlıq xidmətindən istifadə etməyə cəhd etdi, lakin o mövcud deyildi. Buna ehtiyacınız yoxdursa, planlayıcı parametrlərindəki \"Əlçatanlıq xidməti\" seçimini deaktiv edin.</string>
     <string name="automation_error_no_settings_title">Parametrlər ekranı əlçatan deyil</string>
     <string name="automation_error_no_settings_body">Bu sistem tətbiqinin heç bir parametrlər ekranı yoxdur. Əlçatanlıq xidməti vasitəsilə keş təmizləmə mümkün deyil. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
+    <string name="automation_error_interference_title">Ayarlar ekranı bloklanmışdır</string>
+    <string name="automation_error_interference_body">Başqa bir tətbiq (%1$s) sistem ayarları ekranını bloklamış, buna görə SD Maid davam edə bilmir. Həmin tətbiqin sistem ayarları üçün tətbiq-kilidini və ya ekran qorumasını deaktiv edin, sonra yenidən cəhd edin.</string>
     <string name="automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>
     <string name="automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
 </resources>

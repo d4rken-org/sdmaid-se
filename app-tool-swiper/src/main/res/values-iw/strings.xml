@@ -46,6 +46,19 @@
         <item quantity="many">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
         <item quantity="other">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">הסשן הזה מכוון לנפח אחסון שלם — מחיקה כאן משפיעה על כל התיקיות באותו אחסון.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…ו-%d תיקייה נוספת</item>
+        <item quantity="two">…ו-%d תיקיות נוספות</item>
+        <item quantity="many">…ו-%d תיקיות נוספות</item>
+        <item quantity="other">…ו-%d תיקיות נוספות</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">אני מבין שקבצים אלה יימחקו לצמיתות.</string>
+    <string name="swiper_sensitive_root_warning_title">סרוק את כל האחסון?</string>
+    <string name="swiper_sensitive_root_warning_message">סריקת %1$s כוללת כל קובץ באחסון זה — תמונות, מסמכים, הורדות, מדיה של אפליקציות ועוד. להמשיך?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">המשך בכל זאת</string>
+    <string name="swiper_session_risky_label">סריקת אחסון מלאה</string>
+    <string name="swiper_session_risky_info_message">הפעלה זו מכוונת לשורש של נפח אחסון, כך שכל קובץ באחסון זה נמצא בהיקף — תמונות, מסמכים, הורדות, מדיה של אפליקציות ועוד.\n\nסריקות אחסון מלאות יכולות להחזיר פריטים רבים, כולל קבצים שאולי לא התכוונת לבדוק. החל סנן סוג קובץ כדי לצמצם את הסריקה.</string>
     <string name="swiper_delete_x_action">מחק %1$d</string>
     <string name="swiper_settings_swap_directions_title">החלף כיווני החלקה</string>
     <string name="swiper_settings_swap_directions_summary">החלק שמאלה לשמירה, ימינה למחיקה.</string>
@@ -95,6 +108,12 @@
     <string name="swiper_session_rename_hint">הזן שם להפעלה זו</string>
     <string name="swiper_sessions_current_sessions">הפעלות נוכחיות</string>
     <string name="swiper_session_paths_label">נתיבים</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…ו-%d עוד</item>
+        <item quantity="two">…ו-%d עוד</item>
+        <item quantity="many">…ו-%d עוד</item>
+        <item quantity="other">…ו-%d עוד</item>
+    </plurals>
     <string name="swiper_session_status_label">מצב</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d לשמירה</item>
@@ -174,4 +193,10 @@
     <string name="swiper_file_type_filter_summary">מסונן: %1$s</string>
     <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
     <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">החלק תמונה כדי להחליט על גורלה: החלק הצידה כדי לשמור או למחוק, החלק למעלה כדי לדלג, החלק למטה כדי לבטל את הפעולה האחרונה. הכפתורים להלן עושים את אותו הדבר — והם מראים איזה צד הוא איזה.</string>
+    <string name="tour_swiper_openin_body">כפתור זה פותח את התמונה באפליקציה אחרת, שימושי כדי לבדוק אותה לפני החלטה.</string>
+    <string name="tour_swiper_preview_body">כפתור זה פותח תצוגה מקדימה במלוא המסך להסתכלות מקרוב יותר.</string>
+    <string name="tour_swiper_actions_body">לא אוהב להחליק? יש לנו גם כפתורים! דילוג משאיר את זה לא מוכרע להמשך, ולחיצה ארוכה על דילוג מוציאה קובץ מסריקות עתידיות. ביטול משחזר את הבחירה האחרונה שלך.</string>
+    <string name="tour_swiper_review_body">בחירות השמירה והמחיקה שלך מוצגות בלבד. פתח את סקירה כדי לעבור עליהן ולבצע את המחיקות כשתהיה מוכן.</string>
 </resources>

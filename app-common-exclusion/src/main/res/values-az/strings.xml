@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">İstisna meneceri</string>
     <string name="exclusion_manager_desc">Fayl və tətbiq istisnaları idarə edin.</string>
-    <string name="exclusion_explanation_body1">Faylları və tətbiqləri SD Maid əməliyyatlarından istisna edin.</string>
-    <string name="exclusion_add_new_hint">Əvvəlcə SD Maid-in axtarmasına icazə verərək, sonra istisna etmək istədiyiniz nəticədə kontekst menyusunu istifadə edərək yeni istisnalar əlavə edin.</string>
+    <string name="exclusion_explanation_body1">Faylları və tətbiqləri SD Maid alətlərindən qorumaq üçün istisna edin, ya da əlaqəsiz elementləri atlayıb əməliyyatları sürətləndirin.</string>
+    <string name="exclusion_add_new_hint">Hələ istisna yoxdur. Bir istisna yaratmaq üçün + düyməsindən istifadə edin, ya da hər hansı alətin nəticələrindən elementləri istisna edin.</string>
     <string name="exclusion_create_action">İstisna yarat</string>
     <string name="exclusion_edit_action">İstisnanı redaktə et</string>
     <string name="exclusion_type_package">Tətbiq istisnası</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">İstisnaları ixrac et</string>
     <string name="exclusion_create_pkg_hint">Tətbiq istisnaları yaratmaq üçün AppControl alətindən istifadə edin.</string>
     <string name="exclusion_create_path_hint">Yol istisnaları yaratmaq üçün StorageAnalyzer alətindən istifadə edin.</string>
+    <string name="exclusion_create_segment_hint">Ad seqmentinə uyğun gəlir, məsələn \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Standartları göstər</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d istisna idxal edildi</item>
+        <item quantity="other">%d istisna idxal edildi</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d istisna ixrac edildi</item>
+        <item quantity="other">%d istisna ixrac edildi</item>
+    </plurals>
 </resources>

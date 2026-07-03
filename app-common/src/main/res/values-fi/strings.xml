@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Selvä</string>
     <string name="general_fix_action">Korjaa</string>
     <string name="general_set_up_action">Aseta</string>
+    <string name="general_unavailable_label">Ei saatavilla</string>
     <string name="general_edit_action">Muokkaa</string>
     <string name="general_na_label">Ei saatavilla</string>
     <string name="general_empty_label">Tyhjä</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">Jonossa</string>
     <string name="general_progress_deleting">Poistetaan</string>
     <string name="general_progress_deleting_x">Poistetaan %s</string>
+    <string name="general_sort_by_title">Lajitteluperuste</string>
     <string name="general_sort_reverse_action">Käänteinen lajittelutila</string>
+    <string name="general_sort_oldest_first">Vanhin ensin</string>
+    <string name="general_sort_newest_first">Uusin ensin</string>
+    <string name="general_sort_name_asc">Nimi (A → Ö)</string>
+    <string name="general_sort_size_desc">Suurin ensin</string>
     <string name="general_tag_system">Järjestelmä</string>
+    <string name="general_navigate_up_action">Siirry ylös</string>
+    <string name="general_filter_action">Suodata</string>
+    <string name="general_filter_by_tags_label">Suodata tunnisteiden perusteella</string>
+    <string name="general_filter_add_action">Lisää suodatin</string>
+    <string name="general_filter_remove_x_action">Poista %s suodatin</string>
+    <string name="general_filter_empty_row_hint">Napauta + suodattaaksesi</string>
+    <string name="general_show_all_action">Näytä kaikki</string>
     <string name="general_result_success_message">Toiminto onnistui</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vapautettiin %s tilaa.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Asetukset</string>
     <string name="general_details_label">Tiedot</string>
     <string name="general_view_action">Näytä</string>
+    <string name="general_open_action">Avaa</string>
+    <string name="general_configure_action">Määritä</string>
     <string name="general_update_action">Päivitä</string>
     <string name="general_scan_action">Skannaa</string>
     <string name="general_close_action">Sulje</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d kohdetta poistettiin</item>
     </plurals>
     <string name="general_search_action">Etsi</string>
+    <string name="general_search_no_matches">Ei vastaavuuksia</string>
     <string name="general_open_system_settings_action">Avaa järjestelmäasetukset</string>
+    <string name="general_fast_scroller_action">Pikavieritin</string>
     <plurals name="result_x_items">
         <item quantity="one">%s kohde</item>
         <item quantity="other">%s kohdetta</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Ota palvelu käyttöön</string>
     <string name="general_undo_action">Kumoa</string>
     <string name="general_list_select_all_action">Valitse kaikki</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d valittu</item>
+        <item quantity="other">%d valittua</item>
+    </plurals>
     <string name="general_path_label">Polku</string>
     <string name="general_type_label">Tyyppi</string>
     <string name="general_size_label">Koko</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Raportoi virhe</string>
     <string name="general_error_ipc_deadobject_title">Palveluyhteys katosi</string>
     <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Shizuku tai muut järjestelmätason palvelut) katkesi odottamattomasti. Käynnistä laitteesi uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="general_error_upgrade_required_title">Pro-versio vaaditaan</string>
+    <string name="general_error_upgrade_required_description">Tämä on Pro-ominaisuus. Päivitä SD Maid SE käyttääksesi sitä.</string>
     <string name="general_user_label_owner">Omistaja</string>
     <string name="general_user_label_system">Järjestelmä</string>
     <string name="setup_title">Asennus</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Riskitaso</string>
     <string name="settings_category_filter">Suodatin</string>
     <string name="appcontrol_systemsettings_open_title">Näytä asetukset</string>
+    <string name="ui_theme_color_sunset_label">Auringonlasku</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Tämä ominaisuus vaatii root-käyttöoikeuksia, mutta SD Maid ei voinut saada niitä tällä laitteella.</string>
+    <string name="access_blocked_root_declined">Tämä ominaisuus vaatii root-käyttöoikeuden. Voit ottaa sen käyttöön asennusnäytöltä.</string>
+    <string name="access_blocked_root_or_shizuku">Tämä ominaisuus vaatii root- tai Shizuku-käyttöoikeuden, joka ei ole saatavilla tällä laitteella.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Virheellinen varmuuskopiotiedosto</string>
+    <string name="backup_restore_error_invalid_body">Tämä tiedosto ei ole kelvollinen SD Maid -varmuuskopio tai se on vioittunut.</string>
+    <string name="backup_restore_error_version_body">Tämä varmuuskopio on luotu uudemmalla SD Maid -versiolla. Päivitä sovellus ja yritä uudelleen.</string>
+    <string name="backup_restore_error_restore_failed_title">Palautus epäonnistui</string>
+    <string name="backup_restore_error_restore_failed_body">Näitä osia ei voitu palauttaa: %1$s. Aiempi asetuksesi on tallennettu ja voidaan palauttaa.</string>
+    <string name="backup_restore_error_safety_title">Palautusta ei aloitettu</string>
+    <string name="backup_restore_error_safety_body">SD Maid ei voinut tallentaa varmuuskopiota nykyisistä asetuksista, joten mitään ei muutettu.</string>
+    <string name="backup_restore_error_busy_title">Odota hetki</string>
+    <string name="backup_restore_error_busy_body">Puhdistamistehtävä tai varmuuskopiointi on käynnissä. Yritä uudelleen, kun se on valmis.</string>
+    <string name="backup_restore_error_schema_title">Yhteensopimaton varmuuskopio</string>
+    <string name="backup_restore_error_schema_body">Varmuuskopion tietokannan muoto ei vastaa tätä SD Maid -versiota. Historian palauttaminen tuetaan vain identtisten sovelluksen versioiden välillä.</string>
 </resources>

@@ -17,16 +17,22 @@
         <item quantity="one">%d nurjus</item>
         <item quantity="other">%d nurjus</item>
     </plurals>
+    <plurals name="squeezer_result_x_metadata_unpreservable">
+        <item quantity="one">%d jäeti muutmata (metaandmeid ei saanud säilitada)</item>
+        <item quantity="other">%d jäeti muutmata (metaandmeid ei saanud säilitada)</item>
+    </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d fail jäeti vahele (pole ligipääsetav)</item>
         <item quantity="other">%d faili jäeti vahele (pole ligipääsetav)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_lossy_aux">
+        <item quantity="one">%d vahele jäetud (HDR/sügavus säilitatud)</item>
+        <item quantity="other">%d vahele jäetud (HDR/sügavus säilitatud)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d valitud</item>
         <item quantity="other">%d valitud</item>
     </plurals>
-    
-    
     <string name="squeezer_min_size_title">Väikseim faili maht</string>
     <string name="squeezer_min_size_description">Eira sellest mahust väiksemaid faile.</string>
     <string name="squeezer_min_age_title">Faili noorim vanus</string>
@@ -44,12 +50,16 @@
     <string name="squeezer_type_jpeg_description">Kaasa JPEG pilte (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Kaasa WebP pilte (.webp).</string>
+    <string name="squeezer_type_heic_title">HEIC/HEIF</string>
+    <string name="squeezer_type_heic_description">Kaasa HEIC/HEIF pildid (.heic, .heif). Kuupäev, asukoht ja muud EXIF-i metaandmed jäetakse alles. HDR võimenduse kaarte, sügavuse andmeid ja Live/Motion Photo siduseid ei saa säilitada; mitme pildiga failid jäetakse vahele.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
     <string name="squeezer_type_video_description">Kaasa MP4 videofailid (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Eira varem kokkupakitut</string>
     <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud failid.</string>
     <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
     <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
+    <string name="squeezer_include_lossy_aux_title">Kompresseeri HDR &amp; sügavusfotod</string>
+    <string name="squeezer_include_lossy_aux_description">Vaikimisi väljas: pildid, millel on HDR võimenduse kaart või sügavuse/portree andmed, jäetakse vahele, et neid ei liigitataks. Luba neid vajadusel tihendada — nad kaotavad oma HDR võimenduse kaardi või sügavuse andmed. Mõned mitme pildiga HEIC-fotod jäävad niikuinii kaitstud.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
     <string name="squeezer_no_savings_expected">Piiratud säästud</string>
     <string name="squeezer_current_size_format">Maht: %s</string>
@@ -79,6 +89,10 @@
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
+    <plurals name="squeezer_result_empty_lossy_aux">
+        <item quantity="one">Tihendamiseks puudub meedia — %d HDR/sügavuse foto jäeti vahele. Luba seadistustes \'Tihenda HDR &amp; sügavusefotod\', et see kaasata.</item>
+        <item quantity="other">Tihendamiseks puudub meedia — %d HDR/sügavuse fotot jäeti vahele. Luba seadistustes \'Tihenda HDR &amp; sügavusefotod\', et need kaasata.</item>
+    </plurals>
     <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti jäädavalt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
@@ -89,9 +103,8 @@
     <string name="squeezer_setup_paths_default">Vali otsitavad kaustad</string>
     <string name="squeezer_setup_quality_title">Kokkupakkimise kvaliteet</string>
     <string name="squeezer_setup_age_title">Noorim vanus</string>
-    
     <string name="squeezer_setup_start_action">Alusta skanni</string>
-    <string name="squeezer_quality_hint_very_low">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
+    <string name="squeezer_quality_hint_very_low" formatted="false">40% väiksem kvaliteet võib luua kasutuid pilte.</string>
     <string name="squeezer_quality_hint_low">Madalam kvaliteet tekitab ruumi juurde, ent võib põhjustada nähtavaid häireid.</string>
     <string name="squeezer_quality_hint_high">Väga kõrge kvaliteet säästab mälu võimalikult vähe.</string>
     <string name="squeezer_quality_hint_normal">Tasakaalus kvaliteet ja ruumisääst.</string>
@@ -99,6 +112,9 @@
         <item quantity="one">Vähemalt %d päev vana</item>
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Hinnanguliselt ~%d%% sääst piltide puhul</string>
+    <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
     <string name="squeezer_onboarding_got_it">Selge!</string>
+    <!-- Guided tour -->
+    <string name="tour_squeezer_intro_body">Squeezer tihendab oma fotosid ja videosid uuesti, et need võtaksid vähem ruumi. Failid jäävad kasutatavaks, lihtsalt väiksemad, ja igühe näitab hinnangulist kokkuhoidu.</string>
+    <string name="tour_squeezer_compress_body">Tihenda kõik korraga siin või puuduta üksikut elementi, et see kahaneks. Pikk vajutus mitme valimiseks. Enne muutusi näed alati eelvaadet.</string>
 </resources>

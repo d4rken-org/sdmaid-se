@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE അപ്ഗ്രേഡ് ചെയ്യുക</string>
     <string name="upgrades_dashcard_body">കൂടുതൽ സവിശേഷതകൾ അൺലോക്കുചെയ്‌ത് തുടർ വികസനത്തെ പിന്തുണയ്ക്കുന്നതിന് ഒരു പാട്രോൺ ആകുക!</string>
     <string name="upgrades_dashcard_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
-    <string name="upgrade_screen_title">SD മെയ്ഡ് മെച്ചപ്പെടുത്തുക</string>
+    <string name="upgrade_screen_title">SD Maid നെ സഹായിക്കുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നുമില്ല. തുടർവികസനം നിങ്ങളാൽ മാത്രമേ സാധ്യമാകൂ.</string>
     <string name="upgrade_screen_how_title">എങ്ങനെ സഹായിക്കാം</string>
     <string name="upgrade_screen_how_body">പാട്രോൺ ആകുകയും വികസനം സ്പോൺസർ ചെയ്യുകയും ചെയ്യുക! എല്ലാ അധിക സവിശേഷതകളും സജീവമാക്കാനും എന്റെ GitHub Sponsors പ്രൊഫൈൽ തുറക്കാനും താഴെയുള്ള ബട്ടൺ ടാപ്പ് ചെയ്യുക.</string>
-    <string name="upgrade_screen_why_title">ഇത് മനപ്പൂർവ്വം 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner ഡിലീറ്റ് പ്രവർത്തനം 💯\n• ഷെഡ്യൂൾ ചെയ്ത പ്രവർത്തനങ്ങൾ ⏰\n• എല്ലാ ടൂളുകൾക്കുമുള്ള അധിക ഓപ്‌ഷനുകൾ ⚙️\n• നിങ്ങളുടെ സ്വന്തം ഇല്ലാതാക്കൽ നിയമങ്ങൾ ✍️\n• ഒരു പ്രചോദിത ഡെവലപ്പർ 🧙\nകൂടാതെ മറ്റും…</string>
+    <string name="upgrade_screen_why_title">നവീകരണ ലാഭങ്ങൾ</string>
+    <string name="upgrade_screen_why_body">• ആപ്ലിക്കേഷൻ കാഷെയും ഉപയോഗശൂന്യ ഡാറ്റയും ശുദ്ധീകരിക്കുക
+• നകല് ഫയലുകൾ നീക്കംചെയ്യുക
+• ഷെഡ്യൂൾ ചെയ്ത ശുദ്ധീകരണങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുക
+• കസ്റ്റം ഫിൽട്ടർ കൂടാതെ ശുദ്ധീകരണ നിയമങ്ങൾ സൃഷ്ടിക്കുക
+• സംഭരണ പ്രവണതകൾ കൂടാതെ ശുദ്ധീകരണ ചരിത്രം ട്രാക്ക് ചെയ്യുക
+• ആപ്ലിക്കേഷനിലുടനീളം കൂടുതൽ സവിശേഷതകൾ കൂടാതെ നിയന്ത്രണങ്ങൾ
+• സ്വതന്ത്ര സോഫ്റ്റ്‌വെയർ പ്രവർത്തനത്തെ സഹായിക്കുക</string>
     <string name="upgrade_screen_sponsor_action">വികസനം സ്പോൺസർ ചെയ്യുക</string>
     <string name="upgrade_screen_sponsor_action_hint">പരസ്യങ്ങൾ, അനലിറ്റിക്‌സ്, ഗൂഗിൾ പ്ലേ എന്നിവയാണ് ബദൽ🙁</string>
     <string name="upgrade_screen_thanks_toast">ഓപ്പൺ സോഴ്‌സ് വികസനത്തെ പിന്തുണച്ചതിന് നന്ദി ❤️</string>

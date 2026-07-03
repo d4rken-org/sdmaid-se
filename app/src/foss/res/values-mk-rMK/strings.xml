@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">Надградете го SD Maid SE</string>
     <string name="upgrades_dashcard_body">Отклучете дополнителни функции и станете покровител за да го поддржите континуираниот развој!</string>
     <string name="upgrades_dashcard_upgrade_action">Надградете</string>
-    <string name="upgrade_screen_title">Подобрете го SD Maid</string>
+    <string name="upgrade_screen_title">Поддржете го SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid нема реклами и не продава кориснички податоци. Континуираниот развој е можен само благодарение на вас.</string>
     <string name="upgrade_screen_how_title">Како да помогнете</string>
     <string name="upgrade_screen_how_body">Станете покровител и спонзорирајте го развојот! Допрете го копчето подолу за да ги активирате сите дополнителни функции и да го отворите мојот GitHub Sponsors профил.</string>
-    <string name="upgrade_screen_why_title">Ова прави магија 🪄</string>
-    <string name="upgrade_screen_why_body">• AppCleaner функционалност за бришење 💯\n• Закажани операции ⏰\n• Дополнителни опции за сите алатки ⚙️\n• Ваши правила за бришење ✍️\n• Мотивиран програмер 🧙\nи повеќе…</string>
+    <string name="upgrade_screen_why_title">Предности на надградувањето</string>
+    <string name="upgrade_screen_why_body">• Очистете кеш на апликации и отфрливи податоци
+• Отстранете дублирани датотеки
+• Овозможете закажани чистења
+• Создавајте прилагодени филтри и правила за чистење
+• Следете тенденции на складирање и историја на чистење
+• Повеќе функции и управување низ апликацијата
+• Поддржете работа со отворен код</string>
     <string name="upgrade_screen_sponsor_action">Спонзорирај развој</string>
     <string name="upgrade_screen_sponsor_action_hint">Алтернативата се реклами, аналитика и Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ви благодариме што го поддржувате развојот на отворен код ❤️</string>

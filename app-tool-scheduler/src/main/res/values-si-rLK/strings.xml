@@ -35,7 +35,15 @@
     <string name="scheduler_notification_result_title">වේලාව නිර්ණායක සමාප්ත විය</string>
     <string name="scheduler_notification_result_success_message">සියලු වේලාව කාර්ය ඪාවිතාවෙන් කාර්යාන්විත විය.</string>
     <string name="scheduler_notification_result_failure_message">කදාචර වේලාව කාර්ය ඉඤාඵර විය හෝ ගැට්ටු ආහ්වාන කරෑය. එවා හස්තින් චාවිත කිරීමට උත්සාහ කරන්න.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">මඟ හැරිණි, තිරය අක්‍රිය හෝ අගුළු දමා තිබූණි</string>
+    <string name="scheduler_acs_screenlocked_hint_title">යෙදුම් පිරිසිදු කිරීම මඟ හැරෙනු ඇත</string>
+    <string name="scheduler_acs_screenlocked_hint_body">යෙදුම් පිරිසිදු කිරීම ප්‍රවේශ්‍යතා සේවාව භාවිතා කරන අතර, එයට තිරයේ අගුළු ඇරී තිබිය යුතුය. උපාංගය අගුළු දමා ඇති විට කාලසටහන්ගත පාවිච්චිය මඟ හැරේ.\n\nපසුබිමින් පිරිසිදු කිරීම සඳහා Shizuku හෝ Root භාවිතා කරන්න, නැතහොත් ඔබ උපාංගය භාවිතා කරන අවස්ථාවක් සඳහා එය කාලසටහන්ගත කරන්න.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">පද්ධති යෙදුම් මඟ හැරෙනු ඇත</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku බොහෝ කෑෂ් පසුබිමින් පිරිසිදු කරයි, නමුත් පද්ධති යෙදුම්වලට ප්‍රවේශ්‍යතා සේවාව අවශ්‍ය වන අතර, එයට තිරයේ අගුළු ඇරී තිබිය යුතුය. \"පද්ධති යෙදුම් ඇතුළත් කරන්න\" සක්‍රිය කර ඇති විට, උපාංගය අගුළු දමා ඇති විට ඒවා මඟ හැරේ.\n\n\"පද්ධති යෙදුම් ඇතුළත් කරන්න\" අබල කරන්න, නැතහොත් අගුළු ඇරි තිබෙන විට කාලසටහන ධාවනය කරන්න.</string>
     <string name="scheduler_commands_after_schedule_label">වේලාවෙන් පසු ඕදේශ</string>
     <string name="scheduler_commands_after_schedule_desc">වේලාවක් අවසානයෙ කාර්යාන්විත වන Android shell ඕදේශ.</string>
     <string name="scheduler_battery_optimization_hint">පෑළඳ කාර්යාන්විතය සමග සම්ස්යා අනුභව කරන්න නම් SD Maid සඳහා බැටරි ඔපඨමනය අබල කිරීම සලකන්න.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid කාලසටහනකට අනුව පිරිසිදු කළ හැක. වෙලාවක් සහ ධාවනය විය යුතු මෙවලම් තෝරා ගන්න, එවිට එය පසුබිමින් කාර්යය සිදු කරයි — යෙදුම විවෘත කිරීමට (ආසන්න වශයෙන්) අවශ්‍ය නොවේ.</string>
+    <string name="tour_scheduler_create_body">නව කාලසටහනක් සැදීමට මෙතන ටැප් කරන්න, පසුව එය ධාවනය වන වේලාව සහ ඇතුළත් කල යුතු මෙවලම් සකසන්න.</string>
 </resources>

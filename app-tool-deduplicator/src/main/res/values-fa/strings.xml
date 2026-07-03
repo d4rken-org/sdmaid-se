@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">حذف همه بجز یک نسخه در هر مجموعه انتخابی از فایل‌های تکراری؟</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">حذف همه فایل‌ها در هر مجموعه انتخابی از فایل‌های تکراری؟ هیچ فایلی باقی نخواهد ماند!</string>
     <string name="deduplicator_delete_all_toggle_msg">حذف تمام نسخه‌ها. هیچ فایلی باقی نمی‌ماند!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">حذف %1$d کپی تکراری در این مجموعه، %2$s آزاد شود؟ کپی نگه‌داشته‌شده باقی می‌ماند.</item>
+        <item quantity="other">حذف %1$d کپی تکراری در این مجموعه، %2$s آزاد شود؟ کپی نگه‌داشته‌شده باقی می‌ماند.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s قابل آزادسازی</string>
+    <string name="deduplicator_action_delete_set">حذف مجموعه تکراری</string>
+    <string name="deduplicator_action_open_preview">باز کردن پیش‌نمایش</string>
+    <string name="deduplicator_marked_for_deletion">علامت‌گذاری شده برای حذف</string>
+    <string name="deduplicator_cluster_preview_image">پیش‌نمایش مجموعه تکراری</string>
+    <string name="deduplicator_selection_keep_one_required">حداقل یک فایل از هر مجموعه تکراری باید باقی بماند. گزینه «امکان حذف همه» را در تنظیمات فعال کنید تا این محدودیت را نادیده بگیرید.</string>
     <string name="deduplicator_progress_comparing_files">مقایسه فایل‌ها</string>
     <string name="deduplicator_details_cluster_title">مجموعه‌ای از فایل‌های تکراری</string>
     <string name="deduplicator_matches_exact_label">نسخه‌های دقیقا مشابه</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ترجیح فایل‌های کوچک‌تر</string>
     <string name="deduplicator_view_mode_groups_label">گروه‌ها</string>
     <string name="deduplicator_view_mode_directories_label">پوشه‌ها</string>
+    <string name="tour_deduplicator_details_cluster_body">این فایل‌ها همگی یک آیتم یا محتوای رسانه‌ای یکسانی هستند، خوشه‌ای از فایل‌های تکراری.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">فایل‌های دارای این نماد حذف خواهند شد؛ فایل باقی‌مانده در گروه، فایلی است که SD Maid نگه می‌دارد. نحوه انتخاب فایل نگه‌داشته‌شده را می‌توانید در تنظیمات استراتژی حذف تغییر دهید.</string>
 </resources>

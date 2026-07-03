@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Erandite haldur</string>
     <string name="exclusion_manager_desc">Failide ja rakenduste erandite haldamine.</string>
-    <string name="exclusion_explanation_body1">Takistage SD Maidil toimetada failide ja rakendustega.</string>
-    <string name="exclusion_add_new_hint">Erandite lisamiseks laske esmalt SD Maidil otsida ja seejärel välistage leitu selle kontekstmenüü kaudu.</string>
+    <string name="exclusion_explanation_body1">Välistage failid ja rakendused, et kaitsta neid SD Maidi tööriistade eest, või jätke vahele ebaolulised üksused ja kiirendage tehteid.</string>
+    <string name="exclusion_add_new_hint">Erandeid pole veel. Kasutage + nuppu ühe loomiseks või välistage üksused mõne tööriista tulemuste hulgast.</string>
     <string name="exclusion_create_action">Loo erand</string>
     <string name="exclusion_edit_action">Muuda erandit</string>
     <string name="exclusion_type_package">Rakenduse erand</string>
@@ -24,5 +24,14 @@
     <string name="exclusion_export_action">Ekspordi erandid</string>
     <string name="exclusion_create_pkg_hint">Looge rakenduste erandeid rakenduse kontrolliga.</string>
     <string name="exclusion_create_path_hint">Looge asukoha erandeid hoiustamisruumi analüüsijaga.</string>
+    <string name="exclusion_create_segment_hint">Vastab nimeosale, näiteks \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Näita tavaseadeid</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d erand imporditud</item>
+        <item quantity="other">%d erandit imporditud</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d erand eksporditud</item>
+        <item quantity="other">%d erandit eksporditud</item>
+    </plurals>
 </resources>

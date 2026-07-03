@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE täiendamine</string>
     <string name="upgrades_dashcard_body">Lubage lisavõimalused ja hakake toetajaks, et edendada arendamist.</string>
     <string name="upgrades_dashcard_upgrade_action">Täienda</string>
-    <string name="upgrade_screen_title">SD Maidi täiendamine</string>
+    <string name="upgrade_screen_title">Toeta SD Maidi</string>
     <string name="upgrade_screen_preamble">SD Maidis pole reklaame ja see ei müü kasutajaandmeid. Jätkuv arendamine on võimalik vaid teie abil.</string>
     <string name="upgrade_screen_how_title">Kuidas aidata?</string>
     <string name="upgrade_screen_how_body">Hakake toetajaks ja rahastage arendamist. Kõikide lisavõimaluste kasutamiseks ja minu GitHub Sponsors profiili avamiseks puudutage alumist nuppu.</string>
-    <string name="upgrade_screen_why_title">Need ilmuvad nagu võluväel 🪄:</string>
-    <string name="upgrade_screen_why_body">• rakendusepuhastaja kustutamisvõimalus 💯\n• ajastatud toimingud ⏰\n• kõikide vahendite lisavalikud ⚙️\n• enda koostatud kustutamisreeglid ✍️\n• motiveeritud arendaja 🧙\njpm…</string>
+    <string name="upgrade_screen_why_title">Uuendamise eelised</string>
+    <string name="upgrade_screen_why_body">• Puhasta rakenduste vahemälu ja mittevajalikud andmed\n• Eemalda duplikaadfailid\n• Luba ajastatud puhastused\n• Loo kohandatud filtrid ja puhastusreeglid\n• Jälgi salvestusruumi trende ja puhastuse ajalugu\n• Rohkem funktsioone ja kontrollimise võimalusi kogu rakenduses\n• Toeta avatud lähtekoodiga tööd</string>
     <string name="upgrade_screen_sponsor_action">Rahastage arendamist</string>
     <string name="upgrade_screen_sponsor_action_hint">Teiseks võimaluseks on reklaamid, analüüs ja Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Aitäh, et toetate avatud lähtekoodiga arendamist ❤️</string>

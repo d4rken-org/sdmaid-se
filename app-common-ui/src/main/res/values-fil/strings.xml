@@ -8,4 +8,16 @@
         <item quantity="other">%d mga path na napili</item>
     </plurals>
     <string name="picker_home_action">Mga data area</string>
+    <string name="tour_action_next">Susunod</string>
+    <string name="tour_action_previous">Nakaraan</string>
+    <string name="tour_action_done">Tapos na</string>
+    <string name="tour_action_cancel">Laktawan</string>
+    <string name="tour_step_x_of_y">%1$d / %2$d</string>
+    <string name="tour_confirm_title">Laktawan ang tour?</string>
+    <string name="tour_confirm_message">Maaari mong i-enable muli ang mga tour anumang oras mula sa Settings.</string>
+    <string name="tour_confirm_continue">Magpatuloy sa tour</string>
+    <string name="tour_confirm_dont_show_this_tour">Huwag ipakita ang tour na ito</string>
+    <string name="tour_confirm_disable_all">I-disable ang lahat ng tours</string>
+    <string name="navigation_unknown_destination_title">Paparating na</string>
+    <string name="navigation_unknown_destination_message">Ang screen na ito ay patuloy pa ring inililipat sa bagong UI.</string>
 </resources>

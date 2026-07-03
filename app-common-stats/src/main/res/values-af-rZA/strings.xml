@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Primêre berging</string>
     <string name="stats_storage_type_secondary">Sekondêre berging</string>
     <string name="stats_storage_type_portable">Draagbare berging</string>
+    <string name="stats_space_history_delete_storage_title">Stoorgeskiedenis verwyder?</string>
+    <string name="stats_space_history_delete_storage_desc">Alle trenddata vir hierdie stoor sal permanent verwyder word.</string>
 </resources>

@@ -16,10 +16,20 @@
     <string name="upgrades_gplay_already_owned_error_description">आफ्नो खरिद पुनर्स्थापना गर्न \"खरिद पुनर्स्थापना गर्नुहोस्\" विकल्प प्रयोग गर्नुहोस्। समस्या जारी रहेमा, Google Play क्यास खाली गरेर उपकरण पुनः सुरु गर्ने प्रयास गर्नुहोस्।</string>
     <string name="upgrade_screen_title">SD Maid SE Pro प्राप्त गर्नुहोस्</string>
     <string name="upgrade_screen_preamble">SD Maid मा कुनै विज्ञापनहरू छैनन् र प्रयोगकर्ता डेटा बेच्दैन। मेरो काम तपाईं द्वारा वित्त पोषित छ ❤️।</string>
-    <string name="upgrade_screen_benefits_title">फाइदाहरू</string>
-    <string name="upgrade_screen_benefits_body">• एप सफाई 💯\n• निर्धारित अपरेशनहरू ⏰\n• सबै उपकरणहरूका लागि अतिरिक्त विकल्पहरू ⚙️\n• तपाईंको आफ्नै मेटाउने नियमहरू ✍️\n• एक प्रेरित विकासकर्ता 🧙\nर अधिक…</string>
+    <string name="upgrade_screen_benefits_title">अपग्रेड सुविधाहरू</string>
+    <string name="upgrade_screen_benefits_body">• अनुप्रयोग क्यास र खर्चयोग्य डेटा सफाई गर्नुहोस्
+• नक्कल गरिएको फाइलहरू हटाउनुहोस्
+• निर्धारित सफाइ सक्षम गर्नुहोस्
+• अनुकूल फिल्टर र सफाई नियमहरू बनाउनुहोस्
+• भण्डारण प्रवृत्ति र सफाई इतिहास ट्र्याक गर्नुहोस्
+• अनुप्रयोग भर अधिक सुविधाहरू र नियन्त्रणहरू
+• निरन्तर विकास समर्थन गर्नुहोस्</string>
     <string name="upgrade_screen_how_title">विकल्पहरू</string>
     <string name="upgrade_screen_how_body">तपाईं एक-पटक खरिद र सस्तो वार्षिक सदस्यता बीच छनौट गर्न सक्नुहुन्छ।\nसदस्यता 14-दिनको निःशुल्क परीक्षणको साथ सुरु हुन्छ, जसपछि तपाईंलाई वर्षमा एक पटक शुल्क लगाइनेछ। परीक्षण र सदस्यता कुनै पनि समयमा रद्द गर्न सकिन्छ।\nउस्तै सुविधाहरू, केवल फरक मूल्य निर्धारण मोडेलहरू।</string>
+    <string name="upgrade_screen_subscription_offer_title">वार्षिक सदस्यता</string>
+    <string name="upgrade_screen_iap_offer_title">एकपटक किन्नुहोस्</string>
+    <string name="upgrade_screen_offer_recommended">सिफारिस गरिएको</string>
+    <string name="upgrade_screen_offers_unavailable_message">मूल्य अहिले लोड हुन सकेन। Google Play जाँच गर्नुहोस् र केही पल पछि फेरि प्रयास गर्नुहोस्।</string>
     <string name="upgrade_screen_subscription_trial_action">14-दिनको निःशुल्क परीक्षण सुरु गर्नुहोस्</string>
     <string name="upgrade_screen_subscription_action">सदस्यता लिनुहोस्</string>
     <string name="upgrade_screen_subscription_action_hint">सदस्यता प्रति वर्ष %s लाग्छ।</string>

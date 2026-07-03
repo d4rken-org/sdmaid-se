@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
     <string name="stats_storage_type_secondary">Isitoreji sesibili</string>
     <string name="stats_storage_type_portable">Isitoreji esiphathekayo</string>
+    <string name="stats_space_history_delete_storage_title">Susa umlando wendawo yokugcina?</string>
+    <string name="stats_space_history_delete_storage_desc">Yonke imininingwane yezindlela zale ndawo yokugcina izosuswa ngokuphelelele.</string>
 </resources>

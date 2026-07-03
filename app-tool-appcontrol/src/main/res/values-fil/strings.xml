@@ -37,6 +37,8 @@
     <string name="appcontrol_list_sortmode_size_label">Laki</string>
     <string name="appcontrol_list_sortmode_screentime_label">Oras sa screen</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Ang mga laki ng app ay tinantya para sa performance. Gamitin ang StorageAnalyzer tool para sa mas tumpak na data.</string>
+    <string name="appcontrol_list_filteroptions_label">Mga filter option</string>
+    <string name="appcontrol_list_fastscroller_action">Mabilis na pag-scroll</string>
     <string name="appcontrol_progress_uninstalling_app">Inu-uninstall ang app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app ang na-uninstall</item>
@@ -119,4 +121,8 @@
     <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
     <string name="shortcut_appcontrol_short">Kontrol ng App</string>
     <string name="shortcut_appcontrol_long">Pamahalaan ang mga naka-install na app</string>
+    <string name="tour_appcontrol_search_body">Maghanap ng app sa pamamagitan ng pangalan. Kapaki-pakinabang sa mga device na may maraming na-install na apps.</string>
+    <string name="tour_appcontrol_filter_body">Paliitin ang listahan ayon sa user/system apps, estado ng pagpapagana, kamakailang aktibidad, at marami pa. Ang mga aktibong filter ay lilitaw bilang mga chips dito.</string>
+    <string name="tour_appcontrol_sort_body">Ayusin ang mga app ayon sa pangalan, petsa ng pag-install, huling update, laki, o oras sa screen. I-tap ang parehong opsyon upang baguhin ang direksyon.</string>
+    <string name="tour_appcontrol_app_row_body">I-tap ang app upang buksan ang mga detalye at magagamit na aksyon. Mahabang pagpindot upang magsimula ng pagpili at gamitin ang mga bulk na aksyon.</string>
 </resources>

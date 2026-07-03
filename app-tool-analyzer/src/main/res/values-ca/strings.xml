@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Un emmagatzematge secundari, normalment una targeta SD extraïble. Conté fitxers multimèdia i dades d\'aplicacions que ho admeten.</string>
     <string name="analyzer_storage_type_tertiary_title">Emmagatzematge portàtil</string>
     <string name="analyzer_storage_type_tertiary_description">Un emmagatzematge portàtil, p. ex. una unitat flaix connectada al port USB.</string>
+    <string name="analyzer_storage_identifier_internal">Emmagatzematge intern</string>
     <string name="analyzer_storage_content_title">Contingut d\'emmagatzematge</string>
     <string name="analyzer_storage_content_type_app_label">Aplicacions</string>
     <string name="analyzer_storage_content_type_app_description">Espai ocupat per les aplicacions instal·lades i les seves dades (és a dir, fitxers d\'aplicacions, dades i memòria cau).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si hi ha diversos comptes d\'usuari configurats en aquest dispositiu.</string>
     <string name="analyzer_storage_content_type_system_other_label">Altres</string>
     <string name="analyzer_storage_content_type_system_info">Fitxers que no pertanyen a les categories d\'aplicacions o fitxers d\'usuari. Només es permet la visualització; no s\'admet l\'eliminació. Algunes àrees poden estar incompletes per restriccions d\'accés.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Els fitxers no es poden fer coincidir amb les aplicacions que els posseeixen en aquest moment. Les mides es mostren només per a referència — l\'eliminació, els filtres i Swiper estan desactivats.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fitxers del sistema i altres dades a les quals l\'SD Maid no ha pogut accedir o classificar. El sistema operatiu restringeix la llista del contingut d\'algunes àrees.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
     <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai es pot alliberar desinstal·lant l\'aplicació o arxivant-la (disponible a la versió d\'Android més recent).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aquesta aplicació ocupa %1$s a «%2$s».</string>
     <string name="analyzer_app_details_app_is_archived">Aquesta aplicació s\'ha arxivat.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s en 7d</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Descobreix què està omplint realment l\'emmagatzematge. L\'Analitzador mostra on va l\'espai. Cadascuna d\'aquestes targetes és un xip d\'emmagatzematge en el teu dispositiu.</string>
+    <string name="tour_analyzer_storage_body">Obre un emmagatzematge per desglossar-lo en aplicacions, contingut multimèdia i fitxers, i continua tocant per localitzar els culpables més grans.</string>
 </resources>

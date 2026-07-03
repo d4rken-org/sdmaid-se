@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">Les utilisateurs qui ont des besoins d’accessibilité particuliers peuvent activer ce service pour autoriser SD Maid à automatiser les tâches qui demanderaient autrement une interaction manuelle et fastidieuse de l’utilisateur (p. ex. l’effacement du cache).\n\nExemple : si vous demandez à SD Maid d’arrêter plusieurs applis, SD Maid peut alors utiliser ce service pour ouvrir l’écran des paramètres de chaque appli, trouver le bouton « Forcer l’arrêt » et l’activer.\n\nSD Maid sera toujours affichée lors de l’utilisation de ce service et offrira à l’utilisateur une manière simple d’annuler immédiatement toute interaction.\n\nAucune action ne sera effectuée sans l’accord préalable de l’utilisateur. Ce service peut être redésactivé en tout temps sans effets indésirables.</string>
     <string name="automation_screenoverlay_explanation">SD Maid interagit avec votre appareil. Il est impossible d’utiliser l’écran en même temps. Attendez la fin de l\'opération ou annulez-la.</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid interagit avec votre appareil. Il n’est pas possible d’utiliser l’écran en même temps. Attendez la fin de l’opération ou appuyez sur le bouton Accueil pour annuler.</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid interagit avec votre appareil. Il est impossible d’utiliser l’écran en même temps. Attendez la fin de l’opération.</string>
     <string name="automation_active_title">SD Maid travaille</string>
     <string name="automation_error_no_consent_title">Erreur d’automatisation</string>
     <string name="automation_error_no_consent_body">Le service d’accessibilité n’est pas configuré. Terminez la configuration et donnez votre accord.</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">Une tâche programmée a tenté d’utiliser le service d’accessibilité, mais il n’était pas accessible. Si vous n’en avez pas besoin, désactivez l’option « Service d’accessibilité » dans les paramètres du programmateur.</string>
     <string name="automation_error_no_settings_title">Il n’y a pas d’écran de paramétrage</string>
     <string name="automation_error_no_settings_body">Cette appli système n’a pas d’écran de paramètres. Le service d’accessibilité ne peut pas en vider le cache. L’exclure accélère le vidage du cache.</string>
+    <string name="automation_error_interference_title">Écran des paramètres bloqué</string>
+    <string name="automation_error_interference_body">Une autre appli (%1$s) bloque l’écran des paramètres système, donc SD Maid ne peut pas continuer. Désactivez le verrouillage d’appli ou la protection d’écran de cette appli pour les paramètres système, puis réessayez.</string>
     <string name="automation_loading">Préparation de l’automatisation grâce au service d’accessibilité</string>
     <string name="automation_progress_find_ok_confirmation">Tentative de confirmation de l’action précédente (mots clés : %s)</string>
 </resources>

@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">선택한 각 중복 파일 세트에서 복사본 하나를 제외한 모든 파일을 삭제하시겠습니까?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">선택한 각 중복 파일 세트의 모든 파일을 삭제하시겠습니까? 파일이 남지 않습니다!</string>
     <string name="deduplicator_delete_all_toggle_msg">모든 복사본을 삭제합니다. 파일이 남지 않습니다!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">이 집합에서 %1$d개의 중복을 삭제하고 %2$s를 확보하시겠습니까? 유지된 복사본은 남아있습니다.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s 확보 가능</string>
+    <string name="deduplicator_action_delete_set">중복 집합 삭제</string>
+    <string name="deduplicator_action_open_preview">미리보기 열기</string>
+    <string name="deduplicator_marked_for_deletion">삭제 표시됨</string>
+    <string name="deduplicator_cluster_preview_image">중복 집합 미리보기</string>
+    <string name="deduplicator_selection_keep_one_required">각 중복 집합마다 최소 하나의 파일은 남아야 합니다. 설정에서 \'모두 삭제 가능하게 하기\'를 활성화하여 재정의할 수 있습니다.</string>
     <string name="deduplicator_progress_comparing_files">파일 비교</string>
     <string name="deduplicator_details_cluster_title">중복 세트</string>
     <string name="deduplicator_matches_exact_label">정확한 복사본</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">작은 파일 선호</string>
     <string name="deduplicator_view_mode_groups_label">그룹</string>
     <string name="deduplicator_view_mode_directories_label">폴더</string>
+    <string name="tour_deduplicator_details_cluster_body">이 파일들은 모두 같은 항목 또는 미디어 콘텐츠처럼 보이며, 중복의 클러스터입니다.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">이 아이콘이 있는 파일들이 삭제됩니다. 그룹의 남은 파일이 SD Maid가 보관하는 파일입니다. 삭제 전략 설정에서 보관 파일을 선택하는 방법을 변경할 수 있습니다.</string>
 </resources>

@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Skeduleerder klaar</string>
     <string name="scheduler_notification_result_success_message">Alle geskeduleerde take het suksesvol geloop.</string>
     <string name="scheduler_notification_result_failure_message">Sommige geskeduleerde take het gefaal of foute ondervind. Probeer om hulle handmatig te loop.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Oorgeslaan, skerm was uit of gesluit</string>
+    <string name="scheduler_acs_screenlocked_hint_title">App-skoonmaak kan oorgeslaan word</string>
+    <string name="scheduler_acs_screenlocked_hint_body">App-skoonmaak gebruik die toeganklikheidsdiens, wat vereis dat die skerm ontsluit moet wees. Geskeduleerde uitvoerings terwyl die toestel gesluit is, word oorgeslaan.
+
+Gebruik Shizuku of root vir agtergrond-skoonmaak, of skeduleer dit vir wanneer jy die toestel gebruik.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Stelselapps kan oorgeslaan word</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku skoonmaak die meeste caches op die agtergrond, maar stelselapps benodig die toeganklikheidsdiens, wat vereis dat die skerm ontsluit moet wees. Met \"Sluit stelselapps in\" ingeskakel, word dit oorgeslaan wanneer die toestel gesluit is.
+
+Skakel \"Sluit stelselapps in\" af, of voer die skedule uit terwyl die toestel ontsluit is.</string>
     <string name="scheduler_commands_after_schedule_label">Post-skedule opdragte</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell opdragte wat aan die einde van \'n skedule uitgevoer sal word.</string>
     <string name="scheduler_battery_optimization_hint">Oorweeg om battery optimiserings vir SD Maid te deaktiveer as jy probleme met agtergrond uitvoering ondervind.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid kan op \'n skedule skoonmaak. Kies \'n tyd en watter gereedskap loop, en dit doen die werk op die agtergrond, amper sonder dat jy die app hoef oop te maak.</string>
+    <string name="tour_scheduler_create_body">Tik hier om \'n nuwe skedule te skep, stel dan wanneer dit loop en watter gereedskap om in te sluit.</string>
 </resources>

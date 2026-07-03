@@ -36,6 +36,17 @@
         <item quantity="one">%d onbeslist item blijft over voor latere beoordeling.</item>
         <item quantity="other">%d onbesliste items blijven over voor latere beoordeling.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Deze sessie richt zich op een heel opslagvolume — het verwijderen hier treft elke map op deze opslag.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…en nog %d map</item>
+        <item quantity="other">…en nog %d mappen</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Ik begrijp dat deze bestanden permanent worden verwijderd.</string>
+    <string name="swiper_sensitive_root_warning_title">Gehele opslag scannen?</string>
+    <string name="swiper_sensitive_root_warning_message">Scannen van %1$s omvat elk bestand op deze opslag — foto\'s, documenten, downloads, app-media en meer. Doorgaan?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Toch doorgaan</string>
+    <string name="swiper_session_risky_label">Scan volledige opslag</string>
+    <string name="swiper_session_risky_info_message">Deze sessie richt zich op de hoofdmap van een opslagvolume, dus elk bestand op die opslag valt in het bereik — foto\'s, documenten, downloads, app-media en meer.\n\nVolledige opslagscans kunnen veel items retourneren, inclusief bestanden die u mogelijk niet bedoeld hebt om te bekijken. Pas een bestandstypefilter toe om de scan in te beperken.</string>
     <string name="swiper_delete_x_action">%1$d verwijderen</string>
     <string name="swiper_settings_swap_directions_title">Veegrichtingen omwisselen</string>
     <string name="swiper_settings_swap_directions_summary">Veeg naar links om te bewaren, naar rechts om te verwijderen.</string>
@@ -75,6 +86,10 @@
     <string name="swiper_session_rename_hint">Voer een naam in voor deze sessie</string>
     <string name="swiper_sessions_current_sessions">Huidige sessies</string>
     <string name="swiper_session_paths_label">Paden</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…en %d meer</item>
+        <item quantity="other">…en %d meer</item>
+    </plurals>
     <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d te bewaren</item>
@@ -144,4 +159,10 @@
     <string name="swiper_file_type_filter_summary">Gefilterd: %1$s</string>
     <string name="swiper_session_no_matching_files">Geen overeenkomende bestanden gevonden</string>
     <string name="swiper_open_externally_action">Openen in externe app</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Veeg een foto om te bepalen wat ermee gebeurt: opzij om te houden of te verwijderen, omhoog om over te slaan, omlaag om ongedaan te maken. De knoppen hieronder doen hetzelfde — en tonen welke kant wat is.</string>
+    <string name="tour_swiper_openin_body">Deze knop opent de foto in een andere app, handig om deze eerst te controleren voordat u een keuze maakt.</string>
+    <string name="tour_swiper_preview_body">Deze knop opent een volledig schermvoorbeeld voor een nader kijkje.</string>
+    <string name="tour_swiper_actions_body">Houdt u niet van swipen? Wij hebben ook knoppen! Overslaan laat het onbeslist voor later, en lang indrukken op Overslaan sluit een bestand uit van toekomstige scans. Ongedaan maken draait uw laatste keuze terug.</string>
+    <string name="tour_swiper_review_body">Uw keuzes om items te bewaren of te verwijderen zijn nu alleen voorbereid. Open Beoordeling om ze na te gaan en verwijderingen toe te passen wanneer u klaar bent.</string>
 </resources>

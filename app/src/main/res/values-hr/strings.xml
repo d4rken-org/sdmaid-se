@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Izbrisati rezultate u svim alatima?</string>
+    <string name="dashboard_hero_freeable_headline">%1$s može biti oslobođeno</string>
+    <string name="dashboard_hero_freed_headline">%1$s oslobođeno</string>
+    <string name="dashboard_hero_freeable_x_items">%1$s može biti uklonjeno</string>
+    <string name="dashboard_hero_freed_x_items">%1$s uklonjeno</string>
+    <string name="dashboard_hero_freeable_hint">Dodirnite gumb da oslobodite prostor. Dodirnite čip da prvo provjerite.</string>
+    <string name="dashboard_hero_freed_hint">Dodirnite čip za detalje.</string>
+    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
+    <string name="dashboard_hero_scanned_timestamp_description">Skenirano %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">Oslobođeno %1$s</string>
     <string name="dashboard_settings_category">Nadzorna ploča</string>
     <string name="dashboard_motd_title">Poruka od razvojnog programera</string>
     <string name="dashboard_settings_oneclick_title">Način rada jednim dodirom</string>
@@ -14,7 +23,26 @@
     <string name="debug_debuglog_recording_progress">Snimanje zapisnika za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_record_action">Snimi zapisnik za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_stop_action">Zaustavi snimanje</string>
+    <string name="debug_debuglog_sensitive_information_label">Osjetljive informacije</string>
     <string name="debug_debuglog_sensitive_information_message">Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama.</string>
+    <string name="debug_debuglog_screen_subtitle">Izvezite informacije za otklanjanje grešaka</string>
+    <string name="debug_logview_screen_title">Preglednik zapisnika</string>
+    <string name="debug_logview_pause_action">Pauziraj (zamrzni međuspremnik)</string>
+    <string name="debug_logview_resume_action">Nastavi</string>
+    <string name="debug_logview_copy_action">Kopiraj zapisnik</string>
+    <string name="debug_logview_collapse_action">Sažmi</string>
+    <string name="debug_logview_close_action">Zatvori panel zapisnika</string>
+    <string name="debug_logview_resize_action">Promijeni veličinu</string>
+    <string name="debug_logview_more_action">Više mogućnosti</string>
+    <string name="debug_logview_level_action">Razina zapisnika</string>
+    <string name="debug_logview_clear_action">Očisti bafer</string>
+    <string name="debug_logview_search_prev_action">Prethodno poklapanje</string>
+    <string name="debug_logview_search_next_action">Sljedeće poklapanje</string>
+    <string name="debug_logview_jump_to_bottom_action">Skoči na najnovije</string>
+    <string name="debug_logview_paused_msg">Pauziran — međuspremnik zamrznut</string>
+    <string name="debug_logview_paused_dropped_msg">Pauziran — preskočeno %1$d novih redaka</string>
+    <string name="debug_logview_copied_msg">Zapisnik kopiran u međuspremnik</string>
+    <string name="debug_logview_share_label">Podijeli zapisnik</string>
     <string name="debug_debuglog_screen_title">Zapisnik za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_screen_session_path_label">Putanja sesije</string>
     <string name="debug_debuglog_screen_log_files_label">Datoteke zapisnika</string>
@@ -24,7 +52,7 @@
         <item quantity="other">%1$d datoteka spremno (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
-    <string name="debug_debuglog_short_recording_title">Vrlo kratko snimanje</string>
+    <string name="debug_debuglog_short_recording_title">Vrlo kratka snimka</string>
     <string name="debug_debuglog_short_recording_desc">Snimanje je bilo vrlo kratko. Debug zapisi su snimanja, a ne snimke — reproducirajte problem dok je snimanje aktivno kako bi zapis bio koristan.</string>
     <string name="debug_debuglog_short_recording_continue_action">Nastavi snimanje</string>
     <string name="debug_debuglog_short_recording_stop_action">Zaustavi svejedno</string>
@@ -52,7 +80,9 @@
         <item quantity="few">%d zadataka u redu čekanja</item>
         <item quantity="other">%d zadatka u redu čekanja</item>
     </plurals>
+    <string name="tasks_result_notification_channel_label">Rezultati zadatka</string>
     <string name="tasks_result_subtext">Rezultat zadatka</string>
+    <string name="tasks_result_failed_msg">Zadatak se nije uspješno završio.</string>
     <string name="tasks_timeout_error_label">Zadatak je prekoračio vremensko ograničenje</string>
     <string name="tasks_timeout_error_desc">Zadatak je trajao predugo i zaustavljen je. Pokušajte ponovo.</string>
     <string name="onboarding_welcome_title">Dobrodošli</string>
@@ -71,13 +101,18 @@
     <string name="onboarding_setup_title">Postavljanje</string>
     <string name="onboarding_setup_body1">SD Maid će pretražiti sva dostupna područja podataka.</string>
     <string name="onboarding_setup_body2">Što je dostupno ovisi o vašem uređaju, verziji Androida i odobrenim dopuštenjima.</string>
-    <string name="onboarding_setup_body3">Počnite koristiti SD Maid postavljanjem pristupa područjima koja treba pretražiti.</string>
+    <string name="onboarding_setup_body4">SD Maid-ove zadane postavke su konfigurirane da budu sigurne i temeljite, nudeći dobar balans za većinu korisnika.</string>
+    <string name="onboarding_setup_body5">Za temeljitije rezultate, posjetite postavke svakog alata i prilagodite ih prema svojoj želji.</string>
+    <string name="onboarding_setup_body3">Počnite koristiti SD Maid postavljanjem pristupa.</string>
     <string name="onboarding_setup_continue_action">Postavite pristup</string>
+    <string name="onboarding_setup_tours_enabled_label">Prikaži vodiče</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Brzi vođeni obilazak svake značajke pri njenom otvaranju.</string>
     <string name="settings_privacy_policy_label">Politika privatnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno postupanje s podacima.</string>
     <string name="settings_category_other_label">Ostalo</string>
     <string name="settings_sponsor_development_title">Podržite razvoj</string>
     <string name="settings_sponsor_development_summary">Postanite pokrovitelj i omogućite daljnji razvoj.</string>
+    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Općenito</string>
     <string name="general_settings_desc">Opće postavke koje utječu na cijelu aplikaciju.</string>
     <string name="settings_category_ui_label">Korisničko sučelje</string>
@@ -90,6 +125,12 @@
     <string name="ui_theme_style_setting_explanation">Stil boja korišten prilikom primjene teme na aplikaciju.</string>
     <string name="ui_theme_style_default_label">Zadano</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Srednji kontrast</string>
+    <string name="ui_theme_style_highcontrast_label">Visok kontrast</string>
+    <string name="ui_theme_color_setting_label">Boja teme</string>
+    <string name="ui_theme_color_setting_explanation">Paleta boja koja se koristi za temu aplikacije.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Boje se preuzimaju putem Material You na temelju vaše pozadinske slike.</string>
+    <string name="ui_theme_color_value_system">Boje sustava</string>
     <string name="ui_previews_title">Pretpregledi datoteka</string>
     <string name="ui_previews_summary">Prikaži pretpreglede datoteka u svim alatima (npr. minijature slika i videozapisa).</string>
     <string name="ui_language_override_label">Jezik aplikacije</string>
@@ -174,9 +215,9 @@
     <string name="setup_root_card_title">Root pristup</string>
     <string name="setup_root_card_body">Treba li SD Maid koristiti root pristup ako je dostupan? Root pristup se može koristiti za provjeru dodatnih mapa sustava i podataka privatnih aplikacija.</string>
     <string name="setup_root_state_ready_label">Root pristup je spreman.</string>
-    <string name="setup_root_state_waiting_label">Čekanje na root pristup.</string>
-    <string name="setup_root_enable_root_use_label">Koristi root pristup ako je dostupan</string>
-    <string name="setup_root_disable_root_use_label">Ne koristi root pristup</string>
+    <string name="setup_root_state_waiting_label">Root pristup nije dostupan.</string>
+    <string name="setup_root_enable_root_use_label">Pokušajte koristiti root pristup</string>
+    <string name="setup_root_disable_root_use_label">Nisam rootao svoj uređaj</string>
     <string name="setup_root_card_body2">Dostupno samo na rootanim uređajima. Ako niste izvršili ovu izmjenu, vaš uređaj nije rootan i ova postavka nema učinka.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Dopustite SD Maidu da koristi Shizuku gdje je to moguće za poboljšanje rezultata i omogućavanje značajki.</string>
@@ -184,11 +225,12 @@
     <string name="setup_shizuku_card_root_info">Shizuku u kombinaciji s root pristupom ne omogućuje dodatne mogućnosti, ali poboljšava pouzdanost. SD Maid će ga koristiti kao rezervnu metodu.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku veza je spremna.</string>
     <string name="setup_shizuku_state_waiting_label">Čekanje veze sa Shizukuom.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Koristi Shizuku ako je dostupan</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Pokušajte koristiti Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne koristi Shizuku</string>
     <string name="setup_dismiss_hint">Zaslon za postavljanje možete ponovno pronaći putem izbornika postavki.</string>
     <string name="setup_permission_granted_label">Dopuštenje odobreno</string>
     <string name="setup_permission_error_label">Pogreška dopuštenja</string>
+    <string name="setup_inventory_invalid_label">Neispravan popis aplikacija</string>
     <string name="setup_usagestats_title">Statistike upotrebe</string>
     <string name="setup_usagestats_body">Dopuštenje za statistike upotrebe omogućuje pristup više pojedinosti o aplikacijama. SD Maid ga koristi za određivanje dodatnih veličina predmemorije.</string>
     <string name="setup_usagestats_hint">Potrebno za brisanje predmemorije na temelju usluge pristupačnosti.</string>
@@ -211,9 +253,14 @@
     <string name="setup_acs_disallow_hint">Ako se predomislite, možete ponovno promijeniti ovu opciju odlaskom u postavke i ponovnim pokretanjem postavljanja.</string>
     <string name="setup_acs_appops_restriction_title">Ograničene postavke</string>
     <string name="setup_acs_appops_restriction_body">Ne možete omogućiti uslugu pristupačnosti SD Maida? Android 13+ može primijeniti ograničenja na aplikacije koje nisu instalirane putem Google Playa. Uklonite ova ograničenja sa stranice podataka o aplikaciji SD Maid. Opcija se nalazi u kontekstnom izborniku u gornjem desnom kutu.</string>
+    <string name="setup_acs_advanced_protection_title">Blokiran od strane Advanced Protection</string>
+    <string name="setup_acs_advanced_protection_body">Androidova Advanced Protection blokira SD Maid-ovu uslugu pristupačnosti na Androidu 17 i novijim verzijama, pa se ne može omogućiti dok je Advanced Protection uključen. Dodirnite Pomoć za detalje i alternative.</string>
     <string name="setup_inventory_card_title">Instalirane aplikacije</string>
     <string name="setup_inventory_card_body">SD Maid mora znati koje aplikacije imate kako bi pronašao datoteke koje ne pripadaju nijednoj instaliranoj aplikaciji.</string>
     <string name="setup_inventory_card_extra">Potražite dopuštenje zvano \"Popis aplikacija\" ili \"Upit za sve pakete\".</string>
+    <string name="setup_inventory_limitation_title">Moguće ograničenje uređaja</string>
+    <string name="setup_inventory_limitation_body">Sustav je vratio nepotpun popis instaliranih aplikacija, iako se čini da su potrebne dozvole dodijeljene.</string>
+    <string name="setup_inventory_limitation_body2">Neki uređaji (npr. HarmonyOS) nikada ne pružaju potpun popis aplikacija. Kako bismo zaštitili vaše podatke, alati za aplikacije ostaju onemogućeni, ali i dalje možete vidjeti korištenje pohrane s manje detalja.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nije pronašao nijedno područje podataka koje je moguće skenirati. Jeste li dovršili postavljanje?</string>
     <string name="dataarea_warningcard_label">Područja podataka</string>
     <string name="dataarea_warningcard_reload_action">Ponovno učitavanje područja podataka</string>
@@ -221,6 +268,13 @@
     <string name="debug_mode_explanation">Omogućite testne opcije i opširniji opis pogrešaka. Aplikacija će raditi sporije i drugačije.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Način otklanjanja pogrešaka je omogućen</string>
+    <string name="debug_card_description">Dijagnostika za razvojne programere i zaobilaženja tijekom izvršavanja. Ova kartica se pojavljuje samo dok je uključen način otklanjanja pogrešaka.</string>
+    <string name="debug_card_section_diagnostics">Dijagnostika</string>
+    <string name="debug_card_section_reload">Ponovno učitaj</string>
+    <string name="debug_card_trace_mode_title">Praćenje zapisivanja</string>
+    <string name="debug_card_trace_mode_desc">Detaljni zapisnici korak po korak. Primjetno usporava aplikaciju.</string>
+    <string name="debug_card_dryrun_mode_title">Probni način rada</string>
+    <string name="debug_card_dryrun_mode_desc">Simulacija čišćenja — datoteke se pregledavaju, ali ništa se ne briše.</string>
     <string name="debug_card_areas_reload_action">Ponovno učitaj područja podataka</string>
     <string name="debug_card_pkgs_reload_action">Ponovno učitaj aplikacije</string>
     <string name="debug_card_root_test_action">Testiraj root</string>
@@ -264,5 +318,52 @@
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s u 7 dana</string>
-    <!-- Shorter versions for side-by-side display -->
+    <string name="tour_dashboard_overview_body">Ovo je vaša upravljačka ploča, početni ekran SD Maida. Svaki alat i operacija nalaze se na kartici ovdje.</string>
+    <string name="tour_dashboard_setup_body">Kartica za postavljanje se pojavljuje kada nešto treba konfigurirati. Otvorite je i riješite probleme kako bi SD Maid mogao učiniti još više. Postavljanje možete doseći i iz postavki ako je odbijete.</string>
+    <string name="tour_dashboard_tools_body">Otvorite karticu alata za više detalja. Radnje skeniranja i brisanja nalaze se na svakoj kartici, a detalji se pojavljuju kada skeniranje pronađe nešto.</string>
+    <string name="tour_dashboard_main_action_body">Veliki gumb na dnu je akcija jednim dodirom. Jedan dodir za pretragu, jedan dodir za čišćenje, svi automatski.</string>
+    <string name="tour_dashboard_manual_tools_body">Neki alati, kao što je Swiper, nisu automatski. Nude vođeni radni tijek koji sami prolazite.</string>
+    <string name="tour_dashboard_settings_body">SD Maid-ove zadane postavke su konzervativne i sigurne. Svaki uređaj je malo drugačiji, pa prilagodite postavke kako biste iskoristili više mogućnosti.</string>
+    <string name="tour_setup_intro_body">Svaka kartica na ovom zaslonu je dozvola koju SD Maid može koristiti. Sve su opcionalne, ali više dozvola znači više funkcija i detaljnije preglede. Bez ijedne, većina alata će pronaći malo toga za čistiti.</string>
+    <string name="general_settings_reset_guided_tours_label">Ponovno postavi vođene ture</string>
+    <string name="general_settings_reset_guided_tours_summary">Ponovno prikaži sve vođene ture sljedeći put kada posjetite njihov zaslon. Također ponovno omogućuje sve ture ako ste ih prethodno onemogućili.</string>
+    <string name="widget_home_title">SD Maid</string>
+    <string name="widget_home_description">Korištenje pohrane i čišćenje jednim dodirom</string>
+    <string name="widget_home_storage_internal">Interno</string>
+    <string name="widget_home_storage_external">Vanjsko</string>
+    <string name="widget_home_freed_label">Oslobođeno: %1$s</string>
+    <string name="widget_home_clean_action">Očisti</string>
+    <string name="widget_home_working">Obrada…</string>
+    <string name="widget_home_unavailable">Pohrana nije dostupna</string>
+    <string name="shortcut_onetap_started">Skeniranje &amp; brisanje je započeto…</string>
+    <string name="shortcut_onetap_nothing_enabled">Nema omogućenih alata za jedan dodir</string>
+    <!-- Config backup & restore -->
+    <string name="backup_restore_title">Sigurnosna kopija &amp; Obnova</string>
+    <string name="backup_restore_desc">Spremite svoje postavke i konfiguraciju u datoteku, ili ih obnovite</string>
+    <string name="backup_restore_export_title">Kreiraj sigurnosnu kopiju</string>
+    <string name="backup_restore_export_desc">Spremi postavke, isključenja, rasporede i prilagođene filtere u datoteku</string>
+    <string name="backup_restore_import_title">Vrati sigurnosnu kopiju</string>
+    <string name="backup_restore_import_desc">Učitaj konfiguraciju iz datoteke sigurnosne kopije</string>
+    <string name="backup_restore_export_success">Sigurnosna kopija kreirana</string>
+    <string name="backup_restore_export_partial">Sigurnosna kopija kreirana, ali ovi dijelovi nisu uspjeli: %1$s</string>
+    <string name="backup_restore_restore_success">Sigurnosna kopija obnovljena</string>
+    <string name="backup_restore_restore_failed">Obnova nije uspjela (%1$s). Vaša prethodna konfiguracija je spremljena.</string>
+    <string name="backup_restore_undo_action">Poništi</string>
+    <string name="backup_restore_recovery_title">Oporavi prethodnu konfiguraciju</string>
+    <string name="backup_restore_recovery_desc">Dostupna je sigurnosna snimka iz nedovršene obnove</string>
+    <string name="backup_restore_confirm_title">Obnoviti ovu sigurnosnu kopiju?</string>
+    <string name="backup_restore_confirm_created">Kreirano: %1$s</string>
+    <string name="backup_restore_confirm_source">Iz SD Maid %1$s na %2$s (Android %3$s)</string>
+    <string name="backup_restore_mode_label">Način vraćanja</string>
+    <string name="backup_restore_mode_merge">Spajanje</string>
+    <string name="backup_restore_mode_merge_desc">Dodaj sigurnosnu kopiju iznad svoje trenutne konfiguracije</string>
+    <string name="backup_restore_mode_replace">Zamijeni</string>
+    <string name="backup_restore_mode_replace_desc">Resetiraj svoju trenutnu konfiguraciju, zatim primijeni sigurnosnu kopiju</string>
+    <string name="backup_restore_warn_version_body">Ova sigurnosna kopija je iz SD Maid %1$s, ali vi ste na %2$s. Vraćanje je službeno podržano samo između identičnih verzija.</string>
+    <string name="backup_restore_warn_android_body">Ova sigurnosna kopija je napravljena na Android %1$s, ali ovaj uređaj pokreće Android %2$s.</string>
+    <string name="backup_restore_warn_device_body">Ova sigurnosna kopija je napravljena na drugom uređaju (%1$s vs %2$s).</string>
+    <string name="backup_restore_warn_flavor_body">Ova sigurnosna kopija je iz druge verzije aplikacije (%1$s naspram %2$s).</string>
+    <string name="backup_restore_warn_history_body">Podaci iz povijesti ove sigurnosne kopije (statistika, povijest kompresije, sesije klizanja) dolaze iz druge verzije aplikacije i ne mogu se vratiti. Sve ostalo će se vratiti.</string>
+    <string name="backup_restore_ack_understand">Razumijem i želim nastaviti</string>
+    <string name="backup_restore_action_restore">Obnovi</string>
 </resources>

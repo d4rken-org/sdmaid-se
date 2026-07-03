@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">예외 관리자</string>
     <string name="exclusion_manager_desc">파일과 앱 예외사항을 관리합니다.</string>
-    <string name="exclusion_explanation_body1">파일과 앱을 SD Maid의 활동으로부터 제외합니다.</string>
-    <string name="exclusion_add_new_hint">새로운 예외 사항을 추가하려면 먼저 탐색을 실행한 뒤 제외할 항목의 메뉴를 이용해주세요.</string>
+    <string name="exclusion_explanation_body1">파일과 앱을 제외하여 SD Maid의 도구로부터 보호하거나 관련 없는 항목을 건너뛰어 작업 속도를 높입니다.</string>
+    <string name="exclusion_add_new_hint">아직 제외 항목이 없습니다. + 버튼으로 새로 만들거나 도구 결과에서 항목을 제외하세요.</string>
     <string name="exclusion_create_action">예외 생성</string>
     <string name="exclusion_edit_action">예외 편집</string>
     <string name="exclusion_type_package">앱 제외</string>
@@ -24,5 +24,12 @@
     <string name="exclusion_export_action">내보내기 제외 항목</string>
     <string name="exclusion_create_pkg_hint">AppControl 도구를 이용해 앱 제외를 만드세요.</string>
     <string name="exclusion_create_path_hint">StorageAnalyzer 도구를 이용해 경로 제외를 만드세요.</string>
+    <string name="exclusion_create_segment_hint">\"DCIM/Camera\"와 같은 이름 세그먼트를 일치시킵니다.</string>
     <string name="exclusion_show_defaults_action">기본값 표시</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="other">%d개의 제외를 가져왔습니다</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="other">%d개의 제외를 내보냈습니다</item>
+    </plurals>
 </resources>

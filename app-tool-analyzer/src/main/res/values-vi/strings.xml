@@ -24,6 +24,7 @@
     <string name="analyzer_storage_type_secondary_description">Bộ lưu trữ thứ cấp, thường là thẻ SD có thể tháo rời. Chứa các tệp phương tiện và dữ liệu từ các ứng dụng hỗ trợ nó.</string>
     <string name="analyzer_storage_type_tertiary_title">Bộ lưu trữ di động</string>
     <string name="analyzer_storage_type_tertiary_description">Một bộ lưu trữ di động, ví dụ: một ổ đĩa flash cắm vào cổng USB của bạn.</string>
+    <string name="analyzer_storage_identifier_internal">Bộ nhớ trong</string>
     <string name="analyzer_storage_content_title">Nội dung lưu trữ</string>
     <string name="analyzer_storage_content_type_app_label">Ứng Dụng</string>
     <string name="analyzer_storage_content_type_app_description">Không gian bị chiếm bởi các ứng dụng đã cài đặt và dữ liệu của chúng (tức là tệp ứng dụng, dữ liệu và bộ nhớ đệm).</string>
@@ -34,6 +35,7 @@
     <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác nếu có nhiều tài khoản người dùng được đặt trên thiết bị này.</string>
     <string name="analyzer_storage_content_type_system_other_label">Khác</string>
     <string name="analyzer_storage_content_type_system_info">Các tệp không thuộc danh mục Ứng dụng hoặc Tệp người dùng. Chỉ duyệt — không hỗ trợ xóa. Một số khu vực có thể không đầy đủ do hạn chế truy cập.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Hiện tại không thể ghép các tệp với các ứng dụng sở hữu chúng. Kích thước chỉ được hiển thị để tham khảo — xóa, bộ lọc và Swiper bị tắt.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Tệp hệ thống và dữ liệu khác mà SD Maid không thể truy cập hoặc phân loại. Hệ điều hành hạn chế việc liệt kê nội dung của một số khu vực.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tập tin ứng dụng, thư viện và tài nguyên. Không gian này có thể được giải phóng bằng cách gỡ cài đặt ứng dụng hoặc lưu trữ nó (có sẵn trên phiên bản Android mới hơn).</string>
@@ -46,4 +48,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ứng dụng này chiếm %1$s trên \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ứng dụng này đã được lưu trữ.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s trong 7 ngày</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Xem những gì thực sự chiếm dung lượng bộ nhớ của bạn. Analyzer sẽ lập bản đồ cho bạn biết dung lượng của bạn đi đâu. Mỗi thẻ này là một chip lưu trữ trên thiết bị của bạn.</string>
+    <string name="tour_analyzer_storage_body">Mở bộ nhớ để chia nó thành các ứng dụng, phương tiện và tệp, sau đó tiếp tục nhấn để tìm những người chiếm dụng lượng lớn nhất.</string>
 </resources>

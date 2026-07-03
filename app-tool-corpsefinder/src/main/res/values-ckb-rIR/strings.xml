@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">نەناسراو owner</string>
     <string name="corpsefinder_corpse_hint_keeper">ئەم بابەتە لەوانەیە داتای داگیرساندنت تێدابێت سەرەڕای ئەوەی خاوەنەکەی دامەزراندنەوە کرایەوە، بۆ نموونە وێنەکان یان پاڵپشتی.</string>
     <string name="corpsefinder_corpse_hint_common">ئەم بابەتە ناوی زۆر باوی هەیە و لەوانەیە بەلونگی ئەپەکانی دامەزراوی ببێت کە SD Maid نازانێت.</string>
+    <string name="corpsefinder_risk_keeper_chip">خوازکراو</string>
+    <string name="corpsefinder_risk_common_chip">ئاسایی</string>
+    <string name="corpsefinder_markers_dialog_title">دەربارەی ئەم نیشانکاریانە</string>
+    <string name="corpsefinder_markers_dialog_normal_label">نیشانە نیە</string>
+    <string name="corpsefinder_markers_dialog_normal_description">ماوەی سادە. بە گشتی ئەمنە لە سڕینەوە — ئەم فایلانە ماڵی بەرنامەیانن کە ئێشکا دامەزراو ناکراون.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder زانیاری بەجێماوە دەدۆزێتەوە کە لەلایەن بەرنامەیانۊیەوە کە دامەزراویان لابردووین. ئیتر پەیوەندی ناکات بە هیچ بەرنامەیەکی دامەزراودا، بۆیە لابردنی ئەمنە و جێگا ئازاد دەکات.</string>
+    <string name="tour_corpsefinder_row_body">هەر خانەیەک زانیاری بەجێماوە و بەرنامەیەکی کە لێی هاتووە. نیشانەکە پیشان دەدات کە SD Maid چەند باوەڕدارە بۆ ئەوەی سڕینەوەی ئەمنە — داکێشە لەسەر ⮡ لە سەرەوە بۆ فێربوون کە نیشانەکان چی مانایان هەیە.</string>
 </resources>

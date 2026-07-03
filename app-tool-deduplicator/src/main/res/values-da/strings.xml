@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Slet alle kopier undtagen én i hvert valgt sæt af duplikerede filer?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Slet alle filer i hvert valgt sæt af duplikater? Der er ingen filer tilbage!</string>
     <string name="deduplicator_delete_all_toggle_msg">Slet alle kopier. Der er ingen filer tilbage!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Slet %1$d duplikat i dette sæt, og frigør %2$s? Den bevarede kopi forbliver.</item>
+        <item quantity="other">Slet %1$d duplikater i dette sæt, og frigør %2$s? Den bevarede kopi forbliver.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s kan frigøres</string>
+    <string name="deduplicator_action_delete_set">Slet duplikat-sæt</string>
+    <string name="deduplicator_action_open_preview">Åbn forhåndsvisning</string>
+    <string name="deduplicator_marked_for_deletion">Markeret til sletning</string>
+    <string name="deduplicator_cluster_preview_image">Forhåndsvisning af duplikat-sæt</string>
+    <string name="deduplicator_selection_keep_one_required">Mindst én fil per duplikatgruppe skal forblive. Aktivér \'Gør \'Slet alt\' muligt\' i indstillinger for at tilsidesætte.</string>
     <string name="deduplicator_progress_comparing_files">Sammenligner filer</string>
     <string name="deduplicator_details_cluster_title">Sæt af duplikater</string>
     <string name="deduplicator_matches_exact_label">Præcise kopier</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Foretræk mindre filer</string>
     <string name="deduplicator_view_mode_groups_label">Grupper</string>
     <string name="deduplicator_view_mode_directories_label">Mapper</string>
+    <string name="tour_deduplicator_details_cluster_body">Disse filer ser ud til at være det samme element eller medieindhold, en gruppe duplikater.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Filer med dette ikon slettes; den resterende fil i gruppen er den, som SD Maid beholder. Du kan ændre, hvordan den bevarede fil vælges, i indstillingerne for sletningsstrategi.</string>
 </resources>

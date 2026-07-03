@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Gestionare Excluderi</string>
     <string name="exclusion_manager_desc">Gestionați excluderile de fișiere și aplicații.</string>
-    <string name="exclusion_explanation_body1">Exclude fișiere și aplicații din operațiile SD Maid.</string>
-    <string name="exclusion_add_new_hint">Adăugați noi excluderi permițând mai întâi SD Maid să caute și apoi folosind meniul contextual pentru rezultatul pe care doriți să îl excludeți.</string>
+    <string name="exclusion_explanation_body1">Exclude fișiere și aplicații pentru a le proteja de instrumentele SD Maid, sau pentru a sări peste articolele irelevante și a accelera operațiunile.</string>
+    <string name="exclusion_add_new_hint">Nicio excludere deocamdată. Folosește butonul + pentru a crea una, sau exclude articole din rezultatele oricărui instrument.</string>
     <string name="exclusion_create_action">Creează excludere</string>
     <string name="exclusion_edit_action">Editează excluderea</string>
     <string name="exclusion_type_package">Excludere aplicație</string>
@@ -24,5 +24,16 @@
     <string name="exclusion_export_action">Excluderi de export</string>
     <string name="exclusion_create_pkg_hint">Utilizați instrumentul Controlul aplicațiilor pentru a crea excluderi de aplicații.</string>
     <string name="exclusion_create_path_hint">Utilizați instrumentul Analizor de stocare pentru a crea căi de excludere.</string>
+    <string name="exclusion_create_segment_hint">Potrivește un segment de nume, cum ar fi \"DCIM/Camera\".</string>
     <string name="exclusion_show_defaults_action">Afișați valorile implicite</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">%d excludere importată</item>
+        <item quantity="few">%d excluderi importate</item>
+        <item quantity="other">%d de excluderi importate</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">%d excludere exportată</item>
+        <item quantity="few">%d excluderi exportate</item>
+        <item quantity="other">%d de excluderi exportate</item>
+    </plurals>
 </resources>

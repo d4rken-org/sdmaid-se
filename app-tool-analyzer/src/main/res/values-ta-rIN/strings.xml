@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">இரண்டாம் நிலை சேமிப்பு, பொதுவாக அகற்றக்கூடிய SD கார்டு. அதை ஆதரிக்கும் பயன்பாடுகளின் ஊடக கோப்புகள் மற்றும் தரவை உள்ளடக்கியது.</string>
     <string name="analyzer_storage_type_tertiary_title">கையடக்க சேமிப்பு</string>
     <string name="analyzer_storage_type_tertiary_description">கையடக்க சேமிப்பு, எ.கா. உங்கள் USB போர்ட்டில் செருகப்பட்ட ஃபிளாஷ் டிரைவ்.</string>
+    <string name="analyzer_storage_identifier_internal">உள் சேமிப்பகம்</string>
     <string name="analyzer_storage_content_title">சேமிப்பு உள்ளடக்கம்</string>
     <string name="analyzer_storage_content_type_app_label">பயன்பாடுகள்</string>
     <string name="analyzer_storage_content_type_app_description">நிறுவப்பட்ட பயன்பாடுகள் மற்றும் அவற்றின் தரவால் ஆக்கிரமிக்கப்பட்ட இடம் (அதாவது பயன்பாட்டு கோப்புகள், தரவு மற்றும் கேச்கள்).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">கணினி பயன்பாடுகள் மற்றும் கணினி தரவு. இந்த சாதனத்தில் பல பயனர் கணக்குகள் அமைக்கப்பட்டிருந்தால், மற்ற பயனர்களின் பயன்பாடுகள் மற்றும் தரவு.</string>
     <string name="analyzer_storage_content_type_system_other_label">மற்றவை</string>
     <string name="analyzer_storage_content_type_system_info">ஆப்ஸ் அல்லது பயனர் கோப்புகள் வகைகளில் பொருந்தாத கோப்புகள். உலாவல் மட்டுமே — நீக்குதல் ஆதரிக்கப்படவில்லை. அணுகல் கட்டுப்பாடுகள் காரணமாக சில பகுதிகள் முழுமையற்றதாக இருக்கலாம்.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">கோப்புகள் இப்போது அவற்றைச் சொந்தமாக வைத்திருக்கும் பயன்பாடுகளுடன் பொருத்த முடியாது. அளவுகள் குறிப்பிடுவதற்கு மற்றுமே காட்டப்படுகிறது — நீக்கல், வடிப்பிகள் மற்றும் Swiper முடக்கப்பட்டுள்ளன.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid அணுக அல்லது வகைப்படுத்த முடியாத கணினி கோப்புகள் மற்றும் பிற தரவு. இயக்க முறைமை சில பகுதிகளின் உள்ளடக்கங்களை பட்டியலிடுவதை கட்டுப்படுத்துகிறது.</string>
     <string name="analyzer_storage_content_app_code_label">பயன்பாட்டு கோட்</string>
     <string name="analyzer_storage_content_app_code_description">பயன்பாட்டு கோப்புகள், நூலகங்கள் மற்றும் வளங்கள். பயன்பாடை அன்இன்ஸ்டால் செய்வதன் மூலம் அல்லது அர்கைவ் செய்வதன் மூலம் (புதிய Android வெர்ஷன்களில் கிடைக்கும்) இந்த இடத்தை விடுவிக்க முடியும்.</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">இந்த பயன்பாடு \"%2$s\" இல் %1$s ஆக்ரமிக்கிறது.</string>
     <string name="analyzer_app_details_app_is_archived">இந்த பயன்பாடு அர்கைவ் செய்யப்பட்டுள்ளது.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 நாட்களில்</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">உங்கள் சேமிப்பகத்தை உண்மையில் நிருப்புவது என்ன என்பதைக் காணுங்கள். Analyzer உங்கள் இடம் எங்கு செல்கிறது என்பதை வரைபடமாக்குகிறது. இந்தக் கார்டுகள் ஒவ்வொன்றும் உங்கள் சாதனத்தில் சேமிப்பக சிப் ஆகும்.</string>
+    <string name="tour_analyzer_storage_body">சேமிப்பகத்தைத் திறந்து பயன்பாடுகள், மீடியா மற்றும் கோப்புக்களாக பிரிக்கவும், பின்னர் மிகப்பெரிய குற்றவாளிகளைக் கண்டறிய தொடர்ந்து தட்டவும்.</string>
 </resources>

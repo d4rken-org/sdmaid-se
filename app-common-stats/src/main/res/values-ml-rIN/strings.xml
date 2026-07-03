@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">പ്രാഥമിക സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_secondary">ദ്വിതീയ സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_portable">പോർട്ടബിൾ സ്റ്റോറേജ്</string>
+    <string name="stats_space_history_delete_storage_title">സ്റ്റോറേജ് ചരിത്രം ഇല്ലാതാക്കണോ?</string>
+    <string name="stats_space_history_delete_storage_desc">ഈ സ്റ്റോറേജിനായുള്ള എല്ലാ ട്രെൻഡ് ഡേറ്റയും സ്ഥിരമായി ഇല്ലാതാക്കും.</string>
 </resources>

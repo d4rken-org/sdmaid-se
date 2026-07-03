@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">L\'archiviazione secondaria, di solito una MicroSD. Contiene file multimediali e dati dalle applicazioni che la supportano.</string>
     <string name="analyzer_storage_type_tertiary_title">Memoria esterna</string>
     <string name="analyzer_storage_type_tertiary_description">Una memoria esterna, ad esempio un\'unità flash collegata alla porta USB.</string>
+    <string name="analyzer_storage_identifier_internal">Archiviazione interna</string>
     <string name="analyzer_storage_content_title">Contenuto della memoria</string>
     <string name="analyzer_storage_content_type_app_label">App</string>
     <string name="analyzer_storage_content_type_app_description">Spazio occupato da app installate e dai loro dati (cioè file di app, dati e cache).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">App di sistema e dati di sistema. Applicazioni e dati di altri utenti, se ci sono più account utente in questo dispositivo.</string>
     <string name="analyzer_storage_content_type_system_other_label">Altro</string>
     <string name="analyzer_storage_content_type_system_info">File che non rientrano nelle categorie App o File utente. Solo navigazione — l\'eliminazione non è supportata. Alcune aree potrebbero essere incomplete a causa di restrizioni di accesso.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">I file non possono essere abbinati alle app che li possiedono al momento. Le dimensioni sono mostrate solo a scopo informativo — eliminazione, filtri e Swiper sono disabilitati.</string>
     <string name="analyzer_storage_content_type_system_other_desc">File di sistema e altri dati a cui SD Maid non ha potuto accedere o categorizzare. Il sistema operativo limita l\'elenco dei contenuti di alcune aree.</string>
     <string name="analyzer_storage_content_app_code_label">Codice app</string>
     <string name="analyzer_storage_content_app_code_description">File di applicazioni, librerie e risorse. Questo spazio può essere liberato disinstallando l\'app oppure archiviandola (disponibile nella versione di android più recente).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Questa app occupa %1$s di \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">L\'applicazione è stata archiviata.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7g</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Scopri cosa sta effettivamente riempiendo la tua archiviazione. Analyzer mostra dove va il tuo spazio. Ognuna di queste schede è un chip di archiviazione sul tuo dispositivo.</string>
+    <string name="tour_analyzer_storage_body">Apri un’archiviazione per suddividerla in app, contenuti multimediali e file, quindi continua a toccare per trovare i responsabili più grandi.</string>
 </resources>

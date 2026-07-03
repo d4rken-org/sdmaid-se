@@ -27,6 +27,7 @@
     <string name="analyzer_storage_type_secondary_description">Секундарно складирање, обично отстранлива SD картичка. Содржи медиа датотеки и податоци од апликации кои го поддржуваат.</string>
     <string name="analyzer_storage_type_tertiary_title">Преносливо складирање</string>
     <string name="analyzer_storage_type_tertiary_description">Преносливо складирање, пр. флеш диск вклучен во USB портот.</string>
+    <string name="analyzer_storage_identifier_internal">Внатрешна меморија</string>
     <string name="analyzer_storage_content_title">Содржина на складирање</string>
     <string name="analyzer_storage_content_type_app_label">Апликации</string>
     <string name="analyzer_storage_content_type_app_description">Простор зафатен од инсталирани апликации и нивните податоци (пр. датотеки на апликации, податоци и кешови).</string>
@@ -37,6 +38,7 @@
     <string name="analyzer_storage_content_type_system_description">Системски апликации и системски податоци. Апликации и податоци од други корисници, ако на уредот има повеќе кориснички сметки.</string>
     <string name="analyzer_storage_content_type_system_other_label">Друго</string>
     <string name="analyzer_storage_content_type_system_info">Датотеки кои не се вклопуваат во категориите Апликации или Кориснички датотеки. Само прелистување — бришењето не е поддржано. Некои области може да бидат нецелосни поради ограничувања на пристапот.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Датотеките не можат да се поврзат со апликациите што ги поседуваат во моментов. Големините се прикажани само за референца — бришење, филтри и Swiper се оневозможени.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Системски датотеки и други податоци до кои SD Maid не можеше да пристапи или да ги категоризира. Оперативниот систем ги ограничува листите со содржини на некои области.</string>
     <string name="analyzer_storage_content_app_code_label">Код на апликација</string>
     <string name="analyzer_storage_content_app_code_description">Датотеки, библиотеки и ресурси на апликацијата. Овој простор може да се ослободи со деинсталирање или архивирање на апликацијата (достапно на понови верзии на Android).</string>
@@ -49,4 +51,7 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Оваа апликација зафаќа %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Оваа апликација е архивирана.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7д</string>
+    <!-- Guided tour -->
+    <string name="tour_analyzer_intro_body">Видете што навистина ви го полни складиштето. Analyzer-от прикажува каде оди вашиот простор. Секоја од овие картички претставува складишна единица на вашиот уред.</string>
+    <string name="tour_analyzer_storage_body">Отворете складиште за да го разделите на апликации, медиуми и датотеки, па потоа продолжете да допирате за да ги проследите најголемите потрошувачи на простор.</string>
 </resources>

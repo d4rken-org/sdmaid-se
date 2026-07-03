@@ -41,6 +41,16 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Töröljön minden másolatot egy kivételével minden egyes kiválasztott duplikált fájlcsoportból?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Törölje az összes fájlt a duplikált fájlok kiválasztott csoportjában? Egyetlen fájl sem marad meg!</string>
     <string name="deduplicator_delete_all_toggle_msg">Törölje az összes másolatot. Egyetlen fájl sem marad meg!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="one">Szeretné eltávolítani a %1$d duplikátumot ebből a csoportból, felszabadítva %2$s helyet? Az eredeti másolat marad.</item>
+        <item quantity="other">Szeretné eltávolítani a %1$d duplikátumot ebből a csoportból, felszabadítva %2$s helyet? Az eredeti másolat marad.</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">%1$s felszabadítható</string>
+    <string name="deduplicator_action_delete_set">Duplikált csoport eltávolítása</string>
+    <string name="deduplicator_action_open_preview">Előnézet megnyitása</string>
+    <string name="deduplicator_marked_for_deletion">Eltávolításra megjelölve</string>
+    <string name="deduplicator_cluster_preview_image">Duplikált csoport előnézete</string>
+    <string name="deduplicator_selection_keep_one_required">Minden duplikátum-halmazban legalább egy fájlnak meg kell maradnia. Az „Osszes törlés lehetővé tétele” beállítás engedélyezésével felülírhatja ezt.</string>
     <string name="deduplicator_progress_comparing_files">Fájlok összehasonlítása</string>
     <string name="deduplicator_details_cluster_title">Duplikátumok készlete</string>
     <string name="deduplicator_matches_exact_label">Pontos másolatok</string>
@@ -78,4 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kisebb fájlok előnyben részesítése</string>
     <string name="deduplicator_view_mode_groups_label">Csoportok</string>
     <string name="deduplicator_view_mode_directories_label">Mappák</string>
+    <string name="tour_deduplicator_details_cluster_body">Ezek a fájlok ugyanannak az elemnek vagy médiatartalomnak tűnnek; duplikátumok csoportja.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Az ezzel az ikonnal rendelkező fájlok törlésre kerülnek; a csoportban megmaradó fájl az, amit az SD Maid megtart. A megtartott fájl kiválasztásának módját módosíthatja a törlési stratégia beállításaiban.</string>
 </resources>

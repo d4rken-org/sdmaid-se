@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Jag fattar</string>
     <string name="general_fix_action">Fixa</string>
     <string name="general_set_up_action">Konfigurera</string>
+    <string name="general_unavailable_label">Otillgänglig</string>
     <string name="general_edit_action">Redigera</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Tömma</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">I kö</string>
     <string name="general_progress_deleting">Tar bort</string>
     <string name="general_progress_deleting_x">Tar bort %s</string>
+    <string name="general_sort_by_title">Sortera efter</string>
     <string name="general_sort_reverse_action">Omvänt sorteringsläge</string>
+    <string name="general_sort_oldest_first">Äldst först</string>
+    <string name="general_sort_newest_first">Nyast först</string>
+    <string name="general_sort_name_asc">Namn (A → Ö)</string>
+    <string name="general_sort_size_desc">Störst först</string>
     <string name="general_tag_system">System</string>
+    <string name="general_navigate_up_action">Navigera upp</string>
+    <string name="general_filter_action">Filtrera</string>
+    <string name="general_filter_by_tags_label">Filtrera efter taggar</string>
+    <string name="general_filter_add_action">Lägg till filter</string>
+    <string name="general_filter_remove_x_action">Ta bort %s filter</string>
+    <string name="general_filter_empty_row_hint">Tryck + för att filtrera</string>
+    <string name="general_show_all_action">Visa allt</string>
     <string name="general_result_success_message">Operationen lyckades</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Frigjorde %s utrymme.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Alternativ</string>
     <string name="general_details_label">Detaljer</string>
     <string name="general_view_action">Se</string>
+    <string name="general_open_action">Öppna</string>
+    <string name="general_configure_action">Konfigurera</string>
     <string name="general_update_action">Uppdatering</string>
     <string name="general_scan_action">Skanna</string>
     <string name="general_close_action">Stäng</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d objekt togs bort</item>
     </plurals>
     <string name="general_search_action">Sök</string>
+    <string name="general_search_no_matches">Inga träffar</string>
     <string name="general_open_system_settings_action">Öppna systeminställningar</string>
+    <string name="general_fast_scroller_action">Snabbscroll</string>
     <plurals name="result_x_items">
         <item quantity="one">%s objekt</item>
         <item quantity="other">%s objekt</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Aktivera tjänsten</string>
     <string name="general_undo_action">Ångra</string>
     <string name="general_list_select_all_action">Välj alla</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d vald</item>
+        <item quantity="other">%d valda</item>
+    </plurals>
     <string name="general_path_label">Väg</string>
     <string name="general_type_label">Typ</string>
     <string name="general_size_label">Storlek</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Rapportera fel</string>
     <string name="general_error_ipc_deadobject_title">Tjänstanslutning förlorad</string>
     <string name="general_error_ipc_deadobject_description">Anslutningen till en kritisk tjänst (t.ex. Magisk, Shizuku eller andra tjänster på systemnivå) förlorades oväntat. Starta om din enhet. Om problemet kvarstår, sök efter uppdateringar eller kontakta mig så att jag kan åtgärda det.</string>
+    <string name="general_error_upgrade_required_title">Pro-version krävs</string>
+    <string name="general_error_upgrade_required_description">Det här är en Pro-funktion. Uppgradera SD Maid SE för att använda den.</string>
     <string name="general_user_label_owner">Ägare</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Inställningar</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Riskivå</string>
     <string name="settings_category_filter">Filter</string>
     <string name="appcontrol_systemsettings_open_title">Visa inställningar</string>
+    <string name="ui_theme_color_sunset_label">Solnedgång</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Den här funktionen behöver root-åtkomst, men SD Maid kunde inte få det på den här enheten.</string>
+    <string name="access_blocked_root_declined">Den här funktionen kräver root-åtkomst. Du kan aktivera den via installationsskärmen.</string>
+    <string name="access_blocked_root_or_shizuku">Den här funktionen kräver root- eller Shizuku-åtkomst, vilket inte är tillgängligt på den här enheten.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Ogiltig säkerhetskopia</string>
+    <string name="backup_restore_error_invalid_body">Den här filen är inte en giltig SD Maid-säkerhetskopia eller är skadad.</string>
+    <string name="backup_restore_error_version_body">Den här säkerhetskopian skapades med en nyare version av SD Maid. Uppdatera appen och försök igen.</string>
+    <string name="backup_restore_error_restore_failed_title">Återställning misslyckades</string>
+    <string name="backup_restore_error_restore_failed_body">Dessa delar kunde inte återställas: %1$s. Din tidigare konfiguration sparades och kan återställas.</string>
+    <string name="backup_restore_error_safety_title">Återställning startades inte</string>
+    <string name="backup_restore_error_safety_body">SD Maid kunde inte spara en säkerhetskopia av din nuvarande konfiguration, så ingenting ändrades.</string>
+    <string name="backup_restore_error_busy_title">Vänta</string>
+    <string name="backup_restore_error_busy_body">En rengöringsuppgift eller en annan säkerhetskopieringsoperation körs för närvarande. Försök igen när den är klar.</string>
+    <string name="backup_restore_error_schema_title">Inkompatibel säkerhetskopia</string>
+    <string name="backup_restore_error_schema_body">Säkerhetskopians databasformat matchar inte denna version av SD Maid. Återställning av historikdata stöds endast mellan identiska appversioner.</string>
 </resources>

@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">Propietariu disconnotu</string>
     <string name="corpsefinder_corpse_hint_keeper">Custu elementu podet cuntenner datos chi cheres mantenner mancai su propietariu suo seghet disinstalladu, pro es. fotos o copias de resèrvia.</string>
     <string name="corpsefinder_corpse_hint_common">Custu elementu tenet unu nòmene meda cumune e dda podet apertènere a aplicatziones galu installadas chi SD Maid no connet.</string>
+    <string name="corpsefinder_risk_keeper_chip">Desiderabili</string>
+    <string name="corpsefinder_risk_common_chip">Comunu</string>
+    <string name="corpsefinder_markers_dialog_title">Informatziones totu custas marche</string>
+    <string name="corpsefinder_markers_dialog_normal_label">Sena marchetta</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Residuu standard. Comunemente siguru da bogare — custos archivos pertenent a aplicatziones chi non sunt prus instaladas.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder attat datos lassados de aplicatziones chi tue as desinstaladu gia. Non pertenent prus a nessuna cosa instalada, ita que est siguru bogare e liberat ispatzio.</string>
+    <string name="tour_corpsefinder_row_body">Cada oghja est datos lassados de un\'aplicatzione. Sa marchetta mostrat cun que siguridade SD Maid est chi est siguru da bogare — tue sa ⓘ in su cabu pro aprendere cales significant sas marchetas.</string>
 </resources>

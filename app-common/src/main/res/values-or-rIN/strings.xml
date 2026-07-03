@@ -28,6 +28,7 @@
     <string name="general_gotit_action">ବୁଝିଗଲି</string>
     <string name="general_fix_action">ସଜାଡ଼ିବା</string>
     <string name="general_set_up_action">ସେଟ୍ ଅପ୍ କରିବା</string>
+    <string name="general_unavailable_label">ଉପଲବ୍ଧ ନଥାଏ</string>
     <string name="general_edit_action">ସମ୍ପାଦନା</string>
     <string name="general_na_label">ଅପ୍ରଯୁଜ୍ୟ</string>
     <string name="general_empty_label">ଖାଲି</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">ଧାଡ଼ିରେ</string>
     <string name="general_progress_deleting">ବିଲୋପ କରାଯାଉଛି</string>
     <string name="general_progress_deleting_x">%s ବିଲୋପ କରାଯାଉଛି</string>
+    <string name="general_sort_by_title">ଏହା ଦ୍ୱାରା ସଜାଇବେ</string>
     <string name="general_sort_reverse_action">ରିଭର୍ସ ସର୍ଟ୍ ମୋଡ୍</string>
+    <string name="general_sort_oldest_first">ସବୁଠୁ ପୁରୁଣା ପ୍ରଥମ</string>
+    <string name="general_sort_newest_first">ସବୁଠୁ ନୂଆ ପ୍ରଥମ</string>
+    <string name="general_sort_name_asc">ନାମ (A → Z)</string>
+    <string name="general_sort_size_desc">ସବୁଠୁ ବଡ଼ ପ୍ରଥମ</string>
     <string name="general_tag_system">ସିଷ୍ଟମ୍</string>
+    <string name="general_navigate_up_action">ଉପରକୁ ଯାଆନ୍ତୁ</string>
+    <string name="general_filter_action">ଶୋଧନ କରାଇବା</string>
+    <string name="general_filter_by_tags_label">ଟ୍ୟାଗ୍ ଦ୍ଵାରା ଫିଲ୍ଟର କରନ୍ତୁ</string>
+    <string name="general_filter_add_action">ଫିଲ୍ଟର ୟୋଗ କରନ୍ତୁ</string>
+    <string name="general_filter_remove_x_action">%s ଫିଲ୍ଟର ଅପସାରଣ କରନ୍ତୁ</string>
+    <string name="general_filter_empty_row_hint">ଫିଲ୍ଟର କରିବାକୁ + ଟ୍ୟାପ କରନ୍ତୁ</string>
+    <string name="general_show_all_action">ସବୁ ଦେଖାଇବା</string>
     <string name="general_result_success_message">ପ୍ରକ୍ରିୟା ସଫଳ ହୋଇଛି</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ସ୍ଥାନ ମୁକ୍ତ କରାଗଲା।</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">ବିକଳ୍ପ</string>
     <string name="general_details_label">ବିବରଣୀ</string>
     <string name="general_view_action">ଦେଖିବା</string>
+    <string name="general_open_action">ଖୋଲନ୍ତୁ</string>
+    <string name="general_configure_action">ବିନ୍ୟାସ କରନ୍ତୁ</string>
     <string name="general_update_action">ଅଦ୍ୟତନ କରିବା</string>
     <string name="general_scan_action">ସ୍କେନ୍ କରିବା</string>
     <string name="general_close_action">ବନ୍ଦ କରନ୍ତୁ</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>
     </plurals>
     <string name="general_search_action">ସନ୍ଧାନ</string>
+    <string name="general_search_no_matches">କୌଣସି ମିଳ ନାହିଁ</string>
     <string name="general_open_system_settings_action">ସିସ୍ଟମ୍ ସେଟିଂ ଖୋଲିବା</string>
+    <string name="general_fast_scroller_action">ଦ୍ରୁତ ସ୍କ୍ରୋଲର</string>
     <plurals name="result_x_items">
         <item quantity="one">%sଟିଏ ଦ୍ରବ୍ୟ</item>
         <item quantity="other">%sଟି ଦ୍ରବ୍ୟ</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">ସେବା ସକ୍ଷମ କରିବା</string>
     <string name="general_undo_action">ପୂର୍ବବତ୍</string>
     <string name="general_list_select_all_action">ସବୁ ଚୟନ କରିବା</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d ଚୟନ ହୋଇଛି</item>
+        <item quantity="other">%d ଚୟନ ହୋଇଛି</item>
+    </plurals>
     <string name="general_path_label">ପଥ</string>
     <string name="general_type_label">ପ୍ରକାର</string>
     <string name="general_size_label">ଆକାର</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">ବଗ୍ ରିପୋର୍ଟ କରିବା</string>
     <string name="general_error_ipc_deadobject_title">ସେବା ସଂଯୋଗ ହଜିଗଲା</string>
     <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାକୁ (ଯେପରିକି Magisk, Shizuku, କିମ୍ବା ଅନ୍ୟାନ୍ୟ ସିସ୍ଟମ୍-ସ୍ତରୀୟ ସେବା) ସଂଯୋଗ ଅନପେକ୍ଷିତ ଭାବେ ହଜିଗଲା। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଚାଲୁଥାଏ, ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ସମ୍ପର୍କ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ସମାଧାନ କରିପାରିବି।</string>
+    <string name="general_error_upgrade_required_title">Pro ସଂସ୍କରଣ ଆବଶ୍ୟକ</string>
+    <string name="general_error_upgrade_required_description">ଏହା ଏକ Pro ବୈଶିଷ୍ଟ୍ୟ। ଏହା ବ୍ୟବହାର କରିବାକୁ ଦୟା କରି SD Maid SE କୁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ।</string>
     <string name="general_user_label_owner">ମାଲିକ</string>
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>
     <string name="settings_category_filter">ଶୋଧକ</string>
     <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
+    <string name="ui_theme_color_sunset_label">ସୂର୍ୟାସ୍ତ</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">ଏହି ବୈଶିଷ୍ଟ୍ୟର ରୁଟ ଅନୁମତି ଦରକାର, କିନ୍ତୁ SD Maid ଏହି ଡିଭାଇସରେ ଏହା ପାଇ ପାରିଲା ନାହିଁ।</string>
+    <string name="access_blocked_root_declined">ଏହି ବୈଶିଷ୍ଟ୍ୟ ରୁଟ ଅଧିକାର ଦରକାର। ଆପଣ ସେଟଅପ ସ୍କ୍ରୀନ ମାଧ୍ୟମରେ ଏହା ସକ୍ଷମ କରିପାରେନ୍ତି।</string>
+    <string name="access_blocked_root_or_shizuku">ଏହି ବୈଶିଷ୍ଟ୍ୟ ରୁଟ ବା Shizuku ଅଧିକାର ଦରକାର, ୟାହା ଏହି ଡିଭାଇସରେ ଉପଲବ୍ଧ ନାହିଁ।</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">ଅବୈଧ ବ୍ୟାକଅପ୍ ଫାଇଲ</string>
+    <string name="backup_restore_error_invalid_body">ଏହି ଫାଇଲ ଏକ ବୈଧ SD Maid ବ୍ୟାକଅପ୍ ନୁହେଁ ବା ଦୁର୍ନୀତ ଅଛି।</string>
+    <string name="backup_restore_error_version_body">ଏହି ବ୍ୟାକଅପ୍ SD Maid ର ଏକ ନୂତନ ସଂସ୍କରଣ ସହିତ ସୃଷ୍ଟି ହୋଇଥିଲା। ଦୟାକରି ଆପ୍ଲିକେଶନ ଅପଡେଟ କରନ୍ତୁ ଏବଂ ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="backup_restore_error_restore_failed_title">ପୁନରୁଦ୍ଧାର ବିଫଳ ହୋଇଛି</string>
+    <string name="backup_restore_error_restore_failed_body">ଏହି ଭାଗଗୁଡ଼ିକ ପୁନରୁଦ୍ଧାର ହୋଇପାରିବ ନାହିଁ: %1$s। ଆପଣଙ୍କ ପୂର୍ବ ବିନ୍ୟାସ ସଂରକ୍ଷିତ ହୋଇଥିଲା ଏବଂ ଫେରାଇ ଆଣା ହୋଇପାରେ।</string>
+    <string name="backup_restore_error_safety_title">ପୁନରୁଦ୍ଧାର ଆରମ୍ଭ ହୋଇନାହିଁ</string>
+    <string name="backup_restore_error_safety_body">SD Maid ଆପଣଙ୍କ ସାମ୍ପ୍ରତିକ ବିନ୍ୟାସର ଏକ ସୁରକ୍ଷା ସ୍ନାପସଟ ସଂରକ୍ଷିତ କରିପାରିଲା ନାହିଁ, ତେଣୁ କିଛି ପରିବର୍ତନ ହୋଇନାହିଁ।</string>
+    <string name="backup_restore_error_busy_title">ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ</string>
+    <string name="backup_restore_error_busy_body">ଏକ ସଫାଇ କାର୍ୟ୍ୟ ବା ଅନ୍ୟ ବ୍ୟାକଅପ୍ ଅପରେସନ୍ ବର୍ତ୍ତମାନ ଚାଲୁଛି। ଏଟି ଶେଷ ହେବାପରେ ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="backup_restore_error_schema_title">ଅସଙ୍ଗତ ବ୍ୟାକଅପ୍</string>
+    <string name="backup_restore_error_schema_body">ବ୍ୟାକଅପ୍ର ଡାଟାବେସ ଫର୍ମାଟ SD Maid ର ଏହି ସଂସ୍କରଣ ସହ ଖାପ ଖାଇବ ନାହିଁ। ଇତିହାସ ଡାଟା ପୁନରୁଦ୍ଧାର କେବଳ ସମାନ ଆପ୍ ସଂସ୍କରଣ ମଧ୍ୟରେ ସମର୍ଥିତ।</string>
 </resources>

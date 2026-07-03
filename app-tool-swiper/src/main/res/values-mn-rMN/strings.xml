@@ -36,6 +36,19 @@
         <item quantity="one">%d шийдэгдээгүй зүйл дараа хянуулахаар үлдэнэ.</item>
         <item quantity="other">%d шийдэгдээгүй зүйл дараа хянуулахаар үлдэнэ.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Энэ сеанс бүхэл санг чиглсэн — энд устгах нь тэр сангийн бүх хавтсанд тархина.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…болон %d нэмэлт хавтас</item>
+        <item quantity="other">…болон %d нэмэлт хавтас</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Эдгээр файлуудыг мөнхөн устгах болно гэдгийг би ойлгож байна.</string>
+    <string name="swiper_sensitive_root_warning_title">Бүхэл санг сканнерлэх үү?</string>
+    <string name="swiper_sensitive_root_warning_message">%1$s сканнерлах нь энэ санд байгаа бүх файлыг агуулна — зураг, баримт бичиг, татсан файл, апп медиа болон бусад. Үргэлжлүүлэх үү?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Ямар ч байсан үргэлжлүүлэх</string>
+    <string name="swiper_session_risky_label">Бүхэл сангийн сканнер</string>
+    <string name="swiper_session_risky_info_message">Энэ сеанс сангийн ундсийг чиглсэн, тиймээс тэр санд байгаа бүх файл хамрагдаж байна — зураг, баримт бичиг, татсан файл, апп медиа болон бусад.
+
+Бүхэл сангийн сканнер олон зүйлийг буцааж болно, үүнд таны шалгах гэж бодожгүй файлууд багтаж болно. Сканнерийг нарийсгахын тулд файлын төрлийн шүүлтүүр ашиглана уу.</string>
     <string name="swiper_delete_x_action">%1$d устгах</string>
     <string name="swiper_settings_swap_directions_title">Гүйлгэх чиглэлийг сольх</string>
     <string name="swiper_settings_swap_directions_summary">Зүүн тийш гүйлгэж хадгалах, баруун тийш устгах.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Энэ сессийн нэрийг оруулна уу</string>
     <string name="swiper_sessions_current_sessions">Одоогийн сессүүд</string>
     <string name="swiper_session_paths_label">Замууд</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…болон %d нэмэлт</item>
+        <item quantity="other">…болон %d нэмэлт</item>
+    </plurals>
     <string name="swiper_session_status_label">Төлөв</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d хадгалах</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Шүүсэн: %1$s</string>
     <string name="swiper_session_no_matching_files">Тохирох файл олдсонгүй</string>
     <string name="swiper_open_externally_action">Гадаад аппликейшнд нээх</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Зургийг шивжин тулд хажуу талруу өнхрүүл: хадгалах эсвэл устгахын тулд хажуу тийш, алгасахын тулд дээш, буцаахын тулд доош. Доорхи товчлуурууд адил зүйлийг хийдэг — аль тал аль үйлдэлийг харуулна.</string>
+    <string name="tour_swiper_openin_body">Энэ товч нь зургийг өөр програмд нээдэг бөгөөд шийдвэр гаргахаас өмнө шалгаж үзэхэд хэрэгтэй.</string>
+    <string name="tour_swiper_preview_body">Энэ товч нь ойроос харахад бүтэн дэлгэцийн урьдчилсан үзүүлэлтийг нээдэг.</string>
+    <string name="tour_swiper_actions_body">Гулсуулахад дургүй байна уу? Бидэнд товчнууд бас байдаг! Алгасах нь шийдвэргүйгээр дараа руу үлдээдэг, Алгасах товчийг урт дарах замаар файлыг ирээдуйн сканнераас хасна. Буцаах нь таны сүүлийн сонголтыг буцаана.</string>
+    <string name="tour_swiper_review_body">Таны хадгалах, устгах сонголтууд зөвхөн түр хүлээлтэнд байна. Бэлен болсон уудаа тэднийг шалгаж, устгалтыг хэрэгжүүлэхийн тулд Шалган үзэхийг нээнэ үү.</string>
 </resources>

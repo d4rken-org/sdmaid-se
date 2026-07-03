@@ -54,4 +54,12 @@
     <string name="corpsefinder_owner_unknown">უცნობი მფლობელი</string>
     <string name="corpsefinder_corpse_hint_keeper">ეს ელემენტი შეიძლება შეიცავდეს მონაცემებს, რომლებიც გსურთ შეინარჩუნოთ მისი მფლობელის წაშლის მიუხედავად, მაგ. ფოტოები ან სარეზერვო ასლები.</string>
     <string name="corpsefinder_corpse_hint_common">ამ ელემენტს აქვს ძალიან ჩვეულებრივი სახელი და შეიძლება ეკუთვნოდეს ჯერ კიდევ დაინსტალირებულ აპებს, რომლებსაც SD Maid არ იცნობს.</string>
+    <string name="corpsefinder_risk_keeper_chip">სასურველი</string>
+    <string name="corpsefinder_risk_common_chip">საერთო</string>
+    <string name="corpsefinder_markers_dialog_title">ამ მარკერების შესახებ</string>
+    <string name="corpsefinder_markers_dialog_normal_label">მარკერი არ აქვს</string>
+    <string name="corpsefinder_markers_dialog_normal_description">სტანდარტული ნარჩენი. როგორც წესი, უსაფრთხოა წაშლა — ეს ფაილები მიეკუთვნება აპლიკაციებს, რომლებიც აღარ დაინსტალირებულია.</string>
+    <!-- Guided tour -->
+    <string name="tour_corpsefinder_intro_body">CorpseFinder პოულობს მონაცემებს, რომლებიც დარჩა თქვენ მიერ უკვე წაშლილი აპლიკაციებიდან. ეს მონაცემები აღარ მიეკუთვნება რაიმე დაინსტალირებულ აპლიკაციას, ამიტომ მისი წაშლა უსაფრთხოა და ათავისუფლებს ადგილს.</string>
+    <string name="tour_corpsefinder_row_body">თითოეული ელემენტი არის ნარჩენი მონაცემი და აპლიკაცია, საიდანაც ის მოვიდა. მარკერი აჩვენებს, რამდენად დარწმუნებულია SD Maid იმაში, რომ მისი წაშლა უსაფრთხოა — დააჭირეთ ⓘ-ს ზემოთ, რომ შეიტყოთ, რას ნიშნავს მარკერები.</string>
 </resources>

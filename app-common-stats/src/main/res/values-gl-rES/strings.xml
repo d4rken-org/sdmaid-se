@@ -39,4 +39,6 @@
     <string name="stats_storage_type_primary">Almacenamento principal</string>
     <string name="stats_storage_type_secondary">Almacenamento secundario</string>
     <string name="stats_storage_type_portable">Almacenamento portátil</string>
+    <string name="stats_space_history_delete_storage_title">Eliminar historial de almacenamento?</string>
+    <string name="stats_space_history_delete_storage_desc">Todos os datos de tendencia deste almacenamento eliminaránse de forma permanente.</string>
 </resources>

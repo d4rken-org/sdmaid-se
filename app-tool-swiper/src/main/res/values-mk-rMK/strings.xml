@@ -36,6 +36,19 @@
         <item quantity="one">%d неодлучена ставка ќе остане за подоцнежен преглед.</item>
         <item quantity="other">%d неодлучени ставки ќе останат за подоцнежен преглед.</item>
     </plurals>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Оваа сесија опфаќа цело складиште — бришењето овде опфаќа секоја папка на тоа складиште.</string>
+    <plurals name="swiper_delete_confirmation_more_folders">
+        <item quantity="one">…и уште %d папка</item>
+        <item quantity="other">…и уште %d папки</item>
+    </plurals>
+    <string name="swiper_delete_confirmation_checkbox">Разбирам дека овие датотеки ќе бидат трајно избришани.</string>
+    <string name="swiper_sensitive_root_warning_title">Да се скенира целото складиште?</string>
+    <string name="swiper_sensitive_root_warning_message">Скенирањето на %1$s вклучува секоја датотека на ова складиште — фотографии, документи, преземања, медиуми од апликации и повеќе. Продолжете?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Продолжете во секој случај</string>
+    <string name="swiper_session_risky_label">Скенирање на целото складиште</string>
+    <string name="swiper_session_risky_info_message">Оваа сесија е насочена кон коренот на волуменот за складирање, затоа секоја датотека на тоа складиште е во опсег — фотографии, документи, преземања, медиуми од апликации и повеќе.
+
+Скенирањата на целото складиште можат да вратат многу ставки, вклучувајќи датотеки што можеби не сте имале намера да ги прегледате. Применете филтер по тип на датотека за да го стесните скенирањето.</string>
     <string name="swiper_delete_x_action">Избриши %1$d</string>
     <string name="swiper_settings_swap_directions_title">Замени насоки на лизгање</string>
     <string name="swiper_settings_swap_directions_summary">Лизгајте лево за задржување, десно за бришење.</string>
@@ -75,6 +88,10 @@
     <string name="swiper_session_rename_hint">Внесете име за оваа сесија</string>
     <string name="swiper_sessions_current_sessions">Тековни сесии</string>
     <string name="swiper_session_paths_label">Патеки</string>
+    <plurals name="swiper_session_paths_more">
+        <item quantity="one">…и уште %d</item>
+        <item quantity="other">…и уште %d</item>
+    </plurals>
     <string name="swiper_session_status_label">Статус</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d за задржување</item>
@@ -144,4 +161,10 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не се понајдени соодветни датотеки</string>
     <string name="swiper_open_externally_action">Отвори во надворешна апликација</string>
+    <!-- Guided tour -->
+    <string name="tour_swiper_gestures_body">Повлечете фотографија за да одлучите за нејзината судбина: настрана за да ја задржите или избришете, нагоре за да прескочите, надолу за да вратите. Копчињата подолу прават исто — и покажуваат која страна е која.</string>
+    <string name="tour_swiper_openin_body">Ова копче ја отвора фотографијата во друга апликација, што е погодно за проверка пред одлучување.</string>
+    <string name="tour_swiper_preview_body">Ова копче отвора преглед на цел екран за поблиско гледање.</string>
+    <string name="tour_swiper_actions_body">Не ви се допаѓа повлекувањето? Имаме и копчиња! „Прескочи“ го остава неодлучено за подоцна, а долгото притискање на „Прескочи“ ја исклучува датотеката од идни скенирања. „Врати“ го поништува вашиот последен избор.</string>
+    <string name="tour_swiper_review_body">Вашите избори за задржување и бришење се само подготвени. Отворете Преглед за да ги разгледате и да ги примените бришењата кога сте подготвени.</string>
 </resources>

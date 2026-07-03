@@ -34,7 +34,15 @@
     <string name="scheduler_notification_result_title">Lch trình đã hoàn tất</string>
     <string name="scheduler_notification_result_success_message">Tất cả các tác vụ theo lịch trình đã chạy thành công.</string>
     <string name="scheduler_notification_result_failure_message">Một số tác vụ đã lên lịch không thành công hoặc gặp lỗi. Hãy thử chạy chúng bằng tay.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Đã bỏ qua, màn hình tắt hoặc bị khóa</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Dọn dẹp ứng dụng có thể bị bỏ qua</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Dọn dẹp ứng dụng sử dụng dịch vụ hỗ trợ tiếp cận, cần phải mở khóa màn hình. Các lần chạy theo lịch khi thiết bị bị khóa sẽ bị bỏ qua.\n\nSử dụng Shizuku hoặc root để làm sạch nền, hoặc lên lịch khi bạn đang sử dụng thiết bị.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Ứng dụng hệ thống có thể bị bỏ qua</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku làm sạch hầu hết các bộ đệm nền, nhưng ứng dụng hệ thống cần dịch vụ hỗ trợ tiếp cận, cần phải mở khóa màn hình. Khi bật \"Bao gồm ứng dụng hệ thống\", các ứng dụng này sẽ bị bỏ qua khi thiết bị bị khóa.\n\nTắt \"Bao gồm ứng dụng hệ thống\", hoặc chạy lịch trình khi mở khóa.</string>
     <string name="scheduler_commands_after_schedule_label">Các lệnh sau lịch trình</string>
     <string name="scheduler_commands_after_schedule_desc">Các lệnh shell của Android sẽ được thực thi khi kết thúc lịch trình.</string>
     <string name="scheduler_battery_optimization_hint">Hãy cân nhắc việc tắt tính năng tối ưu hóa pin cho SD Maid nếu bạn gặp sự cố khi thực thi ở chế độ nền.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid có thể dọn dẹp theo lịch trình. Chọn thời gian và công cụ nào chạy, rồi nó sẽ hoạt động nền, (gần như) không cần mở ứng dụng.</string>
+    <string name="tour_scheduler_create_body">Chạm vào đây để tạo lịch trình mới, rồi đặt thời gian chạy và chọn công cụ nào để bao gồm.</string>
 </resources>

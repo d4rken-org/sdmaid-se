@@ -16,10 +16,14 @@
     <string name="upgrades_gplay_already_owned_error_description">Użyj opcji \"Przywróć zakup\", aby przywrócić zakup. Jeśli problem będzie się powtarzał, spróbuj wyczyścić pamięć podręczną Google Play i ponownie uruchomić urządzenie.</string>
     <string name="upgrade_screen_title">Uaktualnij do SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nie zawiera reklam i nie sprzedaje danych użytkowników. Moja praca jest finansowana przez ciebie ❤️.</string>
-    <string name="upgrade_screen_benefits_title">Zalety</string>
-    <string name="upgrade_screen_benefits_body">• Czyszczenie aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne reguły usuwania ✍️\n• Motywacja programisty 🧙\ni więcej…</string>
+    <string name="upgrade_screen_benefits_title">Korzyści z ulepszenia</string>
+    <string name="upgrade_screen_benefits_body">• Czyść pamięci podręczne aplikacji i zbędne dane\n• Usuń zduplikowane pliki\n• Włącz zaplanowane czyszczenia\n• Utwórz niestandardowe filtry i reguły czyszczenia\n• Śledź trendy magazynowania i historię czyszczenia\n• Więcej funkcji i opcji kontroli w całej aplikacji\n• Wsparcie dla ciągłego rozwoju</string>
     <string name="upgrade_screen_how_title">Opcje</string>
     <string name="upgrade_screen_how_body">Możesz wybrać między jednorazowym zakupem a tańszą roczną subskrypcją.\nSubskrypcja rozpoczyna się od bezpłatnego 14-dniowego okresu próbnego, po którym opłata będzie naliczana raz w roku. Wersję próbną i subskrypcję można anulować w dowolnym momencie.\nTe same funkcje, tylko różne modele cenowe.</string>
+    <string name="upgrade_screen_subscription_offer_title">Roczna subskrypcja</string>
+    <string name="upgrade_screen_iap_offer_title">Kup raz</string>
+    <string name="upgrade_screen_offer_recommended">Rekomendowane</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ceny nie mogły zostać załadowane teraz. Sprawdź Google Play i spróbuj ponownie za chwilę.</string>
     <string name="upgrade_screen_subscription_trial_action">Rozpocznij bezpłatny 14-dniowy okres próbny</string>
     <string name="upgrade_screen_subscription_action">Subskrybuj</string>
     <string name="upgrade_screen_subscription_action_hint">Subskrypcja kosztuje %s rocznie.</string>

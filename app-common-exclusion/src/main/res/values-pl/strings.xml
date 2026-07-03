@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Menedżer wykluczeń</string>
     <string name="exclusion_manager_desc">Zarządzaj wykluczeniami plików i aplikacji.</string>
-    <string name="exclusion_explanation_body1">Wyklucz pliki i aplikacje z działań SD Maid.</string>
-    <string name="exclusion_add_new_hint">Aby dodać nowe wykluczenia, najpierw zezwól aplikacji SD Maid na przeszukiwanie, a następnie użyj menu kontekstowego, w wyniku który chcesz wykluczyć.</string>
+    <string name="exclusion_explanation_body1">Wyklucz pliki i aplikacje, aby chronić je przed narzędziami SD Maid, lub pomiń nieistotne elementy i przyspiesz operacje.</string>
+    <string name="exclusion_add_new_hint">Brak wykluczeń. Użyj przycisku +, aby utworzyć jedno, lub wyklucz elementy z wyników dowolnego narzędzia.</string>
     <string name="exclusion_create_action">Utwórz wykluczenie</string>
     <string name="exclusion_edit_action">Edytuj wykluczenie</string>
     <string name="exclusion_type_package">Wykluczenie aplikacji</string>
@@ -24,5 +24,18 @@
     <string name="exclusion_export_action">Eksportuj wykluczenia</string>
     <string name="exclusion_create_pkg_hint">Użyj narzędzia Zarządzanie aplikacjami, aby utworzyć wykluczenia aplikacji.</string>
     <string name="exclusion_create_path_hint">Użyj narzędzia Analiza pamięci do utworzenia wykluczeń ścieżek.</string>
+    <string name="exclusion_create_segment_hint">Dopasuj segment nazwy, taki jak „DCIM/Camera”.</string>
     <string name="exclusion_show_defaults_action">Pokaż domyślne</string>
+    <plurals name="exclusion_import_success_x_items">
+        <item quantity="one">Importowano %d wykluczenie</item>
+        <item quantity="few">Importowano %d wykluczenia</item>
+        <item quantity="many">Importowano %d wykluczeń</item>
+        <item quantity="other">Importowano %d wykluczeń</item>
+    </plurals>
+    <plurals name="exclusion_export_success_x_items">
+        <item quantity="one">Wyeksportowano %d wykluczenie</item>
+        <item quantity="few">Wyeksportowano %d wykluczenia</item>
+        <item quantity="many">Wyeksportowano %d wykluczeń</item>
+        <item quantity="other">Wyeksportowano %d wykluczeń</item>
+    </plurals>
 </resources>

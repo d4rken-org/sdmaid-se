@@ -38,6 +38,15 @@
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ลบไฟล์ซ้ำในแต่ละกลุ่มที่เลือกโดยเหลือไว้เพียงไฟล์เดียว?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ลบไฟล์ทั้งหมดในแต่ละกลุ่มที่เลือก? จะไม่มีไฟล์เหลืออยู่!</string>
     <string name="deduplicator_delete_all_toggle_msg">ลบทุกไฟล์ จะไม่มีไฟล์เหลืออยู่!</string>
+    <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
+        <item quantity="other">ลบสำเนาซ้ำ %1$d รายการในชุดนี้ ช่วยเพิ่มพื้นที่ %2$s หรือไม่ สำเนาที่เก็บไว้จะยังอยู่</item>
+    </plurals>
+    <string name="deduplicator_list_grid_freeable_x">เพิ่มพื้นที่ได้ %1$s</string>
+    <string name="deduplicator_action_delete_set">ลบชุดรายการที่ซ้ำกัน</string>
+    <string name="deduplicator_action_open_preview">เปิดตัวอย่าง</string>
+    <string name="deduplicator_marked_for_deletion">ทำเครื่องหมายเพื่อลบ</string>
+    <string name="deduplicator_cluster_preview_image">ตัวอย่างชุดรายการที่ซ้ำกัน</string>
+    <string name="deduplicator_selection_keep_one_required">อย่างน้อยหนึ่งไฟล์ต่อชุดที่ซ้ำกันต้องเหลืออยู่ เปิดใช้งาน \"ทำให้ \'ลบทั้งหมด\' เป็นไปได้\" ในการตั้งค่าเพื่อข้ามข้อจำกัดนี้</string>
     <string name="deduplicator_progress_comparing_files">กำลังเปรียบเทียบไฟล์</string>
     <string name="deduplicator_details_cluster_title">กลุ่มไฟล์ซ้ำ</string>
     <string name="deduplicator_matches_exact_label">ไฟล์เหมือนกันทุกประการ</string>
@@ -75,4 +84,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ให้ความสำคัญกับไฟล์ขนาดเล็ก</string>
     <string name="deduplicator_view_mode_groups_label">กลุ่ม</string>
     <string name="deduplicator_view_mode_directories_label">โฟลเดอร์</string>
+    <string name="tour_deduplicator_details_cluster_body">ไฟล์เหล่านี้ดูเหมือนเป็นรายการหรือเนื้อหาสื่อเดียวกันทั้งหมด เป็นกลุ่มของไฟล์ที่ซ้ำกัน</string>
+    <string name="tour_deduplicator_details_delete_mark_body">ไฟล์ที่มีไอคอนนี้จะถูกลบ ไฟล์ที่เหลือในกลุ่มคือไฟล์ที่ SD Maid เก็บไว้ คุณสามารถเปลี่ยนวิธีการเลือกไฟล์ที่จะเก็บไว้ได้ในการตั้งค่ากลยุทธ์การลบ</string>
 </resources>

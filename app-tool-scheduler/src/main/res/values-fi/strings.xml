@@ -35,7 +35,19 @@
     <string name="scheduler_notification_result_title">Ajastin valmis</string>
     <string name="scheduler_notification_result_success_message">Kaikki ajoitetut tehtävät suoritettiin onnistuneesti.</string>
     <string name="scheduler_notification_result_failure_message">Jotkut ajoitetut tehtävät epäonnistuivat tai kohtasivat virheitä. Kokeile suorittaa ne manuaalisesti.</string>
+    <string name="scheduler_notification_result_skipped_screen_unavailable">Ohitettu, näyttö oli pois päältä tai lukittu</string>
+    <string name="scheduler_acs_screenlocked_hint_title">Sovellussiivousta voidaan ohittaa</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Sovellussiivous käyttää esteettömyyspalvelua, joka vaatii näytön lukituksen avaamisen. Ajoitetut ajot ohitetaan, jos laite on lukittu.
+
+Käytä Shizukua tai root-oikeuksia taustasiivoukseen, tai ajoita siivous hetkellä, kun käytät laitetta.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_title">Järjestelmäsovelluksia voidaan ohittaa</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku siivoo useimmat välimuistit taustalla, mutta järjestelmäsovelluksille tarvitaan esteettömyyspalvelu, joka vaatii näytön lukituksen avaamisen. Kun \"Sisällytä järjestelmäsovellukset\" on päällä, ne ohitetaan laitteen ollessa lukittuna.
+
+Poista \"Sisällytä järjestelmäsovellukset\" käytöstä, tai aja ajoitus laitteen ollessa avattuna.</string>
     <string name="scheduler_commands_after_schedule_label">Aikataulun jälkeiset komennot</string>
     <string name="scheduler_commands_after_schedule_desc">Android-komentorivi komennot, jotka suoritetaan aikataulun lopussa.</string>
     <string name="scheduler_battery_optimization_hint">Harkitse akun optimointien poistamista käytöstä SD Maidille, jos kohtaat ongelmia taustasuorituksen kanssa.</string>
+    <!-- Guided tour -->
+    <string name="tour_scheduler_intro_body">SD Maid voi puhdistaa aikataulun mukaan. Valitse aika ja mitkä työkalut ajetaan, ja se tekee työn taustalla – melkein ei tarvitse avata sovellusta.</string>
+    <string name="tour_scheduler_create_body">Napauta tätä luodaksesi uuden aikataulun, aseta sitten milloin se suoritetaan ja mitkä työkalut sisällytetään.</string>
 </resources>

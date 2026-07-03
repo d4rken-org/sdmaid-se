@@ -28,6 +28,7 @@
     <string name="general_gotit_action">Apat cumprèndiu</string>
     <string name="general_fix_action">Currigere</string>
     <string name="general_set_up_action">Impostare</string>
+    <string name="general_unavailable_label">Non disponìbile</string>
     <string name="general_edit_action">Modificare</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Bòidu</string>
@@ -64,8 +65,20 @@
     <string name="general_progress_queued">In fila</string>
     <string name="general_progress_deleting">Iscancellende</string>
     <string name="general_progress_deleting_x">Iscancellende %s</string>
+    <string name="general_sort_by_title">Ordina po</string>
     <string name="general_sort_reverse_action">Modalidade de ordinamentu inversu</string>
+    <string name="general_sort_oldest_first">Pius antigus primmu</string>
+    <string name="general_sort_newest_first">Pius nous primmu</string>
+    <string name="general_sort_name_asc">Nòmine (A → Z)</string>
+    <string name="general_sort_size_desc">Pius mannu primmu</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_navigate_up_action">Sube</string>
+    <string name="general_filter_action">Filtrare</string>
+    <string name="general_filter_by_tags_label">Filtrare pro etichetas</string>
+    <string name="general_filter_add_action">Agiungire filtru</string>
+    <string name="general_filter_remove_x_action">Bogare %s filtru</string>
+    <string name="general_filter_empty_row_hint">Tocca + pro filtrare</string>
+    <string name="general_show_all_action">Ammustrare totu</string>
     <string name="general_result_success_message">Operatzione cumpletada cun èsitu</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Isberaiu %s ispàtziu.</item>
@@ -74,6 +87,8 @@
     <string name="general_options_label">Optzionis</string>
     <string name="general_details_label">Detàllios</string>
     <string name="general_view_action">Bìdere</string>
+    <string name="general_open_action">Aberi</string>
+    <string name="general_configure_action">Cunfigura</string>
     <string name="general_update_action">Agiornare</string>
     <string name="general_scan_action">Iscansire</string>
     <string name="general_close_action">Serra</string>
@@ -97,7 +112,9 @@
         <item quantity="other">%d elementos sunt istaus bogaus</item>
     </plurals>
     <string name="general_search_action">Chircare</string>
+    <string name="general_search_no_matches">Peruna ricerca</string>
     <string name="general_open_system_settings_action">Abèrrere sas impostatzonis de sistema</string>
+    <string name="general_fast_scroller_action">Scorridore frasticu</string>
     <plurals name="result_x_items">
         <item quantity="one">%s elementu</item>
         <item quantity="other">%s elementos</item>
@@ -121,6 +138,10 @@
     <string name="general_enable_service_action">Abilitare su servìtziu</string>
     <string name="general_undo_action">Annullare</string>
     <string name="general_list_select_all_action">Seletzionare totu</string>
+    <plurals name="general_x_selected_count">
+        <item quantity="one">%d selezzionau</item>
+        <item quantity="other">%d selezzionaus</item>
+    </plurals>
     <string name="general_path_label">Percursu</string>
     <string name="general_type_label">Tipu</string>
     <string name="general_size_label">Mannària</string>
@@ -154,6 +175,8 @@
     <string name="general_error_report_bug_action">Sinnalare bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione de su servìtziu pèrdida</string>
     <string name="general_error_ipc_deadobject_description">Sa connessione a unu servìtziu crìticu (pro es. Magisk, Shizuku, o àteros servìtzios de sistema) est istada pèrdida in manera inaspetada. Pro piaghere torra a aviare su dispositivu. Si su problema persistit, verìfica sos agiornamentos o cuntàtami pro lu currigere.</string>
+    <string name="general_error_upgrade_required_title">Recheria la versione Pro</string>
+    <string name="general_error_upgrade_required_description">Custa est una caratzeristica Pro. Ascendi a SD Maid SE Pro pro usala.</string>
     <string name="general_user_label_owner">Propriedàriu</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Cunfiguratzione</string>
@@ -179,4 +202,22 @@
     <string name="settings_category_risklevel">Livellu de riscutu</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="appcontrol_systemsettings_open_title">Mustrare impostatziones</string>
+    <string name="ui_theme_color_sunset_label">Tramuntu</string>
+    <string name="ui_theme_color_amoled_label">AMOLED</string>
+    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
+    <string name="access_blocked_root_unavailable">Custa caratzeristica rechert\'accesso root, ma SD Maid no at pottu ottenne su accesso in custu dispositivu.</string>
+    <string name="access_blocked_root_declined">Custa funzionalidade abbisognat accessu de root. Podes abilidare in sa schermata de cunfiguratzione.</string>
+    <string name="access_blocked_root_or_shizuku">Custa funzionalidade abbisognat accessu de root o Shizuku, chi non est disponibilis in custa aparatu.</string>
+    <!-- Config backup/restore errors -->
+    <string name="backup_restore_error_invalid_title">Archiviu de cusserva non vàlidu</string>
+    <string name="backup_restore_error_invalid_body">Cust\'archiviu non est una cusserva vàlida de SD Maid o est corrutu.</string>
+    <string name="backup_restore_error_version_body">Custa cusserva fuit criada cun una versione prus bena de SD Maid. Agiorna s\'aplicatzione e torra a proare.</string>
+    <string name="backup_restore_error_restore_failed_title">Ristaturatzione fallet</string>
+    <string name="backup_restore_error_restore_failed_body">Chistus partis no potiant essi ristaturados: %1$s. Sa tua configuatzione anteriore fuit sarbada e podet torrare.</string>
+    <string name="backup_restore_error_safety_title">Ristaturatzione no achiada</string>
+    <string name="backup_restore_error_safety_body">SD Maid no potiat sarbbare una copia de siguridade de sa tua configuatzione atuale, assi no fuit cambiadu nada.</string>
+    <string name="backup_restore_error_busy_title">Aspetta, ti pregu</string>
+    <string name="backup_restore_error_busy_body">Una limpiadda o una copia de seguridad est in corssu. Torna a proare cando finiat.</string>
+    <string name="backup_restore_error_schema_title">Backup incompatibile</string>
+    <string name="backup_restore_error_schema_body">Su formadu de datàbase de su backup non concordat con custa versione de SD Maid. Su ripristinaddu de is datos de istòria est suportadu solu intre versiones idênticas de s\' aplicatzione.</string>
 </resources>

@@ -100,4 +100,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">محدود کردن نتایج بر اساس سن فایل (آخرین زمان تغییر). برای تطبیق هر سنی خالی بگذارید.</string>
     <string name="systemcleaner_customfilter_import_action">واردات فیلتر جدید</string>
     <string name="systemcleaner_customfilter_export_action">صادرات فیلتر انتخاب شده</string>
+    <!-- Guided tour -->
+    <string name="tour_systemcleaner_intro_body">SystemCleaner فایل‌های اضافی را با استفاده از فیلترهای غیراختصاصی پیدا می‌کند. قوانین آماده برای مواردی مانند پوشه‌های خالی، گزارش‌های باقی‌مانده و تصاویر بند‌انگشتی قدیمی وجود دارد. اگر می‌خواهید قوانین خود را بسازید، به تنظیمات مراجعه کنید.</string>
+    <string name="tour_systemcleaner_filter_body">هر سطر یک فیلتر و نتایج یافته‌شده آن است. جزئیات آن را باز کنید تا قبل از حذف چیزی، دقیقاً ببینید کدام فایل‌ها مطابقت دارند.</string>
 </resources>

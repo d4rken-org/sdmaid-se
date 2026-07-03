@@ -2,6 +2,8 @@
 <resources>
     <string name="automation_accessibility_service_description">ਵਿਸ਼ੇਸ਼ ਪਹੁੰਚਯੋਗਤਾ ਲੋੜਾਂ ਵਾਲੇ ਵਰਤੋਂਕਾਰ ਇਸ ਸੇਵਾ ਨੂੰ ਸਮਰੱਥ ਕਰ ਸਕਦੇ ਹਨ ਤਾਂ ਜੋ SD Maid ਨੂੰ ਉਹ ਕਾਰਜ ਆਪਣੇ-ਆਪ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿੱਤੀ ਜਾ ਸਕੇ ਜਿਨ੍ਹਾਂ ਲਈ ਨਹੀਂ ਤਾਂ ਬੋਰਿੰਗ ਮੈਨੁਅਲ ਵਰਤੋਂਕਾਰ ਇੰਟਰੈਕਸ਼ਨ ਦੀ ਲੋੜ ਹੁੰਦੀ (ਜਿਵੇਂ ਕਿ ਕੈਸ਼ ਮਿਟਾਉਣਾ)।\n\nਉਦਾਹਰਨ: ਜੇ ਤੁਸੀਂ SD Maid ਨੂੰ ਕਈ ਐਪਾਂ ਬੰਦ ਕਰਨ ਦੀ ਹਦਾਇਤ ਦਿੰਦੇ ਹੋ ਤਾਂ SD Maid ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹਰੇਕ ਐਪ ਦੀ ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹ ਸਕਦਾ ਹੈ, \'ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ\' ਬਟਨ ਲੱਭ ਸਕਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਦਬਾ ਸਕਦਾ ਹੈ।\n\nSD Maid ਹਮੇਸ਼ਾ ਸਪਸ਼ਟ ਰੂਪ ਵਿੱਚ ਦਿਖਾਏਗਾ ਜਦੋਂ ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ ਅਤੇ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿਸੇ ਵੀ ਇੰਟਰੈਕਸ਼ਨ ਨੂੰ ਤੁਰੰਤ ਰੱਦ ਕਰਨ ਦਾ ਆਸਾਨ ਤਰੀਕਾ ਪ੍ਰਦਾਨ ਕਰੇਗਾ।\n\nਪਹਿਲਾਂ ਤੋਂ ਵਰਤੋਂਕਾਰ ਦੀ ਮਨਜ਼ੂਰੀ ਤੋਂ ਬਿਨਾਂ ਕੋਈ ਕਾਰਵਾਈ ਨਹੀਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਇਹ ਸੇਵਾ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਿਨਾਂ ਕਿਸੇ ਮਾੜੇ ਪ੍ਰਭਾਵ ਦੇ ਮੁੜ ਅਸਮਰੱਥ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
     <string name="automation_screenoverlay_explanation">SD Maid ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰ ਰਿਹਾ ਹੈ। ਇੱਕੋ ਸਮੇਂ ਸਕ੍ਰੀਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕਾਰਵਾਈ ਪੂਰੀ ਹੋਣ ਤੱਕ ਇੰਤਜ਼ਾਰ ਕਰੋ ਜਾਂ ਇਸਨੂੰ ਰੱਦ ਕਰੋ।</string>
+    <string name="automation_screenoverlay_explanation_tv">SD Maid ਤੁਹਾਡੇ ਡਿਵਾਇਸ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰ ਰਿਹਾ ਹੈ। ਇੱਕੋ ਸਮੇਂ ਸਕ੍ਰੀਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕਾਰਵਾਈ ਪੂਰੀ ਹੋਣ ਤੱਕ ਇੰਤਜ਼ਾਰ ਕਰੋ, ਜਾਂ ਰੱਦ ਕਰਨ ਲਈ ਹੋਮ ਬਟਨ ਦਬਾਓ।</string>
+    <string name="automation_screenoverlay_explanation_nocancel">SD Maid ਤੁਹਾਡੇ ਡਿਵਾਇਸ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰ ਰਿਹਾ ਹੈ। ਇੱਕੋ ਸਮੇਂ ਸਕ੍ਰੀਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕਾਰਵਾਈ ਪੂਰੀ ਹੋਣ ਤੱਕ ਇੰਤਜ਼ਾਰ ਕਰੋ।</string>
     <string name="automation_active_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="automation_error_no_consent_title">ਆਟੋਮੇਸ਼ਨ ਗਲਤੀ</string>
     <string name="automation_error_no_consent_body">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਸੈੱਟ ਅੱਪ ਨਹੀਂ ਹੈ। ਸੈੱਟਅੱਪ ਪੂਰਾ ਕਰੋ ਅਤੇ ਸਹਿਮਤੀ ਦਿਓ।</string>
@@ -21,6 +23,8 @@
     <string name="automation_error_scheduler_body">ਇੱਕ ਨਿਰਧਾਰਿਤ ਕੰਮ ਨੇ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਵਰਤਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ। ਜੇ ਤੁਹਾਨੂੰ ਇਸਦੀ ਲੋੜ ਨਹੀਂ, ਤਾਂ ਸ਼ਡਿਊਲਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ\" ਵਿਕਲਪ ਅਯੋਗ ਕਰੋ।</string>
     <string name="automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
+    <string name="automation_error_interference_title">ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਬਲਾਕ</string>
+    <string name="automation_error_interference_body">ਇੱਕ ਹੋਰ ਐਪ (%1$s) ਸਿਸਟਮ ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਨੂੰ ਬਲਾਕ ਕਰ ਰਹੀ ਹੈ, ਇਸਲਈ SD Maid ਜਾਰੀ ਨਹੀਂ ਰੱਖ ਸਕਦਾ। ਉਸ ਐਪ ਦਾ ਐਪ-ਲਾਕ ਜਾਂ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਲਈ ਸਕ੍ਰੀਨ ਸੁਰੱਖਿਆ ਅਸਮਰਥ ਕਰੋ, ਫਿਰ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="automation_loading">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਰਾਹੀਂ ਆਟੋਮੇਸ਼ਨ ਤਿਆਰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
 </resources>
