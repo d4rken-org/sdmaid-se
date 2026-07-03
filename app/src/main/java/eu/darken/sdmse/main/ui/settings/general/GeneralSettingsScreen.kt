@@ -18,6 +18,7 @@ import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material.icons.twotone.TouchApp
+import androidx.compose.material.icons.twotone.Widgets
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
@@ -67,6 +68,7 @@ fun GeneralSettingsScreenHost(
         onThemeColorChanged = vm::setThemeColor,
         onOneClickChanged = vm::toggleOneClick,
         onShortcutOneClickChanged = vm::toggleShortcutOneClick,
+        onWidgetOneClickChanged = vm::toggleWidgetOneClick,
         onPreviewsChanged = vm::togglePreviews,
         onUpdateCheckChanged = vm::toggleUpdateCheck,
         onMotdChanged = vm::toggleMotd,
@@ -92,6 +94,7 @@ internal fun GeneralSettingsScreen(
     onThemeColorChanged: (ThemeColor) -> Unit = {},
     onOneClickChanged: (Boolean) -> Unit = {},
     onShortcutOneClickChanged: (Boolean) -> Unit = {},
+    onWidgetOneClickChanged: (Boolean) -> Unit = {},
     onPreviewsChanged: (Boolean) -> Unit = {},
     onUpdateCheckChanged: (Boolean) -> Unit = {},
     onMotdChanged: (Boolean) -> Unit = {},
@@ -224,6 +227,19 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.shortcuts_onetap_enabled_summary),
                     checked = state.shortcutOneClickEnabled,
                     onCheckedChange = onShortcutOneClickChanged,
+                )
+            }
+
+            // Widget category
+            item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_widget)) }
+
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.Widgets,
+                    title = stringResource(R.string.widget_settings_oneclick_title),
+                    subtitle = stringResource(R.string.widget_settings_oneclick_summary),
+                    checked = state.widgetOneClickEnabled,
+                    onCheckedChange = onWidgetOneClickChanged,
                 )
             }
 

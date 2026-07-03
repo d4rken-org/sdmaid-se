@@ -67,6 +67,13 @@ class GeneralSettings @Inject constructor(
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
     val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
+    // Home-screen widget "Clean" one-tap consent. The widget's Clean button never scan+deletes
+    // without opt-in: [widgetOneClickEnabled] must be on. [widgetOneClickConsentAsked] records
+    // that the one-time in-app consent prompt has been shown (so it never reappears), regardless
+    // of the user's answer or a later manual toggle.
+    val widgetOneClickEnabled = dataStore.createValue("widget.oneclick.enabled", false)
+    val widgetOneClickConsentAsked = dataStore.createValue("widget.oneclick.consent.asked", false)
+
     val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())
 
     val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, json)

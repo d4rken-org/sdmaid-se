@@ -2,7 +2,6 @@ package eu.darken.sdmse.widget.ui
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import eu.darken.sdmse.main.core.shortcuts.AppShortcut
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import io.kotest.matchers.shouldBe
 import org.junit.Test
@@ -30,7 +29,7 @@ class WidgetIntentsTest : BaseTest() {
         val intents = listOf(
             widgetOpenAppIntent(context),
             widgetOpenAnalyzerIntent(context),
-            AppShortcut.MainAction.OneTap.createIntent(context),
+            widgetCleanIntent(context),
             widgetCancelIntent(context),
         )
 
@@ -56,6 +55,14 @@ class WidgetIntentsTest : BaseTest() {
         val cancel = widgetCancelIntent(context)
         cancel.component?.className shouldBe ShortcutActivity::class.java.name
         cancel.action shouldBe ShortcutActivity.ACTION_CANCEL_ONECLICK
+    }
+
+    @Test
+    fun `clean targets ShortcutActivity with the widget scan-delete action`() {
+        val clean = widgetCleanIntent(context)
+        clean.component?.className shouldBe ShortcutActivity::class.java.name
+        // The widget-specific action (gated on the widget opt-in), NOT the launcher ACTION_SCAN_DELETE.
+        clean.action shouldBe ShortcutActivity.ACTION_WIDGET_SCAN_DELETE
     }
 
     @Test

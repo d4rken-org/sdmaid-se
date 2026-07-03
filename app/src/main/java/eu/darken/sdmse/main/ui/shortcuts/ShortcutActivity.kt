@@ -6,32 +6,17 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.AppCleaner
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.common.coroutine.AppCoroutineScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.common.upgrade.isProForUi
-import eu.darken.sdmse.corpsefinder.core.CorpseFinder
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderOneClickTask
-import eu.darken.sdmse.deduplicator.core.Deduplicator
-import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.shortcuts.OneTapCleaner
 import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.MainActivity
-import eu.darken.sdmse.systemcleaner.core.SystemCleaner
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.currentCoroutineContext
-import kotlinx.coroutines.ensureActive
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -40,14 +25,10 @@ import javax.inject.Inject
 class ShortcutActivity : ComponentActivity() {
 
     @Inject lateinit var taskManager: TaskManager
-    @Inject lateinit var upgradeRepo: UpgradeRepo
     @Inject lateinit var generalSettings: GeneralSettings
-    @Inject lateinit var corpseFinder: CorpseFinder
-    @Inject lateinit var systemCleaner: SystemCleaner
-    @Inject lateinit var appCleaner: AppCleaner
-    @Inject lateinit var deduplicator: Deduplicator
     @Inject lateinit var appScope: AppCoroutineScope
     @Inject lateinit var oneTapRunGuard: OneTapRunGuard
+    @Inject lateinit var oneTapCleaner: OneTapCleaner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,11 +38,15 @@ class ShortcutActivity : ComponentActivity() {
 
         when (action) {
             ACTION_OPEN_APPCONTROL -> {
-                openAppControl()
+                startActivity(mainActivityIntent(ACTION_OPEN_APPCONTROL))
             }
 
             ACTION_SCAN_DELETE -> {
                 handleScanDeleteShortcut()
+            }
+
+            ACTION_WIDGET_SCAN_DELETE -> {
+                handleWidgetClean()
             }
 
             ACTION_CANCEL_ONECLICK -> {
@@ -75,64 +60,51 @@ class ShortcutActivity : ComponentActivity() {
         finish()
     }
 
-    private fun openAppControl() {
-        val mainIntent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            putExtra(EXTRA_SHORTCUT_ACTION, ACTION_OPEN_APPCONTROL)
+    /**
+     * Launcher "Scan + Delete" shortcut. Gated on [GeneralSettings.shortcutOneClickEnabled]: this
+     * activity is exported and the intent-filtered [ACTION_SCAN_DELETE] can be reached by a stale
+     * pinned shortcut or an external caller, so we re-check the opt-in at runtime rather than trust
+     * that the dynamic shortcut is only registered while enabled. Disabled → just open the app.
+     */
+    private fun handleScanDeleteShortcut() = appScope.launch {
+        if (!generalSettings.shortcutOneClickEnabled.value()) {
+            log(TAG, INFO) { "One-tap shortcut disabled, opening app instead of scan+delete" }
+            openMain(null)
+            return@launch
         }
-        startActivity(mainIntent)
+        runOneTap()
     }
 
-    private fun handleScanDeleteShortcut() = appScope.launch {
-        if (!upgradeRepo.isProForUi()) {
-            log(TAG, INFO) { "Scan/Delete shortcut requires Pro version, opening upgrade screen" }
-            val upgradeIntent = Intent(this@ShortcutActivity, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                putExtra(EXTRA_SHORTCUT_ACTION, ACTION_UPGRADE)
-            }
-            withContext(Dispatchers.Main) {
-                startActivity(upgradeIntent)
-            }
-            return@launch
-        }
+    /**
+     * Home-screen widget "Clean" button. Never scan+deletes without opt-in:
+     * - one-tap enabled → run it in the background (no app open), like the shortcut;
+     * - not yet consented → open the app and show the one-time consent prompt;
+     * - consent declined earlier → open the app and run a scan (results shown for a confirmed delete).
+     */
+    private fun handleWidgetClean() = appScope.launch {
+        when {
+            generalSettings.widgetOneClickEnabled.value() -> runOneTap()
 
+            !generalSettings.widgetOneClickConsentAsked.value() -> {
+                log(TAG, INFO) { "Widget one-tap not consented yet, opening consent prompt" }
+                openMain(ACTION_WIDGET_CONSENT)
+            }
+
+            else -> {
+                log(TAG, INFO) { "Widget one-tap declined earlier, running scan fallback" }
+                // Open the dashboard first — submit() suspends until the scan finishes, and the
+                // dashboard reflects TaskManager state reactively, so it shows progress + results.
+                openMain(ACTION_WIDGET_SCAN)
+                oneTapCleaner.runScanOnly()
+            }
+        }
+    }
+
+    /** Runs the shared guarded one-tap and maps its outcome to the trampoline's UI affordances. */
+    private suspend fun runOneTap() {
         log(TAG, INFO) { "Executing scan and delete tasks" }
-
-        val corpseEnabled = generalSettings.oneClickCorpseFinderEnabled.value()
-        val systemEnabled = generalSettings.oneClickSystemCleanerEnabled.value()
-        val appCleanerEnabled = generalSettings.oneClickAppCleanerEnabled.value()
-        val deduplicatorEnabled = generalSettings.oneClickDeduplicatorEnabled.value()
-
-        if (!corpseEnabled && !systemEnabled && !appCleanerEnabled && !deduplicatorEnabled) {
-            log(TAG, INFO) { "No one-tap tools are enabled, nothing to run" }
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    this@ShortcutActivity,
-                    getString(R.string.shortcut_onetap_nothing_enabled),
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
-            return@launch
-        }
-
-        // Single-flight: if a OneTap run is already in progress, don't stack another — open the app so
-        // the user can watch progress (the widget's Clean button is already "working" by now). Placed
-        // after the Pro gate so the shared launcher shortcut keeps its non-Pro → upgrade behaviour.
-        // Registering this coroutine's job lets the widget's Cancel abort not-yet-submitted tools too.
-        if (!oneTapRunGuard.tryStart(coroutineContext.job)) {
-            log(TAG, INFO) { "OneTap already running, opening app instead of starting again" }
-            withContext(Dispatchers.Main) {
-                startActivity(
-                    Intent(this@ShortcutActivity, MainActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    }
-                )
-            }
-            return@launch
-        }
-
-        try {
-            // Show "started" up front: submit() suspends until each task finishes, so showing it after
+        val outcome = oneTapCleaner.runOneClick(shortcutMode = true) {
+            // Show "started" up front: submit() suspends until each task finishes, so a toast after
             // the submits would land only once everything is already done.
             withContext(Dispatchers.Main) {
                 Toast.makeText(
@@ -141,51 +113,49 @@ class ShortcutActivity : ComponentActivity() {
                     Toast.LENGTH_SHORT,
                 ).show()
             }
-
-            if (corpseEnabled) submitOneTapTask(CorpseFinderOneClickTask())
-            if (systemEnabled) submitOneTapTask(SystemCleanerOneClickTask())
-            if (appCleanerEnabled) submitOneTapTask(AppCleanerOneClickTask(shortcutMode = true))
-            if (deduplicatorEnabled) submitOneTapTask(DeduplicatorOneClickTask())
-        } finally {
-            oneTapRunGuard.finish()
         }
-    }
-
-    private suspend fun submitOneTapTask(task: SDMTool.Task) {
-        try {
-            // Don't queue a new task into an already-cancelled run: a cancel landing between two
-            // submits wouldn't stop submit() from registering the next task (TaskManager queues it
-            // inside a NonCancellable block before reaching a cancellable suspension).
-            currentCoroutineContext().ensureActive()
-            taskManager.submit(task)
-        } catch (e: CancellationException) {
-            if (!currentCoroutineContext().isActive) {
-                // The RUN was cancelled (widget Cancel → OneTapRunGuard.cancelRun()): abort the
-                // sequence. The submit may have slipped the task into the queue inside TaskManager's
-                // NonCancellable block after handleCancelOneClick()'s sweep — cancel its type again
-                // so nothing keeps running.
-                taskManager.cancel(task.type)
-                throw e
+        when (outcome) {
+            OneTapCleaner.Outcome.NotPro -> {
+                log(TAG, INFO) { "One-tap requires Pro, opening upgrade screen" }
+                openMain(ACTION_UPGRADE)
             }
-            // A per-tool cancel (e.g. from the dashboard) only skips that tool. Swallowing this used
-            // to be unconditional, which made cancelling the run impossible.
-            log(TAG) { "${task::class.simpleName} was cancelled individually, continuing run: $e" }
-        } catch (e: Exception) {
-            log(TAG) { "Failed to submit ${task::class.simpleName}: $e" }
+
+            OneTapCleaner.Outcome.NothingEnabled -> withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@ShortcutActivity,
+                    getString(R.string.shortcut_onetap_nothing_enabled),
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+
+            // A run is already in progress — open the app so the user can watch progress.
+            OneTapCleaner.Outcome.AlreadyRunning -> openMain(null)
+
+            OneTapCleaner.Outcome.Ran -> {}
         }
     }
 
     /**
-     * Widget "Cancel" while working: stop the OneTap sequence (pending submits never start) and cancel
-     * the one-click cleaning tools' active/queued tasks — the same scope as the dashboard's cancel
-     * action. Other tools (Analyzer, AppControl, …) keep running; they were started from in-app UI
-     * that has its own cancel affordances. Not Pro-gated — cancelling is never a premium feature.
+     * Widget "Cancel" while working: stop the OneTap sequence (pending submits never start) and
+     * cancel the one-click cleaning tools' active/queued tasks — the same scope as the dashboard's
+     * cancel action. Other tools (Analyzer, AppControl, …) keep running. Not Pro-gated.
      */
     private fun handleCancelOneClick() {
         log(TAG, INFO) { "Cancelling OneTap run + one-click cleaning tasks" }
         oneTapRunGuard.cancelRun()
-        ONECLICK_TYPES.forEach { taskManager.cancel(it) }
+        OneTapCleaner.ONECLICK_TYPES.forEach { taskManager.cancel(it) }
     }
+
+    /** Launch [MainActivity] on the main thread — these run from the app-scope (Default) coroutines. */
+    private suspend fun openMain(shortcutAction: String?) = withContext(Dispatchers.Main) {
+        startActivity(mainActivityIntent(shortcutAction))
+    }
+
+    private fun mainActivityIntent(shortcutAction: String?): Intent =
+        Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            shortcutAction?.let { putExtra(EXTRA_SHORTCUT_ACTION, it) }
+        }
 
     companion object {
         private val TAG = logTag("Shortcut", "Activity")
@@ -196,13 +166,12 @@ class ShortcutActivity : ComponentActivity() {
         const val ACTION_CANCEL_ONECLICK = "eu.darken.sdmse.ACTION_CANCEL_ONECLICK"
         const val ACTION_UPGRADE = "eu.darken.sdmse.ACTION_UPGRADE"
 
-        /** The tools the one-click run submits and the cancel action targets (dashboard parity). */
-        private val ONECLICK_TYPES = setOf(
-            SDMTool.Type.CORPSEFINDER,
-            SDMTool.Type.SYSTEMCLEANER,
-            SDMTool.Type.APPCLEANER,
-            SDMTool.Type.DEDUPLICATOR,
-        )
+        /** Widget Clean button → this activity (explicit component, not in the exported filter). */
+        const val ACTION_WIDGET_SCAN_DELETE = "eu.darken.sdmse.ACTION_WIDGET_SCAN_DELETE"
+
+        /** [EXTRA_SHORTCUT_ACTION] values routed to [MainActivity] for the widget consent flow. */
+        const val ACTION_WIDGET_CONSENT = "eu.darken.sdmse.ACTION_WIDGET_CONSENT"
+        const val ACTION_WIDGET_SCAN = "eu.darken.sdmse.ACTION_WIDGET_SCAN"
 
         const val EXTRA_SHORTCUT_ACTION = "shortcut_action"
     }

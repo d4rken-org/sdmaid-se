@@ -38,7 +38,6 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import eu.darken.sdmse.R
-import eu.darken.sdmse.main.core.shortcuts.AppShortcut
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.widget.WidgetRenderState
@@ -92,6 +91,16 @@ internal fun widgetCancelIntent(context: Context): Intent =
         flags = Intent.FLAG_ACTIVITY_NEW_TASK
     }
 
+// The Clean button routes through ShortcutActivity's widget-specific action (NOT the launcher's
+// ACTION_SCAN_DELETE): ShortcutActivity reads the widget opt-in and either runs the one-tap in the
+// background, opens the one-time consent prompt, or runs a scan fallback. filterEquals-distinct from
+// the open-app/analyzer intents by component+action, and from cancel by action.
+internal fun widgetCleanIntent(context: Context): Intent =
+    Intent(context, ShortcutActivity::class.java).apply {
+        action = ShortcutActivity.ACTION_WIDGET_SCAN_DELETE
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+
 @Composable
 private fun openApp(): Action = actionStartActivity(widgetOpenAppIntent(LocalContext.current))
 
@@ -102,7 +111,7 @@ private fun openAnalyzer(): Action = actionStartActivity(widgetOpenAnalyzerInten
 private fun cancel(): Action = actionStartActivity(widgetCancelIntent(LocalContext.current))
 
 @Composable
-private fun clean(): Action = actionStartActivity(AppShortcut.MainAction.OneTap.createIntent(LocalContext.current))
+private fun clean(): Action = actionStartActivity(widgetCleanIntent(LocalContext.current))
 
 @Composable
 internal fun WidgetContent(state: WidgetRenderState) {

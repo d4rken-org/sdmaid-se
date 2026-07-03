@@ -53,6 +53,8 @@ import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
+import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
+import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
 import eu.darken.sdmse.common.compose.tour.GuidedTourHost
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
@@ -110,6 +112,11 @@ class MainActivity : ComponentActivity() {
             null
         }
 
+        // Widget "Clean" that opens the app (consent prompt / scan fallback). Gated on a fresh
+        // start so a config change doesn't re-trigger it; the CLEAR_TASK widget intents recreate
+        // MainActivity cold with a Dashboard-seeded stack, so no navigation reset is needed here.
+        if (savedInstanceState == null) maybeHandleWidgetIntent(intent)
+
         setContent {
             // Prime WindowInsets to prevent UI jumping on first composition
             val primedInsets = WindowInsets.safeDrawing
@@ -155,6 +162,23 @@ class MainActivity : ComponentActivity() {
                     Box(modifier = Modifier.fillMaxSize()) {
                         Navigation()
                         FloatingLogPanelHost()
+                    }
+
+                    val showWidgetConsent by vm.showWidgetConsent.collectAsStateWithLifecycle()
+                    if (showWidgetConsent) {
+                        SdmConfirmDialog(
+                            title = stringResource(R.string.widget_oneclick_consent_title),
+                            message = stringResource(R.string.widget_oneclick_consent_message),
+                            onDismissRequest = vm::onWidgetConsentDecline,
+                            positive = SdmDialogAction(
+                                label = stringResource(R.string.widget_oneclick_consent_enable_action),
+                                onClick = vm::onWidgetConsentEnable,
+                            ),
+                            negative = SdmDialogAction(
+                                label = stringResource(R.string.widget_oneclick_consent_decline_action),
+                                onClick = vm::onWidgetConsentDecline,
+                            ),
+                        )
                     }
                 }
             }
@@ -266,7 +290,25 @@ class MainActivity : ComponentActivity() {
             else -> null
         }
 
+    /**
+     * Widget "Clean" fallout that lands in the app: the one-time consent prompt, or a scan whose
+     * results the Dashboard already reflects (the scan was submitted by [ShortcutActivity]). Ignored
+     * during onboarding — the widget must not drive the app past consent. Returns true when handled.
+     */
+    private fun maybeHandleWidgetIntent(intent: Intent?): Boolean {
+        if (vm.startRoute != DashboardRoute) return false
+        return when (intent?.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)) {
+            ShortcutActivity.ACTION_WIDGET_CONSENT -> {
+                vm.requestWidgetConsent()
+                true
+            }
+            ShortcutActivity.ACTION_WIDGET_SCAN -> true
+            else -> false
+        }
+    }
+
     private fun handleShortcutAction(intent: Intent) {
+        if (maybeHandleWidgetIntent(intent)) return
         val route = shortcutRoute(intent)
         if (route == null) {
             // A plain delivery (launcher icon / widget open-app tap) onto the live singleTask

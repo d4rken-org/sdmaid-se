@@ -56,8 +56,9 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickSystemCleanerEnabled.flow,
         generalSettings.oneClickAppCleanerEnabled.flow,
         generalSettings.oneClickDeduplicatorEnabled.flow,
+        generalSettings.widgetOneClickEnabled.flow,
     ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
-        oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator ->
+        oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -77,6 +78,7 @@ class GeneralSettingsViewModel @Inject constructor(
             oneClickSystemCleanerEnabled = oneClickSystemCleaner,
             oneClickAppCleanerEnabled = oneClickAppCleaner,
             oneClickDeduplicatorEnabled = oneClickDeduplicator,
+            widgetOneClickEnabled = widgetOneClick,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -89,6 +91,13 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun toggleShortcutOneClick(enabled: Boolean) = launch {
         generalSettings.shortcutOneClickEnabled.value(enabled)
+    }
+
+    fun toggleWidgetOneClick(enabled: Boolean) = launch {
+        generalSettings.widgetOneClickEnabled.value(enabled)
+        // Enabling here counts as consent, so the widget's one-time in-app prompt never appears
+        // (and a later disable+widget-tap doesn't re-prompt).
+        if (enabled) generalSettings.widgetOneClickConsentAsked.value(true)
     }
 
     fun setThemeMode(mode: ThemeMode) = launch {
@@ -172,6 +181,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val oneClickSystemCleanerEnabled: Boolean = true,
         val oneClickAppCleanerEnabled: Boolean = true,
         val oneClickDeduplicatorEnabled: Boolean = false,
+        val widgetOneClickEnabled: Boolean = false,
     )
 
     companion object {
