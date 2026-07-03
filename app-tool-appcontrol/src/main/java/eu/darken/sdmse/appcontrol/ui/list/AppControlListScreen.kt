@@ -433,9 +433,10 @@ internal fun AppControlListScreen(
     // rows reorder mid-tour (e.g., a background install changes ordering).
     var tourFirstRowId by remember { mutableStateOf<InstallId?>(null) }
     // Gate on !isBusy as well as rows being present: the search icon (if !searchActive && !isBusy)
-    // and the filter/sort chips (AnimatedVisibility visible = !isBusy) aren't composed while a load
-    // is in progress. rowsReady can flip true while progress is still non-null, so starting on
-    // rowsReady alone left steps 0-2 with no registered target and they grace-skipped.
+    // and the filter/sort chips (AnimatedVisibility visible = !isBusy && rows != null) aren't
+    // composed while a load is in progress. rowsReady can flip true while progress is still
+    // non-null, so starting on rowsReady alone left steps 0-2 with no registered target and they
+    // grace-skipped.
     val tourReady = !rows.isNullOrEmpty() && !isBusy
     LaunchedEffect(tourReady) {
         if (!tourReady || tourStartAttempted) return@LaunchedEffect
@@ -532,7 +533,13 @@ internal fun AppControlListScreen(
                         val visibleHeight = with(density) {
                             (filterRowHeightPx.toFloat() + topBarState.heightOffset).coerceAtLeast(0f).toDp()
                         }
-                        AnimatedVisibility(visible = !isBusy) {
+                        // Also gate on rows != null so the row doesn't flash on cold start: the
+                        // initial state has progress == null (not yet busy) before the first scan's
+                        // progress propagates, which would briefly show the row and then animate it
+                        // out. rows stays null until the first scan finishes, so the row only ever
+                        // appears once there's data to filter. An empty result (rows == emptyList)
+                        // still shows the row so filters remain adjustable.
+                        AnimatedVisibility(visible = !isBusy && rows != null) {
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()

@@ -229,6 +229,26 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `filter row is hidden on first load before rows arrive`() {
+        // Cold start: progress is still null (not yet busy) but rows haven't loaded. The row must
+        // stay hidden so it doesn't briefly appear and then animate out once the initial scan's
+        // progress propagates (the first-load flash). Gated on rows != null in the screen.
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = null,
+                progress = null,
+                options = AppControlListViewModel.DisplayOptions(
+                    listFilter = FilterSettings(tags = setOf(FilterSettings.Tag.USER)),
+                ),
+            ),
+        )
+
+        composeRule.onAllNodesWithText("User").assertCountEquals(0)
+        // Only the filter row is gated — the top bar (tool name) still renders.
+        composeRule.onNodeWithText("AppControl").assertExists()
+    }
+
+    @Test
     fun `inspection mode renders populated rows without a tour controller`() {
         // In @Preview/inspection mode no real LocalGuidedTourController is provided; PreviewWrapper supplies
         // NoOpGuidedTourAccess when LocalInspectionMode is true, so the screen reads a no-op instead of hitting
