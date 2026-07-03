@@ -1,12 +1,25 @@
 package eu.darken.sdmse.common.debug
 
+import android.app.Application
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 
 object Bugs {
-    var reporter: AutomaticBugReporter? = null
+    var reporter: AutomaticBugReporter? = object : AutomaticBugReporter {
+        override fun setup(application: Application) {
+            log(TAG, INFO) { "Bug reporting is NOOP." }
+        }
+
+        override fun leaveBreadCrumb(crumb: String) { /* NOOP */
+        }
+
+        override fun notify(throwable: Throwable) { /* NOOP */
+        }
+
+    }
 
     fun report(exception: Exception) {
         log(TAG, VERBOSE) { "Reporting $exception" }
