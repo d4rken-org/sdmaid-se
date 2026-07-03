@@ -149,27 +149,30 @@ private fun ProgressOverlayPanel(
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
-                if (primary.isNotEmpty()) {
-                    Text(
-                        text = primary,
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(top = if (countText.isNullOrEmpty()) 0.dp else 12.dp),
-                    )
-                }
-                if (secondary.isNotEmpty()) {
-                    Text(
-                        text = secondary,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(top = 6.dp),
-                    )
-                }
+                // Reserve fixed line counts (minLines == maxLines) and render both slots unconditionally so
+                // the inner block stays a constant height. Otherwise a secondary path going 1↔2 lines — or a
+                // message toggling empty↔present — changes the column height, and because the column is
+                // vertically centered it re-centers and visibly jumps on every progress tick. Empty reserved
+                // lines are invisible (no glyphs), so this costs nothing when a message is short or absent.
+                Text(
+                    text = primary,
+                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Center,
+                    minLines = 1,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(top = if (countText.isNullOrEmpty()) 0.dp else 12.dp),
+                )
+                Text(
+                    text = secondary,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    minLines = 2,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
             }
         }
     }
