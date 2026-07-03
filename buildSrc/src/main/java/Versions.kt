@@ -15,8 +15,7 @@ object Versions {
         }
 
         object Compose {
-            const val bom = "2025.12.00"
-            const val foundationOverride = "1.11.0-alpha01"
+            const val bom = "2026.06.00"
         }
 
         object Glance {
