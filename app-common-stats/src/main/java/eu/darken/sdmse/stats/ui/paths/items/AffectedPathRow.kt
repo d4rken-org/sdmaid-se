@@ -41,9 +41,9 @@ fun AffectedPathRow(
         Text(
             modifier = Modifier.weight(1f),
             text = pathText,
-            style = MaterialTheme.typography.bodyMedium,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
+            style = MaterialTheme.typography.bodySmall,
+            maxLines = 3,
+            overflow = TextOverflow.MiddleEllipsis,
         )
     }
 }
