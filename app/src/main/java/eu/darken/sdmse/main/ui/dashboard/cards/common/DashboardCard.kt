@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.ui.dashboard.cards.common
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
@@ -26,22 +25,36 @@ internal fun DashboardCard(
     onClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val clickableModifier = if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier
-    Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 8.dp)
-            .then(clickableModifier),
-        colors = CardDefaults.cardColors(
-            containerColor = containerColor,
-            contentColor = contentColorFor(containerColor),
-        ),
-    ) {
+    val cardModifier = modifier
+        .fillMaxWidth()
+        .padding(horizontal = 8.dp, vertical = 8.dp)
+    val colors = CardDefaults.cardColors(
+        containerColor = containerColor,
+        contentColor = contentColorFor(containerColor),
+    )
+    val cardContent: @Composable ColumnScope.() -> Unit = {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
             content = content,
+        )
+    }
+    if (onClick != null) {
+        // Use the clickable Card overload so the hover/ripple indication is clipped to the
+        // card's rounded shape. Applying Modifier.clickable to the outer modifier instead
+        // draws the indication against the rectangular bounds (square highlight on the corners).
+        Card(
+            onClick = onClick,
+            modifier = cardModifier,
+            colors = colors,
+            content = cardContent,
+        )
+    } else {
+        Card(
+            modifier = cardModifier,
+            colors = colors,
+            content = cardContent,
         )
     }
 }
