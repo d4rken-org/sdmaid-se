@@ -62,55 +62,64 @@ internal fun AppControlFilterRow(
     val ordered = remember(activeTags, allowFilterActive) {
         FilterSettings.Tag.entries.filter { it in activeTags && (it != FilterSettings.Tag.ACTIVE || allowFilterActive) }
     }
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .padding(horizontal = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    // Full-width tonal band so the filter/sort controls read as a distinct toolbar rather than
+    // floating on the app bar's surface color. surfaceContainerHigh sits a tonal step above the
+    // app bar and the list (both surface). The offset for collapse-on-scroll is applied to this
+    // Surface so the whole band slides together.
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        color = MaterialTheme.colorScheme.surfaceContainerHigh,
     ) {
-        if (ordered.isEmpty()) {
-            Text(
-                text = stringResource(CommonR.string.general_filter_empty_row_hint),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(horizontal = 12.dp),
-            )
-        } else {
-            LazyRow(
-                modifier = Modifier.weight(1f),
-                contentPadding = PaddingValues(horizontal = 4.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                items(ordered, key = { it.name }) { tag -> ActiveTagChip(tag = tag, onRemove = { onTagRemove(tag) }) }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+                .padding(horizontal = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            if (ordered.isEmpty()) {
+                Text(
+                    text = stringResource(CommonR.string.general_filter_empty_row_hint),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(horizontal = 12.dp),
+                )
+            } else {
+                LazyRow(
+                    modifier = Modifier.weight(1f),
+                    contentPadding = PaddingValues(horizontal = 4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    items(ordered, key = { it.name }) { tag -> ActiveTagChip(tag = tag, onRemove = { onTagRemove(tag) }) }
+                }
             }
-        }
-        IconButton(
-            onClick = onAddTags,
-            modifier = addTagsModifier,
-        ) {
-            Icon(
-                imageVector = Icons.TwoTone.Add,
-                contentDescription = stringResource(CommonR.string.general_filter_add_action),
-            )
-        }
-        IconButton(
-            onClick = onSort,
-            modifier = sortModifier,
-        ) {
-            BadgedBox(
-                badge = {
-                    if (sortNonDefault) Badge()
-                },
+            IconButton(
+                onClick = onAddTags,
+                modifier = addTagsModifier,
             ) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.TwoTone.Sort,
-                    contentDescription = stringResource(CommonR.string.general_sort_by_title),
+                    imageVector = Icons.TwoTone.Add,
+                    contentDescription = stringResource(CommonR.string.general_filter_add_action),
                 )
+            }
+            IconButton(
+                onClick = onSort,
+                modifier = sortModifier,
+            ) {
+                BadgedBox(
+                    badge = {
+                        if (sortNonDefault) Badge()
+                    },
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.TwoTone.Sort,
+                        contentDescription = stringResource(CommonR.string.general_sort_by_title),
+                    )
+                }
             }
         }
     }
