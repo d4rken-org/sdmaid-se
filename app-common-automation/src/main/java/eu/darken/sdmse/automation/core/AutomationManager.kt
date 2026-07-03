@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.SystemSettingsProvider
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -49,6 +50,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
@@ -59,6 +61,7 @@ class AutomationManager @Inject constructor(
     @ApplicationContext val context: Context,
     private val settings: GeneralSettings,
     @AppScope private val appScope: CoroutineScope,
+    private val dispatcherProvider: DispatcherProvider,
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
     private val acsWriteReliability: AcsWriteReliability,
@@ -351,7 +354,11 @@ class AutomationManager @Inject constructor(
     }
         .setupCommonEventHandlers(TAG) { "serviceLauncher" }
 
-    private val serviceResource = SharedResource(TAG, appScope, serviceLauncher)
+    // Run source lifecycle + teardown (incl. the awaitClose { runBlocking { stopService() } } which
+    // writes ACS secure settings via ADB/root) on IO, not the @AppScope Default pool. On low-core
+    // devices this teardown would otherwise starve Dispatchers.Default — the pool vmScope uses —
+    // freezing the dashboard after an ACS one-click. Mirrors ShellOps/PkgOps.
+    private val serviceResource = SharedResource(TAG, appScope + dispatcherProvider.IO, serviceLauncher)
 
     override suspend fun submit(task: AutomationTask): AutomationTask.Result {
         log(TAG) { "submit(): $task" }

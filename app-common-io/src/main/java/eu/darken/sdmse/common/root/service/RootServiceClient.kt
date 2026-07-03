@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.root.service
 
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -30,12 +31,14 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.plus
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class RootServiceClient @Inject constructor(
     @AppScope coroutineScope: CoroutineScope,
+    dispatcherProvider: DispatcherProvider,
     private val rootHostLauncher: RootHostLauncher,
     private val rootSettings: RootSettings,
     private val debugSettings: DebugSettings,
@@ -44,7 +47,10 @@ class RootServiceClient @Inject constructor(
     private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) : SharedResource<RootServiceClient.Connection>(
     tag = TAG,
-    parentScope = coroutineScope,
+    // Run source lifecycle + teardown on IO, not the @AppScope Default pool. On low-core devices the
+    // slow host-disconnect IPC during teardown would otherwise starve Dispatchers.Default — the same
+    // pool the UI's vmScope uses — wedging the dashboard. Mirrors ShellOps/PkgOps.
+    parentScope = coroutineScope + dispatcherProvider.IO,
     verboseLifecycle = true,
     source = callbackFlow {
         log(TAG) { "Instantiating Root launcher..." }
