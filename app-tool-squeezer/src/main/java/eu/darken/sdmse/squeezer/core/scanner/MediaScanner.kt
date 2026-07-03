@@ -172,7 +172,8 @@ class MediaScanner @Inject constructor(
 
         searchFlow.collect { lookup ->
             scannedCount++
-            updateProgressCount(Progress.Count.Counter(scannedCount))
+            // Keep the indeterminate "searching…" state during the walk — the total isn't known
+            // yet, and a Count here rendered a misleading "0/N" (Counter(Int) sets current=0).
             updateProgressSecondary(lookup.userReadablePath)
 
             val mimeType = mimeTypeTool.determineMimeType(lookup)
@@ -200,7 +201,7 @@ class MediaScanner @Inject constructor(
         }
 
         log(TAG) {
-            "Scan complete: ${results.size} compressible media found, " +
+            "Scan complete: $scannedCount files scanned, ${results.size} compressible media found, " +
                 "${skippedInaccessible.get()} skipped (inaccessible), " +
                 "${skippedLossyAux.get()} skipped (HDR/depth aux)"
         }
