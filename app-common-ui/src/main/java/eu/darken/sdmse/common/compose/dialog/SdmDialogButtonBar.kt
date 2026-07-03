@@ -19,8 +19,8 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
-private val HorizontalSpacing = 8.dp
-private val VerticalSpacing = 12.dp
+private val HorizontalSpacing = 4.dp
+private val VerticalSpacing = 2.dp
 
 /**
  * Adaptive dialog action bar that never wraps label text inside buttons.
