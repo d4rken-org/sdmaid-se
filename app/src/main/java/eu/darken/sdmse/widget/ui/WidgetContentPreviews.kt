@@ -43,6 +43,37 @@ private fun WidgetContentRowNarrowPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
 }
 
+// Below VALUE_ROW_FREED_MIN_HEIGHT (80dp) — the freed-text line must stay hidden, compact 1-line layout only.
+@Preview(widthDp = 300, heightDp = 64)
+@Composable
+private fun WidgetContentRowCompactPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
+}
+
+// At the 80dp breakpoint with large values, to check the used/total and freed-text lines don't overflow
+// their column width once the freed-text line is showing.
+@Preview(widthDp = 300, heightDp = 80)
+@Composable
+private fun WidgetContentRowWideLargeValuesPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(998, 999)), freedBytes = 999 * GB))
+}
+
+@Preview(widthDp = 220, heightDp = 80)
+@Composable
+private fun WidgetContentRowMediumLargeValuesPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internal(998, 999)), freedBytes = 999 * GB))
+}
+
+// Row layout's working/cancellable states, at the breakpoint height — the other working/cancellable
+// previews below are all 140dp tall and only ever exercise StackedLayout.
+@Preview(widthDp = 220, heightDp = 80)
+@Composable
+private fun WidgetContentRowCancellablePreview() {
+    WidgetContent(
+        WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB, isWorking = true, isCancellable = true)
+    )
+}
+
 @Preview(widthDp = 200, heightDp = 140)
 @Composable
 private fun WidgetContentNearFullPreview() {

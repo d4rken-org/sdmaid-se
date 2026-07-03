@@ -50,6 +50,15 @@ private val STACKED_MIN_HEIGHT = 110.dp
 private val RING_MAX_WIDTH = 190.dp     // below this (1 row) → ring (~2 col)
 private val BUTTON_LABEL_MIN_WIDTH = 300.dp // at/above this (1 row) → show the Clean text (~4 col)
 
+// Shared with WidgetChrome's padding() call below so the two stay in sync.
+private val WIDGET_CHROME_VERTICAL_PADDING = 12.dp
+
+// WidgetChrome's vertical padding (both sides) leaves ~56dp of content height at 80dp outer height —
+// enough for the row's text+bar+freed-text stack; below this the compact 2-line layout (value + bar)
+// stays as-is. Must stay below STACKED_MIN_HEIGHT, otherwise ValueRowLayout is never reached at this
+// height and the freed-text branch becomes dead code.
+private val VALUE_ROW_FREED_MIN_HEIGHT = 80.dp
+
 // Equal element size for the symmetric narrow (ring) row.
 private val NARROW_ELEMENT_SIZE = 44.dp
 
@@ -113,7 +122,11 @@ internal fun WidgetContent(state: WidgetRenderState) {
                 when {
                     size.height >= STACKED_MIN_HEIGHT -> StackedLayout(state)
                     size.width < RING_MAX_WIDTH -> RingRowLayout(state)
-                    else -> ValueRowLayout(state, showButtonLabel = size.width >= BUTTON_LABEL_MIN_WIDTH)
+                    else -> ValueRowLayout(
+                        state,
+                        showButtonLabel = size.width >= BUTTON_LABEL_MIN_WIDTH,
+                        showFreedText = size.height >= VALUE_ROW_FREED_MIN_HEIGHT,
+                    )
                 }
             }
 
@@ -144,7 +157,7 @@ private fun WidgetChrome(content: @Composable () -> Unit) {
                 .appWidgetBackground()
                 .background(GlanceTheme.colors.background)
                 .cornerRadius(20.dp)
-                .padding(horizontal = 14.dp, vertical = 12.dp),
+                .padding(horizontal = 14.dp, vertical = WIDGET_CHROME_VERTICAL_PADDING),
         ) {
             content()
         }
@@ -174,7 +187,7 @@ private fun StackedLayout(data: WidgetRenderState.Data) {
  * shows at the widest sizes; at ~3 columns it's icon-only so the value isn't truncated.
  */
 @Composable
-private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolean) {
+private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolean, showFreedText: Boolean) {
     val context = LocalContext.current
     Row(
         modifier = GlanceModifier.fillMaxSize(),
@@ -189,8 +202,16 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
                     style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
                     maxLines = 1,
                 )
-                Spacer(GlanceModifier.height(5.dp))
+                Spacer(GlanceModifier.height(3.dp))
                 StorageBar(entry.usedRatio)
+                if (showFreedText) {
+                    Spacer(GlanceModifier.height(3.dp))
+                    Text(
+                        text = freedLabel(context, data.freedBytes),
+                        style = TextStyle(color = GlanceTheme.colors.onSurfaceVariant, fontSize = 12.sp),
+                        maxLines = 1,
+                    )
+                }
             }
         }
         Spacer(GlanceModifier.width(12.dp))
@@ -232,7 +253,7 @@ private fun BrandingHeader(freedBytes: Long, modifier: GlanceModifier = GlanceMo
             )
             Spacer(GlanceModifier.height(2.dp))
             Text(
-                text = context.getString(R.string.widget_home_freed_label, formatSize(context, freedBytes)),
+                text = freedLabel(context, freedBytes),
                 style = TextStyle(color = GlanceTheme.colors.onSurfaceVariant, fontSize = 11.sp),
                 maxLines = 1,
             )
@@ -407,3 +428,6 @@ private fun storageLabelRes(kind: WidgetRenderState.Data.StorageEntry.Kind): Int
 
 private fun formatSize(context: Context, bytes: Long): String =
     Formatter.formatShortFileSize(context, bytes)
+
+private fun freedLabel(context: Context, freedBytes: Long): String =
+    context.getString(R.string.widget_home_freed_label, formatSize(context, freedBytes))

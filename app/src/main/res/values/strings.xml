@@ -366,7 +366,7 @@
     <string name="widget_home_description">Storage usage and one-tap cleanup</string>
     <string name="widget_home_storage_internal">Internal</string>
     <string name="widget_home_storage_external">External</string>
-    <string name="widget_home_freed_label">Freed: %1$s</string>
+    <string name="widget_home_freed_label">Lifetime: %1$s</string>
     <string name="widget_home_clean_action">Clean</string>
     <string name="widget_home_working">Working…</string>
     <string name="widget_home_unavailable">Storage unavailable</string>
