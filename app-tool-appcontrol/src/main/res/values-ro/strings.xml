@@ -38,7 +38,6 @@
     <string name="appcontrol_list_sortmode_screentime_label">Timp ecran pornit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
     <string name="appcontrol_list_filteroptions_label">Opțiuni pentru filtre</string>
-    <string name="appcontrol_list_fastscroller_action">Derulator rapid</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplicație a fost dezinstalată</item>

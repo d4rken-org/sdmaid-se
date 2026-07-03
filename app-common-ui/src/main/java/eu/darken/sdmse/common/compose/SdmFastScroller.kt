@@ -54,7 +54,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlin.math.roundToInt
 
-val SdmFastScrollerLaneWidth = 48.dp
+val SdmFastScrollerLaneWidth = 32.dp
 internal val ThumbWidth = 8.dp
 internal val ThumbHeight = 48.dp
 internal val BubbleEndPadding = 8.dp

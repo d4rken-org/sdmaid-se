@@ -38,7 +38,6 @@
     <string name="appcontrol_list_sortmode_screentime_label">திரை நேரம்</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">செயல்திறன் காரணங்களால் பயன்பாட்டு அளவுகள் அனுமானிக்கப்பட்டுள்ளன. மிகவும் தரவிற்கான StorageAnalyzer கருவியைப் பயன்படுத்தவும்.</string>
     <string name="appcontrol_list_filteroptions_label">வடிகட்டல் விருப்பங்கள்</string>
-    <string name="appcontrol_list_fastscroller_action">வேகமான உருட்டல்</string>
     <string name="appcontrol_progress_uninstalling_app">பயன்பாடை அன்இன்ஸ்டால் செய்கிறது</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d பயன்பாடு அன்இன்ஸ்டால் செய்யப்பட்டது</item>

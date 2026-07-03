@@ -8,7 +8,6 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.WindowInsets
@@ -17,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -26,7 +24,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AcUnit
 import androidx.compose.material.icons.twotone.Archive
-import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.MoreVert
@@ -85,8 +82,6 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.FastScrollSection
 import eu.darken.sdmse.common.compose.SdmFastScroller
-import eu.darken.sdmse.common.compose.SdmFastScrollerDefaultMinItems
-import eu.darken.sdmse.common.compose.SdmFastScrollerLaneWidth
 import eu.darken.sdmse.common.compose.SdmModalBottomSheet
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
@@ -189,7 +184,6 @@ fun AppControlListScreenHost(
         onRestoreSelected = vm::onRestoreRequested,
         onExportSelected = vm::onExportRequested,
         onShareSelected = vm::onShareList,
-        onToggleFastScroller = vm::onToggleFastScroller,
         onRefresh = { vm.onRefresh(refreshPkgCache = true) },
     )
 
@@ -331,7 +325,6 @@ internal fun AppControlListScreen(
     onRestoreSelected: (Set<InstallId>) -> Unit = {},
     onExportSelected: (Set<InstallId>) -> Unit = {},
     onShareSelected: (Set<InstallId>) -> Unit = {},
-    onToggleFastScroller: () -> Unit = {},
     onRefresh: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
@@ -348,7 +341,6 @@ internal fun AppControlListScreen(
     BackHandler(enabled = selectionActive) { selection.clear() }
 
     var selectionOverflowOpen by remember { mutableStateOf(false) }
-    var normalOverflowOpen by remember { mutableStateOf(false) }
     var searchActive by rememberSaveable { mutableStateOf(false) }
     var activeSheet by rememberSaveable { mutableStateOf<Sheet?>(null) }
 
@@ -495,37 +487,10 @@ internal fun AppControlListScreen(
                                         modifier = Modifier.guidedTourTarget(AppControlListTour.SEARCH_TARGET),
                                     )
                                     SdmTooltipIconButton(
-                                        icon = Icons.TwoTone.MoreVert,
-                                        label = stringResource(CommonR.string.general_options_label),
-                                        onClick = { normalOverflowOpen = true },
+                                        icon = Icons.TwoTone.Refresh,
+                                        label = stringResource(CommonR.string.general_refresh_action),
+                                        onClick = onRefresh,
                                     )
-                                    DropdownMenu(
-                                        expanded = normalOverflowOpen,
-                                        onDismissRequest = { normalOverflowOpen = false },
-                                    ) {
-                                        DropdownMenuItem(
-                                            text = { Text(stringResource(CommonR.string.general_refresh_action)) },
-                                            leadingIcon = { Icon(Icons.TwoTone.Refresh, contentDescription = null) },
-                                            onClick = {
-                                                normalOverflowOpen = false
-                                                onRefresh()
-                                            },
-                                        )
-                                        DropdownMenuItem(
-                                            text = { Text(stringResource(R.string.appcontrol_list_fastscroller_action)) },
-                                            leadingIcon = {
-                                                if (state.fastScrollerEnabled) {
-                                                    Icon(Icons.TwoTone.Check, contentDescription = null)
-                                                } else {
-                                                    Spacer(Modifier.size(24.dp))
-                                                }
-                                            },
-                                            onClick = {
-                                                normalOverflowOpen = false
-                                                onToggleFastScroller()
-                                            },
-                                        )
-                                    }
                                 }
                             },
                         )
@@ -705,21 +670,16 @@ internal fun AppControlListScreen(
                         val sections = remember(rows, state.options.listSort.mode) {
                             buildFastScrollerSections(rows, state.options.listSort.mode)
                         }
-                        // Only carve out gutter space when the scroller will actually render —
-                        // SdmFastScroller hides itself below SdmFastScrollerDefaultMinItems,
-                        // so matching the predicate here avoids dead end-padding on short lists.
-                        val fastScrollerVisible = state.fastScrollerEnabled &&
-                            rows.size >= SdmFastScrollerDefaultMinItems
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(spanCount),
                             state = gridState,
                             modifier = Modifier
                                 .fillMaxSize()
                                 .nestedScroll(scrollBehavior.nestedScrollConnection),
+                            // No end gutter: the fast-scroller floats over the full-width list.
                             contentPadding = PaddingValues(
                                 top = 8.dp,
                                 bottom = 8.dp,
-                                end = if (fastScrollerVisible) SdmFastScrollerLaneWidth else 0.dp,
                             ),
                         ) {
                             items(rows, key = { it.installId.toString() }) { row ->
@@ -747,15 +707,17 @@ internal fun AppControlListScreen(
                                 )
                             }
                         }
-                        if (fastScrollerVisible) {
-                            SdmFastScroller(
-                                state = gridState,
-                                modifier = Modifier
-                                    .align(Alignment.CenterEnd)
-                                    .fillMaxHeight(),
-                                sections = sections,
-                            )
-                        }
+                        // Always-on floating drag-thumb over the full-width list; the widget
+                        // self-hides when the list isn't scrollable (minItemsToShow = 0 so it isn't
+                        // additionally gated by an item-count floor).
+                        SdmFastScroller(
+                            state = gridState,
+                            modifier = Modifier
+                                .align(Alignment.CenterEnd)
+                                .fillMaxHeight(),
+                            sections = sections,
+                            minItemsToShow = 0,
+                        )
                     }
                 }
             }

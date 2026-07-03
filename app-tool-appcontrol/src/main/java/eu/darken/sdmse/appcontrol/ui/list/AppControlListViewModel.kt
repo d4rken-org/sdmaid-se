@@ -167,11 +167,10 @@ class AppControlListViewModel @Inject constructor(
     val state: StateFlow<State> = combine(
         rowsState,
         appControl.progress,
-        settings.listFastScrollerEnabled.flow,
-    ) { base, progress, fastScrollerEnabled ->
-        // Outer combine: progress ticks and toggling the fast scroller setting must not invalidate
-        // the row pipeline above (which would re-sort and flash the loading overlay).
-        base.copy(progress = progress, fastScrollerEnabled = fastScrollerEnabled)
+    ) { base, progress ->
+        // Outer combine: progress ticks must not invalidate the row pipeline above (which would
+        // re-sort and flash the loading overlay).
+        base.copy(progress = progress)
     }
         .safeStateIn(initialValue = State(), onError = { State() })
 
@@ -330,11 +329,6 @@ class AppControlListViewModel @Inject constructor(
     fun onTagsReset() = launch {
         log(TAG) { "onTagsReset()" }
         settings.listFilter.update { FilterSettings() }
-    }
-
-    fun onToggleFastScroller() = launch {
-        log(TAG) { "onToggleFastScroller()" }
-        settings.listFastScrollerEnabled.update { current -> !current }
     }
 
     fun onRefresh(refreshPkgCache: Boolean = false) = launch {
@@ -531,7 +525,6 @@ class AppControlListViewModel @Inject constructor(
         val allowActionRestore: Boolean = false,
         val sizeSortModuleEnabled: Boolean = false,
         val allowFilterActive: Boolean = false,
-        val fastScrollerEnabled: Boolean = false,
     )
 
     data class Row(

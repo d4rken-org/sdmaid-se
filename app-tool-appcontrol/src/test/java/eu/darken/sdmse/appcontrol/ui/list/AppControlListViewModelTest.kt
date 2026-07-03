@@ -180,7 +180,6 @@ class AppControlListViewModelTest : BaseTest() {
         val listSortBacking: MutableStateFlow<SortSettings>,
         val listFilter: DataStoreValue<FilterSettings>,
         val ackSizeSortCaveat: DataStoreValue<Boolean>,
-        val listFastScrollerEnabled: DataStoreValue<Boolean>,
         val moduleSizingEnabled: DataStoreValue<Boolean>,
         val moduleActivityEnabled: DataStoreValue<Boolean>,
         val includeMultiUserEnabled: DataStoreValue<Boolean>,
@@ -231,7 +230,6 @@ class AppControlListViewModelTest : BaseTest() {
         sizingEnabled: Boolean = true,
         activityEnabled: Boolean = true,
         multiUserEnabled: Boolean = false,
-        fastScrollerEnabled: Boolean = false,
         ackSizeSortCaveatValue: Boolean = false,
         isPro: Boolean = false,
         canToggle: Boolean = true,
@@ -266,7 +264,6 @@ class AppControlListViewModelTest : BaseTest() {
         val (listSort, listSortBacking) = mutableDataStoreValue(sort)
         val listFilter = rwDataStoreValue(filter)
         val ackSizeSortCaveatStore = rwDataStoreValue(ackSizeSortCaveatValue)
-        val listFastScrollerEnabledStore = rwDataStoreValue(fastScrollerEnabled)
         val moduleSizingEnabledStore = rwDataStoreValue(sizingEnabled)
         val moduleActivityEnabledStore = rwDataStoreValue(activityEnabled)
         val includeMultiUserEnabledStore = rwDataStoreValue(multiUserEnabled)
@@ -274,7 +271,6 @@ class AppControlListViewModelTest : BaseTest() {
             every { this@apply.listSort } returns listSort
             every { this@apply.listFilter } returns listFilter
             every { ackSizeSortCaveat } returns ackSizeSortCaveatStore
-            every { listFastScrollerEnabled } returns listFastScrollerEnabledStore
             every { moduleSizingEnabled } returns moduleSizingEnabledStore
             every { moduleActivityEnabled } returns moduleActivityEnabledStore
             every { includeMultiUserEnabled } returns includeMultiUserEnabledStore
@@ -313,7 +309,6 @@ class AppControlListViewModelTest : BaseTest() {
             listSortBacking = listSortBacking,
             listFilter = listFilter,
             ackSizeSortCaveat = ackSizeSortCaveatStore,
-            listFastScrollerEnabled = listFastScrollerEnabledStore,
             moduleSizingEnabled = moduleSizingEnabledStore,
             moduleActivityEnabled = moduleActivityEnabledStore,
             includeMultiUserEnabled = includeMultiUserEnabledStore,

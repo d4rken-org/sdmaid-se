@@ -38,7 +38,6 @@
     <string name="appcontrol_list_sortmode_screentime_label">Skärmtid</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Appstorlekar är uppskattade av prestandaskäl. Använd StorageAnalyzer-verktyget för mer exakta data.</string>
     <string name="appcontrol_list_filteroptions_label">Filteralternativ</string>
-    <string name="appcontrol_list_fastscroller_action">Snabbscroller</string>
     <string name="appcontrol_progress_uninstalling_app">Avinstallerar app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app avinstallerades</item>

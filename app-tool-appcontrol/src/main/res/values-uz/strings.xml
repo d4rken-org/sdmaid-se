@@ -38,7 +38,6 @@
     <string name="appcontrol_list_sortmode_screentime_label">Ekran vaqti</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Ilova hajmlari ishlash sabablari uchun taxmin qilinadi. Aniqroq ma\'lumotlar uchun StorageAnalyzer vositasidan foydalaning.</string>
     <string name="appcontrol_list_filteroptions_label">Filtr variantlari</string>
-    <string name="appcontrol_list_fastscroller_action">Tezkor aylantirgich</string>
     <string name="appcontrol_progress_uninstalling_app">Ilovani o\'chirish</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ilova o\'chirildi</item>

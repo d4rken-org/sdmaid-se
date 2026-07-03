@@ -38,7 +38,6 @@
     <string name="appcontrol_list_sortmode_screentime_label">Muda wa skrini</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Ukubwa wa programu unakadirika kwa sababu za utendaji. Tumia zana ya StorageAnalyzer kwa data sahihi zaidi.</string>
     <string name="appcontrol_list_filteroptions_label">Chaguo za kichungi</string>
-    <string name="appcontrol_list_fastscroller_action">Kitelezo cha haraka</string>
     <string name="appcontrol_progress_uninstalling_app">Inaondoa programu</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">Programu %d imeondolewa</item>

@@ -26,6 +26,7 @@ import eu.darken.sdmse.appcontrol.ui.list.AppControlListViewModel
 import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
 import eu.darken.sdmse.appcontrol.ui.preview.previewAppControlRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.SdmFastScrollerLaneWidth
 import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -105,6 +106,9 @@ fun AppControlListRow(
                 text = Formatter.formatShortFileSize(context, sizes.total),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                // Keep the size clear of the always-on fast-scroll thumb that floats over the list's
+                // right edge (rows stay full-width; only this trailing value is inset).
+                modifier = Modifier.padding(end = SdmFastScrollerLaneWidth),
             )
         }
     }
