@@ -73,6 +73,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.time.Duration
+import kotlin.math.roundToInt
 
 @Composable
 fun SqueezerSetupScreenHost(
@@ -135,7 +136,7 @@ fun SqueezerSetupScreenHost(
         // Debug builds allow extreme low-quality values to exercise the compressor. Read once
         // here (Host scope) so the inner `internal` Screen has no compile-time dependency on
         // BuildConfigWrap — keeping the Screen JVM-unit-testable without a generated BuildConfig.
-        minQuality = if (BuildConfigWrap.DEBUG) 1 else MIN_QUALITY_RELEASE,
+        minQuality = if (BuildConfigWrap.DEBUG) MIN_QUALITY_DEBUG else MIN_QUALITY_RELEASE,
         onNavigateUp = vm::navUp,
         onPathsClick = vm::openPathPicker,
         onQualityChange = vm::updateQuality,
@@ -360,8 +361,10 @@ private fun QualityCard(
                 Slider(
                     value = quality.toFloat(),
                     valueRange = minQuality.toFloat()..100f,
-                    steps = 100 - minQuality - 1,
-                    onValueChange = { onQualityChange(it.toInt()) },
+                    // 5% increments: ticks land on clean multiples of QUALITY_STEP because both
+                    // min bounds are divisible by it, so the range divides evenly.
+                    steps = (100 - minQuality) / QUALITY_STEP - 1,
+                    onValueChange = { onQualityChange(it.roundToInt()) },
                     modifier = Modifier.weight(1f),
                 )
                 Spacer(Modifier.width(8.dp))
@@ -471,9 +474,14 @@ private fun AgeCard(
     }
 }
 
-// Lower bound the quality slider exposes on release builds. Debug builds use 1 to exercise
-// the compressor at extreme settings.
+// Lower bound the quality slider exposes on release builds. Debug builds go lower to exercise
+// the compressor at extreme settings. Both must be divisible by QUALITY_STEP so the slider's
+// 5% ticks divide the range evenly.
 private const val MIN_QUALITY_RELEASE = 20
+private const val MIN_QUALITY_DEBUG = 5
+
+// Quality slider granularity: the slider snaps to multiples of this (5% increments).
+private const val QUALITY_STEP = 5
 
 @Preview2
 @Composable
