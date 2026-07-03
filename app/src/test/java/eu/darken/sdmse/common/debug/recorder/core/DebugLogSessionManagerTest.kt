@@ -862,6 +862,10 @@ class DebugLogSessionManagerTest : BaseTest() {
             override val IO = Dispatchers.IO
         }
 
+        // Deadlock-detection deadline. Only reached if the scan genuinely never returns; kept well
+        // above any realistic scan/scheduler latency so a loaded CI runner can't false-fail.
+        private val DEADLOCK_TIMEOUT_MS = 30_000L
+
         @Test
         fun `sessions scan completes while a long zip holds the lock`() {
             // Regression for the dashboard "stuck on loading spinner" deadlock: the read-only sessions
@@ -882,16 +886,23 @@ class DebugLogSessionManagerTest : BaseTest() {
                 logDir = zippingDir,
             )
 
-            val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+            // IO, not Default: the manager's scope hosts the flow sharing + async zip launch. Default's
+            // parallelism is the CPU count (2 on a CI runner), and the zip parks one pool thread on
+            // releaseZip.await() for the whole test — leaving the flow plumbing to fight over the
+            // remainder. IO's large pool removes that starvation so scheduling can't stall the scan.
+            val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
             try {
                 val manager = DebugLogSessionManager(scope, realDispatchers, recorderModule, debugLogZipper)
                 runBlocking {
                     // Triggers zipSessionAsync -> acquires fsMutex and blocks inside zip().
                     manager.requestStopRecording()
-                    zipHoldsLock.await(5, TimeUnit.SECONDS) shouldBe true
+                    // Generous deadline: this is a deadlock-detection guard, not a latency assertion.
+                    // The happy path signals in milliseconds; only a genuine hang (or a wedged CI
+                    // scheduler) reaches the timeout. Tight 5s bounds false-failed under CI load.
+                    zipHoldsLock.await(DEADLOCK_TIMEOUT_MS, TimeUnit.MILLISECONDS) shouldBe true
 
                     // Before the fix this hangs forever (scan waits on fsMutex held by the zip).
-                    val sessions = withTimeout(5_000) { manager.sessions.first() }
+                    val sessions = withTimeout(DEADLOCK_TIMEOUT_MS) { manager.sessions.first() }
                     sessions.map { it.id } shouldContain sessionId("ready")
                 }
             } finally {
