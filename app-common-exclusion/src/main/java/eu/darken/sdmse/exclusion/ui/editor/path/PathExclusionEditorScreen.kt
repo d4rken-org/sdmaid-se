@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.ui.editor.path
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -222,9 +221,8 @@ private fun ReadyContent(
             .padding(16.dp),
     ) {
         ElevatedCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onEditPath() },
+            onClick = { onEditPath() },
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(

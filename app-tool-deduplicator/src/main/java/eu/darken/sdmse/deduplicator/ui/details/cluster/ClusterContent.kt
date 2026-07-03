@@ -297,10 +297,10 @@ private fun DirectoryHeaderRow(
 ) {
     val context = LocalContext.current
     Card(
+        onClick = onDeleteAll,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 2.dp)
-            .combinedClickableSafe(onClick = onDeleteAll),
+            .padding(horizontal = 8.dp, vertical = 2.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
     ) {
         Row(
@@ -361,10 +361,10 @@ private fun GroupHeaderCard(
     val overlayColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.85f)
     val overlayContent = MaterialTheme.colorScheme.onSurfaceVariant
     Card(
+        onClick = onView,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 4.dp)
-            .combinedClickableSafe(onClick = onView),
+            .padding(horizontal = 8.dp, vertical = 4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
     ) {
         Box(

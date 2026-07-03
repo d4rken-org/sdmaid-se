@@ -1,7 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.setup
 
 import android.text.format.Formatter
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -291,9 +290,8 @@ private fun PathsCard(
         scanPaths.joinToString("\n") { it.userReadablePath.get(context) }
     }
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -431,9 +429,8 @@ private fun AgeCard(
     val days = minAge.toDays().toInt()
     val valueText = pluralStringResource(R.plurals.squeezer_min_age_x_days, days, days)
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Row(
             modifier = Modifier.padding(16.dp),

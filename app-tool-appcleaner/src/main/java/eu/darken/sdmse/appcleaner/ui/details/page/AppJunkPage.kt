@@ -2,7 +2,6 @@ package eu.darken.sdmse.appcleaner.ui.details.page
 
 import android.text.format.Formatter
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -292,10 +291,10 @@ private fun AppJunkInaccessibleRow(
 ) {
     val context = LocalContext.current
     Card(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp)
-            .clickable(onClick = onClick),
+            .padding(horizontal = 16.dp, vertical = 4.dp),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -344,10 +343,10 @@ private fun AppJunkCategoryCard(
     )
     val subtitle = "${Formatter.formatShortFileSize(context, totalSize)} ($itemCountText)"
     Card(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp)
-            .clickable(onClick = onClick),
+            .padding(horizontal = 16.dp, vertical = 4.dp),
     ) {
         Column(modifier = Modifier.padding(vertical = 8.dp)) {
             Row(

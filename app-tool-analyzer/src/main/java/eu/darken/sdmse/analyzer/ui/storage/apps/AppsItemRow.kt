@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import android.text.format.Formatter
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,9 +38,8 @@ internal fun AppsItemRow(
     val sizeText = Formatter.formatShortFileSize(context, row.pkgStat.totalSize)
 
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
         Column {

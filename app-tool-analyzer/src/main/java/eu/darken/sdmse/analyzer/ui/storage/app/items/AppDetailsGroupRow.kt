@@ -2,7 +2,6 @@ package eu.darken.sdmse.analyzer.ui.storage.app.items
 
 import android.text.format.Formatter
 import androidx.annotation.StringRes
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -43,9 +42,8 @@ internal fun AppDetailsGroupRow(
     val sizeText = Formatter.formatShortFileSize(context, group.groupSize)
 
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
         Row(

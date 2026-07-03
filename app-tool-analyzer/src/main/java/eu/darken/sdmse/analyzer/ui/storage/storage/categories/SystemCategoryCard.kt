@@ -1,9 +1,9 @@
 package eu.darken.sdmse.analyzer.ui.storage.storage.categories
 
 import android.text.format.Formatter
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -48,16 +48,7 @@ internal fun SystemCategoryCard(
     } else 0
     val usedText = Formatter.formatShortFileSize(context, content.spaceUsed)
 
-    val cardModifier = if (content.isBrowsable) {
-        modifier.fillMaxWidth().clickable(onClick = onClick)
-    } else {
-        modifier.fillMaxWidth()
-    }
-
-    Card(
-        modifier = cardModifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-    ) {
+    val cardContent: @Composable ColumnScope.() -> Unit = {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
@@ -95,6 +86,24 @@ internal fun SystemCategoryCard(
                 )
             }
         }
+    }
+
+    val elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    if (content.isBrowsable) {
+        // Use the clickable Card overload so the hover/ripple indication is clipped to the
+        // card's rounded shape instead of drawing against the rectangular bounds.
+        Card(
+            onClick = onClick,
+            modifier = modifier.fillMaxWidth(),
+            elevation = elevation,
+            content = cardContent,
+        )
+    } else {
+        Card(
+            modifier = modifier.fillMaxWidth(),
+            elevation = elevation,
+            content = cardContent,
+        )
     }
 }
 

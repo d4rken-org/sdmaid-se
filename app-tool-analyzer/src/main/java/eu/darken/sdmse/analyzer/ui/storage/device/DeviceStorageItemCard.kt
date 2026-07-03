@@ -1,7 +1,6 @@
 package eu.darken.sdmse.analyzer.ui.storage.device
 
 import android.text.format.Formatter
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -63,9 +62,8 @@ internal fun DeviceStorageItemCard(
     val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
 
     ElevatedCard(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth(),
         colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
