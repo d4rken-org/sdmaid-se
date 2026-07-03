@@ -10,13 +10,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.add
 import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.union
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Close
@@ -36,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -243,16 +246,23 @@ fun SqueezerComparisonDialog(
                             label = originalLabel,
                             file = originalFile,
                             failed = failed,
+                            labelAlignment = Alignment.BottomStart,
                             onViewReady = { originalView = it },
                             onViewReleased = { if (originalView === it) originalView = null },
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight(),
                         )
+                        PaneDivider(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .width(1.dp),
+                        )
                         ImagePane(
                             label = compressedLabel,
                             file = compressedFile,
                             failed = failed,
+                            labelAlignment = Alignment.BottomEnd,
                             onViewReady = { compressedView = it },
                             onViewReleased = { if (compressedView === it) compressedView = null },
                             modifier = Modifier
@@ -266,16 +276,23 @@ fun SqueezerComparisonDialog(
                             label = originalLabel,
                             file = originalFile,
                             failed = failed,
+                            labelAlignment = Alignment.TopCenter,
                             onViewReady = { originalView = it },
                             onViewReleased = { if (originalView === it) originalView = null },
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxWidth(),
                         )
+                        PaneDivider(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(1.dp),
+                        )
                         ImagePane(
                             label = compressedLabel,
                             file = compressedFile,
                             failed = failed,
+                            labelAlignment = Alignment.BottomCenter,
                             onViewReady = { compressedView = it },
                             onViewReleased = { if (compressedView === it) compressedView = null },
                             modifier = Modifier
@@ -291,8 +308,8 @@ fun SqueezerComparisonDialog(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.65f),
                     ),
                     modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .windowInsetsPadding(WindowInsets.systemBars.add(WindowInsets.displayCutout))
+                        .align(Alignment.TopStart)
+                        .windowInsetsPadding(WindowInsets.systemBars.union(WindowInsets.displayCutout))
                         .padding(16.dp),
                 ) {
                     Icon(
@@ -310,12 +327,18 @@ private fun ImagePane(
     label: String,
     file: File?,
     failed: Boolean,
+    labelAlignment: Alignment = Alignment.TopStart,
     onViewReady: (CoilZoomImageView) -> Unit = {},
     onViewReleased: (CoilZoomImageView) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = modifier.background(Color.Black),
+        // Clip the zoom view to the pane: when zoomed in, its enlarged content would otherwise
+        // draw past its bounds and overlap the adjacent pane (Compose's AndroidView host doesn't
+        // clip the embedded view's overflow).
+        modifier = modifier
+            .clipToBounds()
+            .background(Color.Black),
     ) {
         when {
             file != null -> {
@@ -349,18 +372,23 @@ private fun ImagePane(
         Surface(
             color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.65f),
             modifier = Modifier
-                .align(Alignment.TopStart)
-                .windowInsetsPadding(WindowInsets.systemBars.add(WindowInsets.displayCutout))
+                .align(labelAlignment)
+                .windowInsetsPadding(WindowInsets.systemBars.union(WindowInsets.displayCutout))
                 .padding(8.dp),
         ) {
             Text(
                 text = label,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                style = MaterialTheme.typography.labelMedium,
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                style = MaterialTheme.typography.labelLarge,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
             )
         }
     }
+}
+
+@Composable
+private fun PaneDivider(modifier: Modifier = Modifier) {
+    Box(modifier = modifier.background(Color.White.copy(alpha = 0.3f)))
 }
 
 /**
