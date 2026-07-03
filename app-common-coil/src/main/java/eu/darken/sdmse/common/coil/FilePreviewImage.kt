@@ -87,7 +87,7 @@ fun FilePreviewImage(
                     Icon(
                         painter = painterResource(fallbackRes),
                         contentDescription = contentDescription,
-                        modifier = Modifier.fillMaxSize(0.5f),
+                        modifier = Modifier.fillMaxSize(0.4f),
                         tint = fallbackTint,
                     )
                 }

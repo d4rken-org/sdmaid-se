@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.list.items
 
 import android.text.format.Formatter
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -8,8 +9,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -71,16 +73,22 @@ internal fun DeduplicatorGridRow(
     Card(
         modifier = modifier.padding(4.dp),
         colors = CardDefaults.cardColors(containerColor = containerColor),
+        border = if (selected) BorderStroke(3.dp, MaterialTheme.colorScheme.primary) else null,
     ) {
-        Box(modifier = Modifier.fillMaxWidth()) {
+        // Square tile: the preview fills the card and the caption is overlaid on a scrim at the bottom,
+        // mirroring the Analyzer's content grid so every grid tile shares the same square footprint.
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1f),
+        ) {
             // Tapping the thumbnail deletes the cluster's duplicates (confirm dialog); long-press selects.
             FilePreviewImage(
                 lookup = cluster.previewFile,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_cluster_preview_image),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
+                    .fillMaxSize()
                     .combinedClickable(
                         role = Role.Button,
                         onClickLabel = deleteLabel,
@@ -96,47 +104,50 @@ internal fun DeduplicatorGridRow(
                     .align(Alignment.TopStart)
                     .padding(4.dp),
             )
-        }
-        // Caption tap = open details; long-press selects.
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .combinedClickable(
-                    role = Role.Button,
-                    onClickLabel = detailsLabel,
-                    onClick = onCaptionClick,
-                    onLongClick = onLongClick,
-                )
-                .padding(vertical = 8.dp, horizontal = 12.dp),
-        ) {
-            Text(
-                text = stringResource(
-                    DeduplicatorR.string.deduplicator_list_grid_freeable_x,
-                    Formatter.formatShortFileSize(context, row.freeableSize),
-                ),
-                style = MaterialTheme.typography.titleSmall,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
+            // Caption overlaid at the bottom: tap = open details; long-press selects.
+            Column(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .combinedClickable(
+                        role = Role.Button,
+                        onClickLabel = detailsLabel,
+                        onClick = onCaptionClick,
+                        onLongClick = onLongClick,
+                    )
+                    .background(Color.Black.copy(alpha = 0.6f))
+                    .padding(vertical = 4.dp, horizontal = 8.dp),
             ) {
                 Text(
-                    text = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        cluster.count,
-                        cluster.count,
+                    text = stringResource(
+                        DeduplicatorR.string.deduplicator_list_grid_freeable_x,
+                        Formatter.formatShortFileSize(context, row.freeableSize),
                     ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.titleSmall,
+                    color = Color.White,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f),
                 )
-                if (cluster.types.isNotEmpty()) {
-                    Spacer(Modifier.width(8.dp))
-                    MatchTypeIcons(types = cluster.types)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = pluralStringResource(
+                            CommonR.plurals.result_x_items,
+                            cluster.count,
+                            cluster.count,
+                        ),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.85f),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    if (cluster.types.isNotEmpty()) {
+                        Spacer(Modifier.width(8.dp))
+                        MatchTypeIcons(types = cluster.types)
+                    }
                 }
             }
         }
@@ -181,7 +192,7 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
                 imageVector = SdmIcons.CodeEqualBox,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_checksum_title),
                 tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(18.dp),
+                modifier = Modifier.size(16.dp),
             )
         }
         if (Duplicate.Type.PHASH in types) {
@@ -189,7 +200,7 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
                 imageVector = SdmIcons.ApproximatelyEqualBox,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_phash_title),
                 tint = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.size(18.dp),
+                modifier = Modifier.size(16.dp),
             )
         }
         if (Duplicate.Type.MEDIA in types) {
@@ -197,7 +208,7 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
                 imageVector = Icons.TwoTone.GraphicEq,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_media_title),
                 tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.size(18.dp),
+                modifier = Modifier.size(16.dp),
             )
         }
     }
