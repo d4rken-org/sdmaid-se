@@ -180,7 +180,7 @@ androidComponents {
     }
 }
 
-setupKotlinOptions()
+setupKotlinOptions(compose = true)
 
 afterEvaluate {
     tasks.matching { it.name == "bundleGplayBeta" }.configureEach {

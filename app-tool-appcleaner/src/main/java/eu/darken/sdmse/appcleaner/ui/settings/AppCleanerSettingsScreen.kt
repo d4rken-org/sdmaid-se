@@ -5,21 +5,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.Chat
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.automirrored.twotone.RotateRight
 import androidx.compose.material.icons.twotone.AdsClick
 import androidx.compose.material.icons.twotone.Analytics
 import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
-import androidx.compose.material.icons.twotone.Chat
 import androidx.compose.material.icons.twotone.DeleteForever
 import androidx.compose.material.icons.twotone.FolderOff
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.PhotoLibrary
 import androidx.compose.material.icons.twotone.PlayCircleOutline
-import androidx.compose.material.icons.twotone.RotateRight
 import androidx.compose.material.icons.twotone.SignalCellularOff
 import androidx.compose.material.icons.twotone.VisibilityOff
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -243,7 +243,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.TwoTone.RotateRight,
+                    icon = Icons.AutoMirrored.TwoTone.RotateRight,
                     title = stringResource(R.string.appcleaner_include_runningapps_label),
                     subtitle = stringResource(R.string.appcleaner_include_runningapps_summary),
                     checked = state.includeRunningApps,
@@ -445,7 +445,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.TwoTone.Chat,
+                    icon = Icons.AutoMirrored.TwoTone.Chat,
                     title = stringResource(R.string.appcleaner_filter_telegram_label),
                     subtitle = stringResource(R.string.appcleaner_filter_telegram_summary),
                     checked = state.filterTelegram,
@@ -454,7 +454,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.TwoTone.Chat,
+                    icon = Icons.AutoMirrored.TwoTone.Chat,
                     title = stringResource(R.string.appcleaner_filter_threema_label),
                     subtitle = stringResource(R.string.appcleaner_filter_threema_summary),
                     checked = state.filterThreema,
@@ -472,7 +472,7 @@ internal fun AppCleanerSettingsScreen(
             }
             item {
                 SettingsSwitchItem(
-                    icon = Icons.TwoTone.Chat,
+                    icon = Icons.AutoMirrored.TwoTone.Chat,
                     title = stringResource(R.string.appcleaner_filter_viber_label),
                     subtitle = stringResource(R.string.appcleaner_filter_viber_summary),
                     checked = state.filterViber,

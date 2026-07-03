@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material.icons.twotone.DirectionsRun
+import androidx.compose.material.icons.automirrored.twotone.DirectionsRun
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.MonitorWeight
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -103,7 +103,7 @@ internal fun AppControlSettingsScreen(
             }
             item {
                 SettingsBadgedSwitchItem(
-                    icon = Icons.TwoTone.DirectionsRun,
+                    icon = Icons.AutoMirrored.TwoTone.DirectionsRun,
                     title = stringResource(R.string.appcontrol_settings_module_activity_enabled_label),
                     subtitle = stringResource(R.string.appcontrol_settings_module_activity_enabled_description),
                     checked = state.activityEnabled,

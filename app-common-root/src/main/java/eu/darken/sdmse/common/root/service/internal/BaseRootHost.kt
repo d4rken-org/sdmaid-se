@@ -74,7 +74,8 @@ abstract class BaseRootHost(
         }
 
         runBlocking {
-            log(iTag) { "Running on threadId=${Thread.currentThread().id}" }
+            @Suppress("DEPRECATION") val threadId = Thread.currentThread().id
+            log(iTag) { "Running on threadId=$threadId" }
             onInit()
             onExecute()
         }

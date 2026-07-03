@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.storage
 
 import android.content.Context
 import android.os.Environment
-import androidx.core.content.ContextCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -50,7 +49,7 @@ class StorageEnvironment @Inject constructor(
         get() = Environment.getDataDirectory().toLocalPath()
 
     val externalDirs: List<LocalPath>
-        get() = ContextCompat.getExternalFilesDirs(context, null)
+        get() = context.getExternalFilesDirs(null)
             .filter { it != null && it.isAbsolute }
             .mapNotNull { base ->
                 var root = base
@@ -62,7 +61,7 @@ class StorageEnvironment @Inject constructor(
             }
 
     val publicDataDirs: List<LocalPath>
-        get() = ContextCompat.getExternalFilesDirs(context, null)
+        get() = context.getExternalFilesDirs(null)
             .filter { it != null && it.isAbsolute }
             .mapNotNull { base ->
                 var root = base
@@ -102,7 +101,7 @@ class StorageEnvironment @Inject constructor(
 
         val pathResult = mutableListOf<LocalPath>()
 
-        ContextCompat.getExternalFilesDirs(context, null)
+        context.getExternalFilesDirs(null)
             .filterNotNull()
             .filter { it.isAbsolute }
             .mapNotNull { extMyDir ->

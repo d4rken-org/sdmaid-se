@@ -33,7 +33,7 @@ android {
     }
 }
 
-setupKotlinOptions()
+setupKotlinOptions(compose = true)
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")

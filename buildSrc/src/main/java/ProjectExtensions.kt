@@ -69,7 +69,15 @@ fun LibraryExtension.setupModuleBuildTypes() {
     }
 }
 
-fun Project.setupKotlinOptions() {
+/**
+ * @param compose pass `true` for modules that apply Compose (i.e. call `addCompose()`), so the
+ * Compose opt-ins are added only where the markers are on the classpath. Adding them globally
+ * would emit an "opt-in requirement marker is unresolved" warning in every non-Compose module.
+ * Experimental Compose APIs (Material3 TopAppBar/Scaffold/ModalBottomSheet/TimePicker, foundation
+ * FlowRow, …) are used pervasively across the UI, so a module-level opt-in is preferable to
+ * scattering per-file `@OptIn` across dozens of screens.
+ */
+fun Project.setupKotlinOptions(compose: Boolean = false) {
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
@@ -83,15 +91,20 @@ fun Project.setupKotlinOptions() {
                     "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                     "-opt-in=kotlinx.coroutines.FlowPreview",
                     "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
-                    "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-                    "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi",
-                    "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi",
-                    "-opt-in=coil.annotation.ExperimentalCoilApi",
                     "-Xjvm-default=all",
                     "-Xcontext-parameters",
                     "-Xannotation-default-target=param-property",
                 )
             )
+            if (compose) {
+                freeCompilerArgs.addAll(
+                    listOf(
+                        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                        "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi",
+                        "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi",
+                    )
+                )
+            }
         }
     }
 }

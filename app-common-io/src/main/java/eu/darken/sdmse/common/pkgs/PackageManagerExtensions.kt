@@ -89,13 +89,13 @@ fun PackageManager.getInstalledPackagesAsUser(
             method.invoke(this, flags.toInt(), userHandle.handleId) as List<PackageInfo>
         }
     } else {
-        @Suppress("UNCHECKED_CAST")
         val method = PackageManager::class.java.getMethod(
             "getInstalledPackagesAsUser",
             Int::class.javaPrimitiveType,
             Int::class.javaPrimitiveType,
         )
-        method.invoke(this, flags.toInt(), userHandle.handleId) as List<PackageInfo>
+        @Suppress("UNCHECKED_CAST")
+        (method.invoke(this, flags.toInt(), userHandle.handleId) as List<PackageInfo>)
     }
 } catch (e: Exception) {
     log(ERROR) { e.asLog() }

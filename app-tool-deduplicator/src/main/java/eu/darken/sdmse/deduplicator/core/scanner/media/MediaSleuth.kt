@@ -202,7 +202,7 @@ class MediaSleuth @Inject constructor(
                             null
                         }
                     } else {
-                        if (sim != null && sim > NEAR_MISS_THRESHOLD) {
+                        if (sim > NEAR_MISS_THRESHOLD) {
                             log(TAG, VERBOSE) {
                                 "Near-miss (below reject): ${String.format("%.2f%%", sim * 100)}" +
                                         " : ${target.lookup.path} <-> ${other.lookup.path}"

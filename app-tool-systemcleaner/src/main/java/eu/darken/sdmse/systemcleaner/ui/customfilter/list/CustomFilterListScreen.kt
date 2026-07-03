@@ -17,6 +17,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
@@ -24,7 +25,6 @@ import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.SelectAll
 import androidx.compose.material.icons.twotone.FileDownload
 import androidx.compose.material.icons.twotone.FileUpload
-import androidx.compose.material.icons.twotone.HelpOutline
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
@@ -206,7 +206,7 @@ internal fun CustomFilterListScreen(
                             onClick = onImport,
                         )
                         SdmTooltipIconButton(
-                            icon = Icons.TwoTone.HelpOutline,
+                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
                             label = stringResource(CommonR.string.general_help_action),
                             onClick = onHelp,
                         )
