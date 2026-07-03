@@ -188,6 +188,58 @@ suspend fun StepContext.findNearestTo(
     return nearestNode
 }
 
+/**
+ * Finds the clickable node that visually *owns* [label] in a row of icon+label action buttons
+ * (e.g. the AOSP App-Info top action row: Archive / Uninstall / Force stop). On Android 15+ the
+ * icon and label are separate, unclickable nodes and the tappable wrapper is a sibling; picking
+ * the merely-nearest clickable ([findNearestTo]) would grab an adjacent action (e.g. the Uninstall
+ * button for a Force-stop label). This restricts the match to a clickable that sits in the SAME
+ * column as the label: it horizontally contains the label's center-X, is vertically related to the
+ * label (overlapping it, or directly above/below within ~2 label-heights — covering both the
+ * icon-over-label grid and the button-over-text list layouts), and is not wide enough to span
+ * multiple action columns.
+ *
+ * Returns null when no such clickable exists. On this action row a button exposes a clickable
+ * wrapper only while enabled, so absence usually means the action is disabled — callers decide
+ * what that means.
+ */
+suspend fun StepContext.findColumnAlignedClickable(
+    label: ACSNodeInfo,
+    maxNesting: Int = 3,
+): ACSNodeInfo? {
+    val labelBounds = label.getScreenBounds()
+    if (labelBounds.isEmpty()) {
+        log(tag, WARN) { "findColumnAlignedClickable: label bounds empty/degenerate: $label" }
+        return null
+    }
+    val labelCenterX = (labelBounds.left + labelBounds.right) / 2
+    val labelHeight = labelBounds.bottom - labelBounds.top
+    // A single action cell is well under half the row width; reject a full-width clickable that
+    // would span several columns (and thus horizontally contain multiple action labels).
+    val maxTargetWidth = host.windowRoot()?.getScreenBounds()
+        ?.let { it.right - it.left }
+        ?.takeIf { it > 0 }
+        ?.let { it / 2 }
+        ?: Int.MAX_VALUE
+
+    return findNearestTo(maxNesting = maxNesting, node = label) { candidate ->
+        if (!candidate.isClickable) return@findNearestTo false
+        val b = candidate.getScreenBounds()
+        if (b.isEmpty()) return@findNearestTo false
+        val containsCenterX = labelCenterX in b.left until b.right
+        // Same cell: the wrapper overlaps the label, or sits directly above/below it. The layout
+        // varies (grid cell spanning icon+label vs. a button stacked over its text), so accept both
+        // overlap and tight adjacency. Full-width rows that happen to be adjacent are excluded by
+        // the width cap below.
+        val overlapsY = b.top < labelBounds.bottom && b.bottom > labelBounds.top
+        val adjacentAbove = (labelBounds.top - b.bottom) in 0..(2 * labelHeight)
+        val adjacentBelow = (b.top - labelBounds.bottom) in 0..(2 * labelHeight)
+        val verticallyRelated = overlapsY || adjacentAbove || adjacentBelow
+        val singleColumn = (b.right - b.left) <= maxTargetWidth
+        containsCenterX && verticallyRelated && singleColumn
+    }
+}
+
 fun StepContext.clickNormal(
     isDryRun: Boolean = false,
     node: ACSNodeInfo,

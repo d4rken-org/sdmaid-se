@@ -8,13 +8,14 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNearestTo
+import eu.darken.sdmse.automation.core.common.stepper.findColumnAlignedClickable
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -95,12 +96,24 @@ class AOSPSpecs @Inject constructor(
 
                 var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
 
-                // Seen on Pixel 8 with Android 16 (beta)
-                // Force stop may consist of a button (no text)) and a textview (unclickable), same layout as everything else
+                // Android 15+: the action button's icon and label are separate, unclickable nodes;
+                // the tappable wrapper is a sibling (seen on Pixel 8 / Android 16 beta). Match ONLY
+                // a clickable in the SAME column as the label, so we never grab an adjacent action
+                // such as Uninstall.
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
-                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                    target = findColumnAlignedClickable(candidate)
+                    if (target != null) {
+                        log(TAG, INFO) { "Column-aligned clickable found: $target" }
+                    } else if (!candidate.getScreenBounds().isEmpty()) {
+                        // On this action row a button is clickable iff enabled. A well-bounded Force
+                        // stop label with no column-aligned clickable therefore means the button is
+                        // disabled -> the app is already stopped. Bail cleanly instead of clicking a
+                        // neighbouring action.
+                        log(TAG, WARN) { "No Force stop button in its column, treating as already-stopped: $candidate" }
+                        wasDisabled = true
+                        return@action true
+                    }
                 }
 
                 if (target == null) {
@@ -179,13 +192,19 @@ class AOSPSpecs @Inject constructor(
 
                 var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
 
+                // Android 15+: icon and label are separate, unclickable nodes; the tappable wrapper
+                // is a sibling. Match only a clickable in the label's own column so we never grab an
+                // adjacent action.
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
-                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                    target = findColumnAlignedClickable(candidate)
+                    if (target != null) log(TAG, INFO) { "Column-aligned clickable found: $target" }
                 }
 
                 if (target == null) {
+                    // Unlike force-stop, a missing Archive button is not a success state. Return false
+                    // so the step retries and ultimately fails honestly rather than reporting a no-op
+                    // success (which the caller would only discover after the archive-verify timeout).
                     log(TAG, WARN) { "No clickable target found for $candidate" }
                     return@action false
                 }
@@ -231,13 +250,19 @@ class AOSPSpecs @Inject constructor(
 
                 var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
 
+                // Android 15+: icon and label are separate, unclickable nodes; the tappable wrapper
+                // is a sibling. Match only a clickable in the label's own column so we never grab an
+                // adjacent action.
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
-                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                    target = findColumnAlignedClickable(candidate)
+                    if (target != null) log(TAG, INFO) { "Column-aligned clickable found: $target" }
                 }
 
                 if (target == null) {
+                    // Unlike force-stop, a missing Restore button is not a success state. Return false
+                    // so the step retries and ultimately fails honestly rather than reporting a no-op
+                    // success (which the caller would only discover after the restore-verify timeout).
                     log(TAG, WARN) { "No clickable target found for $candidate" }
                     return@action false
                 }

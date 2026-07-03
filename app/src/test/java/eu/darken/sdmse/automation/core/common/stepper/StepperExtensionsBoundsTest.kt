@@ -2,8 +2,12 @@ package eu.darken.sdmse.automation.core.common.stepper
 
 import android.graphics.Rect
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.common.progress.Progress
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.mockk
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -12,6 +16,7 @@ import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestACSNodeInfo
 import testhelpers.TestApplication
+import testhelpers.automation.TestAutomationHost
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29], application = TestApplication::class)
@@ -179,6 +184,103 @@ class StepperExtensionsBoundsTest : BaseTest() {
         val result = context.findNearestTo(maxNesting = 2, node = targetNode)
 
         result shouldBe distantSibling
+    }
+
+    // ============================================================
+    // findColumnAlignedClickable - AOSP App-Info action row geometry
+    // ============================================================
+
+    /** Builds a StepContext whose host reports [root] as the window root (needed for the width cap). */
+    private fun TestScope.contextWithRoot(root: TestACSNodeInfo): StepContext {
+        val testHost = TestAutomationHost(this).apply { setWindowRoot(root) }
+        val context = object : AutomationExplorer.Context {
+            override val host get() = testHost
+            override val progress = emptyFlow<Progress.Data?>()
+            override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
+        }
+        return StepContext(hostContext = context, tag = "test", stepAttempts = 0)
+    }
+
+    // Real geometry from the reported AOSP action row (960px-wide window): Force stop label
+    // center-X ≈ 776; the only clickable is the Uninstall cell at x[332,628].
+
+    @Test
+    fun `findColumnAlignedClickable returns null when only a neighbouring action is clickable`() = runTest {
+        // Force stop disabled -> no clickable in its column; the nearest clickable is the Uninstall
+        // cell, which must NOT be matched (that was the Uninstall-instead-of-force-stop bug).
+        val root = TestACSNodeInfo(viewIdResourceName = "root", bounds = Rect(0, 0, 960, 2142))
+        val row = TestACSNodeInfo(viewIdResourceName = "row", bounds = Rect(0, 600, 960, 900))
+        val uninstall = TestACSNodeInfo(viewIdResourceName = "uninstall", isClickable = true, bounds = Rect(332, 649, 628, 828))
+        val fsLabel = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "fs_label", bounds = Rect(646, 789, 906, 873))
+        row.addChildren(uninstall, fsLabel)
+        root.addChild(row)
+
+        val context = contextWithRoot(root)
+
+        context.findColumnAlignedClickable(fsLabel) shouldBe null
+    }
+
+    @Test
+    fun `findColumnAlignedClickable returns the same-column clickable, not the neighbour`() = runTest {
+        // Force stop enabled -> its own clickable wrapper sits in the label's column.
+        val root = TestACSNodeInfo(viewIdResourceName = "root", bounds = Rect(0, 0, 960, 2142))
+        val row = TestACSNodeInfo(viewIdResourceName = "row", bounds = Rect(0, 600, 960, 900))
+        val uninstall = TestACSNodeInfo(viewIdResourceName = "uninstall", isClickable = true, bounds = Rect(332, 649, 628, 828))
+        val fsClickable = TestACSNodeInfo(viewIdResourceName = "fs_clickable", isClickable = true, bounds = Rect(646, 649, 906, 828))
+        val fsLabel = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "fs_label", bounds = Rect(646, 789, 906, 873))
+        row.addChildren(uninstall, fsClickable, fsLabel)
+        root.addChild(row)
+
+        val context = contextWithRoot(root)
+
+        context.findColumnAlignedClickable(fsLabel) shouldBeSameInstanceAs fsClickable
+    }
+
+    @Test
+    fun `findColumnAlignedClickable matches a clickable stacked directly above the label`() = runTest {
+        // Android 16 "button over text" layout: the clickable Button sits above its non-overlapping
+        // label TextView in the same column (real shape from the clear-cache action row).
+        val root = TestACSNodeInfo(viewIdResourceName = "root", bounds = Rect(0, 0, 1080, 2400))
+        val action = TestACSNodeInfo(viewIdResourceName = "action", bounds = Rect(540, 900, 1020, 1240))
+        val button = TestACSNodeInfo(viewIdResourceName = "button", isClickable = true, bounds = Rect(691, 959, 869, 1098))
+        val label = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "label", bounds = Rect(628, 1113, 931, 1181))
+        action.addChildren(button, label)
+        root.addChild(action)
+
+        val context = contextWithRoot(root)
+
+        context.findColumnAlignedClickable(label) shouldBeSameInstanceAs button
+    }
+
+    @Test
+    fun `findColumnAlignedClickable rejects a full-width clickable row below the action grid`() = runTest {
+        // A full-width settings row below the grid horizontally contains the label center but does
+        // not vertically overlap it (and spans multiple columns) -> must be rejected.
+        val root = TestACSNodeInfo(viewIdResourceName = "root", bounds = Rect(0, 0, 960, 2142))
+        val row = TestACSNodeInfo(viewIdResourceName = "row", bounds = Rect(0, 600, 960, 1100))
+        val fsLabel = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "fs_label", bounds = Rect(646, 789, 906, 873))
+        val notifRow = TestACSNodeInfo(viewIdResourceName = "notif", isClickable = true, bounds = Rect(36, 907, 924, 1069))
+        row.addChildren(fsLabel, notifRow)
+        root.addChild(row)
+
+        val context = contextWithRoot(root)
+
+        context.findColumnAlignedClickable(fsLabel) shouldBe null
+    }
+
+    @Test
+    fun `findColumnAlignedClickable returns null for empty label bounds`() = runTest {
+        val root = TestACSNodeInfo(viewIdResourceName = "root", bounds = Rect(0, 0, 960, 2142))
+        val row = TestACSNodeInfo(viewIdResourceName = "row", bounds = Rect(0, 600, 960, 900))
+        val uninstall = TestACSNodeInfo(viewIdResourceName = "uninstall", isClickable = true, bounds = Rect(332, 649, 628, 828))
+        // Degenerate/clipped label (left >= right): geometry is meaningless -> no match.
+        val fsLabel = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "fs_label", bounds = Rect(646, 789, 646, 789))
+        row.addChildren(uninstall, fsLabel)
+        root.addChild(row)
+
+        val context = contextWithRoot(root)
+
+        context.findColumnAlignedClickable(fsLabel) shouldBe null
     }
 
     @Test
