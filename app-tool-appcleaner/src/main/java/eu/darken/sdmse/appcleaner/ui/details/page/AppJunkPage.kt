@@ -422,8 +422,8 @@ private fun AppJunkFileRow(
             Text(
                 text = match.lookup.userReadablePath.get(context),
                 style = MaterialTheme.typography.bodySmall,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
+                maxLines = 3,
+                overflow = TextOverflow.MiddleEllipsis,
             )
         }
         Spacer(Modifier.width(8.dp))
