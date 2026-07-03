@@ -217,13 +217,18 @@ private fun ClusterHeaderRow(
                 Formatter.formatShortFileSize(context, cluster.redundantSize),
             )
             Text(
-                text = stringResource(DeduplicatorR.string.deduplicator_occupied_space_label),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                text = freeable,
+                style = MaterialTheme.typography.titleMedium,
+            )
+            val itemCount = pluralStringResource(
+                CommonR.plurals.result_x_items,
+                cluster.count,
+                cluster.count,
             )
             Text(
-                text = "$totalSize ($freeable)",
-                style = MaterialTheme.typography.titleMedium,
+                text = "$itemCount · $totalSize",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             val checksumCount = cluster.groups.filterIsInstance<ChecksumDuplicate.Group>().sumOf { it.count }
             val similarCount = cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count } +
@@ -539,7 +544,7 @@ private fun ImageFileRow(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(48.dp)
-                .clip(RoundedCornerShape(8.dp))
+                .clip(RoundedCornerShape(4.dp))
                 .combinedClickableSafe(onClick = onPreviewClick),
         )
         Spacer(Modifier.width(12.dp))

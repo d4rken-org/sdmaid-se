@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Audio-based match</string>
     <string name="deduplicator_media_match_visual">Video-based match</string>
     <string name="deduplicator_media_match_audio_visual">Audio and video-based match</string>
-    <string name="deduplicator_occupied_space_label">Occupied storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s is occupied by duplicates</item>
         <item quantity="other">%s are occupied by duplicates</item>

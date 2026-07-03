@@ -99,7 +99,7 @@ internal fun DeduplicatorLinearRow(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(72.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(4.dp))
                     .combinedClickable(
                         role = Role.Button,
                         onClickLabel = previewLabel,
@@ -116,17 +116,18 @@ internal fun DeduplicatorLinearRow(
                     Formatter.formatShortFileSize(context, cluster.redundantSize),
                 )
                 Text(
-                    text = "$totalSize ($freeable)",
+                    text = freeable,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
+                val itemCount = pluralStringResource(
+                    CommonR.plurals.result_x_items,
+                    cluster.count,
+                    cluster.count,
+                )
                 Text(
-                    text = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        cluster.count,
-                        cluster.count,
-                    ),
+                    text = "$itemCount · $totalSize",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -221,7 +222,7 @@ private fun DuplicateSubRow(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(36.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(4.dp))
                     .combinedClickable(
                         onClick = if (selectionActive) onClick else onPreviewClick,
                         onLongClick = onLongClick,
