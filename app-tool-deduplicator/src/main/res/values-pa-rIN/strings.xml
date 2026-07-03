@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ਆਡੀਓ-ਆਧਾਰਿਤ ਮੇਲ</string>
     <string name="deduplicator_media_match_visual">ਵੀਡੀਓ-ਆਧਾਰਿਤ ਮੇਲ</string>
     <string name="deduplicator_media_match_audio_visual">ਆਡੀਓ ਅਤੇ ਵੀਡੀਓ-ਆਧਾਰਿਤ ਮੇਲ</string>
-    <string name="deduplicator_occupied_space_label">ਵਰਤੀ ਗਈ ਸਟੋਰੇਜ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ਡੁਪਲੀਕੇਟਸ ਦੁਆਰਾ ਲਿਆ ਗਿਆ ਹੈ</item>
         <item quantity="other">%s ਡੁਪਲੀਕੇਟਸ ਦੁਆਰਾ ਲਿਆ ਗਿਆ ਹੈ</item>

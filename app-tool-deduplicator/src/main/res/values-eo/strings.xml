@@ -14,7 +14,6 @@
     <string name="deduplicator_detection_method_checksum_summary">Determini duoblaĵojn kalkulante kontrolsumojn por dosieroj. Dosieroj kun kongruaj kontrolsumoj havas precize la saman enhavon.</string>
     <string name="deduplicator_detection_method_phash_title">Percepta hakaĵo</string>
     <string name="deduplicator_detection_method_phash_summary">Trovi similajn dosierojn analizante enhavajn trajtojn kaj komparante perceptajn hakaĵajn valorojn.</string>
-    <string name="deduplicator_occupied_space_label">Okupita stokado</string>
     <string name="deduplicator_file_size_label">Dosiera grandeco</string>
     <string name="deduplicator_average_size_label">Averaĝa grandeco</string>
     <string name="deduplicator_cluster_x_label">Fasko %s</string>

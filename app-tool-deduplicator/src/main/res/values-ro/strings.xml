@@ -29,7 +29,6 @@
     <string name="deduplicator_media_match_audio">Potrivire bazată pe audio</string>
     <string name="deduplicator_media_match_visual">Potrivire bazată pe video</string>
     <string name="deduplicator_media_match_audio_visual">Potrivire bazată pe audio și video</string>
-    <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s este ocupat de duplicate</item>
         <item quantity="few">%s sunt ocupate de duplicate</item>

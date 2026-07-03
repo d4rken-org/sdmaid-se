@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">การจับคู่ตามเสียง</string>
     <string name="deduplicator_media_match_visual">การจับคู่ตามวิดีโอ</string>
     <string name="deduplicator_media_match_audio_visual">การจับคู่ตามเสียงและวิดีโอ</string>
-    <string name="deduplicator_occupied_space_label">พื้นที่ที่ถูกใช้งาน</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ถูกใช้งานโดยไฟล์ซ้ำ</item>
     </plurals>

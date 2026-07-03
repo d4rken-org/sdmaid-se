@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Zhoda na základe zvuku</string>
     <string name="deduplicator_media_match_visual">Zhoda na základe videa</string>
     <string name="deduplicator_media_match_audio_visual">Zhoda na základe zvuku a videa</string>
-    <string name="deduplicator_occupied_space_label">Obsadené úložisko</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s je obsadené duplikátmi</item>
         <item quantity="few">%s sú obsadené duplikátmi</item>

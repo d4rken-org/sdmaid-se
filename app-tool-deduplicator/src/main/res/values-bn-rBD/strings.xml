@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">অডিও-ভিত্তিক মিল</string>
     <string name="deduplicator_media_match_visual">ভিডিও-ভিত্তিক মিল</string>
     <string name="deduplicator_media_match_audio_visual">অডিও এবং ভিডিও-ভিত্তিক মিল</string>
-    <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
         <item quantity="other">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>

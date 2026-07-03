@@ -4,6 +4,7 @@ import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.semantics.getOrNull
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.click
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
@@ -177,7 +178,10 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
             onClusterClick = { details++ },
             onClusterPreview = { preview++ },
         )
-        composeRule.onNode(hasClickLabel("Delete duplicate set")).performClick()
+        // The details caption is overlaid on the bottom of the (square) thumbnail, so tap near the
+        // top of the thumbnail — clearly above the caption — to exercise the delete region. A
+        // center tap would land on the caption overlay on smaller tiles.
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performTouchInput { click(topCenter) }
         composeRule.runOnIdle {
             if (delete != 1 || details != 0 || preview != 0) {
                 throw AssertionError("delete=$delete details=$details preview=$preview")

@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Përputhje e bazuar në audio</string>
     <string name="deduplicator_media_match_visual">Përputhje e bazuar në video</string>
     <string name="deduplicator_media_match_audio_visual">Përputhje e bazuar në audio dhe video</string>
-    <string name="deduplicator_occupied_space_label">Magazina e zënë</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s është zënë nga dublikata</item>
         <item quantity="other">%s janë zënë nga dublikata</item>

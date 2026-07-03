@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Супадзенне па аўдыя</string>
     <string name="deduplicator_media_match_visual">Супадзенне па відэа</string>
     <string name="deduplicator_media_match_audio_visual">Супадзенне па аўдыя і відэа</string>
-    <string name="deduplicator_occupied_space_label">Занятае сховішча</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s занята дублікатамі</item>
         <item quantity="few">%s заняты дублікатамі</item>

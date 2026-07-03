@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ఆడియో-ఆధారిత సరిపోలిక</string>
     <string name="deduplicator_media_match_visual">వీడియో-ఆధారిత సరిపోలిక</string>
     <string name="deduplicator_media_match_audio_visual">ఆడియో మరియు వీడియో-ఆధారిత సరిపోలిక</string>
-    <string name="deduplicator_occupied_space_label">ఆక్రమించిన స్టోరేజీ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s డుప్లికేట్‌లు ఆక్రమించాయి</item>
         <item quantity="other">%s డుప్లికేట్‌లు ఆక్రమించాయి</item>

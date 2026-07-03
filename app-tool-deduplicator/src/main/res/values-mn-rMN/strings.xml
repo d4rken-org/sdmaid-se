@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Аудиод суурилсан тохирц</string>
     <string name="deduplicator_media_match_visual">Видеод суурилсан тохирц</string>
     <string name="deduplicator_media_match_audio_visual">Аудио болон видеод суурилсан тохирц</string>
-    <string name="deduplicator_occupied_space_label">Езлэгдсэн санах</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s давхардах файлууд эзлаад байна</item>
         <item quantity="other">%s давхардах файлууд эзлаад байна</item>

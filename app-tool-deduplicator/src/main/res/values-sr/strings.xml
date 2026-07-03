@@ -29,7 +29,6 @@
     <string name="deduplicator_media_match_audio">Подударање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Подударање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Подударање засновано на аудио и видео</string>
-    <string name="deduplicator_occupied_space_label">Заузето складиште</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s је заузет дупликатима</item>
         <item quantity="few">%s су заузета дупликатима</item>

@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Helipõhine vaste</string>
     <string name="deduplicator_media_match_visual">Videopõhine vaste</string>
     <string name="deduplicator_media_match_audio_visual">Heli- ja videopõhine vaste</string>
-    <string name="deduplicator_occupied_space_label">Kasutatud salvestusruum</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s kasutab koopiad</item>
         <item quantity="other">%s kasutavad koopiad</item>

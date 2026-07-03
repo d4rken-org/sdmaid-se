@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ශ්‍රව්‍ය-පදනම් ගැළපීම</string>
     <string name="deduplicator_media_match_visual">වීඩියෝ-පදනම් ගැළපීම</string>
     <string name="deduplicator_media_match_audio_visual">ශ්‍රව්‍ය සහ වීඩියෝ-පදනම් ගැළපීම</string>
-    <string name="deduplicator_occupied_space_label">අවවන් න් ඇත ආචයනය</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s බහුපත විසින් අවවන් න් වෙ</item>
         <item quantity="other">%s බහුපත විසින් අවවන් න් වෙ</item>

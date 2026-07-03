@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Аудиоға тийкарланған сәйкеслик</string>
     <string name="deduplicator_media_match_visual">Видеоға тийкарланған сәйкеслик</string>
     <string name="deduplicator_media_match_audio_visual">Аудио ҳәм видеоға тийкарланған сәйкеслик</string>
-    <string name="deduplicator_occupied_space_label">Bándelgen saqlawsh</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s dublikatlları iyelep turır</item>
         <item quantity="other">%s dublikatlları iyelep turır</item>

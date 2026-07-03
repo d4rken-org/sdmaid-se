@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">آڈیو پر مبنی مماثلت</string>
     <string name="deduplicator_media_match_visual">ویڈیو پر مبنی مماثلت</string>
     <string name="deduplicator_media_match_audio_visual">آڈیو اور ویڈیو پر مبنی مماثلت</string>
-    <string name="deduplicator_occupied_space_label">قبضہ شدہ سٹوریج</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہے</item>
         <item quantity="other">%s ڈپلیکیٹس کے ذریعے قبضہ میں ہیں</item>

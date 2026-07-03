@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">هاوبێشی لەسەر دەنگ</string>
     <string name="deduplicator_media_match_visual">هاوبێشی لەسەر ڤیدیۆ</string>
     <string name="deduplicator_media_match_audio_visual">هاوبێشی لەسەر دەنگ و ڤیدیۆ</string>
-    <string name="deduplicator_occupied_space_label">ئەمبارەی پڕکراو</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s لەلایەن دووبارەکانەوە پڕکراوە</item>
         <item quantity="other">%s لەلایەن دووبارەکانەوە پڕکراون</item>

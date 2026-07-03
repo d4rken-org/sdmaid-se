@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Correspondência baseada em áudio</string>
     <string name="deduplicator_media_match_visual">Correspondência baseada em vídeo</string>
     <string name="deduplicator_media_match_audio_visual">Correspondência baseada em áudio e vídeo</string>
-    <string name="deduplicator_occupied_space_label">Armazenamento ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados</item>
         <item quantity="other">%s estão ocupados por duplicados</item>

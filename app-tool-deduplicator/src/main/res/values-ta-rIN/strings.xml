@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ஆடியோ அடிப்படையிலான பொருத்தம்</string>
     <string name="deduplicator_media_match_visual">வீடியோ அடிப்படையிலான பொருத்தம்</string>
     <string name="deduplicator_media_match_audio_visual">ஆடியோ மற்றும் வீடியோ அடிப்படையிலான பொருத்தம்</string>
-    <string name="deduplicator_occupied_space_label">ஆக்ரமிக்கப்பட்ட சேமிப்பு</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s நகல்களால் ஆக்ரமிக்கப்பட்டுள்ளது</item>
         <item quantity="other">%s நகல்களால் ஆக்ரமிக்கப்பட்டுள்ளன</item>

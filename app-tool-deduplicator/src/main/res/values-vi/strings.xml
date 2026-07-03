@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">Khớp dựa trên âm thanh</string>
     <string name="deduplicator_media_match_visual">Khớp dựa trên video</string>
     <string name="deduplicator_media_match_audio_visual">Khớp dựa trên âm thanh và video</string>
-    <string name="deduplicator_occupied_space_label">Bộ nhớ bị chiếm dụng</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s bị chiếm bởi các bản sao</item>
     </plurals>

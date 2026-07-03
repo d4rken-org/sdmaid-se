@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">Padanan berasaskan audio</string>
     <string name="deduplicator_media_match_visual">Padanan berasaskan video</string>
     <string name="deduplicator_media_match_audio_visual">Padanan berasaskan audio dan video</string>
-    <string name="deduplicator_occupied_space_label">Storan yang digunakan</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s diduduki oleh pendua</item>
     </plurals>

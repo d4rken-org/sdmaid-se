@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Αντιστοιχία βάσει ήχου</string>
     <string name="deduplicator_media_match_visual">Αντιστοιχία βάσει βίντεο</string>
     <string name="deduplicator_media_match_audio_visual">Αντιστοιχία βάσει ήχου και βίντεο</string>
-    <string name="deduplicator_occupied_space_label">Αποθηκευτικός χώρος που χρησιμοποιείται</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s καταλαμβάνεται από διπλότυπα</item>
         <item quantity="other">%s καταλαμβάνονται από διπλότυπα</item>

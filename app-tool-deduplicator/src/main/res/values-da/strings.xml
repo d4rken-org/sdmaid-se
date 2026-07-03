@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Lydbaseret match</string>
     <string name="deduplicator_media_match_visual">Videobaseret match</string>
     <string name="deduplicator_media_match_audio_visual">Lyd- og videobaseret match</string>
-    <string name="deduplicator_occupied_space_label">Optaget lagerplads</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er optaget af duplikater</item>
         <item quantity="other">%s er optaget af duplikater</item>

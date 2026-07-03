@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">התאמה מבוססת-אודיו</string>
     <string name="deduplicator_media_match_visual">התאמה מבוססת-וידאו</string>
     <string name="deduplicator_media_match_audio_visual">התאמה מבוססת-אודיו ווידאו</string>
-    <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>
         <item quantity="two">%s תפוס על ידי כפילויות</item>

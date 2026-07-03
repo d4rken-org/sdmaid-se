@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Dopasowanie na podstawie dźwięku</string>
     <string name="deduplicator_media_match_visual">Dopasowanie na podstawie wideo</string>
     <string name="deduplicator_media_match_audio_visual">Dopasowanie na podstawie dźwięku i wideo</string>
-    <string name="deduplicator_occupied_space_label">Zajęta pamięć</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s jest zajęty przez duplikaty</item>
         <item quantity="few">%s jest zajęte przez duplikaty</item>

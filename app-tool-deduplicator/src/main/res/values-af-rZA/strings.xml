@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Oudiogebaseerde ooreenkoms</string>
     <string name="deduplicator_media_match_visual">Video-gebaseerde ooreenkoms</string>
     <string name="deduplicator_media_match_audio_visual">Oudio- en video-gebaseerde ooreenkoms</string>
-    <string name="deduplicator_occupied_space_label">Besette berging</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s word deur duplikate beset</item>
         <item quantity="other">%s word deur duplikate beset</item>

@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Ljudbaserad matchning</string>
     <string name="deduplicator_media_match_visual">Videobaserad matchning</string>
     <string name="deduplicator_media_match_audio_visual">Ljud- och videobaserad matchning</string>
-    <string name="deduplicator_occupied_space_label">Upptagen lagring</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s upptas av dubbletter</item>
         <item quantity="other">%s upptas av dubbletter</item>

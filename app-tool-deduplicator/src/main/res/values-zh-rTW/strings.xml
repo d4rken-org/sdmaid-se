@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">基於音訊的配對</string>
     <string name="deduplicator_media_match_visual">基於影片的配對</string>
     <string name="deduplicator_media_match_audio_visual">基於音訊和影片的配對</string>
-    <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s 被重複項目佔用</item>
     </plurals>

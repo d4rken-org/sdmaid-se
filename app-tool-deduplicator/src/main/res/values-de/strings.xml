@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Audio-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_visual">Video-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_audio_visual">Audio- und videobasierte Übereinstimmung</string>
-    <string name="deduplicator_occupied_space_label">Belegter Speicher</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ist von Duplikaten belegt</item>
         <item quantity="other">%s sind von Duplikaten belegt</item>

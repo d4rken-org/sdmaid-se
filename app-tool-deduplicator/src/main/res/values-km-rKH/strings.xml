@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">ការ​ផ្គូផ្គង​ផ្អែក​លើ​សំឡេង</string>
     <string name="deduplicator_media_match_visual">ការ​ផ្គូផ្គង​ផ្អែក​លើ​វីដេអូ</string>
     <string name="deduplicator_media_match_audio_visual">ការ​ផ្គូផ្គង​ផ្អែក​លើ​សំឡេង​និង​វីដេអូ</string>
-    <string name="deduplicator_occupied_space_label">ទាក​ស្តោរេជ​បាន​ប្រើ​ប្រាស់</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ត្រួវ​បាន​ប្រើ​ប្រាស់​ដោយ​សែសែ</item>
     </plurals>

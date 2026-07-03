@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ഓഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
     <string name="deduplicator_media_match_visual">വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
     <string name="deduplicator_media_match_audio_visual">ഓഡിയോ, വീഡിയോ അടിസ്ഥാനത്തിലുള്ള പൊരുത്തം</string>
-    <string name="deduplicator_occupied_space_label">ഉപയോഗിക്കുന്ന സ്റ്റോറേജ്</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ഡ്യൂപ്ലിക്കേറ്റ് ഉപയോഗിക്കുന്നു</item>
         <item quantity="other">%s ഡ്യൂപ്ലിക്കേറ്റുകൾ ഉപയോഗിക്കുന്നു</item>

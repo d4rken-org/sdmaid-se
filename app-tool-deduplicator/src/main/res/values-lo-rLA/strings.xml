@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">ກົງກັນໂດຍອ້າງອີງສຽງ</string>
     <string name="deduplicator_media_match_visual">ກົງກັນໂດຍອ້າງອີງວິດີໂອ</string>
     <string name="deduplicator_media_match_audio_visual">ກົງກັນໂດຍອ້າງອີງສຽງ ແລະ ວິດີໂອ</string>
-    <string name="deduplicator_occupied_space_label">ຫນ່ວຍເກັບຂໍ້ມູລທີ່ຖືກໃຊ້</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ຖືກໃຊ້ໂດຍສຳເນົາທີ່ຊ້າ</item>
     </plurals>

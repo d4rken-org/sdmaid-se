@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">تطابق مبتنی بر صدا</string>
     <string name="deduplicator_media_match_visual">تطابق مبتنی بر ویدیو</string>
     <string name="deduplicator_media_match_audio_visual">تطابق مبتنی بر صدا و ویدیو</string>
-    <string name="deduplicator_occupied_space_label">حافظه اشغال شده</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s توسط فایل‌های تکراری اشغال شده</item>
         <item quantity="other">%s توسط فایل‌های تکراری اشغال شده</item>

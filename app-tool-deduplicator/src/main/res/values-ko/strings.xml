@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">오디오 기반 일치</string>
     <string name="deduplicator_media_match_visual">동영상 기반 일치</string>
     <string name="deduplicator_media_match_audio_visual">오디오 및 동영상 기반 일치</string>
-    <string name="deduplicator_occupied_space_label">사용 중인 저장공간</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s가 중복 파일로 점유되고 있습니다</item>
     </plurals>

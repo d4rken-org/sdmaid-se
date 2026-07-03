@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Correspondance basée sur le son</string>
     <string name="deduplicator_media_match_visual">Correspondance basée sur la vidéo</string>
     <string name="deduplicator_media_match_audio_visual">Correspondance basée sur le son et la vidéo</string>
-    <string name="deduplicator_occupied_space_label">Mémoire occupée</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est occupé par des doublons</item>
         <item quantity="other">%s sont occupés par des doublons</item>

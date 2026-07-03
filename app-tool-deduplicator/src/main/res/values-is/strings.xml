@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Samsvörun byggð á hljóði</string>
     <string name="deduplicator_media_match_visual">Samsvörun byggð á myndbandi</string>
     <string name="deduplicator_media_match_audio_visual">Samsvörun byggð á hljóði og myndbandi</string>
-    <string name="deduplicator_occupied_space_label">Upptekið geymslupláss</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er tekið af tvítekningum</item>
         <item quantity="other">%s eru tekin af tvítekningum</item>

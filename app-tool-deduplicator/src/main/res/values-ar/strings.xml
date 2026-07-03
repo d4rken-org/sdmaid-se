@@ -35,7 +35,6 @@
     <string name="deduplicator_media_match_audio">تطابق قائم على الصوت</string>
     <string name="deduplicator_media_match_visual">تطابق قائم على الفيديو</string>
     <string name="deduplicator_media_match_audio_visual">تطابق قائم على الصوت والفيديو</string>
-    <string name="deduplicator_occupied_space_label">المساحة المستخدمة</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="zero">%s مشغولة بالنسخ المكررة</item>
         <item quantity="one">%s مشغولة بالنسخ المكررة</item>

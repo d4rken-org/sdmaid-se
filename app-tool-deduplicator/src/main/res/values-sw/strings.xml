@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Mechi inayotegemea sauti</string>
     <string name="deduplicator_media_match_visual">Mechi inayotegemea video</string>
     <string name="deduplicator_media_match_audio_visual">Mechi inayotegemea sauti na video</string>
-    <string name="deduplicator_occupied_space_label">Hifadhi iliyotumika</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s inatumika na nakala</item>
         <item quantity="other">%s zinatumika na nakala</item>

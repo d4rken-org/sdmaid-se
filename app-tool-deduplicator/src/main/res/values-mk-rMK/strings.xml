@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Совпаѓање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Совпаѓање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Совпаѓање засновано на аудио и видео</string>
-    <string name="deduplicator_occupied_space_label">Зафатено складирање</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е зафатено од дупликати</item>
         <item quantity="other">%s се зафатени од дупликати</item>

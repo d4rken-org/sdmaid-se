@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Audioga asoslangan moslik</string>
     <string name="deduplicator_media_match_visual">Videoga asoslangan moslik</string>
     <string name="deduplicator_media_match_audio_visual">Audio va videoga asoslangan moslik</string>
-    <string name="deduplicator_occupied_space_label">Band xotira</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s takrorlanganlar tomonidan band qilingan</item>
         <item quantity="other">%s takrorlanganlar tomonidan band qilingan</item>

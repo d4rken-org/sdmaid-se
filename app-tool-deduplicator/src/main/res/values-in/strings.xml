@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">Kecocokan berbasis audio</string>
     <string name="deduplicator_media_match_visual">Kecocokan berbasis video</string>
     <string name="deduplicator_media_match_audio_visual">Kecocokan berbasis audio dan video</string>
-    <string name="deduplicator_occupied_space_label">Penyimpanan terpakai</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ditempati oleh duplikat</item>
     </plurals>

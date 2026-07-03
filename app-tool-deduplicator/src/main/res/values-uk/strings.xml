@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Збіг на основі аудіо</string>
     <string name="deduplicator_media_match_visual">Збіг на основі відео</string>
     <string name="deduplicator_media_match_audio_visual">Збіг на основі аудіо та відео</string>
-    <string name="deduplicator_occupied_space_label">Зайняте сховище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s зайнято дублікатами</item>
         <item quantity="few">%s зайнято дублікатами</item>

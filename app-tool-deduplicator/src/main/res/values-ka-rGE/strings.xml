@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">აუდიოზე დაფუძნებული დამთხვევა</string>
     <string name="deduplicator_media_match_visual">ვიდეოზე დაფუძნებული დამთხვევა</string>
     <string name="deduplicator_media_match_audio_visual">აუდიო და ვიდეოზე დაფუძნებული დამთხვევა</string>
-    <string name="deduplicator_occupied_space_label">დაკავებული მეხსიერება</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s დაკავებულია დუბლიკატებით</item>
         <item quantity="other">%s დაკავებულია დუბლიკატებით</item>

@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Səsə əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_visual">Videoya əsaslanan uyğunluq</string>
     <string name="deduplicator_media_match_audio_visual">Səs və videoya əsaslanan uyğunluq</string>
-    <string name="deduplicator_occupied_space_label">Tutulan yaddaş</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s dublikatlar tərəfindən tutulub</item>
         <item quantity="other">%s dublikatlar tərəfindən tutulub</item>

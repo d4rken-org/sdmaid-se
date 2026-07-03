@@ -29,7 +29,6 @@
     <string name="deduplicator_media_match_audio">Podudaranje temeljeno na zvuku</string>
     <string name="deduplicator_media_match_visual">Podudaranje temeljeno na videu</string>
     <string name="deduplicator_media_match_audio_visual">Podudaranje temeljeno na zvuku i videu</string>
-    <string name="deduplicator_occupied_space_label">Zauzeta pohrana</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s je zauzet duplikatima</item>
         <item quantity="few">%s su zauzeta duplikatima</item>

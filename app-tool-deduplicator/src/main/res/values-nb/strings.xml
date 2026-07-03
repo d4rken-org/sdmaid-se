@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Lydbasert treff</string>
     <string name="deduplicator_media_match_visual">Videobasert treff</string>
     <string name="deduplicator_media_match_audio_visual">Lyd- og videobasert treff</string>
-    <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er brukt av duplikater</item>
         <item quantity="other">%s er brukt av duplikater</item>

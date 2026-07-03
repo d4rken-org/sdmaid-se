@@ -95,16 +95,17 @@ class DeduplicatorDetailsScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText("Deduplicator").assertExists()
         composeRule.onAllNodesWithText("Empty").assertCountEquals(0)
-        // The cluster summary card unconditionally renders the "Occupied storage" label — a
-        // load-bearing signal that ClusterContent composed, not just the top bar.
-        composeRule.onNodeWithText("Occupied storage").assertExists()
+        // The cluster summary card unconditionally renders the freeable-size headline
+        // ("… can be freed") — a load-bearing signal that ClusterContent composed, not just the
+        // top bar (which only shows "Deduplicator" / "Details").
+        composeRule.onNodeWithText("can be freed", substring = true).assertExists()
     }
 
     @Test
     fun `single-cluster state in directory view still renders the cluster summary card`() {
         // Switching to directory view changes the per-duplicate layout below the summary card but
-        // the "Occupied storage" header stays put. Asserting on it proves the summary card is
-        // intact under both view modes — a regression that gated it on flat-view would flunk.
+        // the freeable-size headline stays put. Asserting on it proves the summary card is intact
+        // under both view modes — a regression that gated it on flat-view would flunk.
         val onlyCluster = cluster("vacation", dupeNames = listOf("dirtest", "dirtest-copy"))
         composeRule.setDetailsScreen(
             DeduplicatorDetailsViewModel.State(
@@ -115,6 +116,6 @@ class DeduplicatorDetailsScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onNodeWithText("Occupied storage").assertExists()
+        composeRule.onNodeWithText("can be freed", substring = true).assertExists()
     }
 }

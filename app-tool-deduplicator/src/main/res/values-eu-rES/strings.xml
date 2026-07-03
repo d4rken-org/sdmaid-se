@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Audio-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_visual">Bideo-oinarritutako bat etortzea</string>
     <string name="deduplicator_media_match_audio_visual">Audio eta bideo-oinarritutako bat etortzea</string>
-    <string name="deduplicator_occupied_space_label">Erabilitako biltegiratzea</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s bikoiztuek hartuta dago</item>
         <item quantity="other">%s bikoiztuek hartuta daude</item>

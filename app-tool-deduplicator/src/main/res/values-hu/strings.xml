@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Hangalapú egyezés</string>
     <string name="deduplicator_media_match_visual">Videóalapú egyezés</string>
     <string name="deduplicator_media_match_audio_visual">Hang- és videóalapú egyezés</string>
-    <string name="deduplicator_occupied_space_label">Foglalt tároló</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s duplikátummal elfoglalva</item>
         <item quantity="other">%s duplikátummal elfoglalva</item>

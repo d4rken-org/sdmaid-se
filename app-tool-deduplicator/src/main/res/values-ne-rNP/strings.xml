@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">अडियो-आधारित मिलान</string>
     <string name="deduplicator_media_match_visual">भिडियो-आधारित मिलान</string>
     <string name="deduplicator_media_match_audio_visual">अडियो र भिडियो-आधारित मिलान</string>
-    <string name="deduplicator_occupied_space_label">कब्जा गरिएको भण्डारण</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेटले ओगटेको छ</item>
         <item quantity="other">%s डुप्लिकेटले ओगटेका छन्</item>

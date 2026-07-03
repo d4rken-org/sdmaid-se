@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Совпадение на основе аудио</string>
     <string name="deduplicator_media_match_visual">Совпадение на основе видео</string>
     <string name="deduplicator_media_match_audio_visual">Совпадение на основе аудио и видео</string>
-    <string name="deduplicator_occupied_space_label">Используемая память</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Дубликатами занято: %s</item>
         <item quantity="few">Дубликатами занято: %s</item>

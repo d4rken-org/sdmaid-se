@@ -14,7 +14,6 @@
     <string name="deduplicator_detection_method_checksum_summary">Déan cinneadh ar dhúblachtaí trí sheicsuim a ríomh do chomhaid. Tá an t-inneachar céanna beacht ag comhaid le seicsuim chomhoiriúnacha.</string>
     <string name="deduplicator_detection_method_phash_title">Haiseáil tuisceanach</string>
     <string name="deduplicator_detection_method_phash_summary">Faigh comhaid chosúla trí anailís a dhéanamh ar ghnéithe inneachair agus luachanna haiseála tuisceanach a chur i gcomparáid.</string>
-    <string name="deduplicator_occupied_space_label">Stóráil áitithe</string>
     <string name="deduplicator_file_size_label">Méid comhaid</string>
     <string name="deduplicator_average_size_label">Meánmhéid</string>
     <string name="deduplicator_cluster_x_label">Braislín %s</string>

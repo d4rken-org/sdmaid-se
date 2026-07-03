@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Op audio gebaseerde overeenkomst</string>
     <string name="deduplicator_media_match_visual">Op video gebaseerde overeenkomst</string>
     <string name="deduplicator_media_match_audio_visual">Op audio en video gebaseerde overeenkomst</string>
-    <string name="deduplicator_occupied_space_label">Gebruikte opslag</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s wordt ingenomen door duplicaten</item>
         <item quantity="other">%s worden ingenomen door duplicaten</item>

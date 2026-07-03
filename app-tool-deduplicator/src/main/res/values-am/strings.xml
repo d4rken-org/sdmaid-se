@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">በድምፅ ላይ የተመሰረተ ተዛምዶ</string>
     <string name="deduplicator_media_match_visual">በቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>
     <string name="deduplicator_media_match_audio_visual">በድምፅ እና ቪዲዮ ላይ የተመሰረተ ተዛምዶ</string>
-    <string name="deduplicator_occupied_space_label">የተያዘ ማጠራቀሚያ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s በተመሳሳዮች ተይዟል</item>
         <item quantity="other">%s በተመሳሳዮች ተይዘዋል</item>

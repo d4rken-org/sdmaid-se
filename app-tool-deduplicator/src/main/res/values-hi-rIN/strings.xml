@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ऑडियो-आधारित मिलान</string>
     <string name="deduplicator_media_match_visual">वीडियो-आधारित मिलान</string>
     <string name="deduplicator_media_match_audio_visual">ऑडियो और वीडियो-आधारित मिलान</string>
-    <string name="deduplicator_occupied_space_label">कब्जाया गया स्थान</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>
         <item quantity="other">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>

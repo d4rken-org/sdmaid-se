@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Съвпадение по аудио</string>
     <string name="deduplicator_media_match_visual">Съвпадение по видео</string>
     <string name="deduplicator_media_match_audio_visual">Съвпадение по аудио и видео</string>
-    <string name="deduplicator_occupied_space_label">Заето хранилище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е заето от дубликати</item>
         <item quantity="other">%s са заети от дубликати</item>

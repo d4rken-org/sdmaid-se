@@ -31,7 +31,6 @@
     <string name="deduplicator_media_match_audio">Atitiktis pagal garsą</string>
     <string name="deduplicator_media_match_visual">Atitiktis pagal vaizdą</string>
     <string name="deduplicator_media_match_audio_visual">Atitiktis pagal garsą ir vaizdą</string>
-    <string name="deduplicator_occupied_space_label">Užimta atmintis</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s užimama dublikatų</item>
         <item quantity="few">%s užimama dublikatų</item>

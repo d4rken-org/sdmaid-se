@@ -14,7 +14,6 @@
     <string name="deduplicator_detection_method_checksum_summary">Pennu dyblygu trwy gyfrifo symiau gwirio ar gyfer ffeiliau. Mae gan ffeiliau gyda symiau gwirio cyfatebol yr union yr un cynnwys.</string>
     <string name="deduplicator_detection_method_phash_title">Hash canfyddiadol</string>
     <string name="deduplicator_detection_method_phash_summary">Dod o hyd i ffeiliau tebyg trwy ddadansoddi nodweddion cynnwys a chymharu gwerthoedd hash canfyddiadol.</string>
-    <string name="deduplicator_occupied_space_label">Storfa wedi\'i meddiannu</string>
     <string name="deduplicator_file_size_label">Maint ffeil</string>
     <string name="deduplicator_average_size_label">Maint cyfartalog</string>
     <string name="deduplicator_cluster_x_label">Clwstwr %s</string>

@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">音声ベースの一致</string>
     <string name="deduplicator_media_match_visual">映像ベースの一致</string>
     <string name="deduplicator_media_match_audio_visual">音声・映像ベースの一致</string>
-    <string name="deduplicator_occupied_space_label">占拠されたストレージ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%sが重複により占有されています</item>
     </plurals>

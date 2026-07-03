@@ -25,7 +25,6 @@
     <string name="deduplicator_media_match_audio">အသံအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
     <string name="deduplicator_media_match_visual">ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
     <string name="deduplicator_media_match_audio_visual">အသံနှင့် ဗီဒီယိုအပေါ် အခြေပြုသော ကိုက်ညီမှု</string>
-    <string name="deduplicator_occupied_space_label">လွှမ်းမိုးထားသော သိုလှောင့်မှု</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ကို ထပ်တူများက လွှမ်းမိုးထေသည်</item>
     </plurals>

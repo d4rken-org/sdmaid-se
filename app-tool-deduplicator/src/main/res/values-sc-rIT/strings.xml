@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Cumbinadura basada in s\'àudio</string>
     <string name="deduplicator_media_match_visual">Cumbinadura basada in su vìdeo</string>
     <string name="deduplicator_media_match_audio_visual">Cumbinadura basada in àudio e vìdeo</string>
-    <string name="deduplicator_occupied_space_label">Archìviu ocupadu</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s est ocupadu dae duplicados</item>
         <item quantity="other">%s sunt ocupados dae duplicados</item>

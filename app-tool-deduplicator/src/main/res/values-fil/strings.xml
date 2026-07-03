@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Tugma batay sa audio</string>
     <string name="deduplicator_media_match_visual">Tugma batay sa video</string>
     <string name="deduplicator_media_match_audio_visual">Tugma batay sa audio at video</string>
-    <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ay ginagamit ng mga duplicate</item>
         <item quantity="other">%s ay ginagamit ng mga duplicate</item>

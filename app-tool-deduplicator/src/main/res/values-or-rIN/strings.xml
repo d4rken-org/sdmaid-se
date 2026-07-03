@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">ଅଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
     <string name="deduplicator_media_match_visual">ଭିଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
     <string name="deduplicator_media_match_audio_visual">ଅଡ଼ିଓ ଓ ଭିଡ଼ିଓ ଆଧାରିତ ମିଳାଣ</string>
-    <string name="deduplicator_occupied_space_label">ଅଧିକୃତ ଷ୍ଟୋରେଜ୍</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ନକଲ ଦ୍ୱାରା ଦଖଲ ହୋଇଛି</item>
         <item quantity="other">%s ନକଲ ଦ୍ୱାରା ଦଖଲ ହୋଇଛି</item>

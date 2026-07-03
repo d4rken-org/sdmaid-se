@@ -27,7 +27,6 @@
     <string name="deduplicator_media_match_audio">Coincidencia basada en audio</string>
     <string name="deduplicator_media_match_visual">Coincidencia basada en video</string>
     <string name="deduplicator_media_match_audio_visual">Coincidencia basada en audio y video</string>
-    <string name="deduplicator_occupied_space_label">Almacenamiento ocupado</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s está ocupado por duplicados</item>
         <item quantity="other">%s están ocupados por duplicados</item>
