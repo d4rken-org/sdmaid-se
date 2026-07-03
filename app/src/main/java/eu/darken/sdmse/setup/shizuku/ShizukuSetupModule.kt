@@ -68,10 +68,11 @@ class ShizukuSetupModule @Inject constructor(
         adbSettings.useShizuku.flow,
         rootManager.useRoot,
     ) { _, useShizuku, useRoot ->
+        val managerId = shizukuManager.getManagerId()
         val baseState = Result(
-            pkg = shizukuManager.shizukuPkgId,
+            pkg = managerId ?: shizukuManager.shizukuPkgId,
             useShizuku = useShizuku,
-            isInstalled = shizukuManager.isInstalled(),
+            isInstalled = managerId != null,
             isCompatible = shizukuManager.isCompatible(),
             alsoHasRoot = useRoot,
         )

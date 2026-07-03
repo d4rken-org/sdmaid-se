@@ -1,11 +1,9 @@
 package eu.darken.sdmse.common.adb.shizuku
 
-import android.content.Context
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -17,6 +15,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -26,8 +25,6 @@ import testhelpers.flow.test
 
 class ShizukuManagerTest : BaseTest() {
 
-    private val context: Context = mockk()
-    private val packageManager: PackageManager = mockk()
     private val settings: AdbSettings = mockk()
     private val shizukuWrapper: ShizukuWrapper = mockk()
     private val serviceClient: AdbServiceClient = mockk(relaxed = true)
@@ -44,7 +41,6 @@ class ShizukuManagerTest : BaseTest() {
         useShizukuFlow = MutableStateFlow(true)
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
-        every { context.packageManager } returns packageManager
         every { settings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
 
@@ -63,7 +59,6 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     private fun manager() = ShizukuManager(
-        context = context,
         appScope = scope,
         dispatcherProvider = TestDispatcherProvider(),
         settings = settings,
@@ -71,18 +66,12 @@ class ShizukuManagerTest : BaseTest() {
         serviceClient = serviceClient,
     )
 
-    private fun setShizukuInstalled(installed: Boolean) {
-        if (installed) {
-            every { packageManager.getPackageInfo(ShizukuManager.PKG_ID.name, 0) } returns PackageInfo()
-        } else {
-            every {
-                packageManager.getPackageInfo(ShizukuManager.PKG_ID.name, 0)
-            } throws PackageManager.NameNotFoundException()
-        }
+    private fun setShizukuPackage(pkg: String?) {
+        coEvery { shizukuWrapper.getManagerPackage() } returns pkg
     }
 
     @Test fun `binder is not probed when Shizuku is not installed`() {
-        setShizukuInstalled(false)
+        setShizukuPackage(null)
         val mgr = manager()
 
         val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
@@ -91,11 +80,11 @@ class ShizukuManagerTest : BaseTest() {
         collector.latestValues.last() shouldBe null
         binderSubscriptions shouldBe 0
 
-        kotlinx.coroutines.runBlocking { collector.cancelAndJoin() }
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test fun `binder is probed when Shizuku is installed`() {
-        setShizukuInstalled(true)
+        setShizukuPackage(ShizukuManager.PKG_ID.name)
         val mgr = manager()
 
         val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
@@ -103,11 +92,11 @@ class ShizukuManagerTest : BaseTest() {
 
         binderSubscriptions shouldBe 1
 
-        kotlinx.coroutines.runBlocking { collector.cancelAndJoin() }
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test fun `binder stays closed when user opted out even if installed`() {
-        setShizukuInstalled(true)
+        setShizukuPackage(ShizukuManager.PKG_ID.name)
         useShizukuFlow.value = false
         val mgr = manager()
 
@@ -117,17 +106,48 @@ class ShizukuManagerTest : BaseTest() {
         collector.latestValues.last() shouldBe null
         binderSubscriptions shouldBe 0
 
-        kotlinx.coroutines.runBlocking { collector.cancelAndJoin() }
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test fun `isInstalled is not cached and re-evaluates each call`() {
         val mgr = manager()
 
-        setShizukuInstalled(false)
-        kotlinx.coroutines.runBlocking { mgr.isInstalled() } shouldBe false
+        setShizukuPackage(null)
+        runBlocking { mgr.isInstalled() } shouldBe false
 
         // Shizuku gets installed afterwards: the next call must reflect it (no stale cache).
-        setShizukuInstalled(true)
-        kotlinx.coroutines.runBlocking { mgr.isInstalled() } shouldBe true
+        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        runBlocking { mgr.isInstalled() } shouldBe true
+    }
+
+    @Test fun `getManagerId resolves the detected package`() {
+        val mgr = manager()
+
+        setShizukuPackage(null)
+        runBlocking { mgr.getManagerId() } shouldBe null
+
+        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        runBlocking { mgr.getManagerId() } shouldBe ShizukuManager.PKG_ID
+    }
+
+    @Test fun `getManagerId resolves a fork under a different package name`() {
+        val forkPkg = "com.example.shizuku.fork"
+        setShizukuPackage(forkPkg)
+        val mgr = manager()
+
+        runBlocking { mgr.getManagerId() } shouldBe forkPkg.toPkgId()
+    }
+
+    @Test fun `managerIds always includes the reference package plus any detected fork`() {
+        val mgr = manager()
+
+        // Nothing installed: just the reference package.
+        setShizukuPackage(null)
+        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID)
+
+        // Fork installed under a different package: both the reference and the fork are protected.
+        val forkPkg = "com.example.shizuku.fork"
+        setShizukuPackage(forkPkg)
+        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, forkPkg.toPkgId())
     }
 }

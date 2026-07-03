@@ -1,13 +1,17 @@
 package eu.darken.sdmse.common.adb.shizuku
 
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.HandlerThread
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
@@ -16,13 +20,41 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import rikka.shizuku.Shizuku
 import rikka.shizuku.ShizukuBinderWrapper
+import rikka.shizuku.ShizukuProvider
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ShizukuWrapper @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
 ) {
+
+    /**
+     * Package that declares the Shizuku permission, or null if no installed app declares it.
+     *
+     * Detects Shizuku via its permission ([ShizukuProvider.PERMISSION]) instead of a fixed package
+     * name. The permission name is shared across Shizuku forks, so this keeps working when a fork
+     * hides its package from enumeration ("Hide Shizuku from other apps") or ships under a different
+     * package name. Permissions live in a global namespace, so the lookup isn't subject to the
+     * package-visibility filtering that hides the app itself.
+     */
+    suspend fun getManagerPackage(): String? = withContext(dispatcherProvider.IO) {
+        try {
+            context.packageManager
+                .getPermissionInfo(ShizukuProvider.PERMISSION, 0)
+                .packageName
+                ?.takeUnless { it.isBlank() }
+        } catch (e: PackageManager.NameNotFoundException) {
+            log(TAG) { "getManagerPackage(): Shizuku permission not declared by any app" }
+            null
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "getManagerPackage(): Lookup failed: ${e.asLog()}" }
+            null
+        }
+    }
 
     private val handlerThread: HandlerThread by lazy {
         HandlerThread("shizuku:binder-handler")

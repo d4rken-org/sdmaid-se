@@ -52,7 +52,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         every { shizukuManager.shizukuPkgId } returns "moe.shizuku.privileged.api".toPkgId()
         every { shizukuManager.shizukuBinder } returns flowOf(null)
         every { shizukuManager.permissionGrantEvents } returns emptyFlow()
-        coEvery { shizukuManager.isInstalled() } returns true
+        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
         coEvery { shizukuManager.isCompatible() } returns true
         coEvery { shizukuManager.isGranted() } returns true
         coEvery { shizukuManager.isOurServiceAvailable() } coAnswers { probeCount++; true }

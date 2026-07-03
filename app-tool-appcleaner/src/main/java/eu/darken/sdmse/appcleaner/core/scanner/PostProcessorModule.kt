@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
@@ -52,9 +53,15 @@ class PostProcessorModule @Inject constructor(
         val minCacheSize = settings.minCacheSizeBytes.value()
         log(TAG, INFO) { "Minimum cache size is $minCacheSize" }
 
+        val useAdb = adbManager.canUseAdbNow()
+        // Resolve the Shizuku manager package(s) once per scan instead of per-app: managerIds() now
+        // performs a PackageManager lookup (permission-based Shizuku detection), so calling it inside
+        // the per-app checkExclusions loop would issue one binder round-trip per scanned app.
+        val adbManagerIds = if (useAdb) adbManager.managerIds() else emptySet()
+
         val processed = apps
             .map { checkAliasedItems(it) }
-            .mapNotNull { checkExclusions(it) }
+            .mapNotNull { checkExclusions(it, useAdb, adbManagerIds) }
             .map { checkForHiddenModules(it) }
             .filter {
                 val isMinSize = it.size >= minCacheSize
@@ -89,13 +96,15 @@ class PostProcessorModule @Inject constructor(
         return after
     }
 
-    private suspend fun checkExclusions(before: AppJunk): AppJunk? {
+    private suspend fun checkExclusions(
+        before: AppJunk,
+        useAdb: Boolean,
+        adbManagerIds: Set<Pkg.Id>,
+    ): AppJunk? {
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
 
-        val useAdb = adbManager.canUseAdbNow()
-
-        if (useAdb && adbManager.managerIds().contains(before.pkg.id)) {
+        if (useAdb && adbManagerIds.contains(before.pkg.id)) {
             log(TAG, WARN) { "ADB is being used, excluding related packages." }
             return null
         }
