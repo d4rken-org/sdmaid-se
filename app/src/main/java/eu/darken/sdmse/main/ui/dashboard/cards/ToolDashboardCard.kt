@@ -61,6 +61,9 @@ internal fun ToolDashboardCard(
 ) {
     val toolName = stringResource(toolNameRes(item.toolType))
     val toolDescription = stringResource(toolDescriptionRes(item.toolType))
+    // The whole card opens the tool's live list. Gate on onDelete != null: after a clean the
+    // result text persists but the live data is empty, so navigating would open a list that
+    // immediately closes itself (flicker). onDelete goes null in that state, disabling the click.
     val clickable = item.progress == null && item.onDelete != null
 
     DashboardCard(
@@ -99,10 +102,6 @@ internal fun ToolDashboardCard(
             Spacer(modifier = Modifier.height(16.dp))
             ProgressContainer(
                 modifier = Modifier.fillMaxWidth(),
-                // Only allow opening the tool's live list when there's data to show.
-                // After a clean the result text persists but the live data is empty, so
-                // navigating would open a list that immediately closes itself (flicker).
-                onClick = item.onViewTool.takeIf { item.result != null && item.progress == null && item.onDelete != null },
                 progress = item.progress,
                 resultPrimary = item.result?.primaryInfo?.asComposable(),
                 resultSecondary = item.result?.secondaryInfo?.asComposable()?.takeUnless { it.isBlank() },

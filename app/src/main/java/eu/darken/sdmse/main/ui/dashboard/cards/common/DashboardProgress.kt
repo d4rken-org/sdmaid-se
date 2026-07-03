@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.ui.dashboard.cards.common
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,13 +27,12 @@ import eu.darken.sdmse.common.progress.Progress
 @Composable
 internal fun ProgressContainer(
     modifier: Modifier = Modifier,
-    onClick: (() -> Unit)?,
     progress: Progress.Data?,
     resultPrimary: String?,
     resultSecondary: String?,
 ) {
     Surface(
-        modifier = modifier.then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier),
+        modifier = modifier,
         color = MaterialTheme.colorScheme.secondaryContainer,
         shape = RoundedCornerShape(12.dp),
     ) {
@@ -133,7 +131,6 @@ private fun ProgressContainerIndeterminatePreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = null,
             progress = Progress.Data(
                 primary = "Scanning…".toCaString(),
                 secondary = "".toCaString(),
@@ -151,7 +148,6 @@ private fun ProgressContainerPercentPreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = null,
             progress = Progress.Data(
                 primary = "Scanning files…".toCaString(),
                 secondary = "Checking app caches".toCaString(),
@@ -169,7 +165,6 @@ private fun ProgressContainerCounterZeroPreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = null,
             progress = Progress.Data(
                 primary = "Starting scan…".toCaString(),
                 secondary = "".toCaString(),
@@ -187,7 +182,6 @@ private fun ProgressContainerLongPathPreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = null,
             progress = Progress.Data(
                 primary = "Looking for orphaned data with a primary line that is also way too long to fit".toCaString(),
                 secondary = "/storage/emulated/0/Android/data/com.example.someapp/files/cache/very/deeply/nested/path/that/wraps".toCaString(),
@@ -205,7 +199,6 @@ private fun ProgressContainerResultPreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = {},
             progress = null,
             resultPrimary = "Found 12 corpses (2.4 GB)",
             resultSecondary = "Last scan completed 5 minutes ago",
@@ -219,7 +212,6 @@ private fun ProgressContainerResultPrimaryOnlyPreview() {
     PreviewWrapper {
         ProgressContainer(
             modifier = Modifier.width(280.dp),
-            onClick = {},
             progress = null,
             resultPrimary = "Nothing to clean",
             resultSecondary = null,
