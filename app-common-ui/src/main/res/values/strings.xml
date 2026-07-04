@@ -8,6 +8,7 @@
         <item quantity="other">%d paths selected</item>
     </plurals>
     <string name="picker_home_action">Data areas</string>
+    <string name="picker_select_hint">Hold an item to select it</string>
 
     <string name="tour_action_next">Next</string>
     <string name="tour_action_previous">Previous</string>

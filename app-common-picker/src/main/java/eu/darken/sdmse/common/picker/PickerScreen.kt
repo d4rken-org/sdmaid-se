@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
@@ -141,9 +142,14 @@ internal fun PickerScreen(
         else sheetScaffoldState.bottomSheetState.partialExpand()
     }
 
+    // With nothing selected the sheet has no content worth peeking; on D-pad (TV) its drag handle
+    // isn't focusable, so a permanent peek is just a stranded, un-openable box. Collapse it fully
+    // until there's a selection (which auto-expands the panel below).
+    val peekHeight = if (hasSelection) SHEET_PEEK_HEIGHT else 0.dp
+
     BottomSheetScaffold(
         scaffoldState = sheetScaffoldState,
-        sheetPeekHeight = SHEET_PEEK_HEIGHT,
+        sheetPeekHeight = peekHeight,
         // Color the whole sheet (incl. the drag-handle strip) so it matches the panel content
         // instead of the default container color showing a seam above the content.
         sheetContainerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -241,10 +247,24 @@ internal fun PickerScreen(
                     // the bottom by the peek height plus the nav-bar inset to keep the last row reachable
                     // (legacy PickerFragment padded the list the same way).
                     contentPadding = PaddingValues(
-                        bottom = SHEET_PEEK_HEIGHT +
+                        bottom = peekHeight +
                             WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding(),
                     ),
                 ) {
+                    // D-pad users can't reach the row checkbox in the grid; surface the long-press
+                    // affordance so selecting an item is discoverable (harmless caption on touch too).
+                    if (state.items.any { it.item.selectable }) {
+                        item(key = "picker_select_hint", span = { GridItemSpan(maxLineSpan) }) {
+                            Text(
+                                text = stringResource(UiR.string.picker_select_hint),
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                            )
+                        }
+                    }
                     items(state.items, key = { it.id }) { row ->
                         Column {
                             PickerItemRow(
