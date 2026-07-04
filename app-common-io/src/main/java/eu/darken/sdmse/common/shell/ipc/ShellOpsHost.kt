@@ -26,7 +26,10 @@ class ShellOpsHost @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) : ShellOpsConnection.Stub(), IpcHostModule {
 
-    private val sharedShell = SharedShell(TAG, appScope + dispatcherProvider.Default)
+    // IO, not Default: SharedShell's teardown blocks its thread for up to 5s (runBlocking session
+    // close + waitFor), which would starve the host process's small Default pool. Mirrors the
+    // RootModule/AdbModule SharedShells and the app-side privileged clients (see PR #2543).
+    private val sharedShell = SharedShell(TAG, appScope + dispatcherProvider.IO)
 
     override fun execute(cmd: ShellOpsCmd): ShellOpsResult = try {
         runBlocking {
