@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
@@ -59,7 +59,7 @@ fun <T : Progress.Client> T.increaseProgress(value: Int = 1) {
             is Progress.Count.Counter -> it.copy(count = (it.count as Progress.Count.Counter).increment(value))
             is Progress.Count.Percent -> it.copy(count = (it.count as Progress.Count.Percent).increment(value))
             else -> {
-                log(ERROR) { "Can't increaseProgress() on type: ${it?.count}" }
+                log(VERBOSE) { "Can't increaseProgress() on type: ${it?.count}" }
                 it
             }
         }

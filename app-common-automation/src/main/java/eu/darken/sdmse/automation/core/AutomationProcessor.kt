@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.updateProgressPrimary
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
@@ -67,6 +68,9 @@ class AutomationProcessor @AssistedInject constructor(
             withContext(dispatcherProvider.IO) {
                 module.process(task)
             }
+        } catch (e: CancellationException) {
+            log(TAG, INFO) { "process(): Task cancelled: $task ($e)" }
+            throw e
         } catch (e: Exception) {
             log(TAG, ERROR) { "process(): Task failed: $task\n${e.asLog()}" }
             throw e
