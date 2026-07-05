@@ -18,6 +18,7 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.originos.OriginOSSpecs
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.appcontrol.core.restore.RestoreAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
@@ -93,7 +94,7 @@ class AppControlAutomation @AssistedInject constructor(
 //                is LGESpecs -> 130
 //                is ColorOSSpecs -> 110
 //                is FlymeSpecs -> 100
-//                is VivoSpecs -> 80
+                is OriginOSSpecs -> 80
                 is AndroidTVSpecs -> 70
 //                is NubiaSpecs -> 60
 //                is OnePlusSpecs -> 30

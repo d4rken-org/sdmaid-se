@@ -42,7 +42,7 @@ fun ACSNodeInfo.textEndsWithAny(candidates: Collection<String>): Boolean =
 val ACSNodeInfo.contentDescVariants: Set<String>
     get() {
         val target = contentDescription?.toString() ?: return emptySet()
-        return setOf(target, target.replace(' ', ' '))
+        return setOf(target, target.replace(' ', ' '))
     }
 
 fun ACSNodeInfo.contentDescMatches(candidate: String): Boolean {
