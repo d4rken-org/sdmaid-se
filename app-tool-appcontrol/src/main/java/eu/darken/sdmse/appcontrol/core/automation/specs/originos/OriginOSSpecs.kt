@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
@@ -85,10 +86,8 @@ class OriginOSSpecs @Inject constructor(
             val action: suspend StepContext.() -> Boolean = action@{
                 // OriginOS action buttons are nested "vbuttons": the semantic Button
                 // (id=right_button) carries the label in contentDescription and the real enabled
-                // state, but wraps an always-enabled clickable LinearLayout holding the label
-                // TextView (id=vbutton_title). Resolve the Button, never the wrapper — the
-                // wrapper's enabled=true is meaningless and clicking it is a no-op while the
-                // Button is disabled.
+                // state, but wraps an always-clickable, always-enabled LinearLayout holding the
+                // label TextView (id=vbutton_title). Resolve the Button, never the wrapper.
                 val target = findNodeByContentDesc(forceStopLabels) { it.isClickyButton() }
                     ?: findNode { it.textMatchesAny(forceStopLabels) }?.let { label ->
                         if (label.isClickyButton()) label
@@ -101,7 +100,10 @@ class OriginOSSpecs @Inject constructor(
                     return@action true
                 }
 
-                clickNormal(node = target)
+                // Tap via gesture instead of ACTION_CLICK: on OriginOS an accessibility click on
+                // these vbuttons emits TYPE_VIEW_CLICKED but never triggers the handler, so the
+                // confirmation dialog never opens. A dispatched tap at the button reliably fires it.
+                clickGesture(node = target)
             }
 
             val step = AutomationStep(
