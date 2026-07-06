@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -434,7 +435,42 @@ private fun StepContent(
                 .fillMaxWidth()
                 .padding(start = mascotWidth, end = 16.dp, top = 16.dp, bottom = 16.dp),
         ) {
-            // Header: square nav buttons flank a flexible middle cell, so the step dots stay
+            // Body sits above the controls so the step reads top-to-bottom: explanation first,
+            // then the actions. Weighted (fill = false) so short copy stays compact against the
+            // control row, while long copy is capped at the remaining height and scrolls — the
+            // control row keeps its fixed height and stays pinned to the bubble's bottom edge.
+            // Focusable so long step text can be scrolled with the D-pad from inside the focus
+            // trap (scrollables handle arrow keys when focused). Tinted while focused since
+            // plain focusable() has no indication of its own.
+            var bodyFocused by remember { mutableStateOf(false) }
+            Column(
+                modifier = Modifier
+                    .weight(1f, fill = false)
+                    .padding(bottom = 16.dp)
+                    .onFocusChanged { bodyFocused = it.isFocused }
+                    .background(
+                        color = if (bodyFocused) {
+                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+                        } else Color.Transparent,
+                        shape = RoundedCornerShape(8.dp),
+                    )
+                    .verticalScroll(rememberScrollState())
+                    .focusable(),
+            ) {
+                step.title?.let { title ->
+                    Text(
+                        text = title.get(context),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                }
+                Text(
+                    text = step.body.get(context),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
+            // Controls: square nav buttons flank a flexible middle cell, so the step dots stay
             // centered in the free space between the left cluster (exit + back) and the Next
             // button — not pinned to the bubble's geometric center, which looked off-balance
             // once the clusters had unequal widths.
@@ -489,42 +525,21 @@ private fun StepContent(
                     )
                 }
             }
-            // Focusable so long step text can be scrolled with the D-pad from inside the focus
-            // trap (scrollables handle arrow keys when focused). Tinted while focused since
-            // plain focusable() has no indication of its own.
-            var bodyFocused by remember { mutableStateOf(false) }
-            Column(
-                modifier = Modifier
-                    .padding(top = 16.dp)
-                    .onFocusChanged { bodyFocused = it.isFocused }
-                    .background(
-                        color = if (bodyFocused) {
-                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
-                        } else Color.Transparent,
-                        shape = RoundedCornerShape(8.dp),
-                    )
-                    .verticalScroll(rememberScrollState())
-                    .focusable(),
-            ) {
-                step.title?.let { title ->
-                    Text(
-                        text = title.get(context),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                }
-                Text(
-                    text = step.body.get(context),
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-            }
         }
-        SdmMascot(
-            modifier = Modifier
-                .align(Alignment.CenterStart)
-                .width(mascotWidth),
-        )
+        // Overlay the mascot in a matchParentSize box so it tracks the content column's height
+        // rather than driving it. The mascot renders tall (portrait aspect); left free to set the
+        // bubble height it would, on short steps, push the bubble past the content and leave slack
+        // below the now-bottom control row. Bounded to fillMaxHeight it fits the content instead —
+        // controls stay flush to the bottom edge, and on tall steps (content already taller than the
+        // mascot) this is a no-op.
+        Box(modifier = Modifier.matchParentSize()) {
+            SdmMascot(
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .fillMaxHeight()
+                    .width(mascotWidth),
+            )
+        }
     }
 }
 
