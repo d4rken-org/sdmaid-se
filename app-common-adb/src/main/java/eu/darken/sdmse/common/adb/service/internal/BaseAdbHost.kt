@@ -2,6 +2,8 @@ package eu.darken.sdmse.common.adb.service.internal
 
 import android.annotation.SuppressLint
 import android.content.Context
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +18,15 @@ abstract class BaseAdbHost(
 ) : AdbConnection.Stub() {
 
     val hostScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    init {
+        val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            log(iTag, ERROR) { "Uncaught exception within AdbHost: ${throwable.asLog()}" }
+            if (oldHandler != null) oldHandler.uncaughtException(thread, throwable)
+            else exitProcess(1)
+        }
+    }
 
     override fun destroy() {
         log(iTag) { "destroy()" }
