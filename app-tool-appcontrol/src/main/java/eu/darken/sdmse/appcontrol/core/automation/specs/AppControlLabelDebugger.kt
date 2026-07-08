@@ -36,6 +36,7 @@ class AppControlLabelDebugger @Inject constructor(
             "com.miui.securitycenter",
         ).map { it.toPkgId() }
         private val RES_IDS_FORCE_STOP = setOf(
+            "menu_item_force_stop",
             "force_stop",
             "force_stop_dlg_title",
             "okay",

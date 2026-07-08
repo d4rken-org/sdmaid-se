@@ -4,6 +4,7 @@ import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelSource
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.automation.core.specs.getLocales
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.toPkgId
 import javax.inject.Inject
@@ -15,14 +16,39 @@ class HyperOsLabels @Inject constructor(
 
     fun getForceStopButtonDynamic(acsContext: AutomationExplorer.Context): Set<String> {
         val labels = mutableSetOf<String>()
-        acsContext.getStrings(SETTINGS_PKG, setOf("force_stop")).run {
+        // `menu_item_force_stop` is the actual SecurityCenter key; `force_stop` doesn't exist there
+        // and only ever resolved via the AOSP fallback below.
+        acsContext.getStrings(SETTINGS_PKG, setOf("menu_item_force_stop", "force_stop")).run {
             labels.addAll(this)
         }
         if (labels.isEmpty()) {
             labels.addAll(aospLabels.getForceStopButtonDynamic(acsContext))
         }
+        // Always union: HyperOS 3 relabels the button (e.g. ru "Закрыть") independently of the
+        // resource lookups above, which may still return the stale AOSP/SecurityCenter value.
+        labels.addAll(getForceStopButtonFallback(acsContext))
         return labels
     }
+
+    /**
+     * Hardcoded fallbacks for the force-stop button label on HyperOS.
+     * HyperOS 3 (Android 16) renamed it to a "close app" style label that the dynamic
+     * SecurityCenter/AOSP lookups don't return. Extend per-locale as device reports arrive.
+     */
+    private fun getForceStopButtonFallback(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getLocales()
+        .map { Triple(it.language, it.script, it.country) }
+        .mapNotNull { (lang, _, _) ->
+            when {
+                "en".toLang() == lang -> setOf("Close app")
+                // POCO F8 Ultra, HyperOS 3.0.301.0 (OS3.0.301.0.WPMMIXM), Android 16
+                "ru".toLang() == lang -> setOf("Закрыть")
+                else -> null
+            }
+        }
+        .flatten()
+        .toSet()
 
     fun getForceStopDialogTitleDynamic(acsContext: AutomationExplorer.Context): Set<String> {
         val labels = mutableSetOf<String>()
