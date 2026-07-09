@@ -53,6 +53,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         val upgradeInfo = MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
         val repo = mockk<UpgradeRepoGplay>(relaxed = true)
         every { repo.upgradeInfo } returns upgradeInfo
+        every { repo.wasEverPro } returns MutableStateFlow(false)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } coAnswers {
             delay(6_000)
             emptyList()
@@ -85,6 +86,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        every { wasEverPro } returns MutableStateFlow(false)
     }
 
     private fun buildVm(repo: UpgradeRepoGplay): UpgradeViewModel = UpgradeViewModel(
@@ -134,5 +136,40 @@ class GplayUpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         forwardedError.await() shouldBe boom
+    }
+
+    @Test
+    fun `previously-pro on this device flows into the loaded banner flag`() = runTest2(context = testDispatcher) {
+        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        every { repo.wasEverPro } returns MutableStateFlow(true)
+        coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } returns emptyList()
+        coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async {
+            vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
+        }
+        advanceUntilIdle()
+
+        loaded.await().wasPreviouslyPro shouldBe true
+    }
+
+    @Test
+    fun `banner flag stays off while grace still keeps the user pro`() = runTest2(context = testDispatcher) {
+        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
+        // gracePeriod = true => Info.isPro is true even without a current raw purchase.
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.wasEverPro } returns MutableStateFlow(true)
+        coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } returns emptyList()
+        coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async {
+            vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
+        }
+        advanceUntilIdle()
+
+        loaded.await().wasPreviouslyPro shouldBe false
     }
 }

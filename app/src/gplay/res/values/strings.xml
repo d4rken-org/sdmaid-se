@@ -37,6 +37,8 @@
     <string name="upgrade_screen_iap_action_hint">The one-time purchase costs %s.</string>
     <string name="upgrade_screen_thanks_toast">You are the best! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restore purchase</string>
+    <string name="upgrade_screen_restore_banner_title">Already bought Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">It looks like you upgraded to Pro on this device before. Restore your purchase to unlock it again.</string>
     <string name="upgrade_screen_restore_purchase_message">Your upgrade is valid across devices on the same Google account.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Troubleshooting tips for unrecognized upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store synchronization may take time. Try rebooting, clearing Google Play cache or simply wait.</string>

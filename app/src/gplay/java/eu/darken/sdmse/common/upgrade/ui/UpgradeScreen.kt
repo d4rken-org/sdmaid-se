@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Payments
+import androidx.compose.material.icons.twotone.Restore
 import androidx.compose.material.icons.twotone.WarningAmber
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
@@ -120,6 +121,10 @@ internal fun UpgradeScreen(
                     contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
                 ),
             )
+
+            if (uiState is GplayUpgradeUiState.Loaded && uiState.wasPreviouslyPro) {
+                UpgradeRestoreBanner(onRestore = onRestore)
+            }
 
             UpgradeSectionCard(
                 title = stringResource(R.string.upgrade_screen_benefits_title),
@@ -241,6 +246,35 @@ private fun LoadedOffers(
     }
 }
 
+@Composable
+private fun UpgradeRestoreBanner(
+    onRestore: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    UpgradeSectionCard(
+        title = stringResource(R.string.upgrade_screen_restore_banner_title),
+        icon = Icons.TwoTone.Restore,
+        modifier = modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+        ),
+    ) {
+        Text(
+            text = stringResource(R.string.upgrade_screen_restore_banner_body),
+            style = MaterialTheme.typography.bodyMedium,
+        )
+        Button(
+            onClick = onRestore,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION),
+        ) {
+            Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
+        }
+    }
+}
+
 internal sealed interface GplayUpgradeUiState {
     data object Loading : GplayUpgradeUiState
 
@@ -254,6 +288,7 @@ internal sealed interface GplayUpgradeUiState {
         val subscriptionPrice: String?,
         val iapEnabled: Boolean,
         val iapPrice: String?,
+        val wasPreviouslyPro: Boolean = false,
     ) : GplayUpgradeUiState
 }
 
@@ -268,6 +303,7 @@ internal fun toLoadedState(
     sub: eu.darken.sdmse.common.upgrade.core.billing.SkuDetails?,
     hasIap: Boolean,
     hasSub: Boolean,
+    wasPreviouslyPro: Boolean = false,
 ): GplayUpgradeUiState.Loaded {
     val iapOffer = iap?.details?.oneTimePurchaseOfferDetails
     val subOffer = sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
@@ -287,6 +323,7 @@ internal fun toLoadedState(
         subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
         iapEnabled = iapOffer != null && !hasIap,
         iapPrice = iapOffer?.formattedPrice,
+        wasPreviouslyPro = wasPreviouslyPro,
     )
 }
 
@@ -309,6 +346,23 @@ private fun UpgradeScreenLoadedPreview() {
                 subscriptionPrice = "$12.99",
                 iapEnabled = true,
                 iapPrice = "$24.99",
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun UpgradeScreenReturningBuyerPreview() {
+    PreviewWrapper {
+        UpgradeScreen(
+            uiState = GplayUpgradeUiState.Loaded(
+                subscriptionAction = SubscriptionAction.STANDARD,
+                subscriptionEnabled = true,
+                subscriptionPrice = "$12.99",
+                iapEnabled = true,
+                iapPrice = "$24.99",
+                wasPreviouslyPro = true,
             ),
         )
     }

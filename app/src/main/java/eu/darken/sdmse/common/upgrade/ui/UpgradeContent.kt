@@ -58,6 +58,8 @@ internal object UpgradeScreenTags {
     const val GPLAY_SUBSCRIPTION = "upgrade_gplay_subscription"
     const val GPLAY_IAP = "upgrade_gplay_iap"
     const val GPLAY_RESTORE = "upgrade_gplay_restore"
+    const val GPLAY_RESTORE_BANNER = "upgrade_gplay_restore_banner"
+    const val GPLAY_RESTORE_BANNER_ACTION = "upgrade_gplay_restore_banner_action"
     const val GPLAY_UNAVAILABLE = "upgrade_gplay_unavailable"
     const val GPLAY_RECOMMENDED = "upgrade_gplay_recommended"
 }

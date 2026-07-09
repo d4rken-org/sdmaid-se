@@ -10,6 +10,7 @@ import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -104,6 +105,46 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_unavailable_message)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
+    }
+
+    @Test
+    fun `returning buyer sees the restore banner and can trigger restore`() {
+        var restoreClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                    wasPreviouslyPro = true,
+                ),
+                onRestore = { restoreClicks++ },
+            )
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).performClick()
+        composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
+    }
+
+    @Test
+    fun `banner is hidden without a prior purchase on this device`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                    wasPreviouslyPro = false,
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER).assertCountEquals(0)
     }
 }
 

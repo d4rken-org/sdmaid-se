@@ -77,6 +77,10 @@ class UpgradeRepoGplay @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
+    // True once we've ever confirmed a (known) Pro purchase on this install; drives the proactive
+    // restore banner. Local signal only — a fresh install or switched Google account starts false.
+    val wasEverPro: Flow<Boolean> = billingCache.lastProStateAt.flow.map { it > 0 }
+
     fun launchBillingFlow(
         activity: Activity,
         sku: Sku,

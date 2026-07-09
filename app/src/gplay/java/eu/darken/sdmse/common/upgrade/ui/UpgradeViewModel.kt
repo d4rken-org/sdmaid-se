@@ -69,7 +69,8 @@ class UpgradeViewModel @Inject constructor(
         querySkuDetails(OurSku.Iap.PRO_UPGRADE),
         querySkuDetails(OurSku.Sub.PRO_UPGRADE),
         upgradeRepo.upgradeInfo,
-    ) { iap, sub, current ->
+        upgradeRepo.wasEverPro,
+    ) { iap, sub, current, wasEverPro ->
         val serviceUnavailableError = if (iap == null && sub == null) {
             GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         } else {
@@ -104,6 +105,7 @@ class UpgradeViewModel @Inject constructor(
             sub = sub?.firstOrNull(),
             hasIap = current.upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
             hasSub = current.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE },
+            wasPreviouslyPro = wasEverPro && !current.isPro,
         )
     }.safeStateIn(
         initialValue = GplayUpgradeUiState.Loading,
