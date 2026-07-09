@@ -5,8 +5,8 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
@@ -25,7 +25,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
@@ -155,21 +154,37 @@ class UpgradeViewModel @Inject constructor(
     fun restorePurchase() = launch {
         log(TAG) { "restorePurchase()" }
 
-        log(TAG, VERBOSE) { "Refreshing" }
-        upgradeRepo.refresh()
+        val restored = try {
+            withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Play/billing error (e.g. service unavailable): surface the proper error dialog instead
+            // of the generic "restore failed" message, so the user can tell the two cases apart.
+            log(TAG, WARN) { "Restore purchase errored: ${e.asLog()}" }
+            errorEvents.tryEmit(e)
+            return@launch
+        }
 
-        val refreshedState = upgradeRepo.upgradeInfo.first()
-        log(TAG) { "Refreshed purchase state: $refreshedState" }
+        when {
+            restored == null -> {
+                // Play never answered in time; the restore-failed dialog already suggests waiting /
+                // clearing the Play cache, which fits a timeout too.
+                log(TAG, WARN) { "Restore purchase timed out" }
+                events.tryEmit(UpgradeEvents.RestoreFailed)
+            }
 
-        if (refreshedState.isPro) {
-            log(TAG, INFO) { "Restored purchase :))" }
-        } else {
-            log(TAG, WARN) { "Restore purchase failed" }
-            events.tryEmit(UpgradeEvents.RestoreFailed)
+            restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
+
+            else -> {
+                log(TAG, WARN) { "Restore purchase failed" }
+                events.tryEmit(UpgradeEvents.RestoreFailed)
+            }
         }
     }
 
     companion object {
+        private const val RESTORE_TIMEOUT_MS = 15_000L
         private val TAG = logTag("Upgrade", "Gplay", "ViewModel")
     }
 }
