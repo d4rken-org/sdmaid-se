@@ -120,7 +120,12 @@ class BillingManager @Inject constructor(
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }
-            val ignoredCodes = listOf(3, 6)
+            // Expected environmental/user situations — user-facing handling only, no bug report.
+            val ignoredCodes = listOf(
+                BillingResponseCode.USER_CANCELED,
+                BillingResponseCode.BILLING_UNAVAILABLE,
+                BillingResponseCode.ERROR,
+            )
             when {
                 e !is BillingException -> {
                     Bugs.report(RuntimeException("State exception for $sku, U", e))

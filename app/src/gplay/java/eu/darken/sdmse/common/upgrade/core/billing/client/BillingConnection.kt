@@ -19,12 +19,14 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingManager.Companion.tryM
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.withContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -188,7 +190,19 @@ data class BillingConnection(
             setProductDetailsParamsList(listOf(productDetail))
         }.build()
 
-        return client.launchBillingFlow(activity, params)
+        // launchBillingFlow must run on the main thread (documented BillingClient contract), and its
+        // RETURNED result reports whether the flow could be launched at all (DEVELOPER_ERROR,
+        // ITEM_ALREADY_OWNED, BILLING_UNAVAILABLE, ...) — failures arrive here, not as exceptions.
+        // Throw like the other client calls do, so callers can surface them instead of silence.
+        val result = withContext(Dispatchers.Main) {
+            client.launchBillingFlow(activity, params)
+        }
+        log(TAG) {
+            "launchBillingFlow(sku=$sku): code=${result.responseCode}, message=${result.debugMessage}"
+        }
+        if (!result.isSuccess) throw BillingClientException(result)
+
+        return result
     }
 
     companion object {
