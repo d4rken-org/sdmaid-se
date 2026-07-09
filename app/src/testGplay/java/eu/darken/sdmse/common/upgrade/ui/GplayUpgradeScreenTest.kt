@@ -146,6 +146,26 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER).assertCountEquals(0)
     }
+
+    @Test
+    fun `both restore affordances are disabled while a restore is running`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                    wasPreviouslyPro = true,
+                    restoreInProgress = true,
+                ),
+            )
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).assertIsNotEnabled()
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsNotEnabled()
+    }
 }
 
 private fun ComposeContentTestRule.setUpgradeContent(

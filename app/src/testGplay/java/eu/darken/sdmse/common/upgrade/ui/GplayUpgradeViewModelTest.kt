@@ -172,4 +172,35 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
         loaded.await().wasPreviouslyPro shouldBe false
     }
+
+    @Test
+    fun `restore is single-flight, taps during a running restore are ignored`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(5_000)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        }
+        val vm = buildVm(repo)
+
+        vm.restorePurchase()
+        vm.restorePurchase()
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.restorePurchaseNow() }
+    }
+
+    @Test
+    fun `a finished restore allows a new attempt`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)
+        val vm = buildVm(repo)
+
+        vm.restorePurchase()
+        advanceUntilIdle()
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        coVerify(exactly = 2) { repo.restorePurchaseNow() }
+    }
 }

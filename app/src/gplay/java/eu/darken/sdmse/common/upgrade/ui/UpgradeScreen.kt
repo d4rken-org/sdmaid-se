@@ -7,7 +7,10 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Payments
@@ -15,6 +18,7 @@ import androidx.compose.material.icons.twotone.Restore
 import androidx.compose.material.icons.twotone.WarningAmber
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -123,7 +127,10 @@ internal fun UpgradeScreen(
             )
 
             if (uiState is GplayUpgradeUiState.Loaded && uiState.wasPreviouslyPro) {
-                UpgradeRestoreBanner(onRestore = onRestore)
+                UpgradeRestoreBanner(
+                    onRestore = onRestore,
+                    restoreInProgress = uiState.restoreInProgress,
+                )
             }
 
             UpgradeSectionCard(
@@ -239,6 +246,7 @@ private fun LoadedOffers(
 
         TextButton(
             onClick = onRestore,
+            enabled = !uiState.restoreInProgress,
             modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE),
         ) {
             Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
@@ -250,6 +258,7 @@ private fun LoadedOffers(
 private fun UpgradeRestoreBanner(
     onRestore: () -> Unit,
     modifier: Modifier = Modifier,
+    restoreInProgress: Boolean = false,
 ) {
     UpgradeSectionCard(
         title = stringResource(R.string.upgrade_screen_restore_banner_title),
@@ -266,10 +275,18 @@ private fun UpgradeRestoreBanner(
         )
         Button(
             onClick = onRestore,
+            enabled = !restoreInProgress,
             modifier = Modifier
                 .fillMaxWidth()
                 .testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION),
         ) {
+            if (restoreInProgress) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(18.dp),
+                    strokeWidth = 2.dp,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
             Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
         }
     }
@@ -289,6 +306,7 @@ internal sealed interface GplayUpgradeUiState {
         val iapEnabled: Boolean,
         val iapPrice: String?,
         val wasPreviouslyPro: Boolean = false,
+        val restoreInProgress: Boolean = false,
     ) : GplayUpgradeUiState
 }
 
@@ -304,6 +322,7 @@ internal fun toLoadedState(
     hasIap: Boolean,
     hasSub: Boolean,
     wasPreviouslyPro: Boolean = false,
+    restoreInProgress: Boolean = false,
 ): GplayUpgradeUiState.Loaded {
     val iapOffer = iap?.details?.oneTimePurchaseOfferDetails
     val subOffer = sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
@@ -324,6 +343,7 @@ internal fun toLoadedState(
         iapEnabled = iapOffer != null && !hasIap,
         iapPrice = iapOffer?.formattedPrice,
         wasPreviouslyPro = wasPreviouslyPro,
+        restoreInProgress = restoreInProgress,
     )
 }
 

@@ -65,12 +65,15 @@ class UpgradeViewModel @Inject constructor(
             .launchInViewModel()
     }
 
+    private val restoring = MutableStateFlow(false)
+
     internal val state: StateFlow<GplayUpgradeUiState> = combine(
         querySkuDetails(OurSku.Iap.PRO_UPGRADE),
         querySkuDetails(OurSku.Sub.PRO_UPGRADE),
         upgradeRepo.upgradeInfo,
         upgradeRepo.wasEverPro,
-    ) { iap, sub, current, wasEverPro ->
+        restoring,
+    ) { iap, sub, current, wasEverPro, isRestoring ->
         val serviceUnavailableError = if (iap == null && sub == null) {
             GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         } else {
@@ -106,6 +109,7 @@ class UpgradeViewModel @Inject constructor(
             hasIap = current.upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
             hasSub = current.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE },
             wasPreviouslyPro = wasEverPro && !current.isPro,
+            restoreInProgress = isRestoring,
         )
     }.safeStateIn(
         initialValue = GplayUpgradeUiState.Loading,
@@ -154,10 +158,31 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun restorePurchase() = launch {
+        // Single-flight: repeated taps while a restore is running (worst case bounded by
+        // RESTORE_TIMEOUT_MS) must not stack concurrent restores and duplicate result dialogs.
+        if (!restoring.compareAndSet(expect = false, update = true)) {
+            log(TAG) { "restorePurchase() ignored, already in progress" }
+            return@launch
+        }
         log(TAG) { "restorePurchase()" }
 
-        val restored = try {
-            withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+        try {
+            val restored = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+            when {
+                restored == null -> {
+                    // Play never answered in time; the restore-failed dialog already suggests waiting /
+                    // clearing the Play cache, which fits a timeout too.
+                    log(TAG, WARN) { "Restore purchase timed out" }
+                    events.tryEmit(UpgradeEvents.RestoreFailed)
+                }
+
+                restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
+
+                else -> {
+                    log(TAG, WARN) { "Restore purchase failed" }
+                    events.tryEmit(UpgradeEvents.RestoreFailed)
+                }
+            }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -165,23 +190,9 @@ class UpgradeViewModel @Inject constructor(
             // of the generic "restore failed" message, so the user can tell the two cases apart.
             log(TAG, WARN) { "Restore purchase errored: ${e.asLog()}" }
             errorEvents.tryEmit(e)
-            return@launch
-        }
-
-        when {
-            restored == null -> {
-                // Play never answered in time; the restore-failed dialog already suggests waiting /
-                // clearing the Play cache, which fits a timeout too.
-                log(TAG, WARN) { "Restore purchase timed out" }
-                events.tryEmit(UpgradeEvents.RestoreFailed)
-            }
-
-            restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
-
-            else -> {
-                log(TAG, WARN) { "Restore purchase failed" }
-                events.tryEmit(UpgradeEvents.RestoreFailed)
-            }
+        } finally {
+            // Reset only after result handling, so the single-flight guard covers the whole action.
+            restoring.value = false
         }
     }
 
