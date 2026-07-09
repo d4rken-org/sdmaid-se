@@ -59,13 +59,14 @@ class BillingManagerTest : BaseTest() {
     }
 
     @Test
-    fun `failed launch surfaces as the already-owned user error and is reported`() = runTest2 {
+    fun `already-owned launch surfaces the mapped exception without a bug report`() = runTest2 {
+        // The repo layer auto-handles this by restoring; it's an expected user state, not a defect.
         val manager = manager(BillingResponseCode.ITEM_ALREADY_OWNED)
 
         shouldThrow<ItemAlreadyOwnedBillingException> {
             manager.startIapFlow(activity, OurSku.Iap.PRO_UPGRADE, null)
         }
-        verify(exactly = 1) { Bugs.report(any()) }
+        verify(exactly = 0) { Bugs.report(any()) }
     }
 
     @Test

@@ -4,7 +4,9 @@ import android.app.Activity
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -12,6 +14,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
+import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
@@ -28,6 +31,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -92,12 +96,33 @@ class UpgradeRepoGplay @Inject constructor(
             try {
                 billingManager.startIapFlow(activity, sku, offer)
             } catch (e: Exception) {
-                if (e is UserCanceledBillingException) {
-                    log(TAG) { "User canceled billing flow" }
-                    return@launch
+                when {
+                    e is UserCanceledBillingException -> log(TAG) { "User canceled billing flow" }
+
+                    e is ItemAlreadyOwnedBillingException -> {
+                        // Stale local state: Play says they already own it, so tapping "buy" really
+                        // means "unlock what I own" — restore instead of showing an error.
+                        log(TAG, INFO) { "Launch says already owned -> restoring purchase" }
+                        val restored = try {
+                            withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+                        } catch (re: CancellationException) {
+                            throw re
+                        } catch (re: Exception) {
+                            log(TAG, WARN) { "Restore after already-owned failed: ${re.asLog()}" }
+                            null
+                        }
+                        if (restored?.isPro != true) {
+                            // Couldn't reconcile the entitlement (pending purchase, account mismatch,
+                            // Play quirk) — fall back to the already-owned dialog with restore tips.
+                            onError(e)
+                        }
+                    }
+
+                    else -> {
+                        log(TAG) { "startIapFlow failed:${e.asLog()}" }
+                        onError(e)
+                    }
                 }
-                log(TAG) { "startIapFlow failed:${e.asLog()}" }
-                onError(e)
             }
         }
     }
@@ -219,6 +244,7 @@ class UpgradeRepoGplay @Inject constructor(
         // subscription/default window (also used when the last-owned SKU is unknown/legacy).
         val GRACE_PERIOD_MS = Duration.ofDays(7).toMillis()
         val GRACE_PERIOD_IAP_MS = Duration.ofDays(30).toMillis()
+        private const val RESTORE_ON_OWNED_TIMEOUT_MS = 15_000L
         val TAG: String = logTag("Upgrade", "Gplay", "Repo")
 
         // The SKU whose grace window applies when several are owned: the permanent one-time purchase

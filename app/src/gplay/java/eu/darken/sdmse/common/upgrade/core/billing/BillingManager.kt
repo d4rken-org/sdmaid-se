@@ -121,10 +121,12 @@ class BillingManager @Inject constructor(
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }
             // Expected environmental/user situations — user-facing handling only, no bug report.
+            // ITEM_ALREADY_OWNED is auto-handled by UpgradeRepoGplay (restore instead of error).
             val ignoredCodes = listOf(
                 BillingResponseCode.USER_CANCELED,
                 BillingResponseCode.BILLING_UNAVAILABLE,
                 BillingResponseCode.ERROR,
+                BillingResponseCode.ITEM_ALREADY_OWNED,
             )
             when {
                 e !is BillingException -> {
