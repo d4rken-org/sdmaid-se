@@ -84,15 +84,7 @@ data class BillingConnection(
         val iap = iapJob.await()
         val sub = subJob.await()
         log(TAG) { "Refreshed IAPs=${iap.getOrNull()}, SUBs=${sub.getOrNull()}" }
-
-        val found = iap.getOrNull().orEmpty() + sub.getOrNull().orEmpty()
-        when {
-            found.isNotEmpty() -> found.sortedByDescending { it.purchaseTime }
-            else -> {
-                (iap.exceptionOrNull() ?: sub.exceptionOrNull())?.let { throw it }
-                emptyList()
-            }
-        }
+        combinePurchaseResults(iap, sub)
     }
 
     // Never throws except on cancellation, so a single failing product-type query doesn't cancel the
@@ -201,5 +193,22 @@ data class BillingConnection(
 
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "ClientConnection")
+
+        // Combines the two product-type query results: a purchase found by either type is
+        // authoritative; an error is only propagated when nothing was found, so callers can tell
+        // "not owned" apart from "couldn't verify one product type". Pure and unit-tested.
+        internal fun combinePurchaseResults(
+            iap: Result<Collection<Purchase>>,
+            sub: Result<Collection<Purchase>>,
+        ): Collection<Purchase> {
+            val found = iap.getOrNull().orEmpty() + sub.getOrNull().orEmpty()
+            return when {
+                found.isNotEmpty() -> found.sortedByDescending { it.purchaseTime }
+                else -> {
+                    (iap.exceptionOrNull() ?: sub.exceptionOrNull())?.let { throw it }
+                    emptyList()
+                }
+            }
+        }
     }
 }

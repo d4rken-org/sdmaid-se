@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -80,5 +81,58 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
         coVerify(exactly = 1) { repo.querySkus(OurSku.Iap.PRO_UPGRADE) }
         coVerify(exactly = 1) { repo.querySkus(OurSku.Sub.PRO_UPGRADE) }
+    }
+
+    private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
+        every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+    }
+
+    private fun buildVm(repo: UpgradeRepoGplay): UpgradeViewModel = UpgradeViewModel(
+        handle = SavedStateHandle(mapOf("forced" to false)),
+        dispatcherProvider = TestDispatcherProvider(testDispatcher),
+        upgradeRepo = repo,
+    )
+
+    @Test
+    fun `restore with no purchase emits RestoreFailed`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreFailed
+    }
+
+    @Test
+    fun `restore that times out emits RestoreFailed`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(30_000) // longer than the 15s restore timeout
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        }
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreFailed
+    }
+
+    @Test
+    fun `restore that errors forwards the error instead of RestoreFailed`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        val boom = IllegalStateException("Play unavailable")
+        coEvery { repo.restorePurchaseNow() } throws boom
+        val vm = buildVm(repo)
+
+        val forwardedError = async { vm.errorEvents.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        forwardedError.await() shouldBe boom
     }
 }
