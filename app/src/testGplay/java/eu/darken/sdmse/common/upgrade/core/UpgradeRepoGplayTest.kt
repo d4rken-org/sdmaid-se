@@ -11,11 +11,17 @@ import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
+import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.BillingResult
 import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.coVerifyOrder
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -28,21 +34,32 @@ class UpgradeRepoGplayTest : BaseTest() {
     private val scope = CoroutineScope(Dispatchers.Unconfined)
     private val billingManager = mockk<BillingManager>()
     private val billingCache = mockk<BillingCache>()
+    private lateinit var lastProAtMock: DataStoreValue<Long>
+    private lateinit var lastProSkuMock: DataStoreValue<String>
 
-    // Builds a repo whose stored last-Pro timestamp is `lastProAt`. billingData is stubbed only
-    // because the upgradeInfo flow references it at construction; it is never collected here.
-    private fun repo(lastProAt: Long, lastSku: String = ""): UpgradeRepoGplay {
-        every { billingManager.billingData } returns flowOf(BillingData(emptySet()))
-        val lastPro = mockk<DataStoreValue<Long>>(relaxed = true).apply {
+    // Builds a repo whose stored last-Pro timestamp is `lastProAt`. The Unconfined scope runs the
+    // init collectors (grace stamping, async already-owned) eagerly against the stubbed flows.
+    private fun repo(
+        lastProAt: Long,
+        lastSku: String = "",
+        billingData: BillingData = BillingData(emptySet()),
+        purchaseFailures: List<BillingResult> = emptyList(),
+    ): UpgradeRepoGplay {
+        every { billingManager.billingData } returns flowOf(billingData)
+        every { billingManager.purchaseFailures } returns
+            if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
+        lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true).apply {
             every { flow } returns flowOf(lastProAt)
         }
-        every { billingCache.lastProStateAt } returns lastPro
-        val lastProSku = mockk<DataStoreValue<String>>(relaxed = true).apply {
+        every { billingCache.lastProStateAt } returns lastProAtMock
+        lastProSkuMock = mockk<DataStoreValue<String>>(relaxed = true).apply {
             every { flow } returns flowOf(lastSku)
         }
-        every { billingCache.lastProStateSku } returns lastProSku
+        every { billingCache.lastProStateSku } returns lastProSkuMock
         return UpgradeRepoGplay(scope, billingManager, billingCache)
     }
+
+    private fun result(code: Int): BillingResult = BillingResult.newBuilder().setResponseCode(code).build()
 
     private fun proPurchase() = mockk<Purchase>().apply {
         every { products } returns OurSku.PRO_SKUS.map { it.id }
@@ -182,5 +199,55 @@ class UpgradeRepoGplayTest : BaseTest() {
         repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
         errors.single().shouldBeInstanceOf<ItemAlreadyOwnedBillingException>()
+    }
+
+    @Test fun `explicit restore stamps the grace cache, sku before timestamp`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+
+        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe true
+
+        coVerifyOrder {
+            lastProSkuMock.update(any())
+            lastProAtMock.update(any())
+        }
+    }
+
+    @Test fun `background refresh stamps the grace cache from the fresh result`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+
+        repo(lastProAt = 0L).refresh()
+
+        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+    }
+
+    @Test fun `reactive emissions stamp once via the init collector, the map never stamps`() = runTest2 {
+        // billingData carries a pro purchase: the persistent init collector stamps exactly once.
+        // Collecting upgradeInfo runs the map at least twice (onStart-null + pro data) — the map is
+        // read-only now, so if it still stamped the count would exceed one.
+        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+
+        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+    }
+
+    @Test fun `async already-owned purchase event triggers a silent restore`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+
+        repo(
+            lastProAt = 0L,
+            purchaseFailures = listOf(result(BillingResponseCode.ITEM_ALREADY_OWNED)),
+        )
+
+        coVerify(exactly = 1) { billingManager.refresh() }
+    }
+
+    @Test fun `other async purchase failures do not trigger a restore`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            purchaseFailures = listOf(result(BillingResponseCode.DEVELOPER_ERROR)),
+        )
+
+        coVerify(exactly = 0) { billingManager.refresh() }
     }
 }

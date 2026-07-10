@@ -25,7 +25,9 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -55,6 +57,13 @@ data class BillingConnection(
 
         combined.sortedByDescending { it.purchaseTime }
     }.setupCommonEventHandlers(TAG) { "purchases" }
+
+    // Non-OK results from onPurchasesUpdated (e.g. async ITEM_ALREADY_OWNED after the Play sheet
+    // opened). Consumed by a single persistent collector in UpgradeRepoGplay — not an event bus.
+    val purchaseFailures: Flow<BillingResult> = purchaseEvents
+        .filterNotNull()
+        .filter { (result, _) -> !result.isSuccess }
+        .map { (result, _) -> result }
 
     private suspend fun queryPurchases(@BillingClient.ProductType type: String): Collection<Purchase> {
         val params = QueryPurchasesParams.newBuilder().apply {

@@ -45,12 +45,14 @@ class BillingConnectionProvider @Inject constructor(
                     log(TAG) {
                         "onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases)"
                     }
-                    purchaseEvents.value = result to purchases
                 } else {
                     log(TAG, WARN) {
                         "error: onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases)"
                     }
                 }
+                // Failures are stored too: async ITEM_ALREADY_OWNED drives the auto-restore in
+                // UpgradeRepoGplay. Success-only consumers (the purchases combine) filter on result.
+                purchaseEvents.value = result to purchases
             }
         }.build()
 
