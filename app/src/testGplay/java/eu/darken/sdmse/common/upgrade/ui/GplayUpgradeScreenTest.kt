@@ -32,7 +32,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.ACTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
     }
 
     @Test
@@ -104,7 +104,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_UNAVAILABLE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_unavailable_message)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
     }
 
     @Test
@@ -165,6 +165,42 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).assertIsNotEnabled()
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `options copy promises the trial only when Play returned the trial offer`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.TRIAL,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `options copy drops the trial promise when only the base offer is available`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(0)
     }
 }
 

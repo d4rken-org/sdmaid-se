@@ -103,6 +103,12 @@ class UpgradeViewModel @Inject constructor(
             return@combine GplayUpgradeUiState.Unavailable(serviceUnavailableError)
         }
 
+        // Diagnosability: distinguishes "Play withheld the trial offer" from "offer matching failed"
+        // when users report a missing trial (see upgrade_screen_how_body_no_trial fallback).
+        sub?.firstOrNull()?.details?.subscriptionOfferDetails?.let { offers ->
+            log(TAG) { "Subscription offers from Play: ${offers.map { "${it.basePlanId}/${it.offerId}" }}" }
+        }
+
         toLoadedState(
             iap = iap?.firstOrNull(),
             sub = sub?.firstOrNull(),

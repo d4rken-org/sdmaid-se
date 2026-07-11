@@ -144,7 +144,16 @@ internal fun UpgradeScreen(
                 title = stringResource(R.string.upgrade_screen_how_title),
                 icon = Icons.TwoTone.Payments,
             ) {
-                UpgradeSectionBody(text = stringResource(R.string.upgrade_screen_how_body))
+                // Only promise the 14-day trial when Play actually returned the trial offer —
+                // otherwise the static copy contradicts the plain "Subscribe" button next to it.
+                val trialAvailable = uiState is GplayUpgradeUiState.Loaded &&
+                    uiState.subscriptionAction == SubscriptionAction.TRIAL
+                UpgradeSectionBody(
+                    text = stringResource(
+                        if (trialAvailable) R.string.upgrade_screen_how_body
+                        else R.string.upgrade_screen_how_body_no_trial
+                    )
+                )
             }
 
             UpgradeActionCard {
