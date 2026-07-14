@@ -113,8 +113,6 @@
     <string name="settings_privacy_policy_label">Палітыка канфідэнцыяльнасці</string>
     <string name="settings_privacy_policy_desc">Адказнае абыходжанне з данымі.</string>
     <string name="settings_category_other_label">Іншае</string>
-    <string name="settings_sponsor_development_title">Падтрымаць распрацоўку</string>
-    <string name="settings_sponsor_development_summary">Станьце спонсарам і зрабіце магчымай далейшую распрацоўку.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Агульныя</string>
     <string name="general_settings_desc">Агульныя налады, якія ўплываюць на ўсю праграму.</string>

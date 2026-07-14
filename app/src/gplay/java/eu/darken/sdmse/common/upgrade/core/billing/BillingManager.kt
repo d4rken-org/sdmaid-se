@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.upgrade.core.billing
 import android.app.Activity
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.Purchase
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -177,6 +178,17 @@ class BillingManager @Inject constructor(
         // purchases (and any billing error) with a real happens-before instead of racing the shared
         // upgradeInfo replay cache.
         return BillingData(purchases = useConnection { refreshPurchases() })
+    }
+
+    // Strict SUBS-only query for the pre-purchase subscription gate: unlike refresh(), a failure
+    // here propagates (user-friendly-mapped) instead of being masked by the other product type.
+    suspend fun querySubscriptions(): Collection<Purchase> = try {
+        useConnection { querySubscriptions() }
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "querySubscriptions() failed: ${e.asLog()}" }
+        throw e.tryMapUserFriendly()
     }
 
     companion object {

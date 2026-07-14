@@ -37,8 +37,6 @@
     <string name="settings_privacy_policy_label">Polisi preifatrwydd</string>
     <string name="settings_privacy_policy_desc">Trin data yn gyfrifol.</string>
     <string name="settings_category_other_label">Arall</string>
-    <string name="settings_sponsor_development_title">Noddi datblygiad</string>
-    <string name="settings_sponsor_development_summary">Byddwch yn noddwr a gwnewch ddatblygiad parhaus yn bosibl.</string>
     <string name="general_settings_label">Cyffredinol</string>
     <string name="general_settings_desc">Addasiadau cyffredinol sy\'n effeithio ar yr ap cyfan.</string>
     <string name="settings_category_ui_label">Rhyngwyneb defnyddiwr</string>

@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">निजता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा को जिम्मेदारी से संभालना।</string>
     <string name="settings_category_other_label">अन्य</string>
-    <string name="settings_sponsor_development_title">विकास को प्रायोजक करें</string>
-    <string name="settings_sponsor_development_summary">एक संरक्षक बनें और निरंतर विकास को संभव बनाएं।</string>
     <string name="upgrade_badge_label">प्रो</string>
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सामान्य बदलाव जो पूरे ऐप को प्रभावित करते हैं।</string>

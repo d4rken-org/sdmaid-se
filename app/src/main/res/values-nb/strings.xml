@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
     <string name="settings_category_other_label">Andre</string>
-    <string name="settings_sponsor_development_title">Støtt utviklingen</string>
-    <string name="settings_sponsor_development_summary">Bli en patron og gjør videre utvikling mulig.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Generelt</string>
     <string name="general_settings_desc">Generelle justeringer som påvirker hele appen.</string>

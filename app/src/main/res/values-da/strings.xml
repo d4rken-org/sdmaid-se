@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Privatlivspolitik</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarligt.</string>
     <string name="settings_category_other_label">Andet</string>
-    <string name="settings_sponsor_development_title">Sponsorudvikling</string>
-    <string name="settings_sponsor_development_summary">Bliv en patron, og gør fortsat udvikling muligt.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Generel</string>
     <string name="general_settings_desc">Generelle justeringer, der påvirker hele appen.</string>

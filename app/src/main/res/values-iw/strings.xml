@@ -113,8 +113,6 @@
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_category_other_label">אחר</string>
-    <string name="settings_sponsor_development_title">פיתוח חסות</string>
-    <string name="settings_sponsor_development_summary">הפוך לפטרון ואפשר את המשך הפיתוח.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">כללי</string>
     <string name="general_settings_desc">שינויים כללים המשפיעים על כל האפליקציה.</string>

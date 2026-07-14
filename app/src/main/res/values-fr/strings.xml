@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Politique de confidentialité</string>
     <string name="settings_privacy_policy_desc">Traitement responsable des données.</string>
     <string name="settings_category_other_label">Autres</string>
-    <string name="settings_sponsor_development_title">Soutenir le développement</string>
-    <string name="settings_sponsor_development_summary">Devenir mécène et rendre possible la poursuite du développement.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Général</string>
     <string name="general_settings_desc">Peaufinages généraux qui affectent l’ensemble de l’appli.</string>

@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Tietosuojakäytäntö</string>
     <string name="settings_privacy_policy_desc">Vastuullinen tietojen käsittely.</string>
     <string name="settings_category_other_label">Muut</string>
-    <string name="settings_sponsor_development_title">Sponsoroi kehitystä</string>
-    <string name="settings_sponsor_development_summary">Tule sponsoriksi ja mahdollista jatkuva kehitys.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Yleiset</string>
     <string name="general_settings_desc">Yleiset säädöt jotka vaikuttavat koko sovellukseen.</string>

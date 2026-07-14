@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">தனியுரிமை கொள்கை</string>
     <string name="settings_privacy_policy_desc">தகவலை பொறுப்புடனுடன் கைகாளவது.</string>
     <string name="settings_category_other_label">மற்றவை</string>
-    <string name="settings_sponsor_development_title">மேம்பாட்டை வழங்கவும்</string>
-    <string name="settings_sponsor_development_summary">ஒரு patron ஆகி தொடர் மேம்பாட்டை சாத்தியமாக்கவும்.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">பொது</string>
     <string name="general_settings_desc">முழு பயன்பாட்டையும் பாதிக்கும் பொது வின்யாசங்கள்.</string>

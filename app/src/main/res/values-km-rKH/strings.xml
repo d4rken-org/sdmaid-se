@@ -104,8 +104,6 @@
     <string name="settings_privacy_policy_label">គោលការណ៍ឯកជនភាព</string>
     <string name="settings_privacy_policy_desc">ការដោះស្រាយទិន្នន័យដោយមានការទទួលខុសត្រូវ។</string>
     <string name="settings_category_other_label">ដទៃ</string>
-    <string name="settings_sponsor_development_title">ឧបត្ថម្ភការអភិវឌ្ឍន៍</string>
-    <string name="settings_sponsor_development_summary">ក្លាយជាស្ថានីយ និងធានាផលិតកម្មបន្ត។</string>
     <string name="upgrade_badge_label">ប្រូ</string>
     <string name="general_settings_label">ជាទូទៅ</string>
     <string name="general_settings_desc">ការកែលម្អ ទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>

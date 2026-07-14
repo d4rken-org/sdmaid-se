@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_category_other_label">Iba</string>
-    <string name="settings_sponsor_development_title">Mag-sponsor ng development</string>
-    <string name="settings_sponsor_development_summary">Maging patron at gawing posible ang patuloy na development.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Pangkalahatan</string>
     <string name="general_settings_desc">Mga pangkalahatang pagbabago na nakakaapekto sa buong app.</string>

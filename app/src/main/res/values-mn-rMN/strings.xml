@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
     <string name="settings_privacy_policy_desc">Өгөгдлийг хариуцлагатай зохицуулах.</string>
     <string name="settings_category_other_label">Бусад</string>
-    <string name="settings_sponsor_development_title">Хөгжүүлэлтийг дэмжих</string>
-    <string name="settings_sponsor_development_summary">Ивээн тэтгэгч болж үргэлжилсэн хөгжүүлэлтийг боломжтой болгоорой.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Ерөнхий</string>
     <string name="general_settings_desc">Аппликешн даяар нөлөөлөх ерөнхий тохиргоо.</string>

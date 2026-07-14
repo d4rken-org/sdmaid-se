@@ -9,6 +9,7 @@ data object DashboardRoute : NavigationDestination
 @Serializable
 data class UpgradeRoute(
     val forced: Boolean = false,
+    val manage: Boolean = false,
 ) : NavigationDestination
 
 @Serializable

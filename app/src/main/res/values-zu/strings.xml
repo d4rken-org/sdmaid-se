@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Inqubomgomo yobumfihlo</string>
     <string name="settings_privacy_policy_desc">Ukuphatha idatha ngokufanele.</string>
     <string name="settings_category_other_label">Okunye</string>
-    <string name="settings_sponsor_development_title">Xhasa ukuthuthukiswa</string>
-    <string name="settings_sponsor_development_summary">Yiba umxhasi wenze ukuqhubeka nokuthuthukiswa kube nokwenzeka.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Okujwayelekile</string>
     <string name="general_settings_desc">Izilungiso ezijwayelekile ezithinta uhlelo lonke.</string>

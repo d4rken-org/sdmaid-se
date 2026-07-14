@@ -110,8 +110,6 @@
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
     <string name="settings_privacy_policy_desc">Gestionarea responsabilă a datelor.</string>
     <string name="settings_category_other_label">Altele</string>
-    <string name="settings_sponsor_development_title">Sponsorizează dezvoltarea</string>
-    <string name="settings_sponsor_development_summary">Devine un patron și fă dezvoltarea continuată posibil.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustări generale care afectează întreaga aplicație.</string>

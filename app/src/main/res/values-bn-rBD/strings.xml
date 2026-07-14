@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_privacy_policy_desc">দায়িত্বের সাথে ডেটা পরিচালনা করা।</string>
     <string name="settings_category_other_label">অন্যান্য</string>
-    <string name="settings_sponsor_development_title">স্পনসর ডেভলপমেন্ট</string>
-    <string name="settings_sponsor_development_summary">একজন পৃষ্ঠপোষক হয়ে উঠুন এবং অব্যাহত উন্নয়ন সম্ভবপর করে তুলুন।</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">সাধারণ</string>
     <string name="general_settings_desc">খুঁটিনাটি পরিবর্তন যা পুরো অ্যাপকে প্রভাবিত করে।</string>

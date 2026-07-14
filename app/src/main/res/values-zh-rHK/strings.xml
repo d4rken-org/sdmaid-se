@@ -104,8 +104,6 @@
     <string name="settings_privacy_policy_label">私隱政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
     <string name="settings_category_other_label">其他</string>
-    <string name="settings_sponsor_development_title">贊助開發</string>
-    <string name="settings_sponsor_development_summary">成為贊助者，使持續開發成為可能。</string>
     <string name="upgrade_badge_label">專業版</string>
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">影響整個應用程式的一般調校。</string>

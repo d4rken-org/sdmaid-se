@@ -38,4 +38,26 @@ class CommonRoutesSerializationTest : BaseTest() {
         val deserialized = json.decodeFromString<UpgradeRoute>(serialized)
         deserialized shouldBe original
     }
+
+    @Test
+    fun `UpgradeRoute with manage true`() {
+        val original = UpgradeRoute(manage = true)
+
+        val serialized = json.encodeToString(original)
+        serialized.toComparableKotlinxJson() shouldBe """
+            {
+                "manage": true
+            }
+        """.toComparableKotlinxJson()
+
+        val deserialized = json.decodeFromString<UpgradeRoute>(serialized)
+        deserialized shouldBe original
+    }
+
+    @Test
+    fun `UpgradeRoute decodes legacy JSON without the manage field`() {
+        val deserialized = json.decodeFromString<UpgradeRoute>("""{"forced":true}""")
+
+        deserialized shouldBe UpgradeRoute(forced = true, manage = false)
+    }
 }

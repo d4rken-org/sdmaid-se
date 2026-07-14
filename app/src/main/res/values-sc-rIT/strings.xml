@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Polìtica de riservadesa</string>
     <string name="settings_privacy_policy_desc">Gestimentu responsàbile de sos datos.</string>
     <string name="settings_category_other_label">Àteru</string>
-    <string name="settings_sponsor_development_title">Isponsoriza su isvilupu</string>
-    <string name="settings_sponsor_development_summary">Benni patronu e faghe possìbile su isvilupu cuntinuu.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Generale</string>
     <string name="general_settings_desc">Agiustedas generales chi afetant tota s\'aplicaçione.</string>

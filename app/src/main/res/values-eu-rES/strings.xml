@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>
     <string name="settings_category_other_label">Bestelakoak</string>
-    <string name="settings_sponsor_development_title">Garapen babestailetu</string>
-    <string name="settings_sponsor_development_summary">Bihur zaitez babesle eta egin garapen jarraitua posible.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Orokorra</string>
     <string name="general_settings_desc">Aplikazio osoa eragiten duten doikuntza orokorrak.</string>

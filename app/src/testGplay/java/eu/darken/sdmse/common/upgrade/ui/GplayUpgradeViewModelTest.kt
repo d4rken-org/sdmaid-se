@@ -1,20 +1,33 @@
 package eu.darken.sdmse.common.upgrade.ui
 
+import android.app.Activity
 import androidx.lifecycle.SavedStateHandle
+import com.android.billingclient.api.Purchase
+import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.navigation.NavEvent
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
+import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
+import io.kotest.matchers.booleans.shouldBeTrue
+import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
@@ -53,6 +66,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         val upgradeInfo = MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
         val repo = mockk<UpgradeRepoGplay>(relaxed = true)
         every { repo.upgradeInfo } returns upgradeInfo
+        every { repo.isSettled } returns MutableStateFlow(true)
         every { repo.wasEverPro } returns MutableStateFlow(false)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } coAnswers {
             delay(6_000)
@@ -63,11 +77,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
             emptyList()
         }
 
-        val vm = UpgradeViewModel(
-            handle = SavedStateHandle(mapOf("forced" to false)),
-            dispatcherProvider = TestDispatcherProvider(testDispatcher),
-            upgradeRepo = repo,
-        )
+        val vm = buildVm(repo)
 
         val unavailableState = async {
             vm.state.first { it is GplayUpgradeUiState.Unavailable }
@@ -86,13 +96,30 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        every { isSettled } returns MutableStateFlow(true)
         every { wasEverPro } returns MutableStateFlow(false)
     }
 
-    private fun buildVm(repo: UpgradeRepoGplay): UpgradeViewModel = UpgradeViewModel(
+    private fun buildVm(
+        repo: UpgradeRepoGplay,
+        webpageTool: WebpageTool = mockk(relaxed = true),
+    ): UpgradeViewModel = UpgradeViewModel(
         handle = SavedStateHandle(mapOf("forced" to false)),
         dispatcherProvider = TestDispatcherProvider(testDispatcher),
         upgradeRepo = repo,
+        webpageTool = webpageTool,
+    )
+
+    private fun mockPurchase(skuId: String, autoRenewing: Boolean = false): Purchase = mockk<Purchase>().apply {
+        every { products } returns listOf(skuId)
+        every { isAutoRenewing } returns autoRenewing
+        every { purchaseTime } returns 1234L
+    }
+
+    private fun proInfo(vararg purchases: Purchase) = UpgradeRepoGplay.Info(
+        false,
+        BillingData(purchases = purchases.toList()),
+        null,
     )
 
     @Test
@@ -140,8 +167,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     @Test
     fun `previously-pro on this device flows into the loaded banner flag`() = runTest2(context = testDispatcher) {
-        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        val repo = mockRepo()
         every { repo.wasEverPro } returns MutableStateFlow(true)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } returns emptyList()
         coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
@@ -157,7 +183,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     @Test
     fun `banner flag stays off while grace still keeps the user pro`() = runTest2(context = testDispatcher) {
-        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
+        val repo = mockRepo()
         // gracePeriod = true => Info.isPro is true even without a current raw purchase.
         every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
         every { repo.wasEverPro } returns MutableStateFlow(true)
@@ -202,5 +228,205 @@ class GplayUpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 2) { repo.restorePurchaseNow() }
+    }
+
+    @Test
+    fun `default route bounces a pro user out of the screen`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro", autoRenewing = true)))
+        val vm = buildVm(repo)
+
+        val navEvents = mutableListOf<NavEvent>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { navEvents.add(it) } }
+
+        vm.bindRoute(UpgradeRoute())
+        advanceUntilIdle()
+
+        navEvents shouldBe listOf(NavEvent.Up)
+        collector.cancel()
+    }
+
+    @Test
+    fun `manage route keeps a pro user on the screen`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro", autoRenewing = true)))
+        val vm = buildVm(repo)
+
+        val navEvents = mutableListOf<NavEvent>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { navEvents.add(it) } }
+
+        vm.bindRoute(UpgradeRoute(manage = true))
+        advanceUntilIdle()
+
+        navEvents.shouldBeEmpty()
+        collector.cancel()
+    }
+
+    @Test
+    fun `iap purchase is blocked while the subscription is still set to renew`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.queryCurrentSubscriptions() } returns listOf(mockPurchase("upgrade.pro", autoRenewing = true))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.SubscriptionStillRenewing
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `iap purchase proceeds when the subscription is not set to renew`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.queryCurrentSubscriptions() } returns listOf(mockPurchase("upgrade.pro", autoRenewing = false))
+        val vm = buildVm(repo)
+
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Iap.PRO_UPGRADE), isNull(), any()) }
+    }
+
+    @Test
+    fun `iap purchase proceeds without any subscription`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.queryCurrentSubscriptions() } returns emptyList()
+        val vm = buildVm(repo)
+
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Iap.PRO_UPGRADE), isNull(), any()) }
+    }
+
+    @Test
+    fun `failing subscription verification blocks the purchase and forwards the error`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        val boom = IllegalStateException("Play unavailable")
+        coEvery { repo.queryCurrentSubscriptions() } throws boom
+        val vm = buildVm(repo)
+
+        val forwardedError = async { vm.errorEvents.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        forwardedError.await() shouldBe boom
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `subscription verification timeout blocks the purchase with a check-failed event`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        coEvery { repo.queryCurrentSubscriptions() } coAnswers {
+            delay(30_000) // longer than the 10s verification timeout
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.SubscriptionCheckFailed
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `iap taps are single-flight while a verification is running`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.queryCurrentSubscriptions() } coAnswers {
+            delay(5_000)
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.queryCurrentSubscriptions() }
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Iap.PRO_UPGRADE), isNull(), any()) }
+    }
+
+    @Test
+    fun `subscription owner gets ownership state even when product details fail`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro", autoRenewing = true)))
+        coEvery { repo.querySkus(any()) } throws IllegalStateException("No details available")
+        val vm = buildVm(repo)
+
+        val loaded = async {
+            vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
+        }
+        advanceUntilIdle()
+
+        val ownership = loaded.await().ownership
+        ownership.hasIap shouldBe false
+        ownership.subscription.shouldNotBeNull().isAutoRenewing.shouldBeTrue()
+    }
+
+    @Test
+    fun `unsettled billing stays loading only while detail queries are pending`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro")))
+        every { repo.isSettled } returns MutableStateFlow(false)
+        coEvery { repo.querySkus(any()) } coAnswers {
+            delay(2_000)
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+
+        testScheduler.advanceTimeBy(1_000)
+        vm.state.value shouldBe GplayUpgradeUiState.Loading
+
+        // The settling wait is bounded by the detail queries: once they resolve, rendering
+        // proceeds even if billing never settles — a starved billing layer must degrade to a
+        // rendered screen, not an endless spinner.
+        advanceUntilIdle()
+        vm.state.value.shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        collector.cancel()
+    }
+
+    @Test
+    fun `manage subscription opens the play management page for our sub`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
+        val vm = buildVm(repo, webpageTool)
+
+        vm.onManageSubscription()
+
+        verify { webpageTool.open(UpgradeViewModel.PLAY_SUBSCRIPTION_SITE) }
+        UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "sku=${OurSku.Sub.PRO_UPGRADE.id}"
+        UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "package="
+    }
+
+    @Test
+    fun `owner with failed detail queries gets no detail error dialog`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro", autoRenewing = true)))
+        coEvery { repo.querySkus(any()) } throws IllegalStateException("No details available")
+        val vm = buildVm(repo)
+
+        val errors = mutableListOf<Throwable>()
+        val errorCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.errorEvents.collect { errors.add(it) } }
+        val stateCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        advanceUntilIdle()
+
+        vm.state.value.shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        errors.shouldBeEmpty()
+        errorCollector.cancel()
+        stateCollector.cancel()
     }
 }

@@ -37,8 +37,6 @@
     <string name="settings_privacy_policy_label">Privateca politiko</string>
     <string name="settings_privacy_policy_desc">Traktante datumojn respondece.</string>
     <string name="settings_category_other_label">Alia</string>
-    <string name="settings_sponsor_development_title">Sponsori evoluigon</string>
-    <string name="settings_sponsor_development_summary">Fariĝu patrono kaj ebligu daŭran evoluigon.</string>
     <string name="general_settings_label">Ĝenerala</string>
     <string name="general_settings_desc">Ĝeneralaj agordaĵoj kiuj influas la tutan aplikaĵon.</string>
     <string name="settings_category_ui_label">Uzantinterfaco</string>

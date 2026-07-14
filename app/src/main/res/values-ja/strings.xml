@@ -104,8 +104,6 @@
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
     <string name="settings_privacy_policy_desc">責任を持ってデータを扱います。</string>
     <string name="settings_category_other_label">その他</string>
-    <string name="settings_sponsor_development_title">開発支援者</string>
-    <string name="settings_sponsor_development_summary">パトロンになって継続的な開発を支援する。</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">アプリ全体に影響を与える一般的な調整。</string>

@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
 import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.Purchase
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -136,43 +137,63 @@ class UpgradeRepoGplay @Inject constructor(
         offer: Sku.Subscription.Offer?,
         onError: (Throwable) -> Unit,
     ) {
+        scope.launch { launchBillingFlowNow(activity, sku, offer, onError) }
+    }
+
+    // Suspends until the Play launch resolved (sheet up, or failed) — callers holding an
+    // in-progress guard (e.g. the IAP verification single-flight) stay guarded through the
+    // launch instead of racing the fire-and-forget variant above.
+    suspend fun launchBillingFlowNow(
+        activity: Activity,
+        sku: Sku,
+        offer: Sku.Subscription.Offer?,
+        onError: (Throwable) -> Unit,
+    ) {
         log(TAG) { "launchBillingFlow($activity,$sku)" }
-        scope.launch {
-            try {
-                billingManager.startIapFlow(activity, sku, offer)
-            } catch (e: Exception) {
-                when {
-                    e is UserCanceledBillingException -> log(TAG) { "User canceled billing flow" }
+        try {
+            billingManager.startIapFlow(activity, sku, offer)
+        } catch (e: Exception) {
+            when {
+                e is CancellationException -> throw e
 
-                    e is ItemAlreadyOwnedBillingException -> {
-                        // Stale local state: Play says they already own it, so tapping "buy" really
-                        // means "unlock what I own" — restore instead of showing an error.
-                        log(TAG, INFO) { "Launch says already owned -> restoring purchase" }
-                        val restored = try {
-                            withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
-                        } catch (re: CancellationException) {
-                            throw re
-                        } catch (re: Exception) {
-                            log(TAG, WARN) { "Restore after already-owned failed: ${re.asLog()}" }
-                            null
-                        }
-                        if (restored?.isPro != true) {
-                            // Couldn't reconcile the entitlement (pending purchase, account mismatch,
-                            // Play quirk) — fall back to the already-owned dialog with restore tips.
-                            onError(e)
-                        }
+                e is UserCanceledBillingException -> log(TAG) { "User canceled billing flow" }
+
+                e is ItemAlreadyOwnedBillingException -> {
+                    // Stale local state: Play says they already own it, so tapping "buy" really
+                    // means "unlock what I own" — restore instead of showing an error.
+                    log(TAG, INFO) { "Launch says already owned -> restoring purchase" }
+                    val restored = try {
+                        withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+                    } catch (re: CancellationException) {
+                        throw re
+                    } catch (re: Exception) {
+                        log(TAG, WARN) { "Restore after already-owned failed: ${re.asLog()}" }
+                        null
                     }
-
-                    else -> {
-                        log(TAG) { "startIapFlow failed:${e.asLog()}" }
+                    if (restored?.isPro != true) {
+                        // Couldn't reconcile the entitlement (pending purchase, account mismatch,
+                        // Play quirk) — fall back to the already-owned dialog with restore tips.
                         onError(e)
                     }
+                }
+
+                else -> {
+                    log(TAG) { "startIapFlow failed:${e.asLog()}" }
+                    onError(e)
                 }
             }
         }
     }
 
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = billingManager.querySkus(*skus)
+
+    // Strict subscription lookup for the pre-purchase gate: fresh SUBS-only query with explicit
+    // failure. No grace substitution and no cross-product-type tolerance (unlike refresh() and
+    // restorePurchaseNow()) — callers must treat any error as "couldn't verify" and fail closed.
+    suspend fun queryCurrentSubscriptions(): Collection<Purchase> {
+        log(TAG) { "queryCurrentSubscriptions()" }
+        return billingManager.querySubscriptions()
+    }
 
     override suspend fun refresh() {
         log(TAG) { "refresh()" }

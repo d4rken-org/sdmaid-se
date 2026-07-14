@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
     <string name="settings_privacy_policy_desc">Υπεύθυνη διαχείριση δεδομένων.</string>
     <string name="settings_category_other_label">Άλλο</string>
-    <string name="settings_sponsor_development_title">Χορήγησε τη δημιουργία</string>
-    <string name="settings_sponsor_development_summary">Γίνετε μέρος patron και κάντε δυνατή τη συνεχή ανάπτυξη.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Γενικά</string>
     <string name="general_settings_desc">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>

@@ -44,4 +44,16 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Troubleshooting tips for unrecognized upgrades:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store synchronization may take time. Try rebooting, clearing Google Play cache or simply wait.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Multiple accounts can confuse Google Play. Log out of other accounts or install through the Google Play website, which forces associations with a specific account.</string>
+
+    <string name="upgrade_screen_manage_title">SD Maid SE Pro</string>
+    <string name="upgrade_screen_owned_iap_title">One-time purchase</string>
+    <string name="upgrade_screen_owned_iap_body">You own the one-time Pro upgrade. Pro stays unlocked on this Google account. Thanks for supporting SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Your Pro subscription is active and set to renew. Billing is managed by Google Play.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Your Pro subscription is active, but not set to renew. Pro stays available until the current period ends.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">This subscription is still set to renew, although you already own the one-time upgrade. You can cancel it in Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Manage subscription</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">This is a separate purchase: it does not cancel or refund your subscription. Use the same Google account for both.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Subscription still active</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play reports that your subscription is still set to renew. To buy the one-time upgrade, cancel the subscription in Google Play first, then come back here.\n\nJust cancelled it? Give Google Play a moment and try again. Also make sure you are using the same Google account.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Couldn\'t check your subscription status with Google Play. Please try again in a moment.</string>
 </resources>

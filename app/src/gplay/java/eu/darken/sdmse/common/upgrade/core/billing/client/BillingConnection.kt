@@ -98,6 +98,17 @@ data class BillingConnection(
         combinePurchaseResults(iap, sub)
     }
 
+    // Strict SUBS-only query for the pre-purchase subscription gate: unlike refreshPurchases(),
+    // a failure propagates instead of being masked by the other product type — callers must be
+    // able to fail closed on "couldn't verify". The cache is refreshed on success so the reactive
+    // purchases flow picks up the fresh renewal state too.
+    suspend fun querySubscriptions(): Collection<Purchase> {
+        log(TAG) { "querySubscriptions()" }
+        return queryPurchases(BillingClient.ProductType.SUBS)
+            .filter { it.purchaseState == PurchaseState.PURCHASED }
+            .also { queryCacheSubs.value = it }
+    }
+
     // Never throws except on cancellation, so a single failing product-type query doesn't cancel the
     // sibling query (or the coroutineScope). The exception is already user-friendly-mapped.
     private suspend fun queryPurchasedProducts(

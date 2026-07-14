@@ -11,11 +11,9 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.uix.ViewModel4
-import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.setup.SetupManager
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -24,7 +22,6 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     @Suppress("unused") val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-    private val upgradeRepo: UpgradeRepo,
     private val setupManager: SetupManager,
     private val webpageTool: WebpageTool,
     private val clipboardHelper: ClipboardHelper,
@@ -33,18 +30,12 @@ class SettingsViewModel @Inject constructor(
 
     val events = SingleEventFlow<SettingEvents>()
 
-    val state: StateFlow<State> = combine(
-        upgradeRepo.upgradeInfo.map { it.isPro },
-        setupManager.state.map { it.isDone },
-    ) { isPro, isSetUp ->
-        State(
-            isPro = isPro,
-            setupDone = isSetUp,
+    val state: StateFlow<State> = setupManager.state
+        .map { State(setupDone = it.isDone) }
+        .safeStateIn(
+            initialValue = State(),
+            onError = { State() },
         )
-    }.safeStateIn(
-        initialValue = State(),
-        onError = { State() },
-    )
 
     fun openWebsite(url: String) {
         webpageTool.open(url)
@@ -52,10 +43,6 @@ class SettingsViewModel @Inject constructor(
 
     fun openPrivacyPolicy() {
         webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
-    }
-
-    fun openUpgradeWebsite() {
-        webpageTool.open(upgradeRepo.upgradeSite)
     }
 
     private suspend fun getVersionText() = """
@@ -73,9 +60,8 @@ class SettingsViewModel @Inject constructor(
     }
 
     data class State(
-        // Nullable = "not yet known"; avoids a one-frame flash of the FOSS sponsor row / setup tint
-        // for Pro / set-up users before the first upstream emission under WhileSubscribed.
-        val isPro: Boolean? = null,
+        // Nullable = "not yet known"; avoids a one-frame flash of the setup tint for set-up users
+        // before the first upstream emission under WhileSubscribed.
         val setupDone: Boolean? = null,
     )
 

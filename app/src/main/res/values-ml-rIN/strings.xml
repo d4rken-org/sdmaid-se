@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
-    <string name="settings_sponsor_development_title">വികസനം സ്പോൺസർ ചെയ്യുക</string>
-    <string name="settings_sponsor_development_summary">പ്രണയിയാകുകയും തുടർ വികസനം സാധ്യമാക്കുകയും ചെയ്യുക.</string>
     <string name="upgrade_badge_label">പ്രോ</string>
     <string name="general_settings_label">പൊതുവായ</string>
     <string name="general_settings_desc">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ ക്രമീകരണങ്ങൾ.</string>

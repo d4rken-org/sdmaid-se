@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Политика за поверителност</string>
     <string name="settings_privacy_policy_desc">Отговорно управление на данните.</string>
     <string name="settings_category_other_label">Други</string>
-    <string name="settings_sponsor_development_title">Спонсориране на разработката</string>
-    <string name="settings_sponsor_development_summary">Станете покровител и направете възможно устойчивото развитие.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Общи</string>
     <string name="general_settings_desc">Общи настройки, които засягат цялото приложение.</string>

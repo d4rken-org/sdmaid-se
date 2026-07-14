@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
     <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
     <string name="settings_category_other_label">دیگر</string>
-    <string name="settings_sponsor_development_title">ڈیولپمنٹ کو سپانسر کریں</string>
-    <string name="settings_sponsor_development_summary">سرپرست بنیں اور مسلسل ترقی کو ممکن بنائیں۔</string>
     <string name="upgrade_badge_label">پرو</string>
     <string name="general_settings_label">عمومی</string>
     <string name="general_settings_desc">عمومی تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>

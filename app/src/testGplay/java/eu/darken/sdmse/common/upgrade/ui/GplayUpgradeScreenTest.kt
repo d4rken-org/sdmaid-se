@@ -11,6 +11,7 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -183,6 +184,99 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(0)
+    }
+
+    private fun ownedState(ownership: Ownership, verificationInProgress: Boolean = false) =
+        GplayUpgradeUiState.Loaded(
+            subscriptionAction = SubscriptionAction.UNAVAILABLE,
+            subscriptionEnabled = false,
+            subscriptionPrice = null,
+            iapEnabled = !ownership.hasIap,
+            iapPrice = "$24.99",
+            ownership = ownership,
+            verificationInProgress = verificationInProgress,
+        )
+
+    @Test
+    fun `renewing subscription owner sees management only and no purchase pitch`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = true))),
+            )
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_renewing_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_manage_title)).assertCountEquals(1)
+        // No acquisition upsell copy anywhere on the ownership screen — not just no buttons.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_title)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(0)
+        // Restore stays available in every ownership state: it reconciles entitlements, not upsell.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
+    }
+
+    @Test
+    fun `non-renewing subscription owner can buy the one-time upgrade`() {
+        var iapClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false))),
+                onIap = { iapClicks++ },
+            )
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_not_renewing_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_purchase_note)).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).performScrollTo().performClick()
+        composeRule.runOnIdle { check(iapClicks == 1) { "expected 1 iap click, got $iapClicks" } }
+    }
+
+    @Test
+    fun `one-time owner sees owned status without purchase options`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(uiState = ownedState(Ownership(hasIap = true)))
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_OWNED_IAP).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_body)).assertCountEquals(1)
+    }
+
+    @Test
+    fun `owning both with a renewing subscription shows the renewal warning`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(
+                    Ownership(hasIap = true, subscription = SubscriptionOwnership(isAutoRenewing = true)),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_both_renewing_warning)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
+    }
+
+    @Test
+    fun `ownership buy button is disabled while verification is running`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(
+                    Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)),
+                    verificationInProgress = true,
+                ),
+            )
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
     }
 
     @Test

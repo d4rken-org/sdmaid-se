@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">Privacybeleid</string>
     <string name="settings_privacy_policy_desc">Verantwoord met gegevens omgaan.</string>
     <string name="settings_category_other_label">Andere</string>
-    <string name="settings_sponsor_development_title">Sponsor ontwikkeling</string>
-    <string name="settings_sponsor_development_summary">Word beschermheer en maak verdere ontwikkeling mogelijk.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Algemeen</string>
     <string name="general_settings_desc">Algemene aanpassingen die de hele app beïnvloeden.</string>

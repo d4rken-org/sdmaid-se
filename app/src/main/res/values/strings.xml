@@ -112,8 +112,7 @@
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
     <string name="settings_category_other_label">Other</string>
 
-    <string name="settings_sponsor_development_title">Sponsor development</string>
-    <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
+    <string name="settings_upgrade_description">Upgrade status and options.</string>
 
     <string name="upgrade_badge_label">Pro</string>
 

@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
     <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
     <string name="settings_category_other_label">වෙනත්</string>
-    <string name="settings_sponsor_development_title">සංවර්ධනයට අනුග්‍රාහකත්වය</string>
-    <string name="settings_sponsor_development_summary">අනුග්‍රාහකයෙකු වන්න සහ අඛණ්ඩ සංවර්ධනය සුළු කරන්න.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">සාමාන්‍ය</string>
     <string name="general_settings_desc">සමස්ත යෙදුම බලපාන සාමාන්‍ය සකසන.</string>

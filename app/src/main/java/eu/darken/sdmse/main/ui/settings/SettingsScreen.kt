@@ -58,6 +58,7 @@ import eu.darken.sdmse.deduplicator.ui.DeduplicatorSettingsRoute
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.ui.navigation.AcknowledgementsRoute
 import eu.darken.sdmse.main.ui.navigation.BackupRestoreRoute
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.main.ui.navigation.GeneralSettingsRoute
 import eu.darken.sdmse.main.ui.navigation.SupportRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
@@ -106,7 +107,6 @@ fun SettingsScreenHost(
         onSupportClick = { vm.navTo(SupportRoute) },
         onAcknowledgementsClick = { vm.navTo(AcknowledgementsRoute) },
         onPrivacyClick = vm::openPrivacyPolicy,
-        onSponsorClick = vm::openUpgradeWebsite,
         onChangelogClick = { vm.openWebsite("https://sdmse.darken.eu/changelog") },
         onChangelogLongClick = vm::showVersionInfos,
         onToolSettingsClick = { tool ->
@@ -125,6 +125,7 @@ fun SettingsScreenHost(
         onStatsClick = { vm.navTo(StatsSettingsRoute) },
         onSchedulerClick = { vm.navTo(SchedulerSettingsRoute) },
         onBackupRestoreClick = { vm.navTo(BackupRestoreRoute) },
+        onProClick = { vm.navTo(UpgradeRoute(manage = true)) },
     )
 }
 
@@ -139,13 +140,13 @@ internal fun SettingsScreen(
     onSupportClick: () -> Unit = {},
     onAcknowledgementsClick: () -> Unit = {},
     onPrivacyClick: () -> Unit = {},
-    onSponsorClick: () -> Unit = {},
     onChangelogClick: () -> Unit = {},
     onChangelogLongClick: () -> Unit = {},
     onToolSettingsClick: (String) -> Unit = {},
     onStatsClick: () -> Unit = {},
     onSchedulerClick: () -> Unit = {},
     onBackupRestoreClick: () -> Unit = {},
+    onProClick: () -> Unit = {},
 ) {
     SdmScaffold(
         topBar = {
@@ -285,15 +286,15 @@ internal fun SettingsScreen(
             // Other category
             item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label)) }
 
-            if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && state.isPro == false) {
-                item {
-                    SettingsPreferenceItem(
-                        icon = Icons.TwoTone.Stars,
-                        title = stringResource(R.string.settings_sponsor_development_title),
-                        subtitle = stringResource(R.string.settings_sponsor_development_summary),
-                        onClick = onSponsorClick,
-                    )
-                }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.Stars,
+                    // Composed like the dashboard title card: the postfix string carries the
+                    // flavor-correct upgrade branding ("Pro" on GPLAY, "FOSS" on FOSS).
+                    title = "${stringResource(CommonR.string.app_name)} ${stringResource(R.string.app_name_upgrade_postfix)}",
+                    subtitle = stringResource(R.string.settings_upgrade_description),
+                    onClick = onProClick,
+                )
             }
 
             item {

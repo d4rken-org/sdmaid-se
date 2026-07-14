@@ -41,7 +41,9 @@ class UpgradeViewModel @Inject constructor(
             .filterNotNull()
             .take(1)
             .onEach { route ->
-                if (!route.forced) {
+                // The manage route is the settings "upgrade status" entry — upgraded users must
+                // not be bounced out. Forced routes keep their existing don't-auto-close semantics.
+                if (!route.forced && !route.manage) {
                     upgradeRepo.upgradeInfo
                         .filter { it.isPro }
                         .take(1)

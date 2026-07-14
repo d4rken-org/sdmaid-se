@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">गोपनीयता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा जिम्मेवारीपूर्वक ह्यान्डल गर्दै।</string>
     <string name="settings_category_other_label">अन्य</string>
-    <string name="settings_sponsor_development_title">विकासलाई प्रायोजन गर्नुहोस्</string>
-    <string name="settings_sponsor_development_summary">संरक्षक बन्नुहोस् र निरन्तर विकासलाई सम्भव बनाउनुहोस्।</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सम्पूर्ण एपलाई प्रभावित गर्ने सामान्य समायोजनहरू।</string>

@@ -107,8 +107,6 @@
     <string name="settings_privacy_policy_label">గోప్యతా విధానం</string>
     <string name="settings_privacy_policy_desc">డేటాను బాధ్యతగా నిర్వహించడం.</string>
     <string name="settings_category_other_label">ఇతర</string>
-    <string name="settings_sponsor_development_title">అభివృద్ధికు మద్దతు</string>
-    <string name="settings_sponsor_development_summary">పాట్రన్ అవ్వండి మరియు నిరంతర అభివృద్ధిని సాధ్యం చేయండి.</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">సాధారణ</string>
     <string name="general_settings_desc">ముందు ఎప్లికేషన్‌ను ప్రభావితం చేసే సాధారణ సెట్టింగ్సు.</string>
