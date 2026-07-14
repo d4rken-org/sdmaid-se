@@ -123,6 +123,19 @@ class GplayUpgradeViewModelTest : BaseTest() {
     )
 
     @Test
+    fun `restore that finds a purchase emits RestoreSucceeded`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro"))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreSucceeded
+    }
+
+    @Test
     fun `restore with no purchase emits RestoreFailed`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)

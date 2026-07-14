@@ -56,4 +56,5 @@
     <string name="upgrade_screen_sub_still_renewing_title">Subscription still active</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play reports that your subscription is still set to renew. To buy the one-time upgrade, cancel the subscription in Google Play first, then come back here.\n\nJust cancelled it? Give Google Play a moment and try again. Also make sure you are using the same Google account.</string>
     <string name="upgrade_screen_sub_check_failed_message">Couldn\'t check your subscription status with Google Play. Please try again in a moment.</string>
+    <string name="upgrade_screen_restore_success_message">Purchase restored — your Pro upgrade is active.</string>
 </resources>

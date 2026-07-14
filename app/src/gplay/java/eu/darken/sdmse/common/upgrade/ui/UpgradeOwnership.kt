@@ -109,6 +109,13 @@ internal fun UpgradeOwnershipContent(
         enabled = !uiState.restoreInProgress,
         modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE),
     ) {
+        if (uiState.restoreInProgress) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(18.dp),
+                strokeWidth = 2.dp,
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+        }
         Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
     }
 }

@@ -271,7 +271,12 @@ class UpgradeViewModel @Inject constructor(
                     events.tryEmit(UpgradeEvents.RestoreFailed)
                 }
 
-                restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
+                restored.isPro -> {
+                    log(TAG, INFO) { "Restored purchase :))" }
+                    // Explicit feedback: on the ownership screen a successful restore changes
+                    // nothing visible (the user already is Pro), so silence reads as "broken".
+                    events.tryEmit(UpgradeEvents.RestoreSucceeded)
+                }
 
                 else -> {
                     log(TAG, WARN) { "Restore purchase failed" }

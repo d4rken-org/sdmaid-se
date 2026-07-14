@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.upgrade.ui
 
+import android.widget.Toast
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -70,6 +71,12 @@ fun UpgradeScreenHost(
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
+                UpgradeEvents.RestoreSucceeded -> Toast.makeText(
+                    context,
+                    context.getString(R.string.upgrade_screen_restore_success_message),
+                    Toast.LENGTH_LONG,
+                ).show()
+
                 UpgradeEvents.RestoreFailed -> showRestoreFailed = true
                 UpgradeEvents.SubscriptionStillRenewing -> showStillRenewing = true
                 UpgradeEvents.SubscriptionCheckFailed -> showCheckFailed = true
@@ -336,6 +343,13 @@ private fun LoadedOffers(
             enabled = !uiState.restoreInProgress,
             modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE),
         ) {
+            if (uiState.restoreInProgress) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(18.dp),
+                    strokeWidth = 2.dp,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
             Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
         }
     }
