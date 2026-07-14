@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
+import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -8,18 +10,20 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
+import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
-import com.android.billingclient.api.BillingClient.BillingResponseCode
-import com.android.billingclient.api.BillingResult
 import io.mockk.coEvery
+import io.mockk.coJustRun
 import io.mockk.coVerify
-import io.mockk.coVerifyOrder
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -43,9 +47,13 @@ class UpgradeRepoGplayTest : BaseTest() {
         lastProAt: Long,
         lastSku: String = "",
         billingData: BillingData = BillingData(emptySet()),
+        freshBillingData: BillingManager.FreshData? = null,
         purchaseFailures: List<BillingResult> = emptyList(),
     ): UpgradeRepoGplay {
         every { billingManager.billingData } returns flowOf(billingData)
+        every { billingManager.freshBillingData } returns
+            (freshBillingData?.let { flowOf(it) } ?: emptyFlow())
+        every { billingManager.isSettled } returns flowOf(true)
         every { billingManager.purchaseFailures } returns
             if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
         lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true).apply {
@@ -56,6 +64,7 @@ class UpgradeRepoGplayTest : BaseTest() {
             every { flow } returns flowOf(lastSku)
         }
         every { billingCache.lastProStateSku } returns lastProSkuMock
+        coJustRun { billingCache.stampLastProState(any(), any()) }
         return UpgradeRepoGplay(scope, billingManager, billingCache)
     }
 
@@ -152,6 +161,15 @@ class UpgradeRepoGplayTest : BaseTest() {
             .restorePurchaseNow().isPro shouldBe false
     }
 
+    @Test fun `legacy empty last SKU falls back to the short window`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(emptySet())
+        val twentyDaysAgo = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
+
+        // Existing installs have a timestamp but no recorded SKU: they keep the old 7-day window
+        // until the next successful query records one.
+        repo(lastProAt = twentyDaysAgo, lastSku = "").restorePurchaseNow().isPro shouldBe false
+    }
+
     @Test fun `IAP grace window is longer than the subscription window`() {
         (UpgradeRepoGplay.GRACE_PERIOD_IAP_MS > UpgradeRepoGplay.GRACE_PERIOD_MS) shouldBe true
         UpgradeRepoGplay.GRACE_PERIOD_IAP_MS shouldBe Duration.ofDays(30).toMillis()
@@ -166,6 +184,80 @@ class UpgradeRepoGplayTest : BaseTest() {
         UpgradeRepoGplay.preferredProSku(listOf(sub))?.id shouldBe OurSku.Sub.PRO_UPGRADE.id
         UpgradeRepoGplay.preferredProSku(emptyList()) shouldBe null
     }
+
+    // region grace stamping provenance
+
+    @Test fun `mapped billing data does not stamp the grace timestamp`() = runTest2 {
+        // The reactive mapping runs on replayed (stale) data too, e.g. when the upgrade screen is
+        // reopened in a long-lived process -- that must not extend the grace window.
+        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+
+        coVerify(exactly = 0) { billingCache.stampLastProState(any(), any()) }
+    }
+
+    @Test fun `fresh billing data stamps the grace cache`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(
+                BillingData(setOf(proPurchase())),
+                isFullSnapshot = true,
+            ),
+        )
+
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, any()) }
+    }
+
+    @Test fun `fresh data without a known pro SKU does not stamp`() = runTest2 {
+        val unknown = mockk<Purchase>().apply {
+            every { products } returns listOf("some.unknown.product")
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(unknown)), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 0) { billingCache.stampLastProState(any(), any()) }
+    }
+
+    @Test fun `a non-full snapshot does not downgrade the IAP grace class`() = runTest2 {
+        // A purchase event or partial refresh proves ownership of what it contains, not the
+        // absence of the permanent IAP -- the 30d window must not silently become 7d.
+        val subOnly = mockk<Purchase>().apply {
+            every { products } returns listOf(OurSku.Sub.PRO_UPGRADE.id)
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 1_000L,
+            lastSku = OurSku.Iap.PRO_UPGRADE.id,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(subOnly)), isFullSnapshot = false),
+        )
+
+        // Timestamp refreshes, but the stored SKU keeps the permanent IAP's 30-day class.
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, any()) }
+    }
+
+    @Test fun `a full snapshot with only a subscription stamps the subscription class`() = runTest2 {
+        // Play confirmed the IAP is really gone: downgrading the grace class is now legitimate.
+        val subOnly = mockk<Purchase>().apply {
+            every { products } returns listOf(OurSku.Sub.PRO_UPGRADE.id)
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 1_000L,
+            lastSku = OurSku.Iap.PRO_UPGRADE.id,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(subOnly)), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Sub.PRO_UPGRADE.id, any()) }
+    }
+
+    // endregion
+
+    // region buy flow + already-owned recovery
 
     @Test fun `already-owned buy attempt silently restores the purchase instead of erroring`() = runTest2 {
         coEvery { billingManager.startIapFlow(any(), any(), null) } throws
@@ -201,34 +293,34 @@ class UpgradeRepoGplayTest : BaseTest() {
         errors.single().shouldBeInstanceOf<ItemAlreadyOwnedBillingException>()
     }
 
-    @Test fun `explicit restore stamps the grace cache, sku before timestamp`() = runTest2 {
-        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+    @Test fun `user cancel during the buy flow stays silent`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            UserCanceledBillingException(RuntimeException("launch result"))
 
-        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe true
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerifyOrder {
-            lastProSkuMock.update(any())
-            lastProAtMock.update(any())
-        }
+        errors shouldBe emptyList()
     }
 
-    @Test fun `background refresh stamps the grace cache from the fresh result`() = runTest2 {
-        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+    @Test fun `cancellation of the buy flow never reaches the error callback`() = runTest2 {
+        // A cancelled coroutine is not an error: surfacing it would show a spurious dialog.
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws CancellationException("scope died")
 
-        repo(lastProAt = 0L).refresh()
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+        errors shouldBe emptyList()
     }
 
-    @Test fun `reactive emissions stamp once via the init collector, the map never stamps`() = runTest2 {
-        // billingData carries a pro purchase: the persistent init collector stamps exactly once.
-        // Collecting upgradeInfo runs the map at least twice (onStart-null + pro data) — the map is
-        // read-only now, so if it still stamped the count would exceed one.
-        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+    @Test fun `other buy flow failures reach the error callback`() = runTest2 {
+        val failure = RuntimeException("launch failed")
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws failure
 
-        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+        errors.single() shouldBe failure
     }
 
     @Test fun `async already-owned purchase event triggers a silent restore`() = runTest2 {
@@ -250,4 +342,49 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         coVerify(exactly = 0) { billingManager.refresh() }
     }
+
+    @Test fun `overlapping already-owned recoveries coalesce into one restore`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        val gate = CompletableDeferred<Unit>()
+        coEvery { billingManager.refresh() } coAnswers {
+            gate.await()
+            BillingData(setOf(proPurchase()))
+        }
+
+        val errors = mutableListOf<Throwable>()
+        val repo = repo(lastProAt = 0L)
+        // Two buy taps race into the already-owned recovery while the first restore is in flight.
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
+
+        repo.autoRestoreBusy.first() shouldBe true
+        gate.complete(Unit)
+
+        // Both triggers joined the SAME restore -- one Play query, no stacked recoveries.
+        coVerify(exactly = 1) { billingManager.refresh() }
+        errors shouldBe emptyList()
+        repo.autoRestoreBusy.first() shouldBe false
+    }
+
+    @Test fun `auto restore busy state rises and falls around the recovery`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        val gate = CompletableDeferred<Unit>()
+        coEvery { billingManager.refresh() } coAnswers {
+            gate.await()
+            BillingData(setOf(proPurchase()))
+        }
+
+        val repo = repo(lastProAt = 0L)
+        repo.autoRestoreBusy.first() shouldBe false
+
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { }
+        repo.autoRestoreBusy.first() shouldBe true
+
+        gate.complete(Unit)
+        repo.autoRestoreBusy.first() shouldBe false
+    }
+
+    // endregion
 }

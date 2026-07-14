@@ -3,8 +3,13 @@ package eu.darken.sdmse.common.upgrade.core
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.longPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.datastore.basicReader
+import eu.darken.sdmse.common.datastore.basicWriter
 import eu.darken.sdmse.common.datastore.createValue
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,6 +24,28 @@ class BillingCache @Inject constructor(
     private val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val lastProStateAt = dataStore.createValue("gplay.cache.lastProAt", 0L)
-    val lastProStateSku = dataStore.createValue("gplay.cache.lastProSku", "")
+    // Raw keys shared between the DataStoreValues and stampLastProState's transaction — one
+    // source of truth for key name and encoding.
+    private val lastProStateAtKey = longPreferencesKey("gplay.cache.lastProAt")
+    private val lastProStateSkuKey = stringPreferencesKey("gplay.cache.lastProSku")
+
+    val lastProStateAt = dataStore.createValue(
+        key = lastProStateAtKey,
+        reader = basicReader(0L),
+        writer = basicWriter(),
+    )
+    val lastProStateSku = dataStore.createValue(
+        key = lastProStateSkuKey,
+        reader = basicReader(""),
+        writer = basicWriter(),
+    )
+
+    // One transaction for both values: the timestamp gates the grace period and the SKU modifies
+    // its window length — they must never be observable half-updated.
+    suspend fun stampLastProState(skuId: String, at: Long) {
+        dataStore.edit { prefs ->
+            prefs[lastProStateSkuKey] = skuId
+            prefs[lastProStateAtKey] = at
+        }
+    }
 }
