@@ -37,6 +37,7 @@
     <string name="general_error_label">Error</string>
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_refresh_action">Refresh</string>
+    <string name="general_retry_action">Retry</string>
     <string name="general_progress_searching">Searching</string>
     <string name="general_progress_generating_searchpaths">Generating search paths</string>
     <string name="general_progress_filtering">Filtering</string>

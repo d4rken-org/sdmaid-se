@@ -11,9 +11,15 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
+import com.android.billingclient.api.ProductDetails
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.upgrade.core.OurSku
+import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import io.mockk.every
+import io.mockk.mockk
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -165,6 +171,64 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).assertIsNotEnabled()
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `a running restore pauses the buy actions too`() {
+        // toLoadedState computes the enabled flags: a restore in progress (manual or the invisible
+        // already-owned recovery) must gate them even when offers are available -- a buy tap would
+        // just race the restore into ITEM_ALREADY_OWNED.
+        val iapOffer = mockk<ProductDetails.OneTimePurchaseOfferDetails>(relaxed = true)
+        val iapDetails = mockk<ProductDetails>(relaxed = true).apply {
+            every { oneTimePurchaseOfferDetails } returns iapOffer
+        }
+        val subOffer = mockk<ProductDetails.SubscriptionOfferDetails>(relaxed = true).apply {
+            every { basePlanId } returns OurSku.Sub.PRO_UPGRADE.BASE_OFFER.basePlanId
+            every { offerId } returns null
+        }
+        val subDetails = mockk<ProductDetails>(relaxed = true).apply {
+            every { subscriptionOfferDetails } returns listOf(subOffer)
+        }
+
+        val loaded = toLoadedState(
+            iap = SkuDetails(OurSku.Iap.PRO_UPGRADE, iapDetails),
+            sub = SkuDetails(OurSku.Sub.PRO_UPGRADE, subDetails),
+            hasIap = false,
+            hasSub = false,
+            restoreInProgress = true,
+        )
+
+        check(!loaded.iapEnabled) { "IAP buy must be disabled during a restore" }
+        check(!loaded.subscriptionEnabled) { "Subscription buy must be disabled during a restore" }
+
+        // Same offers without a running restore: both buys are available.
+        val idle = toLoadedState(
+            iap = SkuDetails(OurSku.Iap.PRO_UPGRADE, iapDetails),
+            sub = SkuDetails(OurSku.Sub.PRO_UPGRADE, subDetails),
+            hasIap = false,
+            hasSub = false,
+            restoreInProgress = false,
+        )
+        check(idle.iapEnabled) { "IAP buy should be enabled when idle" }
+        check(idle.subscriptionEnabled) { "Subscription buy should be enabled when idle" }
+    }
+
+    @Test
+    fun `unavailable state offers a retry that fires the callback`() {
+        var retryClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Unavailable(
+                    error = RuntimeException("Google Play services unavailable"),
+                ),
+                onRetry = { retryClicks++ },
+            )
+        }
+
+        // The unavailable card sits below the fold of the scrollable screen: an offscreen click
+        // would silently miss the button.
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RETRY).performScrollTo().performClick()
+        composeRule.runOnIdle { check(retryClicks == 1) { "expected 1 retry click, got $retryClicks" } }
     }
 
     @Test

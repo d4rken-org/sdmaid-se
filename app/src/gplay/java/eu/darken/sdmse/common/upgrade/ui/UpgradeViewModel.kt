@@ -18,6 +18,8 @@ import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableExcept
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -25,9 +27,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
@@ -42,6 +46,7 @@ class UpgradeViewModel @Inject constructor(
     private val routeFlow = MutableStateFlow<UpgradeRoute?>(null)
     private var hasShownRepoError: Boolean = false
     private var hasShownServiceUnavailableError: Boolean = false
+    private var hasShownPartialQueryError: Boolean = false
     val events = SingleEventFlow<UpgradeEvents>()
 
     fun bindRoute(route: UpgradeRoute) {
@@ -66,30 +71,87 @@ class UpgradeViewModel @Inject constructor(
     }
 
     private val restoring = MutableStateFlow(false)
+    private val retryTrigger = MutableStateFlow(0)
+
+    // One aggregate query per retry generation: both SKU lookups run concurrently and land in a
+    // single Done, so the UI can never combine results from two different retry attempts.
+    private sealed interface SkuQueries {
+        data object Pending : SkuQueries
+        data class Done(
+            val iap: Result<Collection<SkuDetails>>,
+            val sub: Result<Collection<SkuDetails>>,
+        ) : SkuQueries
+    }
+
+    private val skuQueries: Flow<SkuQueries> = retryTrigger.flatMapLatest {
+        flow {
+            emit(SkuQueries.Pending)
+            val done = coroutineScope {
+                val iap = async { querySkuDetails(OurSku.Iap.PRO_UPGRADE) }
+                val sub = async { querySkuDetails(OurSku.Sub.PRO_UPGRADE) }
+                SkuQueries.Done(iap = iap.await(), sub = sub.await())
+            }
+            emit(done)
+        }
+    }
+
+    private suspend fun querySkuDetails(sku: Sku): Result<Collection<SkuDetails>> = try {
+        val details = withTimeoutOrNull(SKU_QUERY_TIMEOUT_MS) { upgradeRepo.querySkus(sku) }
+            ?: throw GplayServiceUnavailableException(RuntimeException("SKU query timed out for ${sku.id}"))
+        Result.success(details)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "querySkuDetails($sku) failed: ${e.asLog()}" }
+        Result.failure(e)
+    }
 
     internal val state: StateFlow<GplayUpgradeUiState> = combine(
-        querySkuDetails(OurSku.Iap.PRO_UPGRADE),
-        querySkuDetails(OurSku.Sub.PRO_UPGRADE),
+        skuQueries,
         upgradeRepo.upgradeInfo,
         upgradeRepo.wasEverPro,
         restoring,
-    ) { iap, sub, current, wasEverPro, isRestoring ->
-        val serviceUnavailableError = if (iap == null && sub == null) {
-            GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
-        } else {
-            null
+        upgradeRepo.autoRestoreBusy,
+    ) { queries, current, wasEverPro, isRestoring, isAutoRestoring ->
+        if (queries is SkuQueries.Pending) {
+            // A new attempt starts a new error episode.
+            hasShownServiceUnavailableError = false
+            hasShownPartialQueryError = false
+            return@combine GplayUpgradeUiState.Loading
         }
+        queries as SkuQueries.Done
 
-        if (serviceUnavailableError != null) {
+        val iap = queries.iap.getOrNull()
+        val sub = queries.sub.getOrNull()
+
+        if (iap == null && sub == null) {
+            val serviceUnavailableError = GplayServiceUnavailableException(
+                queries.iap.exceptionOrNull() ?: RuntimeException("IAP and SUB data request failed.")
+            )
+            // This combine re-runs on every upstream change (e.g. restore progress toggling) —
+            // emit the unavailable error once per failure episode, not once per recombination.
             if (!hasShownServiceUnavailableError) {
                 hasShownServiceUnavailableError = true
                 errorEvents.tryEmit(serviceUnavailableError)
             }
+            return@combine GplayUpgradeUiState.Unavailable(serviceUnavailableError)
+        }
+        hasShownServiceUnavailableError = false
+
+        // Exactly one product type failed: keep today's behavior — show what's available, surface
+        // the failure once. No retry affordance; re-entering the screen (or the working offer)
+        // covers this, only the full Unavailable state is a dead end.
+        val partialError = queries.iap.exceptionOrNull() ?: queries.sub.exceptionOrNull()
+        if (partialError != null) {
+            if (!hasShownPartialQueryError) {
+                hasShownPartialQueryError = true
+                errorEvents.tryEmit(partialError)
+            }
         } else {
-            hasShownServiceUnavailableError = false
+            hasShownPartialQueryError = false
         }
 
-        if (serviceUnavailableError == null && !current.isPro && current.error != null) {
+        if (!current.isPro && current.error != null) {
             if (!hasShownRepoError) {
                 hasShownRepoError = true
                 @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
@@ -97,10 +159,6 @@ class UpgradeViewModel @Inject constructor(
             }
         } else {
             hasShownRepoError = false
-        }
-
-        if (serviceUnavailableError != null) {
-            return@combine GplayUpgradeUiState.Unavailable(serviceUnavailableError)
         }
 
         // Diagnosability: distinguishes "Play withheld the trial offer" from "offer matching failed"
@@ -115,7 +173,9 @@ class UpgradeViewModel @Inject constructor(
             hasIap = current.upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
             hasSub = current.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE },
             wasPreviouslyPro = wasEverPro && !current.isPro,
-            restoreInProgress = isRestoring,
+            // Manual restore or the repo's invisible already-owned auto-restore: either pauses the
+            // entitlement actions, so the two can't be raced against each other from the UI.
+            restoreInProgress = isRestoring || isAutoRestoring,
         )
     }.safeStateIn(
         initialValue = GplayUpgradeUiState.Loading,
@@ -125,17 +185,11 @@ class UpgradeViewModel @Inject constructor(
         onError = { error -> GplayUpgradeUiState.Unavailable(error) },
     )
 
-    private fun querySkuDetails(sku: Sku): Flow<Collection<SkuDetails>?> = flow {
-        val data = withTimeoutOrNull(5000) {
-            try {
-                upgradeRepo.querySkus(sku)
-            } catch (e: Exception) {
-                if (e is CancellationException) throw e
-                errorEvents.tryEmit(e)
-                null
-            }
-        }
-        emit(data)
+    // Re-runs the SKU queries after a full "Play unavailable" episode — without this, the Lazily
+    // cached failure bricked the screen for the whole ViewModel lifetime.
+    fun retrySkuQuery() {
+        log(TAG) { "retrySkuQuery()" }
+        retryTrigger.update { it + 1 }
     }
 
     fun onGoIap(activity: Activity) {
@@ -204,6 +258,10 @@ class UpgradeViewModel @Inject constructor(
 
     companion object {
         private const val RESTORE_TIMEOUT_MS = 15_000L
+
+        // The very first billing query after Play sign-in can take >8s (measured 8.5s) while Play
+        // warms up — 5s produced false "Play unavailable" dialogs on slow-but-healthy stores.
+        private const val SKU_QUERY_TIMEOUT_MS = 15_000L
         private val TAG = logTag("Upgrade", "Gplay", "ViewModel")
     }
 }

@@ -93,6 +93,7 @@ fun UpgradeScreenHost(
         onSubscription = { activity?.let { vm.onGoSubscription(it) } },
         onSubscriptionTrial = { activity?.let { vm.onGoSubscriptionTrial(it) } },
         onRestore = vm::restorePurchase,
+        onRetry = vm::retrySkuQuery,
         onNavigateUp = vm::navUp,
     )
 }
@@ -104,6 +105,7 @@ internal fun UpgradeScreen(
     onSubscription: () -> Unit = {},
     onSubscriptionTrial: () -> Unit = {},
     onRestore: () -> Unit = {},
+    onRetry: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
     UpgradeScreenScaffold(
@@ -168,7 +170,18 @@ internal fun UpgradeScreen(
                             title = stringResource(R.string.upgrades_gplay_unavailable_error_title),
                             body = stringResource(R.string.upgrade_screen_offers_unavailable_message),
                             icon = Icons.TwoTone.WarningAmber,
-                        )
+                        ) {
+                            // Play can be slow rather than broken (cold store, first sign-in): let
+                            // the user re-run the offer queries instead of leaving a dead screen.
+                            OutlinedButton(
+                                onClick = onRetry,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .testTag(UpgradeScreenTags.GPLAY_RETRY),
+                            ) {
+                                Text(stringResource(CommonR.string.general_retry_action))
+                            }
+                        }
                         is GplayUpgradeUiState.Loaded -> LoadedOffers(
                             uiState = state,
                             onIap = onIap,
@@ -347,9 +360,12 @@ internal fun toLoadedState(
             subOffer != null -> SubscriptionAction.STANDARD
             else -> SubscriptionAction.UNAVAILABLE
         },
-        subscriptionEnabled = (subOffer != null || subOfferTrial != null) && !hasSub,
+        // A running restore (manual or the invisible already-owned recovery) pauses the buy
+        // actions too — starting a purchase while an entitlement is being reconciled just races
+        // Play into ITEM_ALREADY_OWNED.
+        subscriptionEnabled = (subOffer != null || subOfferTrial != null) && !hasSub && !restoreInProgress,
         subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
-        iapEnabled = iapOffer != null && !hasIap,
+        iapEnabled = iapOffer != null && !hasIap && !restoreInProgress,
         iapPrice = iapOffer?.formattedPrice,
         wasPreviouslyPro = wasPreviouslyPro,
         restoreInProgress = restoreInProgress,

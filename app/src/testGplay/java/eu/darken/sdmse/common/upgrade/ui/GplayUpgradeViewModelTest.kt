@@ -50,24 +50,17 @@ class GplayUpgradeViewModelTest : BaseTest() {
     fun `service timeout becomes unavailable state and error event instead of crashing`() = runTest2(
         context = testDispatcher,
     ) {
-        val upgradeInfo = MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
-        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
-        every { repo.upgradeInfo } returns upgradeInfo
-        every { repo.wasEverPro } returns MutableStateFlow(false)
+        val repo = mockRepo()
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } coAnswers {
-            delay(6_000)
+            delay(20_000) // longer than the 15s SKU query timeout
             emptyList()
         }
         coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } coAnswers {
-            delay(6_000)
+            delay(20_000)
             emptyList()
         }
 
-        val vm = UpgradeViewModel(
-            handle = SavedStateHandle(mapOf("forced" to false)),
-            dispatcherProvider = TestDispatcherProvider(testDispatcher),
-            upgradeRepo = repo,
-        )
+        val vm = buildVm(repo)
 
         val unavailableState = async {
             vm.state.first { it is GplayUpgradeUiState.Unavailable }
@@ -84,9 +77,102 @@ class GplayUpgradeViewModelTest : BaseTest() {
         coVerify(exactly = 1) { repo.querySkus(OurSku.Sub.PRO_UPGRADE) }
     }
 
+    @Test
+    fun `a slow but healthy Play store loads instead of tripping the timeout`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The first-ever billing query after Play sign-in measured 8.5s on-device: the old 5s
+        // timeout turned that healthy store into a false "Play unavailable".
+        val repo = mockRepo()
+        coEvery { repo.querySkus(any()) } coAnswers {
+            delay(9_000)
+            emptyList()
+        }
+
+        val vm = buildVm(repo)
+
+        val loaded = async { vm.state.first { it is GplayUpgradeUiState.Loaded } }
+        advanceUntilIdle()
+
+        loaded.await().shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+    }
+
+    @Test
+    fun `retry recovers the screen after a full unavailable episode`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        var calls = 0
+        coEvery { repo.querySkus(any()) } coAnswers {
+            // First generation (both product types) fails; the retried generation succeeds.
+            if (calls++ < 2) throw GplayServiceUnavailableException(RuntimeException("Play hiccup"))
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        val unavailable = async { vm.state.first { it is GplayUpgradeUiState.Unavailable } }
+        advanceUntilIdle()
+        unavailable.await().shouldBeInstanceOf<GplayUpgradeUiState.Unavailable>()
+
+        // Without the retry, the Lazily-cached failure bricked the screen for the VM lifetime.
+        vm.retrySkuQuery()
+        val loaded = async { vm.state.first { it is GplayUpgradeUiState.Loaded } }
+        advanceUntilIdle()
+
+        loaded.await().shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        coVerify(exactly = 4) { repo.querySkus(any()) }
+    }
+
+    @Test
+    fun `a single failed product type keeps the screen loaded and surfaces the error once`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        val boom = IllegalStateException("IAP details broken")
+        coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } throws boom
+        coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { vm.state.first { it is GplayUpgradeUiState.Loaded } }
+        val forwardedError = async { vm.errorEvents.first() }
+        advanceUntilIdle()
+
+        // The working product type is still offered; only the failure is reported.
+        loaded.await().shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        forwardedError.await() shouldBe boom
+    }
+
+    @Test
+    fun `the repo's auto-restore busy state folds into restoreInProgress`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val autoBusy = MutableStateFlow(false)
+        val repo = mockRepo()
+        every { repo.autoRestoreBusy } returns autoBusy
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val idle = async {
+            vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
+        }
+        advanceUntilIdle()
+        idle.await().restoreInProgress shouldBe false
+
+        // The invisible already-owned recovery must pause the entitlement actions like a manual
+        // restore does -- the user can't be allowed to race it with a buy or another restore.
+        autoBusy.value = true
+        val busy = async {
+            vm.state.first { it is GplayUpgradeUiState.Loaded && it.restoreInProgress }
+        }
+        advanceUntilIdle()
+        (busy.await() as GplayUpgradeUiState.Loaded).restoreInProgress shouldBe true
+    }
+
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
         every { wasEverPro } returns MutableStateFlow(false)
+        // Relaxed mocks return a no-op Flow that never emits -- the state combine would starve.
+        every { autoRestoreBusy } returns MutableStateFlow(false)
     }
 
     private fun buildVm(repo: UpgradeRepoGplay): UpgradeViewModel = UpgradeViewModel(
@@ -140,8 +226,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     @Test
     fun `previously-pro on this device flows into the loaded banner flag`() = runTest2(context = testDispatcher) {
-        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        val repo = mockRepo()
         every { repo.wasEverPro } returns MutableStateFlow(true)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } returns emptyList()
         coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
@@ -157,7 +242,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
     @Test
     fun `banner flag stays off while grace still keeps the user pro`() = runTest2(context = testDispatcher) {
-        val repo = mockk<UpgradeRepoGplay>(relaxed = true)
+        val repo = mockRepo()
         // gracePeriod = true => Info.isPro is true even without a current raw purchase.
         every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
         every { repo.wasEverPro } returns MutableStateFlow(true)
