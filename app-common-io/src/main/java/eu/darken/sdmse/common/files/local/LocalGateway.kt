@@ -625,8 +625,8 @@ class LocalGateway @Inject constructor(
                         javaFile.exists() -> true
                         // This is a bit iffy, but checking readability on the parent has proven reliable
                         javaFileParent?.exists() == true && javaFileParent.canRead() -> true
-                        // On Android 12+ Android/data isn't accessible anymore via normal java file access.
-                        hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
+                        // On Android 11+ other apps' Android/data isn't accessible anymore via normal java file access.
+                        hasApiLevel(30) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
                         // If the file path is on public storage, and it wasn't Android/data then, assume true
                         else -> storageEnvironment.externalDirs
                             .firstOrNull { it.isAncestorOf(path) }
@@ -818,8 +818,8 @@ class LocalGateway @Inject constructor(
                 javaFile.exists() -> false
                 // Does it not exist or do we lack permission? Also see `LocalGateway.exists(...)`
                 else -> when {
-                    // On Android 12+ Android/data isn't accessible anymore via normal java file access.
-                    hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
+                    // On Android 11+ other apps' Android/data isn't accessible anymore via normal java file access.
+                    hasApiLevel(30) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
                     // If the file path is on public storage, and it wasn't Android/data then, assume true
                     else -> storageEnvironment.externalDirs
                         .firstOrNull { it.isAncestorOf(path) }
@@ -845,30 +845,27 @@ class LocalGateway @Inject constructor(
                     }
 
                     if (!success) {
-                        success = !javaFile.exists()
-                        if (success) {
-                            log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
-                        } else if (!normalCanWrite) {
-                            // This was not AUTO, but Mode.NORMAL, we don't try other modes after this
-                            throw WriteException(path = path)
-                        }
+                        // On Android 11+ exists() may be unreliable under Android/data: scoped storage can hide
+                        // paths from normal java file access, so invisibility is not proof of successful deletion.
+                        val existsIsReliable = !hasApiLevel(30) ||
+                            storageEnvironment.publicDataDirs.none { it.isAncestorOf(path) }
+                        success = existsIsReliable && !javaFile.exists()
+                        if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
                     }
 
                     if (!success) {
-                        if (mode == Mode.AUTO && hasRoot()) {
-                            delete(path, recursive = recursive, mode = Mode.ROOT)
-                            return@runIO
-                        } else {
-                            throw IOException("delete() call returned false")
-                        }
-                    }
+                        when {
+                            mode == Mode.AUTO && hasRoot() -> {
+                                delete(path, recursive = recursive, mode = Mode.ROOT)
+                                return@runIO
+                            }
 
-                    if (!success) {
-                        if (mode == Mode.AUTO && hasAdb()) {
-                            delete(path, recursive = recursive, mode = Mode.ADB)
-                            return@runIO
-                        } else {
-                            throw IOException("delete() call returned false")
+                            mode == Mode.AUTO && hasAdb() -> {
+                                delete(path, recursive = recursive, mode = Mode.ADB)
+                                return@runIO
+                            }
+
+                            else -> throw IOException("delete() call returned false")
                         }
                     }
                 }
