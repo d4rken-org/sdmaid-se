@@ -10,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Autorenew
 import androidx.compose.material.icons.twotone.Verified
 import androidx.compose.material3.Button
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -120,6 +121,53 @@ internal fun UpgradeOwnershipContent(
     }
 }
 
+// Shown on the acquisition view while Pro is active purely via the local grace window. Calm
+// reassurance styling, not a warning: the user has lost nothing (yet). Stage 1 confirms Pro is
+// intact; stage 2 (after the episode aged past the threshold) explains and offers restore.
+@Composable
+internal fun UpgradeGraceCard(
+    showDiagnostics: Boolean,
+    onRestore: () -> Unit,
+    modifier: Modifier = Modifier,
+    restoreInProgress: Boolean = false,
+) {
+    UpgradeSectionCard(
+        title = stringResource(R.string.upgrade_screen_grace_title),
+        icon = Icons.TwoTone.Verified,
+        modifier = modifier.testTag(UpgradeScreenTags.GPLAY_GRACE),
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        ),
+    ) {
+        Text(
+            text = stringResource(
+                if (showDiagnostics) R.string.upgrade_screen_grace_body
+                else R.string.upgrade_screen_grace_body_short
+            ),
+            style = MaterialTheme.typography.bodyMedium,
+        )
+        if (showDiagnostics) {
+            Button(
+                onClick = onRestore,
+                enabled = !restoreInProgress,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE),
+            ) {
+                if (restoreInProgress) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(18.dp),
+                        strokeWidth = 2.dp,
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
+                Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
+            }
+        }
+    }
+}
+
 private fun previewLoadedState(ownership: Ownership) = GplayUpgradeUiState.Loaded(
     subscriptionAction = SubscriptionAction.UNAVAILABLE,
     subscriptionEnabled = false,
@@ -175,6 +223,28 @@ private fun UpgradeOwnershipIapPreview() {
                 onRestore = {},
             )
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun UpgradeGraceCardQuietPreview() {
+    PreviewWrapper {
+        UpgradeGraceCard(
+            showDiagnostics = false,
+            onRestore = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun UpgradeGraceCardDiagnosticsPreview() {
+    PreviewWrapper {
+        UpgradeGraceCard(
+            showDiagnostics = true,
+            onRestore = {},
+        )
     }
 }
 

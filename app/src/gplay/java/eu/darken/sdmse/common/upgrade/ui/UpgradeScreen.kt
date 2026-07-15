@@ -155,10 +155,17 @@ internal fun UpgradeScreen(
 ) {
     // Owners get the ownership presentation: no acquisition upsell anywhere — a renewing
     // subscriber must not be pitched the one-time purchase (or a trial they already used).
-    val ownedState = (uiState as? GplayUpgradeUiState.Loaded)?.takeIf { it.ownership.ownsAnything }
+    val loaded = uiState as? GplayUpgradeUiState.Loaded
+    val ownedState = loaded?.takeIf { it.ownership.ownsAnything }
 
     UpgradeScreenScaffold(
-        titleRes = if (ownedState != null) R.string.upgrade_screen_manage_title else R.string.upgrade_screen_title,
+        // Grace users are still Pro: they get the neutral status title too — "Get SD Maid SE Pro"
+        // on the status screen would contradict the rest of the app, which behaves upgraded.
+        titleRes = if (ownedState != null || loaded?.grace != null) {
+            R.string.upgrade_screen_manage_title
+        } else {
+            R.string.upgrade_screen_title
+        },
         onNavigateUp = onNavigateUp,
     ) { paddingValues ->
         UpgradeScreenContent(
@@ -197,6 +204,15 @@ private fun UpgradeAcquisitionContent(
     onSubscriptionTrial: () -> Unit,
     onRestore: () -> Unit,
 ) {
+    val loadedState = uiState as? GplayUpgradeUiState.Loaded
+    loadedState?.grace?.let { grace ->
+        UpgradeGraceCard(
+            showDiagnostics = grace.showDiagnostics,
+            onRestore = onRestore,
+            restoreInProgress = loadedState.restoreInProgress,
+        )
+    }
+
     UpgradePreambleCard(
         text = stringResource(R.string.upgrade_screen_preamble),
         colors = CardDefaults.elevatedCardColors(
@@ -407,11 +423,18 @@ internal sealed interface GplayUpgradeUiState {
         val iapEnabled: Boolean,
         val iapPrice: String?,
         val ownership: Ownership = Ownership(),
+        val grace: GraceHint? = null,
         val wasPreviouslyPro: Boolean = false,
         val restoreInProgress: Boolean = false,
         val verificationInProgress: Boolean = false,
     ) : GplayUpgradeUiState
 }
+
+// Pro is active purely via the local grace window (no owned purchase). Stage 1 shows a quiet
+// "still active" confirmation; diagnostics + restore CTA appear once the episode has aged.
+internal data class GraceHint(
+    val showDiagnostics: Boolean,
+)
 
 internal data class Ownership(
     val hasIap: Boolean = false,
@@ -447,6 +470,7 @@ internal fun toLoadedState(
     iap: eu.darken.sdmse.common.upgrade.core.billing.SkuDetails?,
     sub: eu.darken.sdmse.common.upgrade.core.billing.SkuDetails?,
     ownership: Ownership,
+    grace: GraceHint? = null,
     wasPreviouslyPro: Boolean = false,
     restoreInProgress: Boolean = false,
     verificationInProgress: Boolean = false,
@@ -470,6 +494,7 @@ internal fun toLoadedState(
         iapEnabled = iapOffer != null && !ownership.hasIap,
         iapPrice = iapOffer?.formattedPrice,
         ownership = ownership,
+        grace = grace,
         wasPreviouslyPro = wasPreviouslyPro,
         restoreInProgress = restoreInProgress,
         verificationInProgress = verificationInProgress,

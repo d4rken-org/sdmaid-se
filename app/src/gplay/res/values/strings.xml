@@ -57,4 +57,7 @@
     <string name="upgrade_screen_sub_still_renewing_message">Google Play reports that your subscription is still set to renew. To buy the one-time upgrade, cancel the subscription in Google Play first, then come back here.\n\nJust cancelled it? Give Google Play a moment and try again. Also make sure you are using the same Google account.</string>
     <string name="upgrade_screen_sub_check_failed_message">Couldn\'t check your subscription status with Google Play. Please try again in a moment.</string>
     <string name="upgrade_screen_restore_success_message">Purchase restored — your Pro upgrade is active.</string>
+    <string name="upgrade_screen_grace_title">Pro is still active</string>
+    <string name="upgrade_screen_grace_body_short">You can keep using all Pro features.</string>
+    <string name="upgrade_screen_grace_body">SD Maid can\'t currently confirm your Pro purchase with Google Play. If you bought Pro, restore the purchase and make sure Google Play is using the account that bought it. If your subscription has ended or the purchase was refunded, Pro will turn off automatically.</string>
 </resources>

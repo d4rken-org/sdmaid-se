@@ -42,6 +42,7 @@ import testhelpers.BaseTest
 import testhelpers.TestApplication
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Duration
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
@@ -68,6 +69,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         every { repo.upgradeInfo } returns upgradeInfo
         every { repo.isSettled } returns MutableStateFlow(true)
         every { repo.wasEverPro } returns MutableStateFlow(false)
+        every { repo.proUnconfirmedSince } returns MutableStateFlow(0L)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } coAnswers {
             delay(6_000)
             emptyList()
@@ -98,6 +100,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
         every { isSettled } returns MutableStateFlow(true)
         every { wasEverPro } returns MutableStateFlow(false)
+        every { proUnconfirmedSince } returns MutableStateFlow(0L)
     }
 
     private fun buildVm(
@@ -423,6 +426,136 @@ class GplayUpgradeViewModelTest : BaseTest() {
         verify { webpageTool.open(UpgradeViewModel.PLAY_SUBSCRIPTION_SITE) }
         UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "sku=${OurSku.Sub.PRO_UPGRADE.id}"
         UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "package="
+    }
+
+    private suspend fun awaitLoaded(vm: UpgradeViewModel): GplayUpgradeUiState.Loaded =
+        vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
+
+    @Test
+    fun `grace-only pro gets a quiet hint without diagnostics`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        val grace = loaded.await().grace
+        grace.shouldNotBeNull().showDiagnostics shouldBe false
+    }
+
+    @Test
+    fun `young grace episode keeps diagnostics hidden`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.proUnconfirmedSince } returns MutableStateFlow(
+            System.currentTimeMillis() - Duration.ofHours(1).toMillis()
+        )
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        loaded.await().grace.shouldNotBeNull().showDiagnostics shouldBe false
+    }
+
+    @Test
+    fun `aged grace episode shows diagnostics`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.proUnconfirmedSince } returns MutableStateFlow(
+            System.currentTimeMillis() - UpgradeViewModel.GRACE_DIAGNOSTICS_AFTER_MS - 1_000
+        )
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        loaded.await().grace.shouldNotBeNull().showDiagnostics shouldBe true
+    }
+
+    @Test
+    fun `plain non-pro users get no grace hint`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        loaded.await().grace shouldBe null
+    }
+
+    @Test
+    fun `owners get no grace hint`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro", autoRenewing = true)))
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        loaded.await().grace shouldBe null
+    }
+
+    @Test
+    fun `grace user keeps the grace card when both detail queries fail`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        // During an outage (exactly when grace matters) the price queries fail too — the user
+        // must keep the Loaded grace presentation, not get an acquisition-style Unavailable.
+        coEvery { repo.querySkus(any()) } throws IllegalStateException("Play unavailable")
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        loaded.await().grace.shouldNotBeNull()
+    }
+
+    @Test
+    fun `grace diagnostics appear when the episode crosses the threshold`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        val base = System.currentTimeMillis()
+        // Episode is 10 virtual seconds short of the threshold.
+        every { repo.proUnconfirmedSince } returns MutableStateFlow(
+            base - UpgradeViewModel.GRACE_DIAGNOSTICS_AFTER_MS + 10_000
+        )
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+        var fakeNow = base
+        vm.clock = { fakeNow }
+
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+
+        testScheduler.advanceTimeBy(1_000)
+        testScheduler.runCurrent()
+        (vm.state.value as GplayUpgradeUiState.Loaded).grace.shouldNotBeNull().showDiagnostics shouldBe false
+
+        // Cross the boundary: wall clock moves past it, then the scheduled tick re-evaluates.
+        fakeNow = base + 11_000
+        advanceUntilIdle()
+        (vm.state.value as GplayUpgradeUiState.Loaded).grace.shouldNotBeNull().showDiagnostics shouldBe true
+        collector.cancel()
+    }
+
+    @Test
+    fun `restore that only finds grace shows the troubleshooting dialog`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        // Grace keeps isPro=true, but no actual purchase came back — not a restore success.
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreFailed
     }
 
     @Test

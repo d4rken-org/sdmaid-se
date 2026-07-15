@@ -265,6 +265,56 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
     }
 
+    private fun graceState(showDiagnostics: Boolean) = GplayUpgradeUiState.Loaded(
+        subscriptionAction = SubscriptionAction.STANDARD,
+        subscriptionEnabled = true,
+        subscriptionPrice = "$12.99",
+        iapEnabled = true,
+        iapPrice = "$24.99",
+        grace = GraceHint(showDiagnostics = showDiagnostics),
+    )
+
+    @Test
+    fun `quiet grace stage confirms pro without diagnostics while offers stay available`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(uiState = graceState(showDiagnostics = false))
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body_short)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertCountEquals(0)
+        // Grace users are still Pro: neutral status title, not the acquisition pitch title.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_manage_title)).assertCountEquals(1)
+        // Purchasing stays fully available — grace must never block the switch to a real purchase.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(1)
+    }
+
+    @Test
+    fun `grace restore action is disabled while a restore runs`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(uiState = graceState(showDiagnostics = true).copy(restoreInProgress = true))
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `aged grace stage shows diagnostics with an inline restore action`() {
+        var restoreClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = graceState(showDiagnostics = true),
+                onRestore = { restoreClicks++ },
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body)).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).performScrollTo().performClick()
+        composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
+    }
+
     @Test
     fun `ownership buy button is disabled while verification is running`() {
         composeRule.setUpgradeContent {

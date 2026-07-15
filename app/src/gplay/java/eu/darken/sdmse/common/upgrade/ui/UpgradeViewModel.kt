@@ -21,16 +21,19 @@ import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableExcept
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.withTimeoutOrNull
+import java.time.Duration
 import javax.inject.Inject
 
 @HiltViewModel
@@ -74,20 +77,56 @@ class UpgradeViewModel @Inject constructor(
     private val restoring = MutableStateFlow(false)
     private val verifying = MutableStateFlow(false)
 
+    // Test seam: the diagnostics threshold compares wall-clock time, which coroutine test
+    // dispatchers can't advance.
+    internal var clock: () -> Long = { System.currentTimeMillis() }
+
+    // Re-evaluates the diagnostics threshold when the episode crosses it: all other combined
+    // flows are distinct-until-changed and can stay silent across the 24h boundary, which would
+    // otherwise leave a long-lived ViewModel stuck on the quiet stage.
+    private val graceTick: Flow<Unit> = upgradeRepo.proUnconfirmedSince
+        .flatMapLatest { stamp ->
+            flow {
+                emit(Unit)
+                if (stamp > 0L) {
+                    val remaining = stamp + GRACE_DIAGNOSTICS_AFTER_MS - clock()
+                    if (remaining > 0) {
+                        delay(remaining)
+                        emit(Unit)
+                    }
+                }
+            }
+        }
+
     internal val state: StateFlow<GplayUpgradeUiState> = combine(
         querySkuDetails(OurSku.Iap.PRO_UPGRADE),
         querySkuDetails(OurSku.Sub.PRO_UPGRADE),
         upgradeRepo.upgradeInfo,
         upgradeRepo.isSettled,
         upgradeRepo.wasEverPro,
+        upgradeRepo.proUnconfirmedSince,
+        graceTick,
         restoring,
         verifying,
-    ) { iap, sub, current, settled, wasEverPro, isRestoring, isVerifying ->
+    ) { iap, sub, current, settled, wasEverPro, proUnconfirmedSince, _, isRestoring, isVerifying ->
         val ownership = current.toOwnership()
+        // Pro without any owned purchase == grace. Stage 1 (quiet "still active" line) shows
+        // immediately; the diagnostics + restore CTA only once the unconfirmed episode has aged
+        // past the threshold, so self-healing Play blips never surface them.
+        val grace = if (current.isPro && !ownership.ownsAnything) {
+            GraceHint(
+                showDiagnostics = proUnconfirmedSince > 0L &&
+                    clock() - proUnconfirmedSince >= GRACE_DIAGNOSTICS_AFTER_MS,
+            )
+        } else {
+            null
+        }
 
         val bothFailed = iap is DetailsState.Failed && sub is DetailsState.Failed
         val anyPending = iap is DetailsState.Pending || sub is DetailsState.Pending
-        val serviceUnavailableError = if (bothFailed && !ownership.ownsAnything) {
+        // Grace users are excluded: during an outage (exactly when grace matters) they must keep
+        // the Loaded presentation with their grace card, not an acquisition-style error state.
+        val serviceUnavailableError = if (bothFailed && !ownership.ownsAnything && !current.isPro) {
             GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         } else {
             null
@@ -112,10 +151,10 @@ class UpgradeViewModel @Inject constructor(
             hasShownRepoError = false
         }
 
-        // Detail-query errors only matter where prices are rendered: owners get their status and
-        // management actions without prices, so don't bother them with a Play error dialog.
+        // Detail-query errors only matter where prices are rendered: owners and grace users get
+        // their status and actions without prices, so don't bother them with a Play error dialog.
         val detailsError = (iap as? DetailsState.Failed)?.error ?: (sub as? DetailsState.Failed)?.error
-        if (serviceUnavailableError == null && detailsError != null && !ownership.ownsAnything) {
+        if (serviceUnavailableError == null && detailsError != null && !ownership.ownsAnything && !current.isPro) {
             if (!hasShownDetailsError) {
                 hasShownDetailsError = true
                 errorEvents.tryEmit(detailsError)
@@ -136,12 +175,15 @@ class UpgradeViewModel @Inject constructor(
             // layer degrades to the pre-existing acquisition presentation, never an endless spinner.
             anyPending && (!settled || !ownership.ownsAnything) -> GplayUpgradeUiState.Loading
 
+            // unreachable for grace users (isPro excluded above), kept for plain non-owners
+
             serviceUnavailableError != null -> GplayUpgradeUiState.Unavailable(serviceUnavailableError)
 
             else -> toLoadedState(
                 iap = (iap as? DetailsState.Loaded)?.details?.firstOrNull(),
                 sub = (sub as? DetailsState.Loaded)?.details?.firstOrNull(),
                 ownership = ownership,
+                grace = grace,
                 wasPreviouslyPro = wasEverPro && !current.isPro,
                 restoreInProgress = isRestoring,
                 verificationInProgress = isVerifying,
@@ -271,7 +313,7 @@ class UpgradeViewModel @Inject constructor(
                     events.tryEmit(UpgradeEvents.RestoreFailed)
                 }
 
-                restored.isPro -> {
+                restored.upgrades.isNotEmpty() -> {
                     log(TAG, INFO) { "Restored purchase :))" }
                     // Explicit feedback: on the ownership screen a successful restore changes
                     // nothing visible (the user already is Pro), so silence reads as "broken".
@@ -279,7 +321,9 @@ class UpgradeViewModel @Inject constructor(
                 }
 
                 else -> {
-                    log(TAG, WARN) { "Restore purchase failed" }
+                    // Includes grace-only results: Pro may still be active, but the restore found
+                    // no actual purchase — troubleshooting dialog, not a success toast.
+                    log(TAG, WARN) { "Restore purchase found no purchases (isPro=${restored.isPro})" }
                     events.tryEmit(UpgradeEvents.RestoreFailed)
                 }
             }
@@ -299,6 +343,11 @@ class UpgradeViewModel @Inject constructor(
     companion object {
         private const val RESTORE_TIMEOUT_MS = 15_000L
         private const val VERIFY_TIMEOUT_MS = 10_000L
+
+        // How long a fresh-data-confirmed grace episode must last before the grace card shows its
+        // diagnostics: long enough that self-healing Play blips stay invisible, short enough to
+        // leave most of the 7-day subscription grace for the user to act in.
+        internal val GRACE_DIAGNOSTICS_AFTER_MS = Duration.ofHours(24).toMillis()
 
         // Play's management page for our subscription specifically; harmless without a matching
         // sub on the account (Play falls back to the general subscription list).
