@@ -186,7 +186,7 @@ class BillingManager @Inject constructor(
                             // AppScope death is not an acknowledgement failure.
                             throw e
                         } catch (e: Exception) {
-                            log(TAG, ERROR) { "Failed to ancknowledge purchase: $it\n${e.asLog()}" }
+                            log(TAG, ERROR) { "Failed to acknowledge purchase: $it\n${e.asLog()}" }
                         }
                     }
             }
