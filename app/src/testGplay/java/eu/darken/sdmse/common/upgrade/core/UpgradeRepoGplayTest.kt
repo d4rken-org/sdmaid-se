@@ -11,8 +11,10 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
+import eu.darken.sdmse.main.core.CurriculumVitae
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coJustRun
@@ -26,10 +28,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import java.io.IOException
 import java.time.Duration
 import java.time.Instant
 
@@ -38,6 +44,7 @@ class UpgradeRepoGplayTest : BaseTest() {
     private val scope = CoroutineScope(Dispatchers.Unconfined)
     private val billingManager = mockk<BillingManager>()
     private val billingCache = mockk<BillingCache>()
+    private val curriculumVitae = mockk<CurriculumVitae>(relaxed = true)
     private lateinit var lastProAtMock: DataStoreValue<Long>
     private lateinit var lastProSkuMock: DataStoreValue<String>
 
@@ -65,7 +72,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         }
         every { billingCache.lastProStateSku } returns lastProSkuMock
         coJustRun { billingCache.stampLastProState(any(), any()) }
-        return UpgradeRepoGplay(scope, billingManager, billingCache)
+        return UpgradeRepoGplay(scope, billingManager, billingCache, curriculumVitae)
     }
 
     private fun result(code: Int): BillingResult = BillingResult.newBuilder().setResponseCode(code).build()
@@ -366,6 +373,115 @@ class UpgradeRepoGplayTest : BaseTest() {
         errors shouldBe emptyList()
         repo.autoRestoreBusy.first() shouldBe false
     }
+
+    @Test fun `unknown-only purchases still fall through to the grace check`() = runTest2 {
+        // A purchase list containing only products this app doesn't know maps to zero upgrades:
+        // it must not take the "has purchases" branch and deny a recently-Pro user their grace.
+        val unknown = mockk<Purchase>().apply {
+            every { products } returns listOf("some.unknown.product")
+            every { purchaseTime } returns 1_000L
+        }
+        coEvery { billingManager.refresh() } returns BillingData(setOf(unknown))
+
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().isPro shouldBe true
+    }
+
+    @Test fun `unknown-only purchases without recent grace are not pro`() = runTest2 {
+        val unknown = mockk<Purchase>().apply {
+            every { products } returns listOf("some.unknown.product")
+            every { purchaseTime } returns 1_000L
+        }
+        coEvery { billingManager.refresh() } returns BillingData(setOf(unknown))
+
+        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe false
+    }
+
+    @Test fun `a known purchase is pro even when the grace cache is unreadable`() = runTest2 {
+        // Known purchases are decided before any grace-cache read: failing local storage (full
+        // disk) must not turn a confirmed purchase into an error episode.
+        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+        val repo = repo(lastProAt = 0L)
+        every { lastProAtMock.flow } returns flow { throw IOException("disk full") }
+
+        repo.restorePurchaseNow().isPro shouldBe true
+    }
+
+    @Test fun `upgradeInfo recovers after a transient grace cache failure`() = runTest2 {
+        val repo = repo(lastProAt = 0L)
+        var reads = 0
+        every { lastProAtMock.flow } returns flow {
+            if (reads++ == 0) throw IOException("disk full")
+            emit(0L)
+        }
+
+        // First the mapping fails (and the fallback probe fails too, since it reads the same
+        // storage) -> an error Info keeps the flow alive; after the capped delay it recovers.
+        val infos = repo.upgradeInfo.take(2).toList()
+        infos[0].error shouldNotBe null
+        infos[1].error shouldBe null
+        infos[1].isPro shouldBe false
+    }
+
+    @Test fun `a persistently failing grace cache does not kill upgradeInfo`() = runTest2 {
+        val repo = repo(lastProAt = 0L)
+        every { lastProAtMock.flow } returns flow { throw IOException("disk full") }
+
+        // The retry predicate's own cache probe fails as well -- the flow must still emit instead
+        // of terminating.
+        repo.upgradeInfo.first().error shouldNotBe null
+    }
+
+    @Test fun `retry delay grows and caps at five minutes`() {
+        UpgradeRepoGplay.retryDelayMs(0) shouldBe 30_000L
+        UpgradeRepoGplay.retryDelayMs(1) shouldBe 60_000L
+        UpgradeRepoGplay.retryDelayMs(2) shouldBe 120_000L
+        UpgradeRepoGplay.retryDelayMs(3) shouldBe 240_000L
+        UpgradeRepoGplay.retryDelayMs(4) shouldBe 300_000L
+        UpgradeRepoGplay.retryDelayMs(100) shouldBe 300_000L
+        UpgradeRepoGplay.retryDelayMs(Long.MAX_VALUE) shouldBe 300_000L
+    }
+
+    // region pro state tracking
+
+    @Test fun `fresh data with a known purchase records PURCHASED`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(proPurchase())), isFullSnapshot = false),
+        )
+
+        coVerify(exactly = 1) { curriculumVitae.updateProState(CurriculumVitae.ProState.PURCHASED) }
+    }
+
+    @Test fun `an empty full snapshot within grace records GRACE`() = runTest2 {
+        repo(
+            lastProAt = System.currentTimeMillis() - 1_000,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 1) { curriculumVitae.updateProState(CurriculumVitae.ProState.GRACE) }
+    }
+
+    @Test fun `an empty full snapshot outside grace records FREE`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 1) { curriculumVitae.updateProState(CurriculumVitae.ProState.FREE) }
+    }
+
+    @Test fun `an empty partial snapshot records nothing`() = runTest2 {
+        // A partial refresh proves ownership of what it contains, never absence: without a known
+        // upgrade it can't distinguish GRACE from FREE and must not fake a downward transition.
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = false),
+        )
+
+        coVerify(exactly = 0) { curriculumVitae.updateProState(any()) }
+    }
+
+    // endregion
 
     @Test fun `auto restore busy state rises and falls around the recovery`() = runTest2 {
         coEvery { billingManager.startIapFlow(any(), any(), null) } throws

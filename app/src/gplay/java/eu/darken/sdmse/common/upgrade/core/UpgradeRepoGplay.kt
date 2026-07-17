@@ -40,17 +40,18 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeoutOrNull
+import eu.darken.sdmse.main.core.CurriculumVitae
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.math.pow
 
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
     @AppScope private val scope: CoroutineScope,
     private val billingManager: BillingManager,
     private val billingCache: BillingCache,
+    private val curriculumVitae: CurriculumVitae,
 ) : UpgradeRepo {
 
     override val storeSite: String = STORE_SITE
@@ -77,6 +78,7 @@ class UpgradeRepoGplay @Inject constructor(
             .onEach { fresh ->
                 try {
                     stampLastProState(fresh)
+                    trackProState(fresh)
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
@@ -114,17 +116,27 @@ class UpgradeRepoGplay @Inject constructor(
         .map { data: BillingData? -> data.toUpgradeInfo() }
         .distinctUntilChanged()
         .retryWhen { error, attempt ->
-            // Ignore Google Play errors if the last pro state was recent
-            val now = System.currentTimeMillis()
-            val lastProStateAt = billingCache.lastProStateAt.value()
-            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
-            if ((now - lastProStateAt) < graceWindowMs()) {
-                log(TAG, VERBOSE) { "We are not pro, but were recently, and just got an error, what is GPlay doing???" }
-                emit(Info(gracePeriod = true, billingData = null))
-            } else {
-                emit(Info(billingData = null, error = error))
+            if (error is CancellationException) return@retryWhen false
+            // Billing connection errors can no longer reach this flow (the connect loop retries
+            // them internally) — what CAN fail here are the LOCAL DataStore reads in the Pro
+            // mapping, plausible exactly when storage is full. Keep the flow alive and keep a
+            // recently-Pro user in their grace window.
+            log(TAG, WARN) { "upgradeInfo mapping failed (attempt=$attempt): ${error.asLog()}" }
+            val fallback = try {
+                if ((System.currentTimeMillis() - billingCache.lastProStateAt.value()) < graceWindowMs()) {
+                    Info(gracePeriod = true, billingData = null)
+                } else {
+                    Info(billingData = null, error = error)
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The grace probe reads the same storage that just failed — a second failure must
+                // not kill the retry loop that exists for exactly this situation.
+                Info(billingData = null, error = error)
             }
-            delay(30_000L * 2.0.pow(attempt.toDouble()).toLong())
+            emit(fallback)
+            delay(retryDelayMs(attempt))
             true
         }
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
@@ -241,6 +253,25 @@ class UpgradeRepoGplay @Inject constructor(
         }
     }
 
+    // Reports the Pro-state transition history to CurriculumVitae (grace engaged, Pro lost) —
+    // lifetime counters that end up in every debug log recording. Fed from FRESH data only:
+    // upgradeInfo's null-seeded replay would fake a PURCHASED->GRACE->PURCHASED round trip on
+    // every app launch. A partial snapshot without a known upgrade proves nothing about absence,
+    // so it records nothing — grace engagements during a TOTAL Play outage are only counted once
+    // Play answers again (accepted trade-off: no false positives).
+    private suspend fun trackProState(fresh: BillingManager.FreshData) {
+        val info = Info(billingData = fresh.data)
+        val state = when {
+            info.upgrades.isNotEmpty() -> CurriculumVitae.ProState.PURCHASED
+            !fresh.isFullSnapshot -> return
+            (System.currentTimeMillis() - billingCache.lastProStateAt.value()) < graceWindowMs() ->
+                CurriculumVitae.ProState.GRACE
+
+            else -> CurriculumVitae.ProState.FREE
+        }
+        curriculumVitae.updateProState(state)
+    }
+
     // Persists "we saw a known Pro purchase" for the grace machinery. Only ever fed by the
     // freshBillingData collector — fresh Play round-trips, never replayed flow data, so a refunded
     // purchase can't keep re-stamping its grace window.
@@ -267,18 +298,24 @@ class UpgradeRepoGplay @Inject constructor(
     // Only relinquishes Pro if we haven't had it for a while (grace period). READ-ONLY: this runs on
     // replayed shared-flow data too, so it must never stamp the grace cache — see stampLastProState().
     private suspend fun BillingData?.toUpgradeInfo(): Info {
+        // Branch on MAPPED upgrades, not raw purchases: a purchase list containing only products
+        // this app doesn't know maps to zero upgrades and must fall through to the grace check —
+        // otherwise a recently-Pro user is denied grace they're entitled to. A known purchase is
+        // decided before any grace-cache read, so failing local storage can't turn a confirmed
+        // purchase into an error episode.
+        val mapped = Info(billingData = this)
+        if (mapped.upgrades.isNotEmpty()) return mapped
+
         val now = System.currentTimeMillis()
         val lastProStateAt = billingCache.lastProStateAt.value()
         log(TAG) { "toUpgradeInfo(): now=$now, lastProStateAt=$lastProStateAt, data=$this" }
         return when {
-            this?.purchases?.isNotEmpty() == true -> Info(billingData = this)
-
             (now - lastProStateAt) < graceWindowMs() -> {
                 log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                 Info(gracePeriod = true, billingData = null)
             }
 
-            else -> Info(billingData = this)
+            else -> mapped
         }
     }
 
@@ -343,5 +380,11 @@ class UpgradeRepoGplay @Inject constructor(
         // null when no known Pro SKU is owned.
         internal fun preferredProSku(upgrades: Collection<PurchasedSku>): Sku? =
             upgrades.firstOrNull { it.sku.type == Sku.Type.IAP }?.sku ?: upgrades.firstOrNull()?.sku
+
+        // Backoff for the local-failure retry in upgradeInfo: 30s/60s/120s/240s, capped at 5min.
+        // Integer math on purpose — the old Double-pow formula slept for hours and could overflow
+        // into a hot loop at extreme attempt counts. Pure and unit-tested.
+        internal fun retryDelayMs(attempt: Long): Long =
+            if (attempt >= 4) 300_000L else 30_000L shl attempt.toInt()
     }
 }
