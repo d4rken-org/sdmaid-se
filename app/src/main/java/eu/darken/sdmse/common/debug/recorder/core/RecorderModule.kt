@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.main.core.CurriculumVitae
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -251,6 +252,17 @@ class RecorderModule @Inject constructor(
         state?.areas?.forEachIndexed { index, dataArea -> log(TAG, INFO) { "#$index $dataArea" } }
 
         log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
+
+        try {
+            // Billing complaints usually arrive as debug logs: having the lifetime grace/Pro-loss
+            // history in the header saves a support round-trip.
+            log(TAG, INFO) { "Pro history: ${curriculumVitae.proHistory()}" }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Diagnostics only — a broken history read must not stop the recorder from starting.
+            log(TAG, WARN) { "Pro history unavailable: ${e.asLog()}" }
+        }
     }
 
     sealed class StopResult {
