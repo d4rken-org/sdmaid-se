@@ -95,7 +95,10 @@ class SchedulerWorker @AssistedInject constructor(
 
         if (runAttemptCount > 0) {
             log(TAG, WARN) { "Repeat execution attempt ($runAttemptCount) for $schedule" }
-            Result.failure(inputData)
+            // The next occurrence is appended as a dependent of this still RUNNING work (see `finally`).
+            // Returning failure would make WorkManager fail the appended successor too,
+            // permanently severing the recurring chain until the next app start re-arms it.
+            Result.success(inputData)
         } else {
             val start = System.currentTimeMillis()
             log(TAG, INFO) { "Executing schedule $schedule" }
@@ -119,29 +122,45 @@ class SchedulerWorker @AssistedInject constructor(
         if (e !is CancellationException) {
             log(TAG, ERROR) { "Execution failed: ${e.asLog()}" }
             finishedWithError = true
-            schedulerNotifications.notifyError(scheduleId)
+            try {
+                schedulerNotifications.notifyError(scheduleId)
+            } catch (e2: Exception) {
+                log(TAG, ERROR) { "Failed to notify about error (error=$e): ${e2.asLog()}" }
+            }
 
-            Result.failure(inputData)
+            // Not Result.failure(...), that would sever the recurring chain, see above.
+            Result.success(inputData)
         } else {
             Result.success()
         }
     } finally {
-        schedulerManager.updateExecutedNow(scheduleId)
-
-        try {
-            schedulerNotifications.cancel(scheduleId)
-            schedulerManager.reschedule(scheduleId)
-        } catch (e: Exception) {
-            log(
-                TAG,
-                ERROR
-            ) { "Failed to clean up notifications and reschedule (error=$finishedWithError): ${e.asLog()}" }
-        }
-
+        // First, so stray task jobs can't outlive the worker even if cleanup below rethrows cancellation
         try {
             workerScope.cancel("Worker finished (withError?=$finishedWithError).")
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to cancel worker scope (error=$finishedWithError): ${e.asLog()}" }
+        }
+
+        try {
+            schedulerManager.updateExecutedNow(scheduleId)
+        } catch (e: Exception) {
+            // On cancellation (e.g. schedule disabled) the schedule must not be re-armed
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "Failed to update execution timestamp (error=$finishedWithError): ${e.asLog()}" }
+        }
+
+        try {
+            schedulerNotifications.cancel(scheduleId)
+        } catch (e: Exception) {
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "Failed to clean up notifications (error=$finishedWithError): ${e.asLog()}" }
+        }
+
+        try {
+            schedulerManager.reschedule(scheduleId)
+        } catch (e: Exception) {
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "Failed to reschedule (error=$finishedWithError): ${e.asLog()}" }
         }
     }
 

@@ -215,8 +215,9 @@ class SchedulerNotifications @Inject constructor(
 
     companion object {
         val TAG = logTag("Scheduler", "Notifications", "Worker")
-        private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler"
-        private val RESULT_CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler.result"
+        // Lazy: BuildConfigWrap can't initialize on a plain JVM, and JVM tests mock this class
+        private val CHANNEL_ID by lazy { "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler" }
+        private val RESULT_CHANNEL_ID by lazy { "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler.result" }
         internal const val NOTIFICATION_ID_RANGE_STATE = 1000
         internal const val NOTIFICATION_ID_RANGE_RESULT = 1200
     }
