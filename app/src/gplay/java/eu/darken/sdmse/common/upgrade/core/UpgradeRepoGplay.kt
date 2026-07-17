@@ -23,10 +23,12 @@ import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
@@ -56,22 +58,32 @@ class UpgradeRepoGplay @Inject constructor(
     override val upgradeSite: String = UPGRADE_SITE
     override val betaSite: String = BETA_SITE
 
-    // Serializes the pro-state recorders: the init collector, refresh() and restorePurchaseNow()
-    // can run concurrently, and a stale unconfirmed-stamp read must not undo a newer
-    // confirmation's episode clear (the three cache values only update atomically per value).
-    // Declared before the init block — its collector can run during construction.
+    // Coalescing single-flight for the invisible already-owned recoveries: overlapping triggers
+    // (async Play event racing a buy tap's launch result) join the SAME restore instead of
+    // stacking concurrent Play queries. Busy state is exact because at most one job runs.
+    private val autoRestoreLock = Mutex()
+    private var autoRestoreJob: Deferred<Info?>? = null
+    private val autoRestoreState = MutableStateFlow(false)
+
+    // The already-owned auto-restores run invisibly on AppScope; expose their busy state so the
+    // UI can pause entitlement actions instead of racing them with a manual restore or a buy.
+    val autoRestoreBusy: Flow<Boolean> = autoRestoreState
+
+    // Serializes the pro-state recorders: the fresh-data collector and the failure paths in
+    // refresh()/restorePurchaseNow() can run concurrently, and a stale unconfirmed-stamp read must
+    // not undo a newer confirmation's episode clear. Declared before the init block — its
+    // collector can run during construction.
     private val proStateLock = Mutex()
 
     init {
-        // Fresh-provenance grace stamping: billingData emissions are only produced by fresh query
-        // writes or purchase events; replay can't reach this collector (subscribed before the first
-        // emission, never re-subscribes). This is what keeps a purchase completion stamping the
-        // grace cache — the reactive upgradeInfo map deliberately writes nothing anymore.
-        billingManager.billingData
-            .distinctUntilChanged()
-            .onEach {
+        // Grace bookkeeping is driven by *fresh* Play data only: freshBillingData emissions each
+        // represent an actual Play round-trip (per-connection/manual query results, completed
+        // purchase events) — never the replayed billingData/upgradeInfo flows, whose old data
+        // must not keep re-stamping the grace window (e.g. after a refund).
+        billingManager.freshBillingData
+            .onEach { fresh ->
                 try {
-                    recordProState(Info(billingData = it))
+                    recordProState(fresh)
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
@@ -82,32 +94,24 @@ class UpgradeRepoGplay @Inject constructor(
             .setupCommonEventHandlers(TAG) { "proStateRecorder" }
             .launchIn(scope)
 
-        // Async variant of the launch-result ITEM_ALREADY_OWNED case: Play told us mid-flow that the
-        // user already owns it. Reconcile silently — Play shows its own UI for purchase-sheet
+        // Async variant of the launch-result ITEM_ALREADY_OWNED case: Play told us mid-flow that
+        // the user already owns it. Reconcile silently — Play shows its own UI for purchase-sheet
         // failures, so no app-side dialog here.
         billingManager.purchaseFailures
             .filter { it.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED }
             .onEach {
                 log(TAG, INFO) { "Async already-owned event -> restoring purchase" }
-                try {
-                    withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Async already-owned restore failed: ${e.asLog()}" }
-                }
+                autoRestore()
             }
             .setupCommonEventHandlers(TAG) { "asyncAlreadyOwned" }
             .launchIn(scope)
     }
 
-    // False until the first real billing result after process start — the window where
+    // False until the first real billing outcome after process start — the window where
     // upgradeInfo below reports non-Pro even for paying users (its flow is seeded with null).
-    // An errored lookup counts as settled: gating callers must not wait on a broken connection.
-    override val isSettled: Flow<Boolean> = billingManager.billingData
-        .map { true }
-        .catch { emit(true) }
-        .onStart { emit(false) }
+    // A failed connection attempt counts as settled: gating callers must not wait on a broken
+    // connection (the connect loop keeps retrying, but that can take arbitrarily long).
+    override val isSettled: Flow<Boolean> = billingManager.isSettled
         .distinctUntilChanged()
 
     override val upgradeInfo: Flow<Info> = billingManager.billingData
@@ -151,13 +155,23 @@ class UpgradeRepoGplay @Inject constructor(
         offer: Sku.Subscription.Offer?,
         onError: (Throwable) -> Unit,
     ) {
-        scope.launch { launchBillingFlowNow(activity, sku, offer, onError) }
+        scope.launch { launchBillingFlowInternal(activity, sku, offer, onError) }
     }
 
     // Suspends until the Play launch resolved (sheet up, or failed) — callers holding an
     // in-progress guard (e.g. the IAP verification single-flight) stay guarded through the
-    // launch instead of racing the fire-and-forget variant above.
+    // launch. Still runs ON AppScope: the purchase flow and the already-owned recovery must
+    // survive the upgrade screen being closed, so caller cancellation only abandons the await.
     suspend fun launchBillingFlowNow(
+        activity: Activity,
+        sku: Sku,
+        offer: Sku.Subscription.Offer?,
+        onError: (Throwable) -> Unit,
+    ) {
+        scope.async { launchBillingFlowInternal(activity, sku, offer, onError) }.await()
+    }
+
+    private suspend fun launchBillingFlowInternal(
         activity: Activity,
         sku: Sku,
         offer: Sku.Subscription.Offer?,
@@ -166,24 +180,19 @@ class UpgradeRepoGplay @Inject constructor(
         log(TAG) { "launchBillingFlow($activity,$sku)" }
         try {
             billingManager.startIapFlow(activity, sku, offer)
+        } catch (e: CancellationException) {
+            // Not an error: must not reach onError (spurious dialog) — rethrow for structured
+            // cancellation.
+            throw e
         } catch (e: Exception) {
             when {
-                e is CancellationException -> throw e
-
                 e is UserCanceledBillingException -> log(TAG) { "User canceled billing flow" }
 
                 e is ItemAlreadyOwnedBillingException -> {
                     // Stale local state: Play says they already own it, so tapping "buy" really
                     // means "unlock what I own" — restore instead of showing an error.
                     log(TAG, INFO) { "Launch says already owned -> restoring purchase" }
-                    val restored = try {
-                        withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
-                    } catch (re: CancellationException) {
-                        throw re
-                    } catch (re: Exception) {
-                        log(TAG, WARN) { "Restore after already-owned failed: ${re.asLog()}" }
-                        null
-                    }
+                    val restored = autoRestore()
                     // Reconciled only if the restore actually returned the SKU Play claims is
                     // owned — a grace-only isPro doesn't count, the entitlement is still missing.
                     if (restored?.upgrades?.any { it.sku == sku } != true) {
@@ -201,6 +210,29 @@ class UpgradeRepoGplay @Inject constructor(
         }
     }
 
+    // Bounded, silent restore for the already-owned recovery paths. Coalescing: a trigger that
+    // arrives while one is running awaits the running one. Returns null when the restore failed
+    // or timed out — never throws (except cancellation of the AWAITING caller; the job itself
+    // finishes on AppScope either way).
+    private suspend fun autoRestore(): Info? {
+        val job = autoRestoreLock.withLock {
+            autoRestoreJob?.takeIf { it.isActive } ?: scope.async {
+                autoRestoreState.value = true
+                try {
+                    withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Already-owned restore failed: ${e.asLog()}" }
+                    null
+                } finally {
+                    autoRestoreState.value = false
+                }
+            }.also { autoRestoreJob = it }
+        }
+        return job.await()
+    }
+
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = billingManager.querySkus(*skus)
 
     // Strict subscription lookup for the pre-purchase gate: fresh SUBS-only query with explicit
@@ -216,13 +248,12 @@ class UpgradeRepoGplay @Inject constructor(
         try {
             // Bounded: with unbounded connection retry, an unavailable Play would otherwise keep
             // background callers (MainViewModel, isProSettled gates) suspended indefinitely.
+            // Grace stamping happens via the freshBillingData collector, not here.
             val fresh = withTimeoutOrNull(REFRESH_TIMEOUT_MS) { billingManager.refresh() }
             if (fresh == null) {
                 // A hanging connection is also a fresh attempt that couldn't confirm Pro.
                 recordProUnconfirmed()
-                return
             }
-            recordProState(Info(billingData = fresh))
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -241,9 +272,7 @@ class UpgradeRepoGplay @Inject constructor(
     suspend fun restorePurchaseNow(): Info {
         log(TAG) { "restorePurchaseNow()" }
         return try {
-            val info = billingManager.refresh().toUpgradeInfo()
-            recordProState(info)
-            info
+            billingManager.refresh().toUpgradeInfo()
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -258,6 +287,62 @@ class UpgradeRepoGplay @Inject constructor(
             } else {
                 throw e
             }
+        }
+    }
+
+    // Persists "we saw a known Pro purchase" for the grace machinery, or feeds the unconfirmed-
+    // episode clock when fresh data can't confirm Pro. Only ever fed by the freshBillingData
+    // collector — fresh Play round-trips, never replayed flow data, so a refunded purchase can't
+    // keep re-stamping its grace window.
+    private suspend fun recordProState(fresh: BillingManager.FreshData) = proStateLock.withLock {
+        val sku = preferredProSku(Info(billingData = fresh.data).upgrades)
+        if (sku == null) {
+            // A full snapshot proves absence; a partial one (purchase event, single-type query)
+            // only proves presence of what it contains and must not start an unconfirmed episode.
+            if (fresh.isFullSnapshot) recordProUnconfirmedLocked()
+            return@withLock
+        }
+        val storedSkuId = billingCache.lastProStateSku.value()
+        val storedType = OurSku.PRO_SKUS.singleOrNull { it.id == storedSkuId }?.type
+        // A non-full snapshot (purchase event, partial refresh) proves ownership of what it
+        // contains, but not the ABSENCE of anything else: it must not downgrade the grace class of
+        // a previously confirmed permanent IAP (30d) to the subscription window (7d). Only a full
+        // snapshot, where Play confirmed the IAP is really gone, may do that.
+        val effectiveSkuId = if (
+            !fresh.isFullSnapshot && storedType == Sku.Type.IAP && sku.type != Sku.Type.IAP
+        ) {
+            storedSkuId
+        } else {
+            sku.id
+        }
+        log(TAG, VERBOSE) { "Fresh Pro state confirmed by $sku, stamping $effectiveSkuId" }
+        // One transaction: also closes any unconfirmed episode atomically.
+        billingCache.stampLastProState(effectiveSkuId, System.currentTimeMillis())
+    }
+
+    private suspend fun recordProUnconfirmed() = proStateLock.withLock { recordProUnconfirmedLocked() }
+
+    // Fresh reconciliation failed to confirm a known Pro purchase (full-snapshot empty result or
+    // query error). Starts the unconfirmed-episode clock that delays the grace hint on the upgrade
+    // screen. Set-if-unset so follow-up failures never refresh it; stamps from an earlier episode
+    // (older than the last confirmation) or from the future (clock changes) are replaced.
+    // Fail-quiet: purely informational, must never affect entitlement handling.
+    private suspend fun recordProUnconfirmedLocked() {
+        try {
+            val lastProStateAt = billingCache.lastProStateAt.value()
+            val now = System.currentTimeMillis()
+            val sinceConfirm = now - lastProStateAt
+            // sinceConfirm <= 0 also rejects future confirmations (clock moved backwards) — they
+            // would otherwise pass the window check and re-stamp the episode on every attempt.
+            if (lastProStateAt <= 0L || sinceConfirm <= 0L || sinceConfirm >= graceWindowMs()) return
+            billingCache.proUnconfirmedSince.update { current ->
+                val stale = current <= 0L || current < lastProStateAt || current > now
+                if (stale) now else current
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to record unconfirmed pro state: ${e.asLog()}" }
         }
     }
 
@@ -277,54 +362,6 @@ class UpgradeRepoGplay @Inject constructor(
             }
 
             else -> Info(billingData = this)
-        }
-    }
-
-    // Persists "we saw a known Pro purchase" for the grace machinery. Callers must only pass Info
-    // built from FRESH data (returned query results, or new emissions seen by the init collector) —
-    // never from replayed flow data, so a refunded purchase can't keep re-stamping its grace window.
-    // Only a *known* Pro SKU counts; the permanent IAP is preferred so it drives the window length.
-    private suspend fun recordProState(info: Info) = proStateLock.withLock {
-        val sku = preferredProSku(info.upgrades)
-        if (sku == null) {
-            // Fresh reconciliation could not confirm a known Pro purchase — feed the
-            // unconfirmed-episode clock instead (no-op unless grace is active).
-            recordProUnconfirmedLocked()
-            return@withLock
-        }
-        // SKU before timestamp: the timestamp gates grace, the SKU only modifies its length — this
-        // order can't leave a fresh gate pointing at a stale modifier if we die between the writes.
-        billingCache.lastProStateSku.value(sku.id)
-        billingCache.lastProStateAt.value(System.currentTimeMillis())
-        // Confirmed again: close the unconfirmed episode so a later one starts a fresh clock.
-        // Written last — if we die before this, the stale stamp is older than lastProStateAt and
-        // gets replaced on the next episode (see recordProUnconfirmedLocked).
-        billingCache.proUnconfirmedSince.value(0L)
-    }
-
-    private suspend fun recordProUnconfirmed() = proStateLock.withLock { recordProUnconfirmedLocked() }
-
-    // Fresh reconciliation failed to confirm a known Pro purchase (empty result or query error).
-    // Starts the unconfirmed-episode clock that delays the grace hint on the upgrade screen.
-    // Set-if-unset so follow-up failures never refresh it; stamps from an earlier episode (older
-    // than the last confirmation) or from the future (clock changes) are replaced. Fail-quiet:
-    // this is purely informational and must never affect entitlement handling.
-    private suspend fun recordProUnconfirmedLocked() {
-        try {
-            val lastProStateAt = billingCache.lastProStateAt.value()
-            val now = System.currentTimeMillis()
-            val sinceConfirm = now - lastProStateAt
-            // sinceConfirm <= 0 also rejects future confirmations (clock moved backwards) — they
-            // would otherwise pass the window check and re-stamp the episode on every attempt.
-            if (lastProStateAt <= 0L || sinceConfirm <= 0L || sinceConfirm >= graceWindowMs()) return
-            billingCache.proUnconfirmedSince.update { current ->
-                val stale = current <= 0L || current < lastProStateAt || current > now
-                if (stale) now else current
-            }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to record unconfirmed pro state: ${e.asLog()}" }
         }
     }
 

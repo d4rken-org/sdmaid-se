@@ -61,6 +61,7 @@ internal object UpgradeScreenTags {
     const val GPLAY_RESTORE_BANNER = "upgrade_gplay_restore_banner"
     const val GPLAY_RESTORE_BANNER_ACTION = "upgrade_gplay_restore_banner_action"
     const val GPLAY_UNAVAILABLE = "upgrade_gplay_unavailable"
+    const val GPLAY_RETRY = "upgrade_gplay_retry"
     const val GPLAY_RECOMMENDED = "upgrade_gplay_recommended"
     const val GPLAY_OWNED_IAP = "upgrade_gplay_owned_iap"
     const val GPLAY_OWNED_SUB = "upgrade_gplay_owned_sub"
@@ -448,6 +449,7 @@ internal fun UpgradeInlineStateCard(
     body: String,
     icon: ImageVector,
     modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit = {},
 ) {
     UpgradeSectionCard(
         title = title,
@@ -464,5 +466,6 @@ internal fun UpgradeInlineStateCard(
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onErrorContainer,
         )
+        content()
     }
 }

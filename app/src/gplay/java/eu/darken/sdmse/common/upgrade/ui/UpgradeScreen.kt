@@ -139,6 +139,7 @@ fun UpgradeScreenHost(
         onSubscriptionTrial = { activity?.let { vm.onGoSubscriptionTrial(it) } },
         onRestore = vm::restorePurchase,
         onManageSubscription = vm::onManageSubscription,
+        onRetry = vm::retrySkuQuery,
         onNavigateUp = vm::navUp,
     )
 }
@@ -151,6 +152,7 @@ internal fun UpgradeScreen(
     onSubscriptionTrial: () -> Unit = {},
     onRestore: () -> Unit = {},
     onManageSubscription: () -> Unit = {},
+    onRetry: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
     // Owners get the ownership presentation: no acquisition upsell anywhere — a renewing
@@ -190,6 +192,7 @@ internal fun UpgradeScreen(
                     onSubscription = onSubscription,
                     onSubscriptionTrial = onSubscriptionTrial,
                     onRestore = onRestore,
+                    onRetry = onRetry,
                 )
             }
         }
@@ -203,6 +206,7 @@ private fun UpgradeAcquisitionContent(
     onSubscription: () -> Unit,
     onSubscriptionTrial: () -> Unit,
     onRestore: () -> Unit,
+    onRetry: () -> Unit,
 ) {
     val loadedState = uiState as? GplayUpgradeUiState.Loaded
     loadedState?.grace?.let { grace ->
@@ -263,7 +267,18 @@ private fun UpgradeAcquisitionContent(
                     title = stringResource(R.string.upgrades_gplay_unavailable_error_title),
                     body = stringResource(R.string.upgrade_screen_offers_unavailable_message),
                     icon = Icons.TwoTone.WarningAmber,
-                )
+                ) {
+                    // Play can be slow rather than broken (cold store, first sign-in): let
+                    // the user re-run the offer queries instead of leaving a dead screen.
+                    OutlinedButton(
+                        onClick = onRetry,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag(UpgradeScreenTags.GPLAY_RETRY),
+                    ) {
+                        Text(stringResource(CommonR.string.general_retry_action))
+                    }
+                }
                 is GplayUpgradeUiState.Loaded -> LoadedOffers(
                     uiState = state,
                     onIap = onIap,
@@ -489,9 +504,13 @@ internal fun toLoadedState(
             subOffer != null -> SubscriptionAction.STANDARD
             else -> SubscriptionAction.UNAVAILABLE
         },
-        subscriptionEnabled = (subOffer != null || subOfferTrial != null) && ownership.subscription == null,
+        // A running restore (manual or the invisible already-owned recovery) pauses the buy
+        // actions too — starting a purchase while an entitlement is being reconciled just races
+        // Play into ITEM_ALREADY_OWNED.
+        subscriptionEnabled = (subOffer != null || subOfferTrial != null) &&
+            ownership.subscription == null && !restoreInProgress,
         subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
-        iapEnabled = iapOffer != null && !ownership.hasIap,
+        iapEnabled = iapOffer != null && !ownership.hasIap && !restoreInProgress,
         iapPrice = iapOffer?.formattedPrice,
         ownership = ownership,
         grace = grace,

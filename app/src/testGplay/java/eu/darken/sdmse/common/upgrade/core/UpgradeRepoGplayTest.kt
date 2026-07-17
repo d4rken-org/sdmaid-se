@@ -1,6 +1,8 @@
 package eu.darken.sdmse.common.upgrade.core
 
 import android.app.Activity
+import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -8,20 +10,22 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
+import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
-import com.android.billingclient.api.BillingClient.BillingResponseCode
-import com.android.billingclient.api.BillingResult
 import io.mockk.coEvery
+import io.mockk.coJustRun
 import io.mockk.coVerify
-import io.mockk.coVerifyOrder
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -46,10 +50,14 @@ class UpgradeRepoGplayTest : BaseTest() {
         lastProAt: Long,
         lastSku: String = "",
         billingData: BillingData = BillingData(emptySet()),
+        freshBillingData: BillingManager.FreshData? = null,
         purchaseFailures: List<BillingResult> = emptyList(),
         proUnconfirmedSince: Long = 0L,
     ): UpgradeRepoGplay {
         every { billingManager.billingData } returns flowOf(billingData)
+        every { billingManager.freshBillingData } returns
+            (freshBillingData?.let { flowOf(it) } ?: emptyFlow())
+        every { billingManager.isSettled } returns flowOf(true)
         every { billingManager.purchaseFailures } returns
             if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
         lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true).apply {
@@ -64,6 +72,7 @@ class UpgradeRepoGplayTest : BaseTest() {
             every { flow } returns flowOf(proUnconfirmedSince)
         }
         every { billingCache.proUnconfirmedSince } returns proUnconfirmedMock
+        coJustRun { billingCache.stampLastProState(any(), any()) }
         return UpgradeRepoGplay(scope, billingManager, billingCache)
     }
 
@@ -160,6 +169,15 @@ class UpgradeRepoGplayTest : BaseTest() {
             .restorePurchaseNow().isPro shouldBe false
     }
 
+    @Test fun `legacy empty last SKU falls back to the short window`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(emptySet())
+        val twentyDaysAgo = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
+
+        // Existing installs have a timestamp but no recorded SKU: they keep the old 7-day window
+        // until the next successful query records one.
+        repo(lastProAt = twentyDaysAgo, lastSku = "").restorePurchaseNow().isPro shouldBe false
+    }
+
     @Test fun `IAP grace window is longer than the subscription window`() {
         (UpgradeRepoGplay.GRACE_PERIOD_IAP_MS > UpgradeRepoGplay.GRACE_PERIOD_MS) shouldBe true
         UpgradeRepoGplay.GRACE_PERIOD_IAP_MS shouldBe Duration.ofDays(30).toMillis()
@@ -174,6 +192,80 @@ class UpgradeRepoGplayTest : BaseTest() {
         UpgradeRepoGplay.preferredProSku(listOf(sub))?.id shouldBe OurSku.Sub.PRO_UPGRADE.id
         UpgradeRepoGplay.preferredProSku(emptyList()) shouldBe null
     }
+
+    // region grace stamping provenance
+
+    @Test fun `mapped billing data does not stamp the grace timestamp`() = runTest2 {
+        // The reactive mapping runs on replayed (stale) data too, e.g. when the upgrade screen is
+        // reopened in a long-lived process -- that must not extend the grace window.
+        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+
+        coVerify(exactly = 0) { billingCache.stampLastProState(any(), any()) }
+    }
+
+    @Test fun `fresh billing data stamps the grace cache`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(
+                BillingData(setOf(proPurchase())),
+                isFullSnapshot = true,
+            ),
+        )
+
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, any()) }
+    }
+
+    @Test fun `fresh data without a known pro SKU does not stamp`() = runTest2 {
+        val unknown = mockk<Purchase>().apply {
+            every { products } returns listOf("some.unknown.product")
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(unknown)), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 0) { billingCache.stampLastProState(any(), any()) }
+    }
+
+    @Test fun `a non-full snapshot does not downgrade the IAP grace class`() = runTest2 {
+        // A purchase event or partial refresh proves ownership of what it contains, not the
+        // absence of the permanent IAP -- the 30d window must not silently become 7d.
+        val subOnly = mockk<Purchase>().apply {
+            every { products } returns listOf(OurSku.Sub.PRO_UPGRADE.id)
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 1_000L,
+            lastSku = OurSku.Iap.PRO_UPGRADE.id,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(subOnly)), isFullSnapshot = false),
+        )
+
+        // Timestamp refreshes, but the stored SKU keeps the permanent IAP's 30-day class.
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, any()) }
+    }
+
+    @Test fun `a full snapshot with only a subscription stamps the subscription class`() = runTest2 {
+        // Play confirmed the IAP is really gone: downgrading the grace class is now legitimate.
+        val subOnly = mockk<Purchase>().apply {
+            every { products } returns listOf(OurSku.Sub.PRO_UPGRADE.id)
+            every { purchaseTime } returns 1_000L
+        }
+        repo(
+            lastProAt = 1_000L,
+            lastSku = OurSku.Iap.PRO_UPGRADE.id,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(subOnly)), isFullSnapshot = true),
+        )
+
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Sub.PRO_UPGRADE.id, any()) }
+    }
+
+    // endregion
+
+    // region buy flow + already-owned recovery
 
     @Test fun `already-owned buy attempt silently restores the purchase instead of erroring`() = runTest2 {
         coEvery { billingManager.startIapFlow(any(), any(), null) } throws
@@ -209,68 +301,133 @@ class UpgradeRepoGplayTest : BaseTest() {
         errors.single().shouldBeInstanceOf<ItemAlreadyOwnedBillingException>()
     }
 
-    @Test fun `explicit restore stamps the grace cache, sku before timestamp`() = runTest2 {
-        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+    @Test fun `user cancel during the buy flow stays silent`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            UserCanceledBillingException(RuntimeException("launch result"))
 
-        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe true
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerifyOrder {
-            lastProSkuMock.update(any())
-            lastProAtMock.update(any())
-        }
+        errors shouldBe emptyList()
     }
 
-    @Test fun `background refresh stamps the grace cache from the fresh result`() = runTest2 {
-        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+    @Test fun `cancellation of the buy flow never reaches the error callback`() = runTest2 {
+        // A cancelled coroutine is not an error: surfacing it would show a spurious dialog.
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws CancellationException("scope died")
 
-        repo(lastProAt = 0L).refresh()
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+        errors shouldBe emptyList()
     }
 
-    @Test fun `reactive emissions stamp once via the init collector, the map never stamps`() = runTest2 {
-        // billingData carries a pro purchase: the persistent init collector stamps exactly once.
-        // Collecting upgradeInfo runs the map at least twice (onStart-null + pro data) — the map is
-        // read-only now, so if it still stamped the count would exceed one.
-        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+    @Test fun `other buy flow failures reach the error callback`() = runTest2 {
+        val failure = RuntimeException("launch failed")
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws failure
 
-        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
-        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+        errors.single() shouldBe failure
     }
 
-    @Test fun `fresh empty result during grace starts the unconfirmed episode clock`() = runTest2 {
-        // Default billingData is empty: the init collector sees a fresh empty reconciliation
-        // while grace is active -> the episode clock is stamped (set-if-unset inside the update).
-        repo(lastProAt = System.currentTimeMillis() - 1_000)
+    @Test fun `fresh empty full snapshot during grace starts the unconfirmed episode clock`() = runTest2 {
+        repo(
+            lastProAt = System.currentTimeMillis() - 1_000,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = true),
+        )
 
         coVerify(exactly = 1) { proUnconfirmedMock.update(any()) }
     }
 
-    @Test fun `fresh empty result without recent pro does not start the clock`() = runTest2 {
-        repo(lastProAt = 0L)
+    @Test fun `a partial empty fresh result does not start the clock`() = runTest2 {
+        // A partial snapshot (purchase event, single-type query) proves presence of what it
+        // contains, never the absence of anything else — it must not start an episode.
+        repo(
+            lastProAt = System.currentTimeMillis() - 1_000,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = false),
+        )
 
         coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
     }
 
-    @Test fun `confirming a purchase closes the unconfirmed episode`() = runTest2 {
-        repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+    @Test fun `fresh empty result without recent pro does not start the clock`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(emptySet()), isFullSnapshot = true),
+        )
 
-        coVerifyOrder {
-            lastProSkuMock.update(any())
-            lastProAtMock.update(any())
-            proUnconfirmedMock.update(any())
-        }
+        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `confirming a purchase closes the unconfirmed episode in the stamp transaction`() = runTest2 {
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(BillingData(setOf(proPurchase())), isFullSnapshot = true),
+        )
+
+        // The episode clear rides the same atomic cache transaction as the confirmation stamp —
+        // no separate write on the episode value.
+        coVerify(exactly = 1) { billingCache.stampLastProState(any(), any()) }
+        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
     }
 
     @Test fun `failed refresh during grace records an unconfirmed episode`() = runTest2 {
+        // A fresh attempt that FAILED also can't confirm Pro — a sustained outage (queries
+        // erroring, never empty-succeeding) must feed the clock too.
         coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
 
-        // Update #1 comes from the init collector (fresh empty result during grace), update #2
-        // from the failed explicit refresh — a sustained outage must feed the clock too.
         repo(lastProAt = System.currentTimeMillis() - 1_000).refresh()
 
-        coVerify(exactly = 2) { proUnconfirmedMock.update(any()) }
+        coVerify(exactly = 1) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `timed-out refresh records an unconfirmed episode`() = runTest2 {
+        coEvery { billingManager.refresh() } coAnswers {
+            delay(Duration.ofMinutes(5).toMillis()) // longer than the 30s refresh timeout
+            BillingData(emptySet())
+        }
+
+        // A hanging connection is also a fresh attempt that couldn't confirm Pro.
+        repo(lastProAt = System.currentTimeMillis() - 1_000).refresh()
+
+        coVerify(exactly = 1) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `future confirmation timestamp does not start an episode`() = runTest2 {
+        // Clock moved backwards: lastProStateAt is "in the future". Without the sinceConfirm > 0
+        // guard this would pass the window check and re-stamp the episode on every attempt.
+        coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
+
+        repo(lastProAt = System.currentTimeMillis() + Duration.ofDays(1).toMillis()).refresh()
+
+        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `unconfirmed episode stamp is set-if-unset with stale and future replacement`() = runTest2 {
+        coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
+
+        // The transform's "now" is frozen when the recorder runs, so the bounds must bracket the
+        // triggering refresh, not the assertion time.
+        val beforeTrigger = System.currentTimeMillis()
+        val lastProAt = beforeTrigger - 1_000
+        repo(lastProAt = lastProAt).refresh()
+        val afterTrigger = System.currentTimeMillis()
+
+        val transform = slot<(Long) -> Long?>()
+        coVerify { proUnconfirmedMock.update(capture(transform)) }
+
+        // Unset -> stamped with "now".
+        val stamped = transform.captured(0L)!!
+        (stamped in beforeTrigger..afterTrigger) shouldBe true
+        // A stamp from the current episode (newer than the confirmation) is kept.
+        val current = lastProAt + 500
+        transform.captured(current) shouldBe current
+        // A stale stamp from an earlier episode (older than the confirmation) is replaced.
+        transform.captured(lastProAt - 5_000) shouldBe stamped
+        // A future stamp (clock moved backwards since it was written) is replaced.
+        val future = System.currentTimeMillis() + Duration.ofDays(1).toMillis()
+        transform.captured(future) shouldBe stamped
     }
 
     @Test fun `already-owned restore that only yields grace still surfaces the error`() = runTest2 {
@@ -285,60 +442,6 @@ class UpgradeRepoGplayTest : BaseTest() {
             .launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
 
         errors.single().shouldBeInstanceOf<ItemAlreadyOwnedBillingException>()
-    }
-
-    @Test fun `unconfirmed episode stamp is set-if-unset with stale and future replacement`() = runTest2 {
-        // The transform's "now" is frozen when the recorder runs (repo construction), so the
-        // bounds must bracket construction, not the assertion time.
-        val beforeConstruction = System.currentTimeMillis()
-        val lastProAt = beforeConstruction - 1_000
-        repo(lastProAt = lastProAt)
-        val afterConstruction = System.currentTimeMillis()
-
-        val transform = slot<(Long) -> Long?>()
-        coVerify { proUnconfirmedMock.update(capture(transform)) }
-
-        // Unset -> stamped with "now".
-        val stamped = transform.captured(0L)!!
-        (stamped in beforeConstruction..afterConstruction) shouldBe true
-        // A stamp from the current episode (newer than the confirmation) is kept.
-        val current = lastProAt + 500
-        transform.captured(current) shouldBe current
-        // A stale stamp from an earlier episode (older than the confirmation) is replaced.
-        transform.captured(lastProAt - 5_000) shouldBe stamped
-        // A future stamp (clock moved backwards since it was written) is replaced.
-        val future = System.currentTimeMillis() + Duration.ofDays(1).toMillis()
-        transform.captured(future) shouldBe stamped
-    }
-
-    @Test fun `confirmation clears the unconfirmed episode by writing zero`() = runTest2 {
-        repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
-
-        val transform = slot<(Long) -> Long?>()
-        coVerify { proUnconfirmedMock.update(capture(transform)) }
-
-        transform.captured(123_456L) shouldBe 0L
-    }
-
-    @Test fun `future confirmation timestamp does not start an episode`() = runTest2 {
-        // Clock moved backwards: lastProStateAt is "in the future". Without the sinceConfirm > 0
-        // guard this would pass the window check and re-stamp the episode on every attempt.
-        repo(lastProAt = System.currentTimeMillis() + Duration.ofDays(1).toMillis())
-
-        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
-    }
-
-    @Test fun `timed-out refresh records an unconfirmed episode`() = runTest2 {
-        coEvery { billingManager.refresh() } coAnswers {
-            delay(Duration.ofMinutes(5).toMillis()) // longer than the 30s refresh timeout
-            BillingData(emptySet())
-        }
-
-        // Update #1 from the init collector (fresh empty during grace), #2 from the timeout path —
-        // a hanging connection is also a fresh attempt that couldn't confirm Pro.
-        repo(lastProAt = System.currentTimeMillis() - 1_000).refresh()
-
-        coVerify(exactly = 2) { proUnconfirmedMock.update(any()) }
     }
 
     @Test fun `already-owned restore returning a different sku still surfaces the error`() = runTest2 {
@@ -376,4 +479,49 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         coVerify(exactly = 0) { billingManager.refresh() }
     }
+
+    @Test fun `overlapping already-owned recoveries coalesce into one restore`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        val gate = CompletableDeferred<Unit>()
+        coEvery { billingManager.refresh() } coAnswers {
+            gate.await()
+            BillingData(setOf(proPurchase()))
+        }
+
+        val errors = mutableListOf<Throwable>()
+        val repo = repo(lastProAt = 0L)
+        // Two buy taps race into the already-owned recovery while the first restore is in flight.
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
+
+        repo.autoRestoreBusy.first() shouldBe true
+        gate.complete(Unit)
+
+        // Both triggers joined the SAME restore -- one Play query, no stacked recoveries.
+        coVerify(exactly = 1) { billingManager.refresh() }
+        errors shouldBe emptyList()
+        repo.autoRestoreBusy.first() shouldBe false
+    }
+
+    @Test fun `auto restore busy state rises and falls around the recovery`() = runTest2 {
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        val gate = CompletableDeferred<Unit>()
+        coEvery { billingManager.refresh() } coAnswers {
+            gate.await()
+            BillingData(setOf(proPurchase()))
+        }
+
+        val repo = repo(lastProAt = 0L)
+        repo.autoRestoreBusy.first() shouldBe false
+
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { }
+        repo.autoRestoreBusy.first() shouldBe true
+
+        gate.complete(Unit)
+        repo.autoRestoreBusy.first() shouldBe false
+    }
+
+    // endregion
 }
