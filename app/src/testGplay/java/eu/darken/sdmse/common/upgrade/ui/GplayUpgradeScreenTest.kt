@@ -362,6 +362,18 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `ownership buy button is paused while a restore runs`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)))
+                    .copy(restoreInProgress = true),
+            )
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+    }
+
+    @Test
     fun `aged grace stage shows diagnostics with an inline restore action`() {
         var restoreClicks = 0
         composeRule.setUpgradeContent {

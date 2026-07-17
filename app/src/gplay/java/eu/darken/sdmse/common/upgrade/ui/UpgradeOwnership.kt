@@ -88,7 +88,8 @@ internal fun UpgradeOwnershipContent(
                 onClick = onIap,
                 // Not gated on iapEnabled: prices may have failed to load while the purchase
                 // itself would work (the billing flow re-queries product details on launch).
-                enabled = !uiState.verificationInProgress,
+                // A running restore (manual or auto) pauses this buy too — same as acquisition.
+                enabled = !uiState.verificationInProgress && !uiState.restoreInProgress,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(UpgradeScreenTags.GPLAY_IAP),
