@@ -36,6 +36,7 @@ import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
+import java.io.IOException
 import javax.inject.Provider
 
 class RecorderModuleTest : BaseTest() {
@@ -70,6 +71,13 @@ class RecorderModuleTest : BaseTest() {
         every { sdmId.id } returns "abcd"
         every { dataAreaManager.latestState } returns emptyFlow()
         every { curriculumVitae.history } returns emptyFlow()
+        coEvery { curriculumVitae.proHistory() } returns CurriculumVitae.ProHistory(
+            lastState = null,
+            graceEngagedCount = 0,
+            graceEngagedLast = null,
+            proLostCount = 0,
+            proLostLast = null,
+        )
 
         every { recorderProvider.get() } returns mockRecorder
         coEvery { mockRecorder.start(any()) } returns Unit
@@ -159,6 +167,21 @@ class RecorderModuleTest : BaseTest() {
             val pathSlot = slot<(String?) -> String?>()
             coVerify { recorderPath.update(capture(pathSlot)) }
             pathSlot.captured("ignored") shouldNotBe null
+        }
+
+        @Test
+        fun `a failing pro history read does not prevent recording`() = runTest {
+            // The pro history line in the log header is diagnostics only -- a broken DataStore
+            // must not stop the recorder from starting.
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            coEvery { curriculumVitae.proHistory() } throws IOException("disk full")
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val module = createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            module.state.first { it.isRecording }.isRecording shouldBe true
         }
 
         @Test
