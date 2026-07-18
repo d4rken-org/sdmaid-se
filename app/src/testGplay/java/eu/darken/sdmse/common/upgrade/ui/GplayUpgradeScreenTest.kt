@@ -131,6 +131,8 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER).assertCountEquals(1)
+        // The targeted section is the ONLY restore affordance — no second generic one below.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(0)
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).performClick()
         composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
     }
@@ -154,7 +156,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `both restore affordances are disabled while a restore is running`() {
+    fun `the returning-buyer restore is disabled while a restore is running`() {
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = GplayUpgradeUiState.Loaded(
@@ -170,7 +172,36 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION).assertIsNotEnabled()
-        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `plain acquisition gets a described restore section below the offers`() {
+        var restoreClicks = 0
+        var contactClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                ),
+                onRestore = { restoreClicks++ },
+                onContactSupport = { contactClicks++ },
+            )
+        }
+
+        // The offers card holds only offers — restore lives in its own described section.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).performScrollTo().performClick()
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).performScrollTo().performClick()
+        composeRule.runOnIdle {
+            check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" }
+            check(contactClicks == 1) { "expected 1 contact click, got $contactClicks" }
+        }
     }
 
     @Test
@@ -278,7 +309,26 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(0)
         // Restore stays available in every ownership state: it reconciles entitlements, not upsell.
+        // Framed as a status re-check, with the support escape hatch next to it.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_status_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).assertCountEquals(1)
+    }
+
+    @Test
+    fun `contact support fires from the ownership restore section`() {
+        // Click-through on purpose: UpgradeOwnershipContent's onContactSupport has a default
+        // value, so a mere presence assertion would still pass if UpgradeScreen forgot to wire it.
+        var contactClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(Ownership(hasIap = true)),
+                onContactSupport = { contactClicks++ },
+            )
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).performScrollTo().performClick()
+        composeRule.runOnIdle { check(contactClicks == 1) { "expected 1 contact click, got $contactClicks" } }
     }
 
     @Test
@@ -345,6 +395,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_title)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body_short)).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertCountEquals(0)
+        // The grace card owns restore via its two-stage disclosure — the generic restore section
+        // must not undercut the calm quiet stage with its own restore CTA.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(0)
         // Grace users are still Pro: neutral status title, not the acquisition pitch title.
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_manage_title)).assertCountEquals(1)
         // Purchasing stays fully available — grace must never block the switch to a real purchase.

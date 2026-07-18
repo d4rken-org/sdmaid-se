@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -325,6 +326,13 @@ class UpgradeViewModel @Inject constructor(
     fun onManageSubscription() {
         log(TAG) { "onManageSubscription()" }
         webpageTool.open(PLAY_SUBSCRIPTION_SITE)
+    }
+
+    fun onContactSupport() {
+        log(TAG) { "onContactSupport()" }
+        // The guided support form, not a bare mailto: it attaches version and Pro context, which
+        // is exactly what purchase troubleshooting needs.
+        navTo(SupportFormRoute)
     }
 
     fun restorePurchase() = launch {

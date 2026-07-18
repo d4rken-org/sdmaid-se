@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Payments
-import androidx.compose.material.icons.twotone.Restore
 import androidx.compose.material.icons.twotone.WarningAmber
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
@@ -23,7 +22,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -85,15 +83,27 @@ fun UpgradeScreenHost(
     }
 
     if (showRestoreFailed) {
+        // Lead with the fact that a LIVE Play check just happened — the query often completes in
+        // under a second, so without saying it, the dialog reads like a canned explainer. Hedged
+        // ("could be confirmed"): RestoreFailed also fires on timeout, not only on verified absence.
+        val checkedMsg = stringResource(R.string.upgrade_screen_restore_checked_message)
         val purchaseMsg = stringResource(R.string.upgrade_screen_restore_purchase_message)
         val troubleshootingMsg = stringResource(R.string.upgrade_screen_restore_troubleshooting_msg)
         val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
         val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
-        val message = "$purchaseMsg\n\n$troubleshootingMsg\n\n$syncHint\n\n$multiAccountHint"
+        val contactHint = stringResource(R.string.upgrade_screen_restore_contact_hint)
+        val message = "$checkedMsg\n\n$purchaseMsg\n\n$troubleshootingMsg\n\n$syncHint\n\n$multiAccountHint\n\n$contactHint"
         SdmConfirmDialog(
             message = message,
             onDismissRequest = { showRestoreFailed = false },
             positive = SdmDialogAction(
+                label = stringResource(R.string.upgrade_screen_contact_support_action),
+                onClick = {
+                    showRestoreFailed = false
+                    vm.onContactSupport()
+                },
+            ),
+            negative = SdmDialogAction(
                 label = stringResource(CommonR.string.general_dismiss_action),
                 onClick = { showRestoreFailed = false },
             ),
@@ -139,6 +149,7 @@ fun UpgradeScreenHost(
         onSubscriptionTrial = { activity?.let { vm.onGoSubscriptionTrial(it) } },
         onRestore = vm::restorePurchase,
         onManageSubscription = vm::onManageSubscription,
+        onContactSupport = vm::onContactSupport,
         onRetry = vm::retrySkuQuery,
         onNavigateUp = vm::navUp,
     )
@@ -152,6 +163,7 @@ internal fun UpgradeScreen(
     onSubscriptionTrial: () -> Unit = {},
     onRestore: () -> Unit = {},
     onManageSubscription: () -> Unit = {},
+    onContactSupport: () -> Unit = {},
     onRetry: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
@@ -184,6 +196,7 @@ internal fun UpgradeScreen(
                     onIap = onIap,
                     onManageSubscription = onManageSubscription,
                     onRestore = onRestore,
+                    onContactSupport = onContactSupport,
                 )
             } else {
                 UpgradeAcquisitionContent(
@@ -192,6 +205,7 @@ internal fun UpgradeScreen(
                     onSubscription = onSubscription,
                     onSubscriptionTrial = onSubscriptionTrial,
                     onRestore = onRestore,
+                    onContactSupport = onContactSupport,
                     onRetry = onRetry,
                 )
             }
@@ -206,6 +220,7 @@ private fun UpgradeAcquisitionContent(
     onSubscription: () -> Unit,
     onSubscriptionTrial: () -> Unit,
     onRestore: () -> Unit,
+    onContactSupport: () -> Unit,
     onRetry: () -> Unit,
 ) {
     val loadedState = uiState as? GplayUpgradeUiState.Loaded
@@ -226,9 +241,18 @@ private fun UpgradeAcquisitionContent(
     )
 
     if (uiState is GplayUpgradeUiState.Loaded && uiState.wasPreviouslyPro) {
-        UpgradeRestoreBanner(
+        // The targeted returning-buyer nudge: prominent placement and emphasis, and the ONLY
+        // restore affordance on the screen — a second one below would make the screen feel
+        // uncertain about its own advice.
+        UpgradeRestoreSection(
+            title = stringResource(R.string.upgrade_screen_restore_banner_title),
+            body = stringResource(R.string.upgrade_screen_restore_banner_body),
             onRestore = onRestore,
+            onContactSupport = onContactSupport,
+            modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
             restoreInProgress = uiState.restoreInProgress,
+            emphasized = true,
+            restoreTag = UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION,
         )
     }
 
@@ -284,10 +308,23 @@ private fun UpgradeAcquisitionContent(
                     onIap = onIap,
                     onSubscription = onSubscription,
                     onSubscriptionTrial = onSubscriptionTrial,
-                    onRestore = onRestore,
                 )
             }
         }
+    }
+
+    // Restore is account reconciliation, not an offer — its own described section, after the
+    // offers. Only for plain acquisition: returning buyers get the emphasized section up top
+    // instead, and grace users' restore is owned by the grace card's two-stage disclosure.
+    val loadedForRestore = uiState as? GplayUpgradeUiState.Loaded
+    if (loadedForRestore != null && !loadedForRestore.wasPreviouslyPro && loadedForRestore.grace == null) {
+        UpgradeRestoreSection(
+            title = stringResource(R.string.upgrade_screen_restore_banner_title),
+            body = stringResource(R.string.upgrade_screen_restore_body),
+            onRestore = onRestore,
+            onContactSupport = onContactSupport,
+            restoreInProgress = loadedForRestore.restoreInProgress,
+        )
     }
 }
 
@@ -297,7 +334,6 @@ private fun LoadedOffers(
     onIap: () -> Unit,
     onSubscription: () -> Unit,
     onSubscriptionTrial: () -> Unit,
-    onRestore: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -367,59 +403,6 @@ private fun LoadedOffers(
                 }
                 Text(stringResource(R.string.upgrade_screen_iap_action))
             }
-        }
-
-        TextButton(
-            onClick = onRestore,
-            enabled = !uiState.restoreInProgress,
-            modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE),
-        ) {
-            if (uiState.restoreInProgress) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(18.dp),
-                    strokeWidth = 2.dp,
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-            }
-            Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
-        }
-    }
-}
-
-@Composable
-private fun UpgradeRestoreBanner(
-    onRestore: () -> Unit,
-    modifier: Modifier = Modifier,
-    restoreInProgress: Boolean = false,
-) {
-    UpgradeSectionCard(
-        title = stringResource(R.string.upgrade_screen_restore_banner_title),
-        icon = Icons.TwoTone.Restore,
-        modifier = modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
-        colors = CardDefaults.elevatedCardColors(
-            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-        ),
-    ) {
-        Text(
-            text = stringResource(R.string.upgrade_screen_restore_banner_body),
-            style = MaterialTheme.typography.bodyMedium,
-        )
-        Button(
-            onClick = onRestore,
-            enabled = !restoreInProgress,
-            modifier = Modifier
-                .fillMaxWidth()
-                .testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION),
-        ) {
-            if (restoreInProgress) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(18.dp),
-                    strokeWidth = 2.dp,
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-            }
-            Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
         }
     }
 }

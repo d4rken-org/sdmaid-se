@@ -72,6 +72,7 @@ internal object UpgradeScreenTags {
     const val GPLAY_MANAGE_SUB = "upgrade_gplay_manage_sub"
     const val GPLAY_GRACE = "upgrade_gplay_grace"
     const val GPLAY_GRACE_RESTORE = "upgrade_gplay_grace_restore"
+    const val GPLAY_CONTACT_SUPPORT = "upgrade_gplay_contact_support"
 }
 
 @Composable

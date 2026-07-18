@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
+import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -514,6 +515,20 @@ class GplayUpgradeViewModelTest : BaseTest() {
         verify { webpageTool.open(UpgradeViewModel.PLAY_SUBSCRIPTION_SITE) }
         UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "sku=${OurSku.Sub.PRO_UPGRADE.id}"
         UpgradeViewModel.PLAY_SUBSCRIPTION_SITE shouldContain "package="
+    }
+
+    @Test
+    fun `contact support navigates to the guided support form`() = runTest2(context = testDispatcher) {
+        val vm = buildVm(mockRepo())
+
+        val navEvents = mutableListOf<NavEvent>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { navEvents.add(it) } }
+
+        vm.onContactSupport()
+        advanceUntilIdle()
+
+        navEvents shouldBe listOf(NavEvent.GoTo(SupportFormRoute))
+        collector.cancel()
     }
 
     private suspend fun awaitLoaded(vm: UpgradeViewModel): GplayUpgradeUiState.Loaded =

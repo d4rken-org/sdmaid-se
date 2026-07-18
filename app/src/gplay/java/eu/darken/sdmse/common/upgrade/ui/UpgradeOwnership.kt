@@ -15,7 +15,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -34,6 +33,7 @@ internal fun UpgradeOwnershipContent(
     onIap: () -> Unit,
     onManageSubscription: () -> Unit,
     onRestore: () -> Unit,
+    onContactSupport: () -> Unit = {},
 ) {
     val ownership = uiState.ownership
     val subscription = ownership.subscription
@@ -106,20 +106,16 @@ internal fun UpgradeOwnershipContent(
         }
     }
 
-    TextButton(
-        onClick = onRestore,
-        enabled = !uiState.restoreInProgress,
-        modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE),
-    ) {
-        if (uiState.restoreInProgress) {
-            CircularProgressIndicator(
-                modifier = Modifier.size(18.dp),
-                strokeWidth = 2.dp,
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-        }
-        Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
-    }
+    // Not a bare utility button: on a status screen, restore only matters when the shown status
+    // is wrong — one sentence of framing plus the support escape hatch for what a re-check can't
+    // fix. Same restore wiring (single-flight + pause semantics) as everywhere else.
+    UpgradeRestoreSection(
+        title = stringResource(R.string.upgrade_screen_restore_status_title),
+        body = stringResource(R.string.upgrade_screen_restore_status_body),
+        onRestore = onRestore,
+        onContactSupport = onContactSupport,
+        restoreInProgress = uiState.restoreInProgress,
+    )
 }
 
 // Shown on the acquisition view while Pro is active purely via the local grace window. Calm
