@@ -12,6 +12,8 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.onEach
@@ -35,6 +37,26 @@ class UpgradeViewModel @Inject constructor(
 
     val snackbarEvents = SingleEventFlow<Int>()
     val toastEvents = SingleEventFlow<Int>()
+
+    // Which presentation the screen shows. The manage route (settings "upgrade status" entry)
+    // gets a status view first; the pitch only appears once a free user asks for the upgrade
+    // options. Upgrading wins over that choice — completing the sponsor flow from the pitch must
+    // land on the upgraded status, not back on the ask. null until the route is bound.
+    internal val state: StateFlow<FossUpgradeView?> = combine(
+        routeFlow,
+        upgradeRepo.upgradeInfo,
+        handle.getStateFlow(KEY_SHOW_UPGRADE_OPTIONS, false),
+    ) { route, info, showOptions ->
+        when {
+            route == null -> null
+            route.manage && info.isPro -> FossUpgradeView.STATUS_UPGRADED
+            route.manage && !showOptions -> FossUpgradeView.STATUS_FREE
+            else -> FossUpgradeView.PITCH
+        }
+    }.safeStateIn(
+        initialValue = null,
+        onError = { FossUpgradeView.PITCH },
+    )
 
     init {
         routeFlow
@@ -62,6 +84,12 @@ class UpgradeViewModel @Inject constructor(
             .launchInViewModel()
     }
 
+    fun onShowUpgradeOptions() {
+        log(TAG) { "onShowUpgradeOptions()" }
+        // Handle-backed: surviving process recreation keeps the user on the pitch they asked for.
+        handle[KEY_SHOW_UPGRADE_OPTIONS] = true
+    }
+
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
         handle[KEY_SPONSOR_PRESSED_AT] = SystemClock.elapsedRealtime()
@@ -85,6 +113,7 @@ class UpgradeViewModel @Inject constructor(
 
     companion object {
         private const val KEY_SPONSOR_PRESSED_AT = "sponsor_pressed_at"
+        private const val KEY_SHOW_UPGRADE_OPTIONS = "show_upgrade_options"
         private const val SPONSOR_DELAY_MS = 5_000L
         private val TAG = logTag("Upgrade", "ViewModel")
     }

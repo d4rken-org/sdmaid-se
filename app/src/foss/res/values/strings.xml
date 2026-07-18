@@ -18,4 +18,14 @@
     <string name="upgrade_screen_sponsor_action_hint">The alternative are ads, analytics and Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Back already? Your support keeps SD Maid alive!</string>
+
+    <string name="upgrade_screen_manage_title">SD Maid SE FOSS</string>
+    <string name="upgrade_screen_status_free_title">Free version</string>
+    <string name="upgrade_screen_status_free_body">You are using the free version of SD Maid. Extra features can be unlocked by supporting development.</string>
+    <string name="upgrade_screen_status_free_action">See upgrade options</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade active</string>
+    <string name="upgrade_screen_status_upgraded_body">All extra features are unlocked. Thank you for supporting open-source development ❤️</string>
+    <string name="upgrade_screen_recurring_title">Keep it going</string>
+    <string name="upgrade_screen_recurring_body">SD Maid keeps evolving through updates and fixes. If you\'d like to sustain that, consider a recurring donation via GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Open GitHub Sponsors</string>
 </resources>

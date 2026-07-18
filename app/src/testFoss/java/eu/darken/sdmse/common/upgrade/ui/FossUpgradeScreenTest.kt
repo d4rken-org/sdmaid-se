@@ -52,6 +52,66 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
             assertTrue(clicked)
         }
     }
+
+    @Test
+    fun `free status view shows the status without any pitch content`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(view = FossUpgradeView.STATUS_FREE)
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_manage_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_FREE).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `upgrade options button invokes callback`() {
+        var clicked = false
+
+        composeRule.setUpgradeContent {
+            UpgradeScreen(view = FossUpgradeView.STATUS_FREE, onShowUpgradeOptions = { clicked = true })
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS)
+            .performSemanticsAction(SemanticsActions.OnClick)
+
+        composeRule.runOnIdle {
+            assertTrue(clicked)
+        }
+    }
+
+    @Test
+    fun `upgraded status view thanks the supporter and offers a recurring donation`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED)
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_manage_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_UPGRADED).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_status_upgraded_body))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_DONATE).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
+    }
+
+    @Test
+    fun `recurring donation button invokes the sponsors callback`() {
+        var clicked = false
+
+        composeRule.setUpgradeContent {
+            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED, onGithubSponsors = { clicked = true })
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.FOSS_DONATE)
+            .performSemanticsAction(SemanticsActions.OnClick)
+
+        composeRule.runOnIdle {
+            assertTrue(clicked)
+        }
+    }
 }
 
 private fun ComposeContentTestRule.setUpgradeContent(
