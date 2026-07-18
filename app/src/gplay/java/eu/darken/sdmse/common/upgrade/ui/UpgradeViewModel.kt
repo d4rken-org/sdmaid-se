@@ -204,6 +204,10 @@ class UpgradeViewModel @Inject constructor(
                         errorEvents.tryEmit(partialError)
                     }
                 } else if (partialError == null) {
+                    // Only a SUCCESS resets the flag. A priceIndependent user with a failed query
+                    // must leave it untouched: it may already be true from before they became an
+                    // owner, and resetting would re-emit the same episode if ownership lapses
+                    // again. A new query attempt (Pending above) resets it either way.
                     hasShownPartialQueryError = false
                 }
             }
