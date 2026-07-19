@@ -24,17 +24,12 @@
 • Sekti saugyklos tendencijas ir valytojo istoriją
 • Daugiau funkcijų ir valdymo galimybių visoje programoje
 • Remti tolesnę programėlės plėtrą</string>
-    <string name="upgrade_screen_how_title">Parinktys</string>
-    <string name="upgrade_screen_how_body">Galite rinktis tarp vienkartinio pirkimo ir pigesnės metinės prenumeratos.\nPrenumerata prasideda nemokamuoju 14 dienų bandomuoju laikotarpiu, po kurio jums bus imamas mokestis kartą per metus. Bandomasis laikotarpis ir prenumerata gali būti atšaukti bet kada.\nTos pačios funkcijos, tik skirtingi kainų modeliai.</string>
     <string name="upgrade_screen_subscription_offer_title">Metinė prenumerata</string>
     <string name="upgrade_screen_iap_offer_title">Nusipirkti vieną kartą</string>
-    <string name="upgrade_screen_offer_recommended">Rekomenduojama</string>
     <string name="upgrade_screen_offers_unavailable_message">Šiuo metu nepavyko įkelti kainų. Patikrinkite Google Play ir po kurio laiko bandykite dar kartą.</string>
     <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą 14 dienų bandomąjį laikotarpį</string>
     <string name="upgrade_screen_subscription_action">Prenumeruoti</string>
-    <string name="upgrade_screen_subscription_action_hint">Prenumerata kainuoja %s per metus.</string>
     <string name="upgrade_screen_iap_action">Vienkartinis pirkimas</string>
-    <string name="upgrade_screen_iap_action_hint">Vienkartinis pirkimas kainuoja %s.</string>
     <string name="upgrade_screen_thanks_toast">Jūs geriausi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinchronizacija gali užtrukti. Pabandykite paleisti iš naujo, išvalyti Google Play talpyklą arba tiesiog palaukti.</string>

@@ -24,17 +24,12 @@
 • भण्डारण प्रवृत्ति र सफाई इतिहास ट्र्याक गर्नुहोस्
 • अनुप्रयोग भर अधिक सुविधाहरू र नियन्त्रणहरू
 • निरन्तर विकास समर्थन गर्नुहोस्</string>
-    <string name="upgrade_screen_how_title">विकल्पहरू</string>
-    <string name="upgrade_screen_how_body">तपाईं एक-पटक खरिद र सस्तो वार्षिक सदस्यता बीच छनौट गर्न सक्नुहुन्छ।\nसदस्यता 14-दिनको निःशुल्क परीक्षणको साथ सुरु हुन्छ, जसपछि तपाईंलाई वर्षमा एक पटक शुल्क लगाइनेछ। परीक्षण र सदस्यता कुनै पनि समयमा रद्द गर्न सकिन्छ।\nउस्तै सुविधाहरू, केवल फरक मूल्य निर्धारण मोडेलहरू।</string>
     <string name="upgrade_screen_subscription_offer_title">वार्षिक सदस्यता</string>
     <string name="upgrade_screen_iap_offer_title">एकपटक किन्नुहोस्</string>
-    <string name="upgrade_screen_offer_recommended">सिफारिस गरिएको</string>
     <string name="upgrade_screen_offers_unavailable_message">मूल्य अहिले लोड हुन सकेन। Google Play जाँच गर्नुहोस् र केही पल पछि फेरि प्रयास गर्नुहोस्।</string>
     <string name="upgrade_screen_subscription_trial_action">14-दिनको निःशुल्क परीक्षण सुरु गर्नुहोस्</string>
     <string name="upgrade_screen_subscription_action">सदस्यता लिनुहोस्</string>
-    <string name="upgrade_screen_subscription_action_hint">सदस्यता प्रति वर्ष %s लाग्छ।</string>
     <string name="upgrade_screen_iap_action">एक-पटक खरिद</string>
-    <string name="upgrade_screen_iap_action_hint">एक-पटक खरिद %s लाग्छ।</string>
     <string name="upgrade_screen_thanks_toast">तपाईं उत्कृष्ट हुनुहुन्छ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">खरिद पुनर्स्थापना गर्नुहोस्</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store सिङ्कमा समय लाग्न सक्छ। रिबुट गर्ने, Google Play क्यास खाली गर्ने वा केवल पर्खने प्रयास गर्नुहोस्।</string>

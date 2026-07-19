@@ -78,36 +78,35 @@ internal fun UpgradeOwnershipContent(
     }
 
     if (subscription?.isAutoRenewing == false && !ownership.hasIap) {
-        UpgradeOfferCard(
-            title = stringResource(R.string.upgrade_screen_iap_offer_title),
-            price = uiState.iapPrice,
-            supportingText = stringResource(R.string.upgrade_screen_owned_iap_purchase_note),
-        ) {
-            Button(
-                onClick = onIap,
-                // Not gated on iapEnabled: prices may have failed to load while the purchase
-                // itself would work (the billing flow re-queries product details on launch).
-                // A running restore (manual or auto) pauses this buy too — same as acquisition.
-                enabled = !uiState.verificationInProgress && !uiState.restoreInProgress,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .testTag(UpgradeScreenTags.GPLAY_IAP),
+        UpgradeActionCard {
+            UpgradeOfferRow(
+                title = stringResource(R.string.upgrade_screen_iap_offer_title),
+                price = uiState.iapPrice,
+                hint = stringResource(R.string.upgrade_screen_owned_iap_purchase_note),
             ) {
-                if (uiState.verificationInProgress) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
-                        strokeWidth = 2.dp,
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
+                Button(
+                    onClick = onIap,
+                    // Not gated on iapEnabled: prices may have failed to load while the purchase
+                    // itself would work (the billing flow re-queries details on launch).
+                    enabled = !uiState.verificationInProgress && !uiState.restoreInProgress,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(UpgradeScreenTags.GPLAY_IAP),
+                ) {
+                    if (uiState.verificationInProgress) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            strokeWidth = 2.dp,
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                    }
+                    Text(stringResource(R.string.upgrade_screen_iap_action))
                 }
-                Text(stringResource(R.string.upgrade_screen_iap_action))
             }
         }
     }
 
-    // Not a bare utility button: on a status screen, restore only matters when the shown status
-    // is wrong — one sentence of framing. Same restore wiring (single-flight + pause semantics)
-    // as everywhere else; support is offered by the failed-restore dialog, after the re-check.
+    // Framed as a status re-check; support is offered by the failed-restore dialog only.
     UpgradeRestoreSection(
         title = stringResource(R.string.upgrade_screen_restore_status_title),
         body = stringResource(R.string.upgrade_screen_restore_status_body),

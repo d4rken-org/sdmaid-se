@@ -5,20 +5,12 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
-import androidx.compose.material.icons.twotone.Payments
 import androidx.compose.material.icons.twotone.WarningAmber
-import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -36,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -44,8 +35,7 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.upgrade.core.OurSku
-import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun UpgradeScreenHost(
@@ -83,12 +73,9 @@ fun UpgradeScreenHost(
     }
 
     if (showRestoreFailed) {
-        // Lead with the fact that a LIVE Play check just happened — the query often completes in
-        // under a second, so without saying it, the dialog reads like a canned explainer. Hedged
-        // ("could be confirmed"): RestoreFailed also fires on timeout, not only on verified
-        // absence. Multi-account first: it is the most common real cause, and the lead already
-        // points at the account. This dialog is also the ONLY contact-support surface — offered
-        // deliberately after a restore attempt came up empty, never before.
+        // Leads with the just-happened live Play check (hedged: RestoreFailed also fires on
+        // timeout). This dialog is the ONLY contact-support surface — escalation comes after an
+        // empty restore, never before.
         val checkedMsg = stringResource(R.string.upgrade_screen_restore_checked_message)
         val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
         val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
@@ -258,22 +245,7 @@ private fun UpgradeAcquisitionContent(
         UpgradeFeatureList(text = stringResource(R.string.upgrade_screen_benefits_body))
     }
 
-    UpgradeSectionCard(
-        title = stringResource(R.string.upgrade_screen_how_title),
-        icon = Icons.TwoTone.Payments,
-    ) {
-        // Only promise the 14-day trial when Play actually returned the trial offer —
-        // otherwise the static copy contradicts the plain "Subscribe" button next to it.
-        val trialAvailable = uiState is GplayUpgradeUiState.Loaded &&
-            uiState.subscriptionAction == SubscriptionAction.TRIAL
-        UpgradeSectionBody(
-            text = stringResource(
-                if (trialAvailable) R.string.upgrade_screen_how_body
-                else R.string.upgrade_screen_how_body_no_trial
-            )
-        )
-    }
-
+    // All purchase framing lives inside the offers box (LoadedOffers) — no separate explainer card.
     UpgradeActionCard {
         AnimatedContent(
             targetState = uiState,
@@ -320,181 +292,6 @@ private fun UpgradeAcquisitionContent(
             restoreInProgress = loadedForRestore.restoreInProgress,
         )
     }
-}
-
-@Composable
-private fun LoadedOffers(
-    uiState: GplayUpgradeUiState.Loaded,
-    onIap: () -> Unit,
-    onSubscription: () -> Unit,
-    onSubscriptionTrial: () -> Unit,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .testTag(UpgradeScreenTags.ACTIONS),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        val subscriptionText = stringResource(
-            when (uiState.subscriptionAction) {
-                SubscriptionAction.TRIAL -> R.string.upgrade_screen_subscription_trial_action
-                SubscriptionAction.STANDARD,
-                SubscriptionAction.UNAVAILABLE,
-                -> R.string.upgrade_screen_subscription_action
-            }
-        )
-
-        UpgradeOfferCard(
-            title = stringResource(R.string.upgrade_screen_subscription_offer_title),
-            price = uiState.subscriptionPrice,
-            supportingText = uiState.subscriptionPrice?.let {
-                stringResource(R.string.upgrade_screen_subscription_action_hint, it)
-            },
-            emphasized = uiState.subscriptionAction != SubscriptionAction.UNAVAILABLE,
-            badgeText = if (uiState.subscriptionAction != SubscriptionAction.UNAVAILABLE) {
-                stringResource(R.string.upgrade_screen_offer_recommended)
-            } else {
-                null
-            },
-        ) {
-            Button(
-                onClick = when (uiState.subscriptionAction) {
-                    SubscriptionAction.TRIAL -> onSubscriptionTrial
-                    SubscriptionAction.STANDARD,
-                    SubscriptionAction.UNAVAILABLE,
-                    -> onSubscription
-                },
-                // Also locked during IAP verification: two concurrent billing launches must not race.
-                enabled = uiState.subscriptionEnabled && !uiState.verificationInProgress,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .testTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION),
-            ) {
-                Text(subscriptionText)
-            }
-        }
-
-        UpgradeOfferCard(
-            title = stringResource(R.string.upgrade_screen_iap_offer_title),
-            price = uiState.iapPrice,
-            supportingText = uiState.iapPrice?.let {
-                stringResource(R.string.upgrade_screen_iap_action_hint, it)
-            },
-        ) {
-            OutlinedButton(
-                onClick = onIap,
-                enabled = uiState.iapEnabled && !uiState.verificationInProgress,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .testTag(UpgradeScreenTags.GPLAY_IAP),
-            ) {
-                if (uiState.verificationInProgress) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
-                        strokeWidth = 2.dp,
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                Text(stringResource(R.string.upgrade_screen_iap_action))
-            }
-        }
-    }
-}
-
-internal sealed interface GplayUpgradeUiState {
-    data object Loading : GplayUpgradeUiState
-
-    data class Unavailable(
-        val error: Throwable,
-    ) : GplayUpgradeUiState
-
-    data class Loaded(
-        val subscriptionAction: SubscriptionAction,
-        val subscriptionEnabled: Boolean,
-        val subscriptionPrice: String?,
-        val iapEnabled: Boolean,
-        val iapPrice: String?,
-        val ownership: Ownership = Ownership(),
-        val grace: GraceHint? = null,
-        val wasPreviouslyPro: Boolean = false,
-        val restoreInProgress: Boolean = false,
-        val verificationInProgress: Boolean = false,
-    ) : GplayUpgradeUiState
-}
-
-// Pro is active purely via the local grace window (no owned purchase). Stage 1 shows a quiet
-// "still active" confirmation; diagnostics + restore CTA appear once the episode has aged.
-internal data class GraceHint(
-    val showDiagnostics: Boolean,
-)
-
-internal data class Ownership(
-    val hasIap: Boolean = false,
-    val subscription: SubscriptionOwnership? = null,
-) {
-    val ownsAnything: Boolean
-        get() = hasIap || subscription != null
-}
-
-internal data class SubscriptionOwnership(
-    val isAutoRenewing: Boolean,
-)
-
-internal enum class SubscriptionAction {
-    TRIAL,
-    STANDARD,
-    UNAVAILABLE,
-}
-
-// Display-only ownership mapping from the (replayed) upgradeInfo. Conservative: if ANY record for
-// the sub SKU still claims auto-renew (e.g. a retained purchase event next to fresher query data),
-// treat it as renewing — that can only under-offer the one-time purchase, never enable it wrongly;
-// the actual purchase gate re-verifies against a fresh SUBS query in the ViewModel.
-internal fun UpgradeRepoGplay.Info.toOwnership() = Ownership(
-    hasIap = upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
-    subscription = upgrades
-        .filter { it.sku == OurSku.Sub.PRO_UPGRADE }
-        .takeIf { it.isNotEmpty() }
-        ?.let { subs -> SubscriptionOwnership(isAutoRenewing = subs.any { it.purchase.isAutoRenewing }) },
-)
-
-internal fun toLoadedState(
-    iap: eu.darken.sdmse.common.upgrade.core.billing.SkuDetails?,
-    sub: eu.darken.sdmse.common.upgrade.core.billing.SkuDetails?,
-    ownership: Ownership,
-    grace: GraceHint? = null,
-    wasPreviouslyPro: Boolean = false,
-    restoreInProgress: Boolean = false,
-    verificationInProgress: Boolean = false,
-): GplayUpgradeUiState.Loaded {
-    val iapOffer = iap?.details?.oneTimePurchaseOfferDetails
-    val subOffer = sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
-        OurSku.Sub.PRO_UPGRADE.BASE_OFFER.matches(offer)
-    }
-    val subOfferTrial = sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
-        OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER.matches(offer)
-    }
-
-    return GplayUpgradeUiState.Loaded(
-        subscriptionAction = when {
-            subOfferTrial != null -> SubscriptionAction.TRIAL
-            subOffer != null -> SubscriptionAction.STANDARD
-            else -> SubscriptionAction.UNAVAILABLE
-        },
-        // A running restore (manual or the invisible already-owned recovery) pauses the buy
-        // actions too — starting a purchase while an entitlement is being reconciled just races
-        // Play into ITEM_ALREADY_OWNED.
-        subscriptionEnabled = (subOffer != null || subOfferTrial != null) &&
-            ownership.subscription == null && !restoreInProgress,
-        subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
-        iapEnabled = iapOffer != null && !ownership.hasIap && !restoreInProgress,
-        iapPrice = iapOffer?.formattedPrice,
-        ownership = ownership,
-        grace = grace,
-        wasPreviouslyPro = wasPreviouslyPro,
-        restoreInProgress = restoreInProgress,
-        verificationInProgress = verificationInProgress,
-    )
 }
 
 @Preview2

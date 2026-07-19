@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>
     <string name="upgrade_screen_benefits_title">Beneficii upgrade</string>
     <string name="upgrade_screen_benefits_body">• Curăță cache-urile și datele nerelevante ale aplicațiilor\n• Elimină fișierele duplicate\n• Activează curățări programate\n• Creează filtre personalizate și reguli de curățare\n• Urmărește tendințele de stocare și istoricul curățării\n• Mai multe funcții și controale în toată aplicația\n• Suportă dezvoltarea continuă</string>
-    <string name="upgrade_screen_how_title">Opțiuni</string>
-    <string name="upgrade_screen_how_body">Poți alege între o achiziție unică și un abonament anual mai ieftin.\nAbonamentul începe cu o probă gratuită de 14 zile, după care vei fi taxat o dată pe an. Încercarea şi abonamentul pot fi anulate în orice moment.\nAceleaşi caracteristici, doar modele de preţuri diferite.</string>
     <string name="upgrade_screen_subscription_offer_title">Abonament anual</string>
     <string name="upgrade_screen_iap_offer_title">Cumpără o dată</string>
-    <string name="upgrade_screen_offer_recommended">Recomandat</string>
     <string name="upgrade_screen_offers_unavailable_message">Prețurile nu au putut fi încărcate acum. Verifică Google Play și încearcă din nou peste puțin timp.</string>
     <string name="upgrade_screen_subscription_trial_action">Începeți trial-ul gratuit 14 zile</string>
     <string name="upgrade_screen_subscription_action">Abonează-te</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonamentul costă %s pe an.</string>
     <string name="upgrade_screen_iap_action">Achiziție unică</string>
-    <string name="upgrade_screen_iap_action_hint">Achiziția unică costă %s.</string>
     <string name="upgrade_screen_thanks_toast">Ești cel mai bun! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restabiliți achiziția</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sincronizarea Magazinului Play poate dura timp. Încercați repornirea, ștergeți memoria cache Google Play sau doar așteptați.</string>

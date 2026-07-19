@@ -24,17 +24,12 @@
 • Fuatilia mielekeo ya hifadhi na historia ya usafishaji
 • Vipengele na vidhibiti zaidi katika programu nzima
 • Saidia maendeleo endelevu</string>
-    <string name="upgrade_screen_how_title">Chaguo</string>
-    <string name="upgrade_screen_how_body">Unaweza kuchagua kati ya ununuzi wa mara moja na usajili wa kila mwaka ulio rahisi zaidi.\nUsajili unaanza na majaribio ya bure ya siku 14, baada ya hapo utalipishwa mara moja kwa mwaka. Majaribio na usajili vinaweza kufutwa wakati wowote.\nVipengele sawa, tu mifano tofauti ya bei.</string>
     <string name="upgrade_screen_subscription_offer_title">Usajili wa mwaka</string>
     <string name="upgrade_screen_iap_offer_title">Nunua mara moja</string>
-    <string name="upgrade_screen_offer_recommended">Inapendekezwa</string>
     <string name="upgrade_screen_offers_unavailable_message">Bei hazikuweza kupakiwa kwa sasa. Angalia Google Play na ujaribu tena baada ya muda mfupi.</string>
     <string name="upgrade_screen_subscription_trial_action">Anza majaribio ya bure ya siku 14</string>
     <string name="upgrade_screen_subscription_action">Jisajili</string>
-    <string name="upgrade_screen_subscription_action_hint">Usajili ungharimu %s kwa mwaka.</string>
     <string name="upgrade_screen_iap_action">Ununuzi wa mara moja</string>
-    <string name="upgrade_screen_iap_action_hint">Ununuzi wa mara moja ungharimu %s.</string>
     <string name="upgrade_screen_thanks_toast">Wewe ni bora zaidi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ulandanishi wa Play Store unaweza kuchukua muda. Jaribu kuanzisha upya, kusafisha akiba ya Google Play au tu subiri.</string>

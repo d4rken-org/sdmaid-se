@@ -24,17 +24,12 @@
 • Seuraa tallennustilan kehitystä ja siivoushistoriaa
 • Enemmän ominaisuuksia ja hallintavaihtoehtoja sovelluksessa
 • Tue sovelluksen jatkokehitystä</string>
-    <string name="upgrade_screen_how_title">Vaihtoehdot</string>
-    <string name="upgrade_screen_how_body">Voit valita kertaostoksen ja halvemman vuositilauksen välillä.\nTilaus alkaa ilmaisella 14 päivän kokeilujaksolla, jonka jälkeen sinua veloitetaan kerran vuodessa. Kokeilu ja tilaus voidaan peruuttaa milloin tahansa.\nSamat ominaisuudet, vain eri hinnoittelumallit.</string>
     <string name="upgrade_screen_subscription_offer_title">Vuosittainen tilaus</string>
     <string name="upgrade_screen_iap_offer_title">Osta kerran</string>
-    <string name="upgrade_screen_offer_recommended">Suositeltu</string>
     <string name="upgrade_screen_offers_unavailable_message">Hintoja ei voitu ladata juuri nyt. Tarkista Google Play ja yritä uudelleen hetken kuluttua.</string>
     <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen 14 päivän kokeilu</string>
     <string name="upgrade_screen_subscription_action">Tilaa</string>
-    <string name="upgrade_screen_subscription_action_hint">Tilaus maksaa %s vuodessa.</string>
     <string name="upgrade_screen_iap_action">Kertaostos</string>
-    <string name="upgrade_screen_iap_action_hint">Kertaostos maksaa %s.</string>
     <string name="upgrade_screen_thanks_toast">Olet paras! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store -synkronointi voi kestää. Kokeile uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai vain odottamista.</string>

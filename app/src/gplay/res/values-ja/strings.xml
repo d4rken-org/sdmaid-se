@@ -24,17 +24,12 @@
 • ストレージの傾向とクリーンアップ履歴を追跡
 • アプリ全体でより多くの機能と制御
 • 継続的な開発をサポート</string>
-    <string name="upgrade_screen_how_title">オプション</string>
-    <string name="upgrade_screen_how_body">定期購入は14日間の無料トライアルから開始します。\n無料トライアルの終了後から1年に1回の課金がされます。\n無料トライアルと定期購入はいつでもキャンセル可能です。</string>
     <string name="upgrade_screen_subscription_offer_title">年間サブスクリプション</string>
     <string name="upgrade_screen_iap_offer_title">買い切り</string>
-    <string name="upgrade_screen_offer_recommended">おすすめ</string>
     <string name="upgrade_screen_offers_unavailable_message">現在、価格を読み込むことができません。Google Playを確認して、後でもう一度試してください。</string>
     <string name="upgrade_screen_subscription_trial_action">14日間の無料トライアルを開始</string>
     <string name="upgrade_screen_subscription_action">登録</string>
-    <string name="upgrade_screen_subscription_action_hint">定期購入は、年/%sのお支払いです。</string>
     <string name="upgrade_screen_iap_action">1 回限りの購入</string>
-    <string name="upgrade_screen_iap_action_hint">1回限りの購入は、%sのお支払いです。</string>
     <string name="upgrade_screen_thanks_toast">あなたは最高です！ ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">購入を復元</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Playストアの同期には時間がかかる場合があります。 そのまましばらくお待ちください。改善されない場合は、再起動するか、Playストアのキャッシュを削除してみてください。</string>

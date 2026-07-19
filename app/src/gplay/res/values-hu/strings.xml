@@ -24,17 +24,12 @@
 • Tárolóhelyek trendjeinek és tisztítási előzményeinek nyomon követése
 • További funkciók és vezérlőelemek az alkalmazásban
 • A folyamatos fejlesztés támogatása</string>
-    <string name="upgrade_screen_how_title">Lehetőségek</string>
-    <string name="upgrade_screen_how_body">Választhat az egyszeri vásárlás és az olcsóbb éves előfizetés között.\nAz előfizetés egy 14 napos ingyenes próbaverzióval kezdődik, amely után évente egyszer kerül felszámításra. A próbaidőszak és az előfizetés bármikor lemondható.\nAzonos funkciók, csak különböző árképzési modellek.</string>
     <string name="upgrade_screen_subscription_offer_title">Éves előfizetés</string>
     <string name="upgrade_screen_iap_offer_title">Egyszeri vásárlás</string>
-    <string name="upgrade_screen_offer_recommended">Ajánlott</string>
     <string name="upgrade_screen_offers_unavailable_message">Az árak jelenleg nem tölthetők be. Ellenőrizze a Google Play oldalt, és próbálja újra egy pillanat múlva.</string>
     <string name="upgrade_screen_subscription_trial_action">Ingyenes 14 napos próbaidőszak indítása</string>
     <string name="upgrade_screen_subscription_action">Iratkozz fel</string>
-    <string name="upgrade_screen_subscription_action_hint">Az előfizetés évi %s.</string>
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
-    <string name="upgrade_screen_iap_action_hint">Az egyszeri vásárlás ára %s.</string>
     <string name="upgrade_screen_thanks_toast">Te vagy a legjobb! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Vásárlás visszaállítása</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A Play Áruház szinkronizálása időbe telhet. Próbáld meg az újraindítást, a Google Play gyorsítótárának törlését vagy egyszerűen várj.</string>

@@ -12,13 +12,9 @@
     <string name="upgrade_screen_preamble">Nid oes gan SD Maid hysbysebion ac nid yw\'n gwerthu data defnyddwyr. Mae fy ngwaith yn cael ei ariannu gennych chi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Manteision</string>
     <string name="upgrade_screen_benefits_body">• Glanhau apiau 💯\n• Gweithrediadau wedi\'u hamserlennu ⏰\n• Opsiynau ychwanegol ar gyfer pob offeryn ⚙️\n• Eich rheolau dileu eich hun ✍️\n• Datblygwr brwdfrydig 🧙\na mwy…</string>
-    <string name="upgrade_screen_how_title">Opsiynau</string>
-    <string name="upgrade_screen_how_body">Gallwch ddewis rhwng pryniant un-amser a thanysgrifiad blynyddol rhatach.\nMae\'r tanysgrifiad yn dechrau gyda phrawf 14 diwrnod am ddim, ac ar ôl hynny byddwch yn cael eich codi tâl unwaith y flwyddyn. Gellir canslo\'r prawf a\'r tanysgrifiad ar unrhyw adeg.\nYr un nodweddion, modelau prisio gwahanol yn unig.</string>
     <string name="upgrade_screen_subscription_trial_action">Dechrau prawf 14 diwrnod am ddim</string>
     <string name="upgrade_screen_subscription_action">Tanysgrifio</string>
-    <string name="upgrade_screen_subscription_action_hint">Mae\'r tanysgrifiad yn costio %s y flwyddyn.</string>
     <string name="upgrade_screen_iap_action">Pryniant un-amser</string>
-    <string name="upgrade_screen_iap_action_hint">Mae\'r pryniant un-amser yn costio %s.</string>
     <string name="upgrade_screen_thanks_toast">Chi yw\'r gorau! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Adfer pryniant</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Gall cydamseru Play Store gymryd amser. Ceisiwch ailgychwyn, clirio storfa Google Play neu aros yn syml.</string>

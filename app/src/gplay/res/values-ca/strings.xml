@@ -24,17 +24,12 @@
 • Segueix les tendències d\'emmagatzematge i l\'historial de neteja
 • Més funcions i controls a tota l\'aplicació
 • Dona suport al desenvolupament continu</string>
-    <string name="upgrade_screen_how_title">Opcions</string>
-    <string name="upgrade_screen_how_body">Podeu triar entre una compra única i una subscripció anual més barata.\nLa subscripció comença amb una prova gratuïta de 14 dies, després de la qual se us cobrarà un cop l\'any. La prova i la subscripció es poden cancel·lar en qualsevol moment.\nLes mateixes funcions, només models de preus diferents.</string>
     <string name="upgrade_screen_subscription_offer_title">Subscripció anual</string>
     <string name="upgrade_screen_iap_offer_title">Compra única</string>
-    <string name="upgrade_screen_offer_recommended">Recomanat</string>
     <string name="upgrade_screen_offers_unavailable_message">Els preus no s\'han pogut carregar en aquest moment. Comprova Google Play i torna a intentar-ho en un moment.</string>
     <string name="upgrade_screen_subscription_trial_action">Comença la prova gratuïta de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Subscripció</string>
-    <string name="upgrade_screen_subscription_action_hint">El preu de la subscripció és de %s anuals.</string>
     <string name="upgrade_screen_iap_action">Compra única</string>
-    <string name="upgrade_screen_iap_action_hint">El preu de la compra única és de %s.</string>
     <string name="upgrade_screen_thanks_toast">Sou el millor! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaura la compra</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronització del Play Store pot trigar un temps. Proveu de reiniciar, esborrar la memòria cau del Google Play o simplement espereu.</string>

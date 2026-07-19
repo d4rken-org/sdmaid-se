@@ -24,17 +24,12 @@
 • ຕິດຕາມແນວໂນ້ມຂໍ້ມູນ ແລະ ປະໝັດການລຶບລ້າງ
 • ຄຸນສົມບັດ ແລະ ການຄວບຄຸມເພີ່ມເຕີມທໍ່ວທັງແອັບ
 • ສະໝັບສະໝູນການພັດທະນາຍ່າງຕໍ່ເນື່ອງ</string>
-    <string name="upgrade_screen_how_title">ຕົວເລືອກ</string>
-    <string name="upgrade_screen_how_body">ທ່ານສາມາດເລືອກລະຫວ່າງການຊື້ຄັ້ງດຽວ ແລະການສະໝັກສະມາຊິກປະຈຳປີທີ່ຖືກກວ່າ.\nການສະໝັກສະມາຊິກເລີ່ມຕົ້ນດ້ວຍການທົດລອງຟຣີ 14 ວັນ, ຫຼັງຈາກນັ້ນທ່ານຈະຖືກຮຽກເກັບເງິນປີລະຄັ້ງ. ການທົດລອງ ແລະການສະໝັກສະມາຊິກສາມາດຍົກເລີກໄດ້ທຸກເວລາ.\nຄຸນສົມບັດດຽວກັນ, ພຽງແຕ່ຮູບແບບລາຄາທີ່ແຕກຕ່າງກັນ.</string>
     <string name="upgrade_screen_subscription_offer_title">ການສະໝັກປະຈຳປີ</string>
     <string name="upgrade_screen_iap_offer_title">ຊື້ຄັ້ງດຽວ</string>
-    <string name="upgrade_screen_offer_recommended">ແນະນໍຳ</string>
     <string name="upgrade_screen_offers_unavailable_message">ລາຄາບໍ່ສາມາດໂຫລດໄດ້ໃນຕອນນີ້. ກວດສອບ Google Play ແລະ ລອງໃໝມ່ອີກຄັ້ງໃນບາດກາວ.</string>
     <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງຟຣີ 14 ວັນ</string>
     <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກ</string>
-    <string name="upgrade_screen_subscription_action_hint">ການສະໝັກສະມາຊິກລາຄາ %s ຕໍ່ປີ.</string>
     <string name="upgrade_screen_iap_action">ການຊື້ຄັ້ງດຽວ</string>
-    <string name="upgrade_screen_iap_action_hint">ການຊື້ຄັ້ງດຽວລາຄາ %s.</string>
     <string name="upgrade_screen_thanks_toast">ທ່ານດີທີ່ສຸດ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ກູ້ຄືນການຊື້</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ການຊິງຄ໌ Play Store ອາດໃຊ້ເວລາ. ລອງຣີບູດ, ລ້າງແຄສ Google Play ຫຼືພຽງແຕ່ລໍຖ້າ.</string>

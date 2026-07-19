@@ -24,17 +24,12 @@
 • স্টোরেজ প্রবণতা এবং পরিষ্কার ইতিহাস ট্র্যাক করুন
 • অ্যাপ জুড়ে আরও বৈশিষ্ট্য এবং নিয়ন্ত্রণ
 • অব্যাহত উন্নয়নকে সমর্থন করুন</string>
-    <string name="upgrade_screen_how_title">বিকল্পসমূহ</string>
-    <string name="upgrade_screen_how_body">আপনি এককালীন ক্রয় এবং একটি সস্তা বার্ষিক সদস্যতার মধ্যে বেছে নিতে পারেন৷\nসাবস্ক্রিপশন বিনামূল্যে 14-দিনের ট্রায়াল দিয়ে শুরু করতে পারেন, তারপরে আপনাকে প্রতি বছরে একবার চার্জ করা হবে। ট্রায়াল এবং সাবস্ক্রিপশন যে কোন সময় বাতিলযোগ্য।\nএকই বৈশিষ্ট্য, শুধু ভিন্ন মূল্যের মডেল।</string>
     <string name="upgrade_screen_subscription_offer_title">বার্ষিক সাবস্ক্রিপশন</string>
     <string name="upgrade_screen_iap_offer_title">একবার কিনুন</string>
-    <string name="upgrade_screen_offer_recommended">সুপারিশকৃত</string>
     <string name="upgrade_screen_offers_unavailable_message">দাম এখন লোড করা যায়নি। Google Play চেক করুন এবং একটু পরে আবার চেষ্টা করুন।</string>
     <string name="upgrade_screen_subscription_trial_action">বিনামূল্যে ১৪-দিনের ট্রায়াল শুরু করুন</string>
     <string name="upgrade_screen_subscription_action">সাবস্ক্রাইব করুন</string>
-    <string name="upgrade_screen_subscription_action_hint">সাবস্ক্রিপশনে প্রতি এক বছরে %s খরচ হয়।</string>
     <string name="upgrade_screen_iap_action">এককালীন ক্রয়</string>
-    <string name="upgrade_screen_iap_action_hint">একবারেই কিনে ফেলতে খরচ হবে: %s.</string>
     <string name="upgrade_screen_thanks_toast">আপনি সেরা ভাই আপনি সেরা! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ক্রয় পুনরুদ্ধার</string>
     <string name="upgrade_screen_restore_sync_patience_hint">প্লে স্টোর সিঙ্ক্রোনাইজেশনে সময় লাগতে পারে। রিবুট করার চেষ্টা করুন, Google Play ক্যাশে সাফ করুন বা অপেক্ষা করুন।</string>

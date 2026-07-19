@@ -24,17 +24,12 @@
 • Spor lagringstrends og oprydningshistorik
 • Flere funktioner og kontroller i hele appen
 • Støt videre udvikling</string>
-    <string name="upgrade_screen_how_title">Muligheder</string>
-    <string name="upgrade_screen_how_body">Du kan vælge mellem et engangskøb eller et billigere årsabonnement.\nAbonnementet starter med en gratis prøveperiode på 14 dage, hvorefter du opkræves én gang om året. Prøveperiode og abonnement kan opsiges når som helst.\nSamme funktioner, bare forskellige prismodeller.</string>
     <string name="upgrade_screen_subscription_offer_title">Årligt abonnement</string>
     <string name="upgrade_screen_iap_offer_title">Køb én gang</string>
-    <string name="upgrade_screen_offer_recommended">Anbefalet</string>
     <string name="upgrade_screen_offers_unavailable_message">Priserne kunne ikke indlæses lige nu. Tjek Google Play og prøv igen om et øjeblik.</string>
     <string name="upgrade_screen_subscription_trial_action">Start gratis 14-dages prøveperiode</string>
     <string name="upgrade_screen_subscription_action">Abonner</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonnementet koster %s pr. år.</string>
     <string name="upgrade_screen_iap_action">Engangskøb</string>
-    <string name="upgrade_screen_iap_action_hint">Engangskøbet koster %s.</string>
     <string name="upgrade_screen_thanks_toast">Du er den bedste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Gendan køb</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering af Play Butik kan tage tid. Prøv at genstarte, rydde Google Play-cachen eller bare vent.</string>

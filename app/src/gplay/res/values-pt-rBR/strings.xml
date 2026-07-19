@@ -24,17 +24,12 @@
 • Rastrear tendências de armazenamento e histórico de limpeza
 • Mais recursos e controles em todo o aplicativo
 • Apoiar o desenvolvimento contínuo</string>
-    <string name="upgrade_screen_how_title">Opções</string>
-    <string name="upgrade_screen_how_body">Você pode escolher entre uma compra única ou uma assinatura anual mais barata.\nA assinatura começa com um teste gratuito de 14 dias, após o qual você será cobrado uma vez por ano. Teste e assinatura são canceláveis a qualquer momento.\nAs mesmas funcionalidades, apenas diferentes modelos de preços.</string>
     <string name="upgrade_screen_subscription_offer_title">Assinatura anual</string>
     <string name="upgrade_screen_iap_offer_title">Comprar uma vez</string>
-    <string name="upgrade_screen_offer_recommended">Recomendado</string>
     <string name="upgrade_screen_offers_unavailable_message">Os preços não puderam ser carregados no momento. Verifique o Google Play e tente novamente em breve.</string>
     <string name="upgrade_screen_subscription_trial_action">Iniciar teste gratuito de 14 dias</string>
     <string name="upgrade_screen_subscription_action">Se inscrever</string>
-    <string name="upgrade_screen_subscription_action_hint">A assinatura custa %s por ano.</string>
     <string name="upgrade_screen_iap_action">Compra de uma só vez</string>
-    <string name="upgrade_screen_iap_action_hint">A compra única custa %s.</string>
     <string name="upgrade_screen_thanks_toast">Você é o melhor! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaurar a compra</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A sincronização da Play Store pode demorar bastante. Tente reiniciar, limpar o cache do Google Play ou simplesmente aguarde.</string>

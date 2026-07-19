@@ -12,13 +12,9 @@
     <string name="upgrade_screen_preamble">SD Maid ti reklam tune ye û daneyên bikarhêner nafiroşe. Xebata min ji aliyê te ve tê fînansekirin ❤️.</string>
     <string name="upgrade_screen_benefits_title">Berjewendî</string>
     <string name="upgrade_screen_benefits_body">• Paqijkirina sepanan 💯\n• Operasyonên plansazkirî ⏰\n• Vebijarkên zêde ji bo hemû amûran ⚙️\n• Qaîdeyên jêbirinê yên xwe ✍️\n• Pêşvebirek motîvekirî 🧙\nû zêdetir…</string>
-    <string name="upgrade_screen_how_title">Vebijark</string>
-    <string name="upgrade_screen_how_body">Tu dikarî di navbera kirîna yek-carî û abonetiya salane ya erzantir de hilbijêrî.\nAbonetî bi ceribandina 14-rojan a belaş dest pê dike, piştî wê tu dê salê carekê bêyî pere. Ceribandina û abonetî her dem dikare were betalkirin.\nHeman taybetmendî, tenê modelên bihayê cuda.</string>
     <string name="upgrade_screen_subscription_trial_action">Ceribandina 14-rojan a belaş dest pê bike</string>
     <string name="upgrade_screen_subscription_action">Abone bibe</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonetî salê %s e.</string>
     <string name="upgrade_screen_iap_action">Kirîna yek-carî</string>
-    <string name="upgrade_screen_iap_action_hint">Kirîna yek-carî %s e.</string>
     <string name="upgrade_screen_thanks_toast">Tu çêtirîn î! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Kirînê vegerîne</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Hevdemkirina Play Store dibe ku dem bigire. Hewl bide ji nû ve bidî destpêkirin, pêşbîra Google Play paqij bikî an tenê bisekine.</string>

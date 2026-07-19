@@ -24,17 +24,12 @@
 • Проследяване на тенденциите в съхранилището и историята на почистване
 • Повече функции и контроли в приложението
 • Подкрепа на продължаващото развитие</string>
-    <string name="upgrade_screen_how_title">Опции</string>
-    <string name="upgrade_screen_how_body">Можете да избирате между еднократна покупка и по-евтин годишен абонамент.\nАбонаментът започва с безплатен 14-дневен пробен период, след което ще бъдете таксувани веднъж годишно. Пробният период и абонаментът могат да бъдат анулирани по всяко време.\nСъщи функции, просто различни ценови модели.</string>
     <string name="upgrade_screen_subscription_offer_title">Годишен абонамент</string>
     <string name="upgrade_screen_iap_offer_title">Еднократна покупка</string>
-    <string name="upgrade_screen_offer_recommended">Препоръчано</string>
     <string name="upgrade_screen_offers_unavailable_message">Цените не могат да бъдат заредени в момента. Проверете Google Play и опитайте отново след малко.</string>
     <string name="upgrade_screen_subscription_trial_action">Започнете безплатен 14-дневен пробен период</string>
     <string name="upgrade_screen_subscription_action">Абонирайте се</string>
-    <string name="upgrade_screen_subscription_action_hint">Абонаментът струва %s годишно.</string>
     <string name="upgrade_screen_iap_action">Еднократна покупка</string>
-    <string name="upgrade_screen_iap_action_hint">Еднократната покупка струва %s.</string>
     <string name="upgrade_screen_thanks_toast">Вие сте най-добрите! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Възстановете покупката</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронизацията на Play Store може да отнеме време. Опитайте рестартиране, изчистване на кеша на Google Play или просто изчакайте.</string>

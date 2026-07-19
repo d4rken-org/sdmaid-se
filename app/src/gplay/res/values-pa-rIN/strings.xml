@@ -24,17 +24,12 @@
 • ਸਟੋਰੇਜ ਰੁਝਾਨਾਂ ਅਤੇ ਸਫਾਈ ਇਤਿਹਾਸ ਨੂੰ ਟ੍ਰੈਕ ਕਰੋ
 • ਐਪ ਭਰ ਵਿੱਚ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਤੇ ਨਿਯੰਤਰਣ
 • ਨਿਰੰਤਰ ਵਿਕਾਸ ਨੂੰ ਸਮਰਥਨ ਦਿਓ</string>
-    <string name="upgrade_screen_how_title">ਵਿਕਲਪ</string>
-    <string name="upgrade_screen_how_body">ਤੁਸੀਂ ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਅਤੇ ਸਸਤੀ ਸਾਲਾਨਾ ਗਾਹਕੀ ਵਿੱਚੋਂ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ।\nਗਾਹਕੀ 14-ਦਿਨਾਂ ਦੇ ਮੁਫਤ ਟ੍ਰਾਇਲ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ, ਜਿਸ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਸਾਲ ਵਿੱਚ ਇੱਕ ਵਾਰ ਚਾਰਜ ਕੀਤਾ ਜਾਵੇਗਾ। ਟ੍ਰਾਇਲ ਅਤੇ ਗਾਹਕੀ ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।\nਉਹੀ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਸਿਰਫ ਵੱਖਰੇ ਮੁੱਲ ਨਿਰਧਾਰਣ ਮਾਡਲ।</string>
     <string name="upgrade_screen_subscription_offer_title">ਸਾਲਾਨਾ ਗ੍ਰਾਹਕੀ</string>
     <string name="upgrade_screen_iap_offer_title">ਇੱਕ ਵਾਰ ਖਰੀਦੋ</string>
-    <string name="upgrade_screen_offer_recommended">ਸਿਫ਼ਾਰਿਸ਼ੀ</string>
     <string name="upgrade_screen_offers_unavailable_message">ਕੀਮਤਾਂ ਇਸ ਸਮੇਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ। Google Play ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਇੱਕ ਪਲ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="upgrade_screen_subscription_trial_action">ਮੁਫਤ 14-ਦਿਨਾਂ ਦਾ ਟ੍ਰਾਇਲ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="upgrade_screen_subscription_action">ਗਾਹਕੀ ਲਓ</string>
-    <string name="upgrade_screen_subscription_action_hint">ਗਾਹਕੀ ਦੀ ਲਾਗਤ %s ਪ੍ਰਤੀ ਸਾਲ ਹੈ।</string>
     <string name="upgrade_screen_iap_action">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ</string>
-    <string name="upgrade_screen_iap_action_hint">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਦੀ ਲਾਗਤ %s ਹੈ।</string>
     <string name="upgrade_screen_thanks_toast">ਤੁਸੀਂ ਸਭ ਤੋਂ ਵਧੀਆ ਹੋ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ਖਰੀਦਦਾਰੀ ਰੀਸਟੋਰ ਕਰੋ</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ਸਮਕਾਲੀਕਰਨ ਵਿੱਚ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ। ਰੀਬੂਟ ਕਰਨ, Google Play ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਜਾਂ ਸਿਰਫ਼ ਉਡੀਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਖ ਕਰੋ।</string>

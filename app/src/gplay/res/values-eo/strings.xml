@@ -12,13 +12,9 @@
     <string name="upgrade_screen_preamble">SD Maid havas neniujn reklamojn kaj ne vendas uzantdatumojn. Mia laboro estas financata de vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Avantaĝoj</string>
     <string name="upgrade_screen_benefits_body">• Aplikaĵa purigado 💯\n• Planitaj operacioj ⏰\n• Ekstraj opcioj por ĉiuj iloj ⚙️\n• Viaj propraj forigreguloj ✍️\n• Motivita programisto 🧙\nkaj pli…</string>
-    <string name="upgrade_screen_how_title">Opcioj</string>
-    <string name="upgrade_screen_how_body">Vi povas elekti inter unufoja aĉeto kaj pli malmultekosta jara abono.\nLa abono komenciĝas per senpaga 14-taga provo, post kiu vi estos ŝargita unufoje jare. Provo kaj abono estas nuligeblaj ĉiumomente.\nSamaj funkcioj, nur malsamaj prezmodeloj.</string>
     <string name="upgrade_screen_subscription_trial_action">Komenci senpagan 14-tagan provon</string>
     <string name="upgrade_screen_subscription_action">Aboni</string>
-    <string name="upgrade_screen_subscription_action_hint">La abono kostas %s jare.</string>
     <string name="upgrade_screen_iap_action">Unufoja aĉeto</string>
-    <string name="upgrade_screen_iap_action_hint">La unufoja aĉeto kostas %s.</string>
     <string name="upgrade_screen_thanks_toast">Vi estas la plej bona! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restarigi aĉeton</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store-sinkronigado povas daŭri. Provu restartigi, vakigi Google Play-kaŝmemoron aŭ simple atendi.</string>

@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Мој рад финансирате ви ❤️.</string>
     <string name="upgrade_screen_benefits_title">Предности надоградње</string>
     <string name="upgrade_screen_benefits_body">• Очисти кеш апликација и непотребне податке\n• Уклони дуплиране датотеке\n• Омогући заказана чишћења\n• Направи прилагођене филтере и правила чишћења\n• Прати трендове складиштења и историју чишћења\n• Више функција и контрола у целој апликацији\n• Подржи настављени развој</string>
-    <string name="upgrade_screen_how_title">Опције</string>
-    <string name="upgrade_screen_how_body">Можете бирати између једнократне куповине и јефтиније годишње претплате.\nПретплата почиње са бесплатним 14-дневним пробним периодом, након чега ће вам бити наплаћено једном годишње. Пробни период и претплата се могу отказати у било које време.\nИсте функције, само различити модели цена.</string>
     <string name="upgrade_screen_subscription_offer_title">Годишња претплата</string>
     <string name="upgrade_screen_iap_offer_title">Купи једном</string>
-    <string name="upgrade_screen_offer_recommended">Препоручено</string>
     <string name="upgrade_screen_offers_unavailable_message">Цене тренутно нису могле бити учитане. Проверите Google Play и покушајте поново за тренутак.</string>
     <string name="upgrade_screen_subscription_trial_action">Започни бесплатни 14-дневни пробни период</string>
     <string name="upgrade_screen_subscription_action">Претплати се</string>
-    <string name="upgrade_screen_subscription_action_hint">Претплата кошта %s годишње.</string>
     <string name="upgrade_screen_iap_action">Једнократна куповина</string>
-    <string name="upgrade_screen_iap_action_hint">Једнократна куповина кошта %s.</string>
     <string name="upgrade_screen_thanks_toast">Ви сте најбољи! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Врати куповину</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронизација Play Store може потрајати. Покушајте поново покретање, брисање Google Play кеша или једноставно сачекајте.</string>

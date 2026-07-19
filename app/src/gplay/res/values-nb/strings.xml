@@ -24,17 +24,12 @@
 • Spor lagringstrender og rengjøringshistorikk
 • Flere funksjoner og kontroller i hele appen
 • Støtt fortsatt utvikling</string>
-    <string name="upgrade_screen_how_title">Alternativer</string>
-    <string name="upgrade_screen_how_body">Du kan velge mellom et engangskjøp og et billigere årlig abonnement.\nAbonnementet starter med en gratis 14-dagers prøveperiode, etterfulgt av en årlig belastning. Prøveperioden og abonnementet kan kanselleres når som helst.\nSamme funksjoner, bare forskjellige prismodeller.</string>
     <string name="upgrade_screen_subscription_offer_title">Årlig abonnement</string>
     <string name="upgrade_screen_iap_offer_title">Kjøp én gang</string>
-    <string name="upgrade_screen_offer_recommended">Anbefalt</string>
     <string name="upgrade_screen_offers_unavailable_message">Prisene kunne ikke lastes nå. Sjekk Google Play og prøv igjen om litt.</string>
     <string name="upgrade_screen_subscription_trial_action">Start 14-dagers gratis prøveperiode</string>
     <string name="upgrade_screen_subscription_action">Abonner</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonnementet koster %s per år.</string>
     <string name="upgrade_screen_iap_action">Engangskjøp</string>
-    <string name="upgrade_screen_iap_action_hint">Engangskjøpet koster %s.</string>
     <string name="upgrade_screen_thanks_toast">Du er den beste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Gjenopprett kjøp</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering med Play Butikk kan ta tid. Prøv å starte på nytt, tømme Google Play bufferen, eller bare vent.</string>

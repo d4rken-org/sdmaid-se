@@ -24,17 +24,12 @@
 • តាមដានដំណើរការផ្ទុក និងប្រវត្តិសម្អាត
 • លក្ខណៈពិសេស និងការគ្រប់គ្រងកាន់តែច្រើនក្នុងកម្មវិធី
 • គាំទ្របង្កើនលំដាប់ការលើស</string>
-    <string name="upgrade_screen_how_title">ជម្រើស</string>
-    <string name="upgrade_screen_how_body">អ្នកអាចជ្រើសរើសរវាងការទិញម្តង និងការជាវប្រចាំឆ្នាំដែលថោកជាង។\nការជាវចាប់ផ្តើមជាមួយការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ បន្ទាប់ពីនោះអ្នកនឹងត្រូវគិតថ្លៃម្តងក្នុងមួយឆ្នាំ។ ការសាកល្បង និងការជាវអាចលុបចោលបានគ្រប់ពេល។\nមុខងារដូចគ្នា គ្រាន់តែម៉ូដែលតម្លៃខុសគ្នា។</string>
     <string name="upgrade_screen_subscription_offer_title">ការឈ្នាប់សមាជិកប្រចាំឆ្នាំ</string>
     <string name="upgrade_screen_iap_offer_title">ទិញម្តង</string>
-    <string name="upgrade_screen_offer_recommended">ដែលសូមណែនាំ</string>
     <string name="upgrade_screen_offers_unavailable_message">តម្លៃមិនអាចផ្ទុកបានក្នុងពេលនេះទេ។ ពិនិត្យ Google Play ហើយព្យាយាមម្តងទៀតក្នុងរយៈពេលខ្លីក្រោយ។</string>
     <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្តើមការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ</string>
     <string name="upgrade_screen_subscription_action">ជាវ</string>
-    <string name="upgrade_screen_subscription_action_hint">ការជាវមានតម្លៃ %s ក្នុងមួយឆ្នាំ។</string>
     <string name="upgrade_screen_iap_action">ការជាវតែម្ដងរួច</string>
-    <string name="upgrade_screen_iap_action_hint">ការជាវតែម្ដងរួចតម្លៃ %s។</string>
     <string name="upgrade_screen_thanks_toast">អ្នកជាមនុស្សល្អបំផុត! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ស្តារការជាវមកវិញ</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ការធ្វើសមកាលកម្ម Play Store អាចចំណាយពេល។ សាកល្បងចាប់ផ្តើមឡើងវិញ សម្អាតឃ្លាំងសម្ងាត់ Google Play ឬគ្រាន់តែរង់ចាំ។</string>

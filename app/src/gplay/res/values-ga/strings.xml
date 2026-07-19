@@ -12,13 +12,9 @@
     <string name="upgrade_screen_preamble">Níl aon fhógraí ag SD Maid agus ní dhíolann sé sonraí úsáideoirí. Tá mo chuid oibre maoinithe agat ❤️.</string>
     <string name="upgrade_screen_benefits_title">Buntáistí</string>
     <string name="upgrade_screen_benefits_body">• Glanadh aipeanna 💯\n• Oibríochtaí sceidealta ⏰\n• Roghanna breise do gach uirlis ⚙️\n• Do rialacha scriosadh féin ✍️\n• Forbróir spreagtha 🧙\nagus tuilleadh…</string>
-    <string name="upgrade_screen_how_title">Roghanna</string>
-    <string name="upgrade_screen_how_body">Is féidir leat rogha a dhéanamh idir ceannach aon uaire agus síntiús bliantúil níos saoire.\nTosaíonn an síntiús le triail saor in aisce 14 lá, ina dhiaidh sin gearrfar táille ort uair sa bhliain. Is féidir an triail agus an síntiús a chealú ag am ar bith.\nNa gnéithe céanna, samhlacha praghsála difriúla amháin.</string>
     <string name="upgrade_screen_subscription_trial_action">Tosaigh triail saor in aisce 14 lá</string>
     <string name="upgrade_screen_subscription_action">Síntiús</string>
-    <string name="upgrade_screen_subscription_action_hint">Cosnaíonn an síntiús %s sa bhliain.</string>
     <string name="upgrade_screen_iap_action">Ceannach aon uaire</string>
-    <string name="upgrade_screen_iap_action_hint">Cosnaíonn an ceannach aon uaire %s.</string>
     <string name="upgrade_screen_thanks_toast">Is tusa an duine is fearr! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Athchóirigh ceannach</string>
     <string name="upgrade_screen_restore_sync_patience_hint">D\'fhéadfadh sioncronú Play Store am a thógáil. Déan iarracht atosú, taisce Google Play a ghlanadh nó fanacht go simplí.</string>

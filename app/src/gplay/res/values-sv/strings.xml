@@ -24,17 +24,12 @@
 • Spåra lagringstrender och rensningshistorik
 • Fler funktioner och kontroller i appen
 • Stöd för fortsatt utveckling</string>
-    <string name="upgrade_screen_how_title">Alternativ</string>
-    <string name="upgrade_screen_how_body">Du kan välja mellan ett engångsköp och en billigare årlig prenumeration.\nPrenumerationen börjar med en gratis 14-dagars testperiod, varefter du debiteras en gång per år. Test och prenumeration kan avbrytas när som helst.\nSamma funktioner, bara olika prismodeller.</string>
     <string name="upgrade_screen_subscription_offer_title">Årsabonnemang</string>
     <string name="upgrade_screen_iap_offer_title">Köp en gång</string>
-    <string name="upgrade_screen_offer_recommended">Rekommenderat</string>
     <string name="upgrade_screen_offers_unavailable_message">Priserna kunde inte läsas in just nu. Kontrollera Google Play och försök igen om en stund.</string>
     <string name="upgrade_screen_subscription_trial_action">Starta gratis 14-dagars test</string>
     <string name="upgrade_screen_subscription_action">Prenumerera</string>
-    <string name="upgrade_screen_subscription_action_hint">Prenumerationen kostar %s per år.</string>
     <string name="upgrade_screen_iap_action">Engångsköp</string>
-    <string name="upgrade_screen_iap_action_hint">Engångsköpet kostar %s.</string>
     <string name="upgrade_screen_thanks_toast">Du är bäst! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Återställ köp</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store-synkronisering kan ta tid. Försök starta om, rensa Google Play-cache eller bara vänta.</string>

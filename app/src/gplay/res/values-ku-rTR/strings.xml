@@ -12,13 +12,9 @@
     <string name="upgrade_screen_preamble">SD Maid reklam tune û daneyên bikarhêner nafiroşe. Karê min ji alîyê we ve tê fînanse kirin ❤️.</string>
     <string name="upgrade_screen_benefits_title">Avantaj</string>
     <string name="upgrade_screen_benefits_body">• Pakkirina sepanan 💯\n• Operasyonên programkirî ⏰\n• Vebijarkên zêde ji bo hemû amûran ⚙️\n• Rêbazên jêbirinê yên we ✍️\n• Pêşdebirek motîvasyondar 🧙\nû bêtir…</string>
-    <string name="upgrade_screen_how_title">Vebijark</string>
-    <string name="upgrade_screen_how_body">Hûn dikarin di navbera kirineka yek-car û abonek salane ya erzantir de hilbijêrin.\nAbone bi ceribandinek belaş a 14-rojan dest pê dike, piştî wê we carekê sala salê bê fîtandin. Ceribandî û abonebûn her gav dikarin bêne betalkirin.\nHeman taybetmendî, tenê modelên bihadan yên cûda.</string>
     <string name="upgrade_screen_subscription_trial_action">Ceribandina belaş a 14-rojan dest pê bike</string>
     <string name="upgrade_screen_subscription_action">Abonebûn</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonebûn salê %s ye.</string>
     <string name="upgrade_screen_iap_action">Kirina yek-car</string>
-    <string name="upgrade_screen_iap_action_hint">Kirina yek-car %s ye.</string>
     <string name="upgrade_screen_thanks_toast">Tu yê/ya herî baş î! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Kirinê vegerîne</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Hevdemkirina Play Store dibe ku dem bigire. Biceribîne ji nû ve veke, cache-ya Google Play pak bike an jî tenê rawestîne.</string>

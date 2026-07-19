@@ -24,17 +24,12 @@
 • 追蹤儲存空間趨勢和清理歷史記錄
 • 應用程式各處提供更多功能和控制選項
 • 支持持續開發</string>
-    <string name="upgrade_screen_how_title">選項</string>
-    <string name="upgrade_screen_how_body">您可以選擇單次購買，也可以選擇更便宜的每年訂閱。\n訂閱開始時有 14 天的免費試用，之後每年計費。試用和訂閱可隨時取消。\n功能相同，僅有定價模式不同。</string>
     <string name="upgrade_screen_subscription_offer_title">年度訂閱</string>
     <string name="upgrade_screen_iap_offer_title">購買一次</string>
-    <string name="upgrade_screen_offer_recommended">推薦</string>
     <string name="upgrade_screen_offers_unavailable_message">目前無法載入價格。請檢查 Google Play，稍後再試。</string>
     <string name="upgrade_screen_subscription_trial_action">開始 14 天免費試用</string>
     <string name="upgrade_screen_subscription_action">訂閱</string>
-    <string name="upgrade_screen_subscription_action_hint">訂閱費用為 %s 每年。</string>
     <string name="upgrade_screen_iap_action">一次購買</string>
-    <string name="upgrade_screen_iap_action_hint">一次購買的費用為 %s。</string>
     <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">還原購買</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步處理可能需要一些時間。請嘗試重新開機、清除 Google Play 快取或只需等候。</string>

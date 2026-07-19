@@ -21,11 +21,9 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
-// Restore is account reconciliation, not an offer: it lives in its own described section instead
-// of dangling under the purchase options. All variants share the same restore wiring (the
-// single-flight restorePurchase() with its pause semantics) and differ only in copy and emphasis.
-// Deliberately NO contact-support action here: escalation is offered only after a restore attempt
-// came up empty (the failed-restore dialog), so self-service gets its chance before the inbox.
+// Described restore section, shared by all restore audiences (copy and emphasis differ, wiring
+// doesn't). Deliberately NO contact-support action here: escalation is offered only after a
+// restore came up empty (the failed-restore dialog), so self-service gets its chance first.
 @Composable
 internal fun UpgradeRestoreSection(
     title: String,

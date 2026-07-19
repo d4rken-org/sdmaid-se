@@ -24,17 +24,12 @@
 • Sekot glabāšanas tendencēm un tīrīšanas vēsturei
 • Vairāk funkciju un vadības iespēju visā aplikācijā
 • Atbalsts turpinātai attīstībai</string>
-    <string name="upgrade_screen_how_title">Opcijas</string>
-    <string name="upgrade_screen_how_body">Varat izvēlēties starp vienreizēju pirkumu un lētāku gada abonementu.\nAbonements sākas ar bezmaksas 14 dienu izmēģinājuma periodu, pēc kura jums tiks iekasēta maksa reizi gadā. Izmēģinājumu un abonementu var atcelt jebkurā laikā.\nTas pašas funkcijas, tikai dažādi cenu modeļi.</string>
     <string name="upgrade_screen_subscription_offer_title">Gada abonements</string>
     <string name="upgrade_screen_iap_offer_title">Pirkt vienu reizi</string>
-    <string name="upgrade_screen_offer_recommended">Ieteicams</string>
     <string name="upgrade_screen_offers_unavailable_message">Cenas šobrīd nevarēja tikt ielādētas. Pārbaudiet Google Play un mēģiniet vēlreiz pēc brīža.</string>
     <string name="upgrade_screen_subscription_trial_action">Sāciet bezmaksas 14 dienu izmēģinājumu</string>
     <string name="upgrade_screen_subscription_action">Abonēt</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonements maksā %s gadā.</string>
     <string name="upgrade_screen_iap_action">Vienreizējs pirkums</string>
-    <string name="upgrade_screen_iap_action_hint">Vienreizējais pirkums maksā %s.</string>
     <string name="upgrade_screen_thanks_toast">Jūs esat labākais! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Atjaunot pirkumu</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinhronizācija var aizņemt laiku. Mēģiniet restartēt, notīrīt Google Play kešatmiņu vai vienkārši uzgaidīt.</string>

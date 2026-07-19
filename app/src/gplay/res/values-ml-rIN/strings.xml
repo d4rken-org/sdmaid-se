@@ -24,17 +24,12 @@
 • സംഭരണ പ്രവണതകളും വൃത്തിയാക്കൽ ചരിത്രവും ട്രാക്കുചെയ്യുക
 • അപ്ലിക്കേഷൻ ഉടനീളമുള്ള കൂടുതൽ സവിശേഷതകളും നിയന്ത്രണങ്ങളും
 • നിരന്തരമായ വികാസത്തെ പിന്തുണയ്ക്കുക</string>
-    <string name="upgrade_screen_how_title">ഓപ്ഷനുകൾ</string>
-    <string name="upgrade_screen_how_body">നിങ്ങൾക്ക് ഒറ്റത്തവണ വാങ്ങലിനും വിലകുറഞ്ഞ വാർഷിക സബ്‌സ്‌ക്രിപ്‌ഷനുമിടയിൽ തിരഞ്ഞെടുക്കാം.\nസബ്‌സ്‌ക്രിപ്‌ഷൻ സൗജന്യ 14-ദിവസ ട്രയലിൽ ആരംഭിക്കുന്നു, അതിനുശേഷം നിങ്ങളിൽ നിന്ന് വർഷത്തിലൊരിക്കൽ നിരക്ക് ഈടാക്കും. ട്രയലും സബ്‌സ്‌ക്രിപ്‌ഷനും എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാവുന്നതാണ്.\nഅതേ സവിശേഷതകൾ, വ്യത്യസ്ത വിലനിർണ്ണയ മോഡലുകൾ മാത്രം.</string>
     <string name="upgrade_screen_subscription_offer_title">വാര്ഷിക സബ്സ്ക്രിപ്ഷൻ</string>
     <string name="upgrade_screen_iap_offer_title">ഒരിക്കൽ വാങ്ങുക</string>
-    <string name="upgrade_screen_offer_recommended">ശുപാരിശ ചെയ്യപ്പെട്ടത്</string>
     <string name="upgrade_screen_offers_unavailable_message">വിലകൾ ഇപ്പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Google Play പരിശോധിക്കുക, കുറച്ച് കാലത്തിനുശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_subscription_trial_action">സൗജന്യ 14-ദിവസ ട്രയൽ ആരംഭിക്കുക</string>
     <string name="upgrade_screen_subscription_action">സബ്‌സ്ക്രൈബ്</string>
-    <string name="upgrade_screen_subscription_action_hint">സബ്‌സ്‌ക്രിപ്‌ഷന്റെ വില പ്രതിവർഷം %s ആണ്.</string>
     <string name="upgrade_screen_iap_action">ഒറ്റത്തവണ വാങ്ങൽ</string>
-    <string name="upgrade_screen_iap_action_hint">ഒറ്റത്തവണ വാങ്ങലിന്റെ വില %s ആണ്.</string>
     <string name="upgrade_screen_thanks_toast">നന്ദി❤️</string>
     <string name="upgrade_screen_restore_purchase_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play സ്റ്റോർ സിൻക്രൊണൈസേഷൻ സമയമെടുത്തേക്കാം. റീബൂട്ട് ചെയ്യുക, Google Play കാഷെ മായ്‌ക്കുക അല്ലെങ്കിൽ കാത്തിരിക്കുക.</string>

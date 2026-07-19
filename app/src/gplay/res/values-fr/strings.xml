@@ -24,17 +24,12 @@
 • Suivre les tendances de stockage et l’historique des nettoyages
 • Plus de fonctionnalités et de contrôles dans l’appli
 • Soutenir le développement continu</string>
-    <string name="upgrade_screen_how_title">Options</string>
-    <string name="upgrade_screen_how_body">Vous pouvez soit choisir un achat unique soit un abonnement annuel plus avantageux.\nL\'abonnement commence par une période d’essai gratuite de 14 jours, à l’issue de laquelle vous serez facturé une fois par an. L’essai et l’abonnement peuvent être annulés à tout moment.\nMêmes fonctions, mais des modèles de tarification différents.</string>
     <string name="upgrade_screen_subscription_offer_title">Abonnement annuel</string>
     <string name="upgrade_screen_iap_offer_title">Acheter une fois</string>
-    <string name="upgrade_screen_offer_recommended">Recommandé</string>
     <string name="upgrade_screen_offers_unavailable_message">Les prix n’ont pas pu être chargés en ce moment. Vérifiez Google Play et réessayez dans un instant.</string>
     <string name="upgrade_screen_subscription_trial_action">Commencer l’essai gratuit de 14 jours</string>
     <string name="upgrade_screen_subscription_action">M’abonner</string>
-    <string name="upgrade_screen_subscription_action_hint">L’abonnement coûte %s par an.</string>
     <string name="upgrade_screen_iap_action">Achat unique</string>
-    <string name="upgrade_screen_iap_action_hint">L’achat unique coûte %s.</string>
     <string name="upgrade_screen_thanks_toast">Y a pas mieux que vous ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rétablir l’achat</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La synchronisation avec Google Play peut prendre du temps. Essayez de redémarrer votre appareil, de vider le cache de Google Play ou simplement d’attendre.</string>

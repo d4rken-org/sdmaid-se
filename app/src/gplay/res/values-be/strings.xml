@@ -24,17 +24,12 @@
 • Адследжваць тэндэнцыі сховішча і гісторыю ачысткі
 • Дадатковыя функцыі і кантролі па ўсёй праграме
 • Падтрымка бесперапыннага развіцця</string>
-    <string name="upgrade_screen_how_title">Варыянты</string>
-    <string name="upgrade_screen_how_body">Вы можаце выбраць паміж аднаразовай пакупкай і больш таннай гадавой падпіскай.\nПадпіска пачынаецца з бясплатнай 14-дзённай пробнай версіі, пасля якой плата будзе спаганяцца раз у год. Пробны перыяд і падпіску можна скасаваць у любы час.\nТыя ж функцыі, толькі розныя спосабы аплаты.</string>
     <string name="upgrade_screen_subscription_offer_title">Гадавая падпіска</string>
     <string name="upgrade_screen_iap_offer_title">Купіць адзін раз</string>
-    <string name="upgrade_screen_offer_recommended">Рэкамендуецца</string>
     <string name="upgrade_screen_offers_unavailable_message">Не атрымалася загрузіць цэны зараз. Праверце Google Play і паспрабуйце зноў праз мамент.</string>
     <string name="upgrade_screen_subscription_trial_action">Пачаць бясплатны пробны 14-дзённы перыяд</string>
     <string name="upgrade_screen_subscription_action">Падпісацца</string>
-    <string name="upgrade_screen_subscription_action_hint">Падпіска каштуе %s у год.</string>
     <string name="upgrade_screen_iap_action">Аднаразовая пакупка</string>
-    <string name="upgrade_screen_iap_action_hint">Аднаразовая пакупка каштуе %s.</string>
     <string name="upgrade_screen_thanks_toast">Вы найлепшы! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Аднавіць пакупку</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Сінхранізацыя з Play Store можа заняць пэўны час. Паспрабуйце перазагрузіцца, ачысціць кэш Google Play або проста пачакаць.</string>

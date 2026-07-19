@@ -224,7 +224,7 @@ class UpgradeViewModel @Inject constructor(
             }
 
             // Diagnosability: distinguishes "Play withheld the trial offer" from "offer matching
-            // failed" when users report a missing trial (see upgrade_screen_how_body_no_trial).
+            // failed" when users report a missing trial (see the no-trial offer body fallback).
             sub?.firstOrNull()?.details?.subscriptionOfferDetails?.let { offers ->
                 log(TAG) { "Subscription offers from Play: ${offers.map { "${it.basePlanId}/${it.offerId}" }}" }
             }

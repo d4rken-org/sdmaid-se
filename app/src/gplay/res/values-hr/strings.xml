@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid nema oglasa i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Prednosti nadogradnje</string>
     <string name="upgrade_screen_benefits_body">• Očisti predmemoriju aplikacija i potrošne podatke\n• Ukloni duplikatne datoteke\n• Omogući zakazana čišćenja\n• Kreiraj prilagođene filtere i pravila čišćenja\n• Prati trendove pohrane i povijest čišćenja\n• Više mogućnosti i kontrola u aplikaciji\n• Podržite daljnji razvoj</string>
-    <string name="upgrade_screen_how_title">Mogućnosti</string>
-    <string name="upgrade_screen_how_body">Možete birati između jednokratne kupnje i jeftinije godišnje pretplate.\nPretplata počinje besplatnim probnim razdobljem od 14 dana, nakon čega će vam se naplaćivati ​​jednom godišnje. Probno razdoblje i pretplata mogu se otkazati u bilo kojem trenutku.\nIste značajke, samo različiti modeli cijena.</string>
     <string name="upgrade_screen_subscription_offer_title">Godišnja pretplata</string>
     <string name="upgrade_screen_iap_offer_title">Kupnja jednom</string>
-    <string name="upgrade_screen_offer_recommended">Preporučeno</string>
     <string name="upgrade_screen_offers_unavailable_message">Cijene se sada ne mogu učitati. Provjeri Google Play i pokušaj ponovno za trenutak.</string>
     <string name="upgrade_screen_subscription_trial_action">Započnite besplatno probno razdoblje od 14 dana</string>
     <string name="upgrade_screen_subscription_action">Pretplatite se</string>
-    <string name="upgrade_screen_subscription_action_hint">Pretplata košta %s godišnje.</string>
     <string name="upgrade_screen_iap_action">Jednokratna kupnja</string>
-    <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovi kupnju</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Trgovine Play može potrajati. Pokušajte ponovno pokrenuti uređaj, očistiti predmemoriju Google Playa ili jednostavno pričekajte.</string>

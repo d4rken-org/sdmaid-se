@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. کارەکانی من لەلایەن ئێوەوە پشتگیری دارایی دەکرێت ❤️.</string>
     <string name="upgrade_screen_benefits_title">سوودەکانی بەرزکردنەوە</string>
     <string name="upgrade_screen_benefits_body">• پاک کردنی کاش و زانیاری پڕبڕ بوونی بەرنامەکان\n• لابردنی فایلە دوپلیکاتەکان\n• چالاک کردنی پاککردنەوەی دەستپێکراو\n• دروستکردنی پالێوەری تایبەت و یاساکانی پاککردنەوە\n• شوێن نیشاندان بۆ ڕوونگەکانی بیرگە و مێژووی پاککردنەوە\n• زیاتر تایبەتمەندی و کۆنترۆلەکان لە سەرجەمی بەرنامەکان\n• پشتگیری بەردەوامی گەشەپێدان</string>
-    <string name="upgrade_screen_how_title">بژاردەکان</string>
-    <string name="upgrade_screen_how_body">دەتوانیت لە نێوان کڕینی یەکجارەکی و بەشداریکردنی ساڵانەی هەرزانتردا یەکێکیان هەڵبژێریت.\\nبەشداریکردنەکە بە تاقیکردنەوەی خۆڕایی 14 ڕۆژە دەستپێدەکات، دوای ئەوە ساڵی یەکجار پارەت لێ وەردەگیرێت. تاقیکردنەوە و بەشداریکردنەکە دەکرێت لە هەر کاتێکدا هەڵبوەشێنرێتەوە.\\nهەمان تایبەتمەندی، تەنها مۆدێلی نرخگذاری جیاواز.</string>
     <string name="upgrade_screen_subscription_offer_title">بەشداریی ساڵانە</string>
     <string name="upgrade_screen_iap_offer_title">یەک جار کڕین</string>
-    <string name="upgrade_screen_offer_recommended">پێشنیار کراو</string>
     <string name="upgrade_screen_offers_unavailable_message">نرخەکان نەتوانرا بار ببن ئێستا. Google Play بپشکنە و دواجارێکی تر هەوڵبدە.</string>
     <string name="upgrade_screen_subscription_trial_action">دەستپێکردنی تاقیکردنەوەی خۆڕایی 14 ڕۆژە</string>
     <string name="upgrade_screen_subscription_action">بەشداریکردن</string>
-    <string name="upgrade_screen_subscription_action_hint">نرخی بەشداریکردن %s ساڵانەیە.</string>
     <string name="upgrade_screen_iap_action">کڕینی یەکجارەکی</string>
-    <string name="upgrade_screen_iap_action_hint">نرخی کڕینی یەکجارەکی %sـە.</string>
     <string name="upgrade_screen_thanks_toast">تۆ باشترینی! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">گەڕاندنەوەی کڕین</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ڕێکخستنی پلەی ستۆر ڕەنگە کات ببات. هەوڵبدە ئامێرەکە ڕیستارت بکەیتەوە، کاشەی گوگڵ پلەی بسڕیتەوە یان تەنها چاوەڕێ بکە.</string>

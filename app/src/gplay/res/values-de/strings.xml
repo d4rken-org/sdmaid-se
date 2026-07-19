@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid enthält keine Werbung und verkauft keine Benutzerdaten. Meine Arbeit wird von Dir finanziert ❤️.</string>
     <string name="upgrade_screen_benefits_title">Vorteile des Upgrades</string>
     <string name="upgrade_screen_benefits_body">• App-Caches und nicht benötigte Daten löschen\n• Doppelte Dateien entfernen\n• Automatische Bereinigungen aktivieren\n• Benutzerdefinierte Filter und Bereinigungsregeln erstellen\n• Speichertrends und Bereinigungsverlauf verfolgen\n• Weitere Funktionen und Kontrollen in der gesamten App\n• Unterstützung der fortlaufenden Entwicklung</string>
-    <string name="upgrade_screen_how_title">Optionen</string>
-    <string name="upgrade_screen_how_body">Du kannst zwischen einem einmaligen Kauf und einem günstigeren Jahresabonnement wählen.\nDas Abonnement beginnt mit einer kostenlosen 14-tägigen Testversion; danach wird Dir einmal jährlich eine Gebühr berechnet. Testversion und Abonnement sind jederzeit kündbar.\nGleiche Funktionen, nur unterschiedliche Preismodelle.</string>
     <string name="upgrade_screen_subscription_offer_title">Jährliches Abonnement</string>
     <string name="upgrade_screen_iap_offer_title">Einmalig kaufen</string>
-    <string name="upgrade_screen_offer_recommended">Empfohlen</string>
     <string name="upgrade_screen_offers_unavailable_message">Preise konnten gerade nicht geladen werden. Überprüfen Sie Google Play und versuchen Sie es später erneut.</string>
     <string name="upgrade_screen_subscription_trial_action">Kostenlose 14-tägige Testversion starten</string>
     <string name="upgrade_screen_subscription_action">Abonnieren</string>
-    <string name="upgrade_screen_subscription_action_hint">Das Abonnement kostet %s pro Jahr.</string>
     <string name="upgrade_screen_iap_action">Einmaliger Kauf</string>
-    <string name="upgrade_screen_iap_action_hint">Der einmalige Kauf kostet %s.</string>
     <string name="upgrade_screen_thanks_toast">Du bist super! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Auswahl wiederherstellen</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Die Synchronisation im Play Store kann etwas dauern. Versuch es mit einem Neustart, leere den Google Play Cache oder warte einfach.</string>

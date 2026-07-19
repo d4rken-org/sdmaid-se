@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Çalışmalarım sizler tarafından finanse edilmektedir ❤️.</string>
     <string name="upgrade_screen_benefits_title">Yükseltme Avantajları</string>
     <string name="upgrade_screen_benefits_body">• Uygulama önbelleğini ve kullanılmayan verileri temizle\n• Yinelenen dosyaları kaldır\n• Zamanlı temizlikleri etkinleştir\n• Özel filtreler ve temizlik kuralları oluştur\n• Depolama eğilimlerini ve temizlik geçmişini takip et\n• Uygulamada daha fazla özellik ve kontrol\n• Süregelen geliştirmeyi destekle</string>
-    <string name="upgrade_screen_how_title">Seçenekler</string>
-    <string name="upgrade_screen_how_body">Tek seferlik satın alma ile daha ucuz olan yıllık abonelik arasında seçim yapabilirsiniz.\nAbonelik 14 günlük ücretsiz deneme ile başlar ve sonrasında yılda bir kez ücretlendirilirsiniz. Deneme ve abonelik her zaman iptal edilebilir.\nAynı özellikler, sadece farklı fiyatlandırma modelleri.</string>
     <string name="upgrade_screen_subscription_offer_title">Yıllık Abonelik</string>
     <string name="upgrade_screen_iap_offer_title">Bir kez satın al</string>
-    <string name="upgrade_screen_offer_recommended">Önerilen</string>
     <string name="upgrade_screen_offers_unavailable_message">Fiyatlar şu anda yüklenemedi. Google Play\'i kontrol edin ve bir dakika sonra tekrar deneyin.</string>
     <string name="upgrade_screen_subscription_trial_action">14 günlük ücretsiz denemeyi başlat</string>
     <string name="upgrade_screen_subscription_action">Abone ol</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonelik ücreti yıllık %s\'dir.</string>
     <string name="upgrade_screen_iap_action">Tek seferlik satın alma</string>
-    <string name="upgrade_screen_iap_action_hint">Bir kerelik satın alma maliyeti %s.</string>
     <string name="upgrade_screen_thanks_toast">Sen en iyisisin! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Satın almayı geri yükle</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store senkronizasyonu zaman alabilir. Yeniden başlatmayı, Google Play önbelleğini temizlemeyi deneyin veya sadece bekleyin.</string>

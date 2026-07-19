@@ -24,17 +24,12 @@
 • შენახვის ტენდენციების და გაწმენდის ისტორიის მეთვალყურება
 • მეტი ფუნქციები და კონტროლი აპის მასშტაბით
 • განვითარების გაგრძელების მხარდაჭერა</string>
-    <string name="upgrade_screen_how_title">ვარიანტები</string>
-    <string name="upgrade_screen_how_body">თქვენ შეგიძლიათ აირჩიოთ ერთჯერად შეძენასა და უფრო იაფ წლიურ გამოწერას შორის.\nგამოწერა იწყება უფასო 14-დღიანი საცდელი პერიოდით, რის შემდეგაც წელიწადში ერთხელ დაგეკისრებათ გადახდა. საცდელი და გამოწერა ნებისმიერ დროს შეიძლება გაუქმდეს.\nიგივე ფუნქციები, უბრალოდ განსხვავებული ფასების მოდელები.</string>
     <string name="upgrade_screen_subscription_offer_title">წლიური გამოწერა</string>
     <string name="upgrade_screen_iap_offer_title">ერთჯერადი ყიდვა</string>
-    <string name="upgrade_screen_offer_recommended">რეკომენდირებული</string>
     <string name="upgrade_screen_offers_unavailable_message">ფასები ამ მომენტში ვერ ჩატვირთა. Google Play-ს შეამოწმეთ და ცოტა ხნის შემდეგ ხელახლა სცადეთ.</string>
     <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო 14-დღიანი საცდელი</string>
     <string name="upgrade_screen_subscription_action">გამოწერა</string>
-    <string name="upgrade_screen_subscription_action_hint">გამოწერა ღირს %s წელიწადში.</string>
     <string name="upgrade_screen_iap_action">ერთჯერადი შეძენა</string>
-    <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა ღირს %s.</string>
     <string name="upgrade_screen_thanks_toast">Საუკეთესო ხარ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store სინქრონიზაციას შეიძლება დრო დასჭირდეს. სცადეთ გადატვირთვა, Google Play ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>

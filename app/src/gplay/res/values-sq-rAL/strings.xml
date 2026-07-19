@@ -24,17 +24,12 @@
 • Ndiqni tendencat e hapësirës ruajtëse dhe historikun e pastrimit
 • Më shumë veçori dhe kontroll në të gjithë aplikacionin
 • Mbështetni zhvillimin e vazhdueshëm</string>
-    <string name="upgrade_screen_how_title">Opsione</string>
-    <string name="upgrade_screen_how_body">Mund të zgjedhësh midis një blerjeje të një herëshme dhe një abonimi vjetor më të lirë.\nAbonimi fillon me një provë falas 14-ditore, pas së cilës do të tarifohesh një herë në vit. Prova dhe abonimi janë të anulueshme në çdo kohë.\nTë njëjtat veçori, vetëm modele të ndryshme çmimesh.</string>
     <string name="upgrade_screen_subscription_offer_title">Abonim vjetor</string>
     <string name="upgrade_screen_iap_offer_title">Blej njëherë</string>
-    <string name="upgrade_screen_offer_recommended">Rekomanduar</string>
     <string name="upgrade_screen_offers_unavailable_message">Çmimet nuk mund të ngarkohen tani. Kontrolloni Google Play dhe provoni përsëri pas një momenti.</string>
     <string name="upgrade_screen_subscription_trial_action">Filloni provën falas 14-ditore</string>
     <string name="upgrade_screen_subscription_action">Abonohu</string>
-    <string name="upgrade_screen_subscription_action_hint">Abonimi kushton %s në vit.</string>
     <string name="upgrade_screen_iap_action">Blerje një herë</string>
-    <string name="upgrade_screen_iap_action_hint">Blerja një herë kushton %s.</string>
     <string name="upgrade_screen_thanks_toast">Ti je më i miri! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rivendos blerjen</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>

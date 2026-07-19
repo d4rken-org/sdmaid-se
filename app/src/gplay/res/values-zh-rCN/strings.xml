@@ -24,17 +24,12 @@
 • 跟踪存储趋势和清理历史
 • 应用中的更多功能和控制
 • 支持持续开发</string>
-    <string name="upgrade_screen_how_title">选项</string>
-    <string name="upgrade_screen_how_body">您可以选择一次性付费，也可以选更便宜的年费订阅\n订阅以 14 天的免费试用期开始，之后将按年计费。试用和订阅期间可随时取消\n两种套餐功能相同，仅定价模式不同</string>
     <string name="upgrade_screen_subscription_offer_title">年度订阅</string>
     <string name="upgrade_screen_iap_offer_title">一次性购买</string>
-    <string name="upgrade_screen_offer_recommended">推荐</string>
     <string name="upgrade_screen_offers_unavailable_message">价格暂时无法加载。请查看 Google Play 并稍后重试。</string>
     <string name="upgrade_screen_subscription_trial_action">开始 14 天免费试用</string>
     <string name="upgrade_screen_subscription_action">订阅</string>
-    <string name="upgrade_screen_subscription_action_hint">每年的订阅费用为 %s。</string>
     <string name="upgrade_screen_iap_action">一次性购买</string>
-    <string name="upgrade_screen_iap_action_hint">一次性购买费用为 %s。</string>
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>

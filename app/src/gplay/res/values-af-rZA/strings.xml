@@ -24,17 +24,12 @@
 • Spoor opslagneigings en opskooningsgeskiedenis op
 • Meer funksies en kontroles regdeur die app
 • Steun voortdurende ontwikkeling</string>
-    <string name="upgrade_screen_how_title">Opsies</string>
-    <string name="upgrade_screen_how_body">Jy kan kies tussen \'n eenmalige aankoop en \'n goedkoper jaarlikse inskrywing.\nDie inskrywing begin met \'n gratis 14-dag proeftydperk, waarna jy een keer per jaar gehef sal word. Proef en inskrywing kan te eniger tyd gekanselleer word.\nDieselfde funksies, net verskillende prysmodelle.</string>
     <string name="upgrade_screen_subscription_offer_title">Jaarlikse inskrywing</string>
     <string name="upgrade_screen_iap_offer_title">Koop eenmalig</string>
-    <string name="upgrade_screen_offer_recommended">Aanbeveel</string>
     <string name="upgrade_screen_offers_unavailable_message">Pryse kon nie nou gelaai word nie. Kontroleer Google Play en probeer oor \'n oomblik weer.</string>
     <string name="upgrade_screen_subscription_trial_action">Begin gratis 14-dag proef</string>
     <string name="upgrade_screen_subscription_action">Teken in</string>
-    <string name="upgrade_screen_subscription_action_hint">Die inskrywing kos %s per jaar.</string>
     <string name="upgrade_screen_iap_action">Eenmalige aankoop</string>
-    <string name="upgrade_screen_iap_action_hint">Die eenmalige aankoop kos %s.</string>
     <string name="upgrade_screen_thanks_toast">Jy is die beste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinkronisasie kan tyd neem. Probeer herlaai, maak Google Play kas skoon of wag net.</string>

@@ -24,17 +24,12 @@
 • Traccia sos trends de memoria e sa historia de sos nettamientos
 • Pius fechuras e controllos in tota l\'app
 • Suportu pro sa continuidade de su sviluppu</string>
-    <string name="upgrade_screen_how_title">Optziones</string>
-    <string name="upgrade_screen_how_body">Podes seberare intre unu cùmperu de una borta ebbia e un\'abbonamentu annuale prus baràtu.\nS\'abbonamentu cumintza cun una proa de badas de 14 dies, a pustis de custu ti diant cobràre una borta a s\'annu. Sa proa e s\'abbonamentu podent èssere cantzellados in cale si siat momentu.\nSas matèssias caraterìsticas, modelos de prètziu diferentes ebbia.</string>
     <string name="upgrade_screen_subscription_offer_title">Suscritzione anuala</string>
     <string name="upgrade_screen_iap_offer_title">Cumpra una volta</string>
-    <string name="upgrade_screen_offer_recommended">Recomendadu</string>
     <string name="upgrade_screen_offers_unavailable_message">Sos prezos non sunt stados carrigados in custu momentu. Controlla Google Play e torrapa in un momentu.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa de badas de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Abbòna·ti</string>
-    <string name="upgrade_screen_subscription_action_hint">S\'abbonamentu costat %s a s\'annu.</string>
     <string name="upgrade_screen_iap_action">Cùmperu de una borta</string>
-    <string name="upgrade_screen_iap_action_hint">Su cùmperu de una borta costat %s.</string>
     <string name="upgrade_screen_thanks_toast">Ses su mègius! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sa sincronizatzione de Play Store podet leare tempus. Proa a torrare a allùghere, limpiare sa cache de Google Play o simplesmente iseta.</string>

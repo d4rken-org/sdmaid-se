@@ -66,7 +66,6 @@ internal object UpgradeScreenTags {
     const val GPLAY_RESTORE_BANNER_ACTION = "upgrade_gplay_restore_banner_action"
     const val GPLAY_UNAVAILABLE = "upgrade_gplay_unavailable"
     const val GPLAY_RETRY = "upgrade_gplay_retry"
-    const val GPLAY_RECOMMENDED = "upgrade_gplay_recommended"
     const val GPLAY_OWNED_IAP = "upgrade_gplay_owned_iap"
     const val GPLAY_OWNED_SUB = "upgrade_gplay_owned_sub"
     const val GPLAY_MANAGE_SUB = "upgrade_gplay_manage_sub"
@@ -212,24 +211,40 @@ internal fun UpgradeSectionCard(
                 .padding(18.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-            ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = if (iconTint == Color.Unspecified) MaterialTheme.colorScheme.primary else iconTint,
-                )
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            }
+            UpgradeSectionHeader(
+                title = title,
+                icon = icon,
+                iconTint = iconTint,
+            )
             content()
         }
+    }
+}
+
+// The icon+title header every section card leads with — also usable standalone so headerless
+// cards (like the offers action card) can join the same visual pattern.
+@Composable
+internal fun UpgradeSectionHeader(
+    title: String,
+    icon: ImageVector,
+    modifier: Modifier = Modifier,
+    iconTint: Color = Color.Unspecified,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = if (iconTint == Color.Unspecified) MaterialTheme.colorScheme.primary else iconTint,
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+        )
     }
 }
 
@@ -334,94 +349,6 @@ internal fun UpgradeActionCard(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
             content = content,
-        )
-    }
-}
-
-@Composable
-internal fun UpgradeOfferCard(
-    title: String,
-    price: String?,
-    supportingText: String?,
-    modifier: Modifier = Modifier,
-    emphasized: Boolean = false,
-    badgeText: String? = null,
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    val colors = if (emphasized) {
-        CardDefaults.elevatedCardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        )
-    } else {
-        CardDefaults.elevatedCardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-        )
-    }
-
-    ElevatedCard(
-        modifier = modifier.fillMaxWidth(),
-        colors = colors,
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(6.dp),
-                ) {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                    price?.let {
-                        Text(
-                            text = it,
-                            style = MaterialTheme.typography.headlineSmall,
-                        )
-                    }
-                }
-                badgeText?.let {
-                    UpgradeBadge(
-                        text = it,
-                        modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RECOMMENDED),
-                    )
-                }
-            }
-
-            supportingText?.let {
-                UpgradeHintText(text = it)
-            }
-
-            content()
-        }
-    }
-}
-
-@Composable
-internal fun UpgradeBadge(
-    text: String,
-    modifier: Modifier = Modifier,
-) {
-    Surface(
-        modifier = modifier,
-        color = MaterialTheme.colorScheme.tertiary,
-        contentColor = MaterialTheme.colorScheme.onTertiary,
-        shape = CardDefaults.shape,
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelSmall,
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
         )
     }
 }

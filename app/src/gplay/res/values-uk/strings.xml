@@ -18,17 +18,12 @@
     <string name="upgrade_screen_preamble">SD Maid не має реклами та не продає дані користувачів. Моя робота фінансується вами ❤️.</string>
     <string name="upgrade_screen_benefits_title">Переваги оновлення</string>
     <string name="upgrade_screen_benefits_body">• Очищення кешу додатків і витратних даних\n• Видалення дубльованих файлів\n• Активація запланованих очищень\n• Створення користувацьких фільтрів і правил очищення\n• Відстеження тенденцій зберігання та історії очищення\n• Більше функцій і елементів керування у всій програмі\n• Підтримка подальшого розвитку</string>
-    <string name="upgrade_screen_how_title">Параметри</string>
-    <string name="upgrade_screen_how_body">Ви можете вибрати між одноразовою покупкою та дешевшою річною підпискою.\nПідписка починається з безкоштовної 14-денної пробної версії, після чого з вас стягуватиметься плата раз на рік. Пробну версію та підписку можна скасувати в будь-який час.\nОдні й ті ж функції, тільки різні моделі ціноутворення.</string>
     <string name="upgrade_screen_subscription_offer_title">Річна підписка</string>
     <string name="upgrade_screen_iap_offer_title">Купити один раз</string>
-    <string name="upgrade_screen_offer_recommended">Рекомендовано</string>
     <string name="upgrade_screen_offers_unavailable_message">Ціни зараз не вдалося завантажити. Перевірте Google Play і спробуйте ще раз через деякий час.</string>
     <string name="upgrade_screen_subscription_trial_action">Розпочати безкоштовний 14-денний пробний період</string>
     <string name="upgrade_screen_subscription_action">Підписатися</string>
-    <string name="upgrade_screen_subscription_action_hint">Вартість підписки становить %s на рік.</string>
     <string name="upgrade_screen_iap_action">Одноразова покупка</string>
-    <string name="upgrade_screen_iap_action_hint">Вартість одноразової покупки становить %s.</string>
     <string name="upgrade_screen_thanks_toast">Ви найкращі! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Відновити покупку</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронізація Play Store може зайняти деякий час. Спробуйте перезавантажити, очистити кеш Google Play або просто почекати.</string>

@@ -38,7 +38,6 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.ACTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
     }
 
     @Test
@@ -59,16 +58,47 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.ACTIONS).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_trial_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_action_hint, "$12.99")).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action_hint, "$24.99")).assertCountEquals(1)
+        // Compact rows: the price shares the title line, per-offer captions carry the terms (the
+        // standalone "Options" card is gone), and there is no badge.
+        composeRule.onAllNodesWithText(
+            "${context.getString(R.string.upgrade_screen_subscription_offer_title)} · $12.99"
+        ).assertCountEquals(1)
+        composeRule.onAllNodesWithText(
+            "${context.getString(R.string.upgrade_screen_iap_offer_title)} · $24.99"
+        ).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_or)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_body)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_purchase_action)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offer_recommended)).assertCountEquals(1)
 
         val subscriptionButtonTop = composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).getUnclippedBoundsInRoot().top
         val iapButtonTop = composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).getUnclippedBoundsInRoot().top
 
         check(subscriptionButtonTop < iapButtonTop) {
             "Expected subscription action to appear above IAP action, but got top=$subscriptionButtonTop and top=$iapButtonTop"
+        }
+
+        // Terms read ABOVE their buttons (description-then-action, like the restore section); the
+        // header anchors the top and the parity footnote sits below both offers.
+        val subscriptionCaptionTop = composeRule
+            .onNodeWithText(context.getString(R.string.upgrade_screen_subscription_offer_body))
+            .getUnclippedBoundsInRoot().top
+        val headerTop = composeRule
+            .onNodeWithText(context.getString(R.string.upgrade_screen_offers_title))
+            .getUnclippedBoundsInRoot().top
+        val footerTop = composeRule
+            .onNodeWithText(context.getString(R.string.upgrade_screen_offers_body))
+            .getUnclippedBoundsInRoot().top
+        check(subscriptionCaptionTop < subscriptionButtonTop) {
+            "Expected subscription terms above their button, got terms=$subscriptionCaptionTop button=$subscriptionButtonTop"
+        }
+        check(headerTop < subscriptionButtonTop) {
+            "Expected the offers header above the offers, got header=$headerTop subButton=$subscriptionButtonTop"
+        }
+        check(footerTop > iapButtonTop) {
+            "Expected the parity footnote below both offers, got footer=$footerTop iapButton=$iapButtonTop"
         }
     }
 
@@ -89,8 +119,12 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText(context.getString(R.string.upgrade_screen_subscription_action)).assertIsNotEnabled()
         composeRule.onNodeWithText(context.getString(R.string.upgrade_screen_iap_action)).assertIsNotEnabled()
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_purchase_action)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_action_hint, "$12.99")).assertCountEquals(0)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action_hint, "$24.99")).assertCountEquals(0)
+        // Without prices the rows fall back to bare titles (exact match proves no dangling "·"),
+        // and the unavailable subscription promises no trial.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body_no_trial)).assertCountEquals(1)
     }
 
     @Test
@@ -110,7 +144,6 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_UNAVAILABLE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_unavailable_message)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
     }
 
     @Test
@@ -197,6 +230,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_contact_support_action))
             .assertCountEquals(0)
+        // STANDARD subscription (no trial offer): the row must not promise a trial.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body))
+            .assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body_no_trial))
+            .assertCountEquals(1)
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).performScrollTo().performClick()
         composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
     }
@@ -258,7 +296,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `options copy promises the trial only when Play returned the trial offer`() {
+    fun `offer copy promises the trial only when Play returned the trial offer`() {
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = GplayUpgradeUiState.Loaded(
@@ -271,8 +309,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             )
         }
 
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body_no_trial))
+            .assertCountEquals(0)
     }
 
     private fun ownedState(ownership: Ownership, verificationInProgress: Boolean = false) =
@@ -302,7 +341,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         // No acquisition upsell copy anywhere on the ownership screen — not just no buttons.
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_title)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_title)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(0)
         // Restore stays available in every ownership state: it reconciles entitlements, not upsell.
@@ -438,7 +477,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `options copy drops the trial promise when only the base offer is available`() {
+    fun `offer copy drops the trial promise when only the base offer is available`() {
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = GplayUpgradeUiState.Loaded(
@@ -451,8 +490,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             )
         }
 
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body_no_trial)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_how_body)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body_no_trial))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body)).assertCountEquals(0)
     }
 }
 
