@@ -427,7 +427,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     )
 
     @Test
-    fun `quiet grace stage confirms pro without diagnostics while offers stay available`() {
+    fun `quiet grace stage confirms pro without diagnostics or offers`() {
         composeRule.setUpgradeContent {
             UpgradeScreen(uiState = graceState(showDiagnostics = false))
         }
@@ -441,10 +441,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(0)
         // Grace users are still Pro: neutral status title, not the acquisition pitch title.
         composeRule.onAllNodesWithText("${context.getString(CommonR.string.app_name)} ${context.getString(R.string.app_name_upgrade_postfix)}").assertCountEquals(1)
-        // Purchasing stays fully available — grace must never block the switch to a real purchase.
-        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)
-        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(1)
-        // But no sales pitch: grace users are Pro — status and offers only.
+        // A young episode is treated as a blip: calm status only — no offers, no sales pitch.
+        // The offers return with the aged (diagnostics) stage.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
     }
@@ -481,6 +481,12 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body)).assertCountEquals(1)
+        // The aged episode is treated as likely-permanent: the offers come back so an expired
+        // subscriber can switch without waiting out the full grace window. Still no sales pitch.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).performScrollTo().performClick()
         composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
     }

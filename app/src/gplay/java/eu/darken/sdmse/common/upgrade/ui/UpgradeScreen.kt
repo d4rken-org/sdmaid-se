@@ -222,9 +222,11 @@ private fun UpgradeAcquisitionContent(
         )
     }
 
-    // Grace users get status + offers only: they are Pro and have seen the pitch — sales copy
-    // next to a "still active" card reads as a contradiction. The offers stay: a user whose
-    // subscription expired must be able to switch NOW, not after the grace window lapses.
+    // Grace users never see the pitch (they are Pro, sales copy next to a "still active" card
+    // reads as a contradiction), and the OFFERS follow the episode age — the client can't tell a
+    // blip from a lapsed purchase, so time is the arbiter: a young episode (likely self-healing
+    // blip) shows calm status only, an aged one (likely really gone) adds restore AND the offers,
+    // so an expired subscriber can switch without waiting out the full grace window.
     if (!inGrace) {
         UpgradePreambleCard(
             text = stringResource(R.string.upgrade_screen_preamble),
@@ -257,39 +259,16 @@ private fun UpgradeAcquisitionContent(
         }
     }
 
-    // All purchase framing lives inside the offers box (LoadedOffers) — no separate explainer card.
-    UpgradeActionCard {
-        AnimatedContent(
-            targetState = uiState,
-            transitionSpec = { fadeIn() togetherWith fadeOut() },
-            label = "upgrade-offers",
-        ) { state ->
-            when (state) {
-                GplayUpgradeUiState.Loading -> UpgradeLoadingBlock()
-                is GplayUpgradeUiState.Unavailable -> UpgradeInlineStateCard(
-                    title = stringResource(R.string.upgrades_gplay_unavailable_error_title),
-                    body = stringResource(R.string.upgrade_screen_offers_unavailable_message),
-                    icon = Icons.TwoTone.WarningAmber,
-                ) {
-                    // Play can be slow rather than broken (cold store, first sign-in): let
-                    // the user re-run the offer queries instead of leaving a dead screen.
-                    OutlinedButton(
-                        onClick = onRetry,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .testTag(UpgradeScreenTags.GPLAY_RETRY),
-                    ) {
-                        Text(stringResource(CommonR.string.general_retry_action))
-                    }
-                }
-                is GplayUpgradeUiState.Loaded -> LoadedOffers(
-                    uiState = state,
-                    onIap = onIap,
-                    onSubscription = onSubscription,
-                    onSubscriptionTrial = onSubscriptionTrial,
-                )
-            }
-        }
+    // During a YOUNG grace episode the offers box is hidden: likely a blip, and offers next to
+    // "Pro is still active" would contradict it. An aged episode brings them back.
+    if (!inGrace || loadedState?.grace?.showDiagnostics == true) {
+        UpgradeOffersBox(
+            uiState = uiState,
+            onIap = onIap,
+            onSubscription = onSubscription,
+            onSubscriptionTrial = onSubscriptionTrial,
+            onRetry = onRetry,
+        )
     }
 
     // Restore is account reconciliation, not an offer — its own described section, after the
@@ -303,6 +282,52 @@ private fun UpgradeAcquisitionContent(
             onRestore = onRestore,
             restoreInProgress = loadedForRestore.restoreInProgress,
         )
+    }
+}
+
+// All purchase framing lives inside the offers box (LoadedOffers) — no separate explainer card.
+// Each state brings its OWN container: the error state is a full card itself, wrapping it in the
+// action card produced a card-in-card.
+@Composable
+private fun UpgradeOffersBox(
+    uiState: GplayUpgradeUiState,
+    onIap: () -> Unit,
+    onSubscription: () -> Unit,
+    onSubscriptionTrial: () -> Unit,
+    onRetry: () -> Unit,
+) {
+    AnimatedContent(
+        targetState = uiState,
+        transitionSpec = { fadeIn() togetherWith fadeOut() },
+        label = "upgrade-offers",
+    ) { state ->
+        when (state) {
+            GplayUpgradeUiState.Loading -> UpgradeActionCard { UpgradeLoadingBlock() }
+            is GplayUpgradeUiState.Unavailable -> UpgradeInlineStateCard(
+                title = stringResource(R.string.upgrades_gplay_unavailable_error_title),
+                body = stringResource(R.string.upgrade_screen_offers_unavailable_message),
+                icon = Icons.TwoTone.WarningAmber,
+            ) {
+                // Play can be slow rather than broken (cold store, first sign-in): let
+                // the user re-run the offer queries instead of leaving a dead screen.
+                OutlinedButton(
+                    onClick = onRetry,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(UpgradeScreenTags.GPLAY_RETRY),
+                ) {
+                    Text(stringResource(CommonR.string.general_retry_action))
+                }
+            }
+            is GplayUpgradeUiState.Loaded -> UpgradeActionCard {
+                LoadedOffers(
+                    uiState = state,
+                    onIap = onIap,
+                    onSubscription = onSubscription,
+                    onSubscriptionTrial = onSubscriptionTrial,
+                )
+            }
+        }
     }
 }
 
