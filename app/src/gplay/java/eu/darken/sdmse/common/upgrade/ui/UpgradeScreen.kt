@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -159,12 +160,13 @@ internal fun UpgradeScreen(
     val ownedState = loaded?.takeIf { it.ownership.ownsAnything }
 
     UpgradeScreenScaffold(
-        // Grace users are still Pro: they get the neutral status title too — "Get SD Maid SE Pro"
-        // on the status screen would contradict the rest of the app, which behaves upgraded.
-        titleRes = if (ownedState != null || loaded?.grace != null) {
-            R.string.upgrade_screen_manage_title
+        // Grace users are still Pro: they get the status title too — "Get SD Maid SE Pro" on the
+        // status screen would contradict the rest of the app, which behaves upgraded. The postfix
+        // is highlighted like the dashboard title does it.
+        title = if (ownedState != null || loaded?.grace != null) {
+            upgradeScreenTitle(upgraded = true)
         } else {
-            R.string.upgrade_screen_title
+            AnnotatedString(stringResource(R.string.upgrade_screen_title))
         },
         onNavigateUp = onNavigateUp,
     ) { paddingValues ->
@@ -172,9 +174,12 @@ internal fun UpgradeScreen(
             paddingValues = paddingValues,
             contentPadding = PaddingValues(start = 24.dp, top = 16.dp, end = 24.dp, bottom = 32.dp),
         ) {
-            UpgradeHeader(
-                mascotSize = 88.dp,
-            )
+            if (ownedState == null) {
+                // Owners get the mascot inside the congrats hero card instead.
+                UpgradeHeader(
+                    mascotSize = 88.dp,
+                )
+            }
 
             if (ownedState != null) {
                 UpgradeOwnershipContent(

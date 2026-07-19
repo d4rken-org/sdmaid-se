@@ -41,8 +41,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -66,6 +70,7 @@ internal object UpgradeScreenTags {
     const val GPLAY_RESTORE_BANNER_ACTION = "upgrade_gplay_restore_banner_action"
     const val GPLAY_UNAVAILABLE = "upgrade_gplay_unavailable"
     const val GPLAY_RETRY = "upgrade_gplay_retry"
+    const val GPLAY_OWNED_HERO = "upgrade_gplay_owned_hero"
     const val GPLAY_OWNED_IAP = "upgrade_gplay_owned_iap"
     const val GPLAY_OWNED_SUB = "upgrade_gplay_owned_sub"
     const val GPLAY_MANAGE_SUB = "upgrade_gplay_manage_sub"
@@ -73,9 +78,33 @@ internal object UpgradeScreenTags {
     const val GPLAY_GRACE_RESTORE = "upgrade_gplay_grace_restore"
 }
 
+// Composed app title with the flavor postfix highlighted in the upgraded color while Pro is
+// active — the same treatment the dashboard title card uses.
+@Composable
+internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString = buildAnnotatedString {
+    append(stringResource(CommonR.string.app_name))
+    append(" ")
+    if (upgraded) pushStyle(SpanStyle(color = colorResource(R.color.colorUpgraded)))
+    append(stringResource(R.string.app_name_upgrade_postfix))
+    if (upgraded) pop()
+}
+
 @Composable
 internal fun UpgradeScreenScaffold(
     @StringRes titleRes: Int,
+    onNavigateUp: () -> Unit,
+    snackbarHostState: SnackbarHostState? = null,
+    content: @Composable (PaddingValues) -> Unit,
+) = UpgradeScreenScaffold(
+    title = AnnotatedString(stringResource(titleRes)),
+    onNavigateUp = onNavigateUp,
+    snackbarHostState = snackbarHostState,
+    content = content,
+)
+
+@Composable
+internal fun UpgradeScreenScaffold(
+    title: AnnotatedString,
     onNavigateUp: () -> Unit,
     snackbarHostState: SnackbarHostState? = null,
     content: @Composable (PaddingValues) -> Unit,
@@ -87,7 +116,7 @@ internal fun UpgradeScreenScaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(stringResource(titleRes)) },
+                title = { Text(title) },
                 navigationIcon = {
                     SdmTooltipIconButton(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,

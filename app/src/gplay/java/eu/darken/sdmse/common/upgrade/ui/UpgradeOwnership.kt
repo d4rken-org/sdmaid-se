@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -12,17 +13,22 @@ import androidx.compose.material.icons.twotone.Verified
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.R as CommonR
 
 // Ownership presentation for users who already own a Pro entitlement. Progressive disclosure:
 // a renewing subscriber only sees status + management — the one-time purchase appears once the
@@ -36,6 +42,8 @@ internal fun UpgradeOwnershipContent(
 ) {
     val ownership = uiState.ownership
     val subscription = ownership.subscription
+
+    UpgradeOwnedHero(ownership = ownership)
 
     if (ownership.hasIap) {
         UpgradeSectionCard(
@@ -59,6 +67,11 @@ internal fun UpgradeOwnershipContent(
                     else R.string.upgrade_screen_owned_sub_not_renewing_body
                 ),
             )
+            if (subscription.isAutoRenewing && !ownership.hasIap) {
+                // The switch path must be discoverable: without this, a renewing subscriber has no
+                // way to learn that the one-time purchase appears after cancelling.
+                UpgradeSectionBody(text = stringResource(R.string.upgrade_screen_owned_sub_switch_hint))
+            }
             if (subscription.isAutoRenewing && ownership.hasIap) {
                 Text(
                     text = stringResource(R.string.upgrade_screen_owned_both_renewing_warning),
@@ -113,6 +126,53 @@ internal fun UpgradeOwnershipContent(
         onRestore = onRestore,
         restoreInProgress = uiState.restoreInProgress,
     )
+}
+
+// The "you have it" moment: mascot and congrats in one hero card at the top of the status
+// screen, with the variant (subscription vs one-time) spelled out. The per-purchase cards below
+// carry details and actions.
+@Composable
+private fun UpgradeOwnedHero(
+    ownership: Ownership,
+    modifier: Modifier = Modifier,
+) {
+    ElevatedCard(
+        modifier = modifier
+            .fillMaxWidth()
+            .testTag(UpgradeScreenTags.GPLAY_OWNED_HERO),
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        ),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            UpgradeMascot(size = 72.dp)
+            Text(
+                text = stringResource(
+                    R.string.upgrade_screen_owned_hero_title,
+                    "${stringResource(CommonR.string.app_name)} ${stringResource(R.string.app_name_upgrade_postfix)}",
+                ),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+            )
+            Text(
+                // The permanent purchase is the meaningful one when both are owned.
+                text = stringResource(
+                    if (ownership.hasIap) R.string.upgrade_screen_owned_hero_iap_body
+                    else R.string.upgrade_screen_owned_hero_sub_body
+                ),
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+            )
+        }
+    }
 }
 
 // Shown on the acquisition view while Pro is active purely via the local grace window. Calm

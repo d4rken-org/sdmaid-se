@@ -19,7 +19,6 @@
     <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Back already? Your support keeps SD Maid alive!</string>
 
-    <string name="upgrade_screen_manage_title">SD Maid SE FOSS</string>
     <string name="upgrade_screen_status_free_title">Free version</string>
     <string name="upgrade_screen_status_free_body">You are using the free version of SD Maid. Extra features can be unlocked by supporting development.</string>
     <string name="upgrade_screen_status_free_action">See upgrade options</string>

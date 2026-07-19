@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Favorite
@@ -98,12 +99,12 @@ internal fun UpgradeScreen(
     onNavigateUp: () -> Unit = {},
 ) {
     UpgradeScreenScaffold(
-        // Status views describe the existing install, not a support ask — they get the neutral
-        // flavor title instead of the pitch's "Support SD Maid".
-        titleRes = if (view == FossUpgradeView.PITCH) {
-            R.string.upgrade_screen_title
+        // Status views describe the existing install, not a support ask — they get the composed
+        // flavor title, with the postfix highlighted for supporters like the dashboard does it.
+        title = if (view == FossUpgradeView.PITCH) {
+            AnnotatedString(stringResource(R.string.upgrade_screen_title))
         } else {
-            R.string.upgrade_screen_manage_title
+            upgradeScreenTitle(upgraded = view == FossUpgradeView.STATUS_UPGRADED)
         },
         onNavigateUp = onNavigateUp,
         snackbarHostState = snackbarHostState,
