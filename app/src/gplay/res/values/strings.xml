@@ -59,8 +59,8 @@
     <string name="upgrade_screen_sub_check_failed_message">Couldn\'t check your subscription status with Google Play. Please try again in a moment.</string>
     <string name="upgrade_screen_restore_success_message">Purchase restored, your Pro upgrade is active.</string>
     <string name="upgrade_screen_grace_title">Pro is still active</string>
-    <string name="upgrade_screen_grace_body_short">You can keep using all Pro features.</string>
-    <string name="upgrade_screen_grace_body">SD Maid can\'t currently confirm your Pro purchase with Google Play. If you bought Pro, restore the purchase and make sure Google Play is using the account that bought it. If your subscription has ended or the purchase was refunded, Pro will turn off automatically.</string>
+    <string name="upgrade_screen_grace_body_short">Waiting for Google Play to re-confirm your purchase. All Pro features stay unlocked in the meantime.</string>
+    <string name="upgrade_screen_grace_body">Google Play hasn\'t confirmed your Pro purchase for a while. If you bought Pro, restore the purchase and check that Google Play uses the account that bought it. If the subscription ended or the purchase was refunded, Pro will turn off by itself, nothing else to do.</string>
 
     <string name="upgrade_screen_restore_body">Restoring asks Google Play to re-check this app\'s purchases for the current account. It does not start a new purchase.</string>
     <string name="upgrade_screen_restore_status_title">Status looks wrong?</string>

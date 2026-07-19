@@ -213,6 +213,7 @@ private fun UpgradeAcquisitionContent(
     onRetry: () -> Unit,
 ) {
     val loadedState = uiState as? GplayUpgradeUiState.Loaded
+    val inGrace = loadedState?.grace != null
     loadedState?.grace?.let { grace ->
         UpgradeGraceCard(
             showDiagnostics = grace.showDiagnostics,
@@ -221,34 +222,39 @@ private fun UpgradeAcquisitionContent(
         )
     }
 
-    UpgradePreambleCard(
-        text = stringResource(R.string.upgrade_screen_preamble),
-        colors = CardDefaults.elevatedCardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-        ),
-    )
-
-    if (uiState is GplayUpgradeUiState.Loaded && uiState.wasPreviouslyPro) {
-        // The targeted returning-buyer nudge: prominent placement and emphasis, and the ONLY
-        // restore affordance on the screen — a second one below would make the screen feel
-        // uncertain about its own advice.
-        UpgradeRestoreSection(
-            title = stringResource(R.string.upgrade_screen_restore_banner_title),
-            body = stringResource(R.string.upgrade_screen_restore_banner_body),
-            onRestore = onRestore,
-            modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
-            restoreInProgress = uiState.restoreInProgress,
-            emphasized = true,
-            restoreTag = UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION,
+    // Grace users get status + offers only: they are Pro and have seen the pitch — sales copy
+    // next to a "still active" card reads as a contradiction. The offers stay: a user whose
+    // subscription expired must be able to switch NOW, not after the grace window lapses.
+    if (!inGrace) {
+        UpgradePreambleCard(
+            text = stringResource(R.string.upgrade_screen_preamble),
+            colors = CardDefaults.elevatedCardColors(
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            ),
         )
-    }
 
-    UpgradeSectionCard(
-        title = stringResource(R.string.upgrade_screen_benefits_title),
-        icon = Icons.TwoTone.AutoAwesome,
-    ) {
-        UpgradeFeatureList(text = stringResource(R.string.upgrade_screen_benefits_body))
+        if (uiState is GplayUpgradeUiState.Loaded && uiState.wasPreviouslyPro) {
+            // The targeted returning-buyer nudge: prominent placement and emphasis, and the ONLY
+            // restore affordance on the screen — a second one below would make the screen feel
+            // uncertain about its own advice.
+            UpgradeRestoreSection(
+                title = stringResource(R.string.upgrade_screen_restore_banner_title),
+                body = stringResource(R.string.upgrade_screen_restore_banner_body),
+                onRestore = onRestore,
+                modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
+                restoreInProgress = uiState.restoreInProgress,
+                emphasized = true,
+                restoreTag = UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION,
+            )
+        }
+
+        UpgradeSectionCard(
+            title = stringResource(R.string.upgrade_screen_benefits_title),
+            icon = Icons.TwoTone.AutoAwesome,
+        ) {
+            UpgradeFeatureList(text = stringResource(R.string.upgrade_screen_benefits_body))
+        }
     }
 
     // All purchase framing lives inside the offers box (LoadedOffers) — no separate explainer card.

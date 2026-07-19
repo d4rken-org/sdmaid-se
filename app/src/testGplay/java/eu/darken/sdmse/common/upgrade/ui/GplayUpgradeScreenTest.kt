@@ -444,6 +444,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         // Purchasing stays fully available — grace must never block the switch to a real purchase.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(1)
+        // But no sales pitch: grace users are Pro — status and offers only.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
     }
 
     @Test
