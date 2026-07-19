@@ -29,6 +29,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()
 
+    private fun appNameWithPostfixedHeroBody(bodyRes: Int): String = context.getString(
+        bodyRes,
+        "${context.getString(CommonR.string.app_name)} ${context.getString(R.string.app_name_upgrade_postfix)}",
+    )
+
     @Test
     fun `loading state shows progress and hides actions`() {
         composeRule.setUpgradeContent {
@@ -327,29 +332,31 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         )
 
     @Test
-    fun `renewing subscription owner sees management only and no purchase pitch`() {
+    fun `renewing subscription owner sees a locked one-time offer and management`() {
+        var iapClicks = 0
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = true))),
+                onIap = { iapClicks++ },
             )
         }
 
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(1)
-        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_renewing_body)).assertCountEquals(1)
         composeRule.onAllNodesWithText("${context.getString(CommonR.string.app_name)} ${context.getString(R.string.app_name_upgrade_postfix)}").assertCountEquals(1)
-        // The congrats hero names the variant, and the switch path is discoverable: a renewing
-        // subscriber is told HOW the one-time purchase becomes available (cancel first).
+        // The congrats hero names the variant.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_OWNED_HERO).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_hero_sub_body)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_switch_hint)).assertCountEquals(1)
-        // No acquisition upsell copy anywhere on the ownership screen — not just no buttons.
+        composeRule.onAllNodesWithText(appNameWithPostfixedHeroBody(R.string.upgrade_screen_owned_hero_sub_body))
+            .assertCountEquals(1)
+        // The switch path is a visible LOCKED offer: present, disabled, with the unlock condition.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_locked_note)).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+        composeRule.runOnIdle { check(iapClicks == 0) { "locked offer must not be clickable" } }
+        // No acquisition upsell copy anywhere on the ownership screen.
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_title)).assertCountEquals(0)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(0)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(0)
         // Restore stays available in every ownership state: it reconciles entitlements, not upsell.
         // Framed as a status re-check; support is only offered by the failed-restore dialog.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
@@ -371,8 +378,8 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_not_renewing_body)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_purchase_note)).assertCountEquals(1)
-        // The buy option is right there — no need for the how-to-switch hint anymore.
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_sub_switch_hint)).assertCountEquals(0)
+        // The offer is unlocked — the locked-state note must be gone.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_locked_note)).assertCountEquals(0)
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).performScrollTo().performClick()
         composeRule.runOnIdle { check(iapClicks == 1) { "expected 1 iap click, got $iapClicks" } }
     }
@@ -389,8 +396,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_body)).assertCountEquals(1)
         // The hero names the permanent purchase as the unlock, never the subscription variant.
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_hero_iap_body)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_hero_sub_body)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(appNameWithPostfixedHeroBody(R.string.upgrade_screen_owned_hero_iap_body))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(appNameWithPostfixedHeroBody(R.string.upgrade_screen_owned_hero_sub_body))
+            .assertCountEquals(0)
     }
 
     @Test

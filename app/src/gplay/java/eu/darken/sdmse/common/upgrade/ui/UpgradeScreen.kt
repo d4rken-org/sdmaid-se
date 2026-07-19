@@ -154,8 +154,9 @@ internal fun UpgradeScreen(
     onRetry: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
-    // Owners get the ownership presentation: no acquisition upsell anywhere — a renewing
-    // subscriber must not be pitched the one-time purchase (or a trial they already used).
+    // Owners get the ownership presentation: no acquisition upsell (pitch, benefits, offers box)
+    // anywhere — the one-time purchase appears only as the ownership view's own switch offer,
+    // locked while the subscription still renews.
     val loaded = uiState as? GplayUpgradeUiState.Loaded
     val ownedState = loaded?.takeIf { it.ownership.ownsAnything }
 

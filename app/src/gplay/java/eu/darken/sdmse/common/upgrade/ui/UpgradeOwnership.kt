@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.upgrade.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,16 +24,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.R as CommonR
 
-// Ownership presentation for users who already own a Pro entitlement. Progressive disclosure:
-// a renewing subscriber only sees status + management — the one-time purchase appears once the
-// subscription is no longer set to renew, so buying it can't stack with an upcoming renewal.
+// Ownership presentation for users who already own a Pro entitlement. Subscribers without the
+// one-time purchase always see the switch offer — but LOCKED while the subscription still
+// renews, so buying it can't stack with an upcoming renewal.
 @Composable
 internal fun UpgradeOwnershipContent(
     uiState: GplayUpgradeUiState.Loaded,
@@ -67,11 +67,6 @@ internal fun UpgradeOwnershipContent(
                     else R.string.upgrade_screen_owned_sub_not_renewing_body
                 ),
             )
-            if (subscription.isAutoRenewing && !ownership.hasIap) {
-                // The switch path must be discoverable: without this, a renewing subscriber has no
-                // way to learn that the one-time purchase appears after cancelling.
-                UpgradeSectionBody(text = stringResource(R.string.upgrade_screen_owned_sub_switch_hint))
-            }
             if (subscription.isAutoRenewing && ownership.hasIap) {
                 Text(
                     text = stringResource(R.string.upgrade_screen_owned_both_renewing_warning),
@@ -90,18 +85,25 @@ internal fun UpgradeOwnershipContent(
         }
     }
 
-    if (subscription?.isAutoRenewing == false && !ownership.hasIap) {
+    if (subscription != null && !ownership.hasIap) {
+        // The switch path as a visible artifact, not just prose: while the subscription still
+        // renews, the offer is shown LOCKED with the unlock condition — a renewing subscriber
+        // must never be able to stack the one-time purchase on an upcoming renewal.
+        val switchUnlocked = !subscription.isAutoRenewing
         UpgradeActionCard {
             UpgradeOfferRow(
                 title = stringResource(R.string.upgrade_screen_iap_offer_title),
                 price = uiState.iapPrice,
-                hint = stringResource(R.string.upgrade_screen_owned_iap_purchase_note),
+                hint = stringResource(
+                    if (switchUnlocked) R.string.upgrade_screen_owned_iap_purchase_note
+                    else R.string.upgrade_screen_owned_iap_locked_note
+                ),
             ) {
                 Button(
                     onClick = onIap,
                     // Not gated on iapEnabled: prices may have failed to load while the purchase
                     // itself would work (the billing flow re-queries details on launch).
-                    enabled = !uiState.verificationInProgress && !uiState.restoreInProgress,
+                    enabled = switchUnlocked && !uiState.verificationInProgress && !uiState.restoreInProgress,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(UpgradeScreenTags.GPLAY_IAP),
@@ -145,32 +147,32 @@ private fun UpgradeOwnedHero(
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
         ),
     ) {
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            UpgradeMascot(size = 72.dp)
-            Text(
-                text = stringResource(
-                    R.string.upgrade_screen_owned_hero_title,
-                    "${stringResource(CommonR.string.app_name)} ${stringResource(R.string.app_name_upgrade_postfix)}",
-                ),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
-                textAlign = TextAlign.Center,
-            )
-            Text(
-                // The permanent purchase is the meaningful one when both are owned.
-                text = stringResource(
-                    if (ownership.hasIap) R.string.upgrade_screen_owned_hero_iap_body
-                    else R.string.upgrade_screen_owned_hero_sub_body
-                ),
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-            )
+            UpgradeMascot(size = 56.dp)
+            Column(
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Text(
+                    text = stringResource(R.string.upgrade_screen_owned_hero_title),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    // The permanent purchase is the meaningful one when both are owned.
+                    text = stringResource(
+                        if (ownership.hasIap) R.string.upgrade_screen_owned_hero_iap_body
+                        else R.string.upgrade_screen_owned_hero_sub_body,
+                        "${stringResource(CommonR.string.app_name)} ${stringResource(R.string.app_name_upgrade_postfix)}",
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
         }
     }
 }

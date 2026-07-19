@@ -43,13 +43,13 @@
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store synchronization may take time. Try rebooting, clearing Google Play cache or simply wait.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Multiple accounts can confuse Google Play. Install the app through the Google Play website, which forces associations with a specific account.</string>
 
-    <string name="upgrade_screen_owned_hero_title">Congratulations, you have %1$s!</string>
-    <string name="upgrade_screen_owned_hero_sub_body">Unlocked by your subscription.</string>
-    <string name="upgrade_screen_owned_hero_iap_body">Unlocked by your one-time purchase.</string>
+    <string name="upgrade_screen_owned_hero_title">Congratulations!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">You have %1$s, unlocked by your subscription.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">You have %1$s, unlocked by your one-time purchase.</string>
     <string name="upgrade_screen_owned_iap_title">One-time purchase</string>
     <string name="upgrade_screen_owned_iap_body">You own the one-time Pro upgrade. Pro stays unlocked on this Google account. Thanks for supporting SD Maid ❤️.</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Your Pro subscription is active and set to renew. Billing is managed by Google Play.</string>
-    <string name="upgrade_screen_owned_sub_switch_hint">Prefer the one-time purchase? Cancel the subscription in Google Play first. The option appears here once the subscription is no longer set to renew.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Prefer the one-time purchase? It becomes available once your subscription is no longer set to renew. Cancel the subscription in Google Play to switch.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Your Pro subscription is active, but not set to renew. Pro stays available until the current period ends.</string>
     <string name="upgrade_screen_owned_both_renewing_warning">This subscription is still set to renew, although you already own the one-time upgrade. You can cancel it in Google Play.</string>
     <string name="upgrade_screen_manage_subscription_action">Manage subscription</string>
