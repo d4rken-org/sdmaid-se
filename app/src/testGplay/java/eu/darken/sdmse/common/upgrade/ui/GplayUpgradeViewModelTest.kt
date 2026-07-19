@@ -228,6 +228,28 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `restore results are held back until the minimum visible duration`() = runTest2(context = testDispatcher) {
+        // The repo answers instantly here — the user must still see the check "run": the result
+        // event may only surface once RESTORE_MIN_VISIBLE_MS elapsed.
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro"))
+        val vm = buildVm(repo)
+
+        val received = mutableListOf<UpgradeEvents>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.events.collect { received.add(it) } }
+
+        vm.restorePurchase()
+        testScheduler.advanceTimeBy(UpgradeViewModel.RESTORE_MIN_VISIBLE_MS - 100)
+        testScheduler.runCurrent()
+        received.shouldBeEmpty()
+
+        testScheduler.advanceTimeBy(200)
+        testScheduler.runCurrent()
+        received shouldBe listOf<UpgradeEvents>(UpgradeEvents.RestoreSucceeded)
+        collector.cancel()
+    }
+
+    @Test
     fun `restore with no purchase emits RestoreFailed`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)

@@ -345,7 +345,17 @@ class UpgradeViewModel @Inject constructor(
         log(TAG) { "restorePurchase()" }
 
         try {
-            val restored = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+            // Minimum visible duration, not a fixed add-on: the pad runs CONCURRENTLY with the
+            // real Play query, so a fast check gets stretched to a believable length while a slow
+            // one gains nothing. A sub-second round-trip reads as "nothing was checked" and
+            // undermines the result — the check is real, this only makes its duration perceptible.
+            // Manual restores only; the repo's invisible auto-restore must stay fast.
+            val restored = coroutineScope {
+                val minVisible = async { delay(RESTORE_MIN_VISIBLE_MS) }
+                val result = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+                minVisible.await()
+                result
+            }
             when {
                 restored == null -> {
                     // Play never answered in time; the restore-failed dialog already suggests waiting /
@@ -383,6 +393,9 @@ class UpgradeViewModel @Inject constructor(
 
     companion object {
         private const val RESTORE_TIMEOUT_MS = 15_000L
+        // Floor for how long a manual restore visibly runs (spinner up, result held back). Long
+        // enough that the user believes a round-trip to Play happened, short enough not to drag.
+        internal const val RESTORE_MIN_VISIBLE_MS = 1_500L
         private const val VERIFY_TIMEOUT_MS = 10_000L
 
         // The very first billing query after Play sign-in can take >8s (measured 8.5s) while Play
