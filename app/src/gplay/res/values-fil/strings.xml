@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">Ang one-time na pagbili ay nagkakahalaga ng %s.</string>
     <string name="upgrade_screen_thanks_toast">Ikaw ang pinakamahusay! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">I-restore ang pagbili</string>
-    <string name="upgrade_screen_restore_purchase_message">Ang iyong pag-upgrade ay balido sa lahat ng mga device sa parehong Google account.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Mga tip sa pag-troubleshoot para sa mga hindi kinikilalang pag-upgrade:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ang Play Store synchronization ay maaaring tumagal ng oras. Subukang mag-reboot, i-clear ang Google Play cache o maghintay lamang.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ang maramihang mga account ay maaaring makalito sa Google Play. Mag-log out mula sa ibang mga account o mag-install sa pamamagitan ng Google Play website, na napipilitang nakipag-ugnayan sa isang partikular na account.</string>
 </resources>

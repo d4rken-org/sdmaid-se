@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">ఒకేసారి కొనేయడానికి %s అవుతుంది.</string>
     <string name="upgrade_screen_thanks_toast">మీరు అత్యుత్తమం❤️</string>
     <string name="upgrade_screen_restore_purchase_action">కొనుగోలును పునరుద్ధరించండి</string>
-    <string name="upgrade_screen_restore_purchase_message">మీ అప్‌గ్రేడ్ అదే Google ఖాతాలోని అన్ని పరికరాలలో చెల్లుబాటు అవుతుంది.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">గుర్తించబడని అప్‌గ్రేడ్‌ల కోసం ట్రబుల్‌షూటింగ్ చిట్కాలు:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store సమకాలీకరణ సమయం పట్టవచ్చు. రీబూట్ చేయడానికి, Google Play కాష్‌ని క్లియర్ చేయడానికి లేదా కేవలం వేచి ఉండటానికి ప్రయత్నించండి.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">బహుళ ఖాతాలు Google Playని గందరగోళానికి గురి చేయవచ్చు. ఇతర ఖాతాల నుండి లాగ్ అవుట్ చేయండి లేదా Google Play వెబ్‌సైట్ ద్వారా ఇన్‌స్టాల్ చేయండి, ఇది నిర్దిష్ట ఖాతాతో అనుబంధాలను బలవంతం చేస్తుంది.</string>
 </resources>

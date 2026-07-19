@@ -21,8 +21,6 @@
     <string name="upgrade_screen_iap_action_hint">Kirina yek-car %s ye.</string>
     <string name="upgrade_screen_thanks_toast">Tu yê/ya herî baş î! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Kirinê vegerîne</string>
-    <string name="upgrade_screen_restore_purchase_message">Bilindkirina we li ser cîhazên di hesabê heman Google de derbasdar e.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Şîretên çareserkirinê ji bo bilindkirinên nenas:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Hevdemkirina Play Store dibe ku dem bigire. Biceribîne ji nû ve veke, cache-ya Google Play pak bike an jî tenê rawestîne.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Hesabên pirjimar dikarin Google Play tevlihev bikin. Ji hesabên din derkeve an jî bi riya malperê Google Play saz bike, ku bi hesabekî taybetî re girêdanê mecbûr dike.</string>
     <string name="upgrades_gplay_billing_error_label">Pirsgirêka Google Play</string>

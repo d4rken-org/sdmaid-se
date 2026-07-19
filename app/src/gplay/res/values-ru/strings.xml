@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Единовременная покупка стоит %s.</string>
     <string name="upgrade_screen_thanks_toast">Вы лучший! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Восстановить покупку</string>
-    <string name="upgrade_screen_restore_purchase_message">Ваше обновление действительно на всех устройствах с одной учетной записи Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Советы по устранению неполадок для неизвестных обновлений:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронизация Play Store может занять некоторое время. Попробуйте перезагрузиться, очистить кэш Google Play или просто подождать.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Множественные аккаунты могут путать Google Play. Выйдите из других аккаунтов или установите через веб-сайт Google Play, который определяет связь с определенной учетной записью.</string>
 </resources>

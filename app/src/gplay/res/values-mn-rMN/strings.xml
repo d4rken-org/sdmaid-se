@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Нэг удаагийн худалдан авалт %s өртөгтэй.</string>
     <string name="upgrade_screen_thanks_toast">Та хамгийн шилдэг нь! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Худалдан авалтыг сэргээх</string>
-    <string name="upgrade_screen_restore_purchase_message">Таны шинэчлэлт ижил Google бүртгэл дээрх төхөөрөмжүүдэд хүчинтэй.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Танигдаагүй шинэчлэлтүүдийн асуудал шийдвэрлэх зөвлөмжүүд:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store синк хийхэд хугацаа шаардагдаж магадгүй. Дахин эхлүүлэх, Google Play кэшийг цэвэрлэх эсвэл зүгээр хүлээхийг оролдоно уу.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Олон бүртгэл Google Play-г төөрөгдүүлж болно. Бусад бүртгэлээс гарах эсвэл Google Play вэбсайтаар дамжуулан суулгах нь тодорхой бүртгэлтэй холбоосыг албадаж өгдөг.</string>
 </resources>

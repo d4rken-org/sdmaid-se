@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">Kertaostos maksaa %s.</string>
     <string name="upgrade_screen_thanks_toast">Olet paras! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
-    <string name="upgrade_screen_restore_purchase_message">Päivityksesi on voimassa laitteissa samalla Google-tilillä.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Vianmääritysvinkkejä tunnistamattomille päivityksille:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store -synkronointi voi kestää. Kokeile uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai vain odottamista.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Useat tilit voivat hämmentää Google Playta. Kirjaudu ulos muista tileistä tai asenna Google Play -verkkosivuston kautta, joka pakottaa yhteydet tiettyyn tiliin.</string>
 </resources>

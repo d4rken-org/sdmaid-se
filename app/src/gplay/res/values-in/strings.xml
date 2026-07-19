@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">Sekali bayar harganya %s.</string>
     <string name="upgrade_screen_thanks_toast">Terbaik! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
-    <string name="upgrade_screen_restore_purchase_message">Peningkatan Anda berlaku di semua perangkat dengan akun Google yang sama.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Tips pemecahan masalah untuk peningkatan yang tidak dikenali:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronisasi Play Store mungkin memerlukan waktu. Coba restart, bersihkan cache Google Play, atau tunggu sebentar.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Beberapa akun dapat membingungkan Google Play. Keluar dari akun lain atau pasang aplikasi melalui situs web Google Play, yang memaksa penghubungan dengan akun tertentu.</string>
 </resources>

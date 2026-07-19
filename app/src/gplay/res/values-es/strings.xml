@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">La compra única tiene un precio de %s.</string>
     <string name="upgrade_screen_thanks_toast">¡Eres el mejor! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaurar la compra</string>
-    <string name="upgrade_screen_restore_purchase_message">La actualización es válida para todos los dispositivos de la misma cuenta de Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Consejos para solucionar problemas de actualizaciones no reconocidas:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronización de Play Store puede tardar. Prueba a reiniciar, borrar la caché de Google Play o simplemente espera.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Varias cuentas pueden confundir a Google Play. Cierra la sesión de otras cuentas o instala a través del sitio web de Google Play, que obliga las asociaciones con una cuenta específica.</string>
 </resources>

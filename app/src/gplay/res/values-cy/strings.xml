@@ -21,8 +21,6 @@
     <string name="upgrade_screen_iap_action_hint">Mae\'r pryniant un-amser yn costio %s.</string>
     <string name="upgrade_screen_thanks_toast">Chi yw\'r gorau! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Adfer pryniant</string>
-    <string name="upgrade_screen_restore_purchase_message">Mae eich uwchraddiad yn ddilys ar draws dyfeisiau ar yr un cyfrif Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Awgrymiadau datrys problemau ar gyfer uwchraddiadau heb eu hadnabod:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Gall cydamseru Play Store gymryd amser. Ceisiwch ailgychwyn, clirio storfa Google Play neu aros yn syml.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Gall cyfrifon lluosog ddrysu Google Play. Allgofnodwch o gyfrifon eraill neu gosodwch drwy wefan Google Play, sy\'n gorfodi cysylltiadau â chyfrif penodol.</string>
     <string name="upgrades_gplay_billing_error_label">Problem Google Play</string>

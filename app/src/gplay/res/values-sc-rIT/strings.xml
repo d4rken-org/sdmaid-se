@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">Su cùmperu de una borta costat %s.</string>
     <string name="upgrade_screen_thanks_toast">Ses su mègius! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
-    <string name="upgrade_screen_restore_purchase_message">S\'agiornamentu tuo est vàlidu in dispositivos diferentes cun su matèssiu contu Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Cunsigiàdos pro risòlvere problemas cun agiornamentos non reconnotos:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sa sincronizatzione de Play Store podet leare tempus. Proa a torrare a allùghere, limpiare sa cache de Google Play o simplesmente iseta.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Contos mùltiplos podent cunfùndere Google Play. Essi dae àteros contos o installa dae su situ web de Google Play, chi fortza assotziatziones cun unu contu ispetzìficu.</string>
 </resources>

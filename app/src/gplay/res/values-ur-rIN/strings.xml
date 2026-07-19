@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">ایک بار کی خریداری کی قیمت %s ہے۔</string>
     <string name="upgrade_screen_thanks_toast">آپ بہترین ہیں! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">خریداری بحال کریں</string>
-    <string name="upgrade_screen_restore_purchase_message">آپ کی اپ گریڈ ایک ہی Google اکاؤنٹ پر ڈیوائسز پر درست ہے۔</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">غیر تسلیم شدہ اپ گریڈز کے لیے ٹربل شوٹنگ ٹپس:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store سنک میں وقت لگ سکتا ہے۔ ری بوٹ کرنے، Google Play کیش صاف کرنے یا صرف انتظار کرنے کی کوشش کریں۔</string>
     <string name="upgrade_screen_restore_multiaccount_hint">متعدد اکاؤنٹس Google Play کو الجھا سکتے ہیں۔ دیگر اکاؤنٹس سے لاگ آوٹ کریں یا Google Play ویب سائٹ کے ذریعے انسٹال کریں، جو مخصوص اکاؤنٹ کے ساتھ ایسوسی ایشن کو مجبور کرتا ہے۔</string>
 </resources>

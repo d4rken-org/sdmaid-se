@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">ஒரு முறை வாங்குதல் %s செலவாகும்.</string>
     <string name="upgrade_screen_thanks_toast">நீங்கள் சிறந்தவர்! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">வாங்குதலை மீட்டமை</string>
-    <string name="upgrade_screen_restore_purchase_message">உங்கள் மேம்படுத்தல் அதே Google கணக்கில் உள்ள அனைத்து சாதனங்களிலும் செல்லுபடியாகும்.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">அங்கீகரிக்கப்படாத மேம்படுத்தல்களுக்கான சிக்கல் தீர்க்கும் குறிப்புகள்:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ஒத்திசைவு நேரம் எடுக்கலாம். மறுதொடக்கம் செய்ய, Google Play தற்காலிக சேமிப்பை அழிக்க அல்லது காத்திருக்க முயற்சிக்கவும்.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">பல கணக்குகள் Google Playஐ குழப்பலாம். மற்ற கணக்குகளிலிருந்து வெளியேறவும் அல்லது Google Play வலைத்தளம் வழியாக நிறுவவும், இது குறிப்பிட்ட கணக்குடன் தொடர்புகளை கட்டாயப்படுத்துகிறது.</string>
 </resources>

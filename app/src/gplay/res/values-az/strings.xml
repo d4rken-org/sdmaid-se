@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Birdəfəlik alış %s başa gəlir.</string>
     <string name="upgrade_screen_thanks_toast">Siz ən yaxşısınız! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Alışı bərpa et</string>
-    <string name="upgrade_screen_restore_purchase_message">Yeniləməniz eyni Google hesabında cihazlar arasında keçərlidir.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Tanınmayan yeniləmələr üçün problemlərin həlli məsləhətləri:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronlaşdırması vaxt ala bilər. Yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Çoxlu hesablar Google Play-i çaşdıra bilər. Digər hesablardan çıxın və ya Google Play veb saytı vasitəsilə quraşdırın ki, bu da müəyyən hesabla əlaqələri məcbur edir.</string>
 </resources>

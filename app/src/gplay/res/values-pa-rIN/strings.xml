@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਦੀ ਲਾਗਤ %s ਹੈ।</string>
     <string name="upgrade_screen_thanks_toast">ਤੁਸੀਂ ਸਭ ਤੋਂ ਵਧੀਆ ਹੋ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ਖਰੀਦਦਾਰੀ ਰੀਸਟੋਰ ਕਰੋ</string>
-    <string name="upgrade_screen_restore_purchase_message">ਤੁਹਾਡਾ ਅੱਪਗ੍ਰੇਡ ਉਸੇ Google ਖਾਤੇ \'ਤੇ ਡਿਵਾਈਸਾਂ ਵਿੱਚ ਵੈਧ ਹੈ।</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ਅਣਪਛਾਤੇ ਅੱਪਗ੍ਰੇਡਾਂ ਲਈ ਸਮੱਸਿਆ-ਨਿਵਾਰਨ ਸੁਝਾਅ:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ਸਮਕਾਲੀਕਰਨ ਵਿੱਚ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ। ਰੀਬੂਟ ਕਰਨ, Google Play ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਜਾਂ ਸਿਰਫ਼ ਉਡੀਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਖ ਕਰੋ।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ਕਈ ਖਾਤੇ Google Play ਨੂੰ ਉਲਝਾ ਸਕਦੇ ਹਨ। ਦੂਜੇ ਖਾਤਿਆਂ ਤੋਂ ਲੌਗ ਆਊਟ ਕਰੋ ਜਾਂ Google Play ਵੈੱਬਸਾਈਟ ਰਾਹੀਂ ਇੰਸਟਾਲ ਕਰੋ, ਜੋ ਇੱਕ ਖਾਸ ਖਾਤੇ ਨਾਲ ਸਬੰਧਾਂ ਨੂੰ ਮਜਬੂਰ ਕਰਦਾ ਹੈ।</string>
 </resources>

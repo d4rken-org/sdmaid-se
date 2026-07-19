@@ -33,7 +33,6 @@ internal fun UpgradeOwnershipContent(
     onIap: () -> Unit,
     onManageSubscription: () -> Unit,
     onRestore: () -> Unit,
-    onContactSupport: () -> Unit = {},
 ) {
     val ownership = uiState.ownership
     val subscription = ownership.subscription
@@ -107,13 +106,12 @@ internal fun UpgradeOwnershipContent(
     }
 
     // Not a bare utility button: on a status screen, restore only matters when the shown status
-    // is wrong — one sentence of framing plus the support escape hatch for what a re-check can't
-    // fix. Same restore wiring (single-flight + pause semantics) as everywhere else.
+    // is wrong — one sentence of framing. Same restore wiring (single-flight + pause semantics)
+    // as everywhere else; support is offered by the failed-restore dialog, after the re-check.
     UpgradeRestoreSection(
         title = stringResource(R.string.upgrade_screen_restore_status_title),
         body = stringResource(R.string.upgrade_screen_restore_status_body),
         onRestore = onRestore,
-        onContactSupport = onContactSupport,
         restoreInProgress = uiState.restoreInProgress,
     )
 }

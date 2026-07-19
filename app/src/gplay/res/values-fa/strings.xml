@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">هزینه خرید یک‌باره %s است.</string>
     <string name="upgrade_screen_thanks_toast">تو بهترینی! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">بازیابی خرید</string>
-    <string name="upgrade_screen_restore_purchase_message">به‌روزرسانی شما در تمامی دستگاه‌های موجود در همان حساب Google معتبر است.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">نکات عیب یابی ارتقاهای ناشناخته:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ممکن است همگام‌سازی فروشگاه Google Play کمی زمان ببرد. سعی کنید دستگاه خود را مجدداً راه‌اندازی کنید، کش برنامه Google Play را پاک کنید یا کمی صبر کنید.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">داشتن حساب‌های متعدد می‌تواند Google Play را گیج کند. از سایر حساب‌ها خارج شوید یا از طریق وب‌سایت Google Play نصب کنید، که انجمن‌ها را با یک حساب خاص تحمیل می‌کند.</string>
 </resources>

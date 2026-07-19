@@ -85,14 +85,15 @@ fun UpgradeScreenHost(
     if (showRestoreFailed) {
         // Lead with the fact that a LIVE Play check just happened — the query often completes in
         // under a second, so without saying it, the dialog reads like a canned explainer. Hedged
-        // ("could be confirmed"): RestoreFailed also fires on timeout, not only on verified absence.
+        // ("could be confirmed"): RestoreFailed also fires on timeout, not only on verified
+        // absence. Multi-account first: it is the most common real cause, and the lead already
+        // points at the account. This dialog is also the ONLY contact-support surface — offered
+        // deliberately after a restore attempt came up empty, never before.
         val checkedMsg = stringResource(R.string.upgrade_screen_restore_checked_message)
-        val purchaseMsg = stringResource(R.string.upgrade_screen_restore_purchase_message)
-        val troubleshootingMsg = stringResource(R.string.upgrade_screen_restore_troubleshooting_msg)
-        val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
         val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
+        val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
         val contactHint = stringResource(R.string.upgrade_screen_restore_contact_hint)
-        val message = "$checkedMsg\n\n$purchaseMsg\n\n$troubleshootingMsg\n\n$syncHint\n\n$multiAccountHint\n\n$contactHint"
+        val message = "$checkedMsg\n\n$multiAccountHint\n\n$syncHint\n\n$contactHint"
         SdmConfirmDialog(
             message = message,
             onDismissRequest = { showRestoreFailed = false },
@@ -149,7 +150,6 @@ fun UpgradeScreenHost(
         onSubscriptionTrial = { activity?.let { vm.onGoSubscriptionTrial(it) } },
         onRestore = vm::restorePurchase,
         onManageSubscription = vm::onManageSubscription,
-        onContactSupport = vm::onContactSupport,
         onRetry = vm::retrySkuQuery,
         onNavigateUp = vm::navUp,
     )
@@ -163,7 +163,6 @@ internal fun UpgradeScreen(
     onSubscriptionTrial: () -> Unit = {},
     onRestore: () -> Unit = {},
     onManageSubscription: () -> Unit = {},
-    onContactSupport: () -> Unit = {},
     onRetry: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
@@ -196,7 +195,6 @@ internal fun UpgradeScreen(
                     onIap = onIap,
                     onManageSubscription = onManageSubscription,
                     onRestore = onRestore,
-                    onContactSupport = onContactSupport,
                 )
             } else {
                 UpgradeAcquisitionContent(
@@ -205,7 +203,6 @@ internal fun UpgradeScreen(
                     onSubscription = onSubscription,
                     onSubscriptionTrial = onSubscriptionTrial,
                     onRestore = onRestore,
-                    onContactSupport = onContactSupport,
                     onRetry = onRetry,
                 )
             }
@@ -220,7 +217,6 @@ private fun UpgradeAcquisitionContent(
     onSubscription: () -> Unit,
     onSubscriptionTrial: () -> Unit,
     onRestore: () -> Unit,
-    onContactSupport: () -> Unit,
     onRetry: () -> Unit,
 ) {
     val loadedState = uiState as? GplayUpgradeUiState.Loaded
@@ -248,7 +244,6 @@ private fun UpgradeAcquisitionContent(
             title = stringResource(R.string.upgrade_screen_restore_banner_title),
             body = stringResource(R.string.upgrade_screen_restore_banner_body),
             onRestore = onRestore,
-            onContactSupport = onContactSupport,
             modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
             restoreInProgress = uiState.restoreInProgress,
             emphasized = true,
@@ -322,7 +317,6 @@ private fun UpgradeAcquisitionContent(
             title = stringResource(R.string.upgrade_screen_restore_banner_title),
             body = stringResource(R.string.upgrade_screen_restore_body),
             onRestore = onRestore,
-            onContactSupport = onContactSupport,
             restoreInProgress = loadedForRestore.restoreInProgress,
         )
     }

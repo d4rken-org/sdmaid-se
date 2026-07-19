@@ -12,7 +12,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -24,15 +23,14 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 // Restore is account reconciliation, not an offer: it lives in its own described section instead
 // of dangling under the purchase options. All variants share the same restore wiring (the
-// single-flight restorePurchase() with its pause semantics) and differ only in copy and emphasis;
-// each ends in a support escape hatch for the cases self-service can't fix (refunds gone wrong,
-// account mix-ups Play won't resolve).
+// single-flight restorePurchase() with its pause semantics) and differ only in copy and emphasis.
+// Deliberately NO contact-support action here: escalation is offered only after a restore attempt
+// came up empty (the failed-restore dialog), so self-service gets its chance before the inbox.
 @Composable
 internal fun UpgradeRestoreSection(
     title: String,
     body: String,
     onRestore: () -> Unit,
-    onContactSupport: () -> Unit,
     modifier: Modifier = Modifier,
     restoreInProgress: Boolean = false,
     emphasized: Boolean = false,
@@ -82,12 +80,6 @@ internal fun UpgradeRestoreSection(
                 RestoreButtonLabel(restoreInProgress = restoreInProgress)
             }
         }
-        TextButton(
-            onClick = onContactSupport,
-            modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT),
-        ) {
-            Text(stringResource(R.string.upgrade_screen_contact_support_action))
-        }
     }
 }
 
@@ -111,7 +103,6 @@ private fun UpgradeRestoreSectionPreview() {
             title = "Already bought Pro?",
             body = "Restoring asks Google Play to re-check this app's purchases for the current account.",
             onRestore = {},
-            onContactSupport = {},
         )
     }
 }
@@ -124,7 +115,6 @@ private fun UpgradeRestoreSectionEmphasizedPreview() {
             title = "Already bought Pro?",
             body = "It looks like you upgraded to Pro on this device before.",
             onRestore = {},
-            onContactSupport = {},
             emphasized = true,
             restoreInProgress = true,
         )

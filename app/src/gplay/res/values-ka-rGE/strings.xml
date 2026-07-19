@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა ღირს %s.</string>
     <string name="upgrade_screen_thanks_toast">Საუკეთესო ხარ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
-    <string name="upgrade_screen_restore_purchase_message">თქვენი განახლება მოქმედებს ყველა მოწყობილობაზე იმავე Google ანგარიშით.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ამოუცნობი განახლებების პრობლემების მოგვარების რჩევები:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store სინქრონიზაციას შეიძლება დრო დასჭირდეს. სცადეთ გადატვირთვა, Google Play ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">მრავალი ანგარიში შეიძლება აბნევდეს Google Play-ს. გამოდით სხვა ანგარიშებიდან ან დააინსტალირეთ Google Play ვებსაიტის მეშვეობით, რაც აიძულებს კონკრეტულ ანგარიშთან ასოციაციას.</string>
 </resources>

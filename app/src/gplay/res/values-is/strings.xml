@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Einskiptiskaupið kostar %s.</string>
     <string name="upgrade_screen_thanks_toast">Þú ert bestur! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Endurheimta kaup</string>
-    <string name="upgrade_screen_restore_purchase_message">Uppfærslan þín gildir á tækjum með sama Google reikning.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Úrræðaleitarráð fyrir óþekktar uppfærslur:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store samstilling getur tekið tíma. Reyndu að endurræsa, hreinsa Google Play skyndiminni eða bara bíða.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Margir reikningar geta ruglað Google Play. Skráðu þig út úr öðrum reikningum eða settu upp í gegnum Google Play vefsíðuna, sem neyðir tengsl við ákveðinn reikning.</string>
 </resources>

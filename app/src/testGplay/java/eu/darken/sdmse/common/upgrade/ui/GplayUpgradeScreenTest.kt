@@ -177,7 +177,6 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     @Test
     fun `plain acquisition gets a described restore section below the offers`() {
         var restoreClicks = 0
-        var contactClicks = 0
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = GplayUpgradeUiState.Loaded(
@@ -188,20 +187,18 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
                     iapPrice = "$24.99",
                 ),
                 onRestore = { restoreClicks++ },
-                onContactSupport = { contactClicks++ },
             )
         }
 
-        // The offers card holds only offers — restore lives in its own described section.
+        // The offers card holds only offers — restore lives in its own described section. No
+        // contact-support affordance here: support is only suggested after a restore came up
+        // empty (the failed-restore dialog).
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_body)).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
-        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_contact_support_action))
+            .assertCountEquals(0)
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).performScrollTo().performClick()
-        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).performScrollTo().performClick()
-        composeRule.runOnIdle {
-            check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" }
-            check(contactClicks == 1) { "expected 1 contact click, got $contactClicks" }
-        }
+        composeRule.runOnIdle { check(restoreClicks == 1) { "expected 1 restore click, got $restoreClicks" } }
     }
 
     @Test
@@ -309,26 +306,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_action)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_iap_offer_title)).assertCountEquals(0)
         // Restore stays available in every ownership state: it reconciles entitlements, not upsell.
-        // Framed as a status re-check, with the support escape hatch next to it.
+        // Framed as a status re-check; support is only offered by the failed-restore dialog.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_status_title)).assertCountEquals(1)
-        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).assertCountEquals(1)
-    }
-
-    @Test
-    fun `contact support fires from the ownership restore section`() {
-        // Click-through on purpose: UpgradeOwnershipContent's onContactSupport has a default
-        // value, so a mere presence assertion would still pass if UpgradeScreen forgot to wire it.
-        var contactClicks = 0
-        composeRule.setUpgradeContent {
-            UpgradeScreen(
-                uiState = ownedState(Ownership(hasIap = true)),
-                onContactSupport = { contactClicks++ },
-            )
-        }
-
-        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_CONTACT_SUPPORT).performScrollTo().performClick()
-        composeRule.runOnIdle { check(contactClicks == 1) { "expected 1 contact click, got $contactClicks" } }
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_contact_support_action))
+            .assertCountEquals(0)
     }
 
     @Test

@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Jednokratna kupnja košta %s.</string>
     <string name="upgrade_screen_thanks_toast">Najbolji ste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovi kupnju</string>
-    <string name="upgrade_screen_restore_purchase_message">Vaša nadogradnja vrijedi na svim uređajima s istim Google računom.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Savjeti za rješavanje problema s neprepoznatim nadogradnjama:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizacija Trgovine Play može potrajati. Pokušajte ponovno pokrenuti uređaj, očistiti predmemoriju Google Playa ili jednostavno pričekajte.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Više računa može zbuniti Google Play. Odjavite se s drugih računa ili instalirajte putem Google Play web stranice, što prisiljava povezivanje s određenim računom.</string>
 </resources>

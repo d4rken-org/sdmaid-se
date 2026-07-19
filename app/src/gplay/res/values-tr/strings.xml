@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Bir kerelik satın alma maliyeti %s.</string>
     <string name="upgrade_screen_thanks_toast">Sen en iyisisin! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Satın almayı geri yükle</string>
-    <string name="upgrade_screen_restore_purchase_message">Yükseltmeniz aynı Google hesabındaki cihazlar arasında geçerlidir.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Tanınmayan yükseltmeler için sorun giderme ipuçları:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store senkronizasyonu zaman alabilir. Yeniden başlatmayı, Google Play önbelleğini temizlemeyi deneyin veya sadece bekleyin.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Birden fazla hesap Google Play\'i karıştırabilir. Diğer hesaplardan çıkış yapın veya belirli bir hesapla ilişkilendirmeye zorlayan Google Play web sitesi üzerinden yükleyin.</string>
 </resources>

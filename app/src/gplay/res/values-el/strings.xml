@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Το κόστος της εφάπαξ αγοράς είναι %s.</string>
     <string name="upgrade_screen_thanks_toast">Είστε οι καλύτεροι! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
-    <string name="upgrade_screen_restore_purchase_message">Η αναβάθμιση σας είναι έγκυρη σε συσκευές στον ίδιο λογαριασμό Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Συμβουλές αντιμετώπισης προβλημάτων για μη αναγνωρισμένες αναβαθμίσεις:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ο συγχρονισμός του Play Store ενδέχεται να πάρει χρόνο. Δοκιμάστε να κάνετε επανεκκίνηση, να καθαρίσετε την προσωρινή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Πολλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Αποσυνδεθείτε από άλλους λογαριασμούς ή εγκαταστήστε το μέσω του ιστότοπου Google Play, κάτι που αναγκάζει τους συσχετισμούς με έναν συγκεκριμένο λογαριασμό.</string>
 </resources>

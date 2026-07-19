@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">El preu de la compra única és de %s.</string>
     <string name="upgrade_screen_thanks_toast">Sou el millor! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaura la compra</string>
-    <string name="upgrade_screen_restore_purchase_message">La vostra millora és vàlida en tots els dispositius del mateix compte de Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Consells de resolució de problemes per a millores no reconegudes:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronització del Play Store pot trigar un temps. Proveu de reiniciar, esborrar la memòria cau del Google Play o simplement espereu.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Diversos comptes poden confondre el Google Play. Tanqueu la sessió d\'altres comptes o instal·leu-lo a través del lloc web del Google Play, que obliga a associar-los amb un compte específic.</string>
 </resources>

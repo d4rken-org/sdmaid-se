@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">አንድ ጊዜ ግዢው %s ያስከፍላል።</string>
     <string name="upgrade_screen_thanks_toast">እርስዎ ምርጥ ነዎት! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
-    <string name="upgrade_screen_restore_purchase_message">ማሻሻያዎ በተመሳሳይ Google መለያ ላይ በመሳሪያዎች ላይ ልክ ነው።</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ለማይታወቁ ማሻሻያዎች የመላ ፍለጋ ምክሮች፡</string>
     <string name="upgrade_screen_restore_sync_patience_hint">የPlay Store ሲምሪዝሽን ጊዜ ሊወስድ ይችላል። እንደገና ማስጀመር፣ የGoogle Play መሸጎጫ ማጥራት ወይም ብቻ መጠበቅ ይሞክሩ።</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ብዙ መለያዎች Google Play ማምታታት ይችላሉ። ከሌሎች መለያዎች ይወጡ ወይም በGoogle Play ድርጣቢያ በኩል ይጫኑ፣ ይህም ከተወሰነ መለያ ጋር ግንኙነቶችን ያስገድዳል።</string>
 </resources>

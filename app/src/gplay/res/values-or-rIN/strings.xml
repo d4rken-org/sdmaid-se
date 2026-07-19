@@ -37,8 +37,6 @@
     <string name="upgrade_screen_iap_action_hint">ଏକା-ଥରକ କ୍ରୟ %s ହେବ।</string>
     <string name="upgrade_screen_thanks_toast">ଆପଣ ଶ୍ରେଷ୍ଠ ଅଟନ୍ତି! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
-    <string name="upgrade_screen_restore_purchase_message">ଆପଣଙ୍କର ଅପଗ୍ରେଡ୍ ସମାନ Google ଆକାଉଣ୍ଟରେ ଥିବା ସମସ୍ତ ଡିଭାଇସରେ ବୈଧ ଅଟେ।</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ଚିହ୍ନଟ ହୋଇନଥିବା ଅପଗ୍ରେଡ୍ ପାଇଁ ସମସ୍ୟା ସମାଧାନ ଟିପ୍ସ:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ସିଙ୍କ୍ରୋନାଇଜେସନ୍ ସମୟ ନେଇପାରେ। ପୁନଃ ଆରମ୍ଭ କରିବାକୁ, Google Play କ୍ୟାଶ୍ ସଫା କରିବାକୁ କିମ୍ବା କେବଳ ଅପେକ୍ଷା କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ଏକାଧିକ ଆକାଉଣ୍ଟ Google Play କୁ ବିଭ୍ରାନ୍ତ କରିପାରେ। ଅନ୍ୟ ଆକାଉଣ୍ଟରୁ ଲଗ୍ ଆଉଟ୍ ହୁଅନ୍ତୁ କିମ୍ବା Google Play ୱେବସାଇଟ୍ ମାଧ୍ୟମରେ ସଂସ୍ଥାପନ କରନ୍ତୁ, ଯାହା ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ଆକାଉଣ୍ଟ ସହିତ ସଂଯୋଗ ବାଧ୍ୟ କରେ।</string>
 </resources>

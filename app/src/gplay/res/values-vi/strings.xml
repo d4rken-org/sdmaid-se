@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">Chi phí mua một lần là %s.</string>
     <string name="upgrade_screen_thanks_toast">Bạn là nhất! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Khôi phục thanh toán</string>
-    <string name="upgrade_screen_restore_purchase_message">Bản nâng cấp của bạn hợp lệ trên các thiết bị trên cùng một tài khoản Google.</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Mẹo khắc phục sự cố cho các bản nâng cấp không được nhận dạng:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Đồng bộ hóa Cửa hàng Play có thể mất thời gian. Hãy thử khởi động lại, xóa bộ nhớ đệm của Google Play hoặc chỉ cần đợi.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Nhiều tài khoản có thể gây nhầm lẫn cho Google Play. Đăng xuất khỏi các tài khoản khác hoặc cài đặt thông qua trang web Google Play, trang này buộc liên kết với một tài khoản cụ thể.</string>
 </resources>

@@ -31,8 +31,6 @@
     <string name="upgrade_screen_iap_action_hint">တစ်ကြိမ်တည်း ဝယ်ယူမှုသည် %s ကျသင့်သည်။</string>
     <string name="upgrade_screen_thanks_toast">သင်သည် အကောင်းဆုံးပါ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
-    <string name="upgrade_screen_restore_purchase_message">သင်၏အဆင့်မြှင့်မှုသည် တူညီသော Google အကောင့်ရှိ စက်များတွင် အသုံးပြုနိုင်ပါသည်။</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">အသိအမှတ်မပြုသော အဆင့်မြှင့်မှုများအတွက် ပြဿနာဖြေရှင်းခြင်း အကြံပြုချက်များ-</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sync လုပ်ရန် အချိန်ယူနိုင်ပါသည်။ ပြန်လည်စတင်ခြင်း၊ Google Play cache ရှင်းလင်းခြင်း သို့မဟုတ် ရိုးရိုးစောင့်ဆိုင်းခြင်း ပြုလုပ်ကြည့်ပါ။</string>
     <string name="upgrade_screen_restore_multiaccount_hint">အကောင့်များစွာသည် Google Play ကို ရှုပ်ထွေးစေနိုင်သည်။ အခြားအကောင့်များမှ ထွက်ပါ သို့မဟုတ် Google Play ဝဘ်ဆိုဒ်မှတစ်ဆင့် ထည့်သွင်းပါ၊ ၎င်းသည် သတ်မှတ်ထားသော အကောင့်နှင့် ချိတ်ဆက်မှုကို တွန်းအားပေးသည်။</string>
 </resources>
