@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Hoberena zara! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Berreskuratu erosketa</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Storeren sinkronizazioak denbora behar izan dezake. Saiatu berrabiarazten, Google Play katxea ezabatzen edo, besterik gabe, itxaron.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Kontu anitzek Google Play nahas dezakete. Beste kontu batzuetatik atera edo Google Play webgunearen bidez instalatu, eta horrek elkarteak kontu zehatz batekin behartzen ditu.</string>
 </resources>

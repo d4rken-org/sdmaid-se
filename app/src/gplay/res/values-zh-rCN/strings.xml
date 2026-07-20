@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">多个账户可能会导致 Google Play 混乱。注销其他账户或通过 Google Play 网站进行安装，这可强制与特定账户关联。</string>
 </resources>

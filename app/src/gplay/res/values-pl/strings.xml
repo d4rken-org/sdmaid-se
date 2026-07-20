@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Jesteś najlepszy! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Przywróć zakup</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizacja Sklepu Play może zająć trochę czasu. Spróbuj uruchomić ponownie, wyczyścić pamięć podręczną Google Play lub po prostu poczekać.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Wiele kont może powodować problemy z Google Play. Wyloguj się z innych kont lub zainstaluj aplikację przez stronę Google Play, co wymusi powiązanie z konkretnym kontem.</string>
 </resources>

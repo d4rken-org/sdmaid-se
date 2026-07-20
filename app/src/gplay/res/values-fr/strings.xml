@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Y a pas mieux que vous ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rétablir l’achat</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La synchronisation avec Google Play peut prendre du temps. Essayez de redémarrer votre appareil, de vider le cache de Google Play ou simplement d’attendre.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Plusieurs comptes peuvent perturber Google Play. Déconnectez-vous des autres comptes ou installez l’appli en utilisant le site Web de Google Play, ce qui force l’association avec un compte précis.</string>
 </resources>

@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Penyegerakan Play Store mungkin mengambil masa. Cuba but semula, kosongkan cache Google Play atau tunggu sahaja.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Pelbagai akaun boleh mengelirukan Google Play. Log keluar dari akaun lain atau pasang melalui laman web Google Play, yang memaksa perkaitan dengan akaun tertentu.</string>
 </resources>

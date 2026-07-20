@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Du bist super! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Auswahl wiederherstellen</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Die Synchronisation im Play Store kann etwas dauern. Versuch es mit einem Neustart, leere den Google Play Cache oder warte einfach.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Mehrere Konten können Google Play durcheinanderbringen. Melde dich von anderen Konten ab oder installiere über die Google Play-Website, um die Zuordnung zu einem bestimmten Konto zu erzwingen.</string>
 </resources>

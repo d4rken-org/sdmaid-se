@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Olete parim! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Taasta ost</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play poe ajakohastamine võib võtta aega. Ürita taaskäivitada, tühjendada Google\'i poe vahemälu või lihtsalt oota.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Google\'i pood ei pruugi mitme kontoga toime tulla. Logi teistelt kontodelt välja või paigalda Google\'i poe veebilehe kaudu, mis tuvastab seose kindla kontoga.</string>
 </resources>

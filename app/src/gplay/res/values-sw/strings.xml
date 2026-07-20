@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Wewe ni bora zaidi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ulandanishi wa Play Store unaweza kuchukua muda. Jaribu kuanzisha upya, kusafisha akiba ya Google Play au tu subiri.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Akaunti nyingi zinaweza kuchanganya Google Play. Toka kwenye akaunti zingine au sakinisha kupitia tovuti ya Google Play, ambayo inalazimisha uhusiano na akaunti maalum.</string>
 </resources>

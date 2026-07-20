@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Jūs esat labākais! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Atjaunot pirkumu</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinhronizācija var aizņemt laiku. Mēģiniet restartēt, notīrīt Google Play kešatmiņu vai vienkārši uzgaidīt.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Vairāki konti var sajaukt Google Play. Izejiet no citiem kontiem vai instalējiet caur Google Play tīmekļa vietni, kas piespiedu kārtā izveido asociācijas ar konkrētu kontu.</string>
 </resources>

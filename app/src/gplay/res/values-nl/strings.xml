@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Jij bent de beste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronisatie via de Play Store kan enige tijd duren. Probeer opnieuw op te starten, de Google Play cache te wissen of wacht gewoon.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Meerdere accounts kunnen Google Play in verwarring brengen. Meld je af bij andere accounts of installeer deze via de website van Google Play, waardoor koppelingen met een specifiek account worden afgedwongen.</string>
 </resources>

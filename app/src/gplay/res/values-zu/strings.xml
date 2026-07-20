@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Ungcono kakhulu! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Buyisela ukuthenga</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ukuvumelanisa kwe-Play Store kungathatha isikhathi. Zama ukuphinde uqalise, ukusula i-cache ye-Google Play noma ulinde nje.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Ama-akhawunti amaningi angadunga i-Google Play. Phuma kwamanye ama-akhawunti noma ufake ngewebhusayithi ye-Google Play, ephoqa ukuhlobanisa ne-akhawunti ethile.</string>
 </resources>

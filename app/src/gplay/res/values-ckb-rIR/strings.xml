@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">تۆ باشترینی! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">گەڕاندنەوەی کڕین</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ڕێکخستنی پلەی ستۆر ڕەنگە کات ببات. هەوڵبدە ئامێرەکە ڕیستارت بکەیتەوە، کاشەی گوگڵ پلەی بسڕیتەوە یان تەنها چاوەڕێ بکە.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">هەژمارە فرەکان دەتوانن گوگڵ پلەی تێکبشێوێنن. لە هەژمارەکانی دیکە بچۆرە دەرەوە یان لە ڕێگەی وێبسایتی گوگڵ پلەیەوە دایبمەزرێنە، کە پەیوەندی بە هەژمارێکی دیاریکراوەوە زۆرەملێ دەکات.</string>
 </resources>

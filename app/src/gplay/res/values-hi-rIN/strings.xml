@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">आप सर्वश्रेष्ठ हैं! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">खरीदारी पुनर्स्थापित करें</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store सिंक्रोनाइज़ेशन में समय लग सकता है। रीबूट करने, Google Play कैश साफ़ करने या बस प्रतीक्षा करने का प्रयास करें।</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">कई खाते Google Play को भ्रमित कर सकते हैं। अन्य खातों से लॉग आउट करें या Google Play वेबसाइट के माध्यम से इंस्टॉल करें, जो एक विशिष्ट खाते के साथ संबंध को बाध्य करता है।</string>
 </resources>

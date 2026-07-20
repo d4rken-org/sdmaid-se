@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">നന്ദി❤️</string>
     <string name="upgrade_screen_restore_purchase_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play സ്റ്റോർ സിൻക്രൊണൈസേഷൻ സമയമെടുത്തേക്കാം. റീബൂട്ട് ചെയ്യുക, Google Play കാഷെ മായ്‌ക്കുക അല്ലെങ്കിൽ കാത്തിരിക്കുക.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ഒന്നിലധികം അക്കൗണ്ടുകൾ Google Play-യെ ആശയക്കുഴപ്പത്തിലാക്കാം. മറ്റ് അക്കൗണ്ടുകളിൽ നിന്ന് ലോഗൗട്ട് ചെയ്യുക അല്ലെങ്കിൽ Google Play വെബ്‌സൈറ്റ് വഴി ഇൻസ്റ്റാൾ ചെയ്യുക, ഇത് ഒരു നിർദ്ദിഷ്ട അക്കൗണ്ടുമായുള്ള ബന്ധം നിർബന്ധമാക്കുന്നു.</string>
 </resources>

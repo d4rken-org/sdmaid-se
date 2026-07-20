@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Sei il migliore! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Ripristina acquisto</string>
     <string name="upgrade_screen_restore_sync_patience_hint">La sincronizzazione del Play Store potrebbe richiedere tempo. Prova a riavviare, cancellare la cache di Google Play o semplicemente ad aspettare.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Più account possono confondere Google Play. Esci dagli altri account o installare da PC attraverso il sito web di Google Play, che costringe le associazioni con un account specifico.</string>
 </resources>

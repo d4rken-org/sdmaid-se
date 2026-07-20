@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Hvala! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovi nakup</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinhronizacija s Trgovino Play bo morda trajala nekaj časa.  Poizkusite s ponovnim zagnom naprave, čiščenjem predpomnilnika Googla Play ali preprosto počakajte.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Več računov lahko zmede Google Play.  Odjavite se iz drugih računov ali namestite preko spletne strani Google Play, ki vsili povezavo z določenim računom.</string>
 </resources>

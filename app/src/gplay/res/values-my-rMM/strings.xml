@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">သင်သည် အကောင်းဆုံးပါ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sync လုပ်ရန် အချိန်ယူနိုင်ပါသည်။ ပြန်လည်စတင်ခြင်း၊ Google Play cache ရှင်းလင်းခြင်း သို့မဟုတ် ရိုးရိုးစောင့်ဆိုင်းခြင်း ပြုလုပ်ကြည့်ပါ။</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">အကောင့်များစွာသည် Google Play ကို ရှုပ်ထွေးစေနိုင်သည်။ အခြားအကောင့်များမှ ထွက်ပါ သို့မဟုတ် Google Play ဝဘ်ဆိုဒ်မှတစ်ဆင့် ထည့်သွင်းပါ၊ ၎င်းသည် သတ်မှတ်ထားသော အကောင့်နှင့် ချိတ်ဆက်မှုကို တွန်းအားပေးသည်။</string>
 </resources>

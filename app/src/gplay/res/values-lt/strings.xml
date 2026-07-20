@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Jūs geriausi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinchronizacija gali užtrukti. Pabandykite paleisti iš naujo, išvalyti Google Play talpyklą arba tiesiog palaukti.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Kelios paskyros gali supainioti Google Play. Atsijunkite nuo kitų paskyrų arba įdiekite per Google Play svetainę, kuri priverčia susieti su konkrečia paskyra.</string>
 </resources>

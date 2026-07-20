@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Ești cel mai bun! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restabiliți achiziția</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sincronizarea Magazinului Play poate dura timp. Încercați repornirea, ștergeți memoria cache Google Play sau doar așteptați.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Conturile multiple pot deruta Google Play. Deconectați-vă din alte conturi sau instalați prin site-ul Google Play, care forțează asociațiile cu un anumit cont.</string>
 </resources>

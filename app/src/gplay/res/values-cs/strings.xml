@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Jste nejlepší! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovit nákup</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizace Obchodu Play může chvíli trvat. Zkuste restartovat, vymazat mezipaměť Google Play nebo prostě počkat.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Více účtů může zmást Google Play. Odhlaste se z ostatních účtů nebo nainstalujte přes webové stránky Google Play, což vynucuje asociace s konkrétním účtem.</string>
 </resources>

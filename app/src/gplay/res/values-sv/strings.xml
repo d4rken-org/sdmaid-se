@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Du är bäst! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Återställ köp</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store-synkronisering kan ta tid. Försök starta om, rensa Google Play-cache eller bara vänta.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Flera konton kan förvirra Google Play. Logga ut från andra konton eller installera via Google Play-webbplatsen, vilket tvingar associationer med ett specifikt konto.</string>
 </resources>

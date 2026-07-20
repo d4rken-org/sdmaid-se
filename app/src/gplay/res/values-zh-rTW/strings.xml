@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">還原購買</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步處理可能需要一些時間。請嘗試重新開機、清除 Google Play 快取或只需等候。</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">多重帳戶可能會導致 Google Play 混亂。登出其他帳戶或透過 Google Play 網站安裝，這會強制與特定帳戶關聯。</string>
 </resources>

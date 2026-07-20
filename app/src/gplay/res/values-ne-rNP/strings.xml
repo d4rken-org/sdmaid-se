@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">तपाईं उत्कृष्ट हुनुहुन्छ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">खरिद पुनर्स्थापना गर्नुहोस्</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store सिङ्कमा समय लाग्न सक्छ। रिबुट गर्ने, Google Play क्यास खाली गर्ने वा केवल पर्खने प्रयास गर्नुहोस्।</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">धेरै खाताहरूले Google Play लाई भ्रमित गर्न सक्छ। अन्य खाताहरूबाट लग आउट गर्नुहोस् वा Google Play वेबसाइट मार्फत स्थापना गर्नुहोस्, जसले विशिष्ट खातासँग सम्बन्धहरू बल गर्दछ।</string>
 </resources>

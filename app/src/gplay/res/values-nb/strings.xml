@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Du er den beste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Gjenopprett kjøp</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering med Play Butikk kan ta tid. Prøv å starte på nytt, tømme Google Play bufferen, eller bare vent.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Flere kontoer kan forvirre Google Play. Logg ut av andre kontoer eller installer via Google Play-nettstedet, som tvinger assosiasjoner til en spesifikk konto.</string>
 </resources>

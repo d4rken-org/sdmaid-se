@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Jy is die beste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinkronisasie kan tyd neem. Probeer herlaai, maak Google Play kas skoon of wag net.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Veelvuldige rekeninge kan Google Play verwar. Meld af van ander rekeninge of installeer deur die Google Play webwerf, wat assosiasies met \'n spesifieke rekening dwing.</string>
 </resources>

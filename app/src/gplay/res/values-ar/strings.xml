@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">أنت الأفضل ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">استعادة المُشتَرَى</string>
     <string name="upgrade_screen_restore_sync_patience_hint">قد تستغرق مزامنة متجر التشغيل وقتاً طويلا. حاول إعادة التشغيل، مسح ذاكرة التخزين المؤقت لـ Google Play أو الانتظار قليلا.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">الحسابات المتعددة يمكنها إرباك Google Play. سجّل الخروج من الحسابات الأخرى أو ثبّت من خلال موقع Google Play، الذي يفرض الرّبط مع حساب معين.</string>
 </resources>

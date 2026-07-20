@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">Ви найкращі! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Відновити покупку</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Синхронізація Play Store може зайняти деякий час. Спробуйте перезавантажити, очистити кеш Google Play або просто почекати.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Кілька облікових записів можуть заплутати Google Play. Вийдіть з інших облікових записів або встановлюйте через вебсайт Google Play, який примушує асоціювати їх з певним обліковим записом.</string>
 </resources>

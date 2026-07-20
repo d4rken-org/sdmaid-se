@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">คุณเป็นคนที่ดีที่สุด! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">กู้คืนการซื้อ</string>
     <string name="upgrade_screen_restore_sync_patience_hint">การซิงค์ Play Store อาจใช้เวลา ลองรีบูต ล้างแคช Google Play หรือรอสักครู่</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">บัญชีหลายบัญชีอาจทำให้ Google Play สับสน ออกจากบัญชีอื่นหรือติดตั้งผ่านเว็บไซต์ Google Play ซึ่งบังคับให้เชื่อมโยงกับบัญชีเฉพาะ</string>
 </resources>

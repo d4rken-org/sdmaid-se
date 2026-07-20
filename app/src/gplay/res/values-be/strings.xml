@@ -33,5 +33,4 @@
     <string name="upgrade_screen_thanks_toast">Вы найлепшы! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Аднавіць пакупку</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Сінхранізацыя з Play Store можа заняць пэўны час. Паспрабуйце перазагрузіцца, ачысціць кэш Google Play або проста пачакаць.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Некалькі ўліковых запісаў могуць заблытаць Google Play. Выйдзіце з іншых уліковых запісаў або ўсталюйце праз вэб-сайт Google Play, які вызначае сувязь з пэўным уліковым запісам.</string>
 </resources>

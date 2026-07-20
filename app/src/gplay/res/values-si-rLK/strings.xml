@@ -27,5 +27,4 @@
     <string name="upgrade_screen_thanks_toast">ඔබ හොඳම කෙනා! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store සමමුහුර්ත කිරීමට කාලය ගත විය හැක. නැවත ආරම්භ කිරීම, Google Play හැඹිලිය මැකීම හෝ සරලව රැඳී සිටීමට උත්සාහ කරන්න.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">බහු ගිණුම් Google Play ව්‍යාකූල කළ හැක. වෙනත් ගිණුම් වලින් පිටවන්න හෝ Google Play වෙබ් අඩවිය හරහා ස්ථාපනය කරන්න, එය නිශ්චිත ගිණුමක් සමඟ සම්බන්ධතා බල කරයි.</string>
 </resources>
