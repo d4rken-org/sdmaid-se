@@ -205,6 +205,25 @@ class FossUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `a too-quick sponsor return stays silent for already upgraded users`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo(MutableStateFlow(upgradedInfo()))
+        val vm = buildVm(repo = repo)
+
+        val nudges = mutableListOf<Int>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.snackbarEvents.collect { nudges.add(it) } }
+
+        vm.goGithubSponsors()
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        nudges.shouldBeEmpty()
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+        collector.cancel()
+    }
+
+    @Test
     fun `a sponsor return after the delay persists the upgrade`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         val vm = buildVm(repo = repo)

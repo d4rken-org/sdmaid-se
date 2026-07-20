@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -102,8 +103,14 @@ class UpgradeViewModel @Inject constructor(
         log(TAG) { "checkSponsorReturn(): elapsed=${elapsed}ms" }
 
         if (elapsed < SPONSOR_DELAY_MS) {
-            log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
-            snackbarEvents.tryEmit(R.string.upgrade_screen_sponsor_return_too_quick)
+            // The nudge belongs to the unlock heuristic. An already upgraded user (recurring
+            // donation button) has nothing to unlock — peeking at the page needs no feedback.
+            if (upgradeRepo.upgradeInfo.first().isPro) {
+                log(TAG) { "checkSponsorReturn(): Too quick, but already upgraded, staying quiet" }
+            } else {
+                log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
+                snackbarEvents.tryEmit(R.string.upgrade_screen_sponsor_return_too_quick)
+            }
         } else {
             log(TAG) { "checkSponsorReturn(): Delay passed, persisting upgrade" }
             upgradeRepo.persistUpgrade()
