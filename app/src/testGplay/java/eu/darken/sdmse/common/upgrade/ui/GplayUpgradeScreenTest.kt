@@ -435,8 +435,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_title)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body_short)).assertCountEquals(1)
-        // "Confirming…" is backed by motion during the quiet stage.
+        // "Confirming…" is backed by motion during the quiet stage; the mascot stays cheerful.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_SPINNER).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertCountEquals(0)
         // The grace card owns restore via its two-stage disclosure — the generic restore section
         // must not undercut the calm quiet stage with its own restore CTA.
@@ -483,8 +485,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_grace_body)).assertCountEquals(1)
-        // The aged copy asks the user to act — no spinner contradicting the restore CTA.
+        // The aged copy asks the user to act — no spinner contradicting the restore CTA, and the
+        // mascot switches to the grumpy "needs your attention" face.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_SPINNER).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(0)
         // The aged episode is treated as likely-permanent: the offers come back so an expired
         // subscriber can switch without waiting out the full grace window. Still no sales pitch.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)

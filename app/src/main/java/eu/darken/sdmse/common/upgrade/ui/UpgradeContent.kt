@@ -58,6 +58,8 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 internal object UpgradeScreenTags {
     const val LOADING = "upgrade_loading"
     const val ACTIONS = "upgrade_actions"
+    const val MASCOT_HAPPY = "upgrade_mascot_happy"
+    const val MASCOT_GRUMPY = "upgrade_mascot_grumpy"
     const val FOSS_SPONSOR = "upgrade_foss_sponsor"
     const val FOSS_STATUS_FREE = "upgrade_foss_status_free"
     const val FOSS_STATUS_UPGRADED = "upgrade_foss_status_upgraded"
@@ -169,11 +171,14 @@ internal fun UpgradeScreenContent(
 internal fun UpgradeMascot(
     size: Dp,
     modifier: Modifier = Modifier,
+    happy: Boolean = true,
 ) {
     Image(
-        painter = painterResource(R.drawable.sdm_happy),
+        painter = painterResource(if (happy) R.drawable.sdm_happy else R.drawable.sdm_not_happy),
         contentDescription = null,
-        modifier = modifier.size(size),
+        modifier = modifier
+            .size(size)
+            .testTag(if (happy) UpgradeScreenTags.MASCOT_HAPPY else UpgradeScreenTags.MASCOT_GRUMPY),
     )
 }
 
@@ -181,6 +186,7 @@ internal fun UpgradeMascot(
 internal fun UpgradeHeader(
     mascotSize: Dp,
     modifier: Modifier = Modifier,
+    happy: Boolean = true,
 ) {
     Box(
         modifier = modifier.fillMaxWidth(),
@@ -193,6 +199,7 @@ internal fun UpgradeHeader(
             UpgradeMascot(
                 size = mascotSize,
                 modifier = Modifier.padding(16.dp),
+                happy = happy,
             )
         }
     }

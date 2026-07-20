@@ -176,9 +176,13 @@ internal fun UpgradeScreen(
             contentPadding = PaddingValues(start = 24.dp, top = 16.dp, end = 24.dp, bottom = 32.dp),
         ) {
             if (ownedState == null) {
-                // Owners get the mascot inside the congrats hero card instead.
+                // Owners get the mascot inside the congrats hero card instead. Once a grace
+                // episode ages into the diagnostics stage, the mascot joins the mood: unimpressed
+                // at Google Play, matching the setup card's "needs your attention" face. The young
+                // episode keeps the happy face — its message is that nothing is wrong.
                 UpgradeHeader(
                     mascotSize = 88.dp,
+                    happy = loaded?.grace?.showDiagnostics != true,
                 )
             }
 
