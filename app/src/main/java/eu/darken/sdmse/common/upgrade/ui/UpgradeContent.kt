@@ -75,6 +75,7 @@ internal object UpgradeScreenTags {
     const val GPLAY_OWNED_SUB = "upgrade_gplay_owned_sub"
     const val GPLAY_MANAGE_SUB = "upgrade_gplay_manage_sub"
     const val GPLAY_GRACE = "upgrade_gplay_grace"
+    const val GPLAY_GRACE_SPINNER = "upgrade_gplay_grace_spinner"
     const val GPLAY_GRACE_RESTORE = "upgrade_gplay_grace_restore"
 }
 
@@ -224,6 +225,7 @@ internal fun UpgradeSectionCard(
     modifier: Modifier = Modifier,
     iconTint: Color = Color.Unspecified,
     colors: CardColors? = null,
+    leading: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val cardColors = colors ?: CardDefaults.elevatedCardColors(
@@ -244,6 +246,7 @@ internal fun UpgradeSectionCard(
                 title = title,
                 icon = icon,
                 iconTint = iconTint,
+                leading = leading,
             )
             content()
         }
@@ -258,17 +261,22 @@ internal fun UpgradeSectionHeader(
     icon: ImageVector,
     modifier: Modifier = Modifier,
     iconTint: Color = Color.Unspecified,
+    leading: (@Composable () -> Unit)? = null,
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = if (iconTint == Color.Unspecified) MaterialTheme.colorScheme.primary else iconTint,
-        )
+        if (leading != null) {
+            leading()
+        } else {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = if (iconTint == Color.Unspecified) MaterialTheme.colorScheme.primary else iconTint,
+            )
+        }
         Text(
             text = title,
             style = MaterialTheme.typography.titleMedium,

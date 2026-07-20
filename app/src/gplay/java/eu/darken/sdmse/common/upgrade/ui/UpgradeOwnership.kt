@@ -195,6 +195,19 @@ internal fun UpgradeGraceCard(
             containerColor = MaterialTheme.colorScheme.secondaryContainer,
             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
         ),
+        // While the episode is young the title says "Confirming…", so the header shows motion to
+        // match. Once diagnostics appear the copy asks the user to act — a spinner would say
+        // "still working, wait" and undercut the restore button, so the static icon returns.
+        leading = if (showDiagnostics) null else {
+            {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .size(24.dp)
+                        .testTag(UpgradeScreenTags.GPLAY_GRACE_SPINNER),
+                    strokeWidth = 2.5.dp,
+                )
+            }
+        },
     ) {
         Text(
             text = stringResource(
