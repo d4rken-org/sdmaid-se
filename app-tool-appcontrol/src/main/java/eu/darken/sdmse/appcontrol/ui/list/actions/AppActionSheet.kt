@@ -20,7 +20,6 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.PowerSettingsNew
 import androidx.compose.material.icons.twotone.AcUnit
 import androidx.compose.material.icons.twotone.Archive
-import androidx.compose.material.icons.twotone.DoNotDisturb
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.SaveAlt
 import androidx.compose.material.icons.twotone.Shop
@@ -66,6 +65,7 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.ShieldEdit
+import eu.darken.sdmse.common.compose.icons.SnowflakeOff
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -353,7 +353,7 @@ private fun ActionItemRow(
             icon = if (item.isEnabled) {
                 rememberVectorPainter(Icons.TwoTone.AcUnit)
             } else {
-                rememberVectorPainter(Icons.TwoTone.DoNotDisturb)
+                rememberVectorPainter(SdmIcons.SnowflakeOff)
             },
             title = if (item.isEnabled) {
                 stringResource(R.string.appcontrol_toggle_app_disable_action)
@@ -438,4 +438,3 @@ private fun itemKey(item: AppActionItem): String = when (item) {
     is AppActionItem.Action.Restore -> "restore"
     is AppActionItem.Action.Export -> "export"
 }
-
