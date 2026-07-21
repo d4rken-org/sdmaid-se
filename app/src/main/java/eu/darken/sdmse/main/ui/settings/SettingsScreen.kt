@@ -167,16 +167,6 @@ internal fun SettingsScreen(
             modifier = Modifier.fillMaxSize(),
             contentPadding = paddingValues,
         ) {
-            // Exclusions
-            item {
-                SettingsPreferenceItem(
-                    icon = Icons.TwoTone.Shield,
-                    title = stringResource(eu.darken.sdmse.common.exclusion.R.string.exclusion_manager_title),
-                    subtitle = stringResource(eu.darken.sdmse.common.exclusion.R.string.exclusion_manager_desc),
-                    onClick = onExclusionsClick,
-                )
-            }
-
             // Tools category
             item { SettingsCategoryHeader(text = stringResource(CommonR.string.settings_category_tools_label)) }
 
@@ -246,6 +236,14 @@ internal fun SettingsScreen(
                     title = stringResource(R.string.general_settings_label),
                     subtitle = stringResource(R.string.general_settings_desc),
                     onClick = onGeneralSettingsClick,
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.Shield,
+                    title = stringResource(eu.darken.sdmse.common.exclusion.R.string.exclusion_manager_title),
+                    subtitle = stringResource(eu.darken.sdmse.common.exclusion.R.string.exclusion_manager_desc),
+                    onClick = onExclusionsClick,
                 )
             }
             item {
