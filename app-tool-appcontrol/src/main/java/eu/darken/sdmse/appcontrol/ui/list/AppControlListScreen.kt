@@ -47,6 +47,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -338,6 +339,15 @@ internal fun AppControlListScreen(
     val selectionActive = selection.isActive
     BackHandler(enabled = selectionActive) { selection.clear() }
 
+    val archiveSelectionTargets by remember(rows, selection) {
+        derivedStateOf {
+            resolveArchiveSelectionTargets(
+                rows = rows.orEmpty(),
+                selectedIds = selection.selected,
+            )
+        }
+    }
+
     var selectionOverflowOpen by remember { mutableStateOf(false) }
     var searchActive by rememberSaveable { mutableStateOf(false) }
     var activeSheet by rememberSaveable { mutableStateOf<Sheet?>(null) }
@@ -586,24 +596,24 @@ internal fun AppControlListScreen(
                                     },
                                 )
                             }
-                            if (state.allowActionArchive) {
+                            if (state.allowActionArchive && archiveSelectionTargets.archive.isNotEmpty()) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_archive_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Archive, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection.selected
+                                        val ids = archiveSelectionTargets.archive
                                         selectionOverflowOpen = false
                                         selection.clear()
                                         onArchiveSelected(ids)
                                     },
                                 )
                             }
-                            if (state.allowActionRestore) {
+                            if (state.allowActionRestore && archiveSelectionTargets.restore.isNotEmpty()) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(R.string.appcontrol_restore_selection_action)) },
                                     leadingIcon = { Icon(Icons.TwoTone.Unarchive, contentDescription = null) },
                                     onClick = {
-                                        val ids = selection.selected
+                                        val ids = archiveSelectionTargets.restore
                                         selectionOverflowOpen = false
                                         selection.clear()
                                         onRestoreSelected(ids)
@@ -752,6 +762,27 @@ internal fun AppControlListScreen(
 }
 
 private enum class Sheet { Sort, Tags }
+
+private data class ArchiveSelectionTargets(
+    val archive: Set<InstallId>,
+    val restore: Set<InstallId>,
+)
+
+private fun resolveArchiveSelectionTargets(
+    rows: List<AppControlListViewModel.Row>,
+    selectedIds: Set<InstallId>,
+): ArchiveSelectionTargets {
+    val archive = mutableSetOf<InstallId>()
+    val restore = mutableSetOf<InstallId>()
+
+    rows.forEach { row ->
+        if (row.installId !in selectedIds) return@forEach
+        if (row.appInfo.canBeArchived) archive += row.installId
+        if (row.appInfo.canBeRestored) restore += row.installId
+    }
+
+    return ArchiveSelectionTargets(archive = archive, restore = restore)
+}
 
 internal fun buildFastScrollerSections(
     rows: List<AppControlListViewModel.Row>,

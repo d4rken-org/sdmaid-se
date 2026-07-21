@@ -5,11 +5,13 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.FilterSettings
@@ -37,6 +39,8 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
     private fun row(
         pkgName: String,
         label: String = pkgName,
+        canBeArchived: Boolean = false,
+        canBeRestored: Boolean = false,
     ): AppControlListViewModel.Row {
         val pkgId = Pkg.Id(pkgName)
         val userHandle = UserHandle2(0)
@@ -66,8 +70,8 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
                 canBeStopped = false,
                 canBeExported = false,
                 canBeDeleted = false,
-                canBeArchived = false,
-                canBeRestored = false,
+                canBeArchived = canBeArchived,
+                canBeRestored = canBeRestored,
             ),
             sectionKeyName = label.firstOrNull()?.uppercaseChar()?.toString() ?: "?",
             sectionKeyPkg = pkgName.firstOrNull()?.uppercaseChar()?.toString() ?: "?",
@@ -181,6 +185,71 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
         if (tapped.isEmpty()) throw AssertionError("Expected at least one tap callback but got none")
         // Last tap is for Beta — guards against the row builder using the wrong index.
         tapped.last() shouldBeEqual beta.installId
+    }
+
+    @Test
+    fun `selection menu only offers archive for an archivable app`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.example.installed", label = "Installed", canBeArchived = true)),
+                allowActionArchive = true,
+                allowActionRestore = true,
+            ),
+        )
+
+        composeRule.onNodeWithText("Installed").performTouchInput { longClick() }
+        composeRule.onNodeWithContentDescription("Options").performClick()
+
+        composeRule.onNodeWithText("Archive apps").assertExists()
+        composeRule.onAllNodesWithText("Restore apps").assertCountEquals(0)
+    }
+
+    @Test
+    fun `selection menu only offers restore for an archived app`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.example.archived", label = "Archived", canBeRestored = true)),
+                allowActionArchive = true,
+                allowActionRestore = true,
+            ),
+        )
+
+        composeRule.onNodeWithText("Archived").performTouchInput { longClick() }
+        composeRule.onNodeWithContentDescription("Options").performClick()
+
+        composeRule.onAllNodesWithText("Archive apps").assertCountEquals(0)
+        composeRule.onNodeWithText("Restore apps").assertExists()
+    }
+
+    @Test
+    fun `mixed selection offers both actions and restore receives only archived apps`() {
+        val installed = row("com.example.installed", label = "Installed", canBeArchived = true)
+        val archived = row("com.example.archived", label = "Archived", canBeRestored = true)
+        val restored = mutableListOf<Set<InstallId>>()
+        composeRule.setContent {
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    AppControlListScreen(
+                        stateSource = MutableStateFlow(
+                            AppControlListViewModel.State(
+                                rows = listOf(installed, archived),
+                                allowActionArchive = true,
+                                allowActionRestore = true,
+                            ),
+                        ),
+                        onRestoreSelected = { restored += it },
+                    )
+                }
+            }
+        }
+
+        composeRule.onNodeWithText("Installed").performTouchInput { longClick() }
+        composeRule.onNodeWithText("Archived").performClick()
+        composeRule.onNodeWithContentDescription("Options").performClick()
+
+        composeRule.onNodeWithText("Archive apps").assertExists()
+        composeRule.onNodeWithText("Restore apps").performClick()
+        restored.single() shouldBeEqual setOf(archived.installId)
     }
 
     @Test
