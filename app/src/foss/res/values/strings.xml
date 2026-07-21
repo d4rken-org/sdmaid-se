@@ -13,7 +13,7 @@
     <string name="upgrade_screen_how_title">How to help</string>
     <string name="upgrade_screen_how_body">Become a patron and sponsor development! Tap the button below to activate all extra features and open my GitHub Sponsors profile.</string>
     <string name="upgrade_screen_why_title">Upgrade benefits</string>
-    <string name="upgrade_screen_why_body">• Clean app caches and expendable data\n• Remove duplicate files\n• Enable scheduled cleanups\n• Create custom filters and cleanup rules\n• Track storage trends and cleanup history\n• More features and controls across the app\n• Support open-source work</string>
+    <string name="upgrade_screen_why_body">• App cache and junk cleaning\n• Duplicate file removal\n• Photo and video compression\n• Swipe-to-declutter old files\n• One-tap cleaning via widget\n• Cleanup scheduling\n• Custom filters and rules\n• Storage trends and history\n• More features and controls across the app\n• Support open-source work</string>
     <string name="upgrade_screen_sponsor_action">Sponsor development</string>
     <string name="upgrade_screen_sponsor_action_hint">The alternative are ads, analytics and Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Thank you for supporting open-source development ❤️</string>

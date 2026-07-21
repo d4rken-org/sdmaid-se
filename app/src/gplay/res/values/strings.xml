@@ -23,7 +23,7 @@
     <string name="upgrade_screen_title">Get SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid has no ads and doesn\'t sell user data. My work is financed by you ❤️.</string>
     <string name="upgrade_screen_benefits_title">Upgrade benefits</string>
-    <string name="upgrade_screen_benefits_body">• Clean app caches and expendable data\n• Remove duplicate files\n• Enable scheduled cleanups\n• Create custom filters and cleanup rules\n• Track storage trends and cleanup history\n• More features and controls across the app\n• Support continued development</string>
+    <string name="upgrade_screen_benefits_body">• App cache and junk cleaning\n• Duplicate file removal\n• Photo and video compression\n• Swipe-to-declutter old files\n• One-tap cleaning via widget\n• Cleanup scheduling\n• Custom filters and rules\n• Storage trends and history\n• More features and controls across the app\n• Support continued development</string>
     <string name="upgrade_screen_offers_title">Upgrade options</string>
     <string name="upgrade_screen_offers_body">Same features, just different pricing models.</string>
     <string name="upgrade_screen_offers_or">or</string>
