@@ -715,7 +715,8 @@ internal fun AppControlListScreen(
                             state = gridState,
                             modifier = Modifier
                                 .align(Alignment.CenterEnd)
-                                .fillMaxHeight(),
+                                .fillMaxHeight()
+                                .padding(vertical = 8.dp),
                             sections = sections,
                             minItemsToShow = 0,
                         )
@@ -813,4 +814,3 @@ private fun AppControlListScreenPopulatedPreview() {
         )
     }
 }
-

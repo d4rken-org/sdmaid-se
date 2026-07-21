@@ -3,12 +3,14 @@ package eu.darken.sdmse.appcontrol.ui.list
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
@@ -28,6 +30,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
+import kotlin.math.abs
 
 class AppControlListScreenTest : BaseComposeRobolectricTest() {
 
@@ -125,6 +128,33 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("com.alpha.app").assertExists()
         // Empty placeholder must NOT render.
         composeRule.onAllNodesWithText("Empty").assertCountEquals(0)
+    }
+
+    @Test
+    fun `fast scroller lane is inset from both grid edges`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = List(60) { index -> row("com.example.app$index", label = "App $index") },
+            ),
+        )
+
+        val gridBounds = composeRule
+            .onAllNodes(hasScrollAction())
+            .fetchSemanticsNodes()
+            .maxBy { it.boundsInRoot.height }
+            .boundsInRoot
+        val scrollerBounds = composeRule
+            .onNodeWithContentDescription("Fast scroller")
+            .fetchSemanticsNode()
+            .boundsInRoot
+        val expectedInsetPx = with(composeRule.density) { 8.dp.toPx() }
+
+        if (abs(scrollerBounds.top - gridBounds.top - expectedInsetPx) > 0.5f) {
+            throw AssertionError("Expected fast scroller to be inset 8dp from the grid top")
+        }
+        if (abs(gridBounds.bottom - scrollerBounds.bottom - expectedInsetPx) > 0.5f) {
+            throw AssertionError("Expected fast scroller to be inset 8dp from the grid bottom")
+        }
     }
 
     @Test
