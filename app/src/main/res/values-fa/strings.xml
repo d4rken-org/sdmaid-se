@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">سیاست حفظ حریم خصوصی</string>
     <string name="settings_privacy_policy_desc">رعایت مسئولانه داده‌ها.</string>
     <string name="settings_category_other_label">بقیه</string>
-    <string name="upgrade_badge_label">حرفه‌ای</string>
     <string name="general_settings_label">عمومی</string>
     <string name="general_settings_desc">تغییرات عمومی که بر کل برنامه تأثیر می‌گذارد.</string>
     <string name="settings_category_ui_label">رابط کاربری</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">پشتیبان ایجاد شد، اما این قسمت‌ها ناموفق بودند: %1$s</string>
     <string name="backup_restore_restore_success">پشتیبان بازگردانی شد</string>
     <string name="backup_restore_restore_failed">بازگردانی ناموفق (%1$s). پیکربندی قبلی شما ذخیره شد.</string>
-    <string name="backup_restore_undo_action">واگرد</string>
     <string name="backup_restore_recovery_title">بازیابی پیکربندی قبلی</string>
     <string name="backup_restore_recovery_desc">تصویری ایمن از بازگردانی ناتمام موجود است</string>
     <string name="backup_restore_confirm_title">این پشتیبان را بازگردانی کنیم؟</string>

@@ -10,9 +10,7 @@
     <string name="picker_home_action">بەشی دەرەنجام</string>
     <string name="tour_action_next">دواتر</string>
     <string name="tour_action_previous">پێشوو</string>
-    <string name="tour_action_done">تەواو</string>
     <string name="tour_action_cancel">تێپەڕاندن</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">گەشتەکە تێپەڕێنیت؟</string>
     <string name="tour_confirm_message">دەتوانیت لە رێکخستندا گەشتەکان کاتێخی دووبارە چالاک بکەیتەوە.</string>
     <string name="tour_confirm_continue">گەشت بەردەوام بکە</string>

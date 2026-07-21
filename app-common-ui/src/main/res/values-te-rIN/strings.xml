@@ -10,9 +10,7 @@
     <string name="picker_home_action">డేటా ప్రాంతాలు</string>
     <string name="tour_action_next">తర్వాత</string>
     <string name="tour_action_previous">మునుపటి</string>
-    <string name="tour_action_done">పూర్తయింది</string>
     <string name="tour_action_cancel">దాటవేయండి</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">టూర్‌ను దాటవేయాలా?</string>
     <string name="tour_confirm_message">మీరు సెట్టింగ్‌ల నుండి ఎప్పుడైనా టూర్‌లను మళ్ళీ చేతనం చేయవచ్చు.</string>
     <string name="tour_confirm_continue">కొనసాగించండి</string>

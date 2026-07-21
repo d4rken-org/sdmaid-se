@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
 
-    <string name="upgrade_badge_label">FOSS</string>
 
     <string name="upgrades_dashcard_title">Upgrade SD Maid SE</string>
     <string name="upgrades_dashcard_body">Unlock additional features and become a patron to support continued development!</string>

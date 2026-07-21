@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">ఫిల్టర్ జోడించండి</string>
     <string name="general_filter_remove_x_action">%s ఫిల్టర్ను తీసివేయండి</string>
     <string name="general_filter_empty_row_hint">ఫిల్టర్ చేయడానికి + ను ట్యాప్ చేయండి</string>
-    <string name="general_show_all_action">అన్నిటినీ చూపించండి</string>
     <string name="general_result_success_message">విజయవంతంగా పూర్తయింది</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s స్థలం ఖాళీ చేయబడింది.</item>

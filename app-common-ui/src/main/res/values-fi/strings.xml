@@ -10,9 +10,7 @@
     <string name="picker_home_action">Tietoalueet</string>
     <string name="tour_action_next">Seuraava</string>
     <string name="tour_action_previous">Edellinen</string>
-    <string name="tour_action_done">Valmis</string>
     <string name="tour_action_cancel">Ohita</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Ohita kierros?</string>
     <string name="tour_confirm_message">Voit ottaa kierrokset uudelleen käyttöön asetuksista milloin tahansa.</string>
     <string name="tour_confirm_continue">Jatka opastusta</string>

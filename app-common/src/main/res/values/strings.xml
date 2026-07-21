@@ -79,7 +79,6 @@
     <string name="general_filter_add_action">Add filter</string>
     <string name="general_filter_remove_x_action">Remove %s filter</string>
     <string name="general_filter_empty_row_hint">Tap + to filter</string>
-    <string name="general_show_all_action">Show all</string>
 
     <string name="general_result_success_message">Operation successful</string>
     <plurals name="general_result_x_space_freed">
@@ -189,8 +188,8 @@
     <string name="general_error_report_bug_action">Report bug</string>
     <string name="general_error_ipc_deadobject_title">Service Connection Lost</string>
     <string name="general_error_ipc_deadobject_description">The connection to a critical service (e.g. Magisk, Shizuku, or other system-level services) was unexpectedly lost. Please reboot your device. If the issue persists, check for updates or reach out to me so I can fix it.</string>
-    <string name="general_error_upgrade_required_title">Pro version required</string>
-    <string name="general_error_upgrade_required_description">This is a Pro feature. Please upgrade SD Maid SE to use it.</string>
+    <string name="general_error_upgrade_required_title">Upgrade required</string>
+    <string name="general_error_upgrade_required_description">This feature requires an upgrade. Please upgrade SD Maid SE to use it.</string>
 
     <string name="general_user_label_owner">Owner</string>
     <string name="general_user_label_system">System</string>

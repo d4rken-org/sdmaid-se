@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">隐私政策</string>
     <string name="settings_privacy_policy_desc">以负责任的态度来处理数据。</string>
     <string name="settings_category_other_label">其他</string>
-    <string name="upgrade_badge_label">专业版</string>
     <string name="general_settings_label">常规</string>
     <string name="general_settings_desc">影响整个应用的常规设置。</string>
     <string name="settings_category_ui_label">用户界面</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">备份已创建，但以下部分失败：%1$s</string>
     <string name="backup_restore_restore_success">备份已恢复</string>
     <string name="backup_restore_restore_failed">恢复失败（%1$s）。您的先前配置已保存。</string>
-    <string name="backup_restore_undo_action">撤销</string>
     <string name="backup_restore_recovery_title">恢复以前的配置</string>
     <string name="backup_restore_recovery_desc">有一个来自未完成的恢复操作的安全快照可用</string>
     <string name="backup_restore_confirm_title">恢复此备份？</string>

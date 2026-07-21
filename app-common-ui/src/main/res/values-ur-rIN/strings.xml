@@ -10,9 +10,7 @@
     <string name="picker_home_action">ڈیٹا ایریاز</string>
     <string name="tour_action_next">اگلا</string>
     <string name="tour_action_previous">پچھلا</string>
-    <string name="tour_action_done">ہو گیا</string>
     <string name="tour_action_cancel">چھوڑیں</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">ٹور کو چھوڑ دیں؟</string>
     <string name="tour_confirm_message">آپ سیٹنگز سے کسی بھی وقت ٹورز کو دوبارہ فعال کر سکتے ہیں۔</string>
     <string name="tour_confirm_continue">ٹور جاری رکھیں</string>

@@ -119,7 +119,6 @@
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
     <string name="settings_privacy_policy_desc">التعامل مع البيانات بمسؤولية.</string>
     <string name="settings_category_other_label">أخرى</string>
-    <string name="upgrade_badge_label">احترافي</string>
     <string name="general_settings_label">عام</string>
     <string name="general_settings_desc">التعديلات العامة التي تؤثر على التطبيق بأكمله.</string>
     <string name="settings_category_ui_label">واجهة المستخدم</string>
@@ -367,7 +366,6 @@
     <string name="backup_restore_export_partial">تم إنشاء النسخة الاحتياطية، لكن فشلت هذه الأجزاء: %1$s</string>
     <string name="backup_restore_restore_success">تم استعادة النسخة الاحتياطية</string>
     <string name="backup_restore_restore_failed">فشلت الاستعادة (%1$s). تم حفظ إعداداتك السابقة.</string>
-    <string name="backup_restore_undo_action">تراجع</string>
     <string name="backup_restore_recovery_title">استرجع الإعدادات السابقة</string>
     <string name="backup_restore_recovery_desc">لقطة أمان من استعادة غير مكتملة متاحة</string>
     <string name="backup_restore_confirm_title">استعادة هذه النسخة الاحتياطية؟</string>

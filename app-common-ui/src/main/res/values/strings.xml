@@ -12,14 +12,12 @@
 
     <string name="tour_action_next">Next</string>
     <string name="tour_action_previous">Previous</string>
-    <string name="tour_action_done">Done</string>
     <string name="tour_action_cancel">Skip</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Skip the tour?</string>
     <string name="tour_confirm_message">You can re-enable tours anytime from Settings.</string>
     <string name="tour_confirm_continue">Continue tour</string>
     <string name="tour_confirm_dont_show_this_tour">Don\'t show this tour</string>
     <string name="tour_confirm_disable_all">Disable all tours</string>
-    <string name="navigation_unknown_destination_title">Coming soon</string>
-    <string name="navigation_unknown_destination_message">This screen is still being migrated to the new UI.</string>
+    <string name="navigation_unknown_destination_title">Screen unavailable</string>
+    <string name="navigation_unknown_destination_message">This screen could not be opened.</string>
 </resources>

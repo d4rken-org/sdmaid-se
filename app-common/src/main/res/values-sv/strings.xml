@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Lägg till filter</string>
     <string name="general_filter_remove_x_action">Ta bort %s filter</string>
     <string name="general_filter_empty_row_hint">Tryck + för att filtrera</string>
-    <string name="general_show_all_action">Visa allt</string>
     <string name="general_result_success_message">Operationen lyckades</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Frigjorde %s utrymme.</item>

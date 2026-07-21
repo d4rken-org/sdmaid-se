@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">개인정보보호정책</string>
     <string name="settings_privacy_policy_desc">개인정보를 책임지고 다룹니다.</string>
     <string name="settings_category_other_label">기타</string>
-    <string name="upgrade_badge_label">프로</string>
     <string name="general_settings_label">일반</string>
     <string name="general_settings_desc">전체 앱의 작동에 영향을 주는 일반적 설정입니다.</string>
     <string name="settings_category_ui_label">인터페이스</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">백업이 생성되었지만 다음 항목이 실패했습니다: %1$s</string>
     <string name="backup_restore_restore_success">백업이 복원되었습니다</string>
     <string name="backup_restore_restore_failed">복원에 실패했습니다 (%1$s). 이전 구성이 저장되었습니다.</string>
-    <string name="backup_restore_undo_action">실행취소</string>
     <string name="backup_restore_recovery_title">이전 구성 복구</string>
     <string name="backup_restore_recovery_desc">미완료된 복원의 안전 스냅샷이 있습니다</string>
     <string name="backup_restore_confirm_title">이 백업을 복원하시겠습니까?</string>

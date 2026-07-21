@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">පෙරහන එකතු කරන්න</string>
     <string name="general_filter_remove_x_action">%s පෙරහන ඉවත් කරන්න</string>
     <string name="general_filter_empty_row_hint">පෙරීම සඳහා + ස්පර්ශ කරන්න</string>
-    <string name="general_show_all_action">සියල්ල පෙන්වන්න</string>
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ඉඩ නිදහස් කළා.</item>

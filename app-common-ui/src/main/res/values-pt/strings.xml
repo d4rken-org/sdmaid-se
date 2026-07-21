@@ -10,9 +10,7 @@
     <string name="picker_home_action">Áreas de dados</string>
     <string name="tour_action_next">Seguinte</string>
     <string name="tour_action_previous">Anterior</string>
-    <string name="tour_action_done">Pronto</string>
     <string name="tour_action_cancel">Saltar</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Saltar a visita guiada?</string>
     <string name="tour_confirm_message">Pode reativar as visitas guiadas a qualquer momento nas Definições.</string>
     <string name="tour_confirm_continue">Continuar visita guiada</string>

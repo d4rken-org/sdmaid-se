@@ -75,6 +75,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ui.R as UiR
 
 // The tail's vertical extent must stay in sync between SpeechBubbleShape (which draws the tail
@@ -518,7 +519,7 @@ private fun StepContent(
                         imageVector = if (session.isLast) Icons.TwoTone.Check
                         else Icons.AutoMirrored.TwoTone.ArrowForward,
                         contentDescription = stringResource(
-                            if (session.isLast) UiR.string.tour_action_done
+                            if (session.isLast) CommonR.string.general_done_action
                             else UiR.string.tour_action_next,
                         ),
                         modifier = Modifier.size(20.dp),

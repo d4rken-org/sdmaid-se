@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Dodaj filter</string>
     <string name="general_filter_remove_x_action">Odstrani filter %s</string>
     <string name="general_filter_empty_row_hint">Tapnite + za filtriranje</string>
-    <string name="general_show_all_action">Prikaži vse</string>
     <string name="general_result_success_message">Opravilo je bilo uspešno.</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Sproščenih je bilo %s.</item>

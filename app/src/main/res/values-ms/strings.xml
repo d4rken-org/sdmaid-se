@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">Dasar privasi</string>
     <string name="settings_privacy_policy_desc">Mengendalikan data secara bertanggungjawab.</string>
     <string name="settings_category_other_label">Lain-lain</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Umum</string>
     <string name="general_settings_desc">Tweak umum yang mempengaruhi keseluruhan aplikasi.</string>
     <string name="settings_category_ui_label">Antaramuka pengguna</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">Sandaran telah dibuat, tetapi bahagian ini gagal: %1$s</string>
     <string name="backup_restore_restore_success">Sandaran telah dipulihkan</string>
     <string name="backup_restore_restore_failed">Pemulihan gagal (%1$s). Konfigurasi terdahulu anda telah disimpan.</string>
-    <string name="backup_restore_undo_action">Buat asal</string>
     <string name="backup_restore_recovery_title">Pulihkan konfigurasi terdahulu</string>
     <string name="backup_restore_recovery_desc">Tangkapan keselamatan daripada pemulihan yang tidak selesai tersedia</string>
     <string name="backup_restore_confirm_title">Pulihkan sandaran ini?</string>

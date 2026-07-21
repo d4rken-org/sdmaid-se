@@ -10,9 +10,7 @@
     <string name="picker_home_action">Áreas de datos</string>
     <string name="tour_action_next">Siguiente</string>
     <string name="tour_action_previous">Anterior</string>
-    <string name="tour_action_done">Listo</string>
     <string name="tour_action_cancel">Omitir</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">¿Omitir el tour?</string>
     <string name="tour_confirm_message">Puedes volver a habilitar los tours en cualquier momento desde Configuración.</string>
     <string name="tour_confirm_continue">Continuar tour</string>

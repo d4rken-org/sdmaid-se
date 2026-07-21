@@ -10,9 +10,7 @@
     <string name="picker_home_action">Məlumat sahələri</string>
     <string name="tour_action_next">Sonrakı</string>
     <string name="tour_action_previous">Əvvəlki</string>
-    <string name="tour_action_done">Tamamlandı</string>
     <string name="tour_action_cancel">Atla</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Turu keçmək istəyirsiniz?</string>
     <string name="tour_confirm_message">Turu istənilən zaman Parametrlərdən yenidən aktivləşdirə bilərsiniz.</string>
     <string name="tour_confirm_continue">Tura davam et</string>

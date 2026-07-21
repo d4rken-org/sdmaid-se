@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Политика за поверителност</string>
     <string name="settings_privacy_policy_desc">Отговорно управление на данните.</string>
     <string name="settings_category_other_label">Други</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Общи</string>
     <string name="general_settings_desc">Общи настройки, които засягат цялото приложение.</string>
     <string name="settings_category_ui_label">Потребителски интерфейс</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Резервното копие е създадено, но тези части не успяха: %1$s</string>
     <string name="backup_restore_restore_success">Резервното копие е възстановено</string>
     <string name="backup_restore_restore_failed">Възстановяването не успя (%1$s). Вашата предишна конфигурация е запазена.</string>
-    <string name="backup_restore_undo_action">Отмяна</string>
     <string name="backup_restore_recovery_title">Възстанови предишната конфигурация</string>
     <string name="backup_restore_recovery_desc">Налична е предпазна снимка от незавършено възстановяване</string>
     <string name="backup_restore_confirm_title">Да се възстанови ли това резервно копие?</string>

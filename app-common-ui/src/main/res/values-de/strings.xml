@@ -10,9 +10,7 @@
     <string name="picker_home_action">Datenbereiche</string>
     <string name="tour_action_next">Weiter</string>
     <string name="tour_action_previous">Zurück</string>
-    <string name="tour_action_done">Fertig</string>
     <string name="tour_action_cancel">Überspringen</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Tour überspringen?</string>
     <string name="tour_confirm_message">Sie können Touren jederzeit über die Einstellungen erneut aktivieren.</string>
     <string name="tour_confirm_continue">Tour fortsetzen</string>

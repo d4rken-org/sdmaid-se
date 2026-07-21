@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">ເພີ່ມກັ່ນຫລາກ</string>
     <string name="general_filter_remove_x_action">ລົບກັ່ນຫລາກ %s</string>
     <string name="general_filter_empty_row_hint">ແຕະ + ເພື່ອກັ່ນຫລາກ</string>
-    <string name="general_show_all_action">ສະແດງທັງໝົດ</string>
     <string name="general_result_success_message">ການດຳເນີນງານສຳເລັດ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ພື້ນທີ່ %s ໄດ້ຖືກປົດປ່ອຍ.</item>

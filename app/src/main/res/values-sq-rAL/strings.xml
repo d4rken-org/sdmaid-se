@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Politika e privatësisë</string>
     <string name="settings_privacy_policy_desc">Trajtimi i të dhënave me përgjegjësi.</string>
     <string name="settings_category_other_label">Tjetër</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Gjenerik</string>
     <string name="general_settings_desc">Rregullime të përgjithshme që prekin të gjithë aplikacionin.</string>
     <string name="settings_category_ui_label">Ndërfaqja e përdoruesit</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Kopja e rezervuar u krijua, por këto pjesë dështuan: %1$s</string>
     <string name="backup_restore_restore_success">Kopja e rezervuar u rikthye</string>
     <string name="backup_restore_restore_failed">Rikthimi dështoi (%1$s). Konfigurimi juaj i mëparshëm u ruajt.</string>
-    <string name="backup_restore_undo_action">Zhbëj</string>
     <string name="backup_restore_recovery_title">Rikthej konfigurimin e mëparshëm</string>
     <string name="backup_restore_recovery_desc">Një kopje sigurie nga një rikthim i papërfunduar është e disponueshme</string>
     <string name="backup_restore_confirm_title">Të rikthehet kjo kopje rezervuar?</string>

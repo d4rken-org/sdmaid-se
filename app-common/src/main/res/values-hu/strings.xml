@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Szűrő hozzáadása</string>
     <string name="general_filter_remove_x_action">%s szűrő eltávolítása</string>
     <string name="general_filter_empty_row_hint">Szűréshez koppintson a + gombra</string>
-    <string name="general_show_all_action">Összes megjelenítése</string>
     <string name="general_result_success_message">A művelet sikeres</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s hely felszabadult.</item>

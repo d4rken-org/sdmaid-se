@@ -10,9 +10,7 @@
     <string name="picker_home_action">ডেটা এলাকা</string>
     <string name="tour_action_next">পরবর্তী</string>
     <string name="tour_action_previous">পূর্ববর্তী</string>
-    <string name="tour_action_done">সম্পন্ন</string>
     <string name="tour_action_cancel">এড়িয়ে যান</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">ট্যুর এড়িয়ে যাবেন?</string>
     <string name="tour_confirm_message">আপনি যেকোনো সময় সেটিংস থেকে ট্যুর পুনরায় সক্ষম করতে পারেন।</string>
     <string name="tour_confirm_continue">ট্যুর চালিয়ে যান</string>

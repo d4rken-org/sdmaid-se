@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
     <string name="settings_privacy_policy_desc">Өгөгдлийг хариуцлагатай зохицуулах.</string>
     <string name="settings_category_other_label">Бусад</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Ерөнхий</string>
     <string name="general_settings_desc">Аппликешн даяар нөлөөлөх ерөнхий тохиргоо.</string>
     <string name="settings_category_ui_label">Хэрэглэгчийн интерфейс</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Нөөц хуулбар үүсгэгдсэн боловч эдгээр хэсэгүүд амжилтгүй болсон: %1$s</string>
     <string name="backup_restore_restore_success">Нөөц хуулбар сэргээгдсэн</string>
     <string name="backup_restore_restore_failed">Сэргээх амжилтгүй болсон (%1$s). Таны өмнөх конфигурацийг хадгалсан.</string>
-    <string name="backup_restore_undo_action">Буцаах</string>
     <string name="backup_restore_recovery_title">Өмнөх конфигурацийг сэргээх</string>
     <string name="backup_restore_recovery_desc">Дуусаагүй сэргээлтээс аюлгүй байдлын агшин зураг боломжтой</string>
     <string name="backup_restore_confirm_title">Энэ нөөц хуулбарыг сэргээх үү?</string>

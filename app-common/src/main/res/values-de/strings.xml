@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Filter hinzufügen</string>
     <string name="general_filter_remove_x_action">%s-Filter entfernen</string>
     <string name="general_filter_empty_row_hint">Tippen Sie auf +, um zu filtern</string>
-    <string name="general_show_all_action">Zeige alles</string>
     <string name="general_result_success_message">Operation erfolgreich</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s Speicherplatz freigegeben.</item>

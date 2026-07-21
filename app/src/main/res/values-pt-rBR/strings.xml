@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Política de privacidade</string>
     <string name="settings_privacy_policy_desc">Manipulação responsável dos dados.</string>
     <string name="settings_category_other_label">Outros</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Gerais</string>
     <string name="general_settings_desc">Ajustes gerais que afetam todo o aplicativo.</string>
     <string name="settings_category_ui_label">Interface de usuário</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Backup criado, mas estas partes falharam: %1$s</string>
     <string name="backup_restore_restore_success">Backup restaurado</string>
     <string name="backup_restore_restore_failed">Falha na restauração (%1$s). Sua configuração anterior foi salva.</string>
-    <string name="backup_restore_undo_action">Desfazer</string>
     <string name="backup_restore_recovery_title">Recuperar configuração anterior</string>
     <string name="backup_restore_recovery_desc">Um instantâneo de segurança de uma restauração inacabada está disponível</string>
     <string name="backup_restore_confirm_title">Restaurar este backup?</string>

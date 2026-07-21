@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">Zásady ochrany osobních údajů</string>
     <string name="settings_privacy_policy_desc">Zodpovědné nakládání s daty.</string>
     <string name="settings_category_other_label">Ostatní</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Obecné</string>
     <string name="general_settings_desc">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
     <string name="settings_category_ui_label">Uživatelské rozhraní</string>
@@ -353,7 +352,6 @@
     <string name="backup_restore_export_partial">Záloha vytvořena, ale tyto části selhaly: %1$s</string>
     <string name="backup_restore_restore_success">Záloha obnovena</string>
     <string name="backup_restore_restore_failed">Obnovení selhalo (%1$s). Vaše předchozí konfigurace byla uložena.</string>
-    <string name="backup_restore_undo_action">Vrátit zpět</string>
     <string name="backup_restore_recovery_title">Obnovit předchozí konfiguraci</string>
     <string name="backup_restore_recovery_desc">Je k dispozici bezpečnostní snímek z neúplného obnovení</string>
     <string name="backup_restore_confirm_title">Obnovit tuto zálohu?</string>

@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Tambah filter</string>
     <string name="general_filter_remove_x_action">Hapus %s filter</string>
     <string name="general_filter_empty_row_hint">Ketuk + untuk menyaring</string>
-    <string name="general_show_all_action">Tampilkan semua</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">%s ruang dibebaskan.</item>

@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Engadir filtro</string>
     <string name="general_filter_remove_x_action">Eliminar filtro %s</string>
     <string name="general_filter_empty_row_hint">Toca + para filtrar</string>
-    <string name="general_show_all_action">Mostrar todo</string>
     <string name="general_result_success_message">Operación exitosa</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Liberáronse %s de espazo.</item>

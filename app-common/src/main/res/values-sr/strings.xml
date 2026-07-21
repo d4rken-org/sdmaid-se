@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Додај филтер</string>
     <string name="general_filter_remove_x_action">Уклони %s филтер</string>
     <string name="general_filter_empty_row_hint">Додирни + за филтрирање</string>
-    <string name="general_show_all_action">Прикажи све</string>
     <string name="general_result_success_message">Операција успешна</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Ослобођен %s простор.</item>

@@ -11,9 +11,7 @@
     <string name="picker_home_action">Datu apgabali</string>
     <string name="tour_action_next">Nākamais</string>
     <string name="tour_action_previous">Iepriekšējais</string>
-    <string name="tour_action_done">Gatavs</string>
     <string name="tour_action_cancel">Izlaist</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Izlaist apskati?</string>
     <string name="tour_confirm_message">Jebkurā laikā varat atkārtoti iespējot apskates no Iestatījumiem.</string>
     <string name="tour_confirm_continue">Turpināt tūri</string>

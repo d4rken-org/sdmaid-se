@@ -236,7 +236,7 @@ internal fun GeneralSettingsScreen(
             item {
                 SettingsSwitchItem(
                     icon = Icons.TwoTone.Widgets,
-                    title = stringResource(R.string.widget_settings_oneclick_title),
+                    title = stringResource(R.string.dashboard_settings_oneclick_title),
                     subtitle = stringResource(R.string.widget_settings_oneclick_summary),
                     checked = state.widgetOneClickEnabled,
                     onCheckedChange = onWidgetOneClickChanged,

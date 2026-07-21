@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
     <string name="settings_privacy_policy_desc">Az adatok felelősségteljes kezelése.</string>
     <string name="settings_category_other_label">Egyéb</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Általános</string>
     <string name="general_settings_desc">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_category_ui_label">Felhasználói felület</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Biztonsági mentés létrehozva, de az alábbi részek meghíusultak: %1$s</string>
     <string name="backup_restore_restore_success">Biztonsági mentés helyreállítva</string>
     <string name="backup_restore_restore_failed">A helyreállítás meghíusult (%1$s). Az előző konfiguráció mentésre került.</string>
-    <string name="backup_restore_undo_action">Visszavonás</string>
     <string name="backup_restore_recovery_title">Korábbi konfiguráció helyreállítása</string>
     <string name="backup_restore_recovery_desc">A befejezetlen helyreállítás biztonsági mentése elérhető</string>
     <string name="backup_restore_confirm_title">Vissza szeretné állítani ezt a biztonsági mentést?</string>

@@ -12,9 +12,7 @@
     <string name="picker_home_action">Области данных</string>
     <string name="tour_action_next">Далее</string>
     <string name="tour_action_previous">Назад</string>
-    <string name="tour_action_done">Готово</string>
     <string name="tour_action_cancel">Пропустить</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Пропустить тур?</string>
     <string name="tour_confirm_message">Вы можете повторно включить туры в любое время в Настройках.</string>
     <string name="tour_confirm_continue">Продолжить тур</string>

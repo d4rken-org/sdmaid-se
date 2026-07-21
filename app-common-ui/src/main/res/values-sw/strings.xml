@@ -10,9 +10,7 @@
     <string name="picker_home_action">Maeneo ya data</string>
     <string name="tour_action_next">Inayofuata</string>
     <string name="tour_action_previous">Iliyotangulia</string>
-    <string name="tour_action_done">Imekamilika</string>
     <string name="tour_action_cancel">Ruka</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Ruka ziara?</string>
     <string name="tour_confirm_message">Unaweza kuwezesha ziara tena wakati wowote kutoka Mipangilio.</string>
     <string name="tour_confirm_continue">Endelea na ziara</string>

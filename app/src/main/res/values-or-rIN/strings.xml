@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">ଗୋପନୀୟତା ନୀତି</string>
     <string name="settings_privacy_policy_desc">ଦାୟିତ୍ୱପୂର୍ଣ୍ଣ ଭାବରେ ତଥ୍ୟ ପରିଚାଳନା କରିବା।</string>
     <string name="settings_category_other_label">ଅନ୍ୟ</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">ସାଧାରଣ</string>
     <string name="general_settings_desc">ସମଗ୍ର ଆପ୍‌କୁ ପ୍ରଭାବିତ କରୁଥିବା ସାଧାରଣ ଟ୍ୱିକ୍ସ।</string>
     <string name="settings_category_ui_label">ବ୍ୟବହାରକାରୀ ଇଣ୍ଟରଫେସ୍</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">ବ୍ୟାକଅପ୍ ସୃଷ୍ଟି ହୋଇଛି, କିନ୍ତୁ ଏହି ଅଂଶଗୁଡ଼ିକ ବିଫଳ ହୋଇଛି: %1$s</string>
     <string name="backup_restore_restore_success">ବ୍ୟାକଅପ୍ ପୁନରସ୍ଥାପନ ହୋଇଛି</string>
     <string name="backup_restore_restore_failed">ପୁନରସ୍ଥାପନ ବିଫଳ ହୋଇଛି (%1$s)। ଆପଣଙ୍କ ପୂର୍ବବର୍ତ୍ତୀ ସଂରଚନା ସଂରକ୍ଷିତ ହୋଇଛି।</string>
-    <string name="backup_restore_undo_action">ପୂର୍ବବତ୍ କରନ୍ତୁ</string>
     <string name="backup_restore_recovery_title">ପୂର୍ବବର୍ତ୍ତୀ ସଂରଚନା ପୁନରୁଦ୍ଧାର କରନ୍ତୁ</string>
     <string name="backup_restore_recovery_desc">ଏକ ଅସମ୍ପୂର୍ଣ ପୁନରସ୍ଥାପନରୁ ଏକ ନିରାପତ୍ତା ସ୍ନାପସଟ୍ ଉପଲବ୍ଧ</string>
     <string name="backup_restore_confirm_title">ଏହି ବ୍ୟାକଅପ୍ ପୁନରସ୍ଥାପନ କରିବେ?</string>

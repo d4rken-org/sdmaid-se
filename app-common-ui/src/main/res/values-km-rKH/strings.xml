@@ -9,9 +9,7 @@
     <string name="picker_home_action">ត្រងតវ័ភបល័យ</string>
     <string name="tour_action_next">បន្ទាប់</string>
     <string name="tour_action_previous">មុន</string>
-    <string name="tour_action_done">រួចរាល់</string>
     <string name="tour_action_cancel">រំលង</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">រំលងដំណើរណែនាំ?</string>
     <string name="tour_confirm_message">អ្នកអាចបើកដំណើរណែនាំឡើងវិញបានគ្រប់ពេលវេលាពីការកំណត់។</string>
     <string name="tour_confirm_continue">បន្តដំណើរណែនាំ</string>

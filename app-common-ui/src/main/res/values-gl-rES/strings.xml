@@ -10,9 +10,7 @@
     <string name="picker_home_action">Áreas de datos</string>
     <string name="tour_action_next">Seguinte</string>
     <string name="tour_action_previous">Anterior</string>
-    <string name="tour_action_done">Feito</string>
     <string name="tour_action_cancel">Omitir</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Omitir a visita guiada?</string>
     <string name="tour_confirm_message">Podes volver activar as visitas guiadas en calquera momento desde Axustes.</string>
     <string name="tour_confirm_continue">Continúa a visita guiada</string>

@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>
     <string name="settings_category_other_label">Bestelakoak</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Orokorra</string>
     <string name="general_settings_desc">Aplikazio osoa eragiten duten doikuntza orokorrak.</string>
     <string name="settings_category_ui_label">Erabiltzaile-interfazea</string>
@@ -341,7 +340,6 @@ Probatu: %3$s</item>
     <string name="backup_restore_export_partial">Babeskopia sortu da, baina zati hauek huts egin zuten: %1$s</string>
     <string name="backup_restore_restore_success">Babeskopia berreskuratu da</string>
     <string name="backup_restore_restore_failed">Berreskuratzeak huts egin du (%1$s). Zure aurreko konfigurazioa gorde da.</string>
-    <string name="backup_restore_undo_action">Desegin</string>
     <string name="backup_restore_recovery_title">Aurreko konfigurazioa berreskuratu</string>
     <string name="backup_restore_recovery_desc">Amaitu gabeko berreskuratzearen segurtasun-kopia dago</string>
     <string name="backup_restore_confirm_title">Babeskopia hau berreskuratu?</string>

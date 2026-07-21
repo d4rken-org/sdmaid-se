@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
     <string name="settings_category_other_label">Sonstiges</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Allgemein</string>
     <string name="general_settings_desc">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_category_ui_label">Benutzeroberfläche</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Sicherung erstellt, aber diese Teile konnten nicht gesichert werden: %1$s</string>
     <string name="backup_restore_restore_success">Sicherung wiederhergestellt</string>
     <string name="backup_restore_restore_failed">Wiederherstellung fehlgeschlagen (%1$s). Ihre vorherige Konfiguration wurde gespeichert.</string>
-    <string name="backup_restore_undo_action">Rückgängig machen</string>
     <string name="backup_restore_recovery_title">Vorherige Konfiguration wiederherstellen</string>
     <string name="backup_restore_recovery_desc">Eine Sicherheitskopie aus einer unvollendeten Wiederherstellung ist verfügbar</string>
     <string name="backup_restore_confirm_title">Diese Sicherung wiederherstellen?</string>

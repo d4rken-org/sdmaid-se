@@ -12,9 +12,7 @@
     <string name="picker_home_action">Podatkovna področja</string>
     <string name="tour_action_next">Naprej</string>
     <string name="tour_action_previous">Nazaj</string>
-    <string name="tour_action_done">Končano</string>
     <string name="tour_action_cancel">Preskoči</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Preskočiti turo?</string>
     <string name="tour_confirm_message">Ture lahko kadar koli ponovno omogočite v nastavitvah.</string>
     <string name="tour_confirm_continue">Nadaljuj turo</string>

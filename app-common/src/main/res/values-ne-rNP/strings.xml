@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">फिल्टर थप्नुहोस्</string>
     <string name="general_filter_remove_x_action">%s फिल्टर हटाउनुहोस्</string>
     <string name="general_filter_empty_row_hint">फिल्टर गर्नको लागि + ट्याप गर्नुहोस्</string>
-    <string name="general_show_all_action">सबै देखाउनुहोस्</string>
     <string name="general_result_success_message">सफलतापूर्वक सम्पन्न</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ठाउँ खाली गरियो।</item>

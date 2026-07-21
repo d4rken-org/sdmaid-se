@@ -10,9 +10,7 @@
     <string name="picker_home_action">Aree di dati</string>
     <string name="tour_action_next">Avanti</string>
     <string name="tour_action_previous">Precedente</string>
-    <string name="tour_action_done">Fatto</string>
     <string name="tour_action_cancel">Salta</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Saltare il tour?</string>
     <string name="tour_confirm_message">Puoi riabilitare i tour in qualsiasi momento dalle Impostazioni.</string>
     <string name="tour_confirm_continue">Continua il tour</string>

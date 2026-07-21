@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Lisää suodatin</string>
     <string name="general_filter_remove_x_action">Poista %s suodatin</string>
     <string name="general_filter_empty_row_hint">Napauta + suodattaaksesi</string>
-    <string name="general_show_all_action">Näytä kaikki</string>
     <string name="general_result_success_message">Toiminto onnistui</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vapautettiin %s tilaa.</item>

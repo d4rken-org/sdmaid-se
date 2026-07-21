@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">Политика конфиденциальности</string>
     <string name="settings_privacy_policy_desc">Ответственность за обращение с данными.</string>
     <string name="settings_category_other_label">Прочее</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Общее</string>
     <string name="general_settings_desc">Настройки, которые влияют на всё приложение.</string>
     <string name="settings_category_ui_label">Интерфейс пользователя</string>
@@ -353,7 +352,6 @@
     <string name="backup_restore_export_partial">Резервная копия создана, но эти части не удалось создать: %1$s</string>
     <string name="backup_restore_restore_success">Резервная копия восстановлена</string>
     <string name="backup_restore_restore_failed">Восстановление не удалось (%1$s). Ваша предыдущая конфигурация была сохранена.</string>
-    <string name="backup_restore_undo_action">Отменить</string>
     <string name="backup_restore_recovery_title">Восстановить предыдущую конфигурацию</string>
     <string name="backup_restore_recovery_desc">Доступен снимок безопасности из незавершённого восстановления</string>
     <string name="backup_restore_confirm_title">Восстановить эту резервную копию?</string>

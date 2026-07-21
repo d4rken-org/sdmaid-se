@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">إضافة مرشح</string>
     <string name="general_filter_remove_x_action">إزالة مرشح %s</string>
     <string name="general_filter_empty_row_hint">اضغط + للتصفية</string>
-    <string name="general_show_all_action">عرض الكل</string>
     <string name="general_result_success_message">تمت المهمة بنجاح</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="zero">أفرج عن مساحة %s.</item>

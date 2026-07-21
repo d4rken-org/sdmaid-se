@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">ഫിൽട്ടർ ചേർക്കുക</string>
     <string name="general_filter_remove_x_action">%s ഫിൽട്ടർ നീക്കം ചെയ്യുക</string>
     <string name="general_filter_empty_row_hint">ഫിൽട്ടർ ചെയ്യാൻ + അമർത്തുക</string>
-    <string name="general_show_all_action">എല്ലാം കാണിക്കുക</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s സ്ഥലം സ്വതന്ത്രമാക്കി.</item>

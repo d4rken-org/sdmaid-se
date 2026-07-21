@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
     <string name="settings_privacy_policy_desc">Υπεύθυνη διαχείριση δεδομένων.</string>
     <string name="settings_category_other_label">Άλλο</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Γενικά</string>
     <string name="general_settings_desc">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_category_ui_label">Περιβάλλον χρήστη</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Αντίγραφο ασφαλείας δημιουργήθηκε, αλλά αυτά τα μέρη απέτυχαν: %1$s</string>
     <string name="backup_restore_restore_success">Αντίγραφο ασφαλείας επαναφέρθηκε</string>
     <string name="backup_restore_restore_failed">Η επαναφορά απέτυχε (%1$s). Η προηγούμενη ρύθμισή σας αποθηκεύτηκε.</string>
-    <string name="backup_restore_undo_action">Αναίρεση</string>
     <string name="backup_restore_recovery_title">Ανάκτηση προηγούμενης ρύθμισης</string>
     <string name="backup_restore_recovery_desc">Ένα στιγμιότυπο ασφαλείας από μια ημιτελή επαναφορά είναι διαθέσιμο</string>
     <string name="backup_restore_confirm_title">Επαναφορά αυτού του αντιγράφου ασφαλείας;</string>

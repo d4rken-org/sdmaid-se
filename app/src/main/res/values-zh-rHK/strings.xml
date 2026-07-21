@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">私隱政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
     <string name="settings_category_other_label">其他</string>
-    <string name="upgrade_badge_label">專業版</string>
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">影響整個應用程式的一般調校。</string>
     <string name="settings_category_ui_label">使用者介面</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">已建立備份，但下列部分失敗：%1$s</string>
     <string name="backup_restore_restore_success">備份已還原</string>
     <string name="backup_restore_restore_failed">還原失敗（%1$s）。您的先前設定已儲存。</string>
-    <string name="backup_restore_undo_action">復原</string>
     <string name="backup_restore_recovery_title">復原先前的設定</string>
     <string name="backup_restore_recovery_desc">有一份未完成還原的安全快照可用</string>
     <string name="backup_restore_confirm_title">還原此備份？</string>

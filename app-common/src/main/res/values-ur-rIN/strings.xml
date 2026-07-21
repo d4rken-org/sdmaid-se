@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">فلٹر شامل کریں</string>
     <string name="general_filter_remove_x_action">%s فلٹر ہٹائیں</string>
     <string name="general_filter_empty_row_hint">فلٹر کرنے کے لیے + پر ٹیپ کریں</string>
-    <string name="general_show_all_action">سب دکھائیں</string>
     <string name="general_result_success_message">کامیابی سے مکمل</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s جگہ آزاد کی گئی۔</item>

@@ -37,7 +37,6 @@
     <string name="appcontrol_list_sortmode_size_label">വലിപ്പം</string>
     <string name="appcontrol_list_sortmode_screentime_label">സ്ക്രീൻ സമയം</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ആപ്പ് വലിപ്പങ്ങൾ പ്രകടനകാരണങ്ങൾക്കായി കണക്കാക്കല്പിക്കപ്പെടുന്നു. കൂടുതൽ കൃത്യമായ ഡേറ്റക്കായി StorageAnalyzer ടൂൾ ഉപയോഗിക്കുക.</string>
-    <string name="appcontrol_list_filteroptions_label">ഫിൽടർ ഓപ്ഷൻസ്</string>
     <string name="appcontrol_progress_uninstalling_app">ആപ്പ് അൻ ഇൻസ്റ്റാൾ ചെയ്യുന്നു</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ആപ്പ് അൻഇൻസ്റ്റാൾ ചെയ്തു</item>

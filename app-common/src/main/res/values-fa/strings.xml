@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">افزودن فیلتر</string>
     <string name="general_filter_remove_x_action">حذف فیلتر %s</string>
     <string name="general_filter_empty_row_hint">برای فیلتر + را لمس کنید</string>
-    <string name="general_show_all_action">نمایش همه</string>
     <string name="general_result_success_message">عملیات موفق</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s فضا آزاد شد.</item>

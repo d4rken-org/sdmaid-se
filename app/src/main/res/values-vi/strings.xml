@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
     <string name="settings_privacy_policy_desc">Xử lý dữ liệu có trách nhiệm.</string>
     <string name="settings_category_other_label">Khác</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Tổng quan</string>
     <string name="general_settings_desc">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_category_ui_label">Giao diện người dùng</string>
@@ -334,7 +333,6 @@ TheNothingGuy</string>
     <string name="backup_restore_export_partial">Đã tạo sao lưu, nhưng các phần này không thành công: %1$s</string>
     <string name="backup_restore_restore_success">Đã khôi phục sao lưu</string>
     <string name="backup_restore_restore_failed">Khôi phục không thành công (%1$s). Cấu hình trước đó của bạn đã được lưu.</string>
-    <string name="backup_restore_undo_action">Hoàn tác</string>
     <string name="backup_restore_recovery_title">Khôi phục cấu hình trước đó</string>
     <string name="backup_restore_recovery_desc">Có một ảnh chụp nhanh an toàn từ lần khôi phục chưa hoàn thành</string>
     <string name="backup_restore_confirm_title">Khôi phục sao lưu này?</string>

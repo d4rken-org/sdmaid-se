@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">គោលការណ៍ឯកជនភាព</string>
     <string name="settings_privacy_policy_desc">ការដោះស្រាយទិន្នន័យដោយមានការទទួលខុសត្រូវ។</string>
     <string name="settings_category_other_label">ដទៃ</string>
-    <string name="upgrade_badge_label">ប្រូ</string>
     <string name="general_settings_label">ជាទូទៅ</string>
     <string name="general_settings_desc">ការកែលម្អ ទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
     <string name="settings_category_ui_label">អន្តរមុខអ្នកប្រើ</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">បានបង្កើតការបម្រុង ប៉ុន្តែផ្នែកទាំងនេះបានបរាជ័យ៖ %1$s</string>
     <string name="backup_restore_restore_success">បានស្ដារការបម្រុង</string>
     <string name="backup_restore_restore_failed">ការស្ដារបានបរាជ័យ (%1$s)។ ការកំណត់របស់អ្នកដែលបានកន្លងទៅត្រូវបានរក្សាទុក។</string>
-    <string name="backup_restore_undo_action">អាន់ឌូ</string>
     <string name="backup_restore_recovery_title">ស្ដារការកំណត់របស់អ្នកដែលបានកន្លងទៅ</string>
     <string name="backup_restore_recovery_desc">ឯកសារបម្រុងសុវត្ថិភាពពីការស្ដារដែលមិនបានបញ្ចប់គឺមាន</string>
     <string name="backup_restore_confirm_title">ស្ដារការបម្រុងនេះឬ?</string>

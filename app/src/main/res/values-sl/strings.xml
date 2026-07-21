@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">Pravilnik o zasebnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno ravnanje s podatki.</string>
     <string name="settings_category_other_label">Drugo</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Splošno</string>
     <string name="general_settings_desc">Splošne prilagoditve, ki vplivajo na cel program.</string>
     <string name="settings_category_ui_label">Uporabniški vmesnik</string>
@@ -353,7 +352,6 @@
     <string name="backup_restore_export_partial">Varnostna kopija je bila ustvarjena, vendar so ti deli spodleteli: %1$s</string>
     <string name="backup_restore_restore_success">Varnostna kopija je bila obnovljena</string>
     <string name="backup_restore_restore_failed">Obnovitev je spodletela (%1$s). Vaša prejšnja konfiguracija je bila shranjena.</string>
-    <string name="backup_restore_undo_action">Razveljavi</string>
     <string name="backup_restore_recovery_title">Obnovi prejšnjo konfiguracijo</string>
     <string name="backup_restore_recovery_desc">Na voljo je varnostni posnetek iz nedokončane obnovitve</string>
     <string name="backup_restore_confirm_title">Želite obnoviti to varnostno kopijo?</string>

@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Maxfiylik siyosati</string>
     <string name="settings_privacy_policy_desc">Ma\'lumotlar bilan mas\'uliyat bilan ishlash.</string>
     <string name="settings_category_other_label">Boshqa</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Umumiy</string>
     <string name="general_settings_desc">Butun ilovaga ta\'sir qiladigan umumiy sozlamalar.</string>
     <string name="settings_category_ui_label">Foydalanuvchi interfeysi</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Zaxira nusxasi yaratildi, ammo quyidagi qismlar amalga oshmadi: %1$s</string>
     <string name="backup_restore_restore_success">Zaxira nusxasi tiklandi</string>
     <string name="backup_restore_restore_failed">Tiklash amalga oshmadi (%1$s). Oldingi konfiguratsiyangiz saqlab qo\'yildi.</string>
-    <string name="backup_restore_undo_action">Bekor qilish</string>
     <string name="backup_restore_recovery_title">Oldingi konfiguratsiyani tiklash</string>
     <string name="backup_restore_recovery_desc">Tugallanmagan tiklashdan xavfsizlik nusxasi mavjud</string>
     <string name="backup_restore_confirm_title">Ushbu zaxira nusxasi tiklansinmi?</string>

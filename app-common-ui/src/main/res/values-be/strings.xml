@@ -12,9 +12,7 @@
     <string name="picker_home_action">Вобласці даных</string>
     <string name="tour_action_next">Далей</string>
     <string name="tour_action_previous">Папярэдні</string>
-    <string name="tour_action_done">Гатова</string>
     <string name="tour_action_cancel">Прапусціць</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Прапусціць тур?</string>
     <string name="tour_confirm_message">Вы можаце ў любы час заноў ўключыць туры з Налад.</string>
     <string name="tour_confirm_continue">Працягнуць тур</string>

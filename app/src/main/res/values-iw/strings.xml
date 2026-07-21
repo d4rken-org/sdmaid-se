@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_category_other_label">אחר</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">כללי</string>
     <string name="general_settings_desc">שינויים כללים המשפיעים על כל האפליקציה.</string>
     <string name="settings_category_ui_label">ממשק משתמש</string>
@@ -354,7 +353,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="backup_restore_export_partial">הגיבוי נוצר, אך החלקים הבאים נכשלו: %1$s</string>
     <string name="backup_restore_restore_success">הגיבוי שוחזר</string>
     <string name="backup_restore_restore_failed">השחזור נכשל (%1$s). התצורה הקודמת שלך נשמרה.</string>
-    <string name="backup_restore_undo_action">ביטול</string>
     <string name="backup_restore_recovery_title">שחזר את התצורה הקודמת</string>
     <string name="backup_restore_recovery_desc">צילום בטיחות משחזור שלא הושלם זמין</string>
     <string name="backup_restore_confirm_title">לשחזר את הגיבוי הזה?</string>

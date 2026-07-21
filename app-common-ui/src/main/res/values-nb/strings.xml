@@ -10,9 +10,7 @@
     <string name="picker_home_action">Dataområder</string>
     <string name="tour_action_next">Neste</string>
     <string name="tour_action_previous">Forrige</string>
-    <string name="tour_action_done">Ferdig</string>
     <string name="tour_action_cancel">Hopp over</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Hoppe over turen?</string>
     <string name="tour_confirm_message">Du kan aktivere turer på nytt når som helst fra Innstillinger.</string>
     <string name="tour_confirm_continue">Fortsett omvisning</string>

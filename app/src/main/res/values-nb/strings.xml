@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
     <string name="settings_category_other_label">Andre</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Generelt</string>
     <string name="general_settings_desc">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_category_ui_label">Brukergrensesnitt</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Sikkerhetskopi opprettet, men disse delene mislyktes: %1$s</string>
     <string name="backup_restore_restore_success">Sikkerhetskopi gjenopprettet</string>
     <string name="backup_restore_restore_failed">Gjenoppretting mislyktes (%1$s). Din tidligere konfigurasjon ble lagret.</string>
-    <string name="backup_restore_undo_action">Angre</string>
     <string name="backup_restore_recovery_title">Gjenopprett tidligere konfigurasjon</string>
     <string name="backup_restore_recovery_desc">En sikkerhetskopi fra en uferdig gjenoppretting er tilgjengelig</string>
     <string name="backup_restore_confirm_title">Gjenopprette denne sikkerhetskopien?</string>

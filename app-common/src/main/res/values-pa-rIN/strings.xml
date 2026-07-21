@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">ਫਿਲਟਰ ਜੋੜੋ</string>
     <string name="general_filter_remove_x_action">%s ਫਿਲਟਰ ਨੂੰ ਹਟਾਓ</string>
     <string name="general_filter_empty_row_hint">ਫਿਲਟਰ ਕਰਨ ਲਈ + ਨੂੰ ਟੈਪ ਕਰੋ</string>
-    <string name="general_show_all_action">ਸਾਰੇ ਦਿਖਾਓ</string>
     <string name="general_result_success_message">ਕਾਰਵਾਈ ਸਫਲ ਹੋਈ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ਜਗ੍ਹਾ ਮੁਫਤ ਕੀਤੀ।</item>

@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">新增篩選</string>
     <string name="general_filter_remove_x_action">移除 %s 篩選</string>
     <string name="general_filter_empty_row_hint">點擊 + 來篩選</string>
-    <string name="general_show_all_action">全部顯示</string>
     <string name="general_result_success_message">作業成功</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已釋放 %s 空間。</item>

@@ -10,9 +10,7 @@
     <string name="picker_home_action">ഡേറ്റ മേഖലകൾ</string>
     <string name="tour_action_next">അടുത്തത്</string>
     <string name="tour_action_previous">മുമ്പത്തെ</string>
-    <string name="tour_action_done">പൂർത്തിയായി</string>
     <string name="tour_action_cancel">ഒഴിവാക്കുക</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">ടൂർ ഒഴിവാക്കണോ?</string>
     <string name="tour_confirm_message">നിങ്ങൾക്ക് എതു സമയത്തും സെറ്റിംഗുകളിൽ നിന്നും ടൂറുകൾ വീണ്ടും ഓണാക്കാം.</string>
     <string name="tour_confirm_continue">ടൂർ തുടരുക</string>

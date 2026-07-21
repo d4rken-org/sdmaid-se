@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
     <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
     <string name="settings_category_other_label">دیگر</string>
-    <string name="upgrade_badge_label">پرو</string>
     <string name="general_settings_label">عمومی</string>
     <string name="general_settings_desc">عمومی تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
     <string name="settings_category_ui_label">یوزر انٹرفیس</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">بیک اپ بنایا گیا، لیکن یہ حصے ناکام رہے: %1$s</string>
     <string name="backup_restore_restore_success">بیک اپ بحال کیا گیا</string>
     <string name="backup_restore_restore_failed">بحالی ناکام ہو گئی (%1$s)۔ آپ کی پچھلی ترتیبات محفوظ کر دی گئی ہیں۔</string>
-    <string name="backup_restore_undo_action">کالعدم کریں</string>
     <string name="backup_restore_recovery_title">پچھلی ترتیب کو بحال کریں</string>
     <string name="backup_restore_recovery_desc">ایک نامکمل بحالی سے ایک حفاظتی نقل دستیاب ہے</string>
     <string name="backup_restore_confirm_title">کیا یہ بیک اپ بحال کریں؟</string>

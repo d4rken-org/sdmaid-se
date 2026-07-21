@@ -9,9 +9,7 @@
     <string name="picker_home_action">ພື້ນທີ່ຂໍ້ມູນ</string>
     <string name="tour_action_next">ຕໍ່ໄປ</string>
     <string name="tour_action_previous">ກໍ່ນ</string>
-    <string name="tour_action_done">ສຳເລັດ</string>
     <string name="tour_action_cancel">ຂ້າມ</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">ຂ້າມການທ່ຽວທໍງບໍ?</string>
     <string name="tour_confirm_message">ທ່ານສາມາດເປີດໃຊ້ການທ່ຽວທໍງໄດ້ທຸກເວລາຈາກການຕັ້ງຄ່າ.</string>
     <string name="tour_confirm_continue">ສືບຕໍ່ການທ່ຽວທໍງ</string>

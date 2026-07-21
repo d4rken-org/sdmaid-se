@@ -10,9 +10,7 @@
     <string name="picker_home_action">Ma\'lumotlar sohalari</string>
     <string name="tour_action_next">Keyingi</string>
     <string name="tour_action_previous">Oldingi</string>
-    <string name="tour_action_done">Tayyor</string>
     <string name="tour_action_cancel">O\'tkazib yuborish</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Sayohat o\'tkazib yuborilsinmi?</string>
     <string name="tour_confirm_message">Sayohatlarni istalgan vaqt Sozlamalar orqali qayta yoqishingiz mumkin.</string>
     <string name="tour_confirm_continue">Sayohatni davom ettirish</string>

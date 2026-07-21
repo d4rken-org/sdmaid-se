@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">Polityka prywatności</string>
     <string name="settings_privacy_policy_desc">Odpowiedzialne zarządzanie danymi.</string>
     <string name="settings_category_other_label">Inne</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Ogólne</string>
     <string name="general_settings_desc">Ogólne ustawienia wpływające na całą aplikację.</string>
     <string name="settings_category_ui_label">Interfejs użytkownika</string>
@@ -354,7 +353,6 @@ Karol Szastok (K4r0lSz);</string>
     <string name="backup_restore_export_partial">Kopia zapasowa utworzona, ale części się nie powiodły: %1$s</string>
     <string name="backup_restore_restore_success">Kopia zapasowa przywrócona</string>
     <string name="backup_restore_restore_failed">Przywracanie nie powiodło się (%1$s). Poprzednia konfiguracja została zapisana.</string>
-    <string name="backup_restore_undo_action">Cofnij</string>
     <string name="backup_restore_recovery_title">Przywróć poprzednią konfigurację</string>
     <string name="backup_restore_recovery_desc">Dostępna jest migawka bezpieczeństwa z niezakończonego przywracania</string>
     <string name="backup_restore_confirm_title">Przywrócić tę kopię zapasową?</string>

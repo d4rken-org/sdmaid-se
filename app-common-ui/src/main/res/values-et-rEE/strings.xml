@@ -10,9 +10,7 @@
     <string name="picker_home_action">Andmekogud</string>
     <string name="tour_action_next">Järgmine</string>
     <string name="tour_action_previous">Eelmine</string>
-    <string name="tour_action_done">Valmis</string>
     <string name="tour_action_cancel">Jäta vahele</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Jäta tuur vahele?</string>
     <string name="tour_confirm_message">Saate tuurid seadete kaudu igal ajal uuesti lubada.</string>
     <string name="tour_confirm_continue">Jätka tuuri</string>

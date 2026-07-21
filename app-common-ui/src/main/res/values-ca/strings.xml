@@ -10,9 +10,7 @@
     <string name="picker_home_action">Àrees de dades</string>
     <string name="tour_action_next">Següent</string>
     <string name="tour_action_previous">Anterior</string>
-    <string name="tour_action_done">Fet</string>
     <string name="tour_action_cancel">Omet</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Vols saltar la visita guiada?</string>
     <string name="tour_confirm_message">Pots reactivar les visites guiades en qualsevol moment des de Configuració.</string>
     <string name="tour_confirm_continue">Continua la visita guiada</string>

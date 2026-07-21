@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">បន្ថែមតម្រង</string>
     <string name="general_filter_remove_x_action">លុបតម្រង %s</string>
     <string name="general_filter_empty_row_hint">ចុចលើ + ដើម្បីតម្រង</string>
-    <string name="general_show_all_action">បង្ហាញទាំងអស់</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">ទំហំនៅទំនេរ %s។</item>

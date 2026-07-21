@@ -113,7 +113,6 @@
     <string name="settings_privacy_policy_label">Палітыка канфідэнцыяльнасці</string>
     <string name="settings_privacy_policy_desc">Адказнае абыходжанне з данымі.</string>
     <string name="settings_category_other_label">Іншае</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Агульныя</string>
     <string name="general_settings_desc">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_category_ui_label">Карыстальніцкі інтэрфейс</string>
@@ -353,7 +352,6 @@
     <string name="backup_restore_export_partial">Рэзервовая копія створана, але гэтыя часткі не атрымаліся: %1$s</string>
     <string name="backup_restore_restore_success">Рэзервовая копія адноўлена</string>
     <string name="backup_restore_restore_failed">Аднаўленне не ўдалося (%1$s). Ваша папярэдняя канфігурацыя была захавана.</string>
-    <string name="backup_restore_undo_action">Скасаваць</string>
     <string name="backup_restore_recovery_title">Аднавіць папярэднюю канфігурацыю</string>
     <string name="backup_restore_recovery_desc">Даступны бяспечны здымак ад незавершанага аднаўлення</string>
     <string name="backup_restore_confirm_title">Аднавіць гэту рэзервовую копію?</string>

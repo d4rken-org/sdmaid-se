@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Tietosuojakäytäntö</string>
     <string name="settings_privacy_policy_desc">Vastuullinen tietojen käsittely.</string>
     <string name="settings_category_other_label">Muut</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Yleiset</string>
     <string name="general_settings_desc">Yleiset säädöt jotka vaikuttavat koko sovellukseen.</string>
     <string name="settings_category_ui_label">Käyttöliittymä</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Varmuuskopio luotu, mutta nämä osat epäonnistuivat: %1$s</string>
     <string name="backup_restore_restore_success">Varmuuskopio palautettu</string>
     <string name="backup_restore_restore_failed">Palautus epäonnistui (%1$s). Aiempi konfiguraatiosi tallennettiin.</string>
-    <string name="backup_restore_undo_action">Kumoa</string>
     <string name="backup_restore_recovery_title">Palauta aiempi konfiguraatio</string>
     <string name="backup_restore_recovery_desc">Turvallinen tilannekuva keskeneräisestä palautuksesta on saatavilla</string>
     <string name="backup_restore_confirm_title">Palautetaanko tämä varmuuskopio?</string>

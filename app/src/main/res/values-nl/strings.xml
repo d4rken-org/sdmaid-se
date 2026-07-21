@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Privacybeleid</string>
     <string name="settings_privacy_policy_desc">Verantwoord met gegevens omgaan.</string>
     <string name="settings_category_other_label">Andere</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Algemeen</string>
     <string name="general_settings_desc">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_category_ui_label">Gebruikersinterface</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Back-up gemaakt, maar deze onderdelen zijn mislukt: %1$s</string>
     <string name="backup_restore_restore_success">Back-up hersteld</string>
     <string name="backup_restore_restore_failed">Herstellen mislukt (%1$s). Uw vorige configuratie is opgeslagen.</string>
-    <string name="backup_restore_undo_action">Ongedaan maken</string>
     <string name="backup_restore_recovery_title">Vorige configuratie herstellen</string>
     <string name="backup_restore_recovery_desc">Een veiligheidsmomentopname van een onafgerond herstel is beschikbaar</string>
     <string name="backup_restore_confirm_title">Deze back-up herstellen?</string>

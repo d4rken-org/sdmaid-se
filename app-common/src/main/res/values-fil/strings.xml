@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Magdagdag ng filter</string>
     <string name="general_filter_remove_x_action">Tanggalin ang %s filter</string>
     <string name="general_filter_empty_row_hint">Tapikin ang + para mag-filter</string>
-    <string name="general_show_all_action">Ipakita lahat</string>
     <string name="general_result_success_message">Matagumpay ang operasyon</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Na-free na ang %s na espasyo.</item>

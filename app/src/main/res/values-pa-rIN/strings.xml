@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
     <string name="settings_privacy_policy_desc">ਡੇਟਾ ਨੂੰ ਜ਼ਿੰਮੇਵਾਰੀ ਨਾਲ ਸੰਭਾਲ ਰਿਹਾ ਹੈ।</string>
     <string name="settings_category_other_label">ਹੋਰ</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">ਆਮ</string>
     <string name="general_settings_desc">ਆਮ ਟਵੀਕਸ ਜੋ ਪੂਰੀ ਐਪ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੇ ਹਨ।</string>
     <string name="settings_category_ui_label">ਵਰਤੋਂਕਾਰ ਇੰਟਰਫੇਸ</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">ਬੈਕਅੱਪ ਬਣਾਇਆ ਗਿਆ, ਪਰ ਇਹ ਭਾਗ ਅਸਫਲ ਰਹੇ: %1$s</string>
     <string name="backup_restore_restore_success">ਬੈਕਅੱਪ ਬਹਾਲ ਕੀਤਾ ਗਿਆ</string>
     <string name="backup_restore_restore_failed">ਬਹਾਲੀ ਅਸਫਲ (%1$s)। ਤੁਹਾਡੀ ਪਿਛਲੀ ਸੰਰਚਨਾ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਗਈ ਸੀ।</string>
-    <string name="backup_restore_undo_action">ਅਣਕੀਤਾ ਕਰੋ</string>
     <string name="backup_restore_recovery_title">ਪਿਛਲੀ ਸੰਰਚਨਾ ਨੂੰ ਪੁਨਰ ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="backup_restore_recovery_desc">ਇੱਕ ਅਧੂਰੀ ਬਹਾਲੀ ਤੋਂ ਸੁਰੱਖਿਆ ਸਨੈਪਸ਼ਾਟ ਉਪਲਬਧ ਹੈ</string>
     <string name="backup_restore_confirm_title">ਕੀ ਇਸ ਬੈਕਅੱਪ ਨੂੰ ਬਹਾਲ ਕਰੀਏ?</string>

@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Gizlilik siyasəti</string>
     <string name="settings_privacy_policy_desc">Məlumatları məsuliyyətlə idarə etmək.</string>
     <string name="settings_category_other_label">Digər</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Ümumi</string>
     <string name="general_settings_desc">Bütün tətbiqi təsir edən ümumi tənzimlər.</string>
     <string name="settings_category_ui_label">İstifadəçi interfeysi</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Ehtiyat nüsxə yaradıldı, lakin bu hissələr uğursuz oldu: %1$s</string>
     <string name="backup_restore_restore_success">Ehtiyat nüsxə bərpa edildi</string>
     <string name="backup_restore_restore_failed">Bərpa uğursuz oldu (%1$s). Əvvəlki konfiqurasiyanız saxlanıldı.</string>
-    <string name="backup_restore_undo_action">Geri al</string>
     <string name="backup_restore_recovery_title">Əvvəlki konfiqurasiyanı bərpa et</string>
     <string name="backup_restore_recovery_desc">Bitməmiş bərpadan bir təhlükəsizlik ehtiyat nüsxəsi mövcuddur</string>
     <string name="backup_restore_confirm_title">Bu ehtiyat nüsxəni bərpa et?</string>

@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Política de privadesa</string>
     <string name="settings_privacy_policy_desc">Tractament responsable de les dades.</string>
     <string name="settings_category_other_label">Altres</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Retocs generals que afecten tota l\'aplicació.</string>
     <string name="settings_category_ui_label">Interfície d\'usuari</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Còpia de seguretat creada, però aquestes parts han fallat: %1$s</string>
     <string name="backup_restore_restore_success">Còpia de seguretat restaurada</string>
     <string name="backup_restore_restore_failed">La restauració ha fallat (%1$s). S\'ha desat la configuració anterior.</string>
-    <string name="backup_restore_undo_action">Desfés</string>
     <string name="backup_restore_recovery_title">Recupera la configuració anterior</string>
     <string name="backup_restore_recovery_desc">Hi ha disponible una còpia de seguretat d\'una restauració inacabada</string>
     <string name="backup_restore_confirm_title">Vols restaurar aquesta còpia de seguretat?</string>

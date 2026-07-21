@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Engeza isifaka</string>
     <string name="general_filter_remove_x_action">Susa %s isifaka</string>
     <string name="general_filter_empty_row_hint">Thinta + ukuhlela</string>
-    <string name="general_show_all_action">Bonisa konke</string>
     <string name="general_result_success_message">Kuqedwe ngempumelelo</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Isikhala se-%s sikhululiwe.</item>

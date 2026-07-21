@@ -104,7 +104,6 @@
     <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
     <string name="settings_privacy_policy_desc">จัดการข้อมูลอย่างมีความรับผิดชอบ</string>
     <string name="settings_category_other_label">อื่นๆ</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">ทั่วไป</string>
     <string name="general_settings_desc">ตัวปรับแต่งทั่วไปที่มีผลต่อทั้งแอพ</string>
     <string name="settings_category_ui_label">ส่วนติดต่อผู้ใช้</string>
@@ -332,7 +331,6 @@
     <string name="backup_restore_export_partial">สร้างการสำรองข้อมูลแล้ว แต่ส่วนต่อไปนี้ล้มเหลว: %1$s</string>
     <string name="backup_restore_restore_success">กู้คืนการสำรองข้อมูลแล้ว</string>
     <string name="backup_restore_restore_failed">การกู้คืนล้มเหลว (%1$s) การตั้งค่าก่อนหน้าของคุณได้ถูกบันทึกไว้</string>
-    <string name="backup_restore_undo_action">เลิกทำ</string>
     <string name="backup_restore_recovery_title">กู้คืนการตั้งค่าก่อนหน้า</string>
     <string name="backup_restore_recovery_desc">มีภาพสำรองความปลอดภัยจากการกู้คืนที่ไม่เสร็จพร้อมใช้งาน</string>
     <string name="backup_restore_confirm_title">กู้คืนการสำรองข้อมูลนี้หรือไม่</string>

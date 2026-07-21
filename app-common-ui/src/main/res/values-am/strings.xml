@@ -10,9 +10,7 @@
     <string name="picker_home_action">የውሂብ አካባቢዎች</string>
     <string name="tour_action_next">ቀጥሎ</string>
     <string name="tour_action_previous">ቀዳሚ</string>
-    <string name="tour_action_done">ተከናውኗል</string>
     <string name="tour_action_cancel">ዝለል</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">ጉብኝቱን ዝለል?</string>
     <string name="tour_confirm_message">ከማቅናቶች ውስጥ ማንኛውም ጊዜ ጉብኝቶችን እንደገና ማብራት ይችላሉ።</string>
     <string name="tour_confirm_continue">ጉብኝቱን ቀጥል</string>

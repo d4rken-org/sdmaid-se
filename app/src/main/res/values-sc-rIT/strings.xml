@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Polìtica de riservadesa</string>
     <string name="settings_privacy_policy_desc">Gestimentu responsàbile de sos datos.</string>
     <string name="settings_category_other_label">Àteru</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Generale</string>
     <string name="general_settings_desc">Agiustedas generales chi afetant tota s\'aplicaçione.</string>
     <string name="settings_category_ui_label">Interfache de s\'impreadore</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Copia creatza, ma istas partis fallint: %1$s</string>
     <string name="backup_restore_restore_success">Copia ripristinada</string>
     <string name="backup_restore_restore_failed">Su ripristinu fallit (%1$s). Sa tua configuratzione anteriore est istada sarvada.</string>
-    <string name="backup_restore_undo_action">Annulla</string>
     <string name="backup_restore_recovery_title">Recupera sa configuratzione anteriore</string>
     <string name="backup_restore_recovery_desc">Una istantanea de seguidade da unu ripristinu non finidu est disponibile</string>
     <string name="backup_restore_confirm_title">Ripristina sa copia?</string>

@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">ფილტრის დამატება</string>
     <string name="general_filter_remove_x_action">%s ფილტრის წაშლა</string>
     <string name="general_filter_empty_row_hint">დააჭირე + ფილტრირებისთვის</string>
-    <string name="general_show_all_action">ყველას ჩვენება</string>
     <string name="general_result_success_message">ოპერაცია წარმატებული</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s ადგილი განთავისუფლდა.</item>

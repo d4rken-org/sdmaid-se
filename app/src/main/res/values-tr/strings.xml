@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Gizlilik politikası</string>
     <string name="settings_privacy_policy_desc">Veriler sorumlu bir şekilde işlenir.</string>
     <string name="settings_category_other_label">Diğer</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Genel</string>
     <string name="general_settings_desc">Tüm uygulamayı etkileyen genel ince ayarlar.</string>
     <string name="settings_category_ui_label">Kullanıcı arayüzü</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Yedek oluşturuldu, ancak bu bölümler başarısız oldu: %1$s</string>
     <string name="backup_restore_restore_success">Yedek geri yüklendi</string>
     <string name="backup_restore_restore_failed">Geri yükleme başarısız oldu (%1$s). Önceki yapılandırmanız kaydedildi.</string>
-    <string name="backup_restore_undo_action">Geri al</string>
     <string name="backup_restore_recovery_title">Önceki yapılandırmayı kurtar</string>
     <string name="backup_restore_recovery_desc">Tamamlanmamış bir geri yüklemeden bir güvenlik anlık görüntüsü kullanılabilir</string>
     <string name="backup_restore_confirm_title">Bu yedek geri yüklensin mi?</string>

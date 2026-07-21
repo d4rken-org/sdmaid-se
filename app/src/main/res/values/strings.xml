@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Next match</string>
     <string name="debug_logview_jump_to_bottom_action">Jump to latest</string>
     <string name="debug_logview_paused_msg">Paused — buffer frozen</string>
-    <string name="debug_logview_paused_dropped_msg">Paused — %1$d new line(s) skipped</string>
+    <string name="debug_logview_paused_dropped_msg">Paused — new lines skipped: %1$d</string>
     <string name="debug_logview_copied_msg">Log copied to clipboard</string>
     <string name="debug_logview_share_label">Share log</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
@@ -114,7 +114,6 @@
 
     <string name="settings_upgrade_description">Upgrade status and options.</string>
 
-    <string name="upgrade_badge_label">Pro</string>
 
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">General tweaks that affect the whole app.</string>
@@ -371,14 +370,13 @@
     <string name="widget_home_unavailable">Storage unavailable</string>
 
     <string name="settings_category_widget">Widget</string>
-    <string name="widget_settings_oneclick_title">One-Tap Mode</string>
     <string name="widget_settings_oneclick_summary">Let the home-screen widget\'s Clean button scan and delete in one tap, without asking each time.</string>
     <string name="widget_oneclick_consent_title">Enable one-tap cleaning?</string>
     <string name="widget_oneclick_consent_message">The widget\'s Clean button will scan and delete in one go, without asking first or letting you review what gets removed.</string>
     <string name="widget_oneclick_consent_enable_action">Enable</string>
     <string name="widget_oneclick_consent_decline_action">Not now</string>
 
-    <string name="shortcut_onetap_started">Scan &amp; delete started…</string>
+    <string name="shortcut_onetap_started">Scan + Delete started…</string>
     <string name="shortcut_onetap_nothing_enabled">No one-tap tools are enabled</string>
 
     <!-- Config backup & restore -->
@@ -392,7 +390,6 @@
     <string name="backup_restore_export_partial">Backup created, but these parts failed: %1$s</string>
     <string name="backup_restore_restore_success">Backup restored</string>
     <string name="backup_restore_restore_failed">Restore failed (%1$s). Your previous configuration was saved.</string>
-    <string name="backup_restore_undo_action">Undo</string>
     <string name="backup_restore_recovery_title">Recover previous configuration</string>
     <string name="backup_restore_recovery_desc">A safety snapshot from an unfinished restore is available</string>
     <string name="backup_restore_confirm_title">Restore this backup?</string>
@@ -407,7 +404,7 @@
     <string name="backup_restore_warn_android_body">This backup was made on Android %1$s, but this device runs Android %2$s.</string>
     <string name="backup_restore_warn_device_body">This backup was made on a different device (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">This backup is from a different app edition (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">This backup\'s history data (statistics, compression history, swipe sessions) is from a different app version and can\'t be restored. Everything else will be.</string>
+    <string name="backup_restore_warn_history_body">This backup\'s history data (statistics, compression history, swipe sessions) is from a different app version and can\'t be restored. Everything else will be restored.</string>
     <string name="backup_restore_ack_understand">I understand and want to continue</string>
     <string name="backup_restore_action_restore">Restore</string>
 </resources>

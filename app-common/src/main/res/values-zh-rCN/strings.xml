@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">添加过滤器</string>
     <string name="general_filter_remove_x_action">删除 %s 过滤器</string>
     <string name="general_filter_empty_row_hint">轻点 + 来筛选</string>
-    <string name="general_show_all_action">全部显示</string>
     <string name="general_result_success_message">操作成功</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">已释放 %s 空间。</item>

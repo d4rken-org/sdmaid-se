@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Tambah penapis</string>
     <string name="general_filter_remove_x_action">Alih keluar penapis %s</string>
     <string name="general_filter_empty_row_hint">Sentuh + untuk penapis</string>
-    <string name="general_show_all_action">Tunjukkan semua</string>
     <string name="general_result_success_message">Operasi berjaya</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">Membebaskan %s ruang.</item>

@@ -10,9 +10,7 @@
     <string name="picker_home_action">Datu-eremuak</string>
     <string name="tour_action_next">Hurrengoa</string>
     <string name="tour_action_previous">Aurrekoa</string>
-    <string name="tour_action_done">Eginda</string>
     <string name="tour_action_cancel">Saltatu</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Ibilbidea saltatu?</string>
     <string name="tour_confirm_message">Ibilbideak berriro gaitu ditzakezu noiznahi Ezarpenetan.</string>
     <string name="tour_confirm_continue">Jarraitu ibilbidea</string>

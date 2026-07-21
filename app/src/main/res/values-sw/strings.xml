@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Sera ya faragha</string>
     <string name="settings_privacy_policy_desc">Kushughulikia data kwa uwazi.</string>
     <string name="settings_category_other_label">Nyingine</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Jumla</string>
     <string name="general_settings_desc">Marekebisho ya jumla yanayoathiri programu nzima.</string>
     <string name="settings_category_ui_label">Kiolesura cha mtumiaji</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Nakala rudufu imeundwa, lakini sehemu hizi hazikufanikiwa: %1$s</string>
     <string name="backup_restore_restore_success">Nakala rudufu imerejeshwa</string>
     <string name="backup_restore_restore_failed">Urejeshaji haukufanikiwa (%1$s). Usanidi wako wa awali ulihifadhiwa.</string>
-    <string name="backup_restore_undo_action">Tendua</string>
     <string name="backup_restore_recovery_title">Rejesha usanidi wa awali</string>
     <string name="backup_restore_recovery_desc">Nakala ya usalama kutoka urejeshaji usiokamilika inapatikana</string>
     <string name="backup_restore_confirm_title">Rejesha nakala rudufu hii?</string>

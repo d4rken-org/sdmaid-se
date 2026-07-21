@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Lisa filter</string>
     <string name="general_filter_remove_x_action">Eemalda %s filter</string>
     <string name="general_filter_empty_row_hint">Puuduta + et filtreerida</string>
-    <string name="general_show_all_action">Kuva kõik</string>
     <string name="general_result_success_message">Edukas toiming</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vabastati %s ruumi.</item>

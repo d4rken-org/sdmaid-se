@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">வடிப்பெடுப்பைச் சேர்க்கவும்</string>
     <string name="general_filter_remove_x_action">%s வடிப்பெடுப்பை அகற்றவும்</string>
     <string name="general_filter_empty_row_hint">வடிப்பெடுக்க + ஐ தட்டவும்</string>
-    <string name="general_show_all_action">அனைத்தையும் காட்டு</string>
     <string name="general_result_success_message">வெற்றிகரமாக முடிக்கப்பட்டது</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s இடம் விடுவிக்கப்பட்டது.</item>

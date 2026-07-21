@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">Iragazki gehitu</string>
     <string name="general_filter_remove_x_action">Kendu %s iragazki</string>
     <string name="general_filter_empty_row_hint">Sakatu + iragazkitzeko</string>
-    <string name="general_show_all_action">Denak erakutsi</string>
     <string name="general_result_success_message">Eragiketa arrakastatsua</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s leku askatu da.</item>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrades_dashcard_title">ធ្វើឱ្យប្រសើរ SD Maid SE</string>
     <string name="upgrades_dashcard_body">ដោះសោមុខងារបន្ថែម និងក្លាយជាអ្នកឧបត្ថម្ភដើម្បីគាំទ្រការអភិវឌ្ឍន៍បន្ត!</string>
     <string name="upgrades_dashcard_upgrade_action">វិសិដ្ឋកម្ម</string>

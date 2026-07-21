@@ -9,9 +9,7 @@
     <string name="picker_home_action">Area data</string>
     <string name="tour_action_next">Berikutnya</string>
     <string name="tour_action_previous">Sebelumnya</string>
-    <string name="tour_action_done">Selesai</string>
     <string name="tour_action_cancel">Lewati</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">Lewati tur?</string>
     <string name="tour_confirm_message">Anda dapat mengaktifkan kembali tur kapan saja dari Pengaturan.</string>
     <string name="tour_confirm_continue">Lanjutkan tur</string>

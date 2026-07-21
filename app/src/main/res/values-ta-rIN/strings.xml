@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">தனியுரிமை கொள்கை</string>
     <string name="settings_privacy_policy_desc">தகவலை பொறுப்புடனுடன் கைகாளவது.</string>
     <string name="settings_category_other_label">மற்றவை</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">பொது</string>
     <string name="general_settings_desc">முழு பயன்பாட்டையும் பாதிக்கும் பொது வின்யாசங்கள்.</string>
     <string name="settings_category_ui_label">பயனர் இணையதுளம்</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">பேக்கப் உருவாக்கப்பட்டது, ஆனால் இந்தப் பகுதிகள் தோல்வியடைந்தன: %1$s</string>
     <string name="backup_restore_restore_success">பேக்கப் மீட்டெடுக்கப்பட்டது</string>
     <string name="backup_restore_restore_failed">மீட்டெடுக்கல் தோல்வியடைந்தது (%1$s). உங்கள் முந்தைய கட்டமைப்பு சேமிக்கப்பட்டது.</string>
-    <string name="backup_restore_undo_action">செயல்நீக்கு</string>
     <string name="backup_restore_recovery_title">முந்தைய கட்டமைப்பை மீட்டெடுக்கவும்</string>
     <string name="backup_restore_recovery_desc">முடிக்கப்படாத மீட்டெடுக்கலிலிருந்து ஒரு பாதுகாப்பு ஸ்னாப்ஷாட் கிடைக்கிறது</string>
     <string name="backup_restore_confirm_title">இந்தப் பேக்கப்பை மீட்டெடுக்கவா?</string>

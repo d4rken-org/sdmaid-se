@@ -103,6 +103,6 @@
     <string name="systemcleaner_customfilter_export_action">Export selected filter</string>
 
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner finds junk using app unspecific filters. Ready-made rules exist for things like empty folders, leftover logs and stale thumbnails. Visit the settings if you want to create your own.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner finds junk using filters that aren\'t app-specific. Ready-made rules exist for things like empty folders, leftover logs and stale thumbnails. Visit the settings if you want to create your own.</string>
     <string name="tour_systemcleaner_filter_body">Each row is a filter and what it found. Open its details to see exactly which files match before you delete anything.</string>
 </resources>

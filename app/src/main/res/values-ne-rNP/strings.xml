@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">गोपनीयता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा जिम्मेवारीपूर्वक ह्यान्डल गर्दै।</string>
     <string name="settings_category_other_label">अन्य</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सम्पूर्ण एपलाई प्रभावित गर्ने सामान्य समायोजनहरू।</string>
     <string name="settings_category_ui_label">प्रयोगकर्ता इन्टरफेस</string>
@@ -341,7 +340,6 @@
     <string name="backup_restore_export_partial">ब्याकअप सिर्जना गरिएको छ, तर यी भागहरू असफल भएः %1$s</string>
     <string name="backup_restore_restore_success">ब्याकअप पुनःस्थापित गरिएको छ</string>
     <string name="backup_restore_restore_failed">पुनःस्थापन असफल भयो (%1$s)। तपाईंको अघिल्लो कन्फिगरेसन सुरक्षित गरिएको छ।</string>
-    <string name="backup_restore_undo_action">पूर्ववत गर्नुहोस्</string>
     <string name="backup_restore_recovery_title">अघिल्लो कन्फिगरेसन पुनः प्राप्त गर्नुहोस्</string>
     <string name="backup_restore_recovery_desc">अधूरो पुनःस्थापनबाट एक सुरक्षा स्न्यापसट उपलब्ध छ</string>
     <string name="backup_restore_confirm_title">यो ब्याकअप पुनर्स्थापित गर्नुहोस्?</string>

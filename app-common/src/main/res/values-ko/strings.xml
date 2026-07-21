@@ -78,7 +78,6 @@
     <string name="general_filter_add_action">필터 추가</string>
     <string name="general_filter_remove_x_action">%s 필터 제거</string>
     <string name="general_filter_empty_row_hint">+ 탭하여 필터</string>
-    <string name="general_show_all_action">모두 보기</string>
     <string name="general_result_success_message">작업 성공</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="other">%s 공간을 확보했습니다.</item>

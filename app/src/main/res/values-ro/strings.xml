@@ -110,7 +110,6 @@
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
     <string name="settings_privacy_policy_desc">Gestionarea responsabilă a datelor.</string>
     <string name="settings_category_other_label">Altele</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_category_ui_label">Interfața utilizatorului</string>
@@ -346,7 +345,6 @@
     <string name="backup_restore_export_partial">Copie de siguranță creată, dar aceste componente au eșuat: %1$s</string>
     <string name="backup_restore_restore_success">Copia de siguranță restaurată</string>
     <string name="backup_restore_restore_failed">Restaurarea a eșuat (%1$s). Configurația ta anterioară a fost salvată.</string>
-    <string name="backup_restore_undo_action">Anulă</string>
     <string name="backup_restore_recovery_title">Recuperează configurația anterioară</string>
     <string name="backup_restore_recovery_desc">O copie de siguranță dintr-o restabilire neterminată este disponibilă</string>
     <string name="backup_restore_confirm_title">Restabilești această copie de siguranță?</string>

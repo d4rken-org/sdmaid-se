@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">Politique de confidentialité</string>
     <string name="settings_privacy_policy_desc">Traitement responsable des données.</string>
     <string name="settings_category_other_label">Autres</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">Général</string>
     <string name="general_settings_desc">Peaufinages généraux qui affectent l’ensemble de l’appli.</string>
     <string name="settings_category_ui_label">Interface utilisateur</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">Sauvegarde créée, mais ces parties ont échoué : %1$s</string>
     <string name="backup_restore_restore_success">Sauvegarde restaurée</string>
     <string name="backup_restore_restore_failed">La restauration a échoué (%1$s). Votre configuration précédente a été enregistrée.</string>
-    <string name="backup_restore_undo_action">Annuler</string>
     <string name="backup_restore_recovery_title">Récupérer la configuration précédente</string>
     <string name="backup_restore_recovery_desc">Une capture de sécurité d’une restauration inachevée est disponible</string>
     <string name="backup_restore_confirm_title">Restaurer cette sauvegarde ?</string>

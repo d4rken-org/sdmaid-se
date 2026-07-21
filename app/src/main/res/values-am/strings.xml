@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
     <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
     <string name="settings_category_other_label">ሌላ</string>
-    <string name="upgrade_badge_label">Pro</string>
     <string name="general_settings_label">አጠቃላይ</string>
     <string name="general_settings_desc">መሙሉ መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_category_ui_label">የተጠቃሚ በይነገጽ</string>
@@ -339,7 +338,6 @@
     <string name="backup_restore_export_partial">መገልገያ ተፍጠረ ግን እነዝህ ክፍሎች ወድቁ: %1$s</string>
     <string name="backup_restore_restore_success">መገልገያ ወደ ነበረበት ተመላሰ</string>
     <string name="backup_restore_restore_failed">ወደ ነበረበት መመለስ ወድቆል (%1$s)። የእርስዎ ቅድሞ ውቅር ተቅምጧል።</string>
-    <string name="backup_restore_undo_action">መልስ</string>
     <string name="backup_restore_recovery_title">ቀዕሙ ውቅር ወደ ነበረበት ማምጣ</string>
     <string name="backup_restore_recovery_desc">ከ ያልተማላ ወደ ነበረበት መመለስ ደህነነት ሽፍታ ይገኛል</string>
     <string name="backup_restore_confirm_title">ይህን መገልገያ ወደ ነበረበት ብመለስ?</string>

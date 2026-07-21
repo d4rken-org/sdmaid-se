@@ -115,7 +115,7 @@ fun BackupRestoreScreenHost(
                             event.failedSections.joinToString(", "),
                         ),
                         actionLabel = if (event.canUndo) {
-                            context.getString(R.string.backup_restore_undo_action)
+                            context.getString(CommonR.string.general_undo_action)
                         } else {
                             null
                         },

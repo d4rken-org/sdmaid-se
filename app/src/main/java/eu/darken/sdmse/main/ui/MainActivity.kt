@@ -135,7 +135,7 @@ class MainActivity : ComponentActivity() {
 
                 CompositionLocalProvider(
                     LocalNavigationController provides navCtrl,
-                    LocalUpgradeBadgeLabel provides stringResource(R.string.upgrade_badge_label),
+                    LocalUpgradeBadgeLabel provides stringResource(R.string.app_name_upgrade_postfix),
                 ) {
                     ErrorEventHandler(vm)
                     NavigationEventHandler(vm)

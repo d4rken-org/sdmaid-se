@@ -10,9 +10,7 @@
     <string name="picker_home_action">දත්ත ප්‍රදේශ</string>
     <string name="tour_action_next">ඉදිරි</string>
     <string name="tour_action_previous">පෙර</string>
-    <string name="tour_action_done">අවසන්</string>
     <string name="tour_action_cancel">මඟ හරින්න</string>
-    <string name="tour_step_x_of_y">%1$d / %2$d</string>
     <string name="tour_confirm_title">මාර්ගෝපදේශිත චාරිකාව මඟ හරන්නද?</string>
     <string name="tour_confirm_message">ඔබට ඕනෑම අවස්ථාවක සැකසීම් සිට මාර්ගෝපදේශිත චාරිකා නැවත සක්‍රීය කළ හැක.</string>
     <string name="tour_confirm_continue">චාරිකාව දිගටම කරගෙන යන්න</string>

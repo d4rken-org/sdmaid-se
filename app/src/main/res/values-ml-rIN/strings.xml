@@ -107,7 +107,6 @@
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
-    <string name="upgrade_badge_label">പ്രോ</string>
     <string name="general_settings_label">പൊതുവായ</string>
     <string name="general_settings_desc">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ ക്രമീകരണങ്ങൾ.</string>
     <string name="settings_category_ui_label">ഉപയോക്തൃ ഇന്റർഫേസ്</string>
@@ -341,7 +340,6 @@
     <string name="backup_restore_export_partial">ബാക്കപ്പ് സൃഷ്ടിച്ചു, എന്നാൽ ഇതിലെ ഭാഗങ്ങൾ പരാജയപ്പെട്ടു: %1$s</string>
     <string name="backup_restore_restore_success">ബാക്കപ്പ് പുനരുദ്ധരിച്ചു</string>
     <string name="backup_restore_restore_failed">പുനരുദ്ധരണം പരാജയപ്പെട്ടു (%1$s). നിങ്ങളുടെ മുൻ കോൺഫിഗുറേഷൻ സംരക്ഷിച്ചു.</string>
-    <string name="backup_restore_undo_action">പഴയപടിയാക്കുക</string>
     <string name="backup_restore_recovery_title">മുൻ കോൺഫിഗുറേഷൻ വീണ്ടെടുക്കുക</string>
     <string name="backup_restore_recovery_desc">പൂർത്തിയാകാത്ത പുനരുദ്ധരണത്തിന്റെ ഒരു സുരക്ഷാ സ്നാപ്പ്ഷോട്ട് ലഭ്യമാണ്</string>
     <string name="backup_restore_confirm_title">ഈ ബാക്കപ്പ് പുനരുദ്ധരിക്കണോ?</string>
