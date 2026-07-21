@@ -421,6 +421,7 @@ private fun CardsContent(
             SetupCardDispatch(
                 item,
                 modifier = Modifier
+                    .animateItem()
                     .fillMaxWidth()
                     .onFocusChanged { if (it.hasFocus) focusedType = item.state.type },
             )

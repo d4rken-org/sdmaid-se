@@ -270,18 +270,9 @@ class SetupViewModel @Inject constructor(
                         }
                     }
                 }
-                .sortedBy { item ->
-                    // Loading-state cards must also be promoted under showCompleted (legacy parity);
-                    // the `isComplete` extension already returns false for non-Current states, so no
-                    // `is State.Current` guard is needed (it would wrongly drop Loading cards).
-                    if (options.showCompleted && !item.state.isComplete) {
-                        Int.MIN_VALUE
-                    } else if (item is RootSetupCardItem && item.state.isInstalled && item.state.useRoot == null) {
-                        Int.MIN_VALUE
-                    } else {
-                        DISPLAY_ORDER.indexOfFirst { it == item.state.type }
-                    }
-                }
+                // A card changing between incomplete, loading and complete must not move under the
+                // user's finger. Completion is conveyed by each card's content; position is stable.
+                .sortedInSetupDisplayOrder()
                 .run { items.addAll(this) }
 
         items
@@ -374,16 +365,20 @@ class SetupViewModel @Inject constructor(
     }
 
     companion object {
-        private val DISPLAY_ORDER = listOf(
-            SetupModule.Type.INVENTORY,
-            SetupModule.Type.NOTIFICATION,
-            SetupModule.Type.STORAGE,
-            SetupModule.Type.SAF,
-            SetupModule.Type.SHIZUKU,
-            SetupModule.Type.ROOT,
-            SetupModule.Type.USAGE_STATS,
-            SetupModule.Type.AUTOMATION,
-        )
         private val TAG = logTag("Setup", "ViewModel")
     }
 }
+
+private val SETUP_DISPLAY_ORDER = listOf(
+    SetupModule.Type.INVENTORY,
+    SetupModule.Type.NOTIFICATION,
+    SetupModule.Type.STORAGE,
+    SetupModule.Type.SAF,
+    SetupModule.Type.SHIZUKU,
+    SetupModule.Type.ROOT,
+    SetupModule.Type.USAGE_STATS,
+    SetupModule.Type.AUTOMATION,
+)
+
+internal fun List<SetupCardItem>.sortedInSetupDisplayOrder(): List<SetupCardItem> =
+    sortedBy { item -> SETUP_DISPLAY_ORDER.indexOf(item.state.type) }
