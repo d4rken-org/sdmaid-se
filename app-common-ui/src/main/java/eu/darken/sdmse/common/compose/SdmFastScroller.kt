@@ -27,14 +27,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,8 +48,6 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlin.math.roundToInt
 
 val SdmFastScrollerLaneWidth = 32.dp
@@ -98,21 +94,21 @@ internal interface FastScrollAdapter {
     val totalItems: Int
     val viewportItems: Int
     val firstVisibleIndex: Int
-    suspend fun scrollToItem(index: Int)
+    fun requestScrollToItem(index: Int)
 }
 
 internal fun LazyListState.asFastScrollAdapter(): FastScrollAdapter = object : FastScrollAdapter {
     override val totalItems: Int get() = layoutInfo.totalItemsCount
     override val viewportItems: Int get() = layoutInfo.visibleItemsInfo.size
     override val firstVisibleIndex: Int get() = firstVisibleItemIndex
-    override suspend fun scrollToItem(index: Int) = this@asFastScrollAdapter.scrollToItem(index)
+    override fun requestScrollToItem(index: Int) = this@asFastScrollAdapter.requestScrollToItem(index)
 }
 
 internal fun LazyGridState.asFastScrollAdapter(): FastScrollAdapter = object : FastScrollAdapter {
     override val totalItems: Int get() = layoutInfo.totalItemsCount
     override val viewportItems: Int get() = layoutInfo.visibleItemsInfo.size
     override val firstVisibleIndex: Int get() = firstVisibleItemIndex
-    override suspend fun scrollToItem(index: Int) = this@asFastScrollAdapter.scrollToItem(index)
+    override fun requestScrollToItem(index: Int) = this@asFastScrollAdapter.requestScrollToItem(index)
 }
 
 @Composable
@@ -146,20 +142,6 @@ private fun SdmFastScrollerImpl(
         (adapter.firstVisibleIndex.toFloat() / scrollableRange).coerceIn(0f, 1f)
     }
 
-    // collectLatest cancels in-flight scrollToItem calls so the list always chases the most
-    // recent drag position instead of replaying every intermediate jump. Re-reading
-    // adapter.totalItems inside the snapshotFlow keeps the clamp fresh if items load/unload
-    // during a drag, without restarting the effect.
-    LaunchedEffect(adapter, dragging) {
-        if (!dragging) return@LaunchedEffect
-        snapshotFlow {
-            val count = adapter.totalItems
-            if (count <= 0) 0 else dragTargetIndex.coerceIn(0, count - 1)
-        }
-            .distinctUntilChanged()
-            .collectLatest { target -> adapter.scrollToItem(target) }
-    }
-
     val activeSection = if (!dragging || sections.isEmpty()) {
         null
     } else {
@@ -175,19 +157,36 @@ private fun SdmFastScrollerImpl(
             .fillMaxHeight()
             .onSizeChanged { trackHeightPx = it.height }
             .pointerInput(adapter, totalItems) {
+                var lastRequestedIndex = -1
+
+                fun updateDragPosition(y: Float) {
+                    val count = adapter.totalItems
+                    if (count <= 0) return
+
+                    val fraction = (y / size.height.toFloat()).coerceIn(0f, 1f)
+                    val target = (fraction * (count - 1)).roundToInt().coerceIn(0, count - 1)
+                    dragFraction = fraction
+                    dragTargetIndex = target
+
+                    if (target != lastRequestedIndex) {
+                        lastRequestedIndex = target
+                        // Unlike scrollToItem(), this schedules a remeasure instead of forcing one
+                        // synchronously. Rapid pointer updates therefore collapse to the newest
+                        // requested position before the next frame is measured.
+                        adapter.requestScrollToItem(target)
+                    }
+                }
+
                 detectVerticalDragGestures(
                     onDragStart = { offset ->
                         dragging = true
-                        val fraction = (offset.y / size.height.toFloat()).coerceIn(0f, 1f)
-                        dragFraction = fraction
-                        dragTargetIndex = (fraction * (totalItems - 1)).roundToInt()
-                            .coerceIn(0, totalItems - 1)
+                        // Always submit the first position of a new gesture, even when it matches
+                        // the previous gesture's last target and the list moved in between.
+                        lastRequestedIndex = -1
+                        updateDragPosition(offset.y)
                     },
                     onVerticalDrag = { change, _ ->
-                        val fraction = (change.position.y / size.height.toFloat()).coerceIn(0f, 1f)
-                        dragFraction = fraction
-                        dragTargetIndex = (fraction * (totalItems - 1)).roundToInt()
-                            .coerceIn(0, totalItems - 1)
+                        updateDragPosition(change.position.y)
                         change.consume()
                     },
                     onDragEnd = { dragging = false },

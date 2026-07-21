@@ -1,5 +1,9 @@
 package eu.darken.sdmse.common.coil
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Rect
+import android.graphics.drawable.BitmapDrawable
 import androidx.core.content.ContextCompat
 import coil.ImageLoader
 import coil.decode.DataSource
@@ -26,10 +30,24 @@ class AppIconFetcher @Inject constructor(
             data.icon?.invoke(options.context) ?: packageManager.getIcon2(data.id)
         } ?: ContextCompat.getDrawable(options.context, eu.darken.sdmse.common.io.R.drawable.ic_default_app_icon_24)!!
 
+        // Coil 2 only writes BitmapDrawable fetch results to its memory cache. Rasterizing here also
+        // moves adaptive/vector icon drawing off the UI thread and makes subsequent requests cheap.
+        val (width, height) = options.resolveAppIconSize()
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).apply {
+            density = options.context.resources.displayMetrics.densityDpi
+        }
+        val previousBounds = Rect(baseIcon.bounds)
+        try {
+            baseIcon.setBounds(0, 0, width, height)
+            baseIcon.draw(Canvas(bitmap))
+        } finally {
+            baseIcon.bounds = previousBounds
+        }
+
         return DrawableResult(
-            drawable = baseIcon,
+            drawable = BitmapDrawable(options.context.resources, bitmap),
             isSampled = false,
-            dataSource = DataSource.DISK
+            dataSource = DataSource.MEMORY,
         )
     }
 
@@ -44,4 +62,3 @@ class AppIconFetcher @Inject constructor(
         ): Fetcher = AppIconFetcher(ipcFunnel, data, options)
     }
 }
-

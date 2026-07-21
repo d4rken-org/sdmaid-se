@@ -27,6 +27,7 @@ import javax.inject.Singleton
 class CoilModule {
 
     @Provides
+    @Singleton
     fun imageLoader(
         @ApplicationContext context: Context,
         generalSettings: GeneralSettings,
@@ -51,6 +52,7 @@ class CoilModule {
             logger(logger)
         }
         components {
+            add(AppIconKeyer())
             add(appIconFetcherFactory)
             add(pathPreviewFetcher)
             add(bitmapFetcher)
