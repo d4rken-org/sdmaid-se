@@ -14,9 +14,9 @@ import testhelpers.compose.BaseComposeRobolectricTest
 import eu.darken.sdmse.common.R as CommonR
 
 /**
- * Hidden dock slides off-screen via offset() but stays composed for its exit animation — these
- * tests pin down that it is unreachable while hidden: absent from the accessibility tree (which
- * also covers TalkBack) and not focusable, while visible dock stays fully interactive.
+ * The hidden dock stays composed for its exit animations — these tests pin down that it is
+ * unreachable while hidden: absent from the accessibility tree (which also covers TalkBack) and
+ * not focusable, while the visible dock stays fully interactive.
  */
 class DashboardDockVisibilityTest : BaseComposeRobolectricTest() {
 

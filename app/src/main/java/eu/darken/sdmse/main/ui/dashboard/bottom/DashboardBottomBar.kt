@@ -70,16 +70,17 @@ import eu.darken.sdmse.main.ui.dashboard.HeroSummary
 import eu.darken.sdmse.main.core.SDMTool
 import java.time.Instant
 
-// Playful overshoot for the hero's late arrival (ease-out-back).
-private val HeroOvershoot = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
+// Playful overshoot for the hero's and FAB's late arrival (ease-out-back).
+private val BubbleOvershoot = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
 
 /**
  * The dashboard bottom dock: a primary-coloured bar, the cradled main-action FAB, and — when the
  * latest main-action produced a result — a floating [DashboardHeroCard] above them.
  *
  * Each piece is bottom-anchored and animates **independently** so they cascade: on show the bar
- * leads, then the FAB, then the hero (with a playful overshoot); on hide they leave in reverse.
- * Each slides fully below the screen (including the nav inset) when hidden.
+ * leads, the FAB grows out of its cradle, then the hero arrives with a playful overshoot; on hide
+ * they leave in reverse. The bar and hero slide below the screen, while the FAB shrinks and fades
+ * in place so it never travels through the bar.
  */
 @Composable
 internal fun BottomBar(
@@ -103,13 +104,13 @@ internal fun BottomBar(
     val heroSummary = state?.heroSummary
     val showHero = heroVisible && heroSummary != null
 
-    // Hidden dock only slides off-screen via offset() — it stays composed for the exit
-    // animation, so it must be made unreachable explicitly: gate D-pad/keyboard focus for each
-    // layer's subtree on visibility (the hero additionally on showHero, so a dismissed card isn't
-    // focusable mid-exit). Grid↔dock D-pad crossings are handled by the caller's key handlers on
-    // the dock's focus group (see DashboardScreen); the only bridge here is the UP rung from the
-    // bar/FAB into the hero's entry control (Discard, or the Dismiss X), which would otherwise be
-    // unreachable — spatial search skips the hero's top-right controls.
+    // The hidden dock stays composed for its exit animation, so it must be made unreachable
+    // explicitly: gate D-pad/keyboard focus for each layer's subtree on visibility (the hero
+    // additionally on showHero, so a dismissed card isn't focusable mid-exit). Grid↔dock D-pad
+    // crossings are handled by the caller's key handlers on the dock's focus group (see
+    // DashboardScreen); the only bridge here is the UP rung from the bar/FAB into the hero's entry
+    // control (Discard, or the Dismiss X), which would otherwise be unreachable — spatial search
+    // skips the hero's top-right controls.
     val heroEntryFocusRequester = remember { FocusRequester() }
     val barFocus = Modifier.focusProperties {
         canFocus = isVisible
@@ -152,21 +153,32 @@ internal fun BottomBar(
         ),
         label = "dashboardBarOffset",
     )
-    val fabOffsetY by animateDpAsState(
-        targetValue = if (isVisible) -(navBottom + fabBottomInset) else DASHBOARD_FAB_SIZE,
+    // Keep the FAB fixed over its cradle. It bubbles in after the bar starts arriving and shrinks
+    // completely before the bar begins its delayed exit, avoiding the old trip through the dock.
+    val fabOffsetY = -(navBottom + fabBottomInset)
+    val fabScale by animateFloatAsState(
+        targetValue = if (isVisible) 1f else 0f,
         animationSpec = tween(
-            durationMillis = 260,
-            delayMillis = 80,
-            easing = FastOutSlowInEasing,
+            durationMillis = if (isVisible) 240 else 150,
+            delayMillis = if (isVisible) 80 else 0,
+            easing = if (isVisible) BubbleOvershoot else FastOutSlowInEasing,
         ),
-        label = "dashboardFabOffset",
+        label = "dashboardFabScale",
+    )
+    val fabAlpha by animateFloatAsState(
+        targetValue = if (isVisible) 1f else 0f,
+        animationSpec = tween(
+            durationMillis = if (isVisible) 140 else 100,
+            delayMillis = if (isVisible) 80 else 0,
+        ),
+        label = "dashboardFabAlpha",
     )
     val heroOffsetY by animateDpAsState(
         targetValue = if (isVisible && showHero) -(navBottom + heroBottomInset) else heroCardHeight,
         animationSpec = tween(
             durationMillis = 340,
             delayMillis = if (isVisible && showHero) 150 else 0,
-            easing = if (isVisible && showHero) HeroOvershoot else FastOutSlowInEasing,
+            easing = if (isVisible && showHero) BubbleOvershoot else FastOutSlowInEasing,
         ),
         label = "dashboardHeroOffset",
     )
@@ -195,8 +207,8 @@ internal fun BottomBar(
     val fabPresent = state?.isReady == true
     val barShape = dashboardBarShape(isReady = fabPresent)
 
-    // While hidden, the bar/FAB remain composed below the screen — drop them from the
-    // accessibility tree too, so TalkBack can't reach off-screen controls focus gating misses.
+    // While hidden, the dock remains composed for its exit animations — drop it from the
+    // accessibility tree too, so TalkBack can't reach controls that focus gating misses.
     val a11yGate = if (isVisible) Modifier else Modifier.clearAndSetSemantics { }
 
     Box(
@@ -275,9 +287,15 @@ internal fun BottomBar(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .offset(y = fabOffsetY)
+                    .graphicsLayer {
+                        scaleX = fabScale
+                        scaleY = fabScale
+                        alpha = fabAlpha
+                    }
                     .then(barFocus)
                     .then(mainActionModifier),
                 actionState = it.actionState,
+                enabled = isVisible,
                 onClick = onMainAction,
                 onLongClick = onMainActionLongClick,
             )
@@ -386,6 +404,7 @@ private fun BarContent(
 private fun MainActionFab(
     modifier: Modifier = Modifier,
     actionState: BottomBarState.Action,
+    enabled: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {
@@ -410,7 +429,7 @@ private fun MainActionFab(
             modifier = Modifier
                 .fillMaxSize()
                 .combinedClickable(
-                    enabled = actionState != BottomBarState.Action.WORKING,
+                    enabled = enabled && actionState != BottomBarState.Action.WORKING,
                     onClick = onClick,
                     onLongClick = onLongClick,
                 ),
