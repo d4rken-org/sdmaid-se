@@ -25,6 +25,11 @@ data class TourDefinition(
     val id: TourId,
     val steps: List<TourStep>,
     val clickProtection: Boolean = true,
+    /**
+     * Runs after a successful completion has been persisted and the active session has been
+     * cleared. It is not invoked for skip, dismiss, disable-all, or a no-render grace-skip.
+     */
+    val onComplete: (suspend () -> Unit)? = null,
 )
 
 data class TourSession(

@@ -117,4 +117,14 @@ class DashboardTourTest : BaseTest() {
         def.steps.any { it.prepareTarget != null } shouldBe false
         called shouldBe false
     }
+
+    @Test
+    fun `onComplete is wired to the tour definition`() {
+        var called = false
+        val hook: suspend () -> Unit = { called = true }
+        val def = DashboardTour.definition(onComplete = hook)
+
+        def.onComplete shouldBe hook
+        called shouldBe false
+    }
 }

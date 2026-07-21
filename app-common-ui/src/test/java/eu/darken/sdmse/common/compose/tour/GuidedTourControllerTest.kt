@@ -196,6 +196,68 @@ class GuidedTourControllerTest : BaseTest() {
     }
 
     @Test
+    fun `successful completion invokes onComplete after persistence and session clearing`() = runTest {
+        lateinit var ctrl: GuidedTourController
+        var completionCalls = 0
+        val def = basicDefinition.copy(
+            id = TourId("test.oncomplete"),
+            onComplete = {
+                ctrl.session.value shouldBe null
+                prefsFlow.value.completed shouldBe setOf("test.oncomplete")
+                completionCalls++
+            },
+        )
+        ctrl = controller()
+        ctrl.start(def)
+        ctrl.markStepRendered(def.id)
+
+        ctrl.next()
+        ctrl.next()
+        ctrl.next() // Finish on the last step.
+
+        completionCalls shouldBe 1
+    }
+
+    @Test
+    fun `non-completion exits do not invoke onComplete`() = runTest {
+        var completionCalls = 0
+        fun definition(id: String) = basicDefinition.copy(
+            id = TourId(id),
+            onComplete = { completionCalls++ },
+        )
+
+        controller().apply {
+            start(definition("test.oncomplete.skip"))
+            skipForNow()
+        }
+        controller().apply {
+            start(definition("test.oncomplete.dismiss"))
+            dismissForever()
+        }
+        controller().apply {
+            start(definition("test.oncomplete.disable"))
+            disableAllTours()
+        }
+
+        completionCalls shouldBe 0
+    }
+
+    @Test
+    fun `no-render completion fallback does not invoke onComplete`() = runTest {
+        var completionCalls = 0
+        val def = basicDefinition.copy(
+            id = TourId("test.oncomplete.no-render"),
+            onComplete = { completionCalls++ },
+        )
+        val ctrl = controller()
+        ctrl.start(def)
+
+        ctrl.complete()
+
+        completionCalls shouldBe 0
+    }
+
+    @Test
     fun `next to end without any rendered step skips instead of persisting`() = runTest {
         val ctrl = controller()
         ctrl.start(basicDefinition) // no markStepRendered: every step grace-skipped, nothing shown

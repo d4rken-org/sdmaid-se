@@ -69,19 +69,23 @@ class GuidedTourController @Inject constructor(
         _session.value = TourSession(definition, stepIndex = 0)
     }
 
-    suspend fun next() = mutationMutex.withLock {
-        val s = _session.value ?: return@withLock
-        if (s.isLast) {
-            completeLocked()
-            return@withLock
+    suspend fun next() {
+        val onComplete: (suspend () -> Unit)? = mutationMutex.withLock {
+            val s = _session.value ?: return@withLock null
+            if (s.isLast) return@withLock completeLocked()
+
+            val nextStep = s.definition.steps[s.stepIndex + 1]
+            nextStep.prepareTarget?.invoke()
+            // Re-check session: prepareTarget may have suspended long enough for cancel/complete to fire.
+            val still = _session.value ?: return@withLock null
+            if (still.definition.id != s.definition.id) return@withLock null
+            log(TAG, VERBOSE) { "next(${s.definition.id.raw}): ${s.stepIndex} -> ${s.stepIndex + 1}" }
+            _session.value = still.copy(stepIndex = still.stepIndex + 1)
+            null
         }
-        val nextStep = s.definition.steps[s.stepIndex + 1]
-        nextStep.prepareTarget?.invoke()
-        // Re-check session: prepareTarget may have suspended long enough for cancel/complete to fire.
-        val still = _session.value ?: return@withLock
-        if (still.definition.id != s.definition.id) return@withLock
-        log(TAG, VERBOSE) { "next(${s.definition.id.raw}): ${s.stepIndex} -> ${s.stepIndex + 1}" }
-        _session.value = still.copy(stepIndex = still.stepIndex + 1)
+        // Screen callbacks can animate or acquire their own locks, so never run them while holding
+        // the controller mutation lock. completeLocked() has already persisted and cleared state.
+        onComplete?.invoke()
     }
 
     /** Go back one step. No-op when already at step 0. Re-runs the destination step's prepareTarget. */
@@ -133,7 +137,10 @@ class GuidedTourController @Inject constructor(
         generalSettings.isGuidedToursEnabled.value(false)
     }
 
-    suspend fun complete() = mutationMutex.withLock { completeLocked() }
+    suspend fun complete() {
+        val onComplete = mutationMutex.withLock { completeLocked() }
+        onComplete?.invoke()
+    }
 
     /**
      * Signal from the host that the session for [tourId] has shown at least one step (anchored or
@@ -145,8 +152,8 @@ class GuidedTourController @Inject constructor(
         if (_session.value?.definition?.id == tourId) sessionStepRendered = true
     }
 
-    private suspend fun completeLocked() {
-        val s = _session.value ?: return
+    private suspend fun completeLocked(): (suspend () -> Unit)? {
+        val s = _session.value ?: return null
         if (!sessionStepRendered) {
             // The whole tour fell through on missing-target grace-skips without a single step ever
             // being shown (anchors not registered yet, wrong target ids, or a transient layout
@@ -156,12 +163,13 @@ class GuidedTourController @Inject constructor(
             skippedThisSession += s.definition.id.raw
             _session.value = null
             routeAtStart = null
-            return
+            return null
         }
         log(TAG) { "complete(${s.definition.id.raw})" }
         persistCompleted(s.definition.id.raw)
         _session.value = null
         routeAtStart = null
+        return s.definition.onComplete
     }
 
     suspend fun reset() = mutationMutex.withLock {

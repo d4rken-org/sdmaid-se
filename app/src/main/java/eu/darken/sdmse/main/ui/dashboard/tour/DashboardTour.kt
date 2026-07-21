@@ -39,9 +39,11 @@ object DashboardTour : GuidedTour {
         prepareSetup: (suspend () -> Unit)? = null,
         prepareTools: (suspend () -> Unit)? = null,
         prepareManualTool: (suspend () -> Unit)? = null,
+        onComplete: (suspend () -> Unit)? = null,
     ): TourDefinition = TourDefinition(
         id = id,
         clickProtection = true,
+        onComplete = onComplete,
         steps = buildList {
             add(
                 TourStep(

@@ -356,6 +356,9 @@ internal fun DashboardScreen(
             prepareManualTool = {
                 scrollToFirstMatching(gridState, itemsState.value) { it is SwiperDashboardCardItem }
             },
+            // Leave the dashboard in its natural starting position after the user successfully
+            // finishes the tour. The framework does not invoke this for skip/dismiss/disable.
+            onComplete = { gridState.animateScrollToItem(0) },
         )
     }
     // Don't start the tour until at least one tool card exists: the tools step targets the
