@@ -54,6 +54,7 @@ import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
+import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -394,7 +395,8 @@ internal fun ContentScreen(
                         when (s.layoutMode) {
                             LayoutMode.LINEAR -> LazyColumn(
                                 modifier = Modifier.fillMaxSize(),
-                                contentPadding = SdmListDefaults.FullWidthContentPadding,
+                                contentPadding = SdmListDefaults.FullWidthContentPadding
+                                    .plusBottom(SdmListDefaults.ContentBottomSpacing),
                             ) {
                                 s.infoBanner?.let { banner ->
                                     item(key = "info-banner") {
@@ -410,7 +412,8 @@ internal fun ContentScreen(
                             LayoutMode.GRID -> LazyVerticalGrid(
                                 columns = GridCells.Fixed(spanCount),
                                 modifier = Modifier.fillMaxSize(),
-                                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                                    .plusBottom(SdmListDefaults.ContentBottomSpacing),
                                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                                 verticalArrangement = Arrangement.spacedBy(8.dp),
                             ) {

@@ -14,6 +14,7 @@ import androidx.compose.material.icons.twotone.Inventory
 import androidx.compose.material.icons.twotone.PermMedia
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.MaterialTheme
+import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,6 +32,7 @@ import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsGroupRow
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderCard
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.progress.ProgressOverlay
@@ -152,7 +154,8 @@ internal fun AppDetailsScreen(
                 ) {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                            .plusBottom(SdmListDefaults.ContentBottomSpacing),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
                         item("header") {
