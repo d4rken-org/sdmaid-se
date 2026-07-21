@@ -31,7 +31,6 @@ import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -65,12 +64,14 @@ class SwiperSessionsViewModel @Inject constructor(
         swiper.getSessionsWithStats(),
         swiper.progress,
         selectedPaths,
-        upgradeRepo.upgradeInfo.map { it?.isPro ?: false },
+        upgradeRepo.upgradeInfo,
+        upgradeRepo.isSettled,
         scanningSessionId,
         cancellingSessionId,
         refreshingSessionId,
         dataAreaManager.state,
-    ) { sessionsWithStats, progress, paths, isPro, scanningId, cancellingId, refreshingId, areaState ->
+    ) { sessionsWithStats, progress, paths, upgradeInfo, isUpgradeSettled,
+        scanningId, cancellingId, refreshingId, areaState ->
         val riskySessionPaths = sessionsWithStats
             .associate { entry ->
                 entry.session.sessionId to entry.session.sourcePaths.filter { p -> p.isSensitiveRootIn(areaState.areas) }
@@ -78,10 +79,17 @@ class SwiperSessionsViewModel @Inject constructor(
             .filterValues { it.isNotEmpty() }
         State(
             sessionsWithStats = sessionsWithStats,
+            areSessionsLoaded = true,
             selectedPaths = paths,
             isScanning = progress != null,
             progress = progress,
-            isPro = isPro,
+            // GPlay initially reports non-Pro while its billing handshake is still in flight.
+            // Keep that state unknown so the free-tier card is only shown after a real lookup.
+            isPro = when {
+                upgradeInfo.isPro -> true
+                isUpgradeSettled -> false
+                else -> null
+            },
             scanningSessionId = scanningId,
             cancellingSessionId = cancellingId,
             refreshingSessionId = refreshingId,
@@ -182,17 +190,19 @@ class SwiperSessionsViewModel @Inject constructor(
 
     data class State(
         val sessionsWithStats: List<Swiper.SessionWithStats> = emptyList(),
+        val areSessionsLoaded: Boolean = false,
         val selectedPaths: Set<APath> = emptySet(),
         val isScanning: Boolean = false,
         val progress: Progress.Data? = null,
-        val isPro: Boolean = false,
+        val isPro: Boolean? = null,
         val scanningSessionId: String? = null,
         val cancellingSessionId: String? = null,
         val refreshingSessionId: String? = null,
         val riskySessionIds: Set<String> = emptySet(),
         val riskySessionPaths: Map<String, List<APath>> = emptyMap(),
     ) {
-        val canCreateNewSession: Boolean = isPro || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
+        val canCreateNewSession: Boolean =
+            isPro == true || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
         val freeVersionLimit: Int = SwiperSettings.FREE_VERSION_LIMIT
         val freeSessionLimit: Int = SwiperSettings.FREE_VERSION_SESSION_LIMIT
 

@@ -157,10 +157,10 @@ internal fun SwiperSessionsScreen(
                 .padding(paddingValues),
             contentPadding = PaddingValues(top = 8.dp, bottom = 8.dp + SdmListDefaults.FabClearance),
         ) {
-            if (state.sessionsWithStats.isEmpty()) {
+            if (state.areSessionsLoaded && state.sessionsWithStats.isEmpty()) {
                 item(key = "header") { SwiperSessionsHeaderCard() }
             }
-            if (!state.isPro) {
+            if (state.isPro == false) {
                 item(key = "upgrade") {
                     SwiperSessionsUpgradeCard(
                         freeVersionLimit = state.freeVersionLimit,
@@ -473,7 +473,12 @@ private fun SortOrderDialog(
 private fun SwiperSessionsScreenEmptyPreview() {
     PreviewWrapper {
         SwiperSessionsScreen(
-            stateSource = MutableStateFlow(SwiperSessionsViewModel.State()),
+            stateSource = MutableStateFlow(
+                SwiperSessionsViewModel.State(
+                    areSessionsLoaded = true,
+                    isPro = false,
+                ),
+            ),
         )
     }
 }

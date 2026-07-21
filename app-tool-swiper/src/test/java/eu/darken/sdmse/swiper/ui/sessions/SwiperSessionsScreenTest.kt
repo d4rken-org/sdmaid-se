@@ -59,6 +59,52 @@ class SwiperSessionsScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `loading state does not show cards based on placeholder defaults`() {
+        composeRule.setSessionsScreen(SwiperSessionsViewModel.State())
+
+        composeRule.onNodeWithText("Ready to declutter?").assertDoesNotExist()
+        composeRule.onNodeWithText("Upgrade to remove", substring = true).assertDoesNotExist()
+    }
+
+    @Test
+    fun `loaded empty state shows header`() {
+        composeRule.setSessionsScreen(
+            SwiperSessionsViewModel.State(
+                areSessionsLoaded = true,
+            ),
+        )
+
+        composeRule.onNodeWithText("Ready to declutter?").assertExists()
+    }
+
+    @Test
+    fun `settled free state shows upgrade card`() {
+        composeRule.setSessionsScreen(
+            SwiperSessionsViewModel.State(
+                sessionsWithStats = listOf(row(sessionId = "s1", label = "Photos")),
+                areSessionsLoaded = true,
+                isPro = false,
+            ),
+        )
+
+        composeRule.onNodeWithText("Upgrade to remove", substring = true).assertExists()
+    }
+
+    @Test
+    fun `unsettled entitlement does not show upgrade card`() {
+        composeRule.setSessionsScreen(
+            SwiperSessionsViewModel.State(
+                sessionsWithStats = listOf(row(sessionId = "s1", label = "Photos")),
+                areSessionsLoaded = true,
+                isPro = null,
+            ),
+        )
+
+        composeRule.onNodeWithText("Upgrade to remove", substring = true).assertDoesNotExist()
+        composeRule.onNodeWithText("Photos").assertExists()
+    }
+
+    @Test
     fun `custom session label is rendered when set`() {
         // Custom labels live in the visible portion of the row (before any scrolling), so they
         // resolve via onNodeWithText. Default labels go through stringResource formatting (with

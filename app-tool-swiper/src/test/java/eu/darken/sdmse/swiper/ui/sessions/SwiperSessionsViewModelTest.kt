@@ -34,7 +34,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -82,6 +81,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val taskSubmitter: TaskSubmitter,
         val navCtrl: NavigationController,
         val pickerResults: MutableSharedFlow<PickerResult>,
+        val isUpgradeSettledFlow: MutableStateFlow<Boolean>,
     )
 
     private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
@@ -103,6 +103,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         sessions: List<Swiper.SessionWithStats> = emptyList(),
         progress: Progress.Data? = null,
         isPro: Boolean = false,
+        isUpgradeSettled: Boolean = true,
         areas: Set<DataArea> = emptySet(),
     ): Harness {
         val sessionsFlow = MutableStateFlow(sessions)
@@ -111,6 +112,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             every { this@apply.isPro } returns isPro
         }
         val upgradeFlow = MutableStateFlow<UpgradeRepo.Info>(upgradeInfo)
+        val isUpgradeSettledFlow = MutableStateFlow(isUpgradeSettled)
         val areaStateFlow = MutableStateFlow(DataAreaManager.State(areas = areas))
         // Use a hot SharedFlow so tests can inject picker results after construction. The VM's init
         // block collects this; emitting a PickerResult here exercises the createSession path.
@@ -123,7 +125,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns upgradeFlow
-            every { this@apply.isSettled } returns flowOf(true)
+            every { this@apply.isSettled } returns isUpgradeSettledFlow
         }
         // currentAreas() is an extension that reads state.first().areas — no separate stub needed.
         val dataAreaManager = mockk<DataAreaManager>().apply {
@@ -154,6 +156,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             taskSubmitter = taskSubmitter,
             navCtrl = navCtrl,
             pickerResults = pickerResults,
+            isUpgradeSettledFlow = isUpgradeSettledFlow,
         )
     }
 
@@ -165,6 +168,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
 
         val state = h.vm.state.first()
         state.sessionsWithStats shouldBe listOf(s)
+        state.areSessionsLoaded shouldBe true
         state.isScanning shouldBe false
     }
 
@@ -185,6 +189,27 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val freeHarness = harness(isPro = false)
         advanceUntilIdle()
         freeHarness.vm.state.first().isPro shouldBe false
+    }
+
+    @Test
+    fun `state keeps Pro status unknown until a non-Pro entitlement is settled`() = runTest2 {
+        val h = harness(isPro = false, isUpgradeSettled = false)
+        advanceUntilIdle()
+
+        h.vm.state.first().isPro shouldBe null
+
+        h.isUpgradeSettledFlow.value = true
+        advanceUntilIdle()
+
+        h.vm.state.first().isPro shouldBe false
+    }
+
+    @Test
+    fun `state exposes confirmed Pro status before entitlement settles`() = runTest2 {
+        val h = harness(isPro = true, isUpgradeSettled = false)
+        advanceUntilIdle()
+
+        h.vm.state.first().isPro shouldBe true
     }
 
     @Test
