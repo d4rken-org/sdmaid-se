@@ -4,7 +4,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -103,7 +105,7 @@ internal fun StoragePathRow(
                 role = Role.Button,
                 onClick = onClick,
             )
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
@@ -129,6 +131,7 @@ internal fun StoragePathRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             if (granted) {
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = stringResource(R.string.setup_permission_granted_label),
                     style = MaterialTheme.typography.labelMedium,
