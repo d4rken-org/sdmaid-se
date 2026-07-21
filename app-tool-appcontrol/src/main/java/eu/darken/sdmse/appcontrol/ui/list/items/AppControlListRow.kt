@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.ui.list.items
 
 import android.text.format.Formatter
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -82,33 +83,46 @@ fun AppControlListRow(
                 )
             }
             val secondary = secondaryInfoFor(appInfo, sortMode, context)
-            if (secondary != null) {
-                Text(
-                    text = secondary,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+            val size = appInfo.sizes?.let { sizes ->
+                // Cheap single call; left un-remembered so the label tracks locale/config changes.
+                Formatter.formatShortFileSize(context, sizes.total)
+            }
+            if (secondary != null || size != null) {
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    if (secondary != null) {
+                        Text(
+                            text = secondary,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier
+                                .weight(1f)
+                                .alignByBaseline(),
+                        )
+                    } else {
+                        Spacer(Modifier.weight(1f))
+                    }
+                    if (size != null) {
+                        if (secondary != null) Spacer(Modifier.width(8.dp))
+                        Text(
+                            text = size,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            // Keep the size clear of the always-on fast-scroll thumb that floats over
+                            // the list's right edge (rows stay full-width; only this value is inset).
+                            modifier = Modifier
+                                .padding(end = SdmFastScrollerLaneWidth)
+                                .alignByBaseline(),
+                        )
+                    }
+                }
             }
             AppInfoTagsRow(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 4.dp),
                 appInfo = appInfo,
-            )
-        }
-        appInfo.sizes?.let { sizes ->
-            Spacer(Modifier.width(8.dp))
-            // Cheap single call; left un-remembered so the label tracks locale/config changes (the
-            // expensive per-row work was the DateTimeFormatter construction in secondaryInfoFor).
-            Text(
-                text = Formatter.formatShortFileSize(context, sizes.total),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                // Keep the size clear of the always-on fast-scroll thumb that floats over the list's
-                // right edge (rows stay full-width; only this trailing value is inset).
-                modifier = Modifier.padding(end = SdmFastScrollerLaneWidth),
             )
         }
     }
