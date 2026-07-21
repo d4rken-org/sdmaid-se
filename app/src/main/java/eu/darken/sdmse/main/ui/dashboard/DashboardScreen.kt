@@ -21,6 +21,7 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
@@ -34,14 +35,20 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusEvent
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.activity.compose.LocalActivity
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.Velocity
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
@@ -213,6 +220,74 @@ internal fun DashboardScreen(
     var showOneClickOptions by rememberSaveable { mutableStateOf(false) }
     val gridState = rememberLazyGridState()
     var isBottomBarVisible by rememberSaveable { mutableStateOf(true) }
+    var mascotTopBump by remember { mutableIntStateOf(0) }
+
+    val density = LocalDensity.current
+    val topBumpLargeScrollPx = with(density) { MASCOT_TOP_BUMP_LARGE_SCROLL_DISTANCE.roundToPx() }
+    val topBumpFastDeltaPx = with(density) { MASCOT_TOP_BUMP_FAST_DELTA.toPx() }
+    val topBumpFastFlingPx = with(density) { MASCOT_TOP_BUMP_FAST_FLING_VELOCITY.toPx() }
+    val topBumpConnection = remember(
+        gridState,
+        topBumpLargeScrollPx,
+        topBumpFastDeltaPx,
+        topBumpFastFlingPx,
+    ) {
+        val detector = DashboardTopBumpDetector(topBumpLargeScrollPx)
+        object : NestedScrollConnection {
+            // Compose reports fling frames as SideEffect scrolls. Remember that they originated
+            // with the user's gesture so a fast return to the top still gets the same reaction.
+            var userFlingInProgress = false
+            var isFastReturnFling = false
+
+            override fun onPostScroll(
+                consumed: Offset,
+                available: Offset,
+                source: NestedScrollSource,
+            ): Offset {
+                val isUserMotion = source == NestedScrollSource.UserInput || userFlingInProgress
+                if (!isUserMotion) {
+                    detector.onNonUserScroll()
+                    return Offset.Zero
+                }
+
+                val deltaY = consumed.y + available.y
+                if (
+                    detector.onScroll(
+                        firstVisibleItemIndex = gridState.firstVisibleItemIndex,
+                        firstVisibleItemScrollOffset = gridState.firstVisibleItemScrollOffset,
+                        deltaY = deltaY,
+                        isFastReturn = isFastReturnFling || deltaY >= topBumpFastDeltaPx,
+                    )
+                ) {
+                    mascotTopBump++
+                }
+                return Offset.Zero
+            }
+
+            override suspend fun onPreFling(available: Velocity): Velocity {
+                userFlingInProgress = true
+                isFastReturnFling = available.y >= topBumpFastFlingPx
+                return Velocity.Zero
+            }
+
+            override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
+                val deltaY = consumed.y + available.y
+                if (
+                    detector.onScroll(
+                        firstVisibleItemIndex = gridState.firstVisibleItemIndex,
+                        firstVisibleItemScrollOffset = gridState.firstVisibleItemScrollOffset,
+                        deltaY = deltaY,
+                        isFastReturn = isFastReturnFling || deltaY >= topBumpFastDeltaPx,
+                    )
+                ) {
+                    mascotTopBump++
+                }
+                userFlingInProgress = false
+                isFastReturnFling = false
+                return Velocity.Zero
+            }
+        }
+    }
 
     val tourController = LocalGuidedTourController.current
     // Tour-aware screens watch this and freeze any transient dock (auto-hiding bottom bar,
@@ -455,6 +530,7 @@ internal fun DashboardScreen(
                     modifier = Modifier
                         .focusRequester(gridFocusRequester)
                         .focusGroup()
+                        .nestedScroll(topBumpConnection)
                         // Edge-to-dock jumps: perform the move ourselves; when it fails the
                         // cursor sits at a real grid edge — UP at the top row, LEFT/RIGHT at the
                         // horizontal edges, DOWN below the last row (mid-grid the lazy grid keeps
@@ -516,7 +592,10 @@ internal fun DashboardScreen(
                                 .focusRequester(cardFocusRequesters.getOrPut(item.stableId) { FocusRequester() })
                                 .onFocusEvent { if (it.hasFocus) lastFocusedCardId = item.stableId },
                         ) {
-                            DashboardListCard(item = item)
+                            DashboardListCard(
+                                item = item,
+                                mascotTopBump = mascotTopBump,
+                            )
                         }
                     }
                 }
@@ -535,6 +614,55 @@ private fun MascotOverlay() {
 }
 
 private val DASHBOARD_BOTTOM_CONTENT_PADDING = 128.dp
+private val MASCOT_TOP_BUMP_LARGE_SCROLL_DISTANCE = 160.dp
+private val MASCOT_TOP_BUMP_FAST_DELTA = 18.dp
+private val MASCOT_TOP_BUMP_FAST_FLING_VELOCITY = 1_600.dp
+
+/**
+ * Tracks a trip away from the top and emits only when the return was long or fast. Resting edge
+ * pulls, small leisurely scrolls, and programmatic tour motion therefore remain quiet.
+ */
+internal class DashboardTopBumpDetector(
+    private val largeScrollDistancePx: Int,
+) {
+    private var hasLeftTop = false
+    private var wasLargeScroll = false
+
+    init {
+        require(largeScrollDistancePx >= 0)
+    }
+
+    fun onScroll(
+        firstVisibleItemIndex: Int,
+        firstVisibleItemScrollOffset: Int,
+        deltaY: Float,
+        isFastReturn: Boolean = false,
+    ): Boolean {
+        if (firstVisibleItemIndex > 0 || firstVisibleItemScrollOffset > 0) {
+            hasLeftTop = true
+        }
+        if (firstVisibleItemIndex > 0 || firstVisibleItemScrollOffset >= largeScrollDistancePx) {
+            wasLargeScroll = true
+        }
+
+        val reachedTop = firstVisibleItemIndex == 0 && firstVisibleItemScrollOffset == 0
+        if (reachedTop && deltaY > 0f) {
+            val shouldBump = hasLeftTop && (wasLargeScroll || isFastReturn)
+            reset()
+            return shouldBump
+        }
+        return false
+    }
+
+    fun onNonUserScroll() {
+        reset()
+    }
+
+    private fun reset() {
+        hasLeftTop = false
+        wasLargeScroll = false
+    }
+}
 
 /**
  * Scroll the grid so the first item matching [predicate] anchors to the top. Index is resolved

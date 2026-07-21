@@ -8,9 +8,13 @@ import androidx.compose.ui.Modifier
 internal fun DashboardListCard(
     modifier: Modifier = Modifier,
     item: DashboardItem,
+    mascotTopBump: Int = 0,
 ) {
     when (item) {
-        is TitleDashboardCardItem -> TitleDashboardCard(item)
+        is TitleDashboardCardItem -> TitleDashboardCard(
+            item = item,
+            mascotTopBump = mascotTopBump,
+        )
         is SetupDashboardCardItem -> SetupDashboardCard(modifier = modifier, item = item)
         is UpdateDashboardCardItem -> UpdateDashboardCard(item)
         is UpgradeDashboardCardItem -> UpgradeDashboardCard(item)

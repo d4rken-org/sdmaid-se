@@ -2,6 +2,9 @@ package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.annotation.StringRes
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
@@ -24,12 +27,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
@@ -41,6 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -76,7 +81,10 @@ data class TitleDashboardCardItem(
 }
 
 @Composable
-internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
+internal fun TitleDashboardCard(
+    item: TitleDashboardCardItem,
+    mascotTopBump: Int = 0,
+) {
     val slogan = remember { getRngSlogan() }
     val sloganText = stringResource(slogan)
     val titleText = if (item.upgradeInfo?.isPro == true) {
@@ -94,8 +102,66 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
     }
 
     val mascotRotation = remember { Animatable(0f) }
+    val mascotImpact = remember { Animatable(0f) }
+    val titleImpact = remember { Animatable(0f) }
+    val subtitleImpact = remember { Animatable(0f) }
     val clickCount = remember { mutableIntStateOf(0) }
     val scope = rememberCoroutineScope()
+
+    LaunchedEffect(mascotTopBump) {
+        if (mascotTopBump == 0) return@LaunchedEffect
+
+        // A quick squash on impact, then one small elastic recoil. New impacts cancel and restart
+        // this effect, so repeated enthusiastic scrolling never queues stale reactions.
+        mascotImpact.snapTo(0f)
+        mascotImpact.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(durationMillis = 55, easing = FastOutLinearInEasing),
+        )
+        mascotImpact.animateTo(
+            targetValue = 0f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioLowBouncy,
+                stiffness = Spring.StiffnessMedium,
+            ),
+        )
+    }
+
+    LaunchedEffect(mascotTopBump) {
+        if (mascotTopBump == 0) return@LaunchedEffect
+
+        delay(20)
+        titleImpact.snapTo(0f)
+        titleImpact.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(durationMillis = 45, easing = FastOutLinearInEasing),
+        )
+        titleImpact.animateTo(
+            targetValue = 0f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioLowBouncy,
+                stiffness = Spring.StiffnessMedium,
+            ),
+        )
+    }
+
+    LaunchedEffect(mascotTopBump) {
+        if (mascotTopBump == 0) return@LaunchedEffect
+
+        delay(45)
+        subtitleImpact.snapTo(0f)
+        subtitleImpact.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(durationMillis = 40, easing = FastOutLinearInEasing),
+        )
+        subtitleImpact.animateTo(
+            targetValue = 0f,
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessMedium,
+            ),
+        )
+    }
 
     Box(
         modifier = Modifier
@@ -108,7 +174,13 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
                 SdmMascot(
                     modifier = Modifier
                         .height(96.dp)
-                        .rotate(mascotRotation.value)
+                        .graphicsLayer {
+                            val impact = mascotImpact.value
+                            translationY = impact * 3.dp.toPx()
+                            scaleX = 1f + impact * 0.012f
+                            scaleY = 1f - impact * 0.02f
+                            rotationZ = mascotRotation.value
+                        }
                         .pointerInput(item) {
                             detectTapGestures(
                                 onTap = {
@@ -155,23 +227,36 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
                         text = titleText,
                         style = MaterialTheme.typography.headlineSmall,
                         textAlign = TextAlign.Center,
+                        modifier = Modifier.graphicsLayer {
+                            val impact = titleImpact.value
+                            translationY = impact * 2.dp.toPx()
+                            scaleY = 1f - impact * 0.008f
+                        },
                     )
                     Text(
                         text = sloganText,
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = if (slogan == CommonR.string.slogan_message_8) {
-                            Modifier.pointerInput(item.webpageTool) {
-                                detectTapGestures(
-                                    onLongPress = {
-                                        item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-                                    },
-                                )
+                        modifier = Modifier
+                            .graphicsLayer {
+                                val impact = subtitleImpact.value
+                                translationY = impact * 1.25.dp.toPx()
+                                scaleX = 1f + impact * 0.005f
                             }
-                        } else {
-                            Modifier
-                        },
+                            .then(
+                                if (slogan == CommonR.string.slogan_message_8) {
+                                    Modifier.pointerInput(item.webpageTool) {
+                                        detectTapGestures(
+                                            onLongPress = {
+                                                item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                                            },
+                                        )
+                                    }
+                                } else {
+                                    Modifier
+                                },
+                            ),
                     )
                 }
             },
