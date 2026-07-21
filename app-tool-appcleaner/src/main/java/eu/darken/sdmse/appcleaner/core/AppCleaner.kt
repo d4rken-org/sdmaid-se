@@ -211,14 +211,12 @@ class AppCleaner @Inject constructor(
         results.forEach { it.size }
         log(TAG) { "Field warm up done." }
 
-        internalData.value = Data(
+        val data = Data(
             junks = results,
         )
+        internalData.value = data
 
-        return AppCleanerScanTask.Success(
-            itemCount = results.sumOf { it.itemCount },
-            recoverableSpace = results.sumOf { it.size },
-        )
+        return data.toScanSuccess()
     }
 
     private suspend fun performProcessing(
@@ -483,6 +481,12 @@ class AppCleaner @Inject constructor(
     ) {
         val totalSize: Long get() = junks.sumOf { it.size }
         val totalCount: Int get() = junks.sumOf { it.itemCount }
+
+        /** Live scan summary. Single source of truth shared with [performScan] and the dashboard card. */
+        fun toScanSuccess() = AppCleanerScanTask.Success(
+            itemCount = totalCount,
+            recoverableSpace = totalSize,
+        )
     }
 
     @InstallIn(SingletonComponent::class)

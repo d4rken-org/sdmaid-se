@@ -234,11 +234,9 @@ class CorpseFinder @Inject constructor(
         // background events don't disturb the user's open CorpseFinder view.
         internalData.value = null
         val results = runScan(task)
-        internalData.value = Data(corpses = results)
-        return CorpseFinderScanTask.Success(
-            itemCount = results.size,
-            recoverableSpace = results.sumOf { it.size },
-        )
+        val data = Data(corpses = results)
+        internalData.value = data
+        return data.toScanSuccess()
     }
 
     /**
@@ -506,6 +504,12 @@ class CorpseFinder @Inject constructor(
     ) {
         val totalSize: Long get() = corpses.sumOf { it.size }
         val totalCount: Int get() = corpses.size
+
+        /** Live scan summary. Single source of truth shared with [performScan] and the dashboard card. */
+        fun toScanSuccess() = CorpseFinderScanTask.Success(
+            itemCount = totalCount,
+            recoverableSpace = totalSize,
+        )
     }
 
     @InstallIn(SingletonComponent::class)

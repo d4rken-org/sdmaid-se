@@ -187,10 +187,7 @@ class Deduplicator @Inject constructor(
         val data = Data(clusters = results)
         internalData.value = data
 
-        return DeduplicatorScanTask.Success(
-            itemCount = data.clusters.size,
-            recoverableSpace = data.redundantSize,
-        )
+        return data.toScanSuccess()
     }
 
     private suspend fun performDelete(
@@ -365,6 +362,15 @@ class Deduplicator @Inject constructor(
 
         /** Files a default keep-one delete removes across all clusters. See [Duplicate.Cluster.redundantCount]. */
         val redundantCount: Int get() = clusters.sumOf { it.redundantCount }
+
+        /**
+         * Live scan summary. Single source of truth shared with [performScan] and the dashboard card.
+         * itemCount is the cluster count (matching the scan result), not [redundantCount].
+         */
+        fun toScanSuccess() = DeduplicatorScanTask.Success(
+            itemCount = clusters.size,
+            recoverableSpace = redundantSize,
+        )
     }
 
     @InstallIn(SingletonComponent::class)

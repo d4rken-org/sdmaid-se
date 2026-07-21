@@ -2,6 +2,8 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -12,10 +14,12 @@ import eu.darken.sdmse.common.review.ReviewTool
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.main.core.DashboardCardConfig
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -78,24 +82,33 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         // config legitimately keeps the spinner — see `stalled card config keeps the loading spinner`.
         cardConfig: Flow<DashboardCardConfig> = flowOf(DashboardCardConfig()),
         emittingToolStates: Boolean = false,
+        appCleanerState: Flow<AppCleaner.State>? = null,
+        corpseFinderState: Flow<CorpseFinder.State>? = null,
+        taskManagerState: Flow<TaskSubmitter.State>? = null,
     ): DashboardViewModel {
         fun <T> srcOr(name: String, default: Flow<T>): Flow<T> = if (stall == name) stalled() else default
 
         val taskManager = mockk<TaskManager>(relaxed = true).apply {
-            every { state } returns MutableStateFlow(TaskSubmitter.State())
+            every { state } returns (taskManagerState ?: MutableStateFlow(TaskSubmitter.State()))
         }
         // The bottom bar combine has no fallbacks; give it live (data-less) tool states when needed.
         val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply {
-            every { state } returns
-                if (emittingToolStates) MutableStateFlow(mockk<CorpseFinder.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+            every { state } returns when {
+                corpseFinderState != null -> corpseFinderState
+                emittingToolStates -> MutableStateFlow(mockk<CorpseFinder.State>(relaxed = true) { every { data } returns null })
+                else -> emptyFlow()
+            }
         }
         val systemCleaner = mockk<SystemCleaner>(relaxed = true).apply {
             every { state } returns
                 if (emittingToolStates) MutableStateFlow(mockk<SystemCleaner.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
         }
         val appCleaner = mockk<AppCleaner>(relaxed = true).apply {
-            every { state } returns
-                if (emittingToolStates) MutableStateFlow(mockk<AppCleaner.State>(relaxed = true) { every { data } returns null }) else emptyFlow()
+            every { state } returns when {
+                appCleanerState != null -> appCleanerState
+                emittingToolStates -> MutableStateFlow(mockk<AppCleaner.State>(relaxed = true) { every { data } returns null })
+                else -> emptyFlow()
+            }
         }
         val deduplicator = mockk<Deduplicator>(relaxed = true).apply {
             every { state } returns
@@ -231,6 +244,69 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
 
         bar.upgradeInfo shouldBe null
         bar.actionState shouldBe BottomBarState.Action.SCAN
+    }
+
+    @Test
+    fun `appcleaner card derives freeable size from live data not the frozen scan result`() = runTest2 {
+        fun junk(size: Long, items: Int): AppJunk = mockk {
+            every { this@mockk.size } returns size
+            every { itemCount } returns items
+        }
+        fun appState(vararg junks: AppJunk): AppCleaner.State = mockk(relaxed = true) {
+            every { data } returns AppCleaner.Data(junks = junks.toList())
+            every { progress } returns null
+        }
+
+        val liveState = MutableStateFlow(appState(junk(400L, 3), junk(100L, 2))) // live: 500 / 5
+
+        // A completed scan task whose frozen result advertises a now-stale, larger total.
+        val frozenScan = AppCleanerScanTask.Success(itemCount = 10, recoverableSpace = 1000L)
+        val completedTask = mockk<TaskSubmitter.ManagedTask>(relaxed = true) {
+            every { toolType } returns SDMTool.Type.APPCLEANER
+            every { isComplete } returns true
+            every { completedAt } returns Instant.EPOCH
+            every { result } returns frozenScan
+        }
+
+        val vm = harness(
+            appCleanerState = liveState,
+            taskManagerState = MutableStateFlow(TaskSubmitter.State(tasks = listOf(completedTask))),
+        )
+
+        fun appCard() = vm.listState.mapNotNull { list ->
+            list?.items?.filterIsInstance<ToolDashboardCardItem>()?.firstOrNull { it.toolType == SDMTool.Type.APPCLEANER }
+        }
+
+        // The card reflects LIVE data (500 / 5), not the frozen scan result (1000 / 10).
+        appCard().first { it.result == AppCleanerScanTask.Success(itemCount = 5, recoverableSpace = 500L) }
+
+        // Applying an exclusion shrinks live data; the card refreshes without a new task being submitted.
+        liveState.value = appState(junk(100L, 2)) // live: 100 / 2
+        appCard().first { it.result == AppCleanerScanTask.Success(itemCount = 2, recoverableSpace = 100L) }
+    }
+
+    @Test
+    fun `corpsefinder card reflects live data via lastResult ignoring the uninstall watcher`() = runTest2 {
+        // Simulates: a user scan found 1 corpse, then the background uninstall watcher deleted it.
+        // CorpseFinder keeps the user-visible scan result in Data.lastResult (never overwritten by the
+        // watcher) while corpses drain to empty. The card must show the live-derived Success(0, 0),
+        // sourced from Data.lastResult — not the watcher's task result from TaskManager.
+        val corpseState = MutableStateFlow<CorpseFinder.State>(
+            mockk(relaxed = true) {
+                every { data } returns CorpseFinder.Data(
+                    corpses = emptyList(),
+                    lastResult = CorpseFinderScanTask.Success(itemCount = 1, recoverableSpace = 100L),
+                )
+                every { progress } returns null
+            }
+        )
+        val vm = harness(corpseFinderState = corpseState)
+
+        vm.listState
+            .mapNotNull { list ->
+                list?.items?.filterIsInstance<ToolDashboardCardItem>()?.firstOrNull { it.toolType == SDMTool.Type.CORPSEFINDER }
+            }
+            .first { it.result == CorpseFinderScanTask.Success(itemCount = 0, recoverableSpace = 0L) }
     }
 
     @Test
