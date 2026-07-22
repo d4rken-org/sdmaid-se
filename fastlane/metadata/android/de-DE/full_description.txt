@@ -25,23 +25,23 @@ Vorschaubilder, Papierkörbe, Offline-Caches und mehr: Wenn Apps nicht selbst au
 
 📦 Verwalte alle Deine Apps
 
-Erhalte eine umfassende Liste aller auf Deinem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Dir verstecken. Das Tool "AppControl" ist ein App-Manager zum Suchen, Sortieren und Steuern Ihrer Apps.
+Erhalte eine umfassende Liste aller auf Deinem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Dir verstecken. Das Tool „AppControl“ ist ein App-Manager, mit dem du deine Apps suchen, sortieren und verwalten kannst.
 
 📊 Was verbraucht Deinen Speicherplatz
 
-Die Speicherverwaltung kann komplex sein – mit Apps, Medien, System- und anderen Dateien über den Gerätespeicher, SD-Karten und USB-Geräte hinweg. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Deinem Gerät genutzt wird und vereinfacht Deine Speicherverwaltung.
+Die Speicherverwaltung kann durch Apps, Medien, Systemdateien und andere Daten auf dem Gerätespeicher, auf SD-Karten und USB-Geräten komplex sein. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Deinem Gerät genutzt wird und vereinfacht Deine Speicherverwaltung.
 
 📷 Duplikate finden
 
 Doppelte Downloads, über soziale Medien versendete Fotos oder einfach ähnliche Bilder derselben Szene: Mit der Zeit sammeln sich Kopien an. Das Tool "Duplikat-Entferner" findet Dateien, die genau identisch oder ähnlich sind und hilft Dir, zusätzliche Kopien zu löschen.
 
-👆 Ausmisten per Wischgeste
+👆 Mit einem Wischen aufräumen
 
-Wähle einen Ordner und gehe Dateien einzeln mit einfachen Wischgesten durch, um sie zu behalten, zu löschen oder zu überspringen. Das "Swiper"-Werkzeug ermöglicht es dir, alle Entscheidungen zu überprüfen, bevor etwas gelöscht wird, und du kannst eine Sitzung speichern, um sie später fortzusetzen.
+Wähle einen Ordner und gehe die Dateien einzeln durch – einfach per Wischgeste behalten, löschen oder überspringen. Mit dem Werkzeug „Swiper“ kannst du alle Entscheidungen überprüfen, bevor etwas gelöscht wird, und du kannst eine Sitzung speichern, um später fortzufahren.
 
 🗜️ Speicherplatz sparen ohne Fotos zu löschen
 
-Fotos können viel Speicherplatz beanspruchen, aber du möchtest sie nicht immer löschen. Das "Media Squeeze"-Werkzeug komprimiert deine Bilder mit einstellbaren Qualitätseinstellungen, um Speicherplatz freizugeben, während deine Fotos erhalten bleiben.
+Fotos können viel Speicherplatz beanspruchen, aber du möchtest sie nicht immer löschen. Das Tool „Media Squeeze“ komprimiert deine Bilder mit anpassbaren Qualitätsmonitoren bzw. -einstellungen, um Speicherplatz freizugeben, während deine Fotos erhalten bleiben.
 
 Diese App ist werbefrei. Für ein paar Funktionen ist ein kostenpflichtiges Upgrade erforderlich.
 
