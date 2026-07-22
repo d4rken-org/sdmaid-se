@@ -12,9 +12,11 @@
 # in locales.txt AND the @Preview lines in every module's PlayStoreLocales.kt, then re-run.
 #
 # Each module's reference dir is wiped before rendering so a run never leaves stale PNGs behind for
-# copy_screenshots.sh to pick up. One Gradle invocation per module (--no-daemon) also bounds
-# layoutlib's per-process render count and sidesteps its documented ImagePool leak. Keep this module
-# list and the manifest in copy_screenshots.sh in sync with the screenshot screens.
+# copy_screenshots.sh to pick up. The update task treats the reference dir as untracked, so it is
+# UP-TO-DATE after a wipe and would skip rendering — hence --rerun-tasks to force a fresh render.
+# One Gradle invocation per module (--no-daemon) also bounds layoutlib's per-process render count and
+# sidesteps its documented ImagePool leak. Keep this module list and the manifest in
+# copy_screenshots.sh in sync with the screenshot screens.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -37,7 +39,7 @@ for task in "${MODULES[@]}"; do
   # Wipe any prior reference PNGs for this module so no stale renders survive into the copy step.
   rm -rf "$module_dir"/src/screenshotTest*/reference
   echo "==> ./gradlew $task"
-  ./gradlew "$task" --no-daemon
+  ./gradlew "$task" --rerun-tasks --no-daemon
 done
 
 echo

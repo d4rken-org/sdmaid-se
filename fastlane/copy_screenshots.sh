@@ -3,10 +3,12 @@
 #
 # Reads every <module>/src/screenshotTest*/reference/**/<Func>_<locale>_<hash>_<idx>.png, maps <Func>
 # to its Play Store slot via the manifest below, and copies it to
-#   fastlane/metadata/android/<locale>/images/phoneScreenshots/<slot>.png
-# where <locale> is the fastlane dir baked into the @Preview(name=…). The manifest is authoritative:
-# unknown functions and duplicate destinations are hard errors, and every locale that produced any
-# screenshot must produce exactly one per screen (a full set) or the script exits non-zero.
+#   fastlane/metadata/android/<locale>/images/phoneScreenshots/<N>_<name>.png
+# where <locale> is the fastlane dir baked into the @Preview(name=…). The leading number sets the
+# Play Store ordering (supply uploads in sorted filename order); the name says what the shot shows.
+# The manifest is authoritative: unknown functions and duplicate destinations are hard errors, and
+# every locale that produced any screenshot must produce exactly one per screen (a full set) or the
+# script exits non-zero.
 #
 # Usage:
 #   fastlane/copy_screenshots.sh            # copy into place (fails if a locale is incomplete)
@@ -16,18 +18,18 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-# <Func> -> Play Store slot number (matches the current store ordering).
-declare -A ORDER=(
-  [DashboardScreenshot]=1
-  [AppCleanerScreenshot]=2
-  [CorpseFinderScreenshot]=3
-  [SystemCleanerScreenshot]=4
-  [DeduplicatorScreenshot]=5
-  [AppControlScreenshot]=6
-  [AnalyzerScreenshot]=7
-  [SchedulerScreenshot]=8
+# <Func> -> "<order>_<name>" destination stem (order sets Play Store position, name is descriptive).
+declare -A SLOT=(
+  [DashboardScreenshot]="1_dashboard"
+  [AppCleanerScreenshot]="2_appcleaner"
+  [CorpseFinderScreenshot]="3_corpsefinder"
+  [SystemCleanerScreenshot]="4_systemcleaner"
+  [DeduplicatorScreenshot]="5_deduplicator"
+  [AppControlScreenshot]="6_appcontrol"
+  [AnalyzerScreenshot]="7_analyzer"
+  [SchedulerScreenshot]="8_scheduler"
 )
-EXPECTED_PER_LOCALE=${#ORDER[@]}
+EXPECTED_PER_LOCALE=${#SLOT[@]}
 
 CLEAN=0
 [[ "${1:-}" == "--clean" ]] && CLEAN=1
@@ -50,7 +52,7 @@ for src in "${PNGS[@]}"; do
   func="${base%%_*}"
   rest="${base#*_}"
   locale="${rest%%_*}"
-  slot="${ORDER[$func]:-}"
+  slot="${SLOT[$func]:-}"
   if [[ -z "$slot" ]]; then
     echo "ERROR: unknown screenshot function '$func' (not in manifest): $src" >&2
     FAIL=1

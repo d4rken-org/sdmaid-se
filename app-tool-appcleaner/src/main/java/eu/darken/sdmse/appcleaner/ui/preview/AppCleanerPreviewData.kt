@@ -70,14 +70,16 @@ internal fun previewExpendables(): Map<kotlin.reflect.KClass<out ExpendablesFilt
 
 internal fun previewInaccessibleCache(
     pkgName: String = "com.example.app",
+    itemCount: Int = 12,
+    totalSize: Long = 24L * 1024 * 1024,
 ): InaccessibleCache = InaccessibleCache(
     identifier = eu.darken.sdmse.common.pkgs.features.InstallId(
         pkgId = pkgName.toPkgId(),
         userHandle = UserHandle2(handleId = 0),
     ),
     isSystemApp = false,
-    itemCount = 12,
-    totalSize = 24L * 1024 * 1024,
+    itemCount = itemCount,
+    totalSize = totalSize,
     publicSize = null,
     theoreticalPaths = emptySet(),
 )

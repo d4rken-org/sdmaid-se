@@ -26,6 +26,20 @@ private fun previewLookup(
     target = null,
 )
 
+/** Builds [itemCount] deletion matches whose sizes sum to [totalSize] — for varied preview rows. */
+internal fun previewFilterItems(itemCount: Int, totalSize: Long): List<SystemCleanerFilter.Match> {
+    if (itemCount <= 0) return emptyList()
+    val each = totalSize / itemCount
+    return (0 until itemCount).map { i ->
+        SystemCleanerFilter.Match.Deletion(
+            lookup = previewLookup(
+                pathSegments = arrayOf("storage", "emulated", "0", "sample", "item_$i"),
+                size = each + if (i == 0) totalSize - each * itemCount else 0L,
+            ),
+        )
+    }
+}
+
 internal fun previewFilterContent(
     identifier: String = EmptyDirectoryFilter::class.filterIdentifier,
     icon: ImageVector = Icons.TwoTone.Delete,

@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -260,7 +261,9 @@ internal fun TitleDashboardCard(
                     )
                 }
             },
-            ribbon = if (BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE) {
+            // Hidden in previews/screenshots (LocalInspectionMode) so the build-type ribbon doesn't
+            // leak into Play Store screenshots, which render the debug variant.
+            ribbon = if (BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.RELEASE && !LocalInspectionMode.current) {
                 {
                     BuildTypeRibbon(onClick = item.onRibbonClicked)
                 }
